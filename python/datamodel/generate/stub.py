@@ -1,5 +1,7 @@
 # @Author: Brian Cherinka
 # @Date: Mar 7, 2016
+# @Revised by: Joel Brownstein <joelbrownstein@sdss.org>
+# @Date: Nov 9, 2020
 # @Filename: stub.py
 # @License: BSD 3-Clause
 # @Copyright: SDSS.
@@ -10,48 +12,48 @@ import re
 import sys
 from astropy.io import fits
 
-__author__ = 'Brian Cherinka'
+__author__ = 'Brian Cherinka, Joel Brownstein'
 
 class Stub(object):
     """Class to create a datamodel stub.
 
     Parameters
     ----------
-    files : str or list of str, optional
-        Operate on these files.
-    outpath : str, optional
-        Write HTML files to this directory.
+    verbose : str , optional
+        Verbose output
     """
-    def __init__(self, files=None, outpath=None):
-        if isinstance(files, str):
-            files = [files]
-        self.files = files
-        self.outpath = outpath
-        self.tempDict = {}
-        self.hdulist = None
-        if self.files is not None and len(self.files) == 1:
-            self.filename = self.files[0]
-        else:
-            self.filename = None
-        self.fmap = {'A': 'char', 'I': 'int16', 'J': 'int32', 'K': 'int64',
+    
+    fmap = {'A': 'char', 'I': 'int16', 'J': 'int32', 'K': 'int64',
                      'E': 'float32', 'D': 'float64', 'B': 'bool', 'L': 'bool'}
+    
+    def __init__(self, verbose=None):
+        self.verbose = verbose
+        self.dict = {}
+        self.hdulist = None
+        self.file = None
+        self.directory = None
+        self.template = None
+        self.output = None
+        self.path = None
 
-    def getModelName(self):
-        """Build the output model name.
-
-        Returns
-        -------
-        str
-            The name for the model file.
+    def set_directory(self, path = None):
+        """Set the directory's if it exists
         """
-        self.basename = os.path.basename(self.filename)
-        namesplit = re.split('[-.]', self.basename)
-        if len(namesplit) > 1:
-            self.modelname = namesplit[0]
-        else:
-            # if split failed, then default to generic name
-            self.modelname = 'my_datamodel_template'
-        return self.modelname
+        self.directory = path if exists(path) else None
+        if not self.directory:
+            print("STUB> nonexistent directory at path=%r" % path)
+        elif self.verbose:
+            print("STUB> directory = %r" % self.directory)
+
+    def set_file(self, path = None):
+        """Set the file's properties for it's path.
+        """
+        self.file = {'basename': None, 'name':None, 'path':None}
+        if path and self.directory:
+            self.file['basename'] = os.path.basename(self.filename)
+            namesplit = re.split('[-.]', self.file['basename'])
+            self.file['name'] = namesplit[0] if len(namesplit) > 1 else None
+            self.file['path'] = os.path.join(self.directory, self.file['name']) if self.file['name'] else None
 
     def formatBytes(self, value):
         """Convert an integer to human-readable format.
@@ -164,84 +166,42 @@ class Stub(object):
         """
         return tuple([value.find(f) for f in ('TFORM', 'TTYPE')]) == (-1, -1)
 
-    def makeStubs(self):
-        """Loop over the files.
+    def set_output(self):
+        """Build the stub for a single file.
         """
-        for f in self.files:
-            self.filename = f
-            self.generateStub()
-
-    def generateStub(self):
-        """Build the html stub for a single file.
-        """
-        # generate the template
-        template = self.createJinjaTemplate()
-        # build the dictionary
-        self.getModelName()
         self.readFile()
-        self.buildDict()
-        # render the HTML
-        output = self.renderJinjaTemplate(template)
-        # write the file
-        self.writeFile(output)
-        # actually close the file we opened!
+        self.set_dict()
+        self.output = self.template.render(self.dict) if self.template and self.dict else None
         self.hdulist.close()
 
-    def createJinjaTemplate(self):
-        """Create the Jinja2 environment.
-
-        Returns
-        -------
-        jinja2.Template
-            The template object.
+    def set_template(self):
+        """Create the Jinja2 environment and set the template.
         """
-        # searchpath = os.path.join(os.getenv('DATAMODEL_DIR'), 'datamodel')
-        # templateLoader = jinja2.FileSystemLoader(searchpath=searchpath)
         templateLoader = jinja2.PackageLoader('datamodel', 'templates')
         env = jinja2.Environment(loader=templateLoader, trim_blocks=True,
                                  lstrip_blocks=True)
         env.filters['getType'] = self.getType
         env.filters['getHDUSize'] = self.getHDUSize
         env.filters['isKeyAColumn'] = self.isKeyAColumn
-        return env.get_template('stub.html')
+        self.template = env.get_template('stub.html')
 
-    def buildDict(self):
-        """Set up input dictionary to the HTML template files.
+    def set_dict(self):
+        """Set up input dictionary to the template files.
         """
-        self.tempDict['name'] = self.modelname
-        self.tempDict['filesize'] = self.getFileSize()
-        self.tempDict['filetype'] = self.getFileExtension()
-        self.tempDict['filename'] = self.basename.replace('.', '\.')
-        self.tempDict['hdus'] = self.hdulist
-        return
+        self.dict['name'] = self.file['name'] if self.file else None
+        self.dict['filesize'] = self.getFileSize()
+        self.dict['filetype'] = self.getFileExtension()
+        self.dict['filename'] = self.file['basename'].replace('.', '\.')
+        self.dict['hdus'] = self.hdulist
 
-    def renderJinjaTemplate(self, template):
-        """Render the html output.
-
-        Parameters
-        ----------
-        template : jinja2.Template
-            The template to render.
-
-        Returns
-        -------
-        str
-            The rendered output.
+    def set_path(self):
+        """Set the path for the stub
         """
-        output = template.render(self.tempDict)
-        return output
+        self.path = '{path}.html'.format(self.file) if self.file else None
 
-    def writeFile(self, output):
-        """Write out the HTML file.
-
-        Parameters
-        ----------
-        output : str
-            The data to write.
+    def write(self):
+        """Write the template to path.
         """
-        outfile = '{0}.html'.format(self.modelname)
-        htmlpath = os.path.join(self.outpath, outfile)
-        with open(htmlpath, 'w') as f:
-            f.write(output)
-        return
+        if self.template and self.path:
+            with open(self.path, 'w') as file: file.write(self.template)
 
