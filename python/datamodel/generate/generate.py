@@ -8,5 +8,5 @@
 
 class Generate:
 
-    def __init__(self, verbose = True):
-        self.verbose = verbose
+    def __init__(self, options = None, verbose = None):
+        self.verbose = options.verbose if options else verbose
