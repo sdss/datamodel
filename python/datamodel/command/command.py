@@ -13,7 +13,7 @@ from os import getenv
 class Command:
 
     def __init__(self, name=None):
-        name = sysv[0] if name is None else name
+        name = argv[0] if name is None else name
         self.get_options = globals()[name] if name in globals().keys() else None
         self.options = self.get_options() if self.get_options else None
         self.options._name = name if self.options else None
