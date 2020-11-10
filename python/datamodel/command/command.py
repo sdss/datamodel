@@ -4,12 +4,20 @@
 # @Date: Nov 9, 2020
 # @Filename: command.py
 # @License: BSD 3-Clause
-# @Copyright: Joel Brownstein, SDSS.
+# @Copyright: SDSS.
 
 from argparse import ArgumentParser
 from os import getenv
 
-class Command:
+__author__ = 'Joel Brownstein <joelbrownstein@sdss.org>'
+
+class Command(object):
+    """Class to parse arguments from a command.
+
+    Parameters
+    ----------
+    name : the command name, defining the arguments to parse
+    """
 
     def __init__(self, name=None):
         self.get_options = globals()[name] if name in globals().keys() else None
