@@ -40,7 +40,6 @@ class Generate(object):
         self.directory = None
         self.file = None
         self.set_tree()
-        self.set_env()
         self.set_datamodel_dir()
         self.set_sas_base_dir()
     
@@ -127,8 +126,9 @@ class Generate(object):
         """Set the input file from the tree_ver and location
            and confirm it exists
         """
-        if self.env:
-            if not exists(self.env):
+        self.set_env()
+        if self.env and 'path' in self.env:
+            if not exists(self.env['path']):
                 print("GENERATE> Nonexistent environ at %s" % self.env)
                 self.file = None
             else:
