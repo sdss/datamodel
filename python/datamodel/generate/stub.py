@@ -7,7 +7,7 @@
 # @Copyright: SDSS.
 
 import jinja2
-import os
+import os.path import basename, join, exists, getsize, splitext
 import re
 import sys
 from astropy.io import fits
@@ -54,10 +54,10 @@ class Stub(object):
         """
         self.file = {'basename': None, 'name':None, 'path':None}
         if path and self.directory:
-            self.file['basename'] = os.path.basename(self.filename)
+            self.file['basename'] = basename(self.filename)
             namesplit = re.split('[-.]', self.file['basename'])
             self.file['name'] = namesplit[0] if len(namesplit) > 1 else None
-            self.file['path'] = os.path.join(self.directory, self.file['name']) if self.file['name'] else None
+            self.file['path'] = join(self.directory, self.file['name']) if self.file['name'] else None
 
     def formatBytes(self, value):
         """Convert an integer to human-readable format.
@@ -87,7 +87,7 @@ class Stub(object):
         str
             Size of the file in human-readable format.
         """
-        return self.formatBytes(os.path.getsize(self.filename))
+        return self.formatBytes(getsize(self.filename))
 
     def getHDUSize(self, value):
         """Jinja2 filter - Get the size of an HDU.
@@ -112,9 +112,9 @@ class Stub(object):
         str
             File type in upper case.
         """
-        filename, file_extension = os.path.splitext(self.filename)
+        filename, file_extension = splitext(self.filename)
         if 'gz' in file_extension:
-            filename, file_extension = os.path.splitext(filename)
+            filename, file_extension = splitext(filename)
         return file_extension[1:].upper()
 
     def readFile(self):
