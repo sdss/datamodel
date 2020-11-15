@@ -132,7 +132,7 @@ class Generate(object):
                 print("GENERATE> Nonexistent environ at %s" % self.env)
                 self.file = None
             else:
-                self.file = join(self.env, self.location) if self.location else None
+                self.file = join(self.env['path'], self.location) if self.location else None
                 if not self.file:
                     print("GENERATE> Please set location option")
                 elif not exists(self.file):
