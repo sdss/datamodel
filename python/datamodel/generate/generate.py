@@ -57,7 +57,6 @@ class Generate(object):
         """Get the env_path from tree[env_label]
         """
         self.env = None
-        if self.tree
         if self.env_label:
             if self.tree:
                 for section, env in self.tree.environ.items():
@@ -65,7 +64,7 @@ class Generate(object):
                         self.env = {'label': self.env_label, 'path': env[self.env_label]}
                         break
         else:
-            print("GENERATE> Please specify a valid env label")
+            print("GENERATE> Please specify a valid env label option.")
         if not self.env:
             print("GENERATE> Please add this environment=%r to the tree product, and try again." % self.env_label)
         elif self.verbose:
