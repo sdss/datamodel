@@ -7,7 +7,7 @@
 # @Copyright: SDSS.
 
 import jinja2
-import os.path import basename, join, exists, getsize, splitext
+from os.path import basename, join, exists, getsize, splitext
 import re
 import sys
 from astropy.io import fits
