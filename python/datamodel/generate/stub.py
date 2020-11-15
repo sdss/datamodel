@@ -19,14 +19,18 @@ class Stub(object):
 
     Parameters
     ----------
+    format : str , optional, defaults to md
     verbose : str , optional
         Verbose output
     """
     
     fmap = {'A': 'char', 'I': 'int16', 'J': 'int32', 'K': 'int64',
                      'E': 'float32', 'D': 'float64', 'B': 'bool', 'L': 'bool'}
-    
-    def __init__(self, verbose=None):
+    #formats = ['md', 'html']
+    formats = ['html']
+
+    def __init__(self, format = None, verbose = None):
+        self.format = format if format and format in self.formats else self.formats[0]
         self.verbose = verbose
         self.dict = {}
         self.hdulist = None
