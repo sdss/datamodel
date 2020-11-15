@@ -42,7 +42,8 @@ class Generate(object):
     def set_datamodel_dir(self):
         """Set the DATAMODEL_DIR from the environment
         """
-        self.datamodel_dir = environ('DATAMODEL_DIR')
+        try: self.datamodel_dir = environ['DATAMODEL_DIR']
+        except: self.datamodel_dir = None
         if not self.datamodel_dir:
             print("GENERATE> Please set DATAMODEL_DIR")
         elif not exists(self.datamodel_dir):
@@ -54,7 +55,8 @@ class Generate(object):
     def set_sas_base_dir(self):
         """Set the SAS_BASE_DIR from the environment
         """
-        self.sas_base_dir = environ('SAS_BASE_DIR')
+        try: self.sas_base_dir = environ['SAS_BASE_DIR']
+        except: sas_base_dir = None
         if not self.sas_base_dir:
             print("GENERATE> Please set SAS_BASE_DIR")
         elif not exists(self.sas_base_dir):
