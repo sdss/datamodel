@@ -34,10 +34,13 @@ class Generate(object):
         self.force = options.verbose if options else force
         self.verbose = options.verbose if options else verbose
         self.debug = options.debug if options else debug
+        self.tree = None
+        self.env_path = None
         self.stub = None
         self.directory = None
         self.file = None
         self.set_tree()
+        self.set_env()
         self.set_datamodel_dir()
         self.set_sas_base_dir()
     
@@ -49,6 +52,24 @@ class Generate(object):
             except: pass
         self.tree = Tree(config = self.tree_ver)
         if self.tree_ver != self.tree.config_name: self.tree_ver = self.tree.config_name
+    
+    def set_env(self):
+        """Get the env_path from tree[env_label]
+        """
+        self.env = None
+        if self.tree
+        if self.env_label:
+            if self.tree:
+                for section, env in self.tree.environ.items():
+                    if self.env_label in env:
+                        self.env = {'label': self.env_label, 'path': env[self.env_label]}
+                        break
+        else:
+            print("GENERATE> Please specify a valid env label")
+        if not self.env:
+            print("GENERATE> Please add this environment=%r to the tree product, and try again." % self.env_label)
+        elif self.verbose:
+            print("GENERATE> using %(label)s=%(path)r" % self.env)
     
     def set_datamodel_dir(self):
         """Set the DATAMODEL_DIR from the environment
@@ -107,15 +128,12 @@ class Generate(object):
         """Set the input file from the tree_ver and location
            and confirm it exists
         """
-        if self.sas_base_dir:
-            self.file = join(self.sas_base_dir, self.tree_ver) if self.tree_ver else None
-            if not self.file:
-                print("GENERATE> Please set tree_ver option")
-            elif not exists(self.file):
-                print("GENERATE> Nonexistent tree at %s" % self.file)
+        if self.env:
+            if not exists(self.env):
+                print("GENERATE> Nonexistent environ at %s" % self.env)
                 self.file = None
             else:
-                self.file = join(self.file, self.location) if self.location else None
+                self.file = join(self.env, self.location) if self.location else None
                 if not self.file:
                     print("GENERATE> Please set location option")
                 elif not exists(self.file):
