@@ -6,6 +6,7 @@
 # @License: BSD 3-Clause
 # @Copyright: SDSS.
 
+from tree import Tree
 from datamodel.generate import Stub
 from os import environ, makedirs
 from os.path import join, exists, dirname
@@ -36,8 +37,18 @@ class Generate(object):
         self.stub = None
         self.directory = None
         self.file = None
+        self.set_tree()
         self.set_datamodel_dir()
         self.set_sas_base_dir()
+    
+    def set_tree(self):
+        """Set the Tree from input options, or default to the current loaded module
+        """
+        if self.tree_ver is None:
+            try:  self.tree_ver = environ['TREE_VER']
+            except: pass
+        self.tree = Tree(config = self.tree_ver)
+        if self.tree_ver != self.tree.config_name: self.tree_ver = self.tree.config_name
     
     def set_datamodel_dir(self):
         """Set the DATAMODEL_DIR from the environment
