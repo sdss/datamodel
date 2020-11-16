@@ -6,11 +6,11 @@
 # @License: BSD 3-Clause
 # @Copyright: SDSS.
 
-import jinja2
-from os.path import basename, join, exists, getsize, splitext
-import re
-import sys
 from astropy.io import fits
+from os.path import basename, join, exists, getsize, splitext
+from json import dumps
+import jinja2
+import re
 
 __author__ = 'Brian Cherinka, Joel Brownstein'
 
@@ -19,7 +19,7 @@ class Stub(object):
 
     Parameters
     ----------
-    format : str , optional, defaults to md
+    directory : dictionary of paths to output stub
     verbose : str , optional
         Verbose output
     """
@@ -27,33 +27,23 @@ class Stub(object):
     fmap = {'A': 'char', 'I': 'int16', 'J': 'int32', 'K': 'int64',
                      'E': 'float32', 'D': 'float64', 'B': 'bool', 'L': 'bool'}
 
-    def __init__(self, verbose = None):
+    def __init__(self, directory = None, verbose = None):
+        self.directory = directory
         self.verbose = verbose
-        self.directory = None
         self.template = None
         self.input = self.output = None
-
-    def set_directory(self, path = None):
-        """Set the directory's if it exists
-        """
-        self.directory = path if exists(path) else None
-        if not self.directory:
-            print("STUB> nonexistent directory at path=%r" % path)
-        elif self.verbose:
-            print("STUB> directory = %r" % self.directory)
 
     def set_input(self, path = None, format = None):
         """Set the file's properties for it's path.
         """
         self.input = None
-        if path and self.directory:
+        if path:
             self.input = {'path': path, 'hdus': None}
             self.input['format'] = format
             self.input['basename'] = basename(path)
             self.input['filename'] = self.input['basename'].replace('.', '\.')
             namesplit = re.split('[-.]', self.input['basename'])
             self.input['name'] = namesplit[0] if len(namesplit) > 1 else None
-            self.input['stub'] = join(self.directory, self.input['name']) if self.input['name'] else None
             self.input['filesize'] = self.get_filesize()
             self.input['filetype'] = self.get_filetype()
 
@@ -154,11 +144,27 @@ class Stub(object):
         return tuple([value.find(f) for f in ('TFORM', 'TTYPE')]) == (-1, -1)
 
     def set_output(self):
-        """Set the output for the input by rendering the template.
+        if self.input and self.template:
+            name = self.input['name']
+            self.output = {format: join(dir, name + "." + format) for format, dir in self.directory.items()}
+        else: self.output = None
+
+    def get_yaml(self):
+        return "yaml"
+
+    def get_json(self):
+        return dumps({}) if self.input else None
+
+    def set_result(self):
+        """Set the result for the input by rendering the template,
+           and set a json or yaml version of the input dictionary.
         """
-        self.output = {'path': "%(stub)s.%(format)s" % self.input if self.input else None}
-        self.output['result'] = self.template.render(self.input) if self.template and self.input else None
-        if 'result' in self.output and self.output['result']: self.input['hdus'].close()
+        self.result = None
+        format = self.input['format'] if self.input and 'format' in self.input else None
+        if format and self.template:
+            self.result = {format: self.template.render(self.input)}
+            self.result['json'] = self.get_json()
+            self.result['yaml'] = self.get_yaml()
 
     def set_template(self):
         """Create the Jinja2 environment and set the template.
@@ -171,14 +177,22 @@ class Stub(object):
         env.filters['isKeyAColumn'] = self.isKeyAColumn
         self.template = env.get_template("stub.%(format)s" % self.input) if self.input else None
 
-    def write(self):
+    def write(self, format = None):
         """Write the output result to the output path.
         """
-        if self.output:
-            try:
-                with open(self.output['path'], 'w') as file:
-                    file.write(self.output['result'])
-                if self.verbose: print("GENERATE> Output to %(path)s" % self.output)
-            except Exception as e:
-                print("GENERATE> Output exception %r" % e)
+        if self.output and self.result:
+            if format and format in self.output and format in self.result:
+                try:
+                    with open(self.output[format], 'w') as file:
+                        file.write(self.result[format])
+                    if self.verbose: print("STUB> Output to %s" % self.output[format])
+                except Exception as e:
+                    print("STUB> Output exception %r" % e)
+            else:
+                print("STUB> Invalid format=%r for write" % format)
 
+    def close_hdus(self):
+        """Close input hdus
+        """
+        if self.input and 'hdus' in self.input:
+            self.input['hdus'].close()

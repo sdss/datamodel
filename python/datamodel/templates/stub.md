@@ -11,7 +11,7 @@
     `{{filename}}`, Replace this filename with a
     regular expression that matches the file name.  For example, a six-digit number would
     correspond to `[0-9]{6}`.  `template-123456.fits`
-    would be `template-[0-9]{6}\.fits`</dd>
+    would be `template-[0-9]{6}\.fits`
 
 ### Approximate Size
 {{filesize}}

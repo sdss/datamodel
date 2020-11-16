@@ -103,28 +103,29 @@ class Generate(object):
         """Set the output directory from the tree_ver, env_label and location
            and confirm it exists (try making it if it doesn't)
         """
-        if self.datamodel_dir and self.format:
-            self.directory = join(self.datamodel_dir, 'data', self.format, self.env_label) if self.env_label else None
-            if not self.directory:
-                print("GENERATE> Please set env_label option")
-            else:
-                folder = dirname(self.location) if self.location else None
-                self.directory = join(self.directory, folder) if folder else None
-                if not self.directory:
-                    print("GENERATE> Please set location option")
-                elif not exists(self.directory):
+        self.directory = None
+        if not self.format:
+            print("GENERATE> Please set a valid format option")
+        elif not self.env_label:
+            print("GENERATE> Please set env_label option")
+        elif not self.location:
+            print("GENERATE> Please set location option")
+        elif self.datamodel_dir:
+            formats = [self.format, 'yaml', 'json']
+            self.directory = {}
+            data_dir = join(self.datamodel_dir, 'data')
+            for format in formats:
+                directory = join(data_dir, format, self.env_label, dirname(self.location))
+                if not exists(directory):
                     try:
-                        makedirs(self.directory)
+                        makedirs(directory)
                         if self.verbose:
-                            print("GENERATE> creating directory at %s" % self.directory)
+                            print("GENERATE> creating directory at %s" % directory)
                     except Exception as e:
-                        print("GENERATE> cannot create directory at %s" % self.directory)
+                        print("GENERATE> cannot create directory at %s" % directory)
                         print("--> EXCEPTION=%r" % e)
-                        self.directory = None
-        else:
-            if not self.format:
-                print("GENERATE> Please set format to html or md")
-            self.directory = None
+                        directory = None
+                if directory: self.directory[format] = directory
 
     def set_file(self):
         """Set the input file from the tree_ver and location
@@ -148,12 +149,14 @@ class Generate(object):
         """Set the stub class and use it to write output
            from the template"
         """
-        self.stub = Stub(verbose = self.verbose)
-        self.stub.set_directory(path = self.directory)
+        self.stub = Stub(directory = self.directory, verbose = self.verbose)
         self.stub.set_input(path = self.file, format = self.format)
         self.stub.set_hdus()
         self.stub.set_template()
         self.stub.set_output()
-        self.stub.write()
+        self.stub.set_result()
+        for format in [self.format, 'yaml', 'json']:
+            self.stub.write(format = format)
+        self.stub.close_hdus()
 
 
