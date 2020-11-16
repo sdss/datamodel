@@ -36,7 +36,11 @@ HDU1:
 ###### Header Table Caption for HDU0
 Key | Value | Type | Comment
 --- | --- | --- | ---
-SIMPLE | True | Not Implemented | conforms to FITS standardBITPIX | 8 | Not Implemented | array data typeNAXIS | 0 | Not Implemented | number of array dimensionsEXTEND | True | Not Implemented | 
+SIMPLE | True | Not Implemented | conforms to FITS standard
+BITPIX | 8 | Not Implemented | array data type
+NAXIS | 0 | Not Implemented | number of array dimensions
+EXTEND | True | Not Implemented | 
+
 ## HDU1: 
     *Summary of the contents of this HDU*
 
