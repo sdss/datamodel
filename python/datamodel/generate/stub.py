@@ -87,7 +87,7 @@ class Stub(object):
         str
             Size of the file in human-readable format.
         """
-        return self.formatBytes(getsize(self.filename))
+        return self.formatBytes(getsize(self.path))
 
     def getHDUSize(self, value):
         """Jinja2 filter - Get the size of an HDU.
@@ -112,7 +112,7 @@ class Stub(object):
         str
             File type in upper case.
         """
-        filename, file_extension = splitext(self.filename)
+        filename, file_extension = splitext(self.path)
         if 'gz' in file_extension:
             filename, file_extension = splitext(filename)
         return file_extension[1:].upper()
@@ -120,7 +120,7 @@ class Stub(object):
     def readFile(self):
         """Read the file and hdus.
         """
-        self.hdulist = fits.open(self.filename)
+        self.hdulist = fits.open(self.path)
 
     def getHeaders(self):
         """Return a list of headers.
