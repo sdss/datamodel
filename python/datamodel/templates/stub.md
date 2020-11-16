@@ -48,7 +48,6 @@ Key | Value | Type | Comment
     {% else %}
         {# BINARY TABLE HDUS #}
 ###### Binary Table Caption for HDU{{loop.index0}}
-            <thead id="binhead{{loop.index0}}">
 Name | Type | Unit | Description
 --- | --- | --- | ---
         {% for row in hdu.columns %}{{row.name|upper}} | {{row.format|getType}} | {{ unit }} | {{description }}
