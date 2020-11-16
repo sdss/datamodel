@@ -44,7 +44,6 @@ SIMPLE | True | Not Implemented | conforms to FITS standardBITPIX | 8 | Not Impl
 #### HDU Size: 4 MB
 
 ###### Binary Table Caption for HDU1
-            <thead id="binhead1">
 Name | Type | Unit | Description
 --- | --- | --- | ---
 PK | int64 | *unit* | *description*
