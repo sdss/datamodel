@@ -41,16 +41,16 @@ HDU{{loop.index0}}: {{hdu.name}}
     {% if hdu.is_image %}
         {# IMAGE HDUS #}
 ###### Header Table Caption for HDU{{loop.index0}}
-Key | Value | Type | Comment
---- | --- | --- | ---
-        {% for key, value in hdr.items() %}{% if key|isKeyAColumn %}{{key}} | {{value}} | {{type}} | {{hdr.comments[key]}}
+Key | Value | Type | Comment |
+| --- | --- | --- | --- |
+        {% for key, value in hdr.items() %}{% if key|isKeyAColumn %}| {{key}} | {{value}} | {{type}} | {{hdr.comments[key]}} |
         {% endif %}{% endfor %}
     {% else %}
         {# BINARY TABLE HDUS #}
 ###### Binary Table Caption for HDU{{loop.index0}}
-Name | Type | Unit | Description
---- | --- | --- | ---
-        {% for row in hdu.columns %}{{row.name|upper}} | {{row.format|getType}} | {{ unit }} | {{description }}
+Name | Type | Unit | Description |
+| --- | --- | --- | --- |
+        {% for row in hdu.columns %}| {{row.name|upper}} | {{row.format|getType}} | {{ unit }} | {{description }} |
         {% endfor %}
     {% endif %}
 {% endfor %}
