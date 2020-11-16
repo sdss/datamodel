@@ -148,7 +148,6 @@ class Generate(object):
         self.stub.set_directory(path = self.directory)
         self.stub.set_input(path = self.file)
         self.stub.set_hdus()
-        self.stub.set_headers()
         self.stub.set_template()
         self.stub.set_output()
         self.stub.write()

@@ -26,8 +26,7 @@ class Stub(object):
     
     fmap = {'A': 'char', 'I': 'int16', 'J': 'int32', 'K': 'int64',
                      'E': 'float32', 'D': 'float64', 'B': 'bool', 'L': 'bool'}
-    #formats = ['md', 'html']
-    formats = ['html']
+    formats = ['md', 'html']
 
     def __init__(self, format = None, verbose = None):
         self.format = format if format and format in self.formats else self.formats[0]
@@ -50,7 +49,7 @@ class Stub(object):
         """
         self.input = None
         if path and self.directory:
-            self.input = {'path': path, 'hdus': None, 'headers': None}
+            self.input = {'path': path, 'hdus': None, 'format': self.format}
             self.input['basename'] = basename(path)
             self.input['filename'] = self.input['basename'].replace('.', '\.')
             namesplit = re.split('[-.]', self.input['basename'])
@@ -122,15 +121,6 @@ class Stub(object):
         """
         self.input['hdus'] = fits.open(self.input['path']) if self.input else None
 
-    def set_headers(self):
-        """Set a list of headers stripped from the input hdus.
-        """
-        if self.input:
-            if self.input['hdus'] is None: self.set_hdus()
-            self.input['headers'] = []
-            for hdu in self.input['hdus']:
-                self.input['headers'].append(hdu.header)
-
     def getType(self, value):
         """Jinja2 Filter to map the format type to a data type.
 
@@ -167,7 +157,7 @@ class Stub(object):
     def set_output(self):
         """Set the output for the input by rendering the template.
         """
-        self.output = {'path': "%(stub)s.html" % self.input if self.input else None}
+        self.output = {'path': "%(stub)s.%(format)s" % self.input if self.input else None}
         self.output['result'] = self.template.render(self.input) if self.template and self.input else None
         if 'result' in self.output and self.output['result']: self.input['hdus'].close()
 
@@ -180,7 +170,7 @@ class Stub(object):
         env.filters['getType'] = self.getType
         env.filters['getHDUSize'] = self.getHDUSize
         env.filters['isKeyAColumn'] = self.isKeyAColumn
-        self.template = env.get_template('stub.html')
+        self.template = env.get_template("stub.%(format)s" % self.input) is self.input else None
 
     def write(self):
         """Write the output result to the output path.
