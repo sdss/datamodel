@@ -170,7 +170,7 @@ class Stub(object):
         env.filters['getType'] = self.getType
         env.filters['getHDUSize'] = self.getHDUSize
         env.filters['isKeyAColumn'] = self.isKeyAColumn
-        self.template = env.get_template("stub.%(format)s" % self.input) is self.input else None
+        self.template = env.get_template("stub.%(format)s" % self.input) if self.input else None
 
     def write(self):
         """Write the output result to the output path.
