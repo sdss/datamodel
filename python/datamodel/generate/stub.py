@@ -54,7 +54,7 @@ class Stub(object):
         """
         self.file = {'basename': None, 'name':None, 'path':None}
         if path and self.directory:
-            self.file['basename'] = basename(self.filename)
+            self.file['basename'] = basename(path)
             namesplit = re.split('[-.]', self.file['basename'])
             self.file['name'] = namesplit[0] if len(namesplit) > 1 else None
             self.file['path'] = join(self.directory, self.file['name']) if self.file['name'] else None
