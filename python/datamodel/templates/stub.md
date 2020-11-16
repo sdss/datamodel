@@ -28,8 +28,8 @@ HDU{{loop.index0}}: {{hdu.name}}
 {% endfor %}
 
 {% set type = "Not Implemented" %}
-{% set unit = "*unit*" }
-{% set description = "*description*"}
+{% set unit = "*unit*" %}
+{% set description = "*description*" %}
 {% for hdu in hdus %}{% set hdr = hdu.header %}
 
 ## HDU{{loop.index0}}: {{hdu.name}}
