@@ -52,7 +52,7 @@ class Stub(object):
     def set_file(self, path = None):
         """Set the file's properties for it's path.
         """
-        self.file = {'basename': None, 'name':None, 'path':None}
+        self.file = {'source': path, 'basename': None, 'name':None, 'path':None}
         if path and self.directory:
             self.file['basename'] = basename(path)
             namesplit = re.split('[-.]', self.file['basename'])
@@ -87,7 +87,7 @@ class Stub(object):
         str
             Size of the file in human-readable format.
         """
-        return self.formatBytes(getsize(self.path))
+        return self.formatBytes(getsize(self.file['source'])) if self.file else None
 
     def getHDUSize(self, value):
         """Jinja2 filter - Get the size of an HDU.
@@ -112,7 +112,7 @@ class Stub(object):
         str
             File type in upper case.
         """
-        filename, file_extension = splitext(self.path)
+        filename, file_extension = splitext(self.file['source']) if self.file else None
         if 'gz' in file_extension:
             filename, file_extension = splitext(filename)
         return file_extension[1:].upper()
@@ -120,7 +120,7 @@ class Stub(object):
     def readFile(self):
         """Read the file and hdus.
         """
-        self.hdulist = fits.open(self.path)
+        self.hdulist = fits.open(self.file['source']) if self.file else None
 
     def getHeaders(self):
         """Return a list of headers.
