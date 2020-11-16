@@ -146,11 +146,9 @@ class Generate(object):
         """
         self.stub = Stub(format = self.format, verbose = self.verbose)
         self.stub.set_directory(path = self.directory)
-        self.stub.set_file(path = self.file)
-        self.stub.set_path()
+        self.stub.set_input(path = self.file)
         self.stub.set_template()
         self.stub.set_output()
-        self.stub.set_path()
         self.stub.write()
 
 

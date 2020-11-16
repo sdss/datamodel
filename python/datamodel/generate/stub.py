@@ -34,11 +34,9 @@ class Stub(object):
         self.verbose = verbose
         self.dict = {}
         self.hdulist = None
-        self.file = None
         self.directory = None
         self.template = None
-        self.output = None
-        self.path = None
+        self.input = self.output = None
 
     def set_directory(self, path = None):
         """Set the directory's if it exists
@@ -49,15 +47,15 @@ class Stub(object):
         elif self.verbose:
             print("STUB> directory = %r" % self.directory)
 
-    def set_file(self, path = None):
+    def set_input(self, path = None):
         """Set the file's properties for it's path.
         """
-        self.file = {'source': path, 'basename': None, 'name':None, 'path':None}
+        self.input = {'path': path, 'basename': None, 'name':None, 'stub':None}
         if path and self.directory:
-            self.file['basename'] = basename(path)
-            namesplit = re.split('[-.]', self.file['basename'])
-            self.file['name'] = namesplit[0] if len(namesplit) > 1 else None
-            self.file['path'] = join(self.directory, self.file['name']) if self.file['name'] else None
+            self.input['basename'] = basename(path)
+            namesplit = re.split('[-.]', self.input['basename'])
+            self.input['name'] = namesplit[0] if len(namesplit) > 1 else None
+            self.input['stub'] = join(self.directory, self.input['name']) if self.input['name'] else None
 
     def formatBytes(self, value):
         """Convert an integer to human-readable format.
@@ -87,7 +85,7 @@ class Stub(object):
         str
             Size of the file in human-readable format.
         """
-        return self.formatBytes(getsize(self.file['source'])) if self.file else None
+        return self.formatBytes(getsize(self.input['path'])) if self.input else None
 
     def getHDUSize(self, value):
         """Jinja2 filter - Get the size of an HDU.
@@ -112,30 +110,24 @@ class Stub(object):
         str
             File type in upper case.
         """
-        filename, file_extension = splitext(self.file['source']) if self.file else None
+        filename, file_extension = splitext(self.input['path']) if self.input else None
         if 'gz' in file_extension:
             filename, file_extension = splitext(filename)
         return file_extension[1:].upper()
 
-    def readFile(self):
+    def set_hdulist(self):
         """Read the file and hdus.
         """
-        self.hdulist = fits.open(self.file['source']) if self.file else None
+        self.hdulist = fits.open(self.input['path']) if self.input else None
 
-    def getHeaders(self):
-        """Return a list of headers.
-
-        Returns
-        -------
-        list
-            The headers stripped from the file.
+    def set_headers(self):
+        """Set a list of headers stripped from the hdulist.
         """
         if self.hdulist is None:
-            self.readFile()
-        headers = []
+            self.set_hdulist()
+        self.headers = []
         for hdu in self.hdulist:
-            headers.append(hdu.header)
-        return headers
+            self.headers.append(hdu.header)
 
     def getType(self, value):
         """Jinja2 Filter to map the format type to a data type.
@@ -171,11 +163,12 @@ class Stub(object):
         return tuple([value.find(f) for f in ('TFORM', 'TTYPE')]) == (-1, -1)
 
     def set_output(self):
-        """Build the stub for a single file.
+        """Set the output for the input by rendering the template.
         """
-        self.readFile()
+        self.set_hdulist()
         self.set_dict()
-        self.output = self.template.render(self.dict) if self.template and self.dict else None
+        self.output = {'path': "%(stub)s.html" % self.input if self.input else None}
+        self.output['result'] = self.template.render(self.dict) if self.template and self.dict else None
         self.hdulist.close()
 
     def set_template(self):
@@ -192,20 +185,21 @@ class Stub(object):
     def set_dict(self):
         """Set up input dictionary to the template files.
         """
-        self.dict['name'] = self.file['name'] if self.file else None
+        self.dict['name'] = self.input['name'] if self.input else None
         self.dict['filesize'] = self.getFileSize()
         self.dict['filetype'] = self.getFileExtension()
-        self.dict['filename'] = self.file['basename'].replace('.', '\.')
+        self.dict['filename'] = self.input['basename'].replace('.', '\.')
         self.dict['hdus'] = self.hdulist
 
     def set_path(self):
         """Set the path for the stub
         """
-        self.path = "%(path)s.html" % self.file if self.file else None
+        self.path =
 
     def write(self):
-        """Write the template to path.
+        """Write the output result to the output path.
         """
-        if self.template and self.path:
-            with open(self.path, 'w') as file: file.write(self.template)
+        if self.output:
+            with open(self.output['path'], 'w') as file:
+                file.write(self.output['result'])
 
