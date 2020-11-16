@@ -201,7 +201,7 @@ class Stub(object):
     def set_path(self):
         """Set the path for the stub
         """
-        self.path = '{path}.html'.format(self.file) if self.file else None
+        self.path = "%(path)s.html" % self.file if self.file else None
 
     def write(self):
         """Write the template to path.
