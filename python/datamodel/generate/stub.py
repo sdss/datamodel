@@ -186,6 +186,10 @@ class Stub(object):
         """Write the output result to the output path.
         """
         if self.output:
-            with open(self.output['path'], 'w') as file:
-                file.write(self.output['result'])
+            try:
+                with open(self.output['path'], 'w') as file:
+                    file.write(self.output['result'])
+                if self.verbose: print("GENERATE> Output to %(path)s" % self.output)
+            except Exception as e:
+                print("GENERATE> Output exception %r" % e)
 
