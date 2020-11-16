@@ -123,7 +123,7 @@ class Stub(object):
         self.input['hdus'] = fits.open(self.input['path']) if self.input else None
 
     def set_headers(self):
-        """Set a list of headers stripped from the hdulist.
+        """Set a list of headers stripped from the input hdus.
         """
         if self.input:
             if self.input['hdus'] is None: self.set_hdus()
@@ -169,7 +169,7 @@ class Stub(object):
         """
         self.output = {'path': "%(stub)s.html" % self.input if self.input else None}
         self.output['result'] = self.template.render(self.input) if self.template and self.input else None
-        self.hdulist.close()
+        if 'result' in self.output and self.output['result']: self.input['hdus'].close()
 
     def set_template(self):
         """Create the Jinja2 environment and set the template.
