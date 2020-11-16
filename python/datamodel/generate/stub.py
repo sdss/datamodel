@@ -26,7 +26,6 @@ class Stub(object):
     
     fmap = {'A': 'char', 'I': 'int16', 'J': 'int32', 'K': 'int64',
                      'E': 'float32', 'D': 'float64', 'B': 'bool', 'L': 'bool'}
-    formats = ['md', 'html']
 
     def __init__(self, verbose = None):
         self.verbose = verbose
@@ -49,7 +48,7 @@ class Stub(object):
         self.input = None
         if path and self.directory:
             self.input = {'path': path, 'hdus': None}
-            self.input['format'] = format if format and format in self.formats else self.formats[0]
+            self.input['format'] = format
             self.input['basename'] = basename(path)
             self.input['filename'] = self.input['basename'].replace('.', '\.')
             namesplit = re.split('[-.]', self.input['basename'])

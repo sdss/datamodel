@@ -24,7 +24,7 @@ class Generate(object):
         Override the tree version default set by modules
     """
     
-    
+    formats = ['md', 'html']
 
     def __init__(self, options = None, tree_ver = None, env_label = None, location = None, format = None, force = None, verbose = None, debug = None):
         self.tree_ver = options.tree_ver if options else tree_ver
@@ -39,10 +39,14 @@ class Generate(object):
         self.stub = None
         self.directory = None
         self.file = None
+        self.set_format()
         self.set_tree()
         self.set_datamodel_dir()
         self.set_sas_base_dir()
     
+    def set_format(self):
+        if self.format not in self.formats: self.format = self.formats[0]
+        
     def set_tree(self):
         """Set the Tree from input options, or default to the current loaded module
         """
