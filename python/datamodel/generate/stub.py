@@ -57,7 +57,7 @@ class Stub(object):
             self.input['name'] = namesplit[0] if len(namesplit) > 1 else None
             self.input['stub'] = join(self.directory, self.input['name']) if self.input['name'] else None
             self.input['filesize'] = self.get_filesize()
-            self.input['filetype'] = self.get_filetype()set
+            self.input['filetype'] = self.get_filetype()
 
     def formatBytes(self, value):
         """Convert an integer to human-readable format.
