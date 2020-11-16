@@ -43,8 +43,8 @@ HDU{{loop.index0}}: {{hdu.name}}
 ###### Header Table Caption for HDU{{loop.index0}}
 Key | Value | Type | Comment
 --- | --- | --- | ---
-        {% for key, value in hdr.items() %}{% if key|isKeyAColumn %}{{key}} | {{value}} | {{type}} | {{hdr.comments[key]}}{% endif %}
-        {% endfor %}
+        {% for key, value in hdr.items() %}{% if key|isKeyAColumn %}{{key}} | {{value}} | {{type}} | {{hdr.comments[key]}}
+        {% endif %}{% endfor %}
     {% else %}
         {# BINARY TABLE HDUS #}
 ###### Binary Table Caption for HDU{{loop.index0}}
