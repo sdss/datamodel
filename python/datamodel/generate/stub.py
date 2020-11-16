@@ -32,8 +32,6 @@ class Stub(object):
     def __init__(self, format = None, verbose = None):
         self.format = format if format and format in self.formats else self.formats[0]
         self.verbose = verbose
-        self.dict = {}
-        self.hdulist = None
         self.directory = None
         self.template = None
         self.input = self.output = None
@@ -50,12 +48,16 @@ class Stub(object):
     def set_input(self, path = None):
         """Set the file's properties for it's path.
         """
-        self.input = {'path': path, 'basename': None, 'name':None, 'stub':None}
+        self.input = None
         if path and self.directory:
+            self.input = {'path': path, 'hdus': None, 'headers': None}
             self.input['basename'] = basename(path)
+            self.input['filename'] = self.input['basename'].replace('.', '\.')
             namesplit = re.split('[-.]', self.input['basename'])
             self.input['name'] = namesplit[0] if len(namesplit) > 1 else None
             self.input['stub'] = join(self.directory, self.input['name']) if self.input['name'] else None
+            self.input['filesize'] = self.get_filesize()
+            self.input['filetype'] = self.get_filetype()set
 
     def formatBytes(self, value):
         """Convert an integer to human-readable format.
@@ -77,7 +79,7 @@ class Stub(object):
                 value /= 1024.0
         return "{0:3.1f} {1}".format(value, 'TB')
 
-    def getFileSize(self):
+    def get_filesize(self):
         """Get the size of the input file.
 
         Returns
@@ -102,7 +104,7 @@ class Stub(object):
         """
         return self.formatBytes(value)
 
-    def getFileExtension(self):
+    def get_filetype(self):
         """Get the extension of the input file.
 
         Returns
@@ -115,19 +117,19 @@ class Stub(object):
             filename, file_extension = splitext(filename)
         return file_extension[1:].upper()
 
-    def set_hdulist(self):
+    def set_hdus(self):
         """Read the file and hdus.
         """
-        self.hdulist = fits.open(self.input['path']) if self.input else None
+        self.input['hdus'] = fits.open(self.input['path']) if self.input else None
 
     def set_headers(self):
         """Set a list of headers stripped from the hdulist.
         """
-        if self.hdulist is None:
-            self.set_hdulist()
-        self.headers = []
-        for hdu in self.hdulist:
-            self.headers.append(hdu.header)
+        if self.input:
+            if self.input['hdus'] is None: self.set_hdus()
+            self.input['headers'] = []
+            for hdu in self.input['hdus']:
+                self.input['headers'].append(hdu.header)
 
     def getType(self, value):
         """Jinja2 Filter to map the format type to a data type.
@@ -165,10 +167,8 @@ class Stub(object):
     def set_output(self):
         """Set the output for the input by rendering the template.
         """
-        self.set_hdulist()
-        self.set_dict()
         self.output = {'path': "%(stub)s.html" % self.input if self.input else None}
-        self.output['result'] = self.template.render(self.dict) if self.template and self.dict else None
+        self.output['result'] = self.template.render(self.input) if self.template and self.input else None
         self.hdulist.close()
 
     def set_template(self):
@@ -181,20 +181,6 @@ class Stub(object):
         env.filters['getHDUSize'] = self.getHDUSize
         env.filters['isKeyAColumn'] = self.isKeyAColumn
         self.template = env.get_template('stub.html')
-
-    def set_dict(self):
-        """Set up input dictionary to the template files.
-        """
-        self.dict['name'] = self.input['name'] if self.input else None
-        self.dict['filesize'] = self.getFileSize()
-        self.dict['filetype'] = self.getFileExtension()
-        self.dict['filename'] = self.input['basename'].replace('.', '\.')
-        self.dict['hdus'] = self.hdulist
-
-    def set_path(self):
-        """Set the path for the stub
-        """
-        self.path =
 
     def write(self):
         """Write the output result to the output path.
