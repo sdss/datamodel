@@ -105,10 +105,26 @@ class Stub(object):
             filename, file_extension = splitext(filename)
         return file_extension[1:].upper()
 
-    def set_hdus(self):
+    def open_hdus(self):
         """Read the file and hdus.
         """
         self.input['hdus'] = fits.open(self.input['path']) if self.input else None
+
+    def getString(self, value):
+        """Jinja2 Filter to map the format value to a string.
+
+        Parameters
+        ----------
+        value : str?
+            Not sure what type this is supposed to have.
+
+        Returns
+        -------
+        string: str
+            The string.
+        """
+        string = value if type(value) == str else "%r" % value if value else "**"
+        return string
 
     def getType(self, value):
         """Jinja2 Filter to map the format type to a data type.
@@ -175,6 +191,7 @@ class Stub(object):
         env.filters['getType'] = self.getType
         env.filters['getHDUSize'] = self.getHDUSize
         env.filters['isKeyAColumn'] = self.isKeyAColumn
+        env.filters['getString'] = self.getString
         self.template = env.get_template("stub.%(format)s" % self.input) if self.input else None
 
     def write(self, format = None):

@@ -34,12 +34,12 @@ HDU1:
 #### HDU Size: 0 bytes
 
 ###### Header Table Caption for HDU0
-Key | Value | Type | Comment |
-| --- | --- | --- | --- |
-| SIMPLE | True | Not Implemented | conforms to FITS standard |
-| BITPIX | 8 | Not Implemented | array data type |
-| NAXIS | 0 | Not Implemented | number of array dimensions |
-| EXTEND | True | Not Implemented |  |
+Key | Value | Type | Comment | 
+| --- | --- | --- | --- | 
+ | SIMPLE | True | ** | conforms to FITS standard | 
+ | BITPIX | 8 | ** | array data type | 
+ | NAXIS | 0 | ** | number of array dimensions | 
+ | EXTEND | True | ** |  | 
 
 ## HDU1: 
     *Summary of the contents of this HDU*
@@ -48,77 +48,77 @@ Key | Value | Type | Comment |
 #### HDU Size: 4 MB
 
 ###### Binary Table Caption for HDU1
-Name | Type | Unit | Description |
-| --- | --- | --- | --- |
-| PK | int64 | *unit* | *description* |
-| APOGEE_ID | char[28] | *unit* | *description* |
-| FILE | char[59] | *unit* | *description* |
-| URI | char[110] | *unit* | *description* |
-| STARVER | char[15] | *unit* | *description* |
-| MJDBEG | int64 | *unit* | *description* |
-| MJDEND | int64 | *unit* | *description* |
-| TELESCOPE | char[16] | *unit* | *description* |
-| APRED_VERS | char[15] | *unit* | *description* |
-| HEALPIX | int64 | *unit* | *description* |
-| SNR | float64 | *unit* | *description* |
-| RA | float64 | *unit* | *description* |
-| DEC | float64 | *unit* | *description* |
-| GLON | float64 | *unit* | *description* |
-| GLAT | float64 | *unit* | *description* |
-| JMAG | float64 | *unit* | *description* |
-| JERR | float64 | *unit* | *description* |
-| HMAG | float64 | *unit* | *description* |
-| HERR | float64 | *unit* | *description* |
-| KMAG | float64 | *unit* | *description* |
-| KERR | float64 | *unit* | *description* |
-| SRC_H | char[10] | *unit* | *description* |
-| TARG_PMRA | float64 | *unit* | *description* |
-| TARG_PMDEC | float64 | *unit* | *description* |
-| TARG_PM_SRC | char[10] | *unit* | *description* |
-| APOGEE_TARGET1 | int64 | *unit* | *description* |
-| APOGEE_TARGET2 | int64 | *unit* | *description* |
-| APOGEE2_TARGET1 | int64 | *unit* | *description* |
-| APOGEE2_TARGET2 | int64 | *unit* | *description* |
-| APOGEE2_TARGET3 | int64 | *unit* | *description* |
-| APOGEE2_TARGET4 | int64 | *unit* | *description* |
-| CATALOGID | int64 | *unit* | *description* |
-| GAIADR2_SOURCEID | int64 | *unit* | *description* |
-| GAIADR2_PLX | float64 | *unit* | *description* |
-| GAIADR2_PLX_ERROR | float64 | *unit* | *description* |
-| GAIADR2_PMRA | float64 | *unit* | *description* |
-| GAIADR2_PMRA_ERROR | float64 | *unit* | *description* |
-| GAIADR2_PMDEC | float64 | *unit* | *description* |
-| GAIADR2_PMDEC_ERROR | float64 | *unit* | *description* |
-| GAIADR2_GMAG | float64 | *unit* | *description* |
-| GAIADR2_GERR | float64 | *unit* | *description* |
-| GAIADR2_BPMAG | float64 | *unit* | *description* |
-| GAIADR2_BPERR | float64 | *unit* | *description* |
-| GAIADR2_RPMAG | float64 | *unit* | *description* |
-| GAIADR2_RPERR | float64 | *unit* | *description* |
-| SDSSV_APOGEE_TARGET0 | int64 | *unit* | *description* |
-| FIRSTCARTON | char[31] | *unit* | *description* |
-| TARGFLAGS | char[80] | *unit* | *description* |
-| NVISITS | int64 | *unit* | *description* |
-| NGOODVISITS | int64 | *unit* | *description* |
-| NGOODRVS | int64 | *unit* | *description* |
-| STARFLAG | int64 | *unit* | *description* |
-| STARFLAGS | char[73] | *unit* | *description* |
-| ANDFLAG | int64 | *unit* | *description* |
-| ANDFLAGS | char[10] | *unit* | *description* |
-| VHELIOBARY | float64 | *unit* | *description* |
-| VSCATTER | float64 | *unit* | *description* |
-| VERR | float64 | *unit* | *description* |
-| VMEDERR | float64 | *unit* | *description* |
-| CHISQ | float64 | *unit* | *description* |
-| RV_TEFF | float64 | *unit* | *description* |
-| RV_TEFFERR | float64 | *unit* | *description* |
-| RV_LOGG | float64 | *unit* | *description* |
-| RV_LOGGERR | float64 | *unit* | *description* |
-| RV_FEH | float64 | *unit* | *description* |
-| RV_FEHERR | float64 | *unit* | *description* |
-| RV_CCPFWHM | float64 | *unit* | *description* |
-| RV_AUTOFWHM | float64 | *unit* | *description* |
-| N_COMPONENTS | int64 | *unit* | *description* |
-| MEANFIB | float64 | *unit* | *description* |
-| SIGFIB | float64 | *unit* | *description* |
-| CREATED | char[39] | *unit* | *description* |
+Name | Type | Unit | Description | 
+| --- | --- | --- | --- | 
+ | PK | int64 | ** | ** | 
+ | APOGEE_ID | char[28] | ** | ** | 
+ | FILE | char[59] | ** | ** | 
+ | URI | char[110] | ** | ** | 
+ | STARVER | char[15] | ** | ** | 
+ | MJDBEG | int64 | ** | ** | 
+ | MJDEND | int64 | ** | ** | 
+ | TELESCOPE | char[16] | ** | ** | 
+ | APRED_VERS | char[15] | ** | ** | 
+ | HEALPIX | int64 | ** | ** | 
+ | SNR | float64 | ** | ** | 
+ | RA | float64 | ** | ** | 
+ | DEC | float64 | ** | ** | 
+ | GLON | float64 | ** | ** | 
+ | GLAT | float64 | ** | ** | 
+ | JMAG | float64 | ** | ** | 
+ | JERR | float64 | ** | ** | 
+ | HMAG | float64 | ** | ** | 
+ | HERR | float64 | ** | ** | 
+ | KMAG | float64 | ** | ** | 
+ | KERR | float64 | ** | ** | 
+ | SRC_H | char[10] | ** | ** | 
+ | TARG_PMRA | float64 | ** | ** | 
+ | TARG_PMDEC | float64 | ** | ** | 
+ | TARG_PM_SRC | char[10] | ** | ** | 
+ | APOGEE_TARGET1 | int64 | ** | ** | 
+ | APOGEE_TARGET2 | int64 | ** | ** | 
+ | APOGEE2_TARGET1 | int64 | ** | ** | 
+ | APOGEE2_TARGET2 | int64 | ** | ** | 
+ | APOGEE2_TARGET3 | int64 | ** | ** | 
+ | APOGEE2_TARGET4 | int64 | ** | ** | 
+ | CATALOGID | int64 | ** | ** | 
+ | GAIADR2_SOURCEID | int64 | ** | ** | 
+ | GAIADR2_PLX | float64 | ** | ** | 
+ | GAIADR2_PLX_ERROR | float64 | ** | ** | 
+ | GAIADR2_PMRA | float64 | ** | ** | 
+ | GAIADR2_PMRA_ERROR | float64 | ** | ** | 
+ | GAIADR2_PMDEC | float64 | ** | ** | 
+ | GAIADR2_PMDEC_ERROR | float64 | ** | ** | 
+ | GAIADR2_GMAG | float64 | ** | ** | 
+ | GAIADR2_GERR | float64 | ** | ** | 
+ | GAIADR2_BPMAG | float64 | ** | ** | 
+ | GAIADR2_BPERR | float64 | ** | ** | 
+ | GAIADR2_RPMAG | float64 | ** | ** | 
+ | GAIADR2_RPERR | float64 | ** | ** | 
+ | SDSSV_APOGEE_TARGET0 | int64 | ** | ** | 
+ | FIRSTCARTON | char[31] | ** | ** | 
+ | TARGFLAGS | char[80] | ** | ** | 
+ | NVISITS | int64 | ** | ** | 
+ | NGOODVISITS | int64 | ** | ** | 
+ | NGOODRVS | int64 | ** | ** | 
+ | STARFLAG | int64 | ** | ** | 
+ | STARFLAGS | char[73] | ** | ** | 
+ | ANDFLAG | int64 | ** | ** | 
+ | ANDFLAGS | char[10] | ** | ** | 
+ | VHELIOBARY | float64 | ** | ** | 
+ | VSCATTER | float64 | ** | ** | 
+ | VERR | float64 | ** | ** | 
+ | VMEDERR | float64 | ** | ** | 
+ | CHISQ | float64 | ** | ** | 
+ | RV_TEFF | float64 | ** | ** | 
+ | RV_TEFFERR | float64 | ** | ** | 
+ | RV_LOGG | float64 | ** | ** | 
+ | RV_LOGGERR | float64 | ** | ** | 
+ | RV_FEH | float64 | ** | ** | 
+ | RV_FEHERR | float64 | ** | ** | 
+ | RV_CCPFWHM | float64 | ** | ** | 
+ | RV_AUTOFWHM | float64 | ** | ** | 
+ | N_COMPONENTS | int64 | ** | ** | 
+ | MEANFIB | float64 | ** | ** | 
+ | SIGFIB | float64 | ** | ** | 
+ | CREATED | char[39] | ** | ** | 

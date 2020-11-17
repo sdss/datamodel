@@ -151,7 +151,7 @@ class Generate(object):
         """
         self.stub = Stub(directory = self.directory, verbose = self.verbose)
         self.stub.set_input(path = self.file, format = self.format)
-        self.stub.set_hdus()
+        self.stub.open_hdus()
         self.stub.set_template()
         self.stub.set_output()
         self.stub.set_result()
