@@ -90,11 +90,9 @@ class Stub(object):
         """
         columns = self.hdu_row['columns'] if 'columns' in self.hdu_row else {}
         if column.name in columns and not self.force:
-            columns[column.name]['cached'] = True
+            pass
         else:
-            columns[column.name] = {'name':column.name.upper(), 'type': self.format_type(column.format), 'unit': self.nonempty_string(column.unit), 'description': self.nonempty_string(), 'cached': False}
-        columns[column.name]['index'] = index
-        columns[column.name]['force'] = self.force
+            columns[column.name] = {'name':column.name.upper(), 'type': self.format_type(column.format), 'unit': self.nonempty_string(column.unit), 'description': self.nonempty_string()}
 
     def set_cache_hdus(self):
         """Set the cached content for each hdu
@@ -104,17 +102,16 @@ class Stub(object):
         if hdus is not None:
             for hdu_number, self.hdu in enumerate(self.input['hdus']):
                 row = 'hdu%r' % hdu_number
-                self.hdu_row = hdus[row] if hdus and row in hdus else {'number': hdu_number, 'columns': {}}
+                self.hdu_row = hdus[row] if hdus and row in hdus else {} if self.hdu.is_image else {'columns': {}}
                 for field in ['name', 'is_image', 'size']:
                     self.update_cache_hdu_row(row = row, field = field)
                 if self.hdu.is_image:
-                    print("HDU %(number)r> IMAGE: %(name)s" % self.hdu_row)
+                    if self.verbose: print("HDU %r >" % hdu_number + "IMAGE: %(name)s" % self.hdu_row)
                     self.update_cache_hdu_row(row = row, field = 'header')
                 else:
-                    print("HDU %(number)r> TABLE: %(name)s"  % self.hdu_row)
+                    if self.verbose: print("HDU %r >" % hdu_number + "TABLE: %(name)s"  % self.hdu_row + " --> %r columns" % len(self.hdu.columns))
                     for index, column in enumerate(self.hdu.columns):
                         self.update_cache_hdu_column(row = row, index = index, column = column)
-                        print("COLUMN %(index)s > %(name)s (cached=%(cached)r) [force=%(force)r]" % self.hdu_row['columns'][column.name])
                 hdus[row] = self.hdu_row
 
     def get_content_from_cache(self):
@@ -236,7 +233,7 @@ class Stub(object):
         else: self.output = None
 
     def get_yaml(self):
-        return yaml.dump(self.cache['content'], default_style=">") if self.cache and 'content' in self.cache else None
+        return yaml.dump(self.cache['content']) if self.cache and 'content' in self.cache else None
 
     def get_json(self):
         return dumps({}) if self.input else None
