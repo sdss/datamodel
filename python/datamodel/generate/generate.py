@@ -149,14 +149,16 @@ class Generate(object):
         """Set the stub class and use it to write output
            from the template"
         """
-        self.stub = Stub(directory = self.directory, verbose = self.verbose)
+        self.stub = Stub(directory = self.directory, verbose = self.verbose, force = self.force)
         self.stub.set_input(path = self.file, format = self.format)
-        self.stub.open_hdus()
+        self.stub.set_input_hdus()
+        self.stub.set_environment()
+        self.stub.set_cache()
         self.stub.set_template()
         self.stub.set_output()
         self.stub.set_result()
         for format in [self.format, 'yaml', 'json']:
             self.stub.write(format = format)
-        self.stub.close_hdus()
+        self.stub.close_input_hdus()
 
 

@@ -8,8 +8,9 @@
 
 from astropy.io import fits
 from os.path import basename, join, exists, getsize, splitext
+from jinja2 import Environment, PackageLoader
 from json import dumps
-import jinja2
+import yaml
 import re
 
 __author__ = 'Brian Cherinka, Joel Brownstein'
@@ -26,12 +27,13 @@ class Stub(object):
     
     fmap = {'A': 'char', 'I': 'int16', 'J': 'int32', 'K': 'int64',
                      'E': 'float32', 'D': 'float64', 'B': 'bool', 'L': 'bool'}
+    cache_formats = ['yaml']
 
-    def __init__(self, directory = None, verbose = None):
+    def __init__(self, directory = None, verbose = None, force = None):
         self.directory = directory
         self.verbose = verbose
-        self.template = None
-        self.input = self.output = None
+        self.force = force
+        self.template = self.input = self.output = self.cache = self.environment = None
 
     def set_input(self, path = None, format = None):
         """Set the file's properties for it's path.
@@ -46,8 +48,92 @@ class Stub(object):
             self.input['name'] = namesplit[0] if len(namesplit) > 1 else None
             self.input['filesize'] = self.get_filesize()
             self.input['filetype'] = self.get_filetype()
+    
+    def set_environment(self):
+        """Set the jina2 environment including filters for content.
+        """
+        loader = PackageLoader('datamodel', 'templates')
+        self.environment = Environment(loader=loader, trim_blocks=True, lstrip_blocks=True)
 
-    def formatBytes(self, value):
+    def set_cache(self, format='yaml'):
+        """Set the cached content from yaml (by default).
+        """
+        if self.input and format in self.cache_formats:
+            name = self.input['name'] if self.input and 'name' in self.input else None
+            dir = self.directory[format] if self.directory and format in self.directory else None
+            self.cache = {'format':format, 'path': join(dir, name + "." + format)} if dir and name else None
+            self.cache['content'] = self.get_content_from_cache()
+            self.set_cache_hdus()
+        else: self.cache = None
+
+    def update_cache_hdu_row(self, row = None, field = None):
+        """Set the name, etc. fields in the cached hdu
+        """
+        if field and hasattr(self.hdu, field):
+            if field in self.hdu_row and not self.force:
+                self.cached = True
+            elif field=='header':
+                header = self.hdu.header
+                self.hdu_row[field] = []
+                for key, value in header.items():
+                    if self.is_header_keyword(key = key):
+                        column = {'key': key, 'value': value, 'comment': header.comments[key]}
+                        self.hdu_row['header'].append(column)
+            elif field=='size':
+                self.hdu_row[field] = self.format_bytes(getattr(self.hdu, field))
+            else:
+                self.hdu_row[field] = getattr(self.hdu, field)
+                self.cached = False
+
+    def update_cache_hdu_column(self, row = None, index = None, column = None):
+        """Set the cached content for a colum in a hdu table
+        """
+        columns = self.hdu_row['columns'] if 'columns' in self.hdu_row else {}
+        if column.name in columns and not self.force:
+            columns[column.name]['cached'] = True
+        else:
+            columns[column.name] = {'name':column.name.upper(), 'type': self.format_type(column.format), 'unit': self.nonempty_string(column.unit), 'description': self.nonempty_string(), 'cached': False}
+        columns[column.name]['index'] = index
+        columns[column.name]['force'] = self.force
+
+    def set_cache_hdus(self):
+        """Set the cached content for each hdu
+        """
+        content = self.cache['content'] if self.cache and 'content' in self.cache else None
+        hdus = content['hdus'] if content and 'hdus' in content else None
+        if hdus is not None:
+            for hdu_number, self.hdu in enumerate(self.input['hdus']):
+                row = 'hdu%r' % hdu_number
+                self.hdu_row = hdus[row] if hdus and row in hdus else {'number': hdu_number, 'columns': {}}
+                for field in ['name', 'is_image', 'size']:
+                    self.update_cache_hdu_row(row = row, field = field)
+                if self.hdu.is_image:
+                    print("HDU %(number)r> IMAGE: %(name)s" % self.hdu_row)
+                    self.update_cache_hdu_row(row = row, field = 'header')
+                else:
+                    print("HDU %(number)r> TABLE: %(name)s"  % self.hdu_row)
+                    for index, column in enumerate(self.hdu.columns):
+                        self.update_cache_hdu_column(row = row, index = index, column = column)
+                        print("COLUMN %(index)s > %(name)s (cached=%(cached)r) [force=%(force)r]" % self.hdu_row['columns'][column.name])
+                hdus[row] = self.hdu_row
+
+    def get_content_from_cache(self):
+        """Get the cached content from yaml file (by default).
+        """
+        format = self.cache['format'] if self.cache and 'format' in self.cache else None
+        path = self.cache['path'] if self.cache and 'path' in self.cache else None
+        if path and format == 'yaml':
+            if exists(path):
+                with open(path) as file:
+                    content = yaml.load(file, Loader=yaml.FullLoader)
+            else:
+                template = self.environment.get_template("stub.%s" % format)
+                content = yaml.load(template.render(self.input))
+            if content and 'hdus' not in content: content['hdus'] = {}
+        else: content = None
+        return content
+
+    def format_bytes(self, value = None):
         """Convert an integer to human-readable format.
 
         Parameters
@@ -60,11 +146,16 @@ class Stub(object):
         str
             Size of the file in human-readable format.
         """
+        
+        try: value = int(value)
+        except: value = 0
+        
         for unit in ('bytes', 'KB', 'MB', 'GB'):
             if value < 1024:
                 return "{0:d} {1}".format(int(value), unit)
             else:
                 value /= 1024.0
+
         return "{0:3.1f} {1}".format(value, 'TB')
 
     def get_filesize(self):
@@ -75,22 +166,7 @@ class Stub(object):
         str
             Size of the file in human-readable format.
         """
-        return self.formatBytes(getsize(self.input['path'])) if self.input else None
-
-    def getHDUSize(self, value):
-        """Jinja2 filter - Get the size of an HDU.
-
-        Parameters
-        ----------
-        value : int
-            An integer representing number of bytes.
-
-        Returns
-        -------
-        str
-            Size of the HDU in human-readable format.
-        """
-        return self.formatBytes(value)
+        return self.format_bytes(getsize(self.input['path'])) if self.input else None
 
     def get_filetype(self):
         """Get the extension of the input file.
@@ -105,12 +181,12 @@ class Stub(object):
             filename, file_extension = splitext(filename)
         return file_extension[1:].upper()
 
-    def open_hdus(self):
+    def set_input_hdus(self):
         """Read the file and hdus.
         """
         self.input['hdus'] = fits.open(self.input['path']) if self.input else None
 
-    def getString(self, value):
+    def nonempty_string(self, value = None):
         """Jinja2 Filter to map the format value to a string.
 
         Parameters
@@ -126,7 +202,7 @@ class Stub(object):
         string = value if type(value) == str else "%r" % value if value else "**"
         return string
 
-    def getType(self, value):
+    def format_type(self, value = None):
         """Jinja2 Filter to map the format type to a data type.
 
         Parameters
@@ -143,21 +219,15 @@ class Stub(object):
                for key, val in self.fmap.items() if key in value]
         return out[0]
 
-    def isKeyAColumn(self, value):
-        """Jinja2 Filter to filter out a header keyword
-        that specifies a column in a binary table hdu.
-
-        Parameters
-        ----------
-        value : str
-            Not sure what the type of value is supposed to be.
+    def is_header_keyword(self, key = None):
+        """Test for hdu header keyword
 
         Returns
         -------
         bool
-            ``True`` if `value` does *not* contain 'TFORM' or 'TTYPE'.
+            ``True`` if `key` does *not* contain 'TFORM' or 'TTYPE'.
         """
-        return tuple([value.find(f) for f in ('TFORM', 'TTYPE')]) == (-1, -1)
+        return tuple([key.find(f) for f in ('TFORM', 'TTYPE')]) == (-1, -1)
 
     def set_output(self):
         if self.input and self.template:
@@ -166,7 +236,7 @@ class Stub(object):
         else: self.output = None
 
     def get_yaml(self):
-        return "yaml"
+        return yaml.dump(self.cache['content'], default_style=">") if self.cache and 'content' in self.cache else None
 
     def get_json(self):
         return dumps({}) if self.input else None
@@ -178,21 +248,14 @@ class Stub(object):
         self.result = None
         format = self.input['format'] if self.input and 'format' in self.input else None
         if format and self.template:
-            self.result = {format: self.template.render(self.input)}
+            self.result = {format: self.template.render(input = self.input, content = self.cache['content'])}
             self.result['json'] = self.get_json()
             self.result['yaml'] = self.get_yaml()
 
     def set_template(self):
         """Create the Jinja2 environment and set the template.
         """
-        templateLoader = jinja2.PackageLoader('datamodel', 'templates')
-        env = jinja2.Environment(loader=templateLoader, trim_blocks=True,
-                                 lstrip_blocks=True)
-        env.filters['getType'] = self.getType
-        env.filters['getHDUSize'] = self.getHDUSize
-        env.filters['isKeyAColumn'] = self.isKeyAColumn
-        env.filters['getString'] = self.getString
-        self.template = env.get_template("stub.%(format)s" % self.input) if self.input else None
+        self.template = self.environment.get_template("stub.%(format)s" % self.input) if self.environment and self.input else None
 
     def write(self, format = None):
         """Write the output result to the output path.
@@ -208,7 +271,7 @@ class Stub(object):
             else:
                 print("STUB> Invalid format=%r for write" % format)
 
-    def close_hdus(self):
+    def close_input_hdus(self):
         """Close input hdus
         """
         if self.input and 'hdus' in self.input:

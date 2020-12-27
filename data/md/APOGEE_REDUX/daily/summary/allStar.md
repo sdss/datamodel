@@ -1,20 +1,15 @@
 # Data Model: allStar
 
 ## General Description
+This file is the template data model file. It is meant as a guideline to how to write each data model file.  The main categories (in bold) should be respected, but extra information can be included as appropriate.  The example sections below are primarily related to FITS files.
 
-    This file is the template data model file. It is meant as a guideline
-    to how to write each data model file.  The main categories (in bold)
-    should be respected, but extra information can be included as
-    appropriate.  The example sections below are primarily related to FITS files.
 
 ### Naming Convention
-    `allStar-daily-apo25m\.fits`, Replace this filename with a
-    regular expression that matches the file name.  For example, a six-digit number would
-    correspond to `[0-9]{6}`.  `template-123456.fits`
-    would be `template-[0-9]{6}\.fits`
+`allStar-daily-apo25m\.fits`, Replace this filename with a regular expression that matches the file name.  For example, a six-digit number would correspond to `[0-9]{6}`.  `template-123456.fits` would be `template-[0-9]{6}\.fits`
+
 
 ### Approximate Size
-4 MB
+9 MB
 
 ### File Type
 FITS
@@ -34,18 +29,18 @@ HDU1:
 #### HDU Size: 0 bytes
 
 ###### Header Table Caption for HDU0
-Key | Value | Type | Comment | 
+Key | Value | Comment | 
 | --- | --- | --- | --- | 
- | SIMPLE | True | ** | conforms to FITS standard | 
- | BITPIX | 8 | ** | array data type | 
- | NAXIS | 0 | ** | number of array dimensions | 
- | EXTEND | True | ** |  | 
+ | SIMPLE | True | conforms to FITS standard | 
+ | BITPIX | 8 | array data type | 
+ | NAXIS | 0 | number of array dimensions | 
+ | EXTEND | True |  | 
 
 ## HDU1: 
     *Summary of the contents of this HDU*
 
 #### HDU Type: BINARY TABLE
-#### HDU Size: 4 MB
+#### HDU Size: 9 MB
 
 ###### Binary Table Caption for HDU1
 Name | Type | Unit | Description | 
@@ -97,7 +92,7 @@ Name | Type | Unit | Description |
  | GAIADR2_RPERR | float64 | ** | ** | 
  | SDSSV_APOGEE_TARGET0 | int64 | ** | ** | 
  | FIRSTCARTON | char[31] | ** | ** | 
- | TARGFLAGS | char[80] | ** | ** | 
+ | TARGFLAGS | char[97] | ** | ** | 
  | NVISITS | int64 | ** | ** | 
  | NGOODVISITS | int64 | ** | ** | 
  | NGOODRVS | int64 | ** | ** | 
