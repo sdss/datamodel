@@ -16,13 +16,10 @@ class Remote(object):
     ----------
     hostname : str, default=wiki.sdss.org
         Set the wiki hostname
-    space : str, optional
-        Set the wiki space
     """
     
-    def __init__(self, hostname="wiki.sdss.org", space = None, verbose = None):
-        self.hostname = hostname
-        self.space = space
+    def __init__(self, hostname = None, verbose = None):
+        self.hostname = hostname if hostname else "wiki.sdss.org"
         self.verbose = verbose
         self.set_netrc()
         self.set_credential()
