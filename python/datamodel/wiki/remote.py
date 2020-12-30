@@ -92,7 +92,7 @@ class Remote(object):
         else:
             self.login = None
 
-    def set_command_output(self):
+    def set_command(self):
         self.command = self.jar + self.action + self.login if self.jar and self.action and self.login else None
 
     def set_response(self):
