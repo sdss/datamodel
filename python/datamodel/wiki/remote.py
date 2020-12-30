@@ -7,6 +7,7 @@
 # @Copyright: SDSS.
 
 from os import getenv
+from os.path import join, exists, basename
 from netrc import netrc
 from subprocess import check_output
 
@@ -53,8 +54,9 @@ class Remote(object):
         
     def set_jar(self):
         try:
-            cli_dir = getenv("CONFLUENCE_CLI_DIR)
-            jar = join(cli_dir, 'lib', "confluence-cli-%s.jar" % cli_dir)
+            cli_dir = getenv("CONFLUENCE_CLI_DIR")
+            cli_ver = basenane(cli_dir) if cli_dir and exists(cli_dir) else None
+            jar = join(cli_dir, 'lib', "confluence-cli-%s.jar" % cli_ver)
             if not exists(jar):
                 print("REMOTE> missing Confluence CLI library file")
                 jar = None
