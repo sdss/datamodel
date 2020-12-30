@@ -58,14 +58,14 @@ class Remote(object):
         
     def set_jar(self):
         try:
-            cli_dir = getenv("CONFLUENCE_CLI_DIR")
-            cli_ver = basename(cli_dir) if cli_dir and exists(cli_dir) else None
-            jar = join(cli_dir, 'lib', "confluence-cli-%s.jar" % cli_ver)
+            atlassian_dir = getenv("ATLASSIAN_DIR")
+            atlassian_ver = basename(atlassian_dir) if atlassian_dir and exists(atlassian_dir) else None
+            jar = join(atlassian_dir, 'lib', "confluence-cli-%s.jar" % atlassian_ver)
             if not exists(jar):
-                print("REMOTE> missing Confluence CLI library file")
+                print("REMOTE> missing Atlassian CLI library file")
                 jar = None
         except:
-            print("REMOTE> please set CONFLUENCE_CLI_DIR ")
+            print("REMOTE> please set ATLASSIAN_DIR ")
             jar = None
         self.jar = [self.java, '-jar', jar, '--server', self.hostname] if jar and self.hostname else None
 
