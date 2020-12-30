@@ -26,7 +26,7 @@ class Remote(object):
     java = "/usr/bin/java"
     
     def __init__(self, hostname = None, verbose = None):
-        self.hostname = hostname if hostname else "wiki.sdss.org"
+        self.hostname = hostname if hostname else "https://wiki.sdss.org"
         self.verbose = verbose
         self.set_netrc()
         self.set_credential()
@@ -40,8 +40,11 @@ class Remote(object):
 
     def set_credential(self):
         self.credential = {'user': None, 'password': None}
-        if self.hostname and self.netrc:
-            authenticators = self.netrc.authenticators(self.hostname)
+        if self.hostname:
+            host = self.hostname.replace("https://", "") if self.hostname.startswith("https://") else self.hostname.replace("http://", "") if self.hostname.startswith("http://") else self.hostname
+        else: host = None
+        if host and self.netrc:
+            authenticators = self.netrc.authenticators(host)
             if authenticators and len(authenticators) == 3:
                 self.credential['user'] = authenticators[0]
                 self.credential['password'] = authenticators[2]
@@ -49,9 +52,9 @@ class Remote(object):
                 if self.verbose:
                     print("REMOTE> credential set for user=%(user)r password=%(***)r " % self.credential)
             else:
-                print("REMOTE> cannot find %r in ~/.netrc" % self.hostname)
-                self.password = None
-        else: self.password = None
+                print("REMOTE> cannot find %r in .netrc" % host)
+                self.credential = None
+        else: self.credential = None
         
     def set_jar(self):
         try:
