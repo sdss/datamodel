@@ -26,10 +26,10 @@ class Remote(object):
         self.set_jsessionid()
 
     def set_netrc(self):
-        logger.warn("REMOTE> .netrc file=%r" % getenv('NETRCFILE'))
+        if self.verbose: print("REMOTE> .netrc file=%r" % getenv('NETRCFILE'))
         try: self.netrc = netrc(file = getenv('NETRCFILE'))
         except Exception as e:
-            if self.verbose: logger.warn("REMOTE> netrc %r" % e)
+            if self.verbose: print("REMOTE> netrc %r" % e)
             self.netrc = None
 
     def set_credential(self):
@@ -41,9 +41,9 @@ class Remote(object):
                 self.credential['password'] = authenticators[2]
                 self.credential['***'] = "*" * len(self.credential['password'])
                 if self.verbose:
-                    logger.warn("REMOTE> authentication for hostname=%(hostname)r set for username=%(username)r password=%(***)r " % self.credential)
+                    if self.verbose: print("REMOTE> authentication for hostname=%(hostname)r set for username=%(username)r password=%(***)r " % self.credential)
             else:
-                if self.verbose: logger.warn("REMOTE> cannot find %r in ~/.netrc" % self.hostname)
+                if self.verbose: print("REMOTE> cannot find %r in ~/.netrc" % self.hostname)
                 self.password = None
         else: self.password = None
 
