@@ -33,7 +33,7 @@ class Remote(object):
             self.netrc = None
 
     def set_credential(self):
-        self.credential = {'hostname': self.hostname, 'username': None, 'password': None}
+        self.credential = {'username': None, 'password': None}
         if self.hostname and self.netrc:
             authenticators = self.netrc.authenticators(self.hostname)
             if authenticators and len(authenticators) == 3:
@@ -41,7 +41,7 @@ class Remote(object):
                 self.credential['password'] = authenticators[2]
                 self.credential['***'] = "*" * len(self.credential['password'])
                 if self.verbose:
-                    if self.verbose: print("REMOTE> authentication for hostname=%(hostname)r set for username=%(username)r password=%(***)r " % self.credential)
+                    if self.verbose: print("REMOTE> credential set for username=%(username)r password=%(***)r " % self.credential)
             else:
                 if self.verbose: print("REMOTE> cannot find %r in ~/.netrc" % self.hostname)
                 self.password = None
