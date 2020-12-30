@@ -9,7 +9,6 @@
 from os import getenv
 from netrc import netrc
 
-
 __author__ = 'Joel Brownstein <joelbrownstein@sdss.org>'
 
 class Remote(object):
@@ -29,10 +28,9 @@ class Remote(object):
         self.set_jsessionid()
 
     def set_netrc(self):
-        if self.verbose: print("REMOTE> .netrc file=%r" % getenv('NETRCFILE'))
         try: self.netrc = netrc(file = getenv('NETRCFILE'))
         except Exception as e:
-            if self.verbose: print("REMOTE> netrc %r" % e)
+            print("REMOTE> netrc %r" % e)
             self.netrc = None
 
     def set_credential(self):
@@ -44,9 +42,9 @@ class Remote(object):
                 self.credential['password'] = authenticators[2]
                 self.credential['***'] = "*" * len(self.credential['password'])
                 if self.verbose:
-                    if self.verbose: print("REMOTE> credential set for username=%(username)r password=%(***)r " % self.credential)
+                    print("REMOTE> credential set for username=%(username)r password=%(***)r " % self.credential)
             else:
-                if self.verbose: print("REMOTE> cannot find %r in ~/.netrc" % self.hostname)
+                print("REMOTE> cannot find %r in ~/.netrc" % self.hostname)
                 self.password = None
         else: self.password = None
 
