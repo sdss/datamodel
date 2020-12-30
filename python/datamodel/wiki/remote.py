@@ -60,7 +60,7 @@ class Remote(object):
         try:
             atlassian_dir = getenv("ATLASSIAN_DIR")
             atlassian_ver = basename(atlassian_dir) if atlassian_dir and exists(atlassian_dir) else None
-            jar = join(atlassian_dir, 'lib', "confluence-cli-%s.jar" % atlassian_ver)
+            jar = join(atlassian_dir, 'lib', "acli-%s.jar" % atlassian_ver)
             if not exists(jar):
                 print("REMOTE> missing Atlassian CLI library file")
                 jar = None
