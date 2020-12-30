@@ -6,6 +6,9 @@
 # @License: BSD 3-Clause
 # @Copyright: SDSS.
 
+from os import getenv
+from netrc import netrc
+
 
 __author__ = 'Joel Brownstein <joelbrownstein@sdss.org>'
 
