@@ -23,6 +23,8 @@ class Remote(object):
         Set the wiki hostname
     """
     
+    java = "/usr/bin/java"
+    
     def __init__(self, hostname = None, verbose = None):
         self.hostname = hostname if hostname else "wiki.sdss.org"
         self.verbose = verbose
@@ -37,15 +39,15 @@ class Remote(object):
             self.netrc = None
 
     def set_credential(self):
-        self.credential = {'username': None, 'password': None}
+        self.credential = {'user': None, 'password': None}
         if self.hostname and self.netrc:
             authenticators = self.netrc.authenticators(self.hostname)
             if authenticators and len(authenticators) == 3:
-                self.credential['username'] = authenticators[0]
+                self.credential['user'] = authenticators[0]
                 self.credential['password'] = authenticators[2]
                 self.credential['***'] = "*" * len(self.credential['password'])
                 if self.verbose:
-                    print("REMOTE> credential set for username=%(username)r password=%(***)r " % self.credential)
+                    print("REMOTE> credential set for user=%(user)r password=%(***)r " % self.credential)
             else:
                 print("REMOTE> cannot find %r in ~/.netrc" % self.hostname)
                 self.password = None
@@ -62,13 +64,13 @@ class Remote(object):
         except:
             print("REMOTE> please set CONFLUENCE_CLI_DIR ")
             jar = None
-        self.jar = ['java', '-jar', jar, '--server', self.hostname] if jar and self.hostname else None
+        self.jar = [self.java, '-jar', jar, '--server', self.hostname] if jar and self.hostname else None
 
 
     def set_login(self):
-        if self.credential and 'username' in self.credential and 'password' in self.credential:
+        if self.credential and 'user' in self.credential and 'password' in self.credential:
             self.action = ["--action", "login"]
-            self.login = ["--username", self.credential['username']]
+            self.login = ["--user", self.credential['user']]
             self.login += ["--password", self.credential['password']]
             self.set_command()
             self.set_response()
