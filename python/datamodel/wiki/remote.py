@@ -8,6 +8,8 @@
 
 from os import getenv
 from netrc import netrc
+from subprocess import check_output
+
 
 __author__ = 'Joel Brownstein <joelbrownstein@sdss.org>'
 
@@ -25,7 +27,8 @@ class Remote(object):
         self.verbose = verbose
         self.set_netrc()
         self.set_credential()
-        self.set_jsessionid()
+        self.set_jar()
+        self.set_login()
 
     def set_netrc(self):
         try: self.netrc = netrc(file = getenv('NETRCFILE'))
@@ -47,5 +50,48 @@ class Remote(object):
                 print("REMOTE> cannot find %r in ~/.netrc" % self.hostname)
                 self.password = None
         else: self.password = None
+        
+    def set_jar(self):
+        try:
+            cli_dir = getenv("CONFLUENCE_CLI_DIR)
+            jar = join(cli_dir, 'lib', "confluence-cli-%s.jar" % cli_dir)
+            if not exists(jar):
+                print("REMOTE> missing Confluence CLI library file")
+                jar = None
+        except:
+            print("REMOTE> please set CONFLUENCE_CLI_DIR ")
+            jar = None
+        self.jar = ['java', '-jar', jar, '--server', self.hostname] if jar and self.hostname else None
 
-    def set_jsessionid(self): pass
+    def submit(self):
+        job_dir = self.get_job_dir()
+        job_file = self.get_job_file()
+        if not exists(job_dir): self.append_error("ERROR: Missing job dir at %s" % job_dir)
+        elif not exists(job_file): self.append_error("ERROR: Missing job file at %s" % job_file)
+        else:
+            if self.job.dir and exists(self.job.dir): chdir(self.job.dir)
+            submit_command = [Client.config.submit_command,job_file]
+            if vendor=='moab': submit_command += ['-o',job_dir]
+            submit_output = check_output(submit_command,universal_newlines=True).rstrip()
+            self.job = Job.query.get(self.job.id)
+            self.job.identifier = Client.config.identifier_from_submit_output(submit_output)
+            self.job.status = 3
+            self.job.commit()
+            self.submitted = True
+
+    def set_login(self):
+        if self.credential and 'username' in self.credential and 'password' in self.credential:
+            self.action = ["--action", "login"]
+            self.login = ["--username", self.credential['username']]
+            self.login += ["--password", self.credential['password']]
+            self.set_command()
+            self.set_response()
+            self.login = ["--login", self.response]
+        else:
+            self.login = None
+
+    def set_command_output(self):
+        self.command = self.jar + self.action + self.login if self.jar and self.action and self.login else None
+
+    def set_response(self):
+        self.response = check_output(self.command,universal_newlines=True).rstrip() if self.command else None
