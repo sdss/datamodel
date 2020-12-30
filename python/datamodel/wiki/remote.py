@@ -62,12 +62,12 @@ class Remote(object):
             atlassian_ver = basename(atlassian_dir) if atlassian_dir and exists(atlassian_dir) else None
             jar = join(atlassian_dir, 'lib', "acli-%s.jar" % atlassian_ver)
             if not exists(jar):
-                print("REMOTE> missing Atlassian CLI library file")
+                print("REMOTE> missing Atlassian lib jar file")
                 jar = None
         except:
             print("REMOTE> please set ATLASSIAN_DIR ")
             jar = None
-        self.jar = [self.java, '-jar', jar, '--server', self.hostname] if jar and self.hostname else None
+        self.jar = [self.java, '-jar', jar, 'confluence', '--server', self.hostname] if jar and self.hostname else None
 
 
     def set_login(self):
