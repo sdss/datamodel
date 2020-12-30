@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # encoding: utf-8
 #
 # @Author: Joel Brownstein <joelbrownstein@sdss.org>
@@ -27,8 +27,11 @@ generate.set_directory()
 generate.set_file()
 generate.set_stub()
 
+datamodel_generate -t sdss5 -s silo_eboss_detections -p EBOSS_SANDBOX/silo/{run2d}/{run1d}/{silo_ver}/silo_eboss_detections-{silo_ver}.fits -k run2d=v5_13_0  run1d=v5_13_0 silo_ver=1.0.1 -v
+
 from datamodel.generate import Generate
-generate = Generate(tree_ver = 'sdss5', env_label = 'EBOSS_SANDBOX', location = 'silo/RUN2D/RUN1D/SILO_VER/silo_eboss_detections-1.0.1.fits',  verbose = True)
+generate = Generate(tree_ver = 'sdss5', spec = 'silo_eboss_detections', path = 'EBOSS_SANDBOX/silo/{run2d}/{run1d}/{silo_ver}/silo_eboss_detections-{silo_ver}.fits', keywords = ['run2d=v5_13_0', 'run1d=v5_13_0', 'silo_ver=1.0.1'], verbose = True)
+generate.set_keywords()
 generate.set_directory()
 generate.set_file()
 generate.set_stub()

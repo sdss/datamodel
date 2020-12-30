@@ -9,7 +9,7 @@
 from tree import Tree
 from datamodel.generate import Stub
 from os import environ, makedirs
-from os.path import join, exists, dirname
+from os.path import join, exists, dirname, sep
 
 __author__ = 'Joel Brownstein <joelbrownstein@sdss.org>'
 
@@ -26,10 +26,20 @@ class Generate(object):
     
     formats = ['md', 'html']
 
-    def __init__(self, options = None, tree_ver = None, env_label = None, location = None, format = None, force = None, verbose = None, debug = None):
+    def __init__(self, options = None, tree_ver = None, spec = None, path = None, keywords = None, env_label = None, location = None, format = None, force = None, verbose = None, debug = None):
         self.tree_ver = options.tree_ver if options else tree_ver
-        self.env_label = options.env_label if options else env_label
-        self.location = options.location if options else location
+        self.spec = options.spec if options else spec
+        self.path = options.path if options else path
+        self.keywords = options.keywords if options else keywords
+        if self.path is None:
+            self.env_label = options.env_label if options else env_label
+            self.location = options.location if options else location
+            self.path = join(self.env_label, self.location)
+        else:
+            try: self.env_label, self.location = self.path.split(sep, 1)
+            except:
+                self.env_label = options.env_label if options else env_label
+                self.location = options.location if options else location
         self.format = options.format if options else format
         self.force = options.verbose if options else force
         self.verbose = options.verbose if options else verbose
@@ -41,6 +51,7 @@ class Generate(object):
         self.file = None
         self.set_format()
         self.set_tree()
+        self.set_real_and_abstract_location()
         self.set_datamodel_dir()
         self.set_sas_base_dir()
     
@@ -73,6 +84,35 @@ class Generate(object):
         elif self.verbose:
             print("GENERATE> using %(label)s=%(path)r" % self.env)
     
+    def set_real_and_abstract_location(self):
+        """Substitute the keywords into the location
+        """
+        self.real_location = self.abstract_location = None
+        real = {}
+        abstract = {}
+        for keyword in self.keywords:
+            try:
+                key, value = keyword.split('=')
+                real[key] = value
+                abstract[key] = key.upper()
+            except: print("GENERATE> %r is an invalid key=value assignment")
+        try:
+            self.real_location = self.location.format(**real)
+            self.abstract_location = self.location.format(**abstract)
+        except Exception as e: print("GENERATE %r> key %s is missing from location=%r" % (e, key, self.location))
+    
+    def set_abstract_location(self):
+        """Replace the keyword format with upper case
+        """
+        self.abstract_location = self.location
+        keywords = {}
+        for keyword in self.keywords:
+            try: key, value = keyword.split('=')
+            except: print("GENERATE> %r is an invalid key=value assignment")
+            try: self.real_location.format(key=value)
+            except: print("GENERATE> key %s is missing from location=%r" % (key, self.location))
+    
+
     def set_datamodel_dir(self):
         """Set the DATAMODEL_DIR from the environment
         """
@@ -106,16 +146,14 @@ class Generate(object):
         self.directory = None
         if not self.format:
             print("GENERATE> Please set a valid format option")
-        elif not self.env_label:
-            print("GENERATE> Please set env_label option")
-        elif not self.location:
-            print("GENERATE> Please set location option")
-        elif self.datamodel_dir:
+        elif not self.path:
+            print("GENERATE> Please set path option, or set env_label and location options")
+        elif self.datamodel_dir and self.abstract_location:
             formats = [self.format, 'yaml', 'json']
             self.directory = {}
             data_dir = join(self.datamodel_dir, 'data')
             for format in formats:
-                directory = join(data_dir, format, self.env_label, dirname(self.location))
+                directory = join(data_dir, format, self.env_label, dirname(self.abstract_location))
                 if not exists(directory):
                     try:
                         makedirs(directory)
@@ -137,7 +175,7 @@ class Generate(object):
                 print("GENERATE> Nonexistent environ at %s" % self.env)
                 self.file = None
             else:
-                self.file = join(self.env['path'], self.location) if self.location else None
+                self.file = join(self.env['path'], self.real_location) if self.real_location else None
                 if not self.file:
                     print("GENERATE> Please set location option")
                 elif not exists(self.file):
