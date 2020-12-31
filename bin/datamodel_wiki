@@ -1,0 +1,32 @@
+#!/usr/bin/env python3
+# encoding: utf-8
+#
+# @Author: Joel Brownstein <joelbrownstein@sdss.org>
+# @Date: Nov 9, 2020
+# @Filename: datamodel_generate
+# @License: BSD 3-Clause
+# @Copyright: SDSS.
+
+from datamodel.command import Command
+from datamodel.wiki import Page
+
+command = Command(name='datamodel_wiki')
+page = Page(options = command.options)
+page.login()
+page.set_tree()
+page.add()
+page.logout()
+
+"""
+usage via commandline:
+datamodel_wiki -t sdss5 -s allStar -v
+
+usage via python:
+from datamodel.wiki import Page
+page = Page(tree_ver = 'sdss5', spec = 'allStar',  verbose = True)
+page.login()
+page.set_tree()
+page.add()
+page.logout()
+
+"""
