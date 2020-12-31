@@ -77,7 +77,8 @@ class Remote(object):
             self.login += ["--password", self.credential['password']]
             self.set_command()
             self.set_response()
-            self.login = ["--login", self.response]
+            self.login = ["--login", self.response] if self.response.startswith("JSESSIONID") else None
+            if self.verbose: print("REMOTE> %r" % self.response)
         else:
             self.login = None
 

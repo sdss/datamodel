@@ -19,9 +19,26 @@ class Generate(object):
     Parameters
     ----------
     options : command-line options, optional
-        Operate on these files.
     tree_ver : str, optional
         Override the tree version default set by modules
+    spec : str, optional
+        Name of file species
+    path : str, optional
+        Symbolic path to fits file (can be combined from
+        the env_label/location if omitted)
+    keywords : list of str, optional
+        keywords needed to format the symbolic path to form
+        a real path to the fits file.
+    env_label : str, optional
+        the tree environmental variable (can be parsed from
+        the symbolic path if omitted)
+    location: str, optional
+        the partial symbolic path (can be parsed from the
+        symbolic path if omitted)
+    format : str, either md (default) or html
+    force : bool (default false)
+        set True to over-write the human edited yaml and
+        restore it to the original template / fits file.
     """
     
     formats = ['md', 'html']
