@@ -36,7 +36,7 @@ class Stub(object):
         self.force = force
         self.template = self.input = self.output = self.cache = self.environment = None
 
-    def set_access(self, path = None):
+    def set_access(self, path = None, replace = None):
         if self.directory and 'access' in self.directory:
             directory = self.directory['access']
             if not exists(directory):
@@ -48,20 +48,35 @@ class Stub(object):
                     with open(access_path) as file:
                         print("STUB> access %s" % access_path)
                         self.access = load(file, Loader=FullLoader)
-                        if self.access.split(" = $")[-1] != path:
-                            print("STUB> Aborting due to conflict in existing spec: %s" % self.access)
-                            self.access = None
+                        _path = self.access.split(" = $")[-1]
+                        if _path != path:
+                            if replace:
+                                self.drop_access(path = _path)
+                                self.access = "%s = $%s" % (self.file_spec, path)
+                                self.write_access(path = access_path, replace = replace)
+                            else:
+                                print("STUB> Aborting due to conflict in existing spec: %s" % self.access)
+                                self.access = None
                 elif access_path:
-                    self.access = "%s = $%s" % (self.file_spec, path)
-                    try:
-                        with open(access_path, 'w') as file:
-                            file.write(self.access)
-                        if self.verbose: print("STUB> Output to %s" % access_path)
-                    except Exception as e:
-                        print("STUB> Output exception %r" % e)
+                    if replace:
+                        print("STUB> Nothing to replace, due to nonexistent access path: %s" % access_path)
+                        self.access = None
+                    else:
+                        self.access = "%s = $%s" % (self.file_spec, path)
+                        self.write_access(path = access_path)
                 else: self.access = None
             else: self.access = None
         else: self.access = None
+
+    def write_access(self, path = None, replace = None):
+        try:
+            with open(path, 'w') as file:
+                file.write(self.access)
+            if self.verbose:
+                if replace: print("STUB> Output to %s [replaced!]" % path )
+                else: print("STUB> Output to %s" % path )
+        except Exception as e:
+            print("STUB> Output exception %r" % e)
 
     def set_input(self, path = None, format = None):
         """Set the file's properties for it's path.

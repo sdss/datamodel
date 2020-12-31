@@ -39,6 +39,11 @@ class Generate(object):
         the partial symbolic path (can be parsed from the
         symbolic path if omitted)
     html : generate html format
+    replace : bool (default false)
+        set True to (git) move the output files if the
+        path has changed for the given spec file, and
+        to avoid abort due to the conflict of having
+        multiple paths for a single spec file name.
     force : bool (default false)
         set True to over-write the human edited yaml and
         restore it to the original template / fits file.
@@ -46,7 +51,7 @@ class Generate(object):
     
     formats = ['md', 'html']
 
-    def __init__(self, options = None, tree_ver = None, file_spec = None, path = None, keywords = None, env_label = None, location = None, html = None, force = None, verbose = None, debug = None):
+    def __init__(self, options = None, tree_ver = None, file_spec = None, path = None, keywords = None, env_label = None, location = None, html = None, replace = None, force = None, verbose = None, debug = None):
         self.tree_ver = options.tree_ver if options else tree_ver
         self.file_spec = options.file_spec if options else file_spec
         self.path = options.path if options else path
@@ -63,6 +68,7 @@ class Generate(object):
         if not self.file_spec: self.set_spec_from_location()
         self.html = options.html if options else html
         self.force = options.force if options else force
+        self.replace = options.replace if options else replace
         self.verbose = options.verbose if options else verbose
         self.debug = options.debug if options else debug
         self.tree = None
@@ -215,7 +221,7 @@ class Generate(object):
            from the template"
         """
         self.stub = Stub(file_spec = self.file_spec, directory = self.directory, verbose = self.verbose, force = self.force)
-        self.stub.set_access(path = self.path)
+        self.stub.set_access(path = self.path, replace = self.replace)
         self.stub.set_input(path = self.file, format = self.format)
         self.stub.set_input_hdus()
         self.stub.set_environment()

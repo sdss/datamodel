@@ -34,6 +34,7 @@ def datamodel_generate():
     parser_group.add_argument("-l", "--location", help="symbolic location of file",metavar="LOCATION")
     parser.add_argument("-k,", "--keywords", nargs='*', help="keyword value pair(s)",metavar="KEYWORDS")
     parser.add_argument("-h", "--html", help="generate html format",metavar="HTML")
+    parser.add_argument("-R", "--replace", help="replace",action="store_true")
     parser.add_argument("-F", "--force", help="force",action="store_true")
     parser.add_argument("-v", "--verbose", help="verbose",action="store_true")
     parser.add_argument("-d", "--debug", help="debug",action="store_true")
