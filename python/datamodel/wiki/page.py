@@ -17,15 +17,15 @@ class Page(object):
     options : command-line options, optional
     tree_ver : str, optional
         Override the tree version default set by modules
-    spec : str, optional
+    spec : str, required
         Name of file species
-    path : str, optional
+    path : str, optional (required w/out env_label + location)
         Symbolic path to fits file (can be combined from
         the env_label/location if omitted)
-    env_label : str, optional
+    env_label : str, optional (required w/out path)
         the tree environmental variable (can be parsed from
         the symbolic path if omitted)
-    location: str, optional
+    location: str, optional (required w/out path)
         the partial symbolic path (can be parsed from the
         symbolic path if omitted)
     format : str, either md (default) or html
