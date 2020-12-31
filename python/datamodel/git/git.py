@@ -17,7 +17,6 @@ class Git(object):
     """Class to run the git commands.
     """
     
-    directory =
 
     def __init__(self, verbose = None):
         self.verbose = verbose
