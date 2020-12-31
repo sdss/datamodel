@@ -41,7 +41,7 @@ class Git(object):
             self.action = [action]
             self.set_command()
             self.set_response()
-            if self.verbose: print("GIT> %r" % self.response)
+            if self.verbose: self.print_response()
         else:
             print("GIT> %r is not a valid git action" % action)
 
@@ -50,3 +50,9 @@ class Git(object):
 
     def set_response(self):
         self.response = check_output(self.command,cwd=self.directory,universal_newlines=True).rstrip() if self.command and self.directory else None
+
+    def print_response(self):
+        if self.response:
+            for index, response in enumerate(self.response.split('\n')):
+                print("%s> %s" % ("..." if index else "GIT", response))
+        else: print("GIT> %r" % self.response)
