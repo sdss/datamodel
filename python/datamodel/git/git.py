@@ -17,6 +17,7 @@ class Git(object):
     """Class to run the git commands.
     """
     
+    actions = ['status', 'pull']
 
     def __init__(self, verbose = None):
         self.verbose = verbose
@@ -27,14 +28,22 @@ class Git(object):
         if not self.directory: print("GIT> cannot set directory.  Please set DATAMODEL_DIR.")
 
     def status(self):
-        self.action = ['status']
-        self.set_command()
-        self.set_response()
-        if self.verbose: print("GIT> %r" % self.response)
+        self.run_action(action = 'status')
+    
+    def pull(self):
+        self.run_action(action = 'pull')
     
     def delete(self, location = None):
         self.action = ['delete']
     
+    def run_action(self, action = None):
+        if action in self.actions:
+            self.action = [action]
+            self.set_command()
+            self.set_response()
+            if self.verbose: print("GIT> %r" % self.response)
+        else:
+            print("GIT> %r is not a valid git action" % action)
 
     def set_command(self):
         self.command = ['git'] + self.action if self.action else None
