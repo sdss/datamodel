@@ -14,6 +14,7 @@ command = Command(name='datamodel_generate')
 generate = Generate(options = command.options)
 generate.set_directory()
 generate.set_file()
+generate.set_spec_access()
 generate.set_stub()
 
 """
@@ -25,13 +26,13 @@ from datamodel.generate import Generate
 generate = Generate(tree_ver = 'sdss5', env_label = 'APOGEE_REDUX', location = 'daily/summary/allStar-daily-apo25m.fits',  verbose = True)
 generate.set_directory()
 generate.set_file()
+generate.set_spec_access()
 generate.set_stub()
 
 datamodel_generate -t sdss5 -s silo_eboss_detections -p EBOSS_SANDBOX/silo/{run2d}/{run1d}/{silo_ver}/silo_eboss_detections-{silo_ver}.fits -k run2d=v5_13_0  run1d=v5_13_0 silo_ver=1.0.1 -v
 
 from datamodel.generate import Generate
 generate = Generate(tree_ver = 'sdss5', spec = 'silo_eboss_detections', path = 'EBOSS_SANDBOX/silo/{run2d}/{run1d}/{silo_ver}/silo_eboss_detections-{silo_ver}.fits', keywords = ['run2d=v5_13_0', 'run1d=v5_13_0', 'silo_ver=1.0.1'], verbose = True)
-generate.set_keywords()
 generate.set_directory()
 generate.set_file()
 generate.set_spec_access()
