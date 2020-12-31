@@ -6,6 +6,9 @@
 # @License: BSD 3-Clause
 # @Copyright: SDSS.
 
+from tree import Tree
+from os.path import join, exists
+
 
 __author__ = 'Joel Brownstein <joelbrownstein@sdss.org>'
 
