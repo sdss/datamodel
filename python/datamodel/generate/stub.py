@@ -11,7 +11,6 @@ from os.path import basename, join, exists, getsize, splitext
 from jinja2 import Environment, PackageLoader
 from json import dumps
 import yaml
-import re
 
 __author__ = 'Brian Cherinka, Joel Brownstein'
 
@@ -35,17 +34,15 @@ class Stub(object):
         self.force = force
         self.template = self.input = self.output = self.cache = self.environment = None
 
-    def set_input(self, path = None, format = None):
+    def set_input(self, path = None, spec = None, format = None):
         """Set the file's properties for it's path.
         """
         self.input = None
         if path:
-            self.input = {'path': path, 'hdus': None}
+            self.input = {'path': path, 'spec': spec, 'hdus': None}
             self.input['format'] = format
             self.input['basename'] = basename(path)
             self.input['filename'] = self.input['basename'].replace('.', '\.')
-            namesplit = re.split('[-.]', self.input['basename'])
-            self.input['name'] = namesplit[0] if len(namesplit) > 1 else None
             self.input['filesize'] = self.get_filesize()
             self.input['filetype'] = self.get_filetype()
     
@@ -59,9 +56,9 @@ class Stub(object):
         """Set the cached content from yaml (by default).
         """
         if self.input and format in self.cache_formats:
-            name = self.input['name'] if self.input and 'name' in self.input else None
+            spec = self.input['spec'] if self.input and 'spec' in self.input else None
             dir = self.directory[format] if self.directory and format in self.directory else None
-            self.cache = {'format':format, 'path': join(dir, name + "." + format)} if dir and name else None
+            self.cache = {'format':format, 'path': join(dir, spec + "." + format)} if dir and spec else None
             self.cache['content'] = self.get_content_from_cache()
             self.set_cache_hdus()
         else: self.cache = None
@@ -228,8 +225,8 @@ class Stub(object):
 
     def set_output(self):
         if self.input and self.template:
-            name = self.input['name']
-            self.output = {format: join(dir, name + "." + format) for format, dir in self.directory.items()}
+            spec = self.input['spec']
+            self.output = {format: join(dir, spec + "." + format) for format, dir in self.directory.items()}
         else: self.output = None
 
     def get_yaml(self):

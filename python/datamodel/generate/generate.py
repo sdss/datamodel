@@ -10,6 +10,8 @@ from tree import Tree
 from datamodel.generate import Stub
 from os import environ, makedirs
 from os.path import join, exists, dirname, sep
+from re import split
+
 
 __author__ = 'Joel Brownstein <joelbrownstein@sdss.org>'
 
@@ -57,6 +59,8 @@ class Generate(object):
             except:
                 self.env_label = options.env_label if options else env_label
                 self.location = options.location if options else location
+        if not self.spec: self.set_spec_from_location()
+        self.set_spec_access()
         self.format = options.format if options else format
         self.force = options.force if options else force
         self.verbose = options.verbose if options else verbose
@@ -200,20 +204,57 @@ class Generate(object):
                     self.file = None
         else: self.file = None
 
+    def set_spec_from_location(self):
+        namesplit = split('[-.]', basename(self.location))
+        self.spec = namesplit[0] if len(namesplit) > 1 else None
+    
+    def set_spec_access(self):
+        if self.directory and 'yaml' in self.directory and self.env_label:
+            directory = join(self.directory['yaml'], self.env_label)
+            if not exists(directory):
+                try:
+                    makedirs(directory)
+                    if self.verbose:
+                        print("GENERATE> creating directory at %s" % directory)
+                except Exception as e:
+                    print("GENERATE> cannot create directory at %s" % directory)
+                    print("--> EXCEPTION=%r" % e)
+                    directory = None
+            path = join(directory, "%s.yaml" % self.spec) if directory and self.spec else None
+            if path:
+                if exists(path):
+                    with open(path) as file:
+                        self.spec_access = yaml.load(file, Loader=yaml.FullLoader)
+                        if self.spec_access.split(" = ")[-1] != self.path:
+                            print("GENERATE> Aborting due to conflict in existing spec: %s" % self.spec_access)
+                            self.spec_access = None
+                elif self.path:
+                    self.spec_access = "%s = %s" % (self.spec, self.path)
+                    try:
+                        with open(path, 'w') as file:
+                            file.write(self.spec_access)
+                        if self.verbose: print("GENERATE> Output to %s" % path)
+                    except Exception as e:
+                        print("GENERATE> Output exception %r" % e)
+                else: self.spec_access = None
+            else: self.spec_access = None
+        else: self.spec_access = None
+
     def set_stub(self):
         """Set the stub class and use it to write output
            from the template"
         """
-        self.stub = Stub(directory = self.directory, verbose = self.verbose, force = self.force)
-        self.stub.set_input(path = self.file, format = self.format)
-        self.stub.set_input_hdus()
-        self.stub.set_environment()
-        self.stub.set_cache()
-        self.stub.set_template()
-        self.stub.set_output()
-        self.stub.set_result()
-        for format in [self.format, 'yaml', 'json']:
-            self.stub.write(format = format)
-        self.stub.close_input_hdus()
+        if self.spec_access:
+            self.stub = Stub(directory = self.directory, verbose = self.verbose, force = self.force)
+            self.stub.set_input(path = self.file, spec = self.spec, format = self.format)
+            self.stub.set_input_hdus()
+            self.stub.set_environment()
+            self.stub.set_cache()
+            self.stub.set_template()
+            self.stub.set_output()
+            self.stub.set_result()
+            for format in [self.format, 'yaml', 'json']:
+                self.stub.write(format = format)
+            self.stub.close_input_hdus()
 
 
