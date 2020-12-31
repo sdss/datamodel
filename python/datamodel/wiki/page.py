@@ -20,7 +20,7 @@ class Page(object):
     options : command-line options, optional
     tree_ver : str, optional
         Override the tree version default set by modules
-    spec : str, required
+    file_spec : str, required
         Name of file species
     path : str, optional (required w/out env_label + location)
         Symbolic path to fits file (can be combined from
@@ -37,9 +37,9 @@ class Page(object):
         restore it to the original template / fits file.
     """
     
-    def __init__(self, options = None, tree_ver = None, spec = None, path = None, env_label = None, location = None, format = None, force = None, verbose = None, debug = None):
+    def __init__(self, options = None, tree_ver = None, file_spec = None, path = None, env_label = None, location = None, format = None, force = None, verbose = None, debug = None):
         self.tree_ver = options.tree_ver if options else tree_ver
-        self.spec = options.spec if options else spec
+        self.file_spec = options.file_spec if options else file_spec
         self.path = options.path if options else path
         if self.path is None:
             self.env_label = options.env_label if options else env_label

@@ -11,6 +11,7 @@ from datamodel.generate import Stub
 from os import environ, makedirs
 from os.path import join, exists, dirname, sep
 from re import split
+from yaml import load, FullLoader
 
 
 __author__ = 'Joel Brownstein <joelbrownstein@sdss.org>'
@@ -23,7 +24,7 @@ class Generate(object):
     options : command-line options, optional
     tree_ver : str, optional
         Override the tree version default set by modules
-    spec : str, required
+    file_spec : str, required
         Name of file species
     path : str, optional (required w/out env_label + location)
         Symbolic path to fits file (can be combined from
@@ -37,7 +38,7 @@ class Generate(object):
     location: str, optional (required w/out path)
         the partial symbolic path (can be parsed from the
         symbolic path if omitted)
-    format : str, either md (default) or html
+    html : generate html format
     force : bool (default false)
         set True to over-write the human edited yaml and
         restore it to the original template / fits file.
@@ -45,9 +46,9 @@ class Generate(object):
     
     formats = ['md', 'html']
 
-    def __init__(self, options = None, tree_ver = None, spec = None, path = None, keywords = None, env_label = None, location = None, format = None, force = None, verbose = None, debug = None):
+    def __init__(self, options = None, tree_ver = None, file_spec = None, path = None, keywords = None, env_label = None, location = None, html = None, force = None, verbose = None, debug = None):
         self.tree_ver = options.tree_ver if options else tree_ver
-        self.spec = options.spec if options else spec
+        self.file_spec = options.file_spec if options else file_spec
         self.path = options.path if options else path
         self.keywords = options.keywords if options else keywords
         if self.path is None:
@@ -59,8 +60,8 @@ class Generate(object):
             except:
                 self.env_label = options.env_label if options else env_label
                 self.location = options.location if options else location
-        if not self.spec: self.set_spec_from_location()
-        self.format = options.format if options else format
+        if not self.file_spec: self.set_spec_from_location()
+        self.html = options.html if options else html
         self.force = options.force if options else force
         self.verbose = options.verbose if options else verbose
         self.debug = options.debug if options else debug
@@ -76,6 +77,7 @@ class Generate(object):
         self.set_sas_base_dir()
     
     def set_format(self):
+        self.format = 'html' if self.html else None
         if self.format not in self.formats: self.format = self.formats[0]
         
     def set_tree(self):
@@ -169,11 +171,12 @@ class Generate(object):
         elif not self.path:
             print("GENERATE> Please set path option, or set env_label and location options")
         elif self.datamodel_dir and self.abstract_location:
-            formats = [self.format, 'yaml', 'json']
+            formats = [self.format, 'access', 'yaml', 'json']
             self.directory = {}
             data_dir = join(self.datamodel_dir, 'data')
             for format in formats:
-                directory = join(data_dir, format, self.env_label, dirname(self.abstract_location))
+                directory = join(data_dir, format, self.env_label)
+                if format != 'access': directory = join(directory, dirname(self.abstract_location))
                 if not exists(directory):
                     try:
                         makedirs(directory)
@@ -205,55 +208,23 @@ class Generate(object):
 
     def set_spec_from_location(self):
         namesplit = split('[-.]', basename(self.location))
-        self.spec = namesplit[0] if len(namesplit) > 1 else None
+        self.file_spec = namesplit[0] if len(namesplit) > 1 else None
     
-    def set_spec_access(self):
-        if self.directory and 'yaml' in self.directory and self.env_label:
-            directory = join(self.directory['yaml'], self.env_label)
-            if not exists(directory):
-                try:
-                    makedirs(directory)
-                    if self.verbose:
-                        print("GENERATE> creating directory at %s" % directory)
-                except Exception as e:
-                    print("GENERATE> cannot create directory at %s" % directory)
-                    print("--> EXCEPTION=%r" % e)
-                    directory = None
-            path = join(directory, "%s.yaml" % self.spec) if directory and self.spec else None
-            if path:
-                if exists(path):
-                    with open(path) as file:
-                        self.spec_access = yaml.load(file, Loader=yaml.FullLoader)
-                        if self.spec_access.split(" = ")[-1] != self.path:
-                            print("GENERATE> Aborting due to conflict in existing spec: %s" % self.spec_access)
-                            self.spec_access = None
-                elif self.path:
-                    self.spec_access = "%s = %s" % (self.spec, self.path)
-                    try:
-                        with open(path, 'w') as file:
-                            file.write(self.spec_access)
-                        if self.verbose: print("GENERATE> Output to %s" % path)
-                    except Exception as e:
-                        print("GENERATE> Output exception %r" % e)
-                else: self.spec_access = None
-            else: self.spec_access = None
-        else: self.spec_access = None
-
     def set_stub(self):
         """Set the stub class and use it to write output
            from the template"
         """
-        if self.spec_access:
-            self.stub = Stub(directory = self.directory, verbose = self.verbose, force = self.force)
-            self.stub.set_input(path = self.file, spec = self.spec, format = self.format)
-            self.stub.set_input_hdus()
-            self.stub.set_environment()
-            self.stub.set_cache()
-            self.stub.set_template()
-            self.stub.set_output()
-            self.stub.set_result()
-            for format in [self.format, 'yaml', 'json']:
-                self.stub.write(format = format)
-            self.stub.close_input_hdus()
+        self.stub = Stub(file_spec = self.file_spec, directory = self.directory, verbose = self.verbose, force = self.force)
+        self.stub.set_access(path = self.path)
+        self.stub.set_input(path = self.file, format = self.format)
+        self.stub.set_input_hdus()
+        self.stub.set_environment()
+        self.stub.set_cache()
+        self.stub.set_template()
+        self.stub.set_output()
+        self.stub.set_result()
+        for format in [self.format, 'yaml', 'json']:
+            self.stub.write(format = format)
+        self.stub.close_input_hdus()
 
 

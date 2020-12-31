@@ -26,14 +26,14 @@ class Command(object):
 
 def datamodel_generate():
     parser = ArgumentParser()
-    parser.add_argument("-s", "--spec", help="unique name of file species",metavar="SPEC", required=True)
+    parser.add_argument("-f", "--file_spec", help="unique name of file species",metavar="FILE_SPEC")
     parser.add_argument("-t", "--tree_ver", help="tree version",metavar="TREE_VER")
     parser_group = parser.add_mutually_exclusive_group(required=True)
     parser_group.add_argument("-p", "--path", help="symbolic path of file",metavar="PATH")
     parser.add_argument("-e", "--env_label", help="env label",metavar="ENV_LABEL")
     parser_group.add_argument("-l", "--location", help="symbolic location of file",metavar="LOCATION")
     parser.add_argument("-k,", "--keywords", nargs='*', help="keyword value pair(s)",metavar="KEYWORDS")
-    parser.add_argument("-f", "--format", help="format html or md",metavar="FORMAT")
+    parser.add_argument("-h", "--html", help="generate html format",metavar="HTML")
     parser.add_argument("-F", "--force", help="force",action="store_true")
     parser.add_argument("-v", "--verbose", help="verbose",action="store_true")
     parser.add_argument("-d", "--debug", help="debug",action="store_true")
@@ -46,7 +46,7 @@ def datamodel_generate():
 
 def datamodel_wiki():
     parser = ArgumentParser()
-    parser.add_argument("-s", "--spec", help="unique name of file species",metavar="SPEC", required=True)
+    parser.add_argument("-f", "--file_spec", help="unique name of file species",metavar="FILE_SPEC", required=True)
     parser.add_argument("-t", "--tree_ver", help="tree version",metavar="TREE_VER")
     parser_group = parser.add_mutually_exclusive_group()
     parser_group.add_argument("-p", "--path", help="symbolic path of file",metavar="PATH")

@@ -10,7 +10,7 @@ from astropy.io import fits
 from os.path import basename, join, exists, getsize, splitext
 from jinja2 import Environment, PackageLoader
 from json import dumps
-import yaml
+from yaml import load, FullLoader, dump
 
 __author__ = 'Brian Cherinka, Joel Brownstein'
 
@@ -19,6 +19,7 @@ class Stub(object):
 
     Parameters
     ----------
+    file_spec : (unique) file file_spec name
     directory : dictionary of paths to output stub
     verbose : str , optional
         Verbose output
@@ -28,18 +29,46 @@ class Stub(object):
                      'E': 'float32', 'D': 'float64', 'B': 'bool', 'L': 'bool'}
     cache_formats = ['yaml']
 
-    def __init__(self, directory = None, verbose = None, force = None):
+    def __init__(self, file_spec = None, directory = None, verbose = None, force = None):
+        self.file_spec = file_spec
         self.directory = directory
         self.verbose = verbose
         self.force = force
         self.template = self.input = self.output = self.cache = self.environment = None
 
-    def set_input(self, path = None, spec = None, format = None):
+    def set_access(self, path = None):
+        if self.directory and 'access' in self.directory:
+            directory = self.directory['access']
+            if not exists(directory):
+                print("STUB> nonexistent directory at %s" % directory)
+                directory = None
+            access_path = join(directory, "%s.access" % self.file_spec) if directory and self.file_spec else None
+            if access_path:
+                if exists(access_path):
+                    with open(access_path) as file:
+                        print("STUB> access %s" % access_path)
+                        self.access = load(file, Loader=FullLoader)
+                        if self.access.split(" = ")[-1] != path:
+                            print("STUB> Aborting due to conflict in existing spec: %s" % self.access)
+                            self.access = None
+                elif access_path:
+                    self.access = "%s = %s" % (self.file_spec, path)
+                    try:
+                        with open(access_path, 'w') as file:
+                            file.write(self.access)
+                        if self.verbose: print("STUB> Output to %s" % access_path)
+                    except Exception as e:
+                        print("STUB> Output exception %r" % e)
+                else: self.access = None
+            else: self.access = None
+        else: self.access = None
+
+    def set_input(self, path = None, format = None):
         """Set the file's properties for it's path.
         """
         self.input = None
-        if path:
-            self.input = {'path': path, 'spec': spec, 'hdus': None}
+        if path and self.access:
+            self.input = {'path': path, 'file_spec': self.file_spec, 'hdus': None}
             self.input['format'] = format
             self.input['basename'] = basename(path)
             self.input['filename'] = self.input['basename'].replace('.', '\.')
@@ -56,9 +85,9 @@ class Stub(object):
         """Set the cached content from yaml (by default).
         """
         if self.input and format in self.cache_formats:
-            spec = self.input['spec'] if self.input and 'spec' in self.input else None
+            file_spec = self.input['file_spec'] if self.input and 'file_spec' in self.input else None
             dir = self.directory[format] if self.directory and format in self.directory else None
-            self.cache = {'format':format, 'path': join(dir, spec + "." + format)} if dir and spec else None
+            self.cache = {'format':format, 'path': join(dir, file_spec + "." + format)} if dir and file_spec else None
             self.cache['content'] = self.get_content_from_cache()
             self.set_cache_hdus()
         else: self.cache = None
@@ -119,10 +148,10 @@ class Stub(object):
         if path and format == 'yaml':
             if exists(path):
                 with open(path) as file:
-                    content = yaml.load(file, Loader=yaml.FullLoader)
+                    content = load(file, Loader=FullLoader)
             else:
                 template = self.environment.get_template("stub.%s" % format)
-                content = yaml.load(template.render(self.input))
+                content = load(template.render(self.input), Loader=FullLoader)
             if content and 'hdus' not in content: content['hdus'] = {}
         else: content = None
         return content
@@ -178,7 +207,8 @@ class Stub(object):
     def set_input_hdus(self):
         """Read the file and hdus.
         """
-        self.input['hdus'] = fits.open(self.input['path']) if self.input else None
+        if self.input:
+            self.input['hdus'] = fits.open(self.input['path'])
 
     def nonempty_string(self, value = None):
         """Jinja2 Filter to map the format value to a string.
@@ -225,12 +255,11 @@ class Stub(object):
 
     def set_output(self):
         if self.input and self.template:
-            spec = self.input['spec']
-            self.output = {format: join(dir, spec + "." + format) for format, dir in self.directory.items()}
+            self.output = {format: join(dir, self.file_spec + "." + format) for format, dir in self.directory.items()}
         else: self.output = None
 
     def get_yaml(self):
-        return yaml.dump(self.cache['content']) if self.cache and 'content' in self.cache else None
+        return dump(self.cache['content']) if self.cache and 'content' in self.cache else None
 
     def get_json(self):
         return dumps({}) if self.input else None
