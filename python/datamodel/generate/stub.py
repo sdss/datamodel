@@ -48,11 +48,11 @@ class Stub(object):
                     with open(access_path) as file:
                         print("STUB> access %s" % access_path)
                         self.access = load(file, Loader=FullLoader)
-                        if self.access.split(" = ")[-1] != path:
+                        if self.access.split(" = $")[-1] != path:
                             print("STUB> Aborting due to conflict in existing spec: %s" % self.access)
                             self.access = None
                 elif access_path:
-                    self.access = "%s = %s" % (self.file_spec, path)
+                    self.access = "%s = $%s" % (self.file_spec, path)
                     try:
                         with open(access_path, 'w') as file:
                             file.write(self.access)
