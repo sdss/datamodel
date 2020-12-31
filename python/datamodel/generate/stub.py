@@ -68,6 +68,9 @@ class Stub(object):
             else: self.access = None
         else: self.access = None
 
+    def git(self, path = None):
+    
+
     def write_access(self, path = None, replace = None):
         try:
             with open(path, 'w') as file:
