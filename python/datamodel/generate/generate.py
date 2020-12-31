@@ -60,7 +60,6 @@ class Generate(object):
                 self.env_label = options.env_label if options else env_label
                 self.location = options.location if options else location
         if not self.spec: self.set_spec_from_location()
-        self.set_spec_access()
         self.format = options.format if options else format
         self.force = options.force if options else force
         self.verbose = options.verbose if options else verbose
