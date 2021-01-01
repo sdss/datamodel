@@ -54,7 +54,7 @@ class Git(object):
     def commit(self, path = None, location = None, all = None, message = None):
         args = ['--all'] if all else []
         if message:
-            args += ['-m', messsage]
+            args += ['-m', message]
             if path and not location:
                 location = self.get_location_from_path(path = path)
             if location and not all: args += [location]
