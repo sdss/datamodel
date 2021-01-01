@@ -27,9 +27,11 @@ class Git(object):
         self.directory = getenv("DATAMODEL_DIR")
         if not self.directory: print("GIT> cannot set directory.  Please set DATAMODEL_DIR.")
 
-    def status(self):
-        self.run_action(action = 'status')
-    
+    def status(self, path = None, location = None):
+        if path and not location:
+            location = self.get_location_from_path(path = path)
+        self.run_action(action = 'status', arg = location)
+
     def pull(self):
         self.run_action(action = 'pull')
     
@@ -49,7 +51,10 @@ class Git(object):
     def add(self, path = None, location = None):
         if path and not location:
             location = self.get_location_from_path(path = path)
-        if location: self.run_action(action = 'add', arg = location)
+        if location:
+            self.status(location=location)
+            if "Untracked files" in self.response:
+                self.run_action(action = 'add', arg = location)
     
     def commit(self, path = None, location = None, all = None, message = None):
         args = ['--all'] if all else []
@@ -57,8 +62,13 @@ class Git(object):
             args += ['-m', message]
             if path and not location:
                 location = self.get_location_from_path(path = path)
-            if location and not all: args += [location]
-            self.run_action(action = 'commit', args = args)
+            if location and not all:
+                args += [location]
+                self.git.status(location=location)
+                if "modified" in self.response:
+                    self.run_action(action = 'commit', args = args)
+            elif all:
+                self.run_action(action = 'commit', args = args)
         else: print("GIT> commit requires message")
     
     def run_action(self, action = None, arg = None, args = None):
