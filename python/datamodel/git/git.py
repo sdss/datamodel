@@ -64,7 +64,7 @@ class Git(object):
                 location = self.get_location_from_path(path = path)
             if location and not all:
                 args += [location]
-                self.git.status(location=location)
+                self.status(location=location)
                 if "modified" in self.response:
                     self.run_action(action = 'commit', args = args)
             elif all:
