@@ -39,9 +39,16 @@ class Git(object):
     def rm(self, location = None):
         self.run_action(action = 'rm', arg = location)
 
+    def get_location_from_path(self, path = None):
+        if path:
+            directory = join(self.directory,'') if self.directory else None
+            location = path[len(directory):] if directory and path.startswith(directory) else None
+        else: location = None
+        return location
+
     def add(self, path = None, location = None):
         if path and not location:
-            location = path[len(self.directory):] if path.startswith(self.directory) else None
+            location = self.get_location_from_path(path = path)
         if location: self.run_action(action = 'add', arg = location)
     
     def commit(self, path = None, location = None, all = None, message = None):
@@ -49,7 +56,7 @@ class Git(object):
         if message:
             args += ['-m', messsage]
             if path and not location:
-                location = path[len(self.directory):] if path.startswith(self.directory) else None
+                location = self.get_location_from_path(path = path)
             if location and not all: args += [location]
             self.run_action(action = 'commit', args = args)
         else: print("GIT> commit requires message")
