@@ -97,7 +97,7 @@ class Stub(object):
             with open(path, 'w') as file:
                 file.write(self.access)
                 self.git.add(path=path)
-                self.git.commit(path=path, message='%s - access' % self.file_spec)
+                self.git.commit(path=path, message='%s.access' % self.file_spec)
             if self.verbose:
                 if replace: print("STUB> Output to %s [replaced!]" % path )
                 else: print("STUB> Output to %s" % path )
@@ -331,7 +331,7 @@ class Stub(object):
                     with open(path, 'w') as file:
                         file.write(self.result[format])
                     self.git.add(path=path)
-                    self.git.commit(path=path, message='%s - %s' % (self.file_spec, format))
+                    self.git.commit(path=path, message='%s.%s' % (self.file_spec, format))
                     if self.verbose: print("STUB> Output to %s" % path)
                 except Exception as e:
                     print("STUB> Output exception %r" % e)
