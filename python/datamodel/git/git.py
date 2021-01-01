@@ -82,5 +82,4 @@ class Git(object):
     def print_response(self):
         if self.response:
             for index, response in enumerate(self.response.split('\n')):
-                print("%s> %s" % (" "*4 if index else "GIT>", response))
-        else: print("GIT> %r" % self.response)
+                if response: print("%s %s" % (" "*4 if index else "GIT>", response))
