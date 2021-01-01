@@ -55,7 +55,7 @@ class Stub(object):
                         if _path != path:
                             if replace:
                                 self.drop_access(file_spec = _file_spec, path = _path)
-                                self.drop_formats(
+                                #self.drop_formats(
                                 self.access = "%s = $%s" % (self.file_spec, path)
                                 self.write_access(path = access_path, replace = replace)
                             else:
