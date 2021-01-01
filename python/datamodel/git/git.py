@@ -17,7 +17,7 @@ class Git(object):
     """Class to run the git commands.
     """
     
-    actions = ['status', 'pull']
+    actions = ['add', 'commit', 'pull', 'push', 'rm', 'status']
 
     def __init__(self, verbose = None):
         self.verbose = verbose
