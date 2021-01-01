@@ -33,9 +33,27 @@ class Git(object):
     def pull(self):
         self.run_action(action = 'pull')
     
+    def push(self):
+        self.run_action(action = 'push')
+    
     def rm(self, location = None):
         self.run_action(action = 'rm', arg = location)
 
+    def add(self, path = None, location = None):
+        if path and not location:
+            location = path[len(self.directory):] if path.startswith(self.directory) else None
+        if location: self.run_action(action = 'add', arg = location)
+    
+    def commit(self, path = None, location = None, all = None, message = None):
+        args = ['--all'] if all else []
+        if message:
+            args += ['-m', messsage]
+            if path and not location:
+                location = path[len(self.directory):] if path.startswith(self.directory) else None
+            if location and not all: args += [location]
+            self.run_action(action = 'commit', args = args)
+        else: print("GIT> commit requires message")
+    
     def run_action(self, action = None, arg = None, args = None):
         if action in self.actions:
             self.action = [action]

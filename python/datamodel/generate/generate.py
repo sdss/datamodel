@@ -211,6 +211,7 @@ class Generate(object):
            from the template"
         """
         self.stub = Stub(file_spec = self.file_spec, directory = self.directory, verbose = self.verbose, force = self.force)
+        self.stub.git.status()
         self.stub.set_access(path = self.path, replace = self.replace)
         self.stub.set_input(path = self.file, format = self.format)
         self.stub.set_input_hdus()
@@ -222,5 +223,6 @@ class Generate(object):
         for format in [self.format, 'yaml', 'json']:
             self.stub.write(format = format)
         self.stub.close_input_hdus()
+        self.stub.git.push()
 
 

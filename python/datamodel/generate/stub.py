@@ -51,12 +51,10 @@ class Stub(object):
                     with open(access_path) as file:
                         print("STUB> access %s" % access_path)
                         self.access = load(file, Loader=FullLoader)
-                        print("STUB> %r" % self.access)
                         _file_spec, _path = self.access.split(" = $", 2)
                         if _path != path:
                             if replace:
-                                self.drop_access(file_spec = _file_spec, path = _path)
-                                #self.drop_formats(
+                                self.drop_formats(file_spec = _file_spec, path = _path)
                                 self.access = "%s = $%s" % (self.file_spec, path)
                                 self.write_access(path = access_path, replace = replace)
                             else:
@@ -73,6 +71,11 @@ class Stub(object):
             else: self.access = None
         else: self.access = None
 
+    def drop_formats(self, file_spec = None, path = None):
+        for format in formats:
+            if format == 'access': self.drop_access(file_spec = file_spec, path = path)
+            else: self.drop_format(format = format, file_spec = file_spec, path = path)
+
     def drop_access(self, file_spec = None, path = None):
         try: env_label = path.split(sep, 1)[0]
         except: env_label = None
@@ -80,10 +83,6 @@ class Stub(object):
         if location: self.git.rm(location = location)
         else: print("STUB> Cannot drop access for file_spec=%r, path=%r" % (file_spec, path))
 
-    def drop_formats(self, file_spec = None, path = None):
-        for format in formats:
-            self.drop_format(format = format, file_spec = file_spec, path = path)
-            
     def drop_format(self, format = None, file_spec = None, path = None):
         if path:
             for keyword in findall(r'\{.*?\}', path):
@@ -97,6 +96,8 @@ class Stub(object):
         try:
             with open(path, 'w') as file:
                 file.write(self.access)
+                self.git.add(path=path)
+                self.git.commit(path=path, message='%s - access' % self.file_spec)
             if self.verbose:
                 if replace: print("STUB> Output to %s [replaced!]" % path )
                 else: print("STUB> Output to %s" % path )
@@ -325,10 +326,13 @@ class Stub(object):
         """
         if self.output and self.result:
             if format and format in self.output and format in self.result:
+                path = self.output[format]
                 try:
-                    with open(self.output[format], 'w') as file:
+                    with open(path, 'w') as file:
                         file.write(self.result[format])
-                    if self.verbose: print("STUB> Output to %s" % self.output[format])
+                    self.git.add(path=path)
+                    self.git.commit(path=path, message='%s - %s' % format)
+                    if self.verbose: print("STUB> Output to %s" % path)
                 except Exception as e:
                     print("STUB> Output exception %r" % e)
             else:
