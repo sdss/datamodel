@@ -33,12 +33,14 @@ class Git(object):
     def pull(self):
         self.run_action(action = 'pull')
     
-    def delete(self, location = None):
-        self.action = ['delete']
-    
-    def run_action(self, action = None):
+    def rm(self, location = None):
+        self.run_action(action = 'rm', arg = location)
+
+    def run_action(self, action = None, arg = None, args = None):
         if action in self.actions:
             self.action = [action]
+            if arg: self.action += [arg]
+            elif args: self.action += args
             self.set_command()
             self.set_response()
             if self.verbose: self.print_response()
@@ -47,6 +49,7 @@ class Git(object):
 
     def set_command(self):
         self.command = ['git'] + self.action if self.action else None
+        if self.command and self.verbose: print("GIT> %s" % " ".join(self.command))
 
     def set_response(self):
         self.response = check_output(self.command,cwd=self.directory,universal_newlines=True).rstrip() if self.command and self.directory else None
@@ -54,5 +57,5 @@ class Git(object):
     def print_response(self):
         if self.response:
             for index, response in enumerate(self.response.split('\n')):
-                print("%s> %s" % ("..." if index else "GIT", response))
+                print("%s> %s" % (" "*4 if index else "GIT>", response))
         else: print("GIT> %r" % self.response)

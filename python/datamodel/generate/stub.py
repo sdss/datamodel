@@ -6,11 +6,13 @@
 # @License: BSD 3-Clause
 # @Copyright: SDSS.
 
+from datamodel.git import Git
 from astropy.io import fits
-from os.path import basename, join, exists, getsize, splitext
+from os.path import basename, join, exists, getsize, splitext, sep
 from jinja2 import Environment, PackageLoader
 from json import dumps
 from yaml import load, FullLoader, dump
+from re import findall
 
 __author__ = 'Brian Cherinka, Joel Brownstein'
 
@@ -35,6 +37,7 @@ class Stub(object):
         self.verbose = verbose
         self.force = force
         self.template = self.input = self.output = self.cache = self.environment = None
+        self.git = Git()
 
     def set_access(self, path = None, replace = None):
         if self.directory and 'access' in self.directory:
@@ -48,10 +51,11 @@ class Stub(object):
                     with open(access_path) as file:
                         print("STUB> access %s" % access_path)
                         self.access = load(file, Loader=FullLoader)
-                        _path = self.access.split(" = $")[-1]
+                        _file_spec, _path = self.access.split(" = $", 1)
                         if _path != path:
                             if replace:
-                                self.drop_access(path = _path)
+                                self.drop_access(file_spec = _file_spec, path = _path)
+                                self.drop_formats(
                                 self.access = "%s = $%s" % (self.file_spec, path)
                                 self.write_access(path = access_path, replace = replace)
                             else:
@@ -68,8 +72,25 @@ class Stub(object):
             else: self.access = None
         else: self.access = None
 
-    def git(self, path = None):
-    
+    def drop_access(self, file_spec = None, path = None):
+        try: env_label = path.split(sep, 1)[0]
+        except: env_label = None
+        location = join('data', 'access', env_label, "%s.access" % file_spec) if env_label and file_spec else None
+        if location: self.git.rm(location = location)
+        else: print("STUB> Cannot drop access for file_spec=%r, path=%r" % (file_spec, path))
+
+    def drop_formats(self, file_spec = None, path = None):
+        for format in formats:
+            self.drop_format(format = format, file_spec = file_spec, path = path)
+            
+    def drop_format(self, format = None, file_spec = None, path = None):
+        if path:
+            for keyword in findall(r'\{.*?\}', path):
+                abstract_key = keyword.replace('{','').replace('}','').upper()
+                path = path.replace(keyword, abstract_key)
+        location = join('data', format, path, "%s.%r" % (file_spec, format)) if format and file_spec and path else None
+        if location: self.git.rm(location = access_location)
+        else: print("STUB> Cannot drop %s for file_spec=%r, path=%r" % (format, file_spec, path))
 
     def write_access(self, path = None, replace = None):
         try:

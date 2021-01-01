@@ -114,6 +114,8 @@ class Generate(object):
     
     def set_real_and_abstract_location(self):
         """Substitute the keywords into the location
+        to form a real location, and replace with
+        upper case for the astract location
         """
         self.real_location = self.abstract_location = None
         real = {}
@@ -129,18 +131,6 @@ class Generate(object):
             self.abstract_location = self.location.format(**abstract)
         except Exception as e: print("GENERATE %r> key %s is missing from location=%r" % (e, key, self.location))
     
-    def set_abstract_location(self):
-        """Replace the keyword format with upper case
-        """
-        self.abstract_location = self.location
-        keywords = {}
-        for keyword in self.keywords:
-            try: key, value = keyword.split('=')
-            except: print("GENERATE> %r is an invalid key=value assignment")
-            try: self.real_location.format(key=value)
-            except: print("GENERATE> key %s is missing from location=%r" % (key, self.location))
-    
-
     def set_datamodel_dir(self):
         """Set the DATAMODEL_DIR from the environment
         """
