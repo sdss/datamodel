@@ -97,10 +97,9 @@ class Stub(object):
             if self.verbose:
                 if replace: print("STUB> Output to %s [replaced!]" % path )
                 else: print("STUB> Output to %s" % path )
-            with open(path, 'w') as file:
-                file.write(self.access)
-                self.git.add(path=path)
-                self.git.commit(path=path, message='%s.access' % self.file_spec)
+            with open(path, 'w') as file: file.write(self.access)
+            self.git.add(path=path)
+            self.git.commit(path=path, message='%s.access' % self.file_spec)
         except Exception as e:
             print("STUB> Output exception %r" % e)
 
@@ -329,8 +328,7 @@ class Stub(object):
                 path = self.output[format]
                 try:
                     if self.verbose: print("STUB> Output to %s" % path)
-                    with open(path, 'w') as file:
-                        file.write(self.result[format])
+                    with open(path, 'w') as file: file.write(self.result[format])
                     self.git.add(path=path)
                     self.git.commit(path=path, message='%s.%s' % (self.file_spec, format))
                 except Exception as e:
