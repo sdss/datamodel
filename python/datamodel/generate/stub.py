@@ -37,7 +37,7 @@ class Stub(object):
         self.verbose = verbose
         self.force = force
         self.template = self.input = self.output = self.cache = self.environment = None
-        self.git = Git()
+        self.git = Git(verbose = self.verbose)
 
     def set_access(self, path = None, replace = None):
         if self.directory and 'access' in self.directory:
