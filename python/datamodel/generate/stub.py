@@ -51,7 +51,7 @@ class Stub(object):
                     with open(access_path) as file:
                         print("STUB> access %s" % access_path)
                         self.access = load(file, Loader=FullLoader)
-                        _file_spec, _path = self.access.split(" = $", 1)
+                        _file_spec, _path = self.access.split(" = $", 2) 
                         if _path != path:
                             if replace:
                                 self.drop_access(file_spec = _file_spec, path = _path)
