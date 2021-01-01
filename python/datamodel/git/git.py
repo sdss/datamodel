@@ -65,7 +65,7 @@ class Git(object):
             if location and not all:
                 args += [location]
                 self.status(location=location)
-                if "modified" in self.response:
+                if "new file" in self.response or "modified" in self.response:
                     self.run_action(action = 'commit', args = args)
             elif all:
                 self.run_action(action = 'commit', args = args)
