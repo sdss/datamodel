@@ -49,6 +49,7 @@ def datamodel_wiki():
     parser = ArgumentParser()
     parser.add_argument("-f", "--file_spec", help="unique name of file species",metavar="FILE_SPEC", required=True)
     parser.add_argument("-t", "--tree_ver", help="tree version",metavar="TREE_VER")
+    parser.add_argument("-s", "--space_ver", help="space version",metavar="SPACE_VER")
     parser_group = parser.add_mutually_exclusive_group()
     parser_group.add_argument("-p", "--path", help="symbolic path of file",metavar="PATH")
     parser.add_argument("-e", "--env_label", help="env label",metavar="ENV_LABEL")

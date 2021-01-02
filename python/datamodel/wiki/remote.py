@@ -9,10 +9,11 @@
 from os import getenv
 from os.path import join, exists, basename
 from netrc import netrc
-from subprocess import check_output
+from subprocess import check_output, CalledProcessError
 
 
 __author__ = 'Joel Brownstein <joelbrownstein@sdss.org>'
+
 
 class Remote(object):
     """Class to run the remote command-line inteface.
@@ -21,12 +22,20 @@ class Remote(object):
     ----------
     hostname : str, default=wiki.sdss.org
         Set the wiki hostname
+    space : str, default=DATAMODEL
+        Set the wiki space
     """
     
     java = "/usr/bin/java"
+    PAGE_NOT_FOUND = 255
     
-    def __init__(self, hostname = None, verbose = None):
+    def __init__(self, hostname = None, space = None, verbose = None):
         self.hostname = hostname if hostname else "https://wiki.sdss.org"
+        self.space = space if space else "DATAMODEL"
+        self.login = None
+        self.command = None
+        self.response = None
+        self.error = None
         self.verbose = verbose
         self.set_netrc()
         self.set_credential()
@@ -69,6 +78,36 @@ class Remote(object):
             jar = None
         self.jar = [self.java, '-jar', jar, 'confluence', '--server', self.hostname] if jar and self.hostname else None
 
+    def set_pagelist(self, parent=None, title=None):
+        if self.space:
+            self.action = ["--action", "getPageList"]
+            self.action += ["--space", self.space]
+            if parent: self.action += ["--parent", parent]
+            if title: self.action += ["--title", title]
+            self.action += ["--outputFormat", "2"]
+            self.set_command()
+            self.set_response()
+            if self.error: self.pagelist = None
+            else:
+                self.pagelist = self.get_data_from_response()
+                if self.pagelist:
+                    self.pagelist['parent'] = parent
+                    if self.verbose: print("REMOTE> %(summary)s for parent=%(parent)r" % self.pagelist)
+        else:
+            self.pagelist = None
+
+    def get_data_from_response(self):
+        keys = summary = None
+        data = []
+        if self.response:
+            lines = self.response.split("\n")
+            for index, line in enumerate(lines):
+                if index > 1:
+                    values = line.replace('"','').split(",")
+                    data.append(dict(zip(keys, values)))
+                elif index: keys = line.lower().replace('"','').split(",")
+                else: summary = line
+        return {'summary': summary, 'data': data} if summary and data else None
 
     def set_login(self):
         if self.credential and 'user' in self.credential and 'password' in self.credential:
@@ -77,13 +116,24 @@ class Remote(object):
             self.login += ["--password", self.credential['password']]
             self.set_command()
             self.set_response()
-            self.login = ["--login", self.response] if self.response.startswith("JSESSIONID") else None
-            if self.verbose: print("REMOTE> %r" % self.response)
+            self.login = ["--login", self.response] if not self.error and self.response.startswith("JSESSIONID") else None
+            if self.verbose: self.print_response_or_error()
         else:
             self.login = None
 
     def set_command(self):
         self.command = self.jar + self.action + self.login if self.jar and self.action and self.login else None
 
+    def print_response_or_error(self):
+        if self.response: print("REMOTE> %r" % self.response)
+        elif self.error: print("REMOTE> %r" % self.error)
+
     def set_response(self):
-        self.response = check_output(self.command,universal_newlines=True).rstrip() if self.command else None
+        try:
+            self.response = check_output(self.command,universal_newlines=True).rstrip() if self.command else None
+            self.error = None
+        except CalledProcessError as error:
+            self.response = None
+            self.error = error
+            if self.error.stderr and self.error.stderr.endswith("not authorized."):
+                print("REMOTE> Either your session has expired, or your credentials are not valid.  Please try a fresh session, or check the credentials in your netrc file.")
