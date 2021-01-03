@@ -9,6 +9,7 @@
 from tree import Tree
 from datamodel.wiki import Remote
 from os.path import join, exists
+from jinja2 import Environment, PackageLoader
 
 
 __author__ = 'Joel Brownstein <joelbrownstein@sdss.org>'
@@ -59,6 +60,8 @@ class Page(object):
         self.force = options.force if options else force
         self.verbose = options.verbose if options else verbose
         self.debug = options.debug if options else debug
+        self.set_abstract_path()
+        self.set_environment()
 
     def set_tree(self):
         """Set the Tree from input options, or default to the current loaded module
@@ -79,11 +82,13 @@ class Page(object):
         return title
 
     def get_content(self, parent = None):
-        if parent:
-            content = "parent content"
+        self.set_template(parent = parent)
+        if parent: data = None
         else:
-            content = "file spec content"
-        return content
+            markdown = join('data', 'md', self.abstract_path, '%s.md' % self.file_spec)
+            access = join('data', 'access', self.env_label, '%s.access' % self.file_spec)
+            data = {'markdown': markdown, 'access': access}
+        return self.template.render(data = data) if self.template else None
 
     def set_remote_pagelist(self, root = None):
         self.remote.set_pagelist(parent = self.get_title(root = root))
@@ -115,5 +120,40 @@ class Page(object):
         if parent and title and content:
             print("PAGE> create %s: %s with content=%r" % (parent,title,content))
 
+    def set_environment(self):
+        """Set the jina2 environment including filters for content.
+        """
+        loader = PackageLoader('datamodel', 'templates')
 
+    def set_template(self, parent = None):
+        """Create the Jinja2 environment and set the template.
+        """
+        
+        pagetype = "parent" if parent else "page"
+        self.template = self.environment.get_template("wiki-%()s.html" % pagetype) if self.environment else None
+    
+    def set_abstract_path(self):
+        """Replace keywords with upper case for
+        the astract path
+        """
+        self.abstract_path = self.path
+        if self.path:
+            for keyword in findall(r'\{.*?\}', self.path):
+                abstract_key = keyword.replace('{','').replace('}','').upper()
+                self.abstract_path = self.abstract_path.replace(keyword, abstract_key)
 
+    def write(self, format = None):
+        """Write the output result to the output path.
+        """
+        if self.output and self.result:
+            if format and format in self.output and format in self.result:
+                path = self.output[format]
+                try:
+                    if self.verbose: print("STUB> Output to %s" % path)
+                    with open(path, 'w') as file: file.write(self.result[format])
+                    self.git.add(path=path)
+                    self.git.commit(path=path, message='%s.%s' % (self.file_spec, format))
+                except Exception as e:
+                    print("STUB> Output exception %r" % e)
+            else:
+                print("STUB> Invalid format=%r for write" % format)
