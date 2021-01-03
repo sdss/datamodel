@@ -129,7 +129,8 @@ class Page(object):
         """
         
         pagetype = "parent" if parent else "page"
-        self.template = self.environment.get_template("wiki-%()s.html" % pagetype) if self.environment else None
+        html = "wiki-%s.html" % pagetype
+        self.template = self.environment.get_template(html) if self.environment else None
     
     def set_abstract_path(self):
         """Replace keywords with upper case for
