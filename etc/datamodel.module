@@ -44,7 +44,7 @@ module-whatis "Sets up $product/$version in your environment."
 # command.  An optional dependency is not followed by a prereq statement.
 #
 
-
+module load atlassian
 
 #
 # ENVIRONMENT SECTION
@@ -52,23 +52,22 @@ module-whatis "Sets up $product/$version in your environment."
 # The PRODUCT_ROOT and PRODUCT_DIR variables are used to set other
 # environment variables, exported to the actual environment, by sdss4install
 #
-set PRODUCT_ROOT {root}
-set PRODUCT_DIR $PRODUCT_ROOT/$product/$version
+set PRODUCT_ROOT                                {root}
+set INSTALL_DIR                                 $PRODUCT_ROOT/$product
+set PRODUCT_DIR                                 $PRODUCT_ROOT/$product/$version
 #
 # This line creates an environment variable pointing to the install
 # directory of your product.
 #
-setenv [string toupper $product]_DIR $PRODUCT_DIR
+setenv [string toupper $product]_INSTALL_DIR    $INSTALL_DIR
+setenv [string toupper $product]_DIR            $PRODUCT_DIR
 #
 # The lines below set various other environment variables.  They assume the
 # template product layout.  These will be set or commented as needed by the
 # sdss4install script.
 #
-{needs_bin}prepend-path PATH $PRODUCT_DIR/bin
-{needs_python}prepend-path PYTHONPATH $PRODUCT_DIR/lib/{pyversion}/site-packages
-{needs_trunk_python}prepend-path PYTHONPATH $PRODUCT_DIR/python
-{needs_ld_lib}prepend-path LD_LIBRARY_PATH $PRODUCT_DIR/lib
-{needs_idl}prepend-path IDL_PATH +$PRODUCT_DIR/pro
+prepend-path PATH                               $PRODUCT_DIR/bin
+prepend-path PYTHONPATH                         $PRODUCT_DIR/python
 #
 # Add any non-standard Module code below this point.
 #

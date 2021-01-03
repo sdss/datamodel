@@ -63,3 +63,12 @@ def datamodel_wiki():
     elif args.location:
         if not args.env_label: parser.error("You must specify an ENV_LABEL with the --location option")
     return args
+
+def datamodel_install():
+    parser = ArgumentParser()
+    parser.add_argument("-b", "--branch", help="branch", metavar="BRANCH", default = "main")
+    parser.add_argument("-F", "--force", help="force",action="store_true")
+    parser.add_argument("-v", "--verbose", help="verbose",action="store_true")
+    parser.add_argument("-d", "--debug", help="debug",action="store_true")
+    args = parser.parse_args()
+    return args

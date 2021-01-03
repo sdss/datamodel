@@ -17,7 +17,7 @@ class Git(object):
     """Class to run the git commands.
     """
     
-    actions = ['add', 'commit', 'pull', 'push', 'rm', 'status']
+    actions = ['add', 'checkout', 'clone', 'commit', 'pull', 'push', 'rm', 'status']
 
     def __init__(self, verbose = None):
         self.verbose = verbose
@@ -56,6 +56,14 @@ class Git(object):
             if "Untracked files" in self.response:
                 self.run_action(action = 'add', arg = location)
     
+    def clone(self, product = None, branch = None):
+        if product and branch:
+            self.run_action(action = 'clone', args = [product, branch])
+
+    def checkout(self, branch = None):
+        if branch:
+            self.run_action(action = 'checkout', arg = branch)
+
     def commit(self, path = None, location = None, all = None, message = None):
         args = ['--all'] if all else []
         if message:
