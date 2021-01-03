@@ -122,6 +122,7 @@ class Page(object):
         """Set the jina2 environment including filters for content.
         """
         loader = PackageLoader('datamodel', 'templates')
+        self.environment = Environment(loader=loader, trim_blocks=True, lstrip_blocks=True)
 
     def set_template(self, parent = None):
         """Create the Jinja2 environment and set the template.
