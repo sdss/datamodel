@@ -130,7 +130,7 @@ class Install(object):
             if self.modulefile['path'] and self.modulefile['content']:
                 try:
                     with open(self.modulefile['path'], 'w') as file: file.write(self.modulefile['content'])
-                    self.message.append("please module load datamodel/%s in a new terminal" % self.branch)
+                    self.message.append("please do the following in a new terminal:\n$ module load datamodel/%s" % self.branch)
                     if self.verbose: print("INSTALL> modulefile added at path=%(path)r" % self.modulefile)
                 except Exception as e:
                     print("INSTALL> unable to add modulefile due to %r" % e)
