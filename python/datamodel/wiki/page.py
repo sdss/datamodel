@@ -73,7 +73,7 @@ class Page(object):
     def set_remote(self):
         self.remote = Remote(verbose = self.verbose)
         self.remote.set_login()
-        
+    
     def get_title(self, root = None, parent = None):
         title = "Datamodel" if root else self.env_label if parent else self.file_spec
         title = ".%s v%s" % (title, self.space_ver) if title and self.space_ver else None
@@ -88,8 +88,8 @@ class Page(object):
             data = {'markdown': markdown, 'access': access}
         return self.template.render(data = data) if self.template else None
 
-    def set_remote_pagelist(self, root = None):
-        self.remote.set_pagelist(parent = self.get_title(root = root))
+    def set_remote_pagelist(self, root = None, parent = None):
+        self.remote.set_pagelist(parent = self.get_title(root = root, parent = parent))
 
     def create_parent(self):
         if self.remote.pagelist:
@@ -97,7 +97,6 @@ class Page(object):
         else:
             self.set_remote_pagelist(root = True)
             self.create_page(title = self.get_title(parent = True), content = self.get_content(parent = True))
-            self.set_remote_pagelist()
 
     def create_datamodel(self):
         if self.remote.pagelist:

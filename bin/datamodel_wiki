@@ -13,10 +13,9 @@ from datamodel.wiki import Page
 command = Command(name='datamodel_wiki')
 page = Page(options = command.options)
 page.set_remote()
-page.set_remote_pagelist()
+page.set_remote_pagelist(parent=True)
 page.create_parent()
 page.create_datamodel()
-#page.logout()
 
 """
 usage via commandline:
@@ -26,9 +25,8 @@ usage via python:
 from datamodel.wiki import Page
 page = Page(tree_ver = 'sdss5', env_label = 'APOGEE_REDUX', file_spec = 'allStar',  verbose = True)
 page.set_remote()
-page.set_remote_pagelist()
+page.set_remote_pagelist(parent=True)
 page.create_parent()
 page.create_datamodel()
-page.logout()
 
 """
