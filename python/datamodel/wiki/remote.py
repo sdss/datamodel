@@ -81,7 +81,8 @@ class Remote(object):
     def add_page(self, parent=None, title=None, content=None):
         if self.space:
             if title and content:
-                self.action = ["--action", "addPage", "--title", title, "--content", content]
+                self.action = ["--action", "addPage", "--space", self.space]
+                self.action += ["--title", title, "--content", content]
                 self.action += ["--parent", parent] if parent else ["--parent", "@home"]
                 self.set_command()
                 self.set_response()
