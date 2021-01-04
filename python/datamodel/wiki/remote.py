@@ -78,12 +78,13 @@ class Remote(object):
             jar = None
         self.jar = [self.java, '-jar', jar, 'confluence', '--server', self.hostname] if jar and self.hostname else None
 
-    def add_page(self, parent=None, title=None, content=None):
+    def add_page(self, parent=None, title=None, content=None, convert=None):
         if self.space:
             if title and content:
                 self.action = ["--action", "addPage", "--space", self.space]
                 self.action += ["--title", title, "--content", content]
                 self.action += ["--parent", parent] if parent else ["--parent", "@home"]
+                if not convert: self.action += ["--noConvert"]
                 self.set_command()
                 self.set_response()
                 self.print_response_or_error()
