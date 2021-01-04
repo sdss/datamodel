@@ -124,7 +124,11 @@ class Page(object):
             if self.verbose: print("PAGE> found %s page (version=%r)" % (self.env_label, self.space_ver))
         else:
             self.set_remote_pagelist(root = True)
-            self.create_page(title = self.get_title(parent = True), content = self.get_content(parent = True))
+            try: parent = self.remote.pagelist['parent']
+            except: parent = None
+            title = self.get_title(parent = True)
+            content = self.get_content(parent = True)
+            self.create_page(parent = parent, title = title, content = content)
 
     def create_datamodel(self):
         if self.remote.pagelist:
@@ -135,7 +139,9 @@ class Page(object):
             if page:
                 if self.verbose: print("PAGE> found %s page (version=%r)" % (self.file_spec, self.space_ver))
             else:
-                self.create_page(title = title, content = self.get_content())
+                parent = self.get_title(parent = True)
+                content = self.get_content()
+                self.create_page(parent = parent, title = title, content = content)
         else:
             print("PAGE> error creating %s page without finding parent %s page (version=%r)." % (self.file_spec, self.env_label, self.space_ver))
 
