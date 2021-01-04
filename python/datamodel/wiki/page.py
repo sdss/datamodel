@@ -85,7 +85,7 @@ class Page(object):
     
     def get_title(self, root = None, parent = None):
         title = "Datamodel" if root else self.env_label if parent else self.file_spec
-        title = ".%s v%s" % (title, self.space_ver) if title and self.space_ver else None
+        #title = ".%s v%s" % (title, self.space_ver) if title and self.space_ver else None
         return title
 
     def set_path_from_access(self, access = None):
