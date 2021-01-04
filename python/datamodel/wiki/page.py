@@ -145,9 +145,7 @@ class Page(object):
         else:
             print("PAGE> error creating %s page without finding parent %s page (version=%r)." % (self.file_spec, self.env_label, self.space_ver))
 
-    def create_page(self, title = None, content = None):
-        try: parent = self.remote.pagelist['parent']
-        except: parent = None
+    def create_page(self, parent = None, title = None, content = None):
         if title and content: self.remote.add_page(parent = parent, title = title, content = content)
 
     def set_environment(self):
