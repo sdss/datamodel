@@ -8,7 +8,7 @@
 
 from tree import Tree
 from datamodel.wiki import Remote
-from os.path import join, exists
+from os.path import join, exists, dirname
 from os import getenv
 from yaml import load, FullLoader
 from jinja2 import Environment, PackageLoader
@@ -107,7 +107,8 @@ class Page(object):
             access = join('data', 'access', self.env_label, '%s.access' % self.file_spec) if self.env_label else None
             self.set_path_from_access(access = access)
             self.set_abstract_path()
-            markdown = join('data', 'md', self.abstract_path, '%s.md' % self.file_spec) if self.abstract_path else None
+            dir = dirname(self.abstract_path) if self.abstract_path else None
+            markdown = join('data', 'md', dir, '%s.md' % self.file_spec) if dir else None
             self.data = {'markdown': markdown, 'access': access} if markdown and access else None
         else: self.data = None
 
