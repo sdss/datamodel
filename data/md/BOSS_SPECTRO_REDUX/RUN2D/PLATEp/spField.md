@@ -1,7 +1,7 @@
 # Data Model: 
 
 ## General Description
-The spField files contain the combined spectra for all exposures of a given plate plus the plugmap table. There are typically four 900s exposures which may have been taken in a single night, or over multiple nights. This page is an updated summary of the [https://data.sdss.org/datamodel/files/BOSS_SPECTRO_REDUX/RUN2D/PLATE4/spPlate.html SDSS4 spPlate data model].
+The spField files contain the combined spectra for all exposures of a given plate plus the plugmap table. There are typically four 900s exposures which may have been taken in a single night, or over multiple nights. This page is an updated summary of the SDSS4 spPlate data model (https://data.sdss.org/datamodel/files/BOSS_SPECTRO_REDUX/RUN2D/PLATE4/spPlate.html).
 
 
 ### Naming Convention
