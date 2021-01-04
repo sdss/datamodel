@@ -1,7 +1,7 @@
 # Data Model: 
 
 ## General Description
-This file is the template data model file. It is meant as a guideline to how to write each data model file.  The main categories (in bold) should be respected, but extra information can be included as appropriate.  The example sections below are primarily related to FITS files.
+Test This file is the template data model file. It is meant as a guideline to how to write each data model file.  The main categories (in bold) should be respected, but extra information can be included as appropriate.  The example sections below are primarily related to FITS files.
 
 
 ### Naming Convention
