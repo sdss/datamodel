@@ -78,6 +78,17 @@ class Remote(object):
             jar = None
         self.jar = [self.java, '-jar', jar, 'confluence', '--server', self.hostname] if jar and self.hostname else None
 
+    def add_page(self, parent=None, title=None, content=None):
+        if self.space:
+            if title and content:
+                self.action = ["--action", "addPage", "--title", title, "--content", content]
+                self.action += ["--parent", parent] if parent else ["--parent", "@home"]
+                self.set_command()
+                self.set_response()
+                self.print_response_or_error()
+                if self.error: pass
+                elif self.verbose: print("PAGE> CREATED %s with parent=%r" % (title,parent))
+
     def set_pagelist(self, parent=None, title=None):
         if self.space:
             self.action = ["--action", "getPageList"]

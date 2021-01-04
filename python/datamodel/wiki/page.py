@@ -9,6 +9,8 @@
 from tree import Tree
 from datamodel.wiki import Remote
 from os.path import join, exists
+from os import getenv
+from yaml import load, FullLoader
 from jinja2 import Environment, PackageLoader
 
 
@@ -58,8 +60,14 @@ class Page(object):
         self.force = options.force if options else force
         self.verbose = options.verbose if options else verbose
         self.debug = options.debug if options else debug
-        self.set_abstract_path()
+        self.set_directory()
+        self.set_data()
         self.set_environment()
+
+    def set_directory(self):
+        """Set the datamodel directory
+        """
+        self.directory= getenv('DATAMODEL_DIR')
 
     def set_tree(self):
         """Set the Tree from input options, or default to the current loaded module
@@ -79,13 +87,32 @@ class Page(object):
         title = ".%s v%s" % (title, self.space_ver) if title and self.space_ver else None
         return title
 
+    def set_path_from_access(self, access = None):
+        access_path = join(self.directory, access) if self.directory and access else None
+        if access_path and exists(access_path):
+            with open(access_path) as file:
+                if self.verbose: print("PAGE> access %s" % access_path)
+                self.access = load(file, Loader=FullLoader)
+                _file_spec, _path = self.access.split(" = $", 2)
+                if self.path is None:
+                    self.path = _path
+                    if self.verbose: print("PAGE> path=%r" % self.path)
+                elif self.path != _path:
+                    print("PAGE> Aborting due to conflict in path (does not match) access file definition")
+                    self.path = None
+
+    def set_data(self, parent = None):
+        if self.file_spec:
+            access = join('data', 'access', self.env_label, '%s.access' % self.file_spec) if self.env_label else None
+            self.set_path_from_access(access = access)
+            self.set_abstract_path()
+            markdown = join('data', 'md', self.abstract_path, '%s.md' % self.file_spec) if self.abstract_path else None
+            self.data = {'markdown': markdown, 'access': access} if markdown and access else None
+        else: self.data = None
+
     def get_content(self, parent = None):
         self.set_template(parent = parent)
-        if parent: data = None
-        else:
-            markdown = join('data', 'md', self.abstract_path, '%s.md' % self.file_spec)
-            access = join('data', 'access', self.env_label, '%s.access' % self.file_spec)
-            data = {'markdown': markdown, 'access': access}
+        data = None if parent else self.data
         return self.template.render(data = data) if self.template else None
 
     def set_remote_pagelist(self, root = None, parent = None):
@@ -114,8 +141,7 @@ class Page(object):
     def create_page(self, title = None, content = None):
         try: parent = self.remote.pagelist['parent']
         except: parent = None
-        if parent and title and content:
-            print("PAGE> create %s: %s with content=%r" % (parent,title,content))
+        if title and content: self.remote.add_page(parent = parent, title = title, content = content)
 
     def set_environment(self):
         """Set the jina2 environment including filters for content.
@@ -140,6 +166,7 @@ class Page(object):
             for keyword in findall(r'\{.*?\}', self.path):
                 abstract_key = keyword.replace('{','').replace('}','').upper()
                 self.abstract_path = self.abstract_path.replace(keyword, abstract_key)
+        if self.verbose: print("PAGE> abstract_path=%r" % self.abstract_path)
 
     def write(self, format = None):
         """Write the output result to the output path.
