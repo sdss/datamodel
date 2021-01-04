@@ -12,6 +12,7 @@ from os.path import join, exists
 from os import getenv
 from yaml import load, FullLoader
 from jinja2 import Environment, PackageLoader
+from re import findall
 
 
 __author__ = 'Joel Brownstein <joelbrownstein@sdss.org>'
