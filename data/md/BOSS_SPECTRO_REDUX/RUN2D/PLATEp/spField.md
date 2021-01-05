@@ -28,7 +28,7 @@ HDU7: SPECRESL
 
 
 ## HDU0: PRIMARY
-*Test*
+Combined spectra for all exposures of a given plate
 
 #### HDU Type: IMAGE
 #### HDU Size:  8 MB
@@ -400,7 +400,7 @@ Key | Value | Comment |
 | EXTNAME | WAVEDISP | Wavelength dispersion |
 
 ## HDU5: PLUGMAP
-*Description of the contents of this HDU*
+Plug-map structure from plPlugMapM file and plateHoles
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  169 KB
