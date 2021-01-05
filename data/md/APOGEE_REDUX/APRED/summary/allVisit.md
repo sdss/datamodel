@@ -9,7 +9,7 @@ This file is the template data model file. It is meant as a guideline to how to 
 
 
 ### Approximate Size
-13 MB
+42 MB
 
 ### File Type
 FITS
@@ -40,7 +40,7 @@ Key | Value | Comment |
 *Description of the contents of this HDU*
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  13 MB
+#### HDU Size:  42 MB
 
 ###### Binary Table Caption for HDU1
 Name | Type | Unit | Description | 
@@ -59,7 +59,7 @@ Name | Type | Unit | Description |
  | CHISQ | float32 | ** | ** | 
  | CREATED | char[39] | ** | ** | 
  | DEC | float64 | ** | ** | 
- | FILE | char[59] | ** | ** | 
+ | FILE | char[51] | ** | ** | 
  | FIRSTCARTON | char[31] | ** | ** | 
  | GAIADR2_BPERR | float32 | ** | ** | 
  | GAIADR2_BPMAG | float32 | ** | ** | 
@@ -105,15 +105,37 @@ Name | Type | Unit | Description |
  | SNR | float32 | ** | ** | 
  | SRC_H | char[10] | ** | ** | 
  | STARFLAG | int64 | ** | ** | 
- | STARFLAGS | char[84] | ** | ** | 
+ | STARFLAGS | char[79] | ** | ** | 
  | STARVER | char[15] | ** | ** | 
  | TARG_PM_SRC | char[10] | ** | ** | 
  | TARG_PMDEC | float32 | ** | ** | 
  | TARG_PMRA | float32 | ** | ** | 
- | TARGFLAGS | char[97] | ** | ** | 
+ | TARGFLAGS | char[113] | ** | ** | 
  | TELESCOPE | char[16] | ** | ** | 
- | URI | char[110] | ** | ** | 
+ | URI | char[123] | ** | ** | 
  | VERR | float32 | ** | ** | 
  | VHELIOBARY | float32 | ** | ** | 
  | VMEDERR | float32 | ** | ** | 
  | VSCATTER | float32 | ** | ** | 
+ | TARGET_ID | char[28] | ** | ** | 
+ | FIBERID | int64 | ** | ** | 
+ | PLATE | char[15] | ** | ** | 
+ | MJD | int64 | ** | ** | 
+ | SURVEY | char[17] | ** | ** | 
+ | FIELD | char[29] | ** | ** | 
+ | PROGRAMNAME | char[22] | ** | ** | 
+ | PMRA | float32 | ** | ** | 
+ | PMDEC | float32 | ** | ** | 
+ | PM_SRC | char[10] | ** | ** | 
+ | APOGEE_TARGET3 | int64 | ** | ** | 
+ | APOGEE_TARGET4 | int64 | ** | ** | 
+ | DATEOBS | char[33] | ** | ** | 
+ | JD | float64 | ** | ** | 
+ | BC | float32 | ** | ** | 
+ | VTYPE | int64 | ** | ** | 
+ | VREL | float32 | ** | ** | 
+ | VRELERR | float32 | ** | ** | 
+ | XCORR_VREL | float32 | ** | ** | 
+ | XCORR_VRELERR | float32 | ** | ** | 
+ | XCORR_VHELIOBARY | float32 | ** | ** | 
+ | RV_COMPONENTS | float64[3] | ** | ** | 
