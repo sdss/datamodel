@@ -29,7 +29,7 @@ HDU8: MJD_EXP_59216-05
 
 
 ## HDU0: PRIMARY
-    *Summary of the contents of this HDU*
+*Description of the contents of this HDU*
 
 #### HDU Type: IMAGE
 #### HDU Size:  0 bytes
@@ -299,7 +299,7 @@ Key | Value | Comment |
 | PLUG_DEC | -4.8068753 | DEC of Target |
 
 ## HDU1: COADD
-    *Summary of the contents of this HDU*
+*Description of the contents of this HDU*
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  145 KB
@@ -317,7 +317,7 @@ Name | Type | Unit | Description |
  | WRESL | float32 | ** | ** | 
 
 ## HDU2: PLUGMAP
-    *Summary of the contents of this HDU*
+*Description of the contents of this HDU*
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  347 bytes
@@ -375,7 +375,7 @@ Name | Type | Unit | Description |
  | ZOFFSET | float32 | ** | ** | 
 
 ## HDU3: MJD_EXP_59216-00
-    *Summary of the contents of this HDU*
+*Description of the contents of this HDU*
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  145 KB
@@ -393,7 +393,7 @@ Name | Type | Unit | Description |
  | WRESL | float32 | ** | ** | 
 
 ## HDU4: MJD_EXP_59216-01
-    *Summary of the contents of this HDU*
+*Description of the contents of this HDU*
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  145 KB
@@ -411,7 +411,7 @@ Name | Type | Unit | Description |
  | WRESL | float32 | ** | ** | 
 
 ## HDU5: MJD_EXP_59216-02
-    *Summary of the contents of this HDU*
+*Description of the contents of this HDU*
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  145 KB
@@ -429,7 +429,7 @@ Name | Type | Unit | Description |
  | WRESL | float32 | ** | ** | 
 
 ## HDU6: MJD_EXP_59216-03
-    *Summary of the contents of this HDU*
+*Description of the contents of this HDU*
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  145 KB
@@ -447,7 +447,7 @@ Name | Type | Unit | Description |
  | WRESL | float32 | ** | ** | 
 
 ## HDU7: MJD_EXP_59216-04
-    *Summary of the contents of this HDU*
+*Description of the contents of this HDU*
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  145 KB
@@ -465,7 +465,7 @@ Name | Type | Unit | Description |
  | WRESL | float32 | ** | ** | 
 
 ## HDU8: MJD_EXP_59216-05
-    *Summary of the contents of this HDU*
+*Description of the contents of this HDU*
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  145 KB
