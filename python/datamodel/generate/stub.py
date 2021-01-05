@@ -171,7 +171,7 @@ class Stub(object):
             for hdu_number, self.hdu in enumerate(self.input['hdus']):
                 row = 'hdu%r' % hdu_number
                 self.hdu_row = hdus[row] if hdus and row in hdus else {} if self.hdu.is_image else {'columns': {}}
-                for field in ['name', 'is_image', 'size']:
+                for field in ['name', 'is_image', 'description', 'size']:
                     self.update_cache_hdu_row(row = row, field = field)
                 if self.hdu.is_image:
                     if self.verbose: print("HDU %r >" % hdu_number + "IMAGE: %(name)s" % self.hdu_row)
