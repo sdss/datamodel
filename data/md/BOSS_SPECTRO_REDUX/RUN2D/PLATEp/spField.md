@@ -28,7 +28,7 @@ HDU7: SPECRESL
 
 
 ## HDU0: PRIMARY
-    *Summary of the contents of this HDU*
+*Description of the contents of this HDU*
 
 #### HDU Type: IMAGE
 #### HDU Size:  8 MB
@@ -297,7 +297,7 @@ Key | Value | Comment |
 | BUNIT | 1E-17 erg/cm^2/s/Ang |  |
 
 ## HDU1: IVAR
-    *Summary of the contents of this HDU*
+
 
 #### HDU Type: IMAGE
 #### HDU Size:  8 MB
@@ -323,7 +323,7 @@ Key | Value | Comment |
 | EXTNAME | IVAR | Inverse variance |
 
 ## HDU2: ANDMASK
-    *Summary of the contents of this HDU*
+This is a test 
 
 #### HDU Type: IMAGE
 #### HDU Size:  8 MB
@@ -348,7 +348,7 @@ Key | Value | Comment |
 | EXTNAME | ANDMASK | AND Mask |
 
 ## HDU3: ORMASK
-    *Summary of the contents of this HDU*
+
 
 #### HDU Type: IMAGE
 #### HDU Size:  8 MB
@@ -373,7 +373,7 @@ Key | Value | Comment |
 | EXTNAME | ORMASK | OR Mask |
 
 ## HDU4: WAVEDISP
-    *Summary of the contents of this HDU*
+
 
 #### HDU Type: IMAGE
 #### HDU Size:  8 MB
@@ -399,7 +399,7 @@ Key | Value | Comment |
 | EXTNAME | WAVEDISP | Wavelength dispersion |
 
 ## HDU5: PLUGMAP
-    *Summary of the contents of this HDU*
+*Description of the contents of this HDU*
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  169 KB
@@ -457,7 +457,7 @@ Name | Type | Unit | Description |
  | ZOFFSET | float32 | ** | ** | 
 
 ## HDU6: SKY
-    *Summary of the contents of this HDU*
+
 
 #### HDU Type: IMAGE
 #### HDU Size:  8 MB
@@ -475,7 +475,7 @@ Key | Value | Comment |
 | GCOUNT | 1 |  |
 
 ## HDU7: SPECRESL
-    *Summary of the contents of this HDU*
+
 
 #### HDU Type: IMAGE
 #### HDU Size:  8 MB
