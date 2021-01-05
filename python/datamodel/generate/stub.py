@@ -135,7 +135,7 @@ class Stub(object):
     def update_cache_hdu_row(self, row = None, field = None):
         """Set the name, etc. fields in the cached hdu
         """
-        if field and hasattr(self.hdu, field):
+        if field and ( hasattr(self.hdu, field) or field == "description" ):
             if field in self.hdu_row and not self.force:
                 self.cached = True
             elif field=='header':
