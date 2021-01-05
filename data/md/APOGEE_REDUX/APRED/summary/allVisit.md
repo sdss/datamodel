@@ -45,75 +45,75 @@ Key | Value | Comment |
 ###### Binary Table Caption for HDU1
 Name | Type | Unit | Description | 
 | --- | --- | --- | --- | 
- | PK | int64 | ** | ** | 
- | APOGEE_ID | char[28] | ** | ** | 
- | FILE | char[59] | ** | ** | 
- | URI | char[110] | ** | ** | 
- | STARVER | char[15] | ** | ** | 
- | MJDBEG | int64 | ** | ** | 
- | MJDEND | int64 | ** | ** | 
- | TELESCOPE | char[16] | ** | ** | 
- | APRED_VERS | char[15] | ** | ** | 
- | HEALPIX | int64 | ** | ** | 
- | SNR | float32 | ** | ** | 
- | RA | float64 | ** | ** | 
- | DEC | float64 | ** | ** | 
- | GLON | float64 | ** | ** | 
- | GLAT | float64 | ** | ** | 
- | JMAG | float32 | ** | ** | 
- | JERR | float32 | ** | ** | 
- | HMAG | float32 | ** | ** | 
- | HERR | float32 | ** | ** | 
- | KMAG | float32 | ** | ** | 
- | KERR | float32 | ** | ** | 
- | SRC_H | char[10] | ** | ** | 
- | TARG_PMRA | float32 | ** | ** | 
- | TARG_PMDEC | float32 | ** | ** | 
- | TARG_PM_SRC | char[10] | ** | ** | 
- | APOGEE_TARGET1 | int64 | ** | ** | 
- | APOGEE_TARGET2 | int64 | ** | ** | 
+ | ANDFLAG | int64 | ** | ** | 
+ | ANDFLAGS | char[10] | ** | ** | 
  | APOGEE2_TARGET1 | int64 | ** | ** | 
  | APOGEE2_TARGET2 | int64 | ** | ** | 
  | APOGEE2_TARGET3 | int64 | ** | ** | 
  | APOGEE2_TARGET4 | int64 | ** | ** | 
+ | APOGEE_ID | char[28] | ** | ** | 
+ | APOGEE_TARGET1 | int64 | ** | ** | 
+ | APOGEE_TARGET2 | int64 | ** | ** | 
+ | APRED_VERS | char[15] | ** | ** | 
  | CATALOGID | int64 | ** | ** | 
- | GAIADR2_SOURCEID | int64 | ** | ** | 
+ | CHISQ | float32 | ** | ** | 
+ | CREATED | char[39] | ** | ** | 
+ | DEC | float64 | ** | ** | 
+ | FILE | char[59] | ** | ** | 
+ | FIRSTCARTON | char[31] | ** | ** | 
+ | GAIADR2_BPERR | float32 | ** | ** | 
+ | GAIADR2_BPMAG | float32 | ** | ** | 
+ | GAIADR2_GERR | float32 | ** | ** | 
+ | GAIADR2_GMAG | float32 | ** | ** | 
  | GAIADR2_PLX | float32 | ** | ** | 
  | GAIADR2_PLX_ERROR | float32 | ** | ** | 
- | GAIADR2_PMRA | float32 | ** | ** | 
- | GAIADR2_PMRA_ERROR | float32 | ** | ** | 
  | GAIADR2_PMDEC | float32 | ** | ** | 
  | GAIADR2_PMDEC_ERROR | float32 | ** | ** | 
- | GAIADR2_GMAG | float32 | ** | ** | 
- | GAIADR2_GERR | float32 | ** | ** | 
- | GAIADR2_BPMAG | float32 | ** | ** | 
- | GAIADR2_BPERR | float32 | ** | ** | 
- | GAIADR2_RPMAG | float32 | ** | ** | 
+ | GAIADR2_PMRA | float32 | ** | ** | 
+ | GAIADR2_PMRA_ERROR | float32 | ** | ** | 
  | GAIADR2_RPERR | float32 | ** | ** | 
- | SDSSV_APOGEE_TARGET0 | int64 | ** | ** | 
- | FIRSTCARTON | char[31] | ** | ** | 
- | TARGFLAGS | char[97] | ** | ** | 
- | NVISITS | int64 | ** | ** | 
- | NGOODVISITS | int64 | ** | ** | 
+ | GAIADR2_RPMAG | float32 | ** | ** | 
+ | GAIADR2_SOURCEID | int64 | ** | ** | 
+ | GLAT | float64 | ** | ** | 
+ | GLON | float64 | ** | ** | 
+ | HEALPIX | int64 | ** | ** | 
+ | HERR | float32 | ** | ** | 
+ | HMAG | float32 | ** | ** | 
+ | JERR | float32 | ** | ** | 
+ | JMAG | float32 | ** | ** | 
+ | KERR | float32 | ** | ** | 
+ | KMAG | float32 | ** | ** | 
+ | MEANFIB | float32 | ** | ** | 
+ | MJDBEG | int64 | ** | ** | 
+ | MJDEND | int64 | ** | ** | 
+ | N_COMPONENTS | int64 | ** | ** | 
  | NGOODRVS | int64 | ** | ** | 
- | STARFLAG | int64 | ** | ** | 
- | STARFLAGS | char[84] | ** | ** | 
- | ANDFLAG | int64 | ** | ** | 
- | ANDFLAGS | char[10] | ** | ** | 
- | VHELIOBARY | float32 | ** | ** | 
- | VSCATTER | float32 | ** | ** | 
- | VERR | float32 | ** | ** | 
- | VMEDERR | float32 | ** | ** | 
- | CHISQ | float32 | ** | ** | 
- | RV_TEFF | float32 | ** | ** | 
- | RV_TEFFERR | float32 | ** | ** | 
- | RV_LOGG | float32 | ** | ** | 
- | RV_LOGGERR | float32 | ** | ** | 
+ | NGOODVISITS | int64 | ** | ** | 
+ | NVISITS | int64 | ** | ** | 
+ | PK | int64 | ** | ** | 
+ | RA | float64 | ** | ** | 
+ | RV_AUTOFWHM | float32 | ** | ** | 
+ | RV_CCPFWHM | float32 | ** | ** | 
  | RV_FEH | float32 | ** | ** | 
  | RV_FEHERR | float32 | ** | ** | 
- | RV_CCPFWHM | float32 | ** | ** | 
- | RV_AUTOFWHM | float32 | ** | ** | 
- | N_COMPONENTS | int64 | ** | ** | 
- | MEANFIB | float32 | ** | ** | 
+ | RV_LOGG | float32 | ** | ** | 
+ | RV_LOGGERR | float32 | ** | ** | 
+ | RV_TEFF | float32 | ** | ** | 
+ | RV_TEFFERR | float32 | ** | ** | 
+ | SDSSV_APOGEE_TARGET0 | int64 | ** | ** | 
  | SIGFIB | float32 | ** | ** | 
- | CREATED | char[39] | ** | ** | 
+ | SNR | float32 | ** | ** | 
+ | SRC_H | char[10] | ** | ** | 
+ | STARFLAG | int64 | ** | ** | 
+ | STARFLAGS | char[84] | ** | ** | 
+ | STARVER | char[15] | ** | ** | 
+ | TARG_PM_SRC | char[10] | ** | ** | 
+ | TARG_PMDEC | float32 | ** | ** | 
+ | TARG_PMRA | float32 | ** | ** | 
+ | TARGFLAGS | char[97] | ** | ** | 
+ | TELESCOPE | char[16] | ** | ** | 
+ | URI | char[110] | ** | ** | 
+ | VERR | float32 | ** | ** | 
+ | VHELIOBARY | float32 | ** | ** | 
+ | VMEDERR | float32 | ** | ** | 
+ | VSCATTER | float32 | ** | ** | 
