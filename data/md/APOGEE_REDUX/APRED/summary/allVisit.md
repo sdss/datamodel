@@ -23,7 +23,7 @@ HDU1:
 
 
 ## HDU0: PRIMARY
-
+*Description of the contents of this HDU*
 
 #### HDU Type: IMAGE
 #### HDU Size:  0 bytes
@@ -37,7 +37,7 @@ Key | Value | Comment |
 | EXTEND | True |  |
 
 ## HDU1: 
-
+*Description of the contents of this HDU*
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  13 MB
