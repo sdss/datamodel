@@ -9,7 +9,7 @@
 from tree import Tree
 from datamodel.generate import Stub
 from os import environ, makedirs
-from os.path import join, exists, dirname, sep
+from os.path import join, exists, dirname, basename, sep
 from re import split
 from yaml import load, FullLoader
 
