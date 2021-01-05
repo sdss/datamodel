@@ -145,6 +145,8 @@ class Stub(object):
                     if self.is_header_keyword(key = key):
                         column = {'key': key, 'value': value, 'comment': header.comments[key]}
                         self.hdu_row['header'].append(column)
+            elif field=='description':
+                self.hdu_row[field] = "*Description of the contents of this HDU*"
             elif field=='size':
                 self.hdu_row[field] = self.format_bytes(getattr(self.hdu, field))
             else:

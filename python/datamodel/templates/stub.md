@@ -22,7 +22,7 @@
 {% for hdu_id, hdu in content.hdus.items() %}
 
 ## {{ hdu_id | upper }}: {{ hdu.name }}
-    *Summary of the contents of this HDU*
+{{ hdu.description }}
 
 #### HDU Type: {{ 'IMAGE' if hdu.is_image else 'BINARY TABLE' }}
 #### HDU Size:  {{ hdu.size }}
