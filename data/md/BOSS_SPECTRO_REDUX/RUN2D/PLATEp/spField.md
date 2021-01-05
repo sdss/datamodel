@@ -28,7 +28,7 @@ HDU7: SPECRESL
 
 
 ## HDU0: PRIMARY
-*Description of the contents of this HDU*
+*Test*
 
 #### HDU Type: IMAGE
 #### HDU Size:  8 MB
