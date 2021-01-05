@@ -323,7 +323,8 @@ Key | Value | Comment |
 | EXTNAME | IVAR | Inverse variance |
 
 ## HDU2: ANDMASK
-There are two masks, an "AND" mask and an "OR" mask. The spectra are constructed from 3 or more 15-minute observations, and the "AND" mask bits are set if that bit is set for each and every input observation. The "OR" mask bits are set if that bit is set for any of the observations. Usually, I only look at the "AND" mask. The bit mask values are defined by the SPPIXMASK bitmask (see https://www.sdss.org/dr13/algorithms/bitmasks/#SPPIXMASK). When low numbered bits (<16) are set, those will be set for half of the spectra either the blue or red spectrograph. The higher-numbered bits (>=16) are set for individual pixels. Which mask bits are important? The conditions that are considered very bad are already used to set the errors to infinity for the effected pixels (specifically, the inverse variance is set to zero). The most useful mask bit to look at is BRIGHTSKY, which indicates when the sky is so bright relative to the object that perhaps one shouldnt trust any of the object flux there. Our reported errors are meant to include sky-subtraction errors, but there are instances (particularly around 5577) where these errors may be untrustworthy. 
+If a bit is set in this mask, it means that every input spectrum also had this bit set at this wavelength. In this case the data should generally be discarded. See the SPPIXMASK documentation (https://www.sdss.org/dr13/algorithms/bitmasks/#SPPIXMASK).
+There are two masks, an "AND" mask and an "OR" mask. The spectra are constructed from 3 or more 15-minute observations, and the "AND" mask bits are set if that bit is set for each and every input observation. The "OR" mask bits are set if that bit is set for any of the observations. Usually, I only look at the "AND" mask. The bit mask values are defined by the SPPIXMASK bitmask. When low numbered bits (<16) are set, those will be set for half of the spectra either the blue or red spectrograph. The higher-numbered bits (>=16) are set for individual pixels. Which mask bits are important? The conditions that are considered very bad are already used to set the errors to infinity for the effected pixels (specifically, the inverse variance is set to zero). The most useful mask bit to look at is BRIGHTSKY, which indicates when the sky is so bright relative to the object that perhaps one shouldnt trust any of the object flux there. Our reported errors are meant to include sky-subtraction errors, but there are instances (particularly around 5577) where these errors may be untrustworthy. 
 
 #### HDU Type: IMAGE
 #### HDU Size:  8 MB
@@ -348,7 +349,7 @@ Key | Value | Comment |
 | EXTNAME | ANDMASK | AND Mask |
 
 ## HDU3: ORMASK
-
+If a bit is set in this mask, it means that one of the input spectra had this bit set at this wavelength. In most cases this region of that spectrum is then discarded for the coadd and the coadd is OK, but this bitmask serves as a warning that not all input spectra were included at this wavelength and why. See the SPPIXMASK documentation (https://www.sdss.org/dr13/algorithms/bitmasks/#SPPIXMASK).
 
 #### HDU Type: IMAGE
 #### HDU Size:  8 MB
@@ -373,7 +374,7 @@ Key | Value | Comment |
 | EXTNAME | ORMASK | OR Mask |
 
 ## HDU4: WAVEDISP
-
+The dispersion per pixel, it is computed at each pixel by re-weighting the individual spectra at each pixel according to their formal errors. This re-weighting is only approximate.
 
 #### HDU Type: IMAGE
 #### HDU Size:  8 MB
@@ -457,7 +458,7 @@ Name | Type | Unit | Description |
  | ZOFFSET | float32 | ** | ** | 
 
 ## HDU6: SKY
-
+The sky flux is computed at each pixel by re-weighting the individual spectra at each pixel according to their formal errors. This re-weighting is only approximate. Note that the sky lines are slightly shifted in the reductions because we transform the velocities to the barycenter of the solar system. Each exposure that contributes to the co-added spectra will have slightly different barycenter correction, so the "average sky" contains a superposition of these slightly-offset sky lines. These shifts keep the object spectra as-measured at the barycenter, regardless of the time of year or the Earths rotation relative to the spectroscopic targets. 
 
 #### HDU Type: IMAGE
 #### HDU Size:  8 MB
@@ -475,7 +476,7 @@ Key | Value | Comment |
 | GCOUNT | 1 |  |
 
 ## HDU7: SPECRESL
-
+The spectral resolution computed by fitting a gaussian profile of the arc-lamp emission lines.
 
 #### HDU Type: IMAGE
 #### HDU Size:  8 MB
