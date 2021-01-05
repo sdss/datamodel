@@ -9,7 +9,7 @@ Test This file is the template data model file. It is meant as a guideline to ho
 
 
 ### Approximate Size
-47 MB
+49 MB
 
 ### File Type
 FITS
@@ -23,7 +23,7 @@ HDU1:
 
 
 ## HDU0: PRIMARY
-    *Summary of the contents of this HDU*
+*Description of the contents of this HDU*
 
 #### HDU Type: IMAGE
 #### HDU Size:  0 bytes
@@ -37,7 +37,7 @@ Key | Value | Comment |
 | EXTEND | True | Extensions may (will!) be present |
 
 ## HDU1: 
-    *Summary of the contents of this HDU*
+*Description of the contents of this HDU*
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  44 MB
