@@ -16,3 +16,14 @@ log = get_logger(NAME)
 
 # package name should be pip package name
 __version__ = get_package_version(path=__file__, package_name=NAME)
+
+def get_abstract_key(key = None):
+    try:
+        if ":" in key:
+            key, formats = key.split(":",1)
+            if ">" in formats: key = "%s%r" % (key, int(formats.split(">",1)[-1]))
+        key = key.upper()
+    except Exception as e:
+        print("DATAMODEL> %r" % e)
+        key = None
+    return key

@@ -7,6 +7,7 @@
 # @Copyright: SDSS.
 
 from datamodel.git import Git
+from datamodel import get_abstract_key
 from astropy.io import fits
 from os.path import basename, join, exists, getsize, splitext, sep
 from jinja2 import Environment, PackageLoader
@@ -86,7 +87,7 @@ class Stub(object):
     def drop_format(self, format = None, file_spec = None, path = None):
         if path:
             for keyword in findall(r'\{.*?\}', path):
-                abstract_key = keyword.replace('{','').replace('}','').upper()
+                abstract_key = get_abstract_key(key = keyword.replace('{','').replace('}',''))
                 path = path.replace(keyword, abstract_key)
         location = join('data', format, path, "%s.%r" % (file_spec, format)) if format and file_spec and path else None
         if location: self.git.rm(location = access_location)

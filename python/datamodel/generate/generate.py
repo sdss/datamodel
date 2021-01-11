@@ -8,6 +8,7 @@
 
 from tree import Tree
 from datamodel.generate import Stub
+from datamodel import get_abstract_key
 from os import environ, makedirs
 from os.path import join, exists, dirname, basename, sep
 from re import split
@@ -124,7 +125,7 @@ class Generate(object):
             try:
                 key, value = keyword.split('=')
                 real[key] = value
-                abstract[key] = key.upper()
+                abstract[key] = get_abstract_key(key=key)
             except: print("GENERATE> %r is an invalid key=value assignment")
         try:
             self.real_location = self.location.format(**real)
