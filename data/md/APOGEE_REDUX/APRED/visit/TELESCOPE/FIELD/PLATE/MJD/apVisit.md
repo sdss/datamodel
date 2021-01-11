@@ -20,6 +20,8 @@ sas... *can be any set of product names*
 ### HDU List
 HDU0: PRIMARY
 HDU1: 
+HDU10: 
+HDU11: 
 HDU2: 
 HDU3: 
 HDU4: 
@@ -28,8 +30,6 @@ HDU6:
 HDU7: 
 HDU8: 
 HDU9: 
-HDU10: 
-HDU11: 
 
 
 ## HDU0: PRIMARY
@@ -137,6 +137,110 @@ Key | Value | Comment |
 | CTYPE1 | Pixel |  |
 | CTYPE2 | Chip |  |
 | BUNIT | Flux (10^-17 erg/s/cm^2/Ang) |  |
+
+## HDU10: 
+*Description of the contents of this HDU*
+
+#### HDU Type: IMAGE
+#### HDU Size:  624 bytes
+
+###### Header Table Caption for HDU10
+Key | Value | Comment | 
+| --- | --- | --- | --- |
+| XTENSION | IMAGE | IMAGE extension |
+| BITPIX | -64 | Number of bits per data pixel |
+| NAXIS | 2 | Number of data axes |
+| NAXIS1 | 26 |  |
+| NAXIS2 | 3 |  |
+| PCOUNT | 0 | No Group Parameters |
+| GCOUNT | 1 | One Data Group |
+| CTYPE1 | Fiber |  |
+| CTYPE2 | Parameters |  |
+| BUNIT | LSF Coefficients |  |
+| HISTORY | LSF Coefficients to be used with LSF_GH.PRO: |  |
+| HISTORY |   binsize  The width of a pixel in X-units.  If this is non-zero |  |
+| HISTORY |              then a "binned" Gauss-Hermite function is used.  If |  |
+| HISTORY |              binsize=0 then a "normal, unbinned" Gauss-Hermite |  |
+| HISTORY |              function is used. |  |
+| HISTORY |   X0       An additive x-offset.  This is only used to |  |
+| HISTORY |              evaluate the GH parameters that vary globally |  |
+| HISTORY |              with X. |  |
+| HISTORY |   Horder   The highest Hermite order, Horder=0 means |  |
+| HISTORY |              only a constant term (i.e. only Gaussian). |  |
+| HISTORY |              There are Horder Hermite coefficients (since we fix H0=1). |  |
+| HISTORY |   Porder   This array gives the polynomial order for the |  |
+| HISTORY |              global variation (in X) of each LSF parameter. |  |
+| HISTORY |              That includes sigma and the Horder Hermite |  |
+| HISTORY |              coefficients (starting with H1 because we fix H0=1) |  |
+| HISTORY |              There will be Porder[i]+1 coefficients for |  |
+| HISTORY |              parameter i. |  |
+| HISTORY |   GHcoefs  The polynomial coefficients for sigma and the |  |
+| HISTORY |              Horder Hermite parameters.  There are Porder[i]+1 |  |
+| HISTORY |              coefficients for parameter i.  The Hermite parameters |  |
+| HISTORY |              start with H1 since we fix H0=1. |  |
+
+## HDU11: 
+*Description of the contents of this HDU*
+
+#### HDU Type: BINARY TABLE
+#### HDU Size:  471 bytes
+
+###### Binary Table Caption for HDU11
+Name | Type | Unit | Description | 
+| --- | --- | --- | --- | 
+ | APOGEE_ID | char[18] | ** | ** | 
+ | APOGEE_TARGET1 | int32 | ** | ** | 
+ | APOGEE_TARGET2 | int32 | ** | ** | 
+ | APOGEE_TARGET3 | int32 | ** | ** | 
+ | APOGEE_TARGET4 | int32 | ** | ** | 
+ | APRED_VERS | char[5] | ** | ** | 
+ | CATALOGID | int64 | ** | ** | 
+ | DATEOBS | char[23] | ** | ** | 
+ | DEC | float64 | ** | ** | 
+ | FIBERID | int16 | ** | ** | 
+ | FIELD | char[17] | ** | ** | 
+ | FILE | char[41] | ** | ** | 
+ | FIRSTCARTON | char[16] | ** | ** | 
+ | GAIADR2_BPERR | float32 | ** | ** | 
+ | GAIADR2_BPMAG | float32 | ** | ** | 
+ | GAIADR2_GERR | float32 | ** | ** | 
+ | GAIADR2_GMAG | float32 | ** | ** | 
+ | GAIADR2_PLX | float32 | ** | ** | 
+ | GAIADR2_PLX_ERROR | float32 | ** | ** | 
+ | GAIADR2_PMDEC | float32 | ** | ** | 
+ | GAIADR2_PMDEC_ERROR | float32 | ** | ** | 
+ | GAIADR2_PMRA | float32 | ** | ** | 
+ | GAIADR2_PMRA_ERROR | float32 | ** | ** | 
+ | GAIADR2_RPERR | float32 | ** | ** | 
+ | GAIADR2_RPMAG | float32 | ** | ** | 
+ | GAIADR2_SOURCEID | int64 | ** | ** | 
+ | GLAT | float64 | ** | ** | 
+ | GLON | float64 | ** | ** | 
+ | HERR | float32 | ** | ** | 
+ | HMAG | float32 | ** | ** | 
+ | JD | float64 | ** | ** | 
+ | JERR | float32 | ** | ** | 
+ | JMAG | float32 | ** | ** | 
+ | KERR | float32 | ** | ** | 
+ | KMAG | float32 | ** | ** | 
+ | MJD | int32 | ** | ** | 
+ | OBJTYPE | char[6] | ** | ** | 
+ | PLATE | char[5] | ** | ** | 
+ | PMDEC | float32 | ** | ** | 
+ | PMRA | float32 | ** | ** | 
+ | PM_SRC | char | ** | ** | 
+ | PROGRAMNAME | char[10] | ** | ** | 
+ | RA | float64 | ** | ** | 
+ | SDSSV_APOGEE_TARGET0 | int64 | ** | ** | 
+ | SNR | float32 | ** | ** | 
+ | SRC_H | char | ** | ** | 
+ | STARFLAG | int32 | ** | ** | 
+ | STARFLAGS | char | ** | ** | 
+ | SURVEY | char[7] | ** | ** | 
+ | TARGET_ID | char[18] | ** | ** | 
+ | TARGFLAGS | char[11] | ** | ** | 
+ | TELESCOPE | char[6] | ** | ** | 
+ | URI | char[111] | ** | ** | 
 
 ## HDU2: 
 *Description of the contents of this HDU*
@@ -302,107 +406,3 @@ Key | Value | Comment |
 | HISTORY |  4 Sine Parameters |  |
 | HISTORY |  7 Polynomial parameters (first is a zero-point offset |  |
 | HISTORY |                      in addition to the pixel offset) |  |
-
-## HDU10: 
-*Description of the contents of this HDU*
-
-#### HDU Type: IMAGE
-#### HDU Size:  624 bytes
-
-###### Header Table Caption for HDU10
-Key | Value | Comment | 
-| --- | --- | --- | --- |
-| XTENSION | IMAGE | IMAGE extension |
-| BITPIX | -64 | Number of bits per data pixel |
-| NAXIS | 2 | Number of data axes |
-| NAXIS1 | 26 |  |
-| NAXIS2 | 3 |  |
-| PCOUNT | 0 | No Group Parameters |
-| GCOUNT | 1 | One Data Group |
-| CTYPE1 | Fiber |  |
-| CTYPE2 | Parameters |  |
-| BUNIT | LSF Coefficients |  |
-| HISTORY | LSF Coefficients to be used with LSF_GH.PRO: |  |
-| HISTORY |   binsize  The width of a pixel in X-units.  If this is non-zero |  |
-| HISTORY |              then a "binned" Gauss-Hermite function is used.  If |  |
-| HISTORY |              binsize=0 then a "normal, unbinned" Gauss-Hermite |  |
-| HISTORY |              function is used. |  |
-| HISTORY |   X0       An additive x-offset.  This is only used to |  |
-| HISTORY |              evaluate the GH parameters that vary globally |  |
-| HISTORY |              with X. |  |
-| HISTORY |   Horder   The highest Hermite order, Horder=0 means |  |
-| HISTORY |              only a constant term (i.e. only Gaussian). |  |
-| HISTORY |              There are Horder Hermite coefficients (since we fix H0=1). |  |
-| HISTORY |   Porder   This array gives the polynomial order for the |  |
-| HISTORY |              global variation (in X) of each LSF parameter. |  |
-| HISTORY |              That includes sigma and the Horder Hermite |  |
-| HISTORY |              coefficients (starting with H1 because we fix H0=1) |  |
-| HISTORY |              There will be Porder[i]+1 coefficients for |  |
-| HISTORY |              parameter i. |  |
-| HISTORY |   GHcoefs  The polynomial coefficients for sigma and the |  |
-| HISTORY |              Horder Hermite parameters.  There are Porder[i]+1 |  |
-| HISTORY |              coefficients for parameter i.  The Hermite parameters |  |
-| HISTORY |              start with H1 since we fix H0=1. |  |
-
-## HDU11: 
-*Description of the contents of this HDU*
-
-#### HDU Type: BINARY TABLE
-#### HDU Size:  471 bytes
-
-###### Binary Table Caption for HDU11
-Name | Type | Unit | Description | 
-| --- | --- | --- | --- | 
- | APOGEE_ID | char[18] | ** | ** | 
- | TARGET_ID | char[18] | ** | ** | 
- | FILE | char[41] | ** | ** | 
- | URI | char[111] | ** | ** | 
- | APRED_VERS | char[5] | ** | ** | 
- | FIBERID | int16 | ** | ** | 
- | PLATE | char[5] | ** | ** | 
- | MJD | int32 | ** | ** | 
- | TELESCOPE | char[6] | ** | ** | 
- | SURVEY | char[7] | ** | ** | 
- | FIELD | char[17] | ** | ** | 
- | PROGRAMNAME | char[10] | ** | ** | 
- | OBJTYPE | char[6] | ** | ** | 
- | RA | float64 | ** | ** | 
- | DEC | float64 | ** | ** | 
- | GLON | float64 | ** | ** | 
- | GLAT | float64 | ** | ** | 
- | JMAG | float32 | ** | ** | 
- | JERR | float32 | ** | ** | 
- | HMAG | float32 | ** | ** | 
- | HERR | float32 | ** | ** | 
- | KMAG | float32 | ** | ** | 
- | KERR | float32 | ** | ** | 
- | SRC_H | char | ** | ** | 
- | PMRA | float32 | ** | ** | 
- | PMDEC | float32 | ** | ** | 
- | PM_SRC | char | ** | ** | 
- | APOGEE_TARGET1 | int32 | ** | ** | 
- | APOGEE_TARGET2 | int32 | ** | ** | 
- | APOGEE_TARGET3 | int32 | ** | ** | 
- | APOGEE_TARGET4 | int32 | ** | ** | 
- | CATALOGID | int64 | ** | ** | 
- | GAIADR2_SOURCEID | int64 | ** | ** | 
- | GAIADR2_PLX | float32 | ** | ** | 
- | GAIADR2_PLX_ERROR | float32 | ** | ** | 
- | GAIADR2_PMRA | float32 | ** | ** | 
- | GAIADR2_PMRA_ERROR | float32 | ** | ** | 
- | GAIADR2_PMDEC | float32 | ** | ** | 
- | GAIADR2_PMDEC_ERROR | float32 | ** | ** | 
- | GAIADR2_GMAG | float32 | ** | ** | 
- | GAIADR2_GERR | float32 | ** | ** | 
- | GAIADR2_BPMAG | float32 | ** | ** | 
- | GAIADR2_BPERR | float32 | ** | ** | 
- | GAIADR2_RPMAG | float32 | ** | ** | 
- | GAIADR2_RPERR | float32 | ** | ** | 
- | SDSSV_APOGEE_TARGET0 | int64 | ** | ** | 
- | FIRSTCARTON | char[16] | ** | ** | 
- | TARGFLAGS | char[11] | ** | ** | 
- | SNR | float32 | ** | ** | 
- | STARFLAG | int32 | ** | ** | 
- | STARFLAGS | char | ** | ** | 
- | DATEOBS | char[23] | ** | ** | 
- | JD | float64 | ** | ** | 
