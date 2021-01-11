@@ -7,13 +7,12 @@
 # @Copyright: SDSS.
 
 from datamodel.git import Git
-from datamodel import get_abstract_key
+from datamodel import get_abstract_path
 from astropy.io import fits
 from os.path import basename, join, exists, getsize, splitext, sep
 from jinja2 import Environment, PackageLoader
 from json import dumps
 from yaml import load, FullLoader, dump
-from re import findall
 
 __author__ = 'Brian Cherinka, Joel Brownstein'
 
@@ -85,10 +84,7 @@ class Stub(object):
         else: print("STUB> Cannot drop access for file_spec=%r, path=%r" % (file_spec, path))
 
     def drop_format(self, format = None, file_spec = None, path = None):
-        if path:
-            for keyword in findall(r'\{.*?\}', path):
-                abstract_key = get_abstract_key(key = keyword.replace('{','').replace('}',''))
-                path = path.replace(keyword, abstract_key)
+        if path: path = get_abstract_path(path = path)
         location = join('data', format, path, "%s.%r" % (file_spec, format)) if format and file_spec and path else None
         if location: self.git.rm(location = access_location)
         else: print("STUB> Cannot drop %s for file_spec=%r, path=%r" % (format, file_spec, path))

@@ -8,12 +8,11 @@
 
 from tree import Tree
 from datamodel.wiki import Remote
-from datamodel import get_abstract_key, get_file_spec
+from datamodel import get_file_spec, get_abstract_path
 from os.path import join, exists, dirname
 from os import getenv
 from yaml import load, FullLoader
 from jinja2 import Environment, PackageLoader
-from re import findall
 
 
 __author__ = 'Joel Brownstein <joelbrownstein@sdss.org>'
@@ -168,11 +167,7 @@ class Page(object):
         """Replace keywords with upper case for
         the astract path
         """
-        self.abstract_path = self.path
-        if self.path:
-            for keyword in findall(r'\{.*?\}', self.path):
-                abstract_key = get_abstract_key(key = keyword.replace('{','').replace('}',''))
-                self.abstract_path = self.abstract_path.replace(keyword, abstract_key)
+        self.abstract_path = get_abstract_path(path = self.path)
         if self.verbose: print("PAGE> abstract_path=%r" % self.abstract_path)
 
     def write(self, format = None):
