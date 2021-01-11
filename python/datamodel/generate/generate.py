@@ -25,7 +25,7 @@ class Generate(object):
     options : command-line options, optional
     tree_ver : str, optional
         Override the tree version default set by modules
-    file_spec : str, required
+    file_spec : str, optional
         Name of file species
     path : str, optional (required w/out env_label + location)
         Symbolic path to fits file (can be combined from
