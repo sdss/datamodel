@@ -23,8 +23,8 @@ def get_abstract_path(path = None):
         for delimeter in [('{','}'), ('@', '|')]:
             search = r'\%s.*?\%s' % delimeter
             for keyword in findall(search, path):
-            abstract_key = get_abstract_key(key = keyword.replace(delimeter[0],'').replace(delimeter[1],''))
-            path = path.replace(keyword, abstract_key)
+                abstract_key = get_abstract_key(key = keyword.replace(delimeter[0],'').replace(delimeter[1],''))
+                path = path.replace(keyword, abstract_key)
     return path
 
 def get_abstract_key(key = None):
