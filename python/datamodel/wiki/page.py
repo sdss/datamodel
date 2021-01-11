@@ -8,7 +8,7 @@
 
 from tree import Tree
 from datamodel.wiki import Remote
-from datamodel import get_abstract_key
+from datamodel import get_abstract_key, get_file_spec
 from os.path import join, exists, dirname
 from os import getenv
 from yaml import load, FullLoader
@@ -48,7 +48,7 @@ class Page(object):
         self.tree_ver = options.tree_ver if options else tree_ver
         self.space_ver = options.space_ver if options else space_ver
         if self.space_ver is None: self.space_ver = "sdsswork"
-        self.file_spec = options.file_spec if options else file_spec
+        self.file_spec = get_file_spec(file_spec = options.file_spec if options else file_spec)
         self.path = options.path if options else path
         if self.path is None:
             self.env_label = options.env_label if options else env_label

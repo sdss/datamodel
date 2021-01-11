@@ -8,7 +8,7 @@
 
 from tree import Tree
 from datamodel.generate import Stub
-from datamodel import get_abstract_key
+from datamodel import get_abstract_key, get_file_spec
 from os import environ, makedirs
 from os.path import join, exists, dirname, basename, sep
 from re import split
@@ -54,7 +54,8 @@ class Generate(object):
 
     def __init__(self, options = None, tree_ver = None, file_spec = None, path = None, keywords = None, env_label = None, location = None, html = None, replace = None, force = None, verbose = None, debug = None):
         self.tree_ver = options.tree_ver if options else tree_ver
-        self.file_spec = options.file_spec if options else file_spec
+        file_spec = options.file_spec if options else file_spec
+        self.file_spec = get_file_spec(file_spec = file_spec)
         self.path = options.path if options else path
         self.keywords = options.keywords if options else keywords
         if self.path is None:
@@ -66,7 +67,7 @@ class Generate(object):
             except:
                 self.env_label = options.env_label if options else env_label
                 self.location = options.location if options else location
-        if not self.file_spec: self.set_spec_from_location()
+        if not self.file_spec and not file_spec: self.set_file_spec_from_location()
         self.html = options.html if options else html
         self.force = options.force if options else force
         self.replace = options.replace if options else replace
@@ -203,9 +204,9 @@ class Generate(object):
                     self.file = None
         else: self.file = None
 
-    def set_spec_from_location(self):
+    def set_file_spec_from_location(self):
         namesplit = split('[-.]', basename(self.location))
-        self.file_spec = namesplit[0] if len(namesplit) > 1 else None
+        self.file_spec = get_file_spec(namesplit[0]) if len(namesplit) > 1 else None
     
     def set_stub(self):
         """Set the stub class and use it to write output

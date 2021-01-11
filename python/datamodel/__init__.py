@@ -27,3 +27,9 @@ def get_abstract_key(key = None):
         print("DATAMODEL> %r" % e)
         key = None
     return key
+
+def get_file_spec(file_spec = None):
+    if file_spec and not file_spec.isidentifier():
+        print("DATAMODEL> invalid file_spec=%r" % file_spec)
+        file_spec = None
+    return file_spec
