@@ -9,7 +9,7 @@ Test This file is the template data model file. It is meant as a guideline to ho
 
 
 ### Approximate Size
-49 MB
+87 MB
 
 ### File Type
 FITS
@@ -141,3 +141,6 @@ Name | Type | Unit | Description |
  | Z_ERR | float32 | ** | ** | 
  | Z_ERR_NOQSO | float32 | ** | ** | 
  | Z_NOQSO | float32 | ** | ** | 
+ | HEALPIX | int32 | ** | ** | 
+ | HEALPIXGRP | int16 | ** | ** | 
+ | HEALPIX_DIR | char[68] | ** | ** | 
