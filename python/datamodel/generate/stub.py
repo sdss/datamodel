@@ -97,6 +97,7 @@ class Stub(object):
             self.access = None
 
     def drop_formats(self, file_spec=None, path=None):
+        formats = ["access", "yaml", "json"]
         for format in formats:
             if format == "access":
                 self.drop_access(file_spec=file_spec, path=path)
@@ -127,7 +128,7 @@ class Stub(object):
             else None
         )
         if location:
-            self.git.rm(location=access_location)
+            self.git.rm(location=location)
         else:
             print("STUB> Cannot drop %s for file_spec=%r, path=%r" % (format, file_spec, path))
 

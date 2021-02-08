@@ -7,7 +7,7 @@
 # @Copyright: SDSS.
 
 from os import getenv
-from os.path import dirname, exists, join
+from os.path import dirname, exists, join, sep
 
 from jinja2 import Environment, PackageLoader
 from tree import Tree
@@ -84,7 +84,7 @@ class Page(object):
         """Set the Tree from input options, or default to the current loaded module"""
         if self.tree_ver is None:
             try:
-                self.tree_ver = environ["TREE_VER"]
+                self.tree_ver = getenv["TREE_VER"]
             except:
                 pass
         self.tree = Tree(config=self.tree_ver)

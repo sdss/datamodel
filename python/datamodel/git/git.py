@@ -45,7 +45,7 @@ class Git(object):
     def get_location_from_path(self, path=None):
         if path:
             directory = join(self.directory, "") if self.directory else None
-            location = path[len(directory) :] if directory and path.startswith(directory) else None
+            location = path[len(directory)] if directory and path.startswith(directory) else None
         else:
             location = None
         return location
