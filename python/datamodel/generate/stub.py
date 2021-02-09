@@ -25,10 +25,14 @@ class Stub(object):
 
     Parameters
     ----------
-    file_spec : (unique) file file_spec name
-    directory : dictionary of paths to output stub
-    verbose : str , optional
-        Verbose output
+    file_spec : str, optional
+        (unique) file species name
+    directory : dict, optional
+        dictionary of paths to output stub
+    verbose : bool , optional
+        if True, uses verbose output
+    force : bool, optional
+        if True, overwrites any existing file
     """
 
     fmap = {
@@ -398,7 +402,13 @@ class Stub(object):
         )
 
     def write(self, format=None):
-        """Write the output result to the output path."""
+        """ Write the output result to the output path.
+
+        Parameters
+        ----------
+        format : str
+            The file format to write to
+        """
         if self.output and self.result:
             if format and format in self.output and format in self.result:
                 path = self.output[format]
