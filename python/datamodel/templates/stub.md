@@ -16,7 +16,8 @@
 {{ content.general.generated_by }}
 
 ### HDU List
-{% for hdu_id, hdu in content.hdus.items() %}{{ hdu_id | upper }}: {{ hdu.name }}
+{% for hdu_id, hdu in content.hdus.items() %}
+  - [{{ hdu_id | upper }}: {{ hdu.name }}](#{{hdu_id | lower}}-{{hdu.name | lower}})
 {% endfor %}
 
 {% for hdu_id, hdu in content.hdus.items() %}
@@ -27,19 +28,24 @@
 #### HDU Type: {{ 'IMAGE' if hdu.is_image else 'BINARY TABLE' }}
 #### HDU Size:  {{ hdu.size }}
 
-    {% if hdu.is_image %}
-        {# IMAGE HDUS #}
+{% if hdu.is_image %}
+{# IMAGE HDUS #}
 ###### Header Table Caption for {{ hdu_id | upper }}
-Key | Value | Comment | 
+Key | Value | Comment | |
 | --- | --- | --- | --- |
-{% for header in hdu.header %}| {{ header.key }} | {{ header.value }} | {{ header.comment }} |
+{% for header in hdu.header %}
+| {{ header.key }} | {{ header.value }} | {{ header.comment }} |
 {% endfor %}
+
 {% else %}
-        {# BINARY TABLE HDUS #}
+{# BINARY TABLE HDUS #}
 ###### Binary Table Caption for {{ hdu_id | upper }}
-Name | Type | Unit | Description | 
-| --- | --- | --- | --- | 
-{% for key, column in hdu.columns.items() %} | {{ column.name }} | {{ column.type }} | {{ column.unit }} | {{ column.description }} | 
+Name | Type | Unit | Description |
+| --- | --- | --- | --- |
+{% for key, column in hdu.columns.items() %}
+ | {{ column.name }} | {{ column.type }} | {{ column.unit }} | {{ column.description }} |
 {% endfor %}
+
 {% endif %}
+
 {% endfor %}
