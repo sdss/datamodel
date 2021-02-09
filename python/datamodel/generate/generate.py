@@ -12,8 +12,8 @@ from os.path import basename, dirname, exists, join, sep
 
 from tree import Tree
 
-from datamodel import get_abstract_key, get_file_spec
-from datamodel.generate import Stub
+from .parse import get_abstract_key, get_file_spec
+from .stub import Stub
 
 
 __author__ = "Joel Brownstein <joelbrownstein@sdss.org>"
@@ -243,7 +243,7 @@ class Generate(object):
         namesplit = re.split("[-.]", basename(self.location))
         self.file_spec = get_file_spec(namesplit[0]) if len(namesplit) > 1 else None
 
-    def set_stub(self):
+    def set_stub(self, skip_git=False):
         """ Set the Stub Class
 
         Set the stub class and use it to write output
@@ -253,8 +253,9 @@ class Generate(object):
         self.stub = Stub(file_spec=self.file_spec, directory=self.directory,
                          verbose=self.verbose, force=self.force)
         # updates the local datamodel git repo
-        self.stub.git.pull()
-        self.stub.git.status()
+        if not skip_git:
+            self.stub.git.pull()
+            self.stub.git.status()
         # creates the access path file
         self.stub.set_access(path=self.path, replace=self.replace)
         # creates the dictionary of inputs into the various stubs
@@ -272,8 +273,9 @@ class Generate(object):
         self.stub.set_result()
         # writes out the rendered strings into each file ; also performs git add + commit on files
         for format in [self.format, "yaml", "json"]:
-            self.stub.write(format=format)
+            self.stub.write(format=format, skip_git=skip_git)
         # closes any open file HDUs
         self.stub.close_input_hdus()
         # git pushes the results
-        self.stub.git.push()
+        if not skip_git:
+            self.stub.git.push()

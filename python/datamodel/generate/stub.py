@@ -13,8 +13,8 @@ from astropy.io import fits
 from jinja2 import Environment, PackageLoader
 from yaml import FullLoader, dump, load
 
-from datamodel import get_abstract_path
-from datamodel.git import Git
+from .parse import get_abstract_path
+from ..git import Git
 
 
 __author__ = "Brian Cherinka, Joel Brownstein"
@@ -401,7 +401,7 @@ class Stub(object):
             else None
         )
 
-    def write(self, format=None):
+    def write(self, format=None, skip_git=None):
         """ Write the output result to the output path.
 
         Parameters
@@ -417,8 +417,9 @@ class Stub(object):
                         print("STUB> Output to %s" % path)
                     with open(path, "w") as file:
                         file.write(self.result[format])
-                    self.git.add(path=path)
-                    self.git.commit(path=path, message="%s.%s" % (self.file_spec, format))
+                    if not skip_git:
+                        self.git.add(path=path)
+                        self.git.commit(path=path, message="%s.%s" % (self.file_spec, format))
                 except Exception as e:
                     print("STUB> Output exception %r" % e)
             else:

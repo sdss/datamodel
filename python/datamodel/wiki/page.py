@@ -13,8 +13,8 @@ from jinja2 import Environment, PackageLoader
 from tree import Tree
 from yaml import FullLoader, load
 
-from datamodel import get_abstract_path, get_file_spec
-from datamodel.wiki import Remote
+from ..generate.parse import get_abstract_path, get_file_spec
+from .remote import Remote
 
 
 __author__ = "Joel Brownstein <joelbrownstein@sdss.org>"
