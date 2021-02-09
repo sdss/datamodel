@@ -6,6 +6,7 @@
 # @License: BSD 3-Clause
 # @Copyright: SDSS.
 
+import os
 from json import dumps
 from os.path import basename, exists, getsize, join, sep, splitext
 
@@ -54,6 +55,9 @@ class Stub(object):
         self.force = force
         self.template = self.input = self.output = self.cache = self.environment = None
         self.git = Git(verbose=self.verbose)
+
+    def __repr__(self):
+        return f'<Stub(file_spec={self.file_spec})>'
 
     def set_access(self, path=None, replace=None):
         if self.directory and "access" in self.directory:
@@ -375,7 +379,7 @@ class Stub(object):
             self.output = None
 
     def get_yaml(self):
-        return dump(self.cache["content"]) if self.cache and "content" in self.cache else None
+        return dump(self.cache["content"], sort_keys=False) if self.cache and "content" in self.cache else None
 
     def get_json(self):
         return dumps({}) if self.input else None
@@ -429,3 +433,9 @@ class Stub(object):
         """Close input hdus"""
         if self.input and "hdus" in self.input:
             self.input["hdus"].close()
+
+    def remove_output(self) -> None:
+        """ Delete the output format files """
+        for key, val in self.output.items():
+            if os.path.exists(val):
+                os.remove(val)
