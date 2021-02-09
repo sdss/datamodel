@@ -106,14 +106,21 @@ class Generate(object):
         if self.format not in self.formats:
             self.format = self.formats[0]
 
-    def set_tree(self):
-        """Set the Tree from input options, or default to the current loaded module"""
+    def set_tree(self) -> None:
+        """ Set the SDSS Tree
+
+        Sets the Tree from input options, or default to the current loaded module
+        """
         if self.tree_ver is None:
             self.tree_ver = os.getenv('TREE_VER', None)
 
+        # add the tree and config_name
         self.tree = Tree(config=self.tree_ver)
         if self.tree_ver != self.tree.config_name:
             self.tree_ver = self.tree.config_name
+
+        # add the tree release
+        self.release = self.tree.release
 
     def set_env(self):
         """Get the env_path from tree[env_label]"""
