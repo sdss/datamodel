@@ -49,6 +49,12 @@ class Stub(object):
     cache_formats = ["yaml"]
 
     def __init__(self, file_spec=None, directory=None, verbose=None, force=None):
+        # TODO - split out access into Access class
+        # TODO - consolidate stub creation code
+        # TODO - add git flag, i.e. update git workflow
+        # TODO - create yaml stub first, not md
+        # TODO - update yaml stub and add yaml validation
+
         self.file_spec = file_spec
         self.directory = directory
         self.verbose = verbose

@@ -57,6 +57,10 @@ class Generate(object):
                  env_label=None, location=None, html=None, replace=None, force=None, verbose=None,
                  debug=None
                  ):
+        # TODO - add git booleans
+        # TODO - split out product code into Product class
+        # TODO - refactor Generate to be only about the file generation process
+
         # setting options
         self.tree_ver = options.tree_ver if options else tree_ver
         file_spec = options.file_spec if options else file_spec
@@ -98,7 +102,7 @@ class Generate(object):
         self.set_sas_base_dir()
 
     def __repr__(self):
-        return f'<Generate(file_spec={self.file_spec})>'
+        return f"<Generate(file_spec='{self.file_spec}', release='{self.release}')>"
 
     def set_format(self):
         """ Set the output format """

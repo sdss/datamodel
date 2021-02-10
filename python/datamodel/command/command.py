@@ -21,6 +21,9 @@ class Command(object):
     """
 
     def __init__(self, name=None):
+        # TODO - add option to skip git workflow
+        # TODO - consolidate different datamodel commands, move to click?
+
         self.get_options = globals()[name] if name in globals().keys() else None
         self.options = self.get_options() if self.get_options else None
         if self.options:
