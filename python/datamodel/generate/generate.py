@@ -120,7 +120,17 @@ class Generate(object):
             self.tree_ver = self.tree.config_name
 
         # add the tree release
-        self.release = self.tree.release
+        self.release = self._get_tree_release()
+
+    def _get_tree_release(self):
+        """ Get a tree release in a backwards compatible way """
+        if hasattr(self.tree, 'release'):
+            return self.tree.release
+
+        release = self.tree.config_name.upper()
+        if 'work' in self.tree.config_name or self.tree.config_name == 'sdss5':
+            release = 'WORK'
+        return release
 
     def set_env(self):
         """Get the env_path from tree[env_label]"""
