@@ -219,9 +219,10 @@ class Generate(object):
         elif self.datamodel_dir and self.abstract_location:
             formats = [self.format, "access", "yaml", "json"]
             self.directory = {}
-            data_dir = join(self.datamodel_dir, "data")
+            data_dir = join(self.datamodel_dir, "datamodel")
+            products_dir = join(data_dir, "products")
             for format in formats:
-                directory = join(data_dir, format, self.env_label)
+                directory = join(products_dir, format, self.env_label)
                 if format != "access":
                     directory = join(directory, dirname(self.abstract_location))
                 if not exists(directory):
@@ -272,7 +273,8 @@ class Generate(object):
 
         """
         self.stub = Stub(file_spec=self.file_spec, directory=self.directory,
-                         verbose=self.verbose, force=self.force)
+                         verbose=self.verbose, force=self.force, tree_ver=self.tree_ver,
+                         release=self.release)
         # updates the local datamodel git repo
         if not skip_git:
             self.stub.git.pull()

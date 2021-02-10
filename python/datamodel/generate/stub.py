@@ -7,6 +7,7 @@
 # @Copyright: SDSS.
 
 import os
+import yaml
 from json import dumps
 from os.path import basename, exists, getsize, join, sep, splitext
 
@@ -19,6 +20,27 @@ from ..git import Git
 
 
 __author__ = "Brian Cherinka, Joel Brownstein"
+
+
+class AccessFile(object):
+    # TODO - access minimally needs file_spec, directory, and path
+
+    def __init__(self):
+        self.file_species = None
+        self.path = None
+        self.template = f'${self.path}'
+        self.release = None
+        self.tree_ver = None
+
+    def get_access_string(self):
+        return f"{self.file_species} = {self.template}"
+
+    def get_access_dict(self):
+        return {'release': self.release, 'tree_ver': self.tree_ver,
+                'access': self.get_access_string()}
+
+
+
 
 
 class Stub(object):
@@ -48,7 +70,8 @@ class Stub(object):
     }
     cache_formats = ["yaml"]
 
-    def __init__(self, file_spec=None, directory=None, verbose=None, force=None):
+    def __init__(self, file_spec=None, directory=None, verbose=None, force=None, tree_ver=None,
+                 release=None):
         # TODO - split out access into Access class
         # TODO - consolidate stub creation code
         # TODO - add git flag, i.e. update git workflow
@@ -59,56 +82,82 @@ class Stub(object):
         self.directory = directory
         self.verbose = verbose
         self.force = force
-        self.template = self.input = self.output = self.cache = self.environment = None
+        self.tree_ver = tree_ver
+        self.release = release
+
+        self.template = None
+        self.input = None
+        self.output = None
+        self.cache = None
+        self.environment = None
         self.git = Git(verbose=self.verbose)
 
     def __repr__(self):
         return f'<Stub(file_spec={self.file_spec})>'
 
-    def set_access(self, path=None, replace=None):
-        if self.directory and "access" in self.directory:
-            directory = self.directory["access"]
-            if not exists(directory):
-                print("STUB> nonexistent directory at %s" % directory)
-                directory = None
-            access_path = (
-                join(directory, "%s.access" % self.file_spec)
-                if directory and self.file_spec
-                else None
-            )
-            if access_path:
-                if exists(access_path):
-                    with open(access_path) as file:
-                        print("STUB> access %s" % access_path)
-                        self.access = load(file, Loader=FullLoader)
-                        _file_spec, _path = self.access.split(" = $", 2)
-                        if _path != path:
-                            if replace:
-                                self.drop_formats(file_spec=_file_spec, path=_path)
-                                self.access = "%s = $%s" % (self.file_spec, path)
-                                self.write_access(path=access_path, replace=replace)
-                            else:
-                                print(
-                                    "STUB> Aborting due to conflict in existing spec: %s"
-                                    % self.access
-                                )
-                                self.access = None
-                elif access_path:
-                    if replace:
-                        print(
-                            "STUB> Nothing to replace, due to nonexistent access path: %s"
-                            % access_path
-                        )
-                        self.access = None
-                    else:
-                        self.access = "%s = $%s" % (self.file_spec, path)
-                        self.write_access(path=access_path)
+    def set_access(self, path: str, replace: bool = None) -> None:
+        """ Sets and writes the access file
+
+        Sets and write the access file, which contains the path name and
+        template definition used by sdss_access.
+
+        Parameters
+        ----------
+        path : str
+            The path template, by default None
+        replace : bool, optional
+            If True, replaces any existing access path, by default None
+        """
+        self.access = None
+        if not self.directory or 'access' not in self.directory:
+            return
+
+        # get access directory
+        directory = self.directory["access"]
+        if not exists(directory):
+            print(f"STUB> nonexistent directory at {directory}")
+            directory = None
+
+        if not (directory and self.file_spec):
+            return
+
+        # construct access path
+        access_path = os.path.join(directory, f"{self.file_spec}.access")
+
+        if os.path.exists(access_path):
+            with open(access_path) as file:
+                print(f"STUB> access {access_path}")
+                self.access = yaml.load(file, Loader=yaml.FullLoader)
+
+                if self.release not in self.access:
+                    _file_spec, _path = self.file_spec, path
+                    self.access[self.release] = {'release': self.release, 'tree_ver': self.tree_ver,
+                                                 'access': f"{self.file_spec} = ${path}"}
+                    self.write_access(path=access_path, replace=replace)
                 else:
-                    self.access = None
-            else:
-                self.access = None
+                    _file_spec, _path = self.access[self.release]['access'].split(" = $", 2)
+                    #_file_spec, _path = self.access['access'].split(" = $", 2)
+
+                    # do nothing if the path is the same
+                    if _path == path:
+                        return
+
+                    if replace:
+                        self.drop_formats(file_spec=_file_spec, path=_path)
+                        #self.access = f"{self.file_spec} = ${path}"
+                        self.access[self.release] = {'release': self.release, 'tree_ver': self.tree_ver,
+                                                    'access': f"{self.file_spec} = ${path}"}
+                        self.write_access(path=access_path, replace=replace)
+                    else:
+                        print(f"STUB> Aborting due to conflict in existing spec: {self.access[self.tree_ver]['access']}")
         else:
-            self.access = None
+            if replace:
+                print(f"STUB> Nothing to replace, due to nonexistent access path: {access_path}")
+            else:
+                #self.access = f"{self.file_spec} = ${path}"
+                self.access = {self.release: {'release': self.release, 'tree_ver': self.tree_ver,
+                                              'access': f"{self.file_spec} = ${path}"}}
+                self.write_access(path=access_path)
 
     def drop_formats(self, file_spec=None, path=None):
         formats = ["access", "yaml", "json"]
@@ -118,26 +167,39 @@ class Stub(object):
             else:
                 self.drop_format(format=format, file_spec=file_spec, path=path)
 
-    def drop_access(self, file_spec=None, path=None):
+    def drop_access(self, file_spec: str = None, path: str = None) -> None:
+        """ Removes the access file from git
+
+        Deletes the access file locally and removes it from git
+
+        Parameters
+        ----------
+        file_spec : str, optional
+            the name of the file species, by default None
+        path : str, optional
+            the path to the access file, by default None
+        """
         try:
-            env_label = path.split(sep, 1)[0]
+            env_label = path.split(os.sep, 1)[0]
         except:
             env_label = None
+
         location = (
-            join("data", "access", env_label, "%s.access" % file_spec)
+            os.path.join("datamodel", "products", "access", env_label, f"{file_spec}.access")
             if env_label and file_spec
             else None
         )
+
         if location:
             self.git.rm(location=location)
         else:
-            print("STUB> Cannot drop access for file_spec=%r, path=%r" % (file_spec, path))
+            print(f"STUB> Cannot drop access for file_spec={file_spec}, path={path}")
 
     def drop_format(self, format=None, file_spec=None, path=None):
         if path:
             path = get_abstract_path(path=path)
         location = (
-            join("data", format, path, "%s.%r" % (file_spec, format))
+            join("datamodel", "products", format, path, "%s.%r" % (file_spec, format))
             if format and file_spec and path
             else None
         )
@@ -146,19 +208,32 @@ class Stub(object):
         else:
             print("STUB> Cannot drop %s for file_spec=%r, path=%r" % (format, file_spec, path))
 
-    def write_access(self, path=None, replace=None):
+    def write_access(self, path: str = None, replace: bool = None) -> None:
+        """ Write the access file
+
+        Writes out the access file and commits it to git.
+
+        Parameters
+        ----------
+        path : str, optional
+            the access file path, by default None
+        replace : bool, optional
+            If True, replaces the existing file, by default None
+        """
         try:
             if self.verbose:
                 if replace:
-                    print("STUB> Output to %s [replaced!]" % path)
+                    print(f"STUB> Output to {path} [replaced!]")
                 else:
-                    print("STUB> Output to %s" % path)
+                    print(f"STUB> Output to {path}")
+
             with open(path, "w") as file:
-                file.write(self.access)
+                file.write(yaml.dump(self.access, sort_keys=False))
+
             self.git.add(path=path)
-            self.git.commit(path=path, message="%s.access" % self.file_spec)
+            self.git.commit(path=path, message=f"committing {self.file_spec}.access")
         except Exception as e:
-            print("STUB> Output exception %r" % e)
+            print(f"STUB> Output exception {e}")
 
     def set_input(self, path=None, format=None):
         """Set the file's properties for it's path."""

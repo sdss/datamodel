@@ -121,14 +121,14 @@ class Page(object):
     def set_data(self, parent=None):
         if self.file_spec:
             access = (
-                join("data", "access", self.env_label, "%s.access" % self.file_spec)
+                join("datamodel", "products", "access", self.env_label, "%s.access" % self.file_spec)
                 if self.env_label
                 else None
             )
             self.set_path_from_access(access=access)
             self.set_abstract_path()
             dir = dirname(self.abstract_path) if self.abstract_path else None
-            markdown = join("data", "md", dir, "%s.md" % self.file_spec) if dir else None
+            markdown = join("datamodel", "products", "md", dir, "%s.md" % self.file_spec) if dir else None
             self.data = {"markdown": markdown, "access": access} if markdown and access else None
         else:
             self.data = None
