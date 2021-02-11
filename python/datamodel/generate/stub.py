@@ -124,7 +124,7 @@ class Stub(object):
                         self.drop_formats(file_spec=_file_spec, path=_path)
                         #self.access = f"{self.file_spec} = ${path}"
                         self.access[self.release] = {'release': self.release, 'tree_ver': self.tree_ver,
-                                                    'access': f"{self.file_spec} = ${path}"}
+                                                     'access': f"{self.file_spec} = ${path}"}
                         self.write_access(path=access_path, replace=replace)
                     else:
                         print(f"STUB> Aborting due to conflict in existing spec: {self.access[self.tree_ver]['access']}")
@@ -231,7 +231,7 @@ class Stub(object):
             return
 
         # create input dictionary for the template
-        self.input = {"path": path, "file_spec": self.file_spec}
+        self.input = {"path": path, "file_spec": self.file_spec, "hdus": None}
         self.input['file_template'] = ''
         self.input["format"] = format
         self.input["basename"] = os.path.basename(path)
@@ -241,12 +241,12 @@ class Stub(object):
         self.input["releases"] = [self.release]
 
         # create initial release dictionary for HDUs
-        self.input[self.release] = {"hdus": None}
+        self.input['hdus'] = {self.release: None}
 
     def set_input_hdus(self) -> None:
         """Read the file and hdus."""
         if self.input:
-            self.input[self.release]["hdus"] = fits.open(self.input["path"])
+            self.input["hdus"][self.release] = fits.open(self.input["path"])
 
     def set_environment(self) -> None:
         """Set the jina2 environment including filters for content."""
@@ -296,7 +296,7 @@ class Stub(object):
                         column = {"key": key, "value": value, "comment": header.comments[key]}
                         self.hdu_row["header"].append(column)
             elif field == "description":
-                self.hdu_row[field] = "*Description of the contents of this HDU*"
+                self.hdu_row[field] = "replace me - with a description of the contents of this HDU"
             elif field == "size":
                 self.hdu_row[field] = self.format_bytes(getattr(self.hdu, field))
             else:
@@ -319,10 +319,10 @@ class Stub(object):
     def set_cache_hdus(self):
         """Set the cached content for each hdu"""
         content = self.cache["content"] if self.cache and "content" in self.cache else None
-        hdus = content["hdus"] if content and "hdus" in content else None
+        hdus = content["hdus"][self.release] if content and "hdus" in content else None
         if hdus is not None:
-            for hdu_number, self.hdu in enumerate(self.input["hdus"]):
-                row = "hdu%r" % hdu_number
+            for hdu_number, self.hdu in enumerate(self.input["hdus"][self.release]):
+                row = f"hdu{hdu_number}"
                 self.hdu_row = (
                     hdus[row]
                     if hdus and row in hdus
@@ -334,17 +334,19 @@ class Stub(object):
                     self.update_cache_hdu_row(row=row, field=field)
                 if self.hdu.is_image:
                     if self.verbose:
-                        print("HDU %r >" % hdu_number + "IMAGE: %(name)s" % self.hdu_row)
+                        print(f"HDU {hdu_number} >" + "IMAGE: %(name)s" % self.hdu_row)
                     self.update_cache_hdu_row(row=row, field="header")
                 else:
                     if self.verbose:
                         print(
-                            "HDU %r >" % hdu_number
-                            + "TABLE: %(name)s" % self.hdu_row
-                            + " --> %r columns" % len(self.hdu.columns)
+                            f"HDU {hdu_number} > " +
+                            "TABLE: %(name)s" % self.hdu_row +
+                            f" --> {len(self.hdu.columns)} columns"
                         )
+
                     for index, column in enumerate(self.hdu.columns):
                         self.update_cache_hdu_column(row=row, index=index, column=column)
+
                 hdus[row] = self.hdu_row
 
     def get_content_from_cache(self) -> dict:
@@ -361,18 +363,32 @@ class Stub(object):
         """
         format = self.cache["format"] if self.cache and "format" in self.cache else None
         path = self.cache["path"] if self.cache and "path" in self.cache else None
-        if path and format == "yaml":
-            if exists(path):
-                with open(path) as file:
-                    content = yaml.load(file, Loader=FullLoader)
-            else:
-                template = self.environment.get_template(f"stub.{format}")
-                content = yaml.load(template.render(self.input), Loader=FullLoader)
+        content = None
+        if not path or format != 'yaml':
+            return content
 
-            if content and "hdus" not in content[self.release]:
-                content[self.release]["hdus"] = {}
+        if exists(path):
+            with open(path) as file:
+                content = yaml.load(file, Loader=FullLoader)
+                content = self._check_release_in_cache(content)
         else:
-            content = None
+            template = self.environment.get_template(f"stub.{format}")
+            content = yaml.load(template.render(self.input), Loader=FullLoader)
+
+        if content and "hdus" not in content:
+            content["hdus"] = {self.release: {}}
+
+        if self.release not in content["hdus"]:
+            content["hdus"][self.release] = {}
+
+        return content
+
+    def _check_release_in_cache(self, content):
+        releases = content['general']['releases']
+        if self.release not in releases:
+            releases.append(self.release)
+            releases.sort()
+            content['general']['releases'] = releases
         return content
 
     def format_bytes(self, value=None):
@@ -438,7 +454,7 @@ class Stub(object):
         string: str
             The string.
         """
-        string = value if type(value) == str else "%r" % value if value else "**"
+        string = f"{value}" if value else 'replace me - with content'
         return string
 
     def format_type(self, value=None):
@@ -534,7 +550,7 @@ class Stub(object):
     def close_input_hdus(self):
         """Close input hdus"""
         if self.input and "hdus" in self.input:
-            self.input["hdus"].close()
+            self.input["hdus"][self.release].close()
 
     def remove_output(self) -> None:
         """ Delete the output format files """
