@@ -15,7 +15,7 @@ from __future__ import print_function, division, absolute_import
 import re
 
 
-def get_abstract_path(path: str = None) -> str:
+def get_abstract_path(path: str = None, add_brackets: bool = None) -> str:
     """ Converts a path template into an abstract path
 
     Converts a path template into an abstract path.  Extracts bracketed keywords
@@ -38,13 +38,14 @@ def get_abstract_path(path: str = None) -> str:
             search = r"\%s.*?\%s" % delimeter
             for keyword in re.findall(search, path):
                 abstract_key = get_abstract_key(
-                    key=keyword.replace(delimeter[0], "").replace(delimeter[1], "")
+                    key=keyword.replace(delimeter[0], "").replace(delimeter[1], ""),
+                    add_brackets=add_brackets
                 )
                 path = path.replace(keyword, abstract_key)
     return path
 
 
-def get_abstract_key(key: str = None) -> str:
+def get_abstract_key(key: str = None, add_brackets: bool = None) -> str:
     """ Sanitize the path keyword name
 
     Sanitizes the path keyword name.  Upper cases the keyword name
@@ -68,6 +69,10 @@ def get_abstract_key(key: str = None) -> str:
                 fmt_int = int(formats.split('>', 1)[-1])
                 key = f"{key}{fmt_int}"
         key = key.upper()
+
+        if add_brackets:
+            key = f'[{key}]'
+
     except (ValueError, TypeError) as e:
         print(f"DATAMODEL> {e}")
         key = None

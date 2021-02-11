@@ -101,6 +101,10 @@ class Generate(object):
         self.set_datamodel_dir()
         self.set_sas_base_dir()
 
+        # set the datamodel directories for all formats and the fully realized filename
+        self.set_directory()
+        self.set_file()
+
     def __repr__(self):
         return f"<Generate(file_spec='{self.file_spec}', release='{self.release}')>"
 
@@ -272,6 +276,14 @@ class Generate(object):
         from the template
 
         """
+        # TODO - update workflow
+        # - from file + stub.yaml, produce a product yaml file
+        # - read in and validate the yaml file
+        # - if valid, produce md and json formats
+        # - or produce md for previews but do not allow commits
+        # - move all git stuff to end of workflow
+        # - final action is to optionally git commit and push new files
+
         self.stub = Stub(file_spec=self.file_spec, directory=self.directory,
                          verbose=self.verbose, force=self.force, tree_ver=self.tree_ver,
                          release=self.release)
@@ -295,7 +307,10 @@ class Generate(object):
         # creates the output results, as a rendered string
         self.stub.set_result()
         # writes out the rendered strings into each file ; also performs git add + commit on files
-        for format in [self.format, "yaml", "json"]:
+        # yaml
+        self.stub.write(format='yaml', skip_git=True)
+        # md and json
+        for format in [self.format, "json"]:
             self.stub.write(format=format, skip_git=skip_git)
         # closes any open file HDUs
         self.stub.close_input_hdus()

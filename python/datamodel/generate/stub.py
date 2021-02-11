@@ -21,28 +21,6 @@ from ..git import Git
 
 __author__ = "Brian Cherinka, Joel Brownstein"
 
-
-class AccessFile(object):
-    # TODO - access minimally needs file_spec, directory, and path
-
-    def __init__(self):
-        self.file_species = None
-        self.path = None
-        self.template = f'${self.path}'
-        self.release = None
-        self.tree_ver = None
-
-    def get_access_string(self):
-        return f"{self.file_species} = {self.template}"
-
-    def get_access_dict(self):
-        return {'release': self.release, 'tree_ver': self.tree_ver,
-                'access': self.get_access_string()}
-
-
-
-
-
 class Stub(object):
     """Class to create a datamodel stub.
 
@@ -235,38 +213,75 @@ class Stub(object):
         except Exception as e:
             print(f"STUB> Output exception {e}")
 
-    def set_input(self, path=None, format=None):
-        """Set the file's properties for it's path."""
-        self.input = None
-        if path and self.access:
-            self.input = {"path": path, "file_spec": self.file_spec, "hdus": None}
-            self.input["format"] = format
-            self.input["basename"] = basename(path)
-            self.input["filename"] = self.input["basename"].replace(".", "\.")
-            self.input["filesize"] = self.get_filesize()
-            self.input["filetype"] = self.get_filetype()
+    def set_input(self, path: str = None, format: str = 'yaml') -> None:
+        """ create the input for the stub template
 
-    def set_environment(self):
+        Given a file path, creates a dictionary of data inputs to be passed
+        into the stub Jinja 2 template, for the given format.
+
+        Parameters
+        ----------
+        path : str, optional
+            A file path, by default None
+        format : str, optional
+            The format of the stub, by default yaml
+        """
+        self.input = None
+        if not path or not self.access:
+            return
+
+        # create input dictionary for the template
+        self.input = {"path": path, "file_spec": self.file_spec}
+        self.input['file_template'] = ''
+        self.input["format"] = format
+        self.input["basename"] = os.path.basename(path)
+        self.input["filename"] = self.input["basename"].replace(".", r"\.")
+        self.input["filesize"] = self.get_filesize()
+        self.input["filetype"] = self.get_filetype()
+        self.input["releases"] = [self.release]
+
+        # create initial release dictionary for HDUs
+        self.input[self.release] = {"hdus": None}
+
+    def set_input_hdus(self) -> None:
+        """Read the file and hdus."""
+        if self.input:
+            self.input[self.release]["hdus"] = fits.open(self.input["path"])
+
+    def set_environment(self) -> None:
         """Set the jina2 environment including filters for content."""
         loader = PackageLoader("datamodel", "templates")
         self.environment = Environment(loader=loader, trim_blocks=True, lstrip_blocks=True)
 
-    def set_cache(self, format="yaml"):
-        """Set the cached content from yaml (by default)."""
-        if self.input and format in self.cache_formats:
-            file_spec = (
-                self.input["file_spec"] if self.input and "file_spec" in self.input else None
-            )
-            dir = self.directory[format] if self.directory and format in self.directory else None
-            self.cache = (
-                {"format": format, "path": join(dir, file_spec + "." + format)}
-                if dir and file_spec
-                else None
-            )
-            self.cache["content"] = self.get_content_from_cache()
-            self.set_cache_hdus()
-        else:
-            self.cache = None
+    def set_cache(self, format: str = "yaml") -> None:
+        """ Set the cached content from the yaml file
+
+        Retrieves any cached content and populates the
+        cache dictionary.
+
+        Parameters
+        ----------
+        format : str, optional
+            The format of the stub, by default "yaml"
+        """
+
+        self.cache = None
+        if not (self.input and format in self.cache_formats):
+            return
+
+        file_spec = (
+            self.input["file_spec"] if self.input and "file_spec" in self.input else None
+        )
+        dir = self.directory[format] if self.directory and format in self.directory else None
+        self.cache = (
+            {"format": format, "path": join(dir, file_spec + "." + format)}
+            if dir and file_spec
+            else None
+        )
+        # read any cache content
+        self.cache["content"] = self.get_content_from_cache()
+        # load the hdu content into the cache
+        self.set_cache_hdus()
 
     def update_cache_hdu_row(self, row=None, field=None):
         """Set the name, etc. fields in the cached hdu"""
@@ -332,19 +347,30 @@ class Stub(object):
                         self.update_cache_hdu_column(row=row, index=index, column=column)
                 hdus[row] = self.hdu_row
 
-    def get_content_from_cache(self):
-        """Get the cached content from yaml file (by default)."""
+    def get_content_from_cache(self) -> dict:
+        """ Retrieves the cache content from yaml file
+
+        Looks for any existing yaml product file ands loads its content to
+        the cache.  If not file exists, creates a new dictionary from the
+        stub.yaml file.
+
+        Returns
+        -------
+        dict
+            The yaml content
+        """
         format = self.cache["format"] if self.cache and "format" in self.cache else None
         path = self.cache["path"] if self.cache and "path" in self.cache else None
         if path and format == "yaml":
             if exists(path):
                 with open(path) as file:
-                    content = load(file, Loader=FullLoader)
+                    content = yaml.load(file, Loader=FullLoader)
             else:
-                template = self.environment.get_template("stub.%s" % format)
-                content = load(template.render(self.input), Loader=FullLoader)
-            if content and "hdus" not in content:
-                content["hdus"] = {}
+                template = self.environment.get_template(f"stub.{format}")
+                content = yaml.load(template.render(self.input), Loader=FullLoader)
+
+            if content and "hdus" not in content[self.release]:
+                content[self.release]["hdus"] = {}
         else:
             content = None
         return content
@@ -398,11 +424,6 @@ class Stub(object):
         if "gz" in file_extension:
             filename, file_extension = splitext(filename)
         return file_extension[1:].upper()
-
-    def set_input_hdus(self):
-        """Read the file and hdus."""
-        if self.input:
-            self.input["hdus"] = fits.open(self.input["path"])
 
     def nonempty_string(self, value=None):
         """Jinja2 Filter to map the format value to a string.
