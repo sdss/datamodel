@@ -509,8 +509,12 @@ class Stub(object):
         self.result = None
         format = self.input["format"] if self.input and "format" in self.input else None
         if format and self.template:
+            selected_release = self.release
+            hdus = self.cache['content']['hdus'][selected_release]
+            self.input['selected_release'] = selected_release
             self.result = {
-                format: self.template.render(input=self.input, content=self.cache["content"])
+                format: self.template.render(input=self.input, content=self.cache["content"],
+                                             hdus=hdus)
             }
             self.result["json"] = self.get_json()
             self.result["yaml"] = self.get_yaml()
@@ -557,3 +561,8 @@ class Stub(object):
         for key, val in self.output.items():
             if os.path.exists(val):
                 os.remove(val)
+
+
+
+class Stub2(object):
+    pass

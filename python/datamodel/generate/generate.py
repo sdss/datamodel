@@ -294,7 +294,7 @@ class Generate(object):
         # creates the access path file
         self.stub.set_access(path=self.path, replace=self.replace)
         # creates the dictionary of inputs into the various stubs
-        self.stub.set_input(path=self.file, format='yaml')
+        self.stub.set_input(path=self.file, format=self.format)
         self.stub.set_input_hdus()
         # creates the Jinja2 environment
         self.stub.set_environment()
@@ -310,8 +310,8 @@ class Generate(object):
         # yaml
         self.stub.write(format='yaml', skip_git=True)
         # md and json
-        #for format in [self.format, "json"]:
-        #    self.stub.write(format=format, skip_git=skip_git)
+        for format in [self.format, "json"]:
+            self.stub.write(format=format, skip_git=skip_git)
         # closes any open file HDUs
         self.stub.close_input_hdus()
         # git pushes the results
