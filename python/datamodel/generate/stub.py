@@ -502,14 +502,14 @@ class Stub(object):
     def get_json(self):
         return dumps({}) if self.input else None
 
-    def set_result(self):
+    def set_result(self, release=None, group='WORK'):
         """Set the result for the input by rendering the template,
         and set a json or yaml version of the input dictionary.
         """
         self.result = None
         format = self.input["format"] if self.input and "format" in self.input else None
         if format and self.template:
-            selected_release = self.release
+            selected_release = self.get_selected_release(release=release, group=group)
             hdus = self.cache['content']['hdus'][selected_release]
             self.input['selected_release'] = selected_release
             self.result = {
@@ -518,6 +518,35 @@ class Stub(object):
             }
             self.result["json"] = self.get_json()
             self.result["yaml"] = self.get_yaml()
+
+    def get_selected_release(self, release=None, group='WORK'):
+        cached_releases = list(self.cache['content']['hdus'].keys())
+        if len(cached_releases) == 0:
+            return release or self.release
+        elif len(cached_releases) == 1:
+            return cached_releases[0]
+        elif release in cached_releases:
+            return release
+        else:
+            if release and release not in cached_releases:
+                print(f'Input release {release} unavailable in cache. '
+                      f'Selecting latest release in group {group}')
+
+            # TODO - move to separate function
+            # groups releases and sorts them
+            import itertools
+            g = itertools.groupby(sorted(cached_releases, key=lambda x: x[0]), lambda x: x[0])
+            key = {'D': 'DR', 'I': 'IPL', 'M': 'MPL', 'W': 'WORK'}
+            rs = {}
+            for i, gg in g:
+                rs[key[i]] = sorted(gg, key=lambda x: int(x[2:]) if 'DR' in x else int(x[3:]) if 'PL' in x else x)
+
+            # get latest release
+            if group not in key.values():
+                raise KeyError(f'group {group} is not a valid release group')
+            elif group not in rs.keys():
+                raise KeyError(f'group {group} is not yet a cached release')
+            return rs[group][-1]
 
     def set_template(self):
         """Create the Jinja2 environment and set the template."""
@@ -563,6 +592,10 @@ class Stub(object):
                 os.remove(val)
 
 
+class Stub2(Stub):
 
-class Stub2(object):
-    pass
+    def __init__(self, format='yaml'):
+        self.format = format
+
+    def __repr__(self):
+        return f'<Stub(format={self.format})>'

@@ -19,7 +19,7 @@
 {{ content.general.naming_convention }}
 
 ### Releases
-{{ content.general.releases }}
+{{ content.general.releases | join(', ') }}
 
 ### Approximate Size
 {{ input.filesize}}
