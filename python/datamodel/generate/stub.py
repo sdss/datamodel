@@ -8,6 +8,7 @@
 
 import os
 import yaml
+import json
 from json import dumps
 from os.path import basename, exists, getsize, join, sep, splitext
 
@@ -21,6 +22,11 @@ from ..git import Git
 
 __author__ = "Brian Cherinka, Joel Brownstein"
 
+
+# TODO - add path template to markdown
+# TODO - consider moving access file into yaml
+# TODO - consider yaml and fits validation to occur between stub and wiki
+
 class Stub(object):
     """Class to create a datamodel stub.
 
@@ -33,7 +39,7 @@ class Stub(object):
     verbose : bool , optional
         if True, uses verbose output
     force : bool, optional
-        if True, overwrites any existing file
+        if True, overwrites the HDU content only
     """
 
     fmap = {
@@ -213,6 +219,16 @@ class Stub(object):
         except Exception as e:
             print(f"STUB> Output exception {e}")
 
+    def prepare_stub(self, path, replace, file, format='md'):
+        self.set_access(path, replace=replace)
+        self.set_input(path=file, format=format)
+        self.set_input_hdus()
+        self.set_environment()
+        self.set_cache()
+        self.set_template()
+        self.set_output()
+        self.set_result()
+
     def set_input(self, path: str = None, format: str = 'yaml') -> None:
         """ create the input for the stub template
 
@@ -269,10 +285,12 @@ class Stub(object):
         if not (self.input and format in self.cache_formats):
             return
 
+        # get the file species and path to the cached yaml file
         file_spec = (
             self.input["file_spec"] if self.input and "file_spec" in self.input else None
         )
         dir = self.directory[format] if self.directory and format in self.directory else None
+        # create an empty cached dictionary
         self.cache = (
             {"format": format, "path": join(dir, file_spec + "." + format)}
             if dir and file_spec
@@ -280,35 +298,50 @@ class Stub(object):
         )
         # read any cache content
         self.cache["content"] = self.get_content_from_cache()
+
         # load the hdu content into the cache
         self.set_cache_hdus()
 
     def update_cache_hdu_row(self, row=None, field=None):
-        """Set the name, etc. fields in the cached hdu"""
+        """ Set the name, etc. fields in the cached hdu """
+
+        # only do something when the field is in the fits hdu or if the field is "description"
         if field and (hasattr(self.hdu, field) or field == "description"):
             if field in self.hdu_row and not self.force:
+                # do nothing if the field is already in the hdu_row and we're not manually updating
                 self.cached = True
             elif field == "header":
+                # if field is header then add all the header keys to the hdu row
                 header = self.hdu.header
                 self.hdu_row[field] = []
+
                 for key, value in header.items():
                     if self.is_header_keyword(key=key):
                         column = {"key": key, "value": value, "comment": header.comments[key]}
                         self.hdu_row["header"].append(column)
+
             elif field == "description":
+                # add description
                 self.hdu_row[field] = "replace me - with a description of the contents of this HDU"
             elif field == "size":
+                # add file fize
                 self.hdu_row[field] = self.format_bytes(getattr(self.hdu, field))
             else:
+                # add the value of the field
                 self.hdu_row[field] = getattr(self.hdu, field)
                 self.cached = False
 
     def update_cache_hdu_column(self, row=None, index=None, column=None):
-        """Set the cached content for a colum in a hdu table"""
+        """ Set the cached content for a colum in a hdu table """
+
+        # create a new columns dict or access the existing one from the hdu row
         columns = self.hdu_row["columns"] if "columns" in self.hdu_row else {}
+
+        # do nothing if the column name is already in the dict and we aren't forcing an update
         if column.name in columns and not self.force:
             pass
         else:
+            # add a new column entry to the dictionary
             columns[column.name] = {
                 "name": column.name.upper(),
                 "type": self.format_type(column.format),
@@ -317,12 +350,18 @@ class Stub(object):
             }
 
     def set_cache_hdus(self):
-        """Set the cached content for each hdu"""
+        """ Set the cached content for each hdu """
+
+        # get the cached content and the FITS hdus for the given release
+        # hdus could be an empty dict or have content
         content = self.cache["content"] if self.cache and "content" in self.cache else None
         hdus = content["hdus"][self.release] if content and "hdus" in content else None
+
         if hdus is not None:
+            # loop over all input hdus
             for hdu_number, self.hdu in enumerate(self.input["hdus"][self.release]):
                 row = f"hdu{hdu_number}"
+                # create a new hdu row, dictionary containing hdu info
                 self.hdu_row = (
                     hdus[row]
                     if hdus and row in hdus
@@ -330,13 +369,18 @@ class Stub(object):
                     if self.hdu.is_image
                     else {"columns": {}}
                 )
+
+                # add the basic information to the hdu row
                 for field in ["name", "is_image", "description", "size"]:
                     self.update_cache_hdu_row(row=row, field=field)
+
                 if self.hdu.is_image:
+                    # add header keys to to the hdu row
                     if self.verbose:
                         print(f"HDU {hdu_number} >" + "IMAGE: %(name)s" % self.hdu_row)
                     self.update_cache_hdu_row(row=row, field="header")
                 else:
+                    # add binary table columns to the hdu row
                     if self.verbose:
                         print(
                             f"HDU {hdu_number} > " +
@@ -344,9 +388,11 @@ class Stub(object):
                             f" --> {len(self.hdu.columns)} columns"
                         )
 
+                    # loop over all columns in the binary table
                     for index, column in enumerate(self.hdu.columns):
                         self.update_cache_hdu_column(row=row, index=index, column=column)
 
+                # add/update the hdus content with the row
                 hdus[row] = self.hdu_row
 
     def get_content_from_cache(self) -> dict:
@@ -361,29 +407,37 @@ class Stub(object):
         dict
             The yaml content
         """
+        # get the cache format and cache file path
         format = self.cache["format"] if self.cache and "format" in self.cache else None
         path = self.cache["path"] if self.cache and "path" in self.cache else None
         content = None
+
+        # do nothing if format is not yaml
         if not path or format != 'yaml':
             return content
 
         if exists(path):
+            # read in existing cached yaml file
             with open(path) as file:
                 content = yaml.load(file, Loader=FullLoader)
                 content = self._check_release_in_cache(content)
         else:
+            # create brand new cache content using template input
             template = self.environment.get_template(f"stub.{format}")
             content = yaml.load(template.render(self.input), Loader=FullLoader)
 
+        # add an hdus key if it doesn't exist
         if content and "hdus" not in content:
             content["hdus"] = {self.release: {}}
 
+        # add a new release key in hdu if it doesn't exist
         if self.release not in content["hdus"]:
             content["hdus"][self.release] = {}
 
         return content
 
     def _check_release_in_cache(self, content):
+        """ check that a release is in the cached content """
         releases = content['general']['releases']
         if self.release not in releases:
             releases.append(self.release)
@@ -488,6 +542,7 @@ class Stub(object):
         return tuple([key.find(f) for f in ("TFORM", "TTYPE")]) == (-1, -1)
 
     def set_output(self):
+        # create the output file paths
         if self.input and self.template:
             self.output = {
                 format: join(dir, self.file_spec + "." + format)
@@ -512,14 +567,17 @@ class Stub(object):
             selected_release = self.get_selected_release(release=release, group=group)
             hdus = self.cache['content']['hdus'][selected_release]
             self.input['selected_release'] = selected_release
+            # render the markdown template (uses both input and cached content)
             self.result = {
                 format: self.template.render(input=self.input, content=self.cache["content"],
                                              hdus=hdus)
             }
+            # render the json and yaml contents
             self.result["json"] = self.get_json()
             self.result["yaml"] = self.get_yaml()
 
     def get_selected_release(self, release=None, group='WORK'):
+        """ get the hdu content for a given release """
         cached_releases = list(self.cache['content']['hdus'].keys())
         if len(cached_releases) == 0:
             return release or self.release
@@ -590,12 +648,3 @@ class Stub(object):
         for key, val in self.output.items():
             if os.path.exists(val):
                 os.remove(val)
-
-
-class Stub2(Stub):
-
-    def __init__(self, format='yaml'):
-        self.format = format
-
-    def __repr__(self):
-        return f'<Stub(format={self.format})>'
