@@ -8,7 +8,7 @@
 
 from os import getenv
 from os.path import join
-from subprocess import check_output
+from subprocess import check_output, CalledProcessError
 
 
 __author__ = "Joel Brownstein <joelbrownstein@sdss.org>"
@@ -36,30 +36,96 @@ class Git(object):
             location = self.get_location_from_path(path=path)
         self.run_action(action="status", arg=location)
 
-    def pull(self):
-        self.run_action(action="pull")
+    def pull(self) -> None:
+        """ Pull from Github remote origin
 
-    def push(self):
-        self.run_action(action="push")
+        Performs a "git pull" on the datamodel repo
 
-    def rm(self, location=None):
-        self.run_action(action="rm", arg=location)
+        Raises
+        ------
+        RuntimeError
+            when the subprocess git command fails
+        """
+        try:
+            self.run_action(action="pull")
+        except CalledProcessError as err:
+            raise RuntimeError(f'Cannot perform git pull.  Check for merge conflicts or remote repo exists: {err}') from err
+
+    def push(self) -> None:
+        """ Push to Github remote origin
+
+        Performs a "git push" on the datamodel repo
+
+        Raises
+        ------
+        RuntimeError
+            when the subprocess git command fails
+        """
+        try:
+            self.run_action(action="push")
+        except CalledProcessError as err:
+            raise RuntimeError(f'Cannot perform git push.  Check for merge conflicts or outdated local repo: {err}') from err
+
+    def rm(self, location: str = None) -> None:
+        """ Remove a git remove of a file
+
+        Performs a "git rm" on a given file.
+
+        Parameters
+        ----------
+        location : str, optional
+            The filepath to be removed, by default None
+
+        Raises
+        ------
+        RuntimeError
+            when the subprocess git command fails
+        """
+        try:
+            self.run_action(action="rm", arg=location)
+        except CalledProcessError as err:
+            raise RuntimeError(f'Cannot perform git rm. Check for file conflicts: {err}') from err
 
     def get_location_from_path(self, path=None):
         if path:
             directory = join(self.directory, "") if self.directory else None
-            location = path[len(directory)] if directory and path.startswith(directory) else None
+            location = path[len(directory):] if directory and path.startswith(directory) else None
         else:
             location = None
         return location
 
-    def add(self, path=None, location=None):
+    def add(self, path: str = None, location: str = None) -> None:
+        """ Add a file to the git repo
+
+        Performs a "git add" on a given file.
+
+        Parameters
+        ----------
+        path : str, optional
+            the full path of the file to add, by default None
+        location : str, optional
+            the file location relative to the top datamodel directory, by default None
+
+        Raises
+        ------
+        RuntimeError
+            when the subprocess git command fails
+        """
+        # get the file location if none provided
         if path and not location:
             location = self.get_location_from_path(path=path)
-        if location:
-            self.status(location=location)
-            if "Untracked files" in self.response:
+
+        # if no file location found, do nothing
+        if not location:
+            return
+
+        # get the status of the file
+        self.status(location=location)
+        if "Untracked files" in self.response:
+            try:
                 self.run_action(action="add", arg=location)
+            except CalledProcessError as err:
+                raise RuntimeError(f'Cannot perform git add. Check for proper file and path: {err}') from err
 
     def clone(self, product=None, branch=None):
         if product and branch:
@@ -69,21 +135,53 @@ class Git(object):
         if branch:
             self.run_action(action="checkout", arg=branch)
 
-    def commit(self, path=None, location=None, all=None, message=None):
+    def commit(self, path: str = None, location: str = None, all: bool = None,
+               message: str = None) -> None:
+        """ Commit a file to the git repo
+
+        Performs a "git commit" on a given file.
+
+        Parameters
+        ----------
+        path : str, optional
+            the full path of the file to add, by default None
+        location : str, optional
+            the file location relative to the top datamodel directory, by default None
+        all : bool, optional
+            if True commits everything in the repo, by default None
+        message : str, optional
+            a git commit message, by default None
+
+        Raises
+        ------
+        RuntimeError
+            when the subprocess git command fails
+        """
         args = ["--all"] if all else []
-        if message:
-            args += ["-m", message]
-            if path and not location:
-                location = self.get_location_from_path(path=path)
-            if location and not all:
-                args += [location]
-                self.status(location=location)
-                if "new file" in self.response or "modified" in self.response:
-                    self.run_action(action="commit", args=args)
-            elif all:
-                self.run_action(action="commit", args=args)
-        else:
+
+        # a git commit message is required
+        if not message:
             print("GIT> commit requires message")
+            return
+
+        args += ["-m", message]
+        # get the location if none is provided
+        if path and not location:
+            location = self.get_location_from_path(path=path)
+
+        if location and not all:
+            args += [location]
+            self.status(location=location)
+            if "new file" in self.response or "modified" in self.response:
+                try:
+                    self.run_action(action="commit", args=args)
+                except CalledProcessError as err:
+                    raise RuntimeError(f'Cannot perform git commit. Check for problems: {err}') from err
+        elif all:
+            try:
+                self.run_action(action="commit", args=args)
+            except CalledProcessError as err:
+                raise RuntimeError(f'Cannot perform git commit. Check for problems: {err}') from err
 
     def run_action(self, action=None, arg=None, args=None):
         if action in self.actions:
