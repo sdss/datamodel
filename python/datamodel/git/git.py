@@ -23,6 +23,9 @@ class Git(object):
         self.verbose = verbose
         self.set_directory()
 
+    def __repr__(self):
+        return f'<Git (directory="{self.directory}")>'
+
     def set_directory(self):
         self.directory = getenv("DATAMODEL_DIR")
         if not self.directory:
