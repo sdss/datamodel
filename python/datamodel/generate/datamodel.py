@@ -329,7 +329,7 @@ class DataModel(object):
                 log.info(f'Creating stub: {ss}')
             ss.write()
 
-    def remove_stubs(self, format: str = None) -> None:
+    def remove_stubs(self, format: str = None, git: bool = None) -> None:
         """ Remove the stub files
 
         Remove all stubs or a stub of a given format.
@@ -338,12 +338,23 @@ class DataModel(object):
         ----------
         format : str, optional
             A stub format to remove, by default None
+        git : bool, optional
+            If True, removes from the git repo
         """
         for stub in stub_iterator(format=format):
             ss = stub(self)
             if self.verbose:
                 log.info(f'Removing stub: {ss}')
-            ss.remove_output()
+
+            # either remove locally or from git
+            if git:
+                try:
+                    ss.remove_from_git()
+                except RuntimeError:
+                    log.info("Could not perform git remove.  Falling back to local remove.")
+                    ss.remove_output()
+            else:
+                ss.remove_output()
 
     def commit_stubs(self, format: str = None) -> None:
         """ Commit the stub files into git
