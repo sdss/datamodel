@@ -9,7 +9,7 @@
 from os import getenv
 from os.path import join
 from subprocess import check_output, CalledProcessError
-
+from datamodel import log
 
 __author__ = "Joel Brownstein <joelbrownstein@sdss.org>"
 
@@ -29,7 +29,7 @@ class Git(object):
     def set_directory(self):
         self.directory = getenv("DATAMODEL_DIR")
         if not self.directory:
-            print("GIT> cannot set directory.  Please set DATAMODEL_DIR.")
+            log.error("GIT> cannot set directory.  Please set DATAMODEL_DIR.")
 
     def status(self, path=None, location=None):
         if path and not location:
@@ -161,7 +161,7 @@ class Git(object):
 
         # a git commit message is required
         if not message:
-            print("GIT> commit requires message")
+            log.error("GIT> commit requires message")
             return
 
         args += ["-m", message]
@@ -200,7 +200,7 @@ class Git(object):
     def set_command(self):
         self.command = ["git"] + self.action if self.action else None
         if self.command and self.verbose:
-            print("GIT> %s" % " ".join(self.command))
+            log.info("GIT> %s" % " ".join(self.command))
 
     def set_response(self):
         self.response = (
@@ -213,4 +213,4 @@ class Git(object):
         if self.response:
             for index, response in enumerate(self.response.split("\n")):
                 if response:
-                    print("%s %s" % (" " * 4 if index else "GIT>", response))
+                    log.info("%s %s" % (" " * 4 if index else "GIT>", response))
