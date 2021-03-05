@@ -77,6 +77,7 @@ class DataModel(object):
         self.file_species = get_file_spec(file_spec=file_spec)
         self.path = path
         self.keywords = keywords
+        self.kwargs = None
         self.env_label = env_label
         self.location = location
         self.template = None
@@ -199,6 +200,7 @@ class DataModel(object):
             except:
                 log.error(f"GENERATE> {keyword} is an invalid key=value assignment")
 
+        self.kwargs = real.copy()
         try:
             self.real_location = self.location.format(**real)
             self.abstract_location = self.location.format(**abstract)
@@ -310,7 +312,7 @@ class DataModel(object):
         stub = list(stub_iterator(format=format))
         return stub[0](self) if stub else None
 
-    def write_stubs(self, format: str = None) -> None:
+    def write_stubs(self, format: str = None, force: bool = None) -> None:
         """ Write out the stub files
 
         Write out all stubs or a stub of a given format.
@@ -319,6 +321,8 @@ class DataModel(object):
         ----------
         format : str, optional
             A stub format to write out, by default None
+        force : bool, optional
+            If True, forces a rewrite of the cached stub content
         """
         if self.verbose:
             log.info(f'Preparing datamodel: {self}.')
@@ -327,7 +331,7 @@ class DataModel(object):
             ss = stub(self)
             if self.verbose:
                 log.info(f'Creating stub: {ss}')
-            ss.write()
+            ss.write(force=force)
 
     def remove_stubs(self, format: str = None, git: bool = None) -> None:
         """ Remove the stub files
