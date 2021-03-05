@@ -34,21 +34,30 @@ class BaseStub(abc.ABC):
     cacheable = False
     has_template = True
 
-    def __init__(self, datamodel = None, verbose: bool = None):
+    def __init__(self, datamodel = None, use_cache_release: str = None, full_cache: bool = None,
+                 verbose: bool = None, force: bool = None):
         self.environment = None
         self.template = None
         self.output = None
         self.datamodel = datamodel
         self.verbose = verbose
 
+        # cache control attrs
+        self.use_cache_release = use_cache_release
+        self.full_cache = full_cache
+        self.force = force
+
+        # content attrs
         self._template_input = None
         self._cache = None
         self.content = None
 
+        # set up the Jinja 2 template + environment, and the output stub file path
         self._set_template()
         if self.datamodel:
             self._set_output()
 
+        # setup a git object
         self.git = Git(verbose=self.verbose)
 
     def __repr__(self) -> str:
@@ -118,7 +127,11 @@ class BaseStub(abc.ABC):
     def _get_content(self):
         pass
 
-    def write(self, force: bool = None) -> None:
+    def write(self, force: bool = None, use_cache_release: str = None, full_cache: bool = None) -> None:
+
+        self.use_cache_release = use_cache_release
+        self.full_cache = full_cache
+        self.force = force
 
         if not self.output:
             raise AttributeError('No output filepath set')
@@ -197,6 +210,11 @@ class BaseStub(abc.ABC):
         # set the cache content
         self._cache = content
 
+        # if release is the same, copy over entire cache
+        if self.use_cache_release and self.full_cache:
+            self._cache['releases'][self.datamodel.release] = self._cache['releases'].get(self.use_cache_release, {})
+            return
+
         # set the cache with access info
         self._update_cache_access()
 
@@ -217,21 +235,75 @@ class BaseStub(abc.ABC):
         # update the access dictionary in the cache
         self._cache['releases'][self.datamodel.release]['access'] = self._get_access_cache()
 
-        # update the template keyword in the cache
-        self._cache['releases'][self.datamodel.release]['template']=  self.datamodel.template
+        # update the template/location keyword in the cache
+        self._cache['releases'][self.datamodel.release]['template'] = self.datamodel.template
 
-    def _set_cache_hdus(self, use_cache_release: str = None, force: bool = None) -> None:
+    def _set_cache_hdus(self, force: bool = None) -> None:
+        """[summary]
+
+        [extended_summary]
+
+        Parameters
+        ----------
+        force : bool, optional
+            If True, rewrites hdu cache from scratch, by default None
+        """
         cached_hdus = self._cache['releases'][self.datamodel.release].get('hdus', {})
 
-        if use_cache_release and not force:
-            cached_hdus = self._cache['releases'][use_cache_release].get('hdus', {})
-
+        # if no cache exists or forced update, generate a new cache from file
         if not cached_hdus or force:
             cached_hdus = self._generate_new_hdu_cache()
 
+        if self.use_cache_release and not force:
+            old_hdus = self._cache['releases'][self.use_cache_release].get('hdus', {})
+            if not self.full_cache:
+                # partial copy of the cache
+                cached_hdus = self._update_partial_cache(cached_hdus, old_hdus)
+            else:
+                # full copy of the cache
+                cached_hdus = old_hdus
+
+        # set the HDU cache to the given release
         self._cache['releases'][self.datamodel.release]['hdus'] = cached_hdus
 
+    @staticmethod
+    def _update_partial_cache(cached_hdus, old_hdus):
+        old_names = [v['name'] for v in old_hdus.values()]
+
+        for k, v in cached_hdus.items():
+            # skip extensions that aren't in the old HDU
+            if v['name'] not in old_names:
+                continue
+
+            # get the matching old hdu index
+            idx = old_names.index(v['name'])
+            oldkey = f'hdu{idx}'
+
+            # update the HDU description
+            v['description'] = old_hdus[oldkey]['description']
+
+            # skip processing of image extensions
+            if v['is_image'] is True:
+                continue
+            # if 'columns' not in v:
+            #     continue
+
+            for kk,vv in v['columns'].items():
+                vv['unit'] = old_hdus[oldkey]['columns'][kk]['unit']
+                vv['description'] = old_hdus[oldkey]['columns'][kk]['description']
+
+        return cached_hdus
+
     def _generate_new_hdu_cache(self) -> dict:
+        """[summary]
+
+        [extended_summary]
+
+        Returns
+        -------
+        dict
+            [description]
+        """
         hdus = {}
 
         with fits.open(self.datamodel.file) as hdulist:
@@ -382,7 +454,7 @@ class BaseStub(abc.ABC):
         self.git.push()
 
     def remove_from_git(self) -> None:
-        """ """
+        """ Remove file from the git repo """
         if os.path.exists(self.output):
             self.git.rm(self.output)
 
@@ -489,7 +561,7 @@ class JsonStub(BaseStub):
     has_template: bool = False
 
     def _get_content(self) -> None:
-        self.content = json.dumps(self._cache, sort_keys=False, indent=4)
+        self.content = json.dumps({}, sort_keys=False, indent=4)
 
 
 class AccessStub(BaseStub):
