@@ -233,6 +233,11 @@ class DataModel(object):
         if self.verbose:
             log.info(f'Using real file: {self.file}')
 
+    @property
+    def file_exists(self):
+        """ Checks for file existence on disk """
+        return os.path.isfile(self.file) if self.file else False
+
     def _set_env(self) -> None:
         """ Create an environment dictionary
 

@@ -27,7 +27,7 @@ except ImportError:
     markdown = None
 
 from ..git import Git
-
+from .changelog import YamlDiff
 
 class BaseStub(abc.ABC):
     format = None
@@ -167,6 +167,9 @@ class BaseStub(abc.ABC):
         template_input["environment"] = self.datamodel.env_label
         template_input["releases"] = [self.datamodel.release]
 
+        template_input["example"] = [self.datamodel.real_location]
+        template_input["location"] = [self.datamodel.location]
+
         # input for access section
         template_input['access'] = self._get_access_cache()
 
@@ -205,7 +208,9 @@ class BaseStub(abc.ABC):
 
         # check the content dictionary has a proper release
         if self.datamodel.release not in content['releases']:
-            content['releases'][self.datamodel.release] = {"access": {}, "hdus": {}, "template": None}
+            content['releases'][self.datamodel.release] = {"template": None, "example": None,
+                                                           "location": None, "access": {}, "hdus": {}
+                                                           }
 
         # set the cache content
         self._cache = content
@@ -220,6 +225,9 @@ class BaseStub(abc.ABC):
 
         # set the cache for hdus
         self._set_cache_hdus(force=force)
+
+        # update the cache changelog
+        self._update_cache_changelog()
 
     def _check_release_in_cache(self, content: dict) -> dict:
         releases = content['general']['releases']
@@ -237,6 +245,10 @@ class BaseStub(abc.ABC):
 
         # update the template/location keyword in the cache
         self._cache['releases'][self.datamodel.release]['template'] = self.datamodel.template
+
+        # update the location/example keyword in the cache
+        self._cache['releases'][self.datamodel.release]['location'] = self.datamodel.location
+        self._cache['releases'][self.datamodel.release]['example'] = self.datamodel.real_location
 
     def _set_cache_hdus(self, force: bool = None) -> None:
         """[summary]
@@ -285,8 +297,6 @@ class BaseStub(abc.ABC):
             # skip processing of image extensions
             if v['is_image'] is True:
                 continue
-            # if 'columns' not in v:
-            #     continue
 
             for kk,vv in v['columns'].items():
                 vv['unit'] = old_hdus[oldkey]['columns'][kk]['unit']
@@ -336,6 +346,12 @@ class BaseStub(abc.ABC):
 
                 hdus[extno] = row
         return hdus
+
+    def _update_cache_changelog(self):
+        yaml_diff = YamlDiff(self._cache)
+        release_order = reversed(self._cache['general']['releases'])
+        changelog = yaml_diff.generate_changelog(release_order, simple=True)
+        self._cache['changelog'].update(changelog)
 
     @staticmethod
     def _format_bytes(value: int = None) -> str:
