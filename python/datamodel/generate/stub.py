@@ -157,22 +157,19 @@ class BaseStub(abc.ABC):
             raise IOError(f'File {self.datamodel.file} does not exist.  Cannot prepare input.')
 
         # create input dictionary for the template
-        template_input = {"path": self.datamodel.file}
-        template_input["file_species"] = self.datamodel.file_species
-        template_input['file_template'] = self.datamodel.template
-        template_input["filename"] = os.path.basename(self.datamodel.file)
-        #template_input["filename"] = template_input["basename"].replace(".", r"\.")
-        template_input["filesize"] = self._get_filesize()
-        template_input["filetype"] = self._get_filetype()
-        template_input["environment"] = self.datamodel.env_label
-        template_input["releases"] = [self.datamodel.release]
-
-        template_input["example"] = [self.datamodel.real_location]
-        template_input["location"] = [self.datamodel.location]
-
-        # input for access section
-        template_input['access'] = self._get_access_cache()
-
+        template_input = {
+            "path": self.datamodel.file,
+            "file_species": self.datamodel.file_species,
+            'file_template': self.datamodel.template,
+            "filename": os.path.basename(self.datamodel.file),
+            "filesize": self._get_filesize(),
+            "filetype": self._get_filetype(),
+            "environment": self.datamodel.env_label,
+            "releases": [self.datamodel.release],
+            "example": [self.datamodel.real_location],
+            "location": [self.datamodel.location],
+            "access": self._get_access_cache()
+        }
         return template_input
 
     def _get_access_cache(self) -> dict:
@@ -190,8 +187,7 @@ class BaseStub(abc.ABC):
 
         # prepare initial cache input
         input = self._prepare_input()
-        content = yaml.load(self.template.render(input), Loader=yaml.FullLoader)
-        return content
+        return yaml.load(self.template.render(input), Loader=yaml.FullLoader)
 
     def _get_cache(self, force: bool = None) -> None:
         # only cache-able format is yaml - load that content
@@ -322,11 +318,12 @@ class BaseStub(abc.ABC):
                 extno = f'hdu{hdu_number}'
 
                 # create a new one
-                row = {}
-                row['name'] = hdu.name
-                row['description'] = 'replace me description'
-                row['is_image'] = hdu.is_image
-                row['size'] = self._format_bytes(hdu.size)
+                row = {
+                    'name': hdu.name,
+                    'description': 'replace me description',
+                    'is_image': hdu.is_image,
+                    'size': self._format_bytes(hdu.size),
+                }
 
                 if hdu.is_image:
                     row['header'] = []
@@ -413,7 +410,7 @@ class BaseStub(abc.ABC):
         bool
             ``True`` if `key` does *not* contain 'TFORM' or 'TTYPE'.
         """
-        return tuple([key.find(f) for f in ("TFORM", "TTYPE")]) == (-1, -1)
+        return tuple(key.find(f) for f in ("TFORM", "TTYPE")) == (-1, -1)
 
     @staticmethod
     def _nonempty_string(value: str = None) -> str:
@@ -429,8 +426,7 @@ class BaseStub(abc.ABC):
         string: str
             The string.
         """
-        string = f"{value}" if value else 'replace me - with content'
-        return string
+        return f"{value}" if value else 'replace me - with content'
 
     @staticmethod
     def _format_type(value: str = None) -> str:
