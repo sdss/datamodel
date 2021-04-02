@@ -88,5 +88,4 @@ def datamodel_install():
     parser.add_argument("-F", "--force", help="force", action="store_true")
     parser.add_argument("-v", "--verbose", help="verbose", action="store_true")
     parser.add_argument("-d", "--debug", help="debug", action="store_true")
-    args = parser.parse_args()
-    return args
+    return parser.parse_args()

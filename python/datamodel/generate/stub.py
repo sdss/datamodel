@@ -28,6 +28,7 @@ except ImportError:
 
 from ..git import Git
 from .changelog import YamlDiff
+from datamodel import log
 
 class BaseStub(abc.ABC):
     format = None
@@ -121,6 +122,10 @@ class BaseStub(abc.ABC):
         if not self._cache or force:
             self._get_cache(force=force)
 
+        if self.format != 'yaml' and not self.validate_cache():
+            log.info('yaml cache is not validated!')
+            return
+
         self._get_content()
 
     @abc.abstractmethod
@@ -138,6 +143,10 @@ class BaseStub(abc.ABC):
 
         # always re-render the content
         self.render_content(force=force)
+
+        if not self.content:
+            log.info('No cache content to write out!')
+            return
 
         with open(self.output, 'w') as f:
             f.write(self.content)
@@ -350,6 +359,15 @@ class BaseStub(abc.ABC):
         changelog = yaml_diff.generate_changelog(release_order, simple=True)
         self._cache['changelog'].update(changelog)
 
+    def validate_cache(self):
+        if not self._cache:
+            log.info("No yaml cache to validate!")
+            return
+
+        # simple validation check right now
+        # replace this
+        return 'replace me' not in self._cache['general']['short']
+
     @staticmethod
     def _format_bytes(value: int = None) -> str:
         """Convert an integer to human-readable format.
@@ -551,6 +569,10 @@ class MdStub(BaseStub):
         if not self._cache or force:
             self._get_cache(force=force)
 
+        if self.format != 'yaml' and not self.validate_cache():
+            log.info('yaml cache is not validated!')
+            return
+
         self._get_content(release=release, group=group)
 
     def write(self, force: bool = None, release: str = None, group: str = 'WORK', html: bool = None) -> None:
@@ -560,6 +582,10 @@ class MdStub(BaseStub):
 
         # always re-render the content
         self.render_content(force=force, release=release, group=group)
+
+        if not self.content:
+            log.info('No cache content to write out!')
+            return
 
         with open(self.output, 'w') as f:
             f.write(self.content)
