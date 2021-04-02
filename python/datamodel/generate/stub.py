@@ -20,6 +20,7 @@ from astropy.io import fits
 from jinja2 import Environment, PackageLoader
 import pathlib
 from typing import Iterator, Type
+from pydantic import ValidationError
 
 try:
     import markdown
@@ -28,6 +29,7 @@ except ImportError:
 
 from ..git import Git
 from .changelog import YamlDiff
+from ..models.yaml import YamlModel
 from datamodel import log
 
 class BaseStub(abc.ABC):
@@ -357,16 +359,21 @@ class BaseStub(abc.ABC):
         yaml_diff = YamlDiff(self._cache)
         release_order = reversed(self._cache['general']['releases'])
         changelog = yaml_diff.generate_changelog(release_order, simple=True)
-        self._cache['changelog'].update(changelog)
+        self._cache['changelog']['releases'] = changelog
 
     def validate_cache(self):
         if not self._cache:
             log.info("No yaml cache to validate!")
-            return
+            return False
 
-        # simple validation check right now
-        # replace this
-        return 'replace me' not in self._cache['general']['short']
+        # validate the yaml cache
+        try:
+            YamlModel.parse_obj(self._cache)
+        except ValidationError as err:
+            log.error(err)
+            return False
+        else:
+            return True
 
     @staticmethod
     def _format_bytes(value: int = None) -> str:
@@ -546,8 +553,8 @@ class MdStub(BaseStub):
             return release
         else:
             if release and release not in cached_releases:
-                print(f'Input release {release} unavailable in cache. '
-                      f'Selecting latest release in group {group}')
+                log.debug(f'Input release {release} unavailable in cache. '
+                          f'Selecting latest release in group {group}')
 
             # TODO - move to separate function
             # groups releases and sorts them
