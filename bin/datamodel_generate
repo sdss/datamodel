@@ -24,7 +24,8 @@ dm = DataModel(tree_ver=command.options.tree_ver, file_spec=command.options.file
                verbose=command.options.verbose, release=command.options.release)
 
 # write out all the datamodel stubs
-dm.write_stubs(force=command.options.force)
+dm.write_stubs(force=command.options.force, use_cache_release=command.options.use_cache,
+               full_cache=not command.options.hdus_only)
 
 # only run if we are not skipping the git commit stage
 if not command.options.skip_git:

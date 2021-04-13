@@ -47,6 +47,9 @@ def datamodel_generate():
     parser.add_argument("-v", "--verbose", help="verbose", action="store_true")
     parser.add_argument("-d", "--debug", help="debug", action="store_true")
     parser.add_argument("-s", "--skip-git", help="skip the git commit process", action="store_true", default=False)
+    parser.add_argument("-c", "--use-cache", type=str, help="specify an existing cached release to use", metavar="USE_CACHE", default=None)
+    parser.add_argument("--hdus-only", action="store_true", help="set to True to only use the user descriptions/comments from the specified cached release", default=False)
+
     args = parser.parse_args()
 
     if args.path:

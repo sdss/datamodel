@@ -317,7 +317,8 @@ class DataModel(object):
         stub = list(stub_iterator(format=format))
         return stub[0](self) if stub else None
 
-    def write_stubs(self, format: str = None, force: bool = None) -> None:
+    def write_stubs(self, format: str = None, force: bool = None, use_cache_release: str = None,
+                    full_cache: bool = None) -> None:
         """ Write out the stub files
 
         Write out all stubs or a stub of a given format.
@@ -332,11 +333,12 @@ class DataModel(object):
         if self.verbose:
             log.info(f'Preparing datamodel: {self}.')
 
+        print('stuff', use_cache_release, full_cache)
         for stub in stub_iterator(format=format):
             ss = stub(self)
             if self.verbose:
                 log.info(f'Creating stub: {ss}')
-            ss.write(force=force)
+            ss.write(force=force, use_cache_release=use_cache_release, full_cache=full_cache)
 
     def remove_stubs(self, format: str = None, git: bool = None) -> None:
         """ Remove the stub files

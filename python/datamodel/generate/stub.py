@@ -566,10 +566,15 @@ class MdStub(BaseStub):
                 rs[key[i]] = sorted(gg, key=lambda x: int(x[2:]) if 'DR' in x else int(x[3:]) if 'PL' in x else x)
 
             # get latest release
+            # set a fallback group; fallback either to WORK or DR group
+            altgroup = 'WORK' if group != 'WORK' else 'DR'
             if group not in key.values():
                 raise KeyError(f'group {group} is not a valid release group')
             elif group not in rs.keys():
-                raise KeyError(f'group {group} is not yet a cached release')
+                if altgroup not in rs.keys():
+                    raise KeyError(f'group(s) {group}/{altgroup} not yet a cached release')
+                else:
+                    group = altgroup
             return rs[group][-1]
 
     def render_content(self, force: bool = None, release: str = None, group: str = 'WORK') -> None:
@@ -582,7 +587,8 @@ class MdStub(BaseStub):
 
         self._get_content(release=release, group=group)
 
-    def write(self, force: bool = None, release: str = None, group: str = 'WORK', html: bool = None) -> None:
+    def write(self, force: bool = None, release: str = None, group: str = 'WORK',
+              html: bool = None, use_cache_release: str = None, full_cache: bool = None) -> None:
 
         if not self.output:
             raise AttributeError('No output filepath set')
