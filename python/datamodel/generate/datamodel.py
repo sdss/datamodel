@@ -16,6 +16,8 @@ from __future__ import print_function, division, absolute_import
 import os
 import re
 
+from typing import TypeVar, Type
+
 from .parse import get_abstract_path, get_abstract_key, get_file_spec
 from datamodel import log
 
@@ -26,9 +28,80 @@ from sdss_access.path import Path
 from ..git import Git
 from .stub import BaseStub
 
+# Create a generic variable that can be 'DataModel', or any subclass.
+D = TypeVar('D', bound='DataModel')
 
-# TODO - add option to specify a real filepath
-# TODO - add a user prompt for sdss_access
+
+def prompt_for_access(filename: str, path_name: str = None, config: str = None) -> tuple:
+    """ Prompt the user to verify or define information
+
+    Takes the user through a variety of input prompts in order to verify any existing
+    entry in sdss_access, or to define a new file species, symbolic path location, and
+    example variable=value key mappings for the input file.
+
+    Parameters
+    ----------
+    filename : str
+        The full path to the file
+    path_name : str, optional
+        Any existing sdss_access path_name / file_species, by default None
+    config : str, optional
+        What tree config version, or release the file corresponds to, by default None
+
+    Returns
+    -------
+    tuple
+        a tuple of path_name, path_template, path_keys
+    """
+
+    # prompt for sdss_access entry
+    if not path_name:
+        in_sdss = input('Does this file have an existing sdss_access definition? (y/n): ')
+    else:
+        in_sdss = 'y'
+
+    # resolve path_name, path_template, and path_keys
+    if in_sdss in ['y', "Y"]:
+        # look up path name and template in sdss_access
+        path = Path(release=config)
+        if not path_name:
+            path_name = input('What is the sdss_access path_name?: ')
+        path_template = path.templates.get(path_name, path.templates.get(path_name.lower(), None))
+        if not path_template:
+            log.warning(f'No path_template could be found for path_name {path_name}.  Check syntax.')
+            return
+
+        # strip template of $envvar
+        path_template = path_template[1:] if path_template.startswith('$') else path_template
+
+        # attempt to extract the proper name=value mappings from the filename and path_name
+        keys = path.lookup_keys(path_name)
+        keymaps = path.extract(path_name, filename)
+        if not keymaps:
+            path_keys = input(f'Could not extract a value mapping for keys: {keys}\n'
+                              'Please define a list of name=value key mappings for variable substitution. \n'
+                              'e.g. drpver=v2_4_3, plate=8485, ifu=1901, wave=LOG\n:')
+            path_keys = path_keys.replace(' ','').split(',')
+        else:
+            path_keys = [f'{k}={v}' for k,v in keymaps.items()]
+    elif in_sdss in ['n', 'N']:
+        # prompt for new path definitions
+        path_name = input('Define a new path_name / file_species, e.g. mangaRss: ')
+        path_template = input('Define a new path template, starting with an environment '
+                              'variable label.\nUse jinja {} templating to define variable name used for substitution.\n'
+                              'e.g. "MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}RSS.fits.gz"\n: ')
+        path_keys = input('Define a list of name=value key mappings for variable substitution. \n'
+                          'e.g. drpver=v2_4_3, plate=8485, ifu=1901, wave=LOG\n: ')
+        path_keys = path_keys.replace(' ','').split(',')
+
+    # confirm the choices
+    msg = (f"\nConfirm the following: (y/n): \n file = {filename} \n path_name = {path_name}\n "
+           f"path_template = {path_template}\n path_keys = {path_keys}\n ")
+    confirm = input(msg)
+    if confirm not in ['y', 'Y']:
+        return
+
+    return path_name, path_template, path_keys
 
 class DataModel(object):
     """ Class to enable datamodel file generation for a given product
@@ -54,6 +127,8 @@ class DataModel(object):
         If True, turn on verbosity logging, by default None
     release : str, optional
         The name of the SDSS release the file is a part of, by default None
+    filename : str, optional
+        A full filepath to a real file on disk to create the datamodel for
 
     Raises
     ------
@@ -65,7 +140,7 @@ class DataModel(object):
 
     def __init__(self, tree_ver: str = None, file_spec: str = None, path: str = None,
                  keywords: list = None, env_label: str = None, location: str = None,
-                 verbose: bool = None, release: str = None) -> None:
+                 verbose: bool = None, release: str = None, filename: str = None) -> None:
 
         # environment options
         self.tree_ver = tree_ver
@@ -74,6 +149,7 @@ class DataModel(object):
         self.env = None
 
         # file options
+        self.filename = filename
         self.file_species = get_file_spec(file_spec=file_spec)
         self.path = path
         self.keywords = keywords
@@ -92,6 +168,12 @@ class DataModel(object):
         self.access = {}
         self.access_string = None
         self.in_sdss_access = None
+
+        # check for a real filename
+        if self.filename:
+            self.file_species, self.path, self.keywords = prompt_for_access(self.filename,
+                                                                            self.file_species,
+                                                                            self.tree_ver or self.release)
 
         # set path, locations, and file_species
         if not self.path and not (self.env_label and self.location):
@@ -119,6 +201,35 @@ class DataModel(object):
     def __repr__(self) -> str:
         """ Repr for DataModel """
         return f"<DataModel(file_species='{self.file_species}', release='{self.release}')>"
+
+    @classmethod
+    def from_file(cls: Type[D], filename: str, path_name: str = None, tree_ver: str = None,
+                  verbose: bool = None) -> D:
+        """ class method to create a datamodel from an absolute filepath
+
+        Creates a DataModel for a given full path to a file.  Prompts the user to
+        verify any existing entry in sdss_access for the input file, or to define
+        a new file_species / path_name, symbolic path location, and example
+        variable_name=value key mappings.
+
+        Parameters
+        ----------
+        filename : str
+            The full path to the file
+        path_name : str, optional
+            The existing sdss_access path name if any, by default None
+        tree_ver : str, optional
+            The SDSS tree version or release associated with the file, by default None
+        verbose : bool, optional
+            If True, creates the DataModel with verbosity, by default None
+
+        Returns
+        -------
+        DataModel
+            a SDSS DataModel instance
+        """
+        file_species, path, keys = prompt_for_access(filename, path_name, tree_ver)
+        return DataModel(file_spec=file_species, path=path, keywords=keys, verbose=verbose, tree_ver=tree_ver)
 
     def _construct_path(self) -> None:
         """ Construct a path, template path, or env_label and location """
@@ -333,7 +444,6 @@ class DataModel(object):
         if self.verbose:
             log.info(f'Preparing datamodel: {self}.')
 
-        print('stuff', use_cache_release, full_cache)
         for stub in stub_iterator(format=format):
             ss = stub(self)
             if self.verbose:

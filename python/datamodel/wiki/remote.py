@@ -30,8 +30,8 @@ class Remote(object):
     PAGE_NOT_FOUND = 255
 
     def __init__(self, hostname=None, space=None, verbose=None):
-        self.hostname = hostname if hostname else "https://wiki.sdss.org"
-        self.space = space if space else "DATAMODEL"
+        self.hostname = hostname or "https://wiki.sdss.org"
+        self.space = space or "DATAMODEL"
         self.login = None
         self.command = None
         self.response = None
@@ -97,20 +97,19 @@ class Remote(object):
         )
 
     def add_page(self, parent=None, title=None, content=None, convert=None):
-        if self.space:
-            if title and content:
-                self.action = ["--action", "addPage", "--space", self.space]
-                self.action += ["--title", title, "--content", content]
-                self.action += ["--parent", parent] if parent else ["--parent", "@home"]
-                if not convert:
-                    self.action += ["--noConvert"]
-                self.set_command()
-                self.set_response()
-                self.print_response_or_error()
-                if self.error:
-                    pass
-                elif self.verbose:
-                    print("PAGE> CREATED %s with parent=%r" % (title, parent))
+        if self.space and title and content:
+            self.action = ["--action", "addPage", "--space", self.space]
+            self.action += ["--title", title, "--content", content]
+            self.action += ["--parent", parent] if parent else ["--parent", "@home"]
+            if not convert:
+                self.action += ["--noConvert"]
+            self.set_command()
+            self.set_response()
+            self.print_response_or_error()
+            if self.error:
+                pass
+            elif self.verbose:
+                print("PAGE> CREATED %s with parent=%r" % (title, parent))
 
     def set_pagelist(self, parent=None, title=None):
         if self.space:

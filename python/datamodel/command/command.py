@@ -38,8 +38,10 @@ def datamodel_generate():
 
     parser_group = parser.add_mutually_exclusive_group(required=True)
     parser_group.add_argument("-p", "--path", help="symbolic path of file", metavar="PATH")
-    parser.add_argument("-e", "--env_label", help="env label", metavar="ENV_LABEL")
     parser_group.add_argument("-l", "--location", help="symbolic location of file", metavar="LOCATION")
+    parser_group.add_argument("-n", "--filename", help="full path to a real file", metavar="FILENAME")
+
+    parser.add_argument("-e", "--env_label", help="env label", metavar="ENV_LABEL")
     parser.add_argument("-k,", "--keywords", nargs="*", help="keyword value pair(s)", metavar="KEYWORDS")
     parser.add_argument("-H", "--html", help="generate html format", metavar="HTML")
     parser.add_argument("-R", "--replace", help="replace", action="store_true")
