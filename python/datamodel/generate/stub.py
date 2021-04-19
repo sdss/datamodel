@@ -54,6 +54,7 @@ class BaseStub(abc.ABC):
         self._template_input = None
         self._cache = None
         self.content = None
+        self._validated_yaml = None
 
         # set up the Jinja 2 template + environment, and the output stub file path
         self._set_template()
@@ -368,7 +369,7 @@ class BaseStub(abc.ABC):
 
         # validate the yaml cache
         try:
-            YamlModel.parse_obj(self._cache)
+            self._validated_yaml = YamlModel.parse_obj(self._cache)
         except ValidationError as err:
             log.error(err)
             return False
@@ -612,8 +613,7 @@ class JsonStub(BaseStub):
     has_template: bool = False
 
     def _get_content(self) -> None:
-        self.content = json.dumps({}, sort_keys=False, indent=4)
-
+        self.content = self._validated_yaml.json(sort_keys=False, indent=4) if self._validated_yaml else {}
 
 class AccessStub(BaseStub):
     format: str = 'access'
