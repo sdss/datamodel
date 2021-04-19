@@ -39,7 +39,13 @@
 ---
 
 ## Changelog
-description for changelog here
+{{ content.changelog.description }}
+{% for release, change in content.changelog.releases.items() %}
+ - {{ release }}
+  {% for key, val in change.items() %}
+   - {{ key }}: {{ val }}
+  {% endfor %}
+{% endfor %}
 
 ---
 ## Example HDU List
