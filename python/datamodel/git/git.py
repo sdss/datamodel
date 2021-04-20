@@ -30,7 +30,7 @@ class Git(object):
     @property
     def current_branch(self):
         self.status()
-        match = re.search(r'^On branch (?P<branch>[a-z0-9A-Z]+)\n', self.response)
+        match = re.search(r'(^|#|\s+)On branch (?P<branch>[a-z0-9A-Z]+)\n', self.response)
         if match:
             return match.groupdict()['branch']
 

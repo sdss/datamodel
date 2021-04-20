@@ -109,6 +109,9 @@ class Page(object):
         data['access'] = os.path.join('datamodel', 'products/access', self.env_label, f'{self.file_species}.access')
         data['md'] = os.path.join('datamodel', 'products/md', self.env_label, f'{self.file_species}.md')
 
+        if not self.git.current_branch:
+            raise ValueError('Error: Cannot create wiki page: Cannot find valid current git branch')
+
         # set the current branch
         data['branch'] = self.git.current_branch
 
