@@ -6,6 +6,7 @@
 # @License: BSD 3-Clause
 # @Copyright: SDSS.
 
+import re
 from os import getenv
 from os.path import join
 from subprocess import check_output, CalledProcessError
@@ -25,6 +26,13 @@ class Git(object):
 
     def __repr__(self):
         return f'<Git (directory="{self.directory}")>'
+
+    @property
+    def current_branch(self):
+        self.status()
+        match = re.search(r'^On branch (?P<branch>[a-z0-9A-Z]+)\n', self.response)
+        if match:
+            return match.groupdict()['branch']
 
     def set_directory(self):
         self.directory = getenv("DATAMODEL_DIR")

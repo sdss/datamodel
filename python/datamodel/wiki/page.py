@@ -12,6 +12,7 @@ from typing import Type
 from jinja2 import Environment, PackageLoader
 
 from datamodel import log
+from datamodel.git import Git
 
 from ..generate import DataModel
 from .remote import Remote
@@ -42,6 +43,7 @@ class Page(object):
         self.datamodel = datamodel
         self.file_species = file_species
         self.env_label = env_label
+        self.git = Git()
 
         if not self.datamodel and not (self.file_species and self.env_label):
             raise ValueError("Must specify either a datamodel or a file_species + env_label!")
@@ -106,6 +108,9 @@ class Page(object):
 
         data['access'] = os.path.join('datamodel', 'products/access', self.env_label, f'{self.file_species}.access')
         data['md'] = os.path.join('datamodel', 'products/md', self.env_label, f'{self.file_species}.md')
+
+        # set the current branch
+        data['branch'] = self.git.current_branch
 
         self.data = data
 
