@@ -113,13 +113,36 @@ def testfile(makefile):
     testfile.unlink()
 
 
+@pytest.fixture
+def yamlfile():
+    yield os.getenv("DATAMODEL_DIR") / pathlib.Path('datamodel') / 'products/yaml/TEST_REDUX/test.yaml'
+
+@pytest.fixture
+def validyaml():
+    path = os.getenv("DATAMODEL_DIR") / pathlib.Path('datamodel') / 'products/yaml/TEST_REDUX/test.yaml'
+    path.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copy2('data/test_valid.yaml', path)
+    yield path
+
+
+from datamodel.generate import DataModel
+
+@pytest.fixture()
+def datamodel(testfile):
+    """ fixture to create a default datamodel """
+    dm = DataModel(file_spec='test', keywords=['ver=v1', 'id=a'], path='TEST_REDUX/{ver}/testfile_{id}.fits')
+    dm.write_stubs()
+    yield dm
+
 
 class MockTree(Tree):
     """ mock out the Tree class to insert test file """
 
     def _create_environment(self, cfg=None, sections=None):
         environ = super(MockTree, self)._create_environment(cfg=cfg, sections=sections)
-        environ['general'].update({'TEST_REDUX': os.getenv("TEST_REDUX")})
+        env = 'testwork' if self.config_name in ['sdsswork', 'sdss5'] else self.config_name.lower()
+        path = os.getenv("TEST_REDUX").replace('testwork', env)
+        environ['general'].update({'TEST_REDUX': path})
         return environ
 
     def _create_paths(self, cfg=None):
