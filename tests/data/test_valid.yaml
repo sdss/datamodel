@@ -1,0 +1,104 @@
+general:
+  name: test
+  short: this is a test file
+  description: this test file is used for testing
+  environment: TEST_REDUX
+  datatype: FITS
+  filesize: 14 KB
+  releases:
+  - WORK
+  naming_convention: $TEST_REDUX/[VER]/testfile_[ID].fits or testfile_a.fits
+  generated_by: create_fits_file in conftest.py
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  WORK:
+    template: $TEST_REDUX/[VER]/testfile_[ID].fits
+    example: v1/testfile_a.fits
+    location: '{ver}/testfile_{id}.fits'
+    access:
+      in_sdss_access: true
+      path_name: test
+      path_template: $TEST_REDUX/{ver}/testfile_{id}.fits
+      path_kwargs:
+      - ver
+      - id
+      access_string: test = $TEST_REDUX/{ver}/testfile_{id}.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: fake primary header extension
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: FILENAME
+          value: testfile.fits
+          comment: name of the file
+        - key: TESTVER
+          value: v1
+          comment: version of the file
+      hdu1:
+        name: FLUX
+        description: fake image data extension
+        is_image: true
+        size: 200 bytes
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image extension
+        - key: BITPIX
+          value: -64
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 5
+          comment: ''
+        - key: NAXIS2
+          value: 5
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: number of parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: EXTNAME
+          value: FLUX
+          comment: extension name
+      hdu2:
+        name: ''
+        description: fake binary table data extension
+        is_image: false
+        size: 78 bytes
+        columns:
+          object:
+            name: OBJECT
+            type: char[20]
+            unit: None
+            description: an object name
+          param:
+            name: PARAM
+            type: float32
+            unit: m
+            description: a floating point parameter
+          flag:
+            name: FLAG
+            type: int16
+            unit: None
+            description: an integer flag
