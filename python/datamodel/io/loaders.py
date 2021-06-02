@@ -14,10 +14,56 @@
 from __future__ import print_function, division, absolute_import
 import pathlib
 import os
+import re
 import yaml
 from typing import Union
 
 from datamodel import log
+
+
+def include(loader, node):
+
+    yamlref = loader.construct_scalar(node)
+
+    if '#' not in yamlref:
+        yamlfile = yamlref
+        comps = None
+    else:
+        yamlfile, comps = yamlref.split('#')
+
+    file = get_yaml_files(yamlfile)
+    if not file:
+        return None
+
+    data = read_yaml(file)
+    if comps:
+        parts = comps.split('/')
+
+        for part in parts:
+            m = re.search(r'(?P<part>[a-z]+)(?P<item>\[(?P<index>.*?)\])?', part).groupdict()
+            data=data.get(m['part'])
+
+            if m['index']:
+               if m['index'].isdigit():
+                   data=data[int(m['index'])]
+               elif ":" in m['index']:
+                   key,val=m['index'].split(':')
+                   data = [d for d in data if str(d.get(key))==val]
+                   if data:
+                       return data[0]
+                   else:
+                       return None
+    return data
+
+def dm(loader, node):
+    data = include(loader, node)
+    if not isinstance(data, dict):
+        raise ValueError('Referenced data is not a valid datamodel object!')
+    return data
+
+
+yaml.add_constructor('!include', include)
+yaml.add_constructor('!dm', dm)
 
 
 def get_yaml_files(get: str = None) -> Union[str, list]:
@@ -45,12 +91,11 @@ def get_yaml_files(get: str = None) -> Union[str, list]:
     files = datamodel_dir.rglob(f'*.yaml')
     if not get:
         return list(files)
-    elif get == 'releases':
-        file = [i for i in files if 'releases' in str(i)]
-        return file[0] if file else None
     elif get == 'products':
         return [i for i in files if 'products' in str(i)]
-
+    else:
+        file = [i for i in files if get in str(i)]
+        return file[0] if file else None
 
 def read_yaml(ymlfile: Union[str, pathlib.Path]) -> dict:
     """ Opens and reads a YAML file
