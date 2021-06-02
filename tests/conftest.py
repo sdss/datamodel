@@ -121,7 +121,8 @@ def yamlfile():
 def validyaml():
     path = os.getenv("DATAMODEL_DIR") / pathlib.Path('datamodel') / 'products/yaml/TEST_REDUX/test.yaml'
     path.parent.mkdir(parents=True, exist_ok=True)
-    shutil.copy2('data/test_valid.yaml', path)
+    testpath = pathlib.Path(__file__).parent / 'data/test_valid.yaml'
+    shutil.copy2(testpath, path)
     yield path
 
 
