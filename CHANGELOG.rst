@@ -4,8 +4,10 @@
 Change Log
 ==========
 
-0.1.1 (unreleased)
+0.2.0 (unreleased)
 ------------------
+- Refactored datamodel to allow for data release versioning
+
 
 0.1.0 (02-10-2021)
 ------------------
