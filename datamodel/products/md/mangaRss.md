@@ -21,6 +21,9 @@ $MANGA_SPECTRO_REDUX/[DRPVER]/[PLATE]/stack/manga-[PLATE]-[IFU]-[WAVE]RSS.fits.g
 ### Releases
 DR15, DR16, MPL10, WORK
 
+### Enviroments
+MANGA_SPECTRO_REDUX
+
 ### Approximate Size
 14 MB
 
@@ -57,7 +60,7 @@ this changelog describes changes to the datamodel product and/or file structure
  - MPL10
    - from: DR16
    - added_hdus: ['LSFPRE', 'LSFPOST']
-   - removed_hdus: ['DISP', 'PREDISP']
+   - removed_hdus: ['PREDISP', 'DISP']
  - DR16
    - from: DR15
    - note: No changes
@@ -303,7 +306,7 @@ Key | Value | Comment | |
 
 
 ## HDU4: LSFPOST
-renamed extension from DISP
+new lsf extension
 
 #### HDU Type: IMAGE
 #### HDU Size:  2 MB
@@ -325,7 +328,7 @@ Key | Value | Comment | |
 
 
 ## HDU5: LSFPRE
-renamed extension from PREDISP
+new lsf extension
 
 #### HDU Type: IMAGE
 #### HDU Size:  2 MB

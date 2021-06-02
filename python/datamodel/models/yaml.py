@@ -79,7 +79,7 @@ class GeneralSection(BaseModel):
     name: str
     short: str
     description: str
-    environment: str
+    environments: List[str] = None
     datatype: str
     filesize: str
     releases: List[str] = None
@@ -161,6 +161,7 @@ class Release(BaseModel):
     template: str
     example: str
     location: str
+    environment: str
     access: Access
     hdus: Dict[str, HDU] = None
 

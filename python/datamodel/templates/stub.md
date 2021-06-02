@@ -21,6 +21,9 @@
 ### Releases
 {{ content.general.releases | join(', ') }}
 
+### Enviroments
+{{ content.general.environments | join(', ') }}
+
 ### Approximate Size
 {{ content.general.filesize}}
 

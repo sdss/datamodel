@@ -20,7 +20,7 @@ import os
 
 def test_get_yaml(datamodel):
     files = get_yaml_files('products')
-    exp = os.getenv("DATAMODEL_DIR") / pathlib.Path('datamodel') / 'products/yaml/TEST_REDUX/test.yaml'
+    exp = os.getenv("DATAMODEL_DIR") / pathlib.Path('datamodel') / 'products/yaml/test.yaml'
     assert len(files) == 1
     assert exp in files
 

@@ -109,7 +109,7 @@ class BaseStub(abc.ABC):
         data_dir = os.path.join(self.datamodel_dir, "datamodel")
         products_dir = os.path.join(data_dir, "products")
 
-        directory = os.path.join(products_dir, self.format, self.datamodel.env_label)
+        directory = os.path.join(products_dir, self.format)
 
         if not os.path.exists(directory):
             os.makedirs(directory)
@@ -176,7 +176,7 @@ class BaseStub(abc.ABC):
             "filename": os.path.basename(self.datamodel.file),
             "filesize": self._get_filesize(),
             "filetype": self._get_filetype(),
-            "environment": self.datamodel.env_label,
+            "environments": [self.datamodel.env_label],
             "releases": [self.datamodel.release],
             "example": [self.datamodel.real_location],
             "location": [self.datamodel.location],
@@ -216,8 +216,8 @@ class BaseStub(abc.ABC):
 
         # check the content dictionary has a proper release
         if self.datamodel.release not in content['releases']:
-            content['releases'][self.datamodel.release] = {"template": None, "example": None,
-                                                           "location": None, "access": {}, "hdus": {}
+            content['releases'][self.datamodel.release] = {"template": None, "example": None, "location": None,
+                                                           "environment": None, "access": {}, "hdus": {}
                                                            }
 
         # set the cache content
@@ -251,8 +251,13 @@ class BaseStub(abc.ABC):
         # update the access dictionary in the cache
         self._cache['releases'][self.datamodel.release]['access'] = self._get_access_cache()
 
-        # update the template/location keyword in the cache
+        # update the template/location, environment keywords in the cache
         self._cache['releases'][self.datamodel.release]['template'] = self.datamodel.template
+        self._cache['releases'][self.datamodel.release]['environment'] = self.datamodel.env_label
+
+        # update the general environments sections in cache
+        if self.datamodel.env_label not in self._cache['general']['environments']:
+            self._cache['general']['environments'].append(self.datamodel.env_label)
 
         # update the location/example keyword in the cache
         self._cache['releases'][self.datamodel.release]['location'] = self.datamodel.location

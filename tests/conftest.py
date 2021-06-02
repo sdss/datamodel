@@ -115,11 +115,11 @@ def testfile(makefile):
 
 @pytest.fixture
 def yamlfile():
-    yield os.getenv("DATAMODEL_DIR") / pathlib.Path('datamodel') / 'products/yaml/TEST_REDUX/test.yaml'
+    yield os.getenv("DATAMODEL_DIR") / pathlib.Path('datamodel') / 'products/yaml/test.yaml'
 
 @pytest.fixture
 def validyaml():
-    path = os.getenv("DATAMODEL_DIR") / pathlib.Path('datamodel') / 'products/yaml/TEST_REDUX/test.yaml'
+    path = os.getenv("DATAMODEL_DIR") / pathlib.Path('datamodel') / 'products/yaml/test.yaml'
     path.parent.mkdir(parents=True, exist_ok=True)
     testpath = pathlib.Path(__file__).parent / 'data/test_valid.yaml'
     shutil.copy2(testpath, path)

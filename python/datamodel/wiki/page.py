@@ -105,9 +105,8 @@ class Page(object):
     def set_data(self):
         """ Sets the relative output paths for the md and access files """
         data = {}
-
-        data['access'] = os.path.join('datamodel', 'products/access', self.env_label, f'{self.file_species}.access')
-        data['md'] = os.path.join('datamodel', 'products/md', self.env_label, f'{self.file_species}.md')
+        data['access'] = os.path.join('datamodel', 'products/access', f'{self.file_species}.access')
+        data['md'] = os.path.join('datamodel', 'products/md', f'{self.file_species}.md')
 
         if not self.git.current_branch:
             raise ValueError('Error: Cannot create wiki page: Cannot find valid current git branch')

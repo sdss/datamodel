@@ -2,7 +2,6 @@ general:
   name: mangaRss
   short: this is a manga rss
   description: longer description
-  environment: MANGA_SPECTRO_REDUX
   datatype: FITS
   filesize: 14 MB
   releases:
@@ -10,6 +9,8 @@ general:
   - DR16
   - MPL10
   - WORK
+  environments:
+  - MANGA_SPECTRO_REDUX
   naming_convention: $MANGA_SPECTRO_REDUX/[DRPVER]/[PLATE]/stack/manga-[PLATE]-[IFU]-[WAVE]RSS.fits.gz
   generated_by: mangadrp
 changelog:
@@ -25,8 +26,8 @@ changelog:
       - LSFPRE
       - LSFPOST
       removed_hdus:
-      - DISP
       - PREDISP
+      - DISP
     DR16:
       from: DR15
       note: No changes
@@ -35,15 +36,16 @@ releases:
     template: $MANGA_SPECTRO_REDUX/[DRPVER]/[PLATE]/stack/manga-[PLATE]-[IFU]-[WAVE]RSS.fits.gz
     example: v2_4_3/8485/stack/manga-8485-1901-LOGRSS.fits.gz
     location: '{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}RSS.fits.gz'
+    environment: MANGA_SPECTRO_REDUX
     access:
       in_sdss_access: true
       path_name: mangarss
       path_template: $MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}RSS.fits.gz
       path_kwargs:
+      - ifu
+      - wave
       - plate
       - drpver
-      - wave
-      - ifu
       access_string: mangaRss = $MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}RSS.fits.gz
     hdus:
       hdu0:
@@ -1279,6 +1281,7 @@ releases:
     template: $MANGA_SPECTRO_REDUX/[DRPVER]/[PLATE]/stack/manga-[PLATE]-[IFU]-[WAVE]RSS.fits.gz
     example: v3_0_1/8485/stack/manga-8485-1901-LOGRSS.fits.gz
     location: '{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}RSS.fits.gz'
+    environment: MANGA_SPECTRO_REDUX
     access:
       in_sdss_access: true
       path_name: mangarss
@@ -1880,7 +1883,7 @@ releases:
           comment: HDU checksum updated 2020-05-08T20:34:34
       hdu4:
         name: LSFPOST
-        description: renamed extension from DISP
+        description: new lsf extension
         is_image: true
         size: 2 MB
         header:
@@ -1916,7 +1919,7 @@ releases:
           comment: HDU checksum updated 2020-05-08T20:34:34
       hdu5:
         name: LSFPRE
-        description: renamed extension from PREDISP
+        description: new lsf extension
         is_image: true
         size: 2 MB
         header:
@@ -2520,8 +2523,9 @@ releases:
           comment: HDU checksum updated 2020-05-08T20:34:34
   WORK:
     template: $MANGA_SPECTRO_REDUX/[DRPVER]/[PLATE]/stack/manga-[PLATE]-[IFU]-[WAVE]RSS.fits.gz
-    example: v3_0_1/8485/stack/manga-8485-1901-LOGRSS.fits.gz
+    example: v3_1_1/8485/stack/manga-8485-1901-LOGRSS.fits.gz
     location: '{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}RSS.fits.gz'
+    environment: MANGA_SPECTRO_REDUX
     access:
       in_sdss_access: true
       path_name: mangarss
@@ -2529,8 +2533,8 @@ releases:
       path_kwargs:
       - ifu
       - wave
-      - drpver
       - plate
+      - drpver
       access_string: mangaRss = $MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}RSS.fits.gz
     hdus:
       hdu0:
@@ -3123,7 +3127,7 @@ releases:
           comment: HDU checksum updated 2020-12-03T14:10:52
       hdu4:
         name: LSFPOST
-        description: renamed extension from DISP
+        description: new lsf extension
         is_image: true
         size: 2 MB
         header:
@@ -3159,7 +3163,7 @@ releases:
           comment: HDU checksum updated 2020-12-03T14:10:52
       hdu5:
         name: LSFPRE
-        description: renamed extension from PREDISP
+        description: new lsf extension
         is_image: true
         size: 2 MB
         header:
