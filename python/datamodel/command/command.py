@@ -30,7 +30,7 @@ class Command(object):
             self.options._name = name
 
 
-def datamodel_generate():
+def _generate_parser():
     parser = ArgumentParser()
     parser.add_argument("-f", "--file_spec", help="unique name of file species", metavar="FILE_SPEC")
     parser.add_argument("-t", "--tree_ver", help="tree version", metavar="TREE_VER")
@@ -51,7 +51,12 @@ def datamodel_generate():
     parser.add_argument("-s", "--skip-git", help="skip the git commit process", action="store_true", default=False)
     parser.add_argument("-c", "--use-cache", type=str, help="specify an existing cached release to use", metavar="USE_CACHE", default=None)
     parser.add_argument("--hdus-only", action="store_true", help="set to True to only use the user descriptions/comments from the specified cached release", default=False)
+    return parser
 
+
+def datamodel_generate():
+    ''' Generate a datamodel for a data product '''
+    parser = _generate_parser()
     args = parser.parse_args()
 
     if args.path:
@@ -63,7 +68,7 @@ def datamodel_generate():
     return args
 
 
-def datamodel_wiki():
+def _wiki_parser():
     parser = ArgumentParser()
     parser.add_argument("-f", "--file_spec", help="unique name of file species", metavar="FILE_SPEC", required=True)
     parser.add_argument("-t", "--tree_ver", help="tree version", metavar="TREE_VER")
@@ -76,6 +81,12 @@ def datamodel_wiki():
     parser.add_argument("-F", "--force", help="force", action="store_true")
     parser.add_argument("-v", "--verbose", help="verbose", action="store_true")
     parser.add_argument("-d", "--debug", help="debug", action="store_true")
+    return parser
+
+
+def datamodel_wiki():
+    ''' Upload a datamodel to the Wiki '''
+    parser = _wiki_parser()
     args = parser.parse_args()
 
     if args.path:
@@ -87,10 +98,16 @@ def datamodel_wiki():
     return args
 
 
-def datamodel_install():
+def _install_parser():
     parser = ArgumentParser()
     parser.add_argument("-b", "--branch", help="branch", metavar="BRANCH", default="main")
     parser.add_argument("-F", "--force", help="force", action="store_true")
     parser.add_argument("-v", "--verbose", help="verbose", action="store_true")
     parser.add_argument("-d", "--debug", help="debug", action="store_true")
+    return parser
+
+
+def datamodel_install():
+    ''' Install the datamodel product on Utah '''
+    parser = _install_parser()
     return parser.parse_args()

@@ -15,7 +15,6 @@ Contents
 .. toctree::
   :maxdepth: 2
 
-  What's new in datamodel? <CHANGELOG>
   Introduction to datamodel <intro>
 
 
@@ -26,6 +25,8 @@ Reference
    :maxdepth: 1
 
    api
+   CHANGELOG
+   commands
 
 
 Indices and tables
