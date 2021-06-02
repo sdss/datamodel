@@ -1,5 +1,7 @@
 # encoding: utf-8
 
+import os
+import pathlib
 from sdsstools import get_config, get_logger, get_package_version
 
 # pip package name
@@ -12,6 +14,17 @@ config = get_config("datamodel")
 # File logging can be started by calling log.start_file_logger(path).  Filename can be different
 # than NAME.
 log = get_logger(NAME)
+
+# determine DATAMODEL_DIR
+dmdir = os.getenv("DATAMODEL_DIR")
+if not dmdir:
+    path = pathlib.Path(__file__).parent
+    if path.match('site-packages/datamodel'):
+        # conda environment
+        os.environ['DATAMODEL_DIR'] = str(path)
+    elif path.match('datamodel/python/datamodel'):
+        # github checkout
+        os.environ['DATAMODEL_DIR'] = str(path.parent.parent)
 
 
 # package name should be pip package name
