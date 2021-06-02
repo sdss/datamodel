@@ -99,7 +99,7 @@ def prompt_for_access(filename: str, path_name: str = None, config: str = None) 
            f"path_template = {path_template}\n path_keys = {path_keys}\n ")
     confirm = input(msg)
     if confirm not in ['y', 'Y']:
-        return
+        return None, None, None
 
     return path_name, path_template, path_keys
 
@@ -229,6 +229,8 @@ class DataModel(object):
             a SDSS DataModel instance
         """
         file_species, path, keys = prompt_for_access(filename, path_name, tree_ver)
+        if not file_species:
+            return None
         return DataModel(file_spec=file_species, path=path, keywords=keys, verbose=verbose, tree_ver=tree_ver)
 
     def _construct_path(self) -> None:
@@ -324,7 +326,7 @@ class DataModel(object):
         # get the environment
         self._set_env()
 
-        if not self.env and "path" not in self.env:
+        if not self.env or "path" not in self.env:
             log.error('No datamodel environment found!')
             return
 
