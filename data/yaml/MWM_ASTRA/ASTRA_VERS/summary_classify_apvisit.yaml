@@ -2,11 +2,11 @@ general:
   description: 'This file is the template data model file. It is meant as a guideline
     to how to write each data model file.  The main categories (in bold) should be
     respected, but extra information can be included as appropriate.  The example
-    sections below are primarily related to FITS files. test
+    sections below are primarily related to FITS files. test.
 
     '
-  generated_by: https://github.com/sdss/astra
-  naming_convention: '`summary-classify-apstar\.fits`, Replace this filename with
+  generated_by: sas... *can be any set of product names*
+  naming_convention: '`summary-classify-apvisit\.fits`, Replace this filename with
     a regular expression that matches the file name.  For example, a six-digit number
     would correspond to `[0-9]{6}`.  `template-123456.fits` would be `template-[0-9]{6}\.fits`
 
@@ -37,11 +37,6 @@ hdus:
         name: APRED
         type: char[5]
         unit: '**'
-      apstar:
-        description: '**'
-        name: APSTAR
-        type: char[5]
-        unit: '**'
       astra_version_major:
         description: '**'
         name: ASTRA_VERSION_MAJOR
@@ -57,10 +52,15 @@ hdus:
         name: BATCH_SIZE
         type: int64
         unit: '**'
-      healpix:
+      fiber:
         description: '**'
-        name: HEALPIX
+        name: FIBER
         type: int64
+        unit: '**'
+      field:
+        description: '**'
+        name: FIELD
+        type: char[19]
         unit: '**'
       learning_rate:
         description: '**'
@@ -87,6 +87,11 @@ hdus:
         name: LP_YSO
         type: float64
         unit: '**'
+      mjd:
+        description: '**'
+        name: MJD
+        type: int64
+        unit: '**'
       most_probable_class:
         description: '**'
         name: MOST_PROBABLE_CLASS
@@ -97,10 +102,10 @@ hdus:
         name: N_EPOCHS
         type: int64
         unit: '**'
-      obj:
+      plate:
         description: '**'
-        name: OBJ
-        type: char[18]
+        name: PLATE
+        type: char[5]
         unit: '**'
       prob_fgkm:
         description: '**'
@@ -130,7 +135,7 @@ hdus:
       task_id:
         description: '**'
         name: TASK_ID
-        type: char[51]
+        type: char[52]
         unit: '**'
       telescope:
         description: '**'
@@ -175,4 +180,4 @@ hdus:
     description: '*Description of the contents of this HDU*'
     is_image: false
     name: ''
-    size: 14 MB
+    size: 48 MB
