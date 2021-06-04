@@ -20,6 +20,7 @@ pip install -e ".[dev,docs]"
 To install it in an isolated conda environment:
 ```
 conda create -n datamodel python=3.8 ipython
+conda activate datamodel
 pip install -e ".[dev,docs]"
 ```
 
