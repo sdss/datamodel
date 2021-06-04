@@ -2,6 +2,432 @@
 .. _intro:
 
 Introduction to datamodel
-===============================
+=========================
 
-We should write an introduction here.
+The sdss ``datamodel`` product is a python package for creating, validating, and accessing datamodels
+for SDSS data products.
+
+Generating a datamodel
+----------------------
+
+Datamodels are documented metadata representations of data products, e.g. FITS files.  Since pipelines
+can produce many different files of the same data product, e.g. with different input parameters, for
+different target names or different pipeline analysis settings, we generate a single datamodel file
+for a set, or "species", of data products.  This "file_species" is a representative name for all
+files of a given data product, e.g. all MaNGA IFU data cubes get a single ``mangaCube`` file
+species name.  Associated with a file species is a symbolic path that is a representative file path
+for all files of that data product.  For example, the symbolic path to MaNGA IFU data cubes is
+``$MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}CUBE.fits.gz``, where the items
+in brackets, e.g. ``{plate}`` are variables to be substituted and represent parameters that can change for
+individual files or files across different releases.  An example of a resolved path would be
+``$MANGA_SPECTRO_REDUX/v2_4_3/8485/stack/manga-8485-1901-LOGCUBE.fits.gz``.  The file species and
+symbolic path are similar to the syntax of entries in the ``sdss_access`` and ``tree`` products.
+See the `Tree Path Template Syntax <https://sdss-tree.readthedocs.io/en/latest/paths.html#define-a-new-path-template>`_
+for more information.
+
+**Required Inputs**:
+
+- **file_species**: A short name of the "species" of the file, similar to an ``sdss_access`` entry name
+- **path**: An abstract file path, starting with a root environment variable, and using `Jinja2 <https://jinja.palletsprojects.com/en/3.0.x/>`_ template variable syntax, similar to an ``sdss_access`` entry path
+- **keywords**: A list of keyword-value pairs, of an example file, matching the path template variable names
+
+**Release Inputs**:
+
+- **tree_ver**: the SDSS tree configuration name the data product is associated with.  Useful when working with modules or "work" releases.
+- **release**: the data release of the data product
+
+All the following examples walk through the creation of a datamodel for the
+MaNGA Row-Stacked Spectra (RSS) data product.
+
+From the Command-Line
+^^^^^^^^^^^^^^^^^^^^^
+
+To generate a datamodel using the command-Line, run the following command.  Let's create the datamodel for
+the MaNGA RSS file for Data Release 15 (DR15).
+
+.. code-block:: bash
+
+    datamodel_generate -f mangaRss -p MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}RSS.fits.gz -k plate=8485 ifu=1901 drpver=v2_4_3 wave=LOG -r DR15
+
+As inputs, we pass in the name of the file species, the symbolic path to the file, the list of
+example keyword-value pairs, and the release we're interested in.  See :ref:`usage-dmgen` for a full
+list of command-line arguments.
+
+After we run the command, a stub YAML datamodel file will be created.  The code will also attempt to write
+a valid markdown file, a JSON file, and access file.  These files are automatically produced and do not require
+any user modification.  During the initial YAML file creation, it will produce an unvalidated
+YAML file.  The additional files only get written out if, and when, the YAML file is validated.
+See :ref:`yaml` and :ref:`validate` below for the next steps.
+
+From Python
+^^^^^^^^^^^
+
+You can also generate datamodels directly within Python.
+
+.. code-block:: python
+
+    from datamodel.generate import DataModel
+
+    # define the inputs
+    file_species = "mangaRss"
+    path = "MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}RSS.fits.gz"
+    keys = ['plate=8485', 'ifu=1901', 'drpver=v2_4_3', 'wave=LOG']
+
+    # generate a datamodel for Data Release 15 (DR15)
+    dm = DataModel(file_spec=file_species, path=path, keywords=keys, release='DR15')
+
+    # write out the stub files
+    dm.write_stubs()
+
+.. _yaml:
+
+The YAML structure
+------------------
+
+The YAML file is the main entry point for adding custom content, and is the only file you will need to
+modify.  The structure of the YAML is broken up into the following sections:
+
+- **general** - section containing general information and metadata on the data product
+- **changelog** - automatically populated section containing any FITS file changes between data releases
+- **releases** - section of information specific for a release
+    - **access** - a section containing information on any existing sdss_access entry
+    - **hdus** - a section for each HDU in the FITS file
+
+Most of the YAML content is automatically generated.  Values containing the text **replace me** are
+areas to be replaced with user custom content, e.g. descriptions of the data product, individual
+descriptions of HDU content, column units, etc.  A truncated example of the newly created
+unvalidated ``datamodel/products/yaml/mangaRSS.yaml`` file is below:
+
+.. code-block:: yaml
+
+    general:
+      name: mangaRss
+      short: replace me - with a short one sentence summary of file
+      description: replace me - with a longer description of the data product
+      datatype: FITS
+      filesize: 14 MB
+      releases:
+        - DR15
+      environments:
+        - MANGA_SPECTRO_REDUX
+      naming_convention: replace me - with $MANGA_SPECTRO_REDUX/[DRPVER]/[PLATE]/stack/manga-[PLATE]-[IFU]-[WAVE]RSS.fits.gz
+        or manga-8485-1901-LOGRSS.fits.gz but with regex pattern matches
+      generated_by: replace me - with the name(s) of any git or svn product(s) that produces
+        this product.
+    changelog:
+      description: Describes changes to the datamodel product and/or file structure from
+        one release to another
+      releases: {}
+    releases:
+      DR15:
+        template: $MANGA_SPECTRO_REDUX/[DRPVER]/[PLATE]/stack/manga-[PLATE]-[IFU]-[WAVE]RSS.fits.gz
+        example: v2_4_3/8485/stack/manga-8485-1901-LOGRSS.fits.gz
+        location: '{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}RSS.fits.gz'
+        environment: MANGA_SPECTRO_REDUX
+        access:
+          in_sdss_access: true
+          path_name: mangarss
+          path_template: $MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}RSS.fits.gz
+          path_kwargs:
+            - plate
+            - drpver
+            - wave
+            - ifu
+          access_string: mangaRss = $MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}RSS.fits.gz
+        hdus:
+          hdu0:
+            name: PRIMARY
+            description: replace me description
+            is_image: true
+            size: 0 bytes
+            header:
+              - key: SIMPLE
+                value: true
+                comment: ''
+          hdu1:
+            ...
+
+.. _validate:
+
+Validating datamodels
+---------------------
+
+When we first create a datamodel, we will get an unvalidated YAML file.  In the above example, we get a
+new YAML file at ``datamodel/products/yaml/mangaRss.yaml``.  During the creation, you may see some log
+output in the terminal of something like the following:
+::
+
+    [INFO]: Preparing datamodel: <DataModel(file_species='mangaRss', release='WORK')>.
+    [INFO]: Creating stub: <Stub(format="yaml", file_species="mangaRss", release="WORK")>
+    [INFO]: Creating stub: <Stub(format="access", file_species="mangaRss", release="WORK")>
+    [ERROR]: 148 validation errors for YamlModel
+    general -> short
+      Generic text needs to be replaced with specific content! (type=value_error)
+    general -> description
+      Generic text needs to be replaced with specific content! (type=value_error)
+    general -> naming_convention
+      Generic text needs to be replaced with specific content! (type=value_error)
+    ...
+    [INFO]: yaml cache is not validated!
+    [INFO]: No cache content to write out!
+
+This indicates there are validation errors in the YAML file, and the remaining stubs cannot be produced.
+At this stage, we need to resolve all validation errors, e.g. supplying required information, or replacing
+all generic text with custom user content.  Once a YAML file is validated, we re-run the same
+``datamodel_generate`` command from above to produce the remaining files in ``datamodel/products/``:
+
+- **md/mangaRss.md**: the markdown file to be uploaded to the wiki
+- **json/mangaRss.json**: a machine-readable JSON file for the ``datamodel`` python package
+- **access/mangaRss.access**: a subset YAML file containing access information, for the wiki
+
+When writing out the stubs, a successfully valid YAML will produce the following verbose output:
+::
+
+    [INFO]: Preparing datamodel: <DataModel(file_species='mangaRss', release='DR15')>.
+    [INFO]: Creating stub: <Stub(format="yaml", file_species="mangaRss", release="DR15")>
+    [INFO]: Creating stub: <Stub(format="access", file_species="mangaRss", release="DR15")>
+    [INFO]: Creating stub: <Stub(format="md", file_species="mangaRss", release="DR15")>
+    [INFO]: Creating stub: <Stub(format="json", file_species="mangaRss", release="DR15")>
+
+Adding new releases
+-------------------
+
+There is now only a single datamodel file for each unique file species, for all releases.  New releases
+can be added to the existing datamodel file by rerunning the ``datamodel_generate`` command with the
+proper new inputs.  Valid releases are any new public data releases (e.g. DR15, DR16), internal
+data releases (e.g. MPL4, IPL1), or a "WORK" release.  Datamodels can now be generated for any data
+product that is private or as-yet-unreleased in a data release, i.e. any path or entry normally defined
+in ``tree`` ``sdsswork.cfg`` or ``sdss5.cfg``.  These unreleased products are captured in a
+single "WORK" release.  There can only be one "WORK" release at a time per data product, and
+represents the most recent updated file one is currently working on.
+
+Adding a public release with complete cache
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+All user-defined content in the YAML file is cached and can be transferred from one release to the
+next, with different options available depending on the use case.  Let's add a new entry in the
+``mangaRss.yaml`` file for release DR16.  The MaNGA DR16 release is exactly the same as the DR15
+release, so in this case, we want to transfer the entire YAML content from DR15 to DR16.
+
+From the command-line, we specify release DR16, and use the ``--use-cache``, or ``-c``, to instruct
+it to use the DR15 cache content.
+
+.. code-block:: bash
+
+    datamodel_generate -f mangaRss -p MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}RSS.fits.gz -k plate=8485 ifu=1901 drpver=v2_4_3 wave=LOG -r DR16 --use-cache DR15
+
+From python, we specify the ``use_cache_release`` and ``full_cache`` keyword arguments to
+:py:func:`~datamodel.generate.datamodel.DataModel.write_stubs`.
+
+.. code-block:: python
+
+    from datamodel.generate import DataModel
+
+    # define the inputs
+    file_species = "mangaRss"
+    path = "MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}RSS.fits.gz"
+    keys = ['plate=8485', 'ifu=1901', 'drpver=v2_4_3', 'wave=LOG']
+
+    # generate a datamodel for Data Release 16 (DR16)
+    dm = DataModel(file_spec=file_species, path=path, keywords=keys, release='DR16')
+
+    # write out the stub files with the complete DR15 cache
+    dm.write_stubs(use_cache_release='DR15', full_cache=True)
+
+In the YAML file, you should see DR16 in the general-releases list, as well as a new entry
+in the ``releases`` section.
+::
+
+    general
+      releases:
+        - DR15
+        - DR16
+    release:
+      DR15: &id001
+        ...
+      DR16: *id001
+
+Since DR16 is complete copy of DR15, the content will be "linked" to the DR15 with YAML anchor syntax.
+
+Adding a new internal release with partial cache
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Now let's add a new internal release to the ``mangaRss.yaml`` for MaNGA MPL-10.  This release is mostly
+the same as DR15 but has a few changes.  One, it was produced with a different tag of the MaNGA pipeline,
+``v3_0_1`` instead of ``v2_4_3``, and two, it contains changes the internal HDU structure of the
+FITS file.  In this case, we want to use only the HDU cache custom content from DR15.
+
+From the command-line, we specify release MPL10, the ``--use-cache`` argument for DR15, and now the
+``-hdus-only`` flag.
+
+.. code-block:: bash
+
+    datamodel_generate -f mangaRss -p MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}RSS.fits.gz -k plate=8485 ifu=1901 drpver=v3_0_1 wave=LOG -r MPL10 --use-cache DR15 --hdus-only
+
+From python, we specify only the ``use_cache_release`` keyword arguments to
+:py:func:`~datamodel.generate.datamodel.DataModel.write_stubs`.
+
+.. code-block:: python
+
+    from datamodel.generate import DataModel
+
+    # define the inputs
+    file_species = "mangaRss"
+    path = "MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}RSS.fits.gz"
+    keys = ['plate=8485', 'ifu=1901', 'drpver=v3_0_1', 'wave=LOG']
+
+    # generate a datamodel for internal release MPL-10
+    dm = DataModel(file_spec=file_species, path=path, keywords=keys, release='MPL10')
+
+    # write out the stub files with the partial DR15 cache
+    dm.write_stubs(use_cache_release='DR15')
+
+When we write out the stubs, we notice new validation errors, instructing us the YAML file is no longer
+validated, and the markdown and JSON files have **not** been updated.  These new validation errors are
+due to the changes in the FITS HDU data structure.  We've removed HDUs ``PREDISP`` and ``DISP`` and added
+HDUs ``LSFPOST`` and ``LSFPRE``. We need to first validate these components and re-run the
+relevant commands to fully update and write out all the content. (We won't do this here.)
+::
+
+    [ERROR]: 2 validation errors for YamlModel
+    releases -> MPL10 -> hdus -> hdu4 -> description
+      Generic text needs to be replaced with specific content! (type=value_error)
+    releases -> MPL10 -> hdus -> hdu5 -> description
+      Generic text needs to be replaced with specific content! (type=value_error)
+
+Adding a WORK release
+^^^^^^^^^^^^^^^^^^^^^
+
+Now let's add a new file into the ``mangaRss.yaml`` that is a work-in-progress, or as-yet-unreleased,
+data product.  This file is considered a part of the "WORK" release. The new MaNGA file we have been
+working on was produced with a new tag of the pipeline, `v3_1_1`, but is the same as MPL-10 in all other
+aspects.  We run the same ``datamodel_generate`` commands but without any release information.  This
+defaults to the datamodel to a "WORK" release.  We specify to use the cache for MPL10 as it's mostly the same.
+
+.. code-block:: bash
+
+    datamodel_generate -f mangaRss -p MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}RSS.fits.gz -k plate=8485 ifu=1901 drpver=v3_1_1 wave=LOG --use-cache MPL10 --hdus-only
+
+or from python,
+
+.. code-block:: python
+
+    from datamodel.generate import DataModel
+
+    # define the inputs
+    file_species = "mangaRss"
+    path = "MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}RSS.fits.gz"
+    keys = ['plate=8485', 'ifu=1901', 'drpver=v3_1_1', 'wave=LOG']
+
+    # generate a datamodel for the latest working copy
+    dm = DataModel(file_spec=file_species, path=path, keywords=keys)
+
+    # write out the stub files with the partial MPL10 cache
+    dm.write_stubs(use_cache_release='MPL10')
+
+These commands will add a new "WORK" release into the datamodel file, using the cached HDU content from
+MPL-10. If you do not want to use any cache, or generate a clean entry, simply leave out the cache
+input arguments, e.g
+::
+
+    datamodel_generate -f mangaRss -p MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}RSS.fits.gz -k plate=8485 ifu=1901 drpver=v3_1_1 wave=LOG
+
+or::
+
+    dm = DataModel(file_spec=file_species, path=path, keywords=keys)
+    dm.write_stubs()
+
+
+All work releases will default to using the ``tree`` ``sdsswork.cfg``.  If the file is a part of
+the `sdss5.cfg` ``tree`` configuration, you can specify the ``--tree_ver``, ``-t`` input keyword:
+::
+
+    datamodel_generate -t sdss5 -f .....
+
+
+Generating a datamodel by file
+------------------------------
+
+You can also generate a datamodel using only a filename.  In this mode, you will be given a series of
+prompts asking you to either define the file_species, path, and keywords, or to look up an existing
+sdss_access entry.
+
+To generate a datamodel by file, for DR15
+::
+
+    datamodel_generate -n /Users/Brian/Work/sdss/sas/dr15/manga/spectro/redux/v2_4_3/8485/stack/manga-8485-1901-LOGRSS.fits.gz -r DR15
+
+or::
+
+    from datamodel.generate import DataModel
+
+    ff='/Users/Brian/Work/sdss/sas/dr15/manga/spectro/redux/v2_4_3/8485/stack/manga-8485-1901-LOGRSS.fits.gz'
+    dm = DataModel.from_file(ff, tree_ver='dr15')
+
+The ``datamodel`` code will first prompt you if an existing ``sdss_access`` definition exists:
+
+- Does this file have an existing sdss_access definition? (y/n):
+
+Answering ``y`` will prompt you to look up the ``sdss_access`` name, and will attempt to extract
+the relevant keyword-value pairs.  If it cannnot do so, it will prompt you to define them.
+
+::
+
+    Does this file have an existing sdss_access definition? (y/n): y
+    What is the sdss_access path_name?: mangarss
+    Could not extract a value mapping for keys: ['drpver', 'wave', 'ifu', 'plate']
+    Please define a list of name=value key mappings for variable substitution.
+    e.g. drpver=v2_4_3, plate=8485, ifu=1901, wave=LOG
+    :drpver=v2_4_3, plate=8485, ifu=1901, wave=LOG
+
+If the file does not have an existing ``sdss_access`` entry, i.e. answering ``n``, it will prompt you
+to define new inputs for the file species, symbolic path, and example keywords:
+::
+
+    Does this file have an existing sdss_access definition? (y/n): n
+    Define a new path_name / file_species, e.g. mangaRss: mangaRss
+    Define a new path template, starting with an environment variable label.
+    Use jinja {} templating to define variable name used for substitution.
+    e.g. "MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}RSS.fits.gz"
+    : MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}RSS.fits.gz
+    Define a list of name=value key mappings for variable substitution.
+    e.g. drpver=v2_4_3, plate=8485, ifu=1901, wave=LOG
+    : drpver=v2_4_3, plate=8485, ifu=1901, wave=LOG
+
+Either way, at the end it will ask you to confirm your definitions:
+::
+
+    Confirm the following: (y/n):
+     file = /Users/Brian/Work/sdss/sas/dr15/manga/spectro/redux/v2_4_3/8485/stack/manga-8485-1901-LOGRSS.fits.gz
+     path_name = mangarss
+     path_template = MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}RSS.fits.gz
+     path_keys = ['drpver=v2_4_3', 'plate=8485', 'ifu=1901', 'wave=LOG']
+
+
+Adding the datamodel to the Wiki
+--------------------------------
+
+Once a valid datamodel markdown is created, you will need to upload it to the wiki for it to be visible.
+It is best to do this step at Utah.  From the Utah machines, run
+::
+
+    datamodel_wiki -e MANGA_SPECTRO_REDUX -f mangaRss
+
+See :ref:`usage-dmwiki` for a full list of command-line arguments.  Once successfully uploaded, it will
+be visible on the `SDSS Datamodel <https://wiki.sdss.org/display/DATAMODEL/.Datamodel+vsdsswork>`_ site.
+
+
+Updating your netrc file
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+In order to use the ``datamodel_wiki`` function, you must first add your wiki credentials to a private
+**.netrc** file in your home directory.  Add the following line to ``~/.netrc``,
+::
+
+    machine wiki.sdss.org
+        login <username>
+        password <password>
+
+replacing ``username`` and ``password`` with your wiki credentials.  You also need to confirm that
+your ``~/.netrc`` is not readable, by running `chmod 600 ~/.netrc`.
+

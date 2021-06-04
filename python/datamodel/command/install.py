@@ -34,13 +34,15 @@ class Install(object):
 
     def __init__(self, options=None, branch=None, force=None, verbose=None, debug=None):
         self.branch = options.branch if options else branch
-        if not self.branch:
-            self.branch = "main"
         self.force = options.force if options else force
         self.verbose = options.verbose if options else verbose
         self.debug = options.debug if options else debug
         self.git = Git(verbose=self.verbose)
         self.message = []
+
+        # get the current branch if none specified, default to main
+        if not self.branch:
+            self.branch =  self.git.current_branch or "main"
 
     def set_directory(self):
         """Set the software and modulefiles directory

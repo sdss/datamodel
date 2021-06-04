@@ -1,46 +1,37 @@
 #!/usr/bin/env python3
 # encoding: utf-8
 #
-# @Author: Joel Brownstein <joelbrownstein@sdss.org>
-# @Date: Nov 9, 2020
-# @Filename: datamodel_generate
-# @License: BSD 3-Clause
-# @Copyright: SDSS.
 
 from datamodel.command import Command
-from datamodel.generate import Generate
+from datamodel.generate.datamodel import DataModel
 
+from datamodel import log
 
+# Command-line Examples
+# load an APOGEE allstar datamodel with an sdss5 tree config; specifying an environment label and abstraction location
+# datamodel_generate -t sdss5 -e APOGEE_REDUX -l {apred}/summary/allStar-{apred}-{telescope}.fits -v
+
+# load a MaNGA rss datamodel with a file species name and abstract path, with defined path template keyword arguments; resolves to a real file
+# datamodel_generate -f mangaRss -p MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}RSS.fits.gz -k plate=8485 ifu=1901 drpver=v2_4_3 wave=LOG -v
+
+# get command line options
 command = Command(name="datamodel_generate")
-generate = Generate(options=command.options)
-generate.set_directory()
-generate.set_file()
-generate.set_stub()
 
-"""
-usage via commandline:
-datamodel_generate -t sdss5 -e APOGEE_REDUX -l {apred}/summary/allStar-{apred}-{telescope}.fits -v
-datamodel_generate -t sdss5 -e APOGEE_REDUX -l {apred}/visit/{telescope}/{field}/{plate}/{mjd}/apVisit-{apred}-{telescope}-{plate}-{mjd}-{fiber:0\>3}.fits -k apred=daily telescope=apo25m field=AQW_114.81_+29.83 plate=15016 mjd=59146 fiber=275 -v
-datamodel_generate -t sdss5 -e APOGEE_REDUX -l {apred}/{apstar}/{telescope}/{healpixgrp}/{healpix}/apStar-{apred}-{telescope}-{obj}.fits -k apred=daily telescope=apo25m apstar=stars healpixgrp=48 healpix=48545 obj=2M07333300+3025567 -v
+# create a datamodel object
+dm = DataModel(tree_ver=command.options.tree_ver, file_spec=command.options.file_spec,
+               path=command.options.path, keywords=command.options.keywords,
+               env_label=command.options.env_label, location=command.options.location,
+               verbose=command.options.verbose, release=command.options.release,
+               filename=command.options.filename)
 
-usage via python:
-from datamodel.generate import Generate
-generate = Generate(tree_ver = 'sdss5', env_label = 'APOGEE_REDUX', location = 'daily/summary/allStar-daily-apo25m.fits',  verbose = True)
-generate.set_directory()
-generate.set_file()
-generate.set_stub()
+# write out all the datamodel stubs
+dm.write_stubs(force=command.options.force, use_cache_release=command.options.use_cache,
+               full_cache=not command.options.hdus_only)
 
-datamodel_generate -t sdss5 -f silo_eboss_detections -p EBOSS_SANDBOX/silo/{run2d}/{run1d}/{silo_ver}/silo_eboss_detections-{silo_ver}.fits -k run2d=v5_13_0  run1d=v5_13_0 silo_ver=1.0.1 -v
-
-from datamodel.generate import Generate
-generate = Generate(tree_ver = 'sdss5', file_spec = 'silo_eboss_detections', path = 'EBOSS_SANDBOX/silo/{run2d}/{run1d}/{silo_ver}/silo_eboss_detections-{silo_ver}.fits', keywords = ['run2d=v5_13_0', 'run1d=v5_13_0', 'silo_ver=1.0.1'], verbose = True)
-generate.set_directory()
-generate.set_file()
-generate.set_stub()
-
-datamodel_generate -t sdss5 -f spAll -p BOSS_SPECTRO_REDUX/{run2d}/spAll-{run2d}.fits -k run2d=master -v
-datamodel_generate -f apVisit -p APOGEE_REDUX/{apred}/visit/{telescope}/{field}/{plate}/{mjd}/apVisit-{apred}-{telescope}-{plate}-{mjd}-{fiber}.fits -k apred=daily telescope=apo25m field=YSO_043 plate=15119 mjd=50212 fiber=002 -v
-
-datamodel_generate -f summary_classify_apstar -p MWM_ASTRA/{astra_vers}/summary-classify-apstar.fits -k astra_vers=0.1.11 -v
-
-"""
+# only run if we are not skipping the git commit stage
+if not command.options.skip_git:
+    # commit the stubs into git
+    try:
+        dm.commit_stubs()
+    except RuntimeError as err:
+        log.error(f'Could not commit stubs to git.  Check for errors and try again. Error - {err}')

@@ -10,9 +10,10 @@
 from datamodel.command import Command
 from datamodel.wiki import Page
 
-
 command = Command(name="datamodel_wiki")
-page = Page(options=command.options)
+
+page = Page(file_species=command.options.file_spec, env_label=command.options.env_label,
+            verbose=command.options.verbose)
 page.set_remote()
 page.set_remote_pagelist(parent=True)
 page.create_parent()
@@ -20,14 +21,14 @@ page.create_datamodel()
 
 """
 usage via commandline:
-datamodel_wiki -t sdss5 -e APOGEE_REDUX -f allStar -v
-datamodel_wiki -t sdss5 -e BOSS_SPECTRO_REDUX -f spAll -v
+datamodel_wiki -e APOGEE_REDUX -f allStar -v
+datamodel_wiki -e BOSS_SPECTRO_REDUX -f spAll -v
 datamodel_wiki -e EBOSS_SANDBOX -f silo_eboss_detections -v
 datamodel_wiki -e MWM_ASTRA -f summary_classify_apstar -v
 
 usage via python:
 from datamodel.wiki import Page
-page = Page(tree_ver = 'sdss5', env_label = 'APOGEE_REDUX', file_spec = 'allStar',  verbose = True)
+page = Page(env_label = 'APOGEE_REDUX', file_spec = 'allStar',  verbose = True)
 page.set_remote()
 page.set_remote_pagelist(parent=True)
 page.create_parent()

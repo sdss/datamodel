@@ -1,266 +1,388 @@
-# @Author: Brian Cherinka
-# @Date: Mar 7, 2016
-# @Revised by: Joel Brownstein <joelbrownstein@sdss.org>
-# @Date: Nov 9, 2020
-# @Filename: stub.py
-# @License: BSD 3-Clause
-# @Copyright: SDSS.
+# !/usr/bin/env python
+# -*- coding: utf-8 -*-
+#
+# Filename: stub_new.py
+# Project: generate
+# Author: Brian Cherinka
+# Created: Tuesday, 23rd February 2021 10:41:09 am
+# License: BSD 3-clause "New" or "Revised" License
+# Copyright (c) 2021 Brian Cherinka
+# Last Modified: Tuesday, 23rd February 2021 10:41:09 am
+# Modified By: Brian Cherinka
 
-from json import dumps
-from os.path import basename, exists, getsize, join, sep, splitext
 
+from __future__ import print_function, division, absolute_import
+import abc
+import yaml
+import os
+import json
 from astropy.io import fits
 from jinja2 import Environment, PackageLoader
-from yaml import FullLoader, dump, load
+import pathlib
+from typing import Iterator, Type
+from pydantic import ValidationError
 
-from datamodel import get_abstract_path
-from datamodel.git import Git
+try:
+    import markdown
+except ImportError:
+    markdown = None
 
+from ..git import Git
+from .changelog import YamlDiff
+from ..models.yaml import YamlModel
+from datamodel import log
 
-__author__ = "Brian Cherinka, Joel Brownstein"
+class BaseStub(abc.ABC):
+    format = None
+    cacheable = False
+    has_template = True
 
-
-class Stub(object):
-    """Class to create a datamodel stub.
-
-    Parameters
-    ----------
-    file_spec : (unique) file file_spec name
-    directory : dictionary of paths to output stub
-    verbose : str , optional
-        Verbose output
-    """
-
-    fmap = {
-        "A": "char",
-        "I": "int16",
-        "J": "int32",
-        "K": "int64",
-        "E": "float32",
-        "D": "float64",
-        "B": "bool",
-        "L": "bool",
-    }
-    cache_formats = ["yaml"]
-
-    def __init__(self, file_spec=None, directory=None, verbose=None, force=None):
-        self.file_spec = file_spec
-        self.directory = directory
+    def __init__(self, datamodel = None, use_cache_release: str = None, full_cache: bool = None,
+                 verbose: bool = None, force: bool = None):
+        self.environment = None
+        self.template = None
+        self.output = None
+        self.datamodel = datamodel
         self.verbose = verbose
+
+        # cache control attrs
+        self.use_cache_release = use_cache_release
+        self.full_cache = full_cache
         self.force = force
-        self.template = self.input = self.output = self.cache = self.environment = None
+
+        # content attrs
+        self._template_input = None
+        self._cache = None
+        self.content = None
+        self._validated_yaml = None
+
+        # set up the Jinja 2 template + environment, and the output stub file path
+        self._set_template()
+        if self.datamodel:
+            self._set_output()
+
+        # setup a git object
         self.git = Git(verbose=self.verbose)
 
-    def set_access(self, path=None, replace=None):
-        if self.directory and "access" in self.directory:
-            directory = self.directory["access"]
-            if not exists(directory):
-                print("STUB> nonexistent directory at %s" % directory)
-                directory = None
-            access_path = (
-                join(directory, "%s.access" % self.file_spec)
-                if directory and self.file_spec
-                else None
-            )
-            if access_path:
-                if exists(access_path):
-                    with open(access_path) as file:
-                        print("STUB> access %s" % access_path)
-                        self.access = load(file, Loader=FullLoader)
-                        _file_spec, _path = self.access.split(" = $", 2)
-                        if _path != path:
-                            if replace:
-                                self.drop_formats(file_spec=_file_spec, path=_path)
-                                self.access = "%s = $%s" % (self.file_spec, path)
-                                self.write_access(path=access_path, replace=replace)
-                            else:
-                                print(
-                                    "STUB> Aborting due to conflict in existing spec: %s"
-                                    % self.access
-                                )
-                                self.access = None
-                elif access_path:
-                    if replace:
-                        print(
-                            "STUB> Nothing to replace, due to nonexistent access path: %s"
-                            % access_path
-                        )
-                        self.access = None
-                    else:
-                        self.access = "%s = $%s" % (self.file_spec, path)
-                        self.write_access(path=access_path)
-                else:
-                    self.access = None
-            else:
-                self.access = None
+    def __repr__(self) -> str:
+        if self.datamodel:
+            return (f'<Stub(format="{self.format}", file_species="{self.datamodel.file_species}", '
+                    f'release="{self.datamodel.release}")>')
         else:
-            self.access = None
+            return f'<Stub(format="{self.format}")>'
 
-    def drop_formats(self, file_spec=None, path=None):
-        formats = ["access", "yaml", "json"]
-        for format in formats:
-            if format == "access":
-                self.drop_access(file_spec=file_spec, path=path)
-            else:
-                self.drop_format(format=format, file_spec=file_spec, path=path)
+    @classmethod
+    def from_datamodel(cls, datamodel):
+        return cls(datamodel=datamodel)
 
-    def drop_access(self, file_spec=None, path=None):
-        try:
-            env_label = path.split(sep, 1)[0]
-        except:
-            env_label = None
-        location = (
-            join("data", "access", env_label, "%s.access" % file_spec)
-            if env_label and file_spec
-            else None
-        )
-        if location:
-            self.git.rm(location=location)
-        else:
-            print("STUB> Cannot drop access for file_spec=%r, path=%r" % (file_spec, path))
+    def add_datamodel(self, datamodel):
+        self.datamodel = datamodel
+        self._set_output()
 
-    def drop_format(self, format=None, file_spec=None, path=None):
-        if path:
-            path = get_abstract_path(path=path)
-        location = (
-            join("data", format, path, "%s.%r" % (file_spec, format))
-            if format and file_spec and path
-            else None
-        )
-        if location:
-            self.git.rm(location=location)
-        else:
-            print("STUB> Cannot drop %s for file_spec=%r, path=%r" % (format, file_spec, path))
+    def _set_template(self) -> None:
+        """ Set the jina2 environment including filters for content. """
 
-    def write_access(self, path=None, replace=None):
-        try:
-            if self.verbose:
-                if replace:
-                    print("STUB> Output to %s [replaced!]" % path)
-                else:
-                    print("STUB> Output to %s" % path)
-            with open(path, "w") as file:
-                file.write(self.access)
-            self.git.add(path=path)
-            self.git.commit(path=path, message="%s.access" % self.file_spec)
-        except Exception as e:
-            print("STUB> Output exception %r" % e)
+        if not self.has_template:
+            return
 
-    def set_input(self, path=None, format=None):
-        """Set the file's properties for it's path."""
-        self.input = None
-        if path and self.access:
-            self.input = {"path": path, "file_spec": self.file_spec, "hdus": None}
-            self.input["format"] = format
-            self.input["basename"] = basename(path)
-            self.input["filename"] = self.input["basename"].replace(".", "\.")
-            self.input["filesize"] = self.get_filesize()
-            self.input["filetype"] = self.get_filetype()
-
-    def set_environment(self):
-        """Set the jina2 environment including filters for content."""
         loader = PackageLoader("datamodel", "templates")
         self.environment = Environment(loader=loader, trim_blocks=True, lstrip_blocks=True)
+        self.template = self.environment.get_template(f'stub.{self.format}')
 
-    def set_cache(self, format="yaml"):
-        """Set the cached content from yaml (by default)."""
-        if self.input and format in self.cache_formats:
-            file_spec = (
-                self.input["file_spec"] if self.input and "file_spec" in self.input else None
-            )
-            dir = self.directory[format] if self.directory and format in self.directory else None
-            self.cache = (
-                {"format": format, "path": join(dir, file_spec + "." + format)}
-                if dir and file_spec
-                else None
-            )
-            self.cache["content"] = self.get_content_from_cache()
-            self.set_cache_hdus()
+    def _set_datamodel_dir(self) -> None:
+        """ Set the DATAMODEL_DIR from the environment """
+
+        self.datamodel_dir = os.getenv("DATAMODEL_DIR", None)
+
+        if not self.datamodel_dir:
+            raise ValueError("No DATAMODEL_DIR found.  Please set a proper environment variable.")
+        elif not os.path.exists(self.datamodel_dir):
+            raise IOError(f"No datamodel directory found at {self.datamodel_dir}")
+
+    def _set_output(self) -> None:
+
+        if not self.datamodel:
+            raise AttributeError('Cannot set an output directory without a valid datamodel')
+
+        # create the output directory
+        self._set_datamodel_dir()
+        data_dir = os.path.join(self.datamodel_dir, "datamodel")
+        products_dir = os.path.join(data_dir, "products")
+
+        directory = os.path.join(products_dir, self.format)
+
+        if not os.path.exists(directory):
+            os.makedirs(directory)
+
+        # set the output file path
+        self.output = os.path.join(directory, f'{self.datamodel.file_species}.{self.format}')
+
+    def remove_output(self) -> None:
+        if self.output and os.path.exists(self.output):
+            os.remove(self.output)
+
+    def render_content(self, force: bool = None) -> None:
+        if not self._cache or force:
+            self._get_cache(force=force)
+
+        if self.format != 'yaml' and not self.validate_cache():
+            log.info('yaml cache is not validated!')
+            return
+
+        self._get_content()
+
+    @abc.abstractmethod
+    def _get_content(self):
+        pass
+
+    def write(self, force: bool = None, use_cache_release: str = None, full_cache: bool = None) -> None:
+
+        self.use_cache_release = use_cache_release
+        self.full_cache = full_cache
+        self.force = force
+
+        if not self.output:
+            raise AttributeError('No output filepath set')
+
+        # always re-render the content
+        self.render_content(force=force)
+
+        if not self.content:
+            log.info('No cache content to write out!')
+            return
+
+        with open(self.output, 'w') as f:
+            f.write(self.content)
+
+    def update_cache(self, force: bool = None) -> None:
+        """ Update the in-memory stub cache from the on-disk file """
+        self._get_cache(force=force)
+
+    def _prepare_input(self) -> dict:
+        """ prepare the initial template input """
+
+        template_input = {}
+        if not self.datamodel:
+            raise AttributeError('Cannot prepare template input without a valid datamodel')
+
+        if not os.path.exists(self.datamodel.file):
+            raise IOError(f'File {self.datamodel.file} does not exist.  Cannot prepare input.')
+
+        # create input dictionary for the template
+        template_input = {
+            "path": self.datamodel.file,
+            "file_species": self.datamodel.file_species,
+            'file_template': self.datamodel.template,
+            "filename": os.path.basename(self.datamodel.file),
+            "filesize": self._get_filesize(),
+            "filetype": self._get_filetype(),
+            "environments": [self.datamodel.env_label],
+            "releases": [self.datamodel.release],
+            "example": [self.datamodel.real_location],
+            "location": [self.datamodel.location],
+            "access": self._get_access_cache()
+        }
+        return template_input
+
+    def _get_access_cache(self) -> dict:
+        return {"in_sdss_access": self.datamodel.in_sdss_access,
+                "path_name": self.datamodel.access[self.datamodel.release]['path_name'],
+                "path_template": self.datamodel.access[self.datamodel.release]['path_template'],
+                "path_kwargs": self.datamodel.access[self.datamodel.release]['path_kwargs'],
+                "access_string": self.datamodel.access[self.datamodel.release]['access']}
+
+    def _create_cache(self) -> dict:
+        if not self.cacheable or not self.has_template:
+            raise ValueError(f'Cannot create a new cache.  The {self.format} stub is not '
+                             'cacheable or does not have a valid template to create a cache. '
+                             'Please create a cacheable yaml file first.')
+
+        # prepare initial cache input
+        input = self._prepare_input()
+        return yaml.load(self.template.render(input), Loader=yaml.FullLoader)
+
+    def _get_cache(self, force: bool = None) -> None:
+        # only cache-able format is yaml - load that content
+        cached_file = self.output.replace(self.format, 'yaml')
+
+        if os.path.exists(cached_file) and not force:
+            # read existing cache
+            with open(cached_file) as file:
+                content = yaml.load(file, Loader=yaml.FullLoader)
+                content = self._check_release_in_cache(content)
         else:
-            self.cache = None
+            # create a brand new cache
+            content = self._create_cache()
 
-    def update_cache_hdu_row(self, row=None, field=None):
-        """Set the name, etc. fields in the cached hdu"""
-        if field and (hasattr(self.hdu, field) or field == "description"):
-            if field in self.hdu_row and not self.force:
-                self.cached = True
-            elif field == "header":
-                header = self.hdu.header
-                self.hdu_row[field] = []
-                for key, value in header.items():
-                    if self.is_header_keyword(key=key):
-                        column = {"key": key, "value": value, "comment": header.comments[key]}
-                        self.hdu_row["header"].append(column)
-            elif field == "description":
-                self.hdu_row[field] = "*Description of the contents of this HDU*"
-            elif field == "size":
-                self.hdu_row[field] = self.format_bytes(getattr(self.hdu, field))
-            else:
-                self.hdu_row[field] = getattr(self.hdu, field)
-                self.cached = False
+        # check the content dictionary has a proper release
+        if self.datamodel.release not in content['releases']:
+            content['releases'][self.datamodel.release] = {"template": None, "example": None, "location": None,
+                                                           "environment": None, "access": {}, "hdus": {}
+                                                           }
 
-    def update_cache_hdu_column(self, row=None, index=None, column=None):
-        """Set the cached content for a colum in a hdu table"""
-        columns = self.hdu_row["columns"] if "columns" in self.hdu_row else {}
-        if column.name in columns and not self.force:
-            pass
-        else:
-            columns[column.name] = {
-                "name": column.name.upper(),
-                "type": self.format_type(column.format),
-                "unit": self.nonempty_string(column.unit),
-                "description": self.nonempty_string(),
-            }
+        # set the cache content
+        self._cache = content
 
-    def set_cache_hdus(self):
-        """Set the cached content for each hdu"""
-        content = self.cache["content"] if self.cache and "content" in self.cache else None
-        hdus = content["hdus"] if content and "hdus" in content else None
-        if hdus is not None:
-            for hdu_number, self.hdu in enumerate(self.input["hdus"]):
-                row = "hdu%r" % hdu_number
-                self.hdu_row = (
-                    hdus[row]
-                    if hdus and row in hdus
-                    else {}
-                    if self.hdu.is_image
-                    else {"columns": {}}
-                )
-                for field in ["name", "is_image", "description", "size"]:
-                    self.update_cache_hdu_row(row=row, field=field)
-                if self.hdu.is_image:
-                    if self.verbose:
-                        print("HDU %r >" % hdu_number + "IMAGE: %(name)s" % self.hdu_row)
-                    self.update_cache_hdu_row(row=row, field="header")
-                else:
-                    if self.verbose:
-                        print(
-                            "HDU %r >" % hdu_number
-                            + "TABLE: %(name)s" % self.hdu_row
-                            + " --> %r columns" % len(self.hdu.columns)
-                        )
-                    for index, column in enumerate(self.hdu.columns):
-                        self.update_cache_hdu_column(row=row, index=index, column=column)
-                hdus[row] = self.hdu_row
+        # if release is the same, copy over entire cache
+        if self.use_cache_release and self.full_cache:
+            self._cache['releases'][self.datamodel.release] = self._cache['releases'].get(self.use_cache_release, {})
+            return
 
-    def get_content_from_cache(self):
-        """Get the cached content from yaml file (by default)."""
-        format = self.cache["format"] if self.cache and "format" in self.cache else None
-        path = self.cache["path"] if self.cache and "path" in self.cache else None
-        if path and format == "yaml":
-            if exists(path):
-                with open(path) as file:
-                    content = load(file, Loader=FullLoader)
-            else:
-                template = self.environment.get_template("stub.%s" % format)
-                content = load(template.render(self.input), Loader=FullLoader)
-            if content and "hdus" not in content:
-                content["hdus"] = {}
-        else:
-            content = None
+        # set the cache with access info
+        self._update_cache_access()
+
+        # set the cache for hdus
+        self._set_cache_hdus(force=force)
+
+        # update the cache changelog
+        self._update_cache_changelog()
+
+    def _check_release_in_cache(self, content: dict) -> dict:
+        releases = content['general']['releases']
+        if self.datamodel.release not in releases:
+            releases.append(self.datamodel.release)
+            releases.sort()
+            content['general']['releases'] = releases
         return content
 
-    def format_bytes(self, value=None):
+    def _update_cache_access(self) -> None:
+        """ update the cache with access info """
+        # always updates the cache with latest datamodel
+        # update the access dictionary in the cache
+        self._cache['releases'][self.datamodel.release]['access'] = self._get_access_cache()
+
+        # update the template/location, environment keywords in the cache
+        self._cache['releases'][self.datamodel.release]['template'] = self.datamodel.template
+        self._cache['releases'][self.datamodel.release]['environment'] = self.datamodel.env_label
+
+        # update the general environments sections in cache
+        if self.datamodel.env_label not in self._cache['general']['environments']:
+            self._cache['general']['environments'].append(self.datamodel.env_label)
+
+        # update the location/example keyword in the cache
+        self._cache['releases'][self.datamodel.release]['location'] = self.datamodel.location
+        self._cache['releases'][self.datamodel.release]['example'] = self.datamodel.real_location
+
+    def _set_cache_hdus(self, force: bool = None) -> None:
+        """[summary]
+
+        [extended_summary]
+
+        Parameters
+        ----------
+        force : bool, optional
+            If True, rewrites hdu cache from scratch, by default None
+        """
+        cached_hdus = self._cache['releases'][self.datamodel.release].get('hdus', {})
+
+        # if no cache exists or forced update, generate a new cache from file
+        if not cached_hdus or force:
+            cached_hdus = self._generate_new_hdu_cache()
+
+        if self.use_cache_release and not force:
+            old_hdus = self._cache['releases'][self.use_cache_release].get('hdus', {})
+            if not self.full_cache:
+                # partial copy of the cache
+                cached_hdus = self._update_partial_cache(cached_hdus, old_hdus)
+            else:
+                # full copy of the cache
+                cached_hdus = old_hdus
+
+        # set the HDU cache to the given release
+        self._cache['releases'][self.datamodel.release]['hdus'] = cached_hdus
+
+    @staticmethod
+    def _update_partial_cache(cached_hdus, old_hdus):
+        old_names = [v['name'] for v in old_hdus.values()]
+
+        for k, v in cached_hdus.items():
+            # skip extensions that aren't in the old HDU
+            if v['name'] not in old_names:
+                continue
+
+            # get the matching old hdu index
+            idx = old_names.index(v['name'])
+            oldkey = f'hdu{idx}'
+
+            # update the HDU description
+            v['description'] = old_hdus[oldkey]['description']
+
+            # skip processing of image extensions
+            if v['is_image'] is True:
+                continue
+
+            for kk,vv in v['columns'].items():
+                vv['unit'] = old_hdus[oldkey]['columns'][kk]['unit']
+                vv['description'] = old_hdus[oldkey]['columns'][kk]['description']
+
+        return cached_hdus
+
+    def _generate_new_hdu_cache(self) -> dict:
+        """[summary]
+
+        [extended_summary]
+
+        Returns
+        -------
+        dict
+            [description]
+        """
+        hdus = {}
+
+        with fits.open(self.datamodel.file) as hdulist:
+            for hdu_number, hdu in enumerate(hdulist):
+                header = hdu.header
+                extno = f'hdu{hdu_number}'
+
+                # create a new one
+                row = {
+                    'name': hdu.name,
+                    'description': 'replace me description',
+                    'is_image': hdu.is_image,
+                    'size': self._format_bytes(hdu.size),
+                }
+
+                if hdu.is_image:
+                    row['header'] = []
+                    for key, value in header.items():
+                        if self._is_header_keyword(key=key):
+                            column = {"key": key, "value": value, "comment": header.comments[key]}
+                            row['header'].append(column)
+                else:
+                    row['columns'] = {}
+                    for column in hdu.columns:
+                        row['columns'][column.name] = {
+                            'name': column.name.upper(),
+                            'type': self._format_type(column.format),
+                            'unit': self._nonempty_string(column.unit),
+                            'description': self._nonempty_string()
+                        }
+
+                hdus[extno] = row
+        return hdus
+
+    def _update_cache_changelog(self):
+        yaml_diff = YamlDiff(self._cache)
+        release_order = reversed(self._cache['general']['releases'])
+        changelog = yaml_diff.generate_changelog(release_order, simple=True)
+        self._cache['changelog']['releases'] = changelog
+
+    def validate_cache(self):
+        if not self._cache:
+            log.info("No yaml cache to validate!")
+            return False
+
+        # validate the yaml cache
+        try:
+            self._validated_yaml = YamlModel.parse_obj(self._cache)
+        except ValidationError as err:
+            log.error(err)
+            return False
+        else:
+            return True
+
+    @staticmethod
+    def _format_bytes(value: int = None) -> str:
         """Convert an integer to human-readable format.
 
         Parameters
@@ -287,7 +409,7 @@ class Stub(object):
 
         return "{0:3.1f} {1}".format(value, "TB")
 
-    def get_filesize(self):
+    def _get_filesize(self) -> str:
         """Get the size of the input file.
 
         Returns
@@ -295,9 +417,9 @@ class Stub(object):
         str
             Size of the file in human-readable format.
         """
-        return self.format_bytes(getsize(self.input["path"])) if self.input else None
+        return self._format_bytes(os.path.getsize(self.datamodel.file))
 
-    def get_filetype(self):
+    def _get_filetype(self) -> str:
         """Get the extension of the input file.
 
         Returns
@@ -305,17 +427,24 @@ class Stub(object):
         str
             File type in upper case.
         """
-        filename, file_extension = splitext(self.input["path"]) if self.input else None
+        filename, file_extension = os.path.splitext(self.datamodel.file)
         if "gz" in file_extension:
-            filename, file_extension = splitext(filename)
+            filename, file_extension = os.path.splitext(filename)
         return file_extension[1:].upper()
 
-    def set_input_hdus(self):
-        """Read the file and hdus."""
-        if self.input:
-            self.input["hdus"] = fits.open(self.input["path"])
+    @staticmethod
+    def _is_header_keyword(key: str = None) -> bool:
+        """Test for hdu header keyword
 
-    def nonempty_string(self, value=None):
+        Returns
+        -------
+        bool
+            ``True`` if `key` does *not* contain 'TFORM' or 'TTYPE'.
+        """
+        return tuple(key.find(f) for f in ("TFORM", "TTYPE")) == (-1, -1)
+
+    @staticmethod
+    def _nonempty_string(value: str = None) -> str:
         """Jinja2 Filter to map the format value to a string.
 
         Parameters
@@ -328,10 +457,10 @@ class Stub(object):
         string: str
             The string.
         """
-        string = value if type(value) == str else "%r" % value if value else "**"
-        return string
+        return f"{value}" if value else 'replace me - with content'
 
-    def format_type(self, value=None):
+    @staticmethod
+    def _format_type(value: str = None) -> str:
         """Jinja2 Filter to map the format type to a data type.
 
         Parameters
@@ -344,77 +473,171 @@ class Stub(object):
         str
             The data type.
         """
+        fmap = {"A": "char", "I": "int16", "J": "int32", "K": "int64", "E": "float32",
+                "D": "float64", "B": "bool", "L": "bool"}
         out = [
             val if value.isalpha() else "{0}[{1}]".format(val, value[:-1])
-            for key, val in self.fmap.items()
+            for key, val in fmap.items()
             if key in value
         ]
         return out[0]
 
-    def is_header_keyword(self, key=None):
-        """Test for hdu header keyword
+    def commit_to_git(self) -> None:
+        """ Commit the stub to Github """
+        # add and commit the file
+        self.git.add(path=self.output)
+        self.git.commit(path=self.output, message=f"committing {self.datamodel.file_species}.{self.format}")
 
-        Returns
-        -------
-        bool
-            ``True`` if `key` does *not* contain 'TFORM' or 'TTYPE'.
-        """
-        return tuple([key.find(f) for f in ("TFORM", "TTYPE")]) == (-1, -1)
+    def push_to_git(self) -> None:
+        """ Push changes to Github """
+        # try a git pull
+        self.git.pull()
 
-    def set_output(self):
-        if self.input and self.template:
-            self.output = {
-                format: join(dir, self.file_spec + "." + format)
-                for format, dir in self.directory.items()
-            }
+        # try a git push
+        self.git.push()
+
+    def remove_from_git(self) -> None:
+        """ Remove file from the git repo """
+        if os.path.exists(self.output):
+            self.git.rm(self.output)
+
+    # def workflow(self):
+    #     # create stub with datamodel
+    #     # set the output file to write content
+    #     # read content from yaml file and create cached content
+    #     # for yaml format only, create the cache (has template, creates, uses, replaces cached content)
+    #         # render yaml template with prepared template input
+    #         # validate the yaml content
+    #         # write out the contents into yaml file
+    #     # for markdown format only (has template, only used cached content)
+    #         # read the markdown template with yaml cache
+    #         # validate the yaml content
+    #         # write out the contents with cached content
+    #     # for json format only (no template, only uses cached content)
+    #         # read in yaml cache content
+    #         # validate the yaml content
+    #         # write out json file with cached content
+    #     pass
+
+
+class YamlStub(BaseStub):
+    format: str = 'yaml'
+    cacheable: bool = True
+
+    def _get_content(self) -> None:
+        self.content = yaml.dump(self._cache, sort_keys=False)
+
+class MdStub(BaseStub):
+    format: str = 'md'
+
+    def _get_content(self, release: str = None, group: str = 'WORK') -> None:
+        selected_release = self.get_selected_release(release=release, group=group)
+        #hdus = self._cache['hdus'][selected_release]
+        hdus = self._cache['releases'][selected_release]['hdus']
+        self.content = self.template.render(content=self._cache, hdus=hdus, selected_release=selected_release)
+
+    # def convert_to_html(self):
+    #     htmlpath = self.output.replace('md', 'html')
+    #     outpath = pathlib.Path(self.output)
+    #     if not outpath.exists():
+    #         raise ValueError(f'Cannot convert md to html. md file {self.output} does not exist.')
+
+    #     if not markdown:
+    #         raise ImportError('Cannot convert md to html.  markdown package is not installed.')
+
+    #     pathlib.Path(htmlpath).parent.mkdir(parents=True, exist_ok=True)
+    #     markdown.markdownFromFile(input=self.output, output=htmlpath, extensions=['markdown.extensions.tables', 'toc'])
+
+    def get_selected_release(self, release: str = None, group: str = 'WORK') -> str:
+        """ get the hdu content for a given release """
+        cached_releases = list(self._cache['releases'].keys())
+        if len(cached_releases) == 0:
+            return release or self.datamodel.release
+        elif len(cached_releases) == 1:
+            return cached_releases[0]
+        elif release in cached_releases:
+            return release
         else:
-            self.output = None
+            if release and release not in cached_releases:
+                log.debug(f'Input release {release} unavailable in cache. '
+                          f'Selecting latest release in group {group}')
 
-    def get_yaml(self):
-        return dump(self.cache["content"]) if self.cache and "content" in self.cache else None
+            # TODO - move to separate function
+            # groups releases and sorts them
+            import itertools
+            g = itertools.groupby(sorted(cached_releases, key=lambda x: x[0]), lambda x: x[0])
+            key = {'D': 'DR', 'I': 'IPL', 'M': 'MPL', 'W': 'WORK'}
+            rs = {}
+            for i, gg in g:
+                rs[key[i]] = sorted(gg, key=lambda x: int(x[2:]) if 'DR' in x else int(x[3:]) if 'PL' in x else x)
 
-    def get_json(self):
-        return dumps({}) if self.input else None
+            # get latest release
+            # set a fallback group; fallback either to WORK or DR group
+            altgroup = 'WORK' if group != 'WORK' else 'DR'
+            if group not in key.values():
+                raise KeyError(f'group {group} is not a valid release group')
+            elif group not in rs.keys():
+                if altgroup not in rs.keys():
+                    raise KeyError(f'group(s) {group}/{altgroup} not yet a cached release')
+                else:
+                    group = altgroup
+            return rs[group][-1]
 
-    def set_result(self):
-        """Set the result for the input by rendering the template,
-        and set a json or yaml version of the input dictionary.
-        """
-        self.result = None
-        format = self.input["format"] if self.input and "format" in self.input else None
-        if format and self.template:
-            self.result = {
-                format: self.template.render(input=self.input, content=self.cache["content"])
-            }
-            self.result["json"] = self.get_json()
-            self.result["yaml"] = self.get_yaml()
+    def render_content(self, force: bool = None, release: str = None, group: str = 'WORK') -> None:
+        if not self._cache or force:
+            self._get_cache(force=force)
 
-    def set_template(self):
-        """Create the Jinja2 environment and set the template."""
-        self.template = (
-            self.environment.get_template("stub.%(format)s" % self.input)
-            if self.environment and self.input
-            else None
-        )
+        if self.format != 'yaml' and not self.validate_cache():
+            log.info('yaml cache is not validated!')
+            return
 
-    def write(self, format=None):
-        """Write the output result to the output path."""
-        if self.output and self.result:
-            if format and format in self.output and format in self.result:
-                path = self.output[format]
-                try:
-                    if self.verbose:
-                        print("STUB> Output to %s" % path)
-                    with open(path, "w") as file:
-                        file.write(self.result[format])
-                    self.git.add(path=path)
-                    self.git.commit(path=path, message="%s.%s" % (self.file_spec, format))
-                except Exception as e:
-                    print("STUB> Output exception %r" % e)
-            else:
-                print("STUB> Invalid format=%r for write" % format)
+        self._get_content(release=release, group=group)
 
-    def close_input_hdus(self):
-        """Close input hdus"""
-        if self.input and "hdus" in self.input:
-            self.input["hdus"].close()
+    def write(self, force: bool = None, release: str = None, group: str = 'WORK',
+              html: bool = None, use_cache_release: str = None, full_cache: bool = None) -> None:
+
+        if not self.output:
+            raise AttributeError('No output filepath set')
+
+        # always re-render the content
+        self.render_content(force=force, release=release, group=group)
+
+        if not self.content:
+            log.info('No cache content to write out!')
+            return
+
+        with open(self.output, 'w') as f:
+            f.write(self.content)
+
+        # if html:
+        #     self.convert_to_html()
+
+
+class JsonStub(BaseStub):
+    format: str = 'json'
+    has_template: bool = False
+
+    def _get_content(self) -> None:
+        self.content = self._validated_yaml.json(sort_keys=False, indent=4) if self._validated_yaml else {}
+
+class AccessStub(BaseStub):
+    format: str = 'access'
+    has_template: bool = False
+    cacheable: bool = False
+
+    def _get_content(self) -> None:
+        releases = {k: v.get('access', {}) for k,v in self._cache['releases'].items()}
+        self.content = yaml.dump(releases, sort_keys=False)
+
+class HtmlStub(MdStub):
+    format: str = 'html'
+
+
+
+def stub_iterator(format: str = None) -> Iterator[BaseStub]:
+    """ Iterator for all stub formats """
+    for stub in [YamlStub, AccessStub, MdStub, JsonStub]:
+        if format and format != stub.format:
+            continue
+        yield stub
+
