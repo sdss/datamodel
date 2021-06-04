@@ -59,7 +59,7 @@ this changelog describes changes to the datamodel product and/or file structure
    - note: No changes
  - MPL10
    - from: DR16
-   - added_hdus: ['LSFPRE', 'LSFPOST']
+   - added_hdus: ['LSFPOST', 'LSFPRE']
    - removed_hdus: ['PREDISP', 'DISP']
  - DR16
    - from: DR15
@@ -306,7 +306,7 @@ Key | Value | Comment | |
 
 
 ## HDU4: LSFPOST
-new lsf extension
+new lsf extensions
 
 #### HDU Type: IMAGE
 #### HDU Size:  2 MB
@@ -328,7 +328,7 @@ Key | Value | Comment | |
 
 
 ## HDU5: LSFPRE
-new lsf extension
+new lsf extensions
 
 #### HDU Type: IMAGE
 #### HDU Size:  2 MB
