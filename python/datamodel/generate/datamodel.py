@@ -442,6 +442,10 @@ class DataModel(object):
             A stub format to write out, by default None
         force : bool, optional
             If True, forces a rewrite of the cached stub content
+        use_cache_release: str, optional
+            Specify a cached release to use to copy over custom user content
+        full_cache: bool, optional, by default None
+            If True, use the entire cached YAML release, rather than only the HDUs
         """
         if self.verbose:
             log.info(f'Preparing datamodel: {self}.')
