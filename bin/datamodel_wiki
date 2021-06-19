@@ -1,37 +1,23 @@
-#!/usr/bin/env python3
-# encoding: utf-8
+#!/bin/bash
+
+# this script file is deprecated in favor of the datamodel cli
+# if the datamodel product was pip installed, just type "datamodel --help"
+# to see a list of commands.
 #
-# @Author: Joel Brownstein <joelbrownstein@sdss.org>
-# @Date: Nov 9, 2020
-# @Filename: datamodel_wiki
-# @License: BSD 3-Clause
-# @Copyright: SDSS.
+# this file is still used for backwards compatibility when simply "installing"
+# the git repo datamodel product via modules
 
-from datamodel.command import Command
-from datamodel.wiki import Page
+# current path
+full_path=$(realpath $0)
+dir_path=$(dirname $full_path)
 
-command = Command(name="datamodel_wiki")
+# datamodel_dir
+dmdir=$(dirname $dir_path )
 
-page = Page(file_species=command.options.file_spec, env_label=command.options.env_label,
-            verbose=command.options.verbose)
-page.set_remote()
-page.set_remote_pagelist(parent=True)
-page.create_parent()
-page.create_datamodel()
-
-"""
-usage via commandline:
-datamodel_wiki -e APOGEE_REDUX -f allStar -v
-datamodel_wiki -e BOSS_SPECTRO_REDUX -f spAll -v
-datamodel_wiki -e EBOSS_SANDBOX -f silo_eboss_detections -v
-datamodel_wiki -e MWM_ASTRA -f summary_classify_apstar -v
-
-usage via python:
-from datamodel.wiki import Page
-page = Page(env_label = 'APOGEE_REDUX', file_spec = 'allStar',  verbose = True)
-page.set_remote()
-page.set_remote_pagelist(parent=True)
-page.create_parent()
-page.create_datamodel()
-
-"""
+{ # try
+    python ${dmdir}/python/datamodel/cli.py wiki "$@" 2>&1
+} ||
+{ # except
+    echo $msg
+    echo 'Error finding cli file.  If the datamodel product was pip installed, try running "datamodel wiki" instead.'
+}
