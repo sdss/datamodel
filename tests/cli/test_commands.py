@@ -12,9 +12,11 @@
 
 
 from __future__ import print_function, division, absolute_import
+
+import os
+import pytest
 from click.testing import CliRunner
 from datamodel.cli import cli
-import pytest
 
 
 def test_datamodel_cli():
@@ -36,3 +38,10 @@ def test_datamodel_help(command, msg):
     result = runner.invoke(cli, [command, '--help'])
     assert result.exit_code == 0
     assert msg in result.output
+
+
+def test_cli_datamodel_generate(testfile):
+    runner = CliRunner()
+    result = runner.invoke(cli, ['generate', '-f', 'test', '-p', 'TEST_REDUX/{ver}/testfile_{id}.fits', '-k', 'ver=v1', '-k', 'id=a', '-v', '-s'])
+    path = os.path.join(os.getenv("DATAMODEL_DIR"), 'datamodel/products/yaml/test.yaml')
+    assert os.path.exists(path)
