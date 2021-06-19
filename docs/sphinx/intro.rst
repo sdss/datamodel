@@ -50,11 +50,8 @@ the MaNGA RSS file for Data Release 15 (DR15).
     datamodel_generate -f mangaRss -p MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}RSS.fits.gz -k plate=8485 ifu=1901 drpver=v2_4_3 wave=LOG -r DR15
 
 As inputs, we pass in the name of the file species, the symbolic path to the file, the list of
-example keyword-value pairs, and the release we're interested in.  See :ref:`usage-dmgen` for a full
-list of command-line arguments.
-
-:program:`datamodel-generate` command
-:ref:`datamodel-generate`
+example keyword-value pairs, and the release we're interested in.  See the
+:ref:`datamodel generate cli <usage-dmgen>` for a full list of command-line arguments.
 
 
 After we run the command, a stub YAML datamodel file will be created.  The code will also attempt to write
@@ -417,7 +414,7 @@ It is best to do this step at Utah.  From the Utah machines, run
 
     datamodel_wiki -e MANGA_SPECTRO_REDUX -f mangaRss
 
-See :ref:`usage-dmwiki` for a full list of command-line arguments.  Once successfully uploaded, it will
+See the :ref:`datamodel wiki cli <usage-dmwiki>` for a full list of command-line arguments.  Once successfully uploaded, it will
 be visible on the `SDSS Datamodel <https://wiki.sdss.org/display/DATAMODEL/.Datamodel+vsdsswork>`_ site.
 
 

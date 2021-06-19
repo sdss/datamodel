@@ -3,6 +3,8 @@
 Command-line Tools
 ==================
 
+.. _usage-quick:
+
 Quick Reference
 ---------------
 
@@ -10,10 +12,31 @@ Quick Reference
    :prog: datamodel
    :nested: short
 
-Complete Reference
-------------------
+.. _usage-full:
 
-.. click:: datamodel.cli:cli
-   :prog: datamodel
+Commands
+--------
+
+.. _usage-dmgen:
+
+.. click:: datamodel.cli:generate
+   :prog: generate
    :nested: full
 
+.. _usage-dmdesign:
+
+.. click:: datamodel.cli:design
+   :prog: design
+   :nested: full
+
+.. _usage-dmwiki:
+
+.. click:: datamodel.cli:wiki
+   :prog: wiki
+   :nested: full
+
+.. _usage-dminstall:
+
+.. click:: datamodel.cli:install
+   :prog: install
+   :nested: full
