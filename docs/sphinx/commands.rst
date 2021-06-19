@@ -1,38 +1,19 @@
-
 .. _clis:
 
 Command-line Tools
 ==================
 
-.. _usage-dmgen:
+Quick Reference
+---------------
 
-datamodel_generate cli
-----------------------
+.. click:: datamodel.cli:cli
+   :prog: datamodel
+   :nested: short
 
-.. argparse::
-   :module: datamodel.command.command
-   :func: _generate_parser
-   :prog: datamodel_generate
+Complete Reference
+------------------
 
-
-.. _usage-dmwiki:
-
-datamodel_wiki cli
-----------------------
-
-.. argparse::
-   :module: datamodel.command.command
-   :func: _wiki_parser
-   :prog: datamodel_wiki
-
-
-.. _usage-dminst:
-
-datamodel_install cli
-----------------------
-
-.. argparse::
-   :module: datamodel.command.command
-   :func: _install_parser
-   :prog: datamodel_install
+.. click:: datamodel.cli:cli
+   :prog: datamodel
+   :nested: full
 

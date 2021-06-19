@@ -53,6 +53,10 @@ As inputs, we pass in the name of the file species, the symbolic path to the fil
 example keyword-value pairs, and the release we're interested in.  See :ref:`usage-dmgen` for a full
 list of command-line arguments.
 
+:program:`datamodel-generate` command
+:ref:`datamodel-generate`
+
+
 After we run the command, a stub YAML datamodel file will be created.  The code will also attempt to write
 a valid markdown file, a JSON file, and access file.  These files are automatically produced and do not require
 any user modification.  During the initial YAML file creation, it will produce an unvalidated
