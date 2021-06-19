@@ -47,7 +47,7 @@ if sphinx_template == 'sphinx-bootstrap':
 # ones.
 extensions = ['sphinx.ext.autodoc', 'sphinx.ext.napoleon', 'sphinx.ext.autosummary',
               'sphinx.ext.todo', 'sphinx.ext.viewcode', 'sphinx.ext.mathjax',
-              'sphinx.ext.intersphinx', 'sphinxarg.ext', 'sphinx_click']
+              'sphinx.ext.intersphinx', 'sphinx_click']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
