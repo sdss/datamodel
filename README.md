@@ -30,3 +30,22 @@ To build and view the Sphinx documentation locally, run the following commands f
 sdss docs.build
 sdss docs.show
 ```
+
+After pip installation, see available command line tools with `datamodel --help`:
+
+```
+Usage: datamodel [OPTIONS] COMMAND [ARGS]...
+
+  Command-line tool for handling SDSS datamodels
+
+Options:
+  --help  Show this message and exit.
+
+Commands:
+  design    Design a new datamodel for a new file
+  generate  Generate a datamodel file for a SDSS data product
+  install   Install a user copy of the datamodel product at Utah
+  wiki      Upload a datamodel markdown file to the wiki
+```
+
+For help on any sub-commands, type `datamodel [command] --help`.  Information on the available command options is also available in the Sphinx docs.
