@@ -50,6 +50,6 @@ Commands:
 
 For help on any sub-commands, type `datamodel [command] --help`.  Information on the available command options is also available in the Sphinx docs.
 
-**Note:**  if you did not install with pip, but instead installed the datamodel product via modules pointing to the git repo, then you will not have access to the ``datamodel`` click command.  For
+**Note:**  if you did not install with pip, but instead installed the datamodel product via modules pointing to the git repo, then you will not have access to the ``datamodel`` click command.  You can either directly run `python python/datamodel/cli.py --help` or, for
 backwards compatibility, you can still use the original snake_case scripts,
-i.e. use ``datamodel_generate`` rather than ``datamodel generate``.
+i.e. use ``datamodel_generate`` rather than ``datamodel generate``.  These will call the underlying cli.
