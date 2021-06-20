@@ -59,7 +59,7 @@ this changelog describes changes to the datamodel product and/or file structure
    - note: No changes
  - MPL10
    - from: DR16
-   - added_hdus: ['LSFPOST', 'LSFPRE']
+   - added_hdus: ['LSFPRE', 'LSFPOST']
    - removed_hdus: ['PREDISP', 'DISP']
  - DR16
    - from: DR15
@@ -69,13 +69,13 @@ this changelog describes changes to the datamodel product and/or file structure
 ## Example HDU List
 
 
-## HDU0: PRIMARY
+### HDU0: PRIMARY
 description of the HDU extension
 
 #### HDU Type: IMAGE
 #### HDU Size:  0 bytes
 
-###### Header Table Caption for HDU0
+##### Header Table Caption for HDU0
 Key | Value | Comment | |
 | --- | --- | --- | --- |
 | SIMPLE | True |  |
@@ -152,13 +152,13 @@ Key | Value | Comment | |
 
 
 
-## HDU1: FLUX
+### HDU1: FLUX
 description of the HDU extension
 
 #### HDU Type: IMAGE
 #### HDU Size:  2 MB
 
-###### Header Table Caption for HDU1
+##### Header Table Caption for HDU1
 Key | Value | Comment | |
 | --- | --- | --- | --- |
 | XTENSION | IMAGE | IMAGE extension |
@@ -249,13 +249,13 @@ Key | Value | Comment | |
 
 
 
-## HDU2: IVAR
+### HDU2: IVAR
 description of the HDU extension
 
 #### HDU Type: IMAGE
 #### HDU Size:  2 MB
 
-###### Header Table Caption for HDU2
+##### Header Table Caption for HDU2
 Key | Value | Comment | |
 | --- | --- | --- | --- |
 | XTENSION | IMAGE | IMAGE extension |
@@ -277,13 +277,13 @@ Key | Value | Comment | |
 
 
 
-## HDU3: MASK
+### HDU3: MASK
 description of the HDU extension
 
 #### HDU Type: IMAGE
 #### HDU Size:  2 MB
 
-###### Header Table Caption for HDU3
+##### Header Table Caption for HDU3
 Key | Value | Comment | |
 | --- | --- | --- | --- |
 | XTENSION | IMAGE | IMAGE extension |
@@ -305,13 +305,13 @@ Key | Value | Comment | |
 
 
 
-## HDU4: LSFPOST
+### HDU4: LSFPOST
 new lsf extensions
 
 #### HDU Type: IMAGE
 #### HDU Size:  2 MB
 
-###### Header Table Caption for HDU4
+##### Header Table Caption for HDU4
 Key | Value | Comment | |
 | --- | --- | --- | --- |
 | XTENSION | IMAGE | IMAGE extension |
@@ -327,13 +327,13 @@ Key | Value | Comment | |
 
 
 
-## HDU5: LSFPRE
+### HDU5: LSFPRE
 new lsf extensions
 
 #### HDU Type: IMAGE
 #### HDU Size:  2 MB
 
-###### Header Table Caption for HDU5
+##### Header Table Caption for HDU5
 Key | Value | Comment | |
 | --- | --- | --- | --- |
 | XTENSION | IMAGE | IMAGE extension |
@@ -349,13 +349,13 @@ Key | Value | Comment | |
 
 
 
-## HDU6: WAVE
+### HDU6: WAVE
 description of the HDU extension
 
 #### HDU Type: IMAGE
 #### HDU Size:  35 KB
 
-###### Header Table Caption for HDU6
+##### Header Table Caption for HDU6
 Key | Value | Comment | |
 | --- | --- | --- | --- |
 | XTENSION | IMAGE | IMAGE extension |
@@ -370,13 +370,13 @@ Key | Value | Comment | |
 
 
 
-## HDU7: SPECRES
+### HDU7: SPECRES
 description of the HDU extension
 
 #### HDU Type: IMAGE
 #### HDU Size:  35 KB
 
-###### Header Table Caption for HDU7
+##### Header Table Caption for HDU7
 Key | Value | Comment | |
 | --- | --- | --- | --- |
 | XTENSION | IMAGE | IMAGE extension |
@@ -391,13 +391,13 @@ Key | Value | Comment | |
 
 
 
-## HDU8: SPECRESD
+### HDU8: SPECRESD
 description of the HDU extension
 
 #### HDU Type: IMAGE
 #### HDU Size:  35 KB
 
-###### Header Table Caption for HDU8
+##### Header Table Caption for HDU8
 Key | Value | Comment | |
 | --- | --- | --- | --- |
 | XTENSION | IMAGE | IMAGE extension |
@@ -412,13 +412,13 @@ Key | Value | Comment | |
 
 
 
-## HDU9: PRESPECRES
+### HDU9: PRESPECRES
 description of the HDU extension
 
 #### HDU Type: IMAGE
 #### HDU Size:  35 KB
 
-###### Header Table Caption for HDU9
+##### Header Table Caption for HDU9
 Key | Value | Comment | |
 | --- | --- | --- | --- |
 | XTENSION | IMAGE | IMAGE extension |
@@ -433,13 +433,13 @@ Key | Value | Comment | |
 
 
 
-## HDU10: PRESPECRESD
+### HDU10: PRESPECRESD
 description of the HDU extension
 
 #### HDU Type: IMAGE
 #### HDU Size:  35 KB
 
-###### Header Table Caption for HDU10
+##### Header Table Caption for HDU10
 Key | Value | Comment | |
 | --- | --- | --- | --- |
 | XTENSION | IMAGE | IMAGE extension |
@@ -454,13 +454,13 @@ Key | Value | Comment | |
 
 
 
-## HDU11: OBSINFO
+### HDU11: OBSINFO
 description of the HDU extension
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  2 KB
 
-###### Binary Table Caption for HDU11
+##### Binary Table Caption for HDU11
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
  | SLITFILE | char[25] | this is the unit and description text | this is the unit and description text |
@@ -531,13 +531,13 @@ Name | Type | Unit | Description |
 
 
 
-## HDU12: XPOS
+### HDU12: XPOS
 description of the HDU extension
 
 #### HDU Type: IMAGE
 #### HDU Size:  2 MB
 
-###### Header Table Caption for HDU12
+##### Header Table Caption for HDU12
 Key | Value | Comment | |
 | --- | --- | --- | --- |
 | XTENSION | IMAGE | IMAGE extension |
@@ -553,13 +553,13 @@ Key | Value | Comment | |
 
 
 
-## HDU13: YPOS
+### HDU13: YPOS
 description of the HDU extension
 
 #### HDU Type: IMAGE
 #### HDU Size:  2 MB
 
-###### Header Table Caption for HDU13
+##### Header Table Caption for HDU13
 Key | Value | Comment | |
 | --- | --- | --- | --- |
 | XTENSION | IMAGE | IMAGE extension |
