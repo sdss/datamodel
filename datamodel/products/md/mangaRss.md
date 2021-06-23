@@ -1,7 +1,7 @@
 # Data Model: mangaRss
 
 
-this is a manga rss
+
 
 
 ## Contents
@@ -26,7 +26,7 @@ DR13, DR15, DR16, MPL10, WORK
 MANGA_SPECTRO_REDUX
 
 ### Approximate Size
-14 MB
+12 MB
 
 ### File Type
 FITS
@@ -54,7 +54,7 @@ FITS
 ---
 
 ## Changelog
-this changelog describes changes to the datamodel product and/or file structure
+Describes changes to the datamodel product and/or file structure from one release to another
  - WORK
    - from: MPL10
    - note: No changes
@@ -67,9 +67,9 @@ this changelog describes changes to the datamodel product and/or file structure
    - note: No changes
  - DR15
    - from: DR13
-   - added_hdus: ['PREDISP', 'PRESPECRES', 'PRESPECRESD']
+   - added_hdus: ['PRESPECRES', 'PRESPECRESD', 'PREDISP']
    - primary_delta_nkeys: 2
-   - added_primary_header_kwargs: ['RADESYS', 'DATASUM', 'TPLDATA']
+   - added_primary_header_kwargs: ['RADESYS', 'TPLDATA', 'DATASUM']
    - removed_primary_header_kwargs: ['RADESYSA']
 
 ---
@@ -313,7 +313,7 @@ Key | Value | Comment | |
 
 
 ## HDU4: LSFPOST
-new lsf extensions
+1sigma post-pixellized LSF in units of Angstroms [NWAVE x (NFIBER*NEXP)]
 
 #### HDU Type: IMAGE
 #### HDU Size:  2 MB
@@ -335,7 +335,7 @@ Key | Value | Comment | |
 
 
 ## HDU5: LSFPRE
-new lsf extensions
+1sigma pre-pixellized LSF in units of Angstroms [NWAVE x (NFIBER*NEXP)]
 
 #### HDU Type: IMAGE
 #### HDU Size:  2 MB
@@ -476,10 +476,10 @@ Name | Type | Unit | Description |
  | IFUDESIGN | int32 |  | ifudesign (e.g., 12701) |
  | FRLPLUG | int16 |  | The physical ferrule matching this part of the slit |
  | MANGAID | char[8] |  | MaNGA identification number |
- | AIRTEMP | float32 | Celsius | Temperature in Celsius |
+ | AIRTEMP | float32 |  | Temperature in Celsius |
  | HUMIDITY | float32 |  | Relative humidity in percent |
- | PRESSURE | float32 | Hg | Pressure in inHg |
- | SEEING | float32 | Arcsecond | Best guider seeing in Arcsec |
+ | PRESSURE | float32 |  | Pressure in inHg |
+ | SEEING | float32 |  | Best guider seeing in Arcsec |
  | PSFFAC | float32 |  | Best-fit PSF size relative to guider measurement |
  | TRANSPAR | float32 |  | Guider transparency |
  | PLATEID | int32 |  | Plate id number |
@@ -490,36 +490,36 @@ Name | Type | Unit | Description |
  | EXPNUM | char[12] |  | Exposure number |
  | SET | int32 |  | Which set this exposure belongs to |
  | MGDPOS | char[8] |  | MaNGA dither position (NSEC) |
- | MGDRA | float32 | Arcsecond | MaNGA dither offset in RA (arcsec) |
- | MGDDEC | float32 | Arcsecond | MaNGA dither offset in DEC (arcsec) |
+ | MGDRA | float32 |  | MaNGA dither offset in RA (arcsec) |
+ | MGDDEC | float32 |  | MaNGA dither offset in DEC (arcsec) |
  | OMEGASET_U | float32 |  | Omega value of this set in u-band (3622 Angstrom) |
  | OMEGASET_G | float32 |  | Omega value of this set in g-band (4703 Angstrom) |
  | OMEGASET_R | float32 |  | Omega value of this set in r-band (6177 Angstrom) |
  | OMEGASET_I | float32 |  | Omega value of this set in i-band (7496 Angstrom) |
  | OMEGASET_Z | float32 |  | Omega value of this set in z-band (10354 Angstrom) |
- | EAMFIT_RA | float32 | Arcsecond | DeltaRA (arcsec) from extended astrometry module |
- | EAMFIT_DEC | float32 | Arcsecond | DeltaDEC (arcsec) from extended astrometry module |
- | EAMFIT_THETA | float32 | Degrees | Final DeltaTHETA (degrees) from extended astrometry module |
+ | EAMFIT_RA | float32 |  | DeltaRA (arcsec) from extended astrometry module |
+ | EAMFIT_DEC | float32 |  | DeltaDEC (arcsec) from extended astrometry module |
+ | EAMFIT_THETA | float32 |  | Final DeltaTHETA (degrees) from extended astrometry module |
  | EAMFIT_THETA0 | float32 |  | Original DeltaTHETA from the EAM (free for all exposures) |
  | EAMFIT_A | float32 |  | A (flux scaling) from extended astrometry module |
  | EAMFIT_B | float32 |  | B (flux zeropoint) from extended astrometry module |
- | EAMFIT_RAERR | float32 | Arcsecond | 1-sigma uncertainty in DeltaRA (arcsec) |
- | EAMFIT_DECERR | float32 | Arcsecond | 1-sigma uncertainty in DeltaDEC (arcsec) |
- | EAMFIT_THETAERR | float32 | Degrees | 1-sigma uncertainty in DeltaTHETA (degrees) |
- | EAMFIT_THETA0ERR | float32 | Degrees | 1-sigma uncertainty in DeltaTHETA0 (degrees) |
+ | EAMFIT_RAERR | float32 |  | 1-sigma uncertainty in DeltaRA (arcsec) |
+ | EAMFIT_DECERR | float32 |  | 1-sigma uncertainty in DeltaDEC (arcsec) |
+ | EAMFIT_THETAERR | float32 |  | 1-sigma uncertainty in DeltaTHETA (degrees) |
+ | EAMFIT_THETA0ERR | float32 |  | 1-sigma uncertainty in DeltaTHETA0 (degrees) |
  | EAMFIT_AERR | float32 |  | 1-sigma uncertainty in A |
  | EAMFIT_BERR | float32 |  | 1-sigma uncertainty in B |
  | TAIBEG | char[13] |  | TAI at the start of the exposure |
- | HADRILL | float32 | radians | Hour angle plate was drilled for |
+ | HADRILL | float32 |  | Hour angle plate was drilled for |
  | LSTMID | float32 |  | Local sidereal time at midpoint of exposure |
- | HAMID | float32 | radians | Hour angle at midpoint of exposure for this IFU |
+ | HAMID | float32 |  | Hour angle at midpoint of exposure for this IFU |
  | AIRMASS | float32 |  | Airmass at midpoint of exposure for this IFU |
- | IFURA | float64 | Degrees (J2000) | IFU right ascension (J2000) |
- | IFUDEC | float64 | Degrees (J2000) | IFU declination (J2000) |
- | CENRA | float64 | Degrees (J2000) | Plate center right ascension (J2000) |
- | CENDEC | float64 | Degrees (J2000) | Plate center declination (J2000) |
- | XFOCAL | float32 | mm | Hole location in xfocal coordinates (mm) |
- | YFOCAL | float32 | mm | Hole location in yfocal coordinates (mm) |
+ | IFURA | float64 |  | IFU right ascension (J2000) |
+ | IFUDEC | float64 |  | IFU declination (J2000) |
+ | CENRA | float64 |  | Plate center right ascension (J2000) |
+ | CENDEC | float64 |  | Plate center declination (J2000) |
+ | XFOCAL | float32 |  | Hole location in xfocal coordinates (mm) |
+ | YFOCAL | float32 |  | Hole location in yfocal coordinates (mm) |
  | MNGTARG1 | int32 |  | manga_target1 maskbit for galaxy target catalog |
  | MNGTARG2 | int32 |  | manga_target2 maskbit for non-galaxy target catalog |
  | MNGTARG3 | int32 |  | manga_target3 maskbit for ancillary target catalog |
@@ -531,10 +531,10 @@ Name | Type | Unit | Description |
  | REDPSTAT | float32 |  | Poisson statistic in red for this exposure |
  | DRP2QUAL | int32 |  | DRP-2d quality bitmask |
  | THISBADIFU | int32 |  | 0 if good, 1 if this IFU was bad in this frame |
- | PF_FWHM_G | float32 | Arcsecond | FWHM (arcsec) of a single-gaussian fit to the point source response function Prior to Fiber convolution in g band |
- | PF_FWHM_R | float32 | Arcsecond | FWHM (arcsec) of a single-gaussian fit to the point source response function Prior to Fiber convolution in r band |
- | PF_FWHM_I | float32 | Arcsecond | FWHM (arcsec) of a single-gaussian fit to the point source response function Prior to Fiber convolution in i band |
- | PF_FWHM_Z | float32 | Arcsecond | FWHM (arcsec) of a single-gaussian fit to the point source response function Prior to Fiber convolution in z band |
+ | PF_FWHM_G | float32 |  | FWHM (arcsec) of a single-gaussian fit to the point source response function Prior to Fiber convolution in g band |
+ | PF_FWHM_R | float32 |  | FWHM (arcsec) of a single-gaussian fit to the point source response function Prior to Fiber convolution in r band |
+ | PF_FWHM_I | float32 |  | FWHM (arcsec) of a single-gaussian fit to the point source response function Prior to Fiber convolution in i band |
+ | PF_FWHM_Z | float32 |  | FWHM (arcsec) of a single-gaussian fit to the point source response function Prior to Fiber convolution in z band |
 
 
 
