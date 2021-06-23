@@ -1,7 +1,14 @@
 general:
   name: mangaRss
   short: this is a manga rss
-  description: longer description
+  description: 'The MaNGA DRP provides summary row-stacked spectra (RSS; with both
+    logarithmic and linear wavelength solutions) for each galaxy that combine individual
+    fiber spectra of that galaxy across multiple exposures into a single row-stacked
+    format.
+
+    The RSS files are a two-dimensional array with horizontal size N_spec and vertical
+    size N = \sum N_fiber(i) where N_fiber(i) is the number of fibers in the IFU targeting
+    this galaxy for the i''th exposure and the sum runs over all exposures.'
   datatype: FITS
   filesize: 14 MB
   releases:
@@ -12,8 +19,14 @@ general:
   - WORK
   environments:
   - MANGA_SPECTRO_REDUX
-  naming_convention: $MANGA_SPECTRO_REDUX/[DRPVER]/[PLATE]/stack/manga-[PLATE]-[IFU]-[WAVE]RSS.fits.gz
-  generated_by: mangadrp
+  naming_convention: <code>manga-[plate]-[ifudesign]-[type]RSS.fits.gz</code>, where
+    <code>[plate]</code> is the plate number, <code>[ifudesign]</code> is the design
+    IFU size and number, and <code>[type]</code> is either LOG or LIN indicating whether
+    the file uses a logarithmic or linear based wavelength solution.  The combined
+    <code>[plate]-[ifudesign]</code> is also known as the 'plate-ifu' designation
+    of a given galaxy.
+  generated_by: '<a href="https://svn.sdss.org/public/repo/manga/mangadrp/tags/v2_4_3/pro/spec3d/mdrp_reduceoneifu.pro">mangadrp:
+    mdrp_reduceoneifu.pro</a>'
 changelog:
   description: this changelog describes changes to the datamodel product and/or file
     structure
@@ -24,20 +37,20 @@ changelog:
     MPL10:
       from: DR16
       added_hdus:
-      - LSFPRE
       - LSFPOST
+      - LSFPRE
       removed_hdus:
-      - DISP
       - PREDISP
+      - DISP
     DR16:
       from: DR15
       note: No changes
     DR15:
       from: DR13
       added_hdus:
+      - PREDISP
       - PRESPECRESD
       - PRESPECRES
-      - PREDISP
       primary_delta_nkeys: 2
       added_primary_header_kwargs:
       - TPLDATA
@@ -58,13 +71,13 @@ releases:
       path_kwargs:
       - plate
       - drpver
-      - wave
       - ifu
+      - wave
       access_string: mangaRss = $MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}RSS.fits.gz
     hdus:
       hdu0:
         name: PRIMARY
-        description: description of the HDU extension
+        description: Empty except for global header
         is_image: true
         size: 0 bytes
         header:
@@ -283,7 +296,7 @@ releases:
           comment: HDU checksum updated 2018-03-21T06:08:46
       hdu1:
         name: FLUX
-        description: description of the HDU extension
+        description: Row-stacked spectra in units of 10^{-17} erg/s/cm2/Angstrom/fiber
         is_image: true
         size: 2 MB
         header:
@@ -544,7 +557,7 @@ releases:
           comment: HDU checksum updated 2018-03-21T06:08:46
       hdu2:
         name: IVAR
-        description: description of the HDU extension
+        description: Inverse variance of row-stacked spectra
         is_image: true
         size: 2 MB
         header:
@@ -598,7 +611,7 @@ releases:
           comment: HDU checksum updated 2018-03-21T06:08:46
       hdu3:
         name: MASK
-        description: description of the HDU extension
+        description: Pixel mask (MANGA_DRP2PIXMASK)
         is_image: true
         size: 2 MB
         header:
@@ -652,7 +665,7 @@ releases:
           comment: HDU checksum updated 2018-03-21T06:08:46
       hdu4:
         name: DISP
-        description: description of the HDU extension
+        description: Spectral LSF  (1-sigma) in units of Angstroms
         is_image: true
         size: 2 MB
         header:
@@ -688,7 +701,7 @@ releases:
           comment: HDU checksum updated 2018-03-21T06:08:46
       hdu5:
         name: PREDISP
-        description: description of the HDU extension
+        description: Broadened pre-pixel dispersion solution (1sigma LSF in Angstroms)
         is_image: true
         size: 2 MB
         header:
@@ -724,7 +737,7 @@ releases:
           comment: HDU checksum updated 2018-03-21T06:08:46
       hdu6:
         name: WAVE
-        description: description of the HDU extension
+        description: Wavelength vector in units of Angstroms (vacuum heliocentric)
         is_image: true
         size: 35 KB
         header:
@@ -757,7 +770,7 @@ releases:
           comment: HDU checksum updated 2018-03-21T06:08:46
       hdu7:
         name: SPECRES
-        description: description of the HDU extension
+        description: Median spectral resolution vs wavelength
         is_image: true
         size: 35 KB
         header:
@@ -790,7 +803,7 @@ releases:
           comment: HDU checksum updated 2018-03-21T06:08:46
       hdu8:
         name: SPECRESD
-        description: description of the HDU extension
+        description: Standard deviation (1-sigma) of spectral resolution vs wavelength
         is_image: true
         size: 35 KB
         header:
@@ -823,7 +836,7 @@ releases:
           comment: HDU checksum updated 2018-03-21T06:08:46
       hdu9:
         name: PRESPECRES
-        description: description of the HDU extension
+        description: Median pre-pixel spectral resolution vs wavelength
         is_image: true
         size: 35 KB
         header:
@@ -856,7 +869,7 @@ releases:
           comment: HDU checksum updated 2018-03-21T06:08:46
       hdu10:
         name: PRESPECRESD
-        description: description of the HDU extension
+        description: Standard deviation of pre-pixel spectral resolution vs wavelength
         is_image: true
         size: 35 KB
         header:
@@ -889,338 +902,345 @@ releases:
           comment: HDU checksum updated 2018-03-21T06:08:46
       hdu11:
         name: OBSINFO
-        description: description of the HDU extension
+        description: Table detailing exposures combined to create this file
         is_image: false
         size: 2 KB
         columns:
           SLITFILE:
             name: SLITFILE
             type: char[25]
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Name of the slitmap
           METFILE:
             name: METFILE
             type: char[17]
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Name of the metrology file
           HARNAME:
             name: HARNAME
             type: char[5]
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Harness name
           IFUDESIGN:
             name: IFUDESIGN
             type: int32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: ifudesign (e.g., 12701)
           FRLPLUG:
             name: FRLPLUG
             type: int16
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: The physical ferrule matching this part of the slit
           MANGAID:
             name: MANGAID
             type: char[8]
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: MaNGA identification number
           AIRTEMP:
             name: AIRTEMP
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: Celsius
+            description: Temperature in Celsius
           HUMIDITY:
             name: HUMIDITY
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Relative humidity in percent
           PRESSURE:
             name: PRESSURE
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: Hg
+            description: Pressure in inHg
           SEEING:
             name: SEEING
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: Arcsecond
+            description: Best guider seeing in Arcsec
           PSFFAC:
             name: PSFFAC
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Best-fit PSF size relative to guider measurement
           TRANSPAR:
             name: TRANSPAR
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Guider transparency
           PLATEID:
             name: PLATEID
             type: int32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Plate id number
           DESIGNID:
             name: DESIGNID
             type: int32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Design id number
           CARTID:
             name: CARTID
             type: int16
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Cart id number
           MJD:
             name: MJD
             type: int32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: MJD of observation
           EXPTIME:
             name: EXPTIME
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Exposure time (seconds)
           EXPNUM:
             name: EXPNUM
             type: char[12]
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Exposure number
           SET:
             name: SET
             type: int32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Which set this exposure belongs to
           MGDPOS:
             name: MGDPOS
             type: char[8]
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: MaNGA dither position (NSEC)
           MGDRA:
             name: MGDRA
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: Arcsecond
+            description: MaNGA dither offset in RA (arcsec)
           MGDDEC:
             name: MGDDEC
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: Arcsecond
+            description: MaNGA dither offset in DEC (arcsec)
           OMEGASET_U:
             name: OMEGASET_U
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Omega value of this set in u-band (3622 Angstrom)
           OMEGASET_G:
             name: OMEGASET_G
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Omega value of this set in g-band (4703 Angstrom)
           OMEGASET_R:
             name: OMEGASET_R
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Omega value of this set in r-band (6177 Angstrom)
           OMEGASET_I:
             name: OMEGASET_I
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Omega value of this set in i-band (7496 Angstrom)
           OMEGASET_Z:
             name: OMEGASET_Z
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Omega value of this set in z-band (10354 Angstrom)
           EAMFIT_RA:
             name: EAMFIT_RA
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: Arcsecond
+            description: DeltaRA (arcsec) from extended astrometry module
           EAMFIT_DEC:
             name: EAMFIT_DEC
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: Arcsecond
+            description: DeltaDEC (arcsec) from extended astrometry module
           EAMFIT_THETA:
             name: EAMFIT_THETA
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: Degrees
+            description: Final DeltaTHETA (degrees) from extended astrometry module
           EAMFIT_THETA0:
             name: EAMFIT_THETA0
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Original DeltaTHETA from the EAM (free for all exposures)
           EAMFIT_A:
             name: EAMFIT_A
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: A (flux scaling) from extended astrometry module
           EAMFIT_B:
             name: EAMFIT_B
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: B (flux zeropoint) from extended astrometry module
           EAMFIT_RAERR:
             name: EAMFIT_RAERR
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: Arcsecond
+            description: 1-sigma uncertainty in DeltaRA (arcsec)
           EAMFIT_DECERR:
             name: EAMFIT_DECERR
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: Arcsecond
+            description: 1-sigma uncertainty in DeltaDEC (arcsec)
           EAMFIT_THETAERR:
             name: EAMFIT_THETAERR
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: Degrees
+            description: 1-sigma uncertainty in DeltaTHETA (degrees)
           EAMFIT_THETA0ERR:
             name: EAMFIT_THETA0ERR
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: Degrees
+            description: 1-sigma uncertainty in DeltaTHETA0 (degrees)
           EAMFIT_AERR:
             name: EAMFIT_AERR
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: 1-sigma uncertainty in A
           EAMFIT_BERR:
             name: EAMFIT_BERR
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: 1-sigma uncertainty in B
           TAIBEG:
             name: TAIBEG
             type: char[13]
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: TAI at the start of the exposure
           HADRILL:
             name: HADRILL
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: radians
+            description: Hour angle plate was drilled for
           LSTMID:
             name: LSTMID
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Local sidereal time at midpoint of exposure
           HAMID:
             name: HAMID
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: radians
+            description: Hour angle at midpoint of exposure for this IFU
           AIRMASS:
             name: AIRMASS
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Airmass at midpoint of exposure for this IFU
           IFURA:
             name: IFURA
             type: float64
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: Degrees (J2000)
+            description: IFU right ascension (J2000)
           IFUDEC:
             name: IFUDEC
             type: float64
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: Degrees (J2000)
+            description: IFU declination (J2000)
           CENRA:
             name: CENRA
             type: float64
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: Degrees (J2000)
+            description: Plate center right ascension (J2000)
           CENDEC:
             name: CENDEC
             type: float64
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: Degrees (J2000)
+            description: Plate center declination (J2000)
           XFOCAL:
             name: XFOCAL
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: mm
+            description: Hole location in xfocal coordinates (mm)
           YFOCAL:
             name: YFOCAL
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: mm
+            description: Hole location in yfocal coordinates (mm)
           MNGTARG1:
             name: MNGTARG1
             type: int32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: manga_target1 maskbit for galaxy target catalog
           MNGTARG2:
             name: MNGTARG2
             type: int32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: manga_target2 maskbit for non-galaxy target catalog
           MNGTARG3:
             name: MNGTARG3
             type: int32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: manga_target3 maskbit for ancillary target catalog
           BLUESN2:
             name: BLUESN2
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: SN2 in blue for this exposure
           REDSN2:
             name: REDSN2
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: SN2 in red for this exposure
           BLUETHRUPT:
             name: BLUETHRUPT
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Throughput in blue for this exposure
           REDTHRUPT:
             name: REDTHRUPT
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Throughput in red for this exposure
           BLUEPSTAT:
             name: BLUEPSTAT
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Poisson statistic in blue for this exposure
           REDPSTAT:
             name: REDPSTAT
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Poisson statistic in red for this exposure
           DRP2QUAL:
             name: DRP2QUAL
             type: int32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: DRP-2d quality bitmask
           THISBADIFU:
             name: THISBADIFU
             type: int32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: 0 if good, 1 if this IFU was bad in this frame
           PF_FWHM_G:
             name: PF_FWHM_G
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: Arcsecond
+            description: FWHM (arcsec) of a single-gaussian fit to the point source
+              response function Prior to Fiber convolution in g band
           PF_FWHM_R:
             name: PF_FWHM_R
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: Arcsecond
+            description: FWHM (arcsec) of a single-gaussian fit to the point source
+              response function Prior to Fiber convolution in r band
           PF_FWHM_I:
             name: PF_FWHM_I
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: Arcsecond
+            description: FWHM (arcsec) of a single-gaussian fit to the point source
+              response function Prior to Fiber convolution in i band
           PF_FWHM_Z:
             name: PF_FWHM_Z
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: Arcsecond
+            description: FWHM (arcsec) of a single-gaussian fit to the point source
+              response function Prior to Fiber convolution in z band
       hdu12:
         name: XPOS
-        description: description of the HDU extension
+        description: Array of fiber X-positions (units of arcsec) relative to the
+          IFU center.  Because of chromatic DAR, each wavelength for a given fiber
+          has a slightly different position, and therefore the positional arrays have
+          the same dimensionality as the corresponding flux array.
         is_image: true
         size: 2 MB
         header:
@@ -1256,7 +1276,10 @@ releases:
           comment: HDU checksum updated 2018-03-21T06:08:46
       hdu13:
         name: YPOS
-        description: description of the HDU extension
+        description: Array of fiber Y-positions (units of arcsec) relative to the
+          IFU center.  Because of chromatic DAR, each wavelength for a given fiber
+          has a slightly different position, and therefore the positional arrays have
+          the same dimensionality as the corresponding flux array.
         is_image: true
         size: 2 MB
         header:
@@ -1308,7 +1331,7 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: description of the HDU extension
+        description: Empty except for global header
         is_image: true
         size: 0 bytes
         header:
@@ -1359,7 +1382,7 @@ releases:
           comment: Intensity zeropoint
         - key: BUNIT
           value: 1E-17 erg/s/cm^2/Angstrom/fiber
-          comment: Specific intensity (per fiber-area
+          comment: Specific intensity (per fiber-area)
         - key: MASKNAME
           value: MANGA_DRP2PIXMASK
           comment: Bits in sdssMaskbits.par used by mask extension
@@ -1521,13 +1544,13 @@ releases:
           comment: Galactic reddening E(B-V)
         - key: DATASUM
           value: '0'
-          comment: data unit checksum updated 2020-05-08T20:34:34
+          comment: data unit checksum updated 2018-03-21T06:08:46
         - key: CHECKSUM
           value: 0eGa2Z9R0bGX0Z9X
-          comment: HDU checksum updated 2020-05-08T20:34:34
+          comment: HDU checksum updated 2018-03-21T06:08:46
       hdu1:
         name: FLUX
-        description: description of the HDU extension
+        description: Row-stacked spectra in units of 10^{-17} erg/s/cm2/Angstrom/fiber
         is_image: true
         size: 2 MB
         header:
@@ -1587,7 +1610,7 @@ releases:
           comment: Intensity zeropoint
         - key: BUNIT
           value: 1E-17 erg/s/cm^2/Angstrom/fiber
-          comment: Specific intensity (per fiber-area
+          comment: Specific intensity (per fiber-area)
         - key: MASKNAME
           value: MANGA_DRP2PIXMASK
           comment: Bits in sdssMaskbits.par used by mask extension
@@ -1782,13 +1805,13 @@ releases:
           comment: ''
         - key: DATASUM
           value: '2047011201'
-          comment: data unit checksum updated 2020-05-08T20:34:34
+          comment: data unit checksum updated 2018-03-21T06:08:46
         - key: CHECKSUM
           value: 8bWcAZVZ1bVa8ZVY
-          comment: HDU checksum updated 2020-05-08T20:34:34
+          comment: HDU checksum updated 2018-03-21T06:08:46
       hdu2:
         name: IVAR
-        description: description of the HDU extension
+        description: Inverse variance of row-stacked spectra
         is_image: true
         size: 2 MB
         header:
@@ -1836,13 +1859,13 @@ releases:
           comment: ''
         - key: DATASUM
           value: '62571883'
-          comment: data unit checksum updated 2020-05-08T20:34:34
+          comment: data unit checksum updated 2018-03-21T06:08:46
         - key: CHECKSUM
           value: MbEAPZE4MbEAMZE3
-          comment: HDU checksum updated 2020-05-08T20:34:34
+          comment: HDU checksum updated 2018-03-21T06:08:46
       hdu3:
         name: MASK
-        description: description of the HDU extension
+        description: Pixel mask (MANGA_DRP2PIXMASK)
         is_image: true
         size: 2 MB
         header:
@@ -1890,10 +1913,10 @@ releases:
           comment: ''
         - key: DATASUM
           value: '1214366999'
-          comment: data unit checksum updated 2020-05-08T20:34:34
+          comment: data unit checksum updated 2018-03-21T06:08:46
         - key: CHECKSUM
           value: e58Qg26Pe26Pe26P
-          comment: HDU checksum updated 2020-05-08T20:34:34
+          comment: HDU checksum updated 2018-03-21T06:08:46
       hdu4:
         name: LSFPOST
         description: new lsf extensions
@@ -1968,7 +1991,7 @@ releases:
           comment: HDU checksum updated 2020-05-08T20:34:34
       hdu6:
         name: WAVE
-        description: description of the HDU extension
+        description: Wavelength vector in units of Angstroms (vacuum heliocentric)
         is_image: true
         size: 35 KB
         header:
@@ -1995,13 +2018,13 @@ releases:
           comment: ''
         - key: DATASUM
           value: '3938867060'
-          comment: data unit checksum updated 2020-05-08T20:34:34
+          comment: data unit checksum updated 2018-03-21T06:08:46
         - key: CHECKSUM
           value: dM8UgK6UdK6UdK6U
-          comment: HDU checksum updated 2020-05-08T20:34:34
+          comment: HDU checksum updated 2018-03-21T06:08:46
       hdu7:
         name: SPECRES
-        description: description of the HDU extension
+        description: Median spectral resolution vs wavelength
         is_image: true
         size: 35 KB
         header:
@@ -2028,13 +2051,13 @@ releases:
           comment: ''
         - key: DATASUM
           value: '3283217831'
-          comment: data unit checksum updated 2020-05-08T20:34:34
+          comment: data unit checksum updated 2018-03-21T06:08:46
         - key: CHECKSUM
           value: NK4pQK1oNK1oNK1o
-          comment: HDU checksum updated 2020-05-08T20:34:34
+          comment: HDU checksum updated 2018-03-21T06:08:46
       hdu8:
         name: SPECRESD
-        description: description of the HDU extension
+        description: Standard deviation (1-sigma) of spectral resolution vs wavelength
         is_image: true
         size: 35 KB
         header:
@@ -2061,13 +2084,13 @@ releases:
           comment: ''
         - key: DATASUM
           value: '4248305873'
-          comment: data unit checksum updated 2020-05-08T20:34:34
+          comment: data unit checksum updated 2018-03-21T06:08:46
         - key: CHECKSUM
           value: BATgE8QZBAQfB7QZ
-          comment: HDU checksum updated 2020-05-08T20:34:34
+          comment: HDU checksum updated 2018-03-21T06:08:46
       hdu9:
         name: PRESPECRES
-        description: description of the HDU extension
+        description: Median pre-pixel spectral resolution vs wavelength
         is_image: true
         size: 35 KB
         header:
@@ -2094,13 +2117,13 @@ releases:
           comment: ''
         - key: DATASUM
           value: '851627876'
-          comment: data unit checksum updated 2020-05-08T20:34:34
+          comment: data unit checksum updated 2018-03-21T06:08:46
         - key: CHECKSUM
           value: Wc3hXb3eWb3eWb3e
-          comment: HDU checksum updated 2020-05-08T20:34:34
+          comment: HDU checksum updated 2018-03-21T06:08:46
       hdu10:
         name: PRESPECRESD
-        description: description of the HDU extension
+        description: Standard deviation of pre-pixel spectral resolution vs wavelength
         is_image: true
         size: 35 KB
         header:
@@ -2127,344 +2150,351 @@ releases:
           comment: ''
         - key: DATASUM
           value: '3524619415'
-          comment: data unit checksum updated 2020-05-08T20:34:34
+          comment: data unit checksum updated 2018-03-21T06:08:46
         - key: CHECKSUM
           value: L9UCL8U9L8UCL8U9
-          comment: HDU checksum updated 2020-05-08T20:34:34
+          comment: HDU checksum updated 2018-03-21T06:08:46
       hdu11:
         name: OBSINFO
-        description: description of the HDU extension
+        description: Table detailing exposures combined to create this file
         is_image: false
         size: 2 KB
         columns:
           SLITFILE:
             name: SLITFILE
             type: char[25]
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Name of the slitmap
           METFILE:
             name: METFILE
             type: char[17]
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Name of the metrology file
           HARNAME:
             name: HARNAME
             type: char[5]
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Harness name
           IFUDESIGN:
             name: IFUDESIGN
             type: int32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: ifudesign (e.g., 12701)
           FRLPLUG:
             name: FRLPLUG
             type: int16
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: The physical ferrule matching this part of the slit
           MANGAID:
             name: MANGAID
             type: char[8]
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: MaNGA identification number
           AIRTEMP:
             name: AIRTEMP
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: Celsius
+            description: Temperature in Celsius
           HUMIDITY:
             name: HUMIDITY
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Relative humidity in percent
           PRESSURE:
             name: PRESSURE
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: Hg
+            description: Pressure in inHg
           SEEING:
             name: SEEING
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: Arcsecond
+            description: Best guider seeing in Arcsec
           PSFFAC:
             name: PSFFAC
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Best-fit PSF size relative to guider measurement
           TRANSPAR:
             name: TRANSPAR
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Guider transparency
           PLATEID:
             name: PLATEID
             type: int32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Plate id number
           DESIGNID:
             name: DESIGNID
             type: int32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Design id number
           CARTID:
             name: CARTID
             type: int16
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Cart id number
           MJD:
             name: MJD
             type: int32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: MJD of observation
           EXPTIME:
             name: EXPTIME
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Exposure time (seconds)
           EXPNUM:
             name: EXPNUM
             type: char[12]
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Exposure number
           SET:
             name: SET
             type: int32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Which set this exposure belongs to
           MGDPOS:
             name: MGDPOS
             type: char[8]
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: MaNGA dither position (NSEC)
           MGDRA:
             name: MGDRA
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: Arcsecond
+            description: MaNGA dither offset in RA (arcsec)
           MGDDEC:
             name: MGDDEC
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: Arcsecond
+            description: MaNGA dither offset in DEC (arcsec)
           OMEGASET_U:
             name: OMEGASET_U
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Omega value of this set in u-band (3622 Angstrom)
           OMEGASET_G:
             name: OMEGASET_G
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Omega value of this set in g-band (4703 Angstrom)
           OMEGASET_R:
             name: OMEGASET_R
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Omega value of this set in r-band (6177 Angstrom)
           OMEGASET_I:
             name: OMEGASET_I
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Omega value of this set in i-band (7496 Angstrom)
           OMEGASET_Z:
             name: OMEGASET_Z
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Omega value of this set in z-band (10354 Angstrom)
           EAMFIT_RA:
             name: EAMFIT_RA
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: Arcsecond
+            description: DeltaRA (arcsec) from extended astrometry module
           EAMFIT_DEC:
             name: EAMFIT_DEC
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: Arcsecond
+            description: DeltaDEC (arcsec) from extended astrometry module
           EAMFIT_THETA:
             name: EAMFIT_THETA
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: Degrees
+            description: Final DeltaTHETA (degrees) from extended astrometry module
           EAMFIT_THETA0:
             name: EAMFIT_THETA0
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Original DeltaTHETA from the EAM (free for all exposures)
           EAMFIT_A:
             name: EAMFIT_A
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: A (flux scaling) from extended astrometry module
           EAMFIT_B:
             name: EAMFIT_B
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: B (flux zeropoint) from extended astrometry module
           EAMFIT_RAERR:
             name: EAMFIT_RAERR
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: Arcsecond
+            description: 1-sigma uncertainty in DeltaRA (arcsec)
           EAMFIT_DECERR:
             name: EAMFIT_DECERR
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: Arcsecond
+            description: 1-sigma uncertainty in DeltaDEC (arcsec)
           EAMFIT_THETAERR:
             name: EAMFIT_THETAERR
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: Degrees
+            description: 1-sigma uncertainty in DeltaTHETA (degrees)
           EAMFIT_THETA0ERR:
             name: EAMFIT_THETA0ERR
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: Degrees
+            description: 1-sigma uncertainty in DeltaTHETA0 (degrees)
           EAMFIT_AERR:
             name: EAMFIT_AERR
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: 1-sigma uncertainty in A
           EAMFIT_BERR:
             name: EAMFIT_BERR
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: 1-sigma uncertainty in B
           TAIBEG:
             name: TAIBEG
             type: char[13]
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: TAI at the start of the exposure
           HADRILL:
             name: HADRILL
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: radians
+            description: Hour angle plate was drilled for
           LSTMID:
             name: LSTMID
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Local sidereal time at midpoint of exposure
           HAMID:
             name: HAMID
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: radians
+            description: Hour angle at midpoint of exposure for this IFU
           AIRMASS:
             name: AIRMASS
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Airmass at midpoint of exposure for this IFU
           IFURA:
             name: IFURA
             type: float64
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: Degrees (J2000)
+            description: IFU right ascension (J2000)
           IFUDEC:
             name: IFUDEC
             type: float64
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: Degrees (J2000)
+            description: IFU declination (J2000)
           CENRA:
             name: CENRA
             type: float64
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: Degrees (J2000)
+            description: Plate center right ascension (J2000)
           CENDEC:
             name: CENDEC
             type: float64
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: Degrees (J2000)
+            description: Plate center declination (J2000)
           XFOCAL:
             name: XFOCAL
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: mm
+            description: Hole location in xfocal coordinates (mm)
           YFOCAL:
             name: YFOCAL
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: mm
+            description: Hole location in yfocal coordinates (mm)
           MNGTARG1:
             name: MNGTARG1
             type: int32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: manga_target1 maskbit for galaxy target catalog
           MNGTARG2:
             name: MNGTARG2
             type: int32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: manga_target2 maskbit for non-galaxy target catalog
           MNGTARG3:
             name: MNGTARG3
             type: int32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: manga_target3 maskbit for ancillary target catalog
           BLUESN2:
             name: BLUESN2
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: SN2 in blue for this exposure
           REDSN2:
             name: REDSN2
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: SN2 in red for this exposure
           BLUETHRUPT:
             name: BLUETHRUPT
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Throughput in blue for this exposure
           REDTHRUPT:
             name: REDTHRUPT
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Throughput in red for this exposure
           BLUEPSTAT:
             name: BLUEPSTAT
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Poisson statistic in blue for this exposure
           REDPSTAT:
             name: REDPSTAT
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Poisson statistic in red for this exposure
           DRP2QUAL:
             name: DRP2QUAL
             type: int32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: DRP-2d quality bitmask
           THISBADIFU:
             name: THISBADIFU
             type: int32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: 0 if good, 1 if this IFU was bad in this frame
           PF_FWHM_G:
             name: PF_FWHM_G
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: Arcsecond
+            description: FWHM (arcsec) of a single-gaussian fit to the point source
+              response function Prior to Fiber convolution in g band
           PF_FWHM_R:
             name: PF_FWHM_R
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: Arcsecond
+            description: FWHM (arcsec) of a single-gaussian fit to the point source
+              response function Prior to Fiber convolution in r band
           PF_FWHM_I:
             name: PF_FWHM_I
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: Arcsecond
+            description: FWHM (arcsec) of a single-gaussian fit to the point source
+              response function Prior to Fiber convolution in i band
           PF_FWHM_Z:
             name: PF_FWHM_Z
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: Arcsecond
+            description: FWHM (arcsec) of a single-gaussian fit to the point source
+              response function Prior to Fiber convolution in z band
       hdu12:
         name: XPOS
-        description: description of the HDU extension
+        description: Array of fiber X-positions (units of arcsec) relative to the
+          IFU center.  Because of chromatic DAR, each wavelength for a given fiber
+          has a slightly different position, and therefore the positional arrays have
+          the same dimensionality as the corresponding flux array.
         is_image: true
         size: 2 MB
         header:
@@ -2494,13 +2524,16 @@ releases:
           comment: ''
         - key: DATASUM
           value: '1265058381'
-          comment: data unit checksum updated 2020-05-08T20:34:34
+          comment: data unit checksum updated 2018-03-21T06:08:46
         - key: CHECKSUM
           value: ZODKbL9HZLCHbL9H
-          comment: HDU checksum updated 2020-05-08T20:34:34
+          comment: HDU checksum updated 2018-03-21T06:08:46
       hdu13:
         name: YPOS
-        description: description of the HDU extension
+        description: Array of fiber Y-positions (units of arcsec) relative to the
+          IFU center.  Because of chromatic DAR, each wavelength for a given fiber
+          has a slightly different position, and therefore the positional arrays have
+          the same dimensionality as the corresponding flux array.
         is_image: true
         size: 2 MB
         header:
@@ -2530,10 +2563,10 @@ releases:
           comment: ''
         - key: DATASUM
           value: '2936411909'
-          comment: data unit checksum updated 2020-05-08T20:34:34
+          comment: data unit checksum updated 2018-03-21T06:08:46
         - key: CHECKSUM
           value: 01YR21YR01YR01YR
-          comment: HDU checksum updated 2020-05-08T20:34:34
+          comment: HDU checksum updated 2018-03-21T06:08:46
   DR16: *id001
   WORK:
     template: $MANGA_SPECTRO_REDUX/[DRPVER]/[PLATE]/stack/manga-[PLATE]-[IFU]-[WAVE]RSS.fits.gz
@@ -2553,7 +2586,7 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: description of the HDU extension
+        description: Empty except for global header
         is_image: true
         size: 0 bytes
         header:
@@ -2604,7 +2637,7 @@ releases:
           comment: Intensity zeropoint
         - key: BUNIT
           value: 1E-17 erg/s/cm^2/Angstrom/fiber
-          comment: Specific intensity (per fiber-area
+          comment: Specific intensity (per fiber-area)
         - key: MASKNAME
           value: MANGA_DRP2PIXMASK
           comment: Bits in sdssMaskbits.par used by mask extension
@@ -2766,13 +2799,13 @@ releases:
           comment: Galactic reddening E(B-V)
         - key: DATASUM
           value: '0'
-          comment: data unit checksum updated 2020-12-03T14:10:52
+          comment: data unit checksum updated 2018-03-21T06:08:46
         - key: CHECKSUM
           value: 4eBY5ZBX4dBX4ZBX
-          comment: HDU checksum updated 2020-12-03T14:10:52
+          comment: HDU checksum updated 2018-03-21T06:08:46
       hdu1:
         name: FLUX
-        description: description of the HDU extension
+        description: Row-stacked spectra in units of 10^{-17} erg/s/cm2/Angstrom/fiber
         is_image: true
         size: 2 MB
         header:
@@ -2832,7 +2865,7 @@ releases:
           comment: Intensity zeropoint
         - key: BUNIT
           value: 1E-17 erg/s/cm^2/Angstrom/fiber
-          comment: Specific intensity (per fiber-area
+          comment: Specific intensity (per fiber-area)
         - key: MASKNAME
           value: MANGA_DRP2PIXMASK
           comment: Bits in sdssMaskbits.par used by mask extension
@@ -3027,13 +3060,13 @@ releases:
           comment: ''
         - key: DATASUM
           value: '885987975'
-          comment: data unit checksum updated 2020-12-03T14:10:52
+          comment: data unit checksum updated 2018-03-21T06:08:46
         - key: CHECKSUM
           value: 6qgP6ndO6ndO6ndO
-          comment: HDU checksum updated 2020-12-03T14:10:52
+          comment: HDU checksum updated 2018-03-21T06:08:46
       hdu2:
         name: IVAR
-        description: description of the HDU extension
+        description: Inverse variance of row-stacked spectra
         is_image: true
         size: 2 MB
         header:
@@ -3081,13 +3114,13 @@ releases:
           comment: ''
         - key: DATASUM
           value: '3594901199'
-          comment: data unit checksum updated 2020-12-03T14:10:52
+          comment: data unit checksum updated 2018-03-21T06:08:46
         - key: CHECKSUM
           value: 0ec82ec80ec80ec8
-          comment: HDU checksum updated 2020-12-03T14:10:52
+          comment: HDU checksum updated 2018-03-21T06:08:46
       hdu3:
         name: MASK
-        description: description of the HDU extension
+        description: Pixel mask (MANGA_DRP2PIXMASK)
         is_image: true
         size: 2 MB
         header:
@@ -3135,10 +3168,10 @@ releases:
           comment: ''
         - key: DATASUM
           value: '2698888471'
-          comment: data unit checksum updated 2020-12-03T14:10:52
+          comment: data unit checksum updated 2018-03-21T06:08:46
         - key: CHECKSUM
           value: fcYRfZVQfaVQfYVQ
-          comment: HDU checksum updated 2020-12-03T14:10:52
+          comment: HDU checksum updated 2018-03-21T06:08:46
       hdu4:
         name: LSFPOST
         description: new lsf extensions
@@ -3213,7 +3246,7 @@ releases:
           comment: HDU checksum updated 2020-12-03T14:10:52
       hdu6:
         name: WAVE
-        description: description of the HDU extension
+        description: Wavelength vector in units of Angstroms (vacuum heliocentric)
         is_image: true
         size: 35 KB
         header:
@@ -3240,13 +3273,13 @@ releases:
           comment: ''
         - key: DATASUM
           value: '3938867060'
-          comment: data unit checksum updated 2020-12-03T14:10:52
+          comment: data unit checksum updated 2018-03-21T06:08:46
         - key: CHECKSUM
           value: fM9XhL8UfL8UfL8U
-          comment: HDU checksum updated 2020-12-03T14:10:52
+          comment: HDU checksum updated 2018-03-21T06:08:46
       hdu7:
         name: SPECRES
-        description: description of the HDU extension
+        description: Median spectral resolution vs wavelength
         is_image: true
         size: 35 KB
         header:
@@ -3273,13 +3306,13 @@ releases:
           comment: ''
         - key: DATASUM
           value: '1977825716'
-          comment: data unit checksum updated 2020-12-03T14:10:52
+          comment: data unit checksum updated 2018-03-21T06:08:46
         - key: CHECKSUM
           value: LahaOXhXLahaLUhW
-          comment: HDU checksum updated 2020-12-03T14:10:52
+          comment: HDU checksum updated 2018-03-21T06:08:46
       hdu8:
         name: SPECRESD
-        description: description of the HDU extension
+        description: Standard deviation (1-sigma) of spectral resolution vs wavelength
         is_image: true
         size: 35 KB
         header:
@@ -3306,13 +3339,13 @@ releases:
           comment: ''
         - key: DATASUM
           value: '2027792159'
-          comment: data unit checksum updated 2020-12-03T14:10:52
+          comment: data unit checksum updated 2018-03-21T06:08:46
         - key: CHECKSUM
           value: 1amA1Vk31Zk91Zk9
-          comment: HDU checksum updated 2020-12-03T14:10:52
+          comment: HDU checksum updated 2018-03-21T06:08:46
       hdu9:
         name: PRESPECRES
-        description: description of the HDU extension
+        description: Median pre-pixel spectral resolution vs wavelength
         is_image: true
         size: 35 KB
         header:
@@ -3339,13 +3372,13 @@ releases:
           comment: ''
         - key: DATASUM
           value: '148713936'
-          comment: data unit checksum updated 2020-12-03T14:10:52
+          comment: data unit checksum updated 2018-03-21T06:08:46
         - key: CHECKSUM
           value: 9pmQGnlN9nlNGnlN
-          comment: HDU checksum updated 2020-12-03T14:10:52
+          comment: HDU checksum updated 2018-03-21T06:08:46
       hdu10:
         name: PRESPECRESD
-        description: description of the HDU extension
+        description: Standard deviation of pre-pixel spectral resolution vs wavelength
         is_image: true
         size: 35 KB
         header:
@@ -3372,344 +3405,351 @@ releases:
           comment: ''
         - key: DATASUM
           value: '1057163473'
-          comment: data unit checksum updated 2020-12-03T14:10:52
+          comment: data unit checksum updated 2018-03-21T06:08:46
         - key: CHECKSUM
           value: 9caWGZWW9baWEZWW
-          comment: HDU checksum updated 2020-12-03T14:10:52
+          comment: HDU checksum updated 2018-03-21T06:08:46
       hdu11:
         name: OBSINFO
-        description: description of the HDU extension
+        description: Table detailing exposures combined to create this file
         is_image: false
         size: 2 KB
         columns:
           SLITFILE:
             name: SLITFILE
             type: char[25]
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Name of the slitmap
           METFILE:
             name: METFILE
             type: char[17]
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Name of the metrology file
           HARNAME:
             name: HARNAME
             type: char[5]
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Harness name
           IFUDESIGN:
             name: IFUDESIGN
             type: int32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: ifudesign (e.g., 12701)
           FRLPLUG:
             name: FRLPLUG
             type: int16
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: The physical ferrule matching this part of the slit
           MANGAID:
             name: MANGAID
             type: char[8]
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: MaNGA identification number
           AIRTEMP:
             name: AIRTEMP
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: Celsius
+            description: Temperature in Celsius
           HUMIDITY:
             name: HUMIDITY
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Relative humidity in percent
           PRESSURE:
             name: PRESSURE
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: Hg
+            description: Pressure in inHg
           SEEING:
             name: SEEING
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: Arcsecond
+            description: Best guider seeing in Arcsec
           PSFFAC:
             name: PSFFAC
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Best-fit PSF size relative to guider measurement
           TRANSPAR:
             name: TRANSPAR
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Guider transparency
           PLATEID:
             name: PLATEID
             type: int32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Plate id number
           DESIGNID:
             name: DESIGNID
             type: int32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Design id number
           CARTID:
             name: CARTID
             type: int16
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Cart id number
           MJD:
             name: MJD
             type: int32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: MJD of observation
           EXPTIME:
             name: EXPTIME
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Exposure time (seconds)
           EXPNUM:
             name: EXPNUM
             type: char[12]
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Exposure number
           SET:
             name: SET
             type: int32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Which set this exposure belongs to
           MGDPOS:
             name: MGDPOS
             type: char[8]
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: MaNGA dither position (NSEC)
           MGDRA:
             name: MGDRA
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: Arcsecond
+            description: MaNGA dither offset in RA (arcsec)
           MGDDEC:
             name: MGDDEC
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: Arcsecond
+            description: MaNGA dither offset in DEC (arcsec)
           OMEGASET_U:
             name: OMEGASET_U
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Omega value of this set in u-band (3622 Angstrom)
           OMEGASET_G:
             name: OMEGASET_G
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Omega value of this set in g-band (4703 Angstrom)
           OMEGASET_R:
             name: OMEGASET_R
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Omega value of this set in r-band (6177 Angstrom)
           OMEGASET_I:
             name: OMEGASET_I
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Omega value of this set in i-band (7496 Angstrom)
           OMEGASET_Z:
             name: OMEGASET_Z
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Omega value of this set in z-band (10354 Angstrom)
           EAMFIT_RA:
             name: EAMFIT_RA
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: Arcsecond
+            description: DeltaRA (arcsec) from extended astrometry module
           EAMFIT_DEC:
             name: EAMFIT_DEC
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: Arcsecond
+            description: DeltaDEC (arcsec) from extended astrometry module
           EAMFIT_THETA:
             name: EAMFIT_THETA
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: Degrees
+            description: Final DeltaTHETA (degrees) from extended astrometry module
           EAMFIT_THETA0:
             name: EAMFIT_THETA0
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Original DeltaTHETA from the EAM (free for all exposures)
           EAMFIT_A:
             name: EAMFIT_A
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: A (flux scaling) from extended astrometry module
           EAMFIT_B:
             name: EAMFIT_B
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: B (flux zeropoint) from extended astrometry module
           EAMFIT_RAERR:
             name: EAMFIT_RAERR
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: Arcsecond
+            description: 1-sigma uncertainty in DeltaRA (arcsec)
           EAMFIT_DECERR:
             name: EAMFIT_DECERR
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: Arcsecond
+            description: 1-sigma uncertainty in DeltaDEC (arcsec)
           EAMFIT_THETAERR:
             name: EAMFIT_THETAERR
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: Degrees
+            description: 1-sigma uncertainty in DeltaTHETA (degrees)
           EAMFIT_THETA0ERR:
             name: EAMFIT_THETA0ERR
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: Degrees
+            description: 1-sigma uncertainty in DeltaTHETA0 (degrees)
           EAMFIT_AERR:
             name: EAMFIT_AERR
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: 1-sigma uncertainty in A
           EAMFIT_BERR:
             name: EAMFIT_BERR
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: 1-sigma uncertainty in B
           TAIBEG:
             name: TAIBEG
             type: char[13]
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: TAI at the start of the exposure
           HADRILL:
             name: HADRILL
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: radians
+            description: Hour angle plate was drilled for
           LSTMID:
             name: LSTMID
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Local sidereal time at midpoint of exposure
           HAMID:
             name: HAMID
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: radians
+            description: Hour angle at midpoint of exposure for this IFU
           AIRMASS:
             name: AIRMASS
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Airmass at midpoint of exposure for this IFU
           IFURA:
             name: IFURA
             type: float64
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: Degrees (J2000)
+            description: IFU right ascension (J2000)
           IFUDEC:
             name: IFUDEC
             type: float64
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: Degrees (J2000)
+            description: IFU declination (J2000)
           CENRA:
             name: CENRA
             type: float64
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: Degrees (J2000)
+            description: Plate center right ascension (J2000)
           CENDEC:
             name: CENDEC
             type: float64
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: Degrees (J2000)
+            description: Plate center declination (J2000)
           XFOCAL:
             name: XFOCAL
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: mm
+            description: Hole location in xfocal coordinates (mm)
           YFOCAL:
             name: YFOCAL
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: mm
+            description: Hole location in yfocal coordinates (mm)
           MNGTARG1:
             name: MNGTARG1
             type: int32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: manga_target1 maskbit for galaxy target catalog
           MNGTARG2:
             name: MNGTARG2
             type: int32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: manga_target2 maskbit for non-galaxy target catalog
           MNGTARG3:
             name: MNGTARG3
             type: int32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: manga_target3 maskbit for ancillary target catalog
           BLUESN2:
             name: BLUESN2
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: SN2 in blue for this exposure
           REDSN2:
             name: REDSN2
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: SN2 in red for this exposure
           BLUETHRUPT:
             name: BLUETHRUPT
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Throughput in blue for this exposure
           REDTHRUPT:
             name: REDTHRUPT
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Throughput in red for this exposure
           BLUEPSTAT:
             name: BLUEPSTAT
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Poisson statistic in blue for this exposure
           REDPSTAT:
             name: REDPSTAT
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: Poisson statistic in red for this exposure
           DRP2QUAL:
             name: DRP2QUAL
             type: int32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: DRP-2d quality bitmask
           THISBADIFU:
             name: THISBADIFU
             type: int32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: ''
+            description: 0 if good, 1 if this IFU was bad in this frame
           PF_FWHM_G:
             name: PF_FWHM_G
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: Arcsecond
+            description: FWHM (arcsec) of a single-gaussian fit to the point source
+              response function Prior to Fiber convolution in g band
           PF_FWHM_R:
             name: PF_FWHM_R
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: Arcsecond
+            description: FWHM (arcsec) of a single-gaussian fit to the point source
+              response function Prior to Fiber convolution in r band
           PF_FWHM_I:
             name: PF_FWHM_I
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: Arcsecond
+            description: FWHM (arcsec) of a single-gaussian fit to the point source
+              response function Prior to Fiber convolution in i band
           PF_FWHM_Z:
             name: PF_FWHM_Z
             type: float32
-            unit: this is the unit and description text
-            description: this is the unit and description text
+            unit: Arcsecond
+            description: FWHM (arcsec) of a single-gaussian fit to the point source
+              response function Prior to Fiber convolution in z band
       hdu12:
         name: XPOS
-        description: description of the HDU extension
+        description: Array of fiber X-positions (units of arcsec) relative to the
+          IFU center.  Because of chromatic DAR, each wavelength for a given fiber
+          has a slightly different position, and therefore the positional arrays have
+          the same dimensionality as the corresponding flux array.
         is_image: true
         size: 2 MB
         header:
@@ -3739,13 +3779,16 @@ releases:
           comment: ''
         - key: DATASUM
           value: '1753729828'
-          comment: data unit checksum updated 2020-12-03T14:10:52
+          comment: data unit checksum updated 2018-03-21T06:08:46
         - key: CHECKSUM
           value: iDAhlD0fiD7fiD7f
-          comment: HDU checksum updated 2020-12-03T14:10:52
+          comment: HDU checksum updated 2018-03-21T06:08:46
       hdu13:
         name: YPOS
-        description: description of the HDU extension
+        description: Array of fiber Y-positions (units of arcsec) relative to the
+          IFU center.  Because of chromatic DAR, each wavelength for a given fiber
+          has a slightly different position, and therefore the positional arrays have
+          the same dimensionality as the corresponding flux array.
         is_image: true
         size: 2 MB
         header:
@@ -3775,10 +3818,10 @@ releases:
           comment: ''
         - key: DATASUM
           value: '1543305948'
-          comment: data unit checksum updated 2020-12-03T14:10:52
+          comment: data unit checksum updated 2018-03-21T06:08:46
         - key: CHECKSUM
           value: 7HaaAHXU7HaZAHUZ
-          comment: HDU checksum updated 2020-12-03T14:10:52
+          comment: HDU checksum updated 2018-03-21T06:08:46
   DR13:
     template: $MANGA_SPECTRO_REDUX/[DRPVER]/[PLATE]/stack/manga-[PLATE]-[IFU]-LOGRSS.fits.gz
     example: v1_5_4/8485/stack/manga-8485-1901-LOGRSS.fits.gz
@@ -3797,13 +3840,13 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: Empty except for global header
         is_image: true
         size: 0 bytes
         header:
         - key: SIMPLE
           value: true
-          comment: Primary Header created by MWRFITS v1.11
+          comment: ''
         - key: BITPIX
           value: 8
           comment: ''
@@ -3812,7 +3855,7 @@ releases:
           comment: ''
         - key: EXTEND
           value: true
-          comment: Extensions may be present
+          comment: ''
         - key: AUTHOR
           value: Brian Cherinka & David Law <bcherin1@jhu.edu, dlaw@stsci.edu>
           comment: ''
@@ -4007,10 +4050,10 @@ releases:
           comment: Galactic reddening E(B-V)
         - key: CHECKSUM
           value: KdInMbGkKbGkKbGk
-          comment: HDU checksum created 2016-03-16T05:45:49
+          comment: HDU checksum updated 2018-03-21T06:08:46
       hdu1:
         name: FLUX
-        description: replace me description
+        description: Row-stacked spectra in units of 10^{-17} erg/s/cm2/Angstrom/fiber
         is_image: true
         size: 2 MB
         header:
@@ -4262,13 +4305,13 @@ releases:
           comment: ''
         - key: DATASUM
           value: '416327497'
-          comment: data unit checksum created 2016-03-16T05:45:49
+          comment: data unit checksum updated 2018-03-21T06:08:46
         - key: CHECKSUM
           value: LKFOOKCOLKCOLKCO
-          comment: HDU checksum created 2016-03-16T05:45:49
+          comment: HDU checksum updated 2018-03-21T06:08:46
       hdu2:
         name: IVAR
-        description: replace me description
+        description: Inverse variance of row-stacked spectra
         is_image: true
         size: 2 MB
         header:
@@ -4316,13 +4359,13 @@ releases:
           comment: ''
         - key: DATASUM
           value: '3382583772'
-          comment: data unit checksum created 2016-03-16T05:45:49
+          comment: data unit checksum updated 2018-03-21T06:08:46
         - key: CHECKSUM
           value: UT5QUS2NUS2NUS2N
-          comment: HDU checksum created 2016-03-16T05:45:49
+          comment: HDU checksum updated 2018-03-21T06:08:46
       hdu3:
         name: MASK
-        description: replace me description
+        description: Pixel mask (MANGA_DRP2PIXMASK)
         is_image: true
         size: 2 MB
         header:
@@ -4370,13 +4413,13 @@ releases:
           comment: ''
         - key: DATASUM
           value: '3178137288'
-          comment: data unit checksum created 2016-03-16T05:45:49
+          comment: data unit checksum updated 2018-03-21T06:08:46
         - key: CHECKSUM
           value: aBaLbBSLaBYLaBYL
-          comment: HDU checksum created 2016-03-16T05:45:49
+          comment: HDU checksum updated 2018-03-21T06:08:46
       hdu4:
         name: DISP
-        description: replace me description
+        description: Spectral LSF  (1-sigma) in units of Angstroms
         is_image: true
         size: 2 MB
         header:
@@ -4406,13 +4449,13 @@ releases:
           comment: ''
         - key: DATASUM
           value: '3546851771'
-          comment: data unit checksum created 2016-03-16T05:45:49
+          comment: data unit checksum updated 2018-03-21T06:08:46
         - key: CHECKSUM
           value: mWgamWgTmWgYmWgY
-          comment: HDU checksum created 2016-03-16T05:45:49
+          comment: HDU checksum updated 2018-03-21T06:08:46
       hdu5:
         name: WAVE
-        description: replace me description
+        description: Wavelength vector in units of Angstroms (vacuum heliocentric)
         is_image: true
         size: 35 KB
         header:
@@ -4439,13 +4482,13 @@ releases:
           comment: ''
         - key: DATASUM
           value: '3938867060'
-          comment: data unit checksum created 2016-03-16T05:45:49
+          comment: data unit checksum updated 2018-03-21T06:08:46
         - key: CHECKSUM
           value: L9dIO6Z9L6bGL6Z9
-          comment: HDU checksum created 2016-03-16T05:45:49
+          comment: HDU checksum updated 2018-03-21T06:08:46
       hdu6:
         name: SPECRES
-        description: replace me description
+        description: Median spectral resolution vs wavelength
         is_image: true
         size: 35 KB
         header:
@@ -4472,13 +4515,13 @@ releases:
           comment: ''
         - key: DATASUM
           value: '2186998423'
-          comment: data unit checksum created 2016-03-16T05:45:49
+          comment: data unit checksum updated 2018-03-21T06:08:46
         - key: CHECKSUM
           value: 9EpaADoT3DoY9DoY
-          comment: HDU checksum created 2016-03-16T05:45:49
+          comment: HDU checksum updated 2018-03-21T06:08:46
       hdu7:
         name: SPECRESD
-        description: replace me description
+        description: Standard deviation (1-sigma) of spectral resolution vs wavelength
         is_image: true
         size: 35 KB
         header:
@@ -4505,334 +4548,341 @@ releases:
           comment: ''
         - key: DATASUM
           value: '3712278083'
-          comment: data unit checksum created 2016-03-16T05:45:49
+          comment: data unit checksum updated 2018-03-21T06:08:46
         - key: CHECKSUM
           value: No8ZOl6WNl6WNl6W
-          comment: HDU checksum created 2016-03-16T05:45:49
+          comment: HDU checksum updated 2018-03-21T06:08:46
       hdu8:
         name: OBSINFO
-        description: replace me description
+        description: Table detailing exposures combined to create this file
         is_image: false
         size: 2 KB
         columns:
           SLITFILE:
             name: SLITFILE
             type: char[25]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Name of the slitmap
           METFILE:
             name: METFILE
             type: char[17]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Name of the metrology file
           HARNAME:
             name: HARNAME
             type: char[5]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Harness name
           IFUDESIGN:
             name: IFUDESIGN
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ifudesign (e.g., 12701)
           FRLPLUG:
             name: FRLPLUG
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The physical ferrule matching this part of the slit
           MANGAID:
             name: MANGAID
             type: char[8]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: MaNGA identification number
           AIRTEMP:
             name: AIRTEMP
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Celsius
+            description: Temperature in Celsius
           HUMIDITY:
             name: HUMIDITY
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Relative humidity in percent
           PRESSURE:
             name: PRESSURE
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Hg
+            description: Pressure in inHg
           SEEING:
             name: SEEING
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Arcsecond
+            description: Best guider seeing in Arcsec
           PSFFAC:
             name: PSFFAC
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Best-fit PSF size relative to guider measurement
           TRANSPAR:
             name: TRANSPAR
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Guider transparency
           PLATEID:
             name: PLATEID
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Plate id number
           DESIGNID:
             name: DESIGNID
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Design id number
           CARTID:
             name: CARTID
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Cart id number
           MJD:
             name: MJD
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: MJD of observation
           EXPTIME:
             name: EXPTIME
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Exposure time (seconds)
           EXPNUM:
             name: EXPNUM
             type: char[12]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Exposure number
           SET:
             name: SET
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Which set this exposure belongs to
           MGDPOS:
             name: MGDPOS
             type: char[8]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: MaNGA dither position (NSEC)
           MGDRA:
             name: MGDRA
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Arcsecond
+            description: MaNGA dither offset in RA (arcsec)
           MGDDEC:
             name: MGDDEC
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Arcsecond
+            description: MaNGA dither offset in DEC (arcsec)
           OMEGASET_U:
             name: OMEGASET_U
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Omega value of this set in u-band (3622 Angstrom)
           OMEGASET_G:
             name: OMEGASET_G
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Omega value of this set in g-band (4703 Angstrom)
           OMEGASET_R:
             name: OMEGASET_R
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Omega value of this set in r-band (6177 Angstrom)
           OMEGASET_I:
             name: OMEGASET_I
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Omega value of this set in i-band (7496 Angstrom)
           OMEGASET_Z:
             name: OMEGASET_Z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Omega value of this set in z-band (10354 Angstrom)
           EAMFIT_RA:
             name: EAMFIT_RA
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Arcsecond
+            description: DeltaRA (arcsec) from extended astrometry module
           EAMFIT_DEC:
             name: EAMFIT_DEC
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Arcsecond
+            description: DeltaDEC (arcsec) from extended astrometry module
           EAMFIT_THETA:
             name: EAMFIT_THETA
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Degrees
+            description: Final DeltaTHETA (degrees) from extended astrometry module
           EAMFIT_THETA0:
             name: EAMFIT_THETA0
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Original DeltaTHETA from the EAM (free for all exposures)
           EAMFIT_A:
             name: EAMFIT_A
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: A (flux scaling) from extended astrometry module
           EAMFIT_B:
             name: EAMFIT_B
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: B (flux zeropoint) from extended astrometry module
           EAMFIT_RAERR:
             name: EAMFIT_RAERR
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Arcsecond
+            description: 1-sigma uncertainty in DeltaRA (arcsec)
           EAMFIT_DECERR:
             name: EAMFIT_DECERR
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Arcsecond
+            description: 1-sigma uncertainty in DeltaDEC (arcsec)
           EAMFIT_THETAERR:
             name: EAMFIT_THETAERR
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Degrees
+            description: 1-sigma uncertainty in DeltaTHETA (degrees)
           EAMFIT_THETA0ERR:
             name: EAMFIT_THETA0ERR
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Degrees
+            description: 1-sigma uncertainty in DeltaTHETA0 (degrees)
           EAMFIT_AERR:
             name: EAMFIT_AERR
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 1-sigma uncertainty in A
           EAMFIT_BERR:
             name: EAMFIT_BERR
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 1-sigma uncertainty in B
           TAIBEG:
             name: TAIBEG
             type: char[13]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: TAI at the start of the exposure
           HADRILL:
             name: HADRILL
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: radians
+            description: Hour angle plate was drilled for
           LSTMID:
             name: LSTMID
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Local sidereal time at midpoint of exposure
           HAMID:
             name: HAMID
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: radians
+            description: Hour angle at midpoint of exposure for this IFU
           AIRMASS:
             name: AIRMASS
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Airmass at midpoint of exposure for this IFU
           IFURA:
             name: IFURA
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Degrees (J2000)
+            description: IFU right ascension (J2000)
           IFUDEC:
             name: IFUDEC
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Degrees (J2000)
+            description: IFU declination (J2000)
           CENRA:
             name: CENRA
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Degrees (J2000)
+            description: Plate center right ascension (J2000)
           CENDEC:
             name: CENDEC
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Degrees (J2000)
+            description: Plate center declination (J2000)
           XFOCAL:
             name: XFOCAL
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mm
+            description: Hole location in xfocal coordinates (mm)
           YFOCAL:
             name: YFOCAL
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mm
+            description: Hole location in yfocal coordinates (mm)
           MNGTARG1:
             name: MNGTARG1
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: manga_target1 maskbit for galaxy target catalog
           MNGTARG2:
             name: MNGTARG2
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: manga_target2 maskbit for non-galaxy target catalog
           MNGTARG3:
             name: MNGTARG3
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: manga_target3 maskbit for ancillary target catalog
           BLUESN2:
             name: BLUESN2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: SN2 in blue for this exposure
           REDSN2:
             name: REDSN2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: SN2 in red for this exposure
           BLUEPSTAT:
             name: BLUEPSTAT
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Poisson statistic in blue for this exposure
           REDPSTAT:
             name: REDPSTAT
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Poisson statistic in red for this exposure
           DRP2QUAL:
             name: DRP2QUAL
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: DRP-2d quality bitmask
           THISBADIFU:
             name: THISBADIFU
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 0 if good, 1 if this IFU was bad in this frame
           PF_FWHM_G:
             name: PF_FWHM_G
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Arcsecond
+            description: FWHM (arcsec) of a single-gaussian fit to the point source
+              response function Prior to Fiber convolution in g band
           PF_FWHM_R:
             name: PF_FWHM_R
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Arcsecond
+            description: FWHM (arcsec) of a single-gaussian fit to the point source
+              response function Prior to Fiber convolution in r band
           PF_FWHM_I:
             name: PF_FWHM_I
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Arcsecond
+            description: FWHM (arcsec) of a single-gaussian fit to the point source
+              response function Prior to Fiber convolution in i band
           PF_FWHM_Z:
             name: PF_FWHM_Z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Arcsecond
+            description: FWHM (arcsec) of a single-gaussian fit to the point source
+              response function Prior to Fiber convolution in z band
       hdu9:
         name: XPOS
-        description: replace me description
+        description: Array of fiber X-positions (units of arcsec) relative to the
+          IFU center.  Because of chromatic DAR, each wavelength for a given fiber
+          has a slightly different position, and therefore the positional arrays have
+          the same dimensionality as the corresponding flux array.
         is_image: true
         size: 2 MB
         header:
@@ -4862,13 +4912,16 @@ releases:
           comment: ''
         - key: DATASUM
           value: '318341066'
-          comment: data unit checksum created 2016-03-16T05:45:49
+          comment: data unit checksum updated 2018-03-21T06:08:46
         - key: CHECKSUM
           value: eJGfhJDdeJDdeJDd
-          comment: HDU checksum created 2016-03-16T05:45:49
+          comment: HDU checksum updated 2018-03-21T06:08:46
       hdu10:
         name: YPOS
-        description: replace me description
+        description: Array of fiber Y-positions (units of arcsec) relative to the
+          IFU center.  Because of chromatic DAR, each wavelength for a given fiber
+          has a slightly different position, and therefore the positional arrays have
+          the same dimensionality as the corresponding flux array.
         is_image: true
         size: 2 MB
         header:
@@ -4898,7 +4951,7 @@ releases:
           comment: ''
         - key: DATASUM
           value: '1625869607'
-          comment: data unit checksum created 2016-03-16T05:45:49
+          comment: data unit checksum updated 2018-03-21T06:08:46
         - key: CHECKSUM
           value: O0HSP0FPO0FPO0FP
-          comment: HDU checksum created 2016-03-16T05:45:49
+          comment: HDU checksum updated 2018-03-21T06:08:46
