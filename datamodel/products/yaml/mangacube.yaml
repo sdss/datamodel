@@ -1,7 +1,11 @@
 general:
   name: mangacube
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: ''
+  description: The MaNGA DRP provides regularly-gridded cubes (with both logarithmic
+    and linear wavelength solutions) that combine information from all exposures of
+    a given galaxy.  The cubes are three-dimensional arrays in which the first and
+    second dimensions are spatial (with regular 0.5 arcsec square spaxels) and the
+    third dimension represents wavelength.
   datatype: FITS
   filesize: 20 MB
   releases:
@@ -11,10 +15,14 @@ general:
   - WORK
   environments:
   - MANGA_SPECTRO_REDUX
-  naming_convention: replace me - with $MANGA_SPECTRO_REDUX/[DRPVER]/[PLATE]/stack/manga-[PLATE]-[IFU]-[WAVE]CUBE.fits.gz
-    or manga-8485-1901-LOGCUBE.fits.gz but with regex pattern matches
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  naming_convention: <code>manga-[plate]-[ifudesign]-[type]CUBE.fits.gz</code>, where
+    <code>[plate]</code> is the plate number, <code>[ifudesign]</code> is the design
+    IFU size and number, and <code>[type]</code> is either LOG or LIN indicating whether
+    the file uses a logarithmic or linear based wavelength solution.  The combined
+    <code>[plate]-[ifudesign]</code> is also known as the 'plate-ifu' designation
+    of a given galaxy.
+  generated_by: '<a href="https://svn.sdss.org/public/repo/manga/mangadrp/tags/v2_4_3/pro/spec3d/mdrp_reduceoneifu.pro">mangadrp:
+    mdrp_reduceoneifu.pro</a>'
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
@@ -25,27 +33,27 @@ changelog:
       - LSFPRE
       - LSFPOST
       removed_hdus:
-      - DISP
       - PREDISP
+      - DISP
     DR16:
       from: DR15
       note: No changes
     DR15:
       from: DR13
       added_hdus:
-      - RCORREL
-      - PRESPECRESD
-      - ICORREL
-      - GCORREL
+      - PRESPECRES
       - DISP
       - ZCORREL
-      - PRESPECRES
+      - PRESPECRESD
       - PREDISP
+      - ICORREL
+      - RCORREL
+      - GCORREL
       primary_delta_nkeys: 2
       added_primary_header_kwargs:
-      - RADESYS
-      - TPLDATA
       - DATASUM
+      - TPLDATA
+      - RADESYS
       removed_primary_header_kwargs:
       - RADESYSA
 releases:
@@ -60,20 +68,20 @@ releases:
       path_template: $MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}CUBE.fits.gz
       path_kwargs:
       - ifu
-      - wave
       - plate
+      - wave
       - drpver
       access_string: mangacube = $MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}CUBE.fits.gz
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: Empty except for global header
         is_image: true
         size: 0 bytes
         header:
         - key: SIMPLE
           value: true
-          comment: Primary Header created by MWRFITS v1.11
+          comment: ''
         - key: BITPIX
           value: 8
           comment: ''
@@ -82,7 +90,7 @@ releases:
           comment: ''
         - key: EXTEND
           value: true
-          comment: Extensions may be present
+          comment: ''
         - key: AUTHOR
           value: Brian Cherinka & David Law <bcherin1@jhu.edu, dlaw@stsci.edu>
           comment: ''
@@ -289,10 +297,10 @@ releases:
           comment: Reconstructed FWHM in z-band (arcsec)
         - key: CHECKSUM
           value: Z28Hh16HZ16Hf16H
-          comment: HDU checksum created 2016-03-16T05:45:49
+          comment: HDU checksum updated 2018-03-21T06:08:46
       hdu1:
         name: FLUX
-        description: replace me description
+        description: 3d rectified cube in units of 10^{-17} erg/s/cm2/Angstrom/spaxel
         is_image: true
         size: 20 MB
         header:
@@ -589,13 +597,13 @@ releases:
           comment: ''
         - key: DATASUM
           value: '1126920171'
-          comment: data unit checksum created 2016-03-16T05:45:49
+          comment: data unit checksum updated 2018-03-21T06:08:47
         - key: CHECKSUM
           value: UjeWahcVXhcVahcV
-          comment: HDU checksum created 2016-03-16T05:45:49
+          comment: HDU checksum updated 2018-03-21T06:08:47
       hdu2:
         name: IVAR
-        description: replace me description
+        description: Inverse variance cube
         is_image: true
         size: 20 MB
         header:
@@ -646,13 +654,13 @@ releases:
           comment: ''
         - key: DATASUM
           value: '937635896'
-          comment: data unit checksum created 2016-03-16T05:45:49
+          comment: data unit checksum updated 2018-03-21T06:08:47
         - key: CHECKSUM
           value: 9XOADUO89UOACUO7
-          comment: HDU checksum created 2016-03-16T05:45:49
+          comment: HDU checksum updated 2018-03-21T06:08:47
       hdu3:
         name: MASK
-        description: replace me description
+        description: Pixel mask cube (MANGA_DRP3PIXMASK)
         is_image: true
         size: 20 MB
         header:
@@ -703,13 +711,13 @@ releases:
           comment: ''
         - key: DATASUM
           value: '3444429856'
-          comment: data unit checksum created 2016-03-16T05:45:50
+          comment: data unit checksum updated 2018-03-21T06:08:47
         - key: CHECKSUM
           value: KaOmNUNmKaNmKUNm
-          comment: HDU checksum created 2016-03-16T05:45:50
+          comment: HDU checksum updated 2018-03-21T06:08:47
       hdu4:
         name: WAVE
-        description: replace me description
+        description: Wavelength vector in units of Angstroms (vacuum heliocentric)
         is_image: true
         size: 35 KB
         header:
@@ -736,13 +744,13 @@ releases:
           comment: ''
         - key: DATASUM
           value: '3938867060'
-          comment: data unit checksum created 2016-03-16T05:45:50
+          comment: data unit checksum updated 2018-03-21T06:08:47
         - key: CHECKSUM
           value: L9cEN9ZBL9bBL9ZB
-          comment: HDU checksum created 2016-03-16T05:45:50
+          comment: HDU checksum updated 2018-03-21T06:08:47
       hdu5:
         name: SPECRES
-        description: replace me description
+        description: Median spectral resolution vs wavelength
         is_image: true
         size: 35 KB
         header:
@@ -769,13 +777,13 @@ releases:
           comment: ''
         - key: DATASUM
           value: '2186998423'
-          comment: data unit checksum created 2016-03-16T05:45:50
+          comment: data unit checksum updated 2018-03-21T06:08:47
         - key: CHECKSUM
           value: 9HoaAFoW2Foa9FoW
-          comment: HDU checksum created 2016-03-16T05:45:50
+          comment: HDU checksum updated 2018-03-21T06:08:47
       hdu6:
         name: SPECRESD
-        description: replace me description
+        description: Standard deviation (1-sigma) of spectral resolution vs wavelength
         is_image: true
         size: 35 KB
         header:
@@ -802,334 +810,334 @@ releases:
           comment: ''
         - key: DATASUM
           value: '3712278083'
-          comment: data unit checksum created 2016-03-16T05:45:50
+          comment: data unit checksum updated 2018-03-21T06:08:47
         - key: CHECKSUM
           value: No7ZNo6ZNo6ZNo6Z
-          comment: HDU checksum created 2016-03-16T05:45:50
+          comment: HDU checksum updated 2018-03-21T06:08:47
       hdu7:
         name: OBSINFO
-        description: replace me description
+        description: Table detailing exposures combined to create this file
         is_image: false
         size: 2 KB
         columns:
           SLITFILE:
             name: SLITFILE
             type: char[25]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           METFILE:
             name: METFILE
             type: char[17]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           HARNAME:
             name: HARNAME
             type: char[5]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           IFUDESIGN:
             name: IFUDESIGN
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           FRLPLUG:
             name: FRLPLUG
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           MANGAID:
             name: MANGAID
             type: char[8]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           AIRTEMP:
             name: AIRTEMP
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           HUMIDITY:
             name: HUMIDITY
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           PRESSURE:
             name: PRESSURE
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           SEEING:
             name: SEEING
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           PSFFAC:
             name: PSFFAC
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           TRANSPAR:
             name: TRANSPAR
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           PLATEID:
             name: PLATEID
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           DESIGNID:
             name: DESIGNID
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           CARTID:
             name: CARTID
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           MJD:
             name: MJD
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           EXPTIME:
             name: EXPTIME
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           EXPNUM:
             name: EXPNUM
             type: char[12]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           SET:
             name: SET
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           MGDPOS:
             name: MGDPOS
             type: char[8]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           MGDRA:
             name: MGDRA
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           MGDDEC:
             name: MGDDEC
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           OMEGASET_U:
             name: OMEGASET_U
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           OMEGASET_G:
             name: OMEGASET_G
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           OMEGASET_R:
             name: OMEGASET_R
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           OMEGASET_I:
             name: OMEGASET_I
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           OMEGASET_Z:
             name: OMEGASET_Z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           EAMFIT_RA:
             name: EAMFIT_RA
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           EAMFIT_DEC:
             name: EAMFIT_DEC
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           EAMFIT_THETA:
             name: EAMFIT_THETA
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           EAMFIT_THETA0:
             name: EAMFIT_THETA0
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           EAMFIT_A:
             name: EAMFIT_A
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           EAMFIT_B:
             name: EAMFIT_B
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           EAMFIT_RAERR:
             name: EAMFIT_RAERR
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           EAMFIT_DECERR:
             name: EAMFIT_DECERR
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           EAMFIT_THETAERR:
             name: EAMFIT_THETAERR
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           EAMFIT_THETA0ERR:
             name: EAMFIT_THETA0ERR
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           EAMFIT_AERR:
             name: EAMFIT_AERR
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           EAMFIT_BERR:
             name: EAMFIT_BERR
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           TAIBEG:
             name: TAIBEG
             type: char[13]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           HADRILL:
             name: HADRILL
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           LSTMID:
             name: LSTMID
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           HAMID:
             name: HAMID
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           AIRMASS:
             name: AIRMASS
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           IFURA:
             name: IFURA
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           IFUDEC:
             name: IFUDEC
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           CENRA:
             name: CENRA
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           CENDEC:
             name: CENDEC
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           XFOCAL:
             name: XFOCAL
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           YFOCAL:
             name: YFOCAL
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           MNGTARG1:
             name: MNGTARG1
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           MNGTARG2:
             name: MNGTARG2
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           MNGTARG3:
             name: MNGTARG3
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           BLUESN2:
             name: BLUESN2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           REDSN2:
             name: REDSN2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           BLUEPSTAT:
             name: BLUEPSTAT
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           REDPSTAT:
             name: REDPSTAT
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           DRP2QUAL:
             name: DRP2QUAL
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           THISBADIFU:
             name: THISBADIFU
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           PF_FWHM_G:
             name: PF_FWHM_G
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           PF_FWHM_R:
             name: PF_FWHM_R
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           PF_FWHM_I:
             name: PF_FWHM_I
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           PF_FWHM_Z:
             name: PF_FWHM_Z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
       hdu8:
         name: GIMG
-        description: replace me description
+        description: Broadband SDSS g image created from the data cube
         is_image: true
         size: 4 KB
         header:
@@ -1213,13 +1221,13 @@ releases:
           comment: ''
         - key: DATASUM
           value: '3819912541'
-          comment: data unit checksum created 2016-03-16T05:45:50
+          comment: data unit checksum updated 2018-03-21T06:08:47
         - key: CHECKSUM
           value: 7adPAXbN0abN7WbN
-          comment: HDU checksum created 2016-03-16T05:45:50
+          comment: HDU checksum updated 2018-03-21T06:08:47
       hdu9:
         name: RIMG
-        description: replace me description
+        description: Broadband SDSS r image created from the data cube
         is_image: true
         size: 4 KB
         header:
@@ -1303,13 +1311,13 @@ releases:
           comment: ''
         - key: DATASUM
           value: '724608471'
-          comment: data unit checksum created 2016-03-16T05:45:50
+          comment: data unit checksum updated 2018-03-21T06:08:47
         - key: CHECKSUM
           value: TMB6WJB4TJB4TJB4
-          comment: HDU checksum created 2016-03-16T05:45:50
+          comment: HDU checksum updated 2018-03-21T06:08:47
       hdu10:
         name: IIMG
-        description: replace me description
+        description: Broadband SDSS i image created from the data cube
         is_image: true
         size: 4 KB
         header:
@@ -1393,13 +1401,13 @@ releases:
           comment: ''
         - key: DATASUM
           value: '2259475696'
-          comment: data unit checksum created 2016-03-16T05:45:50
+          comment: data unit checksum updated 2018-03-21T06:08:47
         - key: CHECKSUM
           value: P5biQ2bfP2bfP2bf
-          comment: HDU checksum created 2016-03-16T05:45:50
+          comment: HDU checksum updated 2018-03-21T06:08:47
       hdu11:
         name: ZIMG
-        description: replace me description
+        description: Broadband SDSS z image created from the data cube
         is_image: true
         size: 4 KB
         header:
@@ -1483,13 +1491,13 @@ releases:
           comment: ''
         - key: DATASUM
           value: '74352996'
-          comment: data unit checksum created 2016-03-16T05:45:50
+          comment: data unit checksum updated 2018-03-21T06:08:47
         - key: CHECKSUM
           value: 0S2A2R190R1A0R19
-          comment: HDU checksum created 2016-03-16T05:45:50
+          comment: HDU checksum updated 2018-03-21T06:08:47
       hdu12:
         name: GPSF
-        description: replace me description
+        description: Reconstructed SDSS g point source response profile
         is_image: true
         size: 4 KB
         header:
@@ -1573,13 +1581,13 @@ releases:
           comment: ''
         - key: DATASUM
           value: '155438571'
-          comment: data unit checksum created 2016-03-16T05:45:50
+          comment: data unit checksum updated 2018-03-21T06:08:47
         - key: CHECKSUM
           value: WUAlXR8kWRAkWR5k
-          comment: HDU checksum created 2016-03-16T05:45:50
+          comment: HDU checksum updated 2018-03-21T06:08:47
       hdu13:
         name: RPSF
-        description: replace me description
+        description: Reconstructed SDSS r point source response profile
         is_image: true
         size: 4 KB
         header:
@@ -1663,13 +1671,13 @@ releases:
           comment: ''
         - key: DATASUM
           value: '2924435845'
-          comment: data unit checksum created 2016-03-16T05:45:50
+          comment: data unit checksum updated 2018-03-21T06:08:47
         - key: CHECKSUM
           value: he8Hjd7Hhd7Hhd7H
-          comment: HDU checksum created 2016-03-16T05:45:50
+          comment: HDU checksum updated 2018-03-21T06:08:47
       hdu14:
         name: IPSF
-        description: replace me description
+        description: Reconstructed SDSS i point source response profile
         is_image: true
         size: 4 KB
         header:
@@ -1753,13 +1761,13 @@ releases:
           comment: ''
         - key: DATASUM
           value: '209944077'
-          comment: data unit checksum created 2016-03-16T05:45:50
+          comment: data unit checksum updated 2018-03-21T06:08:47
         - key: CHECKSUM
           value: IVmEKTm9ITmCITm9
-          comment: HDU checksum created 2016-03-16T05:45:50
+          comment: HDU checksum updated 2018-03-21T06:08:47
       hdu15:
         name: ZPSF
-        description: replace me description
+        description: Reconstructed SDSS z point source response profile
         is_image: true
         size: 4 KB
         header:
@@ -1843,10 +1851,10 @@ releases:
           comment: ''
         - key: DATASUM
           value: '3351593320'
-          comment: data unit checksum created 2016-03-16T05:45:50
+          comment: data unit checksum updated 2018-03-21T06:08:47
         - key: CHECKSUM
           value: laZSoXYPlaYPlUYP
-          comment: HDU checksum created 2016-03-16T05:45:50
+          comment: HDU checksum updated 2018-03-21T06:08:47
   DR15:
     template: $MANGA_SPECTRO_REDUX/[DRPVER]/[PLATE]/stack/manga-[PLATE]-[IFU]-[WAVE]CUBE.fits.gz
     example: v2_4_3/8485/stack/manga-8485-1901-LOGCUBE.fits.gz
@@ -1865,7 +1873,7 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: Empty except for global header
         is_image: true
         size: 0 bytes
         header:
@@ -2096,7 +2104,7 @@ releases:
           comment: HDU checksum updated 2018-03-21T06:08:46
       hdu1:
         name: FLUX
-        description: replace me description
+        description: 3d rectified cube in units of 10^{-17} erg/s/cm2/Angstrom/spaxel
         is_image: true
         size: 20 MB
         header:
@@ -2402,7 +2410,7 @@ releases:
           comment: HDU checksum updated 2018-03-21T06:08:47
       hdu2:
         name: IVAR
-        description: replace me description
+        description: Inverse variance cube
         is_image: true
         size: 20 MB
         header:
@@ -2459,7 +2467,7 @@ releases:
           comment: HDU checksum updated 2018-03-21T06:08:47
       hdu3:
         name: MASK
-        description: replace me description
+        description: Pixel mask cube (MANGA_DRP3PIXMASK)
         is_image: true
         size: 20 MB
         header:
@@ -2516,7 +2524,7 @@ releases:
           comment: HDU checksum updated 2018-03-21T06:08:47
       hdu4:
         name: DISP
-        description: replace me description
+        description: Broadened dispersion solution (1sigma LSF in units of Angstroms)
         is_image: true
         size: 20 MB
         header:
@@ -2555,7 +2563,7 @@ releases:
           comment: HDU checksum updated 2018-03-21T06:08:47
       hdu5:
         name: PREDISP
-        description: replace me description
+        description: Broadened pre-pixel dispersion solution (1sigma LSF in Angstroms)
         is_image: true
         size: 20 MB
         header:
@@ -2594,7 +2602,7 @@ releases:
           comment: HDU checksum updated 2018-03-21T06:08:47
       hdu6:
         name: WAVE
-        description: replace me description
+        description: Wavelength vector in units of Angstroms (vacuum heliocentric)
         is_image: true
         size: 35 KB
         header:
@@ -2627,7 +2635,7 @@ releases:
           comment: HDU checksum updated 2018-03-21T06:08:47
       hdu7:
         name: SPECRES
-        description: replace me description
+        description: Median spectral resolution vs wavelength
         is_image: true
         size: 35 KB
         header:
@@ -2660,7 +2668,7 @@ releases:
           comment: HDU checksum updated 2018-03-21T06:08:47
       hdu8:
         name: SPECRESD
-        description: replace me description
+        description: Standard deviation (1-sigma) of spectral resolution vs wavelength
         is_image: true
         size: 35 KB
         header:
@@ -2693,7 +2701,7 @@ releases:
           comment: HDU checksum updated 2018-03-21T06:08:47
       hdu9:
         name: PRESPECRES
-        description: replace me description
+        description: Median pre-pixel spectral resolution vs wavelength
         is_image: true
         size: 35 KB
         header:
@@ -2726,7 +2734,7 @@ releases:
           comment: HDU checksum updated 2018-03-21T06:08:47
       hdu10:
         name: PRESPECRESD
-        description: replace me description
+        description: Standard deviation of pre-pixel spectral resolution vs wavelength
         is_image: true
         size: 35 KB
         header:
@@ -2759,338 +2767,338 @@ releases:
           comment: HDU checksum updated 2018-03-21T06:08:47
       hdu11:
         name: OBSINFO
-        description: replace me description
+        description: Table detailing exposures combined to create this file
         is_image: false
         size: 2 KB
         columns:
           SLITFILE:
             name: SLITFILE
             type: char[25]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           METFILE:
             name: METFILE
             type: char[17]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           HARNAME:
             name: HARNAME
             type: char[5]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           IFUDESIGN:
             name: IFUDESIGN
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           FRLPLUG:
             name: FRLPLUG
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           MANGAID:
             name: MANGAID
             type: char[8]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           AIRTEMP:
             name: AIRTEMP
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           HUMIDITY:
             name: HUMIDITY
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           PRESSURE:
             name: PRESSURE
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           SEEING:
             name: SEEING
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           PSFFAC:
             name: PSFFAC
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           TRANSPAR:
             name: TRANSPAR
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           PLATEID:
             name: PLATEID
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           DESIGNID:
             name: DESIGNID
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           CARTID:
             name: CARTID
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           MJD:
             name: MJD
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           EXPTIME:
             name: EXPTIME
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           EXPNUM:
             name: EXPNUM
             type: char[12]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           SET:
             name: SET
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           MGDPOS:
             name: MGDPOS
             type: char[8]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           MGDRA:
             name: MGDRA
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           MGDDEC:
             name: MGDDEC
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           OMEGASET_U:
             name: OMEGASET_U
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           OMEGASET_G:
             name: OMEGASET_G
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           OMEGASET_R:
             name: OMEGASET_R
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           OMEGASET_I:
             name: OMEGASET_I
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           OMEGASET_Z:
             name: OMEGASET_Z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           EAMFIT_RA:
             name: EAMFIT_RA
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           EAMFIT_DEC:
             name: EAMFIT_DEC
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           EAMFIT_THETA:
             name: EAMFIT_THETA
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           EAMFIT_THETA0:
             name: EAMFIT_THETA0
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           EAMFIT_A:
             name: EAMFIT_A
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           EAMFIT_B:
             name: EAMFIT_B
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           EAMFIT_RAERR:
             name: EAMFIT_RAERR
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           EAMFIT_DECERR:
             name: EAMFIT_DECERR
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           EAMFIT_THETAERR:
             name: EAMFIT_THETAERR
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           EAMFIT_THETA0ERR:
             name: EAMFIT_THETA0ERR
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           EAMFIT_AERR:
             name: EAMFIT_AERR
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           EAMFIT_BERR:
             name: EAMFIT_BERR
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           TAIBEG:
             name: TAIBEG
             type: char[13]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           HADRILL:
             name: HADRILL
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           LSTMID:
             name: LSTMID
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           HAMID:
             name: HAMID
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           AIRMASS:
             name: AIRMASS
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           IFURA:
             name: IFURA
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           IFUDEC:
             name: IFUDEC
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           CENRA:
             name: CENRA
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           CENDEC:
             name: CENDEC
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           XFOCAL:
             name: XFOCAL
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           YFOCAL:
             name: YFOCAL
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           MNGTARG1:
             name: MNGTARG1
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           MNGTARG2:
             name: MNGTARG2
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           MNGTARG3:
             name: MNGTARG3
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           BLUESN2:
             name: BLUESN2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           REDSN2:
             name: REDSN2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           BLUETHRUPT:
             name: BLUETHRUPT
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           REDTHRUPT:
             name: REDTHRUPT
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           BLUEPSTAT:
             name: BLUEPSTAT
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           REDPSTAT:
             name: REDPSTAT
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           DRP2QUAL:
             name: DRP2QUAL
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           THISBADIFU:
             name: THISBADIFU
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           PF_FWHM_G:
             name: PF_FWHM_G
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           PF_FWHM_R:
             name: PF_FWHM_R
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           PF_FWHM_I:
             name: PF_FWHM_I
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           PF_FWHM_Z:
             name: PF_FWHM_Z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
       hdu12:
         name: GIMG
-        description: replace me description
+        description: Broadband SDSS g image created from the data cube
         is_image: true
         size: 4 KB
         header:
@@ -3180,7 +3188,7 @@ releases:
           comment: HDU checksum updated 2018-03-21T06:08:47
       hdu13:
         name: RIMG
-        description: replace me description
+        description: Broadband SDSS r image created from the data cube
         is_image: true
         size: 4 KB
         header:
@@ -3270,7 +3278,7 @@ releases:
           comment: HDU checksum updated 2018-03-21T06:08:47
       hdu14:
         name: IIMG
-        description: replace me description
+        description: Broadband SDSS i image created from the data cube
         is_image: true
         size: 4 KB
         header:
@@ -3360,7 +3368,7 @@ releases:
           comment: HDU checksum updated 2018-03-21T06:08:47
       hdu15:
         name: ZIMG
-        description: replace me description
+        description: Broadband SDSS z image created from the data cube
         is_image: true
         size: 4 KB
         header:
@@ -3450,7 +3458,7 @@ releases:
           comment: HDU checksum updated 2018-03-21T06:08:47
       hdu16:
         name: GPSF
-        description: replace me description
+        description: Reconstructed SDSS g point source response profile
         is_image: true
         size: 4 KB
         header:
@@ -3540,7 +3548,7 @@ releases:
           comment: HDU checksum updated 2018-03-21T06:08:47
       hdu17:
         name: RPSF
-        description: replace me description
+        description: Reconstructed SDSS r point source response profile
         is_image: true
         size: 4 KB
         header:
@@ -3630,7 +3638,7 @@ releases:
           comment: HDU checksum updated 2018-03-21T06:08:47
       hdu18:
         name: IPSF
-        description: replace me description
+        description: Reconstructed SDSS i point source response profile
         is_image: true
         size: 4 KB
         header:
@@ -3720,7 +3728,7 @@ releases:
           comment: HDU checksum updated 2018-03-21T06:08:47
       hdu19:
         name: ZPSF
-        description: replace me description
+        description: Reconstructed SDSS z point source response profile
         is_image: true
         size: 4 KB
         header:
@@ -3810,128 +3818,128 @@ releases:
           comment: HDU checksum updated 2018-03-21T06:08:47
       hdu20:
         name: GCORREL
-        description: replace me description
+        description: g band sparse correlation matrix
         is_image: false
         size: 470 KB
         columns:
           INDXI_C1:
             name: INDXI_C1
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           INDXI_C2:
             name: INDXI_C2
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           INDXJ_C1:
             name: INDXJ_C1
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           INDXJ_C2:
             name: INDXJ_C2
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           RHOIJ:
             name: RHOIJ
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
       hdu21:
         name: RCORREL
-        description: replace me description
+        description: r band sparse correlation matrix
         is_image: false
         size: 490 KB
         columns:
           INDXI_C1:
             name: INDXI_C1
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           INDXI_C2:
             name: INDXI_C2
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           INDXJ_C1:
             name: INDXJ_C1
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           INDXJ_C2:
             name: INDXJ_C2
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           RHOIJ:
             name: RHOIJ
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
       hdu22:
         name: ICORREL
-        description: replace me description
+        description: i band sparse correlation matrix
         is_image: false
         size: 510 KB
         columns:
           INDXI_C1:
             name: INDXI_C1
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           INDXI_C2:
             name: INDXI_C2
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           INDXJ_C1:
             name: INDXJ_C1
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           INDXJ_C2:
             name: INDXJ_C2
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           RHOIJ:
             name: RHOIJ
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
       hdu23:
         name: ZCORREL
-        description: replace me description
+        description: z band sparse correlation matrix
         is_image: false
         size: 519 KB
         columns:
           INDXI_C1:
             name: INDXI_C1
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           INDXI_C2:
             name: INDXI_C2
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           INDXJ_C1:
             name: INDXJ_C1
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           INDXJ_C2:
             name: INDXJ_C2
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           RHOIJ:
             name: RHOIJ
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
   DR16:
     template: $MANGA_SPECTRO_REDUX/[DRPVER]/[PLATE]/stack/manga-[PLATE]-[IFU]-[WAVE]CUBE.fits.gz
     example: v2_4_3/8485/stack/manga-8485-1901-LOGCUBE.fits.gz
@@ -3950,7 +3958,7 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: Empty except for global header
         is_image: true
         size: 0 bytes
         header:
@@ -4181,7 +4189,7 @@ releases:
           comment: HDU checksum updated 2018-03-21T06:08:46
       hdu1:
         name: FLUX
-        description: replace me description
+        description: 3d rectified cube in units of 10^{-17} erg/s/cm2/Angstrom/spaxel
         is_image: true
         size: 20 MB
         header:
@@ -4487,7 +4495,7 @@ releases:
           comment: HDU checksum updated 2018-03-21T06:08:47
       hdu2:
         name: IVAR
-        description: replace me description
+        description: Inverse variance cube
         is_image: true
         size: 20 MB
         header:
@@ -4544,7 +4552,7 @@ releases:
           comment: HDU checksum updated 2018-03-21T06:08:47
       hdu3:
         name: MASK
-        description: replace me description
+        description: Pixel mask cube (MANGA_DRP3PIXMASK)
         is_image: true
         size: 20 MB
         header:
@@ -4601,7 +4609,7 @@ releases:
           comment: HDU checksum updated 2018-03-21T06:08:47
       hdu4:
         name: DISP
-        description: replace me description
+        description: Broadened dispersion solution (1sigma LSF in units of Angstroms)
         is_image: true
         size: 20 MB
         header:
@@ -4640,7 +4648,7 @@ releases:
           comment: HDU checksum updated 2018-03-21T06:08:47
       hdu5:
         name: PREDISP
-        description: replace me description
+        description: Broadened pre-pixel dispersion solution (1sigma LSF in Angstroms)
         is_image: true
         size: 20 MB
         header:
@@ -4679,7 +4687,7 @@ releases:
           comment: HDU checksum updated 2018-03-21T06:08:47
       hdu6:
         name: WAVE
-        description: replace me description
+        description: Wavelength vector in units of Angstroms (vacuum heliocentric)
         is_image: true
         size: 35 KB
         header:
@@ -4712,7 +4720,7 @@ releases:
           comment: HDU checksum updated 2018-03-21T06:08:47
       hdu7:
         name: SPECRES
-        description: replace me description
+        description: Median spectral resolution vs wavelength
         is_image: true
         size: 35 KB
         header:
@@ -4745,7 +4753,7 @@ releases:
           comment: HDU checksum updated 2018-03-21T06:08:47
       hdu8:
         name: SPECRESD
-        description: replace me description
+        description: Standard deviation (1-sigma) of spectral resolution vs wavelength
         is_image: true
         size: 35 KB
         header:
@@ -4778,7 +4786,7 @@ releases:
           comment: HDU checksum updated 2018-03-21T06:08:47
       hdu9:
         name: PRESPECRES
-        description: replace me description
+        description: Median pre-pixel spectral resolution vs wavelength
         is_image: true
         size: 35 KB
         header:
@@ -4811,7 +4819,7 @@ releases:
           comment: HDU checksum updated 2018-03-21T06:08:47
       hdu10:
         name: PRESPECRESD
-        description: replace me description
+        description: Standard deviation of pre-pixel spectral resolution vs wavelength
         is_image: true
         size: 35 KB
         header:
@@ -4844,338 +4852,338 @@ releases:
           comment: HDU checksum updated 2018-03-21T06:08:47
       hdu11:
         name: OBSINFO
-        description: replace me description
+        description: Table detailing exposures combined to create this file
         is_image: false
         size: 2 KB
         columns:
           SLITFILE:
             name: SLITFILE
             type: char[25]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           METFILE:
             name: METFILE
             type: char[17]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           HARNAME:
             name: HARNAME
             type: char[5]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           IFUDESIGN:
             name: IFUDESIGN
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           FRLPLUG:
             name: FRLPLUG
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           MANGAID:
             name: MANGAID
             type: char[8]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           AIRTEMP:
             name: AIRTEMP
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           HUMIDITY:
             name: HUMIDITY
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           PRESSURE:
             name: PRESSURE
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           SEEING:
             name: SEEING
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           PSFFAC:
             name: PSFFAC
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           TRANSPAR:
             name: TRANSPAR
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           PLATEID:
             name: PLATEID
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           DESIGNID:
             name: DESIGNID
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           CARTID:
             name: CARTID
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           MJD:
             name: MJD
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           EXPTIME:
             name: EXPTIME
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           EXPNUM:
             name: EXPNUM
             type: char[12]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           SET:
             name: SET
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           MGDPOS:
             name: MGDPOS
             type: char[8]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           MGDRA:
             name: MGDRA
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           MGDDEC:
             name: MGDDEC
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           OMEGASET_U:
             name: OMEGASET_U
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           OMEGASET_G:
             name: OMEGASET_G
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           OMEGASET_R:
             name: OMEGASET_R
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           OMEGASET_I:
             name: OMEGASET_I
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           OMEGASET_Z:
             name: OMEGASET_Z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           EAMFIT_RA:
             name: EAMFIT_RA
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           EAMFIT_DEC:
             name: EAMFIT_DEC
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           EAMFIT_THETA:
             name: EAMFIT_THETA
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           EAMFIT_THETA0:
             name: EAMFIT_THETA0
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           EAMFIT_A:
             name: EAMFIT_A
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           EAMFIT_B:
             name: EAMFIT_B
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           EAMFIT_RAERR:
             name: EAMFIT_RAERR
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           EAMFIT_DECERR:
             name: EAMFIT_DECERR
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           EAMFIT_THETAERR:
             name: EAMFIT_THETAERR
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           EAMFIT_THETA0ERR:
             name: EAMFIT_THETA0ERR
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           EAMFIT_AERR:
             name: EAMFIT_AERR
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           EAMFIT_BERR:
             name: EAMFIT_BERR
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           TAIBEG:
             name: TAIBEG
             type: char[13]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           HADRILL:
             name: HADRILL
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           LSTMID:
             name: LSTMID
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           HAMID:
             name: HAMID
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           AIRMASS:
             name: AIRMASS
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           IFURA:
             name: IFURA
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           IFUDEC:
             name: IFUDEC
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           CENRA:
             name: CENRA
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           CENDEC:
             name: CENDEC
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           XFOCAL:
             name: XFOCAL
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           YFOCAL:
             name: YFOCAL
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           MNGTARG1:
             name: MNGTARG1
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           MNGTARG2:
             name: MNGTARG2
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           MNGTARG3:
             name: MNGTARG3
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           BLUESN2:
             name: BLUESN2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           REDSN2:
             name: REDSN2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           BLUETHRUPT:
             name: BLUETHRUPT
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           REDTHRUPT:
             name: REDTHRUPT
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           BLUEPSTAT:
             name: BLUEPSTAT
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           REDPSTAT:
             name: REDPSTAT
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           DRP2QUAL:
             name: DRP2QUAL
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           THISBADIFU:
             name: THISBADIFU
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           PF_FWHM_G:
             name: PF_FWHM_G
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           PF_FWHM_R:
             name: PF_FWHM_R
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           PF_FWHM_I:
             name: PF_FWHM_I
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           PF_FWHM_Z:
             name: PF_FWHM_Z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
       hdu12:
         name: GIMG
-        description: replace me description
+        description: Broadband SDSS g image created from the data cube
         is_image: true
         size: 4 KB
         header:
@@ -5265,7 +5273,7 @@ releases:
           comment: HDU checksum updated 2018-03-21T06:08:47
       hdu13:
         name: RIMG
-        description: replace me description
+        description: Broadband SDSS r image created from the data cube
         is_image: true
         size: 4 KB
         header:
@@ -5355,7 +5363,7 @@ releases:
           comment: HDU checksum updated 2018-03-21T06:08:47
       hdu14:
         name: IIMG
-        description: replace me description
+        description: Broadband SDSS i image created from the data cube
         is_image: true
         size: 4 KB
         header:
@@ -5445,7 +5453,7 @@ releases:
           comment: HDU checksum updated 2018-03-21T06:08:47
       hdu15:
         name: ZIMG
-        description: replace me description
+        description: Broadband SDSS z image created from the data cube
         is_image: true
         size: 4 KB
         header:
@@ -5535,7 +5543,7 @@ releases:
           comment: HDU checksum updated 2018-03-21T06:08:47
       hdu16:
         name: GPSF
-        description: replace me description
+        description: Reconstructed SDSS g point source response profile
         is_image: true
         size: 4 KB
         header:
@@ -5625,7 +5633,7 @@ releases:
           comment: HDU checksum updated 2018-03-21T06:08:47
       hdu17:
         name: RPSF
-        description: replace me description
+        description: Reconstructed SDSS r point source response profile
         is_image: true
         size: 4 KB
         header:
@@ -5715,7 +5723,7 @@ releases:
           comment: HDU checksum updated 2018-03-21T06:08:47
       hdu18:
         name: IPSF
-        description: replace me description
+        description: Reconstructed SDSS i point source response profile
         is_image: true
         size: 4 KB
         header:
@@ -5805,7 +5813,7 @@ releases:
           comment: HDU checksum updated 2018-03-21T06:08:47
       hdu19:
         name: ZPSF
-        description: replace me description
+        description: Reconstructed SDSS z point source response profile
         is_image: true
         size: 4 KB
         header:
@@ -5895,128 +5903,128 @@ releases:
           comment: HDU checksum updated 2018-03-21T06:08:47
       hdu20:
         name: GCORREL
-        description: replace me description
+        description: g band sparse correlation matrix
         is_image: false
         size: 470 KB
         columns:
           INDXI_C1:
             name: INDXI_C1
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           INDXI_C2:
             name: INDXI_C2
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           INDXJ_C1:
             name: INDXJ_C1
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           INDXJ_C2:
             name: INDXJ_C2
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           RHOIJ:
             name: RHOIJ
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
       hdu21:
         name: RCORREL
-        description: replace me description
+        description: r band sparse correlation matrix
         is_image: false
         size: 490 KB
         columns:
           INDXI_C1:
             name: INDXI_C1
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           INDXI_C2:
             name: INDXI_C2
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           INDXJ_C1:
             name: INDXJ_C1
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           INDXJ_C2:
             name: INDXJ_C2
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           RHOIJ:
             name: RHOIJ
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
       hdu22:
         name: ICORREL
-        description: replace me description
+        description: i band sparse correlation matrix
         is_image: false
         size: 510 KB
         columns:
           INDXI_C1:
             name: INDXI_C1
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           INDXI_C2:
             name: INDXI_C2
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           INDXJ_C1:
             name: INDXJ_C1
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           INDXJ_C2:
             name: INDXJ_C2
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           RHOIJ:
             name: RHOIJ
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
       hdu23:
         name: ZCORREL
-        description: replace me description
+        description: z band sparse correlation matrix
         is_image: false
         size: 519 KB
         columns:
           INDXI_C1:
             name: INDXI_C1
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           INDXI_C2:
             name: INDXI_C2
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           INDXJ_C1:
             name: INDXJ_C1
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           INDXJ_C2:
             name: INDXJ_C2
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           RHOIJ:
             name: RHOIJ
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
   WORK:
     template: $MANGA_SPECTRO_REDUX/[DRPVER]/[PLATE]/stack/manga-[PLATE]-[IFU]-[WAVE]CUBE.fits.gz
     example: v3_1_1/8485/stack/manga-8485-1901-LOGCUBE.fits.gz
@@ -6035,7 +6043,7 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: Empty except for global header
         is_image: true
         size: 0 bytes
         header:
@@ -6260,13 +6268,13 @@ releases:
           comment: Reconstructed FWHM in z-band (arcsec)
         - key: DATASUM
           value: '0'
-          comment: data unit checksum updated 2020-12-03T14:10:52
+          comment: data unit checksum updated 2018-03-21T06:08:46
         - key: CHECKSUM
           value: ZDAicC6fZCAfbC5f
-          comment: HDU checksum updated 2020-12-03T14:10:52
+          comment: HDU checksum updated 2018-03-21T06:08:46
       hdu1:
         name: FLUX
-        description: replace me description
+        description: 3d rectified cube in units of 10^{-17} erg/s/cm2/Angstrom/spaxel
         is_image: true
         size: 20 MB
         header:
@@ -6566,13 +6574,13 @@ releases:
           comment: ''
         - key: DATASUM
           value: '3419504613'
-          comment: data unit checksum updated 2020-12-03T14:10:52
+          comment: data unit checksum updated 2018-03-21T06:08:47
         - key: CHECKSUM
           value: EcA8HZ77EbA7EZ77
-          comment: HDU checksum updated 2020-12-03T14:10:52
+          comment: HDU checksum updated 2018-03-21T06:08:47
       hdu2:
         name: IVAR
-        description: replace me description
+        description: Inverse variance cube
         is_image: true
         size: 20 MB
         header:
@@ -6623,13 +6631,13 @@ releases:
           comment: ''
         - key: DATASUM
           value: '1277775060'
-          comment: data unit checksum updated 2020-12-03T14:10:52
+          comment: data unit checksum updated 2018-03-21T06:08:47
         - key: CHECKSUM
           value: 2eWN2cVL2cVL2cVL
-          comment: HDU checksum updated 2020-12-03T14:10:52
+          comment: HDU checksum updated 2018-03-21T06:08:47
       hdu3:
         name: MASK
-        description: replace me description
+        description: Pixel mask cube (MANGA_DRP3PIXMASK)
         is_image: true
         size: 20 MB
         header:
@@ -6680,10 +6688,10 @@ releases:
           comment: ''
         - key: DATASUM
           value: '3549544854'
-          comment: data unit checksum updated 2020-12-03T14:10:52
+          comment: data unit checksum updated 2018-03-21T06:08:47
         - key: CHECKSUM
           value: HmaEHlRCHlXCHlXC
-          comment: HDU checksum updated 2020-12-03T14:10:52
+          comment: HDU checksum updated 2018-03-21T06:08:47
       hdu4:
         name: LSFPOST
         description: replace me description
@@ -6764,7 +6772,7 @@ releases:
           comment: HDU checksum updated 2020-12-03T14:10:52
       hdu6:
         name: WAVE
-        description: replace me description
+        description: Wavelength vector in units of Angstroms (vacuum heliocentric)
         is_image: true
         size: 35 KB
         header:
@@ -6791,13 +6799,13 @@ releases:
           comment: ''
         - key: DATASUM
           value: '3938867060'
-          comment: data unit checksum updated 2020-12-03T14:10:52
+          comment: data unit checksum updated 2018-03-21T06:08:47
         - key: CHECKSUM
           value: fM9XhL8UfL8UfL8U
-          comment: HDU checksum updated 2020-12-03T14:10:52
+          comment: HDU checksum updated 2018-03-21T06:08:47
       hdu7:
         name: SPECRES
-        description: replace me description
+        description: Median spectral resolution vs wavelength
         is_image: true
         size: 35 KB
         header:
@@ -6824,13 +6832,13 @@ releases:
           comment: ''
         - key: DATASUM
           value: '1977825716'
-          comment: data unit checksum updated 2020-12-03T14:10:52
+          comment: data unit checksum updated 2018-03-21T06:08:47
         - key: CHECKSUM
           value: LahaOXhXLahaLUhW
-          comment: HDU checksum updated 2020-12-03T14:10:52
+          comment: HDU checksum updated 2018-03-21T06:08:47
       hdu8:
         name: SPECRESD
-        description: replace me description
+        description: Standard deviation (1-sigma) of spectral resolution vs wavelength
         is_image: true
         size: 35 KB
         header:
@@ -6857,13 +6865,13 @@ releases:
           comment: ''
         - key: DATASUM
           value: '2027792159'
-          comment: data unit checksum updated 2020-12-03T14:10:52
+          comment: data unit checksum updated 2018-03-21T06:08:47
         - key: CHECKSUM
           value: 1amA1Vk31Zk91Zk9
-          comment: HDU checksum updated 2020-12-03T14:10:52
+          comment: HDU checksum updated 2018-03-21T06:08:47
       hdu9:
         name: PRESPECRES
-        description: replace me description
+        description: Median pre-pixel spectral resolution vs wavelength
         is_image: true
         size: 35 KB
         header:
@@ -6890,13 +6898,13 @@ releases:
           comment: ''
         - key: DATASUM
           value: '148713936'
-          comment: data unit checksum updated 2020-12-03T14:10:52
+          comment: data unit checksum updated 2018-03-21T06:08:47
         - key: CHECKSUM
           value: 9pmQGnlN9nlNGnlN
-          comment: HDU checksum updated 2020-12-03T14:10:52
+          comment: HDU checksum updated 2018-03-21T06:08:47
       hdu10:
         name: PRESPECRESD
-        description: replace me description
+        description: Standard deviation of pre-pixel spectral resolution vs wavelength
         is_image: true
         size: 35 KB
         header:
@@ -6923,344 +6931,344 @@ releases:
           comment: ''
         - key: DATASUM
           value: '1057163473'
-          comment: data unit checksum updated 2020-12-03T14:10:52
+          comment: data unit checksum updated 2018-03-21T06:08:47
         - key: CHECKSUM
           value: 9caWGZWW9baWEZWW
-          comment: HDU checksum updated 2020-12-03T14:10:52
+          comment: HDU checksum updated 2018-03-21T06:08:47
       hdu11:
         name: OBSINFO
-        description: replace me description
+        description: Table detailing exposures combined to create this file
         is_image: false
         size: 2 KB
         columns:
           SLITFILE:
             name: SLITFILE
             type: char[25]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           METFILE:
             name: METFILE
             type: char[17]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           HARNAME:
             name: HARNAME
             type: char[5]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           IFUDESIGN:
             name: IFUDESIGN
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           FRLPLUG:
             name: FRLPLUG
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           MANGAID:
             name: MANGAID
             type: char[8]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           AIRTEMP:
             name: AIRTEMP
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           HUMIDITY:
             name: HUMIDITY
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           PRESSURE:
             name: PRESSURE
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           SEEING:
             name: SEEING
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           PSFFAC:
             name: PSFFAC
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           TRANSPAR:
             name: TRANSPAR
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           PLATEID:
             name: PLATEID
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           DESIGNID:
             name: DESIGNID
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           CARTID:
             name: CARTID
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           MJD:
             name: MJD
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           EXPTIME:
             name: EXPTIME
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           EXPNUM:
             name: EXPNUM
             type: char[12]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           SET:
             name: SET
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           MGDPOS:
             name: MGDPOS
             type: char[8]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           MGDRA:
             name: MGDRA
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           MGDDEC:
             name: MGDDEC
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           OMEGASET_U:
             name: OMEGASET_U
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           OMEGASET_G:
             name: OMEGASET_G
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           OMEGASET_R:
             name: OMEGASET_R
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           OMEGASET_I:
             name: OMEGASET_I
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           OMEGASET_Z:
             name: OMEGASET_Z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           EAMFIT_RA:
             name: EAMFIT_RA
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           EAMFIT_DEC:
             name: EAMFIT_DEC
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           EAMFIT_THETA:
             name: EAMFIT_THETA
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           EAMFIT_THETA0:
             name: EAMFIT_THETA0
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           EAMFIT_A:
             name: EAMFIT_A
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           EAMFIT_B:
             name: EAMFIT_B
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           EAMFIT_RAERR:
             name: EAMFIT_RAERR
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           EAMFIT_DECERR:
             name: EAMFIT_DECERR
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           EAMFIT_THETAERR:
             name: EAMFIT_THETAERR
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           EAMFIT_THETA0ERR:
             name: EAMFIT_THETA0ERR
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           EAMFIT_AERR:
             name: EAMFIT_AERR
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           EAMFIT_BERR:
             name: EAMFIT_BERR
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           TAIBEG:
             name: TAIBEG
             type: char[13]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           HADRILL:
             name: HADRILL
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           LSTMID:
             name: LSTMID
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           HAMID:
             name: HAMID
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           AIRMASS:
             name: AIRMASS
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           IFURA:
             name: IFURA
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           IFUDEC:
             name: IFUDEC
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           CENRA:
             name: CENRA
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           CENDEC:
             name: CENDEC
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           XFOCAL:
             name: XFOCAL
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           YFOCAL:
             name: YFOCAL
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           MNGTARG1:
             name: MNGTARG1
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           MNGTARG2:
             name: MNGTARG2
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           MNGTARG3:
             name: MNGTARG3
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           BLUESN2:
             name: BLUESN2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           REDSN2:
             name: REDSN2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           BLUETHRUPT:
             name: BLUETHRUPT
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           REDTHRUPT:
             name: REDTHRUPT
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           BLUEPSTAT:
             name: BLUEPSTAT
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           REDPSTAT:
             name: REDPSTAT
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           DRP2QUAL:
             name: DRP2QUAL
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           THISBADIFU:
             name: THISBADIFU
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           PF_FWHM_G:
             name: PF_FWHM_G
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           PF_FWHM_R:
             name: PF_FWHM_R
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           PF_FWHM_I:
             name: PF_FWHM_I
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           PF_FWHM_Z:
             name: PF_FWHM_Z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
       hdu12:
         name: GIMG
-        description: replace me description
+        description: Broadband SDSS g image created from the data cube
         is_image: true
         size: 4 KB
         header:
@@ -7344,13 +7352,13 @@ releases:
           comment: ''
         - key: DATASUM
           value: '292266209'
-          comment: data unit checksum updated 2020-12-03T14:10:52
+          comment: data unit checksum updated 2018-03-21T06:08:47
         - key: CHECKSUM
           value: ohPNpePLoePLoePL
-          comment: HDU checksum updated 2020-12-03T14:10:52
+          comment: HDU checksum updated 2018-03-21T06:08:47
       hdu13:
         name: RIMG
-        description: replace me description
+        description: Broadband SDSS r image created from the data cube
         is_image: true
         size: 4 KB
         header:
@@ -7434,13 +7442,13 @@ releases:
           comment: ''
         - key: DATASUM
           value: '3481844556'
-          comment: data unit checksum updated 2020-12-03T14:10:52
+          comment: data unit checksum updated 2018-03-21T06:08:47
         - key: CHECKSUM
           value: O2GEO1DEO1DEO1DE
-          comment: HDU checksum updated 2020-12-03T14:10:52
+          comment: HDU checksum updated 2018-03-21T06:08:47
       hdu14:
         name: IIMG
-        description: replace me description
+        description: Broadband SDSS i image created from the data cube
         is_image: true
         size: 4 KB
         header:
@@ -7524,13 +7532,13 @@ releases:
           comment: ''
         - key: DATASUM
           value: '760501147'
-          comment: data unit checksum updated 2020-12-03T14:10:52
+          comment: data unit checksum updated 2018-03-21T06:08:47
         - key: CHECKSUM
           value: 9gVdGZVZ9dVbGZVZ
-          comment: HDU checksum updated 2020-12-03T14:10:52
+          comment: HDU checksum updated 2018-03-21T06:08:47
       hdu15:
         name: ZIMG
-        description: replace me description
+        description: Broadband SDSS z image created from the data cube
         is_image: true
         size: 4 KB
         header:
@@ -7614,13 +7622,13 @@ releases:
           comment: ''
         - key: DATASUM
           value: '773438385'
-          comment: data unit checksum updated 2020-12-03T14:10:52
+          comment: data unit checksum updated 2018-03-21T06:08:47
         - key: CHECKSUM
           value: 1ZeE4XcD1XcD1XcD
-          comment: HDU checksum updated 2020-12-03T14:10:52
+          comment: HDU checksum updated 2018-03-21T06:08:47
       hdu16:
         name: GPSF
-        description: replace me description
+        description: Reconstructed SDSS g point source response profile
         is_image: true
         size: 4 KB
         header:
@@ -7704,13 +7712,13 @@ releases:
           comment: ''
         - key: DATASUM
           value: '1694219823'
-          comment: data unit checksum updated 2020-12-03T14:10:52
+          comment: data unit checksum updated 2018-03-21T06:08:47
         - key: CHECKSUM
           value: ZNfCeNeCZNeCbNeC
-          comment: HDU checksum updated 2020-12-03T14:10:52
+          comment: HDU checksum updated 2018-03-21T06:08:47
       hdu17:
         name: RPSF
-        description: replace me description
+        description: Reconstructed SDSS r point source response profile
         is_image: true
         size: 4 KB
         header:
@@ -7794,13 +7802,13 @@ releases:
           comment: ''
         - key: DATASUM
           value: '4152361962'
-          comment: data unit checksum updated 2020-12-03T14:10:52
+          comment: data unit checksum updated 2018-03-21T06:08:47
         - key: CHECKSUM
           value: hiG4hfG1hfG1hfG1
-          comment: HDU checksum updated 2020-12-03T14:10:52
+          comment: HDU checksum updated 2018-03-21T06:08:47
       hdu18:
         name: IPSF
-        description: replace me description
+        description: Reconstructed SDSS i point source response profile
         is_image: true
         size: 4 KB
         header:
@@ -7884,13 +7892,13 @@ releases:
           comment: ''
         - key: DATASUM
           value: '2159142615'
-          comment: data unit checksum updated 2020-12-03T14:10:52
+          comment: data unit checksum updated 2018-03-21T06:08:47
         - key: CHECKSUM
           value: 3GAA5F313FA83F38
-          comment: HDU checksum updated 2020-12-03T14:10:52
+          comment: HDU checksum updated 2018-03-21T06:08:47
       hdu19:
         name: ZPSF
-        description: replace me description
+        description: Reconstructed SDSS z point source response profile
         is_image: true
         size: 4 KB
         header:
@@ -7974,131 +7982,131 @@ releases:
           comment: ''
         - key: DATASUM
           value: '79865959'
-          comment: data unit checksum updated 2020-12-03T14:10:52
+          comment: data unit checksum updated 2018-03-21T06:08:47
         - key: CHECKSUM
           value: Gc6JHb6HGb6HGb6H
-          comment: HDU checksum updated 2020-12-03T14:10:52
+          comment: HDU checksum updated 2018-03-21T06:08:47
       hdu20:
         name: GCORREL
-        description: replace me description
+        description: g band sparse correlation matrix
         is_image: false
         size: 459 KB
         columns:
           INDXI_C1:
             name: INDXI_C1
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           INDXI_C2:
             name: INDXI_C2
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           INDXJ_C1:
             name: INDXJ_C1
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           INDXJ_C2:
             name: INDXJ_C2
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           RHOIJ:
             name: RHOIJ
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
       hdu21:
         name: RCORREL
-        description: replace me description
+        description: r band sparse correlation matrix
         is_image: false
         size: 479 KB
         columns:
           INDXI_C1:
             name: INDXI_C1
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           INDXI_C2:
             name: INDXI_C2
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           INDXJ_C1:
             name: INDXJ_C1
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           INDXJ_C2:
             name: INDXJ_C2
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           RHOIJ:
             name: RHOIJ
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
       hdu22:
         name: ICORREL
-        description: replace me description
+        description: i band sparse correlation matrix
         is_image: false
         size: 495 KB
         columns:
           INDXI_C1:
             name: INDXI_C1
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           INDXI_C2:
             name: INDXI_C2
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           INDXJ_C1:
             name: INDXJ_C1
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           INDXJ_C2:
             name: INDXJ_C2
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           RHOIJ:
             name: RHOIJ
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
       hdu23:
         name: ZCORREL
-        description: replace me description
+        description: z band sparse correlation matrix
         is_image: false
         size: 500 KB
         columns:
           INDXI_C1:
             name: INDXI_C1
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           INDXI_C2:
             name: INDXI_C2
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           INDXJ_C1:
             name: INDXJ_C1
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           INDXJ_C2:
             name: INDXJ_C2
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
           RHOIJ:
             name: RHOIJ
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ''
