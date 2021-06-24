@@ -3,9 +3,9 @@ general:
   short: replace me - with a short one sentence summary of file
   description: replace me - with a longer description of the data product
   datatype: FITS
-  filesize: 37 MB
+  filesize: 20 MB
   releases:
-  - WORK
+  - DR13
   environments:
   - MANGA_SPECTRO_REDUX
   naming_convention: replace me - with $MANGA_SPECTRO_REDUX/[DRPVER]/[PLATE]/stack/manga-[PLATE]-[IFU]-[WAVE]CUBE.fits.gz
@@ -17,9 +17,9 @@ changelog:
     one release to another
   releases: {}
 releases:
-  WORK:
+  DR13:
     template: $MANGA_SPECTRO_REDUX/[DRPVER]/[PLATE]/stack/manga-[PLATE]-[IFU]-[WAVE]CUBE.fits.gz
-    example: v3_1_1/8485/stack/manga-8485-1901-LOGCUBE.fits.gz
+    example: v1_5_4/8485/stack/manga-8485-1901-LOGCUBE.fits.gz
     location: '{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}CUBE.fits.gz'
     environment: MANGA_SPECTRO_REDUX
     access:
@@ -27,10 +27,10 @@ releases:
       path_name: mangacube
       path_template: $MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}CUBE.fits.gz
       path_kwargs:
-      - ifu
       - wave
       - plate
       - drpver
+      - ifu
       access_string: mangaCube = $MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}CUBE.fits.gz
     hdus:
       hdu0:
@@ -41,7 +41,7 @@ releases:
         header:
         - key: SIMPLE
           value: true
-          comment: ''
+          comment: Primary Header created by MWRFITS v1.11
         - key: BITPIX
           value: 8
           comment: ''
@@ -50,30 +50,30 @@ releases:
           comment: ''
         - key: EXTEND
           value: true
-          comment: ''
+          comment: Extensions may be present
         - key: AUTHOR
-          value: Brian Cherinka & David Law <bcherinka@stsci.edu, dlaw@stsci.edu>
+          value: Brian Cherinka & David Law <bcherin1@jhu.edu, dlaw@stsci.edu>
           comment: ''
         - key: VERSDRP2
-          value: v3_1_1
+          value: v1_5_4
           comment: MaNGA DRP version (2d processing)
         - key: VERSDRP3
-          value: v3_1_1
+          value: v1_5_4
           comment: MaNGA DRP Version (3d processing)
         - key: VERSPLDS
-          value: v5_1
+          value: v2_52
           comment: Platedesign Version
         - key: VERSFLAT
-          value: v1_33
+          value: v1_26
           comment: Specflat Version
         - key: VERSCORE
-          value: v1_9_1
+          value: v1_2_3
           comment: MaNGAcore Version
         - key: VERSPRIM
-          value: v2_9
+          value: v2_1
           comment: MaNGA Preimaging Version
         - key: VERSUTIL
-          value: v5_5_36
+          value: v5_5_23
           comment: Version of idlutils
         - key: VERSIDL
           value: x86_64 linux unix linux 7.1.1 Aug 21 2009 64 64
@@ -85,7 +85,7 @@ releases:
           value: 0.0
           comment: Intensity zeropoint
         - key: BUNIT
-          value: 1E-17 erg/s/cm^2/Angstrom/spaxel
+          value: 1E-17 erg/s/cm^2/Ang/spaxel
           comment: Specific intensity (per spaxel)
         - key: MASKNAME
           value: MANGA_DRP3PIXMASK
@@ -108,14 +108,11 @@ releases:
         - key: EQUINOX
           value: 2000.0
           comment: ''
-        - key: RADESYS
+        - key: RADESYSA
           value: FK5
           comment: ''
         - key: LAMPLIST
           value: lamphgcdne.dat
-          comment: ''
-        - key: TPLDATA
-          value: BOSZ_3000-11000A.fits
           comment: ''
         - key: NEXP
           value: 9
@@ -124,10 +121,10 @@ releases:
           value: 8100.87
           comment: Total exposure time (seconds)
         - key: BLUESN2
-          value: 18.6492
+          value: 19.9926
           comment: Total SN2 in blue channel
         - key: REDSN2
-          value: 39.4486
+          value: 42.6726
           comment: Total SN2 in red channel
         - key: AIRMSMIN
           value: 1.03987
@@ -139,22 +136,22 @@ releases:
           value: 1.08221
           comment: Maximum airmass
         - key: SEEMIN
-          value: 1.17605
+          value: 1.1734
           comment: Best guider seeing
         - key: SEEMED
-          value: 1.30563
+          value: 1.301
           comment: Median guider seeing
         - key: SEEMAX
-          value: 1.42456
+          value: 1.41758
           comment: Worst guider seeing
         - key: TRANSMIN
-          value: 0.80467
+          value: 0.756717
           comment: Worst guider transparency
         - key: TRANSMED
-          value: 0.831482
+          value: 0.773193
           comment: Median guider transparency
         - key: TRANSMAX
-          value: 0.839711
+          value: 0.789093
           comment: Best guider transparency
         - key: MJDMIN
           value: 57132
@@ -169,10 +166,10 @@ releases:
           value: '2015-04-20'
           comment: Date of median exposure
         - key: MJDRED
-          value: 59186
+          value: 57463
           comment: MJD of the reduction
         - key: DATERED
-          value: '2020-12-03'
+          value: '2016-03-16'
           comment: Date of the reduction
         - key: MNGTARG1
           value: 2336
@@ -223,7 +220,7 @@ releases:
           value: ma060
           comment: Harness name(s)
         - key: METFILE
-          value: ma060-56887-3.par
+          value: ma060-56887-1.par
           comment: IFU metrology file(s)
         - key: MANGAID
           value: 1-209232
@@ -235,7 +232,7 @@ releases:
           value: plateTargets-1.par
           comment: plateTarget reference file
         - key: DRP3QUAL
-          value: 0
+          value: 1
           comment: DRP-3d quality bitmask
         - key: IFUGLON
           value: 78.9550411299
@@ -247,23 +244,20 @@ releases:
           value: 0.0144335
           comment: Galactic reddening E(B-V)
         - key: GFWHM
-          value: 2.4364
+          value: 2.47074
           comment: Reconstructed FWHM in g-band (arcsec)
         - key: RFWHM
-          value: 2.43751
+          value: 2.47547
           comment: Reconstructed FWHM in r-band (arcsec)
         - key: IFWHM
-          value: 2.42862
+          value: 2.45931
           comment: Reconstructed FWHM in i-band (arcsec)
         - key: ZFWHM
-          value: 2.40892
+          value: 2.44198
           comment: Reconstructed FWHM in z-band (arcsec)
-        - key: DATASUM
-          value: '0'
-          comment: data unit checksum updated 2020-12-03T14:10:52
         - key: CHECKSUM
-          value: ZDAicC6fZCAfbC5f
-          comment: HDU checksum updated 2020-12-03T14:10:52
+          value: Z28Hh16HZ16Hf16H
+          comment: HDU checksum created 2016-03-16T05:45:49
       hdu1:
         name: FLUX
         description: replace me description
@@ -295,28 +289,28 @@ releases:
           value: 1
           comment: One Data Group
         - key: AUTHOR
-          value: Brian Cherinka & David Law <bcherinka@stsci.edu, dlaw@stsci.edu>
+          value: Brian Cherinka & David Law <bcherin1@jhu.edu, dlaw@stsci.edu>
           comment: ''
         - key: VERSDRP2
-          value: v3_1_1
+          value: v1_5_4
           comment: MaNGA DRP version (2d processing)
         - key: VERSDRP3
-          value: v3_1_1
+          value: v1_5_4
           comment: MaNGA DRP Version (3d processing)
         - key: VERSPLDS
-          value: v5_1
+          value: v2_52
           comment: Platedesign Version
         - key: VERSFLAT
-          value: v1_33
+          value: v1_26
           comment: Specflat Version
         - key: VERSCORE
-          value: v1_9_1
+          value: v1_2_3
           comment: MaNGAcore Version
         - key: VERSPRIM
-          value: v2_9
+          value: v2_1
           comment: MaNGA Preimaging Version
         - key: VERSUTIL
-          value: v5_5_36
+          value: v5_5_23
           comment: Version of idlutils
         - key: VERSIDL
           value: x86_64 linux unix linux 7.1.1 Aug 21 2009 64 64
@@ -328,7 +322,7 @@ releases:
           value: 0.0
           comment: Intensity zeropoint
         - key: BUNIT
-          value: 1E-17 erg/s/cm^2/Angstrom/spaxel
+          value: 1E-17 erg/s/cm^2/Ang/spaxel
           comment: Specific intensity (per spaxel)
         - key: MASKNAME
           value: MANGA_DRP3PIXMASK
@@ -351,14 +345,11 @@ releases:
         - key: EQUINOX
           value: 2000.0
           comment: ''
-        - key: RADESYS
+        - key: RADESYSA
           value: FK5
           comment: ''
         - key: LAMPLIST
           value: lamphgcdne.dat
-          comment: ''
-        - key: TPLDATA
-          value: BOSZ_3000-11000A.fits
           comment: ''
         - key: NEXP
           value: 9
@@ -367,10 +358,10 @@ releases:
           value: 8100.87
           comment: Total exposure time (seconds)
         - key: BLUESN2
-          value: 18.6492
+          value: 19.9926
           comment: Total SN2 in blue channel
         - key: REDSN2
-          value: 39.4486
+          value: 42.6726
           comment: Total SN2 in red channel
         - key: AIRMSMIN
           value: 1.03987
@@ -382,22 +373,22 @@ releases:
           value: 1.08221
           comment: Maximum airmass
         - key: SEEMIN
-          value: 1.17605
+          value: 1.1734
           comment: Best guider seeing
         - key: SEEMED
-          value: 1.30563
+          value: 1.301
           comment: Median guider seeing
         - key: SEEMAX
-          value: 1.42456
+          value: 1.41758
           comment: Worst guider seeing
         - key: TRANSMIN
-          value: 0.80467
+          value: 0.756717
           comment: Worst guider transparency
         - key: TRANSMED
-          value: 0.831482
+          value: 0.773193
           comment: Median guider transparency
         - key: TRANSMAX
-          value: 0.839711
+          value: 0.789093
           comment: Best guider transparency
         - key: MJDMIN
           value: 57132
@@ -412,10 +403,10 @@ releases:
           value: '2015-04-20'
           comment: Date of median exposure
         - key: MJDRED
-          value: 59186
+          value: 57463
           comment: MJD of the reduction
         - key: DATERED
-          value: '2020-12-03'
+          value: '2016-03-16'
           comment: Date of the reduction
         - key: MNGTARG1
           value: 2336
@@ -466,7 +457,7 @@ releases:
           value: ma060
           comment: Harness name(s)
         - key: METFILE
-          value: ma060-56887-3.par
+          value: ma060-56887-1.par
           comment: IFU metrology file(s)
         - key: MANGAID
           value: 1-209232
@@ -478,7 +469,7 @@ releases:
           value: plateTargets-1.par
           comment: plateTarget reference file
         - key: DRP3QUAL
-          value: 0
+          value: 1
           comment: DRP-3d quality bitmask
         - key: IFUGLON
           value: 78.9550411299
@@ -490,16 +481,16 @@ releases:
           value: 0.0144335
           comment: Galactic reddening E(B-V)
         - key: GFWHM
-          value: 2.4364
+          value: 2.47074
           comment: Reconstructed FWHM in g-band (arcsec)
         - key: RFWHM
-          value: 2.43751
+          value: 2.47547
           comment: Reconstructed FWHM in r-band (arcsec)
         - key: IFWHM
-          value: 2.42862
+          value: 2.45931
           comment: Reconstructed FWHM in i-band (arcsec)
         - key: ZFWHM
-          value: 2.40892
+          value: 2.44198
           comment: Reconstructed FWHM in z-band (arcsec)
         - key: CTYPE3
           value: WAVE-LOG
@@ -565,11 +556,11 @@ releases:
           value: FLUX
           comment: ''
         - key: DATASUM
-          value: '3419504613'
-          comment: data unit checksum updated 2020-12-03T14:10:52
+          value: '1126920171'
+          comment: data unit checksum created 2016-03-16T05:45:49
         - key: CHECKSUM
-          value: EcA8HZ77EbA7EZ77
-          comment: HDU checksum updated 2020-12-03T14:10:52
+          value: UjeWahcVXhcVahcV
+          comment: HDU checksum created 2016-03-16T05:45:49
       hdu2:
         name: IVAR
         description: replace me description
@@ -622,11 +613,11 @@ releases:
           value: IVAR
           comment: ''
         - key: DATASUM
-          value: '1277775060'
-          comment: data unit checksum updated 2020-12-03T14:10:52
+          value: '937635896'
+          comment: data unit checksum created 2016-03-16T05:45:49
         - key: CHECKSUM
-          value: 2eWN2cVL2cVL2cVL
-          comment: HDU checksum updated 2020-12-03T14:10:52
+          value: 9XOADUO89UOACUO7
+          comment: HDU checksum created 2016-03-16T05:45:49
       hdu3:
         name: MASK
         description: replace me description
@@ -679,90 +670,12 @@ releases:
           value: MASK
           comment: ''
         - key: DATASUM
-          value: '3549544854'
-          comment: data unit checksum updated 2020-12-03T14:10:52
+          value: '3444429856'
+          comment: data unit checksum created 2016-03-16T05:45:50
         - key: CHECKSUM
-          value: HmaEHlRCHlXCHlXC
-          comment: HDU checksum updated 2020-12-03T14:10:52
+          value: KaOmNUNmKaNmKUNm
+          comment: HDU checksum created 2016-03-16T05:45:50
       hdu4:
-        name: LSFPOST
-        description: replace me description
-        is_image: true
-        size: 20 MB
-        header:
-        - key: XTENSION
-          value: IMAGE
-          comment: IMAGE extension
-        - key: BITPIX
-          value: -32
-          comment: Number of bits per data pixel
-        - key: NAXIS
-          value: 3
-          comment: Number of data axes
-        - key: NAXIS1
-          value: 34
-          comment: ''
-        - key: NAXIS2
-          value: 34
-          comment: ''
-        - key: NAXIS3
-          value: 4563
-          comment: ''
-        - key: PCOUNT
-          value: 0
-          comment: No Group Parameters
-        - key: GCOUNT
-          value: 1
-          comment: One Data Group
-        - key: EXTNAME
-          value: LSFPOST
-          comment: ''
-        - key: DATASUM
-          value: '1071986181'
-          comment: data unit checksum updated 2020-12-03T14:10:52
-        - key: CHECKSUM
-          value: WeCJaZC9ZdCGaZC9
-          comment: HDU checksum updated 2020-12-03T14:10:52
-      hdu5:
-        name: LSFPRE
-        description: replace me description
-        is_image: true
-        size: 20 MB
-        header:
-        - key: XTENSION
-          value: IMAGE
-          comment: IMAGE extension
-        - key: BITPIX
-          value: -32
-          comment: Number of bits per data pixel
-        - key: NAXIS
-          value: 3
-          comment: Number of data axes
-        - key: NAXIS1
-          value: 34
-          comment: ''
-        - key: NAXIS2
-          value: 34
-          comment: ''
-        - key: NAXIS3
-          value: 4563
-          comment: ''
-        - key: PCOUNT
-          value: 0
-          comment: No Group Parameters
-        - key: GCOUNT
-          value: 1
-          comment: One Data Group
-        - key: EXTNAME
-          value: LSFPRE
-          comment: ''
-        - key: DATASUM
-          value: '1702014830'
-          comment: data unit checksum updated 2020-12-03T14:10:52
-        - key: CHECKSUM
-          value: EaqhFSnZEYnfEYnZ
-          comment: HDU checksum updated 2020-12-03T14:10:52
-      hdu6:
         name: WAVE
         description: replace me description
         is_image: true
@@ -791,11 +704,11 @@ releases:
           comment: ''
         - key: DATASUM
           value: '3938867060'
-          comment: data unit checksum updated 2020-12-03T14:10:52
+          comment: data unit checksum created 2016-03-16T05:45:50
         - key: CHECKSUM
-          value: fM9XhL8UfL8UfL8U
-          comment: HDU checksum updated 2020-12-03T14:10:52
-      hdu7:
+          value: L9cEN9ZBL9bBL9ZB
+          comment: HDU checksum created 2016-03-16T05:45:50
+      hdu5:
         name: SPECRES
         description: replace me description
         is_image: true
@@ -823,12 +736,12 @@ releases:
           value: SPECRES
           comment: ''
         - key: DATASUM
-          value: '1977825716'
-          comment: data unit checksum updated 2020-12-03T14:10:52
+          value: '2186998423'
+          comment: data unit checksum created 2016-03-16T05:45:50
         - key: CHECKSUM
-          value: LahaOXhXLahaLUhW
-          comment: HDU checksum updated 2020-12-03T14:10:52
-      hdu8:
+          value: 9HoaAFoW2Foa9FoW
+          comment: HDU checksum created 2016-03-16T05:45:50
+      hdu6:
         name: SPECRESD
         description: replace me description
         is_image: true
@@ -856,78 +769,12 @@ releases:
           value: SPECRESD
           comment: ''
         - key: DATASUM
-          value: '2027792159'
-          comment: data unit checksum updated 2020-12-03T14:10:52
+          value: '3712278083'
+          comment: data unit checksum created 2016-03-16T05:45:50
         - key: CHECKSUM
-          value: 1amA1Vk31Zk91Zk9
-          comment: HDU checksum updated 2020-12-03T14:10:52
-      hdu9:
-        name: PRESPECRES
-        description: replace me description
-        is_image: true
-        size: 35 KB
-        header:
-        - key: XTENSION
-          value: IMAGE
-          comment: IMAGE extension
-        - key: BITPIX
-          value: -64
-          comment: Number of bits per data pixel
-        - key: NAXIS
-          value: 1
-          comment: Number of data axes
-        - key: NAXIS1
-          value: 4563
-          comment: ''
-        - key: PCOUNT
-          value: 0
-          comment: No Group Parameters
-        - key: GCOUNT
-          value: 1
-          comment: One Data Group
-        - key: EXTNAME
-          value: PRESPECRES
-          comment: ''
-        - key: DATASUM
-          value: '148713936'
-          comment: data unit checksum updated 2020-12-03T14:10:52
-        - key: CHECKSUM
-          value: 9pmQGnlN9nlNGnlN
-          comment: HDU checksum updated 2020-12-03T14:10:52
-      hdu10:
-        name: PRESPECRESD
-        description: replace me description
-        is_image: true
-        size: 35 KB
-        header:
-        - key: XTENSION
-          value: IMAGE
-          comment: IMAGE extension
-        - key: BITPIX
-          value: -64
-          comment: Number of bits per data pixel
-        - key: NAXIS
-          value: 1
-          comment: Number of data axes
-        - key: NAXIS1
-          value: 4563
-          comment: ''
-        - key: PCOUNT
-          value: 0
-          comment: No Group Parameters
-        - key: GCOUNT
-          value: 1
-          comment: One Data Group
-        - key: EXTNAME
-          value: PRESPECRESD
-          comment: ''
-        - key: DATASUM
-          value: '1057163473'
-          comment: data unit checksum updated 2020-12-03T14:10:52
-        - key: CHECKSUM
-          value: 9caWGZWW9baWEZWW
-          comment: HDU checksum updated 2020-12-03T14:10:52
-      hdu11:
+          value: No7ZNo6ZNo6ZNo6Z
+          comment: HDU checksum created 2016-03-16T05:45:50
+      hdu7:
         name: OBSINFO
         description: replace me description
         is_image: false
@@ -1208,16 +1055,6 @@ releases:
             type: float32
             unit: replace me - with content
             description: replace me - with content
-          BLUETHRUPT:
-            name: BLUETHRUPT
-            type: float32
-            unit: replace me - with content
-            description: replace me - with content
-          REDTHRUPT:
-            name: REDTHRUPT
-            type: float32
-            unit: replace me - with content
-            description: replace me - with content
           BLUEPSTAT:
             name: BLUEPSTAT
             type: float32
@@ -1258,7 +1095,7 @@ releases:
             type: float32
             unit: replace me - with content
             description: replace me - with content
-      hdu12:
+      hdu8:
         name: GIMG
         description: replace me description
         is_image: true
@@ -1337,18 +1174,18 @@ releases:
           value: nanomaggies/pixel
           comment: ''
         - key: GFWHM
-          value: 2.4364
+          value: 2.47074
           comment: Reconstructed FWHM in g-band (arcsec)
         - key: EXTNAME
           value: GIMG
           comment: ''
         - key: DATASUM
-          value: '292266209'
-          comment: data unit checksum updated 2020-12-03T14:10:52
+          value: '3819912541'
+          comment: data unit checksum created 2016-03-16T05:45:50
         - key: CHECKSUM
-          value: ohPNpePLoePLoePL
-          comment: HDU checksum updated 2020-12-03T14:10:52
-      hdu13:
+          value: 7adPAXbN0abN7WbN
+          comment: HDU checksum created 2016-03-16T05:45:50
+      hdu9:
         name: RIMG
         description: replace me description
         is_image: true
@@ -1427,18 +1264,18 @@ releases:
           value: nanomaggies/pixel
           comment: ''
         - key: RFWHM
-          value: 2.43751
+          value: 2.47547
           comment: Reconstructed FWHM in r-band (arcsec)
         - key: EXTNAME
           value: RIMG
           comment: ''
         - key: DATASUM
-          value: '3481844556'
-          comment: data unit checksum updated 2020-12-03T14:10:52
+          value: '724608471'
+          comment: data unit checksum created 2016-03-16T05:45:50
         - key: CHECKSUM
-          value: O2GEO1DEO1DEO1DE
-          comment: HDU checksum updated 2020-12-03T14:10:52
-      hdu14:
+          value: TMB6WJB4TJB4TJB4
+          comment: HDU checksum created 2016-03-16T05:45:50
+      hdu10:
         name: IIMG
         description: replace me description
         is_image: true
@@ -1517,18 +1354,18 @@ releases:
           value: nanomaggies/pixel
           comment: ''
         - key: IFWHM
-          value: 2.42862
+          value: 2.45931
           comment: Reconstructed FWHM in i-band (arcsec)
         - key: EXTNAME
           value: IIMG
           comment: ''
         - key: DATASUM
-          value: '760501147'
-          comment: data unit checksum updated 2020-12-03T14:10:52
+          value: '2259475696'
+          comment: data unit checksum created 2016-03-16T05:45:50
         - key: CHECKSUM
-          value: 9gVdGZVZ9dVbGZVZ
-          comment: HDU checksum updated 2020-12-03T14:10:52
-      hdu15:
+          value: P5biQ2bfP2bfP2bf
+          comment: HDU checksum created 2016-03-16T05:45:50
+      hdu11:
         name: ZIMG
         description: replace me description
         is_image: true
@@ -1607,18 +1444,18 @@ releases:
           value: nanomaggies/pixel
           comment: ''
         - key: ZFWHM
-          value: 2.40892
+          value: 2.44198
           comment: Reconstructed FWHM in z-band (arcsec)
         - key: EXTNAME
           value: ZIMG
           comment: ''
         - key: DATASUM
-          value: '773438385'
-          comment: data unit checksum updated 2020-12-03T14:10:52
+          value: '74352996'
+          comment: data unit checksum created 2016-03-16T05:45:50
         - key: CHECKSUM
-          value: 1ZeE4XcD1XcD1XcD
-          comment: HDU checksum updated 2020-12-03T14:10:52
-      hdu16:
+          value: 0S2A2R190R1A0R19
+          comment: HDU checksum created 2016-03-16T05:45:50
+      hdu12:
         name: GPSF
         description: replace me description
         is_image: true
@@ -1697,18 +1534,18 @@ releases:
           value: nanomaggies/pixel
           comment: ''
         - key: GFWHM
-          value: 2.4364
+          value: 2.47074
           comment: Reconstructed FWHM in g-band (arcsec)
         - key: EXTNAME
           value: GPSF
           comment: ''
         - key: DATASUM
-          value: '1694219823'
-          comment: data unit checksum updated 2020-12-03T14:10:52
+          value: '155438571'
+          comment: data unit checksum created 2016-03-16T05:45:50
         - key: CHECKSUM
-          value: ZNfCeNeCZNeCbNeC
-          comment: HDU checksum updated 2020-12-03T14:10:52
-      hdu17:
+          value: WUAlXR8kWRAkWR5k
+          comment: HDU checksum created 2016-03-16T05:45:50
+      hdu13:
         name: RPSF
         description: replace me description
         is_image: true
@@ -1787,18 +1624,18 @@ releases:
           value: nanomaggies/pixel
           comment: ''
         - key: RFWHM
-          value: 2.43751
+          value: 2.47547
           comment: Reconstructed FWHM in r-band (arcsec)
         - key: EXTNAME
           value: RPSF
           comment: ''
         - key: DATASUM
-          value: '4152361962'
-          comment: data unit checksum updated 2020-12-03T14:10:52
+          value: '2924435845'
+          comment: data unit checksum created 2016-03-16T05:45:50
         - key: CHECKSUM
-          value: hiG4hfG1hfG1hfG1
-          comment: HDU checksum updated 2020-12-03T14:10:52
-      hdu18:
+          value: he8Hjd7Hhd7Hhd7H
+          comment: HDU checksum created 2016-03-16T05:45:50
+      hdu14:
         name: IPSF
         description: replace me description
         is_image: true
@@ -1877,18 +1714,18 @@ releases:
           value: nanomaggies/pixel
           comment: ''
         - key: IFWHM
-          value: 2.42862
+          value: 2.45931
           comment: Reconstructed FWHM in i-band (arcsec)
         - key: EXTNAME
           value: IPSF
           comment: ''
         - key: DATASUM
-          value: '2159142615'
-          comment: data unit checksum updated 2020-12-03T14:10:52
+          value: '209944077'
+          comment: data unit checksum created 2016-03-16T05:45:50
         - key: CHECKSUM
-          value: 3GAA5F313FA83F38
-          comment: HDU checksum updated 2020-12-03T14:10:52
-      hdu19:
+          value: IVmEKTm9ITmCITm9
+          comment: HDU checksum created 2016-03-16T05:45:50
+      hdu15:
         name: ZPSF
         description: replace me description
         is_image: true
@@ -1967,138 +1804,14 @@ releases:
           value: nanomaggies/pixel
           comment: ''
         - key: ZFWHM
-          value: 2.40892
+          value: 2.44198
           comment: Reconstructed FWHM in z-band (arcsec)
         - key: EXTNAME
           value: ZPSF
           comment: ''
         - key: DATASUM
-          value: '79865959'
-          comment: data unit checksum updated 2020-12-03T14:10:52
+          value: '3351593320'
+          comment: data unit checksum created 2016-03-16T05:45:50
         - key: CHECKSUM
-          value: Gc6JHb6HGb6HGb6H
-          comment: HDU checksum updated 2020-12-03T14:10:52
-      hdu20:
-        name: GCORREL
-        description: replace me description
-        is_image: false
-        size: 459 KB
-        columns:
-          INDXI_C1:
-            name: INDXI_C1
-            type: int32
-            unit: replace me - with content
-            description: replace me - with content
-          INDXI_C2:
-            name: INDXI_C2
-            type: int32
-            unit: replace me - with content
-            description: replace me - with content
-          INDXJ_C1:
-            name: INDXJ_C1
-            type: int32
-            unit: replace me - with content
-            description: replace me - with content
-          INDXJ_C2:
-            name: INDXJ_C2
-            type: int32
-            unit: replace me - with content
-            description: replace me - with content
-          RHOIJ:
-            name: RHOIJ
-            type: float64
-            unit: replace me - with content
-            description: replace me - with content
-      hdu21:
-        name: RCORREL
-        description: replace me description
-        is_image: false
-        size: 479 KB
-        columns:
-          INDXI_C1:
-            name: INDXI_C1
-            type: int32
-            unit: replace me - with content
-            description: replace me - with content
-          INDXI_C2:
-            name: INDXI_C2
-            type: int32
-            unit: replace me - with content
-            description: replace me - with content
-          INDXJ_C1:
-            name: INDXJ_C1
-            type: int32
-            unit: replace me - with content
-            description: replace me - with content
-          INDXJ_C2:
-            name: INDXJ_C2
-            type: int32
-            unit: replace me - with content
-            description: replace me - with content
-          RHOIJ:
-            name: RHOIJ
-            type: float64
-            unit: replace me - with content
-            description: replace me - with content
-      hdu22:
-        name: ICORREL
-        description: replace me description
-        is_image: false
-        size: 495 KB
-        columns:
-          INDXI_C1:
-            name: INDXI_C1
-            type: int32
-            unit: replace me - with content
-            description: replace me - with content
-          INDXI_C2:
-            name: INDXI_C2
-            type: int32
-            unit: replace me - with content
-            description: replace me - with content
-          INDXJ_C1:
-            name: INDXJ_C1
-            type: int32
-            unit: replace me - with content
-            description: replace me - with content
-          INDXJ_C2:
-            name: INDXJ_C2
-            type: int32
-            unit: replace me - with content
-            description: replace me - with content
-          RHOIJ:
-            name: RHOIJ
-            type: float64
-            unit: replace me - with content
-            description: replace me - with content
-      hdu23:
-        name: ZCORREL
-        description: replace me description
-        is_image: false
-        size: 500 KB
-        columns:
-          INDXI_C1:
-            name: INDXI_C1
-            type: int32
-            unit: replace me - with content
-            description: replace me - with content
-          INDXI_C2:
-            name: INDXI_C2
-            type: int32
-            unit: replace me - with content
-            description: replace me - with content
-          INDXJ_C1:
-            name: INDXJ_C1
-            type: int32
-            unit: replace me - with content
-            description: replace me - with content
-          INDXJ_C2:
-            name: INDXJ_C2
-            type: int32
-            unit: replace me - with content
-            description: replace me - with content
-          RHOIJ:
-            name: RHOIJ
-            type: float64
-            unit: replace me - with content
-            description: replace me - with content
+          value: laZSoXYPlaYPlUYP
+          comment: HDU checksum created 2016-03-16T05:45:50
