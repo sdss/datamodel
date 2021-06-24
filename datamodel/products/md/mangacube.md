@@ -73,9 +73,9 @@ Describes changes to the datamodel product and/or file structure from one releas
    - note: No changes
  - DR15
    - from: DR13
-   - added_hdus: ['DISP', 'RCORREL', 'PRESPECRES', 'GCORREL', 'PREDISP', 'ZCORREL', 'ICORREL', 'PRESPECRESD']
+   - added_hdus: ['PREDISP', 'DISP', 'GCORREL', 'ZCORREL', 'RCORREL', 'PRESPECRES', 'PRESPECRESD', 'ICORREL']
    - primary_delta_nkeys: 2
-   - added_primary_header_kwargs: ['DATASUM', 'RADESYS', 'TPLDATA']
+   - added_primary_header_kwargs: ['DATASUM', 'TPLDATA', 'RADESYS']
    - removed_primary_header_kwargs: ['RADESYSA']
 
 ---
