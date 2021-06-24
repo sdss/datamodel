@@ -30,30 +30,30 @@ changelog:
     WORK:
       from: DR16
       added_hdus:
-      - LSFPRE
       - LSFPOST
+      - LSFPRE
       removed_hdus:
-      - PREDISP
       - DISP
+      - PREDISP
     DR16:
       from: DR15
       note: No changes
     DR15:
       from: DR13
       added_hdus:
-      - PRESPECRES
+      - PRESPECRESD
       - DISP
       - ZCORREL
-      - PRESPECRESD
-      - PREDISP
       - ICORREL
-      - RCORREL
       - GCORREL
+      - PRESPECRES
+      - PREDISP
+      - RCORREL
       primary_delta_nkeys: 2
       added_primary_header_kwargs:
-      - DATASUM
       - TPLDATA
       - RADESYS
+      - DATASUM
       removed_primary_header_kwargs:
       - RADESYSA
 releases:
@@ -67,10 +67,10 @@ releases:
       path_name: mangacube
       path_template: $MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}CUBE.fits.gz
       path_kwargs:
+      - drpver
       - ifu
       - plate
       - wave
-      - drpver
       access_string: mangacube = $MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}CUBE.fits.gz
     hdus:
       hdu0:
@@ -6694,7 +6694,7 @@ releases:
           comment: HDU checksum updated 2018-03-21T06:08:47
       hdu4:
         name: LSFPOST
-        description: replace me description
+        description: 1sigma post-pixellized LSF in units of Angstroms [NWAVE x (NFIBER*NEXP)]
         is_image: true
         size: 20 MB
         header:
@@ -6733,7 +6733,7 @@ releases:
           comment: HDU checksum updated 2020-12-03T14:10:52
       hdu5:
         name: LSFPRE
-        description: replace me description
+        description: 1sigma pre-pixellized LSF in units of Angstroms [NWAVE x (NFIBER*NEXP)]
         is_image: true
         size: 20 MB
         header:
