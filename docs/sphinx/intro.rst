@@ -47,11 +47,14 @@ the MaNGA RSS file for Data Release 15 (DR15).
 
 .. code-block:: bash
 
-    datamodel_generate -f mangaRss -p MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}RSS.fits.gz -k plate=8485 ifu=1901 drpver=v2_4_3 wave=LOG -r DR15
+    datamodel generate -f mangaRss -p MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}RSS.fits.gz -k plate=8485 -k ifu=1901 -k drpver=v2_4_3 -k wave=LOG -r DR15
 
 As inputs, we pass in the name of the file species, the symbolic path to the file, the list of
-example keyword-value pairs, and the release we're interested in.  See :ref:`usage-dmgen` for a full
-list of command-line arguments.
+example keyword-value pairs, and the release we're interested in.  See the
+:ref:`datamodel generate cli <usage-dmgen>` for a full list of command-line arguments.
+
+.. note::
+  In 0.2.1, the cli code and syntax changed from argparse to click.  See :ref:`cli-diff` for more.
 
 After we run the command, a stub YAML datamodel file will be created.  The code will also attempt to write
 a valid markdown file, a JSON file, and access file.  These files are automatically produced and do not require
@@ -214,7 +217,7 @@ it to use the DR15 cache content.
 
 .. code-block:: bash
 
-    datamodel_generate -f mangaRss -p MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}RSS.fits.gz -k plate=8485 ifu=1901 drpver=v2_4_3 wave=LOG -r DR16 --use-cache DR15
+    datamodel generate -f mangaRss -p MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}RSS.fits.gz -k plate=8485 -k ifu=1901 -k drpver=v2_4_3 -k wave=LOG -r DR16 --use-cache DR15
 
 From python, we specify the ``use_cache_release`` and ``full_cache`` keyword arguments to
 :py:func:`~datamodel.generate.datamodel.DataModel.write_stubs`.
@@ -262,7 +265,7 @@ From the command-line, we specify release MPL10, the ``--use-cache`` argument fo
 
 .. code-block:: bash
 
-    datamodel_generate -f mangaRss -p MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}RSS.fits.gz -k plate=8485 ifu=1901 drpver=v3_0_1 wave=LOG -r MPL10 --use-cache DR15 --hdus-only
+    datamodel generate -f mangaRss -p MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}RSS.fits.gz -k plate=8485 -k ifu=1901 -k drpver=v3_0_1 -k wave=LOG -r MPL10 --use-cache DR15 --hdus-only
 
 From python, we specify only the ``use_cache_release`` keyword arguments to
 :py:func:`~datamodel.generate.datamodel.DataModel.write_stubs`.
@@ -306,7 +309,7 @@ defaults to the datamodel to a "WORK" release.  We specify to use the cache for 
 
 .. code-block:: bash
 
-    datamodel_generate -f mangaRss -p MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}RSS.fits.gz -k plate=8485 ifu=1901 drpver=v3_1_1 wave=LOG --use-cache MPL10 --hdus-only
+    datamodel generate -f mangaRss -p MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}RSS.fits.gz -k plate=8485 -k ifu=1901 -k drpver=v3_1_1 -k wave=LOG --use-cache MPL10 --hdus-only
 
 or from python,
 
@@ -330,7 +333,7 @@ MPL-10. If you do not want to use any cache, or generate a clean entry, simply l
 input arguments, e.g
 ::
 
-    datamodel_generate -f mangaRss -p MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}RSS.fits.gz -k plate=8485 ifu=1901 drpver=v3_1_1 wave=LOG
+    datamodel generate -f mangaRss -p MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}RSS.fits.gz -k plate=8485 -k ifu=1901 -k drpver=v3_1_1 -k wave=LOG
 
 or::
 
@@ -342,7 +345,7 @@ All work releases will default to using the ``tree`` ``sdsswork.cfg``.  If the f
 the `sdss5.cfg` ``tree`` configuration, you can specify the ``--tree_ver``, ``-t`` input keyword:
 ::
 
-    datamodel_generate -t sdss5 -f .....
+    datamodel generate -t sdss5 -f .....
 
 
 Generating a datamodel by file
@@ -355,7 +358,7 @@ sdss_access entry.
 To generate a datamodel by file, for DR15
 ::
 
-    datamodel_generate -n /Users/Brian/Work/sdss/sas/dr15/manga/spectro/redux/v2_4_3/8485/stack/manga-8485-1901-LOGRSS.fits.gz -r DR15
+    datamodel generate -n /Users/Brian/Work/sdss/sas/dr15/manga/spectro/redux/v2_4_3/8485/stack/manga-8485-1901-LOGRSS.fits.gz -r DR15
 
 or::
 
@@ -411,9 +414,9 @@ Once a valid datamodel markdown is created, you will need to upload it to the wi
 It is best to do this step at Utah.  From the Utah machines, run
 ::
 
-    datamodel_wiki -e MANGA_SPECTRO_REDUX -f mangaRss
+    datamodel wiki -e MANGA_SPECTRO_REDUX -f mangaRss
 
-See :ref:`usage-dmwiki` for a full list of command-line arguments.  Once successfully uploaded, it will
+See the :ref:`datamodel wiki cli <usage-dmwiki>` for a full list of command-line arguments.  Once successfully uploaded, it will
 be visible on the `SDSS Datamodel <https://wiki.sdss.org/display/DATAMODEL/.Datamodel+vsdsswork>`_ site.
 
 
