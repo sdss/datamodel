@@ -67,15 +67,15 @@ Describes changes to the datamodel product and/or file structure from one releas
  - WORK
    - from: DR16
    - added_hdus: ['LSFPOST', 'LSFPRE']
-   - removed_hdus: ['DISP', 'PREDISP']
+   - removed_hdus: ['PREDISP', 'DISP']
  - DR16
    - from: DR15
    - note: No changes
  - DR15
    - from: DR13
-   - added_hdus: ['PRESPECRESD', 'DISP', 'ZCORREL', 'ICORREL', 'GCORREL', 'PRESPECRES', 'PREDISP', 'RCORREL']
+   - added_hdus: ['ZCORREL', 'GCORREL', 'RCORREL', 'PRESPECRESD', 'PRESPECRES', 'ICORREL', 'DISP', 'PREDISP']
    - primary_delta_nkeys: 2
-   - added_primary_header_kwargs: ['TPLDATA', 'RADESYS', 'DATASUM']
+   - added_primary_header_kwargs: ['TPLDATA', 'DATASUM', 'RADESYS']
    - removed_primary_header_kwargs: ['RADESYSA']
 
 ---
