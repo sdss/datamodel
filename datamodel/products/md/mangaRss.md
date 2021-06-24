@@ -60,16 +60,16 @@ Describes changes to the datamodel product and/or file structure from one releas
    - note: No changes
  - MPL10
    - from: DR16
-   - added_hdus: ['LSFPOST', 'LSFPRE']
+   - added_hdus: ['LSFPRE', 'LSFPOST']
    - removed_hdus: ['DISP', 'PREDISP']
  - DR16
    - from: DR15
    - note: No changes
  - DR15
    - from: DR13
-   - added_hdus: ['PRESPECRES', 'PRESPECRESD', 'PREDISP']
+   - added_hdus: ['PRESPECRES', 'PREDISP', 'PRESPECRESD']
    - primary_delta_nkeys: 2
-   - added_primary_header_kwargs: ['RADESYS', 'TPLDATA', 'DATASUM']
+   - added_primary_header_kwargs: ['TPLDATA', 'DATASUM', 'RADESYS']
    - removed_primary_header_kwargs: ['RADESYSA']
 
 ---
