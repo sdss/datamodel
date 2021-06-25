@@ -13,10 +13,16 @@
 
 from __future__ import print_function, division, absolute_import, annotations
 
+import orjson
 from typing import List, Dict
 from pydantic import BaseModel, validator
 
 from .releases import releases
+
+
+def orjson_dumps(v, *, default):
+    # orjson.dumps returns bytes, to match standard json.dumps we need to decode
+    return orjson.dumps(v, default=default).decode()
 
 
 def replace_me(value: str) -> str:
@@ -72,7 +78,6 @@ def check_release(value: dict) -> str:
     if badkeys:
         raise ValueError(f"Invalid key(s) {','.join(badkeys)} in releases dict.")
     return value
-
 
 class GeneralSection(BaseModel):
     """ Pydantic model representing the YAML general section """
@@ -173,3 +178,15 @@ class YamlModel(BaseModel):
     releases: Dict[str, Release]
 
     _check_releases = validator('releases', allow_reuse=True)(check_release)
+
+    class Config:
+        json_loads = orjson.loads
+        json_dumps = orjson_dumps
+
+
+class ProductModel(YamlModel):
+    """ Pydantic model representing a data product JSON file """
+    class Config:
+        json_loads = orjson.loads
+        json_dumps = orjson_dumps
+
