@@ -618,7 +618,7 @@ class JsonStub(BaseStub):
     has_template: bool = False
 
     def _get_content(self) -> None:
-        self.content = self._validated_yaml.json(sort_keys=False, indent=4) if self._validated_yaml else {}
+        self.content = self._validated_yaml.json(by_alias=True, sort_keys=False, indent=4) if self._validated_yaml else {}
 
 class AccessStub(BaseStub):
     format: str = 'access'
