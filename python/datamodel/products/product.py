@@ -95,7 +95,9 @@ class DataModel(object):
         self.products = DataProducts()
     
     def __repr__(self):
-        return '<SDSS DataModel ()>'
+        return (f'<SDSS DataModel (n_releases={len(self.releases)}, '
+                f'n_products={len(self.products)}, n_surveys={len(self.surveys)}, '
+                f'n_phases={len(self.phases)})>')
     
     
         

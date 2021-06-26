@@ -55,6 +55,9 @@ class BaseList(BaseModel):
 
     def __str__(self):
         return f"[{', '.join([i.name for i in self])}]"
+    
+    def __len__(self):
+        return len(self.__root__)
 
 
 class Releases(BaseList):
