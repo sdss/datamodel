@@ -13,6 +13,7 @@
 
 from __future__ import print_function, division, absolute_import
 
+from datetime import date
 from typing import List
 from pydantic import BaseModel, validator
 
@@ -24,10 +25,11 @@ class Release(BaseModel):
     name: str
     description: str
     public: bool = False
+    release_date: date = 'unreleased'
 
     @validator('name')
     def name_check(cls, value): # pylint: disable=no-self-argument
-        if not value.startswith(('WORK', 'DR', 'MPL', 'IPL')):
+        if not value.startswith(('WORK', 'DR', 'MPL', 'IPL', 'EDR')):
             raise ValueError('release name must start with WORK, DR, MPL, or IPL.')
         return value
 
