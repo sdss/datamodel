@@ -17,10 +17,11 @@ from typing import List, Union
 from pydantic import BaseModel, validator
 
 from ..io.loaders import read_yaml, get_yaml_files
-from .releases import BaseList
+from .base import BaseList
 
 
 class Phase(BaseModel):
+    """ Pydantic model representing an SDSS phase """
     name: str
     id: int
     start: int = None
@@ -29,7 +30,7 @@ class Phase(BaseModel):
 
 
 class Survey(BaseModel):
-    """ Pydantic model presenting an SDSS survey """
+    """ Pydantic model representing an SDSS survey """
     name: str
     long: str = None
     description: str
