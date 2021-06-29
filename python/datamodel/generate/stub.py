@@ -618,7 +618,9 @@ class JsonStub(BaseStub):
     has_template: bool = False
 
     def _get_content(self) -> None:
-        self.content = self._validated_yaml.json(by_alias=True, sort_keys=False, indent=4) if self._validated_yaml else {}
+        # uses orjson to dump; see orjson_dumps method in models/yaml.py
+        # orjson options; indent=2, sort_keys = False (default)
+        self.content = self._validated_yaml.json(by_alias=True) if self._validated_yaml else {}
 
 class AccessStub(BaseStub):
     format: str = 'access'
