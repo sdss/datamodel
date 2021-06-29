@@ -15,6 +15,7 @@ from datamodel.models.yaml import ProductModel, Release
 import os
 import pathlib
 from typing import Union, TypeVar, Type
+from fuzzy_types import FuzzyList
 
 # pylint: disable=maybe-no-member
 
@@ -23,17 +24,22 @@ products_path = pathlib.Path(os.getenv("DATAMODEL_DIR")) / 'datamodel' / 'produc
 PType = TypeVar('PType', bound='Product')
 
 class Product(object):
-    """[summary]
+    """ Class for an SDSS data product
 
-    [extended_summary]
-
+    Entry point for individual SDSS data products.  This class reads in the content
+    from the validated JSON datamodel file, handling deserialization via the pydantic
+    `~datamodel.models.yaml.ProductModel`.  By default, products are lazy-loaded, i.e.
+    they will not load the underlying JSON content.  Pass ``load=True`` or use ``load()``
+    to manually load the product's datamodel.
+    
     Parameters
     ----------
     name : str
-        [description]
+        The file species name of the datamodel 
     load : bool, optional
-        [description], by default False
+        If True, loads the model's JSON content, by default False
     """
+    # contains JSON content fields to extract from the model into the main instance
     _extract = ['short', 'description']
     
     def __init__(self, name: str, load: bool = False):
@@ -124,8 +130,8 @@ class Product(object):
         path = pathlib.Path(value)
         return cls(name=path.stem, load=load)
 
-class DataProducts(list):
-    """ Class of a list of SDSS data products
+class DataProducts(FuzzyList):
+    """ Class of a fuzzy list of SDSS data products
 
     Creates a list of all available SDSS data products that have valid JSON datamodel 
     files, i.e. those in the ``datamodel/products/json/`` directory.  All products are 
@@ -133,25 +139,25 @@ class DataProducts(list):
     the items in the list are accessed. 
     """
     def __init__(self):
-        list.__init__(self, [Product.from_file(i, load=False) for i in products_path.rglob('*.json')])
-        
+        super(DataProducts, self).__init__([Product.from_file(i, load=False) for i in products_path.rglob('*.json')], dottable=False)
+
     def __repr__(self):
         return f'<DataProducts (n_products={len(self)})>'
+    
+    @staticmethod
+    def mapper(item) -> str:
+        """ Override the fuzzy mapper to match on product's name """
+        return str(item.name)
 
-    def __getitem__(self, item):
-        if isinstance(item, str) and item in self:
-            vals = [i.name for i in self]
-            obj =  list.__getitem__(self, vals.index(item))
-            obj.load()
-            return obj
-        obj = list.__getitem__(self, item)
-        obj.load()
-        return obj
-
-    def __contains__(self, value):
-        if isinstance(value, str):
-            return value in [i.name for i in self]
-        return value in self
+    def __getitem__(self, item: Union[int, str]) -> PType:
+        """ Override fuzzy getter to also load the product on access """
+        val = super(DataProducts, self).__getitem__(item)
+        val.load()
+        return val
+    
+    def list_products(self) -> list:
+        """ List all data products """
+        return [item.name for item in self]
 
 class DataModel(object):
     """ Class for the SDSS DataModel
@@ -165,7 +171,7 @@ class DataModel(object):
         self.phases = phases
         self.products = DataProducts()
     
-    def __repr__(self):
+    def __repr__(self) -> str:
         return (f'<SDSS DataModel (n_releases={len(self.releases)}, '
                 f'n_products={len(self.products)}, n_surveys={len(self.surveys)}, '
                 f'n_phases={len(self.phases)})>')
