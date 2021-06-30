@@ -25,8 +25,6 @@ from datamodel.models.yaml import ProductModel, Release
 
 # pylint: disable=maybe-no-member
 
-products_path = pathlib.Path(os.getenv("DATAMODEL_DIR")) / 'datamodel' / 'products' / 'json'
-
 PType = TypeVar('PType', bound='Product')
 
 class Product(object):
@@ -50,6 +48,7 @@ class Product(object):
     
     def __init__(self, name: str, load: bool = False):
         self.name = name
+        products_path = pathlib.Path(os.getenv("DATAMODEL_DIR")) / 'datamodel' / 'products' / 'json'
         self.path = products_path / f"{name}.json"
         self.loaded = False
         
@@ -145,6 +144,7 @@ class DataProducts(FuzzyList):
     the items in the list are accessed. 
     """
     def __init__(self):
+        products_path = pathlib.Path(os.getenv("DATAMODEL_DIR")) / 'datamodel' / 'products' / 'json'
         super(DataProducts, self).__init__([Product.from_file(i, load=False) for i in products_path.rglob('*.json')], dottable=False)
 
     def __repr__(self):
