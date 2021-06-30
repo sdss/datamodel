@@ -70,3 +70,7 @@ class BaseList(BaseModel):
                 key = lambda x: getattr(x, field)
         vals = sorted(self.__root__.copy(), key=key, **kwargs)
         self.__root__ = vals
+        
+    def list_names(self):
+        """ Create a simplified list of name attributes """
+        return [item.name for item in self.__root__]
