@@ -10,12 +10,18 @@
 # Last Modified: Friday, 25th June 2021 11:14:00 am
 # Modified By: Brian Cherinka
 
-from datamodel.models import releases, surveys, phases
-from datamodel.models.yaml import ProductModel, Release
+import functools
+import itertools
 import os
 import pathlib
-from typing import Union, TypeVar, Type
+from typing import Type, TypeVar, Union
+
 from fuzzy_types import FuzzyList
+
+from datamodel import log
+from datamodel.models import phases, releases, surveys
+from datamodel.models.yaml import ProductModel, Release
+
 
 # pylint: disable=maybe-no-member
 
@@ -158,6 +164,41 @@ class DataProducts(FuzzyList):
     def list_products(self) -> list:
         """ List all data products """
         return [item.name for item in self]
+    
+    def load_all(self):
+        """ Load all data products """
+        for item in self:
+            item.load()
+            
+    def group_by(self, field: str) -> dict:
+        """ Group the products by an attribute 
+        
+        Group all products by either a product attribute, e.g. "releases", 
+        or a field in the underlying JSON model, e.g. "_model.general.environments".
+        A dotted attribute string is resolved as a set of nested attribute. Returns 
+        a dictionary of products grouped by the field, or fields, if the requested 
+        field is a list.
+
+        Parameters
+        ----------
+        field : str
+            The name of the attribute or field
+
+        Returns
+        -------
+        dict
+            A dictionary of products grouped by desired field
+            
+        Example
+        -------
+        >>> from datamodel.products import DataProducts
+        >>> dp = DataProducts()
+        >>> gg = dp.group_by('releases')
+        >>> gg
+            {"DR15": ..., 
+             "DR16": ....}
+        """
+        return grouper(field, self)
 
 class DataModel(object):
     """ Class for the SDSS DataModel
@@ -175,6 +216,65 @@ class DataModel(object):
         return (f'<SDSS DataModel (n_releases={len(self.releases)}, '
                 f'n_products={len(self.products)}, n_surveys={len(self.surveys)}, '
                 f'n_phases={len(self.phases)})>')
+
+
+def rgetattr(obj: object, attr: str, *args):
+    """ recursive getattr for nested attributes
     
+    Recursively get attributes from nested classes.  See
+    https://stackoverflow.com/questions/31174295/getattr-and-setattr-on-nested-subobjects-chained-properties
+    """
+    def _getattr(obj, attr):
+        return getattr(obj, attr, *args)
+    return functools.reduce(_getattr, [obj] + attr.split('.'))
+
+
+def grouper(field: str, products: list) -> dict:
+    """ Group the products by an attribute 
+
+    Group all products by either a product attribute, e.g. "releases", 
+    or a field in the underlying JSON model, e.g. "_model.general.environments".
+    A dotted attribute string is resolved as a set of nested attribute. Returns 
+    a dictionary of products grouped by the field, or fields, if the requested 
+    field is a list.
+
+    Parameters
+    ----------
+    field : str
+        The name of the attribute or field
+    products : list
+        A list of Products to group by
+
+    Returns
+    -------
+    dict
+        A dictionary of products grouped by desired field
     
-        
+    """
+    # check if the products are loaded
+    if not all(i.loaded for i in products):
+        log.warning('Input list of products are not loaded.  Loading all!')
+        products.load_all()
+
+    # check if the field is a list    
+    value = rgetattr(products[0], field)
+    if type(value) != list:
+        zipper = lambda x: list(zip(itertools.repeat(x), [rgetattr(x, field)]))
+    else:
+        zipper = lambda x: list(zip(itertools.repeat(x), rgetattr(x, field)))
+
+    # create a master zipped list of [(product, field)] to easily sort by
+    e = list(map(zipper, products))
+    r = sum(e, [])
+
+    # sort the data ahead of groupby, using the field as key
+    data = sorted(r, key=lambda x:x[1])
+
+    # group items by field, drop into dict, and return
+    gg = itertools.groupby(data, key=lambda x: x[1])
+
+    groups = {}
+    for i, g in gg:
+        prods, ff = zip(*g)  # pylint: disable=unused-variable
+        groups[i] = list(prods)
+    return groups
