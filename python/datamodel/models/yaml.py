@@ -182,13 +182,25 @@ class YamlModel(BaseModel):
     _check_releases = validator('releases', allow_reuse=True)(check_release)
 
     class Config:
+        """ Pydantic custom config """
         json_loads = orjson.loads
         json_dumps = orjson_dumps
 
 
 class ProductModel(YamlModel):
-    """ Pydantic model representing a data product JSON file """
+    """ Pydantic model representing a data product JSON file
+    
+    Parameters
+    ----------
+    general : `.GeneralSection`
+        stuff
+    changelog : `.ChangeLog`
+        An automated 
+    releases : Dict[str, `.Release`]
+        stuff
+    """
     class Config:
+        """ Pydantic custom config """
         json_loads = orjson.loads
         json_dumps = orjson_dumps
 

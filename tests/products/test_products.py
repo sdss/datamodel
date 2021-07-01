@@ -14,7 +14,7 @@ import os
 import pathlib
 import pytest
 
-from datamodel.products import Product, DataProducts, DataModel
+from datamodel.products import Product, DataProducts, SDSSDataModel
 from datamodel.models.releases import Releases
 from datamodel.models.surveys import Phases, Surveys
 
@@ -106,7 +106,7 @@ def test_products_groupby(field, key):
 
 
 def test_sdss_datamodel():
-    dm = DataModel()
+    dm = SDSSDataModel()
     assert dm.products is not None
     assert len(dm.products) == 1
     assert dm.products[0].name == 'test'

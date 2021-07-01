@@ -1,11 +1,10 @@
 
-.. _intro:
+.. _generate:
 
-Introduction to datamodel
-=========================
+Generating Datamodels
+=====================
 
-The sdss ``datamodel`` product is a python package for creating, validating, and accessing datamodels
-for SDSS data products.
+Here we describe the process of generating new datamodels for existing FITS file.  
 
 Generating a datamodel
 ----------------------

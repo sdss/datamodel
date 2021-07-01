@@ -145,7 +145,7 @@ class DataProducts(FuzzyList):
     """
     def __init__(self):
         products_path = pathlib.Path(os.getenv("DATAMODEL_DIR")) / 'datamodel' / 'products' / 'json'
-        super(DataProducts, self).__init__([Product.from_file(i, load=False) for i in products_path.rglob('*.json')], dottable=False)
+        super(DataProducts, self).__init__([Product.from_file(i, load=False) for i in products_path.rglob('mangaRss.json')], dottable=False)
 
     def __repr__(self):
         return f'<DataProducts (n_products={len(self)})>'
@@ -200,7 +200,7 @@ class DataProducts(FuzzyList):
         """
         return grouper(field, self)
 
-class DataModel(object):
+class SDSSDataModel(object):
     """ Class for the SDSS DataModel
 
     High-level entry point into the SDSS DataModel.  Contains accounting of

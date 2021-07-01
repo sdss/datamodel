@@ -1,2 +1,2 @@
 
-from .product import Product, DataProducts, DataModel
+from .product import Product, DataProducts, SDSSDataModel
