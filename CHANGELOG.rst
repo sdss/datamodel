@@ -4,7 +4,7 @@
 Change Log
 ==========
 
-0.3.0 (unreleased)
+0.3.0 (07-02-2021)
 ------------------
 - Adds basic Python object representation of data products and metadata models
 - See new product classes `~datamodel.products.product.SDSSDataModel`, `~datamodel.products.product.DataProducts`, `~datamodel.products.product.Product`
