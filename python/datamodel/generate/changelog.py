@@ -620,9 +620,9 @@ class YamlDiff(object):
         """
         changes = self.compute_changelog(version1=version1, version2=version2)
         values = changes[version1]
-        return any(values['delta_nhdu'] != 0 or values['added_hdus'] or values['removed_hdus'] or
-                values['primary_delta_nkeys'] != 0 or values['added_primary_header_kwargs'] or
-                values['removed_primary_header_kwargs'])
+        return (values['delta_nhdu'] != 0 or any(values['added_hdus']) or any(values['removed_hdus']) or
+                values['primary_delta_nkeys'] != 0 or any(values['added_primary_header_kwargs']) or
+                any(values['removed_primary_header_kwargs']))
 
     def generate_changelog(self, order: list = None, simple: bool = False) -> dict:
         """ Generate a full changelog dictionary across all releases
