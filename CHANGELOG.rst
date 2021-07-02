@@ -4,6 +4,10 @@
 Change Log
 ==========
 
+0.3.1 (07-02-2021)
+------------------
+- Bug fix in YAML changelog boolean logic
+
 0.3.0 (07-02-2021)
 ------------------
 - Adds basic Python object representation of data products and metadata models
