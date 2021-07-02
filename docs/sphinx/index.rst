@@ -11,13 +11,15 @@ is |datamodel_version|. You can install the package by doing
   $ cd datamodel
   $ pip install -e .
 
+The sdss ``datamodel`` product is a python package for creating, validating, and navigating 
+datamodels for SDSS data products.
 
 .. toctree::
   :maxdepth: 2
   :caption: Content
 
-  Introduction to datamodel <intro>
-
+  Generating Datamodels <generate>
+  Navigating Datamodels <navigate>
 
 .. toctree::
    :maxdepth: 1
