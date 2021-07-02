@@ -4,8 +4,11 @@
 Change Log
 ==========
 
-0.2.1 (unreleased)
+0.3.0 (unreleased)
 ------------------
+- Adds basic Python object representation of data products and metadata models
+- See new product classes `SDSSDataModel`, `DataProducts`, `Product`
+- See new metadata model classes, `Releases`, `Surveys`, and `Phases`
 
 0.2.0 (06-04-2021)
 ------------------
