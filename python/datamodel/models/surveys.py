@@ -21,7 +21,21 @@ from .base import BaseList
 
 
 class Phase(BaseModel):
-    """ Pydantic model representing an SDSS phase """
+    """ Pydantic model representing an SDSS phase
+
+    Parameters
+    ----------
+    name : str
+        The name of the phase
+    id : int
+        The id of the phase
+    start : int
+        The year the phase started
+    end : int
+        The year the phase ended
+    active : bool
+        Whether the phase is currently active
+    """
     name: str
     id: int
     start: int = None
@@ -30,7 +44,24 @@ class Phase(BaseModel):
 
 
 class Survey(BaseModel):
-    """ Pydantic model representing an SDSS survey """
+    """ Pydantic model representing an SDSS survey
+
+    Parameters
+    ----------
+    name : str
+        The short name of the survey
+    long : str
+        The full name of the survey
+    description : str
+        A description of the survey
+    phase : `.Phase`
+        The main phase the survey was in
+
+    Raises
+    ------
+    ValueError
+        when the survey phase is not a valid SDSS Phase
+    """
     name: str
     long: str = None
     description: str

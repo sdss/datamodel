@@ -21,7 +21,24 @@ from ..io.loaders import read_yaml, get_yaml_files
 from .base import BaseList
 
 class Release(BaseModel):
-    """ Pydantic model presenting an SDSS release """
+    """ Pydantic model presenting an SDSS release
+
+    Parameters
+    ----------
+    name : str
+        The name of the release
+    description : str
+        A description of the release
+    public : bool
+        Whether the release is public or not
+    release_date : `datetime.date`
+        The date of the release
+
+    Raises
+    ------
+    ValueError
+        when the release name does not start with a valid SDSS release code
+    """
     name: str
     description: str
     public: bool = False
