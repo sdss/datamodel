@@ -21,6 +21,7 @@ from fuzzy_types import FuzzyList
 from datamodel import log
 from datamodel.models import phases, releases, surveys
 from datamodel.models.yaml import ProductModel, Release
+from sdss_access.path import Path
 
 
 # pylint: disable=maybe-no-member
@@ -134,6 +135,131 @@ class Product(object):
         """
         path = pathlib.Path(value)
         return cls(name=path.stem, load=load)
+    
+    def _get_path(self, name: str, release: str = "WORK", expand: bool = True, 
+                  symbolic: bool = False, **kwargs) -> str:
+        """ Get a file path from the datamodel
+
+        Returns a resolved filepath for a specified release.  Either returns the given 
+        datamodel example, or the symbolic location.  The symbolic location can be given
+        keyword arguments to resolve it to a real filepath.  By default the SAS environment
+        variable will be expanded, but can optionally return the path unresolved.
+
+        Parameters
+        ----------
+        name : str
+            The type of path to extract.  Either "example" or "location".
+        release : str, optional
+            The data release to use, by default "WORK"
+        expand : bool, optional
+            If True, expands the SAS environment variable, by default True
+        symbolic : bool, optional
+            If True, returns only the symbolic path, by default False
+
+        Returns
+        -------
+        str
+            The generated filepath
+
+        Raises
+        ------
+        AttributeError
+            when "releases" is not set and product is not loaded
+        ValueError
+            when the specified release is not a valid one for the product
+        """
+
+
+        # check if the product has the releases attribute
+        if not hasattr(self, 'releases'):
+            raise AttributeError("Product is not loaded.  Try running the load() method.")
+        
+        # check if the release is valid for this product
+        if release not in self.releases:
+            raise ValueError(f'Release {release} is not a valid release for product {self.name}.') 
+
+        # extract the example or location path from the release dictionary
+        rr = self._model.releases[release]
+        path = f'${rr.environment}/{getattr(rr, name)}'
+
+        # return only the symbolic path
+        if symbolic:
+            return path
+
+        # fill in the necessary keyword arguments
+        if name == 'location':
+            path = path.format(**kwargs)
+
+        # expand the OS environment variable, for the right release
+        if expand:
+            Path(release=release)
+            return os.path.expandvars(path)
+                        
+        return path
+
+    def get_example(self, release: str = "WORK", expand: bool = True) -> str:
+        """ Get the example file from the datamodel
+
+        Returns the resolved example filepath for a specified release.  By default the 
+        SAS environment variable will be expanded, but can optionally return 
+        the path unresolved.
+
+        Parameters
+        ----------
+        release : str, optional
+            The data release to use, by default "WORK"
+        expand : bool, optional
+            If True, expands the SAS environment variable, by default True
+
+        Returns
+        -------
+        str
+            The generated filepath
+
+        Raises
+        ------
+        AttributeError
+            when "releases" is not set and product is not loaded
+        ValueError
+            when the specified release is not a valid one for the product
+        """
+        return self._get_path('example', release=release, expand=expand)
+        
+    def get_location(self, release: str = "WORK", symbolic: bool = False, 
+                     expand: bool = True, **kwargs) -> str:
+        """ Get a file location from the datamodel
+
+        Returns a resolved filepath for a specified release.  The symbolic location can be given
+        keyword arguments to resolve it to a real filepath.  By default the SAS environment
+        variable will be expanded, but can optionally return the path unresolved.
+
+        Parameters
+        ----------
+        name : str
+            The type of path to extract.  Either "example" or "location".
+        release : str, optional
+            The data release to use, by default "WORK"
+        expand : bool, optional
+            If True, expands the SAS environment variable, by default True
+        symbolic : bool, optional
+            If True, returns only the symbolic path, by default False
+        kwargs : str
+            Any set of keyword arguments needed to resolve the symbolic path
+
+        Returns
+        -------
+        str
+            The generated filepath
+
+        Raises
+        ------
+        AttributeError
+            when "releases" is not set and product is not loaded
+        ValueError
+            when the specified release is not a valid one for the product
+        """
+        return self._get_path('location', release=release, symbolic=symbolic, 
+                              expand=expand, **kwargs)
 
 class DataProducts(FuzzyList):
     """ Class of a fuzzy list of SDSS data products
@@ -145,7 +271,7 @@ class DataProducts(FuzzyList):
     """
     def __init__(self):
         products_path = pathlib.Path(os.getenv("DATAMODEL_DIR")) / 'datamodel' / 'products' / 'json'
-        super(DataProducts, self).__init__([Product.from_file(i, load=False) for i in products_path.rglob('mangaRss.json')], dottable=False)
+        super(DataProducts, self).__init__([Product.from_file(i, load=False) for i in products_path.rglob('*.json')], dottable=False)
 
     def __repr__(self):
         return f'<DataProducts (n_products={len(self)})>'

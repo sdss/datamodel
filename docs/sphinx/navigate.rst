@@ -198,12 +198,15 @@ list.  The list of data products is available from the datamodel, i.e. ``dm.prod
     >>> dp['mngars']
     <Product ("mangaRss", summary="this is a manga rss")>
 
+Loading Content
+^^^^^^^^^^^^^^^
+
 By default, `~datamodel.products.product.DataProducts` lazy-loads all data products.  This means that 
 the underlying JSON datamodel content will not be loaded upon instantiation.  Only when a ``Product`` 
 is retrieved from the ``DataProducts`` list, is when the JSON content is read in.  This allows for 
 efficient navigation of the list of data products for a large number of items.  You can load a product
-manually by passing in ``load=True`` on instantiation, or call the 
-`.datamodel.products.product.Product.load` method.   
+manually by passing in ``load=True`` on instantiation, or call the Product's
+`~datamodel.products.product.Product.load` method.   
 ::
 
     >>> # create a new Product for the MaNGA RSS datamodel
@@ -231,6 +234,53 @@ You can also list all available products by their "file species" name.
     >>> dp.list_products()
     ['mangaRss']
 
+Retrieving Content
+^^^^^^^^^^^^^^^^^^
+
+The underlying JSON `~datamodel.models.yaml.ProductModel` is available on each product, accessible via
+the ``_model`` attribute.  A subset of the model attributes have been "extracted" up on the ``Product``
+object itself, e.g. the ``general.releases``, ``general.short``, and ``general.description`` 
+attributes.  The ``_extract`` class attribute contains a list of ``general`` parameters to be included.
+Additional parameters can be included by adding them to this list, reinstantiating, and reloading 
+the product.
+
+The ``datamodel`` `~.datamodel.products.product.Product` contains various convenience methods of 
+returning content from the datamodel.  You can return the entire datamodel content has a 
+dictionary using `~.datamodel.products.product.Product.get_content`:
+::
+
+    >>> # return the datamodel content
+    >>> rss.get_content()
+    {'general': {'name': 'mangaRss',
+     'short': 'this is a manga rss',
+     'description': 'longer description',
+     'environments': ['MANGA_SPECTRO_REDUX'],
+     'datatype': 'FITS',
+     ...
+    }
+
+You can return content specific to a release using `~.datamodel.products.product.Product.get_release`:
+::
+
+    >>> # return the datamodel content for DR15
+    >>> rss.get_release("DR15")
+    Release(
+     template='$MANGA_SPECTRO_REDUX/[DRPVER]/[PLATE]/stack/manga-[PLATE]-[IFU]-[WAVE]RSS.fits.gz',
+     ...)
+
+Note that ``get_release`` method returns the `~datamodel.models.yaml.Release` object, which can be 
+converted to a dictionary through its own ``dict()`` method.
+
+You can return either the example filepath, or a more general path location, for a given release.
+::
+
+    >>> # return the default datamodel example for the WORK release
+    >>> rss.get_example()
+    '/Users/Brian/Work/sdss/sas/mangawork/manga/spectro/redux/v3_1_1/8485/stack/manga-8485-1901-LOGRSS.fits.gz'
+
+    >>> # return the file location for DR16
+    >>> rss.get_location(drpver='v2_4_3', plate=8485, ifu=1901, wave='LOG', release='DR16')
+    '/Users/Brian/Work/sdss/sas/dr16/manga/spectro/redux/v2_4_3/8485/stack/manga-8485-1901-LOGRSS.fits.gz'
 
 Reorganizing
 ------------

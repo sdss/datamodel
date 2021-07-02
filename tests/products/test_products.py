@@ -74,6 +74,21 @@ def test_get_content(product):
     assert 'changelog' in content
     assert content['general']['description'] == 'this test file is used for testing'        
 
+@pytest.mark.parametrize('expand, exp', 
+                         [(True, 'v1/testfile_a.fits'), 
+                          (False, '$TEST_REDUX/v1/testfile_a.fits')], 
+                         ids=['expand', 'noexpand'])
+def test_get_example(product, expand, exp):
+    path = product.get_example(expand=expand)
+    assert exp in path    
+
+@pytest.mark.parametrize('symbolic, exp', 
+                         [(True, '$TEST_REDUX/{ver}/testfile_{id}.fits'), 
+                          (False, 'v2/testfile_b.fits')], 
+                         ids=['symbolic', 'nosymbolic'])
+def test_get_location(product, symbolic, exp):
+    path = product.get_location(symbolic=symbolic, ver='v2', id='b')
+    assert exp in path 
 
 def test_data_products():
     dp = DataProducts()
@@ -95,8 +110,9 @@ def test_list_products():
 
     
 @pytest.mark.parametrize('field, key', 
-                         [('releases', 'WORK')], 
-                         ids=['release'])
+                         [('releases', 'WORK'), 
+                          ('_model.general.environments', 'TEST_REDUX')], 
+                         ids=['release', 'environment'])
 def test_products_groupby(field, key):
     dp = DataProducts()
     grp = dp.group_by(field)
