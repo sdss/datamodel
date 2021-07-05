@@ -41,6 +41,16 @@ def test_datamodel_generate(testfile):
     assert ss.validate_cache() is False
 
 
+def test_datamodel_nokeys_ok():
+    path = 'BOSS_PHOTOBJ/astromqa/astromQAFields.fits'
+    dm = DataModel(file_spec='astromQAFields', path=path, release="DR10")
+    assert isinstance(dm, DataModel)
+    assert dm.location == 'astromqa/astromQAFields.fits'
+
+def test_datamodel_nokeys(testfile):
+    with pytest.raises(ValueError, match='A set of keywords must be provided along with a either a path or location'):
+        DataModel(file_spec='test', path='TEST_REDUX/{ver}/testfile_{id}.fits')
+
 def test_valid_datamodel(datamodel, validyaml):
     ss = datamodel.get_stub('yaml')
     datamodel.write_stubs()

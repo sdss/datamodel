@@ -4,6 +4,10 @@
 Change Log
 ==========
 
+0.3.2 (unreleased)
+------------------
+- Bug fixing :issue:`13` keyword requirement when no keywords in path
+
 0.3.1 (07-02-2021)
 ------------------
 - Bug fix in YAML changelog boolean logic

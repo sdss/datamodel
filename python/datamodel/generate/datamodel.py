@@ -139,7 +139,7 @@ class DataModel(object):
     """
 
     def __init__(self, tree_ver: str = None, file_spec: str = None, path: str = None,
-                 keywords: list = None, env_label: str = None, location: str = None,
+                 keywords: list = [], env_label: str = None, location: str = None,
                  verbose: bool = None, release: str = None, filename: str = None) -> None:
 
         # environment options
@@ -178,7 +178,9 @@ class DataModel(object):
         # set path, locations, and file_species
         if not self.path and not (self.env_label and self.location):
             raise ValueError('Either a path or an env_label + location must be specified.')
-        if not self.keywords:
+        
+        # check if keywords are expected
+        if re.search(r'{(.*?)}', self.path) and not self.keywords:
             raise ValueError('A set of keywords must be provided along with a either a '
                              'path or location.')
         self._construct_path()
