@@ -21,12 +21,22 @@ from fuzzy_types import FuzzyList
 from datamodel import log
 from datamodel.models import phases, releases, surveys
 from datamodel.models.yaml import ProductModel, Release
+from pydantic import BaseModel
 from sdss_access.path import Path
 
 
 # pylint: disable=maybe-no-member
 
 PType = TypeVar('PType', bound='Product')
+
+
+class ReleaseList(FuzzyList):
+    """ Class for a fuzzy list of Releases """
+    
+    @staticmethod
+    def mapper(item):
+        return item.name
+
 
 class Product(object):
     """ Class for an SDSS data product
@@ -75,7 +85,7 @@ class Product(object):
         ``_extract`` list of attributes. 
         """
         self._model = ProductModel.parse_file(self.path)
-        self.releases = self._model.general.releases        
+        self.releases = ReleaseList(self._model.general.releases)
         for field in self._extract:
             setattr(self, field, getattr(self._model.general, field))
         self.loaded = True
@@ -384,7 +394,7 @@ def grouper(field: str, products: list) -> dict:
 
     # check if the field is a list    
     value = rgetattr(products[0], field)
-    if type(value) != list:
+    if not isinstance(value, list):
         zipper = lambda x: list(zip(itertools.repeat(x), [rgetattr(x, field)]))
     else:
         zipper = lambda x: list(zip(itertools.repeat(x), rgetattr(x, field)))
@@ -394,10 +404,12 @@ def grouper(field: str, products: list) -> dict:
     r = sum(e, [])
 
     # sort the data ahead of groupby, using the field as key
-    data = sorted(r, key=lambda x:x[1])
+    # if item is a pydantic model, sort by the model's name; otherwise sort by the tuple item
+    sort_fxn = lambda x:x[1].name if isinstance(x[1], BaseModel) else x[1]
+    data = sorted(r, key=sort_fxn)
 
     # group items by field, drop into dict, and return
-    gg = itertools.groupby(data, key=lambda x: x[1])
+    gg = itertools.groupby(data, key=sort_fxn)
 
     groups = {}
     for i, g in gg:
