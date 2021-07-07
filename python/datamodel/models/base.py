@@ -25,13 +25,15 @@ class BaseList(BaseModel):
         """ Uses the model name to check list inclusion """
         if isinstance(value, str):
             return value in [i.name for i in self]
-        return value in self
+        return value in self.__root__
 
     def __getitem__(self, item: Union[str, int]) -> BaseModel:
         """ Allows item access by index or model name """
         if isinstance(item, str) and item in self:
             vals = [i.name for i in self.__root__]
             return self.__root__[vals.index(item)]
+        elif isinstance(item, BaseModel):
+            return self[self.__root__.index(item)]
         return self.__root__[item]
 
     def __repr__(self) -> str:
@@ -64,10 +66,7 @@ class BaseList(BaseModel):
             a function to be passed into the sorted() function, by default None
         """
         if not key:
-            if field == 'release_date':
-                key = lambda x: date.fromisoformat('0001-01-01') if x.release_date == 'unreleased' else x.release_date
-            else:
-                key = lambda x: getattr(x, field)
+            key = lambda x: getattr(x, field)
         vals = sorted(self.__root__.copy(), key=key, **kwargs)
         self.__root__ = vals
         

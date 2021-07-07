@@ -29,6 +29,7 @@ except ImportError:
 
 from ..git import Git
 from .changelog import YamlDiff
+from ..models.releases import releases as sdss_releases
 from ..models.yaml import YamlModel
 from datamodel import log
 
@@ -238,10 +239,16 @@ class BaseStub(abc.ABC):
         self._update_cache_changelog()
 
     def _check_release_in_cache(self, content: dict) -> dict:
+        """ updates the yaml.general.releases list with new releases """
+        # sort the sdss release list
+        sdss_releases.sort('release_date')
+
+        # load and updates the yaml release list
         releases = content['general']['releases']
         if self.datamodel.release not in releases:
             releases.append(self.datamodel.release)
-            releases.sort()
+            # sort by the sdss release date; work release always is latest
+            releases.sort(key=lambda x: sdss_releases.list_names().index(x))
             content['general']['releases'] = releases
         return content
 

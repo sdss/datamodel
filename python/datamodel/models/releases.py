@@ -14,7 +14,7 @@
 from __future__ import print_function, division, absolute_import
 
 from datetime import date
-from typing import List
+from typing import List, Union
 from pydantic import BaseModel, validator
 
 from ..io.loaders import read_yaml, get_yaml_files
@@ -42,7 +42,7 @@ class Release(BaseModel):
     name: str
     description: str
     public: bool = False
-    release_date: date = 'unreleased'
+    release_date: Union[str, date] = 'unreleased'
 
     @validator('name')
     def name_check(cls, value): # pylint: disable=no-self-argument
