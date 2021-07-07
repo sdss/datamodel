@@ -6,7 +6,8 @@ Change Log
 
 0.3.2 (unreleased)
 ------------------
-- Bug fixing :issue:`13` keyword requirement when no keywords in path
+- Bug fixing issue :issue:`13` keyword requirement when no keywords in path
+- Issue :issue:`14` - adds Release model to yaml; sorts releases/changelog by release_date
 
 0.3.1 (07-02-2021)
 ------------------
