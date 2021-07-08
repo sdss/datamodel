@@ -39,10 +39,10 @@ def test_load_product():
     p = Product('test')
     assert p.loaded is False
     assert not hasattr(p, 'releases')
-    
+
     p.load()
     assert p.loaded is True
-    assert p.releases == ['WORK']
+    assert 'WORK' in p.releases
     assert p.short == 'this is a test file'
 
     

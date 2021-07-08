@@ -45,3 +45,12 @@ def test_cli_datamodel_generate(testfile):
     result = runner.invoke(cli, ['generate', '-f', 'test', '-p', 'TEST_REDUX/{ver}/testfile_{id}.fits', '-k', 'ver=v1', '-k', 'id=a', '-v', '-s'])
     path = os.path.join(os.getenv("DATAMODEL_DIR"), 'datamodel/products/yaml/test.yaml')
     assert os.path.exists(path)
+
+def test_cli_dm_generate_keywords(testfile):
+    """ test that no keywords are allowed in cli """
+    runner = CliRunner()
+    result = runner.invoke(cli, ['generate', '-f', 'test', '-p', 'TEST_REDUX/testfile.fits', '-v', '-s'])
+    assert ('Error: when --file_species is set, exactly 1 of the following '
+            'parameters must be set:') not in result.output
+    assert result.exit_code == 1
+

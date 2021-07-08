@@ -14,10 +14,10 @@
 from __future__ import print_function, division, absolute_import, annotations
 
 import orjson
-from typing import List, Dict
+from typing import List, Dict, Union
 from pydantic import BaseModel, validator
 
-from .releases import releases
+from .releases import releases, Release as ReleaseMod
 
 
 def orjson_dumps(v, *, default):
@@ -116,7 +116,7 @@ class GeneralSection(BaseModel):
     environments: List[str] = None
     datatype: str
     filesize: str
-    releases: List[str] = None
+    releases: List[Union[str, ReleaseMod]] = None
     naming_convention: str
     generated_by: str
 
@@ -127,7 +127,7 @@ class GeneralSection(BaseModel):
     def check_release(cls, value: str) -> str:
         if value not in releases:
             raise ValueError(f'{value} is not a valid release')
-        return value
+        return releases[value]
 
 class ChangeRelease(BaseModel):
     """ Pydantic model representing a YAML changelog release section

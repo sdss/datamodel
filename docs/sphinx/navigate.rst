@@ -243,6 +243,27 @@ object itself, e.g. the ``general.releases``, ``general.short``, and ``general.d
 attributes.  The ``_extract`` class attribute contains a list of ``general`` parameters to be included.
 Additional parameters can be included by adding them to this list, reinstantiating, and reloading 
 the product.
+::
+
+    >>> # list the product releases
+    >>> rss.releases
+    [Release(name='MPL5', description='SDSS MaNGA internal product release 5', public=False, release_date='2016-06-27'),
+     Release(name='DR14', description='SDSS public data release 14', public=True, release_date='2017-07-31'),
+     Release(name='DR15', description='SDSS public data release 15', public=True, release_date='2018-12-10'),
+     Release(name='DR16', description='SDSS public data release 16', public=True, release_date='2019-12-09'),
+     Release(name='MPL10', description='SDSS MaNGA internal product release 10', public=False, release_date='2020-07-13'),
+     Release(name='WORK', description='SDSS unreleased data.  Represents any work-in-progress data.', public=False, release_date='unreleased')]
+
+    >>> # list the product short and long descriptions
+    >>> rss.short, rss.description
+    ('A MaNGA Row-Stacked Spectra (RSS) product',
+     "The MaNGA DRP provides summary row-stacked spectra (RSS; with both logarithmic and 
+     linear wavelength solutions) for each galaxy that combine individual fiber spectra of 
+     that galaxy across multiple exposures into a single row-stacked format. The RSS files are a 
+     two-dimensional array with horizontal size N_spec and vertical size N = \\sum N_fiber(i) 
+     where N_fiber(i) is the number of fibers in the IFU targeting this galaxy for the i''th 
+     exposure and the sum runs over all exposures."
+    )
 
 The ``datamodel`` `~.datamodel.products.product.Product` contains various convenience methods of 
 returning content from the datamodel.  You can return the entire datamodel content has a 

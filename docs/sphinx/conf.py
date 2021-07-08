@@ -38,7 +38,7 @@ use_releases = 'no'
 extensions = ['sphinx.ext.autodoc', 'sphinx.ext.napoleon', 'sphinx.ext.autosummary',
               'sphinx.ext.todo', 'sphinx.ext.viewcode', 'sphinx.ext.mathjax',
               'sphinx.ext.intersphinx', 'sphinx_click', 'sphinx_copybutton', 
-              'sphinx_inline_tabs']
+              'sphinx_inline_tabs', 'sphinx_issues']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -109,6 +109,9 @@ pygments_dark_style = "monokai"
 
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = False
+
+# GitHub repo
+issues_github_path = "sdss/datamodel"
 
 # Intersphinx mappings
 intersphinx_mapping = {'python': ('https://docs.python.org/3.6', None),
