@@ -1,37 +1,22 @@
-#!/usr/bin/env python3
-# encoding: utf-8
+#!/bin/bash
+
+# this script file is deprecated in favor of the datamodel cli
+# if the datamodel product was pip installed, just type "datamodel --help"
+# to see a list of commands.
 #
+# this file is still used for backwards compatibility when simply "installing"
+# the git repo datamodel product via modules
 
-from datamodel.command import Command
-from datamodel.generate.datamodel import DataModel
+# current path
+full_path=$(realpath $0)
+dir_path=$(dirname $full_path)
 
-from datamodel import log
+# datamodel_dir
+dmdir=$(dirname $dir_path )
 
-# Command-line Examples
-# load an APOGEE allstar datamodel with an sdss5 tree config; specifying an environment label and abstraction location
-# datamodel_generate -t sdss5 -e APOGEE_REDUX -l {apred}/summary/allStar-{apred}-{telescope}.fits -v
-
-# load a MaNGA rss datamodel with a file species name and abstract path, with defined path template keyword arguments; resolves to a real file
-# datamodel_generate -f mangaRss -p MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}RSS.fits.gz -k plate=8485 ifu=1901 drpver=v2_4_3 wave=LOG -v
-
-# get command line options
-command = Command(name="datamodel_generate")
-
-# create a datamodel object
-dm = DataModel(tree_ver=command.options.tree_ver, file_spec=command.options.file_spec,
-               path=command.options.path, keywords=command.options.keywords,
-               env_label=command.options.env_label, location=command.options.location,
-               verbose=command.options.verbose, release=command.options.release,
-               filename=command.options.filename)
-
-# write out all the datamodel stubs
-dm.write_stubs(force=command.options.force, use_cache_release=command.options.use_cache,
-               full_cache=not command.options.hdus_only)
-
-# only run if we are not skipping the git commit stage
-if not command.options.skip_git:
-    # commit the stubs into git
-    try:
-        dm.commit_stubs()
-    except RuntimeError as err:
-        log.error(f'Could not commit stubs to git.  Check for errors and try again. Error - {err}')
+{ # try
+    python ${dmdir}/python/datamodel/cli.py generate "$@" 2>&1
+} ||
+{ # except
+    echo 'Error finding cli file.  If the datamodel product was pip installed, try running "datamodel generate" instead.'
+}

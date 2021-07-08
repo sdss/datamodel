@@ -118,12 +118,12 @@ def yamlfile():
     yield os.getenv("DATAMODEL_DIR") / pathlib.Path('datamodel') / 'products/yaml/test.yaml'
 
 @pytest.fixture
-def validyaml():
-    path = os.getenv("DATAMODEL_DIR") / pathlib.Path('datamodel') / 'products/yaml/test.yaml'
-    path.parent.mkdir(parents=True, exist_ok=True)
+def validyaml(yamlfile):
+    """ fixture that makes the test yaml file a valid one """
+    yamlfile.parent.mkdir(parents=True, exist_ok=True)
     testpath = pathlib.Path(__file__).parent / 'data/test_valid.yaml'
-    shutil.copy2(testpath, path)
-    yield path
+    shutil.copy2(testpath, yamlfile)
+    yield yamlfile
 
 
 from datamodel.generate import DataModel
@@ -134,6 +134,12 @@ def datamodel(testfile):
     dm = DataModel(file_spec='test', keywords=['ver=v1', 'id=a'], path='TEST_REDUX/{ver}/testfile_{id}.fits')
     dm.write_stubs()
     yield dm
+
+
+@pytest.fixture
+def validmodel(validyaml, datamodel):
+    """ fixture to produce a valud datamodel for the test file """
+    yield datamodel
 
 
 class MockTree(Tree):
@@ -149,6 +155,7 @@ class MockTree(Tree):
     def _create_paths(self, cfg=None):
         paths = super(MockTree, self)._create_paths(cfg=cfg)
         paths.update({'test': '$TEST_REDUX/{ver}/testfile_{id}.fits'})
+        paths.update({'test-file': '$TEST_REDUX/{ver}/testfile_{id}.fits'})
         return paths
 
 class MockPath(Path):
@@ -157,3 +164,4 @@ class MockPath(Path):
     def __init__(self, *args, **kwargs):
         super(MockPath, self).__init__(*args, **kwargs)
         self.templates.update({'test': '$TEST_REDUX/{ver}/testfile_{id}.fits'})
+        self.templates.update({'test-file': '$TEST_REDUX/{ver}/testfile_{id}.fits'})

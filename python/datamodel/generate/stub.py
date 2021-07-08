@@ -29,6 +29,7 @@ except ImportError:
 
 from ..git import Git
 from .changelog import YamlDiff
+from ..models.releases import releases as sdss_releases
 from ..models.yaml import YamlModel
 from datamodel import log
 
@@ -238,10 +239,16 @@ class BaseStub(abc.ABC):
         self._update_cache_changelog()
 
     def _check_release_in_cache(self, content: dict) -> dict:
+        """ updates the yaml.general.releases list with new releases """
+        # sort the sdss release list
+        sdss_releases.sort('release_date')
+
+        # load and updates the yaml release list
         releases = content['general']['releases']
         if self.datamodel.release not in releases:
             releases.append(self.datamodel.release)
-            releases.sort()
+            # sort by the sdss release date; work release always is latest
+            releases.sort(key=lambda x: sdss_releases.list_names().index(x))
             content['general']['releases'] = releases
         return content
 
@@ -618,7 +625,9 @@ class JsonStub(BaseStub):
     has_template: bool = False
 
     def _get_content(self) -> None:
-        self.content = self._validated_yaml.json(sort_keys=False, indent=4) if self._validated_yaml else {}
+        # uses orjson to dump; see orjson_dumps method in models/yaml.py
+        # orjson options; indent=2, sort_keys = False (default)
+        self.content = self._validated_yaml.json(by_alias=True) if self._validated_yaml else {}
 
 class AccessStub(BaseStub):
     format: str = 'access'

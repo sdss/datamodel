@@ -55,7 +55,7 @@
 
 {% for hdu_id, hdu in hdus.items() %}
 
-## {{ hdu_id | upper }}: {{ hdu.name }}
+### {{ hdu_id | upper }}: {{ hdu.name }}
 {{ hdu.description }}
 
 #### HDU Type: {{ 'IMAGE' if hdu.is_image else 'BINARY TABLE' }}
@@ -63,7 +63,7 @@
 
 {% if hdu.is_image %}
 {# IMAGE HDUS #}
-###### Header Table Caption for {{ hdu_id | upper }}
+##### Header Table Caption for {{ hdu_id | upper }}
 Key | Value | Comment | |
 | --- | --- | --- | --- |
 {% for header in hdu.header %}
@@ -72,7 +72,7 @@ Key | Value | Comment | |
 
 {% else %}
 {# BINARY TABLE HDUS #}
-###### Binary Table Caption for {{ hdu_id | upper }}
+##### Binary Table Caption for {{ hdu_id | upper }}
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
 {% for key, column in hdu.columns.items() %}

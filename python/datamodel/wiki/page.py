@@ -28,7 +28,7 @@ class Page(object):
 
     Parameters
     ----------
-    datamodel : `.DataModel`, optional
+    datamodel : `~datamodel.generate.datamodel.DataModel`, optional
         A datamodel to generate a wiki page for, by default None
     space_ver : str, optional
         Set the version of the datamodel space on the wiki, by default "sdsswork"

@@ -60,8 +60,13 @@ Describes changes to the datamodel product and/or file structure from one releas
    - note: No changes
  - MPL10
    - from: DR16
+<<<<<<< HEAD
    - added_hdus: ['LSFPOST', 'LSFPRE']
    - removed_hdus: ['DISP', 'PREDISP']
+=======
+   - added_hdus: ['LSFPRE', 'LSFPOST']
+   - removed_hdus: ['PREDISP', 'DISP']
+>>>>>>> main
  - DR16
    - from: DR15
    - note: No changes
@@ -76,13 +81,18 @@ Describes changes to the datamodel product and/or file structure from one releas
 ## Example HDU List
 
 
+<<<<<<< HEAD
 ## HDU0: PRIMARY
 Empty except for global header
+=======
+### HDU0: PRIMARY
+description of the HDU extension
+>>>>>>> main
 
 #### HDU Type: IMAGE
 #### HDU Size:  0 bytes
 
-###### Header Table Caption for HDU0
+##### Header Table Caption for HDU0
 Key | Value | Comment | |
 | --- | --- | --- | --- |
 | SIMPLE | True |  |
@@ -159,13 +169,18 @@ Key | Value | Comment | |
 
 
 
+<<<<<<< HEAD
 ## HDU1: FLUX
 Row-stacked spectra in units of 10^{-17} erg/s/cm2/Angstrom/fiber
+=======
+### HDU1: FLUX
+description of the HDU extension
+>>>>>>> main
 
 #### HDU Type: IMAGE
 #### HDU Size:  2 MB
 
-###### Header Table Caption for HDU1
+##### Header Table Caption for HDU1
 Key | Value | Comment | |
 | --- | --- | --- | --- |
 | XTENSION | IMAGE | IMAGE extension |
@@ -256,13 +271,18 @@ Key | Value | Comment | |
 
 
 
+<<<<<<< HEAD
 ## HDU2: IVAR
 Inverse variance of row-stacked spectra
+=======
+### HDU2: IVAR
+description of the HDU extension
+>>>>>>> main
 
 #### HDU Type: IMAGE
 #### HDU Size:  2 MB
 
-###### Header Table Caption for HDU2
+##### Header Table Caption for HDU2
 Key | Value | Comment | |
 | --- | --- | --- | --- |
 | XTENSION | IMAGE | IMAGE extension |
@@ -284,13 +304,18 @@ Key | Value | Comment | |
 
 
 
+<<<<<<< HEAD
 ## HDU3: MASK
 Pixel mask (MANGA_DRP2PIXMASK)
+=======
+### HDU3: MASK
+description of the HDU extension
+>>>>>>> main
 
 #### HDU Type: IMAGE
 #### HDU Size:  2 MB
 
-###### Header Table Caption for HDU3
+##### Header Table Caption for HDU3
 Key | Value | Comment | |
 | --- | --- | --- | --- |
 | XTENSION | IMAGE | IMAGE extension |
@@ -312,13 +337,18 @@ Key | Value | Comment | |
 
 
 
+<<<<<<< HEAD
 ## HDU4: LSFPOST
 1sigma post-pixellized LSF in units of Angstroms [NWAVE x (NFIBER*NEXP)]
+=======
+### HDU4: LSFPOST
+new lsf extensions
+>>>>>>> main
 
 #### HDU Type: IMAGE
 #### HDU Size:  2 MB
 
-###### Header Table Caption for HDU4
+##### Header Table Caption for HDU4
 Key | Value | Comment | |
 | --- | --- | --- | --- |
 | XTENSION | IMAGE | IMAGE extension |
@@ -334,13 +364,18 @@ Key | Value | Comment | |
 
 
 
+<<<<<<< HEAD
 ## HDU5: LSFPRE
 1sigma pre-pixellized LSF in units of Angstroms [NWAVE x (NFIBER*NEXP)]
+=======
+### HDU5: LSFPRE
+new lsf extensions
+>>>>>>> main
 
 #### HDU Type: IMAGE
 #### HDU Size:  2 MB
 
-###### Header Table Caption for HDU5
+##### Header Table Caption for HDU5
 Key | Value | Comment | |
 | --- | --- | --- | --- |
 | XTENSION | IMAGE | IMAGE extension |
@@ -356,13 +391,18 @@ Key | Value | Comment | |
 
 
 
+<<<<<<< HEAD
 ## HDU6: WAVE
 Wavelength vector in units of Angstroms (vacuum heliocentric)
+=======
+### HDU6: WAVE
+description of the HDU extension
+>>>>>>> main
 
 #### HDU Type: IMAGE
 #### HDU Size:  35 KB
 
-###### Header Table Caption for HDU6
+##### Header Table Caption for HDU6
 Key | Value | Comment | |
 | --- | --- | --- | --- |
 | XTENSION | IMAGE | IMAGE extension |
@@ -377,13 +417,18 @@ Key | Value | Comment | |
 
 
 
+<<<<<<< HEAD
 ## HDU7: SPECRES
 Median spectral resolution vs wavelength
+=======
+### HDU7: SPECRES
+description of the HDU extension
+>>>>>>> main
 
 #### HDU Type: IMAGE
 #### HDU Size:  35 KB
 
-###### Header Table Caption for HDU7
+##### Header Table Caption for HDU7
 Key | Value | Comment | |
 | --- | --- | --- | --- |
 | XTENSION | IMAGE | IMAGE extension |
@@ -398,13 +443,18 @@ Key | Value | Comment | |
 
 
 
+<<<<<<< HEAD
 ## HDU8: SPECRESD
 Standard deviation (1-sigma) of spectral resolution vs wavelength
+=======
+### HDU8: SPECRESD
+description of the HDU extension
+>>>>>>> main
 
 #### HDU Type: IMAGE
 #### HDU Size:  35 KB
 
-###### Header Table Caption for HDU8
+##### Header Table Caption for HDU8
 Key | Value | Comment | |
 | --- | --- | --- | --- |
 | XTENSION | IMAGE | IMAGE extension |
@@ -419,13 +469,18 @@ Key | Value | Comment | |
 
 
 
+<<<<<<< HEAD
 ## HDU9: PRESPECRES
 Median pre-pixel spectral resolution vs wavelength
+=======
+### HDU9: PRESPECRES
+description of the HDU extension
+>>>>>>> main
 
 #### HDU Type: IMAGE
 #### HDU Size:  35 KB
 
-###### Header Table Caption for HDU9
+##### Header Table Caption for HDU9
 Key | Value | Comment | |
 | --- | --- | --- | --- |
 | XTENSION | IMAGE | IMAGE extension |
@@ -440,13 +495,18 @@ Key | Value | Comment | |
 
 
 
+<<<<<<< HEAD
 ## HDU10: PRESPECRESD
 Standard deviation of pre-pixel spectral resolution vs wavelength
+=======
+### HDU10: PRESPECRESD
+description of the HDU extension
+>>>>>>> main
 
 #### HDU Type: IMAGE
 #### HDU Size:  35 KB
 
-###### Header Table Caption for HDU10
+##### Header Table Caption for HDU10
 Key | Value | Comment | |
 | --- | --- | --- | --- |
 | XTENSION | IMAGE | IMAGE extension |
@@ -461,13 +521,18 @@ Key | Value | Comment | |
 
 
 
+<<<<<<< HEAD
 ## HDU11: OBSINFO
 Table detailing exposures combined to create this file
+=======
+### HDU11: OBSINFO
+description of the HDU extension
+>>>>>>> main
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  2 KB
 
-###### Binary Table Caption for HDU11
+##### Binary Table Caption for HDU11
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
  | SLITFILE | char[25] |  | Name of the slitmap |
@@ -538,13 +603,18 @@ Name | Type | Unit | Description |
 
 
 
+<<<<<<< HEAD
 ## HDU12: XPOS
 Array of fiber X-positions (units of arcsec) relative to the IFU center.  Because of chromatic DAR, each wavelength for a given fiber has a slightly different position, and therefore the positional arrays have the same dimensionality as the corresponding flux array.
+=======
+### HDU12: XPOS
+description of the HDU extension
+>>>>>>> main
 
 #### HDU Type: IMAGE
 #### HDU Size:  2 MB
 
-###### Header Table Caption for HDU12
+##### Header Table Caption for HDU12
 Key | Value | Comment | |
 | --- | --- | --- | --- |
 | XTENSION | IMAGE | IMAGE extension |
@@ -560,13 +630,18 @@ Key | Value | Comment | |
 
 
 
+<<<<<<< HEAD
 ## HDU13: YPOS
 Array of fiber Y-positions (units of arcsec) relative to the IFU center.  Because of chromatic DAR, each wavelength for a given fiber has a slightly different position, and therefore the positional arrays have the same dimensionality as the corresponding flux array.
+=======
+### HDU13: YPOS
+description of the HDU extension
+>>>>>>> main
 
 #### HDU Type: IMAGE
 #### HDU Size:  2 MB
 
-###### Header Table Caption for HDU13
+##### Header Table Caption for HDU13
 Key | Value | Comment | |
 | --- | --- | --- | --- |
 | XTENSION | IMAGE | IMAGE extension |

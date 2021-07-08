@@ -2,16 +2,13 @@
 # -*- coding: utf-8 -*-
 #
 # Filename: __init__.py
-# Project: models
+# Project: cli
 # Author: Brian Cherinka
-# Created: Friday, 2nd April 2021 2:26:54 pm
+# Created: Thursday, 17th June 2021 1:32:57 pm
 # License: BSD 3-clause "New" or "Revised" License
 # Copyright (c) 2021 Brian Cherinka
-# Last Modified: Friday, 2nd April 2021 2:26:54 pm
+# Last Modified: Thursday, 17th June 2021 1:32:57 pm
 # Modified By: Brian Cherinka
 
 
 from __future__ import print_function, division, absolute_import
-
-from .releases import releases
-from .surveys import surveys, phases

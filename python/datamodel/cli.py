@@ -1,0 +1,126 @@
+# !/usr/bin/env python
+# -*- coding: utf-8 -*-
+#
+# Filename: cli.py
+# Project: datamodel
+# Author: Brian Cherinka
+# Created: Friday, 7th May 2021 8:24:29 am
+# License: BSD 3-clause "New" or "Revised" License
+# Copyright (c) 2021 Brian Cherinka
+# Last Modified: Friday, 7th May 2021 8:24:29 am
+# Modified By: Brian Cherinka
+
+
+from __future__ import print_function, division, absolute_import
+
+import click
+from datamodel.command import Install
+from datamodel.wiki import Page
+from datamodel.generate import DataModel
+from datamodel import log
+
+import cloup
+from cloup import OptionGroup
+from cloup.constraints import mutually_exclusive, If, all_or_none, RequireExactly, AcceptAtMost
+
+
+@click.group(name='datamodel')
+def cli():
+    """ Command-line tool for handling SDSS datamodels """
+    pass
+
+
+data_grp = OptionGroup('Product Options', help='options for specifying a data product.')
+rel_grp = OptionGroup("Release Options", help='options for specifying the release or environment.')
+stb_grp = OptionGroup("Stub Options", help='options for writing out datamodel stubs.')
+
+@cloup.command(short_help='Generate a datamodel file for a SDSS data product', show_constraints=True)
+@data_grp.option('-n', '--filename', help='the name of a file on disk', type=click.Path(exists=True))
+@data_grp.option('-f', '--file_species', help='unique name of the product file species')
+@data_grp.option('-p', '--path', help='symbolic path to the file')
+@data_grp.option('-l', '--location', help='symbolic location of the file')
+@data_grp.option('-e', '--env_label', help='environment variable name of the root location')
+@data_grp.option("-k", "--keywords", multiple=True, help="template variable keyword=value pair(s)")
+@data_grp.option('-a', '--access_path_name', help='name of the sdss_access path, if different than file species')
+@rel_grp.option('-t', '--tree_ver', help='the SDSS tree configuration')
+@rel_grp.option('-r', '--release', help='the SDSS data release')
+@stb_grp.option('-F', '--force', help='force override of a stub cache', is_flag=True, default=False)
+@stb_grp.option("-c", "--use-cache", help="specify an existing cached release to use", default=None)
+@stb_grp.option('-h', "--hdus-only", help="set to True to only use the user descriptions/comments from the specified cached release", is_flag=True, default=False)
+@click.option('-v', '--verbose', help='turn on verbosity', is_flag=True, default=False)
+@click.option("-s", "--skip-git", help="skip the git commit process", is_flag=True, default=False)
+@cloup.constraint(AcceptAtMost(1) & mutually_exclusive, ['tree_ver', 'release'])
+@cloup.constraint(all_or_none, ['location', 'env_label'])
+@cloup.constraint(mutually_exclusive, ['path', 'location'])
+@cloup.constraint(RequireExactly(1), ['filename', 'file_species'])
+@cloup.constraint(If('file_species', then=RequireExactly(1)), ['path', 'location'])
+def generate(filename, file_species, path, location, env_label, keywords, tree_ver, release, 
+             force, use_cache, hdus_only, verbose, skip_git, access_path_name):
+    """ Generate a datamodel file for a SDSS data product """
+
+    # create a datamodel object
+    dm = DataModel(tree_ver=tree_ver, file_spec=file_species,
+                path=path, keywords=keywords,
+                env_label=env_label, location=location,
+                verbose=verbose, release=release,
+                filename=filename, access_path_name=access_path_name)
+
+    # write out all the datamodel stubs
+    dm.write_stubs(force=force, use_cache_release=use_cache,
+                full_cache=not hdus_only)
+
+    # only run if we are not skipping the git commit stage
+    if not skip_git:
+        # commit the stubs into git
+        try:
+            dm.commit_stubs()
+        except RuntimeError as err:
+            log.error(f'Could not commit stubs to git.  Check for errors and try again. Error - {err}')
+
+
+cli.add_command(generate)
+
+
+@cli.command(short_help='Install a user copy of the datamodel product at Utah')
+@click.option('-b', '--branch', help='install a specific branch of the datamodel product', default='main')
+@click.option('-F', '--force', help='force a (re)install of the datamodel product', is_flag=True, default=False)
+@click.option('-v', '--verbose', help='turn on verbosity', is_flag=True, default=False)
+@click.option('-d', '--debug', help='turn on debugging', is_flag=True, default=False)
+def install(branch: str, force: bool, verbose: bool, debug: bool):
+    """ Install the datamodel product at Utah """
+
+    install = Install(branch=branch, force=force, verbose=verbose, debug=debug)
+    install.set_directory()
+    install.clone()
+    install.checkout_branch()
+    install.set_modulefile()
+    install.done()
+
+
+
+@cli.command(short_help='Upload a datamodel markdown file to the wiki')
+@click.option('-f', '--file_species', help='unique name of the product file species', required=True)
+@click.option('-e', '--env_label', help='environment variable name of the root location', required=True)
+@click.option('-s', '--space_ver', help='the SDSS wiki space name', default='sdsswork')
+@click.option('-v', '--verbose', help='turn on verbosity', is_flag=True, default=False)
+def wiki(file_species: str, env_label: str, space_ver: str, verbose: bool):
+    """ Upload a datamodel to the wiki """
+
+    page = Page(file_species=file_species, env_label=env_label, space_ver=space_ver, verbose=verbose)
+    page.set_remote()
+    page.set_remote_pagelist(parent=True)
+    page.create_parent()
+    page.create_datamodel()
+
+
+@cli.command(short_help='Design a new datamodel for a new file')
+def design():
+    """ Design a datamodel for a new file"""
+    pass
+
+
+if __name__ == '__main__':
+    cli()
+
+
+

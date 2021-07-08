@@ -9,6 +9,11 @@ datamodel Reference
 Generate
 --------
 
+.. automodule:: datamodel.generate.changelog
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 .. automodule:: datamodel.generate.datamodel
    :members:
    :undoc-members:
@@ -44,12 +49,30 @@ Io
 Models
 ------
 
+.. automodule:: datamodel.models.base
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 .. automodule:: datamodel.models.releases
    :members:
    :undoc-members:
    :show-inheritance:
 
 .. automodule:: datamodel.models.yaml
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+.. automodule:: datamodel.models.surveys
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Products
+--------
+
+.. automodule:: datamodel.products.product
    :members:
    :undoc-members:
    :show-inheritance:
