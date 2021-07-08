@@ -8,6 +8,9 @@ Change Log
 ------------------
 - Bug fixing issue :issue:`13` keyword requirement when no keywords in path
 - Issue :issue:`14` - adds Release model to yaml; sorts releases/changelog by release_date
+- Issue :issue:`15` - verifies paths with special functions work
+- Adds new `access_path_name` field to `DataModel` to allow for case when sdss_access path names different than file species names
+
 
 0.3.1 (07-02-2021)
 ------------------
