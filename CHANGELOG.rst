@@ -4,6 +4,9 @@
 Change Log
 ==========
 
+0.3.3 (unreleased)
+------------------
+
 0.3.2 (07-08-2021)
 ------------------
 - Bug fixing issue :issue:`13` keyword requirement when no keywords in path
