@@ -30,8 +30,8 @@ changelog:
     WORK:
       from: DR16
       added_hdus:
-      - LSFPOST
       - LSFPRE
+      - LSFPOST
       removed_hdus:
       - PREDISP
       - DISP
@@ -41,25 +41,25 @@ changelog:
     DR15:
       from: DR13
       added_hdus:
-      - PRESPECRESD
-      - GCORREL
-      - ZCORREL
       - DISP
-      - PRESPECRES
-      - ICORREL
       - PREDISP
+      - PRESPECRESD
+      - PRESPECRES
+      - ZCORREL
+      - GCORREL
+      - ICORREL
       - RCORREL
       primary_delta_nkeys: 2
       added_primary_header_kwargs:
+      - RADESYS
       - DATASUM
       - TPLDATA
-      - RADESYS
       removed_primary_header_kwargs:
       - RADESYSA
 releases:
   DR13:
     template: $MANGA_SPECTRO_REDUX/[DRPVER]/[PLATE]/stack/manga-[PLATE]-[IFU]-[WAVE]CUBE.fits.gz
-    example: v1_5_4/8485/stack/manga-8485-1901-LOGCUBE.fits.gz
+    example: null
     location: '{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}CUBE.fits.gz'
     environment: MANGA_SPECTRO_REDUX
     access:
@@ -68,10 +68,10 @@ releases:
       path_template: $MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}CUBE.fits.gz
       path_kwargs:
       - drpver
-      - ifu
       - plate
       - wave
-      access_string: mangacube = $MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}CUBE.fits.gz
+      - ifu
+      access_string: mangaCube = $MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}CUBE.fits.gz
     hdus:
       hdu0:
         name: PRIMARY

@@ -1,0 +1,1209 @@
+general:
+  name: astromQAFields
+  short: migrated from old datamodel - needs update
+  description: 'A summary file containing all
+
+    information about the SDSS field astrometry QA, including offsets from
+
+    each of the reference catalogs.
+
+    For convenience, all of the information in the <a href="/datamodel/files/BOSS_PHOTOOBJ/RERUN/RUN/photoField.html">photoField</a>
+    files is copied over as well.'
+  datatype: FITS
+  filesize: 2 GB
+  releases:
+  - DR8
+  - DR9
+  environments:
+  - BOSS_PHOTOOBJ
+  naming_convention: astromQAFields.fits
+  generated_by: photoop
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases:
+    DR9:
+      from: DR8
+      primary_delta_nkeys: 6
+      added_primary_header_kwargs:
+      - POBJ_VER
+      - UCACR14
+      - UCAC
+      - TWOMASS
+      - TREE
+      - UCAC3
+releases:
+  DR8:
+    template: $BOSS_PHOTOOBJ/astromqa/astromqa-[NRA]-[NDEC].html
+    example: astromqa/astromqa--.html
+    location: astromqa/astromqa-{nra}-{ndec}.html
+    environment: BOSS_PHOTOOBJ
+    access:
+      in_sdss_access: true
+      path_name: astromQAFields
+      path_template: $BOSS_PHOTOOBJ/astromqa/astromQAFields.fits
+      path_kwargs: []
+      access_string: astromQAFields = $BOSS_PHOTOOBJ/astromqa/astromqa-{nra}-{ndec}.html
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: ''
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: Conforms to FITS standard.
+        - key: BITPIX
+          value: 8
+          comment: 16 bit integer.
+        - key: NAXIS
+          value: 0
+          comment: Dummy header.
+        - key: EXTEND
+          value: true
+          comment: Extensions may be present.
+      hdu1:
+        name: ''
+        description: ''
+        is_image: false
+        size: 2 GB
+        columns:
+          FIELDID:
+            name: FIELDID
+            type: char[19]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: <a href="http://www.sdss.org/dr13/help/glossary/#fieldid">Field
+              identifier</a> composed of [run, camcol, field, rerun, skyversion].
+          SKYVERSION:
+            name: SKYVERSION
+            type: bool
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Layer of catalog (currently only one layer, 0)
+          RUN:
+            name: RUN
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Imaging run number.
+          RERUN:
+            name: RERUN
+            type: char[3]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Rerun number
+          CAMCOL:
+            name: CAMCOL
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Column in imaging camera
+          FIELD:
+            name: FIELD
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: This field
+          NTOTAL:
+            name: NTOTAL
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of objects
+          NOBJECTS:
+            name: NOBJECTS
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of (non-BRIGHT) objects in the field
+          NCHILD:
+            name: NCHILD
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of "child" objects in the field
+          NGALS:
+            name: NGALS
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of objects classified as "galaxy"
+          NSTARS:
+            name: NSTARS
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of objects classified as "star"
+          NCR:
+            name: NCR
+            type: int16[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of cosmics
+          NBRIGHTOBJ:
+            name: NBRIGHTOBJ
+            type: int16[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of bright objects
+          NFAINTOBJ:
+            name: NFAINTOBJ
+            type: int16[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of faint objects
+          QUALITY:
+            name: QUALITY
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Quality of field
+          MJD:
+            name: MJD
+            type: float64[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MJD(TAI) when row 0 of u-band field was read
+          A:
+            name: A
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: a term in astrometry
+          B:
+            name: B
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: b term in astrometry
+          C:
+            name: C
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: c term in astrometry
+          D:
+            name: D
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: d term in astrometry
+          E:
+            name: E
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: e term in astrometry
+          FF:
+            name: FF
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: f term in astrometry
+          DROW0:
+            name: DROW0
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Zero-order row distortion coefficient
+          DROW1:
+            name: DROW1
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: First-order row distortion coefficient
+          DROW2:
+            name: DROW2
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Second-order row distortion coefficient
+          DROW3:
+            name: DROW3
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Third-order row distortion coefficient
+          DCOL0:
+            name: DCOL0
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Zero-order column distortion coefficient
+          DCOL1:
+            name: DCOL1
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: First-order column distortion coefficient
+          DCOL2:
+            name: DCOL2
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Second-order column distortion coefficient
+          DCOL3:
+            name: DCOL3
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Third-order column distortion coefficient
+          CSROW:
+            name: CSROW
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Slope in row DCR correction for blue objects
+          CSCOL:
+            name: CSCOL
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Slope in column DCR correction for blue objects
+          CCROW:
+            name: CCROW
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Constant row DCR correction for blue objects
+          CCCOL:
+            name: CCCOL
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Constant column DCR correction for blue objects
+          RICUT:
+            name: RICUT
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: r-i cutoff between blue and red objects
+          AIRMASS:
+            name: AIRMASS
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Airmass for star at frame center (midway through u-band exposure)
+              (mag)
+          MUERR:
+            name: MUERR
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Error in mu in astrometric calibration (arcsec)
+          NUERR:
+            name: NUERR
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Error in nu in astrometric calibration (arcsec)
+          PIXSCALE:
+            name: PIXSCALE
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Mean size of pixel (r-band) (arcsec)
+          RA:
+            name: RA
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          DEC:
+            name: DEC
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          CX:
+            name: CX
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          CY:
+            name: CY
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          CZ:
+            name: CZ
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          RAMIN:
+            name: RAMIN
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Minimum RA of field (deg)
+          RAMAX:
+            name: RAMAX
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Maximum RA of field (deg)
+          DECMIN:
+            name: DECMIN
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Minimum Dec of field (deg)
+          DECMAX:
+            name: DECMAX
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Maximum Dec of field (deg)
+          PRIMARYAREA:
+            name: PRIMARYAREA
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Area covered by primary part of field (deg)
+          ROWOFFSET:
+            name: ROWOFFSET
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Offset to add to transformed row coordinates (pix)
+          COLOFFSET:
+            name: COLOFFSET
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Offset to add to transformed row coordinates (pix)
+          SATURATION_LEVEL:
+            name: SATURATION_LEVEL
+            type: int32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Saturation level (counts)
+          NEFF_PSF:
+            name: NEFF_PSF
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Effective area of PSF (pix)
+          SKY_PSP:
+            name: SKY_PSP
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Sky estimate from PSP (nmgy)
+          SKY_FRAMES:
+            name: SKY_FRAMES
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Frames sky value  (nmgy)
+          SKY_FRAMES_SUB:
+            name: SKY_FRAMES_SUB
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Frames sky value after object subtraction  (nmgy)
+          SIGPIX:
+            name: SIGPIX
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Sigma of pixel values frame (clipped) (nmgy)
+          DEV_AP_CORRECTION:
+            name: DEV_AP_CORRECTION
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: deV aperture correction
+          DEV_AP_CORRECTIONERR:
+            name: DEV_AP_CORRECTIONERR
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Error in deV aperture correction
+          EXP_AP_CORRECTION:
+            name: EXP_AP_CORRECTION
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: exponential aperture correction
+          EXP_AP_CORRECTIONERR:
+            name: EXP_AP_CORRECTIONERR
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Error in exponential aperture correction
+          DEV_MODEL_AP_CORRECTION:
+            name: DEV_MODEL_AP_CORRECTION
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: model aperture correction, for deV case
+          DEV_MODEL_AP_CORRECTIONERR:
+            name: DEV_MODEL_AP_CORRECTIONERR
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Error in model aperture correction, for deV case
+          EXP_MODEL_AP_CORRECTION:
+            name: EXP_MODEL_AP_CORRECTION
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: model aperture correction, for exponential case
+          EXP_MODEL_AP_CORRECTIONERR:
+            name: EXP_MODEL_AP_CORRECTIONERR
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Error in model aperture correction, for exponential case
+          MEDIAN_FIBERCOLOR:
+            name: MEDIAN_FIBERCOLOR
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Median fiber magnitude of objects
+          MEDIAN_PSFCOLOR:
+            name: MEDIAN_PSFCOLOR
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Median PSF magnitude of objects
+          Q:
+            name: Q
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Means Stokes Q parameter frame
+          U:
+            name: U
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Means Stokes U parameter frame
+          SKY:
+            name: SKY
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: PSP estimate of sky (nmgy)
+          SKYSIG:
+            name: SKYSIG
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Fractional Sigma of Sky Value Distribution, expressed as
+              magnitude. Sky noise = skySig * sky * ln(10)/2.5 (mag)
+          SKYERR:
+            name: SKYERR
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Error in PSP estimate of sky (nmgy)
+          SKYSLOPE:
+            name: SKYSLOPE
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Rate of change in sky value along columns (nmgy)
+          LBIAS:
+            name: LBIAS
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Left-hand amplifier bias level XXX make sure to apply DSCALE,
+              counts or ADU? (ADUs)
+          RBIAS:
+            name: RBIAS
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Right-hand amplifier bias level (ADUs)
+          PSF_NSTAR:
+            name: PSF_NSTAR
+            type: int32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of stars used in PSF measurement
+          PSF_AP_CORRECTIONERR:
+            name: PSF_AP_CORRECTIONERR
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Photometric uncertainty due to imperfect PSF model (mag)
+          PSF_SIGMA1:
+            name: PSF_SIGMA1
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Inner gaussian sigma for composite fit  (arcsec)
+          PSF_SIGMA2:
+            name: PSF_SIGMA2
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Outer gaussian sigma for composite fit  (arcsec)
+          PSF_B:
+            name: PSF_B
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Ratio of inner to outer components at origin (composite fit)
+          PSF_P0:
+            name: PSF_P0
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Value of power law at origin in composite fit  XXX
+          PSF_BETA:
+            name: PSF_BETA
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Slope of power law in composite fit
+          PSF_SIGMAP:
+            name: PSF_SIGMAP
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Width of power law in composite fit
+          PSF_WIDTH:
+            name: PSF_WIDTH
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Effective PSF width from 2-Gaussian fit (arcsec)
+          PSF_PSFCOUNTS:
+            name: PSF_PSFCOUNTS
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Flux via fit to PSF XXX  (counts)
+          PSF_SIGMA1_2G:
+            name: PSF_SIGMA1_2G
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Sigma of inner gaussian in 2-Gaussian fit (arcsec)
+          PSF_SIGMA2_2G:
+            name: PSF_SIGMA2_2G
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Sigma of outer gaussian in 2-Gaussian fit (arcsec)
+          PSF_B_2G:
+            name: PSF_B_2G
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Ratio of inner to outer components at origin (2-Gaussian
+              fit)
+          PSFCOUNTS:
+            name: PSFCOUNTS
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: PSF counts XXX (counts)
+          PROF_NPROF:
+            name: PROF_NPROF
+            type: int32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          PROF_MEAN_NMGY:
+            name: PROF_MEAN_NMGY
+            type: float32[75]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          PROF_MED_NMGY:
+            name: PROF_MED_NMGY
+            type: float32[75]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          PROF_SIG_NMGY:
+            name: PROF_SIG_NMGY
+            type: float32[75]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          GAIN:
+            name: GAIN
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Gain averaged over amplifiers  (electrons)
+          DARK_VARIANCE:
+            name: DARK_VARIANCE
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Dark variance
+          SCORE:
+            name: SCORE
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Quality <a href="http://www.sdss.org/dr13/help/glossary/#score">
+              score</a> of field (0-1)
+          ATERM:
+            name: ATERM
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: nanomaggies per count due to instrument (nmgy)
+          KTERM:
+            name: KTERM
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: atmospheric k-term at reference time in calibration
+          KDOT:
+            name: KDOT
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: linear time variation of atmospheric k-term  (1)
+          REF_TAI:
+            name: REF_TAI
+            type: float64[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: reference TAI used for k-term (second)
+          TAI:
+            name: TAI
+            type: float64[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: TAI used for k-term (second)
+          PSP_STATUS:
+            name: PSP_STATUS
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Maximum value of status over all 5 filters
+          PHOTO_STATUS:
+            name: PHOTO_STATUS
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'Frames processing status bitmask (-1: UNKNOWN, 0: OK, 1:
+              ABORTED; 2:MISSING, 3:TOO_LONG); from fpFieldStat file)'
+          IMAGE_STATUS:
+            name: IMAGE_STATUS
+            type: int32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: <a href="http://www.sdss.org/dr13/algorithms/bitmasks/#IMAGE_STATUS">image
+              status</a> bitmask
+          CALIB_STATUS:
+            name: CALIB_STATUS
+            type: int32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: <a href="http://www.sdss.org/dr13/algorithms/bitmasks/#CALIB_STATUS">calibration
+              status</a> bitmask
+          NSTARS_OFFSET:
+            name: NSTARS_OFFSET
+            type: int32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: number of stars used for fieldOffset determination
+          FIELD_OFFSET:
+            name: FIELD_OFFSET
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: offset of field from initial calibration (final minus initial
+              magnitudes) (mag)
+          NMGYPERCOUNT:
+            name: NMGYPERCOUNT
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: nanomaggies per count (nmgy)
+          NMGYPERCOUNT_IVAR:
+            name: NMGYPERCOUNT_IVAR
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Inverse variance of nanomaggies per count ()
+          IFIELD:
+            name: IFIELD
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: field id used by resolve pipeline
+          MU_START:
+            name: MU_START
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: start of field in stripe coords (parallel to scan direction)
+          MU_END:
+            name: MU_END
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: end of field in stripe coords (parallel to scan direction)
+          NU_START:
+            name: NU_START
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: start of field in stripe coords (perpendicular to scan direction)
+          NU_END:
+            name: NU_END
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: end of field in stripe coords (perpendicular to scan direction)
+          IFINDX:
+            name: IFINDX
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: first entry for this field in the <a href="/datamodel/files/PHOTO_RESOLVE/window_findx.html">window_findx.fits</a>
+              file matching the fields to balkans
+          NBALKAN:
+            name: NBALKAN
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          DRA:
+            name: DRA
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'median RA offset within field relative to each reference
+              (SDSS
+
+              minus reference), in arcsec'
+          DDEC:
+            name: DDEC
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'median Dec offset within field relative to each reference
+              (SDSS
+
+              minus reference), in arcsec'
+          ASTROMBAD:
+            name: ASTROMBAD
+            type: bool
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'set to 1 if astrometry is
+
+              catastrophically bad relative to UCAC-2 plus r14'
+          DPMRA:
+            name: DPMRA
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'median RA proper motion offset within
+
+              field relative to SDSS
+
+              DR7 (current minus DR7), in mas/yr'
+          DPMDEC:
+            name: DPMDEC
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'median Dec proper motion offset within
+
+              field relative to SDSS
+
+              DR7 (current minus DR7), in mas/yr'
+          CHECKED:
+            name: CHECKED
+            type: bool[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'set if this field was able to be
+
+              checked against each reference for position offsets'
+          PMCHECKED:
+            name: PMCHECKED
+            type: bool[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'set if this field was able to be
+
+              checked against each reference for proper motion offsets'
+          BADFIELD:
+            name: BADFIELD
+            type: bool[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'set if this field was flagged as
+
+              bad individually relative to each reference (0.2 arcsec or more off)'
+          BADFIELDGROUP:
+            name: BADFIELDGROUP
+            type: bool[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'set if the median offset of the
+
+              seven fields surrounding this field (that is from field-3 to field+3
+
+              on the camcol) is bad relative to each reference (0.1 arcsec or more
+
+              off)'
+          BADFIELDCAT:
+            name: BADFIELDCAT
+            type: bool[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'set if this field was flagged as
+
+              catastrophically bad individually relative to each reference (0.5 arcsec
+              or more
+
+              off)'
+          BADPMFIELD:
+            name: BADPMFIELD
+            type: bool[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'set if proper motions in this field
+
+              were flagged as bad individually relative to each reference (5 mas/yr
+              or more off)'
+          BADPMFIELDGROUP:
+            name: BADPMFIELDGROUP
+            type: bool[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'set if the median offset of
+
+              proper motions in the seven fields surrounding this field (that is
+
+              from field-3 to field+3 on the camcol) is bad relative to each
+
+              reference (2.5 mas/yr or more off)'
+          BADPMFIELDCAT:
+            name: BADPMFIELDCAT
+            type: bool[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'set if proper motions in this
+
+              field were flagged as catastrophically bad individually relative to
+
+              each reference (10 mas/yr or more off)'
+  DR9:
+    template: $BOSS_PHOTOOBJ/astromqa/astromQAFields.fits
+    example: astromqa/astromQAFields.fits
+    location: astromqa/astromQAFields.fits
+    environment: BOSS_PHOTOOBJ
+    access:
+      in_sdss_access: true
+      path_name: astromQAFields
+      path_template: $BOSS_PHOTOOBJ/astromqa/astromQAFields.fits
+      path_kwargs: []
+      access_string: astromQAFields = $BOSS_PHOTOOBJ/astromqa/astromQAFields.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: ''
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: Conforms to FITS standard.
+        - key: BITPIX
+          value: 16
+          comment: 16 bit integer.
+        - key: NAXIS
+          value: 0
+          comment: Dummy header.
+        - key: EXTEND
+          value: true
+          comment: Extensions may be present.
+        - key: POBJ_VER
+          value: trunk
+          comment: photoop version used for photoObj
+        - key: UCAC
+          value: v2_final
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: UCAC3
+          value: v0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: TWOMASS
+          value: allsky
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: UCACR14
+          value: v0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: TREE
+          value: dr9
+          comment: tree version
+      hdu1:
+        name: ''
+        description: ''
+        is_image: false
+        size: 805 MB
+        columns:
+          FIELDID:
+            name: FIELDID
+            type: char[19]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: <a href="http://www.sdss.org/dr13/help/glossary/#fieldid">Field
+              identifier</a> composed of [run, camcol, field, rerun, skyversion].
+          SKYVERSION:
+            name: SKYVERSION
+            type: bool
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Layer of catalog (currently only one layer, 0)
+          RUN:
+            name: RUN
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Imaging run number.
+          RERUN:
+            name: RERUN
+            type: char[3]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Rerun number
+          CAMCOL:
+            name: CAMCOL
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Column in imaging camera
+          FIELD:
+            name: FIELD
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: This field
+          NTOTAL:
+            name: NTOTAL
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of objects
+          NOBJECTS:
+            name: NOBJECTS
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of (non-BRIGHT) objects in the field
+          QUALITY:
+            name: QUALITY
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Quality of field
+          MJD:
+            name: MJD
+            type: float64[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MJD(TAI) when row 0 of u-band field was read
+          A:
+            name: A
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: a term in astrometry
+          B:
+            name: B
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: b term in astrometry
+          C:
+            name: C
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: c term in astrometry
+          D:
+            name: D
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: d term in astrometry
+          E:
+            name: E
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: e term in astrometry
+          FF:
+            name: FF
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: f term in astrometry
+          DROW0:
+            name: DROW0
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Zero-order row distortion coefficient
+          DROW1:
+            name: DROW1
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: First-order row distortion coefficient
+          DROW2:
+            name: DROW2
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Second-order row distortion coefficient
+          DROW3:
+            name: DROW3
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Third-order row distortion coefficient
+          DCOL0:
+            name: DCOL0
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Zero-order column distortion coefficient
+          DCOL1:
+            name: DCOL1
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: First-order column distortion coefficient
+          DCOL2:
+            name: DCOL2
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Second-order column distortion coefficient
+          DCOL3:
+            name: DCOL3
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Third-order column distortion coefficient
+          CSROW:
+            name: CSROW
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Slope in row DCR correction for blue objects
+          CSCOL:
+            name: CSCOL
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Slope in column DCR correction for blue objects
+          CCROW:
+            name: CCROW
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Constant row DCR correction for blue objects
+          CCCOL:
+            name: CCCOL
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Constant column DCR correction for blue objects
+          RICUT:
+            name: RICUT
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: r-i cutoff between blue and red objects
+          AIRMASS:
+            name: AIRMASS
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Airmass for star at frame center (midway through u-band exposure)
+              (mag)
+          MUERR:
+            name: MUERR
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Error in mu in astrometric calibration (arcsec)
+          NUERR:
+            name: NUERR
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Error in nu in astrometric calibration (arcsec)
+          PIXSCALE:
+            name: PIXSCALE
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Mean size of pixel (r-band) (arcsec)
+          RA:
+            name: RA
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          DEC:
+            name: DEC
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          PRIMARYAREA:
+            name: PRIMARYAREA
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Area covered by primary part of field (deg)
+          PSP_STATUS:
+            name: PSP_STATUS
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Maximum value of status over all 5 filters
+          PHOTO_STATUS:
+            name: PHOTO_STATUS
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'Frames processing status bitmask (-1: UNKNOWN, 0: OK, 1:
+              ABORTED; 2:MISSING, 3:TOO_LONG); from fpFieldStat file)'
+          IMAGE_STATUS:
+            name: IMAGE_STATUS
+            type: int32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: <a href="http://www.sdss.org/dr13/algorithms/bitmasks/#IMAGE_STATUS">image
+              status</a> bitmask
+          CALIB_STATUS:
+            name: CALIB_STATUS
+            type: int32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: <a href="http://www.sdss.org/dr13/algorithms/bitmasks/#CALIB_STATUS">calibration
+              status</a> bitmask
+          PSF_WIDTH:
+            name: PSF_WIDTH
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Effective PSF width from 2-Gaussian fit (arcsec)
+          GAIN:
+            name: GAIN
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Gain averaged over amplifiers  (electrons)
+          DARK_VARIANCE:
+            name: DARK_VARIANCE
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Dark variance
+          SCORE:
+            name: SCORE
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Quality <a href="http://www.sdss.org/dr13/help/glossary/#score">
+              score</a> of field (0-1)
+          NMGYPERCOUNT:
+            name: NMGYPERCOUNT
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: nanomaggies per count (nmgy)
+          NMGYPERCOUNT_IVAR:
+            name: NMGYPERCOUNT_IVAR
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Inverse variance of nanomaggies per count ()
+          IFIELD:
+            name: IFIELD
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: field id used by resolve pipeline
+          IFINDX:
+            name: IFINDX
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: first entry for this field in the <a href="/datamodel/files/PHOTO_RESOLVE/window_findx.html">window_findx.fits</a>
+              file matching the fields to balkans
+          NBALKAN:
+            name: NBALKAN
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          NQA:
+            name: NQA
+            type: int32[6]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          DRA:
+            name: DRA
+            type: float32[6]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'median RA offset within field relative to each reference
+              (SDSS
+
+              minus reference), in arcsec'
+          DDEC:
+            name: DDEC
+            type: float32[6]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'median Dec offset within field relative to each reference
+              (SDSS
+
+              minus reference), in arcsec'
+          ASTROMBAD:
+            name: ASTROMBAD
+            type: bool
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'set to 1 if astrometry is
+
+              catastrophically bad relative to UCAC-2 plus r14'
+          DPMRA:
+            name: DPMRA
+            type: float32[6]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'median RA proper motion offset within
+
+              field relative to SDSS
+
+              DR7 (current minus DR7), in mas/yr'
+          DPMDEC:
+            name: DPMDEC
+            type: float32[6]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'median Dec proper motion offset within
+
+              field relative to SDSS
+
+              DR7 (current minus DR7), in mas/yr'
+          CHECKED:
+            name: CHECKED
+            type: bool[6]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'set if this field was able to be
+
+              checked against each reference for position offsets'
+          PMCHECKED:
+            name: PMCHECKED
+            type: bool[6]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'set if this field was able to be
+
+              checked against each reference for proper motion offsets'
+          BADFIELD:
+            name: BADFIELD
+            type: bool[6]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'set if this field was flagged as
+
+              bad individually relative to each reference (0.2 arcsec or more off)'
+          BADFIELDGROUP:
+            name: BADFIELDGROUP
+            type: bool[6]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'set if the median offset of the
+
+              seven fields surrounding this field (that is from field-3 to field+3
+
+              on the camcol) is bad relative to each reference (0.1 arcsec or more
+
+              off)'
+          BADFIELDCAT:
+            name: BADFIELDCAT
+            type: bool[6]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'set if this field was flagged as
+
+              catastrophically bad individually relative to each reference (0.5 arcsec
+              or more
+
+              off)'
+          BADPMFIELD:
+            name: BADPMFIELD
+            type: bool[6]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'set if proper motions in this field
+
+              were flagged as bad individually relative to each reference (5 mas/yr
+              or more off)'
+          BADPMFIELDGROUP:
+            name: BADPMFIELDGROUP
+            type: bool[6]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'set if the median offset of
+
+              proper motions in the seven fields surrounding this field (that is
+
+              from field-3 to field+3 on the camcol) is bad relative to each
+
+              reference (2.5 mas/yr or more off)'
+          BADPMFIELDCAT:
+            name: BADPMFIELDCAT
+            type: bool[6]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'set if proper motions in this
+
+              field were flagged as catastrophically bad individually relative to
+
+              each reference (10 mas/yr or more off)'
