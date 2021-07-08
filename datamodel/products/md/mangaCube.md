@@ -1,4 +1,4 @@
-# Data Model: mangaCube
+# Data Model: mangacube
 
 
 
@@ -67,15 +67,15 @@ Describes changes to the datamodel product and/or file structure from one releas
  - WORK
    - from: DR16
    - added_hdus: ['LSFPOST', 'LSFPRE']
-   - removed_hdus: ['DISP', 'PREDISP']
+   - removed_hdus: ['PREDISP', 'DISP']
  - DR16
    - from: DR15
    - note: No changes
  - DR15
    - from: DR13
-   - added_hdus: ['ICORREL', 'PREDISP', 'ZCORREL', 'PRESPECRES', 'DISP', 'GCORREL', 'RCORREL', 'PRESPECRESD']
+   - added_hdus: ['PRESPECRESD', 'GCORREL', 'ZCORREL', 'DISP', 'PRESPECRES', 'ICORREL', 'PREDISP', 'RCORREL']
    - primary_delta_nkeys: 2
-   - added_primary_header_kwargs: ['RADESYS', 'TPLDATA', 'DATASUM']
+   - added_primary_header_kwargs: ['DATASUM', 'TPLDATA', 'RADESYS']
    - removed_primary_header_kwargs: ['RADESYSA']
 
 ---
