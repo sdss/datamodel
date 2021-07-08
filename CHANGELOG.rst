@@ -4,7 +4,7 @@
 Change Log
 ==========
 
-0.3.2 (unreleased)
+0.3.2 (07-08-2021)
 ------------------
 - Bug fixing issue :issue:`13` keyword requirement when no keywords in path
 - Issue :issue:`14` - adds Release model to yaml; sorts releases/changelog by release_date
