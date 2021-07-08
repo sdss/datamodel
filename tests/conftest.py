@@ -155,6 +155,7 @@ class MockTree(Tree):
     def _create_paths(self, cfg=None):
         paths = super(MockTree, self)._create_paths(cfg=cfg)
         paths.update({'test': '$TEST_REDUX/{ver}/testfile_{id}.fits'})
+        paths.update({'test-file': '$TEST_REDUX/{ver}/testfile_{id}.fits'})
         return paths
 
 class MockPath(Path):
@@ -163,3 +164,4 @@ class MockPath(Path):
     def __init__(self, *args, **kwargs):
         super(MockPath, self).__init__(*args, **kwargs)
         self.templates.update({'test': '$TEST_REDUX/{ver}/testfile_{id}.fits'})
+        self.templates.update({'test-file': '$TEST_REDUX/{ver}/testfile_{id}.fits'})

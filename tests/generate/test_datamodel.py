@@ -40,6 +40,15 @@ def test_datamodel_generate(testfile):
     assert os.path.exists(ss.output)
     assert ss.validate_cache() is False
 
+def test_diff_file_species_path_name(testfile):
+    dm = DataModel(file_spec='test', keywords=['ver=v1', 'id=a'], 
+                   path='TEST_REDUX/{ver}/testfile_{id}.fits', access_path_name="test-file")
+    dm.write_stubs()
+    ss = dm.get_stub('yaml')
+    ss.update_cache()
+    assert dm.file_species == 'test'
+    assert dm._access_path_name == 'test-file'
+    assert ss._cache['releases']['WORK']['access']['path_name'] == dm._access_path_name
 
 def test_datamodel_nokeys_ok():
     path = 'BOSS_PHOTOBJ/astromqa/astromQAFields.fits'
@@ -51,9 +60,9 @@ def test_datamodel_nokeys(testfile):
     with pytest.raises(ValueError, match='A set of keywords must be provided along with a either a path or location'):
         DataModel(file_spec='test', path='TEST_REDUX/{ver}/testfile_{id}.fits')
 
-def test_valid_datamodel(datamodel, validyaml):
-    ss = datamodel.get_stub('yaml')
-    datamodel.write_stubs()
+def test_valid_datamodel(validmodel):
+    ss = validmodel.get_stub('yaml')
+    validmodel.write_stubs()
     ss.update_cache()
     # assert valid yaml content
     assert os.path.exists(ss.output)
@@ -61,9 +70,8 @@ def test_valid_datamodel(datamodel, validyaml):
 
     # assert other stubs exist
     for stub in ['md', 'json', 'access']:
-        ss = datamodel.get_stub(stub)
+        ss = validmodel.get_stub(stub)
         assert os.path.exists(ss.output)
-
 
 def test_release_same_cache(makefile, validyaml):
     dr15 = makefile(env='dr15')

@@ -140,7 +140,8 @@ class DataModel(object):
 
     def __init__(self, tree_ver: str = None, file_spec: str = None, path: str = None,
                  keywords: list = [], env_label: str = None, location: str = None,
-                 verbose: bool = None, release: str = None, filename: str = None) -> None:
+                 verbose: bool = None, release: str = None, filename: str = None, 
+                 access_path_name: str = None) -> None:
 
         # environment options
         self.tree_ver = tree_ver
@@ -168,6 +169,7 @@ class DataModel(object):
         self.access = {}
         self.access_string = None
         self.in_sdss_access = None
+        self._access_path_name = access_path_name 
 
         # check for a real filename
         if self.filename:
@@ -383,8 +385,11 @@ class DataModel(object):
         sdss_access.
 
         """
+        # set the access path name 
+        aname = self._access_path_name or self.file_species
+
         # create the original access string
-        self.access_string = f"{self.file_species} = ${self.path}"
+        self.access_string = f"{aname} = ${self.path}"
 
         # create the dictionary for the current release
         self.access[self.release] = {'release': self.release, 'tree_ver': self.tree_ver,
@@ -394,19 +399,19 @@ class DataModel(object):
 
         # check if the file species already exists in sdss_access
         path_keys = self.tree.paths.keys()
-        self.in_sdss_access = self.file_species in path_keys or \
-            self.file_species.lower() in [i.lower() for i in path_keys]
+        self.in_sdss_access = aname in path_keys or \
+            aname.lower() in [i.lower() for i in path_keys]
         self.access[self.release]['in_sdss_access'] = self.in_sdss_access
 
         if self.in_sdss_access:
             path = Path(release=self.tree_ver)
             # find the correct path name
-            if self.file_species in path_keys:
-                name = self.file_species
-            elif self.file_species.lower() in path_keys:
-                name = self.file_species.lower()
-            elif self.file_species.lower() in [i.lower() for i in path_keys]:
-                name = self.file_species.lower()
+            if aname in path_keys:
+                name = aname
+            elif aname.lower() in path_keys:
+                name = aname.lower()
+            elif aname.lower() in [i.lower() for i in path_keys]:
+                name = aname.lower()
             else:
                 name = None
             # lookup the sdss_access information

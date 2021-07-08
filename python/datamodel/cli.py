@@ -41,6 +41,7 @@ stb_grp = OptionGroup("Stub Options", help='options for writing out datamodel st
 @data_grp.option('-l', '--location', help='symbolic location of the file')
 @data_grp.option('-e', '--env_label', help='environment variable name of the root location')
 @data_grp.option("-k", "--keywords", multiple=True, help="template variable keyword=value pair(s)")
+@data_grp.option('-a', '--access_path_name', help='name of the sdss_access path, if different than file species')
 @rel_grp.option('-t', '--tree_ver', help='the SDSS tree configuration')
 @rel_grp.option('-r', '--release', help='the SDSS data release')
 @stb_grp.option('-F', '--force', help='force override of a stub cache', is_flag=True, default=False)
@@ -53,8 +54,8 @@ stb_grp = OptionGroup("Stub Options", help='options for writing out datamodel st
 @cloup.constraint(mutually_exclusive, ['path', 'location'])
 @cloup.constraint(RequireExactly(1), ['filename', 'file_species'])
 @cloup.constraint(If('file_species', then=RequireExactly(1)), ['path', 'location'])
-@cloup.constraint(If('file_species', then=RequireExactly(1)), ['keywords'])
-def generate(filename, file_species, path, location, env_label, keywords, tree_ver, release, force, use_cache, hdus_only, verbose, skip_git):
+def generate(filename, file_species, path, location, env_label, keywords, tree_ver, release, 
+             force, use_cache, hdus_only, verbose, skip_git, access_path_name):
     """ Generate a datamodel file for a SDSS data product """
 
     # create a datamodel object
@@ -62,7 +63,7 @@ def generate(filename, file_species, path, location, env_label, keywords, tree_v
                 path=path, keywords=keywords,
                 env_label=env_label, location=location,
                 verbose=verbose, release=release,
-                filename=filename)
+                filename=filename, access_path_name=access_path_name)
 
     # write out all the datamodel stubs
     dm.write_stubs(force=force, use_cache_release=use_cache,
