@@ -1,0 +1,430 @@
+general:
+  name: wisematch
+  short: migrated from old datamodel - needs update
+  description: 'Contains cross-matches between the SDSS photoObj objects and the WISE
+
+    All-Sky Release catalog.  Please refer to
+
+    the <a href="http://wise2.ipac.caltech.edu/docs/release/allsky/expsup/sec2_2a.html">WISE
+
+    catalog explanatory supplement</a> for full details on the WISE
+
+    catalog columns.  These files only include a subset of the columns.
+
+    <br/>
+
+
+    The astrometric matching was done as follows.  First, the "gal" and
+
+    "star" datasweep files were loaded and combined.  Then, a
+
+    nearest-neighbor astrometric matching was performed to each of the
+
+    WISE "slices" (Dec ranges).  This matching records only the nearest
+
+    SDSS object for each WISE object, to a maximum distance of 4
+
+    arcseconds.  Once all these matches were finished, the results were
+
+    combined by inserting the single-slice matches into a table that is
+
+    parallel to the "star" and "gal" datasweep files.  For this reason,
+
+    there may be some slight oddities near the WISE "slice" boundaries.
+
+    But to first order, each WISE object appears at most once.
+
+    <br/>
+
+
+    These files are "parallel" to the datasweep files; row 0 of the
+
+    "wisematch" file contains the WISE object matching row 0 of the
+
+    "calibObj" datasweep file.  The row will contain null values if there
+
+    is no such match; you could check the "sweep_index" column to identify
+
+    valid matches: value "-1" indicates no match.'
+  datatype: FITS
+  filesize: 34 MB
+  releases:
+  - DR10
+  environments:
+  - PHOTO_SWEEP
+  naming_convention: '<code>wisematch-calibObj-[0-9]{6}-[1-6]-{star,gal}.fits</code>;
+    <code>wisematch-calibObj-RRRRRR-C-{star,gal}.fits</code>
+
+    for run RRRRRR and camcol C.
+
+
+    <dt>Approximate Size</dt>
+
+    <dd id="filesize">16 MB average</dd>
+
+    <dt>File Type</dt>
+
+    <dd id="filetype">FITS</dd>
+
+    <dt>Read by Products</dt>
+
+    <dd>sas</dd>
+
+    <dt>Written by Products</dt>
+
+    <dd>http://trac.astrometry.net/browser/trunk/projects/wise-sdss</dd>
+
+    <dt>Sections</dt>
+
+    <dd><p>Parts of files:</p>
+
+    <ul>
+
+    <li><a href="#hdu0">HDU0</a>: Trivial Primary Header</li>
+
+    <li><a href="#hdu1">HDU1</a>: WISE Matches Table</li>
+
+    </ul>
+
+    </dd>'
+  generated_by: http://trac.astrometry.net/browser/trunk/projects/wise-sdss
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR10:
+    template: $PHOTO_SWEEP/external/WISE/wisematch-calibObj-[RUN6]-[CAMCOL]-[TYPE].fits
+    example: external/WISE/wisematch-calibObj-000094-1-gal.fits
+    location: external/WISE/wisematch-calibObj-{run:0>6}-{camcol}-{type}.fits
+    environment: PHOTO_SWEEP
+    access:
+      in_sdss_access: true
+      path_name: wisematch
+      path_template: $PHOTO_SWEEP/external/WISE/wisematch-calibObj-{run:0>6}-{camcol}-{type}.fits
+      path_kwargs:
+      - camcol
+      - run
+      - type
+      access_string: wisematch = $PHOTO_SWEEP/external/WISE/wisematch-calibObj-{run:0>6}-{camcol}-{type}.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: This HDU has no non-standard required keywords.
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: ''
+        - key: BITPIX
+          value: 16
+          comment: ''
+        - key: NAXIS
+          value: 0
+          comment: ''
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: COMMENT
+          value: '  FITS (Flexible Image Transport System) format is defined in ''Astronomy'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: '  and Astrophysics'', volume 376, page 359; bibcode: 2001A&A...376..359H'
+          comment: 'migration: description of keyword/column not found. Needs update'
+      hdu1:
+        name: ''
+        description: 'FITS binary table (BINTABLE) containing WISE catalog data for
+          matched objects.
+
+          The <a href="http://wise2.ipac.caltech.edu/docs/release/allsky/expsup/sec2_2a.html">WISE
+          catalog explanatory supplement</a> contains full documentation on the WISE
+          catalog data.
+
+          This HDU has no non-standard required keywords.'
+        is_image: false
+        size: 34 MB
+        columns:
+          cntr:
+            name: CNTR
+            type: int64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: WISE primary key
+          designation:
+            name: DESIGNATION
+            type: char[20]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: WISE object designation, eg "J220625.92+265848.1"
+          ra:
+            name: RA
+            type: float64
+            unit: deg
+            description: WISE RA (right ascension)
+          dec:
+            name: DEC
+            type: float64
+            unit: deg
+            description: WISE Dec (declination)
+          sigra:
+            name: SIGRA
+            type: float32
+            unit: arcsec
+            description: WISE error on RA
+          sigdec:
+            name: SIGDEC
+            type: float32
+            unit: arcsec
+            description: WISE error on Dec
+          cc_flags:
+            name: CC_FLAGS
+            type: char[4]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: WISE contamination and confusion flags
+          ext_flg:
+            name: EXT_FLG
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: WISE extended source flags
+          var_flg:
+            name: VAR_FLG
+            type: char[4]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: WISE variability flags
+          moon_lev:
+            name: MOON_LEV
+            type: char[4]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: WISE moon level flags
+          ph_qual:
+            name: PH_QUAL
+            type: char[4]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: WISE photometric quality flags
+          w1mpro:
+            name: W1MPRO
+            type: float32
+            unit: mag
+            description: WISE W1 profile-fitting mag
+          w1sigmpro:
+            name: W1SIGMPRO
+            type: float32
+            unit: mag
+            description: WISE error on w1mpro
+          w1sat:
+            name: W1SAT
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: WISE fraction of pixels saturated
+          w1nm:
+            name: W1NM
+            type: bool
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: WISE number of individual frames with W1 S/N>3
+          w1m:
+            name: W1M
+            type: bool
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: WISE total number of individual frames
+          w1snr:
+            name: W1SNR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: WISE W1 signal-to-noise
+          w1cov:
+            name: W1COV
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: WISE pixel coverage
+          w2mpro:
+            name: W2MPRO
+            type: float32
+            unit: mag
+            description: WISE W2 profile-fitting mag
+          w2sigmpro:
+            name: W2SIGMPRO
+            type: float32
+            unit: mag
+            description: WISE error on w2mpro
+          w2sat:
+            name: W2SAT
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: WISE fraction of pixels saturated
+          w2nm:
+            name: W2NM
+            type: bool
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: WISE number of individual frames with W2 S/N>3
+          w2m:
+            name: W2M
+            type: bool
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: WISE total number of individual frames
+          w2snr:
+            name: W2SNR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: WISE W2 signal-to-noise
+          w2cov:
+            name: W2COV
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: WISE pixel coverage
+          w3mpro:
+            name: W3MPRO
+            type: float32
+            unit: mag
+            description: WISE W3 profile-fitting mag
+          w3sigmpro:
+            name: W3SIGMPRO
+            type: float32
+            unit: mag
+            description: WISE error on w3mpro
+          w3sat:
+            name: W3SAT
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: WISE fraction of pixels saturated
+          w3nm:
+            name: W3NM
+            type: bool
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: WISE number of individual frames with W3 S/N>3
+          w3m:
+            name: W3M
+            type: bool
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: WISE total number of individual frames
+          w3snr:
+            name: W3SNR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: WISE W3 signal-to-noise
+          w3cov:
+            name: W3COV
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: WISE pixel coverage
+          w4mpro:
+            name: W4MPRO
+            type: float32
+            unit: mag
+            description: WISE W4 profile-fitting mag
+          w4sigmpro:
+            name: W4SIGMPRO
+            type: float32
+            unit: mag
+            description: WISE error on w4mpro
+          w4sat:
+            name: W4SAT
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: WISE fraction of pixels saturated
+          w4nm:
+            name: W4NM
+            type: bool
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: WISE number of individual frames with W4 S/N>3
+          w4m:
+            name: W4M
+            type: bool
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: WISE total number of individual frames
+          w4snr:
+            name: W4SNR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: WISE W4 signal-to-noise
+          w4cov:
+            name: W4COV
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: WISE pixel coverage
+          w1mag:
+            name: W1MAG
+            type: float32
+            unit: mag
+            description: WISE W1 aperture mag
+          w1sigm:
+            name: W1SIGM
+            type: float32
+            unit: mag
+            description: WISE error on w1mag
+          w1flg:
+            name: W1FLG
+            type: bool
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: WISE W1 flags
+          w2mag:
+            name: W2MAG
+            type: float32
+            unit: mag
+            description: WISE W2 aperture mag
+          w2sigm:
+            name: W2SIGM
+            type: float32
+            unit: mag
+            description: WISE error on w2mag
+          w2flg:
+            name: W2FLG
+            type: bool
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: WISE W2 flags
+          w3mag:
+            name: W3MAG
+            type: float32
+            unit: mag
+            description: WISE W3 aperture mag
+          w3sigm:
+            name: W3SIGM
+            type: float32
+            unit: mag
+            description: WISE error on w3mag
+          w3flg:
+            name: W3FLG
+            type: bool
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: WISE W3 flags
+          w4mag:
+            name: W4MAG
+            type: float32
+            unit: mag
+            description: WISE W4 aperture mag
+          w4sigm:
+            name: W4SIGM
+            type: float32
+            unit: mag
+            description: WISE error on w4mag
+          w4flg:
+            name: W4FLG
+            type: bool
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: WISE W4 flags
+          sweep_index:
+            name: SWEEP_INDEX
+            type: int64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Index in the "calibObj" file of this object; equals row index
+              for matches, or -1 for non-matches.
+          match_dist:
+            name: MATCH_DIST
+            type: float32
+            unit: arcsec
+            description: Astrometric match distance between SDSS and WISE objects
+          nmatches:
+            name: NMATCHES
+            type: bool
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of SDSS objects within the 4 arcsecond search radius
+              for the matched WISE object.
+          wise_slice:
+            name: WISE_SLICE
+            type: int64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: WISE catalog Dec slice ("part") number (1 to 50); the Dec
+              ranges are listed <a href="http://irsadist.ipac.caltech.edu/wise-allsky/wise-allsky-cat-dec-ranges.txt">here</a>.
+          wise_index:
+            name: WISE_INDEX
+            type: int64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: WISE catalog index within slice ("part")
