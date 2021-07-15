@@ -123,12 +123,11 @@ create_grp = OptionGroup('Create Options', help='options for creating a file fro
 @create_grp.option('-c', '--create', help='create a file on disk from a designed datamodel', is_flag=True, default=False)
 @create_grp.option("-k", "--keywords", multiple=True, help="optional keywords into DataModel.generate_designed_file")
 @click.option('-v', '--verbose', help='turn on verbosity', is_flag=True, default=False)
-@click.option("-s", "--skip-git", help="skip the git commit process", is_flag=True, default=False)
 @cloup.constraint(all_or_none, ['location', 'env_label'])
 @cloup.constraint(mutually_exclusive, ['path', 'location'])
 @cloup.constraint(If('file_species', then=RequireExactly(1)), ['path', 'location'])
 @cloup.constraint(If('keywords', then=RequireExactly(1)), ['create'])
-def design(file_species, path, location, env_label, verbose, skip_git, create, keywords):
+def design(file_species, path, location, env_label, verbose, create, keywords):
     """ Design a datamodel for a new file """
 
     # create a datamodel object
@@ -146,13 +145,6 @@ def design(file_species, path, location, env_label, verbose, skip_git, create, k
     if create:
         dm.generate_designed_file(**kwargs)
 
-    # only run if we are not skipping the git commit stage
-    if not skip_git:
-        # commit the stubs into git
-        try:
-            dm.commit_stubs()
-        except RuntimeError as err:
-            log.error(f'Could not commit stubs to git.  Check for errors and try again. Error - {err}')
 
 cli.add_command(design)
 

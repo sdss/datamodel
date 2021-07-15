@@ -541,8 +541,23 @@ class DataModel(object):
                    columns: List[Union[list, dict, fits.Column]] = None, **kwargs):
         """ Design a new HDU
 
-        Designa a new HDU for the given datamodel.  
+        Design a new astropy HDU for the given datamodel.  Specify the extension type ``ext`` 
+        to indicate a PRIMARY, IMAGE, or BINTABLE HDU extension.  Each new HDU is added to the
+        YAML structure using next hdu extension id found, or the one provided with ``extno``.  Use
+        ``name`` to specify the name of the HDU extension.  Each call to this method will write out 
+        the new HDU to the YAML design file.     
 
+        ``header`` can be a `~astropy.io.fits.Header` instance, a list of tuples of header keywords, 
+        conforming to (keyword, value, comment), or list of dictionaries conforming to 
+        {"keyword": keyword, "value": value, "comment": comment}.
+
+        ``columns`` can be a list of `~astropy.io.fits.Column` objects, a list of tuples 
+        minimally conforming to (name, format, unit), or list of dictionaries minimally conforming
+        to {"name": name, "format": format, "unit": unit}.  See Astropy's Binary Table 
+        `Column Format <https://docs.astropy.org/en/stable/io/fits/usage/table.html#column-creation>`_
+        for the allowed format values.  When supplying a list of tuples or dictionaries, can include
+        any number of valid arguments into `~astropy.io.fits.Column`.
+        
         Parameters
         ----------
         ext : str, optional
@@ -572,10 +587,17 @@ class DataModel(object):
             log.warning('Cannot design an HDU when not in the datamodel design phase.')
             return
 
+        # get the stub and update from disk
         ss = self.get_stub(format='yaml')
         ss.update_cache()
+        
+        # design the new HDU
         ss.design_hdu(ext=ext, extno=extno, name=name, header=header,
                       columns=columns, **kwargs)
+
+        # write it out to the yaml stub        
+        ss.write()
+        
         
     def generate_designed_file(self, redesign: bool = None, **kwargs):
         """ Generate a file from a designed datamodel

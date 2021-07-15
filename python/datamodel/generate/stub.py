@@ -396,8 +396,22 @@ class BaseStub(abc.ABC):
                    columns: List[Union[list, dict, fits.Column]] = None, **kwargs) -> None:
         """ Design a new HDU
 
-        Designa a new HDU for the given datamodel.  
+        Design a new astropy HDU for the given datamodel.  Specify the extension type ``ext`` 
+        to indicate a PRIMARY, IMAGE, or BINTABLE HDU extension.  Each new HDU is added to the
+        YAML structure using next hdu extension id found, or the one provided with ``extno``.  Use
+        ``name`` to specify the name of the HDU extension.     
 
+        ``header`` can be a `~astropy.io.fits.Header` instance, a list of tuples of header keywords, 
+        conforming to (keyword, value, comment), or list of dictionaries conforming to 
+        {"keyword": keyword, "value": value, "comment": comment}.
+
+        ``columns`` can be a list of `~astropy.io.fits.Column` objects, a list of tuples 
+        minimally conforming to (name, format, unit), or list of dictionaries minimally conforming
+        to {"name": name, "format": format, "unit": unit}.  See Astropy's Binary Table 
+        `Column Format <https://docs.astropy.org/en/stable/io/fits/usage/table.html#column-creation>`_
+        for the allowed format values.  When supplying a list of tuples or dictionaries, can include
+        any number of valid arguments into `~astropy.io.fits.Column`.
+        
         Parameters
         ----------
         ext : str, optional
@@ -446,7 +460,7 @@ class BaseStub(abc.ABC):
                 columns = [fits.Column(name='EXAMPLE', format='A5')]
             elif isinstance(columns[0], dict):
                 columns = [fits.Column(**c) for c in columns]
-            elif isinstance(columns[0], list):
+            elif isinstance(columns[0], (list, tuple)):
                 columns = [fits.Column(*c) for c in columns]
     
         # generate a new HDU extension
@@ -633,7 +647,7 @@ class BaseStub(abc.ABC):
             for key, val in fmap.items()
             if key in value
         ]
-        return out[0]
+        return out[0]        
 
     def commit_to_git(self) -> None:
         """ Commit the stub to Github """
