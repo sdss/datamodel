@@ -15,6 +15,7 @@ from __future__ import print_function, division, absolute_import
 
 import os
 import re
+import pathlib
 
 from typing import TypeVar, Type, Union, List
 
@@ -605,13 +606,16 @@ class DataModel(object):
         Generates a real file on disk from a designed datamodel. If there are any
         path template keywords, they must be specified here as input keyword arguments
         to convert the symbolic path / abstract location to a real example location on 
-        disk.  After generating  
+        disk.  After generating the file, the datamodel sets ``design`` to False and exits
+        design mode.   
         
         Parameters
         ----------
+        redesign : bool
+            If True, re-enters design mode to create a new file
         kwargs
             Any path keyword arguments to be filled in
-
+        
         Raises
         ------
         KeyError
@@ -643,6 +647,12 @@ class DataModel(object):
         ss = self.get_stub(format='yaml')
         ss.update_cache()
         hdulist = ss.create_hdulist_from_cache(release='WORK')
+        
+        # create directories if needed
+        path = pathlib.Path(self.file)
+        if not path.parent.exists():
+            log.info(f'Creating directory: {path.parent}')
+            path.parent.mkdir(parents=True)
         
         # write out the designed file
         hdulist.writeto(self.file, overwrite=True, checksum=True)
