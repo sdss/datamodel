@@ -41,6 +41,7 @@ def test_datamodel_help(command, msg):
 
 
 def test_cli_datamodel_generate(testfile):
+    """ test that cli generates a file """
     runner = CliRunner()
     result = runner.invoke(cli, ['generate', '-f', 'test', '-p', 'TEST_REDUX/{ver}/testfile_{id}.fits', '-k', 'ver=v1', '-k', 'id=a', '-v', '-s'])
     path = os.path.join(os.getenv("DATAMODEL_DIR"), 'datamodel/products/yaml/test.yaml')
@@ -54,3 +55,11 @@ def test_cli_dm_generate_keywords(testfile):
             'parameters must be set:') not in result.output
     assert result.exit_code == 1
 
+
+def test_cli_dm_design(yamlfile):
+    """ test that cli designs a file """
+    runner = CliRunner()
+    result = runner.invoke(cli, ['design', '-f', 'test', '-p', 'TEST_REDUX/{ver}/testfile_{id}.fits'])
+    assert os.path.exists(yamlfile)
+    
+    

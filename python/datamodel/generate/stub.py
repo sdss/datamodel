@@ -362,14 +362,14 @@ class BaseStub(abc.ABC):
                 hdus[extno] = row
         return hdus
     
-    def _convert_hdu_to_dict(self, hdu: fits.hdu.base._BaseHDU) -> dict:
+    def _convert_hdu_to_dict(self, hdu: fits.hdu.base._BaseHDU, description: str = None) -> dict:
         """ Convert an HDU into a dictionary entry """
         header = hdu.header
 
         # create a new one
         row = {
             'name': hdu.name,
-            'description': 'replace me description',
+            'description': description or 'replace me description',
             'is_image': hdu.is_image,
             'size': self._format_bytes(hdu.size),
         }
@@ -392,7 +392,7 @@ class BaseStub(abc.ABC):
         return row
     
     def design_hdu(self, ext: str = 'primary', extno: int = None, name: str = 'EXAMPLE', 
-                   header: Union[list, dict, fits.Header] = None, 
+                   description: str = None, header: Union[list, dict, fits.Header] = None, 
                    columns: List[Union[list, dict, fits.Column]] = None, **kwargs) -> None:
         """ Design a new HDU
 
@@ -420,6 +420,8 @@ class BaseStub(abc.ABC):
             the extension number, by default None
         name : str, optional
             the name of the HDU extension, by default 'EXAMPLE'
+        description: str, optional
+            a description for the HDU, by default None
         header : Union[list, dict, fits.Header], optional
             valid input to create a Header, by default None
         columns : List[Union[list, dict, fits.Column]], optional
@@ -436,7 +438,7 @@ class BaseStub(abc.ABC):
         ValueError
             when the table columns input is not a list
         """
-        if not self.datamodel.design or self.datamodel.file:
+        if not self.datamodel.design or (self.datamodel.file and os.path.exists(self.datamodel.file)):
             log.warning('Cannot design an HDU when not in the datamodel design phase or '
                         'if a real file already exists.')
             return
@@ -474,7 +476,7 @@ class BaseStub(abc.ABC):
                                                 header=header, **kwargs)
 
         # convert the new HDU to a dictionary            
-        row = self._convert_hdu_to_dict(hdu)
+        row = self._convert_hdu_to_dict(hdu, description=description)
 
         # determine the extension number
         existing_hdus = [int(i.split('hdu')[-1]) for i in cached_hdus]

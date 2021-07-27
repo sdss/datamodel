@@ -26,6 +26,7 @@ from astropy.io import fits
 from datamodel.generate.stub import stub_iterator
 from tree import Tree
 from sdss_access.path import Path
+from pydantic import ValidationError
 
 from ..git import Git
 from .stub import BaseStub
@@ -538,7 +539,7 @@ class DataModel(object):
         self._git.push()
         
     def design_hdu(self, ext: str = 'primary', extno: int = None, name: str = 'EXAMPLE', 
-                   header: Union[list, dict, fits.Header] = None, 
+                   description: str = None, header: Union[list, dict, fits.Header] = None, 
                    columns: List[Union[list, dict, fits.Column]] = None, **kwargs):
         """ Design a new HDU
 
@@ -567,6 +568,8 @@ class DataModel(object):
             the extension number, by default None
         name : str, optional
             the name of the HDU extension, by default 'EXAMPLE'
+        description: str, optional
+            a description for the HDU, by default None
         header : Union[list, dict, fits.Header], optional
             valid input to create a Header, by default None
         columns : List[Union[list, dict, fits.Column]], optional
@@ -593,8 +596,8 @@ class DataModel(object):
         ss.update_cache()
         
         # design the new HDU
-        ss.design_hdu(ext=ext, extno=extno, name=name, header=header,
-                      columns=columns, **kwargs)
+        ss.design_hdu(ext=ext, extno=extno, name=name, description=description, 
+                      header=header, columns=columns, **kwargs)
 
         # write it out to the yaml stub        
         ss.write()
@@ -646,7 +649,16 @@ class DataModel(object):
         # generate the designed HDUList
         ss = self.get_stub(format='yaml')
         ss.update_cache()
-        hdulist = ss.create_hdulist_from_cache(release='WORK')
+        try:
+            hdulist = ss.create_hdulist_from_cache(release='WORK')
+        except ValidationError as e:
+            log.error(f'Failed to create a valid HDUList')
+            raise
+        
+        # exit if for any reason hdulist doesn't exist
+        if not hdulist:
+            log.error('No HDUList to write out.')
+            return
         
         # create directories if needed
         path = pathlib.Path(self.file)

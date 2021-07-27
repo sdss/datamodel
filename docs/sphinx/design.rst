@@ -137,7 +137,8 @@ Adding HDUs with Python
 To design a new HDU in Python, use the `~datamodel.generate.datamodel.DataModel.design_hdu` method.  The ``ext``
 keyword argument is used to specify the kind of HDU, either `~astropy.io.fits.PrimaryHDU`, 
 `~astropy.io.fits.ImageHDU`, and or `~astropy.io.fits.BinTableHDU`.  Let's first 
-create a new ImageHDU with the name ``SUMMARY`` and a header with three custom keys.  
+create a new ImageHDU with the name ``SUMMARY`` and a header with three custom keys.  We also 
+optionally include a description for the HDU, which fills the ``description`` field in the YAML file.  
 ::
 
     >>> # create the header rows, as a list of tuples
@@ -146,7 +147,7 @@ create a new ImageHDU with the name ``SUMMARY`` and a header with three custom k
     >>>        ('SDATA', '', 'the type of data aggegrated as summary')]
 
     >>> # create a new ImageHDU with the custom header
-    >>> dm.design_hdu(ext='image', name='SUMMARY', header=hdr)
+    >>> dm.design_hdu(ext='image', name='SUMMARY', header=hdr, description='aggregated summary data')
     [WARNING]: Found existing extensions.  Using next extension id 1
 
 When specifying a new header for an HDU, the ``header`` keyword accepts either a 
@@ -203,7 +204,7 @@ YAML datamodel file.  With the above calls, the ``hdus`` sections of designed YA
               comment: number of array dimensions
           hdu1:
             name: SUMMARY
-            description: replace me description
+            description: aggregated summary data
             is_image: true
             size: 0 bytes
             header:
