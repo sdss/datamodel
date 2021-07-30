@@ -1,0 +1,2496 @@
+general:
+  name: DRQ
+  short: migrated from old datamodel - needs update
+  description: "DR10Q is the BOSS quasar catalog of the tenth data release of SDSS,\n\
+    as documented in P\xE2ris et al. (2013).  There are 2 sets of files available\n\
+    in FITS format:\n<ul>\n<li>DR10Q.fits/.dat: The primary DR9Q catalog</li>\n<li>Supplementary_DR10Q.fits/.dat:\
+    \ The supplementary list of quasars added\n    after the primary catalog was frozen.</li>\n\
+    </ul>\n<p>\nThis webpage documents the format of the\n<a href=\"/sas/dr9/env/BOSS_QSO/DR10Q/DR10Q.fits\"\
+    >DR10Q.fits</a>\nand <a href=\"/sas/dr9/env/BOSS_QSO/DR10Q/Supplementary_DR10Q.fits\"\
+    >Supplementary_DR10Q.fits</a>\ncatalog files which have identical formats with\
+    \ different objects.\n</p>"
+  datatype: FITS
+  filesize: 81 MB
+  releases:
+  - DR9
+  - DR10
+  - DR12
+  environments:
+  - BOSS_QSO
+  naming_convention: 'migration: not in database. Needs update'
+  generated_by: 'migration: not in database. Needs update'
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases:
+    DR12:
+      from: DR10
+      added_hdus:
+      - DR12Q.fits
+      removed_hdus:
+      - DR10Q.fits
+    DR10:
+      from: DR9
+      added_hdus:
+      - DR10Q.fits
+      removed_hdus:
+      - DR9Q
+releases:
+  DR9:
+    template: $BOSS_QSO/DR9Q/DR9Q.fits
+    example: DR9Q/DR9Q.fits
+    location: DR9Q/DR9Q.fits
+    environment: BOSS_QSO
+    access:
+      in_sdss_access: true
+      path_name: DRQ
+      path_template: $BOSS_QSO/{dr}Q/{dr}Q.fits
+      path_kwargs:
+      - dr
+      access_string: DRQ = $BOSS_QSO/DR9Q/DR9Q.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: 'The data in this primary HDU consists of bytes which
+
+          comprise a VOTABLE document.
+
+          The VOTable describes the metadata of the table contained
+
+          in the following BINTABLE extension.
+
+          Such a BINTABLE extension can be used on its own as a perfectly
+
+          good table, but the information from this HDU may provide some
+
+          useful additional metadata.'
+        is_image: true
+        size: 15 KB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 1
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 15819
+          comment: length of dimension 1
+        - key: VOTMETA
+          value: true
+          comment: Table metadata in VOTable format
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: The data in this primary HDU consists of bytes which
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: comprise a VOTABLE document.
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: The VOTable describes the metadata of the table contained
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: in the following BINTABLE extension.
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: Such a BINTABLE extension can be used on its own as a perfectly
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: good table, but the information from this HDU may provide some
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: useful additional metadata.
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: There is one following BINTABLE.
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: NTABLE
+          value: 1
+          comment: Number of following BINTABLE HDUs
+      hdu1:
+        name: DR9Q
+        description: 'EXTNAME="DR10Q" with a binary FITS table with the following
+          columns:'
+        is_image: false
+        size: 81 MB
+        columns:
+          SDSS_NAME:
+            name: SDSS_NAME
+            type: char[18]
+            unit: '-'
+            description: SDSS-DR10 designation
+          RA:
+            name: RA
+            type: float64
+            unit: deg
+            description: RA (J2000)
+          DEC:
+            name: DEC
+            type: float64
+            unit: deg
+            description: DEC (J2000)
+          THING_ID:
+            name: THING_ID
+            type: int32
+            unit: '-'
+            description: Unique identifier
+          PLATE:
+            name: PLATE
+            type: int32
+            unit: '-'
+            description: Plate number
+          MJD:
+            name: MJD
+            type: int32
+            unit: '-'
+            description: Spectroscopic MJD
+          FIBERID:
+            name: FIBERID
+            type: int32
+            unit: '-'
+            description: Fiber number
+          Z_VI:
+            name: Z_VI
+            type: float64
+            unit: '-'
+            description: Visual inspection redshift
+          Z_PIPE:
+            name: Z_PIPE
+            type: float64
+            unit: '-'
+            description: BOSS pipeline redshift
+          ERR_ZPIPE:
+            name: ERR_ZPIPE
+            type: float64
+            unit: '-'
+            description: Error on pipeline redshift
+          ZWARNING:
+            name: ZWARNING
+            type: int32
+            unit: '-'
+            description: zwarning flag
+          Z_PCA:
+            name: Z_PCA
+            type: float64
+            unit: '-'
+            description: PCA redshift
+          ERR_ZPCA:
+            name: ERR_ZPCA
+            type: float64
+            unit: '-'
+            description: Error on PCA redshift
+          PCA_QUAL:
+            name: PCA_QUAL
+            type: float64
+            unit: '-'
+            description: Quality of PCA continuum
+          Z_CIV:
+            name: Z_CIV
+            type: float64
+            unit: '-'
+            description: CIV redshift
+          Z_CIII:
+            name: Z_CIII
+            type: float64
+            unit: '-'
+            description: CIII] complex redshift
+          Z_MGII:
+            name: Z_MGII
+            type: float64
+            unit: '-'
+            description: MgII redshift
+          SDSS_MORPHO:
+            name: SDSS_MORPHO
+            type: int16
+            unit: '-'
+            description: Morphology flag
+          BOSS_TARGET1:
+            name: BOSS_TARGET1
+            type: int64
+            unit: '-'
+            description: Main survey TS flag (parseLong($19))
+          ANCILLARY_TARGET1:
+            name: ANCILLARY_TARGET1
+            type: int64
+            unit: '-'
+            description: Ancillary TS flag 1 (parseLong($20))
+          ANCILLARY_TARGET2:
+            name: ANCILLARY_TARGET2
+            type: int64
+            unit: '-'
+            description: Ancillary TS flag 2 (parseLong($21))
+          SDSS_DR7:
+            name: SDSS_DR7
+            type: int32
+            unit: '-'
+            description: DR7 observation flag
+          PLATE_DR7:
+            name: PLATE_DR7
+            type: int32
+            unit: '-'
+            description: DR7 Plate number
+          MJD_DR7:
+            name: MJD_DR7
+            type: int32
+            unit: '-'
+            description: DR7 spectroscopic MJD
+          FIBERID_DR7:
+            name: FIBERID_DR7
+            type: int32
+            unit: '-'
+            description: DR7 Fiber number
+          UNIFORM:
+            name: UNIFORM
+            type: int32
+            unit: '-'
+            description: Uniform sample flag
+          MI:
+            name: MI
+            type: float64
+            unit: '-'
+            description: Absolute Magnitude Mi[z=2]
+          DGMI:
+            name: DGMI
+            type: float64
+            unit: '-'
+            description: Differential color delta(g-i)
+          ALPHA_NU:
+            name: ALPHA_NU
+            type: float64
+            unit: '-'
+            description: Spectral index
+          SNR_SPEC:
+            name: SNR_SPEC
+            type: float64
+            unit: '-'
+            description: Median SNR (whole spectrum)
+          SNR_1700:
+            name: SNR_1700
+            type: float64
+            unit: '-'
+            description: Median SNR (1650-1750A rest)
+          SNR_3000:
+            name: SNR_3000
+            type: float64
+            unit: '-'
+            description: Median SNR (2950-3050A rest)
+          SNR_5150:
+            name: SNR_5150
+            type: float64
+            unit: '-'
+            description: Median SNR (5100-5250A rest)
+          FWHM_CIV:
+            name: FWHM_CIV
+            type: float64
+            unit: km/s
+            description: FWHM of CIV emission
+          BHWHM_CIV:
+            name: BHWHM_CIV
+            type: float64
+            unit: km/s
+            description: Blue HWHM of CIV emission
+          RHWHM_CIV:
+            name: RHWHM_CIV
+            type: float64
+            unit: km/s
+            description: Red HWHM of CIV emission
+          AMP_CIV:
+            name: AMP_CIV
+            type: float64
+            unit: '-'
+            description: Amplitude of CIV emission
+          REWE_CIV:
+            name: REWE_CIV
+            type: float64
+            unit: Angstrom
+            description: Rest EW of CIV emission
+          ERR_REWE_CIV:
+            name: ERR_REWE_CIV
+            type: float64
+            unit: Angstrom
+            description: Error on rest EW of CIV emission
+          FWHM_CIII:
+            name: FWHM_CIII
+            type: float64
+            unit: km/s
+            description: FWHM of CIII] complex
+          BHWHM_CIII:
+            name: BHWHM_CIII
+            type: float64
+            unit: km/s
+            description: Blue HWHM of CIII] complex
+          RHWHM_CIII:
+            name: RHWHM_CIII
+            type: float64
+            unit: km/s
+            description: Red HWHM of CIII] complex
+          AMP_CIII:
+            name: AMP_CIII
+            type: float64
+            unit: '-'
+            description: Amplitude of CIII] complex
+          REWE_CIII:
+            name: REWE_CIII
+            type: float64
+            unit: Angstrom
+            description: Rest EW of CIII] complex
+          ERR_REWE_CIII:
+            name: ERR_REWE_CIII
+            type: float64
+            unit: Angstrom
+            description: Error on rest EW of CIII] complex
+          FWHM_MGII:
+            name: FWHM_MGII
+            type: float64
+            unit: km/s
+            description: FWHM of MgII emission
+          BHWHM_MGII:
+            name: BHWHM_MGII
+            type: float64
+            unit: km/s
+            description: Blue HWHM of MgII emission
+          RHWHM_MGII:
+            name: RHWHM_MGII
+            type: float64
+            unit: km/s
+            description: Red HWHM of MgII emission
+          AMP_MGII:
+            name: AMP_MGII
+            type: float64
+            unit: '-'
+            description: Amplitude of MgII emission
+          REWE_MGII:
+            name: REWE_MGII
+            type: float64
+            unit: Angstrom
+            description: Rest EW of MgII emission
+          ERR_REWE_MGII:
+            name: ERR_REWE_MGII
+            type: float64
+            unit: Angstrom
+            description: Error on rest EW of MgII emission
+          BAL_FLAG_VI:
+            name: BAL_FLAG_VI
+            type: int32
+            unit: '-'
+            description: BAL flag from visual inspection
+          BI_CIV:
+            name: BI_CIV
+            type: float64
+            unit: km/s
+            description: BI of CIV trough
+          ERR_BI_CIV:
+            name: ERR_BI_CIV
+            type: float64
+            unit: km/s
+            description: Error on BI of CIV trough
+          AI_CIV:
+            name: AI_CIV
+            type: float64
+            unit: km/s
+            description: AI of CIV trough
+          ERR_AI_CIV:
+            name: ERR_AI_CIV
+            type: float64
+            unit: km/s
+            description: Error on AI of CIV trough
+          DI_CIV:
+            name: DI_CIV
+            type: float64
+            unit: km/s
+            description: DI of CIV trough
+          ERR_DI_CIV:
+            name: ERR_DI_CIV
+            type: float64
+            unit: km/s
+            description: Error on the DI of CIV trough
+          CHI2TROUGH:
+            name: CHI2TROUGH
+            type: float64
+            unit: '-'
+            description: Chi2 of the CIV troughs
+          NCIV_2000:
+            name: NCIV_2000
+            type: int32
+            unit: '-'
+            description: Number of CIV troughs larger than 2000 km/s
+          VMIN_CIV_2000:
+            name: VMIN_CIV_2000
+            type: float64
+            unit: km/s
+            description: Min velocity of CIV troughs (col60)
+          VMAX_CIV_2000:
+            name: VMAX_CIV_2000
+            type: float64
+            unit: km/s
+            description: Max velocity of CIV troughs (col60)
+          NCIV_450:
+            name: NCIV_450
+            type: int32
+            unit: '-'
+            description: Number of CIV troughs larger than 450 km/s
+          VMIN_CIV_450:
+            name: VMIN_CIV_450
+            type: float64
+            unit: km/s
+            description: Min velocity of CIV troughs (col63)
+          VMAX_CIV_450:
+            name: VMAX_CIV_450
+            type: float64
+            unit: km/s
+            description: Max velocity of CIV troughs (col63)
+          REW_SIIV:
+            name: REW_SIIV
+            type: float64
+            unit: Angstrom
+            description: Rest EW of SiIV trough
+          REW_CIV:
+            name: REW_CIV
+            type: float64
+            unit: Angstrom
+            description: Rest EW of CIV trough
+          REW_ALIII:
+            name: REW_ALIII
+            type: float64
+            unit: Angstrom
+            description: Rest EW of AlIII trough
+          RUN_NUMBER:
+            name: RUN_NUMBER
+            type: int16
+            unit: '-'
+            description: Imaging Run Number
+          PHOTO_MJD:
+            name: PHOTO_MJD
+            type: int32
+            unit: '-'
+            description: Photometric MJD
+          RERUN_NUMBER:
+            name: RERUN_NUMBER
+            type: char[3]
+            unit: '-'
+            description: Photometric Processing Rerun number
+          COL_NUMBER:
+            name: COL_NUMBER
+            type: int16
+            unit: '-'
+            description: camera column number
+          FIELD_NUMBER:
+            name: FIELD_NUMBER
+            type: int16
+            unit: '-'
+            description: field number
+          OBJ_ID:
+            name: OBJ_ID
+            type: char[19]
+            unit: '-'
+            description: Object Identification number
+          UFLUX:
+            name: UFLUX
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          ERR_UFLUX:
+            name: ERR_UFLUX
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          GFLUX:
+            name: GFLUX
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          ERR_GFLUX:
+            name: ERR_GFLUX
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          RFLUX:
+            name: RFLUX
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          ERR_RFLUX:
+            name: ERR_RFLUX
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          IFLUX:
+            name: IFLUX
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          ERR_IFLUX:
+            name: ERR_IFLUX
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          ZFLUX:
+            name: ZFLUX
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          ERR_ZFLUX:
+            name: ERR_ZFLUX
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          TARGET_UFLUX:
+            name: TARGET_UFLUX
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          TARGET_GFLUX:
+            name: TARGET_GFLUX
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          TARGET_RFLUX:
+            name: TARGET_RFLUX
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          TARGET_IFLUX:
+            name: TARGET_IFLUX
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          TARGET_ZFLUX:
+            name: TARGET_ZFLUX
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          U_EXT:
+            name: U_EXT
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          HI_GAL:
+            name: HI_GAL
+            type: float64
+            unit: cm<sup>-2</sup>
+            description: log of Galactic HI column density
+          RASS_COUNT:
+            name: RASS_COUNT
+            type: float64
+            unit: COUNT/S
+            description: log RASS full band count rate
+          RASS_COUNTS_SNR:
+            name: RASS_COUNTS_SNR
+            type: float64
+            unit: '-'
+            description: SNR of RASS count rate
+          SDSS2ROSAT_SEP:
+            name: SDSS2ROSAT_SEP
+            type: float64
+            unit: arcsec
+            description: SDSS-RASS separation
+          NUVFLUX:
+            name: NUVFLUX
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          ERR_NUVFLUX:
+            name: ERR_NUVFLUX
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          FUVFLUX:
+            name: FUVFLUX
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          ERR_FUVFLUX:
+            name: ERR_FUVFLUX
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          JMAG:
+            name: JMAG
+            type: float64
+            unit: '-'
+            description: J-band magnitude (Vega, 2MASS)
+          ERR_JMAG:
+            name: ERR_JMAG
+            type: float64
+            unit: '-'
+            description: Error on J-band magnitude
+          JSNR:
+            name: JSNR
+            type: float64
+            unit: '-'
+            description: J-band SNR
+          JRDFLAG:
+            name: JRDFLAG
+            type: int32
+            unit: '-'
+            description: J-band photometry flag
+          HMAG:
+            name: HMAG
+            type: float64
+            unit: '-'
+            description: H-band magnitude (Vega, 2MASS)
+          ERR_HMAG:
+            name: ERR_HMAG
+            type: float64
+            unit: '-'
+            description: Error on H-band magnitude
+          HSNR:
+            name: HSNR
+            type: float64
+            unit: '-'
+            description: H-band SNR
+          HRDFLAG:
+            name: HRDFLAG
+            type: int32
+            unit: '-'
+            description: H-band photometry flag
+          KMAG:
+            name: KMAG
+            type: float64
+            unit: '-'
+            description: K-band magnitude (Vega, 2MASS)
+          ERR_KMAG:
+            name: ERR_KMAG
+            type: float64
+            unit: '-'
+            description: Error on K-band magnitude
+          KSNR:
+            name: KSNR
+            type: float64
+            unit: '-'
+            description: K-band SNR
+          KRDFLAG:
+            name: KRDFLAG
+            type: int32
+            unit: '-'
+            description: K-band photometry flag
+          SDSS2MASS_SEP:
+            name: SDSS2MASS_SEP
+            type: float64
+            unit: arcsec
+            description: SDSS-2MASS separation
+          W1MAG:
+            name: W1MAG
+            type: float64
+            unit: '-'
+            description: w1 magnitude (Vega, WISE)
+          ERR_W1MAG:
+            name: ERR_W1MAG
+            type: float64
+            unit: '-'
+            description: Error on w1 magnitude
+          W1SNR:
+            name: W1SNR
+            type: float64
+            unit: '-'
+            description: SNR in w1 band
+          W1CHI2:
+            name: W1CHI2
+            type: float64
+            unit: '-'
+            description: Chi2 in w1 band
+          W2MAG:
+            name: W2MAG
+            type: float64
+            unit: '-'
+            description: w2 magnitude (Vega, WISE)
+          ERR_W2MAG:
+            name: ERR_W2MAG
+            type: float64
+            unit: '-'
+            description: Error on w2 magnitude
+          W2SNR:
+            name: W2SNR
+            type: float64
+            unit: '-'
+            description: SNR in w2 band
+          W2CHI2:
+            name: W2CHI2
+            type: float64
+            unit: '-'
+            description: Chi2 in w2 band
+          W3MAG:
+            name: W3MAG
+            type: float64
+            unit: '-'
+            description: w3 magnitude (Vega, WISE)
+          ERR_W3MAG:
+            name: ERR_W3MAG
+            type: float64
+            unit: '-'
+            description: Error on w3 magnitude
+          W3SNR:
+            name: W3SNR
+            type: float64
+            unit: '-'
+            description: SNR in w3 band
+          W3CHI2:
+            name: W3CHI2
+            type: float64
+            unit: '-'
+            description: Chi2 in w3 band
+          W4MAG:
+            name: W4MAG
+            type: float64
+            unit: '-'
+            description: w4 magnitude
+          ERR_W4MAG:
+            name: ERR_W4MAG
+            type: float64
+            unit: '-'
+            description: Error on w4 magnitude
+          W4SNR:
+            name: W4SNR
+            type: float64
+            unit: '-'
+            description: SNR in w4 band
+          W4CHI2:
+            name: W4CHI2
+            type: float64
+            unit: '-'
+            description: Chi2 in w4 band
+          SDSS2WISE_SEP:
+            name: SDSS2WISE_SEP
+            type: float64
+            unit: arcsec
+            description: SDSS-WISE separation
+          FIRST_FLUX:
+            name: FIRST_FLUX
+            type: float64
+            unit: mJy
+            description: FIRST peak flux density at 20 cm
+          FIRST_SNR:
+            name: FIRST_SNR
+            type: float64
+            unit: '-'
+            description: SNR of the FIRST flux density
+          SDSS2FIRST_SEP:
+            name: SDSS2FIRST_SEP
+            type: float64
+            unit: arcsec
+            description: SDSS-FIRST separation
+  DR10:
+    template: $BOSS_QSO/DR10Q/DR10Q.fits
+    example: DR10Q/DR10Q.fits
+    location: DR10Q/DR10Q.fits
+    environment: BOSS_QSO
+    access:
+      in_sdss_access: true
+      path_name: DRQ
+      path_template: $BOSS_QSO/{dr}Q/{dr}Q.fits
+      path_kwargs:
+      - dr
+      access_string: DRQ = $BOSS_QSO/DR10Q/DR10Q.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: 'The data in this primary HDU consists of bytes which
+
+          comprise a VOTABLE document.
+
+          The VOTable describes the metadata of the table contained
+
+          in the following BINTABLE extension.
+
+          Such a BINTABLE extension can be used on its own as a perfectly
+
+          good table, but the information from this HDU may provide some
+
+          useful additional metadata.'
+        is_image: true
+        size: 16 KB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 1
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 16693
+          comment: length of dimension 1
+        - key: VOTMETA
+          value: true
+          comment: Table metadata in VOTable format
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: The data in this primary HDU consists of bytes which
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: comprise a VOTABLE document.
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: The VOTable describes the metadata of the table contained
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: in the following BINTABLE extension.
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: Such a BINTABLE extension can be used on its own as a perfectly
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: good table, but the information from this HDU may provide some
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: useful additional metadata.
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: There is one following BINTABLE.
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: NTABLE
+          value: 1
+          comment: Number of following BINTABLE HDUs
+      hdu1:
+        name: DR10Q.fits
+        description: 'EXTNAME="DR10Q" with a binary FITS table with the following
+          columns:'
+        is_image: false
+        size: 176 MB
+        columns:
+          SDSS_NAME:
+            name: SDSS_NAME
+            type: char[19]
+            unit: '-'
+            description: SDSS-DR10 designation
+          RA:
+            name: RA
+            type: float64
+            unit: deg
+            description: RA (J2000)
+          DEC:
+            name: DEC
+            type: float64
+            unit: deg
+            description: DEC (J2000)
+          THING_ID:
+            name: THING_ID
+            type: int32
+            unit: '-'
+            description: Unique identifier
+          PLATE:
+            name: PLATE
+            type: int32
+            unit: '-'
+            description: Plate number
+          MJD:
+            name: MJD
+            type: int32
+            unit: '-'
+            description: Spectroscopic MJD
+          FIBERID:
+            name: FIBERID
+            type: int32
+            unit: '-'
+            description: Fiber number
+          Z_VI:
+            name: Z_VI
+            type: float64
+            unit: '-'
+            description: Visual inspection redshift
+          Z_PIPE:
+            name: Z_PIPE
+            type: float32
+            unit: '-'
+            description: BOSS pipeline redshift
+          ERR_ZPIPE:
+            name: ERR_ZPIPE
+            type: float32
+            unit: '-'
+            description: Error on pipeline redshift
+          ZWARNING:
+            name: ZWARNING
+            type: int32
+            unit: '-'
+            description: zwarning flag
+          Z_PCA:
+            name: Z_PCA
+            type: float64
+            unit: '-'
+            description: PCA redshift
+          ERR_ZPCA:
+            name: ERR_ZPCA
+            type: float64
+            unit: '-'
+            description: Error on PCA redshift
+          PCA_QUAL:
+            name: PCA_QUAL
+            type: float64
+            unit: '-'
+            description: Quality of PCA continuum
+          Z_CIV:
+            name: Z_CIV
+            type: float64
+            unit: '-'
+            description: CIV redshift
+          Z_CIII:
+            name: Z_CIII
+            type: float64
+            unit: '-'
+            description: CIII] complex redshift
+          Z_MGII:
+            name: Z_MGII
+            type: float64
+            unit: '-'
+            description: MgII redshift
+          SDSS_MORPHO:
+            name: SDSS_MORPHO
+            type: int16
+            unit: '-'
+            description: Morphology flag
+          BOSS_TARGET1:
+            name: BOSS_TARGET1
+            type: int64
+            unit: '-'
+            description: Main survey TS flag (parseLong($19))
+          ANCILLARY_TARGET1:
+            name: ANCILLARY_TARGET1
+            type: int64
+            unit: '-'
+            description: Ancillary TS flag 1 (parseLong($20))
+          ANCILLARY_TARGET2:
+            name: ANCILLARY_TARGET2
+            type: int64
+            unit: '-'
+            description: Ancillary TS flag 2 (parseLong($21))
+          SDSS_DR7:
+            name: SDSS_DR7
+            type: int32
+            unit: '-'
+            description: DR7 observation flag
+          PLATE_DR7:
+            name: PLATE_DR7
+            type: int32
+            unit: '-'
+            description: DR7 Plate number
+          MJD_DR7:
+            name: MJD_DR7
+            type: int32
+            unit: '-'
+            description: DR7 spectroscopic MJD
+          FIBERID_DR7:
+            name: FIBERID_DR7
+            type: int32
+            unit: '-'
+            description: DR7 Fiber number
+          UNIFORM:
+            name: UNIFORM
+            type: int32
+            unit: '-'
+            description: Uniform sample flag
+          ALPHA_NU:
+            name: ALPHA_NU
+            type: float64
+            unit: '-'
+            description: Spectral index
+          SNR_SPEC:
+            name: SNR_SPEC
+            type: float64
+            unit: '-'
+            description: Median SNR (whole spectrum)
+          SNR_1700:
+            name: SNR_1700
+            type: float64
+            unit: '-'
+            description: Median SNR (1650-1750A rest)
+          SNR_3000:
+            name: SNR_3000
+            type: float64
+            unit: '-'
+            description: Median SNR (2950-3050A rest)
+          SNR_5150:
+            name: SNR_5150
+            type: float64
+            unit: '-'
+            description: Median SNR (5100-5250A rest)
+          FWHM_CIV:
+            name: FWHM_CIV
+            type: float64
+            unit: km/s
+            description: FWHM of CIV emission
+          BHWHM_CIV:
+            name: BHWHM_CIV
+            type: float64
+            unit: km/s
+            description: Blue HWHM of CIV emission
+          RHWHM_CIV:
+            name: RHWHM_CIV
+            type: float64
+            unit: km/s
+            description: Red HWHM of CIV emission
+          AMP_CIV:
+            name: AMP_CIV
+            type: float64
+            unit: '-'
+            description: Amplitude of CIV emission
+          REWE_CIV:
+            name: REWE_CIV
+            type: float64
+            unit: Angstrom
+            description: Rest EW of CIV emission
+          ERR_REWE_CIV:
+            name: ERR_REWE_CIV
+            type: float64
+            unit: Angstrom
+            description: Error on rest EW of CIV emission
+          FWHM_CIII:
+            name: FWHM_CIII
+            type: float64
+            unit: km/s
+            description: FWHM of CIII] complex
+          BHWHM_CIII:
+            name: BHWHM_CIII
+            type: float64
+            unit: km/s
+            description: Blue HWHM of CIII] complex
+          RHWHM_CIII:
+            name: RHWHM_CIII
+            type: float64
+            unit: km/s
+            description: Red HWHM of CIII] complex
+          AMP_CIII:
+            name: AMP_CIII
+            type: float64
+            unit: '-'
+            description: Amplitude of CIII] complex
+          REWE_CIII:
+            name: REWE_CIII
+            type: float64
+            unit: Angstrom
+            description: Rest EW of CIII] complex
+          ERR_REWE_CIII:
+            name: ERR_REWE_CIII
+            type: float64
+            unit: Angstrom
+            description: Error on rest EW of CIII] complex
+          FWHM_MGII:
+            name: FWHM_MGII
+            type: float64
+            unit: km/s
+            description: FWHM of MgII emission
+          BHWHM_MGII:
+            name: BHWHM_MGII
+            type: float64
+            unit: km/s
+            description: Blue HWHM of MgII emission
+          RHWHM_MGII:
+            name: RHWHM_MGII
+            type: float64
+            unit: km/s
+            description: Red HWHM of MgII emission
+          AMP_MGII:
+            name: AMP_MGII
+            type: float64
+            unit: '-'
+            description: Amplitude of MgII emission
+          REWE_MGII:
+            name: REWE_MGII
+            type: float64
+            unit: Angstrom
+            description: Rest EW of MgII emission
+          ERR_REWE_MGII:
+            name: ERR_REWE_MGII
+            type: float64
+            unit: Angstrom
+            description: Error on rest EW of MgII emission
+          BAL_FLAG_VI:
+            name: BAL_FLAG_VI
+            type: int16
+            unit: '-'
+            description: BAL flag from visual inspection
+          BI_CIV:
+            name: BI_CIV
+            type: float64
+            unit: km/s
+            description: BI of CIV trough
+          ERR_BI_CIV:
+            name: ERR_BI_CIV
+            type: float64
+            unit: km/s
+            description: Error on BI of CIV trough
+          AI_CIV:
+            name: AI_CIV
+            type: float64
+            unit: km/s
+            description: AI of CIV trough
+          ERR_AI_CIV:
+            name: ERR_AI_CIV
+            type: float64
+            unit: km/s
+            description: Error on AI of CIV trough
+          CHI2TROUGH:
+            name: CHI2TROUGH
+            type: float64
+            unit: '-'
+            description: Chi2 of the CIV troughs
+          NCIV_2000:
+            name: NCIV_2000
+            type: int32
+            unit: '-'
+            description: Number of CIV troughs larger than 2000 km/s
+          VMIN_CIV_2000:
+            name: VMIN_CIV_2000
+            type: float64
+            unit: km/s
+            description: Min velocity of CIV troughs (col60)
+          VMAX_CIV_2000:
+            name: VMAX_CIV_2000
+            type: float64
+            unit: km/s
+            description: Max velocity of CIV troughs (col60)
+          NCIV_450:
+            name: NCIV_450
+            type: int32
+            unit: '-'
+            description: Number of CIV troughs larger than 450 km/s
+          VMIN_CIV_450:
+            name: VMIN_CIV_450
+            type: float64
+            unit: km/s
+            description: Min velocity of CIV troughs (col63)
+          VMAX_CIV_450:
+            name: VMAX_CIV_450
+            type: float64
+            unit: km/s
+            description: Max velocity of CIV troughs (col63)
+          REW_SIIV:
+            name: REW_SIIV
+            type: float64
+            unit: Angstrom
+            description: Rest EW of SiIV trough
+          REW_CIV:
+            name: REW_CIV
+            type: float64
+            unit: Angstrom
+            description: Rest EW of CIV trough
+          REW_ALIII:
+            name: REW_ALIII
+            type: float64
+            unit: Angstrom
+            description: Rest EW of AlIII trough
+          RUN_NUMBER:
+            name: RUN_NUMBER
+            type: int32
+            unit: '-'
+            description: Imaging Run Number
+          PHOTO_MJD:
+            name: PHOTO_MJD
+            type: int32
+            unit: '-'
+            description: Photometric MJD
+          RERUN_NUMBER:
+            name: RERUN_NUMBER
+            type: char[3]
+            unit: '-'
+            description: Photometric Processing Rerun number
+          COL_NUMBER:
+            name: COL_NUMBER
+            type: int32
+            unit: '-'
+            description: camera column number
+          FIELD_NUMBER:
+            name: FIELD_NUMBER
+            type: int32
+            unit: '-'
+            description: field number
+          OBJ_ID:
+            name: OBJ_ID
+            type: char[19]
+            unit: '-'
+            description: Object Identification number
+          PSFFLUX:
+            name: PSFFLUX
+            type: float32[5]
+            unit: nanomaggies
+            description: PSF fluxes in u, g, r, i, z bands
+          IVAR_PSFFLUX:
+            name: IVAR_PSFFLUX
+            type: float32[5]
+            unit: nanomaggies<sup>-2</sup>
+            description: inverse variance of PSF fluxes
+          PSFMAG:
+            name: PSFMAG
+            type: float32[5]
+            unit: mag
+            description: PSF magnitudes in u, g, r, i, z bands
+          ERR_PSFMAG:
+            name: ERR_PSFMAG
+            type: float32[5]
+            unit: mag
+            description: error on PSF magnitudes
+          TARGET_FLUX:
+            name: TARGET_FLUX
+            type: float64[5]
+            unit: nanomaggies
+            description: Target fluxes in u, g, r, i, z bands
+          MI:
+            name: MI
+            type: float64
+            unit: '-'
+            description: Absolute Magnitude Mi[z=2]
+          DGMI:
+            name: DGMI
+            type: float64
+            unit: '-'
+            description: Differential color delta(g-i)
+          EXTINCTION:
+            name: EXTINCTION
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          EXTINCTION_RECAL:
+            name: EXTINCTION_RECAL
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          HI_GAL:
+            name: HI_GAL
+            type: float64
+            unit: cm<sup>-2</sup>
+            description: log of Galactic HI column density
+          RASS_COUNTS:
+            name: RASS_COUNTS
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          RASS_COUNTS_SNR:
+            name: RASS_COUNTS_SNR
+            type: float64
+            unit: '-'
+            description: SNR of RASS count rate
+          SDSS2ROSAT_SEP:
+            name: SDSS2ROSAT_SEP
+            type: float64
+            unit: arcsec
+            description: SDSS-RASS separation
+          N_DETECTION_XMM:
+            name: N_DETECTION_XMM
+            type: int32
+            unit: '-'
+            description: Number of detections in XMM-Newton
+          FLUX05_2KEV:
+            name: FLUX05_2KEV
+            type: float64
+            unit: erg cm<sup>-2</sup> s<sup>-1</sup>
+            description: Soft (0.5-2 keV) X-ray flux from XMM-Newton
+          FLUX2_12KEV:
+            name: FLUX2_12KEV
+            type: float64
+            unit: erg cm<sup>-2</sup> s<sup>-1</sup>
+            description: Hard (1-12 keV) X-ray flux from XMM-Newton
+          LUM05_2KEV:
+            name: LUM05_2KEV
+            type: float64
+            unit: erg s<sup>-1</sup>
+            description: Soft (0.5-2 keV) X-ray luminosity from XMM-Newton
+          LUM2_12KEV:
+            name: LUM2_12KEV
+            type: float64
+            unit: erg s<sup>-1</sup>
+            description: Hard (2-12 keV) X-ray luminosity from XMM-Newton
+          LUMX2_10_UPPER:
+            name: LUMX2_10_UPPER
+            type: float64
+            unit: '-'
+            description: Flag for upper limit for hard X-ray flux
+          SDSS2XMM_SEP:
+            name: SDSS2XMM_SEP
+            type: float64
+            unit: arcsec
+            description: SDSS-XMM-Newton separation
+          GALEX_MATCHED:
+            name: GALEX_MATCHED
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          FUV:
+            name: FUV
+            type: float64
+            unit: AB_nanomaggies
+            description: fuv flux (GALEX)
+          FUV_IVAR:
+            name: FUV_IVAR
+            type: float64
+            unit: AB_nanomaggies<sup>-2</sup>
+            description: inverse variance of fuv flux
+          NUV:
+            name: NUV
+            type: float64
+            unit: AB_nanomaggies
+            description: nuv flux (GALEX)
+          NUV_IVAR:
+            name: NUV_IVAR
+            type: float64
+            unit: AB_nanomaggies<sup>-2</sup>
+            description: inverse variance of nuv flux
+          JMAG:
+            name: JMAG
+            type: float64
+            unit: '-'
+            description: J-band magnitude (Vega, 2MASS)
+          ERR_JMAG:
+            name: ERR_JMAG
+            type: float64
+            unit: '-'
+            description: Error on J-band magnitude
+          JSNR:
+            name: JSNR
+            type: float64
+            unit: '-'
+            description: J-band SNR
+          JRDFLAG:
+            name: JRDFLAG
+            type: int16
+            unit: '-'
+            description: J-band photometry flag
+          HMAG:
+            name: HMAG
+            type: float64
+            unit: '-'
+            description: H-band magnitude (Vega, 2MASS)
+          ERR_HMAG:
+            name: ERR_HMAG
+            type: float64
+            unit: '-'
+            description: Error on H-band magnitude
+          HSNR:
+            name: HSNR
+            type: float64
+            unit: '-'
+            description: H-band SNR
+          HRDFLAG:
+            name: HRDFLAG
+            type: int16
+            unit: '-'
+            description: H-band photometry flag
+          KMAG:
+            name: KMAG
+            type: float64
+            unit: '-'
+            description: K-band magnitude (Vega, 2MASS)
+          ERR_KMAG:
+            name: ERR_KMAG
+            type: float64
+            unit: '-'
+            description: Error on K-band magnitude
+          KSNR:
+            name: KSNR
+            type: float64
+            unit: '-'
+            description: K-band SNR
+          KRDFLAG:
+            name: KRDFLAG
+            type: int16
+            unit: '-'
+            description: K-band photometry flag
+          SDSS2MASS_SEP:
+            name: SDSS2MASS_SEP
+            type: float64
+            unit: arcsec
+            description: SDSS-2MASS separation
+          W1MAG:
+            name: W1MAG
+            type: float64
+            unit: '-'
+            description: w1 magnitude (Vega, WISE)
+          ERR_W1MAG:
+            name: ERR_W1MAG
+            type: float64
+            unit: '-'
+            description: Error on w1 magnitude
+          W1SNR:
+            name: W1SNR
+            type: float64
+            unit: '-'
+            description: SNR in w1 band
+          W1CHI2:
+            name: W1CHI2
+            type: float64
+            unit: '-'
+            description: Chi2 in w1 band
+          W2MAG:
+            name: W2MAG
+            type: float64
+            unit: '-'
+            description: w2 magnitude (Vega, WISE)
+          ERR_W2MAG:
+            name: ERR_W2MAG
+            type: float64
+            unit: '-'
+            description: Error on w2 magnitude
+          W2SNR:
+            name: W2SNR
+            type: float64
+            unit: '-'
+            description: SNR in w2 band
+          W2CHI2:
+            name: W2CHI2
+            type: float64
+            unit: '-'
+            description: Chi2 in w2 band
+          W3MAG:
+            name: W3MAG
+            type: float64
+            unit: '-'
+            description: w3 magnitude (Vega, WISE)
+          ERR_W3MAG:
+            name: ERR_W3MAG
+            type: float64
+            unit: '-'
+            description: Error on w3 magnitude
+          W3SNR:
+            name: W3SNR
+            type: float64
+            unit: '-'
+            description: SNR in w3 band
+          W3CHI2:
+            name: W3CHI2
+            type: float64
+            unit: '-'
+            description: Chi2 in w3 band
+          W4MAG:
+            name: W4MAG
+            type: float64
+            unit: '-'
+            description: w4 magnitude
+          ERR_W4MAG:
+            name: ERR_W4MAG
+            type: float64
+            unit: '-'
+            description: Error on w4 magnitude
+          W4SNR:
+            name: W4SNR
+            type: float64
+            unit: '-'
+            description: SNR in w4 band
+          W4CHI2:
+            name: W4CHI2
+            type: float64
+            unit: '-'
+            description: Chi2 in w4 band
+          CC_FLAGS:
+            name: CC_FLAGS
+            type: char[4]
+            unit: '-'
+            description: WISE contamination and confusion flag
+          SDSS2WISE_SEP:
+            name: SDSS2WISE_SEP
+            type: float64
+            unit: arcsec
+            description: SDSS-WISE separation
+          UKIDSS_MATCHED:
+            name: UKIDSS_MATCHED
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          YFLUX:
+            name: YFLUX
+            type: float64
+            unit: W m<sup>-2</sup> Hz<sup>-1</sup>
+            description: Y-band flux from UKIDSS
+          YFLUX_ERR:
+            name: YFLUX_ERR
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          JFLUX:
+            name: JFLUX
+            type: float64
+            unit: W m<sup>-2</sup> Hz<sup>-1</sup>
+            description: J-band flux from UKIDSS
+          JFLUX_ERR:
+            name: JFLUX_ERR
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          HFLUX:
+            name: HFLUX
+            type: float64
+            unit: W m<sup>-2</sup> Hz<sup>-1</sup>
+            description: H-band flux from UKIDSS
+          HFLUX_ERR:
+            name: HFLUX_ERR
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          KFLUX:
+            name: KFLUX
+            type: float64
+            unit: W m<sup>-2</sup> Hz<sup>-1</sup>
+            description: K-band flux from UKIDSS
+          KFLUX_ERR:
+            name: KFLUX_ERR
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          FIRST_MATCHED:
+            name: FIRST_MATCHED
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          FIRST_FLUX:
+            name: FIRST_FLUX
+            type: float64
+            unit: mJy
+            description: FIRST peak flux density at 20 cm
+          FIRST_SNR:
+            name: FIRST_SNR
+            type: float64
+            unit: '-'
+            description: SNR of the FIRST flux density
+          SDSS2FIRST_SEP:
+            name: SDSS2FIRST_SEP
+            type: float64
+            unit: arcsec
+            description: SDSS-FIRST separation
+  DR12:
+    template: $BOSS_QSO/DR12Q/DR12Q.fits
+    example: DR12Q/DR12Q.fits
+    location: DR12Q/DR12Q.fits
+    environment: BOSS_QSO
+    access:
+      in_sdss_access: true
+      path_name: DRQ
+      path_template: $BOSS_QSO/{dr}Q/{dr}Q.fits
+      path_kwargs:
+      - dr
+      access_string: DRQ = $BOSS_QSO/DR12Q/DR12Q.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: 'The data in this primary HDU consists of bytes which
+
+          comprise a VOTABLE document.
+
+          The VOTable describes the metadata of the table contained
+
+          in the following BINTABLE extension.
+
+          Such a BINTABLE extension can be used on its own as a perfectly
+
+          good table, but the information from this HDU may provide some
+
+          useful additional metadata.'
+        is_image: true
+        size: 18 KB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 1
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 19442
+          comment: length of dimension 1
+        - key: VOTMETA
+          value: true
+          comment: Table metadata in VOTable format
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: The data in this primary HDU consists of bytes which
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: comprise a VOTABLE document.
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: The VOTable describes the metadata of the table contained
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: in the following BINTABLE extension.
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: Such a BINTABLE extension can be used on its own as a perfectly
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: good table, but the information from this HDU may provide some
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: useful additional metadata.
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: There is one following BINTABLE.
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: NTABLE
+          value: 1
+          comment: Number of following BINTABLE HDUs
+      hdu1:
+        name: DR12Q.fits
+        description: 'EXTNAME="DR10Q" with a binary FITS table with the following
+          columns:'
+        is_image: false
+        size: 512 MB
+        columns:
+          SDSS_NAME:
+            name: SDSS_NAME
+            type: char[18]
+            unit: '-'
+            description: SDSS-DR10 designation
+          RA:
+            name: RA
+            type: float64
+            unit: deg
+            description: RA (J2000)
+          DEC:
+            name: DEC
+            type: float64
+            unit: deg
+            description: DEC (J2000)
+          THING_ID:
+            name: THING_ID
+            type: int32
+            unit: '-'
+            description: Unique identifier
+          PLATE:
+            name: PLATE
+            type: int32
+            unit: '-'
+            description: Plate number
+          MJD:
+            name: MJD
+            type: int32
+            unit: '-'
+            description: Spectroscopic MJD
+          FIBERID:
+            name: FIBERID
+            type: int32
+            unit: '-'
+            description: Fiber number
+          Z_VI:
+            name: Z_VI
+            type: float64
+            unit: '-'
+            description: Visual inspection redshift
+          Z_PIPE:
+            name: Z_PIPE
+            type: float32
+            unit: '-'
+            description: BOSS pipeline redshift
+          ERR_ZPIPE:
+            name: ERR_ZPIPE
+            type: float32
+            unit: '-'
+            description: Error on pipeline redshift
+          ZWARNING:
+            name: ZWARNING
+            type: int32
+            unit: '-'
+            description: zwarning flag
+          Z_PCA:
+            name: Z_PCA
+            type: float64
+            unit: '-'
+            description: PCA redshift
+          ERR_ZPCA:
+            name: ERR_ZPCA
+            type: float64
+            unit: '-'
+            description: Error on PCA redshift
+          PCA_QUAL:
+            name: PCA_QUAL
+            type: float64
+            unit: '-'
+            description: Quality of PCA continuum
+          Z_CIV:
+            name: Z_CIV
+            type: float64
+            unit: '-'
+            description: CIV redshift
+          Z_CIII:
+            name: Z_CIII
+            type: float64
+            unit: '-'
+            description: CIII] complex redshift
+          Z_MGII:
+            name: Z_MGII
+            type: float64
+            unit: '-'
+            description: MgII redshift
+          SDSS_MORPHO:
+            name: SDSS_MORPHO
+            type: int16
+            unit: '-'
+            description: Morphology flag
+          BOSS_TARGET1:
+            name: BOSS_TARGET1
+            type: int64
+            unit: '-'
+            description: Main survey TS flag (parseLong($19))
+          ANCILLARY_TARGET1:
+            name: ANCILLARY_TARGET1
+            type: int64
+            unit: '-'
+            description: Ancillary TS flag 1 (parseLong($20))
+          ANCILLARY_TARGET2:
+            name: ANCILLARY_TARGET2
+            type: int64
+            unit: '-'
+            description: Ancillary TS flag 2 (parseLong($21))
+          EBOSS_TARGET0:
+            name: EBOSS_TARGET0
+            type: int64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          NSPEC_BOSS:
+            name: NSPEC_BOSS
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          PLATE_DUPLICATE:
+            name: PLATE_DUPLICATE
+            type: int32[32]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          MJD_DUPLICATE:
+            name: MJD_DUPLICATE
+            type: int32[32]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          FIBERID_DUPLICATE:
+            name: FIBERID_DUPLICATE
+            type: int32[32]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          SDSS_DR7:
+            name: SDSS_DR7
+            type: int32
+            unit: '-'
+            description: DR7 observation flag
+          PLATE_DR7:
+            name: PLATE_DR7
+            type: int32
+            unit: '-'
+            description: DR7 Plate number
+          MJD_DR7:
+            name: MJD_DR7
+            type: int32
+            unit: '-'
+            description: DR7 spectroscopic MJD
+          FIBERID_DR7:
+            name: FIBERID_DR7
+            type: int32
+            unit: '-'
+            description: DR7 Fiber number
+          UNIFORM:
+            name: UNIFORM
+            type: int16
+            unit: '-'
+            description: Uniform sample flag
+          ALPHA_NU:
+            name: ALPHA_NU
+            type: float64
+            unit: '-'
+            description: Spectral index
+          SNR_SPEC:
+            name: SNR_SPEC
+            type: float64
+            unit: '-'
+            description: Median SNR (whole spectrum)
+          SNR_DUPLICATE:
+            name: SNR_DUPLICATE
+            type: float64[32]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          SNR_1700:
+            name: SNR_1700
+            type: float64
+            unit: '-'
+            description: Median SNR (1650-1750A rest)
+          SNR_3000:
+            name: SNR_3000
+            type: float64
+            unit: '-'
+            description: Median SNR (2950-3050A rest)
+          SNR_5150:
+            name: SNR_5150
+            type: float64
+            unit: '-'
+            description: Median SNR (5100-5250A rest)
+          FWHM_CIV:
+            name: FWHM_CIV
+            type: float64
+            unit: km/s
+            description: FWHM of CIV emission
+          BHWHM_CIV:
+            name: BHWHM_CIV
+            type: float64
+            unit: km/s
+            description: Blue HWHM of CIV emission
+          RHWHM_CIV:
+            name: RHWHM_CIV
+            type: float64
+            unit: km/s
+            description: Red HWHM of CIV emission
+          AMP_CIV:
+            name: AMP_CIV
+            type: float64
+            unit: '-'
+            description: Amplitude of CIV emission
+          REWE_CIV:
+            name: REWE_CIV
+            type: float64
+            unit: Angstrom
+            description: Rest EW of CIV emission
+          ERR_REWE_CIV:
+            name: ERR_REWE_CIV
+            type: float64
+            unit: Angstrom
+            description: Error on rest EW of CIV emission
+          FWHM_CIII:
+            name: FWHM_CIII
+            type: float64
+            unit: km/s
+            description: FWHM of CIII] complex
+          BHWHM_CIII:
+            name: BHWHM_CIII
+            type: float64
+            unit: km/s
+            description: Blue HWHM of CIII] complex
+          RHWHM_CIII:
+            name: RHWHM_CIII
+            type: float64
+            unit: km/s
+            description: Red HWHM of CIII] complex
+          AMP_CIII:
+            name: AMP_CIII
+            type: float64
+            unit: '-'
+            description: Amplitude of CIII] complex
+          REWE_CIII:
+            name: REWE_CIII
+            type: float64
+            unit: Angstrom
+            description: Rest EW of CIII] complex
+          ERR_REWE_CIII:
+            name: ERR_REWE_CIII
+            type: float64
+            unit: Angstrom
+            description: Error on rest EW of CIII] complex
+          FWHM_MGII:
+            name: FWHM_MGII
+            type: float64
+            unit: km/s
+            description: FWHM of MgII emission
+          BHWHM_MGII:
+            name: BHWHM_MGII
+            type: float64
+            unit: km/s
+            description: Blue HWHM of MgII emission
+          RHWHM_MGII:
+            name: RHWHM_MGII
+            type: float64
+            unit: km/s
+            description: Red HWHM of MgII emission
+          AMP_MGII:
+            name: AMP_MGII
+            type: float64
+            unit: '-'
+            description: Amplitude of MgII emission
+          REWE_MGII:
+            name: REWE_MGII
+            type: float64
+            unit: Angstrom
+            description: Rest EW of MgII emission
+          ERR_REWE_MGII:
+            name: ERR_REWE_MGII
+            type: float64
+            unit: Angstrom
+            description: Error on rest EW of MgII emission
+          BAL_FLAG_VI:
+            name: BAL_FLAG_VI
+            type: int16
+            unit: '-'
+            description: BAL flag from visual inspection
+          BI_CIV:
+            name: BI_CIV
+            type: float64
+            unit: km/s
+            description: BI of CIV trough
+          ERR_BI_CIV:
+            name: ERR_BI_CIV
+            type: float64
+            unit: km/s
+            description: Error on BI of CIV trough
+          AI_CIV:
+            name: AI_CIV
+            type: float64
+            unit: km/s
+            description: AI of CIV trough
+          ERR_AI_CIV:
+            name: ERR_AI_CIV
+            type: float64
+            unit: km/s
+            description: Error on AI of CIV trough
+          CHI2TROUGH:
+            name: CHI2TROUGH
+            type: float64
+            unit: '-'
+            description: Chi2 of the CIV troughs
+          NCIV_2000:
+            name: NCIV_2000
+            type: int32
+            unit: '-'
+            description: Number of CIV troughs larger than 2000 km/s
+          VMIN_CIV_2000:
+            name: VMIN_CIV_2000
+            type: float64
+            unit: km/s
+            description: Min velocity of CIV troughs (col60)
+          VMAX_CIV_2000:
+            name: VMAX_CIV_2000
+            type: float64
+            unit: km/s
+            description: Max velocity of CIV troughs (col60)
+          NCIV_450:
+            name: NCIV_450
+            type: int32
+            unit: '-'
+            description: Number of CIV troughs larger than 450 km/s
+          VMIN_CIV_450:
+            name: VMIN_CIV_450
+            type: float64
+            unit: km/s
+            description: Min velocity of CIV troughs (col63)
+          VMAX_CIV_450:
+            name: VMAX_CIV_450
+            type: float64
+            unit: km/s
+            description: Max velocity of CIV troughs (col63)
+          REW_SIIV:
+            name: REW_SIIV
+            type: float64
+            unit: Angstrom
+            description: Rest EW of SiIV trough
+          REW_CIV:
+            name: REW_CIV
+            type: float64
+            unit: Angstrom
+            description: Rest EW of CIV trough
+          REW_ALIII:
+            name: REW_ALIII
+            type: float64
+            unit: Angstrom
+            description: Rest EW of AlIII trough
+          RUN_NUMBER:
+            name: RUN_NUMBER
+            type: int16
+            unit: '-'
+            description: Imaging Run Number
+          PHOTO_MJD:
+            name: PHOTO_MJD
+            type: int32
+            unit: '-'
+            description: Photometric MJD
+          RERUN_NUMBER:
+            name: RERUN_NUMBER
+            type: char[3]
+            unit: '-'
+            description: Photometric Processing Rerun number
+          COL_NUMBER:
+            name: COL_NUMBER
+            type: int16
+            unit: '-'
+            description: camera column number
+          FIELD_NUMBER:
+            name: FIELD_NUMBER
+            type: int16
+            unit: '-'
+            description: field number
+          OBJ_ID:
+            name: OBJ_ID
+            type: char[19]
+            unit: '-'
+            description: Object Identification number
+          PSFFLUX:
+            name: PSFFLUX
+            type: float32[5]
+            unit: nanomaggies
+            description: PSF fluxes in u, g, r, i, z bands
+          IVAR_PSFFLUX:
+            name: IVAR_PSFFLUX
+            type: float32[5]
+            unit: nanomaggies<sup>-2</sup>
+            description: inverse variance of PSF fluxes
+          PSFMAG:
+            name: PSFMAG
+            type: float32[5]
+            unit: mag
+            description: PSF magnitudes in u, g, r, i, z bands
+          ERR_PSFMAG:
+            name: ERR_PSFMAG
+            type: float32[5]
+            unit: mag
+            description: error on PSF magnitudes
+          TARGET_FLUX:
+            name: TARGET_FLUX
+            type: float64[5]
+            unit: nanomaggies
+            description: Target fluxes in u, g, r, i, z bands
+          MI:
+            name: MI
+            type: float64
+            unit: '-'
+            description: Absolute Magnitude Mi[z=2]
+          DGMI:
+            name: DGMI
+            type: float64
+            unit: '-'
+            description: Differential color delta(g-i)
+          EXTINCTION:
+            name: EXTINCTION
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          EXTINCTION_RECAL:
+            name: EXTINCTION_RECAL
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          HI_GAL:
+            name: HI_GAL
+            type: float64
+            unit: cm<sup>-2</sup>
+            description: log of Galactic HI column density
+          VAR_MATCHED:
+            name: VAR_MATCHED
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          VAR_CHI2:
+            name: VAR_CHI2
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          VAR_A:
+            name: VAR_A
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          VAR_GAMMA:
+            name: VAR_GAMMA
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          RASS_COUNTS:
+            name: RASS_COUNTS
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          RASS_COUNTS_SNR:
+            name: RASS_COUNTS_SNR
+            type: float64
+            unit: '-'
+            description: SNR of RASS count rate
+          SDSS2ROSAT_SEP:
+            name: SDSS2ROSAT_SEP
+            type: float64
+            unit: arcsec
+            description: SDSS-RASS separation
+          N_DETECTION_XMM:
+            name: N_DETECTION_XMM
+            type: int16
+            unit: '-'
+            description: Number of detections in XMM-Newton
+          FLUX02_12KEV_SGL:
+            name: FLUX02_12KEV_SGL
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          ERR_FLUX02_12KEV_SGL:
+            name: ERR_FLUX02_12KEV_SGL
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          FLUX02_2KEV:
+            name: FLUX02_2KEV
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          ERR_FLUX02_2KEV:
+            name: ERR_FLUX02_2KEV
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          FLUX2_12KEV:
+            name: FLUX2_12KEV
+            type: float64
+            unit: erg cm<sup>-2</sup> s<sup>-1</sup>
+            description: Hard (1-12 keV) X-ray flux from XMM-Newton
+          ERR_FLUX2_12KEV:
+            name: ERR_FLUX2_12KEV
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          FLUX02_12KEV:
+            name: FLUX02_12KEV
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          ERR_FLUX02_12KEV:
+            name: ERR_FLUX02_12KEV
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          LUM02_2KEV_SGL:
+            name: LUM02_2KEV_SGL
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          LUM05_2KEV:
+            name: LUM05_2KEV
+            type: float64
+            unit: erg s<sup>-1</sup>
+            description: Soft (0.5-2 keV) X-ray luminosity from XMM-Newton
+          LUM2_12KEV:
+            name: LUM2_12KEV
+            type: float64
+            unit: erg s<sup>-1</sup>
+            description: Hard (2-12 keV) X-ray luminosity from XMM-Newton
+          LUM02_2KEV:
+            name: LUM02_2KEV
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          LUMX2_10_UPPER:
+            name: LUMX2_10_UPPER
+            type: int16
+            unit: '-'
+            description: Flag for upper limit for hard X-ray flux
+          SDSS2XMM_SEP:
+            name: SDSS2XMM_SEP
+            type: float64
+            unit: arcsec
+            description: SDSS-XMM-Newton separation
+          GALEX_MATCHED:
+            name: GALEX_MATCHED
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          FUV:
+            name: FUV
+            type: float64
+            unit: AB_nanomaggies
+            description: fuv flux (GALEX)
+          FUV_IVAR:
+            name: FUV_IVAR
+            type: float64
+            unit: AB_nanomaggies<sup>-2</sup>
+            description: inverse variance of fuv flux
+          NUV:
+            name: NUV
+            type: float64
+            unit: AB_nanomaggies
+            description: nuv flux (GALEX)
+          NUV_IVAR:
+            name: NUV_IVAR
+            type: float64
+            unit: AB_nanomaggies<sup>-2</sup>
+            description: inverse variance of nuv flux
+          JMAG:
+            name: JMAG
+            type: float64
+            unit: '-'
+            description: J-band magnitude (Vega, 2MASS)
+          ERR_JMAG:
+            name: ERR_JMAG
+            type: float64
+            unit: '-'
+            description: Error on J-band magnitude
+          JSNR:
+            name: JSNR
+            type: float64
+            unit: '-'
+            description: J-band SNR
+          JRDFLAG:
+            name: JRDFLAG
+            type: int32
+            unit: '-'
+            description: J-band photometry flag
+          HMAG:
+            name: HMAG
+            type: float64
+            unit: '-'
+            description: H-band magnitude (Vega, 2MASS)
+          ERR_HMAG:
+            name: ERR_HMAG
+            type: float64
+            unit: '-'
+            description: Error on H-band magnitude
+          HSNR:
+            name: HSNR
+            type: float64
+            unit: '-'
+            description: H-band SNR
+          HRDFLAG:
+            name: HRDFLAG
+            type: int32
+            unit: '-'
+            description: H-band photometry flag
+          KMAG:
+            name: KMAG
+            type: float64
+            unit: '-'
+            description: K-band magnitude (Vega, 2MASS)
+          ERR_KMAG:
+            name: ERR_KMAG
+            type: float64
+            unit: '-'
+            description: Error on K-band magnitude
+          KSNR:
+            name: KSNR
+            type: float64
+            unit: '-'
+            description: K-band SNR
+          KRDFLAG:
+            name: KRDFLAG
+            type: int32
+            unit: '-'
+            description: K-band photometry flag
+          SDSS2MASS_SEP:
+            name: SDSS2MASS_SEP
+            type: float64
+            unit: arcsec
+            description: SDSS-2MASS separation
+          W1MAG:
+            name: W1MAG
+            type: float64
+            unit: '-'
+            description: w1 magnitude (Vega, WISE)
+          ERR_W1MAG:
+            name: ERR_W1MAG
+            type: float64
+            unit: '-'
+            description: Error on w1 magnitude
+          W1SNR:
+            name: W1SNR
+            type: float64
+            unit: '-'
+            description: SNR in w1 band
+          W1CHI2:
+            name: W1CHI2
+            type: float64
+            unit: '-'
+            description: Chi2 in w1 band
+          W2MAG:
+            name: W2MAG
+            type: float64
+            unit: '-'
+            description: w2 magnitude (Vega, WISE)
+          ERR_W2MAG:
+            name: ERR_W2MAG
+            type: float64
+            unit: '-'
+            description: Error on w2 magnitude
+          W2SNR:
+            name: W2SNR
+            type: float64
+            unit: '-'
+            description: SNR in w2 band
+          W2CHI2:
+            name: W2CHI2
+            type: float64
+            unit: '-'
+            description: Chi2 in w2 band
+          W3MAG:
+            name: W3MAG
+            type: float64
+            unit: '-'
+            description: w3 magnitude (Vega, WISE)
+          ERR_W3MAG:
+            name: ERR_W3MAG
+            type: float64
+            unit: '-'
+            description: Error on w3 magnitude
+          W3SNR:
+            name: W3SNR
+            type: float64
+            unit: '-'
+            description: SNR in w3 band
+          W3CHI2:
+            name: W3CHI2
+            type: float64
+            unit: '-'
+            description: Chi2 in w3 band
+          W4MAG:
+            name: W4MAG
+            type: float64
+            unit: '-'
+            description: w4 magnitude
+          ERR_W4MAG:
+            name: ERR_W4MAG
+            type: float64
+            unit: '-'
+            description: Error on w4 magnitude
+          W4SNR:
+            name: W4SNR
+            type: float64
+            unit: '-'
+            description: SNR in w4 band
+          W4CHI2:
+            name: W4CHI2
+            type: float64
+            unit: '-'
+            description: Chi2 in w4 band
+          CC_FLAGS:
+            name: CC_FLAGS
+            type: char[4]
+            unit: '-'
+            description: WISE contamination and confusion flag
+          PH_FLAG:
+            name: PH_FLAG
+            type: char[4]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          SDSS2WISE_SEP:
+            name: SDSS2WISE_SEP
+            type: float64
+            unit: arcsec
+            description: SDSS-WISE separation
+          UKIDSS_MATCHED:
+            name: UKIDSS_MATCHED
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          YFLUX:
+            name: YFLUX
+            type: float32
+            unit: W m<sup>-2</sup> Hz<sup>-1</sup>
+            description: Y-band flux from UKIDSS
+          YFLUX_ERR:
+            name: YFLUX_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          JFLUX:
+            name: JFLUX
+            type: float32
+            unit: W m<sup>-2</sup> Hz<sup>-1</sup>
+            description: J-band flux from UKIDSS
+          JFLUX_ERR:
+            name: JFLUX_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          HFLUX:
+            name: HFLUX
+            type: float32
+            unit: W m<sup>-2</sup> Hz<sup>-1</sup>
+            description: H-band flux from UKIDSS
+          HFLUX_ERR:
+            name: HFLUX_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          KFLUX:
+            name: KFLUX
+            type: float32
+            unit: W m<sup>-2</sup> Hz<sup>-1</sup>
+            description: K-band flux from UKIDSS
+          KFLUX_ERR:
+            name: KFLUX_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          FIRST_MATCHED:
+            name: FIRST_MATCHED
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          FIRST_FLUX:
+            name: FIRST_FLUX
+            type: float64
+            unit: mJy
+            description: FIRST peak flux density at 20 cm
+          FIRST_SNR:
+            name: FIRST_SNR
+            type: float64
+            unit: '-'
+            description: SNR of the FIRST flux density
+          SDSS2FIRST_SEP:
+            name: SDSS2FIRST_SEP
+            type: float64
+            unit: arcsec
+            description: SDSS-FIRST separation
