@@ -70,8 +70,8 @@ Describes changes to the datamodel product and/or file structure from one releas
  - DR13
    - from: DR11
    - primary_delta_nkeys: 8
-   - added_primary_header_kwargs: ['SRVYMODE', 'SPA', 'PLATETYP']
-   - removed_primary_header_kwargs: ['M1PISTON', 'M1XTRAN', 'M1YTILT', 'COMMENT', 'M2YTILT', 'M2XTRAN', 'M1XTILT', 'M1YTRAN', 'M2YTRAN', 'M2PISTON', 'M2XTILT']
+   - added_primary_header_kwargs: ['SRVYMODE', 'PLATETYP', 'SPA']
+   - removed_primary_header_kwargs: ['M2PISTON', 'COMMENT', 'M1YTILT', 'M1PISTON', 'M2XTILT', 'M1XTILT', 'M1XTRAN', 'M1YTRAN', 'M2YTRAN', 'M2XTRAN', 'M2YTILT']
  - DR11
    - from: DR12
    - note: No changes
