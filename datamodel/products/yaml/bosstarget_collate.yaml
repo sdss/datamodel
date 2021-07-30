@@ -1,0 +1,1796 @@
+general:
+  name: bosstarget_collate
+  short: migrated from old datamodel - needs update
+  description: Boss target files contain targeting info for the galaxies, quasars,
+    and standards. The basic bosstarget files match one-to-one with the data sweep
+    (calibObj:https://data.sdss.org/datamodel/files/PHOTO_SWEEP/RERUN/calibObj.html)
+    from which they were generated. Thus there is one target file per RUN/CAMCOL for
+    the given set of RERUNs. These files at a minimum contain the run/rerun/camcol/field/id
+    of each object and the boss_target:http://www.sdss.org/dr13/algorithms/bitmasks/#BOSS_TARGET1
+    flag bits, and a separate HDU containing status information about the processing.
+    There are also collated files, which are reduced from the target files based on
+    target flags and other information and collated with the full information from
+    the calibObj:https://data.sdss.org/datamodel/files/PHOTO_SWEEP/RERUN/calibObj.html
+    from which they were generated.
+  datatype: FITS
+  filesize: 241 MB
+  releases:
+  - DR9
+  - DR10
+  - DR12
+  - DR11
+  - DR13
+  environments:
+  - BOSS_TARGET
+  naming_convention: 1. $BOSS_TARGET/$TARGET_RUN/bosstarget-$TARGET_TYPE-$RUN-$CAMCOL-$RERUN-$TARGET_RUN.fits\n2.
+    $BOSS_TARGET/$TARGET_RUN/bosstarget-$TARGET_TYPE-$TARGET_RUN-collate.fits\n3.
+    $BOSS_TARGET/$TARGET_RUN/bosstarget-$TARGET_TYPE-$TARGET_RUN-collate-$CHUNK.fits\nfor
+    TARGET_TYPE in "lrg" "qso" "std". TARGET_RUN is generally a date string with some
+    modifications, e.g. 2009-07-15c where c means "commissioning". The format for
+    $RUN, $RERUN, $CAMCOL is the usual I6, string, and I1 respectively.\n\nAs shown
+    above, the directory may contain intermediate "chunk" collated files written out
+    during the parallel processing. The $CHUNK variable has format I3. These files
+    are not critical and may disappear.
+  generated_by: 'migration: not in database. Needs update'
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases:
+    DR13:
+      from: DR11
+      note: No changes
+    DR11:
+      from: DR12
+      note: No changes
+    DR12:
+      from: DR10
+      note: No changes
+    DR10:
+      from: DR9
+      note: No changes
+releases:
+  DR9:
+    template: $BOSS_TARGET/main001/bosstarget-lrg-main001-collate.fits
+    example: main001/bosstarget-lrg-main001-collate.fits
+    location: main001/bosstarget-lrg-main001-collate.fits
+    environment: BOSS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: bosstarget_collate
+      path_template: $BOSS_TARGET/{target_run}/bosstarget-{type}-{target_run}-collate.fits
+      path_kwargs:
+      - type
+      - target_run
+      access_string: bosstarget_collate = $BOSS_TARGET/main001/bosstarget-lrg-main001-collate.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: replace me description
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: Dummy Created by MWRFITS v1.8
+        - key: BITPIX
+          value: 8
+          comment: Dummy primary header created by MWRFITS
+        - key: NAXIS
+          value: 0
+          comment: No data is associated with this header
+        - key: EXTEND
+          value: true
+          comment: Extensions may (will!) be present
+      hdu1:
+        name: ''
+        description: replace me description
+        is_image: false
+        size: 57 bytes
+        columns:
+          TARGET_TYPE:
+            name: TARGET_TYPE
+            type: char[3]
+            unit: replace me - with content
+            description: replace me - with content
+          TARGET_RUN:
+            name: TARGET_RUN
+            type: char[7]
+            unit: replace me - with content
+            description: replace me - with content
+          PHOTOOP_V:
+            name: PHOTOOP_V
+            type: char[6]
+            unit: replace me - with content
+            description: replace me - with content
+          BOSSTARGET_V:
+            name: BOSSTARGET_V
+            type: char[6]
+            unit: replace me - with content
+            description: replace me - with content
+          IDLUTILS_V:
+            name: IDLUTILS_V
+            type: char[7]
+            unit: replace me - with content
+            description: replace me - with content
+          PHOTO_SWEEP:
+            name: PHOTO_SWEEP
+            type: char[10]
+            unit: replace me - with content
+            description: replace me - with content
+          PHOTO_RESOLVE:
+            name: PHOTO_RESOLVE
+            type: char[10]
+            unit: replace me - with content
+            description: replace me - with content
+          PHOTO_CALIB:
+            name: PHOTO_CALIB
+            type: char[8]
+            unit: replace me - with content
+            description: replace me - with content
+      hdu2:
+        name: ''
+        description: replace me description
+        is_image: false
+        size: 241 MB
+        columns:
+          RUN:
+            name: RUN
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          RERUN:
+            name: RERUN
+            type: char[3]
+            unit: replace me - with content
+            description: replace me - with content
+          CAMCOL:
+            name: CAMCOL
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          FIELD:
+            name: FIELD
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          ID:
+            name: ID
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          OBJC_TYPE:
+            name: OBJC_TYPE
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          OBJC_FLAGS:
+            name: OBJC_FLAGS
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          OBJC_FLAGS2:
+            name: OBJC_FLAGS2
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          COLC:
+            name: COLC
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          PETROR50:
+            name: PETROR50
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          PETROR90:
+            name: PETROR90
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          R_DEV:
+            name: R_DEV
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          R_EXP:
+            name: R_EXP
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          STAR_LNL:
+            name: STAR_LNL
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          EXP_LNL:
+            name: EXP_LNL
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          DEV_LNL:
+            name: DEV_LNL
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          FRACPSF:
+            name: FRACPSF
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          FLAGS:
+            name: FLAGS
+            type: int32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          FLAGS2:
+            name: FLAGS2
+            type: int32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          PSP_STATUS:
+            name: PSP_STATUS
+            type: int32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          RA:
+            name: RA
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          DEC:
+            name: DEC
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          PSF_FWHM:
+            name: PSF_FWHM
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          EXTINCTION:
+            name: EXTINCTION
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          PSFFLUX:
+            name: PSFFLUX
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          PSFFLUX_IVAR:
+            name: PSFFLUX_IVAR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          FIBERFLUX:
+            name: FIBERFLUX
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          FIBERFLUX_IVAR:
+            name: FIBERFLUX_IVAR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          FIBER2FLUX:
+            name: FIBER2FLUX
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          FIBER2FLUX_IVAR:
+            name: FIBER2FLUX_IVAR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          MODELFLUX:
+            name: MODELFLUX
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          MODELFLUX_IVAR:
+            name: MODELFLUX_IVAR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          PETROFLUX:
+            name: PETROFLUX
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          PETROFLUX_IVAR:
+            name: PETROFLUX_IVAR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          DEVFLUX:
+            name: DEVFLUX
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          DEVFLUX_IVAR:
+            name: DEVFLUX_IVAR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          EXPFLUX:
+            name: EXPFLUX
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          EXPFLUX_IVAR:
+            name: EXPFLUX_IVAR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          APERFLUX:
+            name: APERFLUX
+            type: float32[40]
+            unit: replace me - with content
+            description: replace me - with content
+          CALIB_STATUS:
+            name: CALIB_STATUS
+            type: int16[5]
+            unit: replace me - with content
+            description: replace me - with content
+          NMGYPERCOUNT:
+            name: NMGYPERCOUNT
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          RESOLVE_STATUS:
+            name: RESOLVE_STATUS
+            type: int16
+            unit: replace me - with content
+            description: replace me - with content
+          THING_ID:
+            name: THING_ID
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          IFIELD:
+            name: IFIELD
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          BALKAN_ID:
+            name: BALKAN_ID
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          NDETECT:
+            name: NDETECT
+            type: int16
+            unit: replace me - with content
+            description: replace me - with content
+          RAMOD:
+            name: RAMOD
+            type: int16
+            unit: replace me - with content
+            description: replace me - with content
+          DPERP:
+            name: DPERP
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          CMODELMAG:
+            name: CMODELMAG
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          TYCHOFLAGS:
+            name: TYCHOFLAGS
+            type: bool
+            unit: replace me - with content
+            description: replace me - with content
+          KNOWN_ID:
+            name: KNOWN_ID
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          LOGIC:
+            name: LOGIC
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          BOSS_TARGET1:
+            name: BOSS_TARGET1
+            type: int64
+            unit: replace me - with content
+            description: replace me - with content
+  DR10:
+    template: $BOSS_TARGET/main001/bosstarget-lrg-main001-collate.fits
+    example: main001/bosstarget-lrg-main001-collate.fits
+    location: main001/bosstarget-lrg-main001-collate.fits
+    environment: BOSS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: bosstarget_collate
+      path_template: $BOSS_TARGET/{target_run}/bosstarget-{type}-{target_run}-collate.fits
+      path_kwargs:
+      - target_run
+      - type
+      access_string: bosstarget_collate = $BOSS_TARGET/main001/bosstarget-lrg-main001-collate.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: replace me description
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: Dummy Created by MWRFITS v1.8
+        - key: BITPIX
+          value: 8
+          comment: Dummy primary header created by MWRFITS
+        - key: NAXIS
+          value: 0
+          comment: No data is associated with this header
+        - key: EXTEND
+          value: true
+          comment: Extensions may (will!) be present
+      hdu1:
+        name: ''
+        description: replace me description
+        is_image: false
+        size: 57 bytes
+        columns:
+          TARGET_TYPE:
+            name: TARGET_TYPE
+            type: char[3]
+            unit: replace me - with content
+            description: replace me - with content
+          TARGET_RUN:
+            name: TARGET_RUN
+            type: char[7]
+            unit: replace me - with content
+            description: replace me - with content
+          PHOTOOP_V:
+            name: PHOTOOP_V
+            type: char[6]
+            unit: replace me - with content
+            description: replace me - with content
+          BOSSTARGET_V:
+            name: BOSSTARGET_V
+            type: char[6]
+            unit: replace me - with content
+            description: replace me - with content
+          IDLUTILS_V:
+            name: IDLUTILS_V
+            type: char[7]
+            unit: replace me - with content
+            description: replace me - with content
+          PHOTO_SWEEP:
+            name: PHOTO_SWEEP
+            type: char[10]
+            unit: replace me - with content
+            description: replace me - with content
+          PHOTO_RESOLVE:
+            name: PHOTO_RESOLVE
+            type: char[10]
+            unit: replace me - with content
+            description: replace me - with content
+          PHOTO_CALIB:
+            name: PHOTO_CALIB
+            type: char[8]
+            unit: replace me - with content
+            description: replace me - with content
+      hdu2:
+        name: ''
+        description: replace me description
+        is_image: false
+        size: 241 MB
+        columns:
+          RUN:
+            name: RUN
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          RERUN:
+            name: RERUN
+            type: char[3]
+            unit: replace me - with content
+            description: replace me - with content
+          CAMCOL:
+            name: CAMCOL
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          FIELD:
+            name: FIELD
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          ID:
+            name: ID
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          OBJC_TYPE:
+            name: OBJC_TYPE
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          OBJC_FLAGS:
+            name: OBJC_FLAGS
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          OBJC_FLAGS2:
+            name: OBJC_FLAGS2
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          COLC:
+            name: COLC
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          PETROR50:
+            name: PETROR50
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          PETROR90:
+            name: PETROR90
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          R_DEV:
+            name: R_DEV
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          R_EXP:
+            name: R_EXP
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          STAR_LNL:
+            name: STAR_LNL
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          EXP_LNL:
+            name: EXP_LNL
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          DEV_LNL:
+            name: DEV_LNL
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          FRACPSF:
+            name: FRACPSF
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          FLAGS:
+            name: FLAGS
+            type: int32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          FLAGS2:
+            name: FLAGS2
+            type: int32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          PSP_STATUS:
+            name: PSP_STATUS
+            type: int32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          RA:
+            name: RA
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          DEC:
+            name: DEC
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          PSF_FWHM:
+            name: PSF_FWHM
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          EXTINCTION:
+            name: EXTINCTION
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          PSFFLUX:
+            name: PSFFLUX
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          PSFFLUX_IVAR:
+            name: PSFFLUX_IVAR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          FIBERFLUX:
+            name: FIBERFLUX
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          FIBERFLUX_IVAR:
+            name: FIBERFLUX_IVAR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          FIBER2FLUX:
+            name: FIBER2FLUX
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          FIBER2FLUX_IVAR:
+            name: FIBER2FLUX_IVAR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          MODELFLUX:
+            name: MODELFLUX
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          MODELFLUX_IVAR:
+            name: MODELFLUX_IVAR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          PETROFLUX:
+            name: PETROFLUX
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          PETROFLUX_IVAR:
+            name: PETROFLUX_IVAR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          DEVFLUX:
+            name: DEVFLUX
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          DEVFLUX_IVAR:
+            name: DEVFLUX_IVAR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          EXPFLUX:
+            name: EXPFLUX
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          EXPFLUX_IVAR:
+            name: EXPFLUX_IVAR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          APERFLUX:
+            name: APERFLUX
+            type: float32[40]
+            unit: replace me - with content
+            description: replace me - with content
+          CALIB_STATUS:
+            name: CALIB_STATUS
+            type: int16[5]
+            unit: replace me - with content
+            description: replace me - with content
+          NMGYPERCOUNT:
+            name: NMGYPERCOUNT
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          RESOLVE_STATUS:
+            name: RESOLVE_STATUS
+            type: int16
+            unit: replace me - with content
+            description: replace me - with content
+          THING_ID:
+            name: THING_ID
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          IFIELD:
+            name: IFIELD
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          BALKAN_ID:
+            name: BALKAN_ID
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          NDETECT:
+            name: NDETECT
+            type: int16
+            unit: replace me - with content
+            description: replace me - with content
+          RAMOD:
+            name: RAMOD
+            type: int16
+            unit: replace me - with content
+            description: replace me - with content
+          DPERP:
+            name: DPERP
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          CMODELMAG:
+            name: CMODELMAG
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          TYCHOFLAGS:
+            name: TYCHOFLAGS
+            type: bool
+            unit: replace me - with content
+            description: replace me - with content
+          KNOWN_ID:
+            name: KNOWN_ID
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          LOGIC:
+            name: LOGIC
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          BOSS_TARGET1:
+            name: BOSS_TARGET1
+            type: int64
+            unit: replace me - with content
+            description: replace me - with content
+  DR11:
+    template: $BOSS_TARGET/main001/bosstarget-lrg-main001-collate.fits
+    example: main001/bosstarget-lrg-main001-collate.fits
+    location: main001/bosstarget-lrg-main001-collate.fits
+    environment: BOSS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: bosstarget_collate
+      path_template: $BOSS_TARGET/{target_run}/bosstarget-{type}-{target_run}-collate.fits
+      path_kwargs:
+      - target_run
+      - type
+      access_string: bosstarget_collate = $BOSS_TARGET/main001/bosstarget-lrg-main001-collate.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: replace me description
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: Dummy Created by MWRFITS v1.8
+        - key: BITPIX
+          value: 8
+          comment: Dummy primary header created by MWRFITS
+        - key: NAXIS
+          value: 0
+          comment: No data is associated with this header
+        - key: EXTEND
+          value: true
+          comment: Extensions may (will!) be present
+      hdu1:
+        name: ''
+        description: replace me description
+        is_image: false
+        size: 57 bytes
+        columns:
+          TARGET_TYPE:
+            name: TARGET_TYPE
+            type: char[3]
+            unit: replace me - with content
+            description: replace me - with content
+          TARGET_RUN:
+            name: TARGET_RUN
+            type: char[7]
+            unit: replace me - with content
+            description: replace me - with content
+          PHOTOOP_V:
+            name: PHOTOOP_V
+            type: char[6]
+            unit: replace me - with content
+            description: replace me - with content
+          BOSSTARGET_V:
+            name: BOSSTARGET_V
+            type: char[6]
+            unit: replace me - with content
+            description: replace me - with content
+          IDLUTILS_V:
+            name: IDLUTILS_V
+            type: char[7]
+            unit: replace me - with content
+            description: replace me - with content
+          PHOTO_SWEEP:
+            name: PHOTO_SWEEP
+            type: char[10]
+            unit: replace me - with content
+            description: replace me - with content
+          PHOTO_RESOLVE:
+            name: PHOTO_RESOLVE
+            type: char[10]
+            unit: replace me - with content
+            description: replace me - with content
+          PHOTO_CALIB:
+            name: PHOTO_CALIB
+            type: char[8]
+            unit: replace me - with content
+            description: replace me - with content
+      hdu2:
+        name: ''
+        description: replace me description
+        is_image: false
+        size: 241 MB
+        columns:
+          RUN:
+            name: RUN
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          RERUN:
+            name: RERUN
+            type: char[3]
+            unit: replace me - with content
+            description: replace me - with content
+          CAMCOL:
+            name: CAMCOL
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          FIELD:
+            name: FIELD
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          ID:
+            name: ID
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          OBJC_TYPE:
+            name: OBJC_TYPE
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          OBJC_FLAGS:
+            name: OBJC_FLAGS
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          OBJC_FLAGS2:
+            name: OBJC_FLAGS2
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          COLC:
+            name: COLC
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          PETROR50:
+            name: PETROR50
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          PETROR90:
+            name: PETROR90
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          R_DEV:
+            name: R_DEV
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          R_EXP:
+            name: R_EXP
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          STAR_LNL:
+            name: STAR_LNL
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          EXP_LNL:
+            name: EXP_LNL
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          DEV_LNL:
+            name: DEV_LNL
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          FRACPSF:
+            name: FRACPSF
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          FLAGS:
+            name: FLAGS
+            type: int32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          FLAGS2:
+            name: FLAGS2
+            type: int32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          PSP_STATUS:
+            name: PSP_STATUS
+            type: int32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          RA:
+            name: RA
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          DEC:
+            name: DEC
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          PSF_FWHM:
+            name: PSF_FWHM
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          EXTINCTION:
+            name: EXTINCTION
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          PSFFLUX:
+            name: PSFFLUX
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          PSFFLUX_IVAR:
+            name: PSFFLUX_IVAR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          FIBERFLUX:
+            name: FIBERFLUX
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          FIBERFLUX_IVAR:
+            name: FIBERFLUX_IVAR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          FIBER2FLUX:
+            name: FIBER2FLUX
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          FIBER2FLUX_IVAR:
+            name: FIBER2FLUX_IVAR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          MODELFLUX:
+            name: MODELFLUX
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          MODELFLUX_IVAR:
+            name: MODELFLUX_IVAR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          PETROFLUX:
+            name: PETROFLUX
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          PETROFLUX_IVAR:
+            name: PETROFLUX_IVAR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          DEVFLUX:
+            name: DEVFLUX
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          DEVFLUX_IVAR:
+            name: DEVFLUX_IVAR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          EXPFLUX:
+            name: EXPFLUX
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          EXPFLUX_IVAR:
+            name: EXPFLUX_IVAR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          APERFLUX:
+            name: APERFLUX
+            type: float32[40]
+            unit: replace me - with content
+            description: replace me - with content
+          CALIB_STATUS:
+            name: CALIB_STATUS
+            type: int16[5]
+            unit: replace me - with content
+            description: replace me - with content
+          NMGYPERCOUNT:
+            name: NMGYPERCOUNT
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          RESOLVE_STATUS:
+            name: RESOLVE_STATUS
+            type: int16
+            unit: replace me - with content
+            description: replace me - with content
+          THING_ID:
+            name: THING_ID
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          IFIELD:
+            name: IFIELD
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          BALKAN_ID:
+            name: BALKAN_ID
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          NDETECT:
+            name: NDETECT
+            type: int16
+            unit: replace me - with content
+            description: replace me - with content
+          RAMOD:
+            name: RAMOD
+            type: int16
+            unit: replace me - with content
+            description: replace me - with content
+          DPERP:
+            name: DPERP
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          CMODELMAG:
+            name: CMODELMAG
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          TYCHOFLAGS:
+            name: TYCHOFLAGS
+            type: bool
+            unit: replace me - with content
+            description: replace me - with content
+          KNOWN_ID:
+            name: KNOWN_ID
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          LOGIC:
+            name: LOGIC
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          BOSS_TARGET1:
+            name: BOSS_TARGET1
+            type: int64
+            unit: replace me - with content
+            description: replace me - with content
+  DR12:
+    template: $BOSS_TARGET/main001/bosstarget-lrg-main001-collate.fits
+    example: main001/bosstarget-lrg-main001-collate.fits
+    location: main001/bosstarget-lrg-main001-collate.fits
+    environment: BOSS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: bosstarget_collate
+      path_template: $BOSS_TARGET/{target_run}/bosstarget-{type}-{target_run}-collate.fits
+      path_kwargs:
+      - type
+      - target_run
+      access_string: bosstarget_collate = $BOSS_TARGET/main001/bosstarget-lrg-main001-collate.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: replace me description
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: Dummy Created by MWRFITS v1.8
+        - key: BITPIX
+          value: 8
+          comment: Dummy primary header created by MWRFITS
+        - key: NAXIS
+          value: 0
+          comment: No data is associated with this header
+        - key: EXTEND
+          value: true
+          comment: Extensions may (will!) be present
+      hdu1:
+        name: ''
+        description: replace me description
+        is_image: false
+        size: 57 bytes
+        columns:
+          TARGET_TYPE:
+            name: TARGET_TYPE
+            type: char[3]
+            unit: replace me - with content
+            description: replace me - with content
+          TARGET_RUN:
+            name: TARGET_RUN
+            type: char[7]
+            unit: replace me - with content
+            description: replace me - with content
+          PHOTOOP_V:
+            name: PHOTOOP_V
+            type: char[6]
+            unit: replace me - with content
+            description: replace me - with content
+          BOSSTARGET_V:
+            name: BOSSTARGET_V
+            type: char[6]
+            unit: replace me - with content
+            description: replace me - with content
+          IDLUTILS_V:
+            name: IDLUTILS_V
+            type: char[7]
+            unit: replace me - with content
+            description: replace me - with content
+          PHOTO_SWEEP:
+            name: PHOTO_SWEEP
+            type: char[10]
+            unit: replace me - with content
+            description: replace me - with content
+          PHOTO_RESOLVE:
+            name: PHOTO_RESOLVE
+            type: char[10]
+            unit: replace me - with content
+            description: replace me - with content
+          PHOTO_CALIB:
+            name: PHOTO_CALIB
+            type: char[8]
+            unit: replace me - with content
+            description: replace me - with content
+      hdu2:
+        name: ''
+        description: replace me description
+        is_image: false
+        size: 241 MB
+        columns:
+          RUN:
+            name: RUN
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          RERUN:
+            name: RERUN
+            type: char[3]
+            unit: replace me - with content
+            description: replace me - with content
+          CAMCOL:
+            name: CAMCOL
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          FIELD:
+            name: FIELD
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          ID:
+            name: ID
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          OBJC_TYPE:
+            name: OBJC_TYPE
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          OBJC_FLAGS:
+            name: OBJC_FLAGS
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          OBJC_FLAGS2:
+            name: OBJC_FLAGS2
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          COLC:
+            name: COLC
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          PETROR50:
+            name: PETROR50
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          PETROR90:
+            name: PETROR90
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          R_DEV:
+            name: R_DEV
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          R_EXP:
+            name: R_EXP
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          STAR_LNL:
+            name: STAR_LNL
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          EXP_LNL:
+            name: EXP_LNL
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          DEV_LNL:
+            name: DEV_LNL
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          FRACPSF:
+            name: FRACPSF
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          FLAGS:
+            name: FLAGS
+            type: int32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          FLAGS2:
+            name: FLAGS2
+            type: int32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          PSP_STATUS:
+            name: PSP_STATUS
+            type: int32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          RA:
+            name: RA
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          DEC:
+            name: DEC
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          PSF_FWHM:
+            name: PSF_FWHM
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          EXTINCTION:
+            name: EXTINCTION
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          PSFFLUX:
+            name: PSFFLUX
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          PSFFLUX_IVAR:
+            name: PSFFLUX_IVAR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          FIBERFLUX:
+            name: FIBERFLUX
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          FIBERFLUX_IVAR:
+            name: FIBERFLUX_IVAR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          FIBER2FLUX:
+            name: FIBER2FLUX
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          FIBER2FLUX_IVAR:
+            name: FIBER2FLUX_IVAR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          MODELFLUX:
+            name: MODELFLUX
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          MODELFLUX_IVAR:
+            name: MODELFLUX_IVAR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          PETROFLUX:
+            name: PETROFLUX
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          PETROFLUX_IVAR:
+            name: PETROFLUX_IVAR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          DEVFLUX:
+            name: DEVFLUX
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          DEVFLUX_IVAR:
+            name: DEVFLUX_IVAR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          EXPFLUX:
+            name: EXPFLUX
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          EXPFLUX_IVAR:
+            name: EXPFLUX_IVAR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          APERFLUX:
+            name: APERFLUX
+            type: float32[40]
+            unit: replace me - with content
+            description: replace me - with content
+          CALIB_STATUS:
+            name: CALIB_STATUS
+            type: int16[5]
+            unit: replace me - with content
+            description: replace me - with content
+          NMGYPERCOUNT:
+            name: NMGYPERCOUNT
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          RESOLVE_STATUS:
+            name: RESOLVE_STATUS
+            type: int16
+            unit: replace me - with content
+            description: replace me - with content
+          THING_ID:
+            name: THING_ID
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          IFIELD:
+            name: IFIELD
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          BALKAN_ID:
+            name: BALKAN_ID
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          NDETECT:
+            name: NDETECT
+            type: int16
+            unit: replace me - with content
+            description: replace me - with content
+          RAMOD:
+            name: RAMOD
+            type: int16
+            unit: replace me - with content
+            description: replace me - with content
+          DPERP:
+            name: DPERP
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          CMODELMAG:
+            name: CMODELMAG
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          TYCHOFLAGS:
+            name: TYCHOFLAGS
+            type: bool
+            unit: replace me - with content
+            description: replace me - with content
+          KNOWN_ID:
+            name: KNOWN_ID
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          LOGIC:
+            name: LOGIC
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          BOSS_TARGET1:
+            name: BOSS_TARGET1
+            type: int64
+            unit: replace me - with content
+            description: replace me - with content
+  DR13:
+    template: $BOSS_TARGET/main001/bosstarget-lrg-main001-collate.fits
+    example: main001/bosstarget-lrg-main001-collate.fits
+    location: main001/bosstarget-lrg-main001-collate.fits
+    environment: BOSS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: bosstarget_collate
+      path_template: $BOSS_TARGET/{target_run}/bosstarget-{type}-{target_run}-collate.fits
+      path_kwargs:
+      - target_run
+      - type
+      access_string: bosstarget_collate = $BOSS_TARGET/main001/bosstarget-lrg-main001-collate.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: replace me description
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: Dummy Created by MWRFITS v1.8
+        - key: BITPIX
+          value: 8
+          comment: Dummy primary header created by MWRFITS
+        - key: NAXIS
+          value: 0
+          comment: No data is associated with this header
+        - key: EXTEND
+          value: true
+          comment: Extensions may (will!) be present
+      hdu1:
+        name: ''
+        description: replace me description
+        is_image: false
+        size: 57 bytes
+        columns:
+          TARGET_TYPE:
+            name: TARGET_TYPE
+            type: char[3]
+            unit: replace me - with content
+            description: replace me - with content
+          TARGET_RUN:
+            name: TARGET_RUN
+            type: char[7]
+            unit: replace me - with content
+            description: replace me - with content
+          PHOTOOP_V:
+            name: PHOTOOP_V
+            type: char[6]
+            unit: replace me - with content
+            description: replace me - with content
+          BOSSTARGET_V:
+            name: BOSSTARGET_V
+            type: char[6]
+            unit: replace me - with content
+            description: replace me - with content
+          IDLUTILS_V:
+            name: IDLUTILS_V
+            type: char[7]
+            unit: replace me - with content
+            description: replace me - with content
+          PHOTO_SWEEP:
+            name: PHOTO_SWEEP
+            type: char[10]
+            unit: replace me - with content
+            description: replace me - with content
+          PHOTO_RESOLVE:
+            name: PHOTO_RESOLVE
+            type: char[10]
+            unit: replace me - with content
+            description: replace me - with content
+          PHOTO_CALIB:
+            name: PHOTO_CALIB
+            type: char[8]
+            unit: replace me - with content
+            description: replace me - with content
+      hdu2:
+        name: ''
+        description: replace me description
+        is_image: false
+        size: 241 MB
+        columns:
+          RUN:
+            name: RUN
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          RERUN:
+            name: RERUN
+            type: char[3]
+            unit: replace me - with content
+            description: replace me - with content
+          CAMCOL:
+            name: CAMCOL
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          FIELD:
+            name: FIELD
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          ID:
+            name: ID
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          OBJC_TYPE:
+            name: OBJC_TYPE
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          OBJC_FLAGS:
+            name: OBJC_FLAGS
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          OBJC_FLAGS2:
+            name: OBJC_FLAGS2
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          COLC:
+            name: COLC
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          PETROR50:
+            name: PETROR50
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          PETROR90:
+            name: PETROR90
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          R_DEV:
+            name: R_DEV
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          R_EXP:
+            name: R_EXP
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          STAR_LNL:
+            name: STAR_LNL
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          EXP_LNL:
+            name: EXP_LNL
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          DEV_LNL:
+            name: DEV_LNL
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          FRACPSF:
+            name: FRACPSF
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          FLAGS:
+            name: FLAGS
+            type: int32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          FLAGS2:
+            name: FLAGS2
+            type: int32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          PSP_STATUS:
+            name: PSP_STATUS
+            type: int32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          RA:
+            name: RA
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          DEC:
+            name: DEC
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          PSF_FWHM:
+            name: PSF_FWHM
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          EXTINCTION:
+            name: EXTINCTION
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          PSFFLUX:
+            name: PSFFLUX
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          PSFFLUX_IVAR:
+            name: PSFFLUX_IVAR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          FIBERFLUX:
+            name: FIBERFLUX
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          FIBERFLUX_IVAR:
+            name: FIBERFLUX_IVAR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          FIBER2FLUX:
+            name: FIBER2FLUX
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          FIBER2FLUX_IVAR:
+            name: FIBER2FLUX_IVAR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          MODELFLUX:
+            name: MODELFLUX
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          MODELFLUX_IVAR:
+            name: MODELFLUX_IVAR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          PETROFLUX:
+            name: PETROFLUX
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          PETROFLUX_IVAR:
+            name: PETROFLUX_IVAR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          DEVFLUX:
+            name: DEVFLUX
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          DEVFLUX_IVAR:
+            name: DEVFLUX_IVAR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          EXPFLUX:
+            name: EXPFLUX
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          EXPFLUX_IVAR:
+            name: EXPFLUX_IVAR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          APERFLUX:
+            name: APERFLUX
+            type: float32[40]
+            unit: replace me - with content
+            description: replace me - with content
+          CALIB_STATUS:
+            name: CALIB_STATUS
+            type: int16[5]
+            unit: replace me - with content
+            description: replace me - with content
+          NMGYPERCOUNT:
+            name: NMGYPERCOUNT
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          RESOLVE_STATUS:
+            name: RESOLVE_STATUS
+            type: int16
+            unit: replace me - with content
+            description: replace me - with content
+          THING_ID:
+            name: THING_ID
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          IFIELD:
+            name: IFIELD
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          BALKAN_ID:
+            name: BALKAN_ID
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          NDETECT:
+            name: NDETECT
+            type: int16
+            unit: replace me - with content
+            description: replace me - with content
+          RAMOD:
+            name: RAMOD
+            type: int16
+            unit: replace me - with content
+            description: replace me - with content
+          DPERP:
+            name: DPERP
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          CMODELMAG:
+            name: CMODELMAG
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          TYCHOFLAGS:
+            name: TYCHOFLAGS
+            type: bool
+            unit: replace me - with content
+            description: replace me - with content
+          KNOWN_ID:
+            name: KNOWN_ID
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          LOGIC:
+            name: LOGIC
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          BOSS_TARGET1:
+            name: BOSS_TARGET1
+            type: int64
+            unit: replace me - with content
+            description: replace me - with content
