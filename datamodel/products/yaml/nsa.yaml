@@ -1,0 +1,3311 @@
+general:
+  name: nsa
+  short: migrated from old datamodel - needs update
+  description: '<p>The NASA-Sloan Atlas (NSA) catalog. The current NSA sample (v1_0_1)
+
+    was selected to include virtually all known redshifts out to about z
+
+    &lt; 0.15 for galaxies within the coverage of SDSS DR11. For each such
+
+    galaxy, we have created image mosaics from SDSS and GALEX and
+
+    rephotometered the ugriz bands plus the far and near ultraviolet bands
+
+    in a self-consistent manner. After cleaning a number of suspicious
+
+    cases the final catalog contains about 640,000 galaxies. See
+
+    http://nsatlas.org for more information.  recommend the use of the
+
+    elliptical Petrosian photometry from this catalog. K-corrected
+
+    absolute magnitudes are provided using kcorrect v4_2.</p>
+
+    <p>There are cases of elliptical Petrosian quantities in this file
+
+    with <code>_R</code> suffices (e.g. <code>PETRO_FLUX_R</code>), to
+
+    indicate that these are the original quantities determined for the
+
+    r-band, without corrections. They differ from the r-band values in the
+
+    arrays (e.g. <code>PETRO_FLUX[4]</code>) in those cases where the
+
+    Petrosian radius was undefined in the r-band. In those cases, the
+
+    quantities in the arrays assume a Petrosian radius of 5 arcsec.</p>
+
+    <p>All absolute magnitudes are given with <i>H<sub>0</sub> = 100 h km
+
+    s<sup>-1</sup> Mpc<sup>-1</sup></i>, so should be interpreted as <i>M
+
+    - 5 log<sub>10</sub> h</i>.</p>'
+  datatype: FITS
+  filesize: 2 GB
+  releases:
+  - DR13
+  - DR14
+  - DR15
+  - DR16
+  - DR17
+  environments:
+  - ATLAS_DATA
+  naming_convention: <code>nsa_v[0-9]*_[0-9]*_[0-9]*.fits</code>
+  generated_by: dimage
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases:
+    DR17:
+      from: DR16
+      note: No changes
+    DR16:
+      from: DR15
+      note: No changes
+    DR15:
+      from: DR14
+      note: No changes
+    DR14:
+      from: DR13
+      note: No changes
+releases:
+  DR13:
+    template: $ATLAS_DATA/v1/nsa_v1_0_1.fits
+    example: v1/nsa_v1_0_1.fits
+    location: v1/nsa_v1_0_1.fits
+    environment: ATLAS_DATA
+    access:
+      in_sdss_access: true
+      path_name: nsa
+      path_template: $ATLAS_DATA/{version:.2}/nsa_{version}.fits
+      path_kwargs:
+      - version
+      - version
+      access_string: nsa = $ATLAS_DATA/v1/nsa_v1_0_1.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: This empty HDU has no non-standard required keywords.
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 16
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: COMMENT
+          value: '  FITS (Flexible Image Transport System) format is defined in ''Astronomy'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: '  and Astrophysics'', volume 376, page 359; bibcode: 2001A&A...376..359H'
+          comment: 'migration: description of keyword/column not found. Needs update'
+      hdu1:
+        name: ''
+        description: Each row corresponds to an NSA galaxy.
+        is_image: false
+        size: 2 GB
+        columns:
+          IAUNAME:
+            name: IAUNAME
+            type: char[19]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: IAU-style designation based on RA/Dec
+          SUBDIR:
+            name: SUBDIR
+            type: char[27]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Subdirectory for images in the NSA 'detect' directory
+          RA:
+            name: RA
+            type: float64
+            unit: deg
+            description: Right Ascension of measured object center (J2000)
+          DEC:
+            name: DEC
+            type: float64
+            unit: deg
+            description: Declination of measured object center (J2000)
+          ISDSS:
+            name: ISDSS
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Zero-indexed row of SDSS source file for NSA (-1 if no match)
+          INED:
+            name: INED
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Zero-indexed row of NED source file for NSA (-1 if no match)
+          ISIXDF:
+            name: ISIXDF
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Zero-indexed row of 6dFGRS source file for NSA (-1 if no
+              match)
+          IALFALFA:
+            name: IALFALFA
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Zero-indexed row of ALFALFA source file for NSA (-1 if no
+              match)
+          IZCAT:
+            name: IZCAT
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Zero-indexed row of ZCAT source file for NSA (-1 if no match)
+          ITWODF:
+            name: ITWODF
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Zero-indexed row of 2dFGRS source file for NSA (-1 if no
+              match)
+          MAG:
+            name: MAG
+            type: float32
+            unit: mag
+            description: Nominal B magnitude; not reliable, only used to set size
+              of image for analysis
+          Z:
+            name: Z
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Heliocentric redshift
+          ZSRC:
+            name: ZSRC
+            type: char[7]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Source of redshift determination (alfalfa, ned, sdss, sixdf,
+              twodf, or zcat)
+          SIZE:
+            name: SIZE
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Size of analyzed mosaics
+          RUN:
+            name: RUN
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: SDSS drift scan run covering catalog position (RACAT, DECCAT)
+          CAMCOL:
+            name: CAMCOL
+            type: bool
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: SDSS camcol covering catalog position (RACAT, DECCAT)
+          FIELD:
+            name: FIELD
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: SDSS field covering catalog position (RACAT, DECCAT)
+          RERUN:
+            name: RERUN
+            type: char[3]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Photometric rerun of SDSS used to determine SDSS coverage
+          XPOS:
+            name: XPOS
+            type: float32
+            unit: pix
+            description: SDSS camera column of catalog position (RACAT, DECCAT)
+          YPOS:
+            name: YPOS
+            type: float32
+            unit: pix
+            description: SDSS camera row of catalog position (RACAT, DECCAT)
+          NSAID:
+            name: NSAID
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Unique ID within NSA v1 catalog
+          ZDIST:
+            name: ZDIST
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Distance estimate using pecular velocity model of Willick
+              et al. (1997), expressed as a redshift equivalent; multiply by <var>c/H<sub>0</sub></var>
+              for Mpc
+          SERSIC_NMGY:
+            name: SERSIC_NMGY
+            type: float32[7]
+            unit: nanomaggies
+            description: Galactic-extinction corrected AB flux in GALEX/SDSS FNugriz
+              used for K-correction (from SERSIC_FLUX)
+          SERSIC_NMGY_IVAR:
+            name: SERSIC_NMGY_IVAR
+            type: float32[7]
+            unit: nanomaggies<sup>-2</sup>
+            description: Inverse variance of sersic_nmgy
+          SERSIC_OK:
+            name: SERSIC_OK
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: For Sersic fluxes, 1 if K-correction was performed, 0 if
+              not (should all be 1)
+          SERSIC_RNMGY:
+            name: SERSIC_RNMGY
+            type: float32[7]
+            unit: nanomaggies
+            description: Reconstructed AB nanomaggies in GALEX/SDSS FNugriz from K-correction
+              fit, for Sersic fluxes
+          SERSIC_ABSMAG:
+            name: SERSIC_ABSMAG
+            type: float32[7]
+            unit: mag
+            description: Absolute magnitude in rest-frame GALEX/SDSS FNugriz, from
+              Sersic fluxes
+          SERSIC_AMIVAR:
+            name: SERSIC_AMIVAR
+            type: float32[7]
+            unit: mag<sup>-2</sup>
+            description: Inverse variance in SERSIC_ABSMAG
+          EXTINCTION:
+            name: EXTINCTION
+            type: float32[7]
+            unit: mag
+            description: Galactic extinction from Schlegel, Finkbeiner, and Davis
+              (1997), in GALEX/SDSS FNugriz
+          SERSIC_KCORRECT:
+            name: SERSIC_KCORRECT
+            type: float32[7]
+            unit: mag
+            description: K-correction value used for absolute magnitude in the GALEX/SDSS
+              FNugriz, for Sersic fluxes
+          SERSIC_KCOEFF:
+            name: SERSIC_KCOEFF
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Coefficients of templates in K-correction fit (see Blanton
+              & Roweis 2007) for Sersic fluxes
+          SERSIC_MTOL:
+            name: SERSIC_MTOL
+            type: float32[7]
+            unit: solar
+            description: Mass-to-light ratio derived in K-correction fit for GALEX/SDSS
+              FNugriz for Sersic fluxes
+          SERSIC_B300:
+            name: SERSIC_B300
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Star-formation rate b-parameter (current over past average)
+              for last 300 Myrs (from K-correction fit, use with caution) for Sersic
+              fluxes
+          SERSIC_B1000:
+            name: SERSIC_B1000
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Star-formation rate b-parameter (current over past average)
+              for last 1 Gyrs (from K-correction fit, use with caution) for Sersic
+              fluxes
+          SERSIC_METS:
+            name: SERSIC_METS
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Metallicity from K-correction fit (use with caution) for
+              Sersic fluxes
+          SERSIC_MASS:
+            name: SERSIC_MASS
+            type: float32
+            unit: solar masses
+            description: Stellar mass from K-correction fit (use with caution) for
+              Sersic fluxes
+          XCEN:
+            name: XCEN
+            type: float64
+            unit: pix
+            description: X centroid in child atlas image
+          YCEN:
+            name: YCEN
+            type: float64
+            unit: pix
+            description: Y centroid in child atlas image
+          NPROF:
+            name: NPROF
+            type: bool[7]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of detected azimuthally averaged profile annuli in
+              each band, FNugriz
+          PROFMEAN:
+            name: PROFMEAN
+            type: float32[105]
+            unit: nanomaggies
+            description: Mean surface brightness in annuli in FNugriz (note that F
+              and N have pixel size 1.5 arcsec, ugriz have pixel size 0.396 arcsec);
+              uses <a href="http://www.sdss.org/dr14/algorithms/magnitudes/#photo_profile">same
+              profile apertures as the standard SDSS imaging pipeline</a>.
+          PROFMEAN_IVAR:
+            name: PROFMEAN_IVAR
+            type: float32[105]
+            unit: nanomaggies<sup>-2</sup>
+            description: Inverse variance of PROFMEAN
+          QSTOKES:
+            name: QSTOKES
+            type: float32[105]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Q Stokes parameter in each annulus in FNugriz
+          USTOKES:
+            name: USTOKES
+            type: float32[105]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: U Stokes parameter in each annulus in FNugriz
+          BASTOKES:
+            name: BASTOKES
+            type: float32[105]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Axis ratio b/a derived from Stokes paramaters in each annulus
+              in FNugriz
+          PHISTOKES:
+            name: PHISTOKES
+            type: float32[105]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Angle (E of N) derived from Stokes paramaters in each annulus
+              in FNugriz
+          PETRO_FLUX:
+            name: PETRO_FLUX
+            type: float32[7]
+            unit: nanomaggies
+            description: Azimuthally-averaged SDSS-style Petrosian flux in FNugriz
+              (GALEX-SDSS photometric systems)
+          PETRO_FLUX_IVAR:
+            name: PETRO_FLUX_IVAR
+            type: float32[7]
+            unit: nanomaggies<sup>-2</sup>
+            description: Inverse variance of PETRO_FLUX
+          FIBER_FLUX:
+            name: FIBER_FLUX
+            type: float32[7]
+            unit: nanomaggies
+            description: Flux in 3-arcsec diameter aperture (not apodized) in FNugriz
+          FIBER_FLUX_IVAR:
+            name: FIBER_FLUX_IVAR
+            type: float32[7]
+            unit: nanomaggies<sup>-2</sup>
+            description: Inverse variance of FIBER_FLUX
+          PETRO_BA50:
+            name: PETRO_BA50
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Axis ratio b/a from Stokes parameters at 50% light radius
+          PETRO_PHI50:
+            name: PETRO_PHI50
+            type: float32
+            unit: deg
+            description: Angle (E of N) from Stokes parameters at 50% light radius
+          PETRO_BA90:
+            name: PETRO_BA90
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Axis ratio b/a from Stokes parameters at 90% light radius
+          PETRO_PHI90:
+            name: PETRO_PHI90
+            type: float32
+            unit: deg
+            description: Angle (E of N) from Stokes parameters at 90% light radius
+          SERSIC_FLUX:
+            name: SERSIC_FLUX
+            type: float32[7]
+            unit: nanomaggies
+            description: Two-dimensional, single-component Sersic fit flux in GALEX/SDSS
+              FNugriz
+          SERSIC_FLUX_IVAR:
+            name: SERSIC_FLUX_IVAR
+            type: float32[7]
+            unit: nanomaggies<sup>-2</sup>
+            description: Inverse variance of SERSIC_FLUX
+          SERSIC_N:
+            name: SERSIC_N
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Sersic index from two-dimensional, single-component Sersic
+              fit in r-band
+          SERSIC_BA:
+            name: SERSIC_BA
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Axis ratio b/a from two-dimensional, single-component Sersic
+              fit in r-band
+          SERSIC_PHI:
+            name: SERSIC_PHI
+            type: float32
+            unit: deg
+            description: Angle (E of N) of major axis in two-dimensional, single-component
+              Sersic fit in r-band
+          ASYMMETRY:
+            name: ASYMMETRY
+            type: float32[7]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Asymmetry parameter (use with caution) in GALEX/SDSS FNugriz
+          CLUMPY:
+            name: CLUMPY
+            type: float32[7]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Clumpiness parameter (use with caution) in GALEX/SDSS FNugriz
+          DFLAGS:
+            name: DFLAGS
+            type: int32[7]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Bitmask flags from photometric measurement for GALEX/SDSS
+              FNugriz
+          AID:
+            name: AID
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Child id within parent
+          PID:
+            name: PID
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Parent id within mosaic for this object
+          DVERSION:
+            name: DVERSION
+            type: char[8]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Version of dimage software used for object detection and
+              initial measurement
+          PROFTHETA:
+            name: PROFTHETA
+            type: float32[15]
+            unit: arcsec
+            description: Outer radius of each measured annulus
+          PETRO_THETA:
+            name: PETRO_THETA
+            type: float32
+            unit: arcsec
+            description: Azimuthally-averaged SDSS-style Petrosian radius (derived
+              from r band)
+          PETRO_TH50:
+            name: PETRO_TH50
+            type: float32
+            unit: arcsec
+            description: Azimuthally-averaged SDSS-style 50% light radius (r-band)
+          PETRO_TH90:
+            name: PETRO_TH90
+            type: float32
+            unit: arcsec
+            description: Azimuthally-averaged SDSS-style 50% light radius (r-band)
+          SERSIC_TH50:
+            name: SERSIC_TH50
+            type: float32
+            unit: arcsec
+            description: Sersic 50% light radius along major axis (r-band)
+          PLATE:
+            name: PLATE
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: SDSS plate number (0 if not observed)
+          FIBERID:
+            name: FIBERID
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: SDSS fiber number (0 if not observed)
+          MJD:
+            name: MJD
+            type: int32
+            unit: days
+            description: SDSS MJD of spectroscopic observation (0 if not observed)
+          RACAT:
+            name: RACAT
+            type: float64
+            unit: deg
+            description: Right Ascension of catalog object (J2000)
+          DECCAT:
+            name: DECCAT
+            type: float64
+            unit: deg
+            description: Declination of catalog object (J2000)
+          ZSDSSLINE:
+            name: ZSDSSLINE
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Obsolete
+          SURVEY:
+            name: SURVEY
+            type: char[6]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Survey within SDSS that observed the plate
+          PROGRAMNAME:
+            name: PROGRAMNAME
+            type: char[27]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Program name within the survey that observed the plate
+          PLATEQUALITY:
+            name: PLATEQUALITY
+            type: char[8]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Quality of plate
+          TILE:
+            name: TILE
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tile number for plate containing spectrum
+          PLUG_RA:
+            name: PLUG_RA
+            type: float64
+            unit: deg
+            description: Right Ascension of spectroscopic fiber (J2000)
+          PLUG_DEC:
+            name: PLUG_DEC
+            type: float64
+            unit: deg
+            description: Declination of spectroscopic fiber (J2000)
+          ELPETRO_BA:
+            name: ELPETRO_BA
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Axis ratio used for elliptical apertures (for this version,
+              same as ba90)
+          ELPETRO_PHI:
+            name: ELPETRO_PHI
+            type: float32
+            unit: deg
+            description: Position angle (east of north) used for elliptical apertures
+              (for this version, same as ba90)
+          ELPETRO_FLUX_R:
+            name: ELPETRO_FLUX_R
+            type: float32
+            unit: nanomaggies
+            description: Elliptical SDSS-style Petrosian flux, no corrections (r-band)
+          ELPETRO_FLUX_IVAR_R:
+            name: ELPETRO_FLUX_IVAR_R
+            type: float32
+            unit: nanomaggies<sup>-2</sup>
+            description: Inverse variance of ELPETRO_FLUX_R
+          ELPETRO_THETA_R:
+            name: ELPETRO_THETA_R
+            type: float32
+            unit: arcsec
+            description: Elliptical SDSS-style Petrosian radius (r-band, no corrections)
+          ELPETRO_TH50_R:
+            name: ELPETRO_TH50_R
+            type: float32
+            unit: arcsec
+            description: Elliptical Petrosian 50% light radius in r-band, no corrections
+          ELPETRO_TH90_R:
+            name: ELPETRO_TH90_R
+            type: float32
+            unit: arcsec
+            description: Elliptical Petrosian 90% light radius in r-band, no corrections
+          ELPETRO_THETA:
+            name: ELPETRO_THETA
+            type: float32
+            unit: arcsec
+            description: Elliptical SDSS-style Petrosian radius in GALEX/SDSS FNugriz
+          ELPETRO_FLUX:
+            name: ELPETRO_FLUX
+            type: float32[7]
+            unit: nanomaggies
+            description: Elliptical SDSS-style Petrosian flux in GALEX/SDSS FNugriz
+              (using r-band aperture)
+          ELPETRO_FLUX_IVAR:
+            name: ELPETRO_FLUX_IVAR
+            type: float32[7]
+            unit: nanomaggies<sup>-2</sup>
+            description: Inverse variance of PETRO_FLUX
+          ELPETRO_TH50:
+            name: ELPETRO_TH50
+            type: float32[7]
+            unit: arcsec
+            description: Elliptical Petrosian 50% light radius in GALEX/SDSS FNugriz
+          ELPETRO_TH90:
+            name: ELPETRO_TH90
+            type: float32[7]
+            unit: arcsec
+            description: Elliptical Petrosian 90% light radius in GALEX/SDSS FNugriz
+          ELPETRO_APCORR_R:
+            name: ELPETRO_APCORR_R
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Global aperture correction estimated from r-band (not applied)<td></td>
+          ELPETRO_APCORR:
+            name: ELPETRO_APCORR
+            type: float32[7]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Aperture correction applied for elliptical Petrosian fluxes
+              in GALEX/SDSS FNugriz <td></td>
+          ELPETRO_APCORR_SELF:
+            name: ELPETRO_APCORR_SELF
+            type: float32[7]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Obsolete aperture correction<td></td>
+          ELPETRO_NMGY:
+            name: ELPETRO_NMGY
+            type: float32[7]
+            unit: nanomaggies
+            description: Galactic-extinction corrected AB flux in GALEX/SDSS FNugriz
+              used for K-correction (from PETRO_FLUX)
+          ELPETRO_NMGY_IVAR:
+            name: ELPETRO_NMGY_IVAR
+            type: float32[7]
+            unit: nanomaggies<sup>-2</sup>
+            description: Inverse variance of PETRO_NMGY
+          ELPETRO_OK:
+            name: ELPETRO_OK
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: For elliptical Petrosian fluxes, 1 if K-correction was performed,
+              0 if not (should all be 1)
+          ELPETRO_RNMGY:
+            name: ELPETRO_RNMGY
+            type: float32[7]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Reconstructed AB nanomaggies in GALEX/SDSS FNugriz from K-correction
+              fit, for elliptical Petrosian fluxes
+          ELPETRO_ABSMAG:
+            name: ELPETRO_ABSMAG
+            type: float32[7]
+            unit: mag
+            description: Absolute magnitude in rest-frame GALEX/SDSS FNugriz, from
+              elliptical Petrosian fluxes
+          ELPETRO_AMIVAR:
+            name: ELPETRO_AMIVAR
+            type: float32[7]
+            unit: mag<sup>-2</sup>
+            description: Inverse variance of PETRO_ABSMAG
+          ELPETRO_KCORRECT:
+            name: ELPETRO_KCORRECT
+            type: float32[7]
+            unit: mag
+            description: K-correction value used for absolute magnitude in the GALEX/SDSS
+              FNugriz bands for elliptical Petrosian fluxes
+          ELPETRO_KCOEFF:
+            name: ELPETRO_KCOEFF
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Coefficients of templates in K-correction fit (see Blanton
+              & Roweis 2007) for elliptical Petrosian fluxes
+          ELPETRO_MASS:
+            name: ELPETRO_MASS
+            type: float32
+            unit: solar masses
+            description: Stellar mass from K-correction fit (use with caution) for
+              elliptical Petrosian fluxes
+          ELPETRO_MTOL:
+            name: ELPETRO_MTOL
+            type: float32[7]
+            unit: solar
+            description: Mass-to-light ratio derived in K-correction fit for GALEX/SDSS
+              FNugriz bands for elliptical Petrosian fluxes
+          ELPETRO_B300:
+            name: ELPETRO_B300
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Star-formation rate b-parameter (current over past average)
+              for last 300 Myrs (from K-correction fit, use with caution) for elliptical
+              Petrosian fluxes
+          ELPETRO_B1000:
+            name: ELPETRO_B1000
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Star-formation rate b-parameter (current over past average)
+              for last 1 Gyrs (from K-correction fit, use with caution) for elliptical
+              Petrosian fluxes
+          ELPETRO_METS:
+            name: ELPETRO_METS
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Metallicity from K-correction fit (use with caution) for
+              elliptical Petrosian fluxes
+          IN_DR7_LSS:
+            name: IN_DR7_LSS
+            type: bool
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Set to 1 if spectrum is in SDSS Legacy survey large-scale
+              structure sample (based on the NYU Value Added Galaxy Catalog for DR7,
+              specifically lss_geometry.dr72.ply)
+  DR14:
+    template: $ATLAS_DATA/v1/nsa_v1_0_1.fits
+    example: v1/nsa_v1_0_1.fits
+    location: v1/nsa_v1_0_1.fits
+    environment: ATLAS_DATA
+    access:
+      in_sdss_access: true
+      path_name: nsa
+      path_template: $ATLAS_DATA/{version:.2}/nsa_{version}.fits
+      path_kwargs:
+      - version
+      - version
+      access_string: nsa = $ATLAS_DATA/v1/nsa_v1_0_1.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: This empty HDU has no non-standard required keywords.
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 16
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: COMMENT
+          value: '  FITS (Flexible Image Transport System) format is defined in ''Astronomy'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: '  and Astrophysics'', volume 376, page 359; bibcode: 2001A&A...376..359H'
+          comment: 'migration: description of keyword/column not found. Needs update'
+      hdu1:
+        name: ''
+        description: Each row corresponds to an NSA galaxy.
+        is_image: false
+        size: 2 GB
+        columns:
+          IAUNAME:
+            name: IAUNAME
+            type: char[19]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: IAU-style designation based on RA/Dec
+          SUBDIR:
+            name: SUBDIR
+            type: char[27]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Subdirectory for images in the NSA 'detect' directory
+          RA:
+            name: RA
+            type: float64
+            unit: deg
+            description: Right Ascension of measured object center (J2000)
+          DEC:
+            name: DEC
+            type: float64
+            unit: deg
+            description: Declination of measured object center (J2000)
+          ISDSS:
+            name: ISDSS
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Zero-indexed row of SDSS source file for NSA (-1 if no match)
+          INED:
+            name: INED
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Zero-indexed row of NED source file for NSA (-1 if no match)
+          ISIXDF:
+            name: ISIXDF
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Zero-indexed row of 6dFGRS source file for NSA (-1 if no
+              match)
+          IALFALFA:
+            name: IALFALFA
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Zero-indexed row of ALFALFA source file for NSA (-1 if no
+              match)
+          IZCAT:
+            name: IZCAT
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Zero-indexed row of ZCAT source file for NSA (-1 if no match)
+          ITWODF:
+            name: ITWODF
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Zero-indexed row of 2dFGRS source file for NSA (-1 if no
+              match)
+          MAG:
+            name: MAG
+            type: float32
+            unit: mag
+            description: Nominal B magnitude; not reliable, only used to set size
+              of image for analysis
+          Z:
+            name: Z
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Heliocentric redshift
+          ZSRC:
+            name: ZSRC
+            type: char[7]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Source of redshift determination (alfalfa, ned, sdss, sixdf,
+              twodf, or zcat)
+          SIZE:
+            name: SIZE
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Size of analyzed mosaics
+          RUN:
+            name: RUN
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: SDSS drift scan run covering catalog position (RACAT, DECCAT)
+          CAMCOL:
+            name: CAMCOL
+            type: bool
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: SDSS camcol covering catalog position (RACAT, DECCAT)
+          FIELD:
+            name: FIELD
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: SDSS field covering catalog position (RACAT, DECCAT)
+          RERUN:
+            name: RERUN
+            type: char[3]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Photometric rerun of SDSS used to determine SDSS coverage
+          XPOS:
+            name: XPOS
+            type: float32
+            unit: pix
+            description: SDSS camera column of catalog position (RACAT, DECCAT)
+          YPOS:
+            name: YPOS
+            type: float32
+            unit: pix
+            description: SDSS camera row of catalog position (RACAT, DECCAT)
+          NSAID:
+            name: NSAID
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Unique ID within NSA v1 catalog
+          ZDIST:
+            name: ZDIST
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Distance estimate using pecular velocity model of Willick
+              et al. (1997), expressed as a redshift equivalent; multiply by <var>c/H<sub>0</sub></var>
+              for Mpc
+          SERSIC_NMGY:
+            name: SERSIC_NMGY
+            type: float32[7]
+            unit: nanomaggies
+            description: Galactic-extinction corrected AB flux in GALEX/SDSS FNugriz
+              used for K-correction (from SERSIC_FLUX)
+          SERSIC_NMGY_IVAR:
+            name: SERSIC_NMGY_IVAR
+            type: float32[7]
+            unit: nanomaggies<sup>-2</sup>
+            description: Inverse variance of sersic_nmgy
+          SERSIC_OK:
+            name: SERSIC_OK
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: For Sersic fluxes, 1 if K-correction was performed, 0 if
+              not (should all be 1)
+          SERSIC_RNMGY:
+            name: SERSIC_RNMGY
+            type: float32[7]
+            unit: nanomaggies
+            description: Reconstructed AB nanomaggies in GALEX/SDSS FNugriz from K-correction
+              fit, for Sersic fluxes
+          SERSIC_ABSMAG:
+            name: SERSIC_ABSMAG
+            type: float32[7]
+            unit: mag
+            description: Absolute magnitude in rest-frame GALEX/SDSS FNugriz, from
+              Sersic fluxes
+          SERSIC_AMIVAR:
+            name: SERSIC_AMIVAR
+            type: float32[7]
+            unit: mag<sup>-2</sup>
+            description: Inverse variance in SERSIC_ABSMAG
+          EXTINCTION:
+            name: EXTINCTION
+            type: float32[7]
+            unit: mag
+            description: Galactic extinction from Schlegel, Finkbeiner, and Davis
+              (1997), in GALEX/SDSS FNugriz
+          SERSIC_KCORRECT:
+            name: SERSIC_KCORRECT
+            type: float32[7]
+            unit: mag
+            description: K-correction value used for absolute magnitude in the GALEX/SDSS
+              FNugriz, for Sersic fluxes
+          SERSIC_KCOEFF:
+            name: SERSIC_KCOEFF
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Coefficients of templates in K-correction fit (see Blanton
+              & Roweis 2007) for Sersic fluxes
+          SERSIC_MTOL:
+            name: SERSIC_MTOL
+            type: float32[7]
+            unit: solar
+            description: Mass-to-light ratio derived in K-correction fit for GALEX/SDSS
+              FNugriz for Sersic fluxes
+          SERSIC_B300:
+            name: SERSIC_B300
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Star-formation rate b-parameter (current over past average)
+              for last 300 Myrs (from K-correction fit, use with caution) for Sersic
+              fluxes
+          SERSIC_B1000:
+            name: SERSIC_B1000
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Star-formation rate b-parameter (current over past average)
+              for last 1 Gyrs (from K-correction fit, use with caution) for Sersic
+              fluxes
+          SERSIC_METS:
+            name: SERSIC_METS
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Metallicity from K-correction fit (use with caution) for
+              Sersic fluxes
+          SERSIC_MASS:
+            name: SERSIC_MASS
+            type: float32
+            unit: solar masses
+            description: Stellar mass from K-correction fit (use with caution) for
+              Sersic fluxes
+          XCEN:
+            name: XCEN
+            type: float64
+            unit: pix
+            description: X centroid in child atlas image
+          YCEN:
+            name: YCEN
+            type: float64
+            unit: pix
+            description: Y centroid in child atlas image
+          NPROF:
+            name: NPROF
+            type: bool[7]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of detected azimuthally averaged profile annuli in
+              each band, FNugriz
+          PROFMEAN:
+            name: PROFMEAN
+            type: float32[105]
+            unit: nanomaggies
+            description: Mean surface brightness in annuli in FNugriz (note that F
+              and N have pixel size 1.5 arcsec, ugriz have pixel size 0.396 arcsec);
+              uses <a href="http://www.sdss.org/dr14/algorithms/magnitudes/#photo_profile">same
+              profile apertures as the standard SDSS imaging pipeline</a>.
+          PROFMEAN_IVAR:
+            name: PROFMEAN_IVAR
+            type: float32[105]
+            unit: nanomaggies<sup>-2</sup>
+            description: Inverse variance of PROFMEAN
+          QSTOKES:
+            name: QSTOKES
+            type: float32[105]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Q Stokes parameter in each annulus in FNugriz
+          USTOKES:
+            name: USTOKES
+            type: float32[105]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: U Stokes parameter in each annulus in FNugriz
+          BASTOKES:
+            name: BASTOKES
+            type: float32[105]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Axis ratio b/a derived from Stokes paramaters in each annulus
+              in FNugriz
+          PHISTOKES:
+            name: PHISTOKES
+            type: float32[105]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Angle (E of N) derived from Stokes paramaters in each annulus
+              in FNugriz
+          PETRO_FLUX:
+            name: PETRO_FLUX
+            type: float32[7]
+            unit: nanomaggies
+            description: Azimuthally-averaged SDSS-style Petrosian flux in FNugriz
+              (GALEX-SDSS photometric systems)
+          PETRO_FLUX_IVAR:
+            name: PETRO_FLUX_IVAR
+            type: float32[7]
+            unit: nanomaggies<sup>-2</sup>
+            description: Inverse variance of PETRO_FLUX
+          FIBER_FLUX:
+            name: FIBER_FLUX
+            type: float32[7]
+            unit: nanomaggies
+            description: Flux in 3-arcsec diameter aperture (not apodized) in FNugriz
+          FIBER_FLUX_IVAR:
+            name: FIBER_FLUX_IVAR
+            type: float32[7]
+            unit: nanomaggies<sup>-2</sup>
+            description: Inverse variance of FIBER_FLUX
+          PETRO_BA50:
+            name: PETRO_BA50
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Axis ratio b/a from Stokes parameters at 50% light radius
+          PETRO_PHI50:
+            name: PETRO_PHI50
+            type: float32
+            unit: deg
+            description: Angle (E of N) from Stokes parameters at 50% light radius
+          PETRO_BA90:
+            name: PETRO_BA90
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Axis ratio b/a from Stokes parameters at 90% light radius
+          PETRO_PHI90:
+            name: PETRO_PHI90
+            type: float32
+            unit: deg
+            description: Angle (E of N) from Stokes parameters at 90% light radius
+          SERSIC_FLUX:
+            name: SERSIC_FLUX
+            type: float32[7]
+            unit: nanomaggies
+            description: Two-dimensional, single-component Sersic fit flux in GALEX/SDSS
+              FNugriz
+          SERSIC_FLUX_IVAR:
+            name: SERSIC_FLUX_IVAR
+            type: float32[7]
+            unit: nanomaggies<sup>-2</sup>
+            description: Inverse variance of SERSIC_FLUX
+          SERSIC_N:
+            name: SERSIC_N
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Sersic index from two-dimensional, single-component Sersic
+              fit in r-band
+          SERSIC_BA:
+            name: SERSIC_BA
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Axis ratio b/a from two-dimensional, single-component Sersic
+              fit in r-band
+          SERSIC_PHI:
+            name: SERSIC_PHI
+            type: float32
+            unit: deg
+            description: Angle (E of N) of major axis in two-dimensional, single-component
+              Sersic fit in r-band
+          ASYMMETRY:
+            name: ASYMMETRY
+            type: float32[7]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Asymmetry parameter (use with caution) in GALEX/SDSS FNugriz
+          CLUMPY:
+            name: CLUMPY
+            type: float32[7]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Clumpiness parameter (use with caution) in GALEX/SDSS FNugriz
+          DFLAGS:
+            name: DFLAGS
+            type: int32[7]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Bitmask flags from photometric measurement for GALEX/SDSS
+              FNugriz
+          AID:
+            name: AID
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Child id within parent
+          PID:
+            name: PID
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Parent id within mosaic for this object
+          DVERSION:
+            name: DVERSION
+            type: char[8]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Version of dimage software used for object detection and
+              initial measurement
+          PROFTHETA:
+            name: PROFTHETA
+            type: float32[15]
+            unit: arcsec
+            description: Outer radius of each measured annulus
+          PETRO_THETA:
+            name: PETRO_THETA
+            type: float32
+            unit: arcsec
+            description: Azimuthally-averaged SDSS-style Petrosian radius (derived
+              from r band)
+          PETRO_TH50:
+            name: PETRO_TH50
+            type: float32
+            unit: arcsec
+            description: Azimuthally-averaged SDSS-style 50% light radius (r-band)
+          PETRO_TH90:
+            name: PETRO_TH90
+            type: float32
+            unit: arcsec
+            description: Azimuthally-averaged SDSS-style 50% light radius (r-band)
+          SERSIC_TH50:
+            name: SERSIC_TH50
+            type: float32
+            unit: arcsec
+            description: Sersic 50% light radius along major axis (r-band)
+          PLATE:
+            name: PLATE
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: SDSS plate number (0 if not observed)
+          FIBERID:
+            name: FIBERID
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: SDSS fiber number (0 if not observed)
+          MJD:
+            name: MJD
+            type: int32
+            unit: days
+            description: SDSS MJD of spectroscopic observation (0 if not observed)
+          RACAT:
+            name: RACAT
+            type: float64
+            unit: deg
+            description: Right Ascension of catalog object (J2000)
+          DECCAT:
+            name: DECCAT
+            type: float64
+            unit: deg
+            description: Declination of catalog object (J2000)
+          ZSDSSLINE:
+            name: ZSDSSLINE
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Obsolete
+          SURVEY:
+            name: SURVEY
+            type: char[6]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Survey within SDSS that observed the plate
+          PROGRAMNAME:
+            name: PROGRAMNAME
+            type: char[27]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Program name within the survey that observed the plate
+          PLATEQUALITY:
+            name: PLATEQUALITY
+            type: char[8]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Quality of plate
+          TILE:
+            name: TILE
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tile number for plate containing spectrum
+          PLUG_RA:
+            name: PLUG_RA
+            type: float64
+            unit: deg
+            description: Right Ascension of spectroscopic fiber (J2000)
+          PLUG_DEC:
+            name: PLUG_DEC
+            type: float64
+            unit: deg
+            description: Declination of spectroscopic fiber (J2000)
+          ELPETRO_BA:
+            name: ELPETRO_BA
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Axis ratio used for elliptical apertures (for this version,
+              same as ba90)
+          ELPETRO_PHI:
+            name: ELPETRO_PHI
+            type: float32
+            unit: deg
+            description: Position angle (east of north) used for elliptical apertures
+              (for this version, same as ba90)
+          ELPETRO_FLUX_R:
+            name: ELPETRO_FLUX_R
+            type: float32
+            unit: nanomaggies
+            description: Elliptical SDSS-style Petrosian flux, no corrections (r-band)
+          ELPETRO_FLUX_IVAR_R:
+            name: ELPETRO_FLUX_IVAR_R
+            type: float32
+            unit: nanomaggies<sup>-2</sup>
+            description: Inverse variance of ELPETRO_FLUX_R
+          ELPETRO_THETA_R:
+            name: ELPETRO_THETA_R
+            type: float32
+            unit: arcsec
+            description: Elliptical SDSS-style Petrosian radius (r-band, no corrections)
+          ELPETRO_TH50_R:
+            name: ELPETRO_TH50_R
+            type: float32
+            unit: arcsec
+            description: Elliptical Petrosian 50% light radius in r-band, no corrections
+          ELPETRO_TH90_R:
+            name: ELPETRO_TH90_R
+            type: float32
+            unit: arcsec
+            description: Elliptical Petrosian 90% light radius in r-band, no corrections
+          ELPETRO_THETA:
+            name: ELPETRO_THETA
+            type: float32
+            unit: arcsec
+            description: Elliptical SDSS-style Petrosian radius in GALEX/SDSS FNugriz
+          ELPETRO_FLUX:
+            name: ELPETRO_FLUX
+            type: float32[7]
+            unit: nanomaggies
+            description: Elliptical SDSS-style Petrosian flux in GALEX/SDSS FNugriz
+              (using r-band aperture)
+          ELPETRO_FLUX_IVAR:
+            name: ELPETRO_FLUX_IVAR
+            type: float32[7]
+            unit: nanomaggies<sup>-2</sup>
+            description: Inverse variance of PETRO_FLUX
+          ELPETRO_TH50:
+            name: ELPETRO_TH50
+            type: float32[7]
+            unit: arcsec
+            description: Elliptical Petrosian 50% light radius in GALEX/SDSS FNugriz
+          ELPETRO_TH90:
+            name: ELPETRO_TH90
+            type: float32[7]
+            unit: arcsec
+            description: Elliptical Petrosian 90% light radius in GALEX/SDSS FNugriz
+          ELPETRO_APCORR_R:
+            name: ELPETRO_APCORR_R
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Global aperture correction estimated from r-band (not applied)<td></td>
+          ELPETRO_APCORR:
+            name: ELPETRO_APCORR
+            type: float32[7]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Aperture correction applied for elliptical Petrosian fluxes
+              in GALEX/SDSS FNugriz <td></td>
+          ELPETRO_APCORR_SELF:
+            name: ELPETRO_APCORR_SELF
+            type: float32[7]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Obsolete aperture correction<td></td>
+          ELPETRO_NMGY:
+            name: ELPETRO_NMGY
+            type: float32[7]
+            unit: nanomaggies
+            description: Galactic-extinction corrected AB flux in GALEX/SDSS FNugriz
+              used for K-correction (from PETRO_FLUX)
+          ELPETRO_NMGY_IVAR:
+            name: ELPETRO_NMGY_IVAR
+            type: float32[7]
+            unit: nanomaggies<sup>-2</sup>
+            description: Inverse variance of PETRO_NMGY
+          ELPETRO_OK:
+            name: ELPETRO_OK
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: For elliptical Petrosian fluxes, 1 if K-correction was performed,
+              0 if not (should all be 1)
+          ELPETRO_RNMGY:
+            name: ELPETRO_RNMGY
+            type: float32[7]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Reconstructed AB nanomaggies in GALEX/SDSS FNugriz from K-correction
+              fit, for elliptical Petrosian fluxes
+          ELPETRO_ABSMAG:
+            name: ELPETRO_ABSMAG
+            type: float32[7]
+            unit: mag
+            description: Absolute magnitude in rest-frame GALEX/SDSS FNugriz, from
+              elliptical Petrosian fluxes
+          ELPETRO_AMIVAR:
+            name: ELPETRO_AMIVAR
+            type: float32[7]
+            unit: mag<sup>-2</sup>
+            description: Inverse variance of PETRO_ABSMAG
+          ELPETRO_KCORRECT:
+            name: ELPETRO_KCORRECT
+            type: float32[7]
+            unit: mag
+            description: K-correction value used for absolute magnitude in the GALEX/SDSS
+              FNugriz bands for elliptical Petrosian fluxes
+          ELPETRO_KCOEFF:
+            name: ELPETRO_KCOEFF
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Coefficients of templates in K-correction fit (see Blanton
+              & Roweis 2007) for elliptical Petrosian fluxes
+          ELPETRO_MASS:
+            name: ELPETRO_MASS
+            type: float32
+            unit: solar masses
+            description: Stellar mass from K-correction fit (use with caution) for
+              elliptical Petrosian fluxes
+          ELPETRO_MTOL:
+            name: ELPETRO_MTOL
+            type: float32[7]
+            unit: solar
+            description: Mass-to-light ratio derived in K-correction fit for GALEX/SDSS
+              FNugriz bands for elliptical Petrosian fluxes
+          ELPETRO_B300:
+            name: ELPETRO_B300
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Star-formation rate b-parameter (current over past average)
+              for last 300 Myrs (from K-correction fit, use with caution) for elliptical
+              Petrosian fluxes
+          ELPETRO_B1000:
+            name: ELPETRO_B1000
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Star-formation rate b-parameter (current over past average)
+              for last 1 Gyrs (from K-correction fit, use with caution) for elliptical
+              Petrosian fluxes
+          ELPETRO_METS:
+            name: ELPETRO_METS
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Metallicity from K-correction fit (use with caution) for
+              elliptical Petrosian fluxes
+          IN_DR7_LSS:
+            name: IN_DR7_LSS
+            type: bool
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Set to 1 if spectrum is in SDSS Legacy survey large-scale
+              structure sample (based on the NYU Value Added Galaxy Catalog for DR7,
+              specifically lss_geometry.dr72.ply)
+  DR15:
+    template: $ATLAS_DATA/v1/nsa_v1_0_1.fits
+    example: v1/nsa_v1_0_1.fits
+    location: v1/nsa_v1_0_1.fits
+    environment: ATLAS_DATA
+    access:
+      in_sdss_access: true
+      path_name: nsa
+      path_template: $ATLAS_DATA/{version:.2}/nsa_{version}.fits
+      path_kwargs:
+      - version
+      - version
+      access_string: nsa = $ATLAS_DATA/v1/nsa_v1_0_1.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: This empty HDU has no non-standard required keywords.
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 16
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: COMMENT
+          value: '  FITS (Flexible Image Transport System) format is defined in ''Astronomy'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: '  and Astrophysics'', volume 376, page 359; bibcode: 2001A&A...376..359H'
+          comment: 'migration: description of keyword/column not found. Needs update'
+      hdu1:
+        name: ''
+        description: Each row corresponds to an NSA galaxy.
+        is_image: false
+        size: 2 GB
+        columns:
+          IAUNAME:
+            name: IAUNAME
+            type: char[19]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: IAU-style designation based on RA/Dec
+          SUBDIR:
+            name: SUBDIR
+            type: char[27]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Subdirectory for images in the NSA 'detect' directory
+          RA:
+            name: RA
+            type: float64
+            unit: deg
+            description: Right Ascension of measured object center (J2000)
+          DEC:
+            name: DEC
+            type: float64
+            unit: deg
+            description: Declination of measured object center (J2000)
+          ISDSS:
+            name: ISDSS
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Zero-indexed row of SDSS source file for NSA (-1 if no match)
+          INED:
+            name: INED
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Zero-indexed row of NED source file for NSA (-1 if no match)
+          ISIXDF:
+            name: ISIXDF
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Zero-indexed row of 6dFGRS source file for NSA (-1 if no
+              match)
+          IALFALFA:
+            name: IALFALFA
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Zero-indexed row of ALFALFA source file for NSA (-1 if no
+              match)
+          IZCAT:
+            name: IZCAT
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Zero-indexed row of ZCAT source file for NSA (-1 if no match)
+          ITWODF:
+            name: ITWODF
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Zero-indexed row of 2dFGRS source file for NSA (-1 if no
+              match)
+          MAG:
+            name: MAG
+            type: float32
+            unit: mag
+            description: Nominal B magnitude; not reliable, only used to set size
+              of image for analysis
+          Z:
+            name: Z
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Heliocentric redshift
+          ZSRC:
+            name: ZSRC
+            type: char[7]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Source of redshift determination (alfalfa, ned, sdss, sixdf,
+              twodf, or zcat)
+          SIZE:
+            name: SIZE
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Size of analyzed mosaics
+          RUN:
+            name: RUN
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: SDSS drift scan run covering catalog position (RACAT, DECCAT)
+          CAMCOL:
+            name: CAMCOL
+            type: bool
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: SDSS camcol covering catalog position (RACAT, DECCAT)
+          FIELD:
+            name: FIELD
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: SDSS field covering catalog position (RACAT, DECCAT)
+          RERUN:
+            name: RERUN
+            type: char[3]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Photometric rerun of SDSS used to determine SDSS coverage
+          XPOS:
+            name: XPOS
+            type: float32
+            unit: pix
+            description: SDSS camera column of catalog position (RACAT, DECCAT)
+          YPOS:
+            name: YPOS
+            type: float32
+            unit: pix
+            description: SDSS camera row of catalog position (RACAT, DECCAT)
+          NSAID:
+            name: NSAID
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Unique ID within NSA v1 catalog
+          ZDIST:
+            name: ZDIST
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Distance estimate using pecular velocity model of Willick
+              et al. (1997), expressed as a redshift equivalent; multiply by <var>c/H<sub>0</sub></var>
+              for Mpc
+          SERSIC_NMGY:
+            name: SERSIC_NMGY
+            type: float32[7]
+            unit: nanomaggies
+            description: Galactic-extinction corrected AB flux in GALEX/SDSS FNugriz
+              used for K-correction (from SERSIC_FLUX)
+          SERSIC_NMGY_IVAR:
+            name: SERSIC_NMGY_IVAR
+            type: float32[7]
+            unit: nanomaggies<sup>-2</sup>
+            description: Inverse variance of sersic_nmgy
+          SERSIC_OK:
+            name: SERSIC_OK
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: For Sersic fluxes, 1 if K-correction was performed, 0 if
+              not (should all be 1)
+          SERSIC_RNMGY:
+            name: SERSIC_RNMGY
+            type: float32[7]
+            unit: nanomaggies
+            description: Reconstructed AB nanomaggies in GALEX/SDSS FNugriz from K-correction
+              fit, for Sersic fluxes
+          SERSIC_ABSMAG:
+            name: SERSIC_ABSMAG
+            type: float32[7]
+            unit: mag
+            description: Absolute magnitude in rest-frame GALEX/SDSS FNugriz, from
+              Sersic fluxes
+          SERSIC_AMIVAR:
+            name: SERSIC_AMIVAR
+            type: float32[7]
+            unit: mag<sup>-2</sup>
+            description: Inverse variance in SERSIC_ABSMAG
+          EXTINCTION:
+            name: EXTINCTION
+            type: float32[7]
+            unit: mag
+            description: Galactic extinction from Schlegel, Finkbeiner, and Davis
+              (1997), in GALEX/SDSS FNugriz
+          SERSIC_KCORRECT:
+            name: SERSIC_KCORRECT
+            type: float32[7]
+            unit: mag
+            description: K-correction value used for absolute magnitude in the GALEX/SDSS
+              FNugriz, for Sersic fluxes
+          SERSIC_KCOEFF:
+            name: SERSIC_KCOEFF
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Coefficients of templates in K-correction fit (see Blanton
+              & Roweis 2007) for Sersic fluxes
+          SERSIC_MTOL:
+            name: SERSIC_MTOL
+            type: float32[7]
+            unit: solar
+            description: Mass-to-light ratio derived in K-correction fit for GALEX/SDSS
+              FNugriz for Sersic fluxes
+          SERSIC_B300:
+            name: SERSIC_B300
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Star-formation rate b-parameter (current over past average)
+              for last 300 Myrs (from K-correction fit, use with caution) for Sersic
+              fluxes
+          SERSIC_B1000:
+            name: SERSIC_B1000
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Star-formation rate b-parameter (current over past average)
+              for last 1 Gyrs (from K-correction fit, use with caution) for Sersic
+              fluxes
+          SERSIC_METS:
+            name: SERSIC_METS
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Metallicity from K-correction fit (use with caution) for
+              Sersic fluxes
+          SERSIC_MASS:
+            name: SERSIC_MASS
+            type: float32
+            unit: solar masses
+            description: Stellar mass from K-correction fit (use with caution) for
+              Sersic fluxes
+          XCEN:
+            name: XCEN
+            type: float64
+            unit: pix
+            description: X centroid in child atlas image
+          YCEN:
+            name: YCEN
+            type: float64
+            unit: pix
+            description: Y centroid in child atlas image
+          NPROF:
+            name: NPROF
+            type: bool[7]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of detected azimuthally averaged profile annuli in
+              each band, FNugriz
+          PROFMEAN:
+            name: PROFMEAN
+            type: float32[105]
+            unit: nanomaggies
+            description: Mean surface brightness in annuli in FNugriz (note that F
+              and N have pixel size 1.5 arcsec, ugriz have pixel size 0.396 arcsec);
+              uses <a href="http://www.sdss.org/dr14/algorithms/magnitudes/#photo_profile">same
+              profile apertures as the standard SDSS imaging pipeline</a>.
+          PROFMEAN_IVAR:
+            name: PROFMEAN_IVAR
+            type: float32[105]
+            unit: nanomaggies<sup>-2</sup>
+            description: Inverse variance of PROFMEAN
+          QSTOKES:
+            name: QSTOKES
+            type: float32[105]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Q Stokes parameter in each annulus in FNugriz
+          USTOKES:
+            name: USTOKES
+            type: float32[105]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: U Stokes parameter in each annulus in FNugriz
+          BASTOKES:
+            name: BASTOKES
+            type: float32[105]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Axis ratio b/a derived from Stokes paramaters in each annulus
+              in FNugriz
+          PHISTOKES:
+            name: PHISTOKES
+            type: float32[105]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Angle (E of N) derived from Stokes paramaters in each annulus
+              in FNugriz
+          PETRO_FLUX:
+            name: PETRO_FLUX
+            type: float32[7]
+            unit: nanomaggies
+            description: Azimuthally-averaged SDSS-style Petrosian flux in FNugriz
+              (GALEX-SDSS photometric systems)
+          PETRO_FLUX_IVAR:
+            name: PETRO_FLUX_IVAR
+            type: float32[7]
+            unit: nanomaggies<sup>-2</sup>
+            description: Inverse variance of PETRO_FLUX
+          FIBER_FLUX:
+            name: FIBER_FLUX
+            type: float32[7]
+            unit: nanomaggies
+            description: Flux in 3-arcsec diameter aperture (not apodized) in FNugriz
+          FIBER_FLUX_IVAR:
+            name: FIBER_FLUX_IVAR
+            type: float32[7]
+            unit: nanomaggies<sup>-2</sup>
+            description: Inverse variance of FIBER_FLUX
+          PETRO_BA50:
+            name: PETRO_BA50
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Axis ratio b/a from Stokes parameters at 50% light radius
+          PETRO_PHI50:
+            name: PETRO_PHI50
+            type: float32
+            unit: deg
+            description: Angle (E of N) from Stokes parameters at 50% light radius
+          PETRO_BA90:
+            name: PETRO_BA90
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Axis ratio b/a from Stokes parameters at 90% light radius
+          PETRO_PHI90:
+            name: PETRO_PHI90
+            type: float32
+            unit: deg
+            description: Angle (E of N) from Stokes parameters at 90% light radius
+          SERSIC_FLUX:
+            name: SERSIC_FLUX
+            type: float32[7]
+            unit: nanomaggies
+            description: Two-dimensional, single-component Sersic fit flux in GALEX/SDSS
+              FNugriz
+          SERSIC_FLUX_IVAR:
+            name: SERSIC_FLUX_IVAR
+            type: float32[7]
+            unit: nanomaggies<sup>-2</sup>
+            description: Inverse variance of SERSIC_FLUX
+          SERSIC_N:
+            name: SERSIC_N
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Sersic index from two-dimensional, single-component Sersic
+              fit in r-band
+          SERSIC_BA:
+            name: SERSIC_BA
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Axis ratio b/a from two-dimensional, single-component Sersic
+              fit in r-band
+          SERSIC_PHI:
+            name: SERSIC_PHI
+            type: float32
+            unit: deg
+            description: Angle (E of N) of major axis in two-dimensional, single-component
+              Sersic fit in r-band
+          ASYMMETRY:
+            name: ASYMMETRY
+            type: float32[7]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Asymmetry parameter (use with caution) in GALEX/SDSS FNugriz
+          CLUMPY:
+            name: CLUMPY
+            type: float32[7]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Clumpiness parameter (use with caution) in GALEX/SDSS FNugriz
+          DFLAGS:
+            name: DFLAGS
+            type: int32[7]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Bitmask flags from photometric measurement for GALEX/SDSS
+              FNugriz
+          AID:
+            name: AID
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Child id within parent
+          PID:
+            name: PID
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Parent id within mosaic for this object
+          DVERSION:
+            name: DVERSION
+            type: char[8]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Version of dimage software used for object detection and
+              initial measurement
+          PROFTHETA:
+            name: PROFTHETA
+            type: float32[15]
+            unit: arcsec
+            description: Outer radius of each measured annulus
+          PETRO_THETA:
+            name: PETRO_THETA
+            type: float32
+            unit: arcsec
+            description: Azimuthally-averaged SDSS-style Petrosian radius (derived
+              from r band)
+          PETRO_TH50:
+            name: PETRO_TH50
+            type: float32
+            unit: arcsec
+            description: Azimuthally-averaged SDSS-style 50% light radius (r-band)
+          PETRO_TH90:
+            name: PETRO_TH90
+            type: float32
+            unit: arcsec
+            description: Azimuthally-averaged SDSS-style 50% light radius (r-band)
+          SERSIC_TH50:
+            name: SERSIC_TH50
+            type: float32
+            unit: arcsec
+            description: Sersic 50% light radius along major axis (r-band)
+          PLATE:
+            name: PLATE
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: SDSS plate number (0 if not observed)
+          FIBERID:
+            name: FIBERID
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: SDSS fiber number (0 if not observed)
+          MJD:
+            name: MJD
+            type: int32
+            unit: days
+            description: SDSS MJD of spectroscopic observation (0 if not observed)
+          RACAT:
+            name: RACAT
+            type: float64
+            unit: deg
+            description: Right Ascension of catalog object (J2000)
+          DECCAT:
+            name: DECCAT
+            type: float64
+            unit: deg
+            description: Declination of catalog object (J2000)
+          ZSDSSLINE:
+            name: ZSDSSLINE
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Obsolete
+          SURVEY:
+            name: SURVEY
+            type: char[6]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Survey within SDSS that observed the plate
+          PROGRAMNAME:
+            name: PROGRAMNAME
+            type: char[27]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Program name within the survey that observed the plate
+          PLATEQUALITY:
+            name: PLATEQUALITY
+            type: char[8]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Quality of plate
+          TILE:
+            name: TILE
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tile number for plate containing spectrum
+          PLUG_RA:
+            name: PLUG_RA
+            type: float64
+            unit: deg
+            description: Right Ascension of spectroscopic fiber (J2000)
+          PLUG_DEC:
+            name: PLUG_DEC
+            type: float64
+            unit: deg
+            description: Declination of spectroscopic fiber (J2000)
+          ELPETRO_BA:
+            name: ELPETRO_BA
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Axis ratio used for elliptical apertures (for this version,
+              same as ba90)
+          ELPETRO_PHI:
+            name: ELPETRO_PHI
+            type: float32
+            unit: deg
+            description: Position angle (east of north) used for elliptical apertures
+              (for this version, same as ba90)
+          ELPETRO_FLUX_R:
+            name: ELPETRO_FLUX_R
+            type: float32
+            unit: nanomaggies
+            description: Elliptical SDSS-style Petrosian flux, no corrections (r-band)
+          ELPETRO_FLUX_IVAR_R:
+            name: ELPETRO_FLUX_IVAR_R
+            type: float32
+            unit: nanomaggies<sup>-2</sup>
+            description: Inverse variance of ELPETRO_FLUX_R
+          ELPETRO_THETA_R:
+            name: ELPETRO_THETA_R
+            type: float32
+            unit: arcsec
+            description: Elliptical SDSS-style Petrosian radius (r-band, no corrections)
+          ELPETRO_TH50_R:
+            name: ELPETRO_TH50_R
+            type: float32
+            unit: arcsec
+            description: Elliptical Petrosian 50% light radius in r-band, no corrections
+          ELPETRO_TH90_R:
+            name: ELPETRO_TH90_R
+            type: float32
+            unit: arcsec
+            description: Elliptical Petrosian 90% light radius in r-band, no corrections
+          ELPETRO_THETA:
+            name: ELPETRO_THETA
+            type: float32
+            unit: arcsec
+            description: Elliptical SDSS-style Petrosian radius in GALEX/SDSS FNugriz
+          ELPETRO_FLUX:
+            name: ELPETRO_FLUX
+            type: float32[7]
+            unit: nanomaggies
+            description: Elliptical SDSS-style Petrosian flux in GALEX/SDSS FNugriz
+              (using r-band aperture)
+          ELPETRO_FLUX_IVAR:
+            name: ELPETRO_FLUX_IVAR
+            type: float32[7]
+            unit: nanomaggies<sup>-2</sup>
+            description: Inverse variance of PETRO_FLUX
+          ELPETRO_TH50:
+            name: ELPETRO_TH50
+            type: float32[7]
+            unit: arcsec
+            description: Elliptical Petrosian 50% light radius in GALEX/SDSS FNugriz
+          ELPETRO_TH90:
+            name: ELPETRO_TH90
+            type: float32[7]
+            unit: arcsec
+            description: Elliptical Petrosian 90% light radius in GALEX/SDSS FNugriz
+          ELPETRO_APCORR_R:
+            name: ELPETRO_APCORR_R
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Global aperture correction estimated from r-band (not applied)<td></td>
+          ELPETRO_APCORR:
+            name: ELPETRO_APCORR
+            type: float32[7]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Aperture correction applied for elliptical Petrosian fluxes
+              in GALEX/SDSS FNugriz <td></td>
+          ELPETRO_APCORR_SELF:
+            name: ELPETRO_APCORR_SELF
+            type: float32[7]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Obsolete aperture correction<td></td>
+          ELPETRO_NMGY:
+            name: ELPETRO_NMGY
+            type: float32[7]
+            unit: nanomaggies
+            description: Galactic-extinction corrected AB flux in GALEX/SDSS FNugriz
+              used for K-correction (from PETRO_FLUX)
+          ELPETRO_NMGY_IVAR:
+            name: ELPETRO_NMGY_IVAR
+            type: float32[7]
+            unit: nanomaggies<sup>-2</sup>
+            description: Inverse variance of PETRO_NMGY
+          ELPETRO_OK:
+            name: ELPETRO_OK
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: For elliptical Petrosian fluxes, 1 if K-correction was performed,
+              0 if not (should all be 1)
+          ELPETRO_RNMGY:
+            name: ELPETRO_RNMGY
+            type: float32[7]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Reconstructed AB nanomaggies in GALEX/SDSS FNugriz from K-correction
+              fit, for elliptical Petrosian fluxes
+          ELPETRO_ABSMAG:
+            name: ELPETRO_ABSMAG
+            type: float32[7]
+            unit: mag
+            description: Absolute magnitude in rest-frame GALEX/SDSS FNugriz, from
+              elliptical Petrosian fluxes
+          ELPETRO_AMIVAR:
+            name: ELPETRO_AMIVAR
+            type: float32[7]
+            unit: mag<sup>-2</sup>
+            description: Inverse variance of PETRO_ABSMAG
+          ELPETRO_KCORRECT:
+            name: ELPETRO_KCORRECT
+            type: float32[7]
+            unit: mag
+            description: K-correction value used for absolute magnitude in the GALEX/SDSS
+              FNugriz bands for elliptical Petrosian fluxes
+          ELPETRO_KCOEFF:
+            name: ELPETRO_KCOEFF
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Coefficients of templates in K-correction fit (see Blanton
+              & Roweis 2007) for elliptical Petrosian fluxes
+          ELPETRO_MASS:
+            name: ELPETRO_MASS
+            type: float32
+            unit: solar masses
+            description: Stellar mass from K-correction fit (use with caution) for
+              elliptical Petrosian fluxes
+          ELPETRO_MTOL:
+            name: ELPETRO_MTOL
+            type: float32[7]
+            unit: solar
+            description: Mass-to-light ratio derived in K-correction fit for GALEX/SDSS
+              FNugriz bands for elliptical Petrosian fluxes
+          ELPETRO_B300:
+            name: ELPETRO_B300
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Star-formation rate b-parameter (current over past average)
+              for last 300 Myrs (from K-correction fit, use with caution) for elliptical
+              Petrosian fluxes
+          ELPETRO_B1000:
+            name: ELPETRO_B1000
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Star-formation rate b-parameter (current over past average)
+              for last 1 Gyrs (from K-correction fit, use with caution) for elliptical
+              Petrosian fluxes
+          ELPETRO_METS:
+            name: ELPETRO_METS
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Metallicity from K-correction fit (use with caution) for
+              elliptical Petrosian fluxes
+          IN_DR7_LSS:
+            name: IN_DR7_LSS
+            type: bool
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Set to 1 if spectrum is in SDSS Legacy survey large-scale
+              structure sample (based on the NYU Value Added Galaxy Catalog for DR7,
+              specifically lss_geometry.dr72.ply)
+  DR16:
+    template: $ATLAS_DATA/v1/nsa_v1_0_1.fits
+    example: v1/nsa_v1_0_1.fits
+    location: v1/nsa_v1_0_1.fits
+    environment: ATLAS_DATA
+    access:
+      in_sdss_access: true
+      path_name: nsa
+      path_template: $ATLAS_DATA/{version:.2}/nsa_{version}.fits
+      path_kwargs:
+      - version
+      - version
+      access_string: nsa = $ATLAS_DATA/v1/nsa_v1_0_1.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: This empty HDU has no non-standard required keywords.
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 16
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: COMMENT
+          value: '  FITS (Flexible Image Transport System) format is defined in ''Astronomy'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: '  and Astrophysics'', volume 376, page 359; bibcode: 2001A&A...376..359H'
+          comment: 'migration: description of keyword/column not found. Needs update'
+      hdu1:
+        name: ''
+        description: Each row corresponds to an NSA galaxy.
+        is_image: false
+        size: 2 GB
+        columns:
+          IAUNAME:
+            name: IAUNAME
+            type: char[19]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: IAU-style designation based on RA/Dec
+          SUBDIR:
+            name: SUBDIR
+            type: char[27]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Subdirectory for images in the NSA 'detect' directory
+          RA:
+            name: RA
+            type: float64
+            unit: deg
+            description: Right Ascension of measured object center (J2000)
+          DEC:
+            name: DEC
+            type: float64
+            unit: deg
+            description: Declination of measured object center (J2000)
+          ISDSS:
+            name: ISDSS
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Zero-indexed row of SDSS source file for NSA (-1 if no match)
+          INED:
+            name: INED
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Zero-indexed row of NED source file for NSA (-1 if no match)
+          ISIXDF:
+            name: ISIXDF
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Zero-indexed row of 6dFGRS source file for NSA (-1 if no
+              match)
+          IALFALFA:
+            name: IALFALFA
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Zero-indexed row of ALFALFA source file for NSA (-1 if no
+              match)
+          IZCAT:
+            name: IZCAT
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Zero-indexed row of ZCAT source file for NSA (-1 if no match)
+          ITWODF:
+            name: ITWODF
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Zero-indexed row of 2dFGRS source file for NSA (-1 if no
+              match)
+          MAG:
+            name: MAG
+            type: float32
+            unit: mag
+            description: Nominal B magnitude; not reliable, only used to set size
+              of image for analysis
+          Z:
+            name: Z
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Heliocentric redshift
+          ZSRC:
+            name: ZSRC
+            type: char[7]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Source of redshift determination (alfalfa, ned, sdss, sixdf,
+              twodf, or zcat)
+          SIZE:
+            name: SIZE
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Size of analyzed mosaics
+          RUN:
+            name: RUN
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: SDSS drift scan run covering catalog position (RACAT, DECCAT)
+          CAMCOL:
+            name: CAMCOL
+            type: bool
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: SDSS camcol covering catalog position (RACAT, DECCAT)
+          FIELD:
+            name: FIELD
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: SDSS field covering catalog position (RACAT, DECCAT)
+          RERUN:
+            name: RERUN
+            type: char[3]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Photometric rerun of SDSS used to determine SDSS coverage
+          XPOS:
+            name: XPOS
+            type: float32
+            unit: pix
+            description: SDSS camera column of catalog position (RACAT, DECCAT)
+          YPOS:
+            name: YPOS
+            type: float32
+            unit: pix
+            description: SDSS camera row of catalog position (RACAT, DECCAT)
+          NSAID:
+            name: NSAID
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Unique ID within NSA v1 catalog
+          ZDIST:
+            name: ZDIST
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Distance estimate using pecular velocity model of Willick
+              et al. (1997), expressed as a redshift equivalent; multiply by <var>c/H<sub>0</sub></var>
+              for Mpc
+          SERSIC_NMGY:
+            name: SERSIC_NMGY
+            type: float32[7]
+            unit: nanomaggies
+            description: Galactic-extinction corrected AB flux in GALEX/SDSS FNugriz
+              used for K-correction (from SERSIC_FLUX)
+          SERSIC_NMGY_IVAR:
+            name: SERSIC_NMGY_IVAR
+            type: float32[7]
+            unit: nanomaggies<sup>-2</sup>
+            description: Inverse variance of sersic_nmgy
+          SERSIC_OK:
+            name: SERSIC_OK
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: For Sersic fluxes, 1 if K-correction was performed, 0 if
+              not (should all be 1)
+          SERSIC_RNMGY:
+            name: SERSIC_RNMGY
+            type: float32[7]
+            unit: nanomaggies
+            description: Reconstructed AB nanomaggies in GALEX/SDSS FNugriz from K-correction
+              fit, for Sersic fluxes
+          SERSIC_ABSMAG:
+            name: SERSIC_ABSMAG
+            type: float32[7]
+            unit: mag
+            description: Absolute magnitude in rest-frame GALEX/SDSS FNugriz, from
+              Sersic fluxes
+          SERSIC_AMIVAR:
+            name: SERSIC_AMIVAR
+            type: float32[7]
+            unit: mag<sup>-2</sup>
+            description: Inverse variance in SERSIC_ABSMAG
+          EXTINCTION:
+            name: EXTINCTION
+            type: float32[7]
+            unit: mag
+            description: Galactic extinction from Schlegel, Finkbeiner, and Davis
+              (1997), in GALEX/SDSS FNugriz
+          SERSIC_KCORRECT:
+            name: SERSIC_KCORRECT
+            type: float32[7]
+            unit: mag
+            description: K-correction value used for absolute magnitude in the GALEX/SDSS
+              FNugriz, for Sersic fluxes
+          SERSIC_KCOEFF:
+            name: SERSIC_KCOEFF
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Coefficients of templates in K-correction fit (see Blanton
+              & Roweis 2007) for Sersic fluxes
+          SERSIC_MTOL:
+            name: SERSIC_MTOL
+            type: float32[7]
+            unit: solar
+            description: Mass-to-light ratio derived in K-correction fit for GALEX/SDSS
+              FNugriz for Sersic fluxes
+          SERSIC_B300:
+            name: SERSIC_B300
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Star-formation rate b-parameter (current over past average)
+              for last 300 Myrs (from K-correction fit, use with caution) for Sersic
+              fluxes
+          SERSIC_B1000:
+            name: SERSIC_B1000
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Star-formation rate b-parameter (current over past average)
+              for last 1 Gyrs (from K-correction fit, use with caution) for Sersic
+              fluxes
+          SERSIC_METS:
+            name: SERSIC_METS
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Metallicity from K-correction fit (use with caution) for
+              Sersic fluxes
+          SERSIC_MASS:
+            name: SERSIC_MASS
+            type: float32
+            unit: solar masses
+            description: Stellar mass from K-correction fit (use with caution) for
+              Sersic fluxes
+          XCEN:
+            name: XCEN
+            type: float64
+            unit: pix
+            description: X centroid in child atlas image
+          YCEN:
+            name: YCEN
+            type: float64
+            unit: pix
+            description: Y centroid in child atlas image
+          NPROF:
+            name: NPROF
+            type: bool[7]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of detected azimuthally averaged profile annuli in
+              each band, FNugriz
+          PROFMEAN:
+            name: PROFMEAN
+            type: float32[105]
+            unit: nanomaggies
+            description: Mean surface brightness in annuli in FNugriz (note that F
+              and N have pixel size 1.5 arcsec, ugriz have pixel size 0.396 arcsec);
+              uses <a href="http://www.sdss.org/dr14/algorithms/magnitudes/#photo_profile">same
+              profile apertures as the standard SDSS imaging pipeline</a>.
+          PROFMEAN_IVAR:
+            name: PROFMEAN_IVAR
+            type: float32[105]
+            unit: nanomaggies<sup>-2</sup>
+            description: Inverse variance of PROFMEAN
+          QSTOKES:
+            name: QSTOKES
+            type: float32[105]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Q Stokes parameter in each annulus in FNugriz
+          USTOKES:
+            name: USTOKES
+            type: float32[105]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: U Stokes parameter in each annulus in FNugriz
+          BASTOKES:
+            name: BASTOKES
+            type: float32[105]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Axis ratio b/a derived from Stokes paramaters in each annulus
+              in FNugriz
+          PHISTOKES:
+            name: PHISTOKES
+            type: float32[105]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Angle (E of N) derived from Stokes paramaters in each annulus
+              in FNugriz
+          PETRO_FLUX:
+            name: PETRO_FLUX
+            type: float32[7]
+            unit: nanomaggies
+            description: Azimuthally-averaged SDSS-style Petrosian flux in FNugriz
+              (GALEX-SDSS photometric systems)
+          PETRO_FLUX_IVAR:
+            name: PETRO_FLUX_IVAR
+            type: float32[7]
+            unit: nanomaggies<sup>-2</sup>
+            description: Inverse variance of PETRO_FLUX
+          FIBER_FLUX:
+            name: FIBER_FLUX
+            type: float32[7]
+            unit: nanomaggies
+            description: Flux in 3-arcsec diameter aperture (not apodized) in FNugriz
+          FIBER_FLUX_IVAR:
+            name: FIBER_FLUX_IVAR
+            type: float32[7]
+            unit: nanomaggies<sup>-2</sup>
+            description: Inverse variance of FIBER_FLUX
+          PETRO_BA50:
+            name: PETRO_BA50
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Axis ratio b/a from Stokes parameters at 50% light radius
+          PETRO_PHI50:
+            name: PETRO_PHI50
+            type: float32
+            unit: deg
+            description: Angle (E of N) from Stokes parameters at 50% light radius
+          PETRO_BA90:
+            name: PETRO_BA90
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Axis ratio b/a from Stokes parameters at 90% light radius
+          PETRO_PHI90:
+            name: PETRO_PHI90
+            type: float32
+            unit: deg
+            description: Angle (E of N) from Stokes parameters at 90% light radius
+          SERSIC_FLUX:
+            name: SERSIC_FLUX
+            type: float32[7]
+            unit: nanomaggies
+            description: Two-dimensional, single-component Sersic fit flux in GALEX/SDSS
+              FNugriz
+          SERSIC_FLUX_IVAR:
+            name: SERSIC_FLUX_IVAR
+            type: float32[7]
+            unit: nanomaggies<sup>-2</sup>
+            description: Inverse variance of SERSIC_FLUX
+          SERSIC_N:
+            name: SERSIC_N
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Sersic index from two-dimensional, single-component Sersic
+              fit in r-band
+          SERSIC_BA:
+            name: SERSIC_BA
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Axis ratio b/a from two-dimensional, single-component Sersic
+              fit in r-band
+          SERSIC_PHI:
+            name: SERSIC_PHI
+            type: float32
+            unit: deg
+            description: Angle (E of N) of major axis in two-dimensional, single-component
+              Sersic fit in r-band
+          ASYMMETRY:
+            name: ASYMMETRY
+            type: float32[7]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Asymmetry parameter (use with caution) in GALEX/SDSS FNugriz
+          CLUMPY:
+            name: CLUMPY
+            type: float32[7]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Clumpiness parameter (use with caution) in GALEX/SDSS FNugriz
+          DFLAGS:
+            name: DFLAGS
+            type: int32[7]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Bitmask flags from photometric measurement for GALEX/SDSS
+              FNugriz
+          AID:
+            name: AID
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Child id within parent
+          PID:
+            name: PID
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Parent id within mosaic for this object
+          DVERSION:
+            name: DVERSION
+            type: char[8]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Version of dimage software used for object detection and
+              initial measurement
+          PROFTHETA:
+            name: PROFTHETA
+            type: float32[15]
+            unit: arcsec
+            description: Outer radius of each measured annulus
+          PETRO_THETA:
+            name: PETRO_THETA
+            type: float32
+            unit: arcsec
+            description: Azimuthally-averaged SDSS-style Petrosian radius (derived
+              from r band)
+          PETRO_TH50:
+            name: PETRO_TH50
+            type: float32
+            unit: arcsec
+            description: Azimuthally-averaged SDSS-style 50% light radius (r-band)
+          PETRO_TH90:
+            name: PETRO_TH90
+            type: float32
+            unit: arcsec
+            description: Azimuthally-averaged SDSS-style 50% light radius (r-band)
+          SERSIC_TH50:
+            name: SERSIC_TH50
+            type: float32
+            unit: arcsec
+            description: Sersic 50% light radius along major axis (r-band)
+          PLATE:
+            name: PLATE
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: SDSS plate number (0 if not observed)
+          FIBERID:
+            name: FIBERID
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: SDSS fiber number (0 if not observed)
+          MJD:
+            name: MJD
+            type: int32
+            unit: days
+            description: SDSS MJD of spectroscopic observation (0 if not observed)
+          RACAT:
+            name: RACAT
+            type: float64
+            unit: deg
+            description: Right Ascension of catalog object (J2000)
+          DECCAT:
+            name: DECCAT
+            type: float64
+            unit: deg
+            description: Declination of catalog object (J2000)
+          ZSDSSLINE:
+            name: ZSDSSLINE
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Obsolete
+          SURVEY:
+            name: SURVEY
+            type: char[6]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Survey within SDSS that observed the plate
+          PROGRAMNAME:
+            name: PROGRAMNAME
+            type: char[27]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Program name within the survey that observed the plate
+          PLATEQUALITY:
+            name: PLATEQUALITY
+            type: char[8]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Quality of plate
+          TILE:
+            name: TILE
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tile number for plate containing spectrum
+          PLUG_RA:
+            name: PLUG_RA
+            type: float64
+            unit: deg
+            description: Right Ascension of spectroscopic fiber (J2000)
+          PLUG_DEC:
+            name: PLUG_DEC
+            type: float64
+            unit: deg
+            description: Declination of spectroscopic fiber (J2000)
+          ELPETRO_BA:
+            name: ELPETRO_BA
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Axis ratio used for elliptical apertures (for this version,
+              same as ba90)
+          ELPETRO_PHI:
+            name: ELPETRO_PHI
+            type: float32
+            unit: deg
+            description: Position angle (east of north) used for elliptical apertures
+              (for this version, same as ba90)
+          ELPETRO_FLUX_R:
+            name: ELPETRO_FLUX_R
+            type: float32
+            unit: nanomaggies
+            description: Elliptical SDSS-style Petrosian flux, no corrections (r-band)
+          ELPETRO_FLUX_IVAR_R:
+            name: ELPETRO_FLUX_IVAR_R
+            type: float32
+            unit: nanomaggies<sup>-2</sup>
+            description: Inverse variance of ELPETRO_FLUX_R
+          ELPETRO_THETA_R:
+            name: ELPETRO_THETA_R
+            type: float32
+            unit: arcsec
+            description: Elliptical SDSS-style Petrosian radius (r-band, no corrections)
+          ELPETRO_TH50_R:
+            name: ELPETRO_TH50_R
+            type: float32
+            unit: arcsec
+            description: Elliptical Petrosian 50% light radius in r-band, no corrections
+          ELPETRO_TH90_R:
+            name: ELPETRO_TH90_R
+            type: float32
+            unit: arcsec
+            description: Elliptical Petrosian 90% light radius in r-band, no corrections
+          ELPETRO_THETA:
+            name: ELPETRO_THETA
+            type: float32
+            unit: arcsec
+            description: Elliptical SDSS-style Petrosian radius in GALEX/SDSS FNugriz
+          ELPETRO_FLUX:
+            name: ELPETRO_FLUX
+            type: float32[7]
+            unit: nanomaggies
+            description: Elliptical SDSS-style Petrosian flux in GALEX/SDSS FNugriz
+              (using r-band aperture)
+          ELPETRO_FLUX_IVAR:
+            name: ELPETRO_FLUX_IVAR
+            type: float32[7]
+            unit: nanomaggies<sup>-2</sup>
+            description: Inverse variance of PETRO_FLUX
+          ELPETRO_TH50:
+            name: ELPETRO_TH50
+            type: float32[7]
+            unit: arcsec
+            description: Elliptical Petrosian 50% light radius in GALEX/SDSS FNugriz
+          ELPETRO_TH90:
+            name: ELPETRO_TH90
+            type: float32[7]
+            unit: arcsec
+            description: Elliptical Petrosian 90% light radius in GALEX/SDSS FNugriz
+          ELPETRO_APCORR_R:
+            name: ELPETRO_APCORR_R
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Global aperture correction estimated from r-band (not applied)<td></td>
+          ELPETRO_APCORR:
+            name: ELPETRO_APCORR
+            type: float32[7]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Aperture correction applied for elliptical Petrosian fluxes
+              in GALEX/SDSS FNugriz <td></td>
+          ELPETRO_APCORR_SELF:
+            name: ELPETRO_APCORR_SELF
+            type: float32[7]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Obsolete aperture correction<td></td>
+          ELPETRO_NMGY:
+            name: ELPETRO_NMGY
+            type: float32[7]
+            unit: nanomaggies
+            description: Galactic-extinction corrected AB flux in GALEX/SDSS FNugriz
+              used for K-correction (from PETRO_FLUX)
+          ELPETRO_NMGY_IVAR:
+            name: ELPETRO_NMGY_IVAR
+            type: float32[7]
+            unit: nanomaggies<sup>-2</sup>
+            description: Inverse variance of PETRO_NMGY
+          ELPETRO_OK:
+            name: ELPETRO_OK
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: For elliptical Petrosian fluxes, 1 if K-correction was performed,
+              0 if not (should all be 1)
+          ELPETRO_RNMGY:
+            name: ELPETRO_RNMGY
+            type: float32[7]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Reconstructed AB nanomaggies in GALEX/SDSS FNugriz from K-correction
+              fit, for elliptical Petrosian fluxes
+          ELPETRO_ABSMAG:
+            name: ELPETRO_ABSMAG
+            type: float32[7]
+            unit: mag
+            description: Absolute magnitude in rest-frame GALEX/SDSS FNugriz, from
+              elliptical Petrosian fluxes
+          ELPETRO_AMIVAR:
+            name: ELPETRO_AMIVAR
+            type: float32[7]
+            unit: mag<sup>-2</sup>
+            description: Inverse variance of PETRO_ABSMAG
+          ELPETRO_KCORRECT:
+            name: ELPETRO_KCORRECT
+            type: float32[7]
+            unit: mag
+            description: K-correction value used for absolute magnitude in the GALEX/SDSS
+              FNugriz bands for elliptical Petrosian fluxes
+          ELPETRO_KCOEFF:
+            name: ELPETRO_KCOEFF
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Coefficients of templates in K-correction fit (see Blanton
+              & Roweis 2007) for elliptical Petrosian fluxes
+          ELPETRO_MASS:
+            name: ELPETRO_MASS
+            type: float32
+            unit: solar masses
+            description: Stellar mass from K-correction fit (use with caution) for
+              elliptical Petrosian fluxes
+          ELPETRO_MTOL:
+            name: ELPETRO_MTOL
+            type: float32[7]
+            unit: solar
+            description: Mass-to-light ratio derived in K-correction fit for GALEX/SDSS
+              FNugriz bands for elliptical Petrosian fluxes
+          ELPETRO_B300:
+            name: ELPETRO_B300
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Star-formation rate b-parameter (current over past average)
+              for last 300 Myrs (from K-correction fit, use with caution) for elliptical
+              Petrosian fluxes
+          ELPETRO_B1000:
+            name: ELPETRO_B1000
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Star-formation rate b-parameter (current over past average)
+              for last 1 Gyrs (from K-correction fit, use with caution) for elliptical
+              Petrosian fluxes
+          ELPETRO_METS:
+            name: ELPETRO_METS
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Metallicity from K-correction fit (use with caution) for
+              elliptical Petrosian fluxes
+          IN_DR7_LSS:
+            name: IN_DR7_LSS
+            type: bool
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Set to 1 if spectrum is in SDSS Legacy survey large-scale
+              structure sample (based on the NYU Value Added Galaxy Catalog for DR7,
+              specifically lss_geometry.dr72.ply)
+  DR17:
+    template: $ATLAS_DATA/v1/nsa_v1_0_1.fits
+    example: v1/nsa_v1_0_1.fits
+    location: v1/nsa_v1_0_1.fits
+    environment: ATLAS_DATA
+    access:
+      in_sdss_access: true
+      path_name: nsa
+      path_template: $ATLAS_DATA/{version:.2}/nsa_{version}.fits
+      path_kwargs:
+      - version
+      - version
+      access_string: nsa = $ATLAS_DATA/v1/nsa_v1_0_1.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: This empty HDU has no non-standard required keywords.
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 16
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: COMMENT
+          value: '  FITS (Flexible Image Transport System) format is defined in ''Astronomy'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: '  and Astrophysics'', volume 376, page 359; bibcode: 2001A&A...376..359H'
+          comment: 'migration: description of keyword/column not found. Needs update'
+      hdu1:
+        name: ''
+        description: Each row corresponds to an NSA galaxy.
+        is_image: false
+        size: 2 GB
+        columns:
+          IAUNAME:
+            name: IAUNAME
+            type: char[19]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: IAU-style designation based on RA/Dec
+          SUBDIR:
+            name: SUBDIR
+            type: char[27]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Subdirectory for images in the NSA 'detect' directory
+          RA:
+            name: RA
+            type: float64
+            unit: deg
+            description: Right Ascension of measured object center (J2000)
+          DEC:
+            name: DEC
+            type: float64
+            unit: deg
+            description: Declination of measured object center (J2000)
+          ISDSS:
+            name: ISDSS
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Zero-indexed row of SDSS source file for NSA (-1 if no match)
+          INED:
+            name: INED
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Zero-indexed row of NED source file for NSA (-1 if no match)
+          ISIXDF:
+            name: ISIXDF
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Zero-indexed row of 6dFGRS source file for NSA (-1 if no
+              match)
+          IALFALFA:
+            name: IALFALFA
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Zero-indexed row of ALFALFA source file for NSA (-1 if no
+              match)
+          IZCAT:
+            name: IZCAT
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Zero-indexed row of ZCAT source file for NSA (-1 if no match)
+          ITWODF:
+            name: ITWODF
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Zero-indexed row of 2dFGRS source file for NSA (-1 if no
+              match)
+          MAG:
+            name: MAG
+            type: float32
+            unit: mag
+            description: Nominal B magnitude; not reliable, only used to set size
+              of image for analysis
+          Z:
+            name: Z
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Heliocentric redshift
+          ZSRC:
+            name: ZSRC
+            type: char[7]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Source of redshift determination (alfalfa, ned, sdss, sixdf,
+              twodf, or zcat)
+          SIZE:
+            name: SIZE
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Size of analyzed mosaics
+          RUN:
+            name: RUN
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: SDSS drift scan run covering catalog position (RACAT, DECCAT)
+          CAMCOL:
+            name: CAMCOL
+            type: bool
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: SDSS camcol covering catalog position (RACAT, DECCAT)
+          FIELD:
+            name: FIELD
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: SDSS field covering catalog position (RACAT, DECCAT)
+          RERUN:
+            name: RERUN
+            type: char[3]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Photometric rerun of SDSS used to determine SDSS coverage
+          XPOS:
+            name: XPOS
+            type: float32
+            unit: pix
+            description: SDSS camera column of catalog position (RACAT, DECCAT)
+          YPOS:
+            name: YPOS
+            type: float32
+            unit: pix
+            description: SDSS camera row of catalog position (RACAT, DECCAT)
+          NSAID:
+            name: NSAID
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Unique ID within NSA v1 catalog
+          ZDIST:
+            name: ZDIST
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Distance estimate using pecular velocity model of Willick
+              et al. (1997), expressed as a redshift equivalent; multiply by <var>c/H<sub>0</sub></var>
+              for Mpc
+          SERSIC_NMGY:
+            name: SERSIC_NMGY
+            type: float32[7]
+            unit: nanomaggies
+            description: Galactic-extinction corrected AB flux in GALEX/SDSS FNugriz
+              used for K-correction (from SERSIC_FLUX)
+          SERSIC_NMGY_IVAR:
+            name: SERSIC_NMGY_IVAR
+            type: float32[7]
+            unit: nanomaggies<sup>-2</sup>
+            description: Inverse variance of sersic_nmgy
+          SERSIC_OK:
+            name: SERSIC_OK
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: For Sersic fluxes, 1 if K-correction was performed, 0 if
+              not (should all be 1)
+          SERSIC_RNMGY:
+            name: SERSIC_RNMGY
+            type: float32[7]
+            unit: nanomaggies
+            description: Reconstructed AB nanomaggies in GALEX/SDSS FNugriz from K-correction
+              fit, for Sersic fluxes
+          SERSIC_ABSMAG:
+            name: SERSIC_ABSMAG
+            type: float32[7]
+            unit: mag
+            description: Absolute magnitude in rest-frame GALEX/SDSS FNugriz, from
+              Sersic fluxes
+          SERSIC_AMIVAR:
+            name: SERSIC_AMIVAR
+            type: float32[7]
+            unit: mag<sup>-2</sup>
+            description: Inverse variance in SERSIC_ABSMAG
+          EXTINCTION:
+            name: EXTINCTION
+            type: float32[7]
+            unit: mag
+            description: Galactic extinction from Schlegel, Finkbeiner, and Davis
+              (1997), in GALEX/SDSS FNugriz
+          SERSIC_KCORRECT:
+            name: SERSIC_KCORRECT
+            type: float32[7]
+            unit: mag
+            description: K-correction value used for absolute magnitude in the GALEX/SDSS
+              FNugriz, for Sersic fluxes
+          SERSIC_KCOEFF:
+            name: SERSIC_KCOEFF
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Coefficients of templates in K-correction fit (see Blanton
+              & Roweis 2007) for Sersic fluxes
+          SERSIC_MTOL:
+            name: SERSIC_MTOL
+            type: float32[7]
+            unit: solar
+            description: Mass-to-light ratio derived in K-correction fit for GALEX/SDSS
+              FNugriz for Sersic fluxes
+          SERSIC_B300:
+            name: SERSIC_B300
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Star-formation rate b-parameter (current over past average)
+              for last 300 Myrs (from K-correction fit, use with caution) for Sersic
+              fluxes
+          SERSIC_B1000:
+            name: SERSIC_B1000
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Star-formation rate b-parameter (current over past average)
+              for last 1 Gyrs (from K-correction fit, use with caution) for Sersic
+              fluxes
+          SERSIC_METS:
+            name: SERSIC_METS
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Metallicity from K-correction fit (use with caution) for
+              Sersic fluxes
+          SERSIC_MASS:
+            name: SERSIC_MASS
+            type: float32
+            unit: solar masses
+            description: Stellar mass from K-correction fit (use with caution) for
+              Sersic fluxes
+          XCEN:
+            name: XCEN
+            type: float64
+            unit: pix
+            description: X centroid in child atlas image
+          YCEN:
+            name: YCEN
+            type: float64
+            unit: pix
+            description: Y centroid in child atlas image
+          NPROF:
+            name: NPROF
+            type: bool[7]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of detected azimuthally averaged profile annuli in
+              each band, FNugriz
+          PROFMEAN:
+            name: PROFMEAN
+            type: float32[105]
+            unit: nanomaggies
+            description: Mean surface brightness in annuli in FNugriz (note that F
+              and N have pixel size 1.5 arcsec, ugriz have pixel size 0.396 arcsec);
+              uses <a href="http://www.sdss.org/dr14/algorithms/magnitudes/#photo_profile">same
+              profile apertures as the standard SDSS imaging pipeline</a>.
+          PROFMEAN_IVAR:
+            name: PROFMEAN_IVAR
+            type: float32[105]
+            unit: nanomaggies<sup>-2</sup>
+            description: Inverse variance of PROFMEAN
+          QSTOKES:
+            name: QSTOKES
+            type: float32[105]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Q Stokes parameter in each annulus in FNugriz
+          USTOKES:
+            name: USTOKES
+            type: float32[105]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: U Stokes parameter in each annulus in FNugriz
+          BASTOKES:
+            name: BASTOKES
+            type: float32[105]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Axis ratio b/a derived from Stokes paramaters in each annulus
+              in FNugriz
+          PHISTOKES:
+            name: PHISTOKES
+            type: float32[105]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Angle (E of N) derived from Stokes paramaters in each annulus
+              in FNugriz
+          PETRO_FLUX:
+            name: PETRO_FLUX
+            type: float32[7]
+            unit: nanomaggies
+            description: Azimuthally-averaged SDSS-style Petrosian flux in FNugriz
+              (GALEX-SDSS photometric systems)
+          PETRO_FLUX_IVAR:
+            name: PETRO_FLUX_IVAR
+            type: float32[7]
+            unit: nanomaggies<sup>-2</sup>
+            description: Inverse variance of PETRO_FLUX
+          FIBER_FLUX:
+            name: FIBER_FLUX
+            type: float32[7]
+            unit: nanomaggies
+            description: Flux in 3-arcsec diameter aperture (not apodized) in FNugriz
+          FIBER_FLUX_IVAR:
+            name: FIBER_FLUX_IVAR
+            type: float32[7]
+            unit: nanomaggies<sup>-2</sup>
+            description: Inverse variance of FIBER_FLUX
+          PETRO_BA50:
+            name: PETRO_BA50
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Axis ratio b/a from Stokes parameters at 50% light radius
+          PETRO_PHI50:
+            name: PETRO_PHI50
+            type: float32
+            unit: deg
+            description: Angle (E of N) from Stokes parameters at 50% light radius
+          PETRO_BA90:
+            name: PETRO_BA90
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Axis ratio b/a from Stokes parameters at 90% light radius
+          PETRO_PHI90:
+            name: PETRO_PHI90
+            type: float32
+            unit: deg
+            description: Angle (E of N) from Stokes parameters at 90% light radius
+          SERSIC_FLUX:
+            name: SERSIC_FLUX
+            type: float32[7]
+            unit: nanomaggies
+            description: Two-dimensional, single-component Sersic fit flux in GALEX/SDSS
+              FNugriz
+          SERSIC_FLUX_IVAR:
+            name: SERSIC_FLUX_IVAR
+            type: float32[7]
+            unit: nanomaggies<sup>-2</sup>
+            description: Inverse variance of SERSIC_FLUX
+          SERSIC_N:
+            name: SERSIC_N
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Sersic index from two-dimensional, single-component Sersic
+              fit in r-band
+          SERSIC_BA:
+            name: SERSIC_BA
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Axis ratio b/a from two-dimensional, single-component Sersic
+              fit in r-band
+          SERSIC_PHI:
+            name: SERSIC_PHI
+            type: float32
+            unit: deg
+            description: Angle (E of N) of major axis in two-dimensional, single-component
+              Sersic fit in r-band
+          ASYMMETRY:
+            name: ASYMMETRY
+            type: float32[7]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Asymmetry parameter (use with caution) in GALEX/SDSS FNugriz
+          CLUMPY:
+            name: CLUMPY
+            type: float32[7]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Clumpiness parameter (use with caution) in GALEX/SDSS FNugriz
+          DFLAGS:
+            name: DFLAGS
+            type: int32[7]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Bitmask flags from photometric measurement for GALEX/SDSS
+              FNugriz
+          AID:
+            name: AID
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Child id within parent
+          PID:
+            name: PID
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Parent id within mosaic for this object
+          DVERSION:
+            name: DVERSION
+            type: char[8]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Version of dimage software used for object detection and
+              initial measurement
+          PROFTHETA:
+            name: PROFTHETA
+            type: float32[15]
+            unit: arcsec
+            description: Outer radius of each measured annulus
+          PETRO_THETA:
+            name: PETRO_THETA
+            type: float32
+            unit: arcsec
+            description: Azimuthally-averaged SDSS-style Petrosian radius (derived
+              from r band)
+          PETRO_TH50:
+            name: PETRO_TH50
+            type: float32
+            unit: arcsec
+            description: Azimuthally-averaged SDSS-style 50% light radius (r-band)
+          PETRO_TH90:
+            name: PETRO_TH90
+            type: float32
+            unit: arcsec
+            description: Azimuthally-averaged SDSS-style 50% light radius (r-band)
+          SERSIC_TH50:
+            name: SERSIC_TH50
+            type: float32
+            unit: arcsec
+            description: Sersic 50% light radius along major axis (r-band)
+          PLATE:
+            name: PLATE
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: SDSS plate number (0 if not observed)
+          FIBERID:
+            name: FIBERID
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: SDSS fiber number (0 if not observed)
+          MJD:
+            name: MJD
+            type: int32
+            unit: days
+            description: SDSS MJD of spectroscopic observation (0 if not observed)
+          RACAT:
+            name: RACAT
+            type: float64
+            unit: deg
+            description: Right Ascension of catalog object (J2000)
+          DECCAT:
+            name: DECCAT
+            type: float64
+            unit: deg
+            description: Declination of catalog object (J2000)
+          ZSDSSLINE:
+            name: ZSDSSLINE
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Obsolete
+          SURVEY:
+            name: SURVEY
+            type: char[6]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Survey within SDSS that observed the plate
+          PROGRAMNAME:
+            name: PROGRAMNAME
+            type: char[27]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Program name within the survey that observed the plate
+          PLATEQUALITY:
+            name: PLATEQUALITY
+            type: char[8]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Quality of plate
+          TILE:
+            name: TILE
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tile number for plate containing spectrum
+          PLUG_RA:
+            name: PLUG_RA
+            type: float64
+            unit: deg
+            description: Right Ascension of spectroscopic fiber (J2000)
+          PLUG_DEC:
+            name: PLUG_DEC
+            type: float64
+            unit: deg
+            description: Declination of spectroscopic fiber (J2000)
+          ELPETRO_BA:
+            name: ELPETRO_BA
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Axis ratio used for elliptical apertures (for this version,
+              same as ba90)
+          ELPETRO_PHI:
+            name: ELPETRO_PHI
+            type: float32
+            unit: deg
+            description: Position angle (east of north) used for elliptical apertures
+              (for this version, same as ba90)
+          ELPETRO_FLUX_R:
+            name: ELPETRO_FLUX_R
+            type: float32
+            unit: nanomaggies
+            description: Elliptical SDSS-style Petrosian flux, no corrections (r-band)
+          ELPETRO_FLUX_IVAR_R:
+            name: ELPETRO_FLUX_IVAR_R
+            type: float32
+            unit: nanomaggies<sup>-2</sup>
+            description: Inverse variance of ELPETRO_FLUX_R
+          ELPETRO_THETA_R:
+            name: ELPETRO_THETA_R
+            type: float32
+            unit: arcsec
+            description: Elliptical SDSS-style Petrosian radius (r-band, no corrections)
+          ELPETRO_TH50_R:
+            name: ELPETRO_TH50_R
+            type: float32
+            unit: arcsec
+            description: Elliptical Petrosian 50% light radius in r-band, no corrections
+          ELPETRO_TH90_R:
+            name: ELPETRO_TH90_R
+            type: float32
+            unit: arcsec
+            description: Elliptical Petrosian 90% light radius in r-band, no corrections
+          ELPETRO_THETA:
+            name: ELPETRO_THETA
+            type: float32
+            unit: arcsec
+            description: Elliptical SDSS-style Petrosian radius in GALEX/SDSS FNugriz
+          ELPETRO_FLUX:
+            name: ELPETRO_FLUX
+            type: float32[7]
+            unit: nanomaggies
+            description: Elliptical SDSS-style Petrosian flux in GALEX/SDSS FNugriz
+              (using r-band aperture)
+          ELPETRO_FLUX_IVAR:
+            name: ELPETRO_FLUX_IVAR
+            type: float32[7]
+            unit: nanomaggies<sup>-2</sup>
+            description: Inverse variance of PETRO_FLUX
+          ELPETRO_TH50:
+            name: ELPETRO_TH50
+            type: float32[7]
+            unit: arcsec
+            description: Elliptical Petrosian 50% light radius in GALEX/SDSS FNugriz
+          ELPETRO_TH90:
+            name: ELPETRO_TH90
+            type: float32[7]
+            unit: arcsec
+            description: Elliptical Petrosian 90% light radius in GALEX/SDSS FNugriz
+          ELPETRO_APCORR_R:
+            name: ELPETRO_APCORR_R
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Global aperture correction estimated from r-band (not applied)<td></td>
+          ELPETRO_APCORR:
+            name: ELPETRO_APCORR
+            type: float32[7]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Aperture correction applied for elliptical Petrosian fluxes
+              in GALEX/SDSS FNugriz <td></td>
+          ELPETRO_APCORR_SELF:
+            name: ELPETRO_APCORR_SELF
+            type: float32[7]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Obsolete aperture correction<td></td>
+          ELPETRO_NMGY:
+            name: ELPETRO_NMGY
+            type: float32[7]
+            unit: nanomaggies
+            description: Galactic-extinction corrected AB flux in GALEX/SDSS FNugriz
+              used for K-correction (from PETRO_FLUX)
+          ELPETRO_NMGY_IVAR:
+            name: ELPETRO_NMGY_IVAR
+            type: float32[7]
+            unit: nanomaggies<sup>-2</sup>
+            description: Inverse variance of PETRO_NMGY
+          ELPETRO_OK:
+            name: ELPETRO_OK
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: For elliptical Petrosian fluxes, 1 if K-correction was performed,
+              0 if not (should all be 1)
+          ELPETRO_RNMGY:
+            name: ELPETRO_RNMGY
+            type: float32[7]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Reconstructed AB nanomaggies in GALEX/SDSS FNugriz from K-correction
+              fit, for elliptical Petrosian fluxes
+          ELPETRO_ABSMAG:
+            name: ELPETRO_ABSMAG
+            type: float32[7]
+            unit: mag
+            description: Absolute magnitude in rest-frame GALEX/SDSS FNugriz, from
+              elliptical Petrosian fluxes
+          ELPETRO_AMIVAR:
+            name: ELPETRO_AMIVAR
+            type: float32[7]
+            unit: mag<sup>-2</sup>
+            description: Inverse variance of PETRO_ABSMAG
+          ELPETRO_KCORRECT:
+            name: ELPETRO_KCORRECT
+            type: float32[7]
+            unit: mag
+            description: K-correction value used for absolute magnitude in the GALEX/SDSS
+              FNugriz bands for elliptical Petrosian fluxes
+          ELPETRO_KCOEFF:
+            name: ELPETRO_KCOEFF
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Coefficients of templates in K-correction fit (see Blanton
+              & Roweis 2007) for elliptical Petrosian fluxes
+          ELPETRO_MASS:
+            name: ELPETRO_MASS
+            type: float32
+            unit: solar masses
+            description: Stellar mass from K-correction fit (use with caution) for
+              elliptical Petrosian fluxes
+          ELPETRO_MTOL:
+            name: ELPETRO_MTOL
+            type: float32[7]
+            unit: solar
+            description: Mass-to-light ratio derived in K-correction fit for GALEX/SDSS
+              FNugriz bands for elliptical Petrosian fluxes
+          ELPETRO_B300:
+            name: ELPETRO_B300
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Star-formation rate b-parameter (current over past average)
+              for last 300 Myrs (from K-correction fit, use with caution) for elliptical
+              Petrosian fluxes
+          ELPETRO_B1000:
+            name: ELPETRO_B1000
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Star-formation rate b-parameter (current over past average)
+              for last 1 Gyrs (from K-correction fit, use with caution) for elliptical
+              Petrosian fluxes
+          ELPETRO_METS:
+            name: ELPETRO_METS
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Metallicity from K-correction fit (use with caution) for
+              elliptical Petrosian fluxes
+          IN_DR7_LSS:
+            name: IN_DR7_LSS
+            type: bool
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Set to 1 if spectrum is in SDSS Legacy survey large-scale
+              structure sample (based on the NYU Value Added Galaxy Catalog for DR7,
+              specifically lss_geometry.dr72.ply)
