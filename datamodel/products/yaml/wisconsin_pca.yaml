@@ -1,0 +1,477 @@
+general:
+  name: wisconsin_pca
+  short: migrated from old datamodel - needs update
+  description: 'General description: This file contains the plate merged output of
+    the Wisconsin PCA computation of the BOSS galaxy product, according to the algorithm
+    documentation:http://www.sdss.org/dr13/spectro/galaxy_wisconsin.'
+  datatype: FITS
+  filesize: 125 MB
+  releases:
+  - DR10
+  - DR12
+  environments:
+  - BOSS_GALAXY_REDUX
+  naming_convention: 'migration: not in database. Needs update'
+  generated_by: 'migration: not in database. Needs update'
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases:
+    DR12:
+      from: DR10
+      note: No changes
+releases:
+  DR10:
+    template: $BOSS_GALAXY_REDUX/v1_0/wisconsin_pca_bc03-v5_5_12.fits.gz
+    example: v1_0/wisconsin_pca_bc03-v5_5_12.fits.gz
+    location: v1_0/wisconsin_pca_bc03-v5_5_12.fits.gz
+    environment: BOSS_GALAXY_REDUX
+    access:
+      in_sdss_access: true
+      path_name: wisconsin_pca
+      path_template: $BOSS_GALAXY_REDUX/{version}/wisconsin_pca_{configuration}-{run2d}.fits
+      path_kwargs:
+      - run2d
+      - version
+      - configuration
+      access_string: wisconsin_pca = $BOSS_GALAXY_REDUX/v1_0/wisconsin_pca_bc03-v5_5_12.fits.gz
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: "The BOSS Galaxy product assumes a WMAP 7 \u039BCDM cosmology\
+          \ with <var>H</var><sub>0</sub> = 70, \u03A9<sub>m</sub> = 0.274, and \u03A9\
+          <sub>\u039B</sub> = 0.726."
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: "The BOSS Galaxy product assumes a WMAP 7 \u039BCDM cosmology\
+          \ with <var>H</var><sub>0</sub> = 70, \u03A9<sub>m</sub> = 0.274, and \u03A9\
+          <sub>\u039B</sub> = 0.726."
+        is_image: false
+        size: 210 MB
+        columns:
+          PLATE:
+            name: PLATE
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Plate number
+          MJD:
+            name: MJD
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Modified Julian date of observation
+          FIBERID:
+            name: FIBERID
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Fiber ID (1 to 1000)
+          RA:
+            name: RA
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Object RA (Plug_RA drilled fiber position) [J2000 degrees]
+          DEC:
+            name: DEC
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Object Dec (Plug_Dec drilled fiber position) [J2000 degrees]
+          Z:
+            name: Z
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Redshift (best pipeline galaxy z_noqso with zwarning_noqso=0)
+          Z_ERR:
+            name: Z_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Redshift error (z_err_noqso) based upon fit to chi^2 minimum
+          ZNUM:
+            name: ZNUM
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: the znum-th best-fit corresponding to z_noqso (optional input
+              to readspec)
+          MSTELLAR_MEDIAN:
+            name: MSTELLAR_MEDIAN
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 50 percentile of the PDF of Log(stellar mass), we take this
+              as our best estimation
+          MSTELLAR_ERR:
+            name: MSTELLAR_ERR
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: "Computed as (MSTELLAR_P84 \u2212 MSTELLAR_P16) as the \xB1\
+              1\u03C3 error of Log(stellar mass)"
+          MSTELLAR_P2P5:
+            name: MSTELLAR_P2P5
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2.5 percentile of the PDF of Log(stellar mass)
+          MSTELLAR_P16:
+            name: MSTELLAR_P16
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 16 percentile of the PDF of Log(stellar mass)
+          MSTELLAR_P84:
+            name: MSTELLAR_P84
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 84 percentile of the PDF of Log(stellar mass)
+          MSTELLAR_P97P5:
+            name: MSTELLAR_P97P5
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 97.5 percentile of the PDF of Log(stellar mass)
+          VDISP_MEDIAN:
+            name: VDISP_MEDIAN
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 50 percentile of the PDF of stellar velocity dispersion,
+              we take this as our best estimation
+          VDISP_ERR:
+            name: VDISP_ERR
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: "Computed as (VDISP_P84 \u2212 VDISP_P16) as the \xB11\u03C3\
+              \ error of stellar velocity dispersion"
+          VDISP_P2P5:
+            name: VDISP_P2P5
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2.5 percentile of the PDF of stellar velocity dispersion
+          VDISP_P16:
+            name: VDISP_P16
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 16 percentile of the PDF of stellar velocity dispersion
+          VDISP_P84:
+            name: VDISP_P84
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 84 percentile of the PDF of stellar velocity dispersion
+          VDISP_P97P5:
+            name: VDISP_P97P5
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 97.5 percentile of the PDF of stellar velocity dispersion
+          CALPHA:
+            name: CALPHA
+            type: float32[7]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: The 7 coefficients projected over the 7 eigenspectra=[E1,
+              E2, ..., E7]
+          CALPHA_NORM:
+            name: CALPHA_NORM
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'The normalization for reconstructing the best fit:'
+          SN_MEDIAN:
+            name: SN_MEDIAN
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: The median spectroscopic Signal to Noise Ratio within the
+              selected projection wavelength range
+          WARNING:
+            name: WARNING
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          LEGACY_TARGET1:
+            name: LEGACY_TARGET1
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: See <a href="http://www.sdss.org/dr13/algorithms/bitmask_legacy_target1">Primary
+              target mask bits in SDSS-I, -II</a>
+          LEGACY_TARGET2:
+            name: LEGACY_TARGET2
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: See <a href="http://www.sdss.org/dr13/algorithms/bitmask_legacy_target2">Secondary
+              target mask bits in SDSS-I, -II</a>
+          SPECIAL_TARGET1:
+            name: SPECIAL_TARGET1
+            type: int64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: See <a href="http://www.sdss.org/dr13/algorithms/bitmask_special_target1">Special
+              (science) program target bits in SDSS-I, -II</a>
+          SPECIAL_TARGET2:
+            name: SPECIAL_TARGET2
+            type: int64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: See <a href="http://www.sdss.org/dr13/algorithms/bitmask_special_target2">Special
+              (calibration) program target bits in SDSS-I, -II</a>
+          BOSS_TARGET1:
+            name: BOSS_TARGET1
+            type: int64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: See <a href="http://www.sdss.org/dr13/algorithms/bitmask_boss_target1">BOSS
+              survey primary target selection flags</a>
+          ANCILLARY_TARGET1:
+            name: ANCILLARY_TARGET1
+            type: int64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: See <a href="http://www.sdss.org/dr13/algorithms/bitmask_ancillary_target1">Objects
+              selected as BOSS Ancillary Targets</a>
+          ANCILLARY_TARGET2:
+            name: ANCILLARY_TARGET2
+            type: int64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: See <a href="http://www.sdss.org/dr13/algorithms/bitmask_ancillary_target2">More
+              objects selected as BOSS Ancillary Targets</a>
+          SPECPRIMARY:
+            name: SPECPRIMARY
+            type: bool
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Objects observed multiple times will have this set to 1 for
+              one observation only. This is usually the 'best'.
+          SPECOBJID:
+            name: SPECOBJID
+            type: int64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: CAS-style spectroscopic object identifier.
+  DR12:
+    template: $BOSS_GALAXY_REDUX/v1_1/wisconsin_pca_bc03-v5_7_2.fits.gz
+    example: v1_1/wisconsin_pca_bc03-v5_7_2.fits.gz
+    location: v1_1/wisconsin_pca_bc03-v5_7_2.fits.gz
+    environment: BOSS_GALAXY_REDUX
+    access:
+      in_sdss_access: true
+      path_name: wisconsin_pca
+      path_template: $BOSS_GALAXY_REDUX/{version}/wisconsin_pca_{configuration}-{run2d}.fits
+      path_kwargs:
+      - version
+      - run2d
+      - configuration
+      access_string: wisconsin_pca = $BOSS_GALAXY_REDUX/v1_1/wisconsin_pca_bc03-v5_7_2.fits.gz
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: "The BOSS Galaxy product assumes a WMAP 7 \u039BCDM cosmology\
+          \ with <var>H</var><sub>0</sub> = 70, \u03A9<sub>m</sub> = 0.274, and \u03A9\
+          <sub>\u039B</sub> = 0.726."
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: "The BOSS Galaxy product assumes a WMAP 7 \u039BCDM cosmology\
+          \ with <var>H</var><sub>0</sub> = 70, \u03A9<sub>m</sub> = 0.274, and \u03A9\
+          <sub>\u039B</sub> = 0.726."
+        is_image: false
+        size: 2 MB
+        columns:
+          PLATE:
+            name: PLATE
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Plate number
+          MJD:
+            name: MJD
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Modified Julian date of observation
+          FIBERID:
+            name: FIBERID
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Fiber ID (1 to 1000)
+          RA:
+            name: RA
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Object RA (Plug_RA drilled fiber position) [J2000 degrees]
+          DEC:
+            name: DEC
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Object Dec (Plug_Dec drilled fiber position) [J2000 degrees]
+          Z:
+            name: Z
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Redshift (best pipeline galaxy z_noqso with zwarning_noqso=0)
+          Z_ERR:
+            name: Z_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Redshift error (z_err_noqso) based upon fit to chi^2 minimum
+          ZNUM:
+            name: ZNUM
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: the znum-th best-fit corresponding to z_noqso (optional input
+              to readspec)
+          MSTELLAR_MEDIAN:
+            name: MSTELLAR_MEDIAN
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 50 percentile of the PDF of Log(stellar mass), we take this
+              as our best estimation
+          MSTELLAR_ERR:
+            name: MSTELLAR_ERR
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: "Computed as (MSTELLAR_P84 \u2212 MSTELLAR_P16) as the \xB1\
+              1\u03C3 error of Log(stellar mass)"
+          MSTELLAR_P2P5:
+            name: MSTELLAR_P2P5
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2.5 percentile of the PDF of Log(stellar mass)
+          MSTELLAR_P16:
+            name: MSTELLAR_P16
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 16 percentile of the PDF of Log(stellar mass)
+          MSTELLAR_P84:
+            name: MSTELLAR_P84
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 84 percentile of the PDF of Log(stellar mass)
+          MSTELLAR_P97P5:
+            name: MSTELLAR_P97P5
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 97.5 percentile of the PDF of Log(stellar mass)
+          VDISP_MEDIAN:
+            name: VDISP_MEDIAN
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 50 percentile of the PDF of stellar velocity dispersion,
+              we take this as our best estimation
+          VDISP_ERR:
+            name: VDISP_ERR
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: "Computed as (VDISP_P84 \u2212 VDISP_P16) as the \xB11\u03C3\
+              \ error of stellar velocity dispersion"
+          VDISP_P2P5:
+            name: VDISP_P2P5
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2.5 percentile of the PDF of stellar velocity dispersion
+          VDISP_P16:
+            name: VDISP_P16
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 16 percentile of the PDF of stellar velocity dispersion
+          VDISP_P84:
+            name: VDISP_P84
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 84 percentile of the PDF of stellar velocity dispersion
+          VDISP_P97P5:
+            name: VDISP_P97P5
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 97.5 percentile of the PDF of stellar velocity dispersion
+          CALPHA:
+            name: CALPHA
+            type: float32[7]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: The 7 coefficients projected over the 7 eigenspectra=[E1,
+              E2, ..., E7]
+          CALPHA_NORM:
+            name: CALPHA_NORM
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'The normalization for reconstructing the best fit:'
+          SN_MEDIAN:
+            name: SN_MEDIAN
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: The median spectroscopic Signal to Noise Ratio within the
+              selected projection wavelength range
+          WARNING:
+            name: WARNING
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          LEGACY_TARGET1:
+            name: LEGACY_TARGET1
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: See <a href="http://www.sdss.org/dr13/algorithms/bitmask_legacy_target1">Primary
+              target mask bits in SDSS-I, -II</a>
+          LEGACY_TARGET2:
+            name: LEGACY_TARGET2
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: See <a href="http://www.sdss.org/dr13/algorithms/bitmask_legacy_target2">Secondary
+              target mask bits in SDSS-I, -II</a>
+          SPECIAL_TARGET1:
+            name: SPECIAL_TARGET1
+            type: int64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: See <a href="http://www.sdss.org/dr13/algorithms/bitmask_special_target1">Special
+              (science) program target bits in SDSS-I, -II</a>
+          SPECIAL_TARGET2:
+            name: SPECIAL_TARGET2
+            type: int64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: See <a href="http://www.sdss.org/dr13/algorithms/bitmask_special_target2">Special
+              (calibration) program target bits in SDSS-I, -II</a>
+          BOSS_TARGET1:
+            name: BOSS_TARGET1
+            type: int64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: See <a href="http://www.sdss.org/dr13/algorithms/bitmask_boss_target1">BOSS
+              survey primary target selection flags</a>
+          EBOSS_TARGET0:
+            name: EBOSS_TARGET0
+            type: int64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          ANCILLARY_TARGET1:
+            name: ANCILLARY_TARGET1
+            type: int64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: See <a href="http://www.sdss.org/dr13/algorithms/bitmask_ancillary_target1">Objects
+              selected as BOSS Ancillary Targets</a>
+          ANCILLARY_TARGET2:
+            name: ANCILLARY_TARGET2
+            type: int64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: See <a href="http://www.sdss.org/dr13/algorithms/bitmask_ancillary_target2">More
+              objects selected as BOSS Ancillary Targets</a>
+          SPECPRIMARY:
+            name: SPECPRIMARY
+            type: bool
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Objects observed multiple times will have this set to 1 for
+              one observation only. This is usually the 'best'.
+          SPECOBJID:
+            name: SPECOBJID
+            type: int64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: CAS-style spectroscopic object identifier.
