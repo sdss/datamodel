@@ -1,0 +1,888 @@
+general:
+  name: gimg
+  short: migrated from old datamodel - needs update
+  description: 'The gimg files are produced by the 2.5m Sloan Telescope guider camera.
+    This file
+
+    is processed by the guider actor to produce <a href="proc-gimg.html">proc-
+
+    gimg</a> files, and to actually perform the guiding of the telescope. These are
+
+    16-bit FITS images, as read out of the Apogee Alta F47 guide CCD. Flat frames
+
+    are full readout (1024x1024 pixels), while dark and data frames are 2x2 binned
+
+    (512x512 pixels), each with their respective overscan region (24 or 12 pixels)
+
+    on one axis. Depending on guide star brightness, the observers may take the
+
+    guide images in "stack" mode, which median combines the requested number of
+
+    exposures to improve dynamic range. Stacked images are also used for start-of-
+
+    night darks. See the STACK and EXPTIMEN keywords for more details.'
+  datatype: FITS
+  filesize: 287 KB
+  releases:
+  - DR12
+  - DR13
+  - DR14
+  - DR15
+  - DR16
+  - WORK
+  environments:
+  - GCAM_DATA
+  naming_convention: '<code>gimg-[0-9]{4}.fits.gz</code>, where the number is the
+
+    frame sequence number, starting from 1 for the first frame of the night (usually
+
+    a dark frame).'
+  generated_by: gcameraICC
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases:
+    WORK:
+      from: DR16
+      note: No changes
+    DR16:
+      from: DR15
+      note: No changes
+    DR15:
+      from: DR14
+      note: No changes
+    DR14:
+      from: DR13
+      note: No changes
+    DR13:
+      from: DR12
+      note: No changes
+releases:
+  DR12:
+    template: $GCAM_DATA/55034/gimg-0205.fits.gz
+    example: 55034/gimg-0205.fits.gz
+    location: 55034/gimg-0205.fits.gz
+    environment: GCAM_DATA
+    access:
+      in_sdss_access: true
+      path_name: gimg
+      path_template: $GCAM_DATA/{mjd}/gimg-{index:0>4}.fits.gz
+      path_kwargs:
+      - mjd
+      - index
+      access_string: gimg = $GCAM_DATA/55034/gimg-0205.fits.gz
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: 'The primary HDU contains the raw 16-bit gcamera data as read
+          from the APOGEE
+
+          F47 CCD. The header contains some minimal information about the telescope
+
+          position. The V_GCAM (V_ECAM) keyword was introduced in gcameraICC v2_1;
+          prior to
+
+          that, the version of the gcameraICC used to acquire each image was not directly
+
+          tracked. GAIN, PIXELSC, and READNOIS were introduced initially for observations
+
+          at LCO on 57520 and became part of the data model for all gimgs in gcameraICC
+          vXX.'
+        is_image: true
+        size: 512 KB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 16
+          comment: data is 16 bit unsigned integer.
+        - key: NAXIS
+          value: 2
+          comment: 2 dimensional image
+        - key: NAXIS1
+          value: 512
+          comment: 1024 pixels + 24 pixel overscan (halved when binned)
+        - key: NAXIS2
+          value: 512
+          comment: 1024 pixels (halved when binned)
+        - key: EXTEND
+          value: false
+          comment: ''
+        - key: BSCALE
+          value: 1.0
+          comment: null
+        - key: BZERO
+          value: 32768.0
+          comment: null
+        - key: ORIGIN
+          value: NOAO-IRAF FITS Image Kernel July 2003
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: DATE
+          value: '2009-07-22T03:59:39'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: IRAF-TLM
+          value: 23:59:39 (21/07/2009)
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: IMAGETYP
+          value: dark
+          comment: The image type of the file, e.g. dark, flat, object.
+        - key: EXPTIME
+          value: 5.0
+          comment: exposure time of single integration
+        - key: TIMESYS
+          value: UTC
+          comment: All systems at APO operate on the TAI time system
+        - key: DATE-OBS
+          value: '2009-02-11 05:22:20.6Z'
+          comment: Date and time (in TIMESYS system) that the exposure started.
+        - key: UTMIDDLE
+          value: '2009-02-11 05:22:23.1Z'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: CCDTEMP
+          value: -10.2
+          comment: camera temperature in degrees C
+        - key: FILENAME
+          value: /data/spectro/guider/gimga0205.fits
+          comment: The full path to this image, before gzipping.
+        - key: FULLX
+          value: 1024
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: FULLY
+          value: 1024
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: BEGX
+          value: 1
+          comment: null
+        - key: BEGY
+          value: 1
+          comment: null
+        - key: BINX
+          value: 2
+          comment: null
+        - key: BINY
+          value: 2
+          comment: null
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+  DR13:
+    template: $GCAM_DATA/55034/gimg-0205.fits.gz
+    example: 55034/gimg-0205.fits.gz
+    location: 55034/gimg-0205.fits.gz
+    environment: GCAM_DATA
+    access:
+      in_sdss_access: true
+      path_name: gimg
+      path_template: $GCAM_DATA/{mjd}/gimg-{index:0>4}.fits.gz
+      path_kwargs:
+      - index
+      - mjd
+      access_string: gimg = $GCAM_DATA/55034/gimg-0205.fits.gz
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: 'The primary HDU contains the raw 16-bit gcamera data as read
+          from the APOGEE
+
+          F47 CCD. The header contains some minimal information about the telescope
+
+          position. The V_GCAM (V_ECAM) keyword was introduced in gcameraICC v2_1;
+          prior to
+
+          that, the version of the gcameraICC used to acquire each image was not directly
+
+          tracked. GAIN, PIXELSC, and READNOIS were introduced initially for observations
+
+          at LCO on 57520 and became part of the data model for all gimgs in gcameraICC
+          vXX.'
+        is_image: true
+        size: 512 KB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 16
+          comment: data is 16 bit unsigned integer.
+        - key: NAXIS
+          value: 2
+          comment: 2 dimensional image
+        - key: NAXIS1
+          value: 512
+          comment: 1024 pixels + 24 pixel overscan (halved when binned)
+        - key: NAXIS2
+          value: 512
+          comment: 1024 pixels (halved when binned)
+        - key: EXTEND
+          value: false
+          comment: ''
+        - key: BSCALE
+          value: 1.0
+          comment: null
+        - key: BZERO
+          value: 32768.0
+          comment: null
+        - key: ORIGIN
+          value: NOAO-IRAF FITS Image Kernel July 2003
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: DATE
+          value: '2009-07-22T03:59:39'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: IRAF-TLM
+          value: 23:59:39 (21/07/2009)
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: IMAGETYP
+          value: dark
+          comment: The image type of the file, e.g. dark, flat, object.
+        - key: EXPTIME
+          value: 5.0
+          comment: exposure time of single integration
+        - key: TIMESYS
+          value: UTC
+          comment: All systems at APO operate on the TAI time system
+        - key: DATE-OBS
+          value: '2009-02-11 05:22:20.6Z'
+          comment: Date and time (in TIMESYS system) that the exposure started.
+        - key: UTMIDDLE
+          value: '2009-02-11 05:22:23.1Z'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: CCDTEMP
+          value: -10.2
+          comment: camera temperature in degrees C
+        - key: FILENAME
+          value: /data/spectro/guider/gimga0205.fits
+          comment: The full path to this image, before gzipping.
+        - key: FULLX
+          value: 1024
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: FULLY
+          value: 1024
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: BEGX
+          value: 1
+          comment: null
+        - key: BEGY
+          value: 1
+          comment: null
+        - key: BINX
+          value: 2
+          comment: null
+        - key: BINY
+          value: 2
+          comment: null
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+  DR14:
+    template: $GCAM_DATA/55034/gimg-0205.fits.gz
+    example: 55034/gimg-0205.fits.gz
+    location: 55034/gimg-0205.fits.gz
+    environment: GCAM_DATA
+    access:
+      in_sdss_access: true
+      path_name: gimg
+      path_template: $GCAM_DATA/{mjd}/gimg-{index:0>4}.fits.gz
+      path_kwargs:
+      - mjd
+      - index
+      access_string: gimg = $GCAM_DATA/55034/gimg-0205.fits.gz
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: 'The primary HDU contains the raw 16-bit gcamera data as read
+          from the APOGEE
+
+          F47 CCD. The header contains some minimal information about the telescope
+
+          position. The V_GCAM (V_ECAM) keyword was introduced in gcameraICC v2_1;
+          prior to
+
+          that, the version of the gcameraICC used to acquire each image was not directly
+
+          tracked. GAIN, PIXELSC, and READNOIS were introduced initially for observations
+
+          at LCO on 57520 and became part of the data model for all gimgs in gcameraICC
+          vXX.'
+        is_image: true
+        size: 512 KB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 16
+          comment: data is 16 bit unsigned integer.
+        - key: NAXIS
+          value: 2
+          comment: 2 dimensional image
+        - key: NAXIS1
+          value: 512
+          comment: 1024 pixels + 24 pixel overscan (halved when binned)
+        - key: NAXIS2
+          value: 512
+          comment: 1024 pixels (halved when binned)
+        - key: EXTEND
+          value: false
+          comment: ''
+        - key: BSCALE
+          value: 1.0
+          comment: null
+        - key: BZERO
+          value: 32768.0
+          comment: null
+        - key: ORIGIN
+          value: NOAO-IRAF FITS Image Kernel July 2003
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: DATE
+          value: '2009-07-22T03:59:39'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: IRAF-TLM
+          value: 23:59:39 (21/07/2009)
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: IMAGETYP
+          value: dark
+          comment: The image type of the file, e.g. dark, flat, object.
+        - key: EXPTIME
+          value: 5.0
+          comment: exposure time of single integration
+        - key: TIMESYS
+          value: UTC
+          comment: All systems at APO operate on the TAI time system
+        - key: DATE-OBS
+          value: '2009-02-11 05:22:20.6Z'
+          comment: Date and time (in TIMESYS system) that the exposure started.
+        - key: UTMIDDLE
+          value: '2009-02-11 05:22:23.1Z'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: CCDTEMP
+          value: -10.2
+          comment: camera temperature in degrees C
+        - key: FILENAME
+          value: /data/spectro/guider/gimga0205.fits
+          comment: The full path to this image, before gzipping.
+        - key: FULLX
+          value: 1024
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: FULLY
+          value: 1024
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: BEGX
+          value: 1
+          comment: null
+        - key: BEGY
+          value: 1
+          comment: null
+        - key: BINX
+          value: 2
+          comment: null
+        - key: BINY
+          value: 2
+          comment: null
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+  DR15:
+    template: $GCAM_DATA/55034/gimg-0205.fits.gz
+    example: 55034/gimg-0205.fits.gz
+    location: 55034/gimg-0205.fits.gz
+    environment: GCAM_DATA
+    access:
+      in_sdss_access: true
+      path_name: gimg
+      path_template: $GCAM_DATA/{mjd}/gimg-{index:0>4}.fits.gz
+      path_kwargs:
+      - index
+      - mjd
+      access_string: gimg = $GCAM_DATA/55034/gimg-0205.fits.gz
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: 'The primary HDU contains the raw 16-bit gcamera data as read
+          from the APOGEE
+
+          F47 CCD. The header contains some minimal information about the telescope
+
+          position. The V_GCAM (V_ECAM) keyword was introduced in gcameraICC v2_1;
+          prior to
+
+          that, the version of the gcameraICC used to acquire each image was not directly
+
+          tracked. GAIN, PIXELSC, and READNOIS were introduced initially for observations
+
+          at LCO on 57520 and became part of the data model for all gimgs in gcameraICC
+          vXX.'
+        is_image: true
+        size: 512 KB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 16
+          comment: data is 16 bit unsigned integer.
+        - key: NAXIS
+          value: 2
+          comment: 2 dimensional image
+        - key: NAXIS1
+          value: 512
+          comment: 1024 pixels + 24 pixel overscan (halved when binned)
+        - key: NAXIS2
+          value: 512
+          comment: 1024 pixels (halved when binned)
+        - key: EXTEND
+          value: false
+          comment: ''
+        - key: BSCALE
+          value: 1.0
+          comment: null
+        - key: BZERO
+          value: 32768.0
+          comment: null
+        - key: ORIGIN
+          value: NOAO-IRAF FITS Image Kernel July 2003
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: DATE
+          value: '2009-07-22T03:59:39'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: IRAF-TLM
+          value: 23:59:39 (21/07/2009)
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: IMAGETYP
+          value: dark
+          comment: The image type of the file, e.g. dark, flat, object.
+        - key: EXPTIME
+          value: 5.0
+          comment: exposure time of single integration
+        - key: TIMESYS
+          value: UTC
+          comment: All systems at APO operate on the TAI time system
+        - key: DATE-OBS
+          value: '2009-02-11 05:22:20.6Z'
+          comment: Date and time (in TIMESYS system) that the exposure started.
+        - key: UTMIDDLE
+          value: '2009-02-11 05:22:23.1Z'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: CCDTEMP
+          value: -10.2
+          comment: camera temperature in degrees C
+        - key: FILENAME
+          value: /data/spectro/guider/gimga0205.fits
+          comment: The full path to this image, before gzipping.
+        - key: FULLX
+          value: 1024
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: FULLY
+          value: 1024
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: BEGX
+          value: 1
+          comment: null
+        - key: BEGY
+          value: 1
+          comment: null
+        - key: BINX
+          value: 2
+          comment: null
+        - key: BINY
+          value: 2
+          comment: null
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+  DR16:
+    template: $GCAM_DATA/55034/gimg-0205.fits.gz
+    example: 55034/gimg-0205.fits.gz
+    location: 55034/gimg-0205.fits.gz
+    environment: GCAM_DATA
+    access:
+      in_sdss_access: true
+      path_name: gimg
+      path_template: $GCAM_DATA/{mjd}/gimg-{index:0>4}.fits.gz
+      path_kwargs:
+      - mjd
+      - index
+      access_string: gimg = $GCAM_DATA/55034/gimg-0205.fits.gz
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: 'The primary HDU contains the raw 16-bit gcamera data as read
+          from the APOGEE
+
+          F47 CCD. The header contains some minimal information about the telescope
+
+          position. The V_GCAM (V_ECAM) keyword was introduced in gcameraICC v2_1;
+          prior to
+
+          that, the version of the gcameraICC used to acquire each image was not directly
+
+          tracked. GAIN, PIXELSC, and READNOIS were introduced initially for observations
+
+          at LCO on 57520 and became part of the data model for all gimgs in gcameraICC
+          vXX.'
+        is_image: true
+        size: 512 KB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 16
+          comment: data is 16 bit unsigned integer.
+        - key: NAXIS
+          value: 2
+          comment: 2 dimensional image
+        - key: NAXIS1
+          value: 512
+          comment: 1024 pixels + 24 pixel overscan (halved when binned)
+        - key: NAXIS2
+          value: 512
+          comment: 1024 pixels (halved when binned)
+        - key: EXTEND
+          value: false
+          comment: ''
+        - key: BSCALE
+          value: 1.0
+          comment: null
+        - key: BZERO
+          value: 32768.0
+          comment: null
+        - key: ORIGIN
+          value: NOAO-IRAF FITS Image Kernel July 2003
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: DATE
+          value: '2009-07-22T03:59:39'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: IRAF-TLM
+          value: 23:59:39 (21/07/2009)
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: IMAGETYP
+          value: dark
+          comment: The image type of the file, e.g. dark, flat, object.
+        - key: EXPTIME
+          value: 5.0
+          comment: exposure time of single integration
+        - key: TIMESYS
+          value: UTC
+          comment: All systems at APO operate on the TAI time system
+        - key: DATE-OBS
+          value: '2009-02-11 05:22:20.6Z'
+          comment: Date and time (in TIMESYS system) that the exposure started.
+        - key: UTMIDDLE
+          value: '2009-02-11 05:22:23.1Z'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: CCDTEMP
+          value: -10.2
+          comment: camera temperature in degrees C
+        - key: FILENAME
+          value: /data/spectro/guider/gimga0205.fits
+          comment: The full path to this image, before gzipping.
+        - key: FULLX
+          value: 1024
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: FULLY
+          value: 1024
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: BEGX
+          value: 1
+          comment: null
+        - key: BEGY
+          value: 1
+          comment: null
+        - key: BINX
+          value: 2
+          comment: null
+        - key: BINY
+          value: 2
+          comment: null
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+  WORK:
+    template: $GCAM_DATA/55034/gimg-0205.fits.gz
+    example: 55034/gimg-0205.fits.gz
+    location: 55034/gimg-0205.fits.gz
+    environment: GCAM_DATA
+    access:
+      in_sdss_access: true
+      path_name: gimg
+      path_template: $GCAM_DATA/{mjd}/gimg-{index:0>4}.fits.gz
+      path_kwargs:
+      - index
+      - mjd
+      access_string: gimg = $GCAM_DATA/55034/gimg-0205.fits.gz
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: 'The primary HDU contains the raw 16-bit gcamera data as read
+          from the APOGEE
+
+          F47 CCD. The header contains some minimal information about the telescope
+
+          position. The V_GCAM (V_ECAM) keyword was introduced in gcameraICC v2_1;
+          prior to
+
+          that, the version of the gcameraICC used to acquire each image was not directly
+
+          tracked. GAIN, PIXELSC, and READNOIS were introduced initially for observations
+
+          at LCO on 57520 and became part of the data model for all gimgs in gcameraICC
+          vXX.'
+        is_image: true
+        size: 512 KB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 16
+          comment: data is 16 bit unsigned integer.
+        - key: NAXIS
+          value: 2
+          comment: 2 dimensional image
+        - key: NAXIS1
+          value: 512
+          comment: 1024 pixels + 24 pixel overscan (halved when binned)
+        - key: NAXIS2
+          value: 512
+          comment: 1024 pixels (halved when binned)
+        - key: EXTEND
+          value: false
+          comment: ''
+        - key: BSCALE
+          value: 1.0
+          comment: null
+        - key: BZERO
+          value: 32768.0
+          comment: null
+        - key: ORIGIN
+          value: NOAO-IRAF FITS Image Kernel July 2003
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: DATE
+          value: '2009-07-22T03:59:39'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: IRAF-TLM
+          value: 23:59:39 (21/07/2009)
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: IMAGETYP
+          value: dark
+          comment: The image type of the file, e.g. dark, flat, object.
+        - key: EXPTIME
+          value: 5.0
+          comment: exposure time of single integration
+        - key: TIMESYS
+          value: UTC
+          comment: All systems at APO operate on the TAI time system
+        - key: DATE-OBS
+          value: '2009-02-11 05:22:20.6Z'
+          comment: Date and time (in TIMESYS system) that the exposure started.
+        - key: UTMIDDLE
+          value: '2009-02-11 05:22:23.1Z'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: CCDTEMP
+          value: -10.2
+          comment: camera temperature in degrees C
+        - key: FILENAME
+          value: /data/spectro/guider/gimga0205.fits
+          comment: The full path to this image, before gzipping.
+        - key: FULLX
+          value: 1024
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: FULLY
+          value: 1024
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: BEGX
+          value: 1
+          comment: null
+        - key: BEGY
+          value: 1
+          comment: null
+        - key: BINX
+          value: 2
+          comment: null
+        - key: BINY
+          value: 2
+          comment: null
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ''
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
