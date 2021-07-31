@@ -1,0 +1,1757 @@
+general:
+  name: DRQv
+  short: migrated from old datamodel - needs update
+  description: "DR14Q is the first quasar catalog of SDSS-IV, associated to the fourteenth\
+    \ data release,\n  as documented in P\xE2ris et al. (2018). It contains photometric\
+    \ and spectroscopic\n  information of about half million quasars."
+  datatype: FITS
+  filesize: 755 MB
+  releases:
+  - DR14
+  - DR16
+  environments:
+  - BOSS_QSO
+  naming_convention: '<code>template\.html</code>, provide a regular expression
+
+    that matches the file name.  For example, a six-digit number would
+
+    correspond to <code>[0-9]{6}</code>.'
+  generated_by: sas <i>(can be any set of product names)</i>
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases:
+    DR16:
+      from: DR14
+      added_hdus:
+      - CATALOG
+      removed_hdus:
+      - DR14Q_v4_4
+      primary_delta_nkeys: 12
+      removed_primary_header_kwargs:
+      - NAXIS1
+      - COMMENT
+      - NTABLE
+      - VOTMETA
+releases:
+  DR14:
+    template: $BOSS_QSO/DR14Q/DR14Q_v4_4.fits
+    example: DR14Q/DR14Q_v4_4.fits
+    location: DR14Q/DR14Q_v4_4.fits
+    environment: BOSS_QSO
+    access:
+      in_sdss_access: true
+      path_name: DRQv
+      path_template: $BOSS_QSO/{dr}Q/{dr}Q_{version}.fits
+      path_kwargs:
+      - dr
+      - version
+      access_string: DRQv = $BOSS_QSO/DR14Q/DR14Q_v4_4.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: 'The data in this primary HDU consists of bytes which
+
+          comprise a VOTABLE document.
+
+          The VOTable describes the metadata of the table contained
+
+          in the following BINTABLE extension.
+
+          Such a BINTABLE extension can be used on its own as a perfectly
+
+          good table, but the information from this HDU may provide some
+
+          useful additional metadata.'
+        is_image: true
+        size: 6 KB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: Conforms to FITS standard.
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 1
+          comment: No data is associated with this header.
+        - key: NAXIS1
+          value: 7055
+          comment: length of dimension 1
+        - key: VOTMETA
+          value: true
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: EXTEND
+          value: true
+          comment: Extensions may be present.
+        - key: COMMENT
+          value: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: The data in this primary HDU consists of bytes which
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: comprise a VOTABLE document.
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: The VOTable describes the metadata of the table contained
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: in the following BINTABLE extension.
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: Such a BINTABLE extension can be used on its own as a perfectly
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: good table, but the information from this HDU may provide some
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: useful additional metadata.
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: There is one following BINTABLE.
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: NTABLE
+          value: 1
+          comment: 'migration: description of keyword/column not found. Needs update'
+      hdu1:
+        name: DR14Q_v4_4
+        description: 'EXTNAME="DR14Q'' with a binary FITS table with the following
+          columns:'
+        is_image: false
+        size: 755 MB
+        columns:
+          SDSS_NAME:
+            name: SDSS_NAME
+            type: char[18]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: SDSS-DR14 designation - hhmmss.ss+ddmmss.s (J2000)
+          RA:
+            name: RA
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Right Ascension in decimal degrees(J2000)
+          DEC:
+            name: DEC
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Declination in decimal degrees(J2000)
+          THING_ID:
+            name: THING_ID
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Unique SDSS source identifier
+          PLATE:
+            name: PLATE
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Spectroscopic plate number
+          MJD:
+            name: MJD
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Modified Julian Day of the spectroscopic observation
+          FIBERID:
+            name: FIBERID
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Spectroscopic fiber number
+          SPECTRO:
+            name: SPECTRO
+            type: char[4]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Spectrograph used for the observation (SDSS or BOSS)
+          Z:
+            name: Z
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Redshift (most robust estimate for each quasar)
+          Z_ERR:
+            name: Z_ERR
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'Error on redshift given in Col. #9'
+          SOURCE_Z:
+            name: SOURCE_Z
+            type: char[4]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Origin of the Z measurement (VI, PIPE, AUTO, OTHER)
+          Z_VI:
+            name: Z_VI
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Redshift based on visual inspection (when available)
+          Z_PIPE:
+            name: Z_PIPE
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: SDSS pipeline redshift estimate
+          Z_PIPE_ERR:
+            name: Z_PIPE_ERR
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Error on SDSS pipeline redshift estimate
+          ZWARNING:
+            name: ZWARNING
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Quality flag on SDSS pipeline redshift measurement
+          Z_PCA:
+            name: Z_PCA
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: PCA redshift (homogeneous over the full sample)
+          Z_PCA_ER:
+            name: Z_PCA_ER
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          Z_MGII:
+            name: Z_MGII
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Redshift of the MgII emission line
+          BOSS_TARGET1:
+            name: BOSS_TARGET1
+            type: int64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: BOSS target selection flag for main survey
+          ANCILLARY_TARGET1:
+            name: ANCILLARY_TARGET1
+            type: int64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: BOSS target selection flag for ancillary programs
+          ANCILLARY_TARGET2:
+            name: ANCILLARY_TARGET2
+            type: int64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: BOSS target selection flag for ancillary programs
+          EBOSS_TARGET0:
+            name: EBOSS_TARGET0
+            type: int64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Target selection flag for the eBOSS pilot survey
+          EBOSS_TARGET1:
+            name: EBOSS_TARGET1
+            type: int64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: eBOSS target selection flag
+          EBOSS_TARGET2:
+            name: EBOSS_TARGET2
+            type: int64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: eBOSS target selection flag
+          N_SPEC_SDSS:
+            name: N_SPEC_SDSS
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          N_SPEC_BOSS:
+            name: N_SPEC_BOSS
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          N_SPEC:
+            name: N_SPEC
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of additional spectra available in SDSS-I/II/III/IV
+          PLATE_DUPLICATE:
+            name: PLATE_DUPLICATE
+            type: int32[51]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Spectroscopic plate number for each duplicate spectrum
+          MJD_DUPLICATE:
+            name: MJD_DUPLICATE
+            type: int32[51]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Spectroscopic MJD for each duplicate spectrum
+          FIBERID_DUPLICATE:
+            name: FIBERID_DUPLICATE
+            type: int32[51]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Fiber number for each duplicate spectrum
+          SPECTRO_DUPLICATE:
+            name: SPECTRO_DUPLICATE
+            type: char[51]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Spectrograph used for each duplicate spectrum
+          BI_CIV:
+            name: BI_CIV
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: BALnicity Index of CIV absorption trough (in km s<sup>-1</sup>)
+          ERR_BI_CIV:
+            name: ERR_BI_CIV
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Error on the Balnicity index of CIV trough (in km s<sup>-1</sup>)
+          RUN_NUMBER:
+            name: RUN_NUMBER
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: SDSS Imaging Run Number of photometric measurements
+          RERUN_NUMBER:
+            name: RERUN_NUMBER
+            type: char
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: SDSS Photometric Processing Rerun number
+          COL_NUMBER:
+            name: COL_NUMBER
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: SDSS Camera Column Number (1-6)
+          FIELD_NUMBER:
+            name: FIELD_NUMBER
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: SDSS Field Number
+          OBJ_ID:
+            name: OBJ_ID
+            type: char
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: SDSS Object Identification number
+          PSFFLUX:
+            name: PSFFLUX
+            type: float64[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: PSF fluxes in <i>u, g, r, i, z</i> bands
+          IVAR_PSFFLUX:
+            name: IVAR_PSFFLUX
+            type: float64[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Inverse variance of PSF fluxes
+          PSFMAG:
+            name: PSFMAG
+            type: float64[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: PSF magnitudes in <i>u, g, r, i, z</i> bands
+          ERR_PSFMAG:
+            name: ERR_PSFMAG
+            type: float64[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Error on PSF magnitudes
+          MI:
+            name: MI
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: "Absolute magnitude in i band, <i>M<sub>i</sub></i> [z =\
+              \ 2] with H<sub>0</sub> = 67.8 km s<sup>-1</sup> Mpc<sup>-1</sup>, \u03A9\
+              <sub>m</sub> = 0.308, \u03A9<sub>\u039B</sub> = 0.692, \u03B1<sub>v</sub>\
+              \ = -0.5"
+          GAL_EXT:
+            name: GAL_EXT
+            type: float64[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Galactic extinction in the five SDSS bands from from Schlafly
+              & Finkbeiner (2011)
+          RASS_COUNTS:
+            name: RASS_COUNTS
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: log RASS full band count rate (counts/s)
+          RASS_COUNTS_SNR:
+            name: RASS_COUNTS_SNR
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: S/N of the RASS count rate
+          SDSS2ROSAT_SEP:
+            name: SDSS2ROSAT_SEP
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: SDSS-RASS separation in arcsec
+          FLUX_0.2_2.0keV:
+            name: FLUX_0.2_2.0KEV
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Soft (0.2-2.0 keV) X-ray flux from XMM-Newton expressed in
+              erg s<sup>-1</sup> cm<sup>-2</sup>
+          FLUX_0.2_2.0keV_ERR:
+            name: FLUX_0.2_2.0KEV_ERR
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Error on soft X-ray flux from XMM-Newton (in erg s<sup>-1</sup>
+              cm<sup>-2</sup>)
+          FLUX_2.0_12.0keV:
+            name: FLUX_2.0_12.0KEV
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Hard 4.5-12.0 keV) X-ray flux from XMM-Newton expressed in
+              erg s<sup>-1</sup> cm<sup>-2</sup>
+          FLUX_2.0_12.0keV_ERR:
+            name: FLUX_2.0_12.0KEV_ERR
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Error on hard X-ray flux from XMM-Newton (in erg s<sup>-1</sup>
+              cm<sup>-2</sup>)
+          FLUX_0.2_12.0keV:
+            name: FLUX_0.2_12.0KEV
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Total (0.2-12.0 keV) X-ray flux from XMM-Newton expressed
+              in erg s<sup>-1</sup> cm<sup>-2</sup>
+          FLUX_0.2_12.0keV_ERR:
+            name: FLUX_0.2_12.0KEV_ERR
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Error on total X-ray flux from XMM-Newton (in erg s<sup>-1</sup>
+              cm<sup>-2</sup>)
+          LUM_0.2_12.0keV:
+            name: LUM_0.2_12.0KEV
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Total (0.2-12.0 keV) X-ray luminosity from XMM-Newton expressed
+              in erg s<sup>-1</sup>
+          SDSS2XMM_SEP:
+            name: SDSS2XMM_SEP
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: SDSS-XMM-Newton separation in arcsec
+          GALEX_MATCHED:
+            name: GALEX_MATCHED
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: GALEX match flag
+          FUV:
+            name: FUV
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: <i>fuv</i> flux (GALEX)
+          FUV_IVAR:
+            name: FUV_IVAR
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Inverse variance of <i>fuv</i> flux
+          NUV:
+            name: NUV
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: <i>nuv</i> flux (GALEX)
+          NUV_IVAR:
+            name: NUV_IVAR
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Inverse variance of <i>nuv</i> flux
+          JMAG:
+            name: JMAG
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: <i>J</i> magnitude (Vega, 2MASS)
+          ERR_JMAG:
+            name: ERR_JMAG
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Error in <i>J</i> magnitude
+          JSNR:
+            name: JSNR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: <i>J</i>-Band S/N
+          JRDFLAG:
+            name: JRDFLAG
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: <i>J</i>-Band photometry flag
+          HMAG:
+            name: HMAG
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: <i>H</i> magnitude (Vega, 2MASS)
+          ERR_HMAG:
+            name: ERR_HMAG
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Error in <i>H</i> magnitude
+          HSNR:
+            name: HSNR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: <i>H</i>-band S/N
+          HRDFLAG:
+            name: HRDFLAG
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: <i>H</i>-band photometry flag
+          KMAG:
+            name: KMAG
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: <i>K</i> magnitude (Vega, 2MASS)
+          ERR_KMAG:
+            name: ERR_KMAG
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Error in <i>K</i> magnitude
+          KSNR:
+            name: KSNR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: <i>K</i>-Band S/N
+          KRDFLAG:
+            name: KRDFLAG
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: <i>K</i>-Band photometry flag
+          SDSS2MASS_SEP:
+            name: SDSS2MASS_SEP
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: SDSS-2MASS separation in arcsec
+          W1MAG:
+            name: W1MAG
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: <i>w</i>1 magnitude (Vega, WISE)
+          ERR_W1MAG:
+            name: ERR_W1MAG
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Error in <i>w</i>1 magnitude
+          W1SNR:
+            name: W1SNR
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: S/N in <i>w</i>1 band
+          W1CHI2:
+            name: W1CHI2
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: "\u03C7<sup>2</sup> in <i>w</i>1 band"
+          W2MAG:
+            name: W2MAG
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: <i>w</i>2 magnitude (Vega, WISE)
+          ERR_W2MAG:
+            name: ERR_W2MAG
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Error in <i>w</i>2 magnitude
+          W2SNR:
+            name: W2SNR
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: S/N in <i>w</i>2 band
+          W2CHI2:
+            name: W2CHI2
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: "\u03C7<sup>2</sup> in <i>w</i>2 band"
+          W3MAG:
+            name: W3MAG
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: <i>w</i>3 magnitude (Vega, WISE)
+          ERR_W3MAG:
+            name: ERR_W3MAG
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Error in <i>w</i>3 magnitude
+          W3SNR:
+            name: W3SNR
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: S/N in <i>w</i>3 band
+          W3CHI2:
+            name: W3CHI2
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: "\u03C7<sup>2</sup> in <i>w</i>3 band"
+          W4MAG:
+            name: W4MAG
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: <i>w</i>4 magnitude (Vega, WISE)
+          ERR_W4MAG:
+            name: ERR_W4MAG
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Error in <i>w</i>4 magnitude
+          W4SNR:
+            name: W4SNR
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: S/N in <i>w</i>4 band
+          W4CHI2:
+            name: W4CHI2
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: "\u03C7<sup>2</sup> in <i>w</i>4 band"
+          CC_FLAGS:
+            name: CC_FLAGS
+            type: char[4]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: WISE contamination and confusion flag
+          PH_FLAGS:
+            name: PH_FLAGS
+            type: char[4]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          SDSS2WISE_SEP:
+            name: SDSS2WISE_SEP
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: SDSS-WISE separation in arcsec
+          UKIDSS_MATCHED:
+            name: UKIDSS_MATCHED
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: UKIDSS matching flag
+          YFLUX:
+            name: YFLUX
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Y-band flux density from UKIDSS (in W m<sup>-2</sup> Hz<sup>-1</sup>)
+          YFLUX_ERR:
+            name: YFLUX_ERR
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Error in Y-band flux density from UKIDSS (in W m<sup>-2</sup>
+              Hz<sup>-1</sup>)
+          JFLUX:
+            name: JFLUX
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: J-band density flux from UKIDSS (in W m<sup>-2</sup> Hz<sup>-1</sup>)
+          JFLUX_ERR:
+            name: JFLUX_ERR
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Error in J-band flux density from UKIDSS (in W m<sup>-2</sup>
+              Hz<sup>-1</sup>)
+          HFLUX:
+            name: HFLUX
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: H-band flux density from UKIDSS (in W m<sup>-2</sup> Hz<sup>-1</sup>)
+          HFLUX_ERR:
+            name: HFLUX_ERR
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Error in H-band flux density from UKIDSS (in W m<sup>-2</sup>
+              Hz<sup>-1</sup>)
+          KFLUX:
+            name: KFLUX
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: K-band flux density from UKIDSS (in W m<sup>-2</sup> Hz<sup>-1</sup>)
+          KFLUX_ERR:
+            name: KFLUX_ERR
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Error in K-band flux density from UKIDSS (in W m<sup>-2</sup>
+              Hz<sup>-1</sup>)
+          FIRST_MATCHED:
+            name: FIRST_MATCHED
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: FIRST matching flag
+          FIRST_FLUX:
+            name: FIRST_FLUX
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: FIRST peak flux density at 20 cm expressed in mJy
+          FIRST_SNR:
+            name: FIRST_SNR
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: S/N of the FIRST flux density
+          SDSS2FIRST_SEP:
+            name: SDSS2FIRST_SEP
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: SDSS-FIRST separation in arcsec
+  DR16:
+    template: $BOSS_QSO/DR16Q/DR16Q_v4.fits
+    example: DR16Q/DR16Q_v4.fits
+    location: DR16Q/DR16Q_v4.fits
+    environment: BOSS_QSO
+    access:
+      in_sdss_access: true
+      path_name: DRQv
+      path_template: $BOSS_QSO/{dr}Q/{dr}Q_{version}.fits
+      path_kwargs:
+      - version
+      - dr
+      access_string: DRQv = $BOSS_QSO/DR16Q/DR16Q_v4.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: 'The data in this primary HDU consists of bytes which
+
+          comprise a VOTABLE document.
+
+          The VOTable describes the metadata of the table contained
+
+          in the following BINTABLE extension.
+
+          Such a BINTABLE extension can be used on its own as a perfectly
+
+          good table, but the information from this HDU may provide some
+
+          useful additional metadata.'
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: Conforms to FITS standard.
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: No data is associated with this header.
+        - key: EXTEND
+          value: true
+          comment: Extensions may be present.
+      hdu1:
+        name: CATALOG
+        description: 'EXTNAME="DR14Q'' with a binary FITS table with the following
+          columns:'
+        is_image: false
+        size: 1 GB
+        columns:
+          SDSS_NAME:
+            name: SDSS_NAME
+            type: char[18]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: SDSS-DR14 designation - hhmmss.ss+ddmmss.s (J2000)
+          RA:
+            name: RA
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Right Ascension in decimal degrees(J2000)
+          DEC:
+            name: DEC
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Declination in decimal degrees(J2000)
+          PLATE:
+            name: PLATE
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Spectroscopic plate number
+          MJD:
+            name: MJD
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Modified Julian Day of the spectroscopic observation
+          FIBERID:
+            name: FIBERID
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Spectroscopic fiber number
+          AUTOCLASS_PQN:
+            name: AUTOCLASS_PQN
+            type: char[6]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          AUTOCLASS_DR14Q:
+            name: AUTOCLASS_DR14Q
+            type: char[6]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          IS_QSO_QN:
+            name: IS_QSO_QN
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          Z_QN:
+            name: Z_QN
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          RANDOM_SELECT:
+            name: RANDOM_SELECT
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          Z_10K:
+            name: Z_10K
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          Z_CONF_10K:
+            name: Z_CONF_10K
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          PIPE_CORR_10K:
+            name: PIPE_CORR_10K
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          IS_QSO_10K:
+            name: IS_QSO_10K
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          THING_ID:
+            name: THING_ID
+            type: int64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Unique SDSS source identifier
+          Z_VI:
+            name: Z_VI
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Redshift based on visual inspection (when available)
+          Z_CONF:
+            name: Z_CONF
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          CLASS_PERSON:
+            name: CLASS_PERSON
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          Z_DR12Q:
+            name: Z_DR12Q
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          IS_QSO_DR12Q:
+            name: IS_QSO_DR12Q
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          Z_DR7Q_SCH:
+            name: Z_DR7Q_SCH
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          IS_QSO_DR7Q:
+            name: IS_QSO_DR7Q
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          Z_DR6Q_HW:
+            name: Z_DR6Q_HW
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          Z_DR7Q_HW:
+            name: Z_DR7Q_HW
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          IS_QSO_FINAL:
+            name: IS_QSO_FINAL
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          Z:
+            name: Z
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Redshift (most robust estimate for each quasar)
+          SOURCE_Z:
+            name: SOURCE_Z
+            type: char[12]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Origin of the Z measurement (VI, PIPE, AUTO, OTHER)
+          Z_PIPE:
+            name: Z_PIPE
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: SDSS pipeline redshift estimate
+          ZWARNING:
+            name: ZWARNING
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Quality flag on SDSS pipeline redshift measurement
+          OBJID:
+            name: OBJID
+            type: char[19]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          Z_PCA:
+            name: Z_PCA
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: PCA redshift (homogeneous over the full sample)
+          ZWARN_PCA:
+            name: ZWARN_PCA
+            type: int64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          DELTACHI2_PCA:
+            name: DELTACHI2_PCA
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          Z_HALPHA:
+            name: Z_HALPHA
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          ZWARN_HALPHA:
+            name: ZWARN_HALPHA
+            type: int64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          DELTACHI2_HALPHA:
+            name: DELTACHI2_HALPHA
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          Z_HBETA:
+            name: Z_HBETA
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          ZWARN_HBETA:
+            name: ZWARN_HBETA
+            type: int64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          DELTACHI2_HBETA:
+            name: DELTACHI2_HBETA
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          Z_MGII:
+            name: Z_MGII
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Redshift of the MgII emission line
+          ZWARN_MGII:
+            name: ZWARN_MGII
+            type: int64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          DELTACHI2_MGII:
+            name: DELTACHI2_MGII
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          Z_CIII:
+            name: Z_CIII
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          ZWARN_CIII:
+            name: ZWARN_CIII
+            type: int64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          DELTACHI2_CIII:
+            name: DELTACHI2_CIII
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          Z_CIV:
+            name: Z_CIV
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          ZWARN_CIV:
+            name: ZWARN_CIV
+            type: int64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          DELTACHI2_CIV:
+            name: DELTACHI2_CIV
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          Z_LYA:
+            name: Z_LYA
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          ZWARN_LYA:
+            name: ZWARN_LYA
+            type: int64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          DELTACHI2_LYA:
+            name: DELTACHI2_LYA
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          Z_LYAWG:
+            name: Z_LYAWG
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          Z_DLA:
+            name: Z_DLA
+            type: float64[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          NHI_DLA:
+            name: NHI_DLA
+            type: float64[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          CONF_DLA:
+            name: CONF_DLA
+            type: float64[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          BAL_PROB:
+            name: BAL_PROB
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          BI_CIV:
+            name: BI_CIV
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: BALnicity Index of CIV absorption trough (in km s<sup>-1</sup>)
+          ERR_BI_CIV:
+            name: ERR_BI_CIV
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Error on the Balnicity index of CIV trough (in km s<sup>-1</sup>)
+          AI_CIV:
+            name: AI_CIV
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          ERR_AI_CIV:
+            name: ERR_AI_CIV
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          BI_SIIV:
+            name: BI_SIIV
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          ERR_BI_SIIV:
+            name: ERR_BI_SIIV
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          AI_SIIV:
+            name: AI_SIIV
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          ERR_AI_SIIV:
+            name: ERR_AI_SIIV
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          BOSS_TARGET1:
+            name: BOSS_TARGET1
+            type: int64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: BOSS target selection flag for main survey
+          EBOSS_TARGET0:
+            name: EBOSS_TARGET0
+            type: int64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Target selection flag for the eBOSS pilot survey
+          EBOSS_TARGET1:
+            name: EBOSS_TARGET1
+            type: int64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: eBOSS target selection flag
+          EBOSS_TARGET2:
+            name: EBOSS_TARGET2
+            type: int64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: eBOSS target selection flag
+          ANCILLARY_TARGET1:
+            name: ANCILLARY_TARGET1
+            type: int64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: BOSS target selection flag for ancillary programs
+          ANCILLARY_TARGET2:
+            name: ANCILLARY_TARGET2
+            type: int64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: BOSS target selection flag for ancillary programs
+          NSPEC_SDSS:
+            name: NSPEC_SDSS
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of additional spectra available in SDSS-I/II
+          NSPEC_BOSS:
+            name: NSPEC_BOSS
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of additional spectra available in SDSS-III/IV
+          NSPEC:
+            name: NSPEC
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          PLATE_DUPLICATE:
+            name: PLATE_DUPLICATE
+            type: int32[74]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Spectroscopic plate number for each duplicate spectrum
+          MJD_DUPLICATE:
+            name: MJD_DUPLICATE
+            type: int32[74]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Spectroscopic MJD for each duplicate spectrum
+          FIBERID_DUPLICATE:
+            name: FIBERID_DUPLICATE
+            type: int16[74]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Fiber number for each duplicate spectrum
+          SPECTRO_DUPLICATE:
+            name: SPECTRO_DUPLICATE
+            type: int16[74]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Spectrograph used for each duplicate spectrum
+          SKYVERSION:
+            name: SKYVERSION
+            type: bool
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          RUN_NUMBER:
+            name: RUN_NUMBER
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: SDSS Imaging Run Number of photometric measurements
+          RERUN_NUMBER:
+            name: RERUN_NUMBER
+            type: char[3]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: SDSS Photometric Processing Rerun number
+          CAMCOL_NUMBER:
+            name: CAMCOL_NUMBER
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          FIELD_NUMBER:
+            name: FIELD_NUMBER
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: SDSS Field Number
+          ID_NUMBER:
+            name: ID_NUMBER
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          LAMBDA_EFF:
+            name: LAMBDA_EFF
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          ZOFFSET:
+            name: ZOFFSET
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          XFOCAL:
+            name: XFOCAL
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          YFOCAL:
+            name: YFOCAL
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          CHUNK:
+            name: CHUNK
+            type: char[14]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          TILE:
+            name: TILE
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          PLATESN2:
+            name: PLATESN2
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          PSFFLUX:
+            name: PSFFLUX
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: PSF fluxes in <i>u, g, r, i, z</i> bands
+          PSFFLUX_IVAR:
+            name: PSFFLUX_IVAR
+            type: float64[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          PSFMAG:
+            name: PSFMAG
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: PSF magnitudes in <i>u, g, r, i, z</i> bands
+          PSFMAGERR:
+            name: PSFMAGERR
+            type: float64[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          EXTINCTION:
+            name: EXTINCTION
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          M_I:
+            name: M_I
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          SN_MEDIAN_ALL:
+            name: SN_MEDIAN_ALL
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          GALEX_MATCHED:
+            name: GALEX_MATCHED
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: GALEX match flag
+          FUV:
+            name: FUV
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: <i>fuv</i> flux (GALEX)
+          FUV_IVAR:
+            name: FUV_IVAR
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Inverse variance of <i>fuv</i> flux
+          NUV:
+            name: NUV
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: <i>nuv</i> flux (GALEX)
+          NUV_IVAR:
+            name: NUV_IVAR
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Inverse variance of <i>nuv</i> flux
+          UKIDSS_MATCHED:
+            name: UKIDSS_MATCHED
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: UKIDSS matching flag
+          YFLUX:
+            name: YFLUX
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Y-band flux density from UKIDSS (in W m<sup>-2</sup> Hz<sup>-1</sup>)
+          YFLUX_ERR:
+            name: YFLUX_ERR
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Error in Y-band flux density from UKIDSS (in W m<sup>-2</sup>
+              Hz<sup>-1</sup>)
+          JFLUX:
+            name: JFLUX
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: J-band density flux from UKIDSS (in W m<sup>-2</sup> Hz<sup>-1</sup>)
+          JFLUX_ERR:
+            name: JFLUX_ERR
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Error in J-band flux density from UKIDSS (in W m<sup>-2</sup>
+              Hz<sup>-1</sup>)
+          HFLUX:
+            name: HFLUX
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: H-band flux density from UKIDSS (in W m<sup>-2</sup> Hz<sup>-1</sup>)
+          HFLUX_ERR:
+            name: HFLUX_ERR
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Error in H-band flux density from UKIDSS (in W m<sup>-2</sup>
+              Hz<sup>-1</sup>)
+          KFLUX:
+            name: KFLUX
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: K-band flux density from UKIDSS (in W m<sup>-2</sup> Hz<sup>-1</sup>)
+          KFLUX_ERR:
+            name: KFLUX_ERR
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Error in K-band flux density from UKIDSS (in W m<sup>-2</sup>
+              Hz<sup>-1</sup>)
+          W1_FLUX:
+            name: W1_FLUX
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          W1_FLUX_IVAR:
+            name: W1_FLUX_IVAR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          W1_MAG:
+            name: W1_MAG
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          W1_MAG_ERR:
+            name: W1_MAG_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          W1_CHI2:
+            name: W1_CHI2
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          W1_FLUX_SNR:
+            name: W1_FLUX_SNR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          W1_SRC_FRAC:
+            name: W1_SRC_FRAC
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          W1_EXT_FLUX:
+            name: W1_EXT_FLUX
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          W1_EXT_FRAC:
+            name: W1_EXT_FRAC
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          W1_NPIX:
+            name: W1_NPIX
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          W2_FLUX:
+            name: W2_FLUX
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          W2_FLUX_IVAR:
+            name: W2_FLUX_IVAR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          W2_MAG:
+            name: W2_MAG
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          W2_MAG_ERR:
+            name: W2_MAG_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          W2_CHI2:
+            name: W2_CHI2
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          W2_FLUX_SNR:
+            name: W2_FLUX_SNR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          W2_SRC_FRAC:
+            name: W2_SRC_FRAC
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          W2_EXT_FLUX:
+            name: W2_EXT_FLUX
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          W2_EXT_FRAC:
+            name: W2_EXT_FRAC
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          W2_NPIX:
+            name: W2_NPIX
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          FIRST_MATCHED:
+            name: FIRST_MATCHED
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: FIRST matching flag
+          FIRST_FLUX:
+            name: FIRST_FLUX
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: FIRST peak flux density at 20 cm expressed in mJy
+          FIRST_SNR:
+            name: FIRST_SNR
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: S/N of the FIRST flux density
+          SDSS2FIRST_SEP:
+            name: SDSS2FIRST_SEP
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: SDSS-FIRST separation in arcsec
+          JMAG:
+            name: JMAG
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: <i>J</i> magnitude (Vega, 2MASS)
+          JMAG_ERR:
+            name: JMAG_ERR
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          JSNR:
+            name: JSNR
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: <i>J</i>-Band S/N
+          JRDFLAG:
+            name: JRDFLAG
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: <i>J</i>-Band photometry flag
+          HMAG:
+            name: HMAG
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: <i>H</i> magnitude (Vega, 2MASS)
+          HMAG_ERR:
+            name: HMAG_ERR
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          HSNR:
+            name: HSNR
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: <i>H</i>-band S/N
+          HRDFLAG:
+            name: HRDFLAG
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: <i>H</i>-band photometry flag
+          KMAG:
+            name: KMAG
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: <i>K</i> magnitude (Vega, 2MASS)
+          KMAG_ERR:
+            name: KMAG_ERR
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          KSNR:
+            name: KSNR
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: <i>K</i>-Band S/N
+          KRDFLAG:
+            name: KRDFLAG
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: <i>K</i>-Band photometry flag
+          SDSS2MASS_SEP:
+            name: SDSS2MASS_SEP
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: SDSS-2MASS separation in arcsec
+          2RXS_ID:
+            name: 2RXS_ID
+            type: char[21]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          2RXS_RA:
+            name: 2RXS_RA
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          2RXS_DEC:
+            name: 2RXS_DEC
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          2RXS_SRC_FLUX:
+            name: 2RXS_SRC_FLUX
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          2RXS_SRC_FLUX_ERR:
+            name: 2RXS_SRC_FLUX_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          SDSS2ROSAT_SEP:
+            name: SDSS2ROSAT_SEP
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: SDSS-RASS separation in arcsec
+          XMM_SRC_ID:
+            name: XMM_SRC_ID
+            type: int64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          XMM_RA:
+            name: XMM_RA
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          XMM_DEC:
+            name: XMM_DEC
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          XMM_SOFT_FLUX:
+            name: XMM_SOFT_FLUX
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          XMM_SOFT_FLUX_ERR:
+            name: XMM_SOFT_FLUX_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          XMM_HARD_FLUX:
+            name: XMM_HARD_FLUX
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          XMM_HARD_FLUX_ERR:
+            name: XMM_HARD_FLUX_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          XMM_TOTAL_FLUX:
+            name: XMM_TOTAL_FLUX
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          XMM_TOTAL_FLUX_ERR:
+            name: XMM_TOTAL_FLUX_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          XMM_TOTAL_LUM:
+            name: XMM_TOTAL_LUM
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          SDSS2XMM_SEP:
+            name: SDSS2XMM_SEP
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: SDSS-XMM-Newton separation in arcsec
+          GAIA_MATCHED:
+            name: GAIA_MATCHED
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          GAIA_DESIGNATION:
+            name: GAIA_DESIGNATION
+            type: char[28]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          GAIA_RA:
+            name: GAIA_RA
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          GAIA_DEC:
+            name: GAIA_DEC
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          GAIA_PARALLAX:
+            name: GAIA_PARALLAX
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          GAIA_PARALLAX_ERR:
+            name: GAIA_PARALLAX_ERR
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          GAIA_PM_RA:
+            name: GAIA_PM_RA
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          GAIA_PM_RA_ERR:
+            name: GAIA_PM_RA_ERR
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          GAIA_PM_DEC:
+            name: GAIA_PM_DEC
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          GAIA_PM_DEC_ERR:
+            name: GAIA_PM_DEC_ERR
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          GAIA_G_MAG:
+            name: GAIA_G_MAG
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          GAIA_G_FLUX_SNR:
+            name: GAIA_G_FLUX_SNR
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          GAIA_BP_MAG:
+            name: GAIA_BP_MAG
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          GAIA_BP_FLUX_SNR:
+            name: GAIA_BP_FLUX_SNR
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          GAIA_RP_MAG:
+            name: GAIA_RP_MAG
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          GAIA_RP_FLUX_SNR:
+            name: GAIA_RP_FLUX_SNR
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          SDSS2GAIA_SEP:
+            name: SDSS2GAIA_SEP
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
