@@ -1,7 +1,11 @@
 general:
   name: sdR
   short: migrated from old datamodel - needs update
-  description: ''
+  description: This file contains raw spectro data from the BOSS/eBOSS spectro CCDs.
+    Simultaneous frames in different chips all have the same frame number. Which frames
+    are what type of observation is indicated by the FLAVOR keyword in each header.
+    HDU 0 contains the raw counts as integers (4352x4224). For SDSS-I raw spectro
+    data, please look at SDSS-I,-II sdR files:https://data.sdss.org/datamodel/files/RAWDATA_DIR/MJD/sdR.html.
   datatype: FITS
   filesize: 35 KB
   releases:
@@ -18,12 +22,7 @@ general:
   - BOSS_SPECTRO_DATA
   naming_convention: sdR-[br][12]-[FRAME].fit, indicating which blue or red spectrograph
     (1 or 2), and the frame number.
-  generated_by: This file contains raw spectro data from the BOSS/eBOSS spectro CCDs.
-    Simultaneous frames in different chips all have the same frame number. Which frames
-    are what type of observation is indicated by the FLAVOR keyword in each header.
-    HDU 0 contains the raw counts as integers (4352x4224). For SDSS-I raw spectro
-    data, please look at SDSS-I,-II sdR:https://data.sdss.org/datamodel/files/RAWDATA_DIR/MJD/sdR.html
-    files.
+  generated_by: 'migration: not in database. Needs update'
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
@@ -54,20 +53,20 @@ changelog:
       note: No changes
 releases:
   DR9:
-    template: $BOSS_SPECTRO_DATA/55049/sdR-b1-00100006.fits.gz
-    example: 55049/sdR-b1-00100006.fits.gz
-    location: 55049/sdR-b1-00100006.fits.gz
+    template: $BOSS_SPECTRO_DATA/[MJD]/sdR-[BR][ID]-[FRAME].fit
+    example: 55049/sdR-b1-00100006.fit
+    location: '{mjd}/sdR-{br}{id}-{frame}.fit'
     environment: BOSS_SPECTRO_DATA
     access:
       in_sdss_access: true
       path_name: sdR
       path_template: $BOSS_SPECTRO_DATA/{mjd}/sdR-{br}{id}-{frame}.fit
       path_kwargs:
-      - mjd
       - br
+      - mjd
       - id
       - frame
-      access_string: sdR = $BOSS_SPECTRO_DATA/55049/sdR-b1-00100006.fits.gz
+      access_string: sdR = $BOSS_SPECTRO_DATA/{mjd}/sdR-{br}{id}-{frame}.fit
     hdus:
       hdu0:
         name: PRIMARY
