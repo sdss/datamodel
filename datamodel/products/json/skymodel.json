@@ -1,0 +1,1133 @@
+{
+  "general": {
+    "name": "skymodel",
+    "short": "migration: needs update",
+    "description": "Parameters of best-fit model of global sky\n(<a href=\"http://adsabs.harvard.edu/abs/2011AJ....142...31B\">Blanton\net al. 2011</a>).  Stage 1 and stage 2 correspond to fitting of Y and X\nrespectively in Section 2.3 of that paper.",
+    "environments": [
+      "PHOTO_SKY"
+    ],
+    "datatype": "FITS",
+    "filesize": "20 KB",
+    "releases": [
+      {
+        "name": "DR13",
+        "description": "SDSS public data release 13",
+        "public": true,
+        "release_date": "2016-07-31"
+      },
+      {
+        "name": "DR14",
+        "description": "SDSS public data release 14",
+        "public": true,
+        "release_date": "2017-07-31"
+      },
+      {
+        "name": "DR15",
+        "description": "SDSS public data release 15",
+        "public": true,
+        "release_date": "2018-12-10"
+      },
+      {
+        "name": "DR16",
+        "description": "SDSS public data release 16",
+        "public": true,
+        "release_date": "2019-12-09"
+      },
+      {
+        "name": "DR17",
+        "description": "SDSS public data release 17",
+        "public": true,
+        "release_date": "2021-12-06"
+      }
+    ],
+    "naming_convention": "<code>skymodel-[0-9]{6]-[ugriz]\\.fits\\.gz</code>",
+    "generated_by": "photoop"
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {
+      "DR17": {
+        "from": "DR16",
+        "delta_nhdus": null,
+        "added_hdus": null,
+        "removed_hdus": null,
+        "primary_delta_nkeys": null,
+        "added_primary_header_kwargs": null,
+        "removed_primary_header_kwargs": null,
+        "note": "No changes"
+      },
+      "DR16": {
+        "from": "DR15",
+        "delta_nhdus": null,
+        "added_hdus": null,
+        "removed_hdus": null,
+        "primary_delta_nkeys": null,
+        "added_primary_header_kwargs": null,
+        "removed_primary_header_kwargs": null,
+        "note": "No changes"
+      },
+      "DR15": {
+        "from": "DR14",
+        "delta_nhdus": null,
+        "added_hdus": null,
+        "removed_hdus": null,
+        "primary_delta_nkeys": null,
+        "added_primary_header_kwargs": null,
+        "removed_primary_header_kwargs": null,
+        "note": "No changes"
+      },
+      "DR14": {
+        "from": "DR13",
+        "delta_nhdus": null,
+        "added_hdus": null,
+        "removed_hdus": null,
+        "primary_delta_nkeys": null,
+        "added_primary_header_kwargs": null,
+        "removed_primary_header_kwargs": null,
+        "note": "No changes"
+      }
+    }
+  },
+  "releases": {
+    "DR13": {
+      "template": "$PHOTO_SKY/[RERUN]/[RUN]/sky/skymodel-00[RUN]-[FILTER].fits.gz",
+      "example": "301/4899/sky/skymodel-004899-g.fits.gz",
+      "location": "{rerun}/{run}/sky/skymodel-00{run}-{filter}.fits.gz",
+      "environment": "PHOTO_SKY",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "skymodel",
+        "path_template": "$PHOTO_SKY/{rerun}/{run}/sky/skymodel-{run:0>6}-{filter}.fits",
+        "path_kwargs": [
+          "run",
+          "filter",
+          "run",
+          "rerun"
+        ],
+        "access_string": "skymodel = $PHOTO_SKY/{rerun}/{run}/sky/skymodel-00{run}-{filter}.fits.gz"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "migration: Intro info not in database. Needs update",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": ""
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": ""
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": ""
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "Parameters of the best-fit global sky model for this run and filter.",
+          "size": "27 KB",
+          "header": null,
+          "columns": {
+            "RUN": {
+              "name": "RUN",
+              "description": "Drift scan run number",
+              "type": "int16",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "RERUN": {
+              "name": "RERUN",
+              "description": "Photometric rerun number",
+              "type": "int16",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "FILTER": {
+              "name": "FILTER",
+              "description": "Filter name",
+              "type": "char",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NX": {
+              "name": "NX",
+              "description": "Number of native pixels in column direction",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NY": {
+              "name": "NY",
+              "description": "Number of native pixels in scan direction per frame",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NAMPS": {
+              "name": "NAMPS",
+              "description": "Number of amplifiers in each camcol",
+              "type": "int32[6]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "SCAMCOL": {
+              "name": "SCAMCOL",
+              "description": "Overall scaling factor for camcol",
+              "type": "float32[6]",
+              "unit": "counts"
+            },
+            "NPIXPERY": {
+              "name": "NPIXPERY",
+              "description": "Binning factor in scan direction",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NKX": {
+              "name": "NKX",
+              "description": "Number of binned pixels in column direction",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NKY": {
+              "name": "NKY",
+              "description": "Number of binned pixels in scan direction",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NYPERF": {
+              "name": "NYPERF",
+              "description": "Number of binned pixels per field",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "YBIN": {
+              "name": "YBIN",
+              "description": "Binning factor for model fit",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NKX1": {
+              "name": "NKX1",
+              "description": "Number of fit pixels in column direction (stage 1)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NKY1": {
+              "name": "NKY1",
+              "description": "Number of fit pixels in scan direction (stage 1)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NYS1": {
+              "name": "NYS1",
+              "description": "Number of kernels in scan direction (stage 1)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "FPER1": {
+              "name": "FPER1",
+              "description": "Number of kernels per field  (stage 1)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NYPERF1": {
+              "name": "NYPERF1",
+              "description": "Number of fit pixels per field in scan direction (stage 1)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NKX2": {
+              "name": "NKX2",
+              "description": "Number of fit pixels in column direction (stage 2)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NKY2": {
+              "name": "NKY2",
+              "description": "Number of fit pixels in scan direction (stage 2)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NXS2": {
+              "name": "NXS2",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NYS2": {
+              "name": "NYS2",
+              "description": "Number of kernels in scan direction (stage 2)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "FPER2": {
+              "name": "FPER2",
+              "description": "Number of kernels per field  (stage 2)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NYPERF2": {
+              "name": "NYPERF2",
+              "description": "Number of fit pixels per field in scan direction (stage 2)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "SKY1": {
+              "name": "SKY1",
+              "description": "Coefficients for kernels (stage 1; Y in Blanton et al 2011)",
+              "type": "float32[2004]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "SKY2": {
+              "name": "SKY2",
+              "description": "Coefficients for kernels (stage 2; X in Blanton et al 2011)",
+              "type": "float32[4896]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            }
+          }
+        }
+      }
+    },
+    "DR14": {
+      "template": "$PHOTO_SKY/[RERUN]/[RUN]/sky/skymodel-00[RUN]-[FILTER].fits.gz",
+      "example": "301/4899/sky/skymodel-004899-g.fits.gz",
+      "location": "{rerun}/{run}/sky/skymodel-00{run}-{filter}.fits.gz",
+      "environment": "PHOTO_SKY",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "skymodel",
+        "path_template": "$PHOTO_SKY/{rerun}/{run}/sky/skymodel-{run:0>6}-{filter}.fits",
+        "path_kwargs": [
+          "rerun",
+          "run",
+          "run",
+          "filter"
+        ],
+        "access_string": "skymodel = $PHOTO_SKY/{rerun}/{run}/sky/skymodel-00{run}-{filter}.fits.gz"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "migration: Intro info not in database. Needs update",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": ""
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": ""
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": ""
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "Parameters of the best-fit global sky model for this run and filter.",
+          "size": "27 KB",
+          "header": null,
+          "columns": {
+            "RUN": {
+              "name": "RUN",
+              "description": "Drift scan run number",
+              "type": "int16",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "RERUN": {
+              "name": "RERUN",
+              "description": "Photometric rerun number",
+              "type": "int16",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "FILTER": {
+              "name": "FILTER",
+              "description": "Filter name",
+              "type": "char",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NX": {
+              "name": "NX",
+              "description": "Number of native pixels in column direction",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NY": {
+              "name": "NY",
+              "description": "Number of native pixels in scan direction per frame",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NAMPS": {
+              "name": "NAMPS",
+              "description": "Number of amplifiers in each camcol",
+              "type": "int32[6]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "SCAMCOL": {
+              "name": "SCAMCOL",
+              "description": "Overall scaling factor for camcol",
+              "type": "float32[6]",
+              "unit": "counts"
+            },
+            "NPIXPERY": {
+              "name": "NPIXPERY",
+              "description": "Binning factor in scan direction",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NKX": {
+              "name": "NKX",
+              "description": "Number of binned pixels in column direction",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NKY": {
+              "name": "NKY",
+              "description": "Number of binned pixels in scan direction",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NYPERF": {
+              "name": "NYPERF",
+              "description": "Number of binned pixels per field",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "YBIN": {
+              "name": "YBIN",
+              "description": "Binning factor for model fit",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NKX1": {
+              "name": "NKX1",
+              "description": "Number of fit pixels in column direction (stage 1)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NKY1": {
+              "name": "NKY1",
+              "description": "Number of fit pixels in scan direction (stage 1)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NYS1": {
+              "name": "NYS1",
+              "description": "Number of kernels in scan direction (stage 1)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "FPER1": {
+              "name": "FPER1",
+              "description": "Number of kernels per field  (stage 1)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NYPERF1": {
+              "name": "NYPERF1",
+              "description": "Number of fit pixels per field in scan direction (stage 1)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NKX2": {
+              "name": "NKX2",
+              "description": "Number of fit pixels in column direction (stage 2)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NKY2": {
+              "name": "NKY2",
+              "description": "Number of fit pixels in scan direction (stage 2)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NXS2": {
+              "name": "NXS2",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NYS2": {
+              "name": "NYS2",
+              "description": "Number of kernels in scan direction (stage 2)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "FPER2": {
+              "name": "FPER2",
+              "description": "Number of kernels per field  (stage 2)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NYPERF2": {
+              "name": "NYPERF2",
+              "description": "Number of fit pixels per field in scan direction (stage 2)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "SKY1": {
+              "name": "SKY1",
+              "description": "Coefficients for kernels (stage 1; Y in Blanton et al 2011)",
+              "type": "float32[2004]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "SKY2": {
+              "name": "SKY2",
+              "description": "Coefficients for kernels (stage 2; X in Blanton et al 2011)",
+              "type": "float32[4896]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            }
+          }
+        }
+      }
+    },
+    "DR15": {
+      "template": "$PHOTO_SKY/[RERUN]/[RUN]/sky/skymodel-00[RUN]-[FILTER].fits.gz",
+      "example": "301/4899/sky/skymodel-004899-g.fits.gz",
+      "location": "{rerun}/{run}/sky/skymodel-00{run}-{filter}.fits.gz",
+      "environment": "PHOTO_SKY",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "skymodel",
+        "path_template": "$PHOTO_SKY/{rerun}/{run}/sky/skymodel-{run:0>6}-{filter}.fits",
+        "path_kwargs": [
+          "rerun",
+          "run",
+          "run",
+          "filter"
+        ],
+        "access_string": "skymodel = $PHOTO_SKY/{rerun}/{run}/sky/skymodel-00{run}-{filter}.fits.gz"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "migration: Intro info not in database. Needs update",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": ""
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": ""
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": ""
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "Parameters of the best-fit global sky model for this run and filter.",
+          "size": "27 KB",
+          "header": null,
+          "columns": {
+            "RUN": {
+              "name": "RUN",
+              "description": "Drift scan run number",
+              "type": "int16",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "RERUN": {
+              "name": "RERUN",
+              "description": "Photometric rerun number",
+              "type": "int16",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "FILTER": {
+              "name": "FILTER",
+              "description": "Filter name",
+              "type": "char",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NX": {
+              "name": "NX",
+              "description": "Number of native pixels in column direction",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NY": {
+              "name": "NY",
+              "description": "Number of native pixels in scan direction per frame",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NAMPS": {
+              "name": "NAMPS",
+              "description": "Number of amplifiers in each camcol",
+              "type": "int32[6]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "SCAMCOL": {
+              "name": "SCAMCOL",
+              "description": "Overall scaling factor for camcol",
+              "type": "float32[6]",
+              "unit": "counts"
+            },
+            "NPIXPERY": {
+              "name": "NPIXPERY",
+              "description": "Binning factor in scan direction",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NKX": {
+              "name": "NKX",
+              "description": "Number of binned pixels in column direction",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NKY": {
+              "name": "NKY",
+              "description": "Number of binned pixels in scan direction",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NYPERF": {
+              "name": "NYPERF",
+              "description": "Number of binned pixels per field",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "YBIN": {
+              "name": "YBIN",
+              "description": "Binning factor for model fit",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NKX1": {
+              "name": "NKX1",
+              "description": "Number of fit pixels in column direction (stage 1)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NKY1": {
+              "name": "NKY1",
+              "description": "Number of fit pixels in scan direction (stage 1)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NYS1": {
+              "name": "NYS1",
+              "description": "Number of kernels in scan direction (stage 1)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "FPER1": {
+              "name": "FPER1",
+              "description": "Number of kernels per field  (stage 1)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NYPERF1": {
+              "name": "NYPERF1",
+              "description": "Number of fit pixels per field in scan direction (stage 1)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NKX2": {
+              "name": "NKX2",
+              "description": "Number of fit pixels in column direction (stage 2)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NKY2": {
+              "name": "NKY2",
+              "description": "Number of fit pixels in scan direction (stage 2)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NXS2": {
+              "name": "NXS2",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NYS2": {
+              "name": "NYS2",
+              "description": "Number of kernels in scan direction (stage 2)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "FPER2": {
+              "name": "FPER2",
+              "description": "Number of kernels per field  (stage 2)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NYPERF2": {
+              "name": "NYPERF2",
+              "description": "Number of fit pixels per field in scan direction (stage 2)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "SKY1": {
+              "name": "SKY1",
+              "description": "Coefficients for kernels (stage 1; Y in Blanton et al 2011)",
+              "type": "float32[2004]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "SKY2": {
+              "name": "SKY2",
+              "description": "Coefficients for kernels (stage 2; X in Blanton et al 2011)",
+              "type": "float32[4896]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            }
+          }
+        }
+      }
+    },
+    "DR16": {
+      "template": "$PHOTO_SKY/[RERUN]/[RUN]/sky/skymodel-00[RUN]-[FILTER].fits.gz",
+      "example": "301/4899/sky/skymodel-004899-g.fits.gz",
+      "location": "{rerun}/{run}/sky/skymodel-00{run}-{filter}.fits.gz",
+      "environment": "PHOTO_SKY",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "skymodel",
+        "path_template": "$PHOTO_SKY/{rerun}/{run}/sky/skymodel-{run:0>6}-{filter}.fits",
+        "path_kwargs": [
+          "rerun",
+          "filter",
+          "run",
+          "run"
+        ],
+        "access_string": "skymodel = $PHOTO_SKY/{rerun}/{run}/sky/skymodel-00{run}-{filter}.fits.gz"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "migration: Intro info not in database. Needs update",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": ""
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": ""
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": ""
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "Parameters of the best-fit global sky model for this run and filter.",
+          "size": "27 KB",
+          "header": null,
+          "columns": {
+            "RUN": {
+              "name": "RUN",
+              "description": "Drift scan run number",
+              "type": "int16",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "RERUN": {
+              "name": "RERUN",
+              "description": "Photometric rerun number",
+              "type": "int16",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "FILTER": {
+              "name": "FILTER",
+              "description": "Filter name",
+              "type": "char",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NX": {
+              "name": "NX",
+              "description": "Number of native pixels in column direction",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NY": {
+              "name": "NY",
+              "description": "Number of native pixels in scan direction per frame",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NAMPS": {
+              "name": "NAMPS",
+              "description": "Number of amplifiers in each camcol",
+              "type": "int32[6]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "SCAMCOL": {
+              "name": "SCAMCOL",
+              "description": "Overall scaling factor for camcol",
+              "type": "float32[6]",
+              "unit": "counts"
+            },
+            "NPIXPERY": {
+              "name": "NPIXPERY",
+              "description": "Binning factor in scan direction",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NKX": {
+              "name": "NKX",
+              "description": "Number of binned pixels in column direction",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NKY": {
+              "name": "NKY",
+              "description": "Number of binned pixels in scan direction",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NYPERF": {
+              "name": "NYPERF",
+              "description": "Number of binned pixels per field",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "YBIN": {
+              "name": "YBIN",
+              "description": "Binning factor for model fit",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NKX1": {
+              "name": "NKX1",
+              "description": "Number of fit pixels in column direction (stage 1)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NKY1": {
+              "name": "NKY1",
+              "description": "Number of fit pixels in scan direction (stage 1)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NYS1": {
+              "name": "NYS1",
+              "description": "Number of kernels in scan direction (stage 1)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "FPER1": {
+              "name": "FPER1",
+              "description": "Number of kernels per field  (stage 1)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NYPERF1": {
+              "name": "NYPERF1",
+              "description": "Number of fit pixels per field in scan direction (stage 1)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NKX2": {
+              "name": "NKX2",
+              "description": "Number of fit pixels in column direction (stage 2)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NKY2": {
+              "name": "NKY2",
+              "description": "Number of fit pixels in scan direction (stage 2)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NXS2": {
+              "name": "NXS2",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NYS2": {
+              "name": "NYS2",
+              "description": "Number of kernels in scan direction (stage 2)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "FPER2": {
+              "name": "FPER2",
+              "description": "Number of kernels per field  (stage 2)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NYPERF2": {
+              "name": "NYPERF2",
+              "description": "Number of fit pixels per field in scan direction (stage 2)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "SKY1": {
+              "name": "SKY1",
+              "description": "Coefficients for kernels (stage 1; Y in Blanton et al 2011)",
+              "type": "float32[2004]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "SKY2": {
+              "name": "SKY2",
+              "description": "Coefficients for kernels (stage 2; X in Blanton et al 2011)",
+              "type": "float32[4896]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            }
+          }
+        }
+      }
+    },
+    "DR17": {
+      "template": "$PHOTO_SKY/[RERUN]/[RUN]/sky/skymodel-00[RUN]-[FILTER].fits.gz",
+      "example": "301/4899/sky/skymodel-004899-g.fits.gz",
+      "location": "{rerun}/{run}/sky/skymodel-00{run}-{filter}.fits.gz",
+      "environment": "PHOTO_SKY",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "skymodel",
+        "path_template": "$PHOTO_SKY/{rerun}/{run}/sky/skymodel-{run:0>6}-{filter}.fits",
+        "path_kwargs": [
+          "run",
+          "rerun",
+          "filter",
+          "run"
+        ],
+        "access_string": "skymodel = $PHOTO_SKY/{rerun}/{run}/sky/skymodel-00{run}-{filter}.fits.gz"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "migration: Intro info not in database. Needs update",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": ""
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": ""
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": ""
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "Parameters of the best-fit global sky model for this run and filter.",
+          "size": "27 KB",
+          "header": null,
+          "columns": {
+            "RUN": {
+              "name": "RUN",
+              "description": "Drift scan run number",
+              "type": "int16",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "RERUN": {
+              "name": "RERUN",
+              "description": "Photometric rerun number",
+              "type": "int16",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "FILTER": {
+              "name": "FILTER",
+              "description": "Filter name",
+              "type": "char",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NX": {
+              "name": "NX",
+              "description": "Number of native pixels in column direction",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NY": {
+              "name": "NY",
+              "description": "Number of native pixels in scan direction per frame",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NAMPS": {
+              "name": "NAMPS",
+              "description": "Number of amplifiers in each camcol",
+              "type": "int32[6]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "SCAMCOL": {
+              "name": "SCAMCOL",
+              "description": "Overall scaling factor for camcol",
+              "type": "float32[6]",
+              "unit": "counts"
+            },
+            "NPIXPERY": {
+              "name": "NPIXPERY",
+              "description": "Binning factor in scan direction",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NKX": {
+              "name": "NKX",
+              "description": "Number of binned pixels in column direction",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NKY": {
+              "name": "NKY",
+              "description": "Number of binned pixels in scan direction",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NYPERF": {
+              "name": "NYPERF",
+              "description": "Number of binned pixels per field",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "YBIN": {
+              "name": "YBIN",
+              "description": "Binning factor for model fit",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NKX1": {
+              "name": "NKX1",
+              "description": "Number of fit pixels in column direction (stage 1)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NKY1": {
+              "name": "NKY1",
+              "description": "Number of fit pixels in scan direction (stage 1)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NYS1": {
+              "name": "NYS1",
+              "description": "Number of kernels in scan direction (stage 1)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "FPER1": {
+              "name": "FPER1",
+              "description": "Number of kernels per field  (stage 1)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NYPERF1": {
+              "name": "NYPERF1",
+              "description": "Number of fit pixels per field in scan direction (stage 1)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NKX2": {
+              "name": "NKX2",
+              "description": "Number of fit pixels in column direction (stage 2)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NKY2": {
+              "name": "NKY2",
+              "description": "Number of fit pixels in scan direction (stage 2)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NXS2": {
+              "name": "NXS2",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NYS2": {
+              "name": "NYS2",
+              "description": "Number of kernels in scan direction (stage 2)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "FPER2": {
+              "name": "FPER2",
+              "description": "Number of kernels per field  (stage 2)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NYPERF2": {
+              "name": "NYPERF2",
+              "description": "Number of fit pixels per field in scan direction (stage 2)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "SKY1": {
+              "name": "SKY1",
+              "description": "Coefficients for kernels (stage 1; Y in Blanton et al 2011)",
+              "type": "float32[2004]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "SKY2": {
+              "name": "SKY2",
+              "description": "Coefficients for kernels (stage 2; X in Blanton et al 2011)",
+              "type": "float32[4896]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            }
+          }
+        }
+      }
+    }
+  }
+}
