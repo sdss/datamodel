@@ -47,7 +47,7 @@ Describes changes to the datamodel product and/or file structure from one releas
  - DR16
    - from: DR15
    - primary_delta_nkeys: 10
-   - removed_primary_header_kwargs: ['DATE', 'HISTORY']
+   - removed_primary_header_kwargs: ['HISTORY', 'DATE']
  - DR15
    - from: DR14
    - note: No changes
