@@ -50,8 +50,8 @@ Describes changes to the datamodel product and/or file structure from one releas
    - note: No changes
  - DR16
    - from: DR15
-   - added_primary_header_kwargs: ['EXPID008', 'EXPID005', 'EXPID006', 'EXPID001', 'EXPID003', 'EXPID009', 'EXPID002', 'EXPID007', 'EXPID015', 'EXPID011', 'EXPID004', 'EXPID012', 'EXPID014', 'EXPID016', 'EXPID010', 'EXPID013']
-   - removed_primary_header_kwargs: ['EXPID01', 'EXPID07', 'EXPID02', 'EXPID11', 'EXPID03', 'EXPID04', 'EXPID16', 'EXPID06', 'EXPID14', 'EXPID09', 'EXPID13', 'EXPID15', 'EXPID10', 'EXPID08', 'EXPID05', 'EXPID12']
+   - added_primary_header_kwargs: ['EXPID010', 'EXPID001', 'EXPID003', 'EXPID002', 'EXPID007', 'EXPID004', 'EXPID015', 'EXPID012', 'EXPID011', 'EXPID008', 'EXPID013', 'EXPID014', 'EXPID005', 'EXPID009', 'EXPID006', 'EXPID016']
+   - removed_primary_header_kwargs: ['EXPID04', 'EXPID11', 'EXPID14', 'EXPID03', 'EXPID13', 'EXPID12', 'EXPID02', 'EXPID10', 'EXPID06', 'EXPID16', 'EXPID05', 'EXPID01', 'EXPID15', 'EXPID07', 'EXPID09', 'EXPID08']
  - DR15
    - from: DR14
    - note: No changes
