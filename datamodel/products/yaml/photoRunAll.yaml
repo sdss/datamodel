@@ -1,0 +1,1761 @@
+general:
+  name: photoRunAll
+  short: 'migration: needs update'
+  description: 'The photoRunAll file contain basic information about all the
+
+    photometric runs. There is both a FITS and Yanny version of this file.'
+  datatype: FITS
+  filesize: 188 KB
+  releases:
+  - DR8
+  - DR9
+  - DR10
+  - DR12
+  - DR11
+  - DR13
+  - DR14
+  - DR16
+  - DR17
+  environments:
+  - BOSS_PHOTOOBJ
+  naming_convention: photoRunAll-dr8.fits, photoRunAll-dr8.par
+  generated_by: photoop
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases:
+    DR17:
+      from: DR16
+      note: No changes
+    DR16:
+      from: DR14
+      note: No changes
+    DR14:
+      from: DR13
+      note: No changes
+    DR13:
+      from: DR11
+      note: No changes
+    DR11:
+      from: DR12
+      note: No changes
+    DR12:
+      from: DR10
+      note: No changes
+    DR10:
+      from: DR9
+      note: No changes
+    DR9:
+      from: DR8
+      note: No changes
+releases:
+  DR8:
+    template: $BOSS_PHOTOOBJ/photoRunAll-[DR].fits
+    example: photoRunAll-dr8.fits
+    location: photoRunAll-{dr}.fits
+    environment: BOSS_PHOTOOBJ
+    access:
+      in_sdss_access: true
+      path_name: photoRunAll
+      path_template: $BOSS_PHOTOOBJ/photoRunAll-{dr}.fits
+      path_kwargs:
+      - dr
+      access_string: photoRunAll = $BOSS_PHOTOOBJ/photoRunAll-{dr}.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: ''
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: ''
+        is_image: false
+        size: 175 KB
+        columns:
+          SKYVERSION:
+            name: SKYVERSION
+            type: bool
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 0 = OPDB target, 1 = OPDB best XXX
+          RUN:
+            name: RUN
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Run number
+          RERUN:
+            name: RERUN
+            type: char[3]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Rerun number
+          MJD:
+            name: MJD
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MJD of observation (days)
+          DATESTRING:
+            name: DATESTRING
+            type: char[10]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Human-readable date of observation
+          STRIPE:
+            name: STRIPE
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Stripe number
+          STRIP:
+            name: STRIP
+            type: char
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Strip (N or S)
+          XBORE:
+            name: XBORE
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: boresight offset perpendicular to great circle  (deg)
+          FIELD_REF:
+            name: FIELD_REF
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Starting field number of full run (what MU_REF, MJD_REF refer
+              to)
+          LASTFIELD:
+            name: LASTFIELD
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: last field of full run
+          FLAVOR:
+            name: FLAVOR
+            type: char[7]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: type of drift scan (from apacheraw, bias, calibration, engineering,
+              ignore, and science)
+          XBIN:
+            name: XBIN
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: binning amount perpendicular to scan direction (pix)
+          YBIN:
+            name: YBIN
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: binning amount in scan direction (pix)
+          NROW:
+            name: NROW
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: number of rows in output idR (pix)
+          MJD_REF:
+            name: MJD_REF
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MJD at row 0 of reference frame (days)
+          MU_REF:
+            name: MU_REF
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: mu value at row 0 of reference field (deg)
+          LINESTART:
+            name: LINESTART
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: linestart rate betweeen each (binned) row (microsec)
+          TRACKING:
+            name: TRACKING
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: tracking rate  (arcsec)
+          NODE:
+            name: NODE
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: node of great circle, that is, its RA on the J2000 equator
+          INCL:
+            name: INCL
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: inclination of great circle relative to J2000 equator
+          COMMENTS:
+            name: COMMENTS
+            type: char[67]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: comments on the run
+          QTERM:
+            name: QTERM
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: quadratic term in coarse astrometric solution (arcsec)
+          MAXMURESID:
+            name: MAXMURESID
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: maximum residual from great circle in scan direction (arcsec)
+          MAXNURESID:
+            name: MAXNURESID
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: maximum residual from great circle perpendicular to scan
+              direction (arcsec)
+          STARTFIELD:
+            name: STARTFIELD
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: starting field for reduced data
+          ENDFIELD:
+            name: ENDFIELD
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: ending field for reduced data
+          PHOTO_VERSION:
+            name: PHOTO_VERSION
+            type: char[8]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: photo version used
+          DERVISH_VERSION:
+            name: DERVISH_VERSION
+            type: char[11]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: dervish version used
+          ASTROM_VERSION:
+            name: ASTROM_VERSION
+            type: char[11]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: astrom version used
+          SAS_VERSION:
+            name: SAS_VERSION
+            type: char[12]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: version of SAS used to produce CSV for this run
+  DR9:
+    template: $BOSS_PHOTOOBJ/photoRunAll-[DR].fits
+    example: photoRunAll-dr9.fits
+    location: photoRunAll-{dr}.fits
+    environment: BOSS_PHOTOOBJ
+    access:
+      in_sdss_access: true
+      path_name: photoRunAll
+      path_template: $BOSS_PHOTOOBJ/photoRunAll-{dr}.fits
+      path_kwargs:
+      - dr
+      access_string: photoRunAll = $BOSS_PHOTOOBJ/photoRunAll-{dr}.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: ''
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: ''
+        is_image: false
+        size: 169 KB
+        columns:
+          SKYVERSION:
+            name: SKYVERSION
+            type: bool
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 0 = OPDB target, 1 = OPDB best XXX
+          RUN:
+            name: RUN
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Run number
+          RERUN:
+            name: RERUN
+            type: char[3]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Rerun number
+          MJD:
+            name: MJD
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MJD of observation (days)
+          DATESTRING:
+            name: DATESTRING
+            type: char[10]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Human-readable date of observation
+          STRIPE:
+            name: STRIPE
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Stripe number
+          STRIP:
+            name: STRIP
+            type: char
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Strip (N or S)
+          XBORE:
+            name: XBORE
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: boresight offset perpendicular to great circle  (deg)
+          FIELD_REF:
+            name: FIELD_REF
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Starting field number of full run (what MU_REF, MJD_REF refer
+              to)
+          LASTFIELD:
+            name: LASTFIELD
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: last field of full run
+          FLAVOR:
+            name: FLAVOR
+            type: char[7]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: type of drift scan (from apacheraw, bias, calibration, engineering,
+              ignore, and science)
+          XBIN:
+            name: XBIN
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: binning amount perpendicular to scan direction (pix)
+          YBIN:
+            name: YBIN
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: binning amount in scan direction (pix)
+          NROW:
+            name: NROW
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: number of rows in output idR (pix)
+          MJD_REF:
+            name: MJD_REF
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MJD at row 0 of reference frame (days)
+          MU_REF:
+            name: MU_REF
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: mu value at row 0 of reference field (deg)
+          LINESTART:
+            name: LINESTART
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: linestart rate betweeen each (binned) row (microsec)
+          TRACKING:
+            name: TRACKING
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: tracking rate  (arcsec)
+          NODE:
+            name: NODE
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: node of great circle, that is, its RA on the J2000 equator
+          INCL:
+            name: INCL
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: inclination of great circle relative to J2000 equator
+          COMMENTS:
+            name: COMMENTS
+            type: char[67]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: comments on the run
+          QTERM:
+            name: QTERM
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: quadratic term in coarse astrometric solution (arcsec)
+          MAXMURESID:
+            name: MAXMURESID
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: maximum residual from great circle in scan direction (arcsec)
+          MAXNURESID:
+            name: MAXNURESID
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: maximum residual from great circle perpendicular to scan
+              direction (arcsec)
+          STARTFIELD:
+            name: STARTFIELD
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: starting field for reduced data
+          ENDFIELD:
+            name: ENDFIELD
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: ending field for reduced data
+          PHOTO_VERSION:
+            name: PHOTO_VERSION
+            type: char[8]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: photo version used
+          DERVISH_VERSION:
+            name: DERVISH_VERSION
+            type: char[11]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: dervish version used
+          ASTROM_VERSION:
+            name: ASTROM_VERSION
+            type: char[11]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: astrom version used
+          SAS_VERSION:
+            name: SAS_VERSION
+            type: char[4]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: version of SAS used to produce CSV for this run
+  DR10:
+    template: $BOSS_PHOTOOBJ/photoRunAll-[DR].fits
+    example: photoRunAll-dr10.fits
+    location: photoRunAll-{dr}.fits
+    environment: BOSS_PHOTOOBJ
+    access:
+      in_sdss_access: true
+      path_name: photoRunAll
+      path_template: $BOSS_PHOTOOBJ/photoRunAll-{dr}.fits
+      path_kwargs:
+      - dr
+      access_string: photoRunAll = $BOSS_PHOTOOBJ/photoRunAll-{dr}.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: ''
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: ''
+        is_image: false
+        size: 169 KB
+        columns:
+          SKYVERSION:
+            name: SKYVERSION
+            type: bool
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 0 = OPDB target, 1 = OPDB best XXX
+          RUN:
+            name: RUN
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Run number
+          RERUN:
+            name: RERUN
+            type: char[3]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Rerun number
+          MJD:
+            name: MJD
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MJD of observation (days)
+          DATESTRING:
+            name: DATESTRING
+            type: char[10]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Human-readable date of observation
+          STRIPE:
+            name: STRIPE
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Stripe number
+          STRIP:
+            name: STRIP
+            type: char
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Strip (N or S)
+          XBORE:
+            name: XBORE
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: boresight offset perpendicular to great circle  (deg)
+          FIELD_REF:
+            name: FIELD_REF
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Starting field number of full run (what MU_REF, MJD_REF refer
+              to)
+          LASTFIELD:
+            name: LASTFIELD
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: last field of full run
+          FLAVOR:
+            name: FLAVOR
+            type: char[7]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: type of drift scan (from apacheraw, bias, calibration, engineering,
+              ignore, and science)
+          XBIN:
+            name: XBIN
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: binning amount perpendicular to scan direction (pix)
+          YBIN:
+            name: YBIN
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: binning amount in scan direction (pix)
+          NROW:
+            name: NROW
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: number of rows in output idR (pix)
+          MJD_REF:
+            name: MJD_REF
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MJD at row 0 of reference frame (days)
+          MU_REF:
+            name: MU_REF
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: mu value at row 0 of reference field (deg)
+          LINESTART:
+            name: LINESTART
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: linestart rate betweeen each (binned) row (microsec)
+          TRACKING:
+            name: TRACKING
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: tracking rate  (arcsec)
+          NODE:
+            name: NODE
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: node of great circle, that is, its RA on the J2000 equator
+          INCL:
+            name: INCL
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: inclination of great circle relative to J2000 equator
+          COMMENTS:
+            name: COMMENTS
+            type: char[67]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: comments on the run
+          QTERM:
+            name: QTERM
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: quadratic term in coarse astrometric solution (arcsec)
+          MAXMURESID:
+            name: MAXMURESID
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: maximum residual from great circle in scan direction (arcsec)
+          MAXNURESID:
+            name: MAXNURESID
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: maximum residual from great circle perpendicular to scan
+              direction (arcsec)
+          STARTFIELD:
+            name: STARTFIELD
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: starting field for reduced data
+          ENDFIELD:
+            name: ENDFIELD
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: ending field for reduced data
+          PHOTO_VERSION:
+            name: PHOTO_VERSION
+            type: char[8]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: photo version used
+          DERVISH_VERSION:
+            name: DERVISH_VERSION
+            type: char[11]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: dervish version used
+          ASTROM_VERSION:
+            name: ASTROM_VERSION
+            type: char[11]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: astrom version used
+          SAS_VERSION:
+            name: SAS_VERSION
+            type: char[4]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: version of SAS used to produce CSV for this run
+  DR11:
+    template: $BOSS_PHOTOOBJ/photoRunAll-[DR].fits
+    example: photoRunAll-dr11.fits
+    location: photoRunAll-{dr}.fits
+    environment: BOSS_PHOTOOBJ
+    access:
+      in_sdss_access: true
+      path_name: photoRunAll
+      path_template: $BOSS_PHOTOOBJ/photoRunAll-{dr}.fits
+      path_kwargs:
+      - dr
+      access_string: photoRunAll = $BOSS_PHOTOOBJ/photoRunAll-{dr}.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: ''
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: ''
+        is_image: false
+        size: 169 KB
+        columns:
+          SKYVERSION:
+            name: SKYVERSION
+            type: bool
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 0 = OPDB target, 1 = OPDB best XXX
+          RUN:
+            name: RUN
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Run number
+          RERUN:
+            name: RERUN
+            type: char[3]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Rerun number
+          MJD:
+            name: MJD
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MJD of observation (days)
+          DATESTRING:
+            name: DATESTRING
+            type: char[10]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Human-readable date of observation
+          STRIPE:
+            name: STRIPE
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Stripe number
+          STRIP:
+            name: STRIP
+            type: char
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Strip (N or S)
+          XBORE:
+            name: XBORE
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: boresight offset perpendicular to great circle  (deg)
+          FIELD_REF:
+            name: FIELD_REF
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Starting field number of full run (what MU_REF, MJD_REF refer
+              to)
+          LASTFIELD:
+            name: LASTFIELD
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: last field of full run
+          FLAVOR:
+            name: FLAVOR
+            type: char[7]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: type of drift scan (from apacheraw, bias, calibration, engineering,
+              ignore, and science)
+          XBIN:
+            name: XBIN
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: binning amount perpendicular to scan direction (pix)
+          YBIN:
+            name: YBIN
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: binning amount in scan direction (pix)
+          NROW:
+            name: NROW
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: number of rows in output idR (pix)
+          MJD_REF:
+            name: MJD_REF
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MJD at row 0 of reference frame (days)
+          MU_REF:
+            name: MU_REF
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: mu value at row 0 of reference field (deg)
+          LINESTART:
+            name: LINESTART
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: linestart rate betweeen each (binned) row (microsec)
+          TRACKING:
+            name: TRACKING
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: tracking rate  (arcsec)
+          NODE:
+            name: NODE
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: node of great circle, that is, its RA on the J2000 equator
+          INCL:
+            name: INCL
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: inclination of great circle relative to J2000 equator
+          COMMENTS:
+            name: COMMENTS
+            type: char[67]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: comments on the run
+          QTERM:
+            name: QTERM
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: quadratic term in coarse astrometric solution (arcsec)
+          MAXMURESID:
+            name: MAXMURESID
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: maximum residual from great circle in scan direction (arcsec)
+          MAXNURESID:
+            name: MAXNURESID
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: maximum residual from great circle perpendicular to scan
+              direction (arcsec)
+          STARTFIELD:
+            name: STARTFIELD
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: starting field for reduced data
+          ENDFIELD:
+            name: ENDFIELD
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: ending field for reduced data
+          PHOTO_VERSION:
+            name: PHOTO_VERSION
+            type: char[8]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: photo version used
+          DERVISH_VERSION:
+            name: DERVISH_VERSION
+            type: char[11]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: dervish version used
+          ASTROM_VERSION:
+            name: ASTROM_VERSION
+            type: char[11]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: astrom version used
+          SAS_VERSION:
+            name: SAS_VERSION
+            type: char[4]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: version of SAS used to produce CSV for this run
+  DR12:
+    template: $BOSS_PHOTOOBJ/photoRunAll-[DR].fits
+    example: photoRunAll-dr12.fits
+    location: photoRunAll-{dr}.fits
+    environment: BOSS_PHOTOOBJ
+    access:
+      in_sdss_access: true
+      path_name: photoRunAll
+      path_template: $BOSS_PHOTOOBJ/photoRunAll-{dr}.fits
+      path_kwargs:
+      - dr
+      access_string: photoRunAll = $BOSS_PHOTOOBJ/photoRunAll-{dr}.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: ''
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: ''
+        is_image: false
+        size: 169 KB
+        columns:
+          SKYVERSION:
+            name: SKYVERSION
+            type: bool
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 0 = OPDB target, 1 = OPDB best XXX
+          RUN:
+            name: RUN
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Run number
+          RERUN:
+            name: RERUN
+            type: char[3]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Rerun number
+          MJD:
+            name: MJD
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MJD of observation (days)
+          DATESTRING:
+            name: DATESTRING
+            type: char[10]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Human-readable date of observation
+          STRIPE:
+            name: STRIPE
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Stripe number
+          STRIP:
+            name: STRIP
+            type: char
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Strip (N or S)
+          XBORE:
+            name: XBORE
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: boresight offset perpendicular to great circle  (deg)
+          FIELD_REF:
+            name: FIELD_REF
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Starting field number of full run (what MU_REF, MJD_REF refer
+              to)
+          LASTFIELD:
+            name: LASTFIELD
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: last field of full run
+          FLAVOR:
+            name: FLAVOR
+            type: char[7]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: type of drift scan (from apacheraw, bias, calibration, engineering,
+              ignore, and science)
+          XBIN:
+            name: XBIN
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: binning amount perpendicular to scan direction (pix)
+          YBIN:
+            name: YBIN
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: binning amount in scan direction (pix)
+          NROW:
+            name: NROW
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: number of rows in output idR (pix)
+          MJD_REF:
+            name: MJD_REF
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MJD at row 0 of reference frame (days)
+          MU_REF:
+            name: MU_REF
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: mu value at row 0 of reference field (deg)
+          LINESTART:
+            name: LINESTART
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: linestart rate betweeen each (binned) row (microsec)
+          TRACKING:
+            name: TRACKING
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: tracking rate  (arcsec)
+          NODE:
+            name: NODE
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: node of great circle, that is, its RA on the J2000 equator
+          INCL:
+            name: INCL
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: inclination of great circle relative to J2000 equator
+          COMMENTS:
+            name: COMMENTS
+            type: char[67]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: comments on the run
+          QTERM:
+            name: QTERM
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: quadratic term in coarse astrometric solution (arcsec)
+          MAXMURESID:
+            name: MAXMURESID
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: maximum residual from great circle in scan direction (arcsec)
+          MAXNURESID:
+            name: MAXNURESID
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: maximum residual from great circle perpendicular to scan
+              direction (arcsec)
+          STARTFIELD:
+            name: STARTFIELD
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: starting field for reduced data
+          ENDFIELD:
+            name: ENDFIELD
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: ending field for reduced data
+          PHOTO_VERSION:
+            name: PHOTO_VERSION
+            type: char[8]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: photo version used
+          DERVISH_VERSION:
+            name: DERVISH_VERSION
+            type: char[11]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: dervish version used
+          ASTROM_VERSION:
+            name: ASTROM_VERSION
+            type: char[11]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: astrom version used
+          SAS_VERSION:
+            name: SAS_VERSION
+            type: char[4]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: version of SAS used to produce CSV for this run
+  DR13:
+    template: $BOSS_PHOTOOBJ/photoRunAll-[DR].fits
+    example: photoRunAll-dr13.fits
+    location: photoRunAll-{dr}.fits
+    environment: BOSS_PHOTOOBJ
+    access:
+      in_sdss_access: true
+      path_name: photoRunAll
+      path_template: $BOSS_PHOTOOBJ/photoRunAll-{dr}.fits
+      path_kwargs:
+      - dr
+      access_string: photoRunAll = $BOSS_PHOTOOBJ/photoRunAll-{dr}.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: ''
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: ''
+        is_image: false
+        size: 170 KB
+        columns:
+          SKYVERSION:
+            name: SKYVERSION
+            type: bool
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 0 = OPDB target, 1 = OPDB best XXX
+          RUN:
+            name: RUN
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Run number
+          RERUN:
+            name: RERUN
+            type: char[3]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Rerun number
+          MJD:
+            name: MJD
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MJD of observation (days)
+          DATESTRING:
+            name: DATESTRING
+            type: char[10]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Human-readable date of observation
+          STRIPE:
+            name: STRIPE
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Stripe number
+          STRIP:
+            name: STRIP
+            type: char
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Strip (N or S)
+          XBORE:
+            name: XBORE
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: boresight offset perpendicular to great circle  (deg)
+          FIELD_REF:
+            name: FIELD_REF
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Starting field number of full run (what MU_REF, MJD_REF refer
+              to)
+          LASTFIELD:
+            name: LASTFIELD
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: last field of full run
+          FLAVOR:
+            name: FLAVOR
+            type: char[7]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: type of drift scan (from apacheraw, bias, calibration, engineering,
+              ignore, and science)
+          XBIN:
+            name: XBIN
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: binning amount perpendicular to scan direction (pix)
+          YBIN:
+            name: YBIN
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: binning amount in scan direction (pix)
+          NROW:
+            name: NROW
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: number of rows in output idR (pix)
+          MJD_REF:
+            name: MJD_REF
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MJD at row 0 of reference frame (days)
+          MU_REF:
+            name: MU_REF
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: mu value at row 0 of reference field (deg)
+          LINESTART:
+            name: LINESTART
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: linestart rate betweeen each (binned) row (microsec)
+          TRACKING:
+            name: TRACKING
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: tracking rate  (arcsec)
+          NODE:
+            name: NODE
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: node of great circle, that is, its RA on the J2000 equator
+          INCL:
+            name: INCL
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: inclination of great circle relative to J2000 equator
+          COMMENTS:
+            name: COMMENTS
+            type: char[67]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: comments on the run
+          QTERM:
+            name: QTERM
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: quadratic term in coarse astrometric solution (arcsec)
+          MAXMURESID:
+            name: MAXMURESID
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: maximum residual from great circle in scan direction (arcsec)
+          MAXNURESID:
+            name: MAXNURESID
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: maximum residual from great circle perpendicular to scan
+              direction (arcsec)
+          STARTFIELD:
+            name: STARTFIELD
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: starting field for reduced data
+          ENDFIELD:
+            name: ENDFIELD
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: ending field for reduced data
+          PHOTO_VERSION:
+            name: PHOTO_VERSION
+            type: char[8]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: photo version used
+          DERVISH_VERSION:
+            name: DERVISH_VERSION
+            type: char[11]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: dervish version used
+          ASTROM_VERSION:
+            name: ASTROM_VERSION
+            type: char[11]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: astrom version used
+          SAS_VERSION:
+            name: SAS_VERSION
+            type: char[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: version of SAS used to produce CSV for this run
+  DR14:
+    template: $BOSS_PHOTOOBJ/photoRunAll-[DR].fits
+    example: photoRunAll-dr14.fits
+    location: photoRunAll-{dr}.fits
+    environment: BOSS_PHOTOOBJ
+    access:
+      in_sdss_access: true
+      path_name: photoRunAll
+      path_template: $BOSS_PHOTOOBJ/photoRunAll-{dr}.fits
+      path_kwargs:
+      - dr
+      access_string: photoRunAll = $BOSS_PHOTOOBJ/photoRunAll-{dr}.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: ''
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: ''
+        is_image: false
+        size: 170 KB
+        columns:
+          SKYVERSION:
+            name: SKYVERSION
+            type: bool
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 0 = OPDB target, 1 = OPDB best XXX
+          RUN:
+            name: RUN
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Run number
+          RERUN:
+            name: RERUN
+            type: char[3]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Rerun number
+          MJD:
+            name: MJD
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MJD of observation (days)
+          DATESTRING:
+            name: DATESTRING
+            type: char[10]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Human-readable date of observation
+          STRIPE:
+            name: STRIPE
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Stripe number
+          STRIP:
+            name: STRIP
+            type: char
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Strip (N or S)
+          XBORE:
+            name: XBORE
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: boresight offset perpendicular to great circle  (deg)
+          FIELD_REF:
+            name: FIELD_REF
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Starting field number of full run (what MU_REF, MJD_REF refer
+              to)
+          LASTFIELD:
+            name: LASTFIELD
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: last field of full run
+          FLAVOR:
+            name: FLAVOR
+            type: char[7]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: type of drift scan (from apacheraw, bias, calibration, engineering,
+              ignore, and science)
+          XBIN:
+            name: XBIN
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: binning amount perpendicular to scan direction (pix)
+          YBIN:
+            name: YBIN
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: binning amount in scan direction (pix)
+          NROW:
+            name: NROW
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: number of rows in output idR (pix)
+          MJD_REF:
+            name: MJD_REF
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MJD at row 0 of reference frame (days)
+          MU_REF:
+            name: MU_REF
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: mu value at row 0 of reference field (deg)
+          LINESTART:
+            name: LINESTART
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: linestart rate betweeen each (binned) row (microsec)
+          TRACKING:
+            name: TRACKING
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: tracking rate  (arcsec)
+          NODE:
+            name: NODE
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: node of great circle, that is, its RA on the J2000 equator
+          INCL:
+            name: INCL
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: inclination of great circle relative to J2000 equator
+          COMMENTS:
+            name: COMMENTS
+            type: char[67]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: comments on the run
+          QTERM:
+            name: QTERM
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: quadratic term in coarse astrometric solution (arcsec)
+          MAXMURESID:
+            name: MAXMURESID
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: maximum residual from great circle in scan direction (arcsec)
+          MAXNURESID:
+            name: MAXNURESID
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: maximum residual from great circle perpendicular to scan
+              direction (arcsec)
+          STARTFIELD:
+            name: STARTFIELD
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: starting field for reduced data
+          ENDFIELD:
+            name: ENDFIELD
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: ending field for reduced data
+          PHOTO_VERSION:
+            name: PHOTO_VERSION
+            type: char[8]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: photo version used
+          DERVISH_VERSION:
+            name: DERVISH_VERSION
+            type: char[11]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: dervish version used
+          ASTROM_VERSION:
+            name: ASTROM_VERSION
+            type: char[11]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: astrom version used
+          SAS_VERSION:
+            name: SAS_VERSION
+            type: char[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: version of SAS used to produce CSV for this run
+  DR16:
+    template: $BOSS_PHOTOOBJ/photoRunAll-[DR].fits
+    example: photoRunAll-dr16.fits
+    location: photoRunAll-{dr}.fits
+    environment: BOSS_PHOTOOBJ
+    access:
+      in_sdss_access: true
+      path_name: photoRunAll
+      path_template: $BOSS_PHOTOOBJ/photoRunAll-{dr}.fits
+      path_kwargs:
+      - dr
+      access_string: photoRunAll = $BOSS_PHOTOOBJ/photoRunAll-{dr}.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: ''
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: ''
+        is_image: false
+        size: 170 KB
+        columns:
+          SKYVERSION:
+            name: SKYVERSION
+            type: bool
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 0 = OPDB target, 1 = OPDB best XXX
+          RUN:
+            name: RUN
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Run number
+          RERUN:
+            name: RERUN
+            type: char[3]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Rerun number
+          MJD:
+            name: MJD
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MJD of observation (days)
+          DATESTRING:
+            name: DATESTRING
+            type: char[10]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Human-readable date of observation
+          STRIPE:
+            name: STRIPE
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Stripe number
+          STRIP:
+            name: STRIP
+            type: char
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Strip (N or S)
+          XBORE:
+            name: XBORE
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: boresight offset perpendicular to great circle  (deg)
+          FIELD_REF:
+            name: FIELD_REF
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Starting field number of full run (what MU_REF, MJD_REF refer
+              to)
+          LASTFIELD:
+            name: LASTFIELD
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: last field of full run
+          FLAVOR:
+            name: FLAVOR
+            type: char[7]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: type of drift scan (from apacheraw, bias, calibration, engineering,
+              ignore, and science)
+          XBIN:
+            name: XBIN
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: binning amount perpendicular to scan direction (pix)
+          YBIN:
+            name: YBIN
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: binning amount in scan direction (pix)
+          NROW:
+            name: NROW
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: number of rows in output idR (pix)
+          MJD_REF:
+            name: MJD_REF
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MJD at row 0 of reference frame (days)
+          MU_REF:
+            name: MU_REF
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: mu value at row 0 of reference field (deg)
+          LINESTART:
+            name: LINESTART
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: linestart rate betweeen each (binned) row (microsec)
+          TRACKING:
+            name: TRACKING
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: tracking rate  (arcsec)
+          NODE:
+            name: NODE
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: node of great circle, that is, its RA on the J2000 equator
+          INCL:
+            name: INCL
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: inclination of great circle relative to J2000 equator
+          COMMENTS:
+            name: COMMENTS
+            type: char[67]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: comments on the run
+          QTERM:
+            name: QTERM
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: quadratic term in coarse astrometric solution (arcsec)
+          MAXMURESID:
+            name: MAXMURESID
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: maximum residual from great circle in scan direction (arcsec)
+          MAXNURESID:
+            name: MAXNURESID
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: maximum residual from great circle perpendicular to scan
+              direction (arcsec)
+          STARTFIELD:
+            name: STARTFIELD
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: starting field for reduced data
+          ENDFIELD:
+            name: ENDFIELD
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: ending field for reduced data
+          PHOTO_VERSION:
+            name: PHOTO_VERSION
+            type: char[8]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: photo version used
+          DERVISH_VERSION:
+            name: DERVISH_VERSION
+            type: char[11]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: dervish version used
+          ASTROM_VERSION:
+            name: ASTROM_VERSION
+            type: char[11]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: astrom version used
+          SAS_VERSION:
+            name: SAS_VERSION
+            type: char[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: version of SAS used to produce CSV for this run
+  DR17:
+    template: $BOSS_PHOTOOBJ/photoRunAll-[DR].fits
+    example: photoRunAll-dr17.fits
+    location: photoRunAll-{dr}.fits
+    environment: BOSS_PHOTOOBJ
+    access:
+      in_sdss_access: true
+      path_name: photoRunAll
+      path_template: $BOSS_PHOTOOBJ/photoRunAll-{dr}.fits
+      path_kwargs:
+      - dr
+      access_string: photoRunAll = $BOSS_PHOTOOBJ/photoRunAll-{dr}.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: ''
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: ''
+        is_image: false
+        size: 170 KB
+        columns:
+          SKYVERSION:
+            name: SKYVERSION
+            type: bool
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 0 = OPDB target, 1 = OPDB best XXX
+          RUN:
+            name: RUN
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Run number
+          RERUN:
+            name: RERUN
+            type: char[3]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Rerun number
+          MJD:
+            name: MJD
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MJD of observation (days)
+          DATESTRING:
+            name: DATESTRING
+            type: char[10]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Human-readable date of observation
+          STRIPE:
+            name: STRIPE
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Stripe number
+          STRIP:
+            name: STRIP
+            type: char
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Strip (N or S)
+          XBORE:
+            name: XBORE
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: boresight offset perpendicular to great circle  (deg)
+          FIELD_REF:
+            name: FIELD_REF
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Starting field number of full run (what MU_REF, MJD_REF refer
+              to)
+          LASTFIELD:
+            name: LASTFIELD
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: last field of full run
+          FLAVOR:
+            name: FLAVOR
+            type: char[7]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: type of drift scan (from apacheraw, bias, calibration, engineering,
+              ignore, and science)
+          XBIN:
+            name: XBIN
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: binning amount perpendicular to scan direction (pix)
+          YBIN:
+            name: YBIN
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: binning amount in scan direction (pix)
+          NROW:
+            name: NROW
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: number of rows in output idR (pix)
+          MJD_REF:
+            name: MJD_REF
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MJD at row 0 of reference frame (days)
+          MU_REF:
+            name: MU_REF
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: mu value at row 0 of reference field (deg)
+          LINESTART:
+            name: LINESTART
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: linestart rate betweeen each (binned) row (microsec)
+          TRACKING:
+            name: TRACKING
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: tracking rate  (arcsec)
+          NODE:
+            name: NODE
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: node of great circle, that is, its RA on the J2000 equator
+          INCL:
+            name: INCL
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: inclination of great circle relative to J2000 equator
+          COMMENTS:
+            name: COMMENTS
+            type: char[67]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: comments on the run
+          QTERM:
+            name: QTERM
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: quadratic term in coarse astrometric solution (arcsec)
+          MAXMURESID:
+            name: MAXMURESID
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: maximum residual from great circle in scan direction (arcsec)
+          MAXNURESID:
+            name: MAXNURESID
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: maximum residual from great circle perpendicular to scan
+              direction (arcsec)
+          STARTFIELD:
+            name: STARTFIELD
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: starting field for reduced data
+          ENDFIELD:
+            name: ENDFIELD
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: ending field for reduced data
+          PHOTO_VERSION:
+            name: PHOTO_VERSION
+            type: char[8]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: photo version used
+          DERVISH_VERSION:
+            name: DERVISH_VERSION
+            type: char[11]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: dervish version used
+          ASTROM_VERSION:
+            name: ASTROM_VERSION
+            type: char[11]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: astrom version used
+          SAS_VERSION:
+            name: SAS_VERSION
+            type: char[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: version of SAS used to produce CSV for this run
