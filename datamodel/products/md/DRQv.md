@@ -51,7 +51,7 @@ Describes changes to the datamodel product and/or file structure from one releas
    - added_hdus: ['CATALOG']
    - removed_hdus: ['DR14Q_v4_4']
    - primary_delta_nkeys: 12
-   - removed_primary_header_kwargs: ['VOTMETA', 'NTABLE', 'COMMENT', 'NAXIS1']
+   - removed_primary_header_kwargs: ['NAXIS1', 'COMMENT', 'VOTMETA', 'NTABLE']
 
 ---
 ## Example HDU List
