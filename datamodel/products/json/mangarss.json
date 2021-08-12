@@ -1,7 +1,7 @@
 {
   "general": {
     "name": "mangarss",
-    "short": "migrated from old datamodel - needs update",
+    "short": "migration: needs update",
     "description": "The MaNGA DRP provides summary row-stacked spectra (RSS; with both logarithmic and linear wavelength solutions) for each galaxy that combine individual fiber spectra of that galaxy across multiple exposures into a single row-stacked format.\nThe RSS files are a two-dimensional array with horizontal size N_spec and vertical size N = \\sum N_fiber(i) where N_fiber(i) is the number of fibers in the IFU targeting this galaxy for the i'th exposure and the sum runs over all exposures.",
     "environments": [
       "MANGA_SPECTRO_REDUX"
@@ -50,12 +50,12 @@
         "from": "DR16",
         "delta_nhdus": null,
         "added_hdus": [
-          "LSFPOST",
-          "LSFPRE"
+          "LSFPRE",
+          "LSFPOST"
         ],
         "removed_hdus": [
-          "DISP",
-          "PREDISP"
+          "PREDISP",
+          "DISP"
         ],
         "primary_delta_nkeys": null,
         "added_primary_header_kwargs": null,
@@ -76,9 +76,9 @@
         "from": "DR14",
         "delta_nhdus": null,
         "added_hdus": [
-          "PRESPECRESD",
+          "PREDISP",
           "PRESPECRES",
-          "PREDISP"
+          "PRESPECRESD"
         ],
         "removed_hdus": null,
         "primary_delta_nkeys": 1,
@@ -116,10 +116,10 @@
         "path_name": "mangarss",
         "path_template": "$MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}RSS.fits.gz",
         "path_kwargs": [
-          "plate",
           "drpver",
           "ifu",
-          "wave"
+          "wave",
+          "plate"
         ],
         "access_string": "mangarss = $MANGA_SPECTRO_REDUX/v1_5_4/8606/stack/manga-8606-6102-LOGRSS.fits.gz"
       },
@@ -5427,9 +5427,9 @@
       }
     },
     "DR16": {
-      "template": "$MANGA_SPECTRO_REDUX/v2_4_3/8606/stack/manga-8606-6102-LOGRSS.fits.gz",
+      "template": "$MANGA_SPECTRO_REDUX/[DRPVER]/[PLATE]/stack/manga-[PLATE]-[IFU]-[WAVE]RSS.fits.gz",
       "example": "v2_4_3/8606/stack/manga-8606-6102-LOGRSS.fits.gz",
-      "location": "v2_4_3/8606/stack/manga-8606-6102-LOGRSS.fits.gz",
+      "location": "{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}RSS.fits.gz",
       "environment": "MANGA_SPECTRO_REDUX",
       "access": {
         "in_sdss_access": true,
@@ -5437,11 +5437,11 @@
         "path_template": "$MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}RSS.fits.gz",
         "path_kwargs": [
           "plate",
-          "drpver",
+          "wave",
           "ifu",
-          "wave"
+          "drpver"
         ],
-        "access_string": "mangarss = $MANGA_SPECTRO_REDUX/v2_4_3/8606/stack/manga-8606-6102-LOGRSS.fits.gz"
+        "access_string": "mangarss = $MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}RSS.fits.gz"
       },
       "hdus": {
         "hdu0": {
