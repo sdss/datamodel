@@ -1,0 +1,797 @@
+general:
+  name: portsmouth_stellarmass_plate
+  short: 'migration: needs update'
+  description: "This file contains the output of the Portsmouth Spectro-Photometric\
+    \ Stellar Mass computation of the BOSS galaxy product, according to the <a href=\"\
+    http://www.sdss.org/dr13/spectro/galaxy_portsmouth#fitting\">algorithm documentation</a>\
+    \ .\n            for each PLATE-MJD."
+  datatype: FITS
+  filesize: 118 KB
+  releases:
+  - DR10
+  - DR12
+  - DR11
+  environments:
+  - BOSS_GALAXY_REDUX
+  naming_convention: portsmouth_stellarmass-pppp-mmmmm.fits, where <i>pppp</i> is
+    a 4-digit plate number, and <i>mmmmm</i> is a 5-digit MJD.
+  generated_by: galaxy/portsmouth_stellarmass
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases:
+    DR11:
+      from: DR12
+      note: No changes
+    DR12:
+      from: DR10
+      note: No changes
+releases:
+  DR10:
+    template: $BOSS_GALAXY_REDUX/[VERSION]/[RUN2D]/[PLATE]/[RUN1D]/portsmouth/stellarmass/portsmouth_stellarmass_[CONFIGURATION]-[PLATE]-[MJD].fits
+    example: v1_0/v5_5_12/3761/v5_5_12/portsmouth/stellarmass/portsmouth_stellarmass_starforming_krou_red0-3761-55272.fits
+    location: '{version}/{run2d}/{plate}/{run1d}/portsmouth/stellarmass/portsmouth_stellarmass_{configuration}-{plate}-{mjd}.fits'
+    environment: BOSS_GALAXY_REDUX
+    access:
+      in_sdss_access: true
+      path_name: portsmouth_stellarmass_plate
+      path_template: $BOSS_GALAXY_REDUX/{version}/{run2d}/{plate:0>4}/{run1d}/portsmouth/stellarmass/portsmouth_stellarmass_{configuration}-{plate:0>4}-{mjd}.fits
+      path_kwargs:
+      - run2d
+      - plate
+      - configuration
+      - run1d
+      - version
+      - mjd
+      access_string: portsmouth_stellarmass_plate = $BOSS_GALAXY_REDUX/{version}/{run2d}/{plate}/{run1d}/portsmouth/stellarmass/portsmouth_stellarmass_{configuration}-{plate}-{mjd}.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: "The BOSS Galaxy product assumes a WMAP 7 \u039BCDM cosmology\
+          \ with <var>H</var><sub>0</sub> = 70, \u03A9<sub>m</sub> = 0.274, and \u03A9\
+          <sub>\u039B</sub> = 0.726."
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: "The BOSS Galaxy product assumes a WMAP 7 \u039BCDM cosmology\
+          \ with <var>H</var><sub>0</sub> = 70, \u03A9<sub>m</sub> = 0.274, and \u03A9\
+          <sub>\u039B</sub> = 0.726."
+        is_image: false
+        size: 102 KB
+        columns:
+          PLATE:
+            name: PLATE
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Plate number
+          MJD:
+            name: MJD
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Modified Julian date of observation
+          FIBERID:
+            name: FIBERID
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Fiber ID (1 to 1000)
+          RA:
+            name: RA
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Object RA (Plug_RA drilled fiber position) [J2000 degrees]
+          DEC:
+            name: DEC
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Object Dec (Plug_Dec drilled fiber position) [J2000 degrees]
+          Z:
+            name: Z
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Redshift (best pipeline galaxy z_noqso with zwarning_noqso=0)
+          Z_ERR:
+            name: Z_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Redshift error (z_err_noqso) based upon fit to chi<sup>2</sup>
+              minimum
+          ZNUM:
+            name: ZNUM
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: the znum-th best-fit corresponding to z_noqso (optional input
+              to readspec)
+          MAGSCALED:
+            name: MAGSCALED
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MagScaled[ugriz] = modelmag[ugriz] + cmodelmag[i]-modelmag[i]
+              - extinction[ugriz] (see <a href="https://data.sdss.org/datamodel/files/BOSS_PHOTOOBJ/RERUN/RUN/CAMCOL/photoObj.html"
+              target="_blank">PhotoObj</a> for definitions).
+          MAGSCALED_ERR:
+            name: MAGSCALED_ERR
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MagScaled_err[ugriz] = MagScaled[ugriz] * modelmagerr[ugriz]/modelmag[ugriz]
+              (see <a href="https://data.sdss.org/datamodel/files/BOSS_PHOTOOBJ/RERUN/RUN/CAMCOL/photoObj.html"
+              target="_blank">PhotoObj</a> for definitions).
+          REDUCEDCHI2:
+            name: REDUCEDCHI2
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Reduced chi squared of best fit
+          AGE:
+            name: AGE
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Best-fit age of galaxy [in Gyr]
+          MINAGE:
+            name: MINAGE
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Minimum age (lower confidence level of age) [in Gyr]
+          MAXAGE:
+            name: MAXAGE
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Maximum age (upper confidence level of age) [in Gyr]
+          E_BV:
+            name: E_BV
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          LOGMASS:
+            name: LOGMASS
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Best-fit stellar mass of galaxy [in log M<sub>sun</sub>]
+          MINLOGMASS:
+            name: MINLOGMASS
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Minimum stellar mass (lower 68% confidence level of logmass)
+              [in log M<sub>sun</sub>]
+          MAXLOGMASS:
+            name: MAXLOGMASS
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Maximum stellar mass (upper 68% confidence level of logmass)
+              [in log M<sub>sun</sub>]
+          SFR:
+            name: SFR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Star formation rate of best fit [in M<sub>sun</sub>/yr]
+          MINSFR:
+            name: MINSFR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Minimum star formation rate (lower confidence level of SFR)
+              [in M<sub>sun</sub>/yr]
+          MAXSFR:
+            name: MAXSFR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Maximum star formation rate (upper confidence level of SFR)
+              [in M<sub>sun</sub>/yr]
+          REDDENINGLAW:
+            name: REDDENINGLAW
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: ID of best fit reddening law (0 = no reddening)
+          NFILTER:
+            name: NFILTER
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of filters used in the fit (default is 5 for ugriz)
+          ABSMAGK:
+            name: ABSMAGK
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Absolute magnitude in K-band
+          MEDIANPDF:
+            name: MEDIANPDF
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Median value of the logmass PDF [in log M<sub>sun</sub>]
+          PDF16:
+            name: PDF16
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Value of PDF at which 16% of the logmass probability is accumulated
+              [in log M<sub>sun</sub>]
+          PDF84:
+            name: PDF84
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Value of PDF at which 84% of the logmass probability is accumulated
+              [in log M<sub>sun</sub>]
+          PEAKPDF:
+            name: PEAKPDF
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Peak value of logmass PDF [in log M<sub>sun</sub>]
+          DELTA_REDUCEDCHI2:
+            name: DELTA_REDUCEDCHI2
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Difference between best fit reduced chi squared and second
+              best fit
+          LOGMASS_NOMASSLOSS:
+            name: LOGMASS_NOMASSLOSS
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Best-fit stellar mass of galaxy without mass loss [in log
+              M<sub>sun</sub>]
+          MINLOGMASS_NOMASSLOSS:
+            name: MINLOGMASS_NOMASSLOSS
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Minimum stellar mass (lower 68% confidence level of logmass)
+              without mass loss [in log M<sub>sun</sub>]
+          MAXLOGMASS_NOMASSLOSS:
+            name: MAXLOGMASS_NOMASSLOSS
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Maximum stellar mass (upper 68% confidence level of logmass)
+              without mass loss [in log M<sub>sun</sub>]
+          MEDIANPDF_NOMASSLOSS:
+            name: MEDIANPDF_NOMASSLOSS
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Median value of the logmass PDF without mass loss [in log
+              M<sub>sun</sub>]
+          PDF16_NOMASSLOSS:
+            name: PDF16_NOMASSLOSS
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Value of PDF at which 16% of the logmass probability is accumulated
+              without mass loss [in log M<sub>sun</sub>]
+          PDF84_NOMASSLOSS:
+            name: PDF84_NOMASSLOSS
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Value of PDF at which 84% of the logmass probability is accumulated
+              without mass loss [in log M<sub>sun</sub>]
+          PEAKPDF_NOMASSLOSS:
+            name: PEAKPDF_NOMASSLOSS
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Peak value of logmass PDF without mass loss [in log M<sub>sun</sub>]
+          SFH:
+            name: SFH
+            type: char[9]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Star formation history of best fit template
+          METALLICITY:
+            name: METALLICITY
+            type: char[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'Metallicity of best fit template:'
+  DR11:
+    template: $BOSS_GALAXY_REDUX/[VERSION]/[RUN2D]/[PLATE]/[RUN1D]/portsmouth/stellarmass/portsmouth_stellarmass_[CONFIGURATION]-[PLATE]-[MJD].fits
+    example: v1_1/v5_6_5/3761/v5_6_5/portsmouth/stellarmass/portsmouth_stellarmass_starforming_krou_red0-3761-55272.fits
+    location: '{version}/{run2d}/{plate}/{run1d}/portsmouth/stellarmass/portsmouth_stellarmass_{configuration}-{plate}-{mjd}.fits'
+    environment: BOSS_GALAXY_REDUX
+    access:
+      in_sdss_access: true
+      path_name: portsmouth_stellarmass_plate
+      path_template: $BOSS_GALAXY_REDUX/{version}/{run2d}/{plate:0>4}/{run1d}/portsmouth/stellarmass/portsmouth_stellarmass_{configuration}-{plate:0>4}-{mjd}.fits
+      path_kwargs:
+      - run1d
+      - mjd
+      - run2d
+      - version
+      - plate
+      - configuration
+      access_string: portsmouth_stellarmass_plate = $BOSS_GALAXY_REDUX/{version}/{run2d}/{plate}/{run1d}/portsmouth/stellarmass/portsmouth_stellarmass_{configuration}-{plate}-{mjd}.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: "The BOSS Galaxy product assumes a WMAP 7 \u039BCDM cosmology\
+          \ with <var>H</var><sub>0</sub> = 70, \u03A9<sub>m</sub> = 0.274, and \u03A9\
+          <sub>\u039B</sub> = 0.726."
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: "The BOSS Galaxy product assumes a WMAP 7 \u039BCDM cosmology\
+          \ with <var>H</var><sub>0</sub> = 70, \u03A9<sub>m</sub> = 0.274, and \u03A9\
+          <sub>\u039B</sub> = 0.726."
+        is_image: false
+        size: 102 KB
+        columns:
+          PLATE:
+            name: PLATE
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Plate number
+          MJD:
+            name: MJD
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Modified Julian date of observation
+          FIBERID:
+            name: FIBERID
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Fiber ID (1 to 1000)
+          RA:
+            name: RA
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Object RA (Plug_RA drilled fiber position) [J2000 degrees]
+          DEC:
+            name: DEC
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Object Dec (Plug_Dec drilled fiber position) [J2000 degrees]
+          Z:
+            name: Z
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Redshift (best pipeline galaxy z_noqso with zwarning_noqso=0)
+          Z_ERR:
+            name: Z_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Redshift error (z_err_noqso) based upon fit to chi<sup>2</sup>
+              minimum
+          ZNUM:
+            name: ZNUM
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: the znum-th best-fit corresponding to z_noqso (optional input
+              to readspec)
+          MAGSCALED:
+            name: MAGSCALED
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MagScaled[ugriz] = modelmag[ugriz] + cmodelmag[i]-modelmag[i]
+              - extinction[ugriz] (see <a href="https://data.sdss.org/datamodel/files/BOSS_PHOTOOBJ/RERUN/RUN/CAMCOL/photoObj.html"
+              target="_blank">PhotoObj</a> for definitions).
+          MAGSCALED_ERR:
+            name: MAGSCALED_ERR
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MagScaled_err[ugriz] = MagScaled[ugriz] * modelmagerr[ugriz]/modelmag[ugriz]
+              (see <a href="https://data.sdss.org/datamodel/files/BOSS_PHOTOOBJ/RERUN/RUN/CAMCOL/photoObj.html"
+              target="_blank">PhotoObj</a> for definitions).
+          REDUCEDCHI2:
+            name: REDUCEDCHI2
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Reduced chi squared of best fit
+          AGE:
+            name: AGE
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Best-fit age of galaxy [in Gyr]
+          MINAGE:
+            name: MINAGE
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Minimum age (lower confidence level of age) [in Gyr]
+          MAXAGE:
+            name: MAXAGE
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Maximum age (upper confidence level of age) [in Gyr]
+          E_BV:
+            name: E_BV
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          LOGMASS:
+            name: LOGMASS
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Best-fit stellar mass of galaxy [in log M<sub>sun</sub>]
+          MINLOGMASS:
+            name: MINLOGMASS
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Minimum stellar mass (lower 68% confidence level of logmass)
+              [in log M<sub>sun</sub>]
+          MAXLOGMASS:
+            name: MAXLOGMASS
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Maximum stellar mass (upper 68% confidence level of logmass)
+              [in log M<sub>sun</sub>]
+          SFR:
+            name: SFR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Star formation rate of best fit [in M<sub>sun</sub>/yr]
+          MINSFR:
+            name: MINSFR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Minimum star formation rate (lower confidence level of SFR)
+              [in M<sub>sun</sub>/yr]
+          MAXSFR:
+            name: MAXSFR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Maximum star formation rate (upper confidence level of SFR)
+              [in M<sub>sun</sub>/yr]
+          REDDENINGLAW:
+            name: REDDENINGLAW
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: ID of best fit reddening law (0 = no reddening)
+          NFILTER:
+            name: NFILTER
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of filters used in the fit (default is 5 for ugriz)
+          ABSMAGK:
+            name: ABSMAGK
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Absolute magnitude in K-band
+          MEDIANPDF:
+            name: MEDIANPDF
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Median value of the logmass PDF [in log M<sub>sun</sub>]
+          PDF16:
+            name: PDF16
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Value of PDF at which 16% of the logmass probability is accumulated
+              [in log M<sub>sun</sub>]
+          PDF84:
+            name: PDF84
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Value of PDF at which 84% of the logmass probability is accumulated
+              [in log M<sub>sun</sub>]
+          PEAKPDF:
+            name: PEAKPDF
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Peak value of logmass PDF [in log M<sub>sun</sub>]
+          DELTA_REDUCEDCHI2:
+            name: DELTA_REDUCEDCHI2
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Difference between best fit reduced chi squared and second
+              best fit
+          LOGMASS_NOMASSLOSS:
+            name: LOGMASS_NOMASSLOSS
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Best-fit stellar mass of galaxy without mass loss [in log
+              M<sub>sun</sub>]
+          MINLOGMASS_NOMASSLOSS:
+            name: MINLOGMASS_NOMASSLOSS
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Minimum stellar mass (lower 68% confidence level of logmass)
+              without mass loss [in log M<sub>sun</sub>]
+          MAXLOGMASS_NOMASSLOSS:
+            name: MAXLOGMASS_NOMASSLOSS
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Maximum stellar mass (upper 68% confidence level of logmass)
+              without mass loss [in log M<sub>sun</sub>]
+          MEDIANPDF_NOMASSLOSS:
+            name: MEDIANPDF_NOMASSLOSS
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Median value of the logmass PDF without mass loss [in log
+              M<sub>sun</sub>]
+          PDF16_NOMASSLOSS:
+            name: PDF16_NOMASSLOSS
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Value of PDF at which 16% of the logmass probability is accumulated
+              without mass loss [in log M<sub>sun</sub>]
+          PDF84_NOMASSLOSS:
+            name: PDF84_NOMASSLOSS
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Value of PDF at which 84% of the logmass probability is accumulated
+              without mass loss [in log M<sub>sun</sub>]
+          PEAKPDF_NOMASSLOSS:
+            name: PEAKPDF_NOMASSLOSS
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Peak value of logmass PDF without mass loss [in log M<sub>sun</sub>]
+          SFH:
+            name: SFH
+            type: char[9]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Star formation history of best fit template
+          METALLICITY:
+            name: METALLICITY
+            type: char[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'Metallicity of best fit template:'
+  DR12:
+    template: $BOSS_GALAXY_REDUX/[VERSION]/[RUN2D]/[PLATE]/[RUN1D]/portsmouth/stellarmass/portsmouth_stellarmass_[CONFIGURATION]-[PLATE]-[MJD].fits
+    example: v1_1/v5_7_0/3761/v5_7_0/portsmouth/stellarmass/portsmouth_stellarmass_starforming_krou_red0-3761-55272.fits
+    location: '{version}/{run2d}/{plate}/{run1d}/portsmouth/stellarmass/portsmouth_stellarmass_{configuration}-{plate}-{mjd}.fits'
+    environment: BOSS_GALAXY_REDUX
+    access:
+      in_sdss_access: true
+      path_name: portsmouth_stellarmass_plate
+      path_template: $BOSS_GALAXY_REDUX/{version}/{run2d}/{plate:0>4}/{run1d}/portsmouth/stellarmass/portsmouth_stellarmass_{configuration}-{plate:0>4}-{mjd}.fits
+      path_kwargs:
+      - plate
+      - version
+      - mjd
+      - configuration
+      - run2d
+      - run1d
+      access_string: portsmouth_stellarmass_plate = $BOSS_GALAXY_REDUX/{version}/{run2d}/{plate}/{run1d}/portsmouth/stellarmass/portsmouth_stellarmass_{configuration}-{plate}-{mjd}.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: "The BOSS Galaxy product assumes a WMAP 7 \u039BCDM cosmology\
+          \ with <var>H</var><sub>0</sub> = 70, \u03A9<sub>m</sub> = 0.274, and \u03A9\
+          <sub>\u039B</sub> = 0.726."
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: "The BOSS Galaxy product assumes a WMAP 7 \u039BCDM cosmology\
+          \ with <var>H</var><sub>0</sub> = 70, \u03A9<sub>m</sub> = 0.274, and \u03A9\
+          <sub>\u039B</sub> = 0.726."
+        is_image: false
+        size: 102 KB
+        columns:
+          PLATE:
+            name: PLATE
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Plate number
+          MJD:
+            name: MJD
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Modified Julian date of observation
+          FIBERID:
+            name: FIBERID
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Fiber ID (1 to 1000)
+          RA:
+            name: RA
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Object RA (Plug_RA drilled fiber position) [J2000 degrees]
+          DEC:
+            name: DEC
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Object Dec (Plug_Dec drilled fiber position) [J2000 degrees]
+          Z:
+            name: Z
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Redshift (best pipeline galaxy z_noqso with zwarning_noqso=0)
+          Z_ERR:
+            name: Z_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Redshift error (z_err_noqso) based upon fit to chi<sup>2</sup>
+              minimum
+          ZNUM:
+            name: ZNUM
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: the znum-th best-fit corresponding to z_noqso (optional input
+              to readspec)
+          MAGSCALED:
+            name: MAGSCALED
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MagScaled[ugriz] = modelmag[ugriz] + cmodelmag[i]-modelmag[i]
+              - extinction[ugriz] (see <a href="https://data.sdss.org/datamodel/files/BOSS_PHOTOOBJ/RERUN/RUN/CAMCOL/photoObj.html"
+              target="_blank">PhotoObj</a> for definitions).
+          MAGSCALED_ERR:
+            name: MAGSCALED_ERR
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MagScaled_err[ugriz] = MagScaled[ugriz] * modelmagerr[ugriz]/modelmag[ugriz]
+              (see <a href="https://data.sdss.org/datamodel/files/BOSS_PHOTOOBJ/RERUN/RUN/CAMCOL/photoObj.html"
+              target="_blank">PhotoObj</a> for definitions).
+          REDUCEDCHI2:
+            name: REDUCEDCHI2
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Reduced chi squared of best fit
+          AGE:
+            name: AGE
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Best-fit age of galaxy [in Gyr]
+          MINAGE:
+            name: MINAGE
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Minimum age (lower confidence level of age) [in Gyr]
+          MAXAGE:
+            name: MAXAGE
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Maximum age (upper confidence level of age) [in Gyr]
+          E_BV:
+            name: E_BV
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          LOGMASS:
+            name: LOGMASS
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Best-fit stellar mass of galaxy [in log M<sub>sun</sub>]
+          MINLOGMASS:
+            name: MINLOGMASS
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Minimum stellar mass (lower 68% confidence level of logmass)
+              [in log M<sub>sun</sub>]
+          MAXLOGMASS:
+            name: MAXLOGMASS
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Maximum stellar mass (upper 68% confidence level of logmass)
+              [in log M<sub>sun</sub>]
+          SFR:
+            name: SFR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Star formation rate of best fit [in M<sub>sun</sub>/yr]
+          MINSFR:
+            name: MINSFR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Minimum star formation rate (lower confidence level of SFR)
+              [in M<sub>sun</sub>/yr]
+          MAXSFR:
+            name: MAXSFR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Maximum star formation rate (upper confidence level of SFR)
+              [in M<sub>sun</sub>/yr]
+          REDDENINGLAW:
+            name: REDDENINGLAW
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: ID of best fit reddening law (0 = no reddening)
+          NFILTER:
+            name: NFILTER
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of filters used in the fit (default is 5 for ugriz)
+          ABSMAGK:
+            name: ABSMAGK
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Absolute magnitude in K-band
+          MEDIANPDF:
+            name: MEDIANPDF
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Median value of the logmass PDF [in log M<sub>sun</sub>]
+          PDF16:
+            name: PDF16
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Value of PDF at which 16% of the logmass probability is accumulated
+              [in log M<sub>sun</sub>]
+          PDF84:
+            name: PDF84
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Value of PDF at which 84% of the logmass probability is accumulated
+              [in log M<sub>sun</sub>]
+          PEAKPDF:
+            name: PEAKPDF
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Peak value of logmass PDF [in log M<sub>sun</sub>]
+          DELTA_REDUCEDCHI2:
+            name: DELTA_REDUCEDCHI2
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Difference between best fit reduced chi squared and second
+              best fit
+          LOGMASS_NOMASSLOSS:
+            name: LOGMASS_NOMASSLOSS
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Best-fit stellar mass of galaxy without mass loss [in log
+              M<sub>sun</sub>]
+          MINLOGMASS_NOMASSLOSS:
+            name: MINLOGMASS_NOMASSLOSS
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Minimum stellar mass (lower 68% confidence level of logmass)
+              without mass loss [in log M<sub>sun</sub>]
+          MAXLOGMASS_NOMASSLOSS:
+            name: MAXLOGMASS_NOMASSLOSS
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Maximum stellar mass (upper 68% confidence level of logmass)
+              without mass loss [in log M<sub>sun</sub>]
+          MEDIANPDF_NOMASSLOSS:
+            name: MEDIANPDF_NOMASSLOSS
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Median value of the logmass PDF without mass loss [in log
+              M<sub>sun</sub>]
+          PDF16_NOMASSLOSS:
+            name: PDF16_NOMASSLOSS
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Value of PDF at which 16% of the logmass probability is accumulated
+              without mass loss [in log M<sub>sun</sub>]
+          PDF84_NOMASSLOSS:
+            name: PDF84_NOMASSLOSS
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Value of PDF at which 84% of the logmass probability is accumulated
+              without mass loss [in log M<sub>sun</sub>]
+          PEAKPDF_NOMASSLOSS:
+            name: PEAKPDF_NOMASSLOSS
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Peak value of logmass PDF without mass loss [in log M<sub>sun</sub>]
+          SFH:
+            name: SFH
+            type: char[9]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Star formation history of best fit template
+          METALLICITY:
+            name: METALLICITY
+            type: char[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'Metallicity of best fit template:'
