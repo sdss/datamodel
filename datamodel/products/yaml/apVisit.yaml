@@ -1,0 +1,2357 @@
+general:
+  name: apVisit
+  short: 'migration: needs update'
+  description: 'apVisit files have data from a visit for each star, along with an
+
+    initial RV measurement;
+
+    this is the level where files are split by fiber with an associated
+
+    format change: the three chips are now included as separate rows in each
+
+    HDU (since these contain data only from a single fiber).
+
+    Native wavelength sampling is still preserved;
+
+    wavelength solution coefficients are now moved to individual headers.'
+  datatype: FITS
+  filesize: 483 KB
+  releases:
+  - DR16
+  - DR17
+  environments:
+  - APOGEE_REDUX
+  naming_convention: '<code>apVisit-[0-9]{4}-[0-9]{5}-[0-9]{3}\.fits</code>, where
+
+    <code>[0-9]{4}</code> is the 4-digit plate number, <code>[0-9]{5}</code> is the
+    5-digit MJD
+
+    number and <code>[0-9]{3}</code> is the zero-padded, 3-digit fiber number.'
+  generated_by: 'migration: not in database. Needs update'
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases:
+    DR17:
+      from: DR16
+      primary_delta_nkeys: 25
+      added_primary_header_kwargs:
+      - LSFID
+      - MTPFLUX
+      - WAVEID
+      - CARTID
+      - RELFLUX
+      removed_primary_header_kwargs:
+      - VLSR
+      - CHISQ
+      - GLON
+      - RVALPH
+      - HJD
+      - RVCARB
+      - RVTEFF
+      - XSHIFT
+      - LONGSTRN
+      - CCPEAK
+      - RVFEH
+      - VRADERR
+      - BC
+      - JD
+      - VSCATTER
+      - VRAD
+      - VGSR
+      - CCPFWHM
+      - VHELIO
+      - GLAT
+      - VTYPE
+      - RVLOGG
+      - SYNTHFIL
+releases:
+  DR16:
+    template: $APOGEE_REDUX/[APRED]/visit/[TELESCOPE]/[FIELD]/[PLATE]/[MJD]/[PREFIX]Visit-[APRED]-[PLATE]-[MJD]-{fiber:0
+    example: null
+    location: '{apred}/visit/{telescope}/{field}/{plate}/{mjd}/{prefix}Visit-{apred}-{plate}-{mjd}-{fiber:0'
+    environment: APOGEE_REDUX
+    access:
+      in_sdss_access: true
+      path_name: apVisit
+      path_template: $APOGEE_REDUX/{apred}/visit/{telescope}/{field}/{plate}/{mjd}/{prefix}Visit-{apred}-{plate}-{mjd}-{fiber:0>3}.fits
+      path_kwargs:
+      - mjd
+      - apred
+      - field
+      - telescope
+      - fiber
+      - plate
+      - prefix
+      access_string: apVisit = $APOGEE_REDUX/{apred}/visit/{telescope}/{field}/{plate}/{mjd}/{prefix}Visit-{apred}-{plate}-{mjd}-{fiber:0
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: ''
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: image conforms to FITS standard
+        - key: BITPIX
+          value: 16
+          comment: bits per data value
+        - key: NAXIS
+          value: 0
+          comment: number of axes
+        - key: EXTEND
+          value: true
+          comment: file may contain extensions
+        - key: DATE
+          value: '2019-02-24'
+          comment: Creation UTC (CCCC-MM-DD) date of FITS header
+        - key: COMMENT
+          value: FITS (Flexible Image Transport System) format is defined in 'Astronomy
+          comment: and Astrophysics', volume 376, page 359; bibcode 2001A&A...376..359H
+        - key: COMMENT
+          value: and Astrophysics', volume 376, page 359; bibcode 2001A&A...376..359H
+          comment: and Astrophysics', volume 376, page 359; bibcode 2001A&A...376..359H
+        - key: LOCID
+          value: 4240
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: PLATE
+          value: '5940'
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: TELESCOP
+          value: apo25m
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MJD5
+          value: 56780
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: FIBERID
+          value: 1
+          comment: APOGEE Fiber ID 1-300
+        - key: DATE-OBS
+          value: '2014-05-03T09:00:05.704'
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: EXPTIME
+          value: 2002.04
+          comment: Total visit exptime
+        - key: JD-MID
+          value: 2456780.89834
+          comment: JD at mitdpoint of visit
+        - key: UT-MID
+          value: '2014-05-03T09:33:36.1'
+          comment: Date at midpoint of visit
+        - key: NCOMBINE
+          value: 8
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: FRAME1
+          value: 12180023
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: FRAME2
+          value: 12180022
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: FRAME3
+          value: 12180027
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: FRAME4
+          value: 12180025
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: FRAME5
+          value: 12180024
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: FRAME6
+          value: 12180026
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: FRAME7
+          value: 12180028
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: FRAME8
+          value: 12180029
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: NPAIRS
+          value: '4'
+          comment: Number of dither pairs combined
+        - key: OBJID
+          value: 2M18424630-0307505
+          comment: Object ID
+        - key: OBJTYPE
+          value: STAR
+          comment: Object type
+        - key: AKMETHOD
+          value: RJCE_IRAC
+          comment: Extinction method
+        - key: RA
+          value: 280.69293
+          comment: catalog right ascension, deg, J2000
+        - key: DEC
+          value: -3.1307
+          comment: catalog declination, deg, J2000
+        - key: J
+          value: 14.859
+          comment: 2MASS J magnitude
+        - key: H
+          value: 13.502
+          comment: 2MASS H magnitude
+        - key: K
+          value: 12.929
+          comment: 2MASS Ks magnitude
+        - key: SNR
+          value: 15.0815
+          comment: median S/N, middle chip
+        - key: SURVEY
+          value: apogee
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: TARG1
+          value: -2147475456
+          comment: Primary target flag (bitwise, see docs)
+        - key: TARG2
+          value: 0
+          comment: Secondary target flag (bitwise, see docs)
+        - key: TARG3
+          value: 0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: AKTARG
+          value: 0.81243
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: AKWISE
+          value: -99.0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: SFD_EBV
+          value: -99.0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HPLUS
+          value: -0.113
+          comment: Delta H (neigh-obj) mag of neighboring (+1) fib
+        - key: HMINUS
+          value: 99.99
+          comment: Delta H (neigh-obj) mag of neighboring (-1) fib
+        - key: STARFLAG
+          value: 512
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: FLUXFLAM
+          value: 6.12983e-19
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: V_APRED
+          value: 0.12.7
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: 'AP1DVISIT: Sun Feb 24 14:04:16 2019'
+          comment: APRV holtz on milkyway.nmsu.edu
+        - key: HISTORY
+          value: 'AP1DVISIT: apogee on kp123'
+          comment: APRV holtz on milkyway.nmsu.edu
+        - key: HISTORY
+          value: 'AP1DVISIT:  APOGEE Reduction Pipeline Version: 0.12.7'
+          comment: APRV holtz on milkyway.nmsu.edu
+        - key: HISTORY
+          value: 'AP1DVISIT: IDL 8.4 linux x86_64'
+          comment: APRV holtz on milkyway.nmsu.edu
+        - key: HISTORY
+          value: 'AP1DVISIT: The data for the individual visit spectrum are in'
+          comment: APRV holtz on milkyway.nmsu.edu
+        - key: HISTORY
+          value: 'AP1DVISIT:   separate extensions.  All HDUs have data for each chip
+            in'
+          comment: APRV holtz on milkyway.nmsu.edu
+        - key: HISTORY
+          value: 'AP1DVISIT:   a separate row (i.e. 4096x3) except for Wavelength
+            and LSF'
+          comment: APRV holtz on milkyway.nmsu.edu
+        - key: HISTORY
+          value: 'AP1DVISIT:  HDU0 = Header only'
+          comment: APRV holtz on milkyway.nmsu.edu
+        - key: HISTORY
+          value: 'AP1DVISIT:  HDU1 - Flux (10^-17 ergs/s/cm^2/Ang)'
+          comment: APRV holtz on milkyway.nmsu.edu
+        - key: HISTORY
+          value: 'AP1DVISIT:  HDU2 - Error (10^-17 ergs/s/cm^2/Ang)'
+          comment: APRV holtz on milkyway.nmsu.edu
+        - key: HISTORY
+          value: 'AP1DVISIT:  HDU3 - Flag mask (bitwise OR combined)'
+          comment: APRV holtz on milkyway.nmsu.edu
+        - key: HISTORY
+          value: 'AP1DVISIT:  HDU4 - Wavelength (Ang)'
+          comment: APRV holtz on milkyway.nmsu.edu
+        - key: HISTORY
+          value: 'AP1DVISIT:  HDU5 - Sky (10^-17 ergs/s/cm^2/Ang)'
+          comment: APRV holtz on milkyway.nmsu.edu
+        - key: HISTORY
+          value: 'AP1DVISIT:  HDU6 - Sky Error (10^-17 ergs/s/cm^2/Ang)'
+          comment: APRV holtz on milkyway.nmsu.edu
+        - key: HISTORY
+          value: 'AP1DVISIT:  HDU7 - Telluric'
+          comment: APRV holtz on milkyway.nmsu.edu
+        - key: HISTORY
+          value: 'AP1DVISIT:  HDU8 - Telluric Error'
+          comment: APRV holtz on milkyway.nmsu.edu
+        - key: HISTORY
+          value: 'AP1DVISIT:  HDU9 - Wavelength coefficients'
+          comment: APRV holtz on milkyway.nmsu.edu
+        - key: HISTORY
+          value: 'AP1DVISIT:  HDU10 - LSF coefficients'
+          comment: APRV holtz on milkyway.nmsu.edu
+        - key: LONGSTRN
+          value: OGIP 1.0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: ' This FITS file may contain long string keyword values that are'
+          comment: and Astrophysics', volume 376, page 359; bibcode 2001A&A...376..359H
+        - key: COMMENT
+          value: ' continued over multiple keywords.  This convention uses the  ''&'''
+          comment: and Astrophysics', volume 376, page 359; bibcode 2001A&A...376..359H
+        - key: COMMENT
+          value: ' character at the end of a string which is then continued'
+          comment: and Astrophysics', volume 376, page 359; bibcode 2001A&A...376..359H
+        - key: COMMENT
+          value: ' on subsequent keywords whose name = ''CONTINUE''.'
+          comment: and Astrophysics', volume 376, page 359; bibcode 2001A&A...376..359H
+        - key: SYNTHFIL
+          value: /uufs/chpc.utah.edu/common/home/sdss09/software/apogee/Linux//apogee/0.12.7/data/synthgrid/apg_synthgrid.fits
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: JD
+          value: 2456780.87507
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: HJD
+          value: 56780.9011861
+          comment: Reduced Heliocentric JD
+        - key: GLON
+          value: 29.1578917011
+          comment: degrees
+        - key: GLAT
+          value: 0.498148630691
+          comment: degrees
+        - key: BC
+          value: 24.0879265458
+          comment: barycentric correction (km/s)
+        - key: VTYPE
+          value: 2
+          comment: RV type (1=chisq, 2=xcorr)
+        - key: VRAD
+          value: 94.9378
+          comment: doppler shift (km/s)
+        - key: VRADERR
+          value: 0.0805115
+          comment: VRAD error (km/s)
+        - key: VSCATTER
+          value: 0.982124
+          comment: km/s
+        - key: VHELIO
+          value: 119.025724092
+          comment: heliocentric velocity (km/s)
+        - key: VLSR
+          value: 130.378333236
+          comment: LSR velocity (km/s)
+        - key: VGSR
+          value: 237.562240292
+          comment: GSR velocity (km/s)
+        - key: RVTEFF
+          value: 4750.0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: RVLOGG
+          value: 2.0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: RVFEH
+          value: 0.5
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: RVALPH
+          value: 0.0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: RVCARB
+          value: 0.0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: XSHIFT
+          value: 28.9495
+          comment: pixel shift
+        - key: CCPEAK
+          value: 0.398981
+          comment: cross-corr peak
+        - key: CCPFWHM
+          value: 18.426
+          comment: cross-corr peak FWHM
+        - key: CHISQ
+          value: 1.83395
+          comment: Chi Squared
+        - key: HISTORY
+          value: 'APRV APOGEE Reduction Pipeline Version: 0.12.7'
+          comment: APRV holtz on milkyway.nmsu.edu
+        - key: HISTORY
+          value: APRV Update on Sun Feb 24 15:23:21 2019
+          comment: APRV holtz on milkyway.nmsu.edu
+        - key: HISTORY
+          value: APRV apogee on kp123
+          comment: APRV holtz on milkyway.nmsu.edu
+      hdu1:
+        name: ''
+        description: ''
+        is_image: true
+        size: 48 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: IMAGE extension
+        - key: BITPIX
+          value: -32
+          comment: Number of bits per data pixel
+        - key: NAXIS
+          value: 2
+          comment: Number of data axes
+        - key: NAXIS1
+          value: 4096
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 3
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: No Group Parameters
+        - key: GCOUNT
+          value: 1
+          comment: One Data Group
+        - key: CTYPE1
+          value: Pixel
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: CTYPE2
+          value: Chip
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: BUNIT
+          value: Flux (10^-17 erg/s/cm^2/Ang)
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+      hdu2:
+        name: ''
+        description: ''
+        is_image: true
+        size: 48 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: IMAGE extension
+        - key: BITPIX
+          value: -32
+          comment: Number of bits per data pixel
+        - key: NAXIS
+          value: 2
+          comment: Number of data axes
+        - key: NAXIS1
+          value: 4096
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 3
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: No Group Parameters
+        - key: GCOUNT
+          value: 1
+          comment: One Data Group
+        - key: CTYPE1
+          value: Pixel
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: CTYPE2
+          value: Chip
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: BUNIT
+          value: Flux Error (10^-17 erg/s/cm^2/Ang)
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+      hdu3:
+        name: ''
+        description: ''
+        is_image: true
+        size: 24 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: IMAGE extension
+        - key: BITPIX
+          value: 16
+          comment: Number of bits per data pixel
+        - key: NAXIS
+          value: 2
+          comment: Number of data axes
+        - key: NAXIS1
+          value: 4096
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 3
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: No Group Parameters
+        - key: GCOUNT
+          value: 1
+          comment: One Data Group
+        - key: CTYPE1
+          value: Pixel
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: CTYPE2
+          value: Chip
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: BUNIT
+          value: Flag Mask (bitwise)
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+      hdu4:
+        name: ''
+        description: ''
+        is_image: true
+        size: 96 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: IMAGE extension
+        - key: BITPIX
+          value: -64
+          comment: Number of bits per data pixel
+        - key: NAXIS
+          value: 2
+          comment: Number of data axes
+        - key: NAXIS1
+          value: 4096
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 3
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: No Group Parameters
+        - key: GCOUNT
+          value: 1
+          comment: One Data Group
+        - key: CTYPE1
+          value: Pixel
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: CTYPE2
+          value: Chip
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: BUNIT
+          value: Wavelength (Ang)
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+      hdu5:
+        name: ''
+        description: ''
+        is_image: true
+        size: 48 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: IMAGE extension
+        - key: BITPIX
+          value: -32
+          comment: Number of bits per data pixel
+        - key: NAXIS
+          value: 2
+          comment: Number of data axes
+        - key: NAXIS1
+          value: 4096
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 3
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: No Group Parameters
+        - key: GCOUNT
+          value: 1
+          comment: One Data Group
+        - key: CTYPE1
+          value: Pixel
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: CTYPE2
+          value: Chip
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: BUNIT
+          value: Sky (10^-17 erg/s/cm^2/Ang)
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+      hdu6:
+        name: ''
+        description: ''
+        is_image: true
+        size: 48 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: IMAGE extension
+        - key: BITPIX
+          value: -32
+          comment: Number of bits per data pixel
+        - key: NAXIS
+          value: 2
+          comment: Number of data axes
+        - key: NAXIS1
+          value: 4096
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 3
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: No Group Parameters
+        - key: GCOUNT
+          value: 1
+          comment: One Data Group
+        - key: CTYPE1
+          value: Pixel
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: CTYPE2
+          value: Chip
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: BUNIT
+          value: Sky Error (10^-17 erg/s/cm^2/Ang)
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+      hdu7:
+        name: ''
+        description: ''
+        is_image: true
+        size: 48 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: IMAGE extension
+        - key: BITPIX
+          value: -32
+          comment: Number of bits per data pixel
+        - key: NAXIS
+          value: 2
+          comment: Number of data axes
+        - key: NAXIS1
+          value: 4096
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 3
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: No Group Parameters
+        - key: GCOUNT
+          value: 1
+          comment: One Data Group
+        - key: CTYPE1
+          value: Pixel
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: CTYPE2
+          value: Chip
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: BUNIT
+          value: Telluric
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+      hdu8:
+        name: ''
+        description: ''
+        is_image: true
+        size: 48 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: IMAGE extension
+        - key: BITPIX
+          value: -32
+          comment: Number of bits per data pixel
+        - key: NAXIS
+          value: 2
+          comment: Number of data axes
+        - key: NAXIS1
+          value: 4096
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 3
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: No Group Parameters
+        - key: GCOUNT
+          value: 1
+          comment: One Data Group
+        - key: CTYPE1
+          value: Pixel
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: CTYPE2
+          value: Chip
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: BUNIT
+          value: Telluric Error
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+      hdu9:
+        name: ''
+        description: ''
+        is_image: true
+        size: 336 bytes
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: IMAGE extension
+        - key: BITPIX
+          value: -64
+          comment: Number of bits per data pixel
+        - key: NAXIS
+          value: 2
+          comment: Number of data axes
+        - key: NAXIS1
+          value: 14
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 3
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: No Group Parameters
+        - key: GCOUNT
+          value: 1
+          comment: One Data Group
+        - key: CTYPE1
+          value: Fiber
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: CTYPE2
+          value: Parameters
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: BUNIT
+          value: Wavelength Coefficients
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: HISTORY
+          value: 'Wavelength Coefficients to be used with PIX2WAVE.PRO:'
+          comment: in addition to the pixel offset)
+        - key: HISTORY
+          value: ' 1 Global additive pixel offset'
+          comment: in addition to the pixel offset)
+        - key: HISTORY
+          value: ' 4 Sine Parameters'
+          comment: in addition to the pixel offset)
+        - key: HISTORY
+          value: ' 7 Polynomial parameters (first is a zero-point offset'
+          comment: in addition to the pixel offset)
+        - key: HISTORY
+          value: '                     in addition to the pixel offset)'
+          comment: in addition to the pixel offset)
+      hdu10:
+        name: ''
+        description: ''
+        is_image: true
+        size: 624 bytes
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: IMAGE extension
+        - key: BITPIX
+          value: -64
+          comment: Number of bits per data pixel
+        - key: NAXIS
+          value: 2
+          comment: Number of data axes
+        - key: NAXIS1
+          value: 26
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 3
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: No Group Parameters
+        - key: GCOUNT
+          value: 1
+          comment: One Data Group
+        - key: CTYPE1
+          value: Fiber
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: CTYPE2
+          value: Parameters
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: BUNIT
+          value: LSF Coefficients
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: HISTORY
+          value: 'LSF Coefficients to be used with LSF_GH.PRO:'
+          comment: start with H1 since we fix H0=1.
+        - key: HISTORY
+          value: '  binsize  The width of a pixel in X-units.  If this is non-zero'
+          comment: start with H1 since we fix H0=1.
+        - key: HISTORY
+          value: '             then a "binned" Gauss-Hermite function is used.  If'
+          comment: start with H1 since we fix H0=1.
+        - key: HISTORY
+          value: '             binsize=0 then a "normal, unbinned" Gauss-Hermite'
+          comment: start with H1 since we fix H0=1.
+        - key: HISTORY
+          value: '             function is used.'
+          comment: start with H1 since we fix H0=1.
+        - key: HISTORY
+          value: '  X0       An additive x-offset.  This is only used to'
+          comment: start with H1 since we fix H0=1.
+        - key: HISTORY
+          value: '             evaluate the GH parameters that vary globally'
+          comment: start with H1 since we fix H0=1.
+        - key: HISTORY
+          value: '             with X.'
+          comment: start with H1 since we fix H0=1.
+        - key: HISTORY
+          value: '  Horder   The highest Hermite order, Horder=0 means'
+          comment: start with H1 since we fix H0=1.
+        - key: HISTORY
+          value: '             only a constant term (i.e. only Gaussian).'
+          comment: start with H1 since we fix H0=1.
+        - key: HISTORY
+          value: '             There are Horder Hermite coefficients (since we fix
+            H0=1).'
+          comment: start with H1 since we fix H0=1.
+        - key: HISTORY
+          value: '  Porder   This array gives the polynomial order for the'
+          comment: start with H1 since we fix H0=1.
+        - key: HISTORY
+          value: '             global variation (in X) of each LSF parameter.'
+          comment: start with H1 since we fix H0=1.
+        - key: HISTORY
+          value: '             That includes sigma and the Horder Hermite'
+          comment: start with H1 since we fix H0=1.
+        - key: HISTORY
+          value: '             coefficients (starting with H1 because we fix H0=1)'
+          comment: start with H1 since we fix H0=1.
+        - key: HISTORY
+          value: '             There will be Porder[i]+1 coefficients for'
+          comment: start with H1 since we fix H0=1.
+        - key: HISTORY
+          value: '             parameter i.'
+          comment: start with H1 since we fix H0=1.
+        - key: HISTORY
+          value: '  GHcoefs  The polynomial coefficients for sigma and the'
+          comment: start with H1 since we fix H0=1.
+        - key: HISTORY
+          value: '             Horder Hermite parameters.  There are Porder[i]+1'
+          comment: start with H1 since we fix H0=1.
+        - key: HISTORY
+          value: '             coefficients for parameter i.  The Hermite parameters'
+          comment: start with H1 since we fix H0=1.
+        - key: HISTORY
+          value: '             start with H1 since we fix H0=1.'
+          comment: start with H1 since we fix H0=1.
+      hdu11:
+        name: ''
+        description: 'migration: Intro info not in database. Needs update'
+        is_image: false
+        size: 347 bytes
+        columns:
+          APOGEE_ID:
+            name: APOGEE_ID
+            type: char[19]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          TARGET_ID:
+            name: TARGET_ID
+            type: char[18]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          FILE:
+            name: FILE
+            type: char[31]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          FIBERID:
+            name: FIBERID
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          PLATE:
+            name: PLATE
+            type: char[12]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          MJD:
+            name: MJD
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          TELESCOPE:
+            name: TELESCOPE
+            type: char[6]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          SURVEY:
+            name: SURVEY
+            type: char[6]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          FIELD:
+            name: FIELD
+            type: char[6]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          PROGRAMNAME:
+            name: PROGRAMNAME
+            type: char[6]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          LOCATION_ID:
+            name: LOCATION_ID
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          RA:
+            name: RA
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          DEC:
+            name: DEC
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          GLON:
+            name: GLON
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          GLAT:
+            name: GLAT
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          J:
+            name: J
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          J_ERR:
+            name: J_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          H:
+            name: H
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          H_ERR:
+            name: H_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          K:
+            name: K
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          K_ERR:
+            name: K_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          AK_TARG:
+            name: AK_TARG
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          AK_TARG_METHOD:
+            name: AK_TARG_METHOD
+            type: char[9]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          AK_WISE:
+            name: AK_WISE
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          SFD_EBV:
+            name: SFD_EBV
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          RA_TARG:
+            name: RA_TARG
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          DEC_TARG:
+            name: DEC_TARG
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          APOGEE_TARGET1:
+            name: APOGEE_TARGET1
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          APOGEE_TARGET2:
+            name: APOGEE_TARGET2
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          APOGEE_TARGET3:
+            name: APOGEE_TARGET3
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          TARGFLAGS:
+            name: TARGFLAGS
+            type: char[11]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          SNR:
+            name: SNR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          STARFLAG:
+            name: STARFLAG
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          STARFLAGS:
+            name: STARFLAGS
+            type: char[12]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          DATEOBS:
+            name: DATEOBS
+            type: char[23]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          JD:
+            name: JD
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          BC:
+            name: BC
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          VTYPE:
+            name: VTYPE
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          VREL:
+            name: VREL
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          VRELERR:
+            name: VRELERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          VHELIO:
+            name: VHELIO
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          VLSR:
+            name: VLSR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          VGSR:
+            name: VGSR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          CHISQ:
+            name: CHISQ
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          RV_TEFF:
+            name: RV_TEFF
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          RV_FEH:
+            name: RV_FEH
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          RV_LOGG:
+            name: RV_LOGG
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          RV_ALPHA:
+            name: RV_ALPHA
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          RV_CARB:
+            name: RV_CARB
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          SYNTHFILE:
+            name: SYNTHFILE
+            type: char[18]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+  DR17:
+    template: $APOGEE_REDUX/[APRED]/visit/[TELESCOPE]/[FIELD]/[PLATE]/[MJD]/[PREFIX]Visit-[APRED]-[PLATE]-[MJD]-[FIBER].fits
+    example: dr17/visit/apo25m/030+00/5940/56780/apVisit-dr17-5940-56780-001.fits
+    location: '{apred}/visit/{telescope}/{field}/{plate}/{mjd}/{prefix}Visit-{apred}-{plate}-{mjd}-{fiber}.fits'
+    environment: APOGEE_REDUX
+    access:
+      in_sdss_access: true
+      path_name: apVisit
+      path_template: $APOGEE_REDUX/{apred}/visit/{telescope}/{field}/{plate}/{mjd}/{prefix}Visit-{apred}-{plate}-{mjd}-{fiber:0>3}.fits
+      path_kwargs:
+      - prefix
+      - telescope
+      - field
+      - plate
+      - fiber
+      - mjd
+      - apred
+      access_string: apVisit = $APOGEE_REDUX/{apred}/visit/{telescope}/{field}/{plate}/{mjd}/{prefix}Visit-{apred}-{plate}-{mjd}-{fiber}.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: ''
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: image conforms to FITS standard
+        - key: BITPIX
+          value: 16
+          comment: bits per data value
+        - key: NAXIS
+          value: 0
+          comment: number of axes
+        - key: EXTEND
+          value: true
+          comment: file may contain extensions
+        - key: DATE
+          value: '2021-01-28'
+          comment: Creation UTC (CCCC-MM-DD) date of FITS header
+        - key: COMMENT
+          value: FITS (Flexible Image Transport System) format is defined in 'Astronomy
+          comment: and Astrophysics', volume 376, page 359; bibcode 2001A&A...376..359H
+        - key: COMMENT
+          value: and Astrophysics', volume 376, page 359; bibcode 2001A&A...376..359H
+          comment: and Astrophysics', volume 376, page 359; bibcode 2001A&A...376..359H
+        - key: LOCID
+          value: 4240
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: CARTID
+          value: 5
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: PLATE
+          value: '5940'
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: TELESCOP
+          value: apo25m
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MJD5
+          value: 56780
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: FIBERID
+          value: 1
+          comment: APOGEE Fiber ID 1-300
+        - key: DATE-OBS
+          value: '2014-05-03T09:00:05.704'
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: EXPTIME
+          value: 2002.04
+          comment: Total visit exptime
+        - key: JD-MID
+          value: 2456780.89834
+          comment: JD at mitdpoint of visit
+        - key: UT-MID
+          value: '2014-05-03T09:33:36.1'
+          comment: Date at midpoint of visit
+        - key: WAVEID
+          value: 9500000
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: LSFID
+          value: 11130063
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: NCOMBINE
+          value: 8
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: FRAME1
+          value: 12180023
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: FRAME2
+          value: 12180022
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: FRAME3
+          value: 12180027
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: FRAME4
+          value: 12180025
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: FRAME5
+          value: 12180024
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: FRAME6
+          value: 12180026
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: FRAME7
+          value: 12180028
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: FRAME8
+          value: 12180029
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: NPAIRS
+          value: '4'
+          comment: Number of dither pairs combined
+        - key: OBJID
+          value: 2M18424630-0307505
+          comment: Object ID
+        - key: OBJTYPE
+          value: STAR
+          comment: Object type
+        - key: AKMETHOD
+          value: RJCE_IRAC
+          comment: Extinction method
+        - key: RA
+          value: 280.69293
+          comment: catalog right ascension, deg, J2000
+        - key: DEC
+          value: -3.1307
+          comment: catalog declination, deg, J2000
+        - key: J
+          value: 14.859
+          comment: 2MASS J magnitude
+        - key: H
+          value: 13.502
+          comment: 2MASS H magnitude
+        - key: K
+          value: 12.929
+          comment: 2MASS Ks magnitude
+        - key: SNR
+          value: 15.0839
+          comment: median S/N, middle chip
+        - key: SURVEY
+          value: apogee
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: TARG1
+          value: -2147475456
+          comment: Primary target flag (bitwise, see docs)
+        - key: TARG2
+          value: 0
+          comment: Secondary target flag (bitwise, see docs)
+        - key: TARG3
+          value: 0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: AKTARG
+          value: 0.812319
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: AKWISE
+          value: -9999.99
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: SFD_EBV
+          value: -9999.99
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HPLUS
+          value: -0.113
+          comment: Delta H (neigh-obj) mag of neighboring (+1) fib
+        - key: HMINUS
+          value: 99.99
+          comment: Delta H (neigh-obj) mag of neighboring (-1) fib
+        - key: RELFLUX
+          value: 0.847386
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MTPFLUX
+          value: 0.955595
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: STARFLAG
+          value: 512
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: FLUXFLAM
+          value: 6.13046e-19
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: V_APRED
+          value: 0.17.16
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: 'AP1DVISIT: Thu Jan 28 15:55:26 2021'
+          comment: APRV holtz on milkyway.nmsu.edu
+        - key: HISTORY
+          value: 'AP1DVISIT: u0914351 on kp129'
+          comment: APRV holtz on milkyway.nmsu.edu
+        - key: HISTORY
+          value: 'AP1DVISIT:  APOGEE Reduction Pipeline Version: 0.17.16'
+          comment: APRV holtz on milkyway.nmsu.edu
+        - key: HISTORY
+          value: 'AP1DVISIT: IDL 8.4 linux x86_64'
+          comment: APRV holtz on milkyway.nmsu.edu
+        - key: HISTORY
+          value: 'AP1DVISIT: The data for the individual visit spectrum are in'
+          comment: APRV holtz on milkyway.nmsu.edu
+        - key: HISTORY
+          value: 'AP1DVISIT:   separate extensions.  All HDUs have data for each chip
+            in'
+          comment: APRV holtz on milkyway.nmsu.edu
+        - key: HISTORY
+          value: 'AP1DVISIT:   a separate row (i.e. 4096x3) except for Wavelength
+            and LSF'
+          comment: APRV holtz on milkyway.nmsu.edu
+        - key: HISTORY
+          value: 'AP1DVISIT:  HDU0 = Header only'
+          comment: APRV holtz on milkyway.nmsu.edu
+        - key: HISTORY
+          value: 'AP1DVISIT:  HDU1 - Flux (10^-17 ergs/s/cm^2/Ang)'
+          comment: APRV holtz on milkyway.nmsu.edu
+        - key: HISTORY
+          value: 'AP1DVISIT:  HDU2 - Error (10^-17 ergs/s/cm^2/Ang)'
+          comment: APRV holtz on milkyway.nmsu.edu
+        - key: HISTORY
+          value: 'AP1DVISIT:  HDU3 - Flag mask (bitwise OR combined)'
+          comment: APRV holtz on milkyway.nmsu.edu
+        - key: HISTORY
+          value: 'AP1DVISIT:  HDU4 - Wavelength (Ang)'
+          comment: APRV holtz on milkyway.nmsu.edu
+        - key: HISTORY
+          value: 'AP1DVISIT:  HDU5 - Sky (10^-17 ergs/s/cm^2/Ang)'
+          comment: APRV holtz on milkyway.nmsu.edu
+        - key: HISTORY
+          value: 'AP1DVISIT:  HDU6 - Sky Error (10^-17 ergs/s/cm^2/Ang)'
+          comment: APRV holtz on milkyway.nmsu.edu
+        - key: HISTORY
+          value: 'AP1DVISIT:  HDU7 - Telluric'
+          comment: APRV holtz on milkyway.nmsu.edu
+        - key: HISTORY
+          value: 'AP1DVISIT:  HDU8 - Telluric Error'
+          comment: APRV holtz on milkyway.nmsu.edu
+        - key: HISTORY
+          value: 'AP1DVISIT:  HDU9 - Wavelength coefficients'
+          comment: APRV holtz on milkyway.nmsu.edu
+        - key: HISTORY
+          value: 'AP1DVISIT:  HDU10 - LSF coefficients'
+          comment: APRV holtz on milkyway.nmsu.edu
+      hdu1:
+        name: ''
+        description: ''
+        is_image: true
+        size: 48 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: IMAGE extension
+        - key: BITPIX
+          value: -32
+          comment: Number of bits per data pixel
+        - key: NAXIS
+          value: 2
+          comment: Number of data axes
+        - key: NAXIS1
+          value: 4096
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 3
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: No Group Parameters
+        - key: GCOUNT
+          value: 1
+          comment: One Data Group
+        - key: CTYPE1
+          value: Pixel
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: CTYPE2
+          value: Chip
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: BUNIT
+          value: Flux (10^-17 erg/s/cm^2/Ang)
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+      hdu2:
+        name: ''
+        description: ''
+        is_image: true
+        size: 48 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: IMAGE extension
+        - key: BITPIX
+          value: -32
+          comment: Number of bits per data pixel
+        - key: NAXIS
+          value: 2
+          comment: Number of data axes
+        - key: NAXIS1
+          value: 4096
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 3
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: No Group Parameters
+        - key: GCOUNT
+          value: 1
+          comment: One Data Group
+        - key: CTYPE1
+          value: Pixel
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: CTYPE2
+          value: Chip
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: BUNIT
+          value: Flux Error (10^-17 erg/s/cm^2/Ang)
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+      hdu3:
+        name: ''
+        description: ''
+        is_image: true
+        size: 24 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: IMAGE extension
+        - key: BITPIX
+          value: 16
+          comment: Number of bits per data pixel
+        - key: NAXIS
+          value: 2
+          comment: Number of data axes
+        - key: NAXIS1
+          value: 4096
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 3
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: No Group Parameters
+        - key: GCOUNT
+          value: 1
+          comment: One Data Group
+        - key: CTYPE1
+          value: Pixel
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: CTYPE2
+          value: Chip
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: BUNIT
+          value: Flag Mask (bitwise)
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+      hdu4:
+        name: ''
+        description: ''
+        is_image: true
+        size: 96 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: IMAGE extension
+        - key: BITPIX
+          value: -64
+          comment: Number of bits per data pixel
+        - key: NAXIS
+          value: 2
+          comment: Number of data axes
+        - key: NAXIS1
+          value: 4096
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 3
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: No Group Parameters
+        - key: GCOUNT
+          value: 1
+          comment: One Data Group
+        - key: CTYPE1
+          value: Pixel
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: CTYPE2
+          value: Chip
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: BUNIT
+          value: Wavelength (Ang)
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+      hdu5:
+        name: ''
+        description: ''
+        is_image: true
+        size: 48 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: IMAGE extension
+        - key: BITPIX
+          value: -32
+          comment: Number of bits per data pixel
+        - key: NAXIS
+          value: 2
+          comment: Number of data axes
+        - key: NAXIS1
+          value: 4096
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 3
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: No Group Parameters
+        - key: GCOUNT
+          value: 1
+          comment: One Data Group
+        - key: CTYPE1
+          value: Pixel
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: CTYPE2
+          value: Chip
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: BUNIT
+          value: Sky (10^-17 erg/s/cm^2/Ang)
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+      hdu6:
+        name: ''
+        description: ''
+        is_image: true
+        size: 48 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: IMAGE extension
+        - key: BITPIX
+          value: -32
+          comment: Number of bits per data pixel
+        - key: NAXIS
+          value: 2
+          comment: Number of data axes
+        - key: NAXIS1
+          value: 4096
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 3
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: No Group Parameters
+        - key: GCOUNT
+          value: 1
+          comment: One Data Group
+        - key: CTYPE1
+          value: Pixel
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: CTYPE2
+          value: Chip
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: BUNIT
+          value: Sky Error (10^-17 erg/s/cm^2/Ang)
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+      hdu7:
+        name: ''
+        description: ''
+        is_image: true
+        size: 48 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: IMAGE extension
+        - key: BITPIX
+          value: -32
+          comment: Number of bits per data pixel
+        - key: NAXIS
+          value: 2
+          comment: Number of data axes
+        - key: NAXIS1
+          value: 4096
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 3
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: No Group Parameters
+        - key: GCOUNT
+          value: 1
+          comment: One Data Group
+        - key: CTYPE1
+          value: Pixel
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: CTYPE2
+          value: Chip
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: BUNIT
+          value: Telluric
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+      hdu8:
+        name: ''
+        description: ''
+        is_image: true
+        size: 48 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: IMAGE extension
+        - key: BITPIX
+          value: -32
+          comment: Number of bits per data pixel
+        - key: NAXIS
+          value: 2
+          comment: Number of data axes
+        - key: NAXIS1
+          value: 4096
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 3
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: No Group Parameters
+        - key: GCOUNT
+          value: 1
+          comment: One Data Group
+        - key: CTYPE1
+          value: Pixel
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: CTYPE2
+          value: Chip
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: BUNIT
+          value: Telluric Error
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+      hdu9:
+        name: ''
+        description: ''
+        is_image: true
+        size: 336 bytes
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: IMAGE extension
+        - key: BITPIX
+          value: -64
+          comment: Number of bits per data pixel
+        - key: NAXIS
+          value: 2
+          comment: Number of data axes
+        - key: NAXIS1
+          value: 14
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 3
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: No Group Parameters
+        - key: GCOUNT
+          value: 1
+          comment: One Data Group
+        - key: CTYPE1
+          value: Fiber
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: CTYPE2
+          value: Parameters
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: BUNIT
+          value: Wavelength Coefficients
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: HISTORY
+          value: 'Wavelength Coefficients to be used with PIX2WAVE.PRO:'
+          comment: in addition to the pixel offset)
+        - key: HISTORY
+          value: ' 1 Global additive pixel offset'
+          comment: in addition to the pixel offset)
+        - key: HISTORY
+          value: ' 4 Sine Parameters'
+          comment: in addition to the pixel offset)
+        - key: HISTORY
+          value: ' 7 Polynomial parameters (first is a zero-point offset'
+          comment: in addition to the pixel offset)
+        - key: HISTORY
+          value: '                     in addition to the pixel offset)'
+          comment: in addition to the pixel offset)
+      hdu10:
+        name: ''
+        description: ''
+        is_image: true
+        size: 624 bytes
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: IMAGE extension
+        - key: BITPIX
+          value: -64
+          comment: Number of bits per data pixel
+        - key: NAXIS
+          value: 2
+          comment: Number of data axes
+        - key: NAXIS1
+          value: 26
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 3
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: No Group Parameters
+        - key: GCOUNT
+          value: 1
+          comment: One Data Group
+        - key: CTYPE1
+          value: Fiber
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: CTYPE2
+          value: Parameters
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: BUNIT
+          value: LSF Coefficients
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: HISTORY
+          value: 'LSF Coefficients to be used with LSF_GH.PRO:'
+          comment: start with H1 since we fix H0=1.
+        - key: HISTORY
+          value: '  binsize  The width of a pixel in X-units.  If this is non-zero'
+          comment: start with H1 since we fix H0=1.
+        - key: HISTORY
+          value: '             then a "binned" Gauss-Hermite function is used.  If'
+          comment: start with H1 since we fix H0=1.
+        - key: HISTORY
+          value: '             binsize=0 then a "normal, unbinned" Gauss-Hermite'
+          comment: start with H1 since we fix H0=1.
+        - key: HISTORY
+          value: '             function is used.'
+          comment: start with H1 since we fix H0=1.
+        - key: HISTORY
+          value: '  X0       An additive x-offset.  This is only used to'
+          comment: start with H1 since we fix H0=1.
+        - key: HISTORY
+          value: '             evaluate the GH parameters that vary globally'
+          comment: start with H1 since we fix H0=1.
+        - key: HISTORY
+          value: '             with X.'
+          comment: start with H1 since we fix H0=1.
+        - key: HISTORY
+          value: '  Horder   The highest Hermite order, Horder=0 means'
+          comment: start with H1 since we fix H0=1.
+        - key: HISTORY
+          value: '             only a constant term (i.e. only Gaussian).'
+          comment: start with H1 since we fix H0=1.
+        - key: HISTORY
+          value: '             There are Horder Hermite coefficients (since we fix
+            H0=1).'
+          comment: start with H1 since we fix H0=1.
+        - key: HISTORY
+          value: '  Porder   This array gives the polynomial order for the'
+          comment: start with H1 since we fix H0=1.
+        - key: HISTORY
+          value: '             global variation (in X) of each LSF parameter.'
+          comment: start with H1 since we fix H0=1.
+        - key: HISTORY
+          value: '             That includes sigma and the Horder Hermite'
+          comment: start with H1 since we fix H0=1.
+        - key: HISTORY
+          value: '             coefficients (starting with H1 because we fix H0=1)'
+          comment: start with H1 since we fix H0=1.
+        - key: HISTORY
+          value: '             There will be Porder[i]+1 coefficients for'
+          comment: start with H1 since we fix H0=1.
+        - key: HISTORY
+          value: '             parameter i.'
+          comment: start with H1 since we fix H0=1.
+        - key: HISTORY
+          value: '  GHcoefs  The polynomial coefficients for sigma and the'
+          comment: start with H1 since we fix H0=1.
+        - key: HISTORY
+          value: '             Horder Hermite parameters.  There are Porder[i]+1'
+          comment: start with H1 since we fix H0=1.
+        - key: HISTORY
+          value: '             coefficients for parameter i.  The Hermite parameters'
+          comment: start with H1 since we fix H0=1.
+        - key: HISTORY
+          value: '             start with H1 since we fix H0=1.'
+          comment: start with H1 since we fix H0=1.
+      hdu11:
+        name: ''
+        description: 'migration: Intro info not in database. Needs update'
+        is_image: false
+        size: 429 bytes
+        columns:
+          APOGEE_ID:
+            name: APOGEE_ID
+            type: char[19]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          TARGET_ID:
+            name: TARGET_ID
+            type: char[18]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          FILE:
+            name: FILE
+            type: char[32]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          FIBERID:
+            name: FIBERID
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          CARTID:
+            name: CARTID
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          PLATE:
+            name: PLATE
+            type: char[12]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          MJD:
+            name: MJD
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          TELESCOPE:
+            name: TELESCOPE
+            type: char[6]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          SURVEY:
+            name: SURVEY
+            type: char[6]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          FIELD:
+            name: FIELD
+            type: char[6]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          PROGRAMNAME:
+            name: PROGRAMNAME
+            type: char[6]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          ALT_ID:
+            name: ALT_ID
+            type: char[4]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          LOCATION_ID:
+            name: LOCATION_ID
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          RA:
+            name: RA
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          DEC:
+            name: DEC
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          GLON:
+            name: GLON
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          GLAT:
+            name: GLAT
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          RELFLUX:
+            name: RELFLUX
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          MTPFLUX:
+            name: MTPFLUX
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          J:
+            name: J
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          J_ERR:
+            name: J_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          H:
+            name: H
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          H_ERR:
+            name: H_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          K:
+            name: K
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          K_ERR:
+            name: K_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          SRC_H:
+            name: SRC_H
+            type: char[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          WASH_M:
+            name: WASH_M
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          WASH_M_ERR:
+            name: WASH_M_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          WASH_T2:
+            name: WASH_T2
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          WASH_T2_ERR:
+            name: WASH_T2_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          DDO51:
+            name: DDO51
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          DDO51_ERR:
+            name: DDO51_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          IRAC_3_6:
+            name: IRAC_3_6
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          IRAC_3_6_ERR:
+            name: IRAC_3_6_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          IRAC_4_5:
+            name: IRAC_4_5
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          IRAC_4_5_ERR:
+            name: IRAC_4_5_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          IRAC_5_8:
+            name: IRAC_5_8
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          IRAC_5_8_ERR:
+            name: IRAC_5_8_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          IRAC_8_0:
+            name: IRAC_8_0
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          IRAC_8_0_ERR:
+            name: IRAC_8_0_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          WISE_4_5:
+            name: WISE_4_5
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          WISE_4_5_ERR:
+            name: WISE_4_5_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          TARG_4_5:
+            name: TARG_4_5
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          TARG_4_5_ERR:
+            name: TARG_4_5_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          WASH_DDO51_GIANT_FLAG:
+            name: WASH_DDO51_GIANT_FLAG
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          WASH_DDO51_STAR_FLAG:
+            name: WASH_DDO51_STAR_FLAG
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          PMRA:
+            name: PMRA
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          PMDEC:
+            name: PMDEC
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          PM_SRC:
+            name: PM_SRC
+            type: char[7]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          AK_TARG:
+            name: AK_TARG
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          AK_TARG_METHOD:
+            name: AK_TARG_METHOD
+            type: char[9]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          AK_WISE:
+            name: AK_WISE
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          SFD_EBV:
+            name: SFD_EBV
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          APOGEE_TARGET1:
+            name: APOGEE_TARGET1
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          APOGEE_TARGET2:
+            name: APOGEE_TARGET2
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          APOGEE_TARGET3:
+            name: APOGEE_TARGET3
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          APOGEE_TARGET4:
+            name: APOGEE_TARGET4
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          TARGFLAGS:
+            name: TARGFLAGS
+            type: char[11]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          SNR:
+            name: SNR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          STARFLAG:
+            name: STARFLAG
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          STARFLAGS:
+            name: STARFLAGS
+            type: char[12]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          DATEOBS:
+            name: DATEOBS
+            type: char[23]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          JD:
+            name: JD
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          BC:
+            name: BC
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          VTYPE:
+            name: VTYPE
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          VREL:
+            name: VREL
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          VRELERR:
+            name: VRELERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          VHELIO:
+            name: VHELIO
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          VLSR:
+            name: VLSR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          VGSR:
+            name: VGSR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          CHISQ:
+            name: CHISQ
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          RV_TEFF:
+            name: RV_TEFF
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          RV_FEH:
+            name: RV_FEH
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          RV_LOGG:
+            name: RV_LOGG
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          RV_ALPHA:
+            name: RV_ALPHA
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          RV_CARB:
+            name: RV_CARB
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          SYNTHFILE:
+            name: SYNTHFILE
+            type: char
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
