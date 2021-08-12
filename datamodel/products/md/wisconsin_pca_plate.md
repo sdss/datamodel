@@ -1,7 +1,7 @@
 # Data Model: wisconsin_pca_plate
 
 
-migrated from old datamodel - needs update
+migration: needs update
 
 
 ## Contents
@@ -54,7 +54,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 
 
 ### HDU0: PRIMARY
-The BOSS Galaxy product assumes a WMAP 7 ΛCDM cosmology with <var>H</var><sub>0</sub> = 70, Ω<sub>m</sub> = 0.274, and Ω<sub>Λ</sub> = 0.726.
+migration: Intro info not in database. Needs update
 
 #### HDU Type: IMAGE
 #### HDU Size:  0 bytes
@@ -62,15 +62,15 @@ The BOSS Galaxy product assumes a WMAP 7 ΛCDM cosmology with <var>H</var><sub>0
 ##### Header Table Caption for HDU0
 Key | Value | Comment | |
 | --- | --- | --- | --- |
-| SIMPLE | True | conforms to FITS standard |
-| BITPIX | 8 | array data type |
-| NAXIS | 0 | number of array dimensions |
+| SIMPLE | True |  |
+| BITPIX | 8 |  |
+| NAXIS | 0 |  |
 | EXTEND | True |  |
 
 
 
 ### HDU1: 
-The BOSS Galaxy product assumes a WMAP 7 ΛCDM cosmology with <var>H</var><sub>0</sub> = 70, Ω<sub>m</sub> = 0.274, and Ω<sub>Λ</sub> = 0.726.
+migration: Intro info not in database. Needs update
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  47 KB
@@ -78,29 +78,29 @@ The BOSS Galaxy product assumes a WMAP 7 ΛCDM cosmology with <var>H</var><sub>0
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | PLATE | int32 | migration: unit of keyword/column not found. Needs update | Plate number |
- | MJD | int32 | migration: unit of keyword/column not found. Needs update | Modified Julian date of observation |
- | FIBERID | int32 | migration: unit of keyword/column not found. Needs update | Fiber ID (1 to 1000) |
- | RA | float64 | migration: unit of keyword/column not found. Needs update | Object RA (Plug_RA drilled fiber position) [J2000 degrees] |
- | DEC | float64 | migration: unit of keyword/column not found. Needs update | Object Dec (Plug_Dec drilled fiber position) [J2000 degrees] |
- | Z | float32 | migration: unit of keyword/column not found. Needs update | Redshift (best pipeline galaxy z_noqso with zwarning_noqso=0) |
- | Z_ERR | float32 | migration: unit of keyword/column not found. Needs update | Redshift error (z_err_noqso) based upon fit to chi^2 minimum |
- | ZNUM | int32 | migration: unit of keyword/column not found. Needs update | the znum-th best-fit corresponding to z_noqso (optional input to readspec) |
- | MSTELLAR_MEDIAN | float64 | migration: unit of keyword/column not found. Needs update | 50 percentile of the PDF of Log(stellar mass), we take this as our best estimation |
- | MSTELLAR_ERR | float64 | migration: unit of keyword/column not found. Needs update | Computed as (MSTELLAR_P84 − MSTELLAR_P16) as the ±1σ error of Log(stellar mass) |
- | MSTELLAR_P2P5 | float64 | migration: unit of keyword/column not found. Needs update | 2.5 percentile of the PDF of Log(stellar mass) |
- | MSTELLAR_P16 | float64 | migration: unit of keyword/column not found. Needs update | 16 percentile of the PDF of Log(stellar mass) |
- | MSTELLAR_P84 | float64 | migration: unit of keyword/column not found. Needs update | 84 percentile of the PDF of Log(stellar mass) |
- | MSTELLAR_P97P5 | float64 | migration: unit of keyword/column not found. Needs update | 97.5 percentile of the PDF of Log(stellar mass) |
- | VDISP_MEDIAN | float64 | migration: unit of keyword/column not found. Needs update | 50 percentile of the PDF of stellar velocity dispersion, we take this as our best estimation |
- | VDISP_ERR | float64 | migration: unit of keyword/column not found. Needs update | Computed as (VDISP_P84 − VDISP_P16) as the ±1σ error of stellar velocity dispersion |
- | VDISP_P2P5 | float64 | migration: unit of keyword/column not found. Needs update | 2.5 percentile of the PDF of stellar velocity dispersion |
- | VDISP_P16 | float64 | migration: unit of keyword/column not found. Needs update | 16 percentile of the PDF of stellar velocity dispersion |
- | VDISP_P84 | float64 | migration: unit of keyword/column not found. Needs update | 84 percentile of the PDF of stellar velocity dispersion |
- | VDISP_P97P5 | float64 | migration: unit of keyword/column not found. Needs update | 97.5 percentile of the PDF of stellar velocity dispersion |
- | CALPHA | float32[7] | migration: unit of keyword/column not found. Needs update | The 7 coefficients projected over the 7 eigenspectra=[E1, E2, ..., E7] |
- | CALPHA_NORM | float64 | migration: unit of keyword/column not found. Needs update | The normalization for reconstructing the best fit: |
- | SN_MEDIAN | float32 | migration: unit of keyword/column not found. Needs update | The median spectroscopic Signal to Noise Ratio within the selected projection wavelength range |
+ | PLATE | int32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
+ | MJD | int32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
+ | FIBERID | int32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
+ | RA | float64 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
+ | DEC | float64 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
+ | Z | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
+ | Z_ERR | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
+ | ZNUM | int32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
+ | MSTELLAR_MEDIAN | float64 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
+ | MSTELLAR_ERR | float64 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
+ | MSTELLAR_P2P5 | float64 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
+ | MSTELLAR_P16 | float64 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
+ | MSTELLAR_P84 | float64 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
+ | MSTELLAR_P97P5 | float64 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
+ | VDISP_MEDIAN | float64 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
+ | VDISP_ERR | float64 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
+ | VDISP_P2P5 | float64 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
+ | VDISP_P16 | float64 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
+ | VDISP_P84 | float64 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
+ | VDISP_P97P5 | float64 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
+ | CALPHA | float32[7] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
+ | CALPHA_NORM | float64 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
+ | SN_MEDIAN | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
  | WARNING | int32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
 
 
