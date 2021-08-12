@@ -1,0 +1,1292 @@
+general:
+  name: datasweep-index
+  short: 'migration: needs update'
+  description: 'File describing the location of each field in the <a href="RERUN/calibObj.html">calibObj</a>
+    sweep files, to make
+
+    spatial searches on the sweep faster. Versions exist for the galaxies,
+
+    stars, and sky sweeps. Given an RA and Dec one can use this file to
+
+    find the nearby fields and find what the lines of the relevant sweep
+
+    files are that you need to read.'
+  datatype: FITS
+  filesize: 38 MB
+  releases:
+  - DR8
+  - DR9
+  - DR10
+  - DR12
+  - DR11
+  - DR13
+  - DR14
+  - DR15
+  - DR16
+  - DR17
+  environments:
+  - PHOTO_SWEEP
+  naming_convention: datasweep-index-[type].fits (where type is 'gal', 'star' or 'sky')
+  generated_by: photoop
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases:
+    DR17:
+      from: DR16
+      note: No changes
+    DR16:
+      from: DR15
+      note: No changes
+    DR15:
+      from: DR14
+      note: No changes
+    DR14:
+      from: DR13
+      note: No changes
+    DR13:
+      from: DR11
+      note: No changes
+    DR11:
+      from: DR12
+      note: No changes
+    DR12:
+      from: DR10
+      note: No changes
+    DR10:
+      from: DR9
+      note: No changes
+    DR9:
+      from: DR8
+      note: No changes
+releases:
+  DR10:
+    template: $PHOTO_SWEEP/datasweep-index-gal.fits
+    example: datasweep-index-gal.fits
+    location: datasweep-index-gal.fits
+    environment: PHOTO_SWEEP
+    access:
+      in_sdss_access: true
+      path_name: datasweep-index
+      path_template: $PHOTO_SWEEP/datasweep-index-{type}.fits
+      path_kwargs:
+      - type
+      access_string: datasweep-index = $PHOTO_SWEEP/datasweep-index-gal.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: 'For IDL users, idlutils has a routine "sdss_sweep_circle" which
+
+          utilizes these sweep indices to do very fast spatial searches (you
+
+          can retrieve all objects within 3 deg radius in less than a
+
+          minute).
+
+
+          <b>
+
+          Example file:
+
+          </b>
+
+          <a href="/sas/dr9/env/PHOTO_SWEEP/datasweep-index-gal.fits">datasweep-index-gal.fits</a>'
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: 'For IDL users, idlutils has a routine "sdss_sweep_circle" which
+
+          utilizes these sweep indices to do very fast spatial searches (you
+
+          can retrieve all objects within 3 deg radius in less than a
+
+          minute).
+
+
+          <b>
+
+          Example file:
+
+          </b>
+
+          <a href="/sas/dr9/env/PHOTO_SWEEP/datasweep-index-gal.fits">datasweep-index-gal.fits</a>'
+        is_image: false
+        size: 38 MB
+        columns:
+          RUN:
+            name: RUN
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: drift scan run number
+          RERUN:
+            name: RERUN
+            type: char[3]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: reprocessing rerun number
+          CAMCOL:
+            name: CAMCOL
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: camera column
+          FIELD:
+            name: FIELD
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: field number
+          RA:
+            name: RA
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: RA center of field, J2000 degrees
+          DEC:
+            name: DEC
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Dec center of field, J2000 degrees
+          ISTART:
+            name: ISTART
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'first entry within <a href="RERUN/calibObj.html">calibObj</a>
+              datasweep file for this
+
+              RERUN/RUN/CAMCOL'
+          IEND:
+            name: IEND
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'last entry within <a href="RERUN/calibObj.html">calibObj</a>
+              datasweep file for this
+
+              RERUN/RUN/CAMCOL'
+          NPRIMARY:
+            name: NPRIMARY
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'the number of entries in the <a href="RERUN/calibObj.html">calibObj</a>
+              datasweep file for this
+
+              RERUN/RUN/CAMCOL that have <a href="http://www.sdss.org/dr13/algorithms/bitmasks/#RESOLVE_STATUS">
+
+              RESOLVE_STATUS</a> set to SURVEY_PRIMARY'
+  DR11:
+    template: $PHOTO_SWEEP/datasweep-index-[TYPE].fits
+    example: datasweep-index-gal.fits
+    location: datasweep-index-{type}.fits
+    environment: PHOTO_SWEEP
+    access:
+      in_sdss_access: true
+      path_name: datasweep-index
+      path_template: $PHOTO_SWEEP/datasweep-index-{type}.fits
+      path_kwargs:
+      - type
+      access_string: datasweep-index = $PHOTO_SWEEP/datasweep-index-{type}.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: 'For IDL users, idlutils has a routine "sdss_sweep_circle" which
+
+          utilizes these sweep indices to do very fast spatial searches (you
+
+          can retrieve all objects within 3 deg radius in less than a
+
+          minute).
+
+
+          <b>
+
+          Example file:
+
+          </b>
+
+          <a href="/sas/dr9/env/PHOTO_SWEEP/datasweep-index-gal.fits">datasweep-index-gal.fits</a>'
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: 'For IDL users, idlutils has a routine "sdss_sweep_circle" which
+
+          utilizes these sweep indices to do very fast spatial searches (you
+
+          can retrieve all objects within 3 deg radius in less than a
+
+          minute).
+
+
+          <b>
+
+          Example file:
+
+          </b>
+
+          <a href="/sas/dr9/env/PHOTO_SWEEP/datasweep-index-gal.fits">datasweep-index-gal.fits</a>'
+        is_image: false
+        size: 38 MB
+        columns:
+          RUN:
+            name: RUN
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: drift scan run number
+          RERUN:
+            name: RERUN
+            type: char[3]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: reprocessing rerun number
+          CAMCOL:
+            name: CAMCOL
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: camera column
+          FIELD:
+            name: FIELD
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: field number
+          RA:
+            name: RA
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: RA center of field, J2000 degrees
+          DEC:
+            name: DEC
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Dec center of field, J2000 degrees
+          ISTART:
+            name: ISTART
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'first entry within <a href="RERUN/calibObj.html">calibObj</a>
+              datasweep file for this
+
+              RERUN/RUN/CAMCOL'
+          IEND:
+            name: IEND
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'last entry within <a href="RERUN/calibObj.html">calibObj</a>
+              datasweep file for this
+
+              RERUN/RUN/CAMCOL'
+          NPRIMARY:
+            name: NPRIMARY
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'the number of entries in the <a href="RERUN/calibObj.html">calibObj</a>
+              datasweep file for this
+
+              RERUN/RUN/CAMCOL that have <a href="http://www.sdss.org/dr13/algorithms/bitmasks/#RESOLVE_STATUS">
+
+              RESOLVE_STATUS</a> set to SURVEY_PRIMARY'
+  DR12:
+    template: $PHOTO_SWEEP/datasweep-index-[TYPE].fits
+    example: datasweep-index-gal.fits
+    location: datasweep-index-{type}.fits
+    environment: PHOTO_SWEEP
+    access:
+      in_sdss_access: true
+      path_name: datasweep-index
+      path_template: $PHOTO_SWEEP/datasweep-index-{type}.fits
+      path_kwargs:
+      - type
+      access_string: datasweep-index = $PHOTO_SWEEP/datasweep-index-{type}.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: 'For IDL users, idlutils has a routine "sdss_sweep_circle" which
+
+          utilizes these sweep indices to do very fast spatial searches (you
+
+          can retrieve all objects within 3 deg radius in less than a
+
+          minute).
+
+
+          <b>
+
+          Example file:
+
+          </b>
+
+          <a href="/sas/dr9/env/PHOTO_SWEEP/datasweep-index-gal.fits">datasweep-index-gal.fits</a>'
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: 'For IDL users, idlutils has a routine "sdss_sweep_circle" which
+
+          utilizes these sweep indices to do very fast spatial searches (you
+
+          can retrieve all objects within 3 deg radius in less than a
+
+          minute).
+
+
+          <b>
+
+          Example file:
+
+          </b>
+
+          <a href="/sas/dr9/env/PHOTO_SWEEP/datasweep-index-gal.fits">datasweep-index-gal.fits</a>'
+        is_image: false
+        size: 38 MB
+        columns:
+          RUN:
+            name: RUN
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: drift scan run number
+          RERUN:
+            name: RERUN
+            type: char[3]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: reprocessing rerun number
+          CAMCOL:
+            name: CAMCOL
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: camera column
+          FIELD:
+            name: FIELD
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: field number
+          RA:
+            name: RA
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: RA center of field, J2000 degrees
+          DEC:
+            name: DEC
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Dec center of field, J2000 degrees
+          ISTART:
+            name: ISTART
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'first entry within <a href="RERUN/calibObj.html">calibObj</a>
+              datasweep file for this
+
+              RERUN/RUN/CAMCOL'
+          IEND:
+            name: IEND
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'last entry within <a href="RERUN/calibObj.html">calibObj</a>
+              datasweep file for this
+
+              RERUN/RUN/CAMCOL'
+          NPRIMARY:
+            name: NPRIMARY
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'the number of entries in the <a href="RERUN/calibObj.html">calibObj</a>
+              datasweep file for this
+
+              RERUN/RUN/CAMCOL that have <a href="http://www.sdss.org/dr13/algorithms/bitmasks/#RESOLVE_STATUS">
+
+              RESOLVE_STATUS</a> set to SURVEY_PRIMARY'
+  DR13:
+    template: $PHOTO_SWEEP/datasweep-index-[TYPE].fits
+    example: datasweep-index-gal.fits
+    location: datasweep-index-{type}.fits
+    environment: PHOTO_SWEEP
+    access:
+      in_sdss_access: true
+      path_name: datasweep-index
+      path_template: $PHOTO_SWEEP/datasweep-index-{type}.fits
+      path_kwargs:
+      - type
+      access_string: datasweep-index = $PHOTO_SWEEP/datasweep-index-{type}.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: 'For IDL users, idlutils has a routine "sdss_sweep_circle" which
+
+          utilizes these sweep indices to do very fast spatial searches (you
+
+          can retrieve all objects within 3 deg radius in less than a
+
+          minute).
+
+
+          <b>
+
+          Example file:
+
+          </b>
+
+          <a href="/sas/dr9/env/PHOTO_SWEEP/datasweep-index-gal.fits">datasweep-index-gal.fits</a>'
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: 'For IDL users, idlutils has a routine "sdss_sweep_circle" which
+
+          utilizes these sweep indices to do very fast spatial searches (you
+
+          can retrieve all objects within 3 deg radius in less than a
+
+          minute).
+
+
+          <b>
+
+          Example file:
+
+          </b>
+
+          <a href="/sas/dr9/env/PHOTO_SWEEP/datasweep-index-gal.fits">datasweep-index-gal.fits</a>'
+        is_image: false
+        size: 45 MB
+        columns:
+          RUN:
+            name: RUN
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: drift scan run number
+          RERUN:
+            name: RERUN
+            type: char[3]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: reprocessing rerun number
+          CAMCOL:
+            name: CAMCOL
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: camera column
+          FIELD:
+            name: FIELD
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: field number
+          RA:
+            name: RA
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: RA center of field, J2000 degrees
+          DEC:
+            name: DEC
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Dec center of field, J2000 degrees
+          ISTART:
+            name: ISTART
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'first entry within <a href="RERUN/calibObj.html">calibObj</a>
+              datasweep file for this
+
+              RERUN/RUN/CAMCOL'
+          IEND:
+            name: IEND
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'last entry within <a href="RERUN/calibObj.html">calibObj</a>
+              datasweep file for this
+
+              RERUN/RUN/CAMCOL'
+          NPRIMARY:
+            name: NPRIMARY
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'the number of entries in the <a href="RERUN/calibObj.html">calibObj</a>
+              datasweep file for this
+
+              RERUN/RUN/CAMCOL that have <a href="http://www.sdss.org/dr13/algorithms/bitmasks/#RESOLVE_STATUS">
+
+              RESOLVE_STATUS</a> set to SURVEY_PRIMARY'
+  DR14:
+    template: $PHOTO_SWEEP/datasweep-index-[TYPE].fits
+    example: datasweep-index-gal.fits
+    location: datasweep-index-{type}.fits
+    environment: PHOTO_SWEEP
+    access:
+      in_sdss_access: true
+      path_name: datasweep-index
+      path_template: $PHOTO_SWEEP/datasweep-index-{type}.fits
+      path_kwargs:
+      - type
+      access_string: datasweep-index = $PHOTO_SWEEP/datasweep-index-{type}.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: 'For IDL users, idlutils has a routine "sdss_sweep_circle" which
+
+          utilizes these sweep indices to do very fast spatial searches (you
+
+          can retrieve all objects within 3 deg radius in less than a
+
+          minute).
+
+
+          <b>
+
+          Example file:
+
+          </b>
+
+          <a href="/sas/dr9/env/PHOTO_SWEEP/datasweep-index-gal.fits">datasweep-index-gal.fits</a>'
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: 'For IDL users, idlutils has a routine "sdss_sweep_circle" which
+
+          utilizes these sweep indices to do very fast spatial searches (you
+
+          can retrieve all objects within 3 deg radius in less than a
+
+          minute).
+
+
+          <b>
+
+          Example file:
+
+          </b>
+
+          <a href="/sas/dr9/env/PHOTO_SWEEP/datasweep-index-gal.fits">datasweep-index-gal.fits</a>'
+        is_image: false
+        size: 45 MB
+        columns:
+          RUN:
+            name: RUN
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: drift scan run number
+          RERUN:
+            name: RERUN
+            type: char[3]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: reprocessing rerun number
+          CAMCOL:
+            name: CAMCOL
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: camera column
+          FIELD:
+            name: FIELD
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: field number
+          RA:
+            name: RA
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: RA center of field, J2000 degrees
+          DEC:
+            name: DEC
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Dec center of field, J2000 degrees
+          ISTART:
+            name: ISTART
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'first entry within <a href="RERUN/calibObj.html">calibObj</a>
+              datasweep file for this
+
+              RERUN/RUN/CAMCOL'
+          IEND:
+            name: IEND
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'last entry within <a href="RERUN/calibObj.html">calibObj</a>
+              datasweep file for this
+
+              RERUN/RUN/CAMCOL'
+          NPRIMARY:
+            name: NPRIMARY
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'the number of entries in the <a href="RERUN/calibObj.html">calibObj</a>
+              datasweep file for this
+
+              RERUN/RUN/CAMCOL that have <a href="http://www.sdss.org/dr13/algorithms/bitmasks/#RESOLVE_STATUS">
+
+              RESOLVE_STATUS</a> set to SURVEY_PRIMARY'
+  DR15:
+    template: $PHOTO_SWEEP/datasweep-index-[TYPE].fits
+    example: datasweep-index-gal.fits
+    location: datasweep-index-{type}.fits
+    environment: PHOTO_SWEEP
+    access:
+      in_sdss_access: true
+      path_name: datasweep-index
+      path_template: $PHOTO_SWEEP/datasweep-index-{type}.fits
+      path_kwargs:
+      - type
+      access_string: datasweep-index = $PHOTO_SWEEP/datasweep-index-{type}.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: 'For IDL users, idlutils has a routine "sdss_sweep_circle" which
+
+          utilizes these sweep indices to do very fast spatial searches (you
+
+          can retrieve all objects within 3 deg radius in less than a
+
+          minute).
+
+
+          <b>
+
+          Example file:
+
+          </b>
+
+          <a href="/sas/dr9/env/PHOTO_SWEEP/datasweep-index-gal.fits">datasweep-index-gal.fits</a>'
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: 'For IDL users, idlutils has a routine "sdss_sweep_circle" which
+
+          utilizes these sweep indices to do very fast spatial searches (you
+
+          can retrieve all objects within 3 deg radius in less than a
+
+          minute).
+
+
+          <b>
+
+          Example file:
+
+          </b>
+
+          <a href="/sas/dr9/env/PHOTO_SWEEP/datasweep-index-gal.fits">datasweep-index-gal.fits</a>'
+        is_image: false
+        size: 45 MB
+        columns:
+          RUN:
+            name: RUN
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: drift scan run number
+          RERUN:
+            name: RERUN
+            type: char[3]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: reprocessing rerun number
+          CAMCOL:
+            name: CAMCOL
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: camera column
+          FIELD:
+            name: FIELD
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: field number
+          RA:
+            name: RA
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: RA center of field, J2000 degrees
+          DEC:
+            name: DEC
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Dec center of field, J2000 degrees
+          ISTART:
+            name: ISTART
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'first entry within <a href="RERUN/calibObj.html">calibObj</a>
+              datasweep file for this
+
+              RERUN/RUN/CAMCOL'
+          IEND:
+            name: IEND
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'last entry within <a href="RERUN/calibObj.html">calibObj</a>
+              datasweep file for this
+
+              RERUN/RUN/CAMCOL'
+          NPRIMARY:
+            name: NPRIMARY
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'the number of entries in the <a href="RERUN/calibObj.html">calibObj</a>
+              datasweep file for this
+
+              RERUN/RUN/CAMCOL that have <a href="http://www.sdss.org/dr13/algorithms/bitmasks/#RESOLVE_STATUS">
+
+              RESOLVE_STATUS</a> set to SURVEY_PRIMARY'
+  DR16:
+    template: $PHOTO_SWEEP/datasweep-index-[TYPE].fits
+    example: datasweep-index-gal.fits
+    location: datasweep-index-{type}.fits
+    environment: PHOTO_SWEEP
+    access:
+      in_sdss_access: true
+      path_name: datasweep-index
+      path_template: $PHOTO_SWEEP/datasweep-index-{type}.fits
+      path_kwargs:
+      - type
+      access_string: datasweep-index = $PHOTO_SWEEP/datasweep-index-{type}.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: 'For IDL users, idlutils has a routine "sdss_sweep_circle" which
+
+          utilizes these sweep indices to do very fast spatial searches (you
+
+          can retrieve all objects within 3 deg radius in less than a
+
+          minute).
+
+
+          <b>
+
+          Example file:
+
+          </b>
+
+          <a href="/sas/dr9/env/PHOTO_SWEEP/datasweep-index-gal.fits">datasweep-index-gal.fits</a>'
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: 'For IDL users, idlutils has a routine "sdss_sweep_circle" which
+
+          utilizes these sweep indices to do very fast spatial searches (you
+
+          can retrieve all objects within 3 deg radius in less than a
+
+          minute).
+
+
+          <b>
+
+          Example file:
+
+          </b>
+
+          <a href="/sas/dr9/env/PHOTO_SWEEP/datasweep-index-gal.fits">datasweep-index-gal.fits</a>'
+        is_image: false
+        size: 45 MB
+        columns:
+          RUN:
+            name: RUN
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: drift scan run number
+          RERUN:
+            name: RERUN
+            type: char[3]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: reprocessing rerun number
+          CAMCOL:
+            name: CAMCOL
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: camera column
+          FIELD:
+            name: FIELD
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: field number
+          RA:
+            name: RA
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: RA center of field, J2000 degrees
+          DEC:
+            name: DEC
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Dec center of field, J2000 degrees
+          ISTART:
+            name: ISTART
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'first entry within <a href="RERUN/calibObj.html">calibObj</a>
+              datasweep file for this
+
+              RERUN/RUN/CAMCOL'
+          IEND:
+            name: IEND
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'last entry within <a href="RERUN/calibObj.html">calibObj</a>
+              datasweep file for this
+
+              RERUN/RUN/CAMCOL'
+          NPRIMARY:
+            name: NPRIMARY
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'the number of entries in the <a href="RERUN/calibObj.html">calibObj</a>
+              datasweep file for this
+
+              RERUN/RUN/CAMCOL that have <a href="http://www.sdss.org/dr13/algorithms/bitmasks/#RESOLVE_STATUS">
+
+              RESOLVE_STATUS</a> set to SURVEY_PRIMARY'
+  DR17:
+    template: $PHOTO_SWEEP/datasweep-index-[TYPE].fits
+    example: datasweep-index-gal.fits
+    location: datasweep-index-{type}.fits
+    environment: PHOTO_SWEEP
+    access:
+      in_sdss_access: true
+      path_name: datasweep-index
+      path_template: $PHOTO_SWEEP/datasweep-index-{type}.fits
+      path_kwargs:
+      - type
+      access_string: datasweep-index = $PHOTO_SWEEP/datasweep-index-{type}.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: 'For IDL users, idlutils has a routine "sdss_sweep_circle" which
+
+          utilizes these sweep indices to do very fast spatial searches (you
+
+          can retrieve all objects within 3 deg radius in less than a
+
+          minute).
+
+
+          <b>
+
+          Example file:
+
+          </b>
+
+          <a href="/sas/dr9/env/PHOTO_SWEEP/datasweep-index-gal.fits">datasweep-index-gal.fits</a>'
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: 'For IDL users, idlutils has a routine "sdss_sweep_circle" which
+
+          utilizes these sweep indices to do very fast spatial searches (you
+
+          can retrieve all objects within 3 deg radius in less than a
+
+          minute).
+
+
+          <b>
+
+          Example file:
+
+          </b>
+
+          <a href="/sas/dr9/env/PHOTO_SWEEP/datasweep-index-gal.fits">datasweep-index-gal.fits</a>'
+        is_image: false
+        size: 45 MB
+        columns:
+          RUN:
+            name: RUN
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: drift scan run number
+          RERUN:
+            name: RERUN
+            type: char[3]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: reprocessing rerun number
+          CAMCOL:
+            name: CAMCOL
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: camera column
+          FIELD:
+            name: FIELD
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: field number
+          RA:
+            name: RA
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: RA center of field, J2000 degrees
+          DEC:
+            name: DEC
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Dec center of field, J2000 degrees
+          ISTART:
+            name: ISTART
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'first entry within <a href="RERUN/calibObj.html">calibObj</a>
+              datasweep file for this
+
+              RERUN/RUN/CAMCOL'
+          IEND:
+            name: IEND
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'last entry within <a href="RERUN/calibObj.html">calibObj</a>
+              datasweep file for this
+
+              RERUN/RUN/CAMCOL'
+          NPRIMARY:
+            name: NPRIMARY
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'the number of entries in the <a href="RERUN/calibObj.html">calibObj</a>
+              datasweep file for this
+
+              RERUN/RUN/CAMCOL that have <a href="http://www.sdss.org/dr13/algorithms/bitmasks/#RESOLVE_STATUS">
+
+              RESOLVE_STATUS</a> set to SURVEY_PRIMARY'
+  DR8:
+    template: $PHOTO_SWEEP/datasweep-index-[TYPE].fits
+    example: datasweep-index-gal.fits
+    location: datasweep-index-{type}.fits
+    environment: PHOTO_SWEEP
+    access:
+      in_sdss_access: true
+      path_name: datasweep-index
+      path_template: $PHOTO_SWEEP/datasweep-index-{type}.fits
+      path_kwargs:
+      - type
+      access_string: datasweep-index = $PHOTO_SWEEP/datasweep-index-{type}.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: 'For IDL users, idlutils has a routine "sdss_sweep_circle" which
+
+          utilizes these sweep indices to do very fast spatial searches (you
+
+          can retrieve all objects within 3 deg radius in less than a
+
+          minute).
+
+
+          <b>
+
+          Example file:
+
+          </b>
+
+          <a href="/sas/dr9/env/PHOTO_SWEEP/datasweep-index-gal.fits">datasweep-index-gal.fits</a>'
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: 'For IDL users, idlutils has a routine "sdss_sweep_circle" which
+
+          utilizes these sweep indices to do very fast spatial searches (you
+
+          can retrieve all objects within 3 deg radius in less than a
+
+          minute).
+
+
+          <b>
+
+          Example file:
+
+          </b>
+
+          <a href="/sas/dr9/env/PHOTO_SWEEP/datasweep-index-gal.fits">datasweep-index-gal.fits</a>'
+        is_image: false
+        size: 38 MB
+        columns:
+          RUN:
+            name: RUN
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: drift scan run number
+          RERUN:
+            name: RERUN
+            type: char[3]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: reprocessing rerun number
+          CAMCOL:
+            name: CAMCOL
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: camera column
+          FIELD:
+            name: FIELD
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: field number
+          RA:
+            name: RA
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: RA center of field, J2000 degrees
+          DEC:
+            name: DEC
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Dec center of field, J2000 degrees
+          ISTART:
+            name: ISTART
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'first entry within <a href="RERUN/calibObj.html">calibObj</a>
+              datasweep file for this
+
+              RERUN/RUN/CAMCOL'
+          IEND:
+            name: IEND
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'last entry within <a href="RERUN/calibObj.html">calibObj</a>
+              datasweep file for this
+
+              RERUN/RUN/CAMCOL'
+          NPRIMARY:
+            name: NPRIMARY
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'the number of entries in the <a href="RERUN/calibObj.html">calibObj</a>
+              datasweep file for this
+
+              RERUN/RUN/CAMCOL that have <a href="http://www.sdss.org/dr13/algorithms/bitmasks/#RESOLVE_STATUS">
+
+              RESOLVE_STATUS</a> set to SURVEY_PRIMARY'
+  DR9:
+    template: $PHOTO_SWEEP/datasweep-index-[TYPE].fits
+    example: datasweep-index-gal.fits
+    location: datasweep-index-{type}.fits
+    environment: PHOTO_SWEEP
+    access:
+      in_sdss_access: true
+      path_name: datasweep-index
+      path_template: $PHOTO_SWEEP/datasweep-index-{type}.fits
+      path_kwargs:
+      - type
+      access_string: datasweep-index = $PHOTO_SWEEP/datasweep-index-{type}.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: 'For IDL users, idlutils has a routine "sdss_sweep_circle" which
+
+          utilizes these sweep indices to do very fast spatial searches (you
+
+          can retrieve all objects within 3 deg radius in less than a
+
+          minute).
+
+
+          <b>
+
+          Example file:
+
+          </b>
+
+          <a href="/sas/dr9/env/PHOTO_SWEEP/datasweep-index-gal.fits">datasweep-index-gal.fits</a>'
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: 'For IDL users, idlutils has a routine "sdss_sweep_circle" which
+
+          utilizes these sweep indices to do very fast spatial searches (you
+
+          can retrieve all objects within 3 deg radius in less than a
+
+          minute).
+
+
+          <b>
+
+          Example file:
+
+          </b>
+
+          <a href="/sas/dr9/env/PHOTO_SWEEP/datasweep-index-gal.fits">datasweep-index-gal.fits</a>'
+        is_image: false
+        size: 38 MB
+        columns:
+          RUN:
+            name: RUN
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: drift scan run number
+          RERUN:
+            name: RERUN
+            type: char[3]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: reprocessing rerun number
+          CAMCOL:
+            name: CAMCOL
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: camera column
+          FIELD:
+            name: FIELD
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: field number
+          RA:
+            name: RA
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: RA center of field, J2000 degrees
+          DEC:
+            name: DEC
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Dec center of field, J2000 degrees
+          ISTART:
+            name: ISTART
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'first entry within <a href="RERUN/calibObj.html">calibObj</a>
+              datasweep file for this
+
+              RERUN/RUN/CAMCOL'
+          IEND:
+            name: IEND
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'last entry within <a href="RERUN/calibObj.html">calibObj</a>
+              datasweep file for this
+
+              RERUN/RUN/CAMCOL'
+          NPRIMARY:
+            name: NPRIMARY
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'the number of entries in the <a href="RERUN/calibObj.html">calibObj</a>
+              datasweep file for this
+
+              RERUN/RUN/CAMCOL that have <a href="http://www.sdss.org/dr13/algorithms/bitmasks/#RESOLVE_STATUS">
+
+              RESOLVE_STATUS</a> set to SURVEY_PRIMARY'
