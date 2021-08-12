@@ -1,7 +1,7 @@
 # Data Model: DRQ
 
 
-migrated from old datamodel - needs update
+migration: needs update
 
 
 ## Contents
@@ -13,19 +13,13 @@ migrated from old datamodel - needs update
 ---
 
 ## Basic Information
-DR10Q is the BOSS quasar catalog of the tenth data release of SDSS,
-as documented in Pâris et al. (2013).  There are 2 sets of files available
-in FITS format:
-<ul>
-<li>DR10Q.fits/.dat: The primary DR9Q catalog</li>
-<li>Supplementary_DR10Q.fits/.dat: The supplementary list of quasars added
-    after the primary catalog was frozen.</li>
-</ul>
+DR12Q is the final quasar catalog of SDSS, associated to the twelfth data release, 
+as documented in Pâris et al. (2015). 
+
+
 <p>
 This webpage documents the format of the
-<a href="/sas/dr9/env/BOSS_QSO/DR10Q/DR10Q.fits">DR10Q.fits</a>
-and <a href="/sas/dr9/env/BOSS_QSO/DR10Q/Supplementary_DR10Q.fits">Supplementary_DR10Q.fits</a>
-catalog files which have identical formats with different objects.
+<a href="/sas/dr13/env/BOSS_QSO/DR12Q/DR12Q.fits">DR12Q.fits</a> file.
 </p>
 
 ### Naming Convention
@@ -103,7 +97,7 @@ Key | Value | Comment | |
 
 
 ### HDU1: DR12Q.fits
-EXTNAME="DR10Q" with a binary FITS table with the following columns:
+EXTNAME="DR12Q" with a binary FITS table with the following columns:
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  512 MB
@@ -111,7 +105,7 @@ EXTNAME="DR10Q" with a binary FITS table with the following columns:
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | SDSS_NAME | char[18] | - | SDSS-DR10 designation |
+ | SDSS_NAME | char[18] | - | SDSS-DR12 designation |
  | RA | float64 | deg | RA (J2000) |
  | DEC | float64 | deg | DEC (J2000) |
  | THING_ID | int32 | - | Unique identifier |
@@ -129,14 +123,14 @@ Name | Type | Unit | Description |
  | Z_CIII | float64 | - | CIII] complex redshift |
  | Z_MGII | float64 | - | MgII redshift |
  | SDSS_MORPHO | int16 | - | Morphology flag |
- | BOSS_TARGET1 | int64 | - | Main survey TS flag (parseLong($19)) |
- | ANCILLARY_TARGET1 | int64 | - | Ancillary TS flag 1 (parseLong($20)) |
- | ANCILLARY_TARGET2 | int64 | - | Ancillary TS flag 2 (parseLong($21)) |
- | EBOSS_TARGET0 | int64 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | NSPEC_BOSS | int32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | PLATE_DUPLICATE | int32[32] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | MJD_DUPLICATE | int32[32] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | FIBERID_DUPLICATE | int32[32] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
+ | BOSS_TARGET1 | int64 | - | Main survey TS flag |
+ | ANCILLARY_TARGET1 | int64 | - | Ancillary TS flag 1 |
+ | ANCILLARY_TARGET2 | int64 | - | Ancillary TS flag 2 |
+ | EBOSS_TARGET0 | int64 | - | SEQUELS TS flag |
+ | NSPEC_BOSS | int32 | - | Number of additional spectra available in SDSS/BOSS |
+ | PLATE_DUPLICATE | int32[32] | - | Plate number of each duplicate spectrum |
+ | MJD_DUPLICATE | int32[32] | - | MJD of each duplicate spectrum |
+ | FIBERID_DUPLICATE | int32[32] | - | Fiber number of each duplicate spectrum |
  | SDSS_DR7 | int32 | - | DR7 observation flag |
  | PLATE_DR7 | int32 | - | DR7 Plate number |
  | MJD_DR7 | int32 | - | DR7 spectroscopic MJD |
@@ -144,7 +138,7 @@ Name | Type | Unit | Description |
  | UNIFORM | int16 | - | Uniform sample flag |
  | ALPHA_NU | float64 | - | Spectral index |
  | SNR_SPEC | float64 | - | Median SNR (whole spectrum) |
- | SNR_DUPLICATE | float64[32] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
+ | SNR_DUPLICATE | float64[32] | - | Median SNR (whole spectrum) for each duplicate spectrum |
  | SNR_1700 | float64 | - | Median SNR (1650-1750A rest) |
  | SNR_3000 | float64 | - | Median SNR (2950-3050A rest) |
  | SNR_5150 | float64 | - | Median SNR (5100-5250A rest) |
@@ -197,29 +191,29 @@ Name | Type | Unit | Description |
  | EXTINCTION | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
  | EXTINCTION_RECAL | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
  | HI_GAL | float64 | cm<sup>-2</sup> | log of Galactic HI column density |
- | VAR_MATCHED | int16 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | VAR_CHI2 | float64 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | VAR_A | float64 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | VAR_GAMMA | float64 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | RASS_COUNTS | float64 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
+ | VAR_MATCHED | int16 | - | Variability information flag |
+ | VAR_CHI2 | float64 | - | Reduced chi2 when the light curve is fitted with a constant |
+ | VAR_A | float64 | - | Structure function parameter A as defined in Palanque-Delabrouille et al. (2011) |
+ | VAR_GAMMA | float64 | - | Structure function parameter gamma as defined in Palanque-Delabrouille et al. (2011) |
+ | RASS_COUNTS | float64 | COUNT/S | log RASS full band count rate |
  | RASS_COUNTS_SNR | float64 | - | SNR of RASS count rate |
  | SDSS2ROSAT_SEP | float64 | arcsec | SDSS-RASS separation |
  | N_DETECTION_XMM | int16 | - | Number of detections in XMM-Newton |
- | FLUX02_12KEV_SGL | float64 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | ERR_FLUX02_12KEV_SGL | float64 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | FLUX02_2KEV | float64 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | ERR_FLUX02_2KEV | float64 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | FLUX2_12KEV | float64 | erg cm<sup>-2</sup> s<sup>-1</sup> | Hard (1-12 keV) X-ray flux from XMM-Newton |
+ | FLUX02_12KEV_SGL | float64 | erg cm<sup>-2</sup> s<sup>-1</sup> | Total flux (0.2-12 keV) from XMM-Newton computed from the longest observation |
+ | ERR_FLUX02_12KEV_SGL | float64 | erg cm<sup>-2</sup> s<sup>-1</sup> | Error on total flux (0.2-12 keV) from XMM-Newton |
+ | FLUX02_2KEV | float64 | erg cm<sup>-2</sup> s<sup>-1</sup> | Soft (0.2-2 keV) X-ray flux from XMM-Newton |
+ | ERR_FLUX02_2KEV | float64 | erg cm<sup>-2</sup> s<sup>-1</sup> | Error on soft (0.2-2 keV) X-ray flux from XMM-Newton |
+ | FLUX2_12KEV | float64 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
  | ERR_FLUX2_12KEV | float64 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | FLUX02_12KEV | float64 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | ERR_FLUX02_12KEV | float64 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
+ | FLUX02_12KEV | float64 | erg cm<sup>-2</sup> s<sup>-1</sup> | Total weighted average flux (0.2-12 keV) from XMM-Newton |
+ | ERR_FLUX02_12KEV | float64 | erg cm<sup>-2</sup> s<sup>-1</sup> | Error on total flux from XMM-Newton |
  | LUM02_2KEV_SGL | float64 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
  | LUM05_2KEV | float64 | erg s<sup>-1</sup> | Soft (0.5-2 keV) X-ray luminosity from XMM-Newton |
  | LUM2_12KEV | float64 | erg s<sup>-1</sup> | Hard (2-12 keV) X-ray luminosity from XMM-Newton |
  | LUM02_2KEV | float64 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | LUMX2_10_UPPER | int16 | - | Flag for upper limit for hard X-ray flux |
+ | LUMX2_10_UPPER | int16 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
  | SDSS2XMM_SEP | float64 | arcsec | SDSS-XMM-Newton separation |
- | GALEX_MATCHED | int16 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
+ | GALEX_MATCHED | int16 | - | GALEX match flag |
  | FUV | float64 | AB_nanomaggies | fuv flux (GALEX) |
  | FUV_IVAR | float64 | AB_nanomaggies<sup>-2</sup> | inverse variance of fuv flux |
  | NUV | float64 | AB_nanomaggies | nuv flux (GALEX) |
@@ -254,9 +248,9 @@ Name | Type | Unit | Description |
  | W4SNR | float64 | - | SNR in w4 band |
  | W4CHI2 | float64 | - | Chi2 in w4 band |
  | CC_FLAGS | char[4] | - | WISE contamination and confusion flag |
- | PH_FLAG | char[4] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
+ | PH_FLAG | char[4] | - | WISE photometric quality flag |
  | SDSS2WISE_SEP | float64 | arcsec | SDSS-WISE separation |
- | UKIDSS_MATCHED | int16 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
+ | UKIDSS_MATCHED | int16 | - | UKIDSS flag |
  | YFLUX | float32 | W m<sup>-2</sup> Hz<sup>-1</sup> | Y-band flux from UKIDSS |
  | YFLUX_ERR | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
  | JFLUX | float32 | W m<sup>-2</sup> Hz<sup>-1</sup> | J-band flux from UKIDSS |
@@ -265,7 +259,7 @@ Name | Type | Unit | Description |
  | HFLUX_ERR | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
  | KFLUX | float32 | W m<sup>-2</sup> Hz<sup>-1</sup> | K-band flux from UKIDSS |
  | KFLUX_ERR | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | FIRST_MATCHED | int16 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
+ | FIRST_MATCHED | int16 | - | FIRST match flag |
  | FIRST_FLUX | float64 | mJy | FIRST peak flux density at 20 cm |
  | FIRST_SNR | float64 | - | SNR of the FIRST flux density |
  | SDSS2FIRST_SEP | float64 | arcsec | SDSS-FIRST separation |
