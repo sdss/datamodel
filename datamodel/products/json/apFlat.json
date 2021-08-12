@@ -1,7 +1,7 @@
 {
   "general": {
     "name": "apFlat",
-    "short": "migrated from old datamodel - needs update",
+    "short": "migration: needs update",
     "description": "apFlat files contain calibration data about the relative response of the different pixels\nin each detector. They are constructed from multiple frames of a continuum lamp, taken\nat different collimator dither positions.\nThe multiextension FITS file contains:\n<pre>\nHDU0: master header\nHDU1: flat field image (ADU) [FLOAT]: 2048x2048\nHDU2: flag mask [INT*2]\nHDU3: smoothed flat image [FLOAT]\n</pre>",
     "environments": [
       "APOGEE_REDUX"
@@ -149,10 +149,10 @@
         "path_name": "apFlat",
         "path_template": "$APOGEE_REDUX/{apred}/cal/flatcorr/{prefix}Flat-{chip}-{num:0>8}.fits",
         "path_kwargs": [
-          "chip",
-          "prefix",
+          "apred",
           "num",
-          "apred"
+          "prefix",
+          "chip"
         ],
         "access_string": "apFlat = $APOGEE_REDUX/r3/cal/flatcorr/apFlat-a-04750009.fits"
       },
