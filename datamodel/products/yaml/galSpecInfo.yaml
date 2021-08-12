@@ -1,0 +1,407 @@
+general:
+  name: galSpecInfo
+  short: 'migration: needs update'
+  description: 'Information about fibers for which
+
+    the MPA-JHU spectroscopic parameters pipeline has been run.  This file
+
+    is built out of a similar one in the galspec SVN product. It is
+
+    designed to be line-by-line matched with the <a href="specObj.html">
+
+    specObj</a> list of all spectra. ny spectra in specObj that do not
+
+    have a measurement from the MPA-JHU pipeline have all values zeroed
+
+    out in this file.  There is further information about the MPA-JHU
+
+    results in the parallel files <a href="galSpecIndx.html">
+
+    galSpecIndx</a> , <a href="galSpecLine.html"> galSpecLine</a> ,
+
+    and <a href="galSpecExtra.html"> galSpecExtra</a> . ID values are set
+
+    to -1 for cases where there were no results from the MPA-JHU
+
+    pipeline. In some cases, the pipeline was run but we don''t believe the
+
+    results are reliable, in which case the column "RELIABLE" is set to
+
+    zero.'
+  datatype: FITS
+  filesize: 363 MB
+  releases:
+  - DR8
+  - DR9
+  environments:
+  - SPECTRO_REDUX
+  naming_convention: galSpecInfo-[DRNAME].fits
+  generated_by: sas
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases:
+    DR9:
+      from: DR8
+      note: No changes
+releases:
+  DR8:
+    template: $SPECTRO_REDUX/galSpecInfo-dr8.fits
+    example: galSpecInfo-dr8.fits
+    location: galSpecInfo-dr8.fits
+    environment: SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: galSpecInfo
+      path_template: $SPECTRO_REDUX/galSpecInfo-{dr}.fits
+      path_kwargs:
+      - dr
+      access_string: galSpecInfo = $SPECTRO_REDUX/galSpecInfo-dr8.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: ''
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: ''
+        is_image: false
+        size: 363 MB
+        columns:
+          SPECOBJID:
+            name: SPECOBJID
+            type: char[19]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Unique ID
+          RELIABLE:
+            name: RELIABLE
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: has "reliable" line measurements and physical parameters
+          PLATEID:
+            name: PLATEID
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Plate number
+          MJD:
+            name: MJD
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Modified Julian Date of plate observation
+          FIBERID:
+            name: FIBERID
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Fiber number (1 - 640)
+          PHOTOID:
+            name: PHOTOID
+            type: int16[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          RA:
+            name: RA
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Right Ascention of drilled fiber position  (degrees)
+          DEC:
+            name: DEC
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Declination of drilled fiber position  (degrees)
+          PLUG_MAG:
+            name: PLUG_MAG
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          PRIMTARGET:
+            name: PRIMTARGET
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Primary Target Flag (MAIN galaxy = 64)
+          SECTARGET:
+            name: SECTARGET
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Secondary Target Flag (QA = 8)
+          TARGETTYPE:
+            name: TARGETTYPE
+            type: char[19]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Text version of primary target (GALAXY/QA/QSO/ROSAT_D)
+          SPECTROTYPE:
+            name: SPECTROTYPE
+            type: char[6]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Schlegel classification of spectrum ... code is only run
+              where this is set to "GALAXY"
+          SUBCLASS:
+            name: SUBCLASS
+            type: char[21]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Schlegel subclass from PCA analysis
+          Z:
+            name: Z
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Redshift from Schlegel
+          Z_ERR:
+            name: Z_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Redshift error
+          Z_WARNING:
+            name: Z_WARNING
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Bad redshift if this is non-zero
+          V_DISP:
+            name: V_DISP
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Velocity dispersion from Schlegel  (km)
+          V_DISP_ERR:
+            name: V_DISP_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Velocity dispersion error (negative for invalid fit)  (km)
+          SN_MEDIAN:
+            name: SN_MEDIAN
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Median S/N per pixel of the whole spectrum
+          E_BV_SFD:
+            name: E_BV_SFD
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: E(B-V) of foreground reddening from SFD maps
+          ZTWEAK:
+            name: ZTWEAK
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          ZTWEAK_ERR:
+            name: ZTWEAK_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          SPECTRO_MAG:
+            name: SPECTRO_MAG
+            type: float32[3]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          KCOR_MAG:
+            name: KCOR_MAG
+            type: float32[3]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          KCOR_MODEL_MAG:
+            name: KCOR_MODEL_MAG
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          RELEASE:
+            name: RELEASE
+            type: char[12]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Data Release (dr1/dr2/dr3/dr4)
+  DR9:
+    template: $SPECTRO_REDUX/galSpecInfo-[DR].fits
+    example: galSpecInfo-dr9.fits
+    location: galSpecInfo-{dr}.fits
+    environment: SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: galSpecInfo
+      path_template: $SPECTRO_REDUX/galSpecInfo-{dr}.fits
+      path_kwargs:
+      - dr
+      access_string: galSpecInfo = $SPECTRO_REDUX/galSpecInfo-{dr}.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: ''
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: ''
+        is_image: false
+        size: 527 MB
+        columns:
+          SPECOBJID:
+            name: SPECOBJID
+            type: char[19]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Unique ID
+          RELIABLE:
+            name: RELIABLE
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: has "reliable" line measurements and physical parameters
+          PLATEID:
+            name: PLATEID
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Plate number
+          MJD:
+            name: MJD
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Modified Julian Date of plate observation
+          FIBERID:
+            name: FIBERID
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Fiber number (1 - 640)
+          PHOTOID:
+            name: PHOTOID
+            type: int16[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          RA:
+            name: RA
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Right Ascention of drilled fiber position  (degrees)
+          DEC:
+            name: DEC
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Declination of drilled fiber position  (degrees)
+          PLUG_MAG:
+            name: PLUG_MAG
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          PRIMTARGET:
+            name: PRIMTARGET
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Primary Target Flag (MAIN galaxy = 64)
+          SECTARGET:
+            name: SECTARGET
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Secondary Target Flag (QA = 8)
+          TARGETTYPE:
+            name: TARGETTYPE
+            type: char[19]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Text version of primary target (GALAXY/QA/QSO/ROSAT_D)
+          SPECTROTYPE:
+            name: SPECTROTYPE
+            type: char[6]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Schlegel classification of spectrum ... code is only run
+              where this is set to "GALAXY"
+          SUBCLASS:
+            name: SUBCLASS
+            type: char[21]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Schlegel subclass from PCA analysis
+          Z:
+            name: Z
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Redshift from Schlegel
+          Z_ERR:
+            name: Z_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Redshift error
+          Z_WARNING:
+            name: Z_WARNING
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Bad redshift if this is non-zero
+          V_DISP:
+            name: V_DISP
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Velocity dispersion from Schlegel  (km)
+          V_DISP_ERR:
+            name: V_DISP_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Velocity dispersion error (negative for invalid fit)  (km)
+          SN_MEDIAN:
+            name: SN_MEDIAN
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Median S/N per pixel of the whole spectrum
+          E_BV_SFD:
+            name: E_BV_SFD
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: E(B-V) of foreground reddening from SFD maps
+          ZTWEAK:
+            name: ZTWEAK
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          ZTWEAK_ERR:
+            name: ZTWEAK_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          SPECTRO_MAG:
+            name: SPECTRO_MAG
+            type: float32[3]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          KCOR_MAG:
+            name: KCOR_MAG
+            type: float32[3]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          KCOR_MODEL_MAG:
+            name: KCOR_MODEL_MAG
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          RELEASE:
+            name: RELEASE
+            type: char[12]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Data Release (dr1/dr2/dr3/dr4)
