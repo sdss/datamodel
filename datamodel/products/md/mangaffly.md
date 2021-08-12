@@ -1,7 +1,7 @@
 # Data Model: mangaffly
 
 
-migrated from old datamodel - needs update
+migration: needs update
 
 
 ## Contents
@@ -81,13 +81,13 @@ firefly
 Describes changes to the datamodel product and/or file structure from one release to another
  - DR17
    - from: DR16
-   - removed_hdus: ['CN1_INDEX', 'FE5406_INDEX', 'MG2_INDEX', 'CN2_INDEX', 'HGAMMA_A_INDEX', 'CA4227_INDEX', 'TIO1_INDEX', 'FE4531_INDEX', 'G4300_INDEX', 'H_BETA_INDEX', 'DN4000_INDEX', 'C24668_INDEX', 'MGB_INDEX', 'FE5015_INDEX', 'NAD_INDEX', 'CA4455_INDEX', 'FE5709_INDEX', 'HDELTA_F_INDEX', 'HGAMMA_F_INDEX', 'FE5782_INDEX', 'HDELTA_A_INDEX', 'MG1_INDEX', 'D4000_INDEX', 'TIO2_INDEX', 'FE4383_INDEX', 'FE5335_INDEX', 'FE5270_INDEX', 'CAHK_INDEX']
+   - removed_hdus: ['FE5709_INDEX', 'CA4455_INDEX', 'HGAMMA_A_INDEX', 'NAD_INDEX', 'HGAMMA_F_INDEX', 'FE5015_INDEX', 'TIO1_INDEX', 'DN4000_INDEX', 'CN1_INDEX', 'CA4227_INDEX', 'MG1_INDEX', 'CN2_INDEX', 'HDELTA_A_INDEX', 'FE5270_INDEX', 'D4000_INDEX', 'MG2_INDEX', 'HDELTA_F_INDEX', 'MGB_INDEX', 'CAHK_INDEX', 'H_BETA_INDEX', 'FE5406_INDEX', 'TIO2_INDEX', 'G4300_INDEX', 'FE4383_INDEX', 'FE5782_INDEX', 'C24668_INDEX', 'FE5335_INDEX', 'FE4531_INDEX']
  - DR16
    - from: DR15
    - note: No changes
  - DR15
    - from: DR14
-   - added_hdus: ['SPATIAL_BINID', 'STAR_FORMATION_HISTORY', 'STELLAR_MASS_REMNANT']
+   - added_hdus: ['SPATIAL_BINID', 'STELLAR_MASS_REMNANT', 'STAR_FORMATION_HISTORY']
    - removed_hdus: ['SPAXEL_BINID']
 
 ---
