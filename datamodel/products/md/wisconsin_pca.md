@@ -1,7 +1,7 @@
 # Data Model: wisconsin_pca
 
 
-migrated from old datamodel - needs update
+migration: needs update
 
 
 ## Contents
@@ -19,13 +19,13 @@ This file contains the plate merged output of the Wisconsin PCA computation of t
 wisconsin_pca_(configname)-RUN2D.fits
 
 ### Releases
-DR10, DR12
+DR9, DR10, DR12, DR11
 
 ### Enviroments
 BOSS_GALAXY_REDUX
 
 ### Approximate Size
-125 MB
+68 MB
 
 ### File Type
 FITS
@@ -42,8 +42,14 @@ galaxy/wisconsin_pca
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR11
+   - from: DR12
+   - note: No changes
  - DR12
    - from: DR10
+   - note: No changes
+ - DR10
+   - from: DR9
    - note: No changes
 
 ---
@@ -70,7 +76,7 @@ Key | Value | Comment | |
 The BOSS Galaxy product assumes a WMAP 7 ΛCDM cosmology with <var>H</var><sub>0</sub> = 70, Ω<sub>m</sub> = 0.274, and Ω<sub>Λ</sub> = 0.726.
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  2 MB
+#### HDU Size:  345 MB
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
