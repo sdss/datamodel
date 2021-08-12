@@ -1,0 +1,926 @@
+general:
+  name: psFF
+  short: 'migration: needs update'
+  description: 'Flat-field vector for a single CCD.  Actually, this is an <i>inverse</i>
+    flat-field vector, meaning that the raw frame must be multiplied (not
+
+    divided) by the vector to recover the desired values.  The pixel values are
+
+    stored as unsigned integers.
+
+    The <i>TSHIFT</i> keyword gives the amount by which each pixel value has
+
+    been multiplied; e.g., if <i>TSHIFT</i> = 32, then each pixel value in
+
+    the image is 32 times larger than the true value.  This scaling allows us to
+
+    calculate precise values while maintaining pure integers.
+
+    See the data model page for "psCT" files for a description of the "KALXX_ID"
+
+    keywords.'
+  datatype: FIT
+  filesize: 8 KB
+  releases:
+  - DR8
+  - DR9
+  - DR10
+  - DR12
+  - DR11
+  - DR13
+  - DR14
+  - DR15
+  - DR16
+  - DR17
+  environments:
+  - PHOTO_REDUX
+  naming_convention: 'psFF-rrrrrr-bc.fit,
+
+    where <i>rrrrrr</i> is the imaging run number, <i>b</i> is the filter used
+
+    (u, g, r, i, or z), and <i>c</i> is the column location in the Imaging Array
+
+    of the CCD which acquired the data (1-6).'
+  generated_by: ps
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases:
+    DR17:
+      from: DR16
+      note: No changes
+    DR16:
+      from: DR15
+      note: No changes
+    DR15:
+      from: DR14
+      note: No changes
+    DR14:
+      from: DR13
+      note: No changes
+    DR13:
+      from: DR11
+      note: No changes
+    DR11:
+      from: DR12
+      note: No changes
+    DR12:
+      from: DR10
+      note: No changes
+    DR10:
+      from: DR9
+      note: No changes
+    DR9:
+      from: DR8
+      note: No changes
+releases:
+  DR8:
+    template: $PHOTO_REDUX/[RERUN]/[RUN]/objcs/[CAMCOL]/psFF-00[RUN]-g[CAMCOL].fit
+    example: 301/5138/objcs/1/psFF-005138-g1.fit
+    location: '{rerun}/{run}/objcs/{camcol}/psFF-00{run}-g{camcol}.fit'
+    environment: PHOTO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: psFF
+      path_template: $PHOTO_REDUX/{rerun}/{run}/objcs/{camcol}/psFF-{run:0>6}-{filter}{camcol}.fit
+      path_kwargs:
+      - rerun
+      - run
+      - run
+      - camcol
+      - filter
+      access_string: psFF = $PHOTO_REDUX/{rerun}/{run}/objcs/{camcol}/psFF-00{run}-g{camcol}.fit
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: ''
+        is_image: true
+        size: 4 KB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 16
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 2048
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 1
+          comment: length of dimension 2
+        - key: BZERO
+          value: 32768.0
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: BSCALE
+          value: 1.0
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: TSHIFT
+          value: 2048
+          comment: Scale factor to increase precision
+        - key: RUN
+          value: 5138
+          comment: Imaging run number.
+        - key: CAMCOL
+          value: 1
+          comment: Column in the imaging camera.
+        - key: FILTER
+          value: g
+          comment: Filter (u, g, r, i, or z).
+        - key: FIELD
+          value: 99
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: FF_ID
+          value: Thu Apr  9 06:12:53 2009
+          comment: a copy of PS_ID from supplied flatfield
+        - key: VERSION
+          value: v5_4_43
+          comment: Version of software used.
+        - key: DERV_VER
+          value: NOCVS:v8_16
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: PS_ID
+          value: 2009-06-01T09:50:39 32167 camCol 1
+          comment: Postage stamp pipeline run identifier.
+        - key: ASTR_VER
+          value: NOCVS:v5_24
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: BIAS_ID
+          value: 2001-12-24T12:06:17 16903
+          comment: Bias pipeline run identifier.
+        - key: SSC_ID
+          value: 2009-06-01T09:37:02 27653
+          comment: SSC pipeline run identifier.
+  DR9:
+    template: $PHOTO_REDUX/[RERUN]/[RUN]/objcs/[CAMCOL]/psFF-00[RUN]-g[CAMCOL].fit
+    example: 301/5138/objcs/1/psFF-005138-g1.fit
+    location: '{rerun}/{run}/objcs/{camcol}/psFF-00{run}-g{camcol}.fit'
+    environment: PHOTO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: psFF
+      path_template: $PHOTO_REDUX/{rerun}/{run}/objcs/{camcol}/psFF-{run:0>6}-{filter}{camcol}.fit
+      path_kwargs:
+      - rerun
+      - run
+      - filter
+      - run
+      - camcol
+      access_string: psFF = $PHOTO_REDUX/{rerun}/{run}/objcs/{camcol}/psFF-00{run}-g{camcol}.fit
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: ''
+        is_image: true
+        size: 4 KB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 16
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 2048
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 1
+          comment: length of dimension 2
+        - key: BZERO
+          value: 32768.0
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: BSCALE
+          value: 1.0
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: TSHIFT
+          value: 2048
+          comment: Scale factor to increase precision
+        - key: RUN
+          value: 5138
+          comment: Imaging run number.
+        - key: CAMCOL
+          value: 1
+          comment: Column in the imaging camera.
+        - key: FILTER
+          value: g
+          comment: Filter (u, g, r, i, or z).
+        - key: FIELD
+          value: 99
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: FF_ID
+          value: Thu Apr  9 06:12:53 2009
+          comment: a copy of PS_ID from supplied flatfield
+        - key: VERSION
+          value: v5_4_43
+          comment: Version of software used.
+        - key: DERV_VER
+          value: NOCVS:v8_16
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: PS_ID
+          value: 2009-06-01T09:50:39 32167 camCol 1
+          comment: Postage stamp pipeline run identifier.
+        - key: ASTR_VER
+          value: NOCVS:v5_24
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: BIAS_ID
+          value: 2001-12-24T12:06:17 16903
+          comment: Bias pipeline run identifier.
+        - key: SSC_ID
+          value: 2009-06-01T09:37:02 27653
+          comment: SSC pipeline run identifier.
+  DR10:
+    template: $PHOTO_REDUX/[RERUN]/[RUN]/objcs/[CAMCOL]/psFF-00[RUN]-g[CAMCOL].fit
+    example: 301/5138/objcs/1/psFF-005138-g1.fit
+    location: '{rerun}/{run}/objcs/{camcol}/psFF-00{run}-g{camcol}.fit'
+    environment: PHOTO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: psFF
+      path_template: $PHOTO_REDUX/{rerun}/{run}/objcs/{camcol}/psFF-{run:0>6}-{filter}{camcol}.fit
+      path_kwargs:
+      - filter
+      - camcol
+      - run
+      - run
+      - rerun
+      access_string: psFF = $PHOTO_REDUX/{rerun}/{run}/objcs/{camcol}/psFF-00{run}-g{camcol}.fit
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: ''
+        is_image: true
+        size: 4 KB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 16
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 2048
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 1
+          comment: length of dimension 2
+        - key: BZERO
+          value: 32768.0
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: BSCALE
+          value: 1.0
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: TSHIFT
+          value: 2048
+          comment: Scale factor to increase precision
+        - key: RUN
+          value: 5138
+          comment: Imaging run number.
+        - key: CAMCOL
+          value: 1
+          comment: Column in the imaging camera.
+        - key: FILTER
+          value: g
+          comment: Filter (u, g, r, i, or z).
+        - key: FIELD
+          value: 99
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: FF_ID
+          value: Thu Apr  9 06:12:53 2009
+          comment: a copy of PS_ID from supplied flatfield
+        - key: VERSION
+          value: v5_4_43
+          comment: Version of software used.
+        - key: DERV_VER
+          value: NOCVS:v8_16
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: PS_ID
+          value: 2009-06-01T09:50:39 32167 camCol 1
+          comment: Postage stamp pipeline run identifier.
+        - key: ASTR_VER
+          value: NOCVS:v5_24
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: BIAS_ID
+          value: 2001-12-24T12:06:17 16903
+          comment: Bias pipeline run identifier.
+        - key: SSC_ID
+          value: 2009-06-01T09:37:02 27653
+          comment: SSC pipeline run identifier.
+  DR11:
+    template: $PHOTO_REDUX/[RERUN]/[RUN]/objcs/[CAMCOL]/psFF-00[RUN]-g[CAMCOL].fit
+    example: 301/5138/objcs/1/psFF-005138-g1.fit
+    location: '{rerun}/{run}/objcs/{camcol}/psFF-00{run}-g{camcol}.fit'
+    environment: PHOTO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: psFF
+      path_template: $PHOTO_REDUX/{rerun}/{run}/objcs/{camcol}/psFF-{run:0>6}-{filter}{camcol}.fit
+      path_kwargs:
+      - rerun
+      - run
+      - camcol
+      - run
+      - filter
+      access_string: psFF = $PHOTO_REDUX/{rerun}/{run}/objcs/{camcol}/psFF-00{run}-g{camcol}.fit
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: ''
+        is_image: true
+        size: 4 KB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 16
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 2048
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 1
+          comment: length of dimension 2
+        - key: BZERO
+          value: 32768.0
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: BSCALE
+          value: 1.0
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: TSHIFT
+          value: 2048
+          comment: Scale factor to increase precision
+        - key: RUN
+          value: 5138
+          comment: Imaging run number.
+        - key: CAMCOL
+          value: 1
+          comment: Column in the imaging camera.
+        - key: FILTER
+          value: g
+          comment: Filter (u, g, r, i, or z).
+        - key: FIELD
+          value: 99
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: FF_ID
+          value: Thu Apr  9 06:12:53 2009
+          comment: a copy of PS_ID from supplied flatfield
+        - key: VERSION
+          value: v5_4_43
+          comment: Version of software used.
+        - key: DERV_VER
+          value: NOCVS:v8_16
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: PS_ID
+          value: 2009-06-01T09:50:39 32167 camCol 1
+          comment: Postage stamp pipeline run identifier.
+        - key: ASTR_VER
+          value: NOCVS:v5_24
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: BIAS_ID
+          value: 2001-12-24T12:06:17 16903
+          comment: Bias pipeline run identifier.
+        - key: SSC_ID
+          value: 2009-06-01T09:37:02 27653
+          comment: SSC pipeline run identifier.
+  DR12:
+    template: $PHOTO_REDUX/[RERUN]/[RUN]/objcs/[CAMCOL]/psFF-00[RUN]-g[CAMCOL].fit
+    example: 301/5138/objcs/1/psFF-005138-g1.fit
+    location: '{rerun}/{run}/objcs/{camcol}/psFF-00{run}-g{camcol}.fit'
+    environment: PHOTO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: psFF
+      path_template: $PHOTO_REDUX/{rerun}/{run}/objcs/{camcol}/psFF-{run:0>6}-{filter}{camcol}.fit
+      path_kwargs:
+      - filter
+      - camcol
+      - run
+      - run
+      - rerun
+      access_string: psFF = $PHOTO_REDUX/{rerun}/{run}/objcs/{camcol}/psFF-00{run}-g{camcol}.fit
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: ''
+        is_image: true
+        size: 4 KB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 16
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 2048
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 1
+          comment: length of dimension 2
+        - key: BZERO
+          value: 32768.0
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: BSCALE
+          value: 1.0
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: TSHIFT
+          value: 2048
+          comment: Scale factor to increase precision
+        - key: RUN
+          value: 5138
+          comment: Imaging run number.
+        - key: CAMCOL
+          value: 1
+          comment: Column in the imaging camera.
+        - key: FILTER
+          value: g
+          comment: Filter (u, g, r, i, or z).
+        - key: FIELD
+          value: 99
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: FF_ID
+          value: Thu Apr  9 06:12:53 2009
+          comment: a copy of PS_ID from supplied flatfield
+        - key: VERSION
+          value: v5_4_43
+          comment: Version of software used.
+        - key: DERV_VER
+          value: NOCVS:v8_16
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: PS_ID
+          value: 2009-06-01T09:50:39 32167 camCol 1
+          comment: Postage stamp pipeline run identifier.
+        - key: ASTR_VER
+          value: NOCVS:v5_24
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: BIAS_ID
+          value: 2001-12-24T12:06:17 16903
+          comment: Bias pipeline run identifier.
+        - key: SSC_ID
+          value: 2009-06-01T09:37:02 27653
+          comment: SSC pipeline run identifier.
+  DR13:
+    template: $PHOTO_REDUX/[RERUN]/[RUN]/objcs/[CAMCOL]/psFF-00[RUN]-g[CAMCOL].fit
+    example: 301/5138/objcs/1/psFF-005138-g1.fit
+    location: '{rerun}/{run}/objcs/{camcol}/psFF-00{run}-g{camcol}.fit'
+    environment: PHOTO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: psFF
+      path_template: $PHOTO_REDUX/{rerun}/{run}/objcs/{camcol}/psFF-{run:0>6}-{filter}{camcol}.fit
+      path_kwargs:
+      - camcol
+      - filter
+      - run
+      - run
+      - rerun
+      access_string: psFF = $PHOTO_REDUX/{rerun}/{run}/objcs/{camcol}/psFF-00{run}-g{camcol}.fit
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: ''
+        is_image: true
+        size: 4 KB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 16
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 2048
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 1
+          comment: length of dimension 2
+        - key: BZERO
+          value: 32768.0
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: BSCALE
+          value: 1.0
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: TSHIFT
+          value: 2048
+          comment: Scale factor to increase precision
+        - key: RUN
+          value: 5138
+          comment: Imaging run number.
+        - key: CAMCOL
+          value: 1
+          comment: Column in the imaging camera.
+        - key: FILTER
+          value: g
+          comment: Filter (u, g, r, i, or z).
+        - key: FIELD
+          value: 99
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: FF_ID
+          value: Thu Apr  9 06:12:53 2009
+          comment: a copy of PS_ID from supplied flatfield
+        - key: VERSION
+          value: v5_4_43
+          comment: Version of software used.
+        - key: DERV_VER
+          value: NOCVS:v8_16
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: PS_ID
+          value: 2009-06-01T09:50:39 32167 camCol 1
+          comment: Postage stamp pipeline run identifier.
+        - key: ASTR_VER
+          value: NOCVS:v5_24
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: BIAS_ID
+          value: 2001-12-24T12:06:17 16903
+          comment: Bias pipeline run identifier.
+        - key: SSC_ID
+          value: 2009-06-01T09:37:02 27653
+          comment: SSC pipeline run identifier.
+  DR14:
+    template: $PHOTO_REDUX/[RERUN]/[RUN]/objcs/[CAMCOL]/psFF-00[RUN]-g[CAMCOL].fit
+    example: 301/5138/objcs/1/psFF-005138-g1.fit
+    location: '{rerun}/{run}/objcs/{camcol}/psFF-00{run}-g{camcol}.fit'
+    environment: PHOTO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: psFF
+      path_template: $PHOTO_REDUX/{rerun}/{run}/objcs/{camcol}/psFF-{run:0>6}-{filter}{camcol}.fit
+      path_kwargs:
+      - camcol
+      - filter
+      - run
+      - run
+      - rerun
+      access_string: psFF = $PHOTO_REDUX/{rerun}/{run}/objcs/{camcol}/psFF-00{run}-g{camcol}.fit
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: ''
+        is_image: true
+        size: 4 KB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 16
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 2048
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 1
+          comment: length of dimension 2
+        - key: BZERO
+          value: 32768.0
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: BSCALE
+          value: 1.0
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: TSHIFT
+          value: 2048
+          comment: Scale factor to increase precision
+        - key: RUN
+          value: 5138
+          comment: Imaging run number.
+        - key: CAMCOL
+          value: 1
+          comment: Column in the imaging camera.
+        - key: FILTER
+          value: g
+          comment: Filter (u, g, r, i, or z).
+        - key: FIELD
+          value: 99
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: FF_ID
+          value: Thu Apr  9 06:12:53 2009
+          comment: a copy of PS_ID from supplied flatfield
+        - key: VERSION
+          value: v5_4_43
+          comment: Version of software used.
+        - key: DERV_VER
+          value: NOCVS:v8_16
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: PS_ID
+          value: 2009-06-01T09:50:39 32167 camCol 1
+          comment: Postage stamp pipeline run identifier.
+        - key: ASTR_VER
+          value: NOCVS:v5_24
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: BIAS_ID
+          value: 2001-12-24T12:06:17 16903
+          comment: Bias pipeline run identifier.
+        - key: SSC_ID
+          value: 2009-06-01T09:37:02 27653
+          comment: SSC pipeline run identifier.
+  DR15:
+    template: $PHOTO_REDUX/[RERUN]/[RUN]/objcs/[CAMCOL]/psFF-00[RUN]-g[CAMCOL].fit
+    example: 301/5138/objcs/1/psFF-005138-g1.fit
+    location: '{rerun}/{run}/objcs/{camcol}/psFF-00{run}-g{camcol}.fit'
+    environment: PHOTO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: psFF
+      path_template: $PHOTO_REDUX/{rerun}/{run}/objcs/{camcol}/psFF-{run:0>6}-{filter}{camcol}.fit
+      path_kwargs:
+      - camcol
+      - run
+      - run
+      - filter
+      - rerun
+      access_string: psFF = $PHOTO_REDUX/{rerun}/{run}/objcs/{camcol}/psFF-00{run}-g{camcol}.fit
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: ''
+        is_image: true
+        size: 4 KB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 16
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 2048
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 1
+          comment: length of dimension 2
+        - key: BZERO
+          value: 32768.0
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: BSCALE
+          value: 1.0
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: TSHIFT
+          value: 2048
+          comment: Scale factor to increase precision
+        - key: RUN
+          value: 5138
+          comment: Imaging run number.
+        - key: CAMCOL
+          value: 1
+          comment: Column in the imaging camera.
+        - key: FILTER
+          value: g
+          comment: Filter (u, g, r, i, or z).
+        - key: FIELD
+          value: 99
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: FF_ID
+          value: Thu Apr  9 06:12:53 2009
+          comment: a copy of PS_ID from supplied flatfield
+        - key: VERSION
+          value: v5_4_43
+          comment: Version of software used.
+        - key: DERV_VER
+          value: NOCVS:v8_16
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: PS_ID
+          value: 2009-06-01T09:50:39 32167 camCol 1
+          comment: Postage stamp pipeline run identifier.
+        - key: ASTR_VER
+          value: NOCVS:v5_24
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: BIAS_ID
+          value: 2001-12-24T12:06:17 16903
+          comment: Bias pipeline run identifier.
+        - key: SSC_ID
+          value: 2009-06-01T09:37:02 27653
+          comment: SSC pipeline run identifier.
+  DR16:
+    template: $PHOTO_REDUX/[RERUN]/[RUN]/objcs/[CAMCOL]/psFF-00[RUN]-g[CAMCOL].fit
+    example: 301/5138/objcs/1/psFF-005138-g1.fit
+    location: '{rerun}/{run}/objcs/{camcol}/psFF-00{run}-g{camcol}.fit'
+    environment: PHOTO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: psFF
+      path_template: $PHOTO_REDUX/{rerun}/{run}/objcs/{camcol}/psFF-{run:0>6}-{filter}{camcol}.fit
+      path_kwargs:
+      - filter
+      - run
+      - camcol
+      - rerun
+      - run
+      access_string: psFF = $PHOTO_REDUX/{rerun}/{run}/objcs/{camcol}/psFF-00{run}-g{camcol}.fit
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: ''
+        is_image: true
+        size: 4 KB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 16
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 2048
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 1
+          comment: length of dimension 2
+        - key: BZERO
+          value: 32768.0
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: BSCALE
+          value: 1.0
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: TSHIFT
+          value: 2048
+          comment: Scale factor to increase precision
+        - key: RUN
+          value: 5138
+          comment: Imaging run number.
+        - key: CAMCOL
+          value: 1
+          comment: Column in the imaging camera.
+        - key: FILTER
+          value: g
+          comment: Filter (u, g, r, i, or z).
+        - key: FIELD
+          value: 99
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: FF_ID
+          value: Thu Apr  9 06:12:53 2009
+          comment: a copy of PS_ID from supplied flatfield
+        - key: VERSION
+          value: v5_4_43
+          comment: Version of software used.
+        - key: DERV_VER
+          value: NOCVS:v8_16
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: PS_ID
+          value: 2009-06-01T09:50:39 32167 camCol 1
+          comment: Postage stamp pipeline run identifier.
+        - key: ASTR_VER
+          value: NOCVS:v5_24
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: BIAS_ID
+          value: 2001-12-24T12:06:17 16903
+          comment: Bias pipeline run identifier.
+        - key: SSC_ID
+          value: 2009-06-01T09:37:02 27653
+          comment: SSC pipeline run identifier.
+  DR17:
+    template: $PHOTO_REDUX/[RERUN]/[RUN]/objcs/[CAMCOL]/psFF-00[RUN]-g[CAMCOL].fit
+    example: 301/5138/objcs/1/psFF-005138-g1.fit
+    location: '{rerun}/{run}/objcs/{camcol}/psFF-00{run}-g{camcol}.fit'
+    environment: PHOTO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: psFF
+      path_template: $PHOTO_REDUX/{rerun}/{run}/objcs/{camcol}/psFF-{run:0>6}-{filter}{camcol}.fit
+      path_kwargs:
+      - filter
+      - run
+      - camcol
+      - run
+      - rerun
+      access_string: psFF = $PHOTO_REDUX/{rerun}/{run}/objcs/{camcol}/psFF-00{run}-g{camcol}.fit
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: ''
+        is_image: true
+        size: 4 KB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 16
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 2048
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 1
+          comment: length of dimension 2
+        - key: BZERO
+          value: 32768.0
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: BSCALE
+          value: 1.0
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: TSHIFT
+          value: 2048
+          comment: Scale factor to increase precision
+        - key: RUN
+          value: 5138
+          comment: Imaging run number.
+        - key: CAMCOL
+          value: 1
+          comment: Column in the imaging camera.
+        - key: FILTER
+          value: g
+          comment: Filter (u, g, r, i, or z).
+        - key: FIELD
+          value: 99
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: FF_ID
+          value: Thu Apr  9 06:12:53 2009
+          comment: a copy of PS_ID from supplied flatfield
+        - key: VERSION
+          value: v5_4_43
+          comment: Version of software used.
+        - key: DERV_VER
+          value: NOCVS:v8_16
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: PS_ID
+          value: 2009-06-01T09:50:39 32167 camCol 1
+          comment: Postage stamp pipeline run identifier.
+        - key: ASTR_VER
+          value: NOCVS:v5_24
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: BIAS_ID
+          value: 2001-12-24T12:06:17 16903
+          comment: Bias pipeline run identifier.
+        - key: SSC_ID
+          value: 2009-06-01T09:37:02 27653
+          comment: SSC pipeline run identifier.
