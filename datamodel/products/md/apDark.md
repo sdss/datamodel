@@ -1,7 +1,7 @@
 # Data Model: apDark
 
 
-migrated from old datamodel - needs update
+migration: needs update
 
 
 ## Contents
@@ -70,8 +70,8 @@ Describes changes to the datamodel product and/or file structure from one releas
  - DR13
    - from: DR11
    - primary_delta_nkeys: 8
-   - added_primary_header_kwargs: ['SRVYMODE', 'PLATETYP', 'SPA']
-   - removed_primary_header_kwargs: ['M2PISTON', 'COMMENT', 'M1YTILT', 'M1PISTON', 'M2XTILT', 'M1XTILT', 'M1XTRAN', 'M1YTRAN', 'M2YTRAN', 'M2XTRAN', 'M2YTILT']
+   - added_primary_header_kwargs: ['SRVYMODE', 'SPA', 'PLATETYP']
+   - removed_primary_header_kwargs: ['M1XTILT', 'M2YTRAN', 'M2PISTON', 'M1YTILT', 'M1XTRAN', 'M1PISTON', 'M2XTILT', 'COMMENT', 'M1YTRAN', 'M2YTILT', 'M2XTRAN']
  - DR11
    - from: DR12
    - note: No changes
