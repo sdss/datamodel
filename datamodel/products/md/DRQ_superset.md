@@ -1,7 +1,7 @@
 # Data Model: DRQ_superset
 
 
-migrated from old datamodel - needs update
+migration: needs update
 
 
 ## Contents
