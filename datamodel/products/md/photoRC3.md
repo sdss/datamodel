@@ -1,7 +1,7 @@
 # Data Model: photoRC3
 
 
-migrated from old datamodel - needs update
+migration: needs update
 
 
 ## Contents
