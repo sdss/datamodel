@@ -1,14 +1,20 @@
 {
   "general": {
     "name": "wisconsin_pca",
-    "short": "migrated from old datamodel - needs update",
+    "short": "migration: needs update",
     "description": "This file contains the plate merged output of the Wisconsin PCA computation of the BOSS galaxy product, according to the <a href=\"http://www.sdss.org/dr13/spectro/galaxy_wisconsin\">algorithm documentation</a> .",
     "environments": [
       "BOSS_GALAXY_REDUX"
     ],
     "datatype": "FITS",
-    "filesize": "125 MB",
+    "filesize": "68 MB",
     "releases": [
+      {
+        "name": "DR9",
+        "description": "SDSS public data release 9",
+        "public": true,
+        "release_date": "2012-07-31"
+      },
       {
         "name": "DR10",
         "description": "SDSS public data release 10",
@@ -20,6 +26,12 @@
         "description": "SDSS public data release 12",
         "public": true,
         "release_date": "2015-01-06"
+      },
+      {
+        "name": "DR11",
+        "description": "SDSS public data release 11",
+        "public": true,
+        "release_date": "2015-01-06"
       }
     ],
     "naming_convention": "wisconsin_pca_(configname)-RUN2D.fits",
@@ -28,8 +40,28 @@
   "changelog": {
     "description": "Describes changes to the datamodel product and/or file structure from one release to another",
     "releases": {
+      "DR11": {
+        "from": "DR12",
+        "delta_nhdus": null,
+        "added_hdus": null,
+        "removed_hdus": null,
+        "primary_delta_nkeys": null,
+        "added_primary_header_kwargs": null,
+        "removed_primary_header_kwargs": null,
+        "note": "No changes"
+      },
       "DR12": {
         "from": "DR10",
+        "delta_nhdus": null,
+        "added_hdus": null,
+        "removed_hdus": null,
+        "primary_delta_nkeys": null,
+        "added_primary_header_kwargs": null,
+        "removed_primary_header_kwargs": null,
+        "note": "No changes"
+      },
+      "DR10": {
+        "from": "DR9",
         "delta_nhdus": null,
         "added_hdus": null,
         "removed_hdus": null,
@@ -41,10 +73,10 @@
     }
   },
   "releases": {
-    "DR10": {
-      "template": "$BOSS_GALAXY_REDUX/v1_0/wisconsin_pca_bc03-v5_5_12.fits.gz",
-      "example": "v1_0/wisconsin_pca_bc03-v5_5_12.fits.gz",
-      "location": "v1_0/wisconsin_pca_bc03-v5_5_12.fits.gz",
+    "DR9": {
+      "template": "$BOSS_GALAXY_REDUX/wisconsin_pca-[RUN2D].fits.gz",
+      "example": "wisconsin_pca-v5_4_45.fits.gz",
+      "location": "wisconsin_pca-{run2d}.fits.gz",
       "environment": "BOSS_GALAXY_REDUX",
       "access": {
         "in_sdss_access": true,
@@ -55,7 +87,244 @@
           "configuration",
           "run2d"
         ],
-        "access_string": "wisconsin_pca = $BOSS_GALAXY_REDUX/v1_0/wisconsin_pca_bc03-v5_5_12.fits.gz"
+        "access_string": "wisconsin_pca = $BOSS_GALAXY_REDUX/wisconsin_pca-{run2d}.fits.gz"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "The BOSS Galaxy product assumes a WMAP 7 ΛCDM cosmology with <var>H</var><sub>0</sub> = 70, Ω<sub>m</sub> = 0.274, and Ω<sub>Λ</sub> = 0.726.",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "The BOSS Galaxy product assumes a WMAP 7 ΛCDM cosmology with <var>H</var><sub>0</sub> = 70, Ω<sub>m</sub> = 0.274, and Ω<sub>Λ</sub> = 0.726.",
+          "size": "113 MB",
+          "header": null,
+          "columns": {
+            "PLATE": {
+              "name": "PLATE",
+              "description": "Plate number",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "MJD": {
+              "name": "MJD",
+              "description": "Modified Julian date of observation",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "FIBERID": {
+              "name": "FIBERID",
+              "description": "Fiber ID (1 to 1000)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "RA": {
+              "name": "RA",
+              "description": "Object RA (Plug_RA drilled fiber position) [J2000 degrees]",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "DEC": {
+              "name": "DEC",
+              "description": "Object Dec (Plug_Dec drilled fiber position) [J2000 degrees]",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "Z": {
+              "name": "Z",
+              "description": "Redshift (best pipeline galaxy z_noqso with zwarning_noqso=0)",
+              "type": "float32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "Z_ERR": {
+              "name": "Z_ERR",
+              "description": "Redshift error (z_err_noqso) based upon fit to chi^2 minimum",
+              "type": "float32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "ZNUM": {
+              "name": "ZNUM",
+              "description": "the znum-th best-fit corresponding to z_noqso (optional input to readspec)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "MSTELLAR_MEDIAN": {
+              "name": "MSTELLAR_MEDIAN",
+              "description": "50 percentile of the PDF of Log(stellar mass), we take this as our best estimation",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "MSTELLAR_ERR": {
+              "name": "MSTELLAR_ERR",
+              "description": "Computed as (MSTELLAR_P84 − MSTELLAR_P16) as the ±1σ error of Log(stellar mass)",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "MSTELLAR_P2P5": {
+              "name": "MSTELLAR_P2P5",
+              "description": "2.5 percentile of the PDF of Log(stellar mass)",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "MSTELLAR_P16": {
+              "name": "MSTELLAR_P16",
+              "description": "16 percentile of the PDF of Log(stellar mass)",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "MSTELLAR_P84": {
+              "name": "MSTELLAR_P84",
+              "description": "84 percentile of the PDF of Log(stellar mass)",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "MSTELLAR_P97P5": {
+              "name": "MSTELLAR_P97P5",
+              "description": "97.5 percentile of the PDF of Log(stellar mass)",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "VDISP_MEDIAN": {
+              "name": "VDISP_MEDIAN",
+              "description": "50 percentile of the PDF of stellar velocity dispersion, we take this as our best estimation",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "VDISP_ERR": {
+              "name": "VDISP_ERR",
+              "description": "Computed as (VDISP_P84 − VDISP_P16) as the ±1σ error of stellar velocity dispersion",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "VDISP_P2P5": {
+              "name": "VDISP_P2P5",
+              "description": "2.5 percentile of the PDF of stellar velocity dispersion",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "VDISP_P16": {
+              "name": "VDISP_P16",
+              "description": "16 percentile of the PDF of stellar velocity dispersion",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "VDISP_P84": {
+              "name": "VDISP_P84",
+              "description": "84 percentile of the PDF of stellar velocity dispersion",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "VDISP_P97P5": {
+              "name": "VDISP_P97P5",
+              "description": "97.5 percentile of the PDF of stellar velocity dispersion",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "CALPHA": {
+              "name": "CALPHA",
+              "description": "The 7 coefficients projected over the 7 eigenspectra=[E1, E2, ..., E7]",
+              "type": "float32[7]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "CALPHA_NORM": {
+              "name": "CALPHA_NORM",
+              "description": "The normalization for reconstructing the best fit:",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "RUN2D": {
+              "name": "RUN2D",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "char[7]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "RUN1D": {
+              "name": "RUN1D",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "char[7]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "WARNING": {
+              "name": "WARNING",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "BOSS_TARGET1": {
+              "name": "BOSS_TARGET1",
+              "description": "See <a href=\"http://www.sdss.org/dr13/algorithms/bitmask_boss_target1\">BOSS survey primary target selection flags</a>",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "ANCILLARY_TARGET1": {
+              "name": "ANCILLARY_TARGET1",
+              "description": "See <a href=\"http://www.sdss.org/dr13/algorithms/bitmask_ancillary_target1\">Objects selected as BOSS Ancillary Targets</a>",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "ANCILLARY_TARGET2": {
+              "name": "ANCILLARY_TARGET2",
+              "description": "See <a href=\"http://www.sdss.org/dr13/algorithms/bitmask_ancillary_target2\">More objects selected as BOSS Ancillary Targets</a>",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "SPECPRIMARY": {
+              "name": "SPECPRIMARY",
+              "description": "Objects observed multiple times will have this set to 1 for one observation only. This is usually the 'best'.",
+              "type": "bool",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "SPECOBJID": {
+              "name": "SPECOBJID",
+              "description": "CAS-style spectroscopic object identifier.",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            }
+          }
+        }
+      }
+    },
+    "DR10": {
+      "template": "$BOSS_GALAXY_REDUX/[VERSION]/wisconsin_pca_[CONFIGURATION]-[RUN2D].fits.gz",
+      "example": "v1_0/wisconsin_pca_bc03-v5_5_12.fits.gz",
+      "location": "{version}/wisconsin_pca_{configuration}-{run2d}.fits.gz",
+      "environment": "BOSS_GALAXY_REDUX",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "wisconsin_pca",
+        "path_template": "$BOSS_GALAXY_REDUX/{version}/wisconsin_pca_{configuration}-{run2d}.fits",
+        "path_kwargs": [
+          "configuration",
+          "version",
+          "run2d"
+        ],
+        "access_string": "wisconsin_pca = $BOSS_GALAXY_REDUX/{version}/wisconsin_pca_{configuration}-{run2d}.fits.gz"
       },
       "hdus": {
         "hdu0": {
@@ -296,21 +565,21 @@
         }
       }
     },
-    "DR12": {
-      "template": "$BOSS_GALAXY_REDUX/v1_1/wisconsin_pca_bc03-v5_7_2.fits.gz",
-      "example": "v1_1/wisconsin_pca_bc03-v5_7_2.fits.gz",
-      "location": "v1_1/wisconsin_pca_bc03-v5_7_2.fits.gz",
+    "DR11": {
+      "template": "$BOSS_GALAXY_REDUX/[VERSION]/wisconsin_pca_[CONFIGURATION]-[RUN2D].fits.gz",
+      "example": "v1_1/wisconsin_pca_bc03-v5_6_5.fits.gz",
+      "location": "{version}/wisconsin_pca_{configuration}-{run2d}.fits.gz",
       "environment": "BOSS_GALAXY_REDUX",
       "access": {
         "in_sdss_access": true,
         "path_name": "wisconsin_pca",
         "path_template": "$BOSS_GALAXY_REDUX/{version}/wisconsin_pca_{configuration}-{run2d}.fits",
         "path_kwargs": [
-          "version",
           "run2d",
-          "configuration"
+          "configuration",
+          "version"
         ],
-        "access_string": "wisconsin_pca = $BOSS_GALAXY_REDUX/v1_1/wisconsin_pca_bc03-v5_7_2.fits.gz"
+        "access_string": "wisconsin_pca = $BOSS_GALAXY_REDUX/{version}/wisconsin_pca_{configuration}-{run2d}.fits.gz"
       },
       "hdus": {
         "hdu0": {
@@ -346,7 +615,262 @@
           "name": "",
           "is_image": false,
           "description": "The BOSS Galaxy product assumes a WMAP 7 ΛCDM cosmology with <var>H</var><sub>0</sub> = 70, Ω<sub>m</sub> = 0.274, and Ω<sub>Λ</sub> = 0.726.",
-          "size": "2 MB",
+          "size": "291 MB",
+          "header": null,
+          "columns": {
+            "PLATE": {
+              "name": "PLATE",
+              "description": "Plate number",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "MJD": {
+              "name": "MJD",
+              "description": "Modified Julian date of observation",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "FIBERID": {
+              "name": "FIBERID",
+              "description": "Fiber ID (1 to 1000)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "RA": {
+              "name": "RA",
+              "description": "Object RA (Plug_RA drilled fiber position) [J2000 degrees]",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "DEC": {
+              "name": "DEC",
+              "description": "Object Dec (Plug_Dec drilled fiber position) [J2000 degrees]",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "Z": {
+              "name": "Z",
+              "description": "Redshift (best pipeline galaxy z_noqso with zwarning_noqso=0)",
+              "type": "float32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "Z_ERR": {
+              "name": "Z_ERR",
+              "description": "Redshift error (z_err_noqso) based upon fit to chi^2 minimum",
+              "type": "float32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "ZNUM": {
+              "name": "ZNUM",
+              "description": "the znum-th best-fit corresponding to z_noqso (optional input to readspec)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "MSTELLAR_MEDIAN": {
+              "name": "MSTELLAR_MEDIAN",
+              "description": "50 percentile of the PDF of Log(stellar mass), we take this as our best estimation",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "MSTELLAR_ERR": {
+              "name": "MSTELLAR_ERR",
+              "description": "Computed as (MSTELLAR_P84 − MSTELLAR_P16) as the ±1σ error of Log(stellar mass)",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "MSTELLAR_P2P5": {
+              "name": "MSTELLAR_P2P5",
+              "description": "2.5 percentile of the PDF of Log(stellar mass)",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "MSTELLAR_P16": {
+              "name": "MSTELLAR_P16",
+              "description": "16 percentile of the PDF of Log(stellar mass)",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "MSTELLAR_P84": {
+              "name": "MSTELLAR_P84",
+              "description": "84 percentile of the PDF of Log(stellar mass)",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "MSTELLAR_P97P5": {
+              "name": "MSTELLAR_P97P5",
+              "description": "97.5 percentile of the PDF of Log(stellar mass)",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "VDISP_MEDIAN": {
+              "name": "VDISP_MEDIAN",
+              "description": "50 percentile of the PDF of stellar velocity dispersion, we take this as our best estimation",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "VDISP_ERR": {
+              "name": "VDISP_ERR",
+              "description": "Computed as (VDISP_P84 − VDISP_P16) as the ±1σ error of stellar velocity dispersion",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "VDISP_P2P5": {
+              "name": "VDISP_P2P5",
+              "description": "2.5 percentile of the PDF of stellar velocity dispersion",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "VDISP_P16": {
+              "name": "VDISP_P16",
+              "description": "16 percentile of the PDF of stellar velocity dispersion",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "VDISP_P84": {
+              "name": "VDISP_P84",
+              "description": "84 percentile of the PDF of stellar velocity dispersion",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "VDISP_P97P5": {
+              "name": "VDISP_P97P5",
+              "description": "97.5 percentile of the PDF of stellar velocity dispersion",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "CALPHA": {
+              "name": "CALPHA",
+              "description": "The 7 coefficients projected over the 7 eigenspectra=[E1, E2, ..., E7]",
+              "type": "float32[7]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "CALPHA_NORM": {
+              "name": "CALPHA_NORM",
+              "description": "The normalization for reconstructing the best fit:",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "SN_MEDIAN": {
+              "name": "SN_MEDIAN",
+              "description": "The median spectroscopic Signal to Noise Ratio within the selected projection wavelength range",
+              "type": "float32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "WARNING": {
+              "name": "WARNING",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "LEGACY_TARGET1": {
+              "name": "LEGACY_TARGET1",
+              "description": "See <a href=\"http://www.sdss.org/dr13/algorithms/bitmask_legacy_target1\">Primary target mask bits in SDSS-I, -II</a>",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "LEGACY_TARGET2": {
+              "name": "LEGACY_TARGET2",
+              "description": "See <a href=\"http://www.sdss.org/dr13/algorithms/bitmask_legacy_target2\">Secondary target mask bits in SDSS-I, -II</a>",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "SPECIAL_TARGET1": {
+              "name": "SPECIAL_TARGET1",
+              "description": "See <a href=\"http://www.sdss.org/dr13/algorithms/bitmask_special_target1\">Special (science) program target bits in SDSS-I, -II</a>",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "SPECIAL_TARGET2": {
+              "name": "SPECIAL_TARGET2",
+              "description": "See <a href=\"http://www.sdss.org/dr13/algorithms/bitmask_special_target2\">Special (calibration) program target bits in SDSS-I, -II</a>",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "BOSS_TARGET1": {
+              "name": "BOSS_TARGET1",
+              "description": "See <a href=\"http://www.sdss.org/dr13/algorithms/bitmask_boss_target1\">BOSS survey primary target selection flags</a>",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "ANCILLARY_TARGET1": {
+              "name": "ANCILLARY_TARGET1",
+              "description": "See <a href=\"http://www.sdss.org/dr13/algorithms/bitmask_ancillary_target1\">Objects selected as BOSS Ancillary Targets</a>",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "ANCILLARY_TARGET2": {
+              "name": "ANCILLARY_TARGET2",
+              "description": "See <a href=\"http://www.sdss.org/dr13/algorithms/bitmask_ancillary_target2\">More objects selected as BOSS Ancillary Targets</a>",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "SPECPRIMARY": {
+              "name": "SPECPRIMARY",
+              "description": "Objects observed multiple times will have this set to 1 for one observation only. This is usually the 'best'.",
+              "type": "bool",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "SPECOBJID": {
+              "name": "SPECOBJID",
+              "description": "CAS-style spectroscopic object identifier.",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            }
+          }
+        }
+      }
+    },
+    "DR12": {
+      "template": "$BOSS_GALAXY_REDUX/[VERSION]/wisconsin_pca_[CONFIGURATION]-[RUN2D].fits.gz",
+      "example": "v1_1/wisconsin_pca_bc03-v5_7_0.fits.gz",
+      "location": "{version}/wisconsin_pca_{configuration}-{run2d}.fits.gz",
+      "environment": "BOSS_GALAXY_REDUX",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "wisconsin_pca",
+        "path_template": "$BOSS_GALAXY_REDUX/{version}/wisconsin_pca_{configuration}-{run2d}.fits",
+        "path_kwargs": [
+          "configuration",
+          "run2d",
+          "version"
+        ],
+        "access_string": "wisconsin_pca = $BOSS_GALAXY_REDUX/{version}/wisconsin_pca_{configuration}-{run2d}.fits.gz"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "The BOSS Galaxy product assumes a WMAP 7 ΛCDM cosmology with <var>H</var><sub>0</sub> = 70, Ω<sub>m</sub> = 0.274, and Ω<sub>Λ</sub> = 0.726.",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "The BOSS Galaxy product assumes a WMAP 7 ΛCDM cosmology with <var>H</var><sub>0</sub> = 70, Ω<sub>m</sub> = 0.274, and Ω<sub>Λ</sub> = 0.726.",
+          "size": "345 MB",
           "header": null,
           "columns": {
             "PLATE": {
