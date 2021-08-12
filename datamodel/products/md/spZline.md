@@ -49,8 +49,8 @@ Describes changes to the datamodel product and/or file structure from one releas
    - note: No changes
  - DR16
    - from: DR15
-   - added_primary_header_kwargs: ['EXPID015', 'EXPID009', 'EXPID002', 'EXPID016', 'EXPID008', 'EXPID010', 'EXPID013', 'EXPID014', 'EXPID012', 'EXPID001', 'EXPID011', 'EXPID006', 'EXPID003', 'EXPID004', 'EXPID007', 'EXPID005']
-   - removed_primary_header_kwargs: ['EXPID12', 'EXPID10', 'EXPID03', 'EXPID15', 'EXPID14', 'EXPID02', 'EXPID09', 'EXPID04', 'EXPID11', 'EXPID08', 'EXPID16', 'EXPID01', 'EXPID05', 'EXPID07', 'EXPID06', 'EXPID13']
+   - added_primary_header_kwargs: ['EXPID004', 'EXPID011', 'EXPID002', 'EXPID012', 'EXPID001', 'EXPID015', 'EXPID016', 'EXPID003', 'EXPID010', 'EXPID006', 'EXPID014', 'EXPID013', 'EXPID009', 'EXPID007', 'EXPID008', 'EXPID005']
+   - removed_primary_header_kwargs: ['EXPID01', 'EXPID11', 'EXPID06', 'EXPID05', 'EXPID09', 'EXPID15', 'EXPID08', 'EXPID16', 'EXPID04', 'EXPID03', 'EXPID14', 'EXPID10', 'EXPID13', 'EXPID02', 'EXPID12', 'EXPID07']
  - DR15
    - from: DR14
    - note: No changes
@@ -60,7 +60,7 @@ Describes changes to the datamodel product and/or file structure from one releas
  - DR13
    - from: DR11
    - primary_delta_nkeys: 2
-   - removed_primary_header_kwargs: ['XCHI2MAX', 'XCHI2MIN']
+   - removed_primary_header_kwargs: ['XCHI2MIN', 'XCHI2MAX']
  - DR11
    - from: DR12
    - note: No changes
