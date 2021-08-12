@@ -1,0 +1,215 @@
+general:
+  name: portsmouth_masspdf
+  short: 'migration: needs update'
+  description: "This file contains the output of the Portsmouth Spectro-Photometric\
+    \ Stellar Mass PDF computation of the BOSS galaxy product, according to the <a\
+    \ href=\"http://www.sdss.org/dr13/spectro/galaxy_portsmouth#fitting\">algorithm\
+    \ documentation</a> .\n        for each PLATE-MJD."
+  datatype: FITS
+  filesize: 3 MB
+  releases:
+  - DR10
+  - DR12
+  - DR11
+  environments:
+  - BOSS_GALAXY_REDUX
+  naming_convention: portsmouth_masspdf_(massloss)_(configname)-pppp-mmmmm.fits, where
+    <i>pppp</i> is a 4-digit plate number, and <i>mmmmm</i> is a 5-digit MJD.
+  generated_by: galaxy/portsmouth_masspdf
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases:
+    DR11:
+      from: DR12
+      note: No changes
+    DR12:
+      from: DR10
+      note: No changes
+releases:
+  DR10:
+    template: $BOSS_GALAXY_REDUX/[VERSION]/[RUN2D]/[PLATE]/[RUN1D]/portsmouth/stellarmass/portsmouth_masspdf_[MASSLOSS]_[CONFIGURATION]-[PLATE]-[MJD].fits
+    example: v1_0/v5_5_12/3761/v5_5_12/portsmouth/stellarmass/portsmouth_masspdf_massloss_n_starforming_krou_red0-3761-55272.fits
+    location: '{version}/{run2d}/{plate}/{run1d}/portsmouth/stellarmass/portsmouth_masspdf_{massloss}_{configuration}-{plate}-{mjd}.fits'
+    environment: BOSS_GALAXY_REDUX
+    access:
+      in_sdss_access: true
+      path_name: portsmouth_masspdf
+      path_template: $BOSS_GALAXY_REDUX/{version}/{run2d}/{plate:0>4}/{run1d}/portsmouth/stellarmass/portsmouth_masspdf_{massloss}_{configuration}-{plate:0>4}-{mjd}.fits
+      path_kwargs:
+      - plate
+      - mjd
+      - configuration
+      - version
+      - run1d
+      - run2d
+      - massloss
+      access_string: portsmouth_masspdf = $BOSS_GALAXY_REDUX/{version}/{run2d}/{plate}/{run1d}/portsmouth/stellarmass/portsmouth_masspdf_{massloss}_{configuration}-{plate}-{mjd}.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: "The BOSS Galaxy product assumes a WMAP 7 \u039BCDM cosmology\
+          \ with <var>H</var><sub>0</sub> = 70, \u03A9<sub>m</sub> = 0.274, and \u03A9\
+          <sub>\u039B</sub> = 0.726."
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: "The BOSS Galaxy product assumes a WMAP 7 \u039BCDM cosmology\
+          \ with <var>H</var><sub>0</sub> = 70, \u03A9<sub>m</sub> = 0.274, and \u03A9\
+          <sub>\u039B</sub> = 0.726."
+        is_image: false
+        size: 3 MB
+        columns:
+          FIBERID:
+            name: FIBERID
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Fiber ID (1 to 1000)
+          LOGMASSBIN:
+            name: LOGMASSBIN
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: "a bin in logmass with \u0394logmass = 0.005"
+          PROBABILITY:
+            name: PROBABILITY
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: The value of the PDF in the LOGMASSBIN
+  DR11:
+    template: $BOSS_GALAXY_REDUX/[VERSION]/[RUN2D]/[PLATE]/[RUN1D]/portsmouth/stellarmass/portsmouth_masspdf_[MASSLOSS]_[CONFIGURATION]-[PLATE]-[MJD].fits
+    example: v1_1/v5_6_5/3761/v5_6_5/portsmouth/stellarmass/portsmouth_masspdf_massloss_n_starforming_krou_red0-3761-55272.fits
+    location: '{version}/{run2d}/{plate}/{run1d}/portsmouth/stellarmass/portsmouth_masspdf_{massloss}_{configuration}-{plate}-{mjd}.fits'
+    environment: BOSS_GALAXY_REDUX
+    access:
+      in_sdss_access: true
+      path_name: portsmouth_masspdf
+      path_template: $BOSS_GALAXY_REDUX/{version}/{run2d}/{plate:0>4}/{run1d}/portsmouth/stellarmass/portsmouth_masspdf_{massloss}_{configuration}-{plate:0>4}-{mjd}.fits
+      path_kwargs:
+      - run1d
+      - mjd
+      - configuration
+      - massloss
+      - version
+      - run2d
+      - plate
+      access_string: portsmouth_masspdf = $BOSS_GALAXY_REDUX/{version}/{run2d}/{plate}/{run1d}/portsmouth/stellarmass/portsmouth_masspdf_{massloss}_{configuration}-{plate}-{mjd}.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: "The BOSS Galaxy product assumes a WMAP 7 \u039BCDM cosmology\
+          \ with <var>H</var><sub>0</sub> = 70, \u03A9<sub>m</sub> = 0.274, and \u03A9\
+          <sub>\u039B</sub> = 0.726."
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: "The BOSS Galaxy product assumes a WMAP 7 \u039BCDM cosmology\
+          \ with <var>H</var><sub>0</sub> = 70, \u03A9<sub>m</sub> = 0.274, and \u03A9\
+          <sub>\u039B</sub> = 0.726."
+        is_image: false
+        size: 3 MB
+        columns:
+          FIBERID:
+            name: FIBERID
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Fiber ID (1 to 1000)
+          LOGMASSBIN:
+            name: LOGMASSBIN
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: "a bin in logmass with \u0394logmass = 0.005"
+          PROBABILITY:
+            name: PROBABILITY
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: The value of the PDF in the LOGMASSBIN
+  DR12:
+    template: $BOSS_GALAXY_REDUX/[VERSION]/[RUN2D]/[PLATE]/[RUN1D]/portsmouth/stellarmass/portsmouth_masspdf_[MASSLOSS]_[CONFIGURATION]-[PLATE]-[MJD].fits
+    example: v1_1/v5_7_0/3761/v5_7_0/portsmouth/stellarmass/portsmouth_masspdf_massloss_n_starforming_krou_red0-3761-55272.fits
+    location: '{version}/{run2d}/{plate}/{run1d}/portsmouth/stellarmass/portsmouth_masspdf_{massloss}_{configuration}-{plate}-{mjd}.fits'
+    environment: BOSS_GALAXY_REDUX
+    access:
+      in_sdss_access: true
+      path_name: portsmouth_masspdf
+      path_template: $BOSS_GALAXY_REDUX/{version}/{run2d}/{plate:0>4}/{run1d}/portsmouth/stellarmass/portsmouth_masspdf_{massloss}_{configuration}-{plate:0>4}-{mjd}.fits
+      path_kwargs:
+      - version
+      - massloss
+      - configuration
+      - run1d
+      - plate
+      - mjd
+      - run2d
+      access_string: portsmouth_masspdf = $BOSS_GALAXY_REDUX/{version}/{run2d}/{plate}/{run1d}/portsmouth/stellarmass/portsmouth_masspdf_{massloss}_{configuration}-{plate}-{mjd}.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: "The BOSS Galaxy product assumes a WMAP 7 \u039BCDM cosmology\
+          \ with <var>H</var><sub>0</sub> = 70, \u03A9<sub>m</sub> = 0.274, and \u03A9\
+          <sub>\u039B</sub> = 0.726."
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: "The BOSS Galaxy product assumes a WMAP 7 \u039BCDM cosmology\
+          \ with <var>H</var><sub>0</sub> = 70, \u03A9<sub>m</sub> = 0.274, and \u03A9\
+          <sub>\u039B</sub> = 0.726."
+        is_image: false
+        size: 3 MB
+        columns:
+          FIBERID:
+            name: FIBERID
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Fiber ID (1 to 1000)
+          LOGMASSBIN:
+            name: LOGMASSBIN
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: "a bin in logmass with \u0394logmass = 0.005"
+          PROBABILITY:
+            name: PROBABILITY
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: The value of the PDF in the LOGMASSBIN
