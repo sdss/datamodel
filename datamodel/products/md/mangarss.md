@@ -1,7 +1,7 @@
 # Data Model: mangarss
 
 
-migrated from old datamodel - needs update
+migration: needs update
 
 
 ## Contents
@@ -57,14 +57,14 @@ FITS
 Describes changes to the datamodel product and/or file structure from one release to another
  - DR17
    - from: DR16
-   - added_hdus: ['LSFPOST', 'LSFPRE']
-   - removed_hdus: ['DISP', 'PREDISP']
+   - added_hdus: ['LSFPRE', 'LSFPOST']
+   - removed_hdus: ['PREDISP', 'DISP']
  - DR16
    - from: DR15
    - note: No changes
  - DR15
    - from: DR14
-   - added_hdus: ['PRESPECRESD', 'PRESPECRES', 'PREDISP']
+   - added_hdus: ['PREDISP', 'PRESPECRES', 'PRESPECRESD']
    - primary_delta_nkeys: 1
    - added_primary_header_kwargs: ['TPLDATA']
  - DR14
