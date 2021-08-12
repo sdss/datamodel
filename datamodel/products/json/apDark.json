@@ -1,7 +1,7 @@
 {
   "general": {
     "name": "apDark",
-    "short": "migrated from old datamodel - needs update",
+    "short": "migration: needs update",
     "description": "apDark frames contain the measured dark current for each detector. Dark frames exist\nin a data cube representing the measure dark at each successive readout in an up-the-ramp\ndata collection. Each plane in apDark represents the average dark current at the\ncorresponding readout.\nThe multiextension FITS file contains:\n<pre>\nHDU0: master header\nHDU1: dark current image (ADU) [FLOAT]: 2048x2048xmaxread\nHDU2: flag mask [INT*2]\nHDU3: chi2 image [FLOAT]\n</pre>",
     "environments": [
       "APOGEE_REDUX"
@@ -112,21 +112,21 @@
         "primary_delta_nkeys": 8,
         "added_primary_header_kwargs": [
           "SRVYMODE",
-          "PLATETYP",
-          "SPA"
+          "SPA",
+          "PLATETYP"
         ],
         "removed_primary_header_kwargs": [
+          "M1XTILT",
+          "M2YTRAN",
           "M2PISTON",
-          "COMMENT",
           "M1YTILT",
+          "M1XTRAN",
           "M1PISTON",
           "M2XTILT",
-          "M1XTILT",
-          "M1XTRAN",
+          "COMMENT",
           "M1YTRAN",
-          "M2YTRAN",
-          "M2XTRAN",
-          "M2YTILT"
+          "M2YTILT",
+          "M2XTRAN"
         ],
         "note": null
       },
@@ -163,10 +163,10 @@
         "path_name": "apDark",
         "path_template": "$APOGEE_REDUX/{apred}/cal/darkcorr/{prefix}Dark-{chip}-{num:0>8}.fits",
         "path_kwargs": [
-          "prefix",
-          "apred",
           "chip",
-          "num"
+          "num",
+          "prefix",
+          "apred"
         ],
         "access_string": "apDark = $APOGEE_REDUX/r3/cal/darkcorr/apDark-a-05560001.fits"
       },
