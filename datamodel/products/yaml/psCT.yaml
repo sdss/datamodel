@@ -1,0 +1,995 @@
+general:
+  name: psCT
+  short: 'migration: needs update'
+  description: 'Photometric calibrations as a function of time.  There is one time-stamped
+
+    photometric calibration for every calibration patch intersected by the run
+
+    for which processed MT data exists.  The time-stamp indicates the time at
+
+    which the calibration patch was observed by the Imaging Camera during this
+
+    run.'
+  datatype: FIT
+  filesize: 5 KB
+  releases:
+  - DR8
+  - DR9
+  - DR10
+  - DR12
+  - DR11
+  - DR13
+  - DR14
+  - DR15
+  - DR16
+  - DR17
+  environments:
+  - PHOTO_REDUX
+  naming_convention: 'psCT-rrrrrr-c.fit,
+
+    where <i>rrrrrr</i> is the imaging run number and <i>c</i> is the column
+
+    location in the Imaging Array of the CCD which acquired the data (1-6).'
+  generated_by: ps
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases:
+    DR17:
+      from: DR16
+      note: No changes
+    DR16:
+      from: DR15
+      note: No changes
+    DR15:
+      from: DR14
+      note: No changes
+    DR14:
+      from: DR13
+      note: No changes
+    DR13:
+      from: DR11
+      note: No changes
+    DR11:
+      from: DR12
+      note: No changes
+    DR12:
+      from: DR10
+      note: No changes
+    DR10:
+      from: DR9
+      note: No changes
+    DR9:
+      from: DR8
+      note: No changes
+releases:
+  DR8:
+    template: $PHOTO_REDUX/[RERUN]/[RUN]/objcs/[CAMCOL]/psCT-00[RUN]-[CAMCOL].fit
+    example: 301/5138/objcs/1/psCT-005138-1.fit
+    location: '{rerun}/{run}/objcs/{camcol}/psCT-00{run}-{camcol}.fit'
+    environment: PHOTO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: psCT
+      path_template: $PHOTO_REDUX/{rerun}/{run}/objcs/{camcol}/psCT-{run:0>6}-{camcol}.fit
+      path_kwargs:
+      - camcol
+      - rerun
+      - run
+      - run
+      access_string: psCT = $PHOTO_REDUX/{rerun}/{run}/objcs/{camcol}/psCT-00{run}-{camcol}.fit
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: ''
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: RUN
+          value: 5138
+          comment: Imaging run number.
+        - key: CAMCOL
+          value: 1
+          comment: Column in the imaging camera.
+        - key: FILTERS
+          value: u g r i z
+          comment: Filter order in array fields
+        - key: VERSION
+          value: v5_4_43
+          comment: Version of software used.
+        - key: DERV_VER
+          value: NOCVS:v8_16
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: PS_ID
+          value: 2009-06-01T09:50:39 32167 camCol 1
+          comment: Postage stamp pipeline run identifier.
+        - key: ASTR_VER
+          value: NOCVS:v5_24
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: BIAS_ID
+          value: 2001-12-24T12:06:17 16903
+          comment: Bias pipeline run identifier.
+        - key: SSC_ID
+          value: 2009-06-01T09:37:02 27653
+          comment: SSC pipeline run identifier.
+      hdu1:
+        name: ''
+        description: 'There is one HDU of this format per file.  There is only one
+          entry for each
+
+          calibration patch intersected by the run for which processed MT data exists.
+
+          The order of the filters in each row is the same as the order of filters
+          in
+
+          the PDU keyword <i>FILTER</i>.'
+        is_image: false
+        size: 0 bytes
+        columns:
+          mjd:
+            name: MJD
+            type: float64[1]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          flux20:
+            name: FLUX20
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          flux20Err:
+            name: FLUX20ERR
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+  DR9:
+    template: $PHOTO_REDUX/[RERUN]/[RUN]/objcs/[CAMCOL]/psCT-00[RUN]-[CAMCOL].fit
+    example: 301/5138/objcs/1/psCT-005138-1.fit
+    location: '{rerun}/{run}/objcs/{camcol}/psCT-00{run}-{camcol}.fit'
+    environment: PHOTO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: psCT
+      path_template: $PHOTO_REDUX/{rerun}/{run}/objcs/{camcol}/psCT-{run:0>6}-{camcol}.fit
+      path_kwargs:
+      - rerun
+      - run
+      - run
+      - camcol
+      access_string: psCT = $PHOTO_REDUX/{rerun}/{run}/objcs/{camcol}/psCT-00{run}-{camcol}.fit
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: ''
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: RUN
+          value: 5138
+          comment: Imaging run number.
+        - key: CAMCOL
+          value: 1
+          comment: Column in the imaging camera.
+        - key: FILTERS
+          value: u g r i z
+          comment: Filter order in array fields
+        - key: VERSION
+          value: v5_4_43
+          comment: Version of software used.
+        - key: DERV_VER
+          value: NOCVS:v8_16
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: PS_ID
+          value: 2009-06-01T09:50:39 32167 camCol 1
+          comment: Postage stamp pipeline run identifier.
+        - key: ASTR_VER
+          value: NOCVS:v5_24
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: BIAS_ID
+          value: 2001-12-24T12:06:17 16903
+          comment: Bias pipeline run identifier.
+        - key: SSC_ID
+          value: 2009-06-01T09:37:02 27653
+          comment: SSC pipeline run identifier.
+      hdu1:
+        name: ''
+        description: 'There is one HDU of this format per file.  There is only one
+          entry for each
+
+          calibration patch intersected by the run for which processed MT data exists.
+
+          The order of the filters in each row is the same as the order of filters
+          in
+
+          the PDU keyword <i>FILTER</i>.'
+        is_image: false
+        size: 0 bytes
+        columns:
+          mjd:
+            name: MJD
+            type: float64[1]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          flux20:
+            name: FLUX20
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          flux20Err:
+            name: FLUX20ERR
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+  DR10:
+    template: $PHOTO_REDUX/[RERUN]/[RUN]/objcs/[CAMCOL]/psCT-00[RUN]-[CAMCOL].fit
+    example: 301/5138/objcs/1/psCT-005138-1.fit
+    location: '{rerun}/{run}/objcs/{camcol}/psCT-00{run}-{camcol}.fit'
+    environment: PHOTO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: psCT
+      path_template: $PHOTO_REDUX/{rerun}/{run}/objcs/{camcol}/psCT-{run:0>6}-{camcol}.fit
+      path_kwargs:
+      - run
+      - rerun
+      - run
+      - camcol
+      access_string: psCT = $PHOTO_REDUX/{rerun}/{run}/objcs/{camcol}/psCT-00{run}-{camcol}.fit
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: ''
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: RUN
+          value: 5138
+          comment: Imaging run number.
+        - key: CAMCOL
+          value: 1
+          comment: Column in the imaging camera.
+        - key: FILTERS
+          value: u g r i z
+          comment: Filter order in array fields
+        - key: VERSION
+          value: v5_4_43
+          comment: Version of software used.
+        - key: DERV_VER
+          value: NOCVS:v8_16
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: PS_ID
+          value: 2009-06-01T09:50:39 32167 camCol 1
+          comment: Postage stamp pipeline run identifier.
+        - key: ASTR_VER
+          value: NOCVS:v5_24
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: BIAS_ID
+          value: 2001-12-24T12:06:17 16903
+          comment: Bias pipeline run identifier.
+        - key: SSC_ID
+          value: 2009-06-01T09:37:02 27653
+          comment: SSC pipeline run identifier.
+      hdu1:
+        name: ''
+        description: 'There is one HDU of this format per file.  There is only one
+          entry for each
+
+          calibration patch intersected by the run for which processed MT data exists.
+
+          The order of the filters in each row is the same as the order of filters
+          in
+
+          the PDU keyword <i>FILTER</i>.'
+        is_image: false
+        size: 0 bytes
+        columns:
+          mjd:
+            name: MJD
+            type: float64[1]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          flux20:
+            name: FLUX20
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          flux20Err:
+            name: FLUX20ERR
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+  DR11:
+    template: $PHOTO_REDUX/[RERUN]/[RUN]/objcs/[CAMCOL]/psCT-00[RUN]-[CAMCOL].fit
+    example: 301/5138/objcs/1/psCT-005138-1.fit
+    location: '{rerun}/{run}/objcs/{camcol}/psCT-00{run}-{camcol}.fit'
+    environment: PHOTO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: psCT
+      path_template: $PHOTO_REDUX/{rerun}/{run}/objcs/{camcol}/psCT-{run:0>6}-{camcol}.fit
+      path_kwargs:
+      - run
+      - run
+      - camcol
+      - rerun
+      access_string: psCT = $PHOTO_REDUX/{rerun}/{run}/objcs/{camcol}/psCT-00{run}-{camcol}.fit
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: ''
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: RUN
+          value: 5138
+          comment: Imaging run number.
+        - key: CAMCOL
+          value: 1
+          comment: Column in the imaging camera.
+        - key: FILTERS
+          value: u g r i z
+          comment: Filter order in array fields
+        - key: VERSION
+          value: v5_4_43
+          comment: Version of software used.
+        - key: DERV_VER
+          value: NOCVS:v8_16
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: PS_ID
+          value: 2009-06-01T09:50:39 32167 camCol 1
+          comment: Postage stamp pipeline run identifier.
+        - key: ASTR_VER
+          value: NOCVS:v5_24
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: BIAS_ID
+          value: 2001-12-24T12:06:17 16903
+          comment: Bias pipeline run identifier.
+        - key: SSC_ID
+          value: 2009-06-01T09:37:02 27653
+          comment: SSC pipeline run identifier.
+      hdu1:
+        name: ''
+        description: 'There is one HDU of this format per file.  There is only one
+          entry for each
+
+          calibration patch intersected by the run for which processed MT data exists.
+
+          The order of the filters in each row is the same as the order of filters
+          in
+
+          the PDU keyword <i>FILTER</i>.'
+        is_image: false
+        size: 0 bytes
+        columns:
+          mjd:
+            name: MJD
+            type: float64[1]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          flux20:
+            name: FLUX20
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          flux20Err:
+            name: FLUX20ERR
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+  DR12:
+    template: $PHOTO_REDUX/[RERUN]/[RUN]/objcs/[CAMCOL]/psCT-00[RUN]-[CAMCOL].fit
+    example: 301/5138/objcs/1/psCT-005138-1.fit
+    location: '{rerun}/{run}/objcs/{camcol}/psCT-00{run}-{camcol}.fit'
+    environment: PHOTO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: psCT
+      path_template: $PHOTO_REDUX/{rerun}/{run}/objcs/{camcol}/psCT-{run:0>6}-{camcol}.fit
+      path_kwargs:
+      - rerun
+      - run
+      - camcol
+      - run
+      access_string: psCT = $PHOTO_REDUX/{rerun}/{run}/objcs/{camcol}/psCT-00{run}-{camcol}.fit
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: ''
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: RUN
+          value: 5138
+          comment: Imaging run number.
+        - key: CAMCOL
+          value: 1
+          comment: Column in the imaging camera.
+        - key: FILTERS
+          value: u g r i z
+          comment: Filter order in array fields
+        - key: VERSION
+          value: v5_4_43
+          comment: Version of software used.
+        - key: DERV_VER
+          value: NOCVS:v8_16
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: PS_ID
+          value: 2009-06-01T09:50:39 32167 camCol 1
+          comment: Postage stamp pipeline run identifier.
+        - key: ASTR_VER
+          value: NOCVS:v5_24
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: BIAS_ID
+          value: 2001-12-24T12:06:17 16903
+          comment: Bias pipeline run identifier.
+        - key: SSC_ID
+          value: 2009-06-01T09:37:02 27653
+          comment: SSC pipeline run identifier.
+      hdu1:
+        name: ''
+        description: 'There is one HDU of this format per file.  There is only one
+          entry for each
+
+          calibration patch intersected by the run for which processed MT data exists.
+
+          The order of the filters in each row is the same as the order of filters
+          in
+
+          the PDU keyword <i>FILTER</i>.'
+        is_image: false
+        size: 0 bytes
+        columns:
+          mjd:
+            name: MJD
+            type: float64[1]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          flux20:
+            name: FLUX20
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          flux20Err:
+            name: FLUX20ERR
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+  DR13:
+    template: $PHOTO_REDUX/[RERUN]/[RUN]/objcs/[CAMCOL]/psCT-00[RUN]-[CAMCOL].fit
+    example: 301/5138/objcs/1/psCT-005138-1.fit
+    location: '{rerun}/{run}/objcs/{camcol}/psCT-00{run}-{camcol}.fit'
+    environment: PHOTO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: psCT
+      path_template: $PHOTO_REDUX/{rerun}/{run}/objcs/{camcol}/psCT-{run:0>6}-{camcol}.fit
+      path_kwargs:
+      - rerun
+      - camcol
+      - run
+      - run
+      access_string: psCT = $PHOTO_REDUX/{rerun}/{run}/objcs/{camcol}/psCT-00{run}-{camcol}.fit
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: ''
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: RUN
+          value: 5138
+          comment: Imaging run number.
+        - key: CAMCOL
+          value: 1
+          comment: Column in the imaging camera.
+        - key: FILTERS
+          value: u g r i z
+          comment: Filter order in array fields
+        - key: VERSION
+          value: v5_4_43
+          comment: Version of software used.
+        - key: DERV_VER
+          value: NOCVS:v8_16
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: PS_ID
+          value: 2009-06-01T09:50:39 32167 camCol 1
+          comment: Postage stamp pipeline run identifier.
+        - key: ASTR_VER
+          value: NOCVS:v5_24
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: BIAS_ID
+          value: 2001-12-24T12:06:17 16903
+          comment: Bias pipeline run identifier.
+        - key: SSC_ID
+          value: 2009-06-01T09:37:02 27653
+          comment: SSC pipeline run identifier.
+      hdu1:
+        name: ''
+        description: 'There is one HDU of this format per file.  There is only one
+          entry for each
+
+          calibration patch intersected by the run for which processed MT data exists.
+
+          The order of the filters in each row is the same as the order of filters
+          in
+
+          the PDU keyword <i>FILTER</i>.'
+        is_image: false
+        size: 0 bytes
+        columns:
+          mjd:
+            name: MJD
+            type: float64[1]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          flux20:
+            name: FLUX20
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          flux20Err:
+            name: FLUX20ERR
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+  DR14:
+    template: $PHOTO_REDUX/[RERUN]/[RUN]/objcs/[CAMCOL]/psCT-00[RUN]-[CAMCOL].fit
+    example: 301/5138/objcs/1/psCT-005138-1.fit
+    location: '{rerun}/{run}/objcs/{camcol}/psCT-00{run}-{camcol}.fit'
+    environment: PHOTO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: psCT
+      path_template: $PHOTO_REDUX/{rerun}/{run}/objcs/{camcol}/psCT-{run:0>6}-{camcol}.fit
+      path_kwargs:
+      - run
+      - rerun
+      - camcol
+      - run
+      access_string: psCT = $PHOTO_REDUX/{rerun}/{run}/objcs/{camcol}/psCT-00{run}-{camcol}.fit
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: ''
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: RUN
+          value: 5138
+          comment: Imaging run number.
+        - key: CAMCOL
+          value: 1
+          comment: Column in the imaging camera.
+        - key: FILTERS
+          value: u g r i z
+          comment: Filter order in array fields
+        - key: VERSION
+          value: v5_4_43
+          comment: Version of software used.
+        - key: DERV_VER
+          value: NOCVS:v8_16
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: PS_ID
+          value: 2009-06-01T09:50:39 32167 camCol 1
+          comment: Postage stamp pipeline run identifier.
+        - key: ASTR_VER
+          value: NOCVS:v5_24
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: BIAS_ID
+          value: 2001-12-24T12:06:17 16903
+          comment: Bias pipeline run identifier.
+        - key: SSC_ID
+          value: 2009-06-01T09:37:02 27653
+          comment: SSC pipeline run identifier.
+      hdu1:
+        name: ''
+        description: 'There is one HDU of this format per file.  There is only one
+          entry for each
+
+          calibration patch intersected by the run for which processed MT data exists.
+
+          The order of the filters in each row is the same as the order of filters
+          in
+
+          the PDU keyword <i>FILTER</i>.'
+        is_image: false
+        size: 0 bytes
+        columns:
+          mjd:
+            name: MJD
+            type: float64[1]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          flux20:
+            name: FLUX20
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          flux20Err:
+            name: FLUX20ERR
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+  DR15:
+    template: $PHOTO_REDUX/[RERUN]/[RUN]/objcs/[CAMCOL]/psCT-00[RUN]-[CAMCOL].fit
+    example: 301/5138/objcs/1/psCT-005138-1.fit
+    location: '{rerun}/{run}/objcs/{camcol}/psCT-00{run}-{camcol}.fit'
+    environment: PHOTO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: psCT
+      path_template: $PHOTO_REDUX/{rerun}/{run}/objcs/{camcol}/psCT-{run:0>6}-{camcol}.fit
+      path_kwargs:
+      - run
+      - run
+      - rerun
+      - camcol
+      access_string: psCT = $PHOTO_REDUX/{rerun}/{run}/objcs/{camcol}/psCT-00{run}-{camcol}.fit
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: ''
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: RUN
+          value: 5138
+          comment: Imaging run number.
+        - key: CAMCOL
+          value: 1
+          comment: Column in the imaging camera.
+        - key: FILTERS
+          value: u g r i z
+          comment: Filter order in array fields
+        - key: VERSION
+          value: v5_4_43
+          comment: Version of software used.
+        - key: DERV_VER
+          value: NOCVS:v8_16
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: PS_ID
+          value: 2009-06-01T09:50:39 32167 camCol 1
+          comment: Postage stamp pipeline run identifier.
+        - key: ASTR_VER
+          value: NOCVS:v5_24
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: BIAS_ID
+          value: 2001-12-24T12:06:17 16903
+          comment: Bias pipeline run identifier.
+        - key: SSC_ID
+          value: 2009-06-01T09:37:02 27653
+          comment: SSC pipeline run identifier.
+      hdu1:
+        name: ''
+        description: 'There is one HDU of this format per file.  There is only one
+          entry for each
+
+          calibration patch intersected by the run for which processed MT data exists.
+
+          The order of the filters in each row is the same as the order of filters
+          in
+
+          the PDU keyword <i>FILTER</i>.'
+        is_image: false
+        size: 0 bytes
+        columns:
+          mjd:
+            name: MJD
+            type: float64[1]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          flux20:
+            name: FLUX20
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          flux20Err:
+            name: FLUX20ERR
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+  DR16:
+    template: $PHOTO_REDUX/[RERUN]/[RUN]/objcs/[CAMCOL]/psCT-00[RUN]-[CAMCOL].fit
+    example: 301/5138/objcs/1/psCT-005138-1.fit
+    location: '{rerun}/{run}/objcs/{camcol}/psCT-00{run}-{camcol}.fit'
+    environment: PHOTO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: psCT
+      path_template: $PHOTO_REDUX/{rerun}/{run}/objcs/{camcol}/psCT-{run:0>6}-{camcol}.fit
+      path_kwargs:
+      - camcol
+      - rerun
+      - run
+      - run
+      access_string: psCT = $PHOTO_REDUX/{rerun}/{run}/objcs/{camcol}/psCT-00{run}-{camcol}.fit
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: ''
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: RUN
+          value: 5138
+          comment: Imaging run number.
+        - key: CAMCOL
+          value: 1
+          comment: Column in the imaging camera.
+        - key: FILTERS
+          value: u g r i z
+          comment: Filter order in array fields
+        - key: VERSION
+          value: v5_4_43
+          comment: Version of software used.
+        - key: DERV_VER
+          value: NOCVS:v8_16
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: PS_ID
+          value: 2009-06-01T09:50:39 32167 camCol 1
+          comment: Postage stamp pipeline run identifier.
+        - key: ASTR_VER
+          value: NOCVS:v5_24
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: BIAS_ID
+          value: 2001-12-24T12:06:17 16903
+          comment: Bias pipeline run identifier.
+        - key: SSC_ID
+          value: 2009-06-01T09:37:02 27653
+          comment: SSC pipeline run identifier.
+      hdu1:
+        name: ''
+        description: 'There is one HDU of this format per file.  There is only one
+          entry for each
+
+          calibration patch intersected by the run for which processed MT data exists.
+
+          The order of the filters in each row is the same as the order of filters
+          in
+
+          the PDU keyword <i>FILTER</i>.'
+        is_image: false
+        size: 0 bytes
+        columns:
+          mjd:
+            name: MJD
+            type: float64[1]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          flux20:
+            name: FLUX20
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          flux20Err:
+            name: FLUX20ERR
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+  DR17:
+    template: $PHOTO_REDUX/[RERUN]/[RUN]/objcs/[CAMCOL]/psCT-00[RUN]-[CAMCOL].fit
+    example: 301/5138/objcs/1/psCT-005138-1.fit
+    location: '{rerun}/{run}/objcs/{camcol}/psCT-00{run}-{camcol}.fit'
+    environment: PHOTO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: psCT
+      path_template: $PHOTO_REDUX/{rerun}/{run}/objcs/{camcol}/psCT-{run:0>6}-{camcol}.fit
+      path_kwargs:
+      - run
+      - camcol
+      - rerun
+      - run
+      access_string: psCT = $PHOTO_REDUX/{rerun}/{run}/objcs/{camcol}/psCT-00{run}-{camcol}.fit
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: ''
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: RUN
+          value: 5138
+          comment: Imaging run number.
+        - key: CAMCOL
+          value: 1
+          comment: Column in the imaging camera.
+        - key: FILTERS
+          value: u g r i z
+          comment: Filter order in array fields
+        - key: VERSION
+          value: v5_4_43
+          comment: Version of software used.
+        - key: DERV_VER
+          value: NOCVS:v8_16
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: PS_ID
+          value: 2009-06-01T09:50:39 32167 camCol 1
+          comment: Postage stamp pipeline run identifier.
+        - key: ASTR_VER
+          value: NOCVS:v5_24
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: BIAS_ID
+          value: 2001-12-24T12:06:17 16903
+          comment: Bias pipeline run identifier.
+        - key: SSC_ID
+          value: 2009-06-01T09:37:02 27653
+          comment: SSC pipeline run identifier.
+      hdu1:
+        name: ''
+        description: 'There is one HDU of this format per file.  There is only one
+          entry for each
+
+          calibration patch intersected by the run for which processed MT data exists.
+
+          The order of the filters in each row is the same as the order of filters
+          in
+
+          the PDU keyword <i>FILTER</i>.'
+        is_image: false
+        size: 0 bytes
+        columns:
+          mjd:
+            name: MJD
+            type: float64[1]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          flux20:
+            name: FLUX20
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+          flux20Err:
+            name: FLUX20ERR
+            type: float32[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
