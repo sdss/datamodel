@@ -1,0 +1,643 @@
+{
+  "general": {
+    "name": "photoMatchPlate-original",
+    "short": "migration: needs update",
+    "description": "These files contain the match of\neach plate to SDSS photometry, sorted in the same way as the <a href=\"/datamodel/files/PLATELIST_DIR/runs/PLATERUN/plPlugMap.html\">\nplPlugMapP</a> files (that is, by design fiber number rather than the\nactual plugged fiber number).  There are two matches: a pure\npositional match, and a flux-based match.  The flux-based match is the\ndefault to use.  The positional match finds the nearest primary object\nwithin 2 arcsec, or if there is none, identifies the primary field\ncovering the given position. The actual data for the flux-based match\ncan be found in the <a href=\"photoPlate.html\">photoPlate</a> file.",
+    "environments": [
+      "BOSS_PHOTOOBJ"
+    ],
+    "datatype": "FITS",
+    "filesize": "151 KB",
+    "releases": [
+      {
+        "name": "DR9",
+        "description": "SDSS public data release 9",
+        "public": true,
+        "release_date": "2012-07-31"
+      },
+      {
+        "name": "DR12",
+        "description": "SDSS public data release 12",
+        "public": true,
+        "release_date": "2015-01-06"
+      },
+      {
+        "name": "DR11",
+        "description": "SDSS public data release 11",
+        "public": true,
+        "release_date": "2015-01-06"
+      }
+    ],
+    "naming_convention": "photoMatchPlate-PLATE4.fits",
+    "generated_by": "sas"
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {
+      "DR11": {
+        "from": "DR12",
+        "delta_nhdus": null,
+        "added_hdus": null,
+        "removed_hdus": null,
+        "primary_delta_nkeys": null,
+        "added_primary_header_kwargs": null,
+        "removed_primary_header_kwargs": null,
+        "note": "No changes"
+      },
+      "DR12": {
+        "from": "DR9",
+        "delta_nhdus": null,
+        "added_hdus": null,
+        "removed_hdus": null,
+        "primary_delta_nkeys": null,
+        "added_primary_header_kwargs": null,
+        "removed_primary_header_kwargs": null,
+        "note": "No changes"
+      }
+    }
+  },
+  "releases": {
+    "DR9": {
+      "template": "$BOSS_PHOTOOBJ/plates/[RESOLVE]/[PLATE]/photoMatchPlate-[PLATE].fits",
+      "example": "plates/2010-05-23/3578/photoMatchPlate-3578.fits",
+      "location": "plates/{resolve}/{plate}/photoMatchPlate-{plate}.fits",
+      "environment": "BOSS_PHOTOOBJ",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "photoMatchPlate-original",
+        "path_template": "$BOSS_PHOTOOBJ/plates/{resolve}/{plate:0>4}/photoMatchPlate-{plate:0>4}.fits",
+        "path_kwargs": [
+          "plate",
+          "resolve"
+        ],
+        "access_string": "photoMatchPlate-original = $BOSS_PHOTOOBJ/plates/{resolve}/{plate}/photoMatchPlate-{plate}.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "<b>\nExample file:\n</b>\n<a href=\"/sas/dr9/env/BOSS_PHOTOOBJ/plates/2010-05-23/4545/photoMatchPlate-4545.fits\">\nphotoMatchPlate-4545.fits</a>",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "<b>\nExample file:\n</b>\n<a href=\"/sas/dr9/env/BOSS_PHOTOOBJ/plates/2010-05-23/4545/photoMatchPlate-4545.fits\">\nphotoMatchPlate-4545.fits</a>",
+          "size": "141 KB",
+          "header": null,
+          "columns": {
+            "FLUX_OBJID": {
+              "name": "FLUX_OBJID",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "char[19]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "RUN": {
+              "name": "RUN",
+              "description": "SDSS drift scan run of match (or overlapping\nprimary field if no match)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "CAMCOL": {
+              "name": "CAMCOL",
+              "description": "SDSS drift scan camera column of match (or\noverlapping primary field if no match)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "FIELD": {
+              "name": "FIELD",
+              "description": "field within SDSS drift scan of match (or\noverlapping primary field if no match)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "FLUX_ID": {
+              "name": "FLUX_ID",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "THING_ID": {
+              "name": "THING_ID",
+              "description": "unique integer associated with primary\nmatching object (see the <a href=\"/datamodel/files/PHOTO_RESOLVE/thingIndex.html\">thingIndex\nfile</a>)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "RERUN": {
+              "name": "RERUN",
+              "description": "reprocessing number for reductions\nassociated with the SDSS run of this match (or of primary field if no\nmatch)",
+              "type": "char[3]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NOBSERVE": {
+              "name": "NOBSERVE",
+              "description": "number of observations of the location\nof the flux-based match, or if no match of the desired match location\n(MATCH_RA, MATCH_DEC).",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NDETECT": {
+              "name": "NDETECT",
+              "description": "number of detections associated with\nthe flux-based match",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "FLUX_RA": {
+              "name": "FLUX_RA",
+              "description": "right ascension, J2000 deg, for flux-based\nmatch (or 0 if none) [called \"RA\" in DR8]",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "FLUX_DEC": {
+              "name": "FLUX_DEC",
+              "description": "declination, J2000 deg, for flux-based\nmatch (or 0 if none) [called \"DEC\" in DR8]",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "MATCH_RA": {
+              "name": "MATCH_RA",
+              "description": "right ascension, J2000 deg, of desired\nmatch location",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "MATCH_DEC": {
+              "name": "MATCH_DEC",
+              "description": "declination, J2000 deg, of desired\nmatch location",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "ORIG_OBJID": {
+              "name": "ORIG_OBJID",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "char[19]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "ORIG_ID": {
+              "name": "ORIG_ID",
+              "description": "object id within SDSS field of positional\nmatch (or 0 if no such match)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "ORIG_RA": {
+              "name": "ORIG_RA",
+              "description": "right ascension, J2000 deg, for flux-based\nmatch (or 0 if none)",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "ORIG_DEC": {
+              "name": "ORIG_DEC",
+              "description": "declination, J2000 deg, for flux-based\nmatch (or 0 if none)",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "APERFLUX3_R": {
+              "name": "APERFLUX3_R",
+              "description": "aperture flux within 3 arcsec\ndiameter aperture in the r-band (in fact, an interpolation between\nAPERFLUX[2,2] and APERFLUX[3,2] from the <a href=\"/datamodel/files/BOSS_PHOTOOBJ/RERUN/RUN/CAMCOL/photoObj.html\">\nphotoObj</a> files); this value corresponds to a measurement of\nchild associated with the positional match (that is the ORIG_ID\nobject); if no positional match, set to 0",
+              "type": "float32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "FIBERFLUX_R": {
+              "name": "FIBERFLUX_R",
+              "description": "fiber flux within 3 arcsec diameter\naperture in the r-band, again for the ORIG_ID object; however, photo\nmeasures this value from the parent, but at the location of the child\ncenter; thus, the flux-based code looks for cases where APERFLUX3_R is\nmuch less than FIBERFLUX_R to flag for further checking",
+              "type": "float32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "APERFLUX3_R_TOTAL": {
+              "name": "APERFLUX3_R_TOTAL",
+              "description": "flux measured from the parent\nobject atlas image within a 3 arcsec diameter aperture of (MATCH_RA, MATCH_DEC), for\nreference (not used in the flux-based matching algorithm); if this\ndoesn't need to be checked, it is set to zero",
+              "type": "float32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "APERFLUX3_R_MATCH": {
+              "name": "APERFLUX3_R_MATCH",
+              "description": "flux measured from the\nflux-based match object atlas image within a 3 arcsec diameter aperture of\n(MATCH_RA, MATCH_DEC); the flux-based matching selects the child with\nthe largest value of this flux; if this doesn't need to be checked, it\nis set to zero",
+              "type": "float32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "FLUXMATCH_PARENT": {
+              "name": "FLUXMATCH_PARENT",
+              "description": "parent that the flux-based\nmatching used in its checks (0 if none --- that is, if the positional\nmatch worked and had a reasonable ratio of APERFLUX3_R/FIBERFLUX_R, or\nif the positional match failed but there was no parent overlapping\n(MATCH_RA, MATCH_DEC) in the primary field",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "FLUXMATCH_STATUS": {
+              "name": "FLUXMATCH_STATUS",
+              "description": "bitmask reporting status of the\nmatch (see description above)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            }
+          }
+        }
+      }
+    },
+    "DR11": {
+      "template": "$BOSS_PHOTOOBJ/plates/[RESOLVE]/[PLATE]/photoMatchPlate-[PLATE].fits",
+      "example": "plates/2010-05-23/3578/photoMatchPlate-3578.fits",
+      "location": "plates/{resolve}/{plate}/photoMatchPlate-{plate}.fits",
+      "environment": "BOSS_PHOTOOBJ",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "photoMatchPlate-original",
+        "path_template": "$BOSS_PHOTOOBJ/plates/{resolve}/{plate:0>4}/photoMatchPlate-{plate:0>4}.fits",
+        "path_kwargs": [
+          "resolve",
+          "plate"
+        ],
+        "access_string": "photoMatchPlate-original = $BOSS_PHOTOOBJ/plates/{resolve}/{plate}/photoMatchPlate-{plate}.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "<b>\nExample file:\n</b>\n<a href=\"/sas/dr9/env/BOSS_PHOTOOBJ/plates/2010-05-23/4545/photoMatchPlate-4545.fits\">\nphotoMatchPlate-4545.fits</a>",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "<b>\nExample file:\n</b>\n<a href=\"/sas/dr9/env/BOSS_PHOTOOBJ/plates/2010-05-23/4545/photoMatchPlate-4545.fits\">\nphotoMatchPlate-4545.fits</a>",
+          "size": "141 KB",
+          "header": null,
+          "columns": {
+            "FLUX_OBJID": {
+              "name": "FLUX_OBJID",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "char[19]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "RUN": {
+              "name": "RUN",
+              "description": "SDSS drift scan run of match (or overlapping\nprimary field if no match)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "CAMCOL": {
+              "name": "CAMCOL",
+              "description": "SDSS drift scan camera column of match (or\noverlapping primary field if no match)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "FIELD": {
+              "name": "FIELD",
+              "description": "field within SDSS drift scan of match (or\noverlapping primary field if no match)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "FLUX_ID": {
+              "name": "FLUX_ID",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "THING_ID": {
+              "name": "THING_ID",
+              "description": "unique integer associated with primary\nmatching object (see the <a href=\"/datamodel/files/PHOTO_RESOLVE/thingIndex.html\">thingIndex\nfile</a>)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "RERUN": {
+              "name": "RERUN",
+              "description": "reprocessing number for reductions\nassociated with the SDSS run of this match (or of primary field if no\nmatch)",
+              "type": "char[3]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NOBSERVE": {
+              "name": "NOBSERVE",
+              "description": "number of observations of the location\nof the flux-based match, or if no match of the desired match location\n(MATCH_RA, MATCH_DEC).",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NDETECT": {
+              "name": "NDETECT",
+              "description": "number of detections associated with\nthe flux-based match",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "FLUX_RA": {
+              "name": "FLUX_RA",
+              "description": "right ascension, J2000 deg, for flux-based\nmatch (or 0 if none) [called \"RA\" in DR8]",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "FLUX_DEC": {
+              "name": "FLUX_DEC",
+              "description": "declination, J2000 deg, for flux-based\nmatch (or 0 if none) [called \"DEC\" in DR8]",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "MATCH_RA": {
+              "name": "MATCH_RA",
+              "description": "right ascension, J2000 deg, of desired\nmatch location",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "MATCH_DEC": {
+              "name": "MATCH_DEC",
+              "description": "declination, J2000 deg, of desired\nmatch location",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "ORIG_OBJID": {
+              "name": "ORIG_OBJID",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "char[19]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "ORIG_ID": {
+              "name": "ORIG_ID",
+              "description": "object id within SDSS field of positional\nmatch (or 0 if no such match)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "ORIG_RA": {
+              "name": "ORIG_RA",
+              "description": "right ascension, J2000 deg, for flux-based\nmatch (or 0 if none)",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "ORIG_DEC": {
+              "name": "ORIG_DEC",
+              "description": "declination, J2000 deg, for flux-based\nmatch (or 0 if none)",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "APERFLUX3_R": {
+              "name": "APERFLUX3_R",
+              "description": "aperture flux within 3 arcsec\ndiameter aperture in the r-band (in fact, an interpolation between\nAPERFLUX[2,2] and APERFLUX[3,2] from the <a href=\"/datamodel/files/BOSS_PHOTOOBJ/RERUN/RUN/CAMCOL/photoObj.html\">\nphotoObj</a> files); this value corresponds to a measurement of\nchild associated with the positional match (that is the ORIG_ID\nobject); if no positional match, set to 0",
+              "type": "float32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "FIBERFLUX_R": {
+              "name": "FIBERFLUX_R",
+              "description": "fiber flux within 3 arcsec diameter\naperture in the r-band, again for the ORIG_ID object; however, photo\nmeasures this value from the parent, but at the location of the child\ncenter; thus, the flux-based code looks for cases where APERFLUX3_R is\nmuch less than FIBERFLUX_R to flag for further checking",
+              "type": "float32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "APERFLUX3_R_TOTAL": {
+              "name": "APERFLUX3_R_TOTAL",
+              "description": "flux measured from the parent\nobject atlas image within a 3 arcsec diameter aperture of (MATCH_RA, MATCH_DEC), for\nreference (not used in the flux-based matching algorithm); if this\ndoesn't need to be checked, it is set to zero",
+              "type": "float32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "APERFLUX3_R_MATCH": {
+              "name": "APERFLUX3_R_MATCH",
+              "description": "flux measured from the\nflux-based match object atlas image within a 3 arcsec diameter aperture of\n(MATCH_RA, MATCH_DEC); the flux-based matching selects the child with\nthe largest value of this flux; if this doesn't need to be checked, it\nis set to zero",
+              "type": "float32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "FLUXMATCH_PARENT": {
+              "name": "FLUXMATCH_PARENT",
+              "description": "parent that the flux-based\nmatching used in its checks (0 if none --- that is, if the positional\nmatch worked and had a reasonable ratio of APERFLUX3_R/FIBERFLUX_R, or\nif the positional match failed but there was no parent overlapping\n(MATCH_RA, MATCH_DEC) in the primary field",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "FLUXMATCH_STATUS": {
+              "name": "FLUXMATCH_STATUS",
+              "description": "bitmask reporting status of the\nmatch (see description above)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            }
+          }
+        }
+      }
+    },
+    "DR12": {
+      "template": "$BOSS_PHOTOOBJ/plates/[RESOLVE]/[PLATE]/photoMatchPlate-[PLATE].fits",
+      "example": "plates/2010-05-23/3578/photoMatchPlate-3578.fits",
+      "location": "plates/{resolve}/{plate}/photoMatchPlate-{plate}.fits",
+      "environment": "BOSS_PHOTOOBJ",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "photoMatchPlate-original",
+        "path_template": "$BOSS_PHOTOOBJ/plates/{resolve}/{plate:0>4}/photoMatchPlate-{plate:0>4}.fits",
+        "path_kwargs": [
+          "resolve",
+          "plate"
+        ],
+        "access_string": "photoMatchPlate-original = $BOSS_PHOTOOBJ/plates/{resolve}/{plate}/photoMatchPlate-{plate}.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "<b>\nExample file:\n</b>\n<a href=\"/sas/dr9/env/BOSS_PHOTOOBJ/plates/2010-05-23/4545/photoMatchPlate-4545.fits\">\nphotoMatchPlate-4545.fits</a>",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "<b>\nExample file:\n</b>\n<a href=\"/sas/dr9/env/BOSS_PHOTOOBJ/plates/2010-05-23/4545/photoMatchPlate-4545.fits\">\nphotoMatchPlate-4545.fits</a>",
+          "size": "141 KB",
+          "header": null,
+          "columns": {
+            "FLUX_OBJID": {
+              "name": "FLUX_OBJID",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "char[19]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "RUN": {
+              "name": "RUN",
+              "description": "SDSS drift scan run of match (or overlapping\nprimary field if no match)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "CAMCOL": {
+              "name": "CAMCOL",
+              "description": "SDSS drift scan camera column of match (or\noverlapping primary field if no match)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "FIELD": {
+              "name": "FIELD",
+              "description": "field within SDSS drift scan of match (or\noverlapping primary field if no match)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "FLUX_ID": {
+              "name": "FLUX_ID",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "THING_ID": {
+              "name": "THING_ID",
+              "description": "unique integer associated with primary\nmatching object (see the <a href=\"/datamodel/files/PHOTO_RESOLVE/thingIndex.html\">thingIndex\nfile</a>)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "RERUN": {
+              "name": "RERUN",
+              "description": "reprocessing number for reductions\nassociated with the SDSS run of this match (or of primary field if no\nmatch)",
+              "type": "char[3]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NOBSERVE": {
+              "name": "NOBSERVE",
+              "description": "number of observations of the location\nof the flux-based match, or if no match of the desired match location\n(MATCH_RA, MATCH_DEC).",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "NDETECT": {
+              "name": "NDETECT",
+              "description": "number of detections associated with\nthe flux-based match",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "FLUX_RA": {
+              "name": "FLUX_RA",
+              "description": "right ascension, J2000 deg, for flux-based\nmatch (or 0 if none) [called \"RA\" in DR8]",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "FLUX_DEC": {
+              "name": "FLUX_DEC",
+              "description": "declination, J2000 deg, for flux-based\nmatch (or 0 if none) [called \"DEC\" in DR8]",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "MATCH_RA": {
+              "name": "MATCH_RA",
+              "description": "right ascension, J2000 deg, of desired\nmatch location",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "MATCH_DEC": {
+              "name": "MATCH_DEC",
+              "description": "declination, J2000 deg, of desired\nmatch location",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "ORIG_OBJID": {
+              "name": "ORIG_OBJID",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "char[19]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "ORIG_ID": {
+              "name": "ORIG_ID",
+              "description": "object id within SDSS field of positional\nmatch (or 0 if no such match)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "ORIG_RA": {
+              "name": "ORIG_RA",
+              "description": "right ascension, J2000 deg, for flux-based\nmatch (or 0 if none)",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "ORIG_DEC": {
+              "name": "ORIG_DEC",
+              "description": "declination, J2000 deg, for flux-based\nmatch (or 0 if none)",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "APERFLUX3_R": {
+              "name": "APERFLUX3_R",
+              "description": "aperture flux within 3 arcsec\ndiameter aperture in the r-band (in fact, an interpolation between\nAPERFLUX[2,2] and APERFLUX[3,2] from the <a href=\"/datamodel/files/BOSS_PHOTOOBJ/RERUN/RUN/CAMCOL/photoObj.html\">\nphotoObj</a> files); this value corresponds to a measurement of\nchild associated with the positional match (that is the ORIG_ID\nobject); if no positional match, set to 0",
+              "type": "float32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "FIBERFLUX_R": {
+              "name": "FIBERFLUX_R",
+              "description": "fiber flux within 3 arcsec diameter\naperture in the r-band, again for the ORIG_ID object; however, photo\nmeasures this value from the parent, but at the location of the child\ncenter; thus, the flux-based code looks for cases where APERFLUX3_R is\nmuch less than FIBERFLUX_R to flag for further checking",
+              "type": "float32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "APERFLUX3_R_TOTAL": {
+              "name": "APERFLUX3_R_TOTAL",
+              "description": "flux measured from the parent\nobject atlas image within a 3 arcsec diameter aperture of (MATCH_RA, MATCH_DEC), for\nreference (not used in the flux-based matching algorithm); if this\ndoesn't need to be checked, it is set to zero",
+              "type": "float32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "APERFLUX3_R_MATCH": {
+              "name": "APERFLUX3_R_MATCH",
+              "description": "flux measured from the\nflux-based match object atlas image within a 3 arcsec diameter aperture of\n(MATCH_RA, MATCH_DEC); the flux-based matching selects the child with\nthe largest value of this flux; if this doesn't need to be checked, it\nis set to zero",
+              "type": "float32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "FLUXMATCH_PARENT": {
+              "name": "FLUXMATCH_PARENT",
+              "description": "parent that the flux-based\nmatching used in its checks (0 if none --- that is, if the positional\nmatch worked and had a reasonable ratio of APERFLUX3_R/FIBERFLUX_R, or\nif the positional match failed but there was no parent overlapping\n(MATCH_RA, MATCH_DEC) in the primary field",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "FLUXMATCH_STATUS": {
+              "name": "FLUXMATCH_STATUS",
+              "description": "bitmask reporting status of the\nmatch (see description above)",
+              "type": "int32",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            }
+          }
+        }
+      }
+    }
+  }
+}
