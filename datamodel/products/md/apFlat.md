@@ -1,7 +1,7 @@
 # Data Model: apFlat
 
 
-migrated from old datamodel - needs update
+migration: needs update
 
 
 ## Contents
