@@ -54,8 +54,8 @@ Describes changes to the datamodel product and/or file structure from one releas
    - note: No changes
  - DR16
    - from: DR15
-   - added_primary_header_kwargs: ['EXPID004', 'EXPID015', 'EXPID002', 'EXPID012', 'EXPID010', 'EXPID013', 'EXPID011', 'EXPID006', 'EXPID005', 'EXPID007', 'EXPID001', 'EXPID003', 'EXPID014', 'EXPID009', 'EXPID008', 'EXPID016']
-   - removed_primary_header_kwargs: ['EXPID09', 'EXPID13', 'EXPID16', 'EXPID15', 'EXPID11', 'EXPID04', 'EXPID12', 'EXPID03', 'EXPID10', 'EXPID05', 'EXPID02', 'EXPID06', 'EXPID08', 'EXPID07', 'EXPID01', 'EXPID14']
+   - added_primary_header_kwargs: ['EXPID004', 'EXPID006', 'EXPID009', 'EXPID011', 'EXPID010', 'EXPID008', 'EXPID007', 'EXPID016', 'EXPID001', 'EXPID015', 'EXPID013', 'EXPID012', 'EXPID003', 'EXPID014', 'EXPID002', 'EXPID005']
+   - removed_primary_header_kwargs: ['EXPID11', 'EXPID14', 'EXPID07', 'EXPID05', 'EXPID02', 'EXPID09', 'EXPID01', 'EXPID04', 'EXPID08', 'EXPID12', 'EXPID03', 'EXPID06', 'EXPID13', 'EXPID10', 'EXPID16', 'EXPID15']
  - DR15
    - from: DR14
    - note: No changes
@@ -65,7 +65,7 @@ Describes changes to the datamodel product and/or file structure from one releas
  - DR13
    - from: DR11
    - primary_delta_nkeys: 2
-   - removed_primary_header_kwargs: ['XCHI2MIN', 'XCHI2MAX']
+   - removed_primary_header_kwargs: ['XCHI2MAX', 'XCHI2MIN']
  - DR11
    - from: DR12
    - note: No changes
@@ -296,7 +296,7 @@ Key | Value | Comment | |
 
 
 ### HDU1: 
-
+migration: Intro info not in database. Needs update
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  122 MB
@@ -306,7 +306,7 @@ Name | Type | Unit | Description |
 | --- | --- | --- | --- |
  | PLATE | int32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
  | TILE | int32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | MJD | int32 | migration: description of keyword/column is None in database. Needs update | MJD of observation |
+ | MJD | int32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
  | FIBERID | int32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
  | RUN2D | char[7] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
  | RUN1D | char[7] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
@@ -350,11 +350,11 @@ Name | Type | Unit | Description |
  | SPECTROSKYFLUX | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
  | ANYANDMASK | int32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
  | ANYORMASK | int32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | SPEC1_G | float32 | migration: description of keyword/column is None in database. Needs update | (S/N)^2 for spec  1 at mag 22.00 |
- | SPEC1_R | float32 | migration: description of keyword/column is None in database. Needs update | (S/N)^2 for spec  1 at mag 21.00 |
- | SPEC1_I | float32 | migration: description of keyword/column is None in database. Needs update | (S/N)^2 for spec  1 at mag 21.00 |
- | SPEC2_G | float32 | migration: description of keyword/column is None in database. Needs update | (S/N)^2 for spec  2 at mag 22.00 |
- | SPEC2_R | float32 | migration: description of keyword/column is None in database. Needs update | (S/N)^2 for spec  2 at mag 21.00 |
- | SPEC2_I | float32 | migration: description of keyword/column is None in database. Needs update | (S/N)^2 for spec  2 at mag 21.00 |
+ | SPEC1_G | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
+ | SPEC1_R | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
+ | SPEC1_I | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
+ | SPEC2_G | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
+ | SPEC2_R | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
+ | SPEC2_I | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
 
 
