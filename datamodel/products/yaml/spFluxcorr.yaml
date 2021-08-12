@@ -1,0 +1,693 @@
+general:
+  name: spFluxcorr
+  short: 'migration: needs update'
+  description: 'spFrame contains the non-calibrated spectra from the red- or blue-half
+    of a single exposure. It is structurally the same as spCFrame which contains the
+    calibrated spectra, except for the wavelength solution in HDU 3: spFrame uses
+    a compact trace-set structure format while spCFrame uses an evaluated image for
+    the log10(wavelength) at each pixel for each fiber.'
+  datatype: FITS
+  filesize: 16 KB
+  releases:
+  - DR9
+  - DR10
+  - DR12
+  - DR11
+  - DR13
+  - DR14
+  - DR15
+  - DR16
+  - DR17
+  environments:
+  - BOSS_SPECTRO_REDUX
+  naming_convention: Filenames have the form spFluxcorr-[c][n]-eeeeeeee.fits.gz, where
+    c indicates either a blue or red spectrograph, n indicates the spectrograph number
+    (1 or 2) and eeeeeeee indicates the exposure number.
+  generated_by: spfluxcorr_v5.pro
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases:
+    DR17:
+      from: DR16
+      note: No changes
+    DR16:
+      from: DR15
+      note: No changes
+    DR15:
+      from: DR14
+      note: No changes
+    DR14:
+      from: DR13
+      primary_delta_nkeys: 2
+      added_primary_header_kwargs:
+      - COMMENT
+    DR13:
+      from: DR11
+      note: No changes
+    DR11:
+      from: DR12
+      note: No changes
+    DR12:
+      from: DR10
+      note: No changes
+    DR10:
+      from: DR9
+      note: No changes
+releases:
+  DR9:
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID]/spFluxcorr-[BR][ID]-[FRAME].fits.gz
+    example: v5_4_45/3682/spFluxcorr-b1-00108607.fits.gz
+    location: '{run2d}/{plateid}/spFluxcorr-{br}{id}-{frame}.fits.gz'
+    environment: BOSS_SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: spFluxcorr
+      path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spFrame-{br}{id}-{frame:0>8}.fits.gz'
+      path_kwargs:
+      - plateid
+      - br
+      - run2d
+      - id
+      - frame
+      access_string: spFluxcorr = $BOSS_SPECTRO_REDUX/{run2d}/{plateid}/spFluxcorr-{br}{id}-{frame}.fits.gz
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: 'migration: Intro info not in database. Needs update'
+        is_image: true
+        size: 7 MB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: ''
+        - key: BITPIX
+          value: -32
+          comment: ''
+        - key: NAXIS
+          value: 2
+          comment: ''
+        - key: NAXIS1
+          value: 4128
+          comment: ''
+        - key: NAXIS2
+          value: 500
+          comment: ''
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: 'migration: Intro info not in database. Needs update'
+        is_image: true
+        size: 7 MB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: ''
+        - key: BITPIX
+          value: -32
+          comment: ''
+        - key: NAXIS
+          value: 2
+          comment: ''
+        - key: NAXIS1
+          value: 4128
+          comment: ''
+        - key: NAXIS2
+          value: 500
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: ''
+        - key: GCOUNT
+          value: 1
+          comment: ''
+  DR10:
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID]/spFluxcorr-[BR][ID]-[FRAME].fits.gz
+    example: v5_5_12/3682/spFluxcorr-b1-00108607.fits.gz
+    location: '{run2d}/{plateid}/spFluxcorr-{br}{id}-{frame}.fits.gz'
+    environment: BOSS_SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: spFluxcorr
+      path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spFrame-{br}{id}-{frame:0>8}.fits.gz'
+      path_kwargs:
+      - plateid
+      - br
+      - id
+      - run2d
+      - frame
+      access_string: spFluxcorr = $BOSS_SPECTRO_REDUX/{run2d}/{plateid}/spFluxcorr-{br}{id}-{frame}.fits.gz
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: 'migration: Intro info not in database. Needs update'
+        is_image: true
+        size: 7 MB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: ''
+        - key: BITPIX
+          value: -32
+          comment: ''
+        - key: NAXIS
+          value: 2
+          comment: ''
+        - key: NAXIS1
+          value: 4128
+          comment: ''
+        - key: NAXIS2
+          value: 500
+          comment: ''
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: 'migration: Intro info not in database. Needs update'
+        is_image: true
+        size: 7 MB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: ''
+        - key: BITPIX
+          value: -32
+          comment: ''
+        - key: NAXIS
+          value: 2
+          comment: ''
+        - key: NAXIS1
+          value: 4128
+          comment: ''
+        - key: NAXIS2
+          value: 500
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: ''
+        - key: GCOUNT
+          value: 1
+          comment: ''
+  DR11:
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID]/spFluxcorr-[BR][ID]-[FRAME].fits.gz
+    example: v5_6_5/3682/spFluxcorr-b1-00108607.fits.gz
+    location: '{run2d}/{plateid}/spFluxcorr-{br}{id}-{frame}.fits.gz'
+    environment: BOSS_SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: spFluxcorr
+      path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spFrame-{br}{id}-{frame:0>8}.fits.gz'
+      path_kwargs:
+      - br
+      - id
+      - frame
+      - plateid
+      - run2d
+      access_string: spFluxcorr = $BOSS_SPECTRO_REDUX/{run2d}/{plateid}/spFluxcorr-{br}{id}-{frame}.fits.gz
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: 'migration: Intro info not in database. Needs update'
+        is_image: true
+        size: 7 MB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: ''
+        - key: BITPIX
+          value: -32
+          comment: ''
+        - key: NAXIS
+          value: 2
+          comment: ''
+        - key: NAXIS1
+          value: 4128
+          comment: ''
+        - key: NAXIS2
+          value: 500
+          comment: ''
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: 'migration: Intro info not in database. Needs update'
+        is_image: true
+        size: 7 MB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: ''
+        - key: BITPIX
+          value: -32
+          comment: ''
+        - key: NAXIS
+          value: 2
+          comment: ''
+        - key: NAXIS1
+          value: 4128
+          comment: ''
+        - key: NAXIS2
+          value: 500
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: ''
+        - key: GCOUNT
+          value: 1
+          comment: ''
+  DR12:
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID]/spFluxcorr-[BR][ID]-[FRAME].fits.gz
+    example: v5_7_0/3682/spFluxcorr-b1-00108607.fits.gz
+    location: '{run2d}/{plateid}/spFluxcorr-{br}{id}-{frame}.fits.gz'
+    environment: BOSS_SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: spFluxcorr
+      path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spFrame-{br}{id}-{frame:0>8}.fits.gz'
+      path_kwargs:
+      - br
+      - frame
+      - plateid
+      - run2d
+      - id
+      access_string: spFluxcorr = $BOSS_SPECTRO_REDUX/{run2d}/{plateid}/spFluxcorr-{br}{id}-{frame}.fits.gz
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: 'migration: Intro info not in database. Needs update'
+        is_image: true
+        size: 7 MB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: ''
+        - key: BITPIX
+          value: -32
+          comment: ''
+        - key: NAXIS
+          value: 2
+          comment: ''
+        - key: NAXIS1
+          value: 4128
+          comment: ''
+        - key: NAXIS2
+          value: 500
+          comment: ''
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: 'migration: Intro info not in database. Needs update'
+        is_image: true
+        size: 7 MB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: ''
+        - key: BITPIX
+          value: -32
+          comment: ''
+        - key: NAXIS
+          value: 2
+          comment: ''
+        - key: NAXIS1
+          value: 4128
+          comment: ''
+        - key: NAXIS2
+          value: 500
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: ''
+        - key: GCOUNT
+          value: 1
+          comment: ''
+  DR13:
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID]/spFluxcorr-[BR][ID]-[FRAME].fits.gz
+    example: v5_9_0/3682/spFluxcorr-b1-00108607.fits.gz
+    location: '{run2d}/{plateid}/spFluxcorr-{br}{id}-{frame}.fits.gz'
+    environment: BOSS_SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: spFluxcorr
+      path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spFrame-{br}{id}-{frame:0>8}.fits.gz'
+      path_kwargs:
+      - id
+      - br
+      - run2d
+      - plateid
+      - frame
+      access_string: spFluxcorr = $BOSS_SPECTRO_REDUX/{run2d}/{plateid}/spFluxcorr-{br}{id}-{frame}.fits.gz
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: 'migration: Intro info not in database. Needs update'
+        is_image: true
+        size: 7 MB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: ''
+        - key: BITPIX
+          value: -32
+          comment: ''
+        - key: NAXIS
+          value: 2
+          comment: ''
+        - key: NAXIS1
+          value: 4128
+          comment: ''
+        - key: NAXIS2
+          value: 500
+          comment: ''
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: 'migration: Intro info not in database. Needs update'
+        is_image: true
+        size: 7 MB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: ''
+        - key: BITPIX
+          value: -32
+          comment: ''
+        - key: NAXIS
+          value: 2
+          comment: ''
+        - key: NAXIS1
+          value: 4128
+          comment: ''
+        - key: NAXIS2
+          value: 500
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: ''
+        - key: GCOUNT
+          value: 1
+          comment: ''
+  DR14:
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID]/spFluxcorr-[BR][ID]-[FRAME].fits.gz
+    example: v5_10_0/3682/spFluxcorr-b1-00108607.fits.gz
+    location: '{run2d}/{plateid}/spFluxcorr-{br}{id}-{frame}.fits.gz'
+    environment: BOSS_SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: spFluxcorr
+      path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spFrame-{br}{id}-{frame:0>8}.fits.gz'
+      path_kwargs:
+      - id
+      - plateid
+      - run2d
+      - frame
+      - br
+      access_string: spFluxcorr = $BOSS_SPECTRO_REDUX/{run2d}/{plateid}/spFluxcorr-{br}{id}-{frame}.fits.gz
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: 'migration: Intro info not in database. Needs update'
+        is_image: true
+        size: 15 MB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: ''
+        - key: BITPIX
+          value: -64
+          comment: ''
+        - key: NAXIS
+          value: 2
+          comment: ''
+        - key: NAXIS1
+          value: 4112
+          comment: ''
+        - key: NAXIS2
+          value: 500
+          comment: ''
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: COMMENT
+          value: '  FITS (Flexible Image Transport System) format is defined in ''Astronomy'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: '  and Astrophysics'', volume 376, page 359; bibcode: 2001A&A...376..359H'
+          comment: 'migration: description of keyword/column not found. Needs update'
+      hdu1:
+        name: ''
+        description: 'migration: Intro info not in database. Needs update'
+        is_image: true
+        size: 15 MB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: ''
+        - key: BITPIX
+          value: -64
+          comment: ''
+        - key: NAXIS
+          value: 2
+          comment: ''
+        - key: NAXIS1
+          value: 4112
+          comment: ''
+        - key: NAXIS2
+          value: 500
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: ''
+        - key: GCOUNT
+          value: 1
+          comment: ''
+  DR15:
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID]/spFluxcorr-[BR][ID]-[FRAME].fits.gz
+    example: v5_10_0/3682/spFluxcorr-b1-00108607.fits.gz
+    location: '{run2d}/{plateid}/spFluxcorr-{br}{id}-{frame}.fits.gz'
+    environment: BOSS_SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: spFluxcorr
+      path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spFrame-{br}{id}-{frame:0>8}.fits.gz'
+      path_kwargs:
+      - run2d
+      - br
+      - plateid
+      - frame
+      - id
+      access_string: spFluxcorr = $BOSS_SPECTRO_REDUX/{run2d}/{plateid}/spFluxcorr-{br}{id}-{frame}.fits.gz
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: 'migration: Intro info not in database. Needs update'
+        is_image: true
+        size: 15 MB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: ''
+        - key: BITPIX
+          value: -64
+          comment: ''
+        - key: NAXIS
+          value: 2
+          comment: ''
+        - key: NAXIS1
+          value: 4112
+          comment: ''
+        - key: NAXIS2
+          value: 500
+          comment: ''
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: COMMENT
+          value: '  FITS (Flexible Image Transport System) format is defined in ''Astronomy'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: '  and Astrophysics'', volume 376, page 359; bibcode: 2001A&A...376..359H'
+          comment: 'migration: description of keyword/column not found. Needs update'
+      hdu1:
+        name: ''
+        description: 'migration: Intro info not in database. Needs update'
+        is_image: true
+        size: 15 MB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: ''
+        - key: BITPIX
+          value: -64
+          comment: ''
+        - key: NAXIS
+          value: 2
+          comment: ''
+        - key: NAXIS1
+          value: 4112
+          comment: ''
+        - key: NAXIS2
+          value: 500
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: ''
+        - key: GCOUNT
+          value: 1
+          comment: ''
+  DR16:
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID]/spFluxcorr-[BR][ID]-[FRAME].fits.gz
+    example: v5_13_0/3682/spFluxcorr-b1-00108607.fits.gz
+    location: '{run2d}/{plateid}/spFluxcorr-{br}{id}-{frame}.fits.gz'
+    environment: BOSS_SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: spFluxcorr
+      path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spFrame-{br}{id}-{frame:0>8}.fits.gz'
+      path_kwargs:
+      - frame
+      - run2d
+      - id
+      - plateid
+      - br
+      access_string: spFluxcorr = $BOSS_SPECTRO_REDUX/{run2d}/{plateid}/spFluxcorr-{br}{id}-{frame}.fits.gz
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: 'migration: Intro info not in database. Needs update'
+        is_image: true
+        size: 15 MB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: ''
+        - key: BITPIX
+          value: -64
+          comment: ''
+        - key: NAXIS
+          value: 2
+          comment: ''
+        - key: NAXIS1
+          value: 4112
+          comment: ''
+        - key: NAXIS2
+          value: 500
+          comment: ''
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: COMMENT
+          value: '  FITS (Flexible Image Transport System) format is defined in ''Astronomy'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: '  and Astrophysics'', volume 376, page 359; bibcode: 2001A&A...376..359H'
+          comment: 'migration: description of keyword/column not found. Needs update'
+      hdu1:
+        name: ''
+        description: 'migration: Intro info not in database. Needs update'
+        is_image: true
+        size: 15 MB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: ''
+        - key: BITPIX
+          value: -64
+          comment: ''
+        - key: NAXIS
+          value: 2
+          comment: ''
+        - key: NAXIS1
+          value: 4112
+          comment: ''
+        - key: NAXIS2
+          value: 500
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: ''
+        - key: GCOUNT
+          value: 1
+          comment: ''
+  DR17:
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID]/spFluxcorr-[BR][ID]-[FRAME].fits.gz
+    example: v5_13_2/3682/spFluxcorr-b1-00108607.fits.gz
+    location: '{run2d}/{plateid}/spFluxcorr-{br}{id}-{frame}.fits.gz'
+    environment: BOSS_SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: spFluxcorr
+      path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spFrame-{br}{id}-{frame:0>8}.fits.gz'
+      path_kwargs:
+      - run2d
+      - plateid
+      - frame
+      - id
+      - br
+      access_string: spFluxcorr = $BOSS_SPECTRO_REDUX/{run2d}/{plateid}/spFluxcorr-{br}{id}-{frame}.fits.gz
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: 'migration: Intro info not in database. Needs update'
+        is_image: true
+        size: 15 MB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: ''
+        - key: BITPIX
+          value: -64
+          comment: ''
+        - key: NAXIS
+          value: 2
+          comment: ''
+        - key: NAXIS1
+          value: 4112
+          comment: ''
+        - key: NAXIS2
+          value: 500
+          comment: ''
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: COMMENT
+          value: '  FITS (Flexible Image Transport System) format is defined in ''Astronomy'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: '  and Astrophysics'', volume 376, page 359; bibcode: 2001A&A...376..359H'
+          comment: 'migration: description of keyword/column not found. Needs update'
+      hdu1:
+        name: ''
+        description: 'migration: Intro info not in database. Needs update'
+        is_image: true
+        size: 15 MB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: ''
+        - key: BITPIX
+          value: -64
+          comment: ''
+        - key: NAXIS
+          value: 2
+          comment: ''
+        - key: NAXIS1
+          value: 4112
+          comment: ''
+        - key: NAXIS2
+          value: 500
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: ''
+        - key: GCOUNT
+          value: 1
+          comment: ''
