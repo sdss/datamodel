@@ -1,0 +1,2025 @@
+general:
+  name: apogeeObject
+  short: 'migration: needs update'
+  description: 'This file contains the parameters of all 2MASS sources
+
+    falling within at least one APOGEE field and any "special targets" that (for various
+    reasons)
+
+    do not have 2MASS data.  These parameters include mid-IR data, proper motions,
+    and additional
+
+    optical photometry acquired specifically for APOGEE.'
+  datatype: FITS
+  filesize: 79 MB
+  releases:
+  - DR12
+  - DR13
+  - DR14
+  - DR15
+  - DR16
+  - DR17
+  environments:
+  - APOGEE_TARGET
+  naming_convention: '<code>apogeeObject_DR[N]_[fieldname].fits</code>
+
+    <code>apogeeObject_DR[N].fits</code> (concatenation of all field files)'
+  generated_by: none
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases:
+    DR17:
+      from: DR16
+      note: No changes
+    DR16:
+      from: DR15
+      primary_delta_nkeys: 10
+      removed_primary_header_kwargs:
+      - DATE
+      - GLAT
+      - DEC
+      - GLON
+      - COMMENT
+      - FIELD
+      - LOCID
+      - RA
+      - SURVEY
+    DR15:
+      from: DR14
+      note: No changes
+    DR14:
+      from: DR13
+      note: No changes
+    DR13:
+      from: DR12
+      note: No changes
+releases:
+  DR12:
+    template: $APOGEE_TARGET/apogeeObject/apogeeObject_000+02.fits
+    example: apogeeObject/apogeeObject_000+02.fits
+    location: apogeeObject/apogeeObject_000+02.fits
+    environment: APOGEE_TARGET
+    access:
+      in_sdss_access: true
+      path_name: apogeeObject
+      path_template: $APOGEE_TARGET/apogeeObject_{dr}_{field}.fits
+      path_kwargs:
+      - dr
+      - field
+      access_string: apogeeObject = $APOGEE_TARGET/apogeeObject/apogeeObject_000+02.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: 'migration: Intro info not in database. Needs update'
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: ''
+        - key: BITPIX
+          value: 16
+          comment: ''
+        - key: NAXIS
+          value: 0
+          comment: ''
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: DATE
+          value: Wed Nov 12 16:14:39 MST 2014
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: FITS (Flexible Image Transport System) format is defined in 'Astronomy
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: and Astrophysics', volume 376, page 359; bibcode 2001A&A...376..359H
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: SURVEY
+          value: SDSS-III/APOGEE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: FIELD
+          value: 000+02
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: LOCID
+          value: 4352
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: RA
+          value: 264.4736
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: DEC
+          value: -27.8803
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: GLON
+          value: 359.99990703
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: GLAT
+          value: 2.00023597416
+          comment: 'migration: description of keyword/column not found. Needs update'
+      hdu1:
+        name: ''
+        description: ''
+        is_image: false
+        size: 79 MB
+        columns:
+          APOGEE_ID:
+            name: APOGEE_ID
+            type: char[19]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: ID in the style of the 2MASS catalog (2MASS ID or equivalent
+              ID for non-2MASS sources)
+          TARGET_ID:
+            name: TARGET_ID
+            type: char[24]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Combination of field's Location ID and a target's APOGEE_ID;
+              e.g., "4257.2M04465532+3722294"
+          ALT_ID:
+            name: ALT_ID
+            type: char[4]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Alternative ID for non-2MASS sources
+          LOCATION_ID:
+            name: LOCATION_ID
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Field Location ID
+          RA:
+            name: RA
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Right ascension (deg, J2000.0 for most objects)
+          DEC:
+            name: DEC
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Declination (deg, J2000.0 for most objects)
+          J:
+            name: J
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2MASS J magnitude
+          J_ERR:
+            name: J_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2MASS J total uncertainty
+          H:
+            name: H
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: H magnitude
+          SRC_H:
+            name: SRC_H
+            type: char[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Source of H magnitude
+          H_ERR:
+            name: H_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2MASS H total uncertainty (if SRC_H = 2MASS)
+          K:
+            name: K
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2MASS Ks magnitude
+          K_ERR:
+            name: K_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2MASS Ks total uncertainty
+          IRAC_3_6:
+            name: IRAC_3_6
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: IRAC 3.6 micron magnitude
+          IRAC_3_6_ERR:
+            name: IRAC_3_6_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: IRAC 3.6 micron total uncertainty
+          IRAC_4_5:
+            name: IRAC_4_5
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: IRAC 4.5 micron magnitude
+          IRAC_4_5_ERR:
+            name: IRAC_4_5_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: IRAC 4.5 micron total uncertainty
+          SRC_4_5:
+            name: SRC_4_5
+            type: char[4]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: source of 4.5 micron magnitude used for targeting (IRAC [if
+              available] or WISE)
+          IRAC_5_8:
+            name: IRAC_5_8
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: IRAC 5.8 micron magnitude
+          IRAC_5_8_ERR:
+            name: IRAC_5_8_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: IRAC 5.8 micron total uncertainty
+          IRAC_8_0:
+            name: IRAC_8_0
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: IRAC 8.0 micron magnitude
+          IRAC_8_0_ERR:
+            name: IRAC_8_0_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: IRAC 8.0 micron total uncertainty
+          WISE_4_5:
+            name: WISE_4_5
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: WISE all-sky release 4.5 micron magnitude
+          WISE_4_5_ERR:
+            name: WISE_4_5_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: WISE all-sky release 4.5 micron photometric uncertainty
+          AK_WISE:
+            name: AK_WISE
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Ks-band extinction based on WISE all-sky release photometry
+          SFD_EBV:
+            name: SFD_EBV
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: E(B-V) at object's position in the <a href="http://adsabs.harvard.edu/abs/1998ApJ...500..525S">Schlegel,
+              Finkbeiner, &amp; Davis (1998)</a> maps
+          WASH_M:
+            name: WASH_M
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Washington M magnitude
+          WASH_M_ERR:
+            name: WASH_M_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Washington M photometric uncertainty
+          WASH_T2:
+            name: WASH_T2
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Washington T2 magnitude
+          WASH_T2_ERR:
+            name: WASH_T2_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Washington T2 photometric uncertainty
+          DDO51:
+            name: DDO51
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: DDO51 magnitude
+          DDO51_ERR:
+            name: DDO51_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: DDO51 photometric uncertainty
+          WASH_DDO51_GIANT_FLAG:
+            name: WASH_DDO51_GIANT_FLAG
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Luminosity class classification derived from Wash+DDO51 data
+              (1=giant, 0=dwarf, -1=no data)
+          WASH_DDO51_STAR_FLAG:
+            name: WASH_DDO51_STAR_FLAG
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Stellar likelihood based on Washington+DDO51 data (0=extended,
+              1=star-like or no data)
+          TARG_4_5:
+            name: TARG_4_5
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 4.5 micron magnitude used for target selection
+          TARG_4_5_ERR:
+            name: TARG_4_5_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Photometric uncertainty of 4.5 micron magnitude used for
+              target selection
+          AK_TARG:
+            name: AK_TARG
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Ks-band extinction used for target selection
+          AK_TARG_METHOD:
+            name: AK_TARG_METHOD
+            type: char[9]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Method to calculate Ks-band extinction used for target selection
+              (RJCE_IRAC, RJCE_WISE_ALLSKY, RJCE_WISE_PARTSKY, RJCE_WISE_OPS2, RJCE_WISE_OPS,
+              SFD_EBV, NONE)
+          PMRA:
+            name: PMRA
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Proper motion in RA (mas/yr)
+          PMRA_ERR:
+            name: PMRA_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Proper motion uncertainty in RA (mas/yr)
+          PMDEC:
+            name: PMDEC
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Proper motion in Dec (mas/yr)
+          PMDEC_ERR:
+            name: PMDEC_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Proper motion uncertainty in Dec (mas/yr)
+          PM_SRC:
+            name: PM_SRC
+            type: char[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Source of proper motion data
+          TMASS_A:
+            name: TMASS_A
+            type: char
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: <a href="http://www.ipac.caltech.edu/2mass/releases/allsky/doc/sec2_2a.html#a">Source</a>
+              of 2MASS optical counterpart
+          TMASS_PXPA:
+            name: TMASS_PXPA
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Position angle of 2MASS optical counterpart (deg)
+          TMASS_PROX:
+            name: TMASS_PROX
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Proximity of 2MASS nearest neighbor (arcsec)
+          TMASS_PHQUAL:
+            name: TMASS_PHQUAL
+            type: char[3]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2MASS <a href="http://www.ipac.caltech.edu/2mass/releases/allsky/doc/sec2_2a.html#ph_qual">ph_qual</a>
+              (photometric quality) flag
+          TMASS_RDFLG:
+            name: TMASS_RDFLG
+            type: char[3]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2MASS <a href="http://www.ipac.caltech.edu/2mass/releases/allsky/doc/sec2_2a.html#rd_flg">rd_flag</a>
+              (photometry method) flag
+          TMASS_CCFLG:
+            name: TMASS_CCFLG
+            type: char[3]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2MASS <a href="http://www.ipac.caltech.edu/2mass/releases/allsky/doc/sec2_2a.html#cc_flg">
+              cc_flg</a> (contamination and confusion) flag
+          TMASS_EXTKEY:
+            name: TMASS_EXTKEY
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2MASS Extended Source Catalog ID (-1 if unmatched to an XSC
+              source)
+          TMASS_GAL_CONTAM:
+            name: TMASS_GAL_CONTAM
+            type: char[12]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2MASS <a href="http://www.ipac.caltech.edu/2mass/releases/allsky/doc/sec2_2a.html#gal_contam">gal_contam</a>
+              (extended source contamination) flag
+  DR13:
+    template: $APOGEE_TARGET/apogeeObject/apogeeObject_[FIELD].fits
+    example: apogeeObject/apogeeObject_000+02.fits
+    location: apogeeObject/apogeeObject_{field}.fits
+    environment: APOGEE_TARGET
+    access:
+      in_sdss_access: true
+      path_name: apogeeObject
+      path_template: $APOGEE_TARGET/apogeeObject_{dr}_{field}.fits
+      path_kwargs:
+      - dr
+      - field
+      access_string: apogeeObject = $APOGEE_TARGET/apogeeObject/apogeeObject_{field}.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: 'migration: Intro info not in database. Needs update'
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: ''
+        - key: BITPIX
+          value: 16
+          comment: ''
+        - key: NAXIS
+          value: 0
+          comment: ''
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: DATE
+          value: Wed Nov 12 16:14:39 MST 2014
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: FITS (Flexible Image Transport System) format is defined in 'Astronomy
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: and Astrophysics', volume 376, page 359; bibcode 2001A&A...376..359H
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: SURVEY
+          value: SDSS-III/APOGEE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: FIELD
+          value: 000+02
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: LOCID
+          value: 4352
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: RA
+          value: 264.4736
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: DEC
+          value: -27.8803
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: GLON
+          value: 359.99990703
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: GLAT
+          value: 2.00023597416
+          comment: 'migration: description of keyword/column not found. Needs update'
+      hdu1:
+        name: ''
+        description: ''
+        is_image: false
+        size: 79 MB
+        columns:
+          APOGEE_ID:
+            name: APOGEE_ID
+            type: char[19]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: ID in the style of the 2MASS catalog (2MASS ID or equivalent
+              ID for non-2MASS sources)
+          TARGET_ID:
+            name: TARGET_ID
+            type: char[24]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Combination of field's Location ID and a target's APOGEE_ID;
+              e.g., "4257.2M04465532+3722294"
+          ALT_ID:
+            name: ALT_ID
+            type: char[4]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Alternative ID for non-2MASS sources
+          LOCATION_ID:
+            name: LOCATION_ID
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Field Location ID
+          RA:
+            name: RA
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Right ascension (deg, J2000.0 for most objects)
+          DEC:
+            name: DEC
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Declination (deg, J2000.0 for most objects)
+          J:
+            name: J
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2MASS J magnitude
+          J_ERR:
+            name: J_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2MASS J total uncertainty
+          H:
+            name: H
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: H magnitude
+          SRC_H:
+            name: SRC_H
+            type: char[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Source of H magnitude
+          H_ERR:
+            name: H_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2MASS H total uncertainty (if SRC_H = 2MASS)
+          K:
+            name: K
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2MASS Ks magnitude
+          K_ERR:
+            name: K_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2MASS Ks total uncertainty
+          IRAC_3_6:
+            name: IRAC_3_6
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: IRAC 3.6 micron magnitude
+          IRAC_3_6_ERR:
+            name: IRAC_3_6_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: IRAC 3.6 micron total uncertainty
+          IRAC_4_5:
+            name: IRAC_4_5
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: IRAC 4.5 micron magnitude
+          IRAC_4_5_ERR:
+            name: IRAC_4_5_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: IRAC 4.5 micron total uncertainty
+          SRC_4_5:
+            name: SRC_4_5
+            type: char[4]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: source of 4.5 micron magnitude used for targeting (IRAC [if
+              available] or WISE)
+          IRAC_5_8:
+            name: IRAC_5_8
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: IRAC 5.8 micron magnitude
+          IRAC_5_8_ERR:
+            name: IRAC_5_8_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: IRAC 5.8 micron total uncertainty
+          IRAC_8_0:
+            name: IRAC_8_0
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: IRAC 8.0 micron magnitude
+          IRAC_8_0_ERR:
+            name: IRAC_8_0_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: IRAC 8.0 micron total uncertainty
+          WISE_4_5:
+            name: WISE_4_5
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: WISE all-sky release 4.5 micron magnitude
+          WISE_4_5_ERR:
+            name: WISE_4_5_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: WISE all-sky release 4.5 micron photometric uncertainty
+          AK_WISE:
+            name: AK_WISE
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Ks-band extinction based on WISE all-sky release photometry
+          SFD_EBV:
+            name: SFD_EBV
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: E(B-V) at object's position in the <a href="http://adsabs.harvard.edu/abs/1998ApJ...500..525S">Schlegel,
+              Finkbeiner, &amp; Davis (1998)</a> maps
+          WASH_M:
+            name: WASH_M
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Washington M magnitude
+          WASH_M_ERR:
+            name: WASH_M_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Washington M photometric uncertainty
+          WASH_T2:
+            name: WASH_T2
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Washington T2 magnitude
+          WASH_T2_ERR:
+            name: WASH_T2_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Washington T2 photometric uncertainty
+          DDO51:
+            name: DDO51
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: DDO51 magnitude
+          DDO51_ERR:
+            name: DDO51_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: DDO51 photometric uncertainty
+          WASH_DDO51_GIANT_FLAG:
+            name: WASH_DDO51_GIANT_FLAG
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Luminosity class classification derived from Wash+DDO51 data
+              (1=giant, 0=dwarf, -1=no data)
+          WASH_DDO51_STAR_FLAG:
+            name: WASH_DDO51_STAR_FLAG
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Stellar likelihood based on Washington+DDO51 data (0=extended,
+              1=star-like or no data)
+          TARG_4_5:
+            name: TARG_4_5
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 4.5 micron magnitude used for target selection
+          TARG_4_5_ERR:
+            name: TARG_4_5_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Photometric uncertainty of 4.5 micron magnitude used for
+              target selection
+          AK_TARG:
+            name: AK_TARG
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Ks-band extinction used for target selection
+          AK_TARG_METHOD:
+            name: AK_TARG_METHOD
+            type: char[9]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Method to calculate Ks-band extinction used for target selection
+              (RJCE_IRAC, RJCE_WISE_ALLSKY, RJCE_WISE_PARTSKY, RJCE_WISE_OPS2, RJCE_WISE_OPS,
+              SFD_EBV, NONE)
+          PMRA:
+            name: PMRA
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Proper motion in RA (mas/yr)
+          PMRA_ERR:
+            name: PMRA_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Proper motion uncertainty in RA (mas/yr)
+          PMDEC:
+            name: PMDEC
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Proper motion in Dec (mas/yr)
+          PMDEC_ERR:
+            name: PMDEC_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Proper motion uncertainty in Dec (mas/yr)
+          PM_SRC:
+            name: PM_SRC
+            type: char[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Source of proper motion data
+          TMASS_A:
+            name: TMASS_A
+            type: char
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: <a href="http://www.ipac.caltech.edu/2mass/releases/allsky/doc/sec2_2a.html#a">Source</a>
+              of 2MASS optical counterpart
+          TMASS_PXPA:
+            name: TMASS_PXPA
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Position angle of 2MASS optical counterpart (deg)
+          TMASS_PROX:
+            name: TMASS_PROX
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Proximity of 2MASS nearest neighbor (arcsec)
+          TMASS_PHQUAL:
+            name: TMASS_PHQUAL
+            type: char[3]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2MASS <a href="http://www.ipac.caltech.edu/2mass/releases/allsky/doc/sec2_2a.html#ph_qual">ph_qual</a>
+              (photometric quality) flag
+          TMASS_RDFLG:
+            name: TMASS_RDFLG
+            type: char[3]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2MASS <a href="http://www.ipac.caltech.edu/2mass/releases/allsky/doc/sec2_2a.html#rd_flg">rd_flag</a>
+              (photometry method) flag
+          TMASS_CCFLG:
+            name: TMASS_CCFLG
+            type: char[3]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2MASS <a href="http://www.ipac.caltech.edu/2mass/releases/allsky/doc/sec2_2a.html#cc_flg">
+              cc_flg</a> (contamination and confusion) flag
+          TMASS_EXTKEY:
+            name: TMASS_EXTKEY
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2MASS Extended Source Catalog ID (-1 if unmatched to an XSC
+              source)
+          TMASS_GAL_CONTAM:
+            name: TMASS_GAL_CONTAM
+            type: char[12]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2MASS <a href="http://www.ipac.caltech.edu/2mass/releases/allsky/doc/sec2_2a.html#gal_contam">gal_contam</a>
+              (extended source contamination) flag
+  DR14:
+    template: $APOGEE_TARGET/apogeeObject/apogeeObject_[FIELD].fits
+    example: apogeeObject/apogeeObject_000+02.fits
+    location: apogeeObject/apogeeObject_{field}.fits
+    environment: APOGEE_TARGET
+    access:
+      in_sdss_access: true
+      path_name: apogeeObject
+      path_template: $APOGEE_TARGET/apogeeObject_{dr}_{field}.fits
+      path_kwargs:
+      - field
+      - dr
+      access_string: apogeeObject = $APOGEE_TARGET/apogeeObject/apogeeObject_{field}.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: 'migration: Intro info not in database. Needs update'
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: ''
+        - key: BITPIX
+          value: 16
+          comment: ''
+        - key: NAXIS
+          value: 0
+          comment: ''
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: DATE
+          value: Wed Nov 12 16:14:39 MST 2014
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: FITS (Flexible Image Transport System) format is defined in 'Astronomy
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: and Astrophysics', volume 376, page 359; bibcode 2001A&A...376..359H
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: SURVEY
+          value: SDSS-III/APOGEE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: FIELD
+          value: 000+02
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: LOCID
+          value: 4352
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: RA
+          value: 264.4736
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: DEC
+          value: -27.8803
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: GLON
+          value: 359.99990703
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: GLAT
+          value: 2.00023597416
+          comment: 'migration: description of keyword/column not found. Needs update'
+      hdu1:
+        name: ''
+        description: ''
+        is_image: false
+        size: 79 MB
+        columns:
+          APOGEE_ID:
+            name: APOGEE_ID
+            type: char[19]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: ID in the style of the 2MASS catalog (2MASS ID or equivalent
+              ID for non-2MASS sources)
+          TARGET_ID:
+            name: TARGET_ID
+            type: char[24]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Combination of field's Location ID and a target's APOGEE_ID;
+              e.g., "4257.2M04465532+3722294"
+          ALT_ID:
+            name: ALT_ID
+            type: char[4]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Alternative ID for non-2MASS sources
+          LOCATION_ID:
+            name: LOCATION_ID
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Field Location ID
+          RA:
+            name: RA
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Right ascension (deg, J2000.0 for most objects)
+          DEC:
+            name: DEC
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Declination (deg, J2000.0 for most objects)
+          J:
+            name: J
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2MASS J magnitude
+          J_ERR:
+            name: J_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2MASS J total uncertainty
+          H:
+            name: H
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: H magnitude
+          SRC_H:
+            name: SRC_H
+            type: char[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Source of H magnitude
+          H_ERR:
+            name: H_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2MASS H total uncertainty (if SRC_H = 2MASS)
+          K:
+            name: K
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2MASS Ks magnitude
+          K_ERR:
+            name: K_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2MASS Ks total uncertainty
+          IRAC_3_6:
+            name: IRAC_3_6
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: IRAC 3.6 micron magnitude
+          IRAC_3_6_ERR:
+            name: IRAC_3_6_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: IRAC 3.6 micron total uncertainty
+          IRAC_4_5:
+            name: IRAC_4_5
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: IRAC 4.5 micron magnitude
+          IRAC_4_5_ERR:
+            name: IRAC_4_5_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: IRAC 4.5 micron total uncertainty
+          SRC_4_5:
+            name: SRC_4_5
+            type: char[4]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: source of 4.5 micron magnitude used for targeting (IRAC [if
+              available] or WISE)
+          IRAC_5_8:
+            name: IRAC_5_8
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: IRAC 5.8 micron magnitude
+          IRAC_5_8_ERR:
+            name: IRAC_5_8_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: IRAC 5.8 micron total uncertainty
+          IRAC_8_0:
+            name: IRAC_8_0
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: IRAC 8.0 micron magnitude
+          IRAC_8_0_ERR:
+            name: IRAC_8_0_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: IRAC 8.0 micron total uncertainty
+          WISE_4_5:
+            name: WISE_4_5
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: WISE all-sky release 4.5 micron magnitude
+          WISE_4_5_ERR:
+            name: WISE_4_5_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: WISE all-sky release 4.5 micron photometric uncertainty
+          AK_WISE:
+            name: AK_WISE
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Ks-band extinction based on WISE all-sky release photometry
+          SFD_EBV:
+            name: SFD_EBV
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: E(B-V) at object's position in the <a href="http://adsabs.harvard.edu/abs/1998ApJ...500..525S">Schlegel,
+              Finkbeiner, &amp; Davis (1998)</a> maps
+          WASH_M:
+            name: WASH_M
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Washington M magnitude
+          WASH_M_ERR:
+            name: WASH_M_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Washington M photometric uncertainty
+          WASH_T2:
+            name: WASH_T2
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Washington T2 magnitude
+          WASH_T2_ERR:
+            name: WASH_T2_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Washington T2 photometric uncertainty
+          DDO51:
+            name: DDO51
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: DDO51 magnitude
+          DDO51_ERR:
+            name: DDO51_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: DDO51 photometric uncertainty
+          WASH_DDO51_GIANT_FLAG:
+            name: WASH_DDO51_GIANT_FLAG
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Luminosity class classification derived from Wash+DDO51 data
+              (1=giant, 0=dwarf, -1=no data)
+          WASH_DDO51_STAR_FLAG:
+            name: WASH_DDO51_STAR_FLAG
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Stellar likelihood based on Washington+DDO51 data (0=extended,
+              1=star-like or no data)
+          TARG_4_5:
+            name: TARG_4_5
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 4.5 micron magnitude used for target selection
+          TARG_4_5_ERR:
+            name: TARG_4_5_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Photometric uncertainty of 4.5 micron magnitude used for
+              target selection
+          AK_TARG:
+            name: AK_TARG
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Ks-band extinction used for target selection
+          AK_TARG_METHOD:
+            name: AK_TARG_METHOD
+            type: char[9]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Method to calculate Ks-band extinction used for target selection
+              (RJCE_IRAC, RJCE_WISE_ALLSKY, RJCE_WISE_PARTSKY, RJCE_WISE_OPS2, RJCE_WISE_OPS,
+              SFD_EBV, NONE)
+          PMRA:
+            name: PMRA
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Proper motion in RA (mas/yr)
+          PMRA_ERR:
+            name: PMRA_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Proper motion uncertainty in RA (mas/yr)
+          PMDEC:
+            name: PMDEC
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Proper motion in Dec (mas/yr)
+          PMDEC_ERR:
+            name: PMDEC_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Proper motion uncertainty in Dec (mas/yr)
+          PM_SRC:
+            name: PM_SRC
+            type: char[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Source of proper motion data
+          TMASS_A:
+            name: TMASS_A
+            type: char
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: <a href="http://www.ipac.caltech.edu/2mass/releases/allsky/doc/sec2_2a.html#a">Source</a>
+              of 2MASS optical counterpart
+          TMASS_PXPA:
+            name: TMASS_PXPA
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Position angle of 2MASS optical counterpart (deg)
+          TMASS_PROX:
+            name: TMASS_PROX
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Proximity of 2MASS nearest neighbor (arcsec)
+          TMASS_PHQUAL:
+            name: TMASS_PHQUAL
+            type: char[3]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2MASS <a href="http://www.ipac.caltech.edu/2mass/releases/allsky/doc/sec2_2a.html#ph_qual">ph_qual</a>
+              (photometric quality) flag
+          TMASS_RDFLG:
+            name: TMASS_RDFLG
+            type: char[3]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2MASS <a href="http://www.ipac.caltech.edu/2mass/releases/allsky/doc/sec2_2a.html#rd_flg">rd_flag</a>
+              (photometry method) flag
+          TMASS_CCFLG:
+            name: TMASS_CCFLG
+            type: char[3]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2MASS <a href="http://www.ipac.caltech.edu/2mass/releases/allsky/doc/sec2_2a.html#cc_flg">
+              cc_flg</a> (contamination and confusion) flag
+          TMASS_EXTKEY:
+            name: TMASS_EXTKEY
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2MASS Extended Source Catalog ID (-1 if unmatched to an XSC
+              source)
+          TMASS_GAL_CONTAM:
+            name: TMASS_GAL_CONTAM
+            type: char[12]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2MASS <a href="http://www.ipac.caltech.edu/2mass/releases/allsky/doc/sec2_2a.html#gal_contam">gal_contam</a>
+              (extended source contamination) flag
+  DR15:
+    template: $APOGEE_TARGET/apogeeObject/apogeeObject_[FIELD].fits
+    example: apogeeObject/apogeeObject_000+02.fits
+    location: apogeeObject/apogeeObject_{field}.fits
+    environment: APOGEE_TARGET
+    access:
+      in_sdss_access: true
+      path_name: apogeeObject
+      path_template: $APOGEE_TARGET/apogeeObject_{dr}_{field}.fits
+      path_kwargs:
+      - field
+      - dr
+      access_string: apogeeObject = $APOGEE_TARGET/apogeeObject/apogeeObject_{field}.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: 'migration: Intro info not in database. Needs update'
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: ''
+        - key: BITPIX
+          value: 16
+          comment: ''
+        - key: NAXIS
+          value: 0
+          comment: ''
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: DATE
+          value: Wed Nov 12 16:14:39 MST 2014
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: FITS (Flexible Image Transport System) format is defined in 'Astronomy
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: and Astrophysics', volume 376, page 359; bibcode 2001A&A...376..359H
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: SURVEY
+          value: SDSS-III/APOGEE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: FIELD
+          value: 000+02
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: LOCID
+          value: 4352
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: RA
+          value: 264.4736
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: DEC
+          value: -27.8803
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: GLON
+          value: 359.99990703
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: GLAT
+          value: 2.00023597416
+          comment: 'migration: description of keyword/column not found. Needs update'
+      hdu1:
+        name: ''
+        description: ''
+        is_image: false
+        size: 79 MB
+        columns:
+          APOGEE_ID:
+            name: APOGEE_ID
+            type: char[19]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: ID in the style of the 2MASS catalog (2MASS ID or equivalent
+              ID for non-2MASS sources)
+          TARGET_ID:
+            name: TARGET_ID
+            type: char[24]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Combination of field's Location ID and a target's APOGEE_ID;
+              e.g., "4257.2M04465532+3722294"
+          ALT_ID:
+            name: ALT_ID
+            type: char[4]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Alternative ID for non-2MASS sources
+          LOCATION_ID:
+            name: LOCATION_ID
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Field Location ID
+          RA:
+            name: RA
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Right ascension (deg, J2000.0 for most objects)
+          DEC:
+            name: DEC
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Declination (deg, J2000.0 for most objects)
+          J:
+            name: J
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2MASS J magnitude
+          J_ERR:
+            name: J_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2MASS J total uncertainty
+          H:
+            name: H
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: H magnitude
+          SRC_H:
+            name: SRC_H
+            type: char[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Source of H magnitude
+          H_ERR:
+            name: H_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2MASS H total uncertainty (if SRC_H = 2MASS)
+          K:
+            name: K
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2MASS Ks magnitude
+          K_ERR:
+            name: K_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2MASS Ks total uncertainty
+          IRAC_3_6:
+            name: IRAC_3_6
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: IRAC 3.6 micron magnitude
+          IRAC_3_6_ERR:
+            name: IRAC_3_6_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: IRAC 3.6 micron total uncertainty
+          IRAC_4_5:
+            name: IRAC_4_5
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: IRAC 4.5 micron magnitude
+          IRAC_4_5_ERR:
+            name: IRAC_4_5_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: IRAC 4.5 micron total uncertainty
+          SRC_4_5:
+            name: SRC_4_5
+            type: char[4]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: source of 4.5 micron magnitude used for targeting (IRAC [if
+              available] or WISE)
+          IRAC_5_8:
+            name: IRAC_5_8
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: IRAC 5.8 micron magnitude
+          IRAC_5_8_ERR:
+            name: IRAC_5_8_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: IRAC 5.8 micron total uncertainty
+          IRAC_8_0:
+            name: IRAC_8_0
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: IRAC 8.0 micron magnitude
+          IRAC_8_0_ERR:
+            name: IRAC_8_0_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: IRAC 8.0 micron total uncertainty
+          WISE_4_5:
+            name: WISE_4_5
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: WISE all-sky release 4.5 micron magnitude
+          WISE_4_5_ERR:
+            name: WISE_4_5_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: WISE all-sky release 4.5 micron photometric uncertainty
+          AK_WISE:
+            name: AK_WISE
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Ks-band extinction based on WISE all-sky release photometry
+          SFD_EBV:
+            name: SFD_EBV
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: E(B-V) at object's position in the <a href="http://adsabs.harvard.edu/abs/1998ApJ...500..525S">Schlegel,
+              Finkbeiner, &amp; Davis (1998)</a> maps
+          WASH_M:
+            name: WASH_M
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Washington M magnitude
+          WASH_M_ERR:
+            name: WASH_M_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Washington M photometric uncertainty
+          WASH_T2:
+            name: WASH_T2
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Washington T2 magnitude
+          WASH_T2_ERR:
+            name: WASH_T2_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Washington T2 photometric uncertainty
+          DDO51:
+            name: DDO51
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: DDO51 magnitude
+          DDO51_ERR:
+            name: DDO51_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: DDO51 photometric uncertainty
+          WASH_DDO51_GIANT_FLAG:
+            name: WASH_DDO51_GIANT_FLAG
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Luminosity class classification derived from Wash+DDO51 data
+              (1=giant, 0=dwarf, -1=no data)
+          WASH_DDO51_STAR_FLAG:
+            name: WASH_DDO51_STAR_FLAG
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Stellar likelihood based on Washington+DDO51 data (0=extended,
+              1=star-like or no data)
+          TARG_4_5:
+            name: TARG_4_5
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 4.5 micron magnitude used for target selection
+          TARG_4_5_ERR:
+            name: TARG_4_5_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Photometric uncertainty of 4.5 micron magnitude used for
+              target selection
+          AK_TARG:
+            name: AK_TARG
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Ks-band extinction used for target selection
+          AK_TARG_METHOD:
+            name: AK_TARG_METHOD
+            type: char[9]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Method to calculate Ks-band extinction used for target selection
+              (RJCE_IRAC, RJCE_WISE_ALLSKY, RJCE_WISE_PARTSKY, RJCE_WISE_OPS2, RJCE_WISE_OPS,
+              SFD_EBV, NONE)
+          PMRA:
+            name: PMRA
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Proper motion in RA (mas/yr)
+          PMRA_ERR:
+            name: PMRA_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Proper motion uncertainty in RA (mas/yr)
+          PMDEC:
+            name: PMDEC
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Proper motion in Dec (mas/yr)
+          PMDEC_ERR:
+            name: PMDEC_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Proper motion uncertainty in Dec (mas/yr)
+          PM_SRC:
+            name: PM_SRC
+            type: char[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Source of proper motion data
+          TMASS_A:
+            name: TMASS_A
+            type: char
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: <a href="http://www.ipac.caltech.edu/2mass/releases/allsky/doc/sec2_2a.html#a">Source</a>
+              of 2MASS optical counterpart
+          TMASS_PXPA:
+            name: TMASS_PXPA
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Position angle of 2MASS optical counterpart (deg)
+          TMASS_PROX:
+            name: TMASS_PROX
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Proximity of 2MASS nearest neighbor (arcsec)
+          TMASS_PHQUAL:
+            name: TMASS_PHQUAL
+            type: char[3]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2MASS <a href="http://www.ipac.caltech.edu/2mass/releases/allsky/doc/sec2_2a.html#ph_qual">ph_qual</a>
+              (photometric quality) flag
+          TMASS_RDFLG:
+            name: TMASS_RDFLG
+            type: char[3]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2MASS <a href="http://www.ipac.caltech.edu/2mass/releases/allsky/doc/sec2_2a.html#rd_flg">rd_flag</a>
+              (photometry method) flag
+          TMASS_CCFLG:
+            name: TMASS_CCFLG
+            type: char[3]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2MASS <a href="http://www.ipac.caltech.edu/2mass/releases/allsky/doc/sec2_2a.html#cc_flg">
+              cc_flg</a> (contamination and confusion) flag
+          TMASS_EXTKEY:
+            name: TMASS_EXTKEY
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2MASS Extended Source Catalog ID (-1 if unmatched to an XSC
+              source)
+          TMASS_GAL_CONTAM:
+            name: TMASS_GAL_CONTAM
+            type: char[12]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2MASS <a href="http://www.ipac.caltech.edu/2mass/releases/allsky/doc/sec2_2a.html#gal_contam">gal_contam</a>
+              (extended source contamination) flag
+  DR16:
+    template: $APOGEE_TARGET/apogeeObject/apogeeObject_[FIELD].fits
+    example: apogeeObject/apogeeObject_000+02.fits
+    location: apogeeObject/apogeeObject_{field}.fits
+    environment: APOGEE_TARGET
+    access:
+      in_sdss_access: true
+      path_name: apogeeObject
+      path_template: $APOGEE_TARGET/apogeeObject_{dr}_{field}.fits
+      path_kwargs:
+      - field
+      - dr
+      access_string: apogeeObject = $APOGEE_TARGET/apogeeObject/apogeeObject_{field}.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: 'migration: Intro info not in database. Needs update'
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: ''
+        - key: BITPIX
+          value: 8
+          comment: ''
+        - key: NAXIS
+          value: 0
+          comment: ''
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: ''
+        is_image: false
+        size: 85 MB
+        columns:
+          APOGEE_ID:
+            name: APOGEE_ID
+            type: char[19]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: ID in the style of the 2MASS catalog (2MASS ID or equivalent
+              ID for non-2MASS sources)
+          TARGET_ID:
+            name: TARGET_ID
+            type: char[40]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Combination of field's Location ID and a target's APOGEE_ID;
+              e.g., "4257.2M04465532+3722294"
+          ALT_ID:
+            name: ALT_ID
+            type: char[4]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Alternative ID for non-2MASS sources
+          LOCATION_ID:
+            name: LOCATION_ID
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Field Location ID
+          RA:
+            name: RA
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Right ascension (deg, J2000.0 for most objects)
+          DEC:
+            name: DEC
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Declination (deg, J2000.0 for most objects)
+          J:
+            name: J
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2MASS J magnitude
+          J_ERR:
+            name: J_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2MASS J total uncertainty
+          H:
+            name: H
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: H magnitude
+          SRC_H:
+            name: SRC_H
+            type: char[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Source of H magnitude
+          H_ERR:
+            name: H_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2MASS H total uncertainty (if SRC_H = 2MASS)
+          K:
+            name: K
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2MASS Ks magnitude
+          K_ERR:
+            name: K_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2MASS Ks total uncertainty
+          IRAC_3_6:
+            name: IRAC_3_6
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: IRAC 3.6 micron magnitude
+          IRAC_3_6_ERR:
+            name: IRAC_3_6_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: IRAC 3.6 micron total uncertainty
+          IRAC_4_5:
+            name: IRAC_4_5
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: IRAC 4.5 micron magnitude
+          IRAC_4_5_ERR:
+            name: IRAC_4_5_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: IRAC 4.5 micron total uncertainty
+          SRC_4_5:
+            name: SRC_4_5
+            type: char[4]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: source of 4.5 micron magnitude used for targeting (IRAC [if
+              available] or WISE)
+          IRAC_5_8:
+            name: IRAC_5_8
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: IRAC 5.8 micron magnitude
+          IRAC_5_8_ERR:
+            name: IRAC_5_8_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: IRAC 5.8 micron total uncertainty
+          IRAC_8_0:
+            name: IRAC_8_0
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: IRAC 8.0 micron magnitude
+          IRAC_8_0_ERR:
+            name: IRAC_8_0_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: IRAC 8.0 micron total uncertainty
+          WISE_4_5:
+            name: WISE_4_5
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: WISE all-sky release 4.5 micron magnitude
+          WISE_4_5_ERR:
+            name: WISE_4_5_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: WISE all-sky release 4.5 micron photometric uncertainty
+          AK_WISE:
+            name: AK_WISE
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Ks-band extinction based on WISE all-sky release photometry
+          SFD_EBV:
+            name: SFD_EBV
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: E(B-V) at object's position in the <a href="http://adsabs.harvard.edu/abs/1998ApJ...500..525S">Schlegel,
+              Finkbeiner, &amp; Davis (1998)</a> maps
+          WASH_M:
+            name: WASH_M
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Washington M magnitude
+          WASH_M_ERR:
+            name: WASH_M_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Washington M photometric uncertainty
+          WASH_T2:
+            name: WASH_T2
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Washington T2 magnitude
+          WASH_T2_ERR:
+            name: WASH_T2_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Washington T2 photometric uncertainty
+          DDO51:
+            name: DDO51
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: DDO51 magnitude
+          DDO51_ERR:
+            name: DDO51_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: DDO51 photometric uncertainty
+          WASH_DDO51_GIANT_FLAG:
+            name: WASH_DDO51_GIANT_FLAG
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Luminosity class classification derived from Wash+DDO51 data
+              (1=giant, 0=dwarf, -1=no data)
+          WASH_DDO51_STAR_FLAG:
+            name: WASH_DDO51_STAR_FLAG
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Stellar likelihood based on Washington+DDO51 data (0=extended,
+              1=star-like or no data)
+          TARG_4_5:
+            name: TARG_4_5
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 4.5 micron magnitude used for target selection
+          TARG_4_5_ERR:
+            name: TARG_4_5_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Photometric uncertainty of 4.5 micron magnitude used for
+              target selection
+          AK_TARG:
+            name: AK_TARG
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Ks-band extinction used for target selection
+          AK_TARG_METHOD:
+            name: AK_TARG_METHOD
+            type: char[9]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Method to calculate Ks-band extinction used for target selection
+              (RJCE_IRAC, RJCE_WISE_ALLSKY, RJCE_WISE_PARTSKY, RJCE_WISE_OPS2, RJCE_WISE_OPS,
+              SFD_EBV, NONE)
+          PMRA:
+            name: PMRA
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Proper motion in RA (mas/yr)
+          PMRA_ERR:
+            name: PMRA_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Proper motion uncertainty in RA (mas/yr)
+          PMDEC:
+            name: PMDEC
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Proper motion in Dec (mas/yr)
+          PMDEC_ERR:
+            name: PMDEC_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Proper motion uncertainty in Dec (mas/yr)
+          PM_SRC:
+            name: PM_SRC
+            type: char[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Source of proper motion data
+          TMASS_A:
+            name: TMASS_A
+            type: char[1]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: <a href="http://www.ipac.caltech.edu/2mass/releases/allsky/doc/sec2_2a.html#a">Source</a>
+              of 2MASS optical counterpart
+          TMASS_PXPA:
+            name: TMASS_PXPA
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Position angle of 2MASS optical counterpart (deg)
+          TMASS_PROX:
+            name: TMASS_PROX
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Proximity of 2MASS nearest neighbor (arcsec)
+          TMASS_PHQUAL:
+            name: TMASS_PHQUAL
+            type: char[3]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2MASS <a href="http://www.ipac.caltech.edu/2mass/releases/allsky/doc/sec2_2a.html#ph_qual">ph_qual</a>
+              (photometric quality) flag
+          TMASS_RDFLG:
+            name: TMASS_RDFLG
+            type: char[3]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2MASS <a href="http://www.ipac.caltech.edu/2mass/releases/allsky/doc/sec2_2a.html#rd_flg">rd_flag</a>
+              (photometry method) flag
+          TMASS_CCFLG:
+            name: TMASS_CCFLG
+            type: char[3]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2MASS <a href="http://www.ipac.caltech.edu/2mass/releases/allsky/doc/sec2_2a.html#cc_flg">
+              cc_flg</a> (contamination and confusion) flag
+          TMASS_EXTKEY:
+            name: TMASS_EXTKEY
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2MASS Extended Source Catalog ID (-1 if unmatched to an XSC
+              source)
+          TMASS_GAL_CONTAM:
+            name: TMASS_GAL_CONTAM
+            type: char[12]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2MASS <a href="http://www.ipac.caltech.edu/2mass/releases/allsky/doc/sec2_2a.html#gal_contam">gal_contam</a>
+              (extended source contamination) flag
+  DR17:
+    template: $APOGEE_TARGET/apogeeObject/apogeeObject_[FIELD].fits
+    example: apogeeObject/apogeeObject_000+02.fits
+    location: apogeeObject/apogeeObject_{field}.fits
+    environment: APOGEE_TARGET
+    access:
+      in_sdss_access: true
+      path_name: apogeeObject
+      path_template: $APOGEE_TARGET/apogeeObject_{dr}_{field}.fits
+      path_kwargs:
+      - field
+      - dr
+      access_string: apogeeObject = $APOGEE_TARGET/apogeeObject/apogeeObject_{field}.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: 'migration: Intro info not in database. Needs update'
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: ''
+        - key: BITPIX
+          value: 8
+          comment: ''
+        - key: NAXIS
+          value: 0
+          comment: ''
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: ''
+        is_image: false
+        size: 85 MB
+        columns:
+          APOGEE_ID:
+            name: APOGEE_ID
+            type: char[19]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: ID in the style of the 2MASS catalog (2MASS ID or equivalent
+              ID for non-2MASS sources)
+          TARGET_ID:
+            name: TARGET_ID
+            type: char[40]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Combination of field's Location ID and a target's APOGEE_ID;
+              e.g., "4257.2M04465532+3722294"
+          ALT_ID:
+            name: ALT_ID
+            type: char[4]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Alternative ID for non-2MASS sources
+          LOCATION_ID:
+            name: LOCATION_ID
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Field Location ID
+          RA:
+            name: RA
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Right ascension (deg, J2000.0 for most objects)
+          DEC:
+            name: DEC
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Declination (deg, J2000.0 for most objects)
+          J:
+            name: J
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2MASS J magnitude
+          J_ERR:
+            name: J_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2MASS J total uncertainty
+          H:
+            name: H
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: H magnitude
+          SRC_H:
+            name: SRC_H
+            type: char[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Source of H magnitude
+          H_ERR:
+            name: H_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2MASS H total uncertainty (if SRC_H = 2MASS)
+          K:
+            name: K
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2MASS Ks magnitude
+          K_ERR:
+            name: K_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2MASS Ks total uncertainty
+          IRAC_3_6:
+            name: IRAC_3_6
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: IRAC 3.6 micron magnitude
+          IRAC_3_6_ERR:
+            name: IRAC_3_6_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: IRAC 3.6 micron total uncertainty
+          IRAC_4_5:
+            name: IRAC_4_5
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: IRAC 4.5 micron magnitude
+          IRAC_4_5_ERR:
+            name: IRAC_4_5_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: IRAC 4.5 micron total uncertainty
+          SRC_4_5:
+            name: SRC_4_5
+            type: char[4]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: source of 4.5 micron magnitude used for targeting (IRAC [if
+              available] or WISE)
+          IRAC_5_8:
+            name: IRAC_5_8
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: IRAC 5.8 micron magnitude
+          IRAC_5_8_ERR:
+            name: IRAC_5_8_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: IRAC 5.8 micron total uncertainty
+          IRAC_8_0:
+            name: IRAC_8_0
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: IRAC 8.0 micron magnitude
+          IRAC_8_0_ERR:
+            name: IRAC_8_0_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: IRAC 8.0 micron total uncertainty
+          WISE_4_5:
+            name: WISE_4_5
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: WISE all-sky release 4.5 micron magnitude
+          WISE_4_5_ERR:
+            name: WISE_4_5_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: WISE all-sky release 4.5 micron photometric uncertainty
+          AK_WISE:
+            name: AK_WISE
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Ks-band extinction based on WISE all-sky release photometry
+          SFD_EBV:
+            name: SFD_EBV
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: E(B-V) at object's position in the <a href="http://adsabs.harvard.edu/abs/1998ApJ...500..525S">Schlegel,
+              Finkbeiner, &amp; Davis (1998)</a> maps
+          WASH_M:
+            name: WASH_M
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Washington M magnitude
+          WASH_M_ERR:
+            name: WASH_M_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Washington M photometric uncertainty
+          WASH_T2:
+            name: WASH_T2
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Washington T2 magnitude
+          WASH_T2_ERR:
+            name: WASH_T2_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Washington T2 photometric uncertainty
+          DDO51:
+            name: DDO51
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: DDO51 magnitude
+          DDO51_ERR:
+            name: DDO51_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: DDO51 photometric uncertainty
+          WASH_DDO51_GIANT_FLAG:
+            name: WASH_DDO51_GIANT_FLAG
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Luminosity class classification derived from Wash+DDO51 data
+              (1=giant, 0=dwarf, -1=no data)
+          WASH_DDO51_STAR_FLAG:
+            name: WASH_DDO51_STAR_FLAG
+            type: int16
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Stellar likelihood based on Washington+DDO51 data (0=extended,
+              1=star-like or no data)
+          TARG_4_5:
+            name: TARG_4_5
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 4.5 micron magnitude used for target selection
+          TARG_4_5_ERR:
+            name: TARG_4_5_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Photometric uncertainty of 4.5 micron magnitude used for
+              target selection
+          AK_TARG:
+            name: AK_TARG
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Ks-band extinction used for target selection
+          AK_TARG_METHOD:
+            name: AK_TARG_METHOD
+            type: char[9]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Method to calculate Ks-band extinction used for target selection
+              (RJCE_IRAC, RJCE_WISE_ALLSKY, RJCE_WISE_PARTSKY, RJCE_WISE_OPS2, RJCE_WISE_OPS,
+              SFD_EBV, NONE)
+          PMRA:
+            name: PMRA
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Proper motion in RA (mas/yr)
+          PMRA_ERR:
+            name: PMRA_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Proper motion uncertainty in RA (mas/yr)
+          PMDEC:
+            name: PMDEC
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Proper motion in Dec (mas/yr)
+          PMDEC_ERR:
+            name: PMDEC_ERR
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Proper motion uncertainty in Dec (mas/yr)
+          PM_SRC:
+            name: PM_SRC
+            type: char[5]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Source of proper motion data
+          TMASS_A:
+            name: TMASS_A
+            type: char[1]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: <a href="http://www.ipac.caltech.edu/2mass/releases/allsky/doc/sec2_2a.html#a">Source</a>
+              of 2MASS optical counterpart
+          TMASS_PXPA:
+            name: TMASS_PXPA
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Position angle of 2MASS optical counterpart (deg)
+          TMASS_PROX:
+            name: TMASS_PROX
+            type: float32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Proximity of 2MASS nearest neighbor (arcsec)
+          TMASS_PHQUAL:
+            name: TMASS_PHQUAL
+            type: char[3]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2MASS <a href="http://www.ipac.caltech.edu/2mass/releases/allsky/doc/sec2_2a.html#ph_qual">ph_qual</a>
+              (photometric quality) flag
+          TMASS_RDFLG:
+            name: TMASS_RDFLG
+            type: char[3]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2MASS <a href="http://www.ipac.caltech.edu/2mass/releases/allsky/doc/sec2_2a.html#rd_flg">rd_flag</a>
+              (photometry method) flag
+          TMASS_CCFLG:
+            name: TMASS_CCFLG
+            type: char[3]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2MASS <a href="http://www.ipac.caltech.edu/2mass/releases/allsky/doc/sec2_2a.html#cc_flg">
+              cc_flg</a> (contamination and confusion) flag
+          TMASS_EXTKEY:
+            name: TMASS_EXTKEY
+            type: int32
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2MASS Extended Source Catalog ID (-1 if unmatched to an XSC
+              source)
+          TMASS_GAL_CONTAM:
+            name: TMASS_GAL_CONTAM
+            type: char[12]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 2MASS <a href="http://www.ipac.caltech.edu/2mass/releases/allsky/doc/sec2_2a.html#gal_contam">gal_contam</a>
+              (extended source contamination) flag
