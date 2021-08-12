@@ -1,17 +1,23 @@
 general:
   name: plates-survey
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: 'migration: needs update'
+  description: 'This file contains the list of plates for a given data release, with
+
+    associated meta-data gathered from the design files and the reductions.
+
+    There is both a FITS and a Yanny version of this file, for convenience;
+
+    however, the Yanny version has some of the columns removed.'
   datatype: FITS
   filesize: 1 MB
   releases:
   - DR10
   environments:
   - SPECTRO_REDUX
-  naming_convention: replace me - with $SPECTRO_REDUX/plates-BOSS-dr10.fits or plates-BOSS-dr10.fits
-    but with regex pattern matches
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  naming_convention: '<code>plates-dr[0-9]+\.(fits|par)</code>, where
+
+    <code>[0-9]+</code> is the release number.'
+  generated_by: sas
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
@@ -27,695 +33,771 @@ releases:
       path_name: plates-survey
       path_template: $SPECTRO_REDUX/plates-{survey}-{dr}.fits
       path_kwargs:
-      - dr
       - survey
+      - dr
       access_string: plates-survey = $SPECTRO_REDUX/plates-BOSS-dr10.fits
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: ''
         is_image: true
         size: 0 bytes
         header:
         - key: SIMPLE
           value: true
-          comment: Primary Header created by MWRFITS v1.11
+          comment: conforms to FITS standard
         - key: BITPIX
           value: 16
-          comment: ''
+          comment: array data type
         - key: NAXIS
           value: 0
-          comment: ''
+          comment: Empty Header
         - key: EXTEND
           value: true
-          comment: Extensions may be present
+          comment: ''
         - key: INFILE
           value: /home/products/Linux/sas/v1_17/defs/dr10/plates-dr10.par
-          comment: file used
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: SAS_VERS
           value: v1_17
-          comment: version of sas product
+          comment: Version of sas product
         - key: TREE_VER
           value: dr10
-          comment: version of sas product
+          comment: Version of tree product
       hdu1:
         name: ''
-        description: replace me description
+        description: ''
         is_image: false
         size: 1 MB
         columns:
           PLATEID:
             name: PLATEID
             type: char[19]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: unique ID, composite of plate number and MJD
           FIRSTRELEASE:
             name: FIRSTRELEASE
             type: char[4]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Name of release that this plate/mjd/rerun was first distributed
+              in
           RUN2D:
             name: RUN2D
             type: char[7]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: reduction name for 2d extraction of plate
           RUN1D:
             name: RUN1D
             type: char[7]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: reduction name for 1d extraction of plate
           RUNSSPP:
             name: RUNSSPP
             type: char
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: reduction name for SSPP ("none" if not run)
           PLATE:
             name: PLATE
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: plate number
           TILE:
             name: TILE
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: tile number for SDSS-I, -II plates (-1 for SDSS-III) [from
+              platelist product]
           DESIGNID:
             name: DESIGNID
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: design ID number for SDSS-III plates (-1 for SDSS-I, -II)
+              [from platelist product]
           LOCATIONID:
             name: LOCATIONID
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: location ID number for SDSS-III plates (-1 for SDSS-I, -II)
+              [from platelist product]
           MJD:
             name: MJD
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MJD of observation (last)  (days)
           MJDLIST:
             name: MJDLIST
             type: char[29]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: List of contributing MJDs [from spPlate header]
           RACEN:
             name: RACEN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: RA, J2000 of plate center [from spPlate header]  (deg)
           DECCEN:
             name: DECCEN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Dec, J2000 of plate center [from spPlate header]   (deg)
           IOPVERSION:
             name: IOPVERSION
             type: char[2]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: IOP Version [from spPlate header]
           CAMVERSION:
             name: CAMVERSION
             type: char[2]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Camera code version  [from spPlate header]
           TAIHMS:
             name: TAIHMS
             type: char
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Time in string format [from spPlate header]
           DATEOBS:
             name: DATEOBS
             type: char[19]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Date of 1st row [from spPlate header]
           TIMESYS:
             name: TIMESYS
             type: char
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Time System [from spPlate header]
           CX:
             name: CX
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: x of Normal unit vector in J2000
           CY:
             name: CY
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: y of Normal unit vector in J2000
           CZ:
             name: CZ
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: z of Normal unit vector in J2000
           CARTID:
             name: CARTID
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: ID of cartridge used for the observation [from spPlate header]
           TAI:
             name: TAI
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Mean time (TAI) [from spPlate header]  (sec)
           TAI_BEG:
             name: TAI_BEG
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Beginning time (TAI) [from spPlate header] --/U sec  (sec)
           TAI_END:
             name: TAI_END
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Ending time (TAI) [from spPlate header] --/U sec  (sec)
           AIRMASS:
             name: AIRMASS
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Airmass at central TAI time [from spPlate header]
           MAPMJD:
             name: MAPMJD
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: hash of map MJD and map number [from spPlate header]  (days)
           MAPNAME:
             name: MAPNAME
             type: char[13]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: ID of mapping file [from spPlate header]
           PLUGFILE:
             name: PLUGFILE
             type: char[28]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: full name of mapping file [from spPlate header]
           EXPTIME:
             name: EXPTIME
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Total Exposure time [from spPlate header]  (sec)
           EXPT_B1:
             name: EXPT_B1
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: exposure time in B1 spectrograph [from spPlate header] --/U
+              sec  (sec)
           EXPT_B2:
             name: EXPT_B2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: exposure time in B2 spectrograph [from spPlate header] --/U
+              sec  (sec)
           EXPT_R1:
             name: EXPT_R1
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: exposure time in R1 spectrograph [from spPlate header] --/U
+              sec  (sec)
           EXPT_R2:
             name: EXPT_R2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: exposure time in R2 spectrograph [from spPlate header] --/U
+              sec  (sec)
           VERS2D:
             name: VERS2D
             type: char[7]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: idlspec2d version used during 2d reduction [from spPlate
+              header]
           VERSCOMB:
             name: VERSCOMB
             type: char[7]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: idlspec2d version used during combination of multiple exposures
+              [from spPlate header]
           VERS1D:
             name: VERS1D
             type: char[7]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: idlspec2d version used during redshift fitting [from spPlate
+              header]
           SURVEY:
             name: SURVEY
             type: char[4]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Name of survey [from platelist product]
           CHUNK:
             name: CHUNK
             type: char[14]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Name of tiling chunk  [from platelist product]
           INSTRUMENT:
             name: INSTRUMENT
             type: char[4]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           PROGRAMNAME:
             name: PROGRAMNAME
             type: char[13]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Name of program to which plate belongs (see the target selection
+              section of the <a href="http://www.sdss.org/dr13/algorithms">algorithms
+              page</a> for details) [from platelist product]
           PLATERUN:
             name: PLATERUN
             type: char[14]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Drilling run for plate [from platelist product]
           DRILLSTYLE:
             name: DRILLSTYLE
             type: char[4]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           DESIGN_COMMENTS:
             name: DESIGN_COMMENTS
             type: char[72]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Comments on the plate design from plate plans [from platelist
+              product]
           PLATEQUALITY:
             name: PLATEQUALITY
             type: char[5]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Characterization of <a href="http://www.sdss.org/dr13/help/glossary/#platequality">plate
+              quality</a>
           QUALITY_COMMENTS:
             name: QUALITY_COMMENTS
             type: char[22]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           PLATESN2:
             name: PLATESN2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Overall signal to noise measure for plate
           DEREDSN2:
             name: DEREDSN2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           NEXP:
             name: NEXP
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of exposures total [from spPlate header]
           NEXP_B1:
             name: NEXP_B1
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of exposures in B1 spectrograph  [from spPlate header]
           NEXP_B2:
             name: NEXP_B2
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of exposures in B2 spectrograph  [from spPlate header]
           NEXP_R1:
             name: NEXP_R1
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of exposures in R1 spectrograph  [from spPlate header]
           NEXP_R2:
             name: NEXP_R2
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of exposures in R2 spectrograph  [from spPlate header]
           SN2_G1:
             name: SN2_G1
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'signal-to-noise ratio squared in spectrograph #1 in g-band
+              [from spPlate header]'
           SN2_R1:
             name: SN2_R1
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'signal-to-noise ratio squared in spectrograph #1 in r-band
+              [from spPlate header]'
           SN2_I1:
             name: SN2_I1
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'signal-to-noise ratio squared in spectrograph #1 in i-band
+              [from spPlate header]'
           SN2_G2:
             name: SN2_G2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'signal-to-noise ratio squared in spectrograph #2 in g-band
+              [from spPlate header]'
           SN2_R2:
             name: SN2_R2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'signal-to-noise ratio squared in spectrograph #2 in r-band
+              [from spPlate header]'
           SN2_I2:
             name: SN2_I2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'signal-to-noise ratio squared in spectrograph #2 in i-band
+              [from spPlate header]'
           DERED_SN2_G1:
             name: DERED_SN2_G1
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           DERED_SN2_R1:
             name: DERED_SN2_R1
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           DERED_SN2_I1:
             name: DERED_SN2_I1
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           DERED_SN2_G2:
             name: DERED_SN2_G2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           DERED_SN2_R2:
             name: DERED_SN2_R2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           DERED_SN2_I2:
             name: DERED_SN2_I2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           SNTURNOFF:
             name: SNTURNOFF
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: for SEGUE plates, signal-to-noise of turnoff stars at g=18
+              (-9999 if no turnoff stars available)
           NTURNOFF:
             name: NTURNOFF
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: for SEGUE plates, number of turnoff stars available
           HELIO_RV:
             name: HELIO_RV
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Heliocentric velocity correction [from spPlate header]  (km)
           GOFFSTD:
             name: GOFFSTD
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Mean g-band mag difference (spectro - photo) for standards
+              [from spPlate header]  (mag)
           GRMSSTD:
             name: GRMSSTD
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Stddev of g-band mag difference (spectro - photo) for standards
+              [from spPlate header]  (mag)
           ROFFSTD:
             name: ROFFSTD
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Mean r-band mag difference (spectro - photo) for standards
+              [from spPlate header]  (mag)
           RRMSSTD:
             name: RRMSSTD
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Stddev of r-band mag difference (spectro - photo) for standards
+              [from spPlate header]  (mag)
           IOFFSTD:
             name: IOFFSTD
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Mean i-band mag difference (spectro - photo) for standards
+              [from spPlate header]  (mag)
           IRMSSTD:
             name: IRMSSTD
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Stddev of i-band mag difference (spectro - photo) for standards
+              [from spPlate header]  (mag)
           GROFFSTD:
             name: GROFFSTD
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Mean g-band mag difference (spectro - photo) for standards
+              [from spPlate header]  (mag)
           GRRMSSTD:
             name: GRRMSSTD
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Stddev of g-band mag difference (spectro - photo) for standards
+              [from spPlate header]  (mag)
           RIOFFSTD:
             name: RIOFFSTD
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Mean r-band mag difference (spectro - photo) for standards
+              [from spPlate header]  (mag)
           RIRMSSTD:
             name: RIRMSSTD
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Stddev of r-band mag difference (spectro - photo) for standards
+              [from spPlate header]  (mag)
           GOFFGAL:
             name: GOFFGAL
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Mean g-band mag difference (spectro - photo) for galaxies
+              [from spPlate header]  (mag)
           GRMSGAL:
             name: GRMSGAL
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Stddev of g-band mag difference (spectro - photo) for galaxies
+              [from spPlate header]  (mag)
           ROFFGAL:
             name: ROFFGAL
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Mean r-band mag difference (spectro - photo) for galaxies
+              [from spPlate header]  (mag)
           RRMSGAL:
             name: RRMSGAL
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Stddev of r-band mag difference (spectro - photo) for galaxies
+              [from spPlate header]  (mag)
           IOFFGAL:
             name: IOFFGAL
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Mean i-band mag difference (spectro - photo) for galaxies
+              [from spPlate header]  (mag)
           IRMSGAL:
             name: IRMSGAL
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Stddev of i-band mag difference (spectro - photo) for galaxies
+              [from spPlate header]  (mag)
           GROFFGAL:
             name: GROFFGAL
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Mean g-band mag difference (spectro - photo) for galaxies
+              [from spPlate header]  (mag)
           GRRMSGAL:
             name: GRRMSGAL
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Stddev of g-band mag difference (spectro - photo) for galaxies
+              [from spPlate header]  (mag)
           RIOFFGAL:
             name: RIOFFGAL
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Mean r-band mag difference (spectro - photo) for galaxies
+              [from spPlate header]  (mag)
           RIRMSGAL:
             name: RIRMSGAL
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Stddev of r-band mag difference (spectro - photo) for galaxies
+              [from spPlate header]  (mag)
           NGUIDE:
             name: NGUIDE
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of guider camera frames taken during the exposure
+              [from spPlate header]
           SEEING20:
             name: SEEING20
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 20th-percentile of seeing during exposure (arcsec) [from
+              spPlate header]
           SEEING50:
             name: SEEING50
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 50th-percentile of seeing during exposure (arcsec) [from
+              spPlate header]
           SEEING80:
             name: SEEING80
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 80th-percentile of seeing during exposure (arcsec) [from
+              spPlate header]
           RMSOFF20:
             name: RMSOFF20
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 20th-percentile of RMS offset of guide fibers (arcsec) [from
+              spPlate header]
           RMSOFF50:
             name: RMSOFF50
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 50th-percentile of RMS offset of guide fibers (arcsec) [from
+              spPlate header]
           RMSOFF80:
             name: RMSOFF80
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 80th-percentile of RMS offset of guide fibers (arcsec) [from
+              spPlate header]
           AIRTEMP:
             name: AIRTEMP
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Air temperature in the dome [from spPlate header] (deg)
           SFD_USED:
             name: SFD_USED
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Were the SFD dust maps applied to the output spectrum? (0
+              = no, 1 = yes)
           XSIGMA:
             name: XSIGMA
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: sigma of gaussian fit to spatial profile [from spPlate header]
           XSIGMIN:
             name: XSIGMIN
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: minimum of xSigma for all exposures [from spPlate header]
           XSIGMAX:
             name: XSIGMAX
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: maximum of xSigma for all exposures [from spPlate header]
           WSIGMA:
             name: WSIGMA
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: sigma of gaussian fit to arc-line profiles in wavelength
+              direction [from spPlate header]
           WSIGMIN:
             name: WSIGMIN
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: minimum of wSigma for all exposures [from spPlate header]
           WSIGMAX:
             name: WSIGMAX
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: minimum of wSigma for all exposures [from spPlate header]
           XCHI2:
             name: XCHI2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: '[from spPlate header]'
           XCHI2MIN:
             name: XCHI2MIN
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: '[from spPlate header]'
           XCHI2MAX:
             name: XCHI2MAX
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: '[from spPlate header]'
           SKYCHI2:
             name: SKYCHI2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: average chi-squared from sky subtraction from all exposures
+              [from spPlate header]
           SCHI2MIN:
             name: SCHI2MIN
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: minimum and maximum skyChi2 over all exposures [from spPlate
+              header]
           SCHI2MAX:
             name: SCHI2MAX
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: minimum and maximum skyChi2 over all exposures [from spPlate
+              header]
           FBADPIX:
             name: FBADPIX
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Fraction of pixels that are bad (total), meaning masked or
+              with BADSKYCHI or REDMONSTER flags set [from spPlate header]
           FBADPIX1:
             name: FBADPIX1
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'Fraction of pixels that are bad (spectrograph #1) [from
+              spPlate header]'
           FBADPIX2:
             name: FBADPIX2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'Fraction of pixels that are bad (spectrograph #2) [from
+              spPlate header]'
           STATUS2D:
             name: STATUS2D
             type: char[4]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Status of 2D extraction
           STATUSCOMBINE:
             name: STATUSCOMBINE
             type: char[6]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Status of combination of multiple MJDs
           STATUS1D:
             name: STATUS1D
             type: char[7]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Status of 1D reductions
           N_TOTAL:
             name: N_TOTAL
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           N_GALAXY:
             name: N_GALAXY
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of objects classified as galaxy [calculated from spZbest
+              file]
           N_QSO:
             name: N_QSO
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of objects classified as QSO [calculated from spZbest
+              file]
           N_STAR:
             name: N_STAR
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of objects classified as Star [calculated from spZbest
+              file]
           N_SKY:
             name: N_SKY
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of sky objects  [calculated from spZbest file]
           N_UNKNOWN:
             name: N_UNKNOWN
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of objects with zWarning set non-zero (such objects
+              still classified as star, galaxy or QSO) [calculated from spZbest file]
           IS_TILE:
             name: IS_TILE
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: is this plate the best representative of this tile? only
+              set for "legacy" program plates (see <a href="http://www.sdss.org/dr13/help/glossary/#IS_TILE">
+              glossary</a>)
           IS_PRIMARY:
             name: IS_PRIMARY
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: is this MJD a primary observation a plate (best and not bad
+              quality; see <a href="http://www.sdss.org/dr13/help/glossary/#IS_PRIMARY">glossary</a>)
           IS_BEST:
             name: IS_BEST
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: is this MJD the best observation of the plate (see <a href="http://www.sdss.org/dr13/help/glossary/#IS_BEST">glossary</a>)
           HA:
             name: HA
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           MJDDESIGN:
             name: MJDDESIGN
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MJD designed for [from plPlugMapM file]
           THETA:
             name: THETA
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: cartridge position angle [from plPlugMapM file]
           FSCAN_VERSION:
             name: FSCAN_VERSION
             type: char
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: version of fiber scanning software [from plPlugMapM file]
           FMAP_VERSION:
             name: FMAP_VERSION
             type: char
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: version of fiber mapping software [from plPlugMapM file]
           FSCAN_MODE:
             name: FSCAN_MODE
             type: char
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: '''slow'', ''fast'', or ''extreme'' [from plPlugMapM file]'
           FSCAN_SPEED:
             name: FSCAN_SPEED
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: speed of scan [from plPlugMapM file]
