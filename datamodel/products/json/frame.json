@@ -1,7 +1,7 @@
 {
   "general": {
     "name": "frame",
-    "short": "migrated from old datamodel - needs update",
+    "short": "migration: needs update",
     "description": "The calibrated, sky-subtracted corrected frame plus associated\ncalibration meta-data. The units of the images are in\n<a href=\"http://www.sdss.org/dr13/help/glossary/#nanomaggie\">nanomaggies</a>.\nIt is kept compressed under \"bzip2\", which we\nhave found is the most efficient compressor of this format.  In\naddition, there is a lossy compression applied to the floating point\nvalues (which retains accuracy at the 0.1 percent level). The IDL\nroutine \"read_frame.pro\" in photoop will back out the calibration and\nsky-subtraction from this file if necessary, in steps explained\nbelow. Also explained below is how to calculate the noise in the\nimage.",
     "environments": [
       "BOSS_PHOTOOBJ"
@@ -881,11 +881,11 @@
         "path_template": "$BOSS_PHOTOOBJ/frames/{rerun}/{run}/{camcol}/frame-{filter}-{run:0>6}-{camcol}-{field:0>4}.fits",
         "path_kwargs": [
           "rerun",
-          "field",
           "camcol",
-          "filter",
+          "field",
           "run",
-          "run"
+          "run",
+          "filter"
         ],
         "access_string": "frame = $BOSS_PHOTOOBJ/frames/301/1000/1/frame-g-001000-1-0027.fits.bz2"
       },
