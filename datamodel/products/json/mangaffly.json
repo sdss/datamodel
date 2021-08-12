@@ -1,7 +1,7 @@
 {
   "general": {
     "name": "mangaffly",
-    "short": "migrated from old datamodel - needs update",
+    "short": "migration: needs update",
     "description": "manga-firefly-v2_4_3.fits is the MaNGA FIREFLY catalogue for the the 15th data release of the Sloan Digital Sky Survey. The file contains analysis for 4675 galaxies from the MaNGA survey, providing stellar population parameters, gradients and absorption index measurements. For DR15, the version of FIREFLY used was FIREFLY_VER=v1_1_0, and this was run on MANGADRP_VER=v2_4_3 reduced data. Compared to the FIREFLY VAC in DR14, two extensions that decribe the mass of stellar remnants (HDU12: STELLAR MASS REMNAT) and star formation history (HDU14: STAR FORMATION HISTORY) are added in the new VAC in DR15. The catalogue is available in FITS format at the following link:\n<dd>\n<dd>\n<a href=\"https://data.sdss.org/sas/dr15/manga/spectro/firefly/v1_1_2/manga_firefly-v2_4_3.fits\" target=\"_blank\">https://data.sdss.org/sas/dr15/manga/spectro/firefly/v1_1_2/manga_firefly-v2_4_3.fits</a>\n</dd>\n<dt>Naming Convention</dt>\n<dd id=\"filename\"><code> filename = manga_firefly-MANGADRP_VER.fits where MANGADRP_VER=v2_4_3 for DR15 </code>.</dd>\n<dt>Approximate Size</dt>\n<dd id=\"filesize\">6 GB</dd>\n<dt>File Type</dt>\n<dd id=\"filetype\">FITS</dd>\n<dt>Read by Products</dt>\n<dd>firefly</dd>\n<dt>Written by Products</dt>\n<dd>firefly</dd>\n<dt>Sections</dt>\n<dd><p>This should contain internal links to parts of the file (if any).</p>\n<ul>\n<li><a href=\"#hdu0\">HDU0</a>: The Primary Header</li>\n<li><a href=\"#hdu1\">HDU1</a>: A Data Table</li>\n<li><a href=\"#example\">Examples</a></li>\n</ul>\n</dd>\n</dd>",
     "environments": [
       "MANGA_FIREFLY"
@@ -45,34 +45,34 @@
         "delta_nhdus": null,
         "added_hdus": null,
         "removed_hdus": [
-          "CN1_INDEX",
-          "FE5406_INDEX",
-          "MG2_INDEX",
-          "CN2_INDEX",
-          "HGAMMA_A_INDEX",
-          "CA4227_INDEX",
-          "TIO1_INDEX",
-          "FE4531_INDEX",
-          "G4300_INDEX",
-          "H_BETA_INDEX",
-          "DN4000_INDEX",
-          "C24668_INDEX",
-          "MGB_INDEX",
-          "FE5015_INDEX",
-          "NAD_INDEX",
-          "CA4455_INDEX",
           "FE5709_INDEX",
-          "HDELTA_F_INDEX",
+          "CA4455_INDEX",
+          "HGAMMA_A_INDEX",
+          "NAD_INDEX",
           "HGAMMA_F_INDEX",
-          "FE5782_INDEX",
-          "HDELTA_A_INDEX",
+          "FE5015_INDEX",
+          "TIO1_INDEX",
+          "DN4000_INDEX",
+          "CN1_INDEX",
+          "CA4227_INDEX",
           "MG1_INDEX",
-          "D4000_INDEX",
-          "TIO2_INDEX",
-          "FE4383_INDEX",
-          "FE5335_INDEX",
+          "CN2_INDEX",
+          "HDELTA_A_INDEX",
           "FE5270_INDEX",
-          "CAHK_INDEX"
+          "D4000_INDEX",
+          "MG2_INDEX",
+          "HDELTA_F_INDEX",
+          "MGB_INDEX",
+          "CAHK_INDEX",
+          "H_BETA_INDEX",
+          "FE5406_INDEX",
+          "TIO2_INDEX",
+          "G4300_INDEX",
+          "FE4383_INDEX",
+          "FE5782_INDEX",
+          "C24668_INDEX",
+          "FE5335_INDEX",
+          "FE4531_INDEX"
         ],
         "primary_delta_nkeys": null,
         "added_primary_header_kwargs": null,
@@ -94,8 +94,8 @@
         "delta_nhdus": null,
         "added_hdus": [
           "SPATIAL_BINID",
-          "STAR_FORMATION_HISTORY",
-          "STELLAR_MASS_REMNANT"
+          "STELLAR_MASS_REMNANT",
+          "STAR_FORMATION_HISTORY"
         ],
         "removed_hdus": [
           "SPAXEL_BINID"
@@ -109,9 +109,9 @@
   },
   "releases": {
     "DR14": {
-      "template": "$MANGA_FIREFLY/v1_0_3/manga_firefly-v2_1_2.fits",
+      "template": "$MANGA_FIREFLY/[VER]/manga_firefly-[DRPVER].fits",
       "example": "v1_0_3/manga_firefly-v2_1_2.fits",
-      "location": "v1_0_3/manga_firefly-v2_1_2.fits",
+      "location": "{ver}/manga_firefly-{drpver}.fits",
       "environment": "MANGA_FIREFLY",
       "access": {
         "in_sdss_access": true,
@@ -121,7 +121,7 @@
           "drpver",
           "ver"
         ],
-        "access_string": "mangaffly = $MANGA_FIREFLY/v1_0_3/manga_firefly-v2_1_2.fits"
+        "access_string": "mangaffly = $MANGA_FIREFLY/{ver}/manga_firefly-{drpver}.fits"
       },
       "hdus": {
         "hdu0": {
