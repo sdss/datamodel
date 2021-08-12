@@ -1,7 +1,11 @@
 general:
   name: DRQv_superset
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: 'migration: needs update'
+  description: "The primary DR12Q catalog is derived from a well-defined superset\
+    \ of quasar targets that are documented in P\xE2ris et al. (2015).\n\n\n<p>\n\
+    This webpage documents the format of the\n<a href=\"/sas/dr13/env/BOSS_QSO/DR12Q/DR12Q_superset.fits\"\
+    >DR12Q_superset.fits</a> file.\nThis file contains the result of the full visual\
+    \ inspection of the DR12Q superset.\n</p>"
   datatype: FITS
   filesize: 74 MB
   releases:
@@ -9,10 +13,8 @@ general:
   - DR16
   environments:
   - BOSS_QSO
-  naming_convention: replace me - with $BOSS_QSO/DR10Q/Superset_DR10Q_v2.fits or Superset_DR10Q_v2.fits
-    but with regex pattern matches
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  naming_convention: 'migration: not in database. Needs update'
+  generated_by: 'migration: not in database. Needs update'
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
@@ -25,14 +27,14 @@ changelog:
       - SetDR10Q.fits
       primary_delta_nkeys: 9
       added_primary_header_kwargs:
-      - DATA_REL
       - ALG_FILE
+      - DATA_REL
       - MJD_RNGE
       removed_primary_header_kwargs:
-      - NAXIS1
-      - VOTMETA
       - COMMENT
+      - NAXIS1
       - NTABLE
+      - VOTMETA
 releases:
   DR10:
     template: $BOSS_QSO/DR10Q/Superset_DR10Q_v2.fits
@@ -44,67 +46,80 @@ releases:
       path_name: DRQv_superset
       path_template: $BOSS_QSO/{dr}Q/Superset_{dr}Q_{version}.fits
       path_kwargs:
-      - dr
       - version
+      - dr
       access_string: DRQv_superset = $BOSS_QSO/DR10Q/Superset_DR10Q_v2.fits
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: 'The data in this primary HDU consists of bytes which
+
+          comprise a VOTABLE document.
+
+          The VOTable describes the metadata of the table contained
+
+          in the following BINTABLE extension.
+
+          Such a BINTABLE extension can be used on its own as a perfectly
+
+          good table, but the information from this HDU may provide some
+
+          useful additional metadata.'
         is_image: true
         size: 2 KB
         header:
         - key: SIMPLE
           value: true
-          comment: Standard FITS format
+          comment: conforms to FITS standard
         - key: BITPIX
           value: 8
-          comment: Character data
+          comment: array data type
         - key: NAXIS
           value: 1
-          comment: Text string
+          comment: number of array dimensions
         - key: NAXIS1
           value: 3061
-          comment: Number of characters
+          comment: length of dimension 1
         - key: VOTMETA
           value: true
           comment: Table metadata in VOTable format
         - key: EXTEND
           value: true
-          comment: There are standard extensions
+          comment: ''
         - key: COMMENT
           value: ''
-          comment: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: COMMENT
           value: The data in this primary HDU consists of bytes which
-          comment: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: COMMENT
           value: comprise a VOTABLE document.
-          comment: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: COMMENT
           value: The VOTable describes the metadata of the table contained
-          comment: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: COMMENT
           value: in the following BINTABLE extension.
-          comment: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: COMMENT
           value: Such a BINTABLE extension can be used on its own as a perfectly
-          comment: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: COMMENT
           value: good table, but the information from this HDU may provide some
-          comment: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: COMMENT
           value: useful additional metadata.
-          comment: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: COMMENT
           value: There is one following BINTABLE.
-          comment: ''
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: NTABLE
           value: 1
           comment: Number of following BINTABLE HDUs
       hdu1:
         name: SetDR10Q.fits
-        description: replace me description
+        description: 'EXTNAME="DR12Q_superset" with a binary FITS table with the following
+          columns:'
         is_image: false
         size: 74 MB
         columns:
@@ -112,117 +127,119 @@ releases:
             name: SDSS_NAME
             type: char[18]
             unit: '-'
-            description: replace me - with content
+            description: SDSS-DR12 designation
           RA:
             name: RA
             type: float64
             unit: deg
-            description: replace me - with content
+            description: RA (J2000)
           DEC:
             name: DEC
             type: float64
             unit: deg
-            description: replace me - with content
+            description: DEC (J2000)
           THING_ID:
             name: THING_ID
             type: int32
             unit: '-'
-            description: replace me - with content
+            description: Unique identifier
           PLATE:
             name: PLATE
             type: int32
             unit: '-'
-            description: replace me - with content
+            description: Plate number
           MJD:
             name: MJD
             type: int32
             unit: '-'
-            description: replace me - with content
+            description: Spectroscopic MJD
           FIBERID:
             name: FIBERID
             type: int32
             unit: '-'
-            description: replace me - with content
+            description: Fiber number
           Z_VI:
             name: Z_VI
             type: float64
             unit: '-'
-            description: replace me - with content
+            description: Visual inspection redshift
           Z_PIPE:
             name: Z_PIPE
             type: float32
             unit: '-'
-            description: replace me - with content
+            description: BOSS pipeline redshift
           ERR_ZPIPE:
             name: ERR_ZPIPE
             type: float32
             unit: '-'
-            description: replace me - with content
+            description: Error on pipeline redshift
           ZWARNING:
             name: ZWARNING
             type: int32
             unit: '-'
-            description: replace me - with content
+            description: zwarning flag
           CLASS_PERSON:
             name: CLASS_PERSON
             type: int32
             unit: '-'
-            description: replace me - with content
+            description: Classification from the visual inspection
           Z_CONF_PERSON:
             name: Z_CONF_PERSON
             type: int32
             unit: '-'
-            description: replace me - with content
+            description: Redshift confidence from visual inspection
           SDSS_MORPHO:
             name: SDSS_MORPHO
             type: int16
             unit: '-'
-            description: replace me - with content
+            description: Morphology flag
           BOSS_TARGET1:
             name: BOSS_TARGET1
             type: int64
             unit: '-'
-            description: replace me - with content
+            description: Main survey TS flag
           ANCILLARY_TARGET1:
             name: ANCILLARY_TARGET1
             type: int64
             unit: '-'
-            description: replace me - with content
+            description: Ancillary TS flag 1
           ANCILLARY_TARGET2:
             name: ANCILLARY_TARGET2
             type: int64
             unit: '-'
-            description: replace me - with content
+            description: Ancillary TS flag 2
           PSFFLUX:
             name: PSFFLUX
             type: float32[5]
             unit: nanomaggies
-            description: replace me - with content
+            description: PSF fluxes in u, g, r, i, z bands
           IVAR_PSFFLUX:
             name: IVAR_PSFFLUX
             type: float32[5]
-            unit: '-'
-            description: replace me - with content
+            unit: nanomaggies<sup>-2</sup>
+            description: inverse variance of PSF fluxes
           PSFMAG:
             name: PSFMAG
             type: float32[5]
-            unit: '-'
-            description: replace me - with content
+            unit: mag
+            description: PSF magnitudes in u, g, r, i, z bands
           ERR_PSFMAG:
             name: ERR_PSFMAG
             type: float32[5]
-            unit: '-'
-            description: replace me - with content
+            unit: mag
+            description: error on PSF magnitudes
           TARGET_FLUX:
             name: TARGET_FLUX
             type: float64[5]
-            unit: nanomaggies
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           EXTINCTION:
             name: EXTINCTION
             type: float32[5]
-            unit: '-'
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
   DR16:
     template: $BOSS_QSO/DR16Q/DR16Q_Superset_v3.fits
     example: DR16Q/DR16Q_Superset_v3.fits
@@ -239,7 +256,19 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: 'The data in this primary HDU consists of bytes which
+
+          comprise a VOTABLE document.
+
+          The VOTable describes the metadata of the table contained
+
+          in the following BINTABLE extension.
+
+          Such a BINTABLE extension can be used on its own as a perfectly
+
+          good table, but the information from this HDU may provide some
+
+          useful additional metadata.'
         is_image: true
         size: 0 bytes
         header:
@@ -257,501 +286,582 @@ releases:
           comment: ''
         - key: ALG_FILE
           value: alg_class_all.py
-          comment: Algorithm file used
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DATA_REL
           value: spAll-v5_13_0
-          comment: spAll file used
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: MJD_RNGE
           value: 51608-58543
-          comment: MJD range of objects
+          comment: 'migration: description of keyword/column not found. Needs update'
       hdu1:
         name: CATALOG
-        description: replace me description
+        description: 'EXTNAME="DR12Q_superset" with a binary FITS table with the following
+          columns:'
         is_image: false
         size: 2 GB
         columns:
           SDSS_NAME:
             name: SDSS_NAME
             type: char[18]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: '-'
+            description: SDSS-DR12 designation
           RA:
             name: RA
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: RA (J2000)
           DEC:
             name: DEC
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: DEC (J2000)
           PLATE:
             name: PLATE
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: '-'
+            description: Plate number
           MJD:
             name: MJD
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: '-'
+            description: Spectroscopic MJD
           FIBERID:
             name: FIBERID
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: '-'
+            description: Fiber number
           AUTOCLASS_PQN:
             name: AUTOCLASS_PQN
             type: char[6]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           AUTOCLASS_DR14Q:
             name: AUTOCLASS_DR14Q
             type: char[6]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           IS_QSO_QN:
             name: IS_QSO_QN
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           Z_QN:
             name: Z_QN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           RANDOM_SELECT:
             name: RANDOM_SELECT
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           Z_10K:
             name: Z_10K
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           Z_CONF_10K:
             name: Z_CONF_10K
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           PIPE_CORR_10K:
             name: PIPE_CORR_10K
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           IS_QSO_10K:
             name: IS_QSO_10K
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           PRIM_REC:
             name: PRIM_REC
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           THING_ID:
             name: THING_ID
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: '-'
+            description: Unique identifier
           Z_VI:
             name: Z_VI
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: '-'
+            description: Visual inspection redshift
           Z_CONF:
             name: Z_CONF
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           CLASS_PERSON:
             name: CLASS_PERSON
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: '-'
+            description: Classification from the visual inspection
           Z_DR12Q:
             name: Z_DR12Q
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           IS_QSO_DR12Q:
             name: IS_QSO_DR12Q
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           Z_DR7Q_SCH:
             name: Z_DR7Q_SCH
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           IS_QSO_DR7Q:
             name: IS_QSO_DR7Q
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           Z_DR6Q_HW:
             name: Z_DR6Q_HW
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           Z_DR7Q_HW:
             name: Z_DR7Q_HW
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           IS_QSO_FINAL:
             name: IS_QSO_FINAL
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           Z:
             name: Z
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           SOURCE_Z:
             name: SOURCE_Z
             type: char[12]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           Z_PIPE:
             name: Z_PIPE
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: '-'
+            description: BOSS pipeline redshift
           ZWARNING:
             name: ZWARNING
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: '-'
+            description: zwarning flag
           OBJID:
             name: OBJID
             type: char[19]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           Z_PCA:
             name: Z_PCA
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           ZWARN_PCA:
             name: ZWARN_PCA
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           DELTACHI2_PCA:
             name: DELTACHI2_PCA
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           Z_HALPHA:
             name: Z_HALPHA
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           ZWARN_HALPHA:
             name: ZWARN_HALPHA
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           DELTACHI2_HALPHA:
             name: DELTACHI2_HALPHA
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           Z_HBETA:
             name: Z_HBETA
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           ZWARN_HBETA:
             name: ZWARN_HBETA
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           DELTACHI2_HBETA:
             name: DELTACHI2_HBETA
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           Z_MGII:
             name: Z_MGII
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           ZWARN_MGII:
             name: ZWARN_MGII
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           DELTACHI2_MGII:
             name: DELTACHI2_MGII
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           Z_CIII:
             name: Z_CIII
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           ZWARN_CIII:
             name: ZWARN_CIII
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           DELTACHI2_CIII:
             name: DELTACHI2_CIII
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           Z_CIV:
             name: Z_CIV
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           ZWARN_CIV:
             name: ZWARN_CIV
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           DELTACHI2_CIV:
             name: DELTACHI2_CIV
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           Z_LYA:
             name: Z_LYA
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           ZWARN_LYA:
             name: ZWARN_LYA
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           DELTACHI2_LYA:
             name: DELTACHI2_LYA
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           Z_DLA:
             name: Z_DLA
             type: float64[5]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           NHI_DLA:
             name: NHI_DLA
             type: float64[5]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           CONF_DLA:
             name: CONF_DLA
             type: float64[5]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           BAL_PROB:
             name: BAL_PROB
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           BI_CIV:
             name: BI_CIV
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           ERR_BI_CIV:
             name: ERR_BI_CIV
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           AI_CIV:
             name: AI_CIV
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           ERR_AI_CIV:
             name: ERR_AI_CIV
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           BI_SIIV:
             name: BI_SIIV
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           ERR_BI_SIIV:
             name: ERR_BI_SIIV
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           AI_SIIV:
             name: AI_SIIV
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           ERR_AI_SIIV:
             name: ERR_AI_SIIV
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           BOSS_TARGET1:
             name: BOSS_TARGET1
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: '-'
+            description: Main survey TS flag
           EBOSS_TARGET0:
             name: EBOSS_TARGET0
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: '-'
+            description: SEQUELS TS flag
           EBOSS_TARGET1:
             name: EBOSS_TARGET1
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           EBOSS_TARGET2:
             name: EBOSS_TARGET2
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           ANCILLARY_TARGET1:
             name: ANCILLARY_TARGET1
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: '-'
+            description: Ancillary TS flag 1
           ANCILLARY_TARGET2:
             name: ANCILLARY_TARGET2
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: '-'
+            description: Ancillary TS flag 2
           NSPEC_SDSS:
             name: NSPEC_SDSS
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           NSPEC_BOSS:
             name: NSPEC_BOSS
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           NSPEC:
             name: NSPEC
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           PLATE_DUPLICATE:
             name: PLATE_DUPLICATE
             type: int32[74]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           MJD_DUPLICATE:
             name: MJD_DUPLICATE
             type: int32[74]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           FIBERID_DUPLICATE:
             name: FIBERID_DUPLICATE
             type: int16[74]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           SPECTRO_DUPLICATE:
             name: SPECTRO_DUPLICATE
             type: int16[74]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           SKYVERSION:
             name: SKYVERSION
             type: bool
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           RUN_NUMBER:
             name: RUN_NUMBER
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           RERUN_NUMBER:
             name: RERUN_NUMBER
             type: char[3]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           CAMCOL_NUMBER:
             name: CAMCOL_NUMBER
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           FIELD_NUMBER:
             name: FIELD_NUMBER
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           ID_NUMBER:
             name: ID_NUMBER
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           LAMBDA_EFF:
             name: LAMBDA_EFF
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           ZOFFSET:
             name: ZOFFSET
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           XFOCAL:
             name: XFOCAL
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           YFOCAL:
             name: YFOCAL
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           CHUNK:
             name: CHUNK
             type: char[14]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           TILE:
             name: TILE
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           PLATESN2:
             name: PLATESN2
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           PSFFLUX:
             name: PSFFLUX
             type: float32[5]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggies
+            description: PSF fluxes in u, g, r, i, z bands
           PSFFLUX_IVAR:
             name: PSFFLUX_IVAR
             type: float64[5]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           PSFMAG:
             name: PSFMAG
             type: float32[5]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: PSF magnitudes in u, g, r, i, z bands
           PSFMAGERR:
             name: PSFMAGERR
             type: float64[5]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           EXTINCTION:
             name: EXTINCTION
             type: float32[5]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           SN_MEDIAN_ALL:
             name: SN_MEDIAN_ALL
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
