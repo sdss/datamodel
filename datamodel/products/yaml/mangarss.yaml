@@ -1,6 +1,6 @@
 general:
   name: mangarss
-  short: migrated from old datamodel - needs update
+  short: 'migration: needs update'
   description: 'The MaNGA DRP provides summary row-stacked spectra (RSS; with both
     logarithmic and linear wavelength solutions) for each galaxy that combine individual
     fiber spectra of that galaxy across multiple exposures into a single row-stacked
@@ -34,20 +34,20 @@ changelog:
     DR17:
       from: DR16
       added_hdus:
-      - LSFPOST
       - LSFPRE
+      - LSFPOST
       removed_hdus:
-      - DISP
       - PREDISP
+      - DISP
     DR16:
       from: DR15
       note: No changes
     DR15:
       from: DR14
       added_hdus:
-      - PRESPECRESD
-      - PRESPECRES
       - PREDISP
+      - PRESPECRES
+      - PRESPECRESD
       primary_delta_nkeys: 1
       added_primary_header_kwargs:
       - TPLDATA
@@ -70,10 +70,10 @@ releases:
       path_name: mangarss
       path_template: $MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}RSS.fits.gz
       path_kwargs:
-      - plate
       - drpver
       - ifu
       - wave
+      - plate
       access_string: mangarss = $MANGA_SPECTRO_REDUX/v1_5_4/8606/stack/manga-8606-6102-LOGRSS.fits.gz
     hdus:
       hdu0:
@@ -3635,9 +3635,9 @@ releases:
           value: ieGVib9UibEUib9U
           comment: HDU checksum updated 2018-03-21T06:08:46
   DR16:
-    template: $MANGA_SPECTRO_REDUX/v2_4_3/8606/stack/manga-8606-6102-LOGRSS.fits.gz
+    template: $MANGA_SPECTRO_REDUX/[DRPVER]/[PLATE]/stack/manga-[PLATE]-[IFU]-[WAVE]RSS.fits.gz
     example: v2_4_3/8606/stack/manga-8606-6102-LOGRSS.fits.gz
-    location: v2_4_3/8606/stack/manga-8606-6102-LOGRSS.fits.gz
+    location: '{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}RSS.fits.gz'
     environment: MANGA_SPECTRO_REDUX
     access:
       in_sdss_access: true
@@ -3645,10 +3645,10 @@ releases:
       path_template: $MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}RSS.fits.gz
       path_kwargs:
       - plate
-      - drpver
-      - ifu
       - wave
-      access_string: mangarss = $MANGA_SPECTRO_REDUX/v2_4_3/8606/stack/manga-8606-6102-LOGRSS.fits.gz
+      - ifu
+      - drpver
+      access_string: mangarss = $MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}RSS.fits.gz
     hdus:
       hdu0:
         name: PRIMARY
