@@ -1,0 +1,1098 @@
+general:
+  name: apStarLSF
+  short: 'migration: needs update'
+  description: The apLSF store numerical LSFs, i.e. a 1D vector for each pixel position
+    for the combined LSF in the apStar file, as well as Gauss-Hermite coefficients
+    that represent this LSF.
+  datatype: FITS
+  filesize: 514 KB
+  releases:
+  - DR12
+  - DR13
+  - DR14
+  - DR15
+  - DR16
+  - DR17
+  environments:
+  - APOGEE_REDUX
+  naming_convention: '<code> apSLSF-.+-[0-9]{5}\.fits</code>, where .+
+
+    (a.k.a. STARNAME) uniquely identifies each star and [0-9]{5} is
+
+    the 5-digit MJD number of the last data included in the combined
+
+    frames. There will also be a link, apLSF-STARNAME.fits to the latest
+
+    combined frame.'
+  generated_by: apogeereduce (apstar_output)
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases:
+    DR17:
+      from: DR16
+      removed_hdus:
+      - ''
+      primary_delta_nkeys: 6
+      added_primary_header_kwargs:
+      - NAXIS2
+      - NAXIS1
+      removed_primary_header_kwargs:
+      - DATE
+      - OBJID
+      - SPECTRUM
+      - EXTEND
+      - COMMENT
+    DR16:
+      from: DR15
+      note: No changes
+    DR15:
+      from: DR14
+      note: No changes
+    DR14:
+      from: DR13
+      note: No changes
+    DR13:
+      from: DR12
+      note: No changes
+releases:
+  DR12:
+    template: $APOGEE_REDUX/[APRED]/[APSTAR]/[TELESCOPE]/[FIELD]/[PREFIX]StarLSF-[APRED]-[OBJ].fits
+    example: r5/stars/apo25m/4495/apStarLSF-r5-2M15000439+2645333.fits
+    location: '{apred}/{apstar}/{telescope}/{field}/{prefix}StarLSF-{apred}-{obj}.fits'
+    environment: APOGEE_REDUX
+    access:
+      in_sdss_access: true
+      path_name: apStarLSF
+      path_template: $APOGEE_REDUX/{apred}/{apstar}/{telescope}/{location}/{prefix}StarLSF-{obj}-{mjd}.fits
+      path_kwargs:
+      - location
+      - apstar
+      - telescope
+      - apred
+      - obj
+      - mjd
+      - prefix
+      access_string: apStarLSF = $APOGEE_REDUX/{apred}/{apstar}/{telescope}/{field}/{prefix}StarLSF-{apred}-{obj}.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: ''
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 16
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: DATE
+          value: '2014-08-09'
+          comment: Creation UTC (CCCC-MM-DD) date of FITS header
+        - key: COMMENT
+          value: FITS (Flexible Image Transport System) format is defined in 'Astronomy
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: and Astrophysics', volume 376, page 359; bibcode 2001A&A...376..359H
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: OBJID
+          value: 2M15000439+2645333
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: SPECTRUM
+          value: /uufs/chpc.utah.edu/common/home/sdss00/bosswork/apogee/spectro/redux
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: COMMENT
+          value: HDU 1 = Combined LSF 2D array
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: HDU 2 = Fitted LSF coefficients
+          comment: 'migration: description of keyword/column not found. Needs update'
+      hdu1:
+        name: ''
+        description: '[Summarize contents of this HDU.]
+
+          Data: FITS image'
+        is_image: true
+        size: 502 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: binary table extension
+        - key: BITPIX
+          value: -32
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 8575
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 15
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: BUNIT
+          value: LSF
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: COMMENT
+          value: Combined LSF 2D array
+          comment: 'migration: description of keyword/column not found. Needs update'
+      hdu2:
+        name: ''
+        description: '[Summarize contents of this HDU.]
+
+          Data: FITS image'
+        is_image: true
+        size: 216 bytes
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: binary table extension
+        - key: BITPIX
+          value: -64
+          comment: array data type
+        - key: NAXIS
+          value: 1
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 27
+          comment: length of dimension 1
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: CTYPE1
+          value: Parameters
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: BUNIT
+          value: LSF Coefficients
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: COMMENT
+          value: These are the FITTED coefficients to the 2D combined
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: 'LSF array in HDU #1'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: 'LSF Coefficients to be used with LSF_GH.PRO:'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '  binsize  The width of a pixel in X-units.  If this is non-zero'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             then a "binned" Gauss-Hermite function is used.  If'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             binsize=0 then a "normal, unbinned" Gauss-Hermite'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             function is used.'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '  X0       An additive x-offset.  This is only used to'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             evaluate the GH parameters that vary globally'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             with X.'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '  Horder   The highest Hermite order, Horder=0 means'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             only a constant term (i.e. only Gaussian).'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             There are Horder Hermite coefficients (since we fix
+            H0=1).'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '  Porder   This array gives the polynomial order for the'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             global variation (in X) of each LSF parameter.'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             That includes sigma and the Horder Hermite'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             coefficients (starting with H1 because we fix H0=1)'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             There will be Porder[i]+1 coefficients for'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             parameter i.'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '  GHcoefs  The polynomial coefficients for sigma and the'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             Horder Hermite parameters.  There are Porder[i]+1'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             coefficients for parameter i.  The Hermite parameters'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             start with H1 since we fix H0=1.'
+          comment: 'migration: description of keyword/column not found. Needs update'
+  DR13:
+    template: $APOGEE_REDUX/[APRED]/[APSTAR]/[TELESCOPE]/[FIELD]/[PREFIX]StarLSF-[APRED]-[OBJ].fits
+    example: r6/stars/apo25m/4495/apStarLSF-r6-2M15000439+2645333.fits
+    location: '{apred}/{apstar}/{telescope}/{field}/{prefix}StarLSF-{apred}-{obj}.fits'
+    environment: APOGEE_REDUX
+    access:
+      in_sdss_access: true
+      path_name: apStarLSF
+      path_template: $APOGEE_REDUX/{apred}/{apstar}/{telescope}/{location}/{prefix}StarLSF-{obj}-{mjd}.fits
+      path_kwargs:
+      - telescope
+      - mjd
+      - prefix
+      - location
+      - apred
+      - obj
+      - apstar
+      access_string: apStarLSF = $APOGEE_REDUX/{apred}/{apstar}/{telescope}/{field}/{prefix}StarLSF-{apred}-{obj}.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: ''
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 16
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: DATE
+          value: '2016-01-26'
+          comment: Creation UTC (CCCC-MM-DD) date of FITS header
+        - key: COMMENT
+          value: FITS (Flexible Image Transport System) format is defined in 'Astronomy
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: and Astrophysics', volume 376, page 359; bibcode 2001A&A...376..359H
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: OBJID
+          value: 2M15000439+2645333
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: SPECTRUM
+          value: /uufs/chpc.utah.edu/common/home/sdss01/apogeework/apogee/spectro/red
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: COMMENT
+          value: HDU 1 = Combined LSF 2D array
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: HDU 2 = Fitted LSF coefficients
+          comment: 'migration: description of keyword/column not found. Needs update'
+      hdu1:
+        name: ''
+        description: '[Summarize contents of this HDU.]
+
+          Data: FITS image'
+        is_image: true
+        size: 502 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: binary table extension
+        - key: BITPIX
+          value: -32
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 8575
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 15
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: BUNIT
+          value: LSF
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: COMMENT
+          value: Combined LSF 2D array
+          comment: 'migration: description of keyword/column not found. Needs update'
+      hdu2:
+        name: ''
+        description: '[Summarize contents of this HDU.]
+
+          Data: FITS image'
+        is_image: true
+        size: 208 bytes
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: binary table extension
+        - key: BITPIX
+          value: -64
+          comment: array data type
+        - key: NAXIS
+          value: 1
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 26
+          comment: length of dimension 1
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: CTYPE1
+          value: Parameters
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: BUNIT
+          value: LSF Coefficients
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: COMMENT
+          value: These are the FITTED coefficients to the 2D combined
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: 'LSF array in HDU #1'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: 'LSF Coefficients to be used with LSF_GH.PRO:'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '  binsize  The width of a pixel in X-units.  If this is non-zero'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             then a "binned" Gauss-Hermite function is used.  If'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             binsize=0 then a "normal, unbinned" Gauss-Hermite'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             function is used.'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '  X0       An additive x-offset.  This is only used to'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             evaluate the GH parameters that vary globally'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             with X.'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '  Horder   The highest Hermite order, Horder=0 means'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             only a constant term (i.e. only Gaussian).'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             There are Horder Hermite coefficients (since we fix
+            H0=1).'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '  Porder   This array gives the polynomial order for the'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             global variation (in X) of each LSF parameter.'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             That includes sigma and the Horder Hermite'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             coefficients (starting with H1 because we fix H0=1)'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             There will be Porder[i]+1 coefficients for'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             parameter i.'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '  GHcoefs  The polynomial coefficients for sigma and the'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             Horder Hermite parameters.  There are Porder[i]+1'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             coefficients for parameter i.  The Hermite parameters'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             start with H1 since we fix H0=1.'
+          comment: 'migration: description of keyword/column not found. Needs update'
+  DR14:
+    template: $APOGEE_REDUX/[APRED]/[APSTAR]/[TELESCOPE]/[FIELD]/[PREFIX]StarLSF-[APRED]-[OBJ].fits
+    example: r8/stars/apo25m/4495/apStarLSF-r8-2M15000439+2645333.fits
+    location: '{apred}/{apstar}/{telescope}/{field}/{prefix}StarLSF-{apred}-{obj}.fits'
+    environment: APOGEE_REDUX
+    access:
+      in_sdss_access: true
+      path_name: apStarLSF
+      path_template: $APOGEE_REDUX/{apred}/{apstar}/{telescope}/{location}/{prefix}StarLSF-{obj}-{mjd}.fits
+      path_kwargs:
+      - mjd
+      - telescope
+      - apred
+      - obj
+      - apstar
+      - location
+      - prefix
+      access_string: apStarLSF = $APOGEE_REDUX/{apred}/{apstar}/{telescope}/{field}/{prefix}StarLSF-{apred}-{obj}.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: ''
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 16
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: DATE
+          value: '2016-12-13'
+          comment: Creation UTC (CCCC-MM-DD) date of FITS header
+        - key: COMMENT
+          value: FITS (Flexible Image Transport System) format is defined in 'Astronomy
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: and Astrophysics', volume 376, page 359; bibcode 2001A&A...376..359H
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: OBJID
+          value: 2M15000439+2645333
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: SPECTRUM
+          value: /uufs/chpc.utah.edu/common/home/sdss06/apogeework/apogee/spectro/red
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: COMMENT
+          value: HDU 1 = Combined LSF 2D array
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: HDU 2 = Fitted LSF coefficients
+          comment: 'migration: description of keyword/column not found. Needs update'
+      hdu1:
+        name: ''
+        description: '[Summarize contents of this HDU.]
+
+          Data: FITS image'
+        is_image: true
+        size: 502 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: binary table extension
+        - key: BITPIX
+          value: -32
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 8575
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 15
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: BUNIT
+          value: LSF
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: COMMENT
+          value: Combined LSF 2D array
+          comment: 'migration: description of keyword/column not found. Needs update'
+      hdu2:
+        name: ''
+        description: '[Summarize contents of this HDU.]
+
+          Data: FITS image'
+        is_image: true
+        size: 208 bytes
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: binary table extension
+        - key: BITPIX
+          value: -64
+          comment: array data type
+        - key: NAXIS
+          value: 1
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 26
+          comment: length of dimension 1
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: CTYPE1
+          value: Parameters
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: BUNIT
+          value: LSF Coefficients
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: COMMENT
+          value: These are the FITTED coefficients to the 2D combined
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: 'LSF array in HDU #1'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: 'LSF Coefficients to be used with LSF_GH.PRO:'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '  binsize  The width of a pixel in X-units.  If this is non-zero'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             then a "binned" Gauss-Hermite function is used.  If'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             binsize=0 then a "normal, unbinned" Gauss-Hermite'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             function is used.'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '  X0       An additive x-offset.  This is only used to'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             evaluate the GH parameters that vary globally'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             with X.'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '  Horder   The highest Hermite order, Horder=0 means'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             only a constant term (i.e. only Gaussian).'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             There are Horder Hermite coefficients (since we fix
+            H0=1).'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '  Porder   This array gives the polynomial order for the'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             global variation (in X) of each LSF parameter.'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             That includes sigma and the Horder Hermite'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             coefficients (starting with H1 because we fix H0=1)'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             There will be Porder[i]+1 coefficients for'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             parameter i.'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '  GHcoefs  The polynomial coefficients for sigma and the'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             Horder Hermite parameters.  There are Porder[i]+1'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             coefficients for parameter i.  The Hermite parameters'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             start with H1 since we fix H0=1.'
+          comment: 'migration: description of keyword/column not found. Needs update'
+  DR15:
+    template: $APOGEE_REDUX/[APRED]/[APSTAR]/[TELESCOPE]/[FIELD]/[PREFIX]StarLSF-[APRED]-[OBJ].fits
+    example: r8/stars/apo25m/4495/apStarLSF-r8-2M15000439+2645333.fits
+    location: '{apred}/{apstar}/{telescope}/{field}/{prefix}StarLSF-{apred}-{obj}.fits'
+    environment: APOGEE_REDUX
+    access:
+      in_sdss_access: true
+      path_name: apStarLSF
+      path_template: $APOGEE_REDUX/{apred}/{apstar}/{telescope}/{location}/{prefix}StarLSF-{obj}-{mjd}.fits
+      path_kwargs:
+      - location
+      - apred
+      - telescope
+      - mjd
+      - apstar
+      - prefix
+      - obj
+      access_string: apStarLSF = $APOGEE_REDUX/{apred}/{apstar}/{telescope}/{field}/{prefix}StarLSF-{apred}-{obj}.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: ''
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 16
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: DATE
+          value: '2016-12-13'
+          comment: Creation UTC (CCCC-MM-DD) date of FITS header
+        - key: COMMENT
+          value: FITS (Flexible Image Transport System) format is defined in 'Astronomy
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: and Astrophysics', volume 376, page 359; bibcode 2001A&A...376..359H
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: OBJID
+          value: 2M15000439+2645333
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: SPECTRUM
+          value: /uufs/chpc.utah.edu/common/home/sdss06/apogeework/apogee/spectro/red
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: COMMENT
+          value: HDU 1 = Combined LSF 2D array
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: HDU 2 = Fitted LSF coefficients
+          comment: 'migration: description of keyword/column not found. Needs update'
+      hdu1:
+        name: ''
+        description: '[Summarize contents of this HDU.]
+
+          Data: FITS image'
+        is_image: true
+        size: 502 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: binary table extension
+        - key: BITPIX
+          value: -32
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 8575
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 15
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: BUNIT
+          value: LSF
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: COMMENT
+          value: Combined LSF 2D array
+          comment: 'migration: description of keyword/column not found. Needs update'
+      hdu2:
+        name: ''
+        description: '[Summarize contents of this HDU.]
+
+          Data: FITS image'
+        is_image: true
+        size: 208 bytes
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: binary table extension
+        - key: BITPIX
+          value: -64
+          comment: array data type
+        - key: NAXIS
+          value: 1
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 26
+          comment: length of dimension 1
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: CTYPE1
+          value: Parameters
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: BUNIT
+          value: LSF Coefficients
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: COMMENT
+          value: These are the FITTED coefficients to the 2D combined
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: 'LSF array in HDU #1'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: 'LSF Coefficients to be used with LSF_GH.PRO:'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '  binsize  The width of a pixel in X-units.  If this is non-zero'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             then a "binned" Gauss-Hermite function is used.  If'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             binsize=0 then a "normal, unbinned" Gauss-Hermite'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             function is used.'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '  X0       An additive x-offset.  This is only used to'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             evaluate the GH parameters that vary globally'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             with X.'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '  Horder   The highest Hermite order, Horder=0 means'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             only a constant term (i.e. only Gaussian).'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             There are Horder Hermite coefficients (since we fix
+            H0=1).'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '  Porder   This array gives the polynomial order for the'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             global variation (in X) of each LSF parameter.'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             That includes sigma and the Horder Hermite'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             coefficients (starting with H1 because we fix H0=1)'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             There will be Porder[i]+1 coefficients for'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             parameter i.'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '  GHcoefs  The polynomial coefficients for sigma and the'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             Horder Hermite parameters.  There are Porder[i]+1'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             coefficients for parameter i.  The Hermite parameters'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             start with H1 since we fix H0=1.'
+          comment: 'migration: description of keyword/column not found. Needs update'
+  DR16:
+    template: $APOGEE_REDUX/[APRED]/[APSTAR]/[TELESCOPE]/[FIELD]/[PREFIX]StarLSF-[OBJ].fits
+    example: r12/stars/apo25m/000+02/apStarLSF-2M17335483-2753043.fits
+    location: '{apred}/{apstar}/{telescope}/{field}/{prefix}StarLSF-{obj}.fits'
+    environment: APOGEE_REDUX
+    access:
+      in_sdss_access: true
+      path_name: apStarLSF
+      path_template: $APOGEE_REDUX/{apred}/{apstar}/{telescope}/{location}/{prefix}StarLSF-{obj}-{mjd}.fits
+      path_kwargs:
+      - obj
+      - telescope
+      - apred
+      - apstar
+      - mjd
+      - prefix
+      - location
+      access_string: apStarLSF = $APOGEE_REDUX/{apred}/{apstar}/{telescope}/{field}/{prefix}StarLSF-{obj}.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: ''
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 16
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: DATE
+          value: '2019-03-04'
+          comment: Creation UTC (CCCC-MM-DD) date of FITS header
+        - key: COMMENT
+          value: FITS (Flexible Image Transport System) format is defined in 'Astronomy
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: and Astrophysics', volume 376, page 359; bibcode 2001A&A...376..359H
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: OBJID
+          value: 2M17335483-2753043
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: SPECTRUM
+          value: /uufs/chpc.utah.edu/common/home/sdss/apogeework/apogee/spectro/redux
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: COMMENT
+          value: HDU 1 = Combined LSF 2D array
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: HDU 2 = Fitted LSF coefficients
+          comment: 'migration: description of keyword/column not found. Needs update'
+      hdu1:
+        name: ''
+        description: '[Summarize contents of this HDU.]
+
+          Data: FITS image'
+        is_image: true
+        size: 502 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: binary table extension
+        - key: BITPIX
+          value: -32
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 8575
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 15
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: BUNIT
+          value: LSF
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: COMMENT
+          value: Combined LSF 2D array
+          comment: 'migration: description of keyword/column not found. Needs update'
+      hdu2:
+        name: ''
+        description: '[Summarize contents of this HDU.]
+
+          Data: FITS image'
+        is_image: true
+        size: 208 bytes
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: binary table extension
+        - key: BITPIX
+          value: -64
+          comment: array data type
+        - key: NAXIS
+          value: 1
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 26
+          comment: length of dimension 1
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: CTYPE1
+          value: Parameters
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: BUNIT
+          value: LSF Coefficients
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
+        - key: COMMENT
+          value: These are the FITTED coefficients to the 2D combined
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: COMMENT
+          value: 'LSF array in HDU #1'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: 'LSF Coefficients to be used with LSF_GH.PRO:'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '  binsize  The width of a pixel in X-units.  If this is non-zero'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             then a "binned" Gauss-Hermite function is used.  If'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             binsize=0 then a "normal, unbinned" Gauss-Hermite'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             function is used.'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '  X0       An additive x-offset.  This is only used to'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             evaluate the GH parameters that vary globally'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             with X.'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '  Horder   The highest Hermite order, Horder=0 means'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             only a constant term (i.e. only Gaussian).'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             There are Horder Hermite coefficients (since we fix
+            H0=1).'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '  Porder   This array gives the polynomial order for the'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             global variation (in X) of each LSF parameter.'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             That includes sigma and the Horder Hermite'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             coefficients (starting with H1 because we fix H0=1)'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             There will be Porder[i]+1 coefficients for'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             parameter i.'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '  GHcoefs  The polynomial coefficients for sigma and the'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             Horder Hermite parameters.  There are Porder[i]+1'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             coefficients for parameter i.  The Hermite parameters'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: HISTORY
+          value: '             start with H1 since we fix H0=1.'
+          comment: 'migration: description of keyword/column not found. Needs update'
+  DR17:
+    template: $APOGEE_REDUX/[APRED]/[APSTAR]/[TELESCOPE]/[FIELD]/[PREFIX]StarLSF-[OBJ].fits
+    example: dr17/stars/apo25m/000+02/apStarLSF-2M17335483-2753043.fits
+    location: '{apred}/{apstar}/{telescope}/{field}/{prefix}StarLSF-{obj}.fits'
+    environment: APOGEE_REDUX
+    access:
+      in_sdss_access: true
+      path_name: apStarLSF
+      path_template: $APOGEE_REDUX/{apred}/{apstar}/{telescope}/{location}/{prefix}StarLSF-{obj}-{mjd}.fits
+      path_kwargs:
+      - mjd
+      - apstar
+      - obj
+      - prefix
+      - apred
+      - location
+      - telescope
+      access_string: apStarLSF = $APOGEE_REDUX/{apred}/{apstar}/{telescope}/{field}/{prefix}StarLSF-{obj}.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: ''
+        is_image: true
+        size: 1004 KB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: -64
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 15
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 8575
+          comment: length of dimension 2
