@@ -1,6 +1,6 @@
 general:
   name: mangagema
-  short: migrated from old datamodel - needs update
+  short: 'migration: needs update'
   description: This file contains the quantification of the environment for MaNGA
     galaxies in the DR15.
   datatype: FITS
@@ -12,7 +12,7 @@ general:
   environments:
   - MANGA_GEMA
   naming_convention: <code>GEMA.fits</code>.
-  generated_by: 'migration: not in database. Needs update'
+  generated_by: "Maria Argudo-Fern\xE1ndez"
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
@@ -20,37 +20,37 @@ changelog:
     DR17:
       from: DR16
       added_hdus:
-      - DR17_param_5Mpc_015
+      - DR17_param_5Mpc_006
       - DR17_param_completeness_footprint
+      - DR17_param_1Mpc_015
+      - DR17_param_5Mpc_all
       - DR17_param_1Mpc_010
-      - DR17_param_5Mpc_010
+      - DR17_param_LSS
+      - DR17_param_5Mpc_015
       - DR17_param_pairs
       - DR17_param_1Mpc_all
-      - DR17_param_5Mpc_002
-      - DR17_param_overdensity
-      - DR17_param_LSS
-      - DR17_param_1Mpc_002
-      - DR17_param_5Mpc_all
-      - DR17_param_1Mpc_006
-      - DR17_param_5Mpc_006
-      - DR17_param_1Mpc_015
       - DR17_param_groups
+      - DR17_param_1Mpc_002
+      - DR17_param_5Mpc_010
+      - DR17_param_overdensity
+      - DR17_param_1Mpc_006
+      - DR17_param_5Mpc_002
       removed_hdus:
-      - MPL6_param_completeness_footprint
-      - MPL6_param_pairs
       - MPL6_param_5Mpc_all
-      - MPL6_param_groups
-      - MPL6_param_1Mpc_006
+      - MPL6_param_pairs
       - MPL6_param_1Mpc_010
-      - MPL6_param_1Mpc_015
+      - MPL6_param_completeness_footprint
       - MPL6_param_1Mpc_all
+      - MPL6_param_groups
       - MPL6_param_1Mpc_002
-      - MPL6_param_5Mpc_015
-      - MPL6_param_5Mpc_002
-      - MPL6_param_5Mpc_006
+      - MPL6_param_overdensity
       - MPL6_param_LSS
       - MPL6_param_5Mpc_010
-      - MPL6_param_overdensity
+      - MPL6_param_5Mpc_015
+      - MPL6_param_1Mpc_006
+      - MPL6_param_5Mpc_006
+      - MPL6_param_1Mpc_015
+      - MPL6_param_5Mpc_002
     DR16:
       from: DR15
       note: No changes
@@ -133,624 +133,685 @@ releases:
           comment: Number of following BINTABLE HDUs
       hdu1:
         name: MPL6_param_completeness_footprint
-        description: replace me description
+        description: Redshift completeness and survey footprint within 1Mpc and 5Mpc
+          projected distance.
         is_image: false
         size: 112 KB
         columns:
           mangaid:
             name: MANGAID
             type: char[9]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MaNGA ID
           zcomp_1Mpc:
             name: ZCOMP_1MPC
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Redshift completeness in 1 Mpc field radius
           zcomp_5Mpc:
             name: ZCOMP_5MPC
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Redshift completeness in 5 Mpc field radius
           footprint_1Mpc:
             name: FOOTPRINT_1MPC
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Footprint in 1 Mpc field radius, 1:yes 0:no
           footprint_5Mpc:
             name: FOOTPRINT_5MPC
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Footprint in 5 Mpc field radius, 1:yes 0:no
       hdu2:
         name: MPL6_param_1Mpc_all
-        description: replace me description
+        description: "Characterization of the LSS environment by all neighbours within\
+          \ 500 km/s line-of-sight velocity difference up to 1 Mpc projected distance\
+          \ (following the methodology in Argudo-Fern\xE1ndez et al. 2015)."
         is_image: false
         size: 229 KB
         columns:
           mangaid:
             name: MANGAID
             type: char[9]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MaNGA ID
           nneigh:
             name: NNEIGH
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of LSS associations
           Q_nn:
             name: Q_NN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the 1st nearest neighbour
           dnn:
             name: DNN
             type: float64
             unit: Mpc
-            description: replace me - with content
+            description: Projected distance to the 1st nearest neighbour
           Q_lss:
             name: Q_LSS
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the LSS
           eta_k:
             name: ETA_K
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Projected density to the 5th nearest neighbour
           dkn:
             name: DKN
             type: float64
             unit: Mpc
-            description: replace me - with content
+            description: Projected distance to the 5th nearest neighbour
       hdu3:
         name: MPL6_param_1Mpc_002
-        description: replace me description
+        description: "Characterization of the LSS environment by all the neighbours\
+          \ within 500 km/s line-of-sight velocity difference up to 1 Mpc projected\
+          \ distance in a volume limited sample up to z < 0.02 (following the methodology\
+          \ in Argudo-Fern\xE1ndez et al. 2015)."
         is_image: false
         size: 229 KB
         columns:
           mangaid:
             name: MANGAID
             type: char[9]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MaNGA ID
           nneigh:
             name: NNEIGH
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of LSS associations
           Q_nn:
             name: Q_NN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the 1st nearest neighbour
           dnn:
             name: DNN
             type: float64
             unit: Mpc
-            description: replace me - with content
+            description: Projected distance to the 1st nearest neighbour
           Q_lss:
             name: Q_LSS
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the LSS
           eta_k:
             name: ETA_K
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Projected density to the 5th nearest neighbour
           dkn:
             name: DKN
             type: float64
             unit: Mpc
-            description: replace me - with content
+            description: Projected distance to the 5th nearest neighbour
       hdu4:
         name: MPL6_param_1Mpc_006
-        description: replace me description
+        description: "Characterization of the LSS environment by all the neighbours\
+          \ within 500 km/s line-of-sight velocity difference up to 1 Mpc projected\
+          \ distance in a volume limited sample up to z < 0.06 (following the methodology\
+          \ in Argudo-Fern\xE1ndez et al. 2015)."
         is_image: false
         size: 229 KB
         columns:
           mangaid:
             name: MANGAID
             type: char[9]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MaNGA ID
           nneigh:
             name: NNEIGH
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of LSS associations
           Q_nn:
             name: Q_NN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the 1st nearest neighbour
           dnn:
             name: DNN
             type: float64
             unit: Mpc
-            description: replace me - with content
+            description: Projected distance to the 1st nearest neighbour
           Q_lss:
             name: Q_LSS
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the LSS
           eta_k:
             name: ETA_K
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Projected density to the 5th nearest neighbour
           dkn:
             name: DKN
             type: float64
             unit: Mpc
-            description: replace me - with content
+            description: Projected distance to the 5th nearest neighbour
       hdu5:
         name: MPL6_param_1Mpc_010
-        description: replace me description
+        description: "Characterization of the LSS environment by all the neighbours\
+          \ within 500 km/s line-of-sight velocity difference up to 1 Mpc projected\
+          \ distance in a volume limited sample up to z < 0.10 (following the methodology\
+          \ in Argudo-Fern\xE1ndez et al. 2015)."
         is_image: false
         size: 229 KB
         columns:
           mangaid:
             name: MANGAID
             type: char[9]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MaNGA ID
           nneigh:
             name: NNEIGH
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of LSS associations
           Q_nn:
             name: Q_NN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the 1st nearest neighbour
           dnn:
             name: DNN
             type: float64
             unit: Mpc
-            description: replace me - with content
+            description: Projected distance to the 1st nearest neighbour
           Q_lss:
             name: Q_LSS
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the LSS
           eta_k:
             name: ETA_K
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Projected density to the 5th nearest neighbour
           dkn:
             name: DKN
             type: float64
             unit: Mpc
-            description: replace me - with content
+            description: Projected distance to the 5th nearest neighbour
       hdu6:
         name: MPL6_param_1Mpc_015
-        description: replace me description
+        description: "[Characterization of the LSS environment by all the neighbours\
+          \ within 500 km/s line-of-sight velocity difference up to 1 Mpc projected\
+          \ distance in a volume limited sample up to z < 0.15 (following the methodology\
+          \ in Argudo-Fern\xE1ndez et al. 2015)."
         is_image: false
         size: 229 KB
         columns:
           mangaid:
             name: MANGAID
             type: char[9]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MaNGA ID
           nneigh:
             name: NNEIGH
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of LSS associations
           Q_nn:
             name: Q_NN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the 1st nearest neighbour
           dnn:
             name: DNN
             type: float64
             unit: Mpc
-            description: replace me - with content
+            description: Projected distance to the 1st nearest neighbour
           Q_lss:
             name: Q_LSS
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the LSS
           eta_k:
             name: ETA_K
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Projected density to the 5th nearest neighbour
           dkn:
             name: DKN
             type: float64
             unit: Mpc
-            description: replace me - with content
+            description: Projected distance to the 5th nearest neighbour
       hdu7:
         name: MPL6_param_5Mpc_all
-        description: replace me description
+        description: "Characterization of the LSS environment by all neighbours within\
+          \ 500 km/s line-of-sight velocity difference up to 5 Mpc projected distance\
+          \ (following the methodology in Argudo-Fern\xE1ndez et al. 2015)."
         is_image: false
         size: 229 KB
         columns:
           mangaid:
             name: MANGAID
             type: char[9]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MaNGA ID
           nneigh:
             name: NNEIGH
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of LSS associations
           Q_nn:
             name: Q_NN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the 1st nearest neighbour
           dnn:
             name: DNN
             type: float64
             unit: Mpc
-            description: replace me - with content
+            description: Projected distance to the 1st nearest neighbour
           Q_lss:
             name: Q_LSS
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the LSS
           eta_k:
             name: ETA_K
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Projected density to the 5th nearest neighbour
           dkn:
             name: DKN
             type: float64
             unit: Mpc
-            description: replace me - with content
+            description: Projected distance to the 5th nearest neighbour
       hdu8:
         name: MPL6_param_5Mpc_002
-        description: replace me description
+        description: "Characterization of the LSS environment by all the neighbours\
+          \ within 500 km/s line-of-sight velocity difference up to 5 Mpc projected\
+          \ distance in a volume limited sample up to z < 0.02 (following the methodology\
+          \ in Argudo-Fern\xE1ndez et al. 2015)."
         is_image: false
         size: 229 KB
         columns:
           mangaid:
             name: MANGAID
             type: char[9]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MaNGA ID
           nneigh:
             name: NNEIGH
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of LSS associations
           Q_nn:
             name: Q_NN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the 1st nearest neighbour
           dnn:
             name: DNN
             type: float64
             unit: Mpc
-            description: replace me - with content
+            description: Projected distance to the 1st nearest neighbour
           Q_lss:
             name: Q_LSS
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the LSS
           eta_k:
             name: ETA_K
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Projected density to the 5th nearest neighbour
           dkn:
             name: DKN
             type: float64
             unit: Mpc
-            description: replace me - with content
+            description: Projected distance to the 5th nearest neighbour
       hdu9:
         name: MPL6_param_5Mpc_006
-        description: replace me description
+        description: "Characterization of the LSS environment by all the neighbours\
+          \ within 500 km/s line-of-sight velocity difference up to 5 Mpc projected\
+          \ distance in a volume limited sample up to z < 0.06 (following the methodology\
+          \ in Argudo-Fern\xE1ndez et al. 2015)."
         is_image: false
         size: 229 KB
         columns:
           mangaid:
             name: MANGAID
             type: char[9]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MaNGA ID
           nneigh:
             name: NNEIGH
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of LSS associations
           Q_nn:
             name: Q_NN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the 1st nearest neighbour
           dnn:
             name: DNN
             type: float64
             unit: Mpc
-            description: replace me - with content
+            description: Projected distance to the 1st nearest neighbour
           Q_lss:
             name: Q_LSS
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the LSS
           eta_k:
             name: ETA_K
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Projected density to the 5th nearest neighbour
           dkn:
             name: DKN
             type: float64
             unit: Mpc
-            description: replace me - with content
+            description: Projected distance to the 5th nearest neighbour
       hdu10:
         name: MPL6_param_5Mpc_010
-        description: replace me description
+        description: "Characterization of the LSS environment by all the neighbours\
+          \ within 500 km/s line-of-sight velocity difference up to 5 Mpc projected\
+          \ distance in a volume limited sample up to z < 0.10 (following the methodology\
+          \ in Argudo-Fern\xE1ndez et al. 2015)."
         is_image: false
         size: 229 KB
         columns:
           mangaid:
             name: MANGAID
             type: char[9]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MaNGA ID
           nneigh:
             name: NNEIGH
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of LSS associations
           Q_nn:
             name: Q_NN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the 1st nearest neighbour
           dnn:
             name: DNN
             type: float64
             unit: Mpc
-            description: replace me - with content
+            description: Projected distance to the 1st nearest neighbour
           Q_lss:
             name: Q_LSS
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the LSS
           eta_k:
             name: ETA_K
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Projected density to the 5th nearest neighbour
           dkn:
             name: DKN
             type: float64
             unit: Mpc
-            description: replace me - with content
+            description: Projected distance to the 5th nearest neighbour
       hdu11:
         name: MPL6_param_5Mpc_015
-        description: replace me description
+        description: "Characterization of the LSS environment by all the neighbours\
+          \ within 500 km/s line-of-sight velocity difference up to 5 Mpc projected\
+          \ distance in a volume limited sample up to z < 0.15 (following the methodology\
+          \ in Argudo-Fern\xE1ndez et al. 2015)."
         is_image: false
         size: 229 KB
         columns:
           mangaid:
             name: MANGAID
             type: char[9]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MaNGA ID
           nneigh:
             name: NNEIGH
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of LSS associations
           Q_nn:
             name: Q_NN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the 1st nearest neighbour
           dnn:
             name: DNN
             type: float64
             unit: Mpc
-            description: replace me - with content
+            description: Projected distance to the 1st nearest neighbour
           Q_lss:
             name: Q_LSS
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the LSS
           eta_k:
             name: ETA_K
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Projected density to the 5th nearest neighbour
           dkn:
             name: DKN
             type: float64
             unit: Mpc
-            description: replace me - with content
+            description: Projected distance to the 5th nearest neighbour
       hdu12:
         name: MPL6_param_pairs
-        description: replace me description
+        description: "Environmental influence of galaxies in pairs (following the\
+          \ methodology in Argudo-Fern\xE1ndez et al. 2015). Pairs identified by the\
+          \ MaNGA-mergers working group."
         is_image: false
         size: 16 KB
         columns:
           mangaid:
             name: MANGAID
             type: char[9]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MaNGA ID
           Qpair:
             name: QPAIR
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the pair galaxy
           dist:
             name: DIST
             type: float64
             unit: kpc
-            description: replace me - with content
+            description: Projected dostance to the pair galaxy
           deltavel:
             name: DELTAVEL
             type: float64
             unit: km s-1
-            description: replace me - with content
+            description: Line-of-sight velocity difference with the pair galaxy
       hdu13:
         name: MPL6_param_groups
-        description: replace me description
+        description: "Environemtal influence of galaxies in groups (following the\
+          \ methodology in Argudo-Fern\xE1ndez et al. 2015), using the catalogue of\
+          \ groups of Yang et al."
         is_image: false
         size: 244 KB
         columns:
           mangaid:
             name: MANGAID
             type: char[9]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MaNGA ID
           BG:
             name: BG
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Brightest galaxy = 1; other galaxies in group = 2
           MG:
             name: MG
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Most massive galaxy (M_stellar) = 1; other galaxies in group
+              = 2
           GroupSize:
             name: GROUPSIZE
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of galaxies in the group
           nneigh:
             name: NNEIGH
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of group associations
           Q_nn:
             name: Q_NN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the 1st nearest group galaxy
           dnn:
             name: DNN
             type: float64
             unit: Mpc
-            description: replace me - with content
+            description: Projected distance to the 1st nearest group galaxy
           Q_group:
             name: Q_GROUP
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the group galaxies
           eta_k:
             name: ETA_K
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Projected density to the 5th nearest group galaxy
           dkn:
             name: DKN
             type: float64
             unit: Mpc
-            description: replace me - with content
+            description: Projected distance to the 5th nearest group galaxy
       hdu14:
         name: MPL6_param_overdensity
-        description: replace me description
+        description: Local density environment to the 5th nearest neighbour, corrected
+          by mean overdensity using the correction in Etherington and Thomas 2015.
         is_image: false
         size: 86 KB
         columns:
           mangaid:
             name: MANGAID
             type: char[11]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MaNGA ID
           overdensity:
             name: OVERDENSITY
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Overdensity to the 5th nearest neighbour
           local_density:
             name: LOCAL_DENSITY
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Corrected local density to the 5th nearest neighbour
       hdu15:
         name: MPL6_param_LSS
-        description: replace me description
+        description: 'Characterisation of the LSS by Wang et al.
+
+          t1,t2,t3 are eigen values of the tidal tensor along the major, intermediate
+          and minor axes at the position of the galaxy. By definition t1>t2>t3. The
+          eigenvalues can be used to classify the large scale environment (Hahn et
+          al. 2007).
+
+          * If T1>0,T2>0,T3>0, then the galaxies are in cluster environment.
+
+          * If T1>0,T2>0,T3<0, filament environment.
+
+          * If T1>0,T2<0,T3<0, sheet environment.
+
+          * If T1<0,T2<0,T3<0, void environment.
+
+          x_major, y_major, z_major show the 3-d direction of the major axis of the
+          eigenvector of the tidal tensor. x_minor, y_minor, z_minor show the 3-d
+          direction of the minor axis of the eigenvector of the tidal tensor. Where
+
+          * x_major^2+y_major^2+z_major^2=1
+
+          * x_minor^2+y_minor^2+z_minor^2=1
+
+          * x_major*x_minor+y_major*y_minor+z_major*z_minor=0
+
+          Major axis is perpendicular to minor axis, and the intermediate axis is
+          perpendicular to these two axes.'
         is_image: false
         size: 502 KB
         columns:
           mangaid:
             name: MANGAID
             type: char[11]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MaNGA ID
           mh:
             name: MH
             type: float32
             unit: log10(M_sun)
-            description: replace me - with content
+            description: Halo mass
           den1:
             name: DEN1
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Average local density within 1Mpc
           den2:
             name: DEN2
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Average local density within 2Mpc
           den3:
             name: DEN3
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Average local density within 3Mpc
           t1:
             name: T1
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Eigen values of the tidal tensor along the major axes
           t2:
             name: T2
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Eigen values of the tidal tensor along the intermediate axes
           t3:
             name: T3
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Eigen values of the tidal tensor along the minor axes
           x_major:
             name: X_MAJOR
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 3-d direction of the major axis of the eigenvector
           y_major:
             name: Y_MAJOR
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 3-d direction of the major axis of the eigenvector
           z_major:
             name: Z_MAJOR
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 3-d direction of the major axis of the eigenvector
           x_minor:
             name: X_MINOR
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 3-d direction of the minor axis of the eigenvector
           y_minor:
             name: Y_MINOR
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 3-d direction of the minor axis of the eigenvector
           z_minor:
             name: Z_MINOR
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 3-d direction of the minor axis of the eigenvector
   DR16:
     template: $MANGA_GEMA/1.0.1/GEMA-1.0.1.fits
     example: 1.0.1/GEMA-1.0.1.fits
@@ -829,624 +890,685 @@ releases:
           comment: Number of following BINTABLE HDUs
       hdu1:
         name: MPL6_param_completeness_footprint
-        description: replace me description
+        description: Redshift completeness and survey footprint within 1Mpc and 5Mpc
+          projected distance.
         is_image: false
         size: 112 KB
         columns:
           mangaid:
             name: MANGAID
             type: char[9]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MaNGA ID
           zcomp_1Mpc:
             name: ZCOMP_1MPC
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Redshift completeness in 1 Mpc field radius
           zcomp_5Mpc:
             name: ZCOMP_5MPC
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Redshift completeness in 5 Mpc field radius
           footprint_1Mpc:
             name: FOOTPRINT_1MPC
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Footprint in 1 Mpc field radius, 1:yes 0:no
           footprint_5Mpc:
             name: FOOTPRINT_5MPC
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Footprint in 5 Mpc field radius, 1:yes 0:no
       hdu2:
         name: MPL6_param_1Mpc_all
-        description: replace me description
+        description: "Characterization of the LSS environment by all neighbours within\
+          \ 500 km/s line-of-sight velocity difference up to 1 Mpc projected distance\
+          \ (following the methodology in Argudo-Fern\xE1ndez et al. 2015)."
         is_image: false
         size: 229 KB
         columns:
           mangaid:
             name: MANGAID
             type: char[9]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MaNGA ID
           nneigh:
             name: NNEIGH
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of LSS associations
           Q_nn:
             name: Q_NN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the 1st nearest neighbour
           dnn:
             name: DNN
             type: float64
             unit: Mpc
-            description: replace me - with content
+            description: Projected distance to the 1st nearest neighbour
           Q_lss:
             name: Q_LSS
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the LSS
           eta_k:
             name: ETA_K
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Projected density to the 5th nearest neighbour
           dkn:
             name: DKN
             type: float64
             unit: Mpc
-            description: replace me - with content
+            description: Projected distance to the 5th nearest neighbour
       hdu3:
         name: MPL6_param_1Mpc_002
-        description: replace me description
+        description: "Characterization of the LSS environment by all the neighbours\
+          \ within 500 km/s line-of-sight velocity difference up to 1 Mpc projected\
+          \ distance in a volume limited sample up to z < 0.02 (following the methodology\
+          \ in Argudo-Fern\xE1ndez et al. 2015)."
         is_image: false
         size: 229 KB
         columns:
           mangaid:
             name: MANGAID
             type: char[9]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MaNGA ID
           nneigh:
             name: NNEIGH
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of LSS associations
           Q_nn:
             name: Q_NN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the 1st nearest neighbour
           dnn:
             name: DNN
             type: float64
             unit: Mpc
-            description: replace me - with content
+            description: Projected distance to the 1st nearest neighbour
           Q_lss:
             name: Q_LSS
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the LSS
           eta_k:
             name: ETA_K
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Projected density to the 5th nearest neighbour
           dkn:
             name: DKN
             type: float64
             unit: Mpc
-            description: replace me - with content
+            description: Projected distance to the 5th nearest neighbour
       hdu4:
         name: MPL6_param_1Mpc_006
-        description: replace me description
+        description: "Characterization of the LSS environment by all the neighbours\
+          \ within 500 km/s line-of-sight velocity difference up to 1 Mpc projected\
+          \ distance in a volume limited sample up to z < 0.06 (following the methodology\
+          \ in Argudo-Fern\xE1ndez et al. 2015)."
         is_image: false
         size: 229 KB
         columns:
           mangaid:
             name: MANGAID
             type: char[9]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MaNGA ID
           nneigh:
             name: NNEIGH
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of LSS associations
           Q_nn:
             name: Q_NN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the 1st nearest neighbour
           dnn:
             name: DNN
             type: float64
             unit: Mpc
-            description: replace me - with content
+            description: Projected distance to the 1st nearest neighbour
           Q_lss:
             name: Q_LSS
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the LSS
           eta_k:
             name: ETA_K
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Projected density to the 5th nearest neighbour
           dkn:
             name: DKN
             type: float64
             unit: Mpc
-            description: replace me - with content
+            description: Projected distance to the 5th nearest neighbour
       hdu5:
         name: MPL6_param_1Mpc_010
-        description: replace me description
+        description: "Characterization of the LSS environment by all the neighbours\
+          \ within 500 km/s line-of-sight velocity difference up to 1 Mpc projected\
+          \ distance in a volume limited sample up to z < 0.10 (following the methodology\
+          \ in Argudo-Fern\xE1ndez et al. 2015)."
         is_image: false
         size: 229 KB
         columns:
           mangaid:
             name: MANGAID
             type: char[9]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MaNGA ID
           nneigh:
             name: NNEIGH
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of LSS associations
           Q_nn:
             name: Q_NN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the 1st nearest neighbour
           dnn:
             name: DNN
             type: float64
             unit: Mpc
-            description: replace me - with content
+            description: Projected distance to the 1st nearest neighbour
           Q_lss:
             name: Q_LSS
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the LSS
           eta_k:
             name: ETA_K
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Projected density to the 5th nearest neighbour
           dkn:
             name: DKN
             type: float64
             unit: Mpc
-            description: replace me - with content
+            description: Projected distance to the 5th nearest neighbour
       hdu6:
         name: MPL6_param_1Mpc_015
-        description: replace me description
+        description: "[Characterization of the LSS environment by all the neighbours\
+          \ within 500 km/s line-of-sight velocity difference up to 1 Mpc projected\
+          \ distance in a volume limited sample up to z < 0.15 (following the methodology\
+          \ in Argudo-Fern\xE1ndez et al. 2015)."
         is_image: false
         size: 229 KB
         columns:
           mangaid:
             name: MANGAID
             type: char[9]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MaNGA ID
           nneigh:
             name: NNEIGH
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of LSS associations
           Q_nn:
             name: Q_NN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the 1st nearest neighbour
           dnn:
             name: DNN
             type: float64
             unit: Mpc
-            description: replace me - with content
+            description: Projected distance to the 1st nearest neighbour
           Q_lss:
             name: Q_LSS
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the LSS
           eta_k:
             name: ETA_K
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Projected density to the 5th nearest neighbour
           dkn:
             name: DKN
             type: float64
             unit: Mpc
-            description: replace me - with content
+            description: Projected distance to the 5th nearest neighbour
       hdu7:
         name: MPL6_param_5Mpc_all
-        description: replace me description
+        description: "Characterization of the LSS environment by all neighbours within\
+          \ 500 km/s line-of-sight velocity difference up to 5 Mpc projected distance\
+          \ (following the methodology in Argudo-Fern\xE1ndez et al. 2015)."
         is_image: false
         size: 229 KB
         columns:
           mangaid:
             name: MANGAID
             type: char[9]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MaNGA ID
           nneigh:
             name: NNEIGH
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of LSS associations
           Q_nn:
             name: Q_NN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the 1st nearest neighbour
           dnn:
             name: DNN
             type: float64
             unit: Mpc
-            description: replace me - with content
+            description: Projected distance to the 1st nearest neighbour
           Q_lss:
             name: Q_LSS
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the LSS
           eta_k:
             name: ETA_K
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Projected density to the 5th nearest neighbour
           dkn:
             name: DKN
             type: float64
             unit: Mpc
-            description: replace me - with content
+            description: Projected distance to the 5th nearest neighbour
       hdu8:
         name: MPL6_param_5Mpc_002
-        description: replace me description
+        description: "Characterization of the LSS environment by all the neighbours\
+          \ within 500 km/s line-of-sight velocity difference up to 5 Mpc projected\
+          \ distance in a volume limited sample up to z < 0.02 (following the methodology\
+          \ in Argudo-Fern\xE1ndez et al. 2015)."
         is_image: false
         size: 229 KB
         columns:
           mangaid:
             name: MANGAID
             type: char[9]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MaNGA ID
           nneigh:
             name: NNEIGH
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of LSS associations
           Q_nn:
             name: Q_NN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the 1st nearest neighbour
           dnn:
             name: DNN
             type: float64
             unit: Mpc
-            description: replace me - with content
+            description: Projected distance to the 1st nearest neighbour
           Q_lss:
             name: Q_LSS
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the LSS
           eta_k:
             name: ETA_K
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Projected density to the 5th nearest neighbour
           dkn:
             name: DKN
             type: float64
             unit: Mpc
-            description: replace me - with content
+            description: Projected distance to the 5th nearest neighbour
       hdu9:
         name: MPL6_param_5Mpc_006
-        description: replace me description
+        description: "Characterization of the LSS environment by all the neighbours\
+          \ within 500 km/s line-of-sight velocity difference up to 5 Mpc projected\
+          \ distance in a volume limited sample up to z < 0.06 (following the methodology\
+          \ in Argudo-Fern\xE1ndez et al. 2015)."
         is_image: false
         size: 229 KB
         columns:
           mangaid:
             name: MANGAID
             type: char[9]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MaNGA ID
           nneigh:
             name: NNEIGH
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of LSS associations
           Q_nn:
             name: Q_NN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the 1st nearest neighbour
           dnn:
             name: DNN
             type: float64
             unit: Mpc
-            description: replace me - with content
+            description: Projected distance to the 1st nearest neighbour
           Q_lss:
             name: Q_LSS
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the LSS
           eta_k:
             name: ETA_K
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Projected density to the 5th nearest neighbour
           dkn:
             name: DKN
             type: float64
             unit: Mpc
-            description: replace me - with content
+            description: Projected distance to the 5th nearest neighbour
       hdu10:
         name: MPL6_param_5Mpc_010
-        description: replace me description
+        description: "Characterization of the LSS environment by all the neighbours\
+          \ within 500 km/s line-of-sight velocity difference up to 5 Mpc projected\
+          \ distance in a volume limited sample up to z < 0.10 (following the methodology\
+          \ in Argudo-Fern\xE1ndez et al. 2015)."
         is_image: false
         size: 229 KB
         columns:
           mangaid:
             name: MANGAID
             type: char[9]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MaNGA ID
           nneigh:
             name: NNEIGH
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of LSS associations
           Q_nn:
             name: Q_NN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the 1st nearest neighbour
           dnn:
             name: DNN
             type: float64
             unit: Mpc
-            description: replace me - with content
+            description: Projected distance to the 1st nearest neighbour
           Q_lss:
             name: Q_LSS
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the LSS
           eta_k:
             name: ETA_K
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Projected density to the 5th nearest neighbour
           dkn:
             name: DKN
             type: float64
             unit: Mpc
-            description: replace me - with content
+            description: Projected distance to the 5th nearest neighbour
       hdu11:
         name: MPL6_param_5Mpc_015
-        description: replace me description
+        description: "Characterization of the LSS environment by all the neighbours\
+          \ within 500 km/s line-of-sight velocity difference up to 5 Mpc projected\
+          \ distance in a volume limited sample up to z < 0.15 (following the methodology\
+          \ in Argudo-Fern\xE1ndez et al. 2015)."
         is_image: false
         size: 229 KB
         columns:
           mangaid:
             name: MANGAID
             type: char[9]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MaNGA ID
           nneigh:
             name: NNEIGH
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of LSS associations
           Q_nn:
             name: Q_NN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the 1st nearest neighbour
           dnn:
             name: DNN
             type: float64
             unit: Mpc
-            description: replace me - with content
+            description: Projected distance to the 1st nearest neighbour
           Q_lss:
             name: Q_LSS
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the LSS
           eta_k:
             name: ETA_K
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Projected density to the 5th nearest neighbour
           dkn:
             name: DKN
             type: float64
             unit: Mpc
-            description: replace me - with content
+            description: Projected distance to the 5th nearest neighbour
       hdu12:
         name: MPL6_param_pairs
-        description: replace me description
+        description: "Environmental influence of galaxies in pairs (following the\
+          \ methodology in Argudo-Fern\xE1ndez et al. 2015). Pairs identified by the\
+          \ MaNGA-mergers working group."
         is_image: false
         size: 16 KB
         columns:
           mangaid:
             name: MANGAID
             type: char[9]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MaNGA ID
           Qpair:
             name: QPAIR
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the pair galaxy
           dist:
             name: DIST
             type: float64
             unit: kpc
-            description: replace me - with content
+            description: Projected dostance to the pair galaxy
           deltavel:
             name: DELTAVEL
             type: float64
             unit: km s-1
-            description: replace me - with content
+            description: Line-of-sight velocity difference with the pair galaxy
       hdu13:
         name: MPL6_param_groups
-        description: replace me description
+        description: "Environemtal influence of galaxies in groups (following the\
+          \ methodology in Argudo-Fern\xE1ndez et al. 2015), using the catalogue of\
+          \ groups of Yang et al."
         is_image: false
         size: 244 KB
         columns:
           mangaid:
             name: MANGAID
             type: char[9]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MaNGA ID
           BG:
             name: BG
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Brightest galaxy = 1; other galaxies in group = 2
           MG:
             name: MG
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Most massive galaxy (M_stellar) = 1; other galaxies in group
+              = 2
           GroupSize:
             name: GROUPSIZE
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of galaxies in the group
           nneigh:
             name: NNEIGH
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of group associations
           Q_nn:
             name: Q_NN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the 1st nearest group galaxy
           dnn:
             name: DNN
             type: float64
             unit: Mpc
-            description: replace me - with content
+            description: Projected distance to the 1st nearest group galaxy
           Q_group:
             name: Q_GROUP
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the group galaxies
           eta_k:
             name: ETA_K
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Projected density to the 5th nearest group galaxy
           dkn:
             name: DKN
             type: float64
             unit: Mpc
-            description: replace me - with content
+            description: Projected distance to the 5th nearest group galaxy
       hdu14:
         name: MPL6_param_overdensity
-        description: replace me description
+        description: Local density environment to the 5th nearest neighbour, corrected
+          by mean overdensity using the correction in Etherington and Thomas 2015.
         is_image: false
         size: 86 KB
         columns:
           mangaid:
             name: MANGAID
             type: char[11]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MaNGA ID
           overdensity:
             name: OVERDENSITY
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Overdensity to the 5th nearest neighbour
           local_density:
             name: LOCAL_DENSITY
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Corrected local density to the 5th nearest neighbour
       hdu15:
         name: MPL6_param_LSS
-        description: replace me description
+        description: 'Characterisation of the LSS by Wang et al.
+
+          t1,t2,t3 are eigen values of the tidal tensor along the major, intermediate
+          and minor axes at the position of the galaxy. By definition t1>t2>t3. The
+          eigenvalues can be used to classify the large scale environment (Hahn et
+          al. 2007).
+
+          * If T1>0,T2>0,T3>0, then the galaxies are in cluster environment.
+
+          * If T1>0,T2>0,T3<0, filament environment.
+
+          * If T1>0,T2<0,T3<0, sheet environment.
+
+          * If T1<0,T2<0,T3<0, void environment.
+
+          x_major, y_major, z_major show the 3-d direction of the major axis of the
+          eigenvector of the tidal tensor. x_minor, y_minor, z_minor show the 3-d
+          direction of the minor axis of the eigenvector of the tidal tensor. Where
+
+          * x_major^2+y_major^2+z_major^2=1
+
+          * x_minor^2+y_minor^2+z_minor^2=1
+
+          * x_major*x_minor+y_major*y_minor+z_major*z_minor=0
+
+          Major axis is perpendicular to minor axis, and the intermediate axis is
+          perpendicular to these two axes.'
         is_image: false
         size: 502 KB
         columns:
           mangaid:
             name: MANGAID
             type: char[11]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MaNGA ID
           mh:
             name: MH
             type: float32
             unit: log10(M_sun)
-            description: replace me - with content
+            description: Halo mass
           den1:
             name: DEN1
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Average local density within 1Mpc
           den2:
             name: DEN2
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Average local density within 2Mpc
           den3:
             name: DEN3
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Average local density within 3Mpc
           t1:
             name: T1
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Eigen values of the tidal tensor along the major axes
           t2:
             name: T2
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Eigen values of the tidal tensor along the intermediate axes
           t3:
             name: T3
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Eigen values of the tidal tensor along the minor axes
           x_major:
             name: X_MAJOR
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 3-d direction of the major axis of the eigenvector
           y_major:
             name: Y_MAJOR
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 3-d direction of the major axis of the eigenvector
           z_major:
             name: Z_MAJOR
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 3-d direction of the major axis of the eigenvector
           x_minor:
             name: X_MINOR
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 3-d direction of the minor axis of the eigenvector
           y_minor:
             name: Y_MINOR
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 3-d direction of the minor axis of the eigenvector
           z_minor:
             name: Z_MINOR
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 3-d direction of the minor axis of the eigenvector
   DR17:
     template: $MANGA_GEMA/2.0.2/GEMA_2.0.2.fits
     example: 2.0.2/GEMA_2.0.2.fits
@@ -1525,626 +1647,690 @@ releases:
           comment: Number of following BINTABLE HDUs
       hdu1:
         name: DR17_param_completeness_footprint
-        description: replace me description
+        description: Redshift completeness and survey footprint within 1Mpc and 5Mpc
+          projected distance.
         is_image: false
         size: 206 KB
         columns:
           mangaid:
             name: MANGAID
             type: char[9]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MaNGA ID
           zcomp_1Mpc:
             name: ZCOMP_1MPC
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Redshift completeness in 1 Mpc field radius
           zcomp_5Mpc:
             name: ZCOMP_5MPC
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Redshift completeness in 5 Mpc field radius
           footprint_1:
             name: FOOTPRINT_1
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           footprint_5:
             name: FOOTPRINT_5
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
       hdu2:
         name: DR17_param_1Mpc_all
-        description: replace me description
+        description: "Characterization of the LSS environment by all neighbours within\
+          \ 500 km/s line-of-sight velocity difference up to 1 Mpc projected distance\
+          \ (following the methodology in Argudo-Fern\xE1ndez et al. 2015)."
         is_image: false
         size: 502 KB
         columns:
           mangaid:
             name: MANGAID
             type: char[9]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MaNGA ID
           nneigh:
             name: NNEIGH
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of LSS associations
           Q_nn:
             name: Q_NN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the 1st nearest neighbour
           dnn:
             name: DNN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Mpc
+            description: Projected distance to the 1st nearest neighbour
           Q_lss:
             name: Q_LSS
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the LSS
           eta_k:
             name: ETA_K
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Projected density to the 5th nearest neighbour
           dkn:
             name: DKN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Mpc
+            description: Projected distance to the 5th nearest neighbour
       hdu3:
         name: DR17_param_1Mpc_002
-        description: replace me description
+        description: "Characterization of the LSS environment by all the neighbours\
+          \ within 500 km/s line-of-sight velocity difference up to 1 Mpc projected\
+          \ distance in a volume limited sample up to z < 0.02 (following the methodology\
+          \ in Argudo-Fern\xE1ndez et al. 2015)."
         is_image: false
         size: 502 KB
         columns:
           mangaid:
             name: MANGAID
             type: char[9]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MaNGA ID
           nneigh:
             name: NNEIGH
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of LSS associations
           Q_nn:
             name: Q_NN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the 1st nearest neighbour
           dnn:
             name: DNN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Mpc
+            description: Projected distance to the 1st nearest neighbour
           Q_lss:
             name: Q_LSS
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the LSS
           eta_k:
             name: ETA_K
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Projected density to the 5th nearest neighbour
           dkn:
             name: DKN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Mpc
+            description: Projected distance to the 5th nearest neighbour
       hdu4:
         name: DR17_param_1Mpc_006
-        description: replace me description
+        description: "Characterization of the LSS environment by all the neighbours\
+          \ within 500 km/s line-of-sight velocity difference up to 1 Mpc projected\
+          \ distance in a volume limited sample up to z < 0.06 (following the methodology\
+          \ in Argudo-Fern\xE1ndez et al. 2015)."
         is_image: false
         size: 502 KB
         columns:
           mangaid:
             name: MANGAID
             type: char[9]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MaNGA ID
           nneigh:
             name: NNEIGH
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of LSS associations
           Q_nn:
             name: Q_NN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the 1st nearest neighbour
           dnn:
             name: DNN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Mpc
+            description: Projected distance to the 1st nearest neighbour
           Q_lss:
             name: Q_LSS
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the LSS
           eta_k:
             name: ETA_K
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Projected density to the 5th nearest neighbour
           dkn:
             name: DKN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Mpc
+            description: Projected distance to the 5th nearest neighbour
       hdu5:
         name: DR17_param_1Mpc_010
-        description: replace me description
+        description: "Characterization of the LSS environment by all the neighbours\
+          \ within 500 km/s line-of-sight velocity difference up to 1 Mpc projected\
+          \ distance in a volume limited sample up to z < 0.10 (following the methodology\
+          \ in Argudo-Fern\xE1ndez et al. 2015)."
         is_image: false
         size: 502 KB
         columns:
           mangaid:
             name: MANGAID
             type: char[9]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MaNGA ID
           nneigh:
             name: NNEIGH
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of LSS associations
           Q_nn:
             name: Q_NN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the 1st nearest neighbour
           dnn:
             name: DNN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Mpc
+            description: Projected distance to the 1st nearest neighbour
           Q_lss:
             name: Q_LSS
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the LSS
           eta_k:
             name: ETA_K
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Projected density to the 5th nearest neighbour
           dkn:
             name: DKN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Mpc
+            description: Projected distance to the 5th nearest neighbour
       hdu6:
         name: DR17_param_1Mpc_015
-        description: replace me description
+        description: "[Characterization of the LSS environment by all the neighbours\
+          \ within 500 km/s line-of-sight velocity difference up to 1 Mpc projected\
+          \ distance in a volume limited sample up to z < 0.15 (following the methodology\
+          \ in Argudo-Fern\xE1ndez et al. 2015)."
         is_image: false
         size: 502 KB
         columns:
           mangaid:
             name: MANGAID
             type: char[9]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MaNGA ID
           nneigh:
             name: NNEIGH
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of LSS associations
           Q_nn:
             name: Q_NN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the 1st nearest neighbour
           dnn:
             name: DNN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Mpc
+            description: Projected distance to the 1st nearest neighbour
           Q_lss:
             name: Q_LSS
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the LSS
           eta_k:
             name: ETA_K
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Projected density to the 5th nearest neighbour
           dkn:
             name: DKN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Mpc
+            description: Projected distance to the 5th nearest neighbour
       hdu7:
         name: DR17_param_5Mpc_all
-        description: replace me description
+        description: "Characterization of the LSS environment by all neighbours within\
+          \ 500 km/s line-of-sight velocity difference up to 5 Mpc projected distance\
+          \ (following the methodology in Argudo-Fern\xE1ndez et al. 2015)."
         is_image: false
         size: 502 KB
         columns:
           mangaid:
             name: MANGAID
             type: char[9]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MaNGA ID
           nneigh:
             name: NNEIGH
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of LSS associations
           Q_nn:
             name: Q_NN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the 1st nearest neighbour
           dnn:
             name: DNN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Mpc
+            description: Projected distance to the 1st nearest neighbour
           Q_lss:
             name: Q_LSS
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the LSS
           eta_k:
             name: ETA_K
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Projected density to the 5th nearest neighbour
           dkn:
             name: DKN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Mpc
+            description: Projected distance to the 5th nearest neighbour
       hdu8:
         name: DR17_param_5Mpc_002
-        description: replace me description
+        description: "Characterization of the LSS environment by all the neighbours\
+          \ within 500 km/s line-of-sight velocity difference up to 5 Mpc projected\
+          \ distance in a volume limited sample up to z < 0.02 (following the methodology\
+          \ in Argudo-Fern\xE1ndez et al. 2015)."
         is_image: false
         size: 502 KB
         columns:
           mangaid:
             name: MANGAID
             type: char[9]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MaNGA ID
           nneigh:
             name: NNEIGH
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of LSS associations
           Q_nn:
             name: Q_NN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the 1st nearest neighbour
           dnn:
             name: DNN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Mpc
+            description: Projected distance to the 1st nearest neighbour
           Q_lss:
             name: Q_LSS
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the LSS
           eta_k:
             name: ETA_K
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Projected density to the 5th nearest neighbour
           dkn:
             name: DKN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Mpc
+            description: Projected distance to the 5th nearest neighbour
       hdu9:
         name: DR17_param_5Mpc_006
-        description: replace me description
+        description: "Characterization of the LSS environment by all the neighbours\
+          \ within 500 km/s line-of-sight velocity difference up to 5 Mpc projected\
+          \ distance in a volume limited sample up to z < 0.06 (following the methodology\
+          \ in Argudo-Fern\xE1ndez et al. 2015)."
         is_image: false
         size: 502 KB
         columns:
           mangaid:
             name: MANGAID
             type: char[9]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MaNGA ID
           nneigh:
             name: NNEIGH
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of LSS associations
           Q_nn:
             name: Q_NN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the 1st nearest neighbour
           dnn:
             name: DNN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Mpc
+            description: Projected distance to the 1st nearest neighbour
           Q_lss:
             name: Q_LSS
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the LSS
           eta_k:
             name: ETA_K
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Projected density to the 5th nearest neighbour
           dkn:
             name: DKN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Mpc
+            description: Projected distance to the 5th nearest neighbour
       hdu10:
         name: DR17_param_5Mpc_010
-        description: replace me description
+        description: "Characterization of the LSS environment by all the neighbours\
+          \ within 500 km/s line-of-sight velocity difference up to 5 Mpc projected\
+          \ distance in a volume limited sample up to z < 0.10 (following the methodology\
+          \ in Argudo-Fern\xE1ndez et al. 2015)."
         is_image: false
         size: 502 KB
         columns:
           mangaid:
             name: MANGAID
             type: char[9]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MaNGA ID
           nneigh:
             name: NNEIGH
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of LSS associations
           Q_nn:
             name: Q_NN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the 1st nearest neighbour
           dnn:
             name: DNN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Mpc
+            description: Projected distance to the 1st nearest neighbour
           Q_lss:
             name: Q_LSS
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the LSS
           eta_k:
             name: ETA_K
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Projected density to the 5th nearest neighbour
           dkn:
             name: DKN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Mpc
+            description: Projected distance to the 5th nearest neighbour
       hdu11:
         name: DR17_param_5Mpc_015
-        description: replace me description
+        description: "Characterization of the LSS environment by all the neighbours\
+          \ within 500 km/s line-of-sight velocity difference up to 5 Mpc projected\
+          \ distance in a volume limited sample up to z < 0.15 (following the methodology\
+          \ in Argudo-Fern\xE1ndez et al. 2015)."
         is_image: false
         size: 502 KB
         columns:
           mangaid:
             name: MANGAID
             type: char[9]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MaNGA ID
           nneigh:
             name: NNEIGH
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of LSS associations
           Q_nn:
             name: Q_NN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the 1st nearest neighbour
           dnn:
             name: DNN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Mpc
+            description: Projected distance to the 1st nearest neighbour
           Q_lss:
             name: Q_LSS
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the LSS
           eta_k:
             name: ETA_K
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Projected density to the 5th nearest neighbour
           dkn:
             name: DKN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Mpc
+            description: Projected distance to the 5th nearest neighbour
       hdu12:
         name: DR17_param_pairs
-        description: replace me description
+        description: "Environmental influence of galaxies in pairs (following the\
+          \ methodology in Argudo-Fern\xE1ndez et al. 2015). Pairs identified by the\
+          \ MaNGA-mergers working group."
         is_image: false
         size: 38 KB
         columns:
           mangaid:
             name: MANGAID
             type: char[9]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MaNGA ID
           p_merger:
             name: P_MERGER
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           Qpair:
             name: QPAIR
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the pair galaxy
           dist:
             name: DIST
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: kpc
+            description: Projected dostance to the pair galaxy
           deltavel:
             name: DELTAVEL
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: km s-1
+            description: Line-of-sight velocity difference with the pair galaxy
       hdu13:
         name: DR17_param_groups
-        description: replace me description
+        description: "Environemtal influence of galaxies in groups (following the\
+          \ methodology in Argudo-Fern\xE1ndez et al. 2015), using the catalogue of\
+          \ groups of Yang et al."
         is_image: false
         size: 538 KB
         columns:
           mangaid:
             name: MANGAID
             type: char[9]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MaNGA ID
           BG:
             name: BG
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Brightest galaxy = 1; other galaxies in group = 2
           MG:
             name: MG
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Most massive galaxy (M_stellar) = 1; other galaxies in group
+              = 2
           GroupSize:
             name: GROUPSIZE
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of galaxies in the group
           nneigh:
             name: NNEIGH
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Number of group associations
           Q_nn:
             name: Q_NN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the 1st nearest group galaxy
           dnn:
             name: DNN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Mpc
+            description: Projected distance to the 1st nearest group galaxy
           Q_group:
             name: Q_GROUP
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Tidal strength of the group galaxies
           eta_k:
             name: ETA_K
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Projected density to the 5th nearest group galaxy
           dkn:
             name: DKN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Mpc
+            description: Projected distance to the 5th nearest group galaxy
       hdu14:
         name: DR17_param_overdensity
-        description: replace me description
+        description: Local density environment to the 5th nearest neighbour, corrected
+          by mean overdensity using the correction in Etherington and Thomas 2015.
         is_image: false
         size: 86 KB
         columns:
           mangaid:
             name: MANGAID
             type: char[11]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MaNGA ID
           overdensity:
             name: OVERDENSITY
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Overdensity to the 5th nearest neighbour
           local_density:
             name: LOCAL_DENSITY
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Corrected local density to the 5th nearest neighbour
       hdu15:
         name: DR17_param_LSS
-        description: replace me description
+        description: 'Characterisation of the LSS by Wang et al.
+
+          t1,t2,t3 are eigen values of the tidal tensor along the major, intermediate
+          and minor axes at the position of the galaxy. By definition t1>t2>t3. The
+          eigenvalues can be used to classify the large scale environment (Hahn et
+          al. 2007).
+
+          * If T1>0,T2>0,T3>0, then the galaxies are in cluster environment.
+
+          * If T1>0,T2>0,T3<0, filament environment.
+
+          * If T1>0,T2<0,T3<0, sheet environment.
+
+          * If T1<0,T2<0,T3<0, void environment.
+
+          x_major, y_major, z_major show the 3-d direction of the major axis of the
+          eigenvector of the tidal tensor. x_minor, y_minor, z_minor show the 3-d
+          direction of the minor axis of the eigenvector of the tidal tensor. Where
+
+          * x_major^2+y_major^2+z_major^2=1
+
+          * x_minor^2+y_minor^2+z_minor^2=1
+
+          * x_major*x_minor+y_major*y_minor+z_major*z_minor=0
+
+          Major axis is perpendicular to minor axis, and the intermediate axis is
+          perpendicular to these two axes.'
         is_image: false
         size: 1 MB
         columns:
           mangaid:
             name: MANGAID
             type: char[9]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MaNGA ID
           mh:
             name: MH
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: log10(M_sun)
+            description: Halo mass
           den1:
             name: DEN1
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Average local density within 1Mpc
           den2:
             name: DEN2
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Average local density within 2Mpc
           den3:
             name: DEN3
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Average local density within 3Mpc
           t1:
             name: T1
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Eigen values of the tidal tensor along the major axes
           t2:
             name: T2
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Eigen values of the tidal tensor along the intermediate axes
           t3:
             name: T3
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Eigen values of the tidal tensor along the minor axes
           x_major:
             name: X_MAJOR
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 3-d direction of the major axis of the eigenvector
           y_major:
             name: Y_MAJOR
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 3-d direction of the major axis of the eigenvector
           z_major:
             name: Z_MAJOR
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 3-d direction of the major axis of the eigenvector
           x_minor:
             name: X_MINOR
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 3-d direction of the minor axis of the eigenvector
           y_minor:
             name: Y_MINOR
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 3-d direction of the minor axis of the eigenvector
           z_minor:
             name: Z_MINOR
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 3-d direction of the minor axis of the eigenvector
