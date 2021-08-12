@@ -1,7 +1,7 @@
 general:
   name: fpAtlas
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: 'migration: needs update'
+  description: Contains the atlas images for all objects detected in a single field.
   datatype: FIT
   filesize: 3 MB
   releases:
@@ -17,10 +17,14 @@ general:
   - DR17
   environments:
   - PHOTO_REDUX
-  naming_convention: replace me - with $PHOTO_REDUX/[RERUN]/3919/objcs/[CAMCOL]/fpAtlas-003919-[CAMCOL]-[FIELD].fit
-    or fpAtlas-003919-1-0011.fit but with regex pattern matches
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  naming_convention: 'fpAtlas-rrrrrr-c-ffff.fit,
+
+    where <i>rrrrrr</i> is the imaging run number, <i>c</i> is the column
+
+    location in the Imaging Array of the CCD which acquired the data (1-6),
+
+    and <i>ffff</i> is the field number within the run.'
+  generated_by: frames
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
@@ -63,55 +67,57 @@ releases:
       path_name: fpAtlas
       path_template: $PHOTO_REDUX/{rerun}/{run}/objcs/{camcol}/fpAtlas-{run:0>6}-{camcol}-{field:0>4}.fit
       path_kwargs:
+      - rerun
       - camcol
       - field
       - run
-      - rerun
       - run
       access_string: fpAtlas = $PHOTO_REDUX/{rerun}/3919/objcs/{camcol}/fpAtlas-003919-{camcol}-{field}.fit
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: ''
         is_image: true
         size: 0 bytes
         header:
         - key: SIMPLE
           value: true
-          comment: ''
+          comment: conforms to FITS standard
         - key: BITPIX
           value: 8
-          comment: ''
+          comment: array data type
         - key: NAXIS
           value: 0
-          comment: ''
+          comment: number of array dimensions
         - key: EXTEND
           value: true
           comment: ''
         - key: VERSION
           value: v5_6_3
-          comment: ''
+          comment: Version of software used.
         - key: DERV_VER
           value: NOCVS:v8_23
-          comment: ''
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
         - key: ASTR_VER
           value: NOCVS:v5_24
-          comment: ''
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
         - key: ASTRO_ID
           value: 2009-05-28T04:39:28 31269
-          comment: ''
+          comment: Astrometric pipeline run identifier.
         - key: BIAS_ID
           value: PS
-          comment: ''
+          comment: Bias pipeline run identifier.
         - key: FRAME_ID
           value: 2009-05-28T07:15:52 11065
-          comment: ''
+          comment: Frames pipeline run identifier.
         - key: KO_VER
           value: devel
-          comment: ''
+          comment: Version of known object catalog used.
         - key: PS_ID
           value: 2009-05-27T20:38:40 07476 camCol 1
-          comment: ''
+          comment: Postage stamp pipeline run identifier.
         - key: CREATIME
           value: Thu May 28 14:15:52 2009 UTC
           comment: The local time when this file was cre
@@ -144,87 +150,96 @@ releases:
           comment: Mean gains of amplifiers; e/DN
         - key: SPLIT_LR
           value: 1024
-          comment: Number of columns in left 1/2 of CCD
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_L_U
           value: 0.0
-          comment: offset to ADD to colc (CCD left 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_R_U
           value: 0.0
-          comment: offset to ADD to colc (CCD right 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_L_G
           value: 0.0
-          comment: offset to ADD to colc (CCD left 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_R_G
           value: 0.0
-          comment: offset to ADD to colc (CCD right 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_L_R
           value: 0.0
-          comment: offset to ADD to colc (CCD left 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_R_R
           value: 0.0
-          comment: offset to ADD to colc (CCD right 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_L_I
           value: 0.0
-          comment: offset to ADD to colc (CCD left 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_R_I
           value: 0.0
-          comment: offset to ADD to colc (CCD right 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_L_Z
           value: 0.0
-          comment: offset to ADD to colc (CCD left 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_R_Z
           value: 0.0
-          comment: offset to ADD to colc (CCD right 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: NROW
           value: 1489
-          comment: ''
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
         - key: NCOL
           value: 2048
-          comment: ''
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
         - key: SOFTBIAS
           value: 1000
           comment: software "bias" added to all DN
       hdu1:
         name: ''
-        description: replace me description
+        description: 'migration: Intro info not in database. Needs update'
         is_image: false
         size: 3 MB
         columns:
           id:
             name: ID
             type: int32[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           run:
             name: RUN
             type: int32[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           rerun:
             name: RERUN
             type: int32[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           camCol:
             name: CAMCOL
             type: int32[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           field:
             name: FIELD
             type: int32[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           parent:
             name: PARENT
             type: int32[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           ncolor:
             name: NCOLOR
             type: bool[1PB(0]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
   DR9:
     template: $PHOTO_REDUX/[RERUN]/3919/objcs/[CAMCOL]/fpAtlas-003919-[CAMCOL]-[FIELD].fit
     example: 301/3919/objcs/1/fpAtlas-003919-1-0011.fit
@@ -235,55 +250,57 @@ releases:
       path_name: fpAtlas
       path_template: $PHOTO_REDUX/{rerun}/{run}/objcs/{camcol}/fpAtlas-{run:0>6}-{camcol}-{field:0>4}.fit
       path_kwargs:
-      - rerun
       - field
       - run
       - run
+      - rerun
       - camcol
       access_string: fpAtlas = $PHOTO_REDUX/{rerun}/3919/objcs/{camcol}/fpAtlas-003919-{camcol}-{field}.fit
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: ''
         is_image: true
         size: 0 bytes
         header:
         - key: SIMPLE
           value: true
-          comment: ''
+          comment: conforms to FITS standard
         - key: BITPIX
           value: 8
-          comment: ''
+          comment: array data type
         - key: NAXIS
           value: 0
-          comment: ''
+          comment: number of array dimensions
         - key: EXTEND
           value: true
           comment: ''
         - key: VERSION
           value: v5_6_3
-          comment: ''
+          comment: Version of software used.
         - key: DERV_VER
           value: NOCVS:v8_23
-          comment: ''
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
         - key: ASTR_VER
           value: NOCVS:v5_24
-          comment: ''
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
         - key: ASTRO_ID
           value: 2009-05-28T04:39:28 31269
-          comment: ''
+          comment: Astrometric pipeline run identifier.
         - key: BIAS_ID
           value: PS
-          comment: ''
+          comment: Bias pipeline run identifier.
         - key: FRAME_ID
           value: 2009-05-28T07:15:52 11065
-          comment: ''
+          comment: Frames pipeline run identifier.
         - key: KO_VER
           value: devel
-          comment: ''
+          comment: Version of known object catalog used.
         - key: PS_ID
           value: 2009-05-27T20:38:40 07476 camCol 1
-          comment: ''
+          comment: Postage stamp pipeline run identifier.
         - key: CREATIME
           value: Thu May 28 14:15:52 2009 UTC
           comment: The local time when this file was cre
@@ -316,87 +333,96 @@ releases:
           comment: Mean gains of amplifiers; e/DN
         - key: SPLIT_LR
           value: 1024
-          comment: Number of columns in left 1/2 of CCD
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_L_U
           value: 0.0
-          comment: offset to ADD to colc (CCD left 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_R_U
           value: 0.0
-          comment: offset to ADD to colc (CCD right 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_L_G
           value: 0.0
-          comment: offset to ADD to colc (CCD left 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_R_G
           value: 0.0
-          comment: offset to ADD to colc (CCD right 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_L_R
           value: 0.0
-          comment: offset to ADD to colc (CCD left 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_R_R
           value: 0.0
-          comment: offset to ADD to colc (CCD right 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_L_I
           value: 0.0
-          comment: offset to ADD to colc (CCD left 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_R_I
           value: 0.0
-          comment: offset to ADD to colc (CCD right 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_L_Z
           value: 0.0
-          comment: offset to ADD to colc (CCD left 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_R_Z
           value: 0.0
-          comment: offset to ADD to colc (CCD right 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: NROW
           value: 1489
-          comment: ''
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
         - key: NCOL
           value: 2048
-          comment: ''
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
         - key: SOFTBIAS
           value: 1000
           comment: software "bias" added to all DN
       hdu1:
         name: ''
-        description: replace me description
+        description: 'migration: Intro info not in database. Needs update'
         is_image: false
         size: 3 MB
         columns:
           id:
             name: ID
             type: int32[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           run:
             name: RUN
             type: int32[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           rerun:
             name: RERUN
             type: int32[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           camCol:
             name: CAMCOL
             type: int32[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           field:
             name: FIELD
             type: int32[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           parent:
             name: PARENT
             type: int32[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           ncolor:
             name: NCOLOR
             type: bool[1PB(0]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
   DR10:
     template: $PHOTO_REDUX/[RERUN]/3919/objcs/[CAMCOL]/fpAtlas-003919-[CAMCOL]-[FIELD].fit
     example: 301/3919/objcs/1/fpAtlas-003919-1-0011.fit
@@ -408,54 +434,56 @@ releases:
       path_template: $PHOTO_REDUX/{rerun}/{run}/objcs/{camcol}/fpAtlas-{run:0>6}-{camcol}-{field:0>4}.fit
       path_kwargs:
       - rerun
-      - run
       - field
-      - camcol
       - run
+      - run
+      - camcol
       access_string: fpAtlas = $PHOTO_REDUX/{rerun}/3919/objcs/{camcol}/fpAtlas-003919-{camcol}-{field}.fit
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: ''
         is_image: true
         size: 0 bytes
         header:
         - key: SIMPLE
           value: true
-          comment: ''
+          comment: conforms to FITS standard
         - key: BITPIX
           value: 8
-          comment: ''
+          comment: array data type
         - key: NAXIS
           value: 0
-          comment: ''
+          comment: number of array dimensions
         - key: EXTEND
           value: true
           comment: ''
         - key: VERSION
           value: v5_6_3
-          comment: ''
+          comment: Version of software used.
         - key: DERV_VER
           value: NOCVS:v8_23
-          comment: ''
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
         - key: ASTR_VER
           value: NOCVS:v5_24
-          comment: ''
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
         - key: ASTRO_ID
           value: 2009-05-28T04:39:28 31269
-          comment: ''
+          comment: Astrometric pipeline run identifier.
         - key: BIAS_ID
           value: PS
-          comment: ''
+          comment: Bias pipeline run identifier.
         - key: FRAME_ID
           value: 2009-05-28T07:15:52 11065
-          comment: ''
+          comment: Frames pipeline run identifier.
         - key: KO_VER
           value: devel
-          comment: ''
+          comment: Version of known object catalog used.
         - key: PS_ID
           value: 2009-05-27T20:38:40 07476 camCol 1
-          comment: ''
+          comment: Postage stamp pipeline run identifier.
         - key: CREATIME
           value: Thu May 28 14:15:52 2009 UTC
           comment: The local time when this file was cre
@@ -488,87 +516,96 @@ releases:
           comment: Mean gains of amplifiers; e/DN
         - key: SPLIT_LR
           value: 1024
-          comment: Number of columns in left 1/2 of CCD
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_L_U
           value: 0.0
-          comment: offset to ADD to colc (CCD left 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_R_U
           value: 0.0
-          comment: offset to ADD to colc (CCD right 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_L_G
           value: 0.0
-          comment: offset to ADD to colc (CCD left 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_R_G
           value: 0.0
-          comment: offset to ADD to colc (CCD right 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_L_R
           value: 0.0
-          comment: offset to ADD to colc (CCD left 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_R_R
           value: 0.0
-          comment: offset to ADD to colc (CCD right 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_L_I
           value: 0.0
-          comment: offset to ADD to colc (CCD left 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_R_I
           value: 0.0
-          comment: offset to ADD to colc (CCD right 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_L_Z
           value: 0.0
-          comment: offset to ADD to colc (CCD left 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_R_Z
           value: 0.0
-          comment: offset to ADD to colc (CCD right 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: NROW
           value: 1489
-          comment: ''
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
         - key: NCOL
           value: 2048
-          comment: ''
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
         - key: SOFTBIAS
           value: 1000
           comment: software "bias" added to all DN
       hdu1:
         name: ''
-        description: replace me description
+        description: 'migration: Intro info not in database. Needs update'
         is_image: false
         size: 3 MB
         columns:
           id:
             name: ID
             type: int32[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           run:
             name: RUN
             type: int32[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           rerun:
             name: RERUN
             type: int32[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           camCol:
             name: CAMCOL
             type: int32[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           field:
             name: FIELD
             type: int32[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           parent:
             name: PARENT
             type: int32[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           ncolor:
             name: NCOLOR
             type: bool[1PB(0]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
   DR11:
     template: $PHOTO_REDUX/[RERUN]/3919/objcs/[CAMCOL]/fpAtlas-003919-[CAMCOL]-[FIELD].fit
     example: 301/3919/objcs/1/fpAtlas-003919-1-0011.fit
@@ -579,55 +616,57 @@ releases:
       path_name: fpAtlas
       path_template: $PHOTO_REDUX/{rerun}/{run}/objcs/{camcol}/fpAtlas-{run:0>6}-{camcol}-{field:0>4}.fit
       path_kwargs:
-      - camcol
-      - run
       - run
       - field
       - rerun
+      - camcol
+      - run
       access_string: fpAtlas = $PHOTO_REDUX/{rerun}/3919/objcs/{camcol}/fpAtlas-003919-{camcol}-{field}.fit
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: ''
         is_image: true
         size: 0 bytes
         header:
         - key: SIMPLE
           value: true
-          comment: ''
+          comment: conforms to FITS standard
         - key: BITPIX
           value: 8
-          comment: ''
+          comment: array data type
         - key: NAXIS
           value: 0
-          comment: ''
+          comment: number of array dimensions
         - key: EXTEND
           value: true
           comment: ''
         - key: VERSION
           value: v5_6_3
-          comment: ''
+          comment: Version of software used.
         - key: DERV_VER
           value: NOCVS:v8_23
-          comment: ''
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
         - key: ASTR_VER
           value: NOCVS:v5_24
-          comment: ''
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
         - key: ASTRO_ID
           value: 2009-05-28T04:39:28 31269
-          comment: ''
+          comment: Astrometric pipeline run identifier.
         - key: BIAS_ID
           value: PS
-          comment: ''
+          comment: Bias pipeline run identifier.
         - key: FRAME_ID
           value: 2009-05-28T07:15:52 11065
-          comment: ''
+          comment: Frames pipeline run identifier.
         - key: KO_VER
           value: devel
-          comment: ''
+          comment: Version of known object catalog used.
         - key: PS_ID
           value: 2009-05-27T20:38:40 07476 camCol 1
-          comment: ''
+          comment: Postage stamp pipeline run identifier.
         - key: CREATIME
           value: Thu May 28 14:15:52 2009 UTC
           comment: The local time when this file was cre
@@ -660,87 +699,96 @@ releases:
           comment: Mean gains of amplifiers; e/DN
         - key: SPLIT_LR
           value: 1024
-          comment: Number of columns in left 1/2 of CCD
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_L_U
           value: 0.0
-          comment: offset to ADD to colc (CCD left 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_R_U
           value: 0.0
-          comment: offset to ADD to colc (CCD right 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_L_G
           value: 0.0
-          comment: offset to ADD to colc (CCD left 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_R_G
           value: 0.0
-          comment: offset to ADD to colc (CCD right 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_L_R
           value: 0.0
-          comment: offset to ADD to colc (CCD left 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_R_R
           value: 0.0
-          comment: offset to ADD to colc (CCD right 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_L_I
           value: 0.0
-          comment: offset to ADD to colc (CCD left 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_R_I
           value: 0.0
-          comment: offset to ADD to colc (CCD right 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_L_Z
           value: 0.0
-          comment: offset to ADD to colc (CCD left 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_R_Z
           value: 0.0
-          comment: offset to ADD to colc (CCD right 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: NROW
           value: 1489
-          comment: ''
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
         - key: NCOL
           value: 2048
-          comment: ''
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
         - key: SOFTBIAS
           value: 1000
           comment: software "bias" added to all DN
       hdu1:
         name: ''
-        description: replace me description
+        description: 'migration: Intro info not in database. Needs update'
         is_image: false
         size: 3 MB
         columns:
           id:
             name: ID
             type: int32[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           run:
             name: RUN
             type: int32[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           rerun:
             name: RERUN
             type: int32[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           camCol:
             name: CAMCOL
             type: int32[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           field:
             name: FIELD
             type: int32[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           parent:
             name: PARENT
             type: int32[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           ncolor:
             name: NCOLOR
             type: bool[1PB(0]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
   DR12:
     template: $PHOTO_REDUX/[RERUN]/3919/objcs/[CAMCOL]/fpAtlas-003919-[CAMCOL]-[FIELD].fit
     example: 301/3919/objcs/1/fpAtlas-003919-1-0011.fit
@@ -752,54 +800,56 @@ releases:
       path_template: $PHOTO_REDUX/{rerun}/{run}/objcs/{camcol}/fpAtlas-{run:0>6}-{camcol}-{field:0>4}.fit
       path_kwargs:
       - run
-      - run
       - camcol
-      - rerun
       - field
+      - run
+      - rerun
       access_string: fpAtlas = $PHOTO_REDUX/{rerun}/3919/objcs/{camcol}/fpAtlas-003919-{camcol}-{field}.fit
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: ''
         is_image: true
         size: 0 bytes
         header:
         - key: SIMPLE
           value: true
-          comment: ''
+          comment: conforms to FITS standard
         - key: BITPIX
           value: 8
-          comment: ''
+          comment: array data type
         - key: NAXIS
           value: 0
-          comment: ''
+          comment: number of array dimensions
         - key: EXTEND
           value: true
           comment: ''
         - key: VERSION
           value: v5_6_3
-          comment: ''
+          comment: Version of software used.
         - key: DERV_VER
           value: NOCVS:v8_23
-          comment: ''
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
         - key: ASTR_VER
           value: NOCVS:v5_24
-          comment: ''
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
         - key: ASTRO_ID
           value: 2009-05-28T04:39:28 31269
-          comment: ''
+          comment: Astrometric pipeline run identifier.
         - key: BIAS_ID
           value: PS
-          comment: ''
+          comment: Bias pipeline run identifier.
         - key: FRAME_ID
           value: 2009-05-28T07:15:52 11065
-          comment: ''
+          comment: Frames pipeline run identifier.
         - key: KO_VER
           value: devel
-          comment: ''
+          comment: Version of known object catalog used.
         - key: PS_ID
           value: 2009-05-27T20:38:40 07476 camCol 1
-          comment: ''
+          comment: Postage stamp pipeline run identifier.
         - key: CREATIME
           value: Thu May 28 14:15:52 2009 UTC
           comment: The local time when this file was cre
@@ -832,87 +882,96 @@ releases:
           comment: Mean gains of amplifiers; e/DN
         - key: SPLIT_LR
           value: 1024
-          comment: Number of columns in left 1/2 of CCD
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_L_U
           value: 0.0
-          comment: offset to ADD to colc (CCD left 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_R_U
           value: 0.0
-          comment: offset to ADD to colc (CCD right 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_L_G
           value: 0.0
-          comment: offset to ADD to colc (CCD left 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_R_G
           value: 0.0
-          comment: offset to ADD to colc (CCD right 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_L_R
           value: 0.0
-          comment: offset to ADD to colc (CCD left 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_R_R
           value: 0.0
-          comment: offset to ADD to colc (CCD right 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_L_I
           value: 0.0
-          comment: offset to ADD to colc (CCD left 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_R_I
           value: 0.0
-          comment: offset to ADD to colc (CCD right 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_L_Z
           value: 0.0
-          comment: offset to ADD to colc (CCD left 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_R_Z
           value: 0.0
-          comment: offset to ADD to colc (CCD right 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: NROW
           value: 1489
-          comment: ''
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
         - key: NCOL
           value: 2048
-          comment: ''
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
         - key: SOFTBIAS
           value: 1000
           comment: software "bias" added to all DN
       hdu1:
         name: ''
-        description: replace me description
+        description: 'migration: Intro info not in database. Needs update'
         is_image: false
         size: 3 MB
         columns:
           id:
             name: ID
             type: int32[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           run:
             name: RUN
             type: int32[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           rerun:
             name: RERUN
             type: int32[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           camCol:
             name: CAMCOL
             type: int32[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           field:
             name: FIELD
             type: int32[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           parent:
             name: PARENT
             type: int32[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           ncolor:
             name: NCOLOR
             type: bool[1PB(0]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
   DR13:
     template: $PHOTO_REDUX/[RERUN]/3919/objcs/[CAMCOL]/fpAtlas-003919-[CAMCOL]-[FIELD].fit
     example: 301/3919/objcs/1/fpAtlas-003919-1-0011.fit
@@ -923,55 +982,57 @@ releases:
       path_name: fpAtlas
       path_template: $PHOTO_REDUX/{rerun}/{run}/objcs/{camcol}/fpAtlas-{run:0>6}-{camcol}-{field:0>4}.fit
       path_kwargs:
+      - run
+      - run
       - camcol
-      - run
-      - field
       - rerun
-      - run
+      - field
       access_string: fpAtlas = $PHOTO_REDUX/{rerun}/3919/objcs/{camcol}/fpAtlas-003919-{camcol}-{field}.fit
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: ''
         is_image: true
         size: 0 bytes
         header:
         - key: SIMPLE
           value: true
-          comment: ''
+          comment: conforms to FITS standard
         - key: BITPIX
           value: 8
-          comment: ''
+          comment: array data type
         - key: NAXIS
           value: 0
-          comment: ''
+          comment: number of array dimensions
         - key: EXTEND
           value: true
           comment: ''
         - key: VERSION
           value: v5_6_3
-          comment: ''
+          comment: Version of software used.
         - key: DERV_VER
           value: NOCVS:v8_23
-          comment: ''
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
         - key: ASTR_VER
           value: NOCVS:v5_24
-          comment: ''
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
         - key: ASTRO_ID
           value: 2009-05-28T04:39:28 31269
-          comment: ''
+          comment: Astrometric pipeline run identifier.
         - key: BIAS_ID
           value: PS
-          comment: ''
+          comment: Bias pipeline run identifier.
         - key: FRAME_ID
           value: 2009-05-28T07:15:52 11065
-          comment: ''
+          comment: Frames pipeline run identifier.
         - key: KO_VER
           value: devel
-          comment: ''
+          comment: Version of known object catalog used.
         - key: PS_ID
           value: 2009-05-27T20:38:40 07476 camCol 1
-          comment: ''
+          comment: Postage stamp pipeline run identifier.
         - key: CREATIME
           value: Thu May 28 14:15:52 2009 UTC
           comment: The local time when this file was cre
@@ -1004,87 +1065,96 @@ releases:
           comment: Mean gains of amplifiers; e/DN
         - key: SPLIT_LR
           value: 1024
-          comment: Number of columns in left 1/2 of CCD
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_L_U
           value: 0.0
-          comment: offset to ADD to colc (CCD left 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_R_U
           value: 0.0
-          comment: offset to ADD to colc (CCD right 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_L_G
           value: 0.0
-          comment: offset to ADD to colc (CCD left 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_R_G
           value: 0.0
-          comment: offset to ADD to colc (CCD right 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_L_R
           value: 0.0
-          comment: offset to ADD to colc (CCD left 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_R_R
           value: 0.0
-          comment: offset to ADD to colc (CCD right 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_L_I
           value: 0.0
-          comment: offset to ADD to colc (CCD left 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_R_I
           value: 0.0
-          comment: offset to ADD to colc (CCD right 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_L_Z
           value: 0.0
-          comment: offset to ADD to colc (CCD left 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_R_Z
           value: 0.0
-          comment: offset to ADD to colc (CCD right 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: NROW
           value: 1489
-          comment: ''
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
         - key: NCOL
           value: 2048
-          comment: ''
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
         - key: SOFTBIAS
           value: 1000
           comment: software "bias" added to all DN
       hdu1:
         name: ''
-        description: replace me description
+        description: 'migration: Intro info not in database. Needs update'
         is_image: false
         size: 3 MB
         columns:
           id:
             name: ID
             type: int32[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           run:
             name: RUN
             type: int32[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           rerun:
             name: RERUN
             type: int32[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           camCol:
             name: CAMCOL
             type: int32[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           field:
             name: FIELD
             type: int32[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           parent:
             name: PARENT
             type: int32[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           ncolor:
             name: NCOLOR
             type: bool[1PB(0]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
   DR14:
     template: $PHOTO_REDUX/[RERUN]/3919/objcs/[CAMCOL]/fpAtlas-003919-[CAMCOL]-[FIELD].fit
     example: 301/3919/objcs/1/fpAtlas-003919-1-0011.fit
@@ -1095,55 +1165,57 @@ releases:
       path_name: fpAtlas
       path_template: $PHOTO_REDUX/{rerun}/{run}/objcs/{camcol}/fpAtlas-{run:0>6}-{camcol}-{field:0>4}.fit
       path_kwargs:
-      - field
       - rerun
+      - run
+      - run
       - camcol
-      - run
-      - run
+      - field
       access_string: fpAtlas = $PHOTO_REDUX/{rerun}/3919/objcs/{camcol}/fpAtlas-003919-{camcol}-{field}.fit
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: ''
         is_image: true
         size: 0 bytes
         header:
         - key: SIMPLE
           value: true
-          comment: ''
+          comment: conforms to FITS standard
         - key: BITPIX
           value: 8
-          comment: ''
+          comment: array data type
         - key: NAXIS
           value: 0
-          comment: ''
+          comment: number of array dimensions
         - key: EXTEND
           value: true
           comment: ''
         - key: VERSION
           value: v5_6_3
-          comment: ''
+          comment: Version of software used.
         - key: DERV_VER
           value: NOCVS:v8_23
-          comment: ''
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
         - key: ASTR_VER
           value: NOCVS:v5_24
-          comment: ''
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
         - key: ASTRO_ID
           value: 2009-05-28T04:39:28 31269
-          comment: ''
+          comment: Astrometric pipeline run identifier.
         - key: BIAS_ID
           value: PS
-          comment: ''
+          comment: Bias pipeline run identifier.
         - key: FRAME_ID
           value: 2009-05-28T07:15:52 11065
-          comment: ''
+          comment: Frames pipeline run identifier.
         - key: KO_VER
           value: devel
-          comment: ''
+          comment: Version of known object catalog used.
         - key: PS_ID
           value: 2009-05-27T20:38:40 07476 camCol 1
-          comment: ''
+          comment: Postage stamp pipeline run identifier.
         - key: CREATIME
           value: Thu May 28 14:15:52 2009 UTC
           comment: The local time when this file was cre
@@ -1176,87 +1248,96 @@ releases:
           comment: Mean gains of amplifiers; e/DN
         - key: SPLIT_LR
           value: 1024
-          comment: Number of columns in left 1/2 of CCD
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_L_U
           value: 0.0
-          comment: offset to ADD to colc (CCD left 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_R_U
           value: 0.0
-          comment: offset to ADD to colc (CCD right 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_L_G
           value: 0.0
-          comment: offset to ADD to colc (CCD left 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_R_G
           value: 0.0
-          comment: offset to ADD to colc (CCD right 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_L_R
           value: 0.0
-          comment: offset to ADD to colc (CCD left 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_R_R
           value: 0.0
-          comment: offset to ADD to colc (CCD right 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_L_I
           value: 0.0
-          comment: offset to ADD to colc (CCD left 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_R_I
           value: 0.0
-          comment: offset to ADD to colc (CCD right 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_L_Z
           value: 0.0
-          comment: offset to ADD to colc (CCD left 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_R_Z
           value: 0.0
-          comment: offset to ADD to colc (CCD right 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: NROW
           value: 1489
-          comment: ''
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
         - key: NCOL
           value: 2048
-          comment: ''
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
         - key: SOFTBIAS
           value: 1000
           comment: software "bias" added to all DN
       hdu1:
         name: ''
-        description: replace me description
+        description: 'migration: Intro info not in database. Needs update'
         is_image: false
         size: 3 MB
         columns:
           id:
             name: ID
             type: int32[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           run:
             name: RUN
             type: int32[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           rerun:
             name: RERUN
             type: int32[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           camCol:
             name: CAMCOL
             type: int32[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           field:
             name: FIELD
             type: int32[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           parent:
             name: PARENT
             type: int32[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           ncolor:
             name: NCOLOR
             type: bool[1PB(0]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
   DR15:
     template: $PHOTO_REDUX/[RERUN]/3919/objcs/[CAMCOL]/fpAtlas-003919-[CAMCOL]-[FIELD].fit
     example: 301/3919/objcs/1/fpAtlas-003919-1-0011.fit
@@ -1267,55 +1348,57 @@ releases:
       path_name: fpAtlas
       path_template: $PHOTO_REDUX/{rerun}/{run}/objcs/{camcol}/fpAtlas-{run:0>6}-{camcol}-{field:0>4}.fit
       path_kwargs:
-      - camcol
       - rerun
-      - run
       - field
       - run
+      - run
+      - camcol
       access_string: fpAtlas = $PHOTO_REDUX/{rerun}/3919/objcs/{camcol}/fpAtlas-003919-{camcol}-{field}.fit
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: ''
         is_image: true
         size: 0 bytes
         header:
         - key: SIMPLE
           value: true
-          comment: ''
+          comment: conforms to FITS standard
         - key: BITPIX
           value: 8
-          comment: ''
+          comment: array data type
         - key: NAXIS
           value: 0
-          comment: ''
+          comment: number of array dimensions
         - key: EXTEND
           value: true
           comment: ''
         - key: VERSION
           value: v5_6_3
-          comment: ''
+          comment: Version of software used.
         - key: DERV_VER
           value: NOCVS:v8_23
-          comment: ''
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
         - key: ASTR_VER
           value: NOCVS:v5_24
-          comment: ''
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
         - key: ASTRO_ID
           value: 2009-05-28T04:39:28 31269
-          comment: ''
+          comment: Astrometric pipeline run identifier.
         - key: BIAS_ID
           value: PS
-          comment: ''
+          comment: Bias pipeline run identifier.
         - key: FRAME_ID
           value: 2009-05-28T07:15:52 11065
-          comment: ''
+          comment: Frames pipeline run identifier.
         - key: KO_VER
           value: devel
-          comment: ''
+          comment: Version of known object catalog used.
         - key: PS_ID
           value: 2009-05-27T20:38:40 07476 camCol 1
-          comment: ''
+          comment: Postage stamp pipeline run identifier.
         - key: CREATIME
           value: Thu May 28 14:15:52 2009 UTC
           comment: The local time when this file was cre
@@ -1348,87 +1431,96 @@ releases:
           comment: Mean gains of amplifiers; e/DN
         - key: SPLIT_LR
           value: 1024
-          comment: Number of columns in left 1/2 of CCD
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_L_U
           value: 0.0
-          comment: offset to ADD to colc (CCD left 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_R_U
           value: 0.0
-          comment: offset to ADD to colc (CCD right 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_L_G
           value: 0.0
-          comment: offset to ADD to colc (CCD left 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_R_G
           value: 0.0
-          comment: offset to ADD to colc (CCD right 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_L_R
           value: 0.0
-          comment: offset to ADD to colc (CCD left 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_R_R
           value: 0.0
-          comment: offset to ADD to colc (CCD right 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_L_I
           value: 0.0
-          comment: offset to ADD to colc (CCD left 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_R_I
           value: 0.0
-          comment: offset to ADD to colc (CCD right 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_L_Z
           value: 0.0
-          comment: offset to ADD to colc (CCD left 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_R_Z
           value: 0.0
-          comment: offset to ADD to colc (CCD right 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: NROW
           value: 1489
-          comment: ''
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
         - key: NCOL
           value: 2048
-          comment: ''
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
         - key: SOFTBIAS
           value: 1000
           comment: software "bias" added to all DN
       hdu1:
         name: ''
-        description: replace me description
+        description: 'migration: Intro info not in database. Needs update'
         is_image: false
         size: 3 MB
         columns:
           id:
             name: ID
             type: int32[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           run:
             name: RUN
             type: int32[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           rerun:
             name: RERUN
             type: int32[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           camCol:
             name: CAMCOL
             type: int32[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           field:
             name: FIELD
             type: int32[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           parent:
             name: PARENT
             type: int32[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           ncolor:
             name: NCOLOR
             type: bool[1PB(0]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
   DR16:
     template: $PHOTO_REDUX/[RERUN]/3919/objcs/[CAMCOL]/fpAtlas-003919-[CAMCOL]-[FIELD].fit
     example: 301/3919/objcs/1/fpAtlas-003919-1-0011.fit
@@ -1439,55 +1531,57 @@ releases:
       path_name: fpAtlas
       path_template: $PHOTO_REDUX/{rerun}/{run}/objcs/{camcol}/fpAtlas-{run:0>6}-{camcol}-{field:0>4}.fit
       path_kwargs:
-      - rerun
+      - run
       - camcol
-      - run
-      - run
+      - rerun
       - field
+      - run
       access_string: fpAtlas = $PHOTO_REDUX/{rerun}/3919/objcs/{camcol}/fpAtlas-003919-{camcol}-{field}.fit
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: ''
         is_image: true
         size: 0 bytes
         header:
         - key: SIMPLE
           value: true
-          comment: ''
+          comment: conforms to FITS standard
         - key: BITPIX
           value: 8
-          comment: ''
+          comment: array data type
         - key: NAXIS
           value: 0
-          comment: ''
+          comment: number of array dimensions
         - key: EXTEND
           value: true
           comment: ''
         - key: VERSION
           value: v5_6_3
-          comment: ''
+          comment: Version of software used.
         - key: DERV_VER
           value: NOCVS:v8_23
-          comment: ''
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
         - key: ASTR_VER
           value: NOCVS:v5_24
-          comment: ''
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
         - key: ASTRO_ID
           value: 2009-05-28T04:39:28 31269
-          comment: ''
+          comment: Astrometric pipeline run identifier.
         - key: BIAS_ID
           value: PS
-          comment: ''
+          comment: Bias pipeline run identifier.
         - key: FRAME_ID
           value: 2009-05-28T07:15:52 11065
-          comment: ''
+          comment: Frames pipeline run identifier.
         - key: KO_VER
           value: devel
-          comment: ''
+          comment: Version of known object catalog used.
         - key: PS_ID
           value: 2009-05-27T20:38:40 07476 camCol 1
-          comment: ''
+          comment: Postage stamp pipeline run identifier.
         - key: CREATIME
           value: Thu May 28 14:15:52 2009 UTC
           comment: The local time when this file was cre
@@ -1520,87 +1614,96 @@ releases:
           comment: Mean gains of amplifiers; e/DN
         - key: SPLIT_LR
           value: 1024
-          comment: Number of columns in left 1/2 of CCD
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_L_U
           value: 0.0
-          comment: offset to ADD to colc (CCD left 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_R_U
           value: 0.0
-          comment: offset to ADD to colc (CCD right 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_L_G
           value: 0.0
-          comment: offset to ADD to colc (CCD left 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_R_G
           value: 0.0
-          comment: offset to ADD to colc (CCD right 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_L_R
           value: 0.0
-          comment: offset to ADD to colc (CCD left 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_R_R
           value: 0.0
-          comment: offset to ADD to colc (CCD right 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_L_I
           value: 0.0
-          comment: offset to ADD to colc (CCD left 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_R_I
           value: 0.0
-          comment: offset to ADD to colc (CCD right 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_L_Z
           value: 0.0
-          comment: offset to ADD to colc (CCD left 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_R_Z
           value: 0.0
-          comment: offset to ADD to colc (CCD right 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: NROW
           value: 1489
-          comment: ''
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
         - key: NCOL
           value: 2048
-          comment: ''
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
         - key: SOFTBIAS
           value: 1000
           comment: software "bias" added to all DN
       hdu1:
         name: ''
-        description: replace me description
+        description: 'migration: Intro info not in database. Needs update'
         is_image: false
         size: 3 MB
         columns:
           id:
             name: ID
             type: int32[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           run:
             name: RUN
             type: int32[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           rerun:
             name: RERUN
             type: int32[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           camCol:
             name: CAMCOL
             type: int32[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           field:
             name: FIELD
             type: int32[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           parent:
             name: PARENT
             type: int32[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           ncolor:
             name: NCOLOR
             type: bool[1PB(0]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
   DR17:
     template: $PHOTO_REDUX/[RERUN]/3919/objcs/[CAMCOL]/fpAtlas-003919-[CAMCOL]-[FIELD].fit
     example: 301/3919/objcs/1/fpAtlas-003919-1-0011.fit
@@ -1611,55 +1714,57 @@ releases:
       path_name: fpAtlas
       path_template: $PHOTO_REDUX/{rerun}/{run}/objcs/{camcol}/fpAtlas-{run:0>6}-{camcol}-{field:0>4}.fit
       path_kwargs:
-      - run
+      - field
       - rerun
+      - run
       - camcol
       - run
-      - field
       access_string: fpAtlas = $PHOTO_REDUX/{rerun}/3919/objcs/{camcol}/fpAtlas-003919-{camcol}-{field}.fit
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: ''
         is_image: true
         size: 0 bytes
         header:
         - key: SIMPLE
           value: true
-          comment: ''
+          comment: conforms to FITS standard
         - key: BITPIX
           value: 8
-          comment: ''
+          comment: array data type
         - key: NAXIS
           value: 0
-          comment: ''
+          comment: number of array dimensions
         - key: EXTEND
           value: true
           comment: ''
         - key: VERSION
           value: v5_6_3
-          comment: ''
+          comment: Version of software used.
         - key: DERV_VER
           value: NOCVS:v8_23
-          comment: ''
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
         - key: ASTR_VER
           value: NOCVS:v5_24
-          comment: ''
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
         - key: ASTRO_ID
           value: 2009-05-28T04:39:28 31269
-          comment: ''
+          comment: Astrometric pipeline run identifier.
         - key: BIAS_ID
           value: PS
-          comment: ''
+          comment: Bias pipeline run identifier.
         - key: FRAME_ID
           value: 2009-05-28T07:15:52 11065
-          comment: ''
+          comment: Frames pipeline run identifier.
         - key: KO_VER
           value: devel
-          comment: ''
+          comment: Version of known object catalog used.
         - key: PS_ID
           value: 2009-05-27T20:38:40 07476 camCol 1
-          comment: ''
+          comment: Postage stamp pipeline run identifier.
         - key: CREATIME
           value: Thu May 28 14:15:52 2009 UTC
           comment: The local time when this file was cre
@@ -1692,84 +1797,93 @@ releases:
           comment: Mean gains of amplifiers; e/DN
         - key: SPLIT_LR
           value: 1024
-          comment: Number of columns in left 1/2 of CCD
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_L_U
           value: 0.0
-          comment: offset to ADD to colc (CCD left 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_R_U
           value: 0.0
-          comment: offset to ADD to colc (CCD right 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_L_G
           value: 0.0
-          comment: offset to ADD to colc (CCD left 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_R_G
           value: 0.0
-          comment: offset to ADD to colc (CCD right 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_L_R
           value: 0.0
-          comment: offset to ADD to colc (CCD left 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_R_R
           value: 0.0
-          comment: offset to ADD to colc (CCD right 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_L_I
           value: 0.0
-          comment: offset to ADD to colc (CCD left 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_R_I
           value: 0.0
-          comment: offset to ADD to colc (CCD right 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_L_Z
           value: 0.0
-          comment: offset to ADD to colc (CCD left 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: DCOL_R_Z
           value: 0.0
-          comment: offset to ADD to colc (CCD right 1/2)
+          comment: 'migration: description of keyword/column not found. Needs update'
         - key: NROW
           value: 1489
-          comment: ''
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
         - key: NCOL
           value: 2048
-          comment: ''
+          comment: 'migration: description of keyword/column is None in database.
+            Needs update'
         - key: SOFTBIAS
           value: 1000
           comment: software "bias" added to all DN
       hdu1:
         name: ''
-        description: replace me description
+        description: 'migration: Intro info not in database. Needs update'
         is_image: false
         size: 3 MB
         columns:
           id:
             name: ID
             type: int32[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           run:
             name: RUN
             type: int32[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           rerun:
             name: RERUN
             type: int32[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           camCol:
             name: CAMCOL
             type: int32[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           field:
             name: FIELD
             type: int32[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           parent:
             name: PARENT
             type: int32[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
           ncolor:
             name: NCOLOR
             type: bool[1PB(0]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
