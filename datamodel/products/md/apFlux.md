@@ -1,7 +1,7 @@
 # Data Model: apFlux
 
 
-migrated from old datamodel - needs update
+migration: needs update
 
 
 ## Contents
@@ -54,7 +54,7 @@ Describes changes to the datamodel product and/or file structure from one releas
  - DR16
    - from: DR15
    - primary_delta_nkeys: 2
-   - added_primary_header_kwargs: ['COMMENT', 'ICSREV']
+   - added_primary_header_kwargs: ['ICSREV', 'COMMENT']
    - removed_primary_header_kwargs: ['SPA']
  - DR15
    - from: DR14
