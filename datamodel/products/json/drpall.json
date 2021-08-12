@@ -1,0 +1,3840 @@
+{
+  "general": {
+    "name": "drpall",
+    "short": "migration: needs update",
+    "description": "This is the final summary for the MaNGA Data Reduction Pipeline (DRP).  It merges together information taken from mangacore, the repository containing all MaNGA metadata, and various header information taken from the output MaNGA cubes.  It contains no actual spectra from MaNGA cubes, but all of the information required to find a given set of spectra.  It can be used to search locally for galaxies matching a given set of selection criteria.",
+    "environments": [
+      "MANGA_SPECTRO_REDUX"
+    ],
+    "datatype": "FITS",
+    "filesize": "2 MB",
+    "releases": [
+      {
+        "name": "DR13",
+        "description": "SDSS public data release 13",
+        "public": true,
+        "release_date": "2016-07-31"
+      },
+      {
+        "name": "DR14",
+        "description": "SDSS public data release 14",
+        "public": true,
+        "release_date": "2017-07-31"
+      },
+      {
+        "name": "DR15",
+        "description": "SDSS public data release 15",
+        "public": true,
+        "release_date": "2018-12-10"
+      },
+      {
+        "name": "DR16",
+        "description": "SDSS public data release 16",
+        "public": true,
+        "release_date": "2019-12-09"
+      },
+      {
+        "name": "WORK",
+        "description": "SDSS unreleased data.  Represents any work-in-progress data.",
+        "public": false,
+        "release_date": "unreleased"
+      }
+    ],
+    "naming_convention": "<code>drpall-[drpver]\\.fits</code>, where <code>[drpver]</code>is the version of the MaNGA Data Reduction Pipeline (DRP)\nthat generated this file.",
+    "generated_by": "<a href=\"https://svn.sdss.org/public/repo/manga/mangadrp/tags/v2_4_3/\">mangadrp</a>"
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {
+      "WORK": {
+        "from": "DR16",
+        "delta_nhdus": null,
+        "added_hdus": [
+          "MANGA",
+          "MASTAR"
+        ],
+        "removed_hdus": [
+          ""
+        ],
+        "primary_delta_nkeys": null,
+        "added_primary_header_kwargs": null,
+        "removed_primary_header_kwargs": null,
+        "note": null
+      },
+      "DR16": {
+        "from": "DR15",
+        "delta_nhdus": null,
+        "added_hdus": null,
+        "removed_hdus": null,
+        "primary_delta_nkeys": null,
+        "added_primary_header_kwargs": null,
+        "removed_primary_header_kwargs": null,
+        "note": "No changes"
+      },
+      "DR15": {
+        "from": "DR14",
+        "delta_nhdus": null,
+        "added_hdus": null,
+        "removed_hdus": null,
+        "primary_delta_nkeys": null,
+        "added_primary_header_kwargs": null,
+        "removed_primary_header_kwargs": null,
+        "note": "No changes"
+      },
+      "DR14": {
+        "from": "DR13",
+        "delta_nhdus": null,
+        "added_hdus": null,
+        "removed_hdus": null,
+        "primary_delta_nkeys": null,
+        "added_primary_header_kwargs": null,
+        "removed_primary_header_kwargs": null,
+        "note": "No changes"
+      }
+    }
+  },
+  "releases": {
+    "DR13": {
+      "template": "$MANGA_SPECTRO_REDUX/v1_5_4/drpall-v1_5_4.fits",
+      "example": "v1_5_4/drpall-v1_5_4.fits",
+      "location": "v1_5_4/drpall-v1_5_4.fits",
+      "environment": "MANGA_SPECTRO_REDUX",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "drpall",
+        "path_template": "$MANGA_SPECTRO_REDUX/{drpver}/drpall-{drpver}.fits",
+        "path_kwargs": [
+          "drpver"
+        ],
+        "access_string": "drpall = $MANGA_SPECTRO_REDUX/v1_5_4/drpall-v1_5_4.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "This HDU contains the primary content, header and data, of the drpall file.\n\nThis HDU has no non-standard required keywords.",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            },
+            {
+              "key": "CHECKSUM",
+              "value": "D7cHG5a9D5aGD5a9",
+              "comment": "HDU checksum updated 2016-03-18T07:44:51"
+            },
+            {
+              "key": "DATASUM",
+              "value": "0",
+              "comment": "data unit checksum updated 2016-03-18T07:44:51"
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "This HDU contains the primary content, header and data, of the drpall file.\n\nThis HDU has no non-standard required keywords.",
+          "size": "2 MB",
+          "header": null,
+          "columns": {
+            "plate": {
+              "name": "PLATE",
+              "description": "Plate ID",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "ifudsgn": {
+              "name": "IFUDSGN",
+              "description": "IFU Design ID (e.g. 12701)",
+              "type": "char[21]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "plateifu": {
+              "name": "PLATEIFU",
+              "description": "Plate+ifudesign name for this object (e.g. 7443-12701)",
+              "type": "char[10]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "mangaid": {
+              "name": "MANGAID",
+              "description": "MaNGA ID for this object (e.g. 1-114145)",
+              "type": "char[9]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "versdrp2": {
+              "name": "VERSDRP2",
+              "description": "Version of mangadrp used for 2d reductions",
+              "type": "char[8]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "versdrp3": {
+              "name": "VERSDRP3",
+              "description": "Version of mangadrp used for 3d reductions",
+              "type": "char[8]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "verscore": {
+              "name": "VERSCORE",
+              "description": "Version of mangacore used for reductions",
+              "type": "char[8]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "versutil": {
+              "name": "VERSUTIL",
+              "description": "Version of idlutils used for reductions",
+              "type": "char[8]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "versprim": {
+              "name": "VERSPRIM",
+              "description": "Version of mangapreim used for reductions",
+              "type": "char[8]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "platetyp": {
+              "name": "PLATETYP",
+              "description": "Plate type (e.g. MANGA, APOGEE-2&MANGA)",
+              "type": "char[14]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "srvymode": {
+              "name": "SRVYMODE",
+              "description": "Survey mode (e.g. MANGA dither, MANGA stare, APOGEE lead)",
+              "type": "char[12]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "objra": {
+              "name": "OBJRA",
+              "description": "Right ascension of the science object in J2000",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "objdec": {
+              "name": "OBJDEC",
+              "description": "Declination of the science object in J2000",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "ifuglon": {
+              "name": "IFUGLON",
+              "description": "Galactic longitude corresponding to IFURA/DEC",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "ifuglat": {
+              "name": "IFUGLAT",
+              "description": "Galactic latitude corresponding to IFURA/DEC",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "ifura": {
+              "name": "IFURA",
+              "description": "Right ascension of this IFU in J2000",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "ifudec": {
+              "name": "IFUDEC",
+              "description": "Declination of this IFU in J2000",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "ebvgal": {
+              "name": "EBVGAL",
+              "description": "E(B-V) value from SDSS dust routine for this IFUGLON, IFUGLAT",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nexp": {
+              "name": "NEXP",
+              "description": "Number of science exposures combined",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "exptime": {
+              "name": "EXPTIME",
+              "description": "Total exposure time",
+              "type": "float64",
+              "unit": "seconds"
+            },
+            "drp3qual": {
+              "name": "DRP3QUAL",
+              "description": "Quality bitmask",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "bluesn2": {
+              "name": "BLUESN2",
+              "description": "Total blue (S/N)^2 across all nexp exposures",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "redsn2": {
+              "name": "REDSN2",
+              "description": "Total red (S/N)^2 across all nexp exposures",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "harname": {
+              "name": "HARNAME",
+              "description": "IFU harness name",
+              "type": "char[8]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "frlplug": {
+              "name": "FRLPLUG",
+              "description": "Frplug hardware code",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "cartid": {
+              "name": "CARTID",
+              "description": "Cartridge ID number",
+              "type": "char[8]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "designid": {
+              "name": "DESIGNID",
+              "description": "Design ID number",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "cenra": {
+              "name": "CENRA",
+              "description": "Plate center right ascension in J2000",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "cendec": {
+              "name": "CENDEC",
+              "description": "Plate center declination in J2000",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "airmsmin": {
+              "name": "AIRMSMIN",
+              "description": "Minimum airmass across all exposures",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "airmsmed": {
+              "name": "AIRMSMED",
+              "description": "Median airmass across all exposures",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "airmsmax": {
+              "name": "AIRMSMAX",
+              "description": "Maximum airmass across all exposures",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "seemin": {
+              "name": "SEEMIN",
+              "description": "Best guider seeing",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "seemed": {
+              "name": "SEEMED",
+              "description": "Median guider seeing",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "seemax": {
+              "name": "SEEMAX",
+              "description": "Worst guider seeing",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "transmin": {
+              "name": "TRANSMIN",
+              "description": "Worst transparency",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "transmed": {
+              "name": "TRANSMED",
+              "description": "Median transparency",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "transmax": {
+              "name": "TRANSMAX",
+              "description": "Best transparency",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "mjdmin": {
+              "name": "MJDMIN",
+              "description": "Minimum MJD across all exposures",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "mjdmed": {
+              "name": "MJDMED",
+              "description": "Median MJD across all exposures",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "mjdmax": {
+              "name": "MJDMAX",
+              "description": "Maximum MJD across all exposures",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "gfwhm": {
+              "name": "GFWHM",
+              "description": "Reconstructed FWHM in g-band",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "rfwhm": {
+              "name": "RFWHM",
+              "description": "Reconstructed FWHM in r-band",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "ifwhm": {
+              "name": "IFWHM",
+              "description": "Reconstructed FWHM in i-band",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "zfwhm": {
+              "name": "ZFWHM",
+              "description": "Reconstructed FWHM in z-band",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "mngtarg1": {
+              "name": "MNGTARG1",
+              "description": "Manga-target1 maskbit for galaxy target catalog",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "mngtarg2": {
+              "name": "MNGTARG2",
+              "description": "Manga-target2 maskbit for galaxy target catalog",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "mngtarg3": {
+              "name": "MNGTARG3",
+              "description": "Manga-target3 maskbit for galaxy target catalog",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "catidnum": {
+              "name": "CATIDNUM",
+              "description": "Primary target input catalog (leading digits of mangaid)",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "plttarg": {
+              "name": "PLTTARG",
+              "description": "plateTarget reference file appropriate for this target",
+              "type": "char[19]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "manga_tileid": {
+              "name": "MANGA_TILEID",
+              "description": "The ID of the tile to which this object has been allocated",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_iauname": {
+              "name": "NSA_IAUNAME",
+              "description": "IAU-style designation based on RA/Dec (NSA)",
+              "type": "char[19]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "ifudesignsize": {
+              "name": "IFUDESIGNSIZE",
+              "description": "The allocated IFU size (0 = \"unallocated\")",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "ifutargetsize": {
+              "name": "IFUTARGETSIZE",
+              "description": "The ideal IFU size for this object. The intended IFU size is equal to IFUTargetSize except if IFUTargetSize > 127 when it is 127, or < 19 when it is 19",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "ifudesignwrongsize": {
+              "name": "IFUDESIGNWRONGSIZE",
+              "description": "The allocated IFU size if the intended IFU size was not available",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_field": {
+              "name": "NSA_FIELD",
+              "description": "SDSS field ID covering the target",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_run": {
+              "name": "NSA_RUN",
+              "description": "SDSS run ID covering the target",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_camcol": {
+              "name": "NSA_CAMCOL",
+              "description": "SDSS camcol ID covering the catalog position",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_version": {
+              "name": "NSA_VERSION",
+              "description": "Version of NSA catalogue used to select these targets",
+              "type": "char[6]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_nsaid": {
+              "name": "NSA_NSAID",
+              "description": "The NSAID field in the NSA catalogue referenced in nsa_version",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_nsaid_v1b": {
+              "name": "NSA_NSAID_V1B",
+              "description": "The NSAID of the target in the NSA_v1b_0_0_v2 catalogue (if applicable).",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_z": {
+              "name": "NSA_Z",
+              "description": "Heliocentric redshift",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_zdist": {
+              "name": "NSA_ZDIST",
+              "description": "Distance estimate using peculiar velocity model of Willick et al. (1997); mulitply by c/Ho for Mpc",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_sersic_absmag": {
+              "name": "NSA_SERSIC_ABSMAG",
+              "description": "Absolute magnitude estimates in rest-frame bands [FNugriz] from K-correction (Ωm=0.3, ΩΛ=0.7, h=1)",
+              "type": "float64[7]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_elpetro_absmag": {
+              "name": "NSA_ELPETRO_ABSMAG",
+              "description": "Absolute magnitude in rest-frame bands [FNugriz], from elliptical Petrosian fluxes (Ωm=0.3, ΩΛ=0.7, h=1)",
+              "type": "float64[7]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_elpetro_amivar": {
+              "name": "NSA_ELPETRO_AMIVAR",
+              "description": "Inverse variance of nsa_elpetro_absmag in bands [FNugriz]",
+              "type": "float64[7]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_sersic_mass": {
+              "name": "NSA_SERSIC_MASS",
+              "description": "Stellar mass from K-correction fit (use with caution) for Sersic fluxes (Ωm=0.3, ΩΛ=0.7, h=1)",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_elpetro_mass": {
+              "name": "NSA_ELPETRO_MASS",
+              "description": "Stellar mass from K-correction fit (use with caution) for elliptical Petrosian fluxes (Ωm=0.3, ΩΛ=0.7, h=1)",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_elpetro_ba": {
+              "name": "NSA_ELPETRO_BA",
+              "description": "Axis ratio used for elliptical apertures (for this version, same as ba90)",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_elpetro_phi": {
+              "name": "NSA_ELPETRO_PHI",
+              "description": "Position angle (east of north) used for elliptical apertures (for this version, same as ba90)",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "nsa_extinction": {
+              "name": "NSA_EXTINCTION",
+              "description": "Galactic extinction from Schlegel, Finkbeiner, and Davis (1997), in bands [FNugriz]",
+              "type": "float64[7]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_elpetro_th50_r": {
+              "name": "NSA_ELPETRO_TH50_R",
+              "description": "Elliptical Petrosian 50% light radius in SDSS r-band",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "nsa_petro_th50": {
+              "name": "NSA_PETRO_TH50",
+              "description": "Azimuthally averaged SDSS-style Petrosian 50% light radius (derived from r band)",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "nsa_petro_flux": {
+              "name": "NSA_PETRO_FLUX",
+              "description": "Azimuthally-averaged SDSS-style Petrosian flux in bands [FNugriz] (using r-band aperture)",
+              "type": "float64[7]",
+              "unit": "nanomaggies"
+            },
+            "nsa_petro_flux_ivar": {
+              "name": "NSA_PETRO_FLUX_IVAR",
+              "description": "Inverse variance of nsa_petro_flux in bands [FNugriz]",
+              "type": "float64[7]",
+              "unit": "nanomaggies<sup>-2</sup>"
+            },
+            "nsa_elpetro_flux": {
+              "name": "NSA_ELPETRO_FLUX",
+              "description": "Elliptical SDSS-style Petrosian flux in bands [FNugriz] (using r-band aperture)",
+              "type": "float64[7]",
+              "unit": "nanomaggies"
+            },
+            "nsa_elpetro_flux_ivar": {
+              "name": "NSA_ELPETRO_FLUX_IVAR",
+              "description": "Inverse variance of nsa_elpetro_flux in bands [FNugriz]",
+              "type": "float64[7]",
+              "unit": "nanomaggies<sup>-2</sup>"
+            },
+            "nsa_sersic_ba": {
+              "name": "NSA_SERSIC_BA",
+              "description": "Axis ratio b/a from two-dimensional, single-component Sersic fit in r-band",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_sersic_n": {
+              "name": "NSA_SERSIC_N",
+              "description": "Sersic index from two-dimensional, single-component Sersic fit in r-band",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_sersic_phi": {
+              "name": "NSA_SERSIC_PHI",
+              "description": "Angle (E of N) of major axis in two-dimensional, single-component Sersic fit in r-band",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "nsa_sersic_th50": {
+              "name": "NSA_SERSIC_TH50",
+              "description": "50% light radius of two-dimensional, single-component Sersic fit to r-band",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "nsa_sersic_flux": {
+              "name": "NSA_SERSIC_FLUX",
+              "description": "Two-dimensional, single-component Sersic fit flux in bands [FNugriz] (fit using r-band structural parameters)",
+              "type": "float64[7]",
+              "unit": "nanomaggies"
+            },
+            "nsa_sersic_flux_ivar": {
+              "name": "NSA_SERSIC_FLUX_IVAR",
+              "description": "Inverse variance of nsa_sersic_flux in bands [FNugriz]",
+              "type": "float64[7]",
+              "unit": "nanomaggies<sup>-2</sup>"
+            }
+          }
+        }
+      }
+    },
+    "DR14": {
+      "template": "$MANGA_SPECTRO_REDUX/v2_1_2/drpall-v2_1_2.fits",
+      "example": "v2_1_2/drpall-v2_1_2.fits",
+      "location": "v2_1_2/drpall-v2_1_2.fits",
+      "environment": "MANGA_SPECTRO_REDUX",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "drpall",
+        "path_template": "$MANGA_SPECTRO_REDUX/{drpver}/drpall-{drpver}.fits",
+        "path_kwargs": [
+          "drpver"
+        ],
+        "access_string": "drpall = $MANGA_SPECTRO_REDUX/v2_1_2/drpall-v2_1_2.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "This HDU contains the primary content, header and data, of the drpall file.\n\nThis HDU has no non-standard required keywords.",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            },
+            {
+              "key": "CHECKSUM",
+              "value": "A7dHD5Z9A5bGA5Z9",
+              "comment": "HDU checksum updated 2016-03-18T07:44:51"
+            },
+            {
+              "key": "DATASUM",
+              "value": "0",
+              "comment": "data unit checksum updated 2016-03-18T07:44:51"
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "This HDU contains the primary content, header and data, of the drpall file.\n\nThis HDU has no non-standard required keywords.",
+          "size": "5 MB",
+          "header": null,
+          "columns": {
+            "plate": {
+              "name": "PLATE",
+              "description": "Plate ID",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "ifudsgn": {
+              "name": "IFUDSGN",
+              "description": "IFU Design ID (e.g. 12701)",
+              "type": "char[21]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "plateifu": {
+              "name": "PLATEIFU",
+              "description": "Plate+ifudesign name for this object (e.g. 7443-12701)",
+              "type": "char[11]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "mangaid": {
+              "name": "MANGAID",
+              "description": "MaNGA ID for this object (e.g. 1-114145)",
+              "type": "char[9]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "versdrp2": {
+              "name": "VERSDRP2",
+              "description": "Version of mangadrp used for 2d reductions",
+              "type": "char[8]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "versdrp3": {
+              "name": "VERSDRP3",
+              "description": "Version of mangadrp used for 3d reductions",
+              "type": "char[8]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "verscore": {
+              "name": "VERSCORE",
+              "description": "Version of mangacore used for reductions",
+              "type": "char[8]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "versutil": {
+              "name": "VERSUTIL",
+              "description": "Version of idlutils used for reductions",
+              "type": "char[8]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "versprim": {
+              "name": "VERSPRIM",
+              "description": "Version of mangapreim used for reductions",
+              "type": "char[8]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "platetyp": {
+              "name": "PLATETYP",
+              "description": "Plate type (e.g. MANGA, APOGEE-2&MANGA)",
+              "type": "char[14]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "srvymode": {
+              "name": "SRVYMODE",
+              "description": "Survey mode (e.g. MANGA dither, MANGA stare, APOGEE lead)",
+              "type": "char[12]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "objra": {
+              "name": "OBJRA",
+              "description": "Right ascension of the science object in J2000",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "objdec": {
+              "name": "OBJDEC",
+              "description": "Declination of the science object in J2000",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "ifuglon": {
+              "name": "IFUGLON",
+              "description": "Galactic longitude corresponding to IFURA/DEC",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "ifuglat": {
+              "name": "IFUGLAT",
+              "description": "Galactic latitude corresponding to IFURA/DEC",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "ifura": {
+              "name": "IFURA",
+              "description": "Right ascension of this IFU in J2000",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "ifudec": {
+              "name": "IFUDEC",
+              "description": "Declination of this IFU in J2000",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "ebvgal": {
+              "name": "EBVGAL",
+              "description": "E(B-V) value from SDSS dust routine for this IFUGLON, IFUGLAT",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nexp": {
+              "name": "NEXP",
+              "description": "Number of science exposures combined",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "exptime": {
+              "name": "EXPTIME",
+              "description": "Total exposure time",
+              "type": "float64",
+              "unit": "seconds"
+            },
+            "drp3qual": {
+              "name": "DRP3QUAL",
+              "description": "Quality bitmask",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "bluesn2": {
+              "name": "BLUESN2",
+              "description": "Total blue (S/N)^2 across all nexp exposures",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "redsn2": {
+              "name": "REDSN2",
+              "description": "Total red (S/N)^2 across all nexp exposures",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "harname": {
+              "name": "HARNAME",
+              "description": "IFU harness name",
+              "type": "char[11]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "frlplug": {
+              "name": "FRLPLUG",
+              "description": "Frplug hardware code",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "cartid": {
+              "name": "CARTID",
+              "description": "Cartridge ID number",
+              "type": "char[8]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "designid": {
+              "name": "DESIGNID",
+              "description": "Design ID number",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "cenra": {
+              "name": "CENRA",
+              "description": "Plate center right ascension in J2000",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "cendec": {
+              "name": "CENDEC",
+              "description": "Plate center declination in J2000",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "airmsmin": {
+              "name": "AIRMSMIN",
+              "description": "Minimum airmass across all exposures",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "airmsmed": {
+              "name": "AIRMSMED",
+              "description": "Median airmass across all exposures",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "airmsmax": {
+              "name": "AIRMSMAX",
+              "description": "Maximum airmass across all exposures",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "seemin": {
+              "name": "SEEMIN",
+              "description": "Best guider seeing",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "seemed": {
+              "name": "SEEMED",
+              "description": "Median guider seeing",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "seemax": {
+              "name": "SEEMAX",
+              "description": "Worst guider seeing",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "transmin": {
+              "name": "TRANSMIN",
+              "description": "Worst transparency",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "transmed": {
+              "name": "TRANSMED",
+              "description": "Median transparency",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "transmax": {
+              "name": "TRANSMAX",
+              "description": "Best transparency",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "mjdmin": {
+              "name": "MJDMIN",
+              "description": "Minimum MJD across all exposures",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "mjdmed": {
+              "name": "MJDMED",
+              "description": "Median MJD across all exposures",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "mjdmax": {
+              "name": "MJDMAX",
+              "description": "Maximum MJD across all exposures",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "gfwhm": {
+              "name": "GFWHM",
+              "description": "Reconstructed FWHM in g-band",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "rfwhm": {
+              "name": "RFWHM",
+              "description": "Reconstructed FWHM in r-band",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "ifwhm": {
+              "name": "IFWHM",
+              "description": "Reconstructed FWHM in i-band",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "zfwhm": {
+              "name": "ZFWHM",
+              "description": "Reconstructed FWHM in z-band",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "mngtarg1": {
+              "name": "MNGTARG1",
+              "description": "Manga-target1 maskbit for galaxy target catalog",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "mngtarg2": {
+              "name": "MNGTARG2",
+              "description": "Manga-target2 maskbit for galaxy target catalog",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "mngtarg3": {
+              "name": "MNGTARG3",
+              "description": "Manga-target3 maskbit for galaxy target catalog",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "catidnum": {
+              "name": "CATIDNUM",
+              "description": "Primary target input catalog (leading digits of mangaid)",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "plttarg": {
+              "name": "PLTTARG",
+              "description": "plateTarget reference file appropriate for this target",
+              "type": "char[19]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "manga_tileid": {
+              "name": "MANGA_TILEID",
+              "description": "The ID of the tile to which this object has been allocated",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_iauname": {
+              "name": "NSA_IAUNAME",
+              "description": "IAU-style designation based on RA/Dec (NSA)",
+              "type": "char[19]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "ifudesignsize": {
+              "name": "IFUDESIGNSIZE",
+              "description": "The allocated IFU size (0 = \"unallocated\")",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "ifutargetsize": {
+              "name": "IFUTARGETSIZE",
+              "description": "The ideal IFU size for this object. The intended IFU size is equal to IFUTargetSize except if IFUTargetSize > 127 when it is 127, or < 19 when it is 19",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "ifudesignwrongsize": {
+              "name": "IFUDESIGNWRONGSIZE",
+              "description": "The allocated IFU size if the intended IFU size was not available",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "zmin": {
+              "name": "ZMIN",
+              "description": "The minimum redshift at which the galaxy could still have been included in the Primary sample",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "zmax": {
+              "name": "ZMAX",
+              "description": "The maximum redshift at which the galaxy could still have been included in the Primary sample",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "szmin": {
+              "name": "SZMIN",
+              "description": "The minimum redshift at which the galaxy could still have been included in the Secondary sample",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "szmax": {
+              "name": "SZMAX",
+              "description": "The maximum redshift at which the galaxy could still have been included in the Secondary sample",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "ezmin": {
+              "name": "EZMIN",
+              "description": "The minimum redshift at which the galaxy could still have been included in the Primary+ sample",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "ezmax": {
+              "name": "EZMAX",
+              "description": "The maximum redshift at which the galaxy could still have been included in the Primary+ sample",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_field": {
+              "name": "NSA_FIELD",
+              "description": "SDSS field ID covering the target",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_run": {
+              "name": "NSA_RUN",
+              "description": "SDSS run ID covering the target",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_camcol": {
+              "name": "NSA_CAMCOL",
+              "description": "SDSS camcol ID covering the catalog position",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_version": {
+              "name": "NSA_VERSION",
+              "description": "Version of NSA catalogue used to select these targets",
+              "type": "char[6]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_nsaid": {
+              "name": "NSA_NSAID",
+              "description": "The NSAID field in the NSA catalogue referenced in nsa_version",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_nsaid_v1b": {
+              "name": "NSA_NSAID_V1B",
+              "description": "The NSAID of the target in the NSA_v1b_0_0_v2 catalogue (if applicable).",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_z": {
+              "name": "NSA_Z",
+              "description": "Heliocentric redshift",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_zdist": {
+              "name": "NSA_ZDIST",
+              "description": "Distance estimate using peculiar velocity model of Willick et al. (1997); mulitply by c/Ho for Mpc",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_sersic_absmag": {
+              "name": "NSA_SERSIC_ABSMAG",
+              "description": "Absolute magnitude estimates in rest-frame bands [FNugriz] from K-correction (Ωm=0.3, ΩΛ=0.7, h=1)",
+              "type": "float64[7]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_elpetro_absmag": {
+              "name": "NSA_ELPETRO_ABSMAG",
+              "description": "Absolute magnitude in rest-frame bands [FNugriz], from elliptical Petrosian fluxes (Ωm=0.3, ΩΛ=0.7, h=1)",
+              "type": "float64[7]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_elpetro_amivar": {
+              "name": "NSA_ELPETRO_AMIVAR",
+              "description": "Inverse variance of nsa_elpetro_absmag in bands [FNugriz]",
+              "type": "float64[7]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_sersic_mass": {
+              "name": "NSA_SERSIC_MASS",
+              "description": "Stellar mass from K-correction fit (use with caution) for Sersic fluxes (Ωm=0.3, ΩΛ=0.7, h=1)",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_elpetro_mass": {
+              "name": "NSA_ELPETRO_MASS",
+              "description": "Stellar mass from K-correction fit (use with caution) for elliptical Petrosian fluxes (Ωm=0.3, ΩΛ=0.7, h=1)",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_elpetro_ba": {
+              "name": "NSA_ELPETRO_BA",
+              "description": "Axis ratio used for elliptical apertures (for this version, same as ba90)",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_elpetro_phi": {
+              "name": "NSA_ELPETRO_PHI",
+              "description": "Position angle (east of north) used for elliptical apertures (for this version, same as ba90)",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "nsa_extinction": {
+              "name": "NSA_EXTINCTION",
+              "description": "Galactic extinction from Schlegel, Finkbeiner, and Davis (1997), in bands [FNugriz]",
+              "type": "float64[7]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_elpetro_th50_r": {
+              "name": "NSA_ELPETRO_TH50_R",
+              "description": "Elliptical Petrosian 50% light radius in SDSS r-band",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "nsa_petro_th50": {
+              "name": "NSA_PETRO_TH50",
+              "description": "Azimuthally averaged SDSS-style Petrosian 50% light radius (derived from r band)",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "nsa_petro_flux": {
+              "name": "NSA_PETRO_FLUX",
+              "description": "Azimuthally-averaged SDSS-style Petrosian flux in bands [FNugriz] (using r-band aperture)",
+              "type": "float64[7]",
+              "unit": "nanomaggies"
+            },
+            "nsa_petro_flux_ivar": {
+              "name": "NSA_PETRO_FLUX_IVAR",
+              "description": "Inverse variance of nsa_petro_flux in bands [FNugriz]",
+              "type": "float64[7]",
+              "unit": "nanomaggies<sup>-2</sup>"
+            },
+            "nsa_elpetro_flux": {
+              "name": "NSA_ELPETRO_FLUX",
+              "description": "Elliptical SDSS-style Petrosian flux in bands [FNugriz] (using r-band aperture)",
+              "type": "float64[7]",
+              "unit": "nanomaggies"
+            },
+            "nsa_elpetro_flux_ivar": {
+              "name": "NSA_ELPETRO_FLUX_IVAR",
+              "description": "Inverse variance of nsa_elpetro_flux in bands [FNugriz]",
+              "type": "float64[7]",
+              "unit": "nanomaggies<sup>-2</sup>"
+            },
+            "nsa_sersic_ba": {
+              "name": "NSA_SERSIC_BA",
+              "description": "Axis ratio b/a from two-dimensional, single-component Sersic fit in r-band",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_sersic_n": {
+              "name": "NSA_SERSIC_N",
+              "description": "Sersic index from two-dimensional, single-component Sersic fit in r-band",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_sersic_phi": {
+              "name": "NSA_SERSIC_PHI",
+              "description": "Angle (E of N) of major axis in two-dimensional, single-component Sersic fit in r-band",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "nsa_sersic_th50": {
+              "name": "NSA_SERSIC_TH50",
+              "description": "50% light radius of two-dimensional, single-component Sersic fit to r-band",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "nsa_sersic_flux": {
+              "name": "NSA_SERSIC_FLUX",
+              "description": "Two-dimensional, single-component Sersic fit flux in bands [FNugriz] (fit using r-band structural parameters)",
+              "type": "float64[7]",
+              "unit": "nanomaggies"
+            },
+            "nsa_sersic_flux_ivar": {
+              "name": "NSA_SERSIC_FLUX_IVAR",
+              "description": "Inverse variance of nsa_sersic_flux in bands [FNugriz]",
+              "type": "float64[7]",
+              "unit": "nanomaggies<sup>-2</sup>"
+            }
+          }
+        }
+      }
+    },
+    "DR15": {
+      "template": "$MANGA_SPECTRO_REDUX/v2_4_3/drpall-v2_4_3.fits",
+      "example": "v2_4_3/drpall-v2_4_3.fits",
+      "location": "v2_4_3/drpall-v2_4_3.fits",
+      "environment": "MANGA_SPECTRO_REDUX",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "drpall",
+        "path_template": "$MANGA_SPECTRO_REDUX/{drpver}/drpall-{drpver}.fits",
+        "path_kwargs": [
+          "drpver"
+        ],
+        "access_string": "drpall = $MANGA_SPECTRO_REDUX/v2_4_3/drpall-v2_4_3.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "This HDU contains the primary content, header and data, of the drpall file.\n\nThis HDU has no non-standard required keywords.",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            },
+            {
+              "key": "CHECKSUM",
+              "value": "97bAJ6ZA96aAG6YA",
+              "comment": "HDU checksum updated 2016-03-18T07:44:51"
+            },
+            {
+              "key": "DATASUM",
+              "value": "0",
+              "comment": "data unit checksum updated 2016-03-18T07:44:51"
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "This HDU contains the primary content, header and data, of the drpall file.\n\nThis HDU has no non-standard required keywords.",
+          "size": "14 MB",
+          "header": null,
+          "columns": {
+            "plate": {
+              "name": "PLATE",
+              "description": "Plate ID",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "ifudsgn": {
+              "name": "IFUDSGN",
+              "description": "IFU Design ID (e.g. 12701)",
+              "type": "char[21]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "plateifu": {
+              "name": "PLATEIFU",
+              "description": "Plate+ifudesign name for this object (e.g. 7443-12701)",
+              "type": "char[11]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "mangaid": {
+              "name": "MANGAID",
+              "description": "MaNGA ID for this object (e.g. 1-114145)",
+              "type": "char[11]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "versdrp2": {
+              "name": "VERSDRP2",
+              "description": "Version of mangadrp used for 2d reductions",
+              "type": "char[6]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "versdrp3": {
+              "name": "VERSDRP3",
+              "description": "Version of mangadrp used for 3d reductions",
+              "type": "char[6]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "verscore": {
+              "name": "VERSCORE",
+              "description": "Version of mangacore used for reductions",
+              "type": "char[6]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "versutil": {
+              "name": "VERSUTIL",
+              "description": "Version of idlutils used for reductions",
+              "type": "char[7]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "versprim": {
+              "name": "VERSPRIM",
+              "description": "Version of mangapreim used for reductions",
+              "type": "char[4]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "platetyp": {
+              "name": "PLATETYP",
+              "description": "Plate type (e.g. MANGA, APOGEE-2&MANGA)",
+              "type": "char[14]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "srvymode": {
+              "name": "SRVYMODE",
+              "description": "Survey mode (e.g. MANGA dither, MANGA stare, APOGEE lead)",
+              "type": "char[12]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "objra": {
+              "name": "OBJRA",
+              "description": "Right ascension of the science object in J2000",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "objdec": {
+              "name": "OBJDEC",
+              "description": "Declination of the science object in J2000",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "ifuglon": {
+              "name": "IFUGLON",
+              "description": "Galactic longitude corresponding to IFURA/DEC",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "ifuglat": {
+              "name": "IFUGLAT",
+              "description": "Galactic latitude corresponding to IFURA/DEC",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "ifura": {
+              "name": "IFURA",
+              "description": "Right ascension of this IFU in J2000",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "ifudec": {
+              "name": "IFUDEC",
+              "description": "Declination of this IFU in J2000",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "ebvgal": {
+              "name": "EBVGAL",
+              "description": "E(B-V) value from SDSS dust routine for this IFUGLON, IFUGLAT",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nexp": {
+              "name": "NEXP",
+              "description": "Number of science exposures combined",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "exptime": {
+              "name": "EXPTIME",
+              "description": "Total exposure time",
+              "type": "float64",
+              "unit": "seconds"
+            },
+            "drp3qual": {
+              "name": "DRP3QUAL",
+              "description": "Quality bitmask",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "bluesn2": {
+              "name": "BLUESN2",
+              "description": "Total blue (S/N)^2 across all nexp exposures",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "redsn2": {
+              "name": "REDSN2",
+              "description": "Total red (S/N)^2 across all nexp exposures",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "harname": {
+              "name": "HARNAME",
+              "description": "IFU harness name",
+              "type": "char[35]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "frlplug": {
+              "name": "FRLPLUG",
+              "description": "Frplug hardware code",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "cartid": {
+              "name": "CARTID",
+              "description": "Cartridge ID number",
+              "type": "char[11]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "designid": {
+              "name": "DESIGNID",
+              "description": "Design ID number",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "cenra": {
+              "name": "CENRA",
+              "description": "Plate center right ascension in J2000",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "cendec": {
+              "name": "CENDEC",
+              "description": "Plate center declination in J2000",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "airmsmin": {
+              "name": "AIRMSMIN",
+              "description": "Minimum airmass across all exposures",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "airmsmed": {
+              "name": "AIRMSMED",
+              "description": "Median airmass across all exposures",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "airmsmax": {
+              "name": "AIRMSMAX",
+              "description": "Maximum airmass across all exposures",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "seemin": {
+              "name": "SEEMIN",
+              "description": "Best guider seeing",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "seemed": {
+              "name": "SEEMED",
+              "description": "Median guider seeing",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "seemax": {
+              "name": "SEEMAX",
+              "description": "Worst guider seeing",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "transmin": {
+              "name": "TRANSMIN",
+              "description": "Worst transparency",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "transmed": {
+              "name": "TRANSMED",
+              "description": "Median transparency",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "transmax": {
+              "name": "TRANSMAX",
+              "description": "Best transparency",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "mjdmin": {
+              "name": "MJDMIN",
+              "description": "Minimum MJD across all exposures",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "mjdmed": {
+              "name": "MJDMED",
+              "description": "Median MJD across all exposures",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "mjdmax": {
+              "name": "MJDMAX",
+              "description": "Maximum MJD across all exposures",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "gfwhm": {
+              "name": "GFWHM",
+              "description": "Reconstructed FWHM in g-band",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "rfwhm": {
+              "name": "RFWHM",
+              "description": "Reconstructed FWHM in r-band",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "ifwhm": {
+              "name": "IFWHM",
+              "description": "Reconstructed FWHM in i-band",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "zfwhm": {
+              "name": "ZFWHM",
+              "description": "Reconstructed FWHM in z-band",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "mngtarg1": {
+              "name": "MNGTARG1",
+              "description": "Manga-target1 maskbit for galaxy target catalog",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "mngtarg2": {
+              "name": "MNGTARG2",
+              "description": "Manga-target2 maskbit for galaxy target catalog",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "mngtarg3": {
+              "name": "MNGTARG3",
+              "description": "Manga-target3 maskbit for galaxy target catalog",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "catidnum": {
+              "name": "CATIDNUM",
+              "description": "Primary target input catalog (leading digits of mangaid)",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "plttarg": {
+              "name": "PLTTARG",
+              "description": "plateTarget reference file appropriate for this target",
+              "type": "char[19]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "manga_tileid": {
+              "name": "MANGA_TILEID",
+              "description": "The ID of the tile to which this object has been allocated",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_iauname": {
+              "name": "NSA_IAUNAME",
+              "description": "IAU-style designation based on RA/Dec (NSA)",
+              "type": "char[19]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "ifudesignsize": {
+              "name": "IFUDESIGNSIZE",
+              "description": "The allocated IFU size (0 = \"unallocated\")",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "ifutargetsize": {
+              "name": "IFUTARGETSIZE",
+              "description": "The ideal IFU size for this object. The intended IFU size is equal to IFUTargetSize except if IFUTargetSize > 127 when it is 127, or < 19 when it is 19",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "ifudesignwrongsize": {
+              "name": "IFUDESIGNWRONGSIZE",
+              "description": "The allocated IFU size if the intended IFU size was not available",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "z": {
+              "name": "Z",
+              "description": "The targeting redshift (identical to nsa_z for those targets in the NSA Catalog. For others, it is the redshift provided by the Ancillary programs)",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "zmin": {
+              "name": "ZMIN",
+              "description": "The minimum redshift at which the galaxy could still have been included in the Primary sample",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "zmax": {
+              "name": "ZMAX",
+              "description": "The maximum redshift at which the galaxy could still have been included in the Primary sample",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "szmin": {
+              "name": "SZMIN",
+              "description": "The minimum redshift at which the galaxy could still have been included in the Secondary sample",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "szmax": {
+              "name": "SZMAX",
+              "description": "The maximum redshift at which the galaxy could still have been included in the Secondary sample",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "ezmin": {
+              "name": "EZMIN",
+              "description": "The minimum redshift at which the galaxy could still have been included in the Primary+ sample",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "ezmax": {
+              "name": "EZMAX",
+              "description": "The maximum redshift at which the galaxy could still have been included in the Primary+ sample",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "probs": {
+              "name": "PROBS",
+              "description": "The probability that a Secondary sample galaxy is included after down-sampling. For galaxies not in the Secondary sample PROBS is set to the mean down-sampling probability",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "pweight": {
+              "name": "PWEIGHT",
+              "description": "The volume weight for the Primary sample. Corrects the MaNGA selection to a volume limited sample.",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "psweight": {
+              "name": "PSWEIGHT",
+              "description": "The volume weight for the combined Primary and full Secondary samples. Corrects the MaNGA selection to a volume limited sample.",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "psrweight": {
+              "name": "PSRWEIGHT",
+              "description": "The volume weight for the combined Primary and down-sampled Secondary samples. Corrects the MaNGA selection to a volume limited sample.",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "sweight": {
+              "name": "SWEIGHT",
+              "description": "The volume weight for the full Secondary sample. Corrects the MaNGA selection to a volume limited sample.",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "srweight": {
+              "name": "SRWEIGHT",
+              "description": "The volume weight for the down-sampled Secondary sample. Corrects the MaNGA selection to a volume limited sample.",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "eweight": {
+              "name": "EWEIGHT",
+              "description": "The volume weight for the Primary+ sample. Corrects the MaNGA selection to a volume limited sample.",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "esweight": {
+              "name": "ESWEIGHT",
+              "description": "The volume weight for the combined Primary+ and full Secondary samples. Corrects the MaNGA selection to a volume limited sample.",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "esrweight": {
+              "name": "ESRWEIGHT",
+              "description": "The volume weight for the combined Primary+ and down-sampled Secondary samples. Corrects the MaNGA selection to a volume limited sample.",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_field": {
+              "name": "NSA_FIELD",
+              "description": "SDSS field ID covering the target",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_run": {
+              "name": "NSA_RUN",
+              "description": "SDSS run ID covering the target",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_camcol": {
+              "name": "NSA_CAMCOL",
+              "description": "SDSS camcol ID covering the catalog position",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_version": {
+              "name": "NSA_VERSION",
+              "description": "Version of NSA catalogue used to select these targets",
+              "type": "char[6]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_nsaid": {
+              "name": "NSA_NSAID",
+              "description": "The NSAID field in the NSA catalogue referenced in nsa_version",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_nsaid_v1b": {
+              "name": "NSA_NSAID_V1B",
+              "description": "The NSAID of the target in the NSA_v1b_0_0_v2 catalogue (if applicable).",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_z": {
+              "name": "NSA_Z",
+              "description": "Heliocentric redshift",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_zdist": {
+              "name": "NSA_ZDIST",
+              "description": "Distance estimate using peculiar velocity model of Willick et al. (1997); mulitply by c/Ho for Mpc",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_sersic_absmag": {
+              "name": "NSA_SERSIC_ABSMAG",
+              "description": "Absolute magnitude estimates in rest-frame bands [FNugriz] from K-correction (Ωm=0.3, ΩΛ=0.7, h=1)",
+              "type": "float64[7]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_elpetro_absmag": {
+              "name": "NSA_ELPETRO_ABSMAG",
+              "description": "Absolute magnitude in rest-frame bands [FNugriz], from elliptical Petrosian fluxes (Ωm=0.3, ΩΛ=0.7, h=1)",
+              "type": "float64[7]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_elpetro_amivar": {
+              "name": "NSA_ELPETRO_AMIVAR",
+              "description": "Inverse variance of nsa_elpetro_absmag in bands [FNugriz]",
+              "type": "float64[7]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_sersic_mass": {
+              "name": "NSA_SERSIC_MASS",
+              "description": "Stellar mass from K-correction fit (use with caution) for Sersic fluxes (Ωm=0.3, ΩΛ=0.7, h=1)",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_elpetro_mass": {
+              "name": "NSA_ELPETRO_MASS",
+              "description": "Stellar mass from K-correction fit (use with caution) for elliptical Petrosian fluxes (Ωm=0.3, ΩΛ=0.7, h=1)",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_elpetro_ba": {
+              "name": "NSA_ELPETRO_BA",
+              "description": "Axis ratio used for elliptical apertures (for this version, same as ba90)",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_elpetro_phi": {
+              "name": "NSA_ELPETRO_PHI",
+              "description": "Position angle (east of north) used for elliptical apertures (for this version, same as ba90)",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "nsa_extinction": {
+              "name": "NSA_EXTINCTION",
+              "description": "Galactic extinction from Schlegel, Finkbeiner, and Davis (1997), in bands [FNugriz]",
+              "type": "float64[7]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_elpetro_th50_r": {
+              "name": "NSA_ELPETRO_TH50_R",
+              "description": "Elliptical Petrosian 50% light radius in SDSS r-band",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "nsa_petro_th50": {
+              "name": "NSA_PETRO_TH50",
+              "description": "Azimuthally averaged SDSS-style Petrosian 50% light radius (derived from r band)",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "nsa_petro_flux": {
+              "name": "NSA_PETRO_FLUX",
+              "description": "Azimuthally-averaged SDSS-style Petrosian flux in bands [FNugriz] (using r-band aperture)",
+              "type": "float64[7]",
+              "unit": "nanomaggies"
+            },
+            "nsa_petro_flux_ivar": {
+              "name": "NSA_PETRO_FLUX_IVAR",
+              "description": "Inverse variance of nsa_petro_flux in bands [FNugriz]",
+              "type": "float64[7]",
+              "unit": "nanomaggies<sup>-2</sup>"
+            },
+            "nsa_elpetro_flux": {
+              "name": "NSA_ELPETRO_FLUX",
+              "description": "Elliptical SDSS-style Petrosian flux in bands [FNugriz] (using r-band aperture)",
+              "type": "float64[7]",
+              "unit": "nanomaggies"
+            },
+            "nsa_elpetro_flux_ivar": {
+              "name": "NSA_ELPETRO_FLUX_IVAR",
+              "description": "Inverse variance of nsa_elpetro_flux in bands [FNugriz]",
+              "type": "float64[7]",
+              "unit": "nanomaggies<sup>-2</sup>"
+            },
+            "nsa_sersic_ba": {
+              "name": "NSA_SERSIC_BA",
+              "description": "Axis ratio b/a from two-dimensional, single-component Sersic fit in r-band",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_sersic_n": {
+              "name": "NSA_SERSIC_N",
+              "description": "Sersic index from two-dimensional, single-component Sersic fit in r-band",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_sersic_phi": {
+              "name": "NSA_SERSIC_PHI",
+              "description": "Angle (E of N) of major axis in two-dimensional, single-component Sersic fit in r-band",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "nsa_sersic_th50": {
+              "name": "NSA_SERSIC_TH50",
+              "description": "50% light radius of two-dimensional, single-component Sersic fit to r-band",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "nsa_sersic_flux": {
+              "name": "NSA_SERSIC_FLUX",
+              "description": "Two-dimensional, single-component Sersic fit flux in bands [FNugriz] (fit using r-band structural parameters)",
+              "type": "float64[7]",
+              "unit": "nanomaggies"
+            },
+            "nsa_sersic_flux_ivar": {
+              "name": "NSA_SERSIC_FLUX_IVAR",
+              "description": "Inverse variance of nsa_sersic_flux in bands [FNugriz]",
+              "type": "float64[7]",
+              "unit": "nanomaggies<sup>-2</sup>"
+            }
+          }
+        }
+      }
+    },
+    "DR16": {
+      "template": "$MANGA_SPECTRO_REDUX/v2_4_3/drpall-v2_4_3.fits",
+      "example": "v2_4_3/drpall-v2_4_3.fits",
+      "location": "v2_4_3/drpall-v2_4_3.fits",
+      "environment": "MANGA_SPECTRO_REDUX",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "drpall",
+        "path_template": "$MANGA_SPECTRO_REDUX/{drpver}/drpall-{drpver}.fits",
+        "path_kwargs": [
+          "drpver"
+        ],
+        "access_string": "drpall = $MANGA_SPECTRO_REDUX/v2_4_3/drpall-v2_4_3.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "This HDU contains the primary content, header and data, of the drpall file.\n\nThis HDU has no non-standard required keywords.",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            },
+            {
+              "key": "CHECKSUM",
+              "value": "97bAJ6ZA96aAG6YA",
+              "comment": "HDU checksum updated 2016-03-18T07:44:51"
+            },
+            {
+              "key": "DATASUM",
+              "value": "0",
+              "comment": "data unit checksum updated 2016-03-18T07:44:51"
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "This HDU contains the primary content, header and data, of the drpall file.\n\nThis HDU has no non-standard required keywords.",
+          "size": "14 MB",
+          "header": null,
+          "columns": {
+            "plate": {
+              "name": "PLATE",
+              "description": "Plate ID",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "ifudsgn": {
+              "name": "IFUDSGN",
+              "description": "IFU Design ID (e.g. 12701)",
+              "type": "char[21]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "plateifu": {
+              "name": "PLATEIFU",
+              "description": "Plate+ifudesign name for this object (e.g. 7443-12701)",
+              "type": "char[11]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "mangaid": {
+              "name": "MANGAID",
+              "description": "MaNGA ID for this object (e.g. 1-114145)",
+              "type": "char[11]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "versdrp2": {
+              "name": "VERSDRP2",
+              "description": "Version of mangadrp used for 2d reductions",
+              "type": "char[6]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "versdrp3": {
+              "name": "VERSDRP3",
+              "description": "Version of mangadrp used for 3d reductions",
+              "type": "char[6]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "verscore": {
+              "name": "VERSCORE",
+              "description": "Version of mangacore used for reductions",
+              "type": "char[6]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "versutil": {
+              "name": "VERSUTIL",
+              "description": "Version of idlutils used for reductions",
+              "type": "char[7]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "versprim": {
+              "name": "VERSPRIM",
+              "description": "Version of mangapreim used for reductions",
+              "type": "char[4]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "platetyp": {
+              "name": "PLATETYP",
+              "description": "Plate type (e.g. MANGA, APOGEE-2&MANGA)",
+              "type": "char[14]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "srvymode": {
+              "name": "SRVYMODE",
+              "description": "Survey mode (e.g. MANGA dither, MANGA stare, APOGEE lead)",
+              "type": "char[12]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "objra": {
+              "name": "OBJRA",
+              "description": "Right ascension of the science object in J2000",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "objdec": {
+              "name": "OBJDEC",
+              "description": "Declination of the science object in J2000",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "ifuglon": {
+              "name": "IFUGLON",
+              "description": "Galactic longitude corresponding to IFURA/DEC",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "ifuglat": {
+              "name": "IFUGLAT",
+              "description": "Galactic latitude corresponding to IFURA/DEC",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "ifura": {
+              "name": "IFURA",
+              "description": "Right ascension of this IFU in J2000",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "ifudec": {
+              "name": "IFUDEC",
+              "description": "Declination of this IFU in J2000",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "ebvgal": {
+              "name": "EBVGAL",
+              "description": "E(B-V) value from SDSS dust routine for this IFUGLON, IFUGLAT",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nexp": {
+              "name": "NEXP",
+              "description": "Number of science exposures combined",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "exptime": {
+              "name": "EXPTIME",
+              "description": "Total exposure time",
+              "type": "float64",
+              "unit": "seconds"
+            },
+            "drp3qual": {
+              "name": "DRP3QUAL",
+              "description": "Quality bitmask",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "bluesn2": {
+              "name": "BLUESN2",
+              "description": "Total blue (S/N)^2 across all nexp exposures",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "redsn2": {
+              "name": "REDSN2",
+              "description": "Total red (S/N)^2 across all nexp exposures",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "harname": {
+              "name": "HARNAME",
+              "description": "IFU harness name",
+              "type": "char[35]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "frlplug": {
+              "name": "FRLPLUG",
+              "description": "Frplug hardware code",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "cartid": {
+              "name": "CARTID",
+              "description": "Cartridge ID number",
+              "type": "char[11]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "designid": {
+              "name": "DESIGNID",
+              "description": "Design ID number",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "cenra": {
+              "name": "CENRA",
+              "description": "Plate center right ascension in J2000",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "cendec": {
+              "name": "CENDEC",
+              "description": "Plate center declination in J2000",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "airmsmin": {
+              "name": "AIRMSMIN",
+              "description": "Minimum airmass across all exposures",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "airmsmed": {
+              "name": "AIRMSMED",
+              "description": "Median airmass across all exposures",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "airmsmax": {
+              "name": "AIRMSMAX",
+              "description": "Maximum airmass across all exposures",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "seemin": {
+              "name": "SEEMIN",
+              "description": "Best guider seeing",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "seemed": {
+              "name": "SEEMED",
+              "description": "Median guider seeing",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "seemax": {
+              "name": "SEEMAX",
+              "description": "Worst guider seeing",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "transmin": {
+              "name": "TRANSMIN",
+              "description": "Worst transparency",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "transmed": {
+              "name": "TRANSMED",
+              "description": "Median transparency",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "transmax": {
+              "name": "TRANSMAX",
+              "description": "Best transparency",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "mjdmin": {
+              "name": "MJDMIN",
+              "description": "Minimum MJD across all exposures",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "mjdmed": {
+              "name": "MJDMED",
+              "description": "Median MJD across all exposures",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "mjdmax": {
+              "name": "MJDMAX",
+              "description": "Maximum MJD across all exposures",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "gfwhm": {
+              "name": "GFWHM",
+              "description": "Reconstructed FWHM in g-band",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "rfwhm": {
+              "name": "RFWHM",
+              "description": "Reconstructed FWHM in r-band",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "ifwhm": {
+              "name": "IFWHM",
+              "description": "Reconstructed FWHM in i-band",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "zfwhm": {
+              "name": "ZFWHM",
+              "description": "Reconstructed FWHM in z-band",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "mngtarg1": {
+              "name": "MNGTARG1",
+              "description": "Manga-target1 maskbit for galaxy target catalog",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "mngtarg2": {
+              "name": "MNGTARG2",
+              "description": "Manga-target2 maskbit for galaxy target catalog",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "mngtarg3": {
+              "name": "MNGTARG3",
+              "description": "Manga-target3 maskbit for galaxy target catalog",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "catidnum": {
+              "name": "CATIDNUM",
+              "description": "Primary target input catalog (leading digits of mangaid)",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "plttarg": {
+              "name": "PLTTARG",
+              "description": "plateTarget reference file appropriate for this target",
+              "type": "char[19]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "manga_tileid": {
+              "name": "MANGA_TILEID",
+              "description": "The ID of the tile to which this object has been allocated",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_iauname": {
+              "name": "NSA_IAUNAME",
+              "description": "IAU-style designation based on RA/Dec (NSA)",
+              "type": "char[19]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "ifudesignsize": {
+              "name": "IFUDESIGNSIZE",
+              "description": "The allocated IFU size (0 = \"unallocated\")",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "ifutargetsize": {
+              "name": "IFUTARGETSIZE",
+              "description": "The ideal IFU size for this object. The intended IFU size is equal to IFUTargetSize except if IFUTargetSize > 127 when it is 127, or < 19 when it is 19",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "ifudesignwrongsize": {
+              "name": "IFUDESIGNWRONGSIZE",
+              "description": "The allocated IFU size if the intended IFU size was not available",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "z": {
+              "name": "Z",
+              "description": "The targeting redshift (identical to nsa_z for those targets in the NSA Catalog. For others, it is the redshift provided by the Ancillary programs)",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "zmin": {
+              "name": "ZMIN",
+              "description": "The minimum redshift at which the galaxy could still have been included in the Primary sample",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "zmax": {
+              "name": "ZMAX",
+              "description": "The maximum redshift at which the galaxy could still have been included in the Primary sample",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "szmin": {
+              "name": "SZMIN",
+              "description": "The minimum redshift at which the galaxy could still have been included in the Secondary sample",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "szmax": {
+              "name": "SZMAX",
+              "description": "The maximum redshift at which the galaxy could still have been included in the Secondary sample",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "ezmin": {
+              "name": "EZMIN",
+              "description": "The minimum redshift at which the galaxy could still have been included in the Primary+ sample",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "ezmax": {
+              "name": "EZMAX",
+              "description": "The maximum redshift at which the galaxy could still have been included in the Primary+ sample",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "probs": {
+              "name": "PROBS",
+              "description": "The probability that a Secondary sample galaxy is included after down-sampling. For galaxies not in the Secondary sample PROBS is set to the mean down-sampling probability",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "pweight": {
+              "name": "PWEIGHT",
+              "description": "The volume weight for the Primary sample. Corrects the MaNGA selection to a volume limited sample.",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "psweight": {
+              "name": "PSWEIGHT",
+              "description": "The volume weight for the combined Primary and full Secondary samples. Corrects the MaNGA selection to a volume limited sample.",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "psrweight": {
+              "name": "PSRWEIGHT",
+              "description": "The volume weight for the combined Primary and down-sampled Secondary samples. Corrects the MaNGA selection to a volume limited sample.",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "sweight": {
+              "name": "SWEIGHT",
+              "description": "The volume weight for the full Secondary sample. Corrects the MaNGA selection to a volume limited sample.",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "srweight": {
+              "name": "SRWEIGHT",
+              "description": "The volume weight for the down-sampled Secondary sample. Corrects the MaNGA selection to a volume limited sample.",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "eweight": {
+              "name": "EWEIGHT",
+              "description": "The volume weight for the Primary+ sample. Corrects the MaNGA selection to a volume limited sample.",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "esweight": {
+              "name": "ESWEIGHT",
+              "description": "The volume weight for the combined Primary+ and full Secondary samples. Corrects the MaNGA selection to a volume limited sample.",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "esrweight": {
+              "name": "ESRWEIGHT",
+              "description": "The volume weight for the combined Primary+ and down-sampled Secondary samples. Corrects the MaNGA selection to a volume limited sample.",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_field": {
+              "name": "NSA_FIELD",
+              "description": "SDSS field ID covering the target",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_run": {
+              "name": "NSA_RUN",
+              "description": "SDSS run ID covering the target",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_camcol": {
+              "name": "NSA_CAMCOL",
+              "description": "SDSS camcol ID covering the catalog position",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_version": {
+              "name": "NSA_VERSION",
+              "description": "Version of NSA catalogue used to select these targets",
+              "type": "char[6]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_nsaid": {
+              "name": "NSA_NSAID",
+              "description": "The NSAID field in the NSA catalogue referenced in nsa_version",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_nsaid_v1b": {
+              "name": "NSA_NSAID_V1B",
+              "description": "The NSAID of the target in the NSA_v1b_0_0_v2 catalogue (if applicable).",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_z": {
+              "name": "NSA_Z",
+              "description": "Heliocentric redshift",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_zdist": {
+              "name": "NSA_ZDIST",
+              "description": "Distance estimate using peculiar velocity model of Willick et al. (1997); mulitply by c/Ho for Mpc",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_sersic_absmag": {
+              "name": "NSA_SERSIC_ABSMAG",
+              "description": "Absolute magnitude estimates in rest-frame bands [FNugriz] from K-correction (Ωm=0.3, ΩΛ=0.7, h=1)",
+              "type": "float64[7]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_elpetro_absmag": {
+              "name": "NSA_ELPETRO_ABSMAG",
+              "description": "Absolute magnitude in rest-frame bands [FNugriz], from elliptical Petrosian fluxes (Ωm=0.3, ΩΛ=0.7, h=1)",
+              "type": "float64[7]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_elpetro_amivar": {
+              "name": "NSA_ELPETRO_AMIVAR",
+              "description": "Inverse variance of nsa_elpetro_absmag in bands [FNugriz]",
+              "type": "float64[7]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_sersic_mass": {
+              "name": "NSA_SERSIC_MASS",
+              "description": "Stellar mass from K-correction fit (use with caution) for Sersic fluxes (Ωm=0.3, ΩΛ=0.7, h=1)",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_elpetro_mass": {
+              "name": "NSA_ELPETRO_MASS",
+              "description": "Stellar mass from K-correction fit (use with caution) for elliptical Petrosian fluxes (Ωm=0.3, ΩΛ=0.7, h=1)",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_elpetro_ba": {
+              "name": "NSA_ELPETRO_BA",
+              "description": "Axis ratio used for elliptical apertures (for this version, same as ba90)",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_elpetro_phi": {
+              "name": "NSA_ELPETRO_PHI",
+              "description": "Position angle (east of north) used for elliptical apertures (for this version, same as ba90)",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "nsa_extinction": {
+              "name": "NSA_EXTINCTION",
+              "description": "Galactic extinction from Schlegel, Finkbeiner, and Davis (1997), in bands [FNugriz]",
+              "type": "float64[7]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_elpetro_th50_r": {
+              "name": "NSA_ELPETRO_TH50_R",
+              "description": "Elliptical Petrosian 50% light radius in SDSS r-band",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "nsa_petro_th50": {
+              "name": "NSA_PETRO_TH50",
+              "description": "Azimuthally averaged SDSS-style Petrosian 50% light radius (derived from r band)",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "nsa_petro_flux": {
+              "name": "NSA_PETRO_FLUX",
+              "description": "Azimuthally-averaged SDSS-style Petrosian flux in bands [FNugriz] (using r-band aperture)",
+              "type": "float64[7]",
+              "unit": "nanomaggies"
+            },
+            "nsa_petro_flux_ivar": {
+              "name": "NSA_PETRO_FLUX_IVAR",
+              "description": "Inverse variance of nsa_petro_flux in bands [FNugriz]",
+              "type": "float64[7]",
+              "unit": "nanomaggies<sup>-2</sup>"
+            },
+            "nsa_elpetro_flux": {
+              "name": "NSA_ELPETRO_FLUX",
+              "description": "Elliptical SDSS-style Petrosian flux in bands [FNugriz] (using r-band aperture)",
+              "type": "float64[7]",
+              "unit": "nanomaggies"
+            },
+            "nsa_elpetro_flux_ivar": {
+              "name": "NSA_ELPETRO_FLUX_IVAR",
+              "description": "Inverse variance of nsa_elpetro_flux in bands [FNugriz]",
+              "type": "float64[7]",
+              "unit": "nanomaggies<sup>-2</sup>"
+            },
+            "nsa_sersic_ba": {
+              "name": "NSA_SERSIC_BA",
+              "description": "Axis ratio b/a from two-dimensional, single-component Sersic fit in r-band",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_sersic_n": {
+              "name": "NSA_SERSIC_N",
+              "description": "Sersic index from two-dimensional, single-component Sersic fit in r-band",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_sersic_phi": {
+              "name": "NSA_SERSIC_PHI",
+              "description": "Angle (E of N) of major axis in two-dimensional, single-component Sersic fit in r-band",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "nsa_sersic_th50": {
+              "name": "NSA_SERSIC_TH50",
+              "description": "50% light radius of two-dimensional, single-component Sersic fit to r-band",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "nsa_sersic_flux": {
+              "name": "NSA_SERSIC_FLUX",
+              "description": "Two-dimensional, single-component Sersic fit flux in bands [FNugriz] (fit using r-band structural parameters)",
+              "type": "float64[7]",
+              "unit": "nanomaggies"
+            },
+            "nsa_sersic_flux_ivar": {
+              "name": "NSA_SERSIC_FLUX_IVAR",
+              "description": "Inverse variance of nsa_sersic_flux in bands [FNugriz]",
+              "type": "float64[7]",
+              "unit": "nanomaggies<sup>-2</sup>"
+            }
+          }
+        }
+      }
+    },
+    "WORK": {
+      "template": "$MANGA_SPECTRO_REDUX/v3_1_1/drpall-v3_1_1.fits",
+      "example": "v3_1_1/drpall-v3_1_1.fits",
+      "location": "v3_1_1/drpall-v3_1_1.fits",
+      "environment": "MANGA_SPECTRO_REDUX",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "drpall",
+        "path_template": "$MANGA_SPECTRO_REDUX/{drpver}/drpall-{drpver}.fits",
+        "path_kwargs": [
+          "drpver"
+        ],
+        "access_string": "drpall = $MANGA_SPECTRO_REDUX/v3_1_1/drpall-v3_1_1.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "This HDU contains the primary content, header and data, of the drpall file.\n\nThis HDU has no non-standard required keywords.",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            },
+            {
+              "key": "CHECKSUM",
+              "value": "C7fHD5Z9C5fGC5Z9",
+              "comment": "HDU checksum updated 2016-03-18T07:44:51"
+            },
+            {
+              "key": "DATASUM",
+              "value": "0",
+              "comment": "data unit checksum updated 2016-03-18T07:44:51"
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "MANGA",
+          "is_image": false,
+          "description": "This HDU contains the primary content, header and data, of the drpall file.\n\nThis HDU has no non-standard required keywords.",
+          "size": "17 MB",
+          "header": null,
+          "columns": {
+            "plate": {
+              "name": "PLATE",
+              "description": "Plate ID",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "ifudsgn": {
+              "name": "IFUDSGN",
+              "description": "IFU Design ID (e.g. 12701)",
+              "type": "char[32]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "plateifu": {
+              "name": "PLATEIFU",
+              "description": "Plate+ifudesign name for this object (e.g. 7443-12701)",
+              "type": "char[32]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "mangaid": {
+              "name": "MANGAID",
+              "description": "MaNGA ID for this object (e.g. 1-114145)",
+              "type": "char[32]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "versdrp2": {
+              "name": "VERSDRP2",
+              "description": "Version of mangadrp used for 2d reductions",
+              "type": "char[32]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "versdrp3": {
+              "name": "VERSDRP3",
+              "description": "Version of mangadrp used for 3d reductions",
+              "type": "char[32]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "verscore": {
+              "name": "VERSCORE",
+              "description": "Version of mangacore used for reductions",
+              "type": "char[32]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "versutil": {
+              "name": "VERSUTIL",
+              "description": "Version of idlutils used for reductions",
+              "type": "char[32]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "versprim": {
+              "name": "VERSPRIM",
+              "description": "Version of mangapreim used for reductions",
+              "type": "char[32]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "platetyp": {
+              "name": "PLATETYP",
+              "description": "Plate type (e.g. MANGA, APOGEE-2&MANGA)",
+              "type": "char[32]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "srvymode": {
+              "name": "SRVYMODE",
+              "description": "Survey mode (e.g. MANGA dither, MANGA stare, APOGEE lead)",
+              "type": "char[32]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "objra": {
+              "name": "OBJRA",
+              "description": "Right ascension of the science object in J2000",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "objdec": {
+              "name": "OBJDEC",
+              "description": "Declination of the science object in J2000",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "ifuglon": {
+              "name": "IFUGLON",
+              "description": "Galactic longitude corresponding to IFURA/DEC",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "ifuglat": {
+              "name": "IFUGLAT",
+              "description": "Galactic latitude corresponding to IFURA/DEC",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "ifura": {
+              "name": "IFURA",
+              "description": "Right ascension of this IFU in J2000",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "ifudec": {
+              "name": "IFUDEC",
+              "description": "Declination of this IFU in J2000",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "ebvgal": {
+              "name": "EBVGAL",
+              "description": "E(B-V) value from SDSS dust routine for this IFUGLON, IFUGLAT",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nexp": {
+              "name": "NEXP",
+              "description": "Number of science exposures combined",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "exptime": {
+              "name": "EXPTIME",
+              "description": "Total exposure time",
+              "type": "float64",
+              "unit": "seconds"
+            },
+            "drp3qual": {
+              "name": "DRP3QUAL",
+              "description": "Quality bitmask",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "bluesn2": {
+              "name": "BLUESN2",
+              "description": "Total blue (S/N)^2 across all nexp exposures",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "redsn2": {
+              "name": "REDSN2",
+              "description": "Total red (S/N)^2 across all nexp exposures",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "harname": {
+              "name": "HARNAME",
+              "description": "IFU harness name",
+              "type": "char[53]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "frlplug": {
+              "name": "FRLPLUG",
+              "description": "Frplug hardware code",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "cartid": {
+              "name": "CARTID",
+              "description": "Cartridge ID number",
+              "type": "char[32]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "designid": {
+              "name": "DESIGNID",
+              "description": "Design ID number",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "cenra": {
+              "name": "CENRA",
+              "description": "Plate center right ascension in J2000",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "cendec": {
+              "name": "CENDEC",
+              "description": "Plate center declination in J2000",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "airmsmin": {
+              "name": "AIRMSMIN",
+              "description": "Minimum airmass across all exposures",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "airmsmed": {
+              "name": "AIRMSMED",
+              "description": "Median airmass across all exposures",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "airmsmax": {
+              "name": "AIRMSMAX",
+              "description": "Maximum airmass across all exposures",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "seemin": {
+              "name": "SEEMIN",
+              "description": "Best guider seeing",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "seemed": {
+              "name": "SEEMED",
+              "description": "Median guider seeing",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "seemax": {
+              "name": "SEEMAX",
+              "description": "Worst guider seeing",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "transmin": {
+              "name": "TRANSMIN",
+              "description": "Worst transparency",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "transmed": {
+              "name": "TRANSMED",
+              "description": "Median transparency",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "transmax": {
+              "name": "TRANSMAX",
+              "description": "Best transparency",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "mjdmin": {
+              "name": "MJDMIN",
+              "description": "Minimum MJD across all exposures",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "mjdmed": {
+              "name": "MJDMED",
+              "description": "Median MJD across all exposures",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "mjdmax": {
+              "name": "MJDMAX",
+              "description": "Maximum MJD across all exposures",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "gfwhm": {
+              "name": "GFWHM",
+              "description": "Reconstructed FWHM in g-band",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "rfwhm": {
+              "name": "RFWHM",
+              "description": "Reconstructed FWHM in r-band",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "ifwhm": {
+              "name": "IFWHM",
+              "description": "Reconstructed FWHM in i-band",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "zfwhm": {
+              "name": "ZFWHM",
+              "description": "Reconstructed FWHM in z-band",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "mngtarg1": {
+              "name": "MNGTARG1",
+              "description": "Manga-target1 maskbit for galaxy target catalog",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "mngtarg2": {
+              "name": "MNGTARG2",
+              "description": "Manga-target2 maskbit for galaxy target catalog",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "mngtarg3": {
+              "name": "MNGTARG3",
+              "description": "Manga-target3 maskbit for galaxy target catalog",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "catidnum": {
+              "name": "CATIDNUM",
+              "description": "Primary target input catalog (leading digits of mangaid)",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "plttarg": {
+              "name": "PLTTARG",
+              "description": "plateTarget reference file appropriate for this target",
+              "type": "char[32]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "manga_tileid": {
+              "name": "MANGA_TILEID",
+              "description": "The ID of the tile to which this object has been allocated",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_iauname": {
+              "name": "NSA_IAUNAME",
+              "description": "IAU-style designation based on RA/Dec (NSA)",
+              "type": "char[19]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "ifudesignsize": {
+              "name": "IFUDESIGNSIZE",
+              "description": "The allocated IFU size (0 = \"unallocated\")",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "ifutargetsize": {
+              "name": "IFUTARGETSIZE",
+              "description": "The ideal IFU size for this object. The intended IFU size is equal to IFUTargetSize except if IFUTargetSize > 127 when it is 127, or < 19 when it is 19",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "ifudesignwrongsize": {
+              "name": "IFUDESIGNWRONGSIZE",
+              "description": "The allocated IFU size if the intended IFU size was not available",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "z": {
+              "name": "Z",
+              "description": "The targeting redshift (identical to nsa_z for those targets in the NSA Catalog. For others, it is the redshift provided by the Ancillary programs)",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "zmin": {
+              "name": "ZMIN",
+              "description": "The minimum redshift at which the galaxy could still have been included in the Primary sample",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "zmax": {
+              "name": "ZMAX",
+              "description": "The maximum redshift at which the galaxy could still have been included in the Primary sample",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "szmin": {
+              "name": "SZMIN",
+              "description": "The minimum redshift at which the galaxy could still have been included in the Secondary sample",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "szmax": {
+              "name": "SZMAX",
+              "description": "The maximum redshift at which the galaxy could still have been included in the Secondary sample",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "ezmin": {
+              "name": "EZMIN",
+              "description": "The minimum redshift at which the galaxy could still have been included in the Primary+ sample",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "ezmax": {
+              "name": "EZMAX",
+              "description": "The maximum redshift at which the galaxy could still have been included in the Primary+ sample",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "probs": {
+              "name": "PROBS",
+              "description": "The probability that a Secondary sample galaxy is included after down-sampling. For galaxies not in the Secondary sample PROBS is set to the mean down-sampling probability",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "pweight": {
+              "name": "PWEIGHT",
+              "description": "The volume weight for the Primary sample. Corrects the MaNGA selection to a volume limited sample.",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "psweight": {
+              "name": "PSWEIGHT",
+              "description": "The volume weight for the combined Primary and full Secondary samples. Corrects the MaNGA selection to a volume limited sample.",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "psrweight": {
+              "name": "PSRWEIGHT",
+              "description": "The volume weight for the combined Primary and down-sampled Secondary samples. Corrects the MaNGA selection to a volume limited sample.",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "sweight": {
+              "name": "SWEIGHT",
+              "description": "The volume weight for the full Secondary sample. Corrects the MaNGA selection to a volume limited sample.",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "srweight": {
+              "name": "SRWEIGHT",
+              "description": "The volume weight for the down-sampled Secondary sample. Corrects the MaNGA selection to a volume limited sample.",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "eweight": {
+              "name": "EWEIGHT",
+              "description": "The volume weight for the Primary+ sample. Corrects the MaNGA selection to a volume limited sample.",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "esweight": {
+              "name": "ESWEIGHT",
+              "description": "The volume weight for the combined Primary+ and full Secondary samples. Corrects the MaNGA selection to a volume limited sample.",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "esrweight": {
+              "name": "ESRWEIGHT",
+              "description": "The volume weight for the combined Primary+ and down-sampled Secondary samples. Corrects the MaNGA selection to a volume limited sample.",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_field": {
+              "name": "NSA_FIELD",
+              "description": "SDSS field ID covering the target",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_run": {
+              "name": "NSA_RUN",
+              "description": "SDSS run ID covering the target",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_camcol": {
+              "name": "NSA_CAMCOL",
+              "description": "SDSS camcol ID covering the catalog position",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_version": {
+              "name": "NSA_VERSION",
+              "description": "Version of NSA catalogue used to select these targets",
+              "type": "char[6]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_nsaid": {
+              "name": "NSA_NSAID",
+              "description": "The NSAID field in the NSA catalogue referenced in nsa_version",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_nsaid_v1b": {
+              "name": "NSA_NSAID_V1B",
+              "description": "The NSAID of the target in the NSA_v1b_0_0_v2 catalogue (if applicable).",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_z": {
+              "name": "NSA_Z",
+              "description": "Heliocentric redshift",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_zdist": {
+              "name": "NSA_ZDIST",
+              "description": "Distance estimate using peculiar velocity model of Willick et al. (1997); mulitply by c/Ho for Mpc",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_sersic_absmag": {
+              "name": "NSA_SERSIC_ABSMAG",
+              "description": "Absolute magnitude estimates in rest-frame bands [FNugriz] from K-correction (Ωm=0.3, ΩΛ=0.7, h=1)",
+              "type": "float64[7]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_elpetro_absmag": {
+              "name": "NSA_ELPETRO_ABSMAG",
+              "description": "Absolute magnitude in rest-frame bands [FNugriz], from elliptical Petrosian fluxes (Ωm=0.3, ΩΛ=0.7, h=1)",
+              "type": "float64[7]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_elpetro_amivar": {
+              "name": "NSA_ELPETRO_AMIVAR",
+              "description": "Inverse variance of nsa_elpetro_absmag in bands [FNugriz]",
+              "type": "float64[7]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_sersic_mass": {
+              "name": "NSA_SERSIC_MASS",
+              "description": "Stellar mass from K-correction fit (use with caution) for Sersic fluxes (Ωm=0.3, ΩΛ=0.7, h=1)",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_elpetro_mass": {
+              "name": "NSA_ELPETRO_MASS",
+              "description": "Stellar mass from K-correction fit (use with caution) for elliptical Petrosian fluxes (Ωm=0.3, ΩΛ=0.7, h=1)",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_elpetro_ba": {
+              "name": "NSA_ELPETRO_BA",
+              "description": "Axis ratio used for elliptical apertures (for this version, same as ba90)",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_elpetro_phi": {
+              "name": "NSA_ELPETRO_PHI",
+              "description": "Position angle (east of north) used for elliptical apertures (for this version, same as ba90)",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "nsa_extinction": {
+              "name": "NSA_EXTINCTION",
+              "description": "Galactic extinction from Schlegel, Finkbeiner, and Davis (1997), in bands [FNugriz]",
+              "type": "float64[7]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_elpetro_th50_r": {
+              "name": "NSA_ELPETRO_TH50_R",
+              "description": "Elliptical Petrosian 50% light radius in SDSS r-band",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "nsa_petro_th50": {
+              "name": "NSA_PETRO_TH50",
+              "description": "Azimuthally averaged SDSS-style Petrosian 50% light radius (derived from r band)",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "nsa_petro_flux": {
+              "name": "NSA_PETRO_FLUX",
+              "description": "Azimuthally-averaged SDSS-style Petrosian flux in bands [FNugriz] (using r-band aperture)",
+              "type": "float64[7]",
+              "unit": "nanomaggies"
+            },
+            "nsa_petro_flux_ivar": {
+              "name": "NSA_PETRO_FLUX_IVAR",
+              "description": "Inverse variance of nsa_petro_flux in bands [FNugriz]",
+              "type": "float64[7]",
+              "unit": "nanomaggies<sup>-2</sup>"
+            },
+            "nsa_elpetro_flux": {
+              "name": "NSA_ELPETRO_FLUX",
+              "description": "Elliptical SDSS-style Petrosian flux in bands [FNugriz] (using r-band aperture)",
+              "type": "float64[7]",
+              "unit": "nanomaggies"
+            },
+            "nsa_elpetro_flux_ivar": {
+              "name": "NSA_ELPETRO_FLUX_IVAR",
+              "description": "Inverse variance of nsa_elpetro_flux in bands [FNugriz]",
+              "type": "float64[7]",
+              "unit": "nanomaggies<sup>-2</sup>"
+            },
+            "nsa_sersic_ba": {
+              "name": "NSA_SERSIC_BA",
+              "description": "Axis ratio b/a from two-dimensional, single-component Sersic fit in r-band",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_sersic_n": {
+              "name": "NSA_SERSIC_N",
+              "description": "Sersic index from two-dimensional, single-component Sersic fit in r-band",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_sersic_phi": {
+              "name": "NSA_SERSIC_PHI",
+              "description": "Angle (E of N) of major axis in two-dimensional, single-component Sersic fit in r-band",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "nsa_sersic_th50": {
+              "name": "NSA_SERSIC_TH50",
+              "description": "50% light radius of two-dimensional, single-component Sersic fit to r-band",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "nsa_sersic_flux": {
+              "name": "NSA_SERSIC_FLUX",
+              "description": "Two-dimensional, single-component Sersic fit flux in bands [FNugriz] (fit using r-band structural parameters)",
+              "type": "float64[7]",
+              "unit": "nanomaggies"
+            },
+            "nsa_sersic_flux_ivar": {
+              "name": "NSA_SERSIC_FLUX_IVAR",
+              "description": "Inverse variance of nsa_sersic_flux in bands [FNugriz]",
+              "type": "float64[7]",
+              "unit": "nanomaggies<sup>-2</sup>"
+            }
+          }
+        },
+        "hdu2": {
+          "name": "MASTAR",
+          "is_image": false,
+          "description": "migration: Intro info not in database. Needs update",
+          "size": "54 MB",
+          "header": null,
+          "columns": {
+            "plate": {
+              "name": "PLATE",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "ifudsgn": {
+              "name": "IFUDSGN",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "char[32]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "plateifu": {
+              "name": "PLATEIFU",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "char[32]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "mangaid": {
+              "name": "MANGAID",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "char[32]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "versdrp2": {
+              "name": "VERSDRP2",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "char[32]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "versdrp3": {
+              "name": "VERSDRP3",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "char[32]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "verscore": {
+              "name": "VERSCORE",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "char[32]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "versutil": {
+              "name": "VERSUTIL",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "char[32]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "versprim": {
+              "name": "VERSPRIM",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "char[32]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "platetyp": {
+              "name": "PLATETYP",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "char[32]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "srvymode": {
+              "name": "SRVYMODE",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "char[32]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "objra": {
+              "name": "OBJRA",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "objdec": {
+              "name": "OBJDEC",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "ifuglon": {
+              "name": "IFUGLON",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "ifuglat": {
+              "name": "IFUGLAT",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "ifura": {
+              "name": "IFURA",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "ifudec": {
+              "name": "IFUDEC",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "ebvgal": {
+              "name": "EBVGAL",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nexp": {
+              "name": "NEXP",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "exptime": {
+              "name": "EXPTIME",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "drp3qual": {
+              "name": "DRP3QUAL",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "bluesn2": {
+              "name": "BLUESN2",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "redsn2": {
+              "name": "REDSN2",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "harname": {
+              "name": "HARNAME",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "char[53]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "frlplug": {
+              "name": "FRLPLUG",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "cartid": {
+              "name": "CARTID",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "char[32]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "designid": {
+              "name": "DESIGNID",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "cenra": {
+              "name": "CENRA",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "cendec": {
+              "name": "CENDEC",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "airmsmin": {
+              "name": "AIRMSMIN",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "airmsmed": {
+              "name": "AIRMSMED",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "airmsmax": {
+              "name": "AIRMSMAX",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "seemin": {
+              "name": "SEEMIN",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "seemed": {
+              "name": "SEEMED",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "seemax": {
+              "name": "SEEMAX",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "transmin": {
+              "name": "TRANSMIN",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "transmed": {
+              "name": "TRANSMED",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "transmax": {
+              "name": "TRANSMAX",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "mjdmin": {
+              "name": "MJDMIN",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "mjdmed": {
+              "name": "MJDMED",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "mjdmax": {
+              "name": "MJDMAX",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "gfwhm": {
+              "name": "GFWHM",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "rfwhm": {
+              "name": "RFWHM",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "ifwhm": {
+              "name": "IFWHM",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "zfwhm": {
+              "name": "ZFWHM",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "mngtarg1": {
+              "name": "MNGTARG1",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "mngtarg2": {
+              "name": "MNGTARG2",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "mngtarg3": {
+              "name": "MNGTARG3",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "catidnum": {
+              "name": "CATIDNUM",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "plttarg": {
+              "name": "PLTTARG",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "char[32]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "manga_tileid": {
+              "name": "MANGA_TILEID",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_iauname": {
+              "name": "NSA_IAUNAME",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "char[19]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "ifudesignsize": {
+              "name": "IFUDESIGNSIZE",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "ifutargetsize": {
+              "name": "IFUTARGETSIZE",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "ifudesignwrongsize": {
+              "name": "IFUDESIGNWRONGSIZE",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "z": {
+              "name": "Z",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "zmin": {
+              "name": "ZMIN",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "zmax": {
+              "name": "ZMAX",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "szmin": {
+              "name": "SZMIN",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "szmax": {
+              "name": "SZMAX",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "ezmin": {
+              "name": "EZMIN",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "ezmax": {
+              "name": "EZMAX",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "probs": {
+              "name": "PROBS",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "pweight": {
+              "name": "PWEIGHT",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "psweight": {
+              "name": "PSWEIGHT",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "psrweight": {
+              "name": "PSRWEIGHT",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "sweight": {
+              "name": "SWEIGHT",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "srweight": {
+              "name": "SRWEIGHT",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "eweight": {
+              "name": "EWEIGHT",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "esweight": {
+              "name": "ESWEIGHT",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "esrweight": {
+              "name": "ESRWEIGHT",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_field": {
+              "name": "NSA_FIELD",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_run": {
+              "name": "NSA_RUN",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_camcol": {
+              "name": "NSA_CAMCOL",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_version": {
+              "name": "NSA_VERSION",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "char[6]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_nsaid": {
+              "name": "NSA_NSAID",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_nsaid_v1b": {
+              "name": "NSA_NSAID_V1B",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "int64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_z": {
+              "name": "NSA_Z",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_zdist": {
+              "name": "NSA_ZDIST",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_sersic_absmag": {
+              "name": "NSA_SERSIC_ABSMAG",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "float64[7]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_elpetro_absmag": {
+              "name": "NSA_ELPETRO_ABSMAG",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "float64[7]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_elpetro_amivar": {
+              "name": "NSA_ELPETRO_AMIVAR",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "float64[7]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_sersic_mass": {
+              "name": "NSA_SERSIC_MASS",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_elpetro_mass": {
+              "name": "NSA_ELPETRO_MASS",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_elpetro_ba": {
+              "name": "NSA_ELPETRO_BA",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_elpetro_phi": {
+              "name": "NSA_ELPETRO_PHI",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_extinction": {
+              "name": "NSA_EXTINCTION",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "float64[7]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_elpetro_th50_r": {
+              "name": "NSA_ELPETRO_TH50_R",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_petro_th50": {
+              "name": "NSA_PETRO_TH50",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_petro_flux": {
+              "name": "NSA_PETRO_FLUX",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "float64[7]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_petro_flux_ivar": {
+              "name": "NSA_PETRO_FLUX_IVAR",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "float64[7]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_elpetro_flux": {
+              "name": "NSA_ELPETRO_FLUX",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "float64[7]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_elpetro_flux_ivar": {
+              "name": "NSA_ELPETRO_FLUX_IVAR",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "float64[7]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_sersic_ba": {
+              "name": "NSA_SERSIC_BA",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_sersic_n": {
+              "name": "NSA_SERSIC_N",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_sersic_phi": {
+              "name": "NSA_SERSIC_PHI",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_sersic_th50": {
+              "name": "NSA_SERSIC_TH50",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "float64",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_sersic_flux": {
+              "name": "NSA_SERSIC_FLUX",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "float64[7]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            },
+            "nsa_sersic_flux_ivar": {
+              "name": "NSA_SERSIC_FLUX_IVAR",
+              "description": "migration: description of keyword/column not found. Needs update",
+              "type": "float64[7]",
+              "unit": "migration: unit of keyword/column not found. Needs update"
+            }
+          }
+        }
+      }
+    }
+  }
+}
