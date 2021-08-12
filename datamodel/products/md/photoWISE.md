@@ -1,7 +1,7 @@
 # Data Model: photoWISE
 
 
-migrated from old datamodel - needs update
+migration: needs update
 
 
 ## Contents
