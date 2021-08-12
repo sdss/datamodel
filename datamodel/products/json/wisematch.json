@@ -1,7 +1,7 @@
 {
   "general": {
     "name": "wisematch",
-    "short": "migrated from old datamodel - needs update",
+    "short": "migration: needs update",
     "description": "Contains cross-matches between the SDSS photoObj objects and the WISE\nAll-Sky Release catalog.  Please refer to\nthe <a href=\"http://wise2.ipac.caltech.edu/docs/release/allsky/expsup/sec2_2a.html\">WISE\ncatalog explanatory supplement</a> for full details on the WISE\ncatalog columns.  These files only include a subset of the columns.\n<br/>\n\nThe astrometric matching was done as follows.  First, the \"gal\" and\n\"star\" datasweep files were loaded and combined.  Then, a\nnearest-neighbor astrometric matching was performed to each of the\nWISE \"slices\" (Dec ranges).  This matching records only the nearest\nSDSS object for each WISE object, to a maximum distance of 4\narcseconds.  Once all these matches were finished, the results were\ncombined by inserting the single-slice matches into a table that is\nparallel to the \"star\" and \"gal\" datasweep files.  For this reason,\nthere may be some slight oddities near the WISE \"slice\" boundaries.\nBut to first order, each WISE object appears at most once.\n<br/>\n\nThese files are \"parallel\" to the datasweep files; row 0 of the\n\"wisematch\" file contains the WISE object matching row 0 of the\n\"calibObj\" datasweep file.  The row will contain null values if there\nis no such match; you could check the \"sweep_index\" column to identify\nvalid matches: value \"-1\" indicates no match.",
     "environments": [
       "PHOTO_SWEEP"
@@ -67,9 +67,9 @@
         "path_name": "wisematch",
         "path_template": "$PHOTO_SWEEP/external/WISE/wisematch-calibObj-{run:0>6}-{camcol}-{type}.fits",
         "path_kwargs": [
-          "type",
           "run",
-          "camcol"
+          "camcol",
+          "type"
         ],
         "access_string": "wisematch = $PHOTO_SWEEP/external/WISE/wisematch-calibObj-000094-1-gal.fits"
       },
