@@ -1,17 +1,16 @@
 general:
   name: starrv-boss
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: 'migration: needs update'
+  description: Each starrv file contains the stellar radial velocities and associated
+    data for a single plate configuration.
   datatype: FITS
   filesize: 160 KB
   releases:
   - DR12
   environments:
   - MARVELS_REDUX
-  naming_convention: replace me - with $MARVELS_REDUX/v003.06/results/47UMA/starrv_47UMA.fits
-    or starrv_47UMA.fits but with regex pattern matches
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  naming_convention: '<br/>  <i>starrv_PLATENAME.fits</i> '
+  generated_by: 'migration: not in database. Needs update'
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
@@ -27,71 +26,79 @@ releases:
       path_name: starrv-boss
       path_template: $MARVELS_REDUX/{rerun}/RESULTS/{platename}/starrv_{platename}.fits
       path_kwargs:
-      - rerun
       - platename
+      - rerun
       access_string: starrv-boss = $MARVELS_REDUX/v003.06/results/47UMA/starrv_47UMA.fits
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: ''
         is_image: true
         size: 0 bytes
         header:
         - key: SIMPLE
           value: true
-          comment: Dummy Created by MWRFITS v1.11
+          comment: conforms to FITS standard
         - key: BITPIX
           value: 8
-          comment: Dummy primary header created by MWRFITS
+          comment: array data type
         - key: NAXIS
           value: 0
-          comment: No data is associated with this header
+          comment: number of array dimensions
         - key: EXTEND
           value: true
-          comment: Extensions may (will!) be present
+          comment: ''
       hdu1:
         name: ''
-        description: replace me description
+        description: ''
         is_image: false
         size: 152 KB
         columns:
           FCJD:
             name: FCJD
             type: float64[50]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: "Flux Centered Julian Date\n    Array. Every array for a\
+              \ single plate is identical and contains all\n    of the FCJDs for that\
+              \ plate."
           STARNAME:
             name: STARNAME
             type: char[66]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: TYC Name, GCS Name, HIP Name, 2MASS Name
           RADEC:
             name: RADEC
             type: float64[2]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: degrees
+            description: Right Ascension and Declination (J2000)
           ORDER:
             name: ORDER
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: MARVELS Plate order (value 1-120)
           MAG:
             name: MAG
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: Star V-Band Magnitude
           STARRV:
             name: STARRV
             type: float64[50]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: m/s
+            description: "Radial Velocity\n    computed from the University of Florida\
+              \ 1D pipeline."
           BCV:
             name: BCV
             type: float64[50]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: m/s
+            description: "Barycentric Velocity of\n    corresponding RV measurement\
+              \ time."
           OFFSETERROR:
             name: OFFSETERROR
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: m/s
+            description: "Expected RV error for\n    each order. It is based on the\
+              \ statistics of the entire MARVELS program and is a\n    function of\
+              \ the star's magnitude and the typical quality of the order it\n   \
+              \ is in. An RV with variations outside of this value are considered\
+              \ as\n    actually showing the presence of a signal."
