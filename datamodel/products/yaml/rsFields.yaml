@@ -1,20 +1,17 @@
 general:
   name: rsFields
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: List of fields initialized in robostrategy
+  description: List of fields initialized in robostrategy. Does not include rotation angles. Created by rs_fields.
   datatype: FITS
   filesize: 267 KB
   releases:
   - WORK
   environments:
   - ROBOSTRATEGY_DATA
-  naming_convention: replace me - with $ROBOSTRATEGY_DATA/allocations/[PLAN]/rsFields-[PLAN]-[OBSERVATORY].fits
-    or rsFields-epsilon-5-core-0-apo.fits but with regex pattern matches
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  naming_convention: $ROBOSTRATEGY_DATA/allocations/[PLAN]/rsFields-[PLAN]-[OBSERVATORY].fits
+  generated_by: robostrategy
 changelog:
-  description: Describes changes to the datamodel product and/or file structure from
-    one release to another
+  description: Describes changes to the datamodel product and/or file structure from one release to another
   releases: {}
 releases:
   WORK:
@@ -33,7 +30,7 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: Primary Header
         is_image: true
         size: 0 bytes
         header:
@@ -57,32 +54,32 @@ releases:
           comment: ''
       hdu1:
         name: ''
-        description: replace me description
+        description: Binary table of fields 
         is_image: false
         size: 258 KB
         columns:
           fieldid:
             name: FIELDID
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 
+            description: Field identifier
           racen:
             name: RACEN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: RA Center (J2000)
           deccen:
             name: DECCEN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: Dec Center (J2000)
           radius:
             name: RADIUS
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: Radius over which to consider targets
           type:
             name: TYPE
             type: char[30]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 
+            description: Type of field (used for setting cadence and allocation choices)
