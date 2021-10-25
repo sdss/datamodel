@@ -1,0 +1,136 @@
+{
+  "general": {
+    "name": "rsFieldsRotated",
+    "short": "List of fields in robostrategy with position angles assigned",
+    "description": "List of fields in robostrategy. Include position angles. Created by rs_field_rotator.",
+    "environments": [
+      "ROBOSTRATEGY_DATA"
+    ],
+    "datatype": "FITS",
+    "filesize": "303 KB",
+    "releases": [
+      {
+        "name": "WORK",
+        "description": "SDSS unreleased data.  Represents any work-in-progress data.",
+        "public": false,
+        "release_date": "unreleased"
+      }
+    ],
+    "naming_convention": "$ROBOSTRATEGY_DATA/allocations/[PLAN]/rsFieldsRotated-[PLAN]-[OBSERVATORY].fits",
+    "generated_by": "robostrategy"
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "WORK": {
+      "template": "$ROBOSTRATEGY_DATA/allocations/[PLAN]/rsFieldsRotated-[PLAN]-[OBSERVATORY].fits",
+      "example": "allocations/epsilon-5-core-0/rsFieldsRotated-epsilon-5-core-0-apo.fits",
+      "location": "allocations/{plan}/rsFieldsRotated-{plan}-{observatory}.fits",
+      "environment": "ROBOSTRATEGY_DATA",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "rsFieldsRotated",
+        "path_template": "$ROBOSTRATEGY_DATA/allocations/{plan}/rsFieldsRotated-{plan}-{observatory}.fits",
+        "path_kwargs": [
+          "observatory",
+          "plan"
+        ],
+        "access_string": "rsFieldsRotated = $ROBOSTRATEGY_DATA/allocations/{plan}/rsFieldsRotated-{plan}-{observatory}.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Primary header",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            },
+            {
+              "key": "CHECKSUM",
+              "value": "C9gCE6ZAC6fAC6ZA",
+              "comment": "HDU checksum updated 2021-10-01T14:15:53"
+            },
+            {
+              "key": "DATASUM",
+              "value": "0",
+              "comment": "data unit checksum updated 2021-10-01T14:15:53"
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "Binary table of fields",
+          "size": "297 KB",
+          "header": null,
+          "columns": {
+            "fieldid": {
+              "name": "FIELDID",
+              "description": "Field identifier",
+              "type": "int32",
+              "unit": "N/A"
+            },
+            "racen": {
+              "name": "RACEN",
+              "description": "RA Center (J2000)",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "deccen": {
+              "name": "DECCEN",
+              "description": "Dec Center (J2000)",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "radius": {
+              "name": "RADIUS",
+              "description": "Radius over which to output targets",
+              "type": "float32",
+              "unit": "deg"
+            },
+            "type": {
+              "name": "TYPE",
+              "description": "Type of field (used for setting cadence and allocation choices)",
+              "type": "char[30]",
+              "unit": "N/A"
+            },
+            "pa1": {
+              "name": "PA1",
+              "description": "proposed position angle using algorithm 1 (mean bearing to neighboring fields)",
+              "type": "float32",
+              "unit": "deg"
+            },
+            "pa2": {
+              "name": "PA2",
+              "description": "proposed position angle using algorithm 2 (bearing to furthest neighboring field)",
+              "type": "float32",
+              "unit": "deg"
+            }
+          }
+        }
+      }
+    }
+  }
+}
