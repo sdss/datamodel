@@ -74,10 +74,10 @@ Binary table of fields
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | FIELDID | int32 | na | Field identifier |
+ | FIELDID | int32 | N/A | Field identifier |
  | RACEN | float64 | deg | RA Center (J2000) |
  | DECCEN | float64 | deg | Dec Center (J2000) |
  | RADIUS | float32 | deg | Radius over which to output targets |
- | TYPE | char[30] | na | Type of field (used for setting cadence and allocation choices) |
+ | TYPE | char[30] | N/A | Type of field (used for setting cadence and allocation choices) |
 
 
