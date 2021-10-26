@@ -8,8 +8,6 @@ on: [push, pull_request]
 jobs:
   build:
 
-    runs-on: ${{ matrix.os }}
-
     strategy:
       fail-fast: false
       # setup matrix for python versions, 3.10 is experimental
@@ -22,6 +20,8 @@ jobs:
                 experimental: true
 
     continue-on-error: ${{ matrix.experimental }}
+    
+    runs-on: ${{ matrix.os }}
 
     steps:
     - uses: actions/checkout@v2
