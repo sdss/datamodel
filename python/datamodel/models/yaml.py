@@ -14,9 +14,11 @@
 from __future__ import print_function, division, absolute_import, annotations
 
 import orjson
+import re
 from typing import List, Dict, Union
 from pydantic import BaseModel, validator
 
+from astropy.io import fits
 from .releases import releases, Release as ReleaseMod
 
 
@@ -104,6 +106,8 @@ class GeneralSection(BaseModel):
         A description of the naming convention
     generated_by : str 
         An identifiable piece of the code that generates the data product
+    design : bool
+        If True, the datamodel is in the design phase, before any file exists yet
 
     Raises
     ------
@@ -119,15 +123,24 @@ class GeneralSection(BaseModel):
     releases: List[Union[str, ReleaseMod]] = None
     naming_convention: str
     generated_by: str
+    design: bool = None
 
     _check_replace_me = validator('short', 'description', 'naming_convention',
                                   'generated_by', allow_reuse=True)(replace_me)
 
     @validator('releases', each_item=True)
     def check_release(cls, value: str) -> str:
+        """ Validator to check release against list of releases """
         if value not in releases:
             raise ValueError(f'{value} is not a valid release')
         return releases[value]
+    
+    @validator('design')
+    def no_design(cls, value: bool):
+        """ Validator to check if the design flag is set to True """
+        if value:
+            raise ValueError('Design is set to True. YAML will not validate until out of design phase.')
+        return value
 
 class ChangeRelease(BaseModel):
     """ Pydantic model representing a YAML changelog release section
@@ -208,7 +221,7 @@ class Access(BaseModel):
 class Header(BaseModel):
     """ Pydantic model representing a YAML header section
 
-    Represents a FITS Header
+    Represents an individual FITS Header Key
 
     Parameters
     ----------
@@ -220,9 +233,12 @@ class Header(BaseModel):
         A comment for the header keyword, if any
     """
     key: str
-    value: str
-    comment: str
-
+    value: str = ''
+    comment: str = ''
+    
+    def to_tuple(self):
+        """ Convert the header key to a tuple """
+        return (self.key, int(self.value) if self.value.isdigit() else self.value, self.comment)
 
 class Column(BaseModel):
     """ Pydantic model representing a YAML column section
@@ -246,6 +262,41 @@ class Column(BaseModel):
     unit: str
 
     _check_replace_me = validator('unit', 'description', allow_reuse=True)(replace_me)
+    
+    def to_fitscolumn(self) -> fits.Column:
+        """ Convert the column to a fits.Column
+
+        Converts the column entry in the yaml file to an 
+        Astropy fits.Column object.  Performs a mapping between ``type`` 
+        and ``format``, using the reverse of `.datamodel.generate.stub.Stub._format_type`.
+
+        Returns
+        -------
+        fits.Column
+            a valid astropy fits.Column object
+
+        Raises
+        ------
+        TypeError
+            when the column type cannot be coerced into a valid fits.Column format
+        """
+        tmap = {'char': 'A', 'int16': 'I', 'int32': 'J', 'int64': 'K', 
+                'float32': 'E', 'float64': 'D', 'bool': 'L'}
+        
+        # regex search for the type
+        patt = re.compile(r'(?P<dtype>char|bool|int\d{2}|float\d{2})(?P<charlength>\[(?P<charnum>\d+)\])?')
+        match = re.search(patt, self.type)
+        if match:
+            col = match.groupdict()
+            # convert the type to corresponding format
+            if col['dtype'] == 'char':
+                format = f"{col['charnum']}{tmap[col['dtype']]}"
+            else:
+                format = f"{tmap[col['dtype']]}"
+            return fits.Column(name=self.name, format=format, unit=self.unit)
+        else:
+            raise TypeError(f'The column type {self.type} could not be properly coerced. '
+                            'Check for a valid fits.Column format.') 
 
 
 class HDU(BaseModel):
@@ -276,7 +327,29 @@ class HDU(BaseModel):
     columns: Dict[str, Column] = None
 
     _check_replace_me = validator('description', allow_reuse=True)(replace_me)
-
+    
+    def convert_header(self) -> fits.Header:
+        """ Convert the list of header keys into a fits.Header """
+        if not self.header:
+            return None
+        return fits.Header(i.to_tuple() for i in self.header)
+    
+    def convert_columns(self) -> List[fits.Column]:
+        """ Convert the columns dict into a a list of fits.Columns """
+        if not self.columns:
+            return None
+        return [i.to_fitscolumn() for i in self.columns.values()]
+    
+    def convert_hdu(self) -> Union[fits.PrimaryHDU, fits.ImageHDU, fits.BinTableHDU]:
+        """ Convert the HDU entry into a valid fits.HDU """
+        if self.name.lower() == 'primary':
+            return fits.PrimaryHDU(header=self.convert_header())
+        elif self.columns:
+            return fits.BinTableHDU.from_columns(self.convert_columns(), name=self.name, 
+                                                 header=self.convert_header())
+        else:
+            return fits.ImageHDU(name=self.name, header=self.convert_header())
+            
 
 class Release(BaseModel):
     """ Pydantic model representing an item in the YAML releases section
@@ -305,6 +378,11 @@ class Release(BaseModel):
     environment: str
     access: Access
     hdus: Dict[str, HDU] = None
+    
+    def convert_to_hdulist(self) -> fits.HDUList:
+        """ Convert the hdus to a fits.HDUList """
+        hdus = [HDU.parse_obj(v).convert_hdu() for v in self.hdus.values()]
+        return fits.HDUList(hdus)
 
 
 class YamlModel(BaseModel):

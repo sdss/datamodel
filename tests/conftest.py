@@ -142,6 +142,16 @@ def validmodel(validyaml, datamodel):
     yield datamodel
 
 
+@pytest.fixture()
+def validdesign(yamlfile):
+    """ fixture for creating a valid datamodel design """
+    dm = DataModel(file_spec='test', path='TEST_REDUX/{ver}/testfile_{id}.fits', design=True)
+    ss = dm.get_stub('yaml')
+    ss.update_cache()
+    ss._cache['releases']['WORK']['hdus']['hdu0']['description'] = 'primary hdu extension'
+    ss.write()
+    yield dm
+
 class MockTree(Tree):
     """ mock out the Tree class to insert test file """
 

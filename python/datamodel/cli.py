@@ -113,10 +113,40 @@ def wiki(file_species: str, env_label: str, space_ver: str, verbose: bool):
     page.create_datamodel()
 
 
-@cli.command(short_help='Design a new datamodel for a new file')
-def design():
-    """ Design a datamodel for a new file"""
-    pass
+create_grp = OptionGroup('Create Options', help='options for creating a file from a designed datamodel.')
+
+@cloup.command(short_help='Design a new datamodel for a new file', show_constraints=True)
+@data_grp.option('-f', '--file_species', help='unique name of the product file species', required=True)
+@data_grp.option('-p', '--path', help='symbolic path to the file')
+@data_grp.option('-l', '--location', help='symbolic location of the file')
+@data_grp.option('-e', '--env_label', help='environment variable name of the root location')
+@create_grp.option('-c', '--create', help='create a file on disk from a designed datamodel', is_flag=True, default=False)
+@create_grp.option("-k", "--keywords", multiple=True, help="optional keywords into DataModel.generate_designed_file")
+@click.option('-v', '--verbose', help='turn on verbosity', is_flag=True, default=False)
+@cloup.constraint(all_or_none, ['location', 'env_label'])
+@cloup.constraint(mutually_exclusive, ['path', 'location'])
+@cloup.constraint(If('file_species', then=RequireExactly(1)), ['path', 'location'])
+@cloup.constraint(If('keywords', then=RequireExactly(1)), ['create'])
+def design(file_species, path, location, env_label, verbose, create, keywords):
+    """ Design a datamodel for a new file """
+
+    # create a datamodel object
+    dm = DataModel(file_spec=file_species, path=path, env_label=env_label, location=location,
+                   verbose=verbose, release='WORK', design=True)
+
+    # write out all the datamodel stubs
+    dm.write_stubs()
+    
+    # sort out any keywords
+    if keywords:
+        kwargs = {k.split('=')[0]:k.split('=')[1] for k in keywords}
+
+    # create a designed file if requested
+    if create:
+        dm.generate_designed_file(**kwargs)
+
+
+cli.add_command(design)
 
 
 if __name__ == '__main__':

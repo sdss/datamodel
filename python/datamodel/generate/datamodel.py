@@ -15,15 +15,18 @@ from __future__ import print_function, division, absolute_import
 
 import os
 import re
+import pathlib
 
-from typing import TypeVar, Type
+from typing import TypeVar, Type, Union, List
 
 from .parse import get_abstract_path, get_abstract_key, get_file_spec
 from datamodel import log
 
+from astropy.io import fits
 from datamodel.generate.stub import stub_iterator
 from tree import Tree
 from sdss_access.path import Path
+from pydantic import ValidationError
 
 from ..git import Git
 from .stub import BaseStub
@@ -129,6 +132,10 @@ class DataModel(object):
         The name of the SDSS release the file is a part of, by default None
     filename : str, optional
         A full filepath to a real file on disk to create the datamodel for
+    access_path_name : str, optional
+        A name of the path name in sdss_access, if different than the file species name, by default None
+    design : bool, optional
+        If True, indicates the datamodel is in a design phase, by default None
 
     Raises
     ------
@@ -141,7 +148,7 @@ class DataModel(object):
     def __init__(self, tree_ver: str = None, file_spec: str = None, path: str = None,
                  keywords: list = [], env_label: str = None, location: str = None,
                  verbose: bool = None, release: str = None, filename: str = None, 
-                 access_path_name: str = None) -> None:
+                 access_path_name: str = None, design: bool = False) -> None:
 
         # environment options
         self.tree_ver = tree_ver
@@ -161,6 +168,7 @@ class DataModel(object):
         self.real_location = None
         self.abstract_location = None
         self.file = None
+        self.design = design
 
         # setting options
         self.verbose = verbose
@@ -182,7 +190,7 @@ class DataModel(object):
             raise ValueError('Either a path or an env_label + location must be specified.')
         
         # check if keywords are expected
-        if re.search(r'{(.*?)}', self.path) and not self.keywords:
+        if re.search(r'{(.*?)}', self.path) and not self.keywords and not self.design:
             raise ValueError('A set of keywords must be provided along with a either a '
                              'path or location.')
         self._construct_path()
@@ -193,7 +201,10 @@ class DataModel(object):
 
         # create the tree and file locations
         self._set_tree()
-        self._set_real_and_abstract_location()
+        if self.design:
+            self._set_design_location()
+        else:
+            self._set_real_and_abstract_location()
 
         # set the fully realized filename and access paths
         self._set_file()
@@ -298,7 +309,15 @@ class DataModel(object):
         if 'work' in self.tree.config_name or self.tree.config_name == 'sdss5':
             release = 'WORK'
         return release
-
+    
+    def _set_design_location(self) -> None:
+        """ Sets the abstract file location for the design """
+        design_keys = re.findall(r'{(.*?)}', self.location)
+        abstract = {key: get_abstract_key(key=key) for key in design_keys}
+        self.abstract_location = self.location.format(**abstract)
+        if self.verbose:
+            log.info(f'Designing abstract location {self.abstract_location}')
+        
     def _set_real_and_abstract_location(self) -> None:
         """ Create a real location from path keywords
 
@@ -336,6 +355,10 @@ class DataModel(object):
 
         if not os.path.exists(self.env["path"]):
             log.error(f"Nonexistent environ at {self.env}")
+            return
+        
+        # exit if in design phase
+        if self.design:
             return
 
         if not self.real_location:
@@ -514,6 +537,149 @@ class DataModel(object):
 
         # attempt a push
         self._git.push()
+        
+    def design_hdu(self, ext: str = 'primary', extno: int = None, name: str = 'EXAMPLE', 
+                   description: str = None, header: Union[list, dict, fits.Header] = None, 
+                   columns: List[Union[list, dict, fits.Column]] = None, **kwargs):
+        """ Design a new HDU
+
+        Design a new astropy HDU for the given datamodel.  Specify the extension type ``ext`` 
+        to indicate a PRIMARY, IMAGE, or BINTABLE HDU extension.  Each new HDU is added to the
+        YAML structure using next hdu extension id found, or the one provided with ``extno``.  Use
+        ``name`` to specify the name of the HDU extension.  Each call to this method will write out 
+        the new HDU to the YAML design file.     
+
+        ``header`` can be a `~astropy.io.fits.Header` instance, a list of tuples of header keywords, 
+        conforming to (keyword, value, comment), or list of dictionaries conforming to 
+        {"keyword": keyword, "value": value, "comment": comment}.
+
+        ``columns`` can be a list of `~astropy.io.fits.Column` objects, a list of tuples 
+        minimally conforming to (name, format, unit), or list of dictionaries minimally conforming
+        to {"name": name, "format": format, "unit": unit}.  See Astropy's Binary Table 
+        `Column Format <https://docs.astropy.org/en/stable/io/fits/usage/table.html#column-creation>`_
+        for the allowed format values.  When supplying a list of tuples or dictionaries, can include
+        any number of valid arguments into `~astropy.io.fits.Column`.
+        
+        Parameters
+        ----------
+        ext : str, optional
+            the type of HDU to create, by default 'primary'
+        extno : int, optional
+            the extension number, by default None
+        name : str, optional
+            the name of the HDU extension, by default 'EXAMPLE'
+        description: str, optional
+            a description for the HDU, by default None
+        header : Union[list, dict, fits.Header], optional
+            valid input to create a Header, by default None
+        columns : List[Union[list, dict, fits.Column]], optional
+            a list of binary table columns, by default None
+        force : bool
+            If True, forces a new design even if the HDU already exists, by default None
+        **kwargs, optional
+            additional keyword arguments to pass to the HDU constructor
+
+        Raises
+        ------
+        ValueError
+            when the ext type is not supported
+        ValueError
+            when the table columns input is not a list
+        """
+        
+        if not self.design:
+            log.warning('Cannot design an HDU when not in the datamodel design phase.')
+            return
+
+        # get the stub and update from disk
+        ss = self.get_stub(format='yaml')
+        ss.update_cache()
+        
+        # design the new HDU
+        ss.design_hdu(ext=ext, extno=extno, name=name, description=description, 
+                      header=header, columns=columns, **kwargs)
+
+        # write it out to the yaml stub        
+        ss.write()
+        
+        
+    def generate_designed_file(self, redesign: bool = None, **kwargs):
+        """ Generate a file from a designed datamodel
+
+        Generates a real file on disk from a designed datamodel. If there are any
+        path template keywords, they must be specified here as input keyword arguments
+        to convert the symbolic path / abstract location to a real example location on 
+        disk.  After generating the file, the datamodel sets ``design`` to False and exits
+        design mode.   
+        
+        Parameters
+        ----------
+        redesign : bool
+            If True, re-enters design mode to create a new file
+        kwargs
+            Any path keyword arguments to be filled in
+        
+        Raises
+        ------
+        KeyError
+            when there are missing path keywords
+        AttributeError
+            when the release is not WORK when in the datamodel design phase
+        """
+        if redesign:
+            log.info("Re-entering datamodel design mode. Setting to True.")
+            self.design = True
+
+        if not self.design:
+            log.warning('Cannot generate a file when not in the datamodel design phase.')
+            return
+        
+        if self.design and self.release != 'WORK':
+            raise AttributeError(f'The release {self.release} must be "WORK" when in '
+                                 'the datamodel design phase.')
+
+        # create a real location and filepath
+        try:
+            self.real_location = self.location.format(**kwargs)
+        except KeyError as e:
+            raise KeyError(f'Must specify path keywords to generate a real file: {e}') from e
+        else:    
+            self.file = os.path.join(self.env["path"], self.real_location)
+            
+        # generate the designed HDUList
+        ss = self.get_stub(format='yaml')
+        ss.update_cache()
+        try:
+            hdulist = ss.create_hdulist_from_cache(release='WORK')
+        except ValidationError as e:
+            log.error(f'Failed to create a valid HDUList')
+            raise
+        
+        # exit if for any reason hdulist doesn't exist
+        if not hdulist:
+            log.error('No HDUList to write out.')
+            return
+        
+        # create directories if needed
+        path = pathlib.Path(self.file)
+        if not path.parent.exists():
+            log.info(f'Creating directory: {path.parent}')
+            path.parent.mkdir(parents=True)
+        
+        # write out the designed file
+        hdulist.writeto(self.file, overwrite=True, checksum=True)
+        
+        if self.verbose:
+            log.info(f'Writing designed filepath: {self.file}')
+            log.info("Setting datamodel design mode to False")
+
+        # set design to False
+        # updates the YAML cache with the file and real locations
+        self.design = False if not redesign else self.design
+        ss = self.get_stub(format='yaml')
+        ss.write()
+        
+        
 
 #
 # code to create a markdown table
