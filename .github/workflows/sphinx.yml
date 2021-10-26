@@ -9,21 +9,19 @@ on: [push, pull_request]
 jobs:
   # This workflow contains a single job called "build"
   build:
-    strategy:
-      fail-fast: false
-      # setup matrix for python versions, 3.10 is experimental
-      matrix:
-            python-version: [3.7, 3.8, 3.9]
-            experimental: [false]
-            os: [ubuntu-latest]
-            include:
-              - python: 3.10
-                experimental: true
-
-    continue-on-error: ${{ matrix.experimental }}
-
     # The type of runner that the job will run on
     runs-on: ${{ matrix.os }}
+    continue-on-error: ${{ matrix.allow_failure }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: [3.7, 3.8, 3.9]
+        allow_failure: [false]
+        os: [ubuntu-latest]
+        include:
+          - python: 3.10
+            allow_failure: true
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:

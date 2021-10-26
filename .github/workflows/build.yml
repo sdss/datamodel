@@ -7,21 +7,18 @@ on: [push, pull_request]
 
 jobs:
   build:
+    runs-on: ${{ matrix.os }}
+    continue-on-error: ${{ matrix.allow_failure }}
 
     strategy:
       fail-fast: false
-      # setup matrix for python versions, 3.10 is experimental
       matrix:
-            python-version: [3.7, 3.8, 3.9]
-            experimental: [false]
-            os: [ubuntu-latest]
-            include:
-              - python: 3.10
-                experimental: true
-
-    continue-on-error: ${{ matrix.experimental }}
-    
-    runs-on: ${{ matrix.os }}
+        python-version: [3.7, 3.8, 3.9]
+        allow_failure: [false]
+        os: [ubuntu-latest]
+        include:
+          - python: 3.10
+            allow_failure: true
 
     steps:
     - uses: actions/checkout@v2
