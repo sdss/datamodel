@@ -10,12 +10,31 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      # setup matrix for python versions, 3.10 is experimental
+      matrix:
+            python-version: [3.7, 3.8, 3.9]
+            experimental: [false]
+            os: [ubuntu-latest]
+            include:
+              - python: 3.10
+                experimental: true
+
+    continue-on-error: ${{ matrix.experimental }}
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
+
+    # setup python version
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v2
+      with:
+            python-version: ${{ matrix.python-version }}
 
     # Run a sphinx build test
     - name: Sphinx Build
