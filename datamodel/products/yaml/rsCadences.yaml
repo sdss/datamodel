@@ -1,17 +1,17 @@
 general:
   name: rsCadences
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: Cadence specifications
+  description: Contains cadence specifications. Output by rs_cadences_extract in robostrategy
+    using the tofits() method of the CadenceList class in roboscheduler.
   datatype: FITS
   filesize: 2 MB
   releases:
   - WORK
   environments:
   - ROBOSTRATEGY_DATA
-  naming_convention: replace me - with $ROBOSTRATEGY_DATA/allocations/[PLAN]/rsCadences-[PLAN]-[OBSERVATORY].fits
-    or rsCadences-epsilon-5-core-0-apo.fits but with regex pattern matches
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  naming_convention: $ROBOSTRATEGY_DATA/allocations/[PLAN]/rsCadences-[PLAN]-[OBSERVATORY].fits
+  generated_by: roboscheduler
+  design: false
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
@@ -27,13 +27,13 @@ releases:
       path_name: rsCadences
       path_template: $ROBOSTRATEGY_DATA/allocations/{plan}/rsCadences-{plan}-{observatory}.fits
       path_kwargs:
-      - observatory
       - plan
+      - observatory
       access_string: rsCadences = $ROBOSTRATEGY_DATA/allocations/{plan}/rsCadences-{plan}-{observatory}.fits
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: Primary header
         is_image: true
         size: 0 bytes
         header:
@@ -57,82 +57,84 @@ releases:
           comment: ''
       hdu1:
         name: ''
-        description: replace me description
+        description: Cadence specifications
         is_image: false
         size: 2 MB
         columns:
           CADENCE:
             name: CADENCE
             type: char[40]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: name of cadence
           NEPOCHS:
             name: NEPOCHS
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: number of epochs
           DELTA:
             name: DELTA
             type: float64[174]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: days
+            description: for each epoch, ideal time since previous epoch
           SKYBRIGHTNESS:
             name: SKYBRIGHTNESS
             type: float32[174]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: maximum sky brightness in units of full moon illumination
+              (0 to 1)
           DELTA_MAX:
             name: DELTA_MAX
             type: float32[174]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: days
+            description: for each epoch, maximum time since previous epoch
           DELTA_MIN:
             name: DELTA_MIN
             type: float32[174]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: days
+            description: for each epoch, minimum time since previous epoch
           NEXP:
             name: NEXP
             type: int32[174]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: for each epoch, number of exposures
           MAX_LENGTH:
             name: MAX_LENGTH
             type: float32[174]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: hours
+            description: maximum length for an epoch
           OBSMODE_PK:
             name: OBSMODE_PK
-            type: char[2610]
-            unit: replace me - with content
-            description: replace me - with content
+            type: char[]
+            unit: ''
+            description: name of observing mode for each epoch (primary key in obsmode
+              table in db)
           MIN_MOON_SEP:
             name: MIN_MOON_SEP
             type: float32[174]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: minimum moon separation
           MIN_DELTAV_KS91:
             name: MIN_DELTAV_KS91
             type: float32[174]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag arcsec^{-2}
+            description: minimum sky surface brightness difference
           MIN_TWILIGHT_ANG:
             name: MIN_TWILIGHT_ANG
             type: float32[174]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: angle of twilight required
           MAX_AIRMASS:
             name: MAX_AIRMASS
             type: float32[174]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: maximum airmass allowed
           LABEL_ROOT:
             name: LABEL_ROOT
             type: char[40]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: root of cadence label (ie. without version)
           LABEL_VERSION:
             name: LABEL_VERSION
             type: char[40]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: version part of cadence label (e.g. '_v1')
