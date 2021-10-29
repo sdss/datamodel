@@ -1,0 +1,251 @@
+{
+  "general": {
+    "name": "rsTargets",
+    "short": "List of targets for a robostrategy run",
+    "description": "Targets for robostrategy run. Each entry corresponds to a row of the carton_to_target table of targetdb. This file only contains a subset of the cartons, and gathers other information for use by robostrategy. Produced by robostrategy's rs_targets_extract.",
+    "environments": [
+      "ROBOSTRATEGY_DATA"
+    ],
+    "datatype": "FITS",
+    "filesize": "16 GB",
+    "releases": [
+      {
+        "name": "WORK",
+        "description": "SDSS unreleased data.  Represents any work-in-progress data.",
+        "public": false,
+        "release_date": "unreleased"
+      }
+    ],
+    "naming_convention": "$ROBOSTRATEGY_DATA/allocations/[PLAN]/rsTargets-[PLAN]-[OBSERVATORY].fits",
+    "generated_by": "robostrategy",
+    "design": false
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "WORK": {
+      "template": "$ROBOSTRATEGY_DATA/allocations/[PLAN]/rsTargets-[PLAN]-[OBSERVATORY].fits",
+      "example": "allocations/epsilon-5-core-0/rsTargets-epsilon-5-core-0-apo.fits",
+      "location": "allocations/{plan}/rsTargets-{plan}-{observatory}.fits",
+      "environment": "ROBOSTRATEGY_DATA",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "rsTargets",
+        "path_template": "$ROBOSTRATEGY_DATA/allocations/{plan}/rsTargets-{plan}-{observatory}.fits",
+        "path_kwargs": [
+          "observatory",
+          "plan"
+        ],
+        "access_string": "rsTargets = $ROBOSTRATEGY_DATA/allocations/{plan}/rsTargets-{plan}-{observatory}.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Primary HDU",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "file does conform to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "16",
+              "comment": "number of bits per data pixel"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of data axes"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": "FITS dataset may contain extensions"
+            },
+            {
+              "key": "COMMENT",
+              "value": "  FITS (Flexible Image Transport System) format is defined in 'Astronomy",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "  and Astrophysics', volume 376, page 359; bibcode: 2001A&A...376..359H",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "List of targets",
+          "size": "16 GB",
+          "header": null,
+          "columns": {
+            "rsassign": {
+              "name": "RSASSIGN",
+              "description": "Set to 0 if not to be assigned, 1 if to be assigned, 2 if an open target assignment",
+              "type": "int32",
+              "unit": ""
+            },
+            "rsid": {
+              "name": "RSID",
+              "description": "robostrategy unique ID",
+              "type": "int64",
+              "unit": ""
+            },
+            "carton_to_target_pk": {
+              "name": "CARTON_TO_TARGET_PK",
+              "description": "primary key for carton_to_target table",
+              "type": "int64",
+              "unit": ""
+            },
+            "priority": {
+              "name": "PRIORITY",
+              "description": "priority for assignment (lower numbers assigned first)",
+              "type": "int32",
+              "unit": ""
+            },
+            "value": {
+              "name": "VALUE",
+              "description": "value to be used for cadence allocation to fields",
+              "type": "float32",
+              "unit": ""
+            },
+            "lambda_eff": {
+              "name": "LAMBDA_EFF",
+              "description": "effective wavelength for observation",
+              "type": "float32",
+              "unit": "Angstrom"
+            },
+            "delta_ra": {
+              "name": "DELTA_RA",
+              "description": "RA offset of observation from nominal object position",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "delta_dec": {
+              "name": "DELTA_DEC",
+              "description": "Dec offset of observation from nominal object position",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "ra": {
+              "name": "RA",
+              "description": "Object position in RA J2000",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "dec": {
+              "name": "DEC",
+              "description": "Object position in Dec J2000",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "epoch": {
+              "name": "EPOCH",
+              "description": "Epoch of RA/Dec",
+              "type": "float32",
+              "unit": "years"
+            },
+            "pmra": {
+              "name": "PMRA",
+              "description": "Proper motion in RA",
+              "type": "float32",
+              "unit": "mas/year"
+            },
+            "pmdec": {
+              "name": "PMDEC",
+              "description": "Proper motion in Dec",
+              "type": "float32",
+              "unit": "mas/year"
+            },
+            "parallax": {
+              "name": "PARALLAX",
+              "description": "Parallax",
+              "type": "float32",
+              "unit": "arcsec"
+            },
+            "catalogid": {
+              "name": "CATALOGID",
+              "description": "Unique id in catalog table of catalogdb",
+              "type": "int64",
+              "unit": ""
+            },
+            "target_pk": {
+              "name": "TARGET_PK",
+              "description": "Primary key in target table in targetdb",
+              "type": "int64",
+              "unit": ""
+            },
+            "magnitude": {
+              "name": "MAGNITUDE",
+              "description": "Array of magnitudes (g, r, i, BP, G, RP, H)",
+              "type": "float32[7]",
+              "unit": "mag"
+            },
+            "carton": {
+              "name": "CARTON",
+              "description": "Name of carton for this target",
+              "type": "char[50]",
+              "unit": ""
+            },
+            "carton_pk": {
+              "name": "CARTON_PK",
+              "description": "Primary key of carton for this target's carton",
+              "type": "int32",
+              "unit": ""
+            },
+            "program": {
+              "name": "PROGRAM",
+              "description": "Name of program for this target",
+              "type": "char[15]",
+              "unit": ""
+            },
+            "mapper": {
+              "name": "MAPPER",
+              "description": "Name of mapper for this target",
+              "type": "char[3]",
+              "unit": ""
+            },
+            "category": {
+              "name": "CATEGORY",
+              "description": "Category of target, one of 'science', 'sky_boss', 'standard_boss', 'sky_apogee', and 'standard_apogee'",
+              "type": "char[15]",
+              "unit": ""
+            },
+            "cadence": {
+              "name": "CADENCE",
+              "description": "Desired cadence of target",
+              "type": "char[22]",
+              "unit": ""
+            },
+            "fiberType": {
+              "name": "FIBERTYPE",
+              "description": "Fiber type desired",
+              "type": "char[6]",
+              "unit": ""
+            },
+            "plan": {
+              "name": "PLAN",
+              "description": "Plan associated with targeting version",
+              "type": "char[8]",
+              "unit": ""
+            },
+            "tag": {
+              "name": "TAG",
+              "description": "Tag associated with targeting version",
+              "type": "char[8]",
+              "unit": ""
+            }
+          }
+        }
+      }
+    }
+  }
+}
