@@ -1,17 +1,20 @@
 general:
   name: rsFieldOptions
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: Assignment results for cadence options for field
+  description: Assignment results for cadence options for a given field. This file
+    is written by the robostrategy script rs_assign. Each field is written out individually
+    so that the process can be resumed smoothly if it dies; this information is ultimately
+    summaries in the rsOptions file. The results here ignore assignment of calibration
+    targets. They are used by rs_allocate in deciding how to allocate a cadence to
+    each field.
   datatype: FITS
   filesize: 317 KB
   releases:
   - WORK
   environments:
   - ROBOSTRATEGY_DATA
-  naming_convention: replace me - with $ROBOSTRATEGY_DATA/allocations/[PLAN]/targets/rsFieldOptions-[PLAN]-[OBSERVATORY]-[FIELDID].fits
-    or rsFieldOptions-epsilon-5-core-2-apo-1.fits but with regex pattern matches
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  naming_convention: $ROBOSTRATEGY_DATA/allocations/[PLAN]/targets/rsFieldOptions-[PLAN]-[OBSERVATORY]-[FIELDID].fits
+  generated_by: robostrategy
   design: false
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
@@ -32,7 +35,7 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: Primary header
         is_image: true
         size: 0 bytes
         header:
@@ -56,104 +59,108 @@ releases:
           comment: ''
       hdu1:
         name: ''
-        description: replace me description
+        description: Results for each cadence for each field
         is_image: false
         size: 296 KB
         columns:
           fieldid:
             name: FIELDID
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Field identifier
           racen:
             name: RACEN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: RA Center (J2000)
           deccen:
             name: DECCEN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: Dec Center (J2000)
           ntargets:
             name: NTARGETS
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Total number of targets in rsFieldTargets file
           cadence:
             name: CADENCE
             type: char[30]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Field cadence name
           nvisit:
             name: NVISIT
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of exposures for this cadence
           nwithin:
             name: NWITHIN
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of targets reachable by a suitable positioner
           ngot:
             name: NGOT
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of targets gotten
           valuegot:
             name: VALUEGOT
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Total value of targets gotten
           nwithin_pcd:
             name: NWITHIN_PCD
             type: int32[32]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of targets reachable by a suitable positioner, for
+              each target cadence (see HDU2)
           ngot_pcd:
             name: NGOT_PCD
             type: int32[32]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of targets gotten for each target cadence (see HDU2)
           valuegot_pcd:
             name: VALUEGOT_PCD
             type: float32[32]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Total value of targets gotten for each target cadence (see
+              HDU2)
           nwithin_pct:
             name: NWITHIN_PCT
             type: int32[82]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of targets reachable by a suitable positioner, for
+              each target carton (see HDU3)
           ngot_pct:
             name: NGOT_PCT
             type: int32[82]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of targets gotten for each target carton (see HDU3)
           valuegot_pct:
             name: VALUEGOT_PCT
             type: float32[82]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Total value of targets gotten for each target carton (see
+              HDU3)
       hdu2:
         name: ''
-        description: replace me description
+        description: List of cadences that arrays in HDU1 refer to
         is_image: false
         size: 960 bytes
         columns:
           cadence:
             name: CADENCE
             type: char[30]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Cadence name
       hdu3:
         name: ''
-        description: replace me description
+        description: List of cartons that arrays in HDU1 refer to
         is_image: false
         size: 2 KB
         columns:
           carton:
             name: CARTON
             type: char[30]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Carton name
