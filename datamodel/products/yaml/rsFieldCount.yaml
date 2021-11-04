@@ -1,17 +1,16 @@
 general:
   name: rsFieldCount
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: Count of targets within each field
+  description: Count of targets as a function of carton and cadence in each field.
+    Produced by robostrategy script rs_field_count
   datatype: FITS
   filesize: 2 MB
   releases:
   - WORK
   environments:
   - ROBOSTRATEGY_DATA
-  naming_convention: replace me - with $ROBOSTRATEGY_DATA/allocations/[PLAN]/rsFieldCount-[PLAN]-[OBSERVATORY].fits
-    or rsFieldCount-epsilon-5-core-2-apo.fits but with regex pattern matches
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  naming_convention: $ROBOSTRATEGY_DATA/allocations/[PLAN]/rsFieldCount-[PLAN]-[OBSERVATORY].fits
+  generated_by: robostrategy
   design: false
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
@@ -32,7 +31,7 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: Primary header
         is_image: true
         size: 0 bytes
         header:
@@ -56,64 +55,66 @@ releases:
           comment: ''
       hdu1:
         name: ''
-        description: replace me description
+        description: List of fields with counts
         is_image: false
         size: 2 MB
         columns:
           fieldid:
             name: FIELDID
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Field identifier
           racen:
             name: RACEN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: RA Center (J2000)
           deccen:
             name: DECCEN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: Dec Center (J2000)
           ntargets:
             name: NTARGETS
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: number of targets in rsFieldTargets file
           nwithin:
             name: NWITHIN
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: number of targets accessible by an appropriate positioner
           nwithin_pcd:
             name: NWITHIN_PCD
             type: int32[32]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: for each cadence, number of targets accessible by an appropriate
+              positioner (see HDU2)
           nwithin_pct:
             name: NWITHIN_PCT
             type: int32[82]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: for each carton, number of targets accessible by an appropriate
+              positioner (see HDU3)
       hdu2:
         name: ''
-        description: replace me description
+        description: List of cadence names associated with NWITHIN_PCD array
         is_image: false
         size: 960 bytes
         columns:
           cadence:
             name: CADENCE
             type: char[30]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: cadence name
       hdu3:
         name: ''
-        description: replace me description
+        description: List of carton names associated with NWITHIN_PCT array
         is_image: false
         size: 2 KB
         columns:
           carton:
             name: CARTON
             type: char[30]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: carton name
