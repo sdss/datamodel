@@ -1,17 +1,17 @@
 general:
   name: rsFieldTargets
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: Targets for a particular field
+  description: Targets in the area around a particular field. Produced by robostrategy's
+    rs_field_targets, using the tofits() method of the Field class. No cadence set
+    or assignments performed.
   datatype: FITS
   filesize: 5 MB
   releases:
   - WORK
   environments:
   - ROBOSTRATEGY_DATA
-  naming_convention: replace me - with $ROBOSTRATEGY_DATA/allocations/[PLAN]/targets/rsFieldTargets-[PLAN]-[OBSERVATORY]-[FIELDID].fits
-    or rsFieldTargets-epsilon-5-core-2-apo-1.fits but with regex pattern matches
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  naming_convention: $ROBOSTRATEGY_DATA/allocations/[PLAN]/targets/rsFieldTargets-[PLAN]-[OBSERVATORY]-[FIELDID].fits
+  generated_by: robostrategy
   design: false
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
@@ -28,14 +28,14 @@ releases:
       path_name: rsFieldTargets
       path_template: $ROBOSTRATEGY_DATA/allocations/{plan}/targets/rsFieldTargets-{plan}-{observatory}-{fieldid}.fits
       path_kwargs:
-      - observatory
       - plan
       - fieldid
+      - observatory
       access_string: rsFieldTargets = $ROBOSTRATEGY_DATA/allocations/{plan}/targets/rsFieldTargets-{plan}-{observatory}-{fieldid}.fits
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: Primary header
         is_image: true
         size: 0 bytes
         header:
@@ -115,244 +115,245 @@ releases:
           value: ''
           comment: number required per exposure
       hdu1:
-        name: TARGET
-        description: replace me description
-        is_image: false
-        size: 5 MB
-        columns:
-          rsassign:
-            name: RSASSIGN
-            type: int32
-            unit: replace me - with content
-            description: replace me - with content
-          rsid:
-            name: RSID
-            type: int64
-            unit: replace me - with content
-            description: replace me - with content
-          carton_to_target_pk:
-            name: CARTON_TO_TARGET_PK
-            type: int64
-            unit: replace me - with content
-            description: replace me - with content
-          priority:
-            name: PRIORITY
-            type: int32
-            unit: replace me - with content
-            description: replace me - with content
-          value:
-            name: VALUE
-            type: float32
-            unit: replace me - with content
-            description: replace me - with content
-          lambda_eff:
-            name: LAMBDA_EFF
-            type: float32
-            unit: replace me - with content
-            description: replace me - with content
-          delta_ra:
-            name: DELTA_RA
-            type: float64
-            unit: replace me - with content
-            description: replace me - with content
-          delta_dec:
-            name: DELTA_DEC
-            type: float64
-            unit: replace me - with content
-            description: replace me - with content
-          ra:
-            name: RA
-            type: float64
-            unit: replace me - with content
-            description: replace me - with content
-          dec:
-            name: DEC
-            type: float64
-            unit: replace me - with content
-            description: replace me - with content
-          epoch:
-            name: EPOCH
-            type: float32
-            unit: replace me - with content
-            description: replace me - with content
-          pmra:
-            name: PMRA
-            type: float32
-            unit: replace me - with content
-            description: replace me - with content
-          pmdec:
-            name: PMDEC
-            type: float32
-            unit: replace me - with content
-            description: replace me - with content
-          parallax:
-            name: PARALLAX
-            type: float32
-            unit: replace me - with content
-            description: replace me - with content
-          catalogid:
-            name: CATALOGID
-            type: int64
-            unit: replace me - with content
-            description: replace me - with content
-          target_pk:
-            name: TARGET_PK
-            type: int64
-            unit: replace me - with content
-            description: replace me - with content
-          magnitude:
-            name: MAGNITUDE
-            type: float32[7]
-            unit: replace me - with content
-            description: replace me - with content
-          carton:
-            name: CARTON
-            type: char[50]
-            unit: replace me - with content
-            description: replace me - with content
-          carton_pk:
-            name: CARTON_PK
-            type: int32
-            unit: replace me - with content
-            description: replace me - with content
-          program:
-            name: PROGRAM
-            type: char[15]
-            unit: replace me - with content
-            description: replace me - with content
-          mapper:
-            name: MAPPER
-            type: char[3]
-            unit: replace me - with content
-            description: replace me - with content
-          category:
-            name: CATEGORY
-            type: char[15]
-            unit: replace me - with content
-            description: replace me - with content
-          cadence:
-            name: CADENCE
-            type: char[22]
-            unit: replace me - with content
-            description: replace me - with content
-          fiberType:
-            name: FIBERTYPE
-            type: char[6]
-            unit: replace me - with content
-            description: replace me - with content
-          plan:
-            name: PLAN
-            type: char[8]
-            unit: replace me - with content
-            description: replace me - with content
-          tag:
-            name: TAG
-            type: char[8]
-            unit: replace me - with content
-            description: replace me - with content
-          x:
-            name: X
-            type: float64
-            unit: replace me - with content
-            description: replace me - with content
-          y:
-            name: Y
-            type: float64
-            unit: replace me - with content
-            description: replace me - with content
-          within:
-            name: WITHIN
-            type: int32
-            unit: replace me - with content
-            description: replace me - with content
-          incadence:
-            name: INCADENCE
-            type: int32
-            unit: replace me - with content
-            description: replace me - with content
+        rsassign:
+          name: RSASSIGN
+          type: int32
+          unit: ''
+          description: Set to 0 if not to be assigned, 1 if to be assigned, 2 if an
+            open target assignment
+        rsid:
+          name: RSID
+          type: int64
+          unit: ''
+          description: robostrategy unique ID
+        carton_to_target_pk:
+          name: CARTON_TO_TARGET_PK
+          type: int64
+          unit: ''
+          description: primary key for carton_to_target table
+        priority:
+          name: PRIORITY
+          type: int32
+          unit: ''
+          description: priority for assignment (lower numbers assigned first)
+        value:
+          name: VALUE
+          type: float32
+          unit: ''
+          description: value to be used for cadence allocation to fields
+        lambda_eff:
+          name: LAMBDA_EFF
+          type: float32
+          unit: Angstrom
+          description: effective wavelength for observation
+        delta_ra:
+          name: DELTA_RA
+          type: float64
+          unit: arcsec
+          description: RA offset of observation from nominal object position
+        delta_dec:
+          name: DELTA_DEC
+          type: float64
+          unit: arcsec
+          description: Dec offset of observation from nominal object position
+        ra:
+          name: RA
+          type: float64
+          unit: deg
+          description: Object position in RA J2000
+        dec:
+          name: DEC
+          type: float64
+          unit: deg
+          description: Object position in Dec J2000
+        epoch:
+          name: EPOCH
+          type: float32
+          unit: years
+          description: Epoch of RA/Dec
+        pmra:
+          name: PMRA
+          type: float32
+          unit: mas/year
+          description: Proper motion in RA
+        pmdec:
+          name: PMDEC
+          type: float32
+          unit: mas/year
+          description: Proper motion in Dec
+        parallax:
+          name: PARALLAX
+          type: float32
+          unit: arcsec
+          description: Parallax
+        catalogid:
+          name: CATALOGID
+          type: int64
+          unit: ''
+          description: Unique id in catalog table of catalogdb
+        target_pk:
+          name: TARGET_PK
+          type: int64
+          unit: ''
+          description: Primary key in target table in targetdb
+        magnitude:
+          name: MAGNITUDE
+          type: float32[7]
+          unit: mag
+          description: Array of magnitudes (g, r, i, BP, G, RP, H)
+        carton:
+          name: CARTON
+          type: char[50]
+          unit: ''
+          description: Name of carton for this target
+        carton_pk:
+          name: CARTON_PK
+          type: int32
+          unit: ''
+          description: Primary key of carton for this target's carton
+        program:
+          name: PROGRAM
+          type: char[15]
+          unit: ''
+          description: Name of program for this target
+        mapper:
+          name: MAPPER
+          type: char[3]
+          unit: ''
+          description: Name of mapper for this target
+        category:
+          name: CATEGORY
+          type: char[15]
+          unit: ''
+          description: Category of target, one of 'science', 'sky_boss', 'standard_boss',
+            'sky_apogee', and 'standard_apogee'
+        cadence:
+          name: CADENCE
+          type: char[22]
+          unit: ''
+          description: Desired cadence of target
+        fiberType:
+          name: FIBERTYPE
+          type: char[6]
+          unit: ''
+          description: Fiber type desired
+        plan:
+          name: PLAN
+          type: char[8]
+          unit: ''
+          description: Plan associated with targeting version
+        tag:
+          name: TAG
+          type: char[8]
+          unit: ''
+          description: Tag associated with targeting version
+        x:
+          name: X
+          type: float64
+          unit: mm
+          description: X position in focal plane
+        y:
+          name: Y
+          type: float64
+          unit: mm
+          description: Y position in focal plane
+        within:
+          name: WITHIN
+          type: int32
+          unit: ''
+          description: target is covered by a robot with right fiber type
+        incadence:
+          name: INCADENCE
+          type: int32
+          unit: ''
+          description: target is observable in field cadence (all 0 in this file)
       hdu2:
         name: DESMODE
-        description: replace me description
+        description: Available design modes
         is_image: false
         size: 6 KB
         columns:
           label:
             name: LABEL
             type: char[30]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: name of design mode
           boss_n_skies_min:
             name: BOSS_N_SKIES_MIN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Minimum number of skies for BOSS
           apogee_n_skies_min:
             name: APOGEE_N_SKIES_MIN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Minimum number of skies for APOGEE
           boss_min_skies_fovmetric:
             name: BOSS_MIN_SKIES_FOVMETRIC
             type: float64[3]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Minimum FOV metric for BOSS skies
           apogee_min_skies_fovmetric:
             name: APOGEE_MIN_SKIES_FOVMETRIC
             type: float64[3]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Minimum FOV metric for APOGEE skies
           boss_n_stds_min:
             name: BOSS_N_STDS_MIN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Minimum number of standards for BOSS
           apogee_n_stds_min:
             name: APOGEE_N_STDS_MIN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Minimum number of standards for APOGEE
           boss_min_stds_fovmetric:
             name: BOSS_MIN_STDS_FOVMETRIC
             type: float64[3]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Minimum FOV metric for BOSS standards
           apogee_min_stds_fovmetric:
             name: APOGEE_MIN_STDS_FOVMETRIC
             type: float64[3]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Minimum FOV metric for APOGEE standards
           boss_stds_mags:
             name: BOSS_STDS_MAGS
-            type: float64[14]
-            unit: replace me - with content
-            description: replace me - with content
+            type: float64[7, 2]
+            unit: mag
+            description: Minimum and maximum magnitude for BOSS standard in (g, r,
+              i, BP, G, RP, H)
           apogee_stds_mags:
             name: APOGEE_STDS_MAGS
-            type: float64[14]
-            unit: replace me - with content
-            description: replace me - with content
+            type: float64[7, 2]
+            unit: mag
+            description: Minimum and maximum magnitude for APOGEE standard in (g,
+              r, i, BP, G, RP, H)
           boss_bright_limit_targets:
             name: BOSS_BRIGHT_LIMIT_TARGETS
-            type: float64[14]
-            unit: replace me - with content
-            description: replace me - with content
+            type: float64[7, 2]
+            unit: mag
+            description: Minimum and maximum magnitude for BOSS target in (g, r, i,
+              BP, G, RP, H)
           apogee_bright_limit_targets:
             name: APOGEE_BRIGHT_LIMIT_TARGETS
-            type: float64[14]
-            unit: replace me - with content
-            description: replace me - with content
+            type: float64[7, 2]
+            unit: mag
+            description: Minimum and maximum magnitude for APOGEE target in (g, r,
+              i, BP, G, RP, H)
           boss_sky_neighbors_targets:
             name: BOSS_SKY_NEIGHBORS_TARGETS
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ???
           apogee_sky_neighbors_targets:
             name: APOGEE_SKY_NEIGHBORS_TARGETS
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ???
           apogee_trace_diff_targets:
             name: APOGEE_TRACE_DIFF_TARGETS
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: maximum difference in H mag for targets neighboring on slit
