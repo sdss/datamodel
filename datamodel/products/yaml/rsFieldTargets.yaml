@@ -115,158 +115,163 @@ releases:
           value: ''
           comment: number required per exposure
       hdu1:
-        rsassign:
-          name: RSASSIGN
-          type: int32
-          unit: ''
-          description: Set to 0 if not to be assigned, 1 if to be assigned, 2 if an
-            open target assignment
-        rsid:
-          name: RSID
-          type: int64
-          unit: ''
-          description: robostrategy unique ID
-        carton_to_target_pk:
-          name: CARTON_TO_TARGET_PK
-          type: int64
-          unit: ''
-          description: primary key for carton_to_target table
-        priority:
-          name: PRIORITY
-          type: int32
-          unit: ''
-          description: priority for assignment (lower numbers assigned first)
-        value:
-          name: VALUE
-          type: float32
-          unit: ''
-          description: value to be used for cadence allocation to fields
-        lambda_eff:
-          name: LAMBDA_EFF
-          type: float32
-          unit: Angstrom
-          description: effective wavelength for observation
-        delta_ra:
-          name: DELTA_RA
-          type: float64
-          unit: arcsec
-          description: RA offset of observation from nominal object position
-        delta_dec:
-          name: DELTA_DEC
-          type: float64
-          unit: arcsec
-          description: Dec offset of observation from nominal object position
-        ra:
-          name: RA
-          type: float64
-          unit: deg
-          description: Object position in RA J2000
-        dec:
-          name: DEC
-          type: float64
-          unit: deg
-          description: Object position in Dec J2000
-        epoch:
-          name: EPOCH
-          type: float32
-          unit: years
-          description: Epoch of RA/Dec
-        pmra:
-          name: PMRA
-          type: float32
-          unit: mas/year
-          description: Proper motion in RA
-        pmdec:
-          name: PMDEC
-          type: float32
-          unit: mas/year
-          description: Proper motion in Dec
-        parallax:
-          name: PARALLAX
-          type: float32
-          unit: arcsec
-          description: Parallax
-        catalogid:
-          name: CATALOGID
-          type: int64
-          unit: ''
-          description: Unique id in catalog table of catalogdb
-        target_pk:
-          name: TARGET_PK
-          type: int64
-          unit: ''
-          description: Primary key in target table in targetdb
-        magnitude:
-          name: MAGNITUDE
-          type: float32[7]
-          unit: mag
-          description: Array of magnitudes (g, r, i, BP, G, RP, H)
-        carton:
-          name: CARTON
-          type: char[50]
-          unit: ''
-          description: Name of carton for this target
-        carton_pk:
-          name: CARTON_PK
-          type: int32
-          unit: ''
-          description: Primary key of carton for this target's carton
-        program:
-          name: PROGRAM
-          type: char[15]
-          unit: ''
-          description: Name of program for this target
-        mapper:
-          name: MAPPER
-          type: char[3]
-          unit: ''
-          description: Name of mapper for this target
-        category:
-          name: CATEGORY
-          type: char[15]
-          unit: ''
-          description: Category of target, one of 'science', 'sky_boss', 'standard_boss',
-            'sky_apogee', and 'standard_apogee'
-        cadence:
-          name: CADENCE
-          type: char[22]
-          unit: ''
-          description: Desired cadence of target
-        fiberType:
-          name: FIBERTYPE
-          type: char[6]
-          unit: ''
-          description: Fiber type desired
-        plan:
-          name: PLAN
-          type: char[8]
-          unit: ''
-          description: Plan associated with targeting version
-        tag:
-          name: TAG
-          type: char[8]
-          unit: ''
-          description: Tag associated with targeting version
-        x:
-          name: X
-          type: float64
-          unit: mm
-          description: X position in focal plane
-        y:
-          name: Y
-          type: float64
-          unit: mm
-          description: Y position in focal plane
-        within:
-          name: WITHIN
-          type: int32
-          unit: ''
-          description: target is covered by a robot with right fiber type
-        incadence:
-          name: INCADENCE
-          type: int32
-          unit: ''
-          description: target is observable in field cadence (all 0 in this file)
+        name: TARGETS
+        description: Targets in field
+        is_image: false
+        size: 10 MB
+        columns:
+          rsassign:
+            name: RSASSIGN
+            type: int32
+            unit: ''
+            description: Set to 0 if not to be assigned, 1 if to be assigned, 2 if
+              an open target assignment
+          rsid:
+            name: RSID
+            type: int64
+            unit: ''
+            description: robostrategy unique ID
+          carton_to_target_pk:
+            name: CARTON_TO_TARGET_PK
+            type: int64
+            unit: ''
+            description: primary key for carton_to_target table
+          priority:
+            name: PRIORITY
+            type: int32
+            unit: ''
+            description: priority for assignment (lower numbers assigned first)
+          value:
+            name: VALUE
+            type: float32
+            unit: ''
+            description: value to be used for cadence allocation to fields
+          lambda_eff:
+            name: LAMBDA_EFF
+            type: float32
+            unit: Angstrom
+            description: effective wavelength for observation
+          delta_ra:
+            name: DELTA_RA
+            type: float64
+            unit: arcsec
+            description: RA offset of observation from nominal object position
+          delta_dec:
+            name: DELTA_DEC
+            type: float64
+            unit: arcsec
+            description: Dec offset of observation from nominal object position
+          ra:
+            name: RA
+            type: float64
+            unit: deg
+            description: Object position in RA J2000
+          dec:
+            name: DEC
+            type: float64
+            unit: deg
+            description: Object position in Dec J2000
+          epoch:
+            name: EPOCH
+            type: float32
+            unit: years
+            description: Epoch of RA/Dec
+          pmra:
+            name: PMRA
+            type: float32
+            unit: mas/year
+            description: Proper motion in RA
+          pmdec:
+            name: PMDEC
+            type: float32
+            unit: mas/year
+            description: Proper motion in Dec
+          parallax:
+            name: PARALLAX
+            type: float32
+            unit: arcsec
+            description: Parallax
+          catalogid:
+            name: CATALOGID
+            type: int64
+            unit: ''
+            description: Unique id in catalog table of catalogdb
+          target_pk:
+            name: TARGET_PK
+            type: int64
+            unit: ''
+            description: Primary key in target table in targetdb
+          magnitude:
+            name: MAGNITUDE
+            type: float32[7]
+            unit: mag
+            description: Array of magnitudes (g, r, i, BP, G, RP, H)
+          carton:
+            name: CARTON
+            type: char[50]
+            unit: ''
+            description: Name of carton for this target
+          carton_pk:
+            name: CARTON_PK
+            type: int32
+            unit: ''
+            description: Primary key of carton for this target's carton
+          program:
+            name: PROGRAM
+            type: char[15]
+            unit: ''
+            description: Name of program for this target
+          mapper:
+            name: MAPPER
+            type: char[3]
+            unit: ''
+            description: Name of mapper for this target
+          category:
+            name: CATEGORY
+            type: char[15]
+            unit: ''
+            description: Category of target, one of 'science', 'sky_boss', 'standard_boss',
+              'sky_apogee', and 'standard_apogee'
+          cadence:
+            name: CADENCE
+            type: char[22]
+            unit: ''
+            description: Desired cadence of target
+          fiberType:
+            name: FIBERTYPE
+            type: char[6]
+            unit: ''
+            description: Fiber type desired
+          plan:
+            name: PLAN
+            type: char[8]
+            unit: ''
+            description: Plan associated with targeting version
+          tag:
+            name: TAG
+            type: char[8]
+            unit: ''
+            description: Tag associated with targeting version
+          x:
+            name: X
+            type: float64
+            unit: mm
+            description: X position in focal plane
+          y:
+            name: Y
+            type: float64
+            unit: mm
+            description: Y position in focal plane
+          within:
+            name: WITHIN
+            type: int32
+            unit: ''
+            description: target is covered by a robot with right fiber type
+          incadence:
+            name: INCADENCE
+            type: int32
+            unit: ''
+            description: target is observable in field cadence (all 0 in this file)
       hdu2:
         name: DESMODE
         description: Available design modes
