@@ -1,17 +1,17 @@
 general:
   name: rsFieldCadences
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: Cadences to check for each field
+  description: Cadences that the allocation process should check for each field, based
+    on the targets in the field and the rules in the configuration file. Created by
+    the robostrategy script rs_field_cadences
   datatype: FITS
   filesize: 562 KB
   releases:
   - WORK
   environments:
   - ROBOSTRATEGY_DATA
-  naming_convention: replace me - with $ROBOSTRATEGY_DATA/allocations/[PLAN]/rsFieldCadences-[PLAN]-[OBSERVATORY].fits
-    or rsFieldCadences-epsilon-5-core-2-apo.fits but with regex pattern matches
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  naming_convention: $ROBOSTRATEGY_DATA/allocations/[PLAN]/rsFieldCadences-[PLAN]-[OBSERVATORY].fits
+  generated_by: robostrategy
   design: false
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
@@ -34,7 +34,8 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: Array saying whether a given cadence should be considered for
+          a given field (NCAD x NFIELDS array)
         is_image: true
         size: 555 KB
         header:
