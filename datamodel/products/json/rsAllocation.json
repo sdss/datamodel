@@ -1,0 +1,479 @@
+{
+  "general": {
+    "name": "rsAllocation",
+    "short": "Allocation for each field in this robotstrategy run",
+    "description": "Allocation for each field in this robotstrategy run. Produced by the robostrategy script rs_allocate.",
+    "environments": [
+      "ROBOSTRATEGY_DATA"
+    ],
+    "datatype": "FITS",
+    "filesize": "1 GB",
+    "releases": [
+      {
+        "name": "WORK",
+        "description": "SDSS unreleased data.  Represents any work-in-progress data.",
+        "public": false,
+        "release_date": "unreleased"
+      }
+    ],
+    "naming_convention": "$ROBOSTRATEGY_DATA/allocations/[PLAN]/rsAllocation-[PLAN]-[OBSERVATORY].fits",
+    "generated_by": "robostrategy",
+    "design": false
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "WORK": {
+      "template": "$ROBOSTRATEGY_DATA/allocations/[PLAN]/rsAllocation-[PLAN]-[OBSERVATORY].fits",
+      "example": "allocations/epsilon-5-core-2/rsAllocation-epsilon-5-core-2-apo.fits",
+      "location": "allocations/{plan}/rsAllocation-{plan}-{observatory}.fits",
+      "environment": "ROBOSTRATEGY_DATA",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "rsAllocation",
+        "path_template": "$ROBOSTRATEGY_DATA/allocations/{plan}/rsAllocation-{plan}-{observatory}.fits",
+        "path_kwargs": [
+          "plan",
+          "observatory"
+        ],
+        "access_string": "rsAllocation = $ROBOSTRATEGY_DATA/allocations/{plan}/rsAllocation-{plan}-{observatory}.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Primary header",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "file does conform to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "16",
+              "comment": "number of bits per data pixel"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of data axes"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": "FITS dataset may contain extensions"
+            },
+            {
+              "key": "COMMENT",
+              "value": "  FITS (Flexible Image Transport System) format is defined in 'Astronomy",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "  and Astrophysics', volume 376, page 359; bibcode: 2001A&A...376..359H",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "Allocation of cadence to each field",
+          "size": "2 MB",
+          "header": null,
+          "columns": {
+            "fieldid": {
+              "name": "fieldid",
+              "description": "field id number",
+              "type": "int32",
+              "unit": ""
+            },
+            "racen": {
+              "name": "racen",
+              "description": "RA J2000 of field center",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "deccen": {
+              "name": "deccen",
+              "description": "Dec J2000 of field center",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "cadence": {
+              "name": "cadence",
+              "description": "Cadence name allocated",
+              "type": "char[30]",
+              "unit": ""
+            },
+            "nfilled": {
+              "name": "nfilled",
+              "description": "Number of exposures filled",
+              "type": "int32",
+              "unit": ""
+            },
+            "needed": {
+              "name": "needed",
+              "description": "Number of exposured needed",
+              "type": "int32",
+              "unit": ""
+            },
+            "xfactor": {
+              "name": "xfactor",
+              "description": "Cost factor for field in each sky brightness / LST slot",
+              "type": "float32[24, 2]",
+              "unit": ""
+            },
+            "slots_exposures": {
+              "name": "slots_exposures",
+              "description": "Exposures allocated to each sky brightness / LST slot",
+              "type": "float32[24, 2]",
+              "unit": ""
+            },
+            "slots_time": {
+              "name": "slots_time",
+              "description": "Time allocated to each sky brightness / LST slot",
+              "type": "float32[24, 2]",
+              "unit": "hours"
+            }
+          }
+        },
+        "hdu2": {
+          "name": "",
+          "is_image": true,
+          "description": "Binary image of hours per LST and sky brightness slot (from rsSlots file)",
+          "size": "192 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "file does conform to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "-32",
+              "comment": "number of bits per data pixel"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "number of data axes"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "2",
+              "comment": "length of data axis 1"
+            },
+            {
+              "key": "NAXIS2",
+              "value": "24",
+              "comment": "length of data axis 2"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": "FITS dataset may contain extensions"
+            },
+            {
+              "key": "COMMENT",
+              "value": "  FITS (Flexible Image Transport System) format is defined in 'Astronomy",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "  and Astrophysics', volume 376, page 359; bibcode: 2001A&A...376..359H",
+              "comment": ""
+            },
+            {
+              "key": "STRATVER",
+              "value": "1.0.5",
+              "comment": "version of robostrategy"
+            },
+            {
+              "key": "SCHEDVER",
+              "value": "0.9.1",
+              "comment": "version of roboscheduler"
+            },
+            {
+              "key": "NLST",
+              "value": "24",
+              "comment": "number of LST bins"
+            },
+            {
+              "key": "DURATION",
+              "value": "0.3",
+              "comment": "duration in hours of each slot considered"
+            },
+            {
+              "key": "FCLEAR",
+              "value": "0.5",
+              "comment": "Assumption for this observatory of clear fraction (not applied to numbers in image)"
+            },
+            {
+              "key": "OBSERVAT",
+              "value": "apo",
+              "comment": "Observatory, apo or lco"
+            },
+            {
+              "key": "NSB",
+              "value": "2",
+              "comment": "number of sky brightness bins"
+            },
+            {
+              "key": "SB0",
+              "value": "0.0",
+              "comment": "edge 0 of sky brightness bins"
+            },
+            {
+              "key": "SB1",
+              "value": "0.35",
+              "comment": "edge 1 of sky brightness bins"
+            },
+            {
+              "key": "SB2",
+              "value": "1.0",
+              "comment": "edge 2 of sky brightness bins"
+            }
+          ],
+          "columns": null
+        },
+        "hdu3": {
+          "name": "",
+          "is_image": false,
+          "description": "Binary table of fields (from rsFieldsRotated)",
+          "size": "297 KB",
+          "header": null,
+          "columns": {
+            "fieldid": {
+              "name": "FIELDID",
+              "description": "Field identifier",
+              "type": "int32",
+              "unit": ""
+            },
+            "racen": {
+              "name": "RACEN",
+              "description": "RA Center (J2000)",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "deccen": {
+              "name": "DECCEN",
+              "description": "Dec Center (J2000)",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "radius": {
+              "name": "RADIUS",
+              "description": "Radius over which to output targets",
+              "type": "float32",
+              "unit": "deg"
+            },
+            "type": {
+              "name": "TYPE",
+              "description": "Type of field (used for setting cadence and allocation choices)",
+              "type": "char[30]",
+              "unit": ""
+            },
+            "pa1": {
+              "name": "PA1",
+              "description": "proposed position angle using algorithm 1 (mean bearing to neighboring fields)",
+              "type": "float32",
+              "unit": "deg"
+            },
+            "pa2": {
+              "name": "PA2",
+              "description": "proposed position angle using algorithm 2 (bearing to furthest neighboring field)",
+              "type": "float32",
+              "unit": "deg"
+            }
+          }
+        },
+        "hdu4": {
+          "name": "",
+          "is_image": false,
+          "description": "Field slots information, with which slots can be used for a given field-cadence combination (from rsFieldSlots file)",
+          "size": "221 MB",
+          "header": null,
+          "columns": {
+            "fieldid": {
+              "name": "FIELDID",
+              "description": "Field identifier",
+              "type": "int32",
+              "unit": ""
+            },
+            "cadence": {
+              "name": "CADENCE",
+              "description": "Name of cadence",
+              "type": "char[30]",
+              "unit": ""
+            },
+            "racen": {
+              "name": "RACEN",
+              "description": "RA Center (J2000)",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "deccen": {
+              "name": "DECCEN",
+              "description": "Dec Center (J2000)",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "needed": {
+              "name": "NEEDED",
+              "description": "Number of exposures needed for this cadence",
+              "type": "int32",
+              "unit": ""
+            },
+            "needed_sb": {
+              "name": "NEEDED_SB",
+              "description": "Number of exposures needed for this cadence of each sky brightness type (in dark, bright order)",
+              "type": "int32[2]",
+              "unit": ""
+            },
+            "slots": {
+              "name": "SLOTS",
+              "description": "0 or 1 for whether the LST and skybrightness slot can be used for this field-cadence, based on sky brightness and airmass requirements.",
+              "type": "int32[24, 2]",
+              "unit": ""
+            }
+          }
+        },
+        "hdu5": {
+          "name": "",
+          "is_image": false,
+          "description": "Field-cadence options, and the value associated with each (from rsOptions file)",
+          "size": "1 GB",
+          "header": null,
+          "columns": {
+            "fieldid": {
+              "name": "FIELDID",
+              "description": "Field identifier",
+              "type": "int32",
+              "unit": ""
+            },
+            "racen": {
+              "name": "RACEN",
+              "description": "RA Center (J2000)",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "deccen": {
+              "name": "DECCEN",
+              "description": "Dec Center (J2000)",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "ntargets": {
+              "name": "NTARGETS",
+              "description": "Total number of targets in rsFieldTargets file",
+              "type": "int32",
+              "unit": ""
+            },
+            "cadence": {
+              "name": "CADENCE",
+              "description": "Field cadence name",
+              "type": "char[30]",
+              "unit": ""
+            },
+            "nvisit": {
+              "name": "NVISIT",
+              "description": "Number of exposures for this cadence",
+              "type": "int32",
+              "unit": ""
+            },
+            "nwithin": {
+              "name": "NWITHIN",
+              "description": "Number of targets reachable by a suitable positioner",
+              "type": "int32",
+              "unit": ""
+            },
+            "ngot": {
+              "name": "NGOT",
+              "description": "Number of targets gotten",
+              "type": "int32",
+              "unit": ""
+            },
+            "valuegot": {
+              "name": "VALUEGOT",
+              "description": "Total value of targets gotten",
+              "type": "float32",
+              "unit": ""
+            },
+            "nwithin_pcd": {
+              "name": "NWITHIN_PCD",
+              "description": "Number of targets reachable by a suitable positioner, for each target cadence (see HDU7)",
+              "type": "int32[32]",
+              "unit": ""
+            },
+            "ngot_pcd": {
+              "name": "NGOT_PCD",
+              "description": "Number of targets gotten for each target cadence (see HDU7)",
+              "type": "int32[32]",
+              "unit": ""
+            },
+            "valuegot_pcd": {
+              "name": "VALUEGOT_PCD",
+              "description": "Total value of targets gotten for each target cadence (see HDU7)",
+              "type": "float32[32]",
+              "unit": ""
+            },
+            "nwithin_pct": {
+              "name": "NWITHIN_PCT",
+              "description": "Number of targets reachable by a suitable positioner, for each target carton (see HDU6)",
+              "type": "int32[82]",
+              "unit": ""
+            },
+            "ngot_pct": {
+              "name": "NGOT_PCT",
+              "description": "Number of targets gotten for each target carton (see HDU6)",
+              "type": "int32[82]",
+              "unit": ""
+            },
+            "valuegot_pct": {
+              "name": "VALUEGOT_PCT",
+              "description": "Total value of targets gotten for each target carton (see HDU6)",
+              "type": "float32[82]",
+              "unit": ""
+            }
+          }
+        },
+        "hdu6": {
+          "name": "",
+          "is_image": false,
+          "description": "List of cartons for arrays in HDU5",
+          "size": "4 KB",
+          "header": null,
+          "columns": {
+            "carton": {
+              "name": "CARTON",
+              "description": "Carton names",
+              "type": "char[50]",
+              "unit": ""
+            }
+          }
+        },
+        "hdu7": {
+          "name": "",
+          "is_image": false,
+          "description": "List of cadences for arrays in HDU5",
+          "size": "1 KB",
+          "header": null,
+          "columns": {
+            "cadences": {
+              "name": "CADENCES",
+              "description": "Cadence name",
+              "type": "char[50]",
+              "unit": ""
+            }
+          }
+        }
+      }
+    }
+  }
+}
