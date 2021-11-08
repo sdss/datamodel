@@ -1,17 +1,24 @@
 general:
   name: rsFieldSlots
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: Needed and available slots for field-cadence combination.
+  description: For every field-cadence combination in rsOptions, this file has whether
+    each LST and sky brightness slot is available for the field, and what number of
+    exposures is needed total for the cadence. LST is broken up into 24 hour-long
+    slots, covering 0-1h, 1-2h, etc. Sky brightness is broken up into dark and bright
+    in that order, based on a maximum illumination of 0.35 for dark time. The LST
+    allowed depends on the airmass; the airmass must be less than 1.4 or less than
+    the minimum possible airmass for the field plus 0.2. Note that this criterion
+    does not account for the detailed obsmode information for each exposure. The file
+    is created by the robostrategy script rs_field_slots. The information is used
+    in rs_allocate when the cadence choices are made.
   datatype: FITS
   filesize: 221 MB
   releases:
   - WORK
   environments:
   - ROBOSTRATEGY_DATA
-  naming_convention: replace me - with $ROBOSTRATEGY_DATA/allocations/[PLAN]/rsFieldSlots-[PLAN]-[OBSERVATORY].fits
-    or rsFieldSlots-epsilon-5-core-2-apo.fits but with regex pattern matches
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  naming_convention: $ROBOSTRATEGY_DATA/allocations/[PLAN]/rsFieldSlots-[PLAN]-[OBSERVATORY].fits
+  generated_by: robostrategy
   design: false
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
@@ -28,13 +35,13 @@ releases:
       path_name: rsFieldSlots
       path_template: $ROBOSTRATEGY_DATA/allocations/{plan}/rsFieldSlots-{plan}-{observatory}.fits
       path_kwargs:
-      - observatory
       - plan
+      - observatory
       access_string: rsFieldSlots = $ROBOSTRATEGY_DATA/allocations/{plan}/rsFieldSlots-{plan}-{observatory}.fits
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: Primary header
         is_image: true
         size: 0 bytes
         header:
@@ -65,35 +72,37 @@ releases:
           fieldid:
             name: FIELDID
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Field identifier
           cadence:
             name: CADENCE
             type: char[30]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Name of cadence
           racen:
             name: RACEN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: RA Center (J2000)
           deccen:
             name: DECCEN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: Dec Center (J2000)
           needed:
             name: NEEDED
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of exposures needed for this cadence
           needed_sb:
             name: NEEDED_SB
             type: int32[2]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of exposures needed for this cadence of each sky brightness
+              type (in dark, bright order)
           slots:
             name: SLOTS
-            type: int32[48]
-            unit: replace me - with content
-            description: replace me - with content
+            type: int32[24, 2]
+            unit: ''
+            description: 0 or 1 for whether the LST and skybrightness slot can be
+              used for this field-cadence, based on sky brightness and airmass requirements.
