@@ -1,17 +1,17 @@
 general:
   name: rsAssignments
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: All assignments performed
+  description: Lists all assignments performed by robostrategy in a given run for
+    a given observatory (the results of rs_assign_final). This is created by the robostrategy
+    script rs_assignments, which reads the rsFieldAssignments files.
   datatype: FITS
   filesize: 1 GB
   releases:
   - WORK
   environments:
   - ROBOSTRATEGY_DATA
-  naming_convention: replace me - with $ROBOSTRATEGY_DATA/allocations/[PLAN]/rsAssignments-[PLAN]-[OBSERVATORY].fits
-    or rsAssignments-epsilon-5-core-2-apo.fits but with regex pattern matches
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  naming_convention: $ROBOSTRATEGY_DATA/allocations/[PLAN]/rsAssignments-[PLAN]-[OBSERVATORY].fits
+  generated_by: robostrategy
   design: false
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
@@ -34,7 +34,7 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: Primary header
         is_image: true
         size: 0 bytes
         header:
@@ -58,57 +58,57 @@ releases:
           comment: ''
       hdu1:
         name: ''
-        description: replace me description
+        description: List of all assignments
         is_image: false
         size: 1 GB
         columns:
           carton_to_target_pk:
             name: CARTON_TO_TARGET_PK
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Primary key in carton_to_target table in catalogdb
           rsid:
             name: RSID
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Unique ID within this robostrategy run
           catalogid:
             name: CATALOGID
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: catalogid from catalog table in catalogdb
           ra:
             name: RA
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: Object position in RA J2000
           dec:
             name: DEC
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: Object position in Dec J2000
           cadence:
             name: CADENCE
-            type: char[30]
-            unit: replace me - with content
-            description: replace me - with content
+            type: char[22]
+            unit: ''
+            description: Desired cadence of target
           fieldid:
             name: FIELDID
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Field identifier
           exposure:
             name: EXPOSURE
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Index of exposure in field
           robotID:
             name: ROBOTID
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Assigned robotID
           field_cadence:
             name: FIELD_CADENCE
             type: char[30]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Cadence of the field
