@@ -1,17 +1,16 @@
 general:
   name: rsAllocation
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: Allocation for each field in this robotstrategy run
+  description: Allocation for each field in this robotstrategy run. Produced by robostrategy's
+    rs_allocate script.
   datatype: FITS
   filesize: 1 GB
   releases:
   - WORK
   environments:
   - ROBOSTRATEGY_DATA
-  naming_convention: replace me - with $ROBOSTRATEGY_DATA/allocations/[PLAN]/rsAllocation-[PLAN]-[OBSERVATORY].fits
-    or rsAllocation-epsilon-5-core-0-apo.fits but with regex pattern matches
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  naming_convention: $ROBOSTRATEGY_DATA/allocations/[PLAN]/rsAllocation-[PLAN]-[OBSERVATORY].fits
+  generated_by: robostrategy
   design: false
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
@@ -20,7 +19,7 @@ changelog:
 releases:
   WORK:
     template: $ROBOSTRATEGY_DATA/allocations/[PLAN]/rsAllocation-[PLAN]-[OBSERVATORY].fits
-    example: allocations/epsilon-5-core-0/rsAllocation-epsilon-5-core-0-apo.fits
+    example: allocations/epsilon-5-core-2/rsAllocation-epsilon-5-core-2-apo.fits
     location: allocations/{plan}/rsAllocation-{plan}-{observatory}.fits
     environment: ROBOSTRATEGY_DATA
     access:
@@ -28,13 +27,13 @@ releases:
       path_name: rsAllocation
       path_template: $ROBOSTRATEGY_DATA/allocations/{plan}/rsAllocation-{plan}-{observatory}.fits
       path_kwargs:
-      - plan
       - observatory
+      - plan
       access_string: rsAllocation = $ROBOSTRATEGY_DATA/allocations/{plan}/rsAllocation-{plan}-{observatory}.fits
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: Primary header
         is_image: true
         size: 0 bytes
         header:
@@ -58,64 +57,64 @@ releases:
           comment: ''
       hdu1:
         name: ''
-        description: replace me description
+        description: Allocation of cadence to each field
         is_image: false
         size: 2 MB
         columns:
           fieldid:
-            name: FIELDID
+            name: fieldid
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: field id number
           racen:
-            name: RACEN
+            name: racen
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: RA J2000 of field center
           deccen:
-            name: DECCEN
+            name: deccen
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: Dec J2000 of field center
           cadence:
-            name: CADENCE
+            name: cadence
             type: char[30]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Cadence name allocated
           nfilled:
-            name: NFILLED
+            name: nfilled
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of exposures filled
           needed:
-            name: NEEDED
+            name: needed
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of exposured needed
           xfactor:
-            name: XFACTOR
-            type: float32[48]
-            unit: replace me - with content
-            description: replace me - with content
+            name: xfactor
+            type: float32[24, 2]
+            unit: ''
+            description: Cost factor for field in each sky brightness / LST slot
           slots_exposures:
-            name: SLOTS_EXPOSURES
-            type: float32[48]
-            unit: replace me - with content
-            description: replace me - with content
+            name: slots_exposures
+            type: float32[24, 2]
+            unit: ''
+            description: Exposures allocated to each sky brightness / LST slot
           slots_time:
-            name: SLOTS_TIME
-            type: float32[48]
-            unit: replace me - with content
-            description: replace me - with content
+            name: slots_time
+            type: float32[24, 2]
+            unit: hours
+            description: Time allocated to each sky brightness / LST slot
       hdu2:
         name: ''
-        description: replace me description
+        description: Binary image of hours per LST and sky brightness slot
         is_image: true
         size: 192 bytes
         header:
-        - key: XTENSION
-          value: IMAGE
-          comment: IMAGE extension
+        - key: SIMPLE
+          value: true
+          comment: file does conform to FITS standard
         - key: BITPIX
           value: -32
           comment: number of bits per data pixel
@@ -128,83 +127,88 @@ releases:
         - key: NAXIS2
           value: 24
           comment: length of data axis 2
-        - key: PCOUNT
-          value: 0
-          comment: required keyword; must = 0
-        - key: GCOUNT
-          value: 1
-          comment: required keyword; must = 1
+        - key: EXTEND
+          value: true
+          comment: FITS dataset may contain extensions
+        - key: COMMENT
+          value: '  FITS (Flexible Image Transport System) format is defined in ''Astronomy'
+          comment: ''
+        - key: COMMENT
+          value: '  and Astrophysics'', volume 376, page 359; bibcode: 2001A&A...376..359H'
+          comment: ''
         - key: STRATVER
           value: 1.0.5
-          comment: ''
+          comment: version of robostrategy
         - key: SCHEDVER
           value: 0.9.1
-          comment: ''
+          comment: version of roboscheduler
         - key: NLST
           value: 24
-          comment: ''
+          comment: number of LST bins
         - key: DURATION
-          value: 0.300000011920929
-          comment: ''
+          value: 0.3
+          comment: duration in hours of each slot considered
         - key: FCLEAR
           value: 0.5
-          comment: ''
+          comment: Assumption for this observatory of clear fraction (not applied)
         - key: OBSERVAT
           value: apo
-          comment: ''
+          comment: Observatory, apo or lco
         - key: NSB
           value: 2
-          comment: ''
+          comment: number of sky brightness bins
         - key: SB0
           value: 0.0
-          comment: ''
+          comment: edge 0 of sky brightness bins
         - key: SB1
-          value: 0.349999994039536
-          comment: ''
+          value: 0.35
+          comment: edge 1 of sky brightness bins
         - key: SB2
           value: 1.0
-          comment: ''
+          comment: edge 2 of sky brightness bins
       hdu3:
         name: ''
-        description: replace me description
+        description: Binary table of fields
         is_image: false
         size: 297 KB
         columns:
           fieldid:
             name: FIELDID
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: N/A
+            description: Field identifier
           racen:
             name: RACEN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: RA Center (J2000)
           deccen:
             name: DECCEN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: Dec Center (J2000)
           radius:
             name: RADIUS
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: Radius over which to output targets
           type:
             name: TYPE
             type: char[30]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: N/A
+            description: Type of field (used for setting cadence and allocation choices)
           pa1:
             name: PA1
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: proposed position angle using algorithm 1 (mean bearing to
+              neighboring fields)
           pa2:
             name: PA2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: proposed position angle using algorithm 2 (bearing to furthest
+              neighboring field)
       hdu4:
         name: ''
         description: replace me description
