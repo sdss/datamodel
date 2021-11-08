@@ -1,8 +1,8 @@
 general:
   name: rsAllocation
   short: Allocation for each field in this robotstrategy run
-  description: Allocation for each field in this robotstrategy run. Produced by robostrategy's
-    rs_allocate script.
+  description: Allocation for each field in this robotstrategy run. Produced by the
+    robostrategy script rs_allocate.
   datatype: FITS
   filesize: 1 GB
   releases:
@@ -27,8 +27,8 @@ releases:
       path_name: rsAllocation
       path_template: $ROBOSTRATEGY_DATA/allocations/{plan}/rsAllocation-{plan}-{observatory}.fits
       path_kwargs:
-      - observatory
       - plan
+      - observatory
       access_string: rsAllocation = $ROBOSTRATEGY_DATA/allocations/{plan}/rsAllocation-{plan}-{observatory}.fits
     hdus:
       hdu0:
@@ -108,7 +108,8 @@ releases:
             description: Time allocated to each sky brightness / LST slot
       hdu2:
         name: ''
-        description: Binary image of hours per LST and sky brightness slot
+        description: Binary image of hours per LST and sky brightness slot (from rsSlots
+          file)
         is_image: true
         size: 192 bytes
         header:
@@ -150,7 +151,8 @@ releases:
           comment: duration in hours of each slot considered
         - key: FCLEAR
           value: 0.5
-          comment: Assumption for this observatory of clear fraction (not applied)
+          comment: Assumption for this observatory of clear fraction (not applied
+            to numbers in image)
         - key: OBSERVAT
           value: apo
           comment: Observatory, apo or lco
@@ -168,14 +170,14 @@ releases:
           comment: edge 2 of sky brightness bins
       hdu3:
         name: ''
-        description: Binary table of fields
+        description: Binary table of fields (from rsFieldsRotated)
         is_image: false
         size: 297 KB
         columns:
           fieldid:
             name: FIELDID
             type: int32
-            unit: N/A
+            unit: ''
             description: Field identifier
           racen:
             name: RACEN
@@ -195,7 +197,7 @@ releases:
           type:
             name: TYPE
             type: char[30]
-            unit: N/A
+            unit: ''
             description: Type of field (used for setting cadence and allocation choices)
           pa1:
             name: PA1
@@ -211,145 +213,153 @@ releases:
               neighboring field)
       hdu4:
         name: ''
-        description: replace me description
+        description: Field slots information, with which slots can be used for a given
+          field-cadence combination (from rsFieldSlots file)
         is_image: false
         size: 221 MB
         columns:
           fieldid:
             name: FIELDID
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Field identifier
           cadence:
             name: CADENCE
             type: char[30]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Name of cadence
           racen:
             name: RACEN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: RA Center (J2000)
           deccen:
             name: DECCEN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: Dec Center (J2000)
           needed:
             name: NEEDED
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of exposures needed for this cadence
           needed_sb:
             name: NEEDED_SB
             type: int32[2]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of exposures needed for this cadence of each sky brightness
+              type (in dark, bright order)
           slots:
             name: SLOTS
-            type: int32[48]
-            unit: replace me - with content
-            description: replace me - with content
+            type: int32[24, 2]
+            unit: ''
+            description: 0 or 1 for whether the LST and skybrightness slot can be
+              used for this field-cadence, based on sky brightness and airmass requirements.
       hdu5:
         name: ''
-        description: replace me description
+        description: Field-cadence options, and the value associated with each (from
+          rsOptions file)
         is_image: false
         size: 1 GB
         columns:
           fieldid:
             name: FIELDID
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Field identifier
           racen:
             name: RACEN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: RA Center (J2000)
           deccen:
             name: DECCEN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: Dec Center (J2000)
           ntargets:
             name: NTARGETS
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Total number of targets in rsFieldTargets file
           cadence:
             name: CADENCE
             type: char[30]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Field cadence name
           nvisit:
             name: NVISIT
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of exposures for this cadence
           nwithin:
             name: NWITHIN
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of targets reachable by a suitable positioner
           ngot:
             name: NGOT
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of targets gotten
           valuegot:
             name: VALUEGOT
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Total value of targets gotten
           nwithin_pcd:
             name: NWITHIN_PCD
             type: int32[32]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of targets reachable by a suitable positioner, for
+              each target cadence (see HDU7)
           ngot_pcd:
             name: NGOT_PCD
             type: int32[32]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of targets gotten for each target cadence (see HDU7)
           valuegot_pcd:
             name: VALUEGOT_PCD
             type: float32[32]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Total value of targets gotten for each target cadence (see
+              HDU7)
           nwithin_pct:
             name: NWITHIN_PCT
             type: int32[82]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of targets reachable by a suitable positioner, for
+              each target carton (see HDU6)
           ngot_pct:
             name: NGOT_PCT
             type: int32[82]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of targets gotten for each target carton (see HDU6)
           valuegot_pct:
             name: VALUEGOT_PCT
             type: float32[82]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Total value of targets gotten for each target carton (see
+              HDU6)
       hdu6:
         name: ''
-        description: replace me description
+        description: List of cartons for arrays in HDU5
         is_image: false
         size: 4 KB
         columns:
           carton:
             name: CARTON
             type: char[50]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Carton names
       hdu7:
         name: ''
-        description: replace me description
+        description: List of cadences for arrays in HDU5
         is_image: false
         size: 1 KB
         columns:
           cadences:
             name: CADENCES
             type: char[50]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Cadence name
