@@ -178,9 +178,9 @@ At this stage, we need to resolve all validation errors, e.g. supplying required
 all generic text with custom user content.  Once a YAML file is validated, we re-run the same
 ``datamodel_generate`` command from above to produce the remaining files in ``datamodel/products/``:
 
-- **md/mangaRss.md**: the markdown file to be uploaded to the wiki
+- **md/mangaRss.md**: the markdown file for human-readable representation on the DSI
 - **json/mangaRss.json**: a machine-readable JSON file for the ``datamodel`` python package
-- **access/mangaRss.access**: a subset YAML file containing access information, for the wiki
+- **access/mangaRss.access**: a subset YAML file containing access information
 
 When writing out the stubs, a successfully valid YAML will produce the following verbose output:
 ::
@@ -444,30 +444,13 @@ Either way, at the end it will ask you to confirm your definitions:
      path_keys = ['drpver=v2_4_3', 'plate=8485', 'ifu=1901', 'wave=LOG']
 
 
-Adding the datamodel to the Wiki
---------------------------------
+Adding the datamodel to the DSI
+-------------------------------
 
-Once a valid datamodel markdown is created, you will need to upload it to the wiki for it to be visible.
-It is best to do this step at Utah.  From the Utah machines, run
-::
+Once a valid datamodel markdown is created, it will be automatically added to the 
+SDSS Data Specification Index (`DSI <https://github.com/sdss/dsi>_`) for display.  The DSI is a 
+web application accessible at https://data.sdss5.org/dsi using the standard SDSS passwords.  You
+do not need to do anything extra to have your datamodel appear on the DSI, only ensure that a 
+valid JSON representation has been created.  
 
-    datamodel wiki -e MANGA_SPECTRO_REDUX -f mangaRss
-
-See the :ref:`datamodel wiki cli <usage-dmwiki>` for a full list of command-line arguments.  Once successfully uploaded, it will
-be visible on the `SDSS Datamodel <https://wiki.sdss.org/display/DATAMODEL/.Datamodel+vsdsswork>`_ site.
-
-
-Updating your netrc file
-^^^^^^^^^^^^^^^^^^^^^^^^
-
-In order to use the ``datamodel_wiki`` function, you must first add your wiki credentials to a private
-**.netrc** file in your home directory.  Add the following line to ``~/.netrc``,
-::
-
-    machine wiki.sdss.org
-        login <username>
-        password <password>
-
-replacing ``username`` and ``password`` with your wiki credentials.  You also need to confirm that
-your ``~/.netrc`` is not readable, by running `chmod 600 ~/.netrc`.
 

@@ -28,10 +28,9 @@ def test_datamodel_cli():
 
 @pytest.mark.parametrize('command, msg',
                          [('generate', 'Generate a datamodel file for a SDSS data product'),
-                          ('wiki', 'Upload a datamodel to the wiki'),
                           ('install', 'Install the datamodel product at Utah'),
                           ('design', 'Design a datamodel for a new file')],
-                         ids=['generate', 'wiki', 'install', 'design'])
+                         ids=['generate', 'install', 'design'])
 def test_datamodel_help(command, msg):
     """ test the help of each datamodel click subcommand """
     runner = CliRunner()

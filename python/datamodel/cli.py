@@ -97,22 +97,6 @@ def install(branch: str, force: bool, verbose: bool, debug: bool):
     install.done()
 
 
-
-@cli.command(short_help='Upload a datamodel markdown file to the wiki')
-@click.option('-f', '--file_species', help='unique name of the product file species', required=True)
-@click.option('-e', '--env_label', help='environment variable name of the root location', required=True)
-@click.option('-s', '--space_ver', help='the SDSS wiki space name', default='sdsswork')
-@click.option('-v', '--verbose', help='turn on verbosity', is_flag=True, default=False)
-def wiki(file_species: str, env_label: str, space_ver: str, verbose: bool):
-    """ Upload a datamodel to the wiki """
-
-    page = Page(file_species=file_species, env_label=env_label, space_ver=space_ver, verbose=verbose)
-    page.set_remote()
-    page.set_remote_pagelist(parent=True)
-    page.create_parent()
-    page.create_datamodel()
-
-
 create_grp = OptionGroup('Create Options', help='options for creating a file from a designed datamodel.')
 
 @cloup.command(short_help='Design a new datamodel for a new file', show_constraints=True)
