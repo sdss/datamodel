@@ -29,12 +29,6 @@ Commands
    :prog: design
    :nested: full
 
-.. _usage-dmwiki:
-
-.. click:: datamodel.cli:wiki
-   :prog: wiki
-   :nested: full
-
 .. _usage-dminstall:
 
 .. click:: datamodel.cli:install

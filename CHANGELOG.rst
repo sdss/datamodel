@@ -6,6 +6,7 @@ Change Log
 
 0.3.3 (unreleased)
 ------------------
+- Removed all references to the old datamodel wiki code, now deprecated for the DSI
 
 0.3.2 (07-08-2021)
 ------------------
@@ -13,7 +14,6 @@ Change Log
 - Issue :issue:`14` - adds Release model to yaml; sorts releases/changelog by release_date
 - Issue :issue:`15` - verifies paths with special functions work
 - Adds new `access_path_name` field to `DataModel` to allow for case when sdss_access path names different than file species names
-
 
 0.3.1 (07-02-2021)
 ------------------
