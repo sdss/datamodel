@@ -448,7 +448,7 @@ Adding the datamodel to the DSI
 -------------------------------
 
 Once a valid datamodel markdown is created, it will be automatically added to the 
-SDSS Data Specification Index (`DSI <https://github.com/sdss/dsi>_`) for display.  The DSI is a 
+SDSS Data Specification Index (`DSI <https://github.com/sdss/dsi>`_) for display.  The DSI is a 
 web application accessible at https://data.sdss5.org/dsi using the standard SDSS passwords.  You
 do not need to do anything extra to have your datamodel appear on the DSI, only ensure that a 
 valid JSON representation has been created.  
