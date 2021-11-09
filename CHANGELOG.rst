@@ -7,6 +7,7 @@ Change Log
 0.3.3 (unreleased)
 ------------------
 - Removed all references to the old datamodel wiki code, now deprecated for the DSI
+- Fix to Github Action to build sphinx documentation
 
 0.3.2 (07-08-2021)
 ------------------
