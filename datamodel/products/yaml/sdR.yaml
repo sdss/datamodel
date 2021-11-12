@@ -34,89 +34,89 @@ changelog:
       from: DR17
       primary_delta_nkeys: 84
       added_primary_header_kwargs:
-      - M1XTILT
-      - M2XTILT
-      - NE
-      - M2YTRAN
-      - PLATETYP
-      - HUMIDITY
-      - FF
-      - WINDS
-      - FOCUS
-      - M2XTRAN
-      - WINDS25M
-      - WINDD
-      - FFS
-      - MC1TRCB
-      - M1XTRAN
-      - NAME
-      - IPA
-      - GUSTD
-      - M2PISTON
-      - REQTIME
-      - M1YTILT
-      - M2ZROT
-      - MJD
-      - CAMERAS
-      - MC1TBCB
-      - V_BOSS
-      - WINDD25M
-      - CARTID
-      - DARKTIME
-      - OBJSYS
-      - HGCD
-      - PLATEID
-      - DIDFLUSH
-      - SLITID1
-      - MC1TBCT
-      - MC1TRCT
-      - SCALE
-      - COMMENT
-      - DEC
-      - SPA
-      - DEWPOINT
-      - AZ
-      - MC1TEMDN
-      - MAPID
-      - DUSTB
-      - M1ZROT
-      - RADEG
-      - PRESSURE
-      - EXPTIME
-      - M1PISTON
-      - CCDTEMP
-      - COLLA
-      - MC1HUMHT
-      - EXPOSURE
-      - DATE-OBS
-      - TAI-BEG
-      - M2YTILT
-      - GUSTS
-      - CHECKSUM
-      - DUSTA
-      - HARTMANN
       - SUBFRAME
-      - AIRTEMP
-      - MC1THT
-      - ALT
+      - SLITID1
+      - DEWPOINT
+      - HARTMANN
+      - WINDD25M
+      - CCDTEMP
       - LN2TEMP
-      - IONPUMP
-      - POINTING
-      - RA
+      - GUSTD
+      - M2XTILT
       - M1YTRAN
-      - FLAVOR
-      - COLLB
+      - SPA
+      - DEC
+      - DUSTB
       - TRUSTEMP
-      - PFERR
-      - MC1HUMCO
-      - V_APO
-      - COLLC
+      - EXPTIME
+      - M2YTRAN
+      - TAI-BEG
+      - MC1TBCB
+      - M1YTILT
+      - AIRTEMP
+      - ALT
+      - FOCUS
+      - CARTID
+      - HGCD
       - DECDEG
+      - RADEG
+      - MC1HUMCO
+      - WINDS
+      - V_APO
+      - FF
+      - M1XTRAN
+      - PLATETYP
+      - IONPUMP
+      - PLATEID
+      - SCALE
+      - M1PISTON
+      - CHECKSUM
+      - MJD
+      - FLAVOR
+      - M1XTILT
+      - COLLA
+      - MC1TRCT
+      - M2PISTON
+      - CAMERAS
+      - GUSTS
+      - WINDD
+      - RA
+      - DUSTA
+      - AZ
+      - MC1TBCT
+      - POINTING
+      - NE
+      - COLLC
+      - NAME
+      - M2XTRAN
+      - COLLB
+      - MC1TEMDN
+      - M2ZROT
+      - FFS
+      - EXPOSURE
+      - MC1HUMHT
+      - DARKTIME
+      - M1ZROT
+      - COMMENT
+      - PRESSURE
+      - WINDS25M
+      - REQTIME
+      - PFERR
+      - OBJSYS
+      - M2YTILT
+      - DATE-OBS
+      - V_BOSS
+      - IPA
+      - HUMIDITY
+      - MC1THT
+      - DIDFLUSH
+      - MAPID
+      - MC1TRCB
       removed_primary_header_kwargs:
-      - OBSID
       - CAMERA
-      - DAQVER
+      - OBSID
       - DATASEC
+      - DAQVER
     DR17:
       from: DR16
       note: No changes
@@ -913,10 +913,14 @@ releases:
     location: '{mjd}/sdR-{br}{id}-{frame}.fit.gz'
     environment: BOSS_SPECTRO_DATA_N
     access:
-      in_sdss_access: false
-      path_name: null
-      path_template: null
-      path_kwargs: null
+      in_sdss_access: true
+      path_name: sdR
+      path_template: $BOSS_SPECTRO_DATA_N/{mjd}/sdR-{br}{id}-{frame}.fit
+      path_kwargs:
+      - mjd
+      - frame
+      - br
+      - id
       access_string: sdR = $BOSS_SPECTRO_DATA_N/{mjd}/sdR-{br}{id}-{frame}.fit.gz
     hdus:
       hdu0:
