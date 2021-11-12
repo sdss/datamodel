@@ -4,7 +4,8 @@
     "short": "migration: needs update",
     "description": "This file contains raw spectro data from the BOSS/eBOSS spectro CCDs. Simultaneous frames in different chips all have the same frame number. Which frames are what type of observation is indicated by the FLAVOR keyword in each header. HDU 0 contains the raw counts as integers (4352x4224). For SDSS-I raw spectro data, please look at SDSS-I,-II sdR files:https://data.sdss.org/datamodel/files/RAWDATA_DIR/MJD/sdR.html.",
     "environments": [
-      "BOSS_SPECTRO_DATA"
+      "BOSS_SPECTRO_DATA",
+      "BOSS_SPECTRO_DATA_N"
     ],
     "datatype": "FITS",
     "filesize": "35 KB",
@@ -62,6 +63,12 @@
         "description": "SDSS public data release 17",
         "public": true,
         "release_date": "2021-12-06"
+      },
+      {
+        "name": "WORK",
+        "description": "SDSS unreleased data.  Represents any work-in-progress data.",
+        "public": false,
+        "release_date": "unreleased"
       }
     ],
     "naming_convention": "sdR-[br][12]-[FRAME].fit, indicating which blue or red spectrograph (1 or 2), and the frame number.",
@@ -71,6 +78,100 @@
   "changelog": {
     "description": "Describes changes to the datamodel product and/or file structure from one release to another",
     "releases": {
+      "WORK": {
+        "from": "DR17",
+        "delta_nhdus": null,
+        "added_hdus": null,
+        "removed_hdus": null,
+        "primary_delta_nkeys": 84,
+        "added_primary_header_kwargs": [
+          "SUBFRAME",
+          "SLITID1",
+          "DEWPOINT",
+          "HARTMANN",
+          "WINDD25M",
+          "CCDTEMP",
+          "LN2TEMP",
+          "GUSTD",
+          "M2XTILT",
+          "M1YTRAN",
+          "SPA",
+          "DEC",
+          "DUSTB",
+          "TRUSTEMP",
+          "EXPTIME",
+          "M2YTRAN",
+          "TAI-BEG",
+          "MC1TBCB",
+          "M1YTILT",
+          "AIRTEMP",
+          "ALT",
+          "FOCUS",
+          "CARTID",
+          "HGCD",
+          "DECDEG",
+          "RADEG",
+          "MC1HUMCO",
+          "WINDS",
+          "V_APO",
+          "FF",
+          "M1XTRAN",
+          "PLATETYP",
+          "IONPUMP",
+          "PLATEID",
+          "SCALE",
+          "M1PISTON",
+          "CHECKSUM",
+          "MJD",
+          "FLAVOR",
+          "M1XTILT",
+          "COLLA",
+          "MC1TRCT",
+          "M2PISTON",
+          "CAMERAS",
+          "GUSTS",
+          "WINDD",
+          "RA",
+          "DUSTA",
+          "AZ",
+          "MC1TBCT",
+          "POINTING",
+          "NE",
+          "COLLC",
+          "NAME",
+          "M2XTRAN",
+          "COLLB",
+          "MC1TEMDN",
+          "M2ZROT",
+          "FFS",
+          "EXPOSURE",
+          "MC1HUMHT",
+          "DARKTIME",
+          "M1ZROT",
+          "COMMENT",
+          "PRESSURE",
+          "WINDS25M",
+          "REQTIME",
+          "PFERR",
+          "OBJSYS",
+          "M2YTILT",
+          "DATE-OBS",
+          "V_BOSS",
+          "IPA",
+          "HUMIDITY",
+          "MC1THT",
+          "DIDFLUSH",
+          "MAPID",
+          "MC1TRCB"
+        ],
+        "removed_primary_header_kwargs": [
+          "CAMERA",
+          "OBSID",
+          "DATASEC",
+          "DAQVER"
+        ],
+        "note": null
+      },
       "DR17": {
         "from": "DR16",
         "delta_nhdus": null,
@@ -1354,6 +1455,560 @@
               "key": "DATASUM",
               "value": "0000000000000000",
               "comment": "migration: description of keyword/column not found. Needs update"
+            }
+          ],
+          "columns": null
+        }
+      }
+    },
+    "WORK": {
+      "template": "$BOSS_SPECTRO_DATA_N/[MJD]/sdR-[BR][ID]-[FRAME].fit.gz",
+      "example": "59527/sdR-b1-00334717.fit.gz",
+      "location": "{mjd}/sdR-{br}{id}-{frame}.fit.gz",
+      "environment": "BOSS_SPECTRO_DATA_N",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "sdR",
+        "path_template": "$BOSS_SPECTRO_DATA_N/{mjd}/sdR-{br}{id}-{frame}.fit",
+        "path_kwargs": [
+          "mjd",
+          "frame",
+          "br",
+          "id"
+        ],
+        "access_string": "sdR = $BOSS_SPECTRO_DATA_N/{mjd}/sdR-{br}{id}-{frame}.fit.gz"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "abigail needs update",
+          "size": "35 MB",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "16",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "4352",
+              "comment": ""
+            },
+            {
+              "key": "NAXIS2",
+              "value": "4224",
+              "comment": ""
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            },
+            {
+              "key": "BSCALE",
+              "value": "1",
+              "comment": ""
+            },
+            {
+              "key": "BZERO",
+              "value": "32768",
+              "comment": ""
+            },
+            {
+              "key": "TELESCOP",
+              "value": "SDSS 2-5m",
+              "comment": ""
+            },
+            {
+              "key": "FILENAME",
+              "value": "sdR-b1-00334717.fit",
+              "comment": ""
+            },
+            {
+              "key": "CAMERAS",
+              "value": "b1",
+              "comment": ""
+            },
+            {
+              "key": "EXPOSURE",
+              "value": "334717",
+              "comment": ""
+            },
+            {
+              "key": "V_BOSS",
+              "value": "6.0.1-alpha.0",
+              "comment": "Active version of the BOSS ICC"
+            },
+            {
+              "key": "CAMDAQ",
+              "value": "1.5.0:37",
+              "comment": ""
+            },
+            {
+              "key": "SUBFRAME",
+              "value": "",
+              "comment": "the subframe readout command"
+            },
+            {
+              "key": "ERRCNT",
+              "value": "NONE",
+              "comment": ""
+            },
+            {
+              "key": "SYNCERR",
+              "value": "NONE",
+              "comment": ""
+            },
+            {
+              "key": "SLINES",
+              "value": "NONE",
+              "comment": ""
+            },
+            {
+              "key": "PIXERR",
+              "value": "NONE",
+              "comment": ""
+            },
+            {
+              "key": "PLINES",
+              "value": "NONE",
+              "comment": ""
+            },
+            {
+              "key": "PFERR",
+              "value": "NONE",
+              "comment": ""
+            },
+            {
+              "key": "DIDFLUSH",
+              "value": "True",
+              "comment": "CCD was flushed before integration"
+            },
+            {
+              "key": "FLAVOR",
+              "value": "bias",
+              "comment": "exposure type, SDSS spectro style"
+            },
+            {
+              "key": "MJD",
+              "value": "59527",
+              "comment": "APO fMJD day at start of exposure"
+            },
+            {
+              "key": "TAI-BEG",
+              "value": "5143128023.0",
+              "comment": "MJD(TAI) seconds at start of integration"
+            },
+            {
+              "key": "DATE-OBS",
+              "value": "2021-11-08T22:40:23",
+              "comment": "TAI date at start of integration"
+            },
+            {
+              "key": "NAME",
+              "value": "0000-00000-00",
+              "comment": "Could not fetch guider.cartridgeLoaded keyword-"
+            },
+            {
+              "key": "PLATEID",
+              "value": "-1",
+              "comment": "The currently loaded plate"
+            },
+            {
+              "key": "CARTID",
+              "value": "-1",
+              "comment": "The currently loaded cartridge"
+            },
+            {
+              "key": "MAPID",
+              "value": "-1",
+              "comment": "The mapping version of the loaded plate"
+            },
+            {
+              "key": "POINTING",
+              "value": "?",
+              "comment": "The currently specified pointing"
+            },
+            {
+              "key": "PLATETYP",
+              "value": "sop.survey KeyError: 'sop'",
+              "comment": "Type of plate (e.g. BOSS, MANGA, APOG"
+            },
+            {
+              "key": "OBJSYS",
+              "value": "Mount",
+              "comment": "The TCC objSys"
+            },
+            {
+              "key": "RA",
+              "value": "NaN",
+              "comment": "Telescope is not tracking the sky"
+            },
+            {
+              "key": "DEC",
+              "value": "NaN",
+              "comment": "Telescope is not tracking the sky"
+            },
+            {
+              "key": "RADEG",
+              "value": "NaN",
+              "comment": "Telescope is not tracking the sky"
+            },
+            {
+              "key": "DECDEG",
+              "value": "NaN",
+              "comment": "Telescope is not tracking the sky"
+            },
+            {
+              "key": "SPA",
+              "value": "NaN",
+              "comment": "Telescope is not tracking the sky"
+            },
+            {
+              "key": "AZ",
+              "value": "120.999564",
+              "comment": "Azimuth axis pos. (approx, deg)"
+            },
+            {
+              "key": "ALT",
+              "value": "29.998911",
+              "comment": "Altitude axis pos. (approx, deg)"
+            },
+            {
+              "key": "IPA",
+              "value": "-0.000711",
+              "comment": "Rotator axis pos. (approx, deg)"
+            },
+            {
+              "key": "FOCUS",
+              "value": "0.0",
+              "comment": "User-specified focus offset (um)"
+            },
+            {
+              "key": "M2PISTON",
+              "value": "658.8",
+              "comment": "TCC SecOrient"
+            },
+            {
+              "key": "M2XTILT",
+              "value": "0.9",
+              "comment": "TCC SecOrient"
+            },
+            {
+              "key": "M2YTILT",
+              "value": "0.35",
+              "comment": "TCC SecOrient"
+            },
+            {
+              "key": "M2XTRAN",
+              "value": "0.23",
+              "comment": "TCC SecOrient"
+            },
+            {
+              "key": "M2YTRAN",
+              "value": "41.61",
+              "comment": "TCC SecOrient"
+            },
+            {
+              "key": "M2ZROT",
+              "value": "-0.26",
+              "comment": "TCC SecOrient"
+            },
+            {
+              "key": "M1PISTON",
+              "value": "1.07",
+              "comment": "TCC PrimOrient"
+            },
+            {
+              "key": "M1XTILT",
+              "value": "-59.51",
+              "comment": "TCC PrimOrient"
+            },
+            {
+              "key": "M1YTILT",
+              "value": "-9.21",
+              "comment": "TCC PrimOrient"
+            },
+            {
+              "key": "M1XTRAN",
+              "value": "-512.13",
+              "comment": "TCC PrimOrient"
+            },
+            {
+              "key": "M1YTRAN",
+              "value": "1906.31",
+              "comment": "TCC PrimOrient"
+            },
+            {
+              "key": "M1ZROT",
+              "value": "0.03",
+              "comment": "TCC PrimOrient"
+            },
+            {
+              "key": "SCALE",
+              "value": "1.0",
+              "comment": "User-specified scale factor"
+            },
+            {
+              "key": "V_APO",
+              "value": "3.0.0",
+              "comment": "version of the current apoActor"
+            },
+            {
+              "key": "PRESSURE",
+              "value": "21.624",
+              "comment": ""
+            },
+            {
+              "key": "WINDD",
+              "value": "220.1",
+              "comment": ""
+            },
+            {
+              "key": "WINDS",
+              "value": "10.0",
+              "comment": ""
+            },
+            {
+              "key": "GUSTD",
+              "value": "237.8",
+              "comment": ""
+            },
+            {
+              "key": "GUSTS",
+              "value": "12.3",
+              "comment": ""
+            },
+            {
+              "key": "AIRTEMP",
+              "value": "10.9",
+              "comment": ""
+            },
+            {
+              "key": "DEWPOINT",
+              "value": "-4.0",
+              "comment": ""
+            },
+            {
+              "key": "TRUSTEMP",
+              "value": "-20.7",
+              "comment": ""
+            },
+            {
+              "key": "HUMIDITY",
+              "value": "32.8",
+              "comment": ""
+            },
+            {
+              "key": "DUSTA",
+              "value": "23908.0",
+              "comment": ""
+            },
+            {
+              "key": "DUSTB",
+              "value": "710.0",
+              "comment": ""
+            },
+            {
+              "key": "WINDD25M",
+              "value": "-999.0",
+              "comment": ""
+            },
+            {
+              "key": "WINDS25M",
+              "value": "-999.0",
+              "comment": ""
+            },
+            {
+              "key": "FF",
+              "value": "0 0 0 0",
+              "comment": "FF lamps 1:on 0:0ff"
+            },
+            {
+              "key": "NE",
+              "value": "0 0 0 0",
+              "comment": "NE lamps 1:on 0:0ff"
+            },
+            {
+              "key": "HGCD",
+              "value": "0 0 0 0",
+              "comment": "HGCD lamps 1:on 0:0ff"
+            },
+            {
+              "key": "FFS",
+              "value": "1 1 1 1 1 1 1 1",
+              "comment": "Flatfield Screen 1:closed 0:open"
+            },
+            {
+              "key": "SLITID1",
+              "value": "0",
+              "comment": "Normalized slithead ID. sp1&2 should match."
+            },
+            {
+              "key": "COLLA",
+              "value": "0",
+              "comment": "The position of the A collimator motor"
+            },
+            {
+              "key": "COLLB",
+              "value": "0",
+              "comment": "The position of the B collimator motor"
+            },
+            {
+              "key": "COLLC",
+              "value": "0",
+              "comment": "The position of the C collimator motor"
+            },
+            {
+              "key": "HARTMANN",
+              "value": "Closed, Closed",
+              "comment": "Hartmanns: Left,Right,Out"
+            },
+            {
+              "key": "MC1HUMHT",
+              "value": "-5.9",
+              "comment": "sp1 mech Hartmann humidity, %"
+            },
+            {
+              "key": "MC1HUMCO",
+              "value": "-4.2",
+              "comment": "sp1 mech Central optics humidity, %"
+            },
+            {
+              "key": "MC1TEMDN",
+              "value": "8.5",
+              "comment": "sp1 mech Median temp, C"
+            },
+            {
+              "key": "MC1THT",
+              "value": "7.8",
+              "comment": "sp1 mech Hartmann Top Temp, C"
+            },
+            {
+              "key": "MC1TRCB",
+              "value": "8.5",
+              "comment": "sp1 mech Red Cam Bottom Temp, C"
+            },
+            {
+              "key": "MC1TRCT",
+              "value": "8.5",
+              "comment": "sp1 mech Red Cam Top Temp, C"
+            },
+            {
+              "key": "MC1TBCB",
+              "value": "8.5",
+              "comment": "sp1 mech Blue Cam Bottom Temp, C"
+            },
+            {
+              "key": "MC1TBCT",
+              "value": "8.4",
+              "comment": "sp1 mech Blue Cam Top Temp, C"
+            },
+            {
+              "key": "REQTIME",
+              "value": "0",
+              "comment": "requested exposure time"
+            },
+            {
+              "key": "EXPTIME",
+              "value": "0",
+              "comment": "requested exposure time"
+            },
+            {
+              "key": "DARKTIME",
+              "value": "8.394322156906128",
+              "comment": "time between flush end and readout start"
+            },
+            {
+              "key": "LN2TEMP",
+              "value": "95.312",
+              "comment": ""
+            },
+            {
+              "key": "CCDTEMP",
+              "value": "-99.609",
+              "comment": ""
+            },
+            {
+              "key": "IONPUMP",
+              "value": "-6.46",
+              "comment": ""
+            },
+            {
+              "key": "CHECKSUM",
+              "value": "jAAAk377j9AAj955",
+              "comment": "HDU checksum updated 2021-11-08T22:41:25"
+            },
+            {
+              "key": "DATASUM",
+              "value": "1144906806",
+              "comment": "data unit checksum updated 2021-11-08T22:41:25"
+            },
+            {
+              "key": "COMMENT",
+              "value": "failed to make ROTPOS card from nan",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "failed to make BOREOFFX card from nan",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "failed to make BOREOFFY card from nan",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "failed to make ARCOFFX card from nan",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "failed to make ARCOFFY card from nan",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "failed to make CALOFFX card from nan",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "failed to make CALOFFY card from nan",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "failed to make CALOFFR card from nan",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "failed to make GUIDOFFX card from nan",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "failed to make GUIDOFFY card from nan",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "failed to make GUIDOFFR card from nan",
+              "comment": ""
             }
           ],
           "columns": null
