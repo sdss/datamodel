@@ -5,9 +5,11 @@ general:
   datatype: FIT
   filesize: 10 MB
   releases:
+  - DR9
   - WORK
   environments:
   - BOSS_SPECTRO_DATA_N
+  - BOSS_SPECTRO_DATA
   naming_convention: replace me - with $BOSS_SPECTRO_DATA_N/[MJD]/sdR-[BR][ID]-[FRAME].fit.gz
     or sdR-b1-00323718.fit.gz but with regex pattern matches
   generated_by: replace me - with the name(s) of any git or svn product(s) that produces
@@ -16,7 +18,39 @@ general:
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
-  releases: {}
+  releases:
+    WORK:
+      from: DR9
+      primary_delta_nkeys: 5
+      added_primary_header_kwargs:
+      - V_BOSS
+      - MGDDEC
+      - V_APO
+      - V_SOP
+      - SRVYMODE
+      - V_GUIDER
+      - LN2TEMP
+      - CCDTEMP
+      - SPA
+      - MGDPOS
+      - MGDRA
+      - PLATETYP
+      - M2ZROT
+      - M1ZROT
+      - IONPUMP
+      - TRUSTEMP
+      removed_primary_header_kwargs:
+      - OBJOFFY
+      - BOSSVER
+      - SUBFROWN
+      - SHCLOTIM
+      - SHOPETIM
+      - DPERRPT
+      - DAQVER
+      - OBJOFFX
+      - SLITID2
+      - COMMENT
+      - SUBFROW1
 releases:
   WORK:
     template: $BOSS_SPECTRO_DATA_N/[MJD]/sdR-[BR][ID]-[FRAME].fit.gz
@@ -375,3 +409,349 @@ releases:
         - key: DATASUM
           value: '224195152'
           comment: data unit checksum updated 2021-01-18T13:48:15
+  DR9:
+    template: $BOSS_SPECTRO_DATA/[MJD]/sdR-[BR][ID]-[FRAME].fit.gz
+    example: 55752/sdR-b1-00132973.fit.gz
+    location: '{mjd}/sdR-{br}{id}-{frame}.fit.gz'
+    environment: BOSS_SPECTRO_DATA
+    access:
+      in_sdss_access: true
+      path_name: sdR
+      path_template: $BOSS_SPECTRO_DATA/{mjd}/sdR-{br}{id}-{frame}.fit
+      path_kwargs:
+      - br
+      - id
+      - mjd
+      - frame
+      access_string: sdR = $BOSS_SPECTRO_DATA/{mjd}/sdR-{br}{id}-{frame}.fit.gz
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: replace me description
+        is_image: true
+        size: 35 MB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 16
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 4352
+          comment: ''
+        - key: NAXIS2
+          value: 4224
+          comment: ''
+        - key: BSCALE
+          value: 1
+          comment: ''
+        - key: BZERO
+          value: 32768
+          comment: ''
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: TELESCOP
+          value: SDSS 2-5m
+          comment: ''
+        - key: FILENAME
+          value: sdR-b1-00132973.fit
+          comment: ''
+        - key: CAMERAS
+          value: b1
+          comment: ''
+        - key: EXPOSURE
+          value: 132973
+          comment: ''
+        - key: DAQVER
+          value: 1.3.1
+          comment: ''
+        - key: CAMDAQ
+          value: 1.5.0:37
+          comment: ''
+        - key: SUBFRAME
+          value: 1 849 10 1 551 1 1 783 10 3 SUBFREAD
+          comment: the subframe readout command
+        - key: SUBFROW1
+          value: 850
+          comment: first row of subframe readout
+        - key: SUBFROWN
+          value: 1400
+          comment: last row of subframe readout
+        - key: ERRCNT
+          value: '551'
+          comment: ''
+        - key: SYNCERR
+          value: '550'
+          comment: ''
+        - key: SLINES
+          value: 0,0,0,0,0,0,0,0,0,0,
+          comment: ''
+        - key: PIXERR
+          value: NONE
+          comment: ''
+        - key: PLINES
+          value: NONE
+          comment: ''
+        - key: PFERR
+          value: '1'
+          comment: ''
+        - key: DIDFLUSH
+          value: true
+          comment: CCD was flushed before integration
+        - key: FLAVOR
+          value: arc
+          comment: exposure type, SDSS spectro style
+        - key: BOSSVER
+          value: '2'
+          comment: ICC version
+        - key: MJD
+          value: 55752
+          comment: APO fMJD day at start of exposure
+        - key: TAI-BEG
+          value: 4816969989.0
+          comment: MJD(TAI) seconds at start of integration
+        - key: DATE-OBS
+          value: '2011-07-09T23:13:09'
+          comment: TAI date at start of integration
+        - key: NAME
+          value: 4385-55750-01
+          comment: The name of the currently loaded plate
+        - key: PLATEID
+          value: 4385
+          comment: The currently loaded plate
+        - key: CARTID
+          value: 10
+          comment: The currently loaded cartridge
+        - key: MAPID
+          value: 1
+          comment: The mapping version of the loaded plate
+        - key: POINTING
+          value: A
+          comment: The currently specified pointing
+        - key: OBJSYS
+          value: Mount
+          comment: The TCC objSys
+        - key: RA
+          value: NaN
+          comment: Telescope is not tracking the sky
+        - key: DEC
+          value: NaN
+          comment: Telescope is not tracking the sky
+        - key: RADEG
+          value: NaN
+          comment: Telescope is not tracking the sky
+        - key: DECDEG
+          value: NaN
+          comment: Telescope is not tracking the sky
+        - key: ROTPOS
+          value: 0.0
+          comment: Rotator request position (deg)
+        - key: BOREOFFX
+          value: 0.0
+          comment: TCC Boresight offset, deg
+        - key: BOREOFFY
+          value: 0.0
+          comment: TCC Boresight offset, deg
+        - key: ARCOFFX
+          value: 0.0
+          comment: TCC ObjArcOff, deg
+        - key: ARCOFFY
+          value: 0.0
+          comment: TCC ObjArcOff, deg
+        - key: OBJOFFX
+          value: 0.0
+          comment: TCC ObjOff, deg
+        - key: OBJOFFY
+          value: 0.0
+          comment: TCC ObjOff, deg
+        - key: CALOFFX
+          value: -0.003
+          comment: TCC CalibOff, deg
+        - key: CALOFFY
+          value: 0.006
+          comment: TCC CalibOff, deg
+        - key: CALOFFR
+          value: 0.0
+          comment: TCC CalibOff, deg
+        - key: GUIDOFFX
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: GUIDOFFY
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: GUIDOFFR
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: AZ
+          value: 121.0
+          comment: Azimuth axis pos. (approx, deg)
+        - key: ALT
+          value: 29.997
+          comment: Altitude axis pos. (approx, deg)
+        - key: IPA
+          value: 0.0
+          comment: Rotator axis pos. (approx, deg)
+        - key: FOCUS
+          value: 241.97
+          comment: User-specified focus offset (um)
+        - key: M2PISTON
+          value: -1781.08
+          comment: TCC SecOrient
+        - key: M2XTILT
+          value: -9.01
+          comment: TCC SecOrient
+        - key: M2YTILT
+          value: -4.0
+          comment: TCC SecOrient
+        - key: M2XTRAN
+          value: -58.01
+          comment: TCC SecOrient
+        - key: M2YTRAN
+          value: 23.74
+          comment: TCC SecOrient
+        - key: M1PISTON
+          value: -3962.79
+          comment: TCC PrimOrient
+        - key: M1XTILT
+          value: -13.67
+          comment: TCC PrimOrient
+        - key: M1YTILT
+          value: 10.53
+          comment: TCC PrimOrient
+        - key: M1XTRAN
+          value: 574.98
+          comment: TCC PrimOrient
+        - key: M1YTRAN
+          value: 742.37
+          comment: TCC PrimOrient
+        - key: SCALE
+          value: 1.000401
+          comment: User-specified scale factor
+        - key: PRESSURE
+          value: 21.566
+          comment: pressure
+        - key: WINDD
+          value: 147.5
+          comment: windd
+        - key: WINDS
+          value: 15.2
+          comment: winds
+        - key: GUSTD
+          value: 135.7
+          comment: gustd
+        - key: GUSTS
+          value: 22.9
+          comment: gusts
+        - key: AIRTEMP
+          value: 21.9
+          comment: airTempPT
+        - key: DEWPOINT
+          value: 2.3
+          comment: dpTempPT
+        - key: DPERRPT
+          value: NaN
+          comment: failed to fetch dpErrPT
+        - key: HUMIDITY
+          value: 29.0
+          comment: humidity
+        - key: DUSTA
+          value: 58367.0
+          comment: dusta
+        - key: DUSTB
+          value: 1312.0
+          comment: dustb
+        - key: WINDD25M
+          value: 174.6
+          comment: windd25m
+        - key: WINDS25M
+          value: 11.0
+          comment: winds25m
+        - key: FF
+          value: 0 0 0 0
+          comment: FF lamps 1:on 0:0ff
+        - key: NE
+          value: 1 1 1 1
+          comment: NE lamps 1:on 0:0ff
+        - key: HGCD
+          value: 1 1 1 1
+          comment: HGCD lamps 1:on 0:0ff
+        - key: FFS
+          value: 1 1 1 1 1 1 1 1
+          comment: Flatfield Screen 1:closed 0:open
+        - key: GUIDER1
+          value: proc-gimg-1005.fits
+          comment: The first guider image
+        - key: SLITID1
+          value: 10
+          comment: Normalized slithead ID. sp1&2 should match.
+        - key: SLITID2
+          value: 10
+          comment: Normalized slithead ID. sp1&2 should match.
+        - key: GUIDERN
+          value: proc-gimg-1005.fits
+          comment: The last guider image
+        - key: COLLA
+          value: 32879
+          comment: The position of the A collimator motor
+        - key: COLLB
+          value: 33024
+          comment: The position of the B collimator motor
+        - key: COLLC
+          value: 32902
+          comment: The position of the C collimator motor
+        - key: HARTMANN
+          value: Left
+          comment: 'Hartmanns: Left,Right,Out'
+        - key: MC1HUMHT
+          value: 11.3
+          comment: sp1 mech Hartmann humidity, %
+        - key: MC1HUMCO
+          value: 11.7
+          comment: sp1 mech Central optics humidity, %
+        - key: MC1TEMDN
+          value: 16.7
+          comment: sp1 mech Median temp, C
+        - key: MC1THT
+          value: 16.8
+          comment: sp1 mech Hartmann Top Temp, C
+        - key: MC1TRCB
+          value: 16.5
+          comment: sp1 mech Red Cam Bottom Temp, C
+        - key: MC1TRCT
+          value: 16.8
+          comment: sp1 mech Red Cam Top Temp, C
+        - key: MC1TBCB
+          value: 16.7
+          comment: sp1 mech Blue Cam Bottom Temp, C
+        - key: MC1TBCT
+          value: 16.6
+          comment: sp1 mech Blue Cam Top Temp, C
+        - key: REQTIME
+          value: 4.0
+          comment: requested exposure time
+        - key: EXPTIME
+          value: 4.83
+          comment: measured exposure time, s
+        - key: SHOPETIM
+          value: 0.72
+          comment: open shutter transit time, s
+        - key: SHCLOTIM
+          value: 0.54
+          comment: close shutter transit time, s
+        - key: DARKTIME
+          value: 13.84557890892029
+          comment: time between flush end and readout start
+        - key: CHECKSUM
+          value: kYoInVnHkVnHkVnH
+          comment: HDU checksum updated 2011-07-09T23:13:53
+        - key: DATASUM
+          value: '463862629'
+          comment: data unit checksum updated 2011-07-09T23:13:53
+        - key: COMMENT
+          value: failed to make SPA card from None
+          comment: ''
