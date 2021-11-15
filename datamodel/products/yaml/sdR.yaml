@@ -1,38 +1,931 @@
 general:
   name: sdR
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
-  datatype: FIT
-  filesize: 10 MB
+  short: BOSS spectrograph data
+  description: This file contains raw spectro data from the BOSS/eBOSS/BHM spectro CCDs.
+    Simultaneous frames in different chips all have the same frame number. Which frames
+    are what type of observation is indicated by the FLAVOR keyword in each header.
+    HDU 0 contains the raw counts as integers (4352x4224). For SDSS-I raw spectro
+    data, please look at SDSS-I,-II sdR files:https://data.sdss.org/datamodel/files/RAWDATA_DIR/MJD/sdR.html.
+  datatype: FITS
+  filesize: 35 KB
   releases:
+  - DR9
+  - DR10
+  - DR12
+  - DR11
+  - DR13
+  - DR14
+  - DR15
+  - DR16
+  - DR17
   - WORK
   environments:
+  - BOSS_SPECTRO_DATA
   - BOSS_SPECTRO_DATA_N
-  naming_convention: replace me - with $BOSS_SPECTRO_DATA_N/[MJD]/sdR-[BR][ID]-[FRAME].fit.gz
-    or sdR-b1-00323718.fit.gz but with regex pattern matches
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  naming_convention: sdR-[br][12]-[FRAME].fit, indicating which blue or red spectrograph
+    (1 or 2), and the frame number.
+  generated_by: ???
   design: false
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
-  releases: {}
+  releases:
+    WORK:
+      from: DR17
+      primary_delta_nkeys: 84
+      added_primary_header_kwargs:
+      - SUBFRAME
+      - SLITID1
+      - DEWPOINT
+      - HARTMANN
+      - WINDD25M
+      - CCDTEMP
+      - LN2TEMP
+      - GUSTD
+      - M2XTILT
+      - M1YTRAN
+      - SPA
+      - DEC
+      - DUSTB
+      - TRUSTEMP
+      - EXPTIME
+      - M2YTRAN
+      - TAI-BEG
+      - MC1TBCB
+      - M1YTILT
+      - AIRTEMP
+      - ALT
+      - FOCUS
+      - CARTID
+      - HGCD
+      - DECDEG
+      - RADEG
+      - MC1HUMCO
+      - WINDS
+      - V_APO
+      - FF
+      - M1XTRAN
+      - PLATETYP
+      - IONPUMP
+      - PLATEID
+      - SCALE
+      - M1PISTON
+      - CHECKSUM
+      - MJD
+      - FLAVOR
+      - M1XTILT
+      - COLLA
+      - MC1TRCT
+      - M2PISTON
+      - CAMERAS
+      - GUSTS
+      - WINDD
+      - RA
+      - DUSTA
+      - AZ
+      - MC1TBCT
+      - POINTING
+      - NE
+      - COLLC
+      - NAME
+      - M2XTRAN
+      - COLLB
+      - MC1TEMDN
+      - M2ZROT
+      - FFS
+      - EXPOSURE
+      - MC1HUMHT
+      - DARKTIME
+      - M1ZROT
+      - COMMENT
+      - PRESSURE
+      - WINDS25M
+      - REQTIME
+      - PFERR
+      - OBJSYS
+      - M2YTILT
+      - DATE-OBS
+      - V_BOSS
+      - IPA
+      - HUMIDITY
+      - MC1THT
+      - DIDFLUSH
+      - MAPID
+      - MC1TRCB
+      removed_primary_header_kwargs:
+      - CAMERA
+      - OBSID
+      - DATASEC
+      - DAQVER
+    DR17:
+      from: DR16
+      note: No changes
+    DR16:
+      from: DR15
+      note: No changes
+    DR15:
+      from: DR14
+      note: No changes
+    DR14:
+      from: DR13
+      note: No changes
+    DR13:
+      from: DR11
+      note: No changes
+    DR11:
+      from: DR12
+      note: No changes
+    DR12:
+      from: DR10
+      note: No changes
+    DR10:
+      from: DR9
+      note: No changes
 releases:
+  DR9:
+    template: $BOSS_SPECTRO_DATA/[MJD]/sdR-[BR][ID]-[FRAME].fit.gz
+    example: 55752/sdR-b1-00132973.fit.gz
+    location: '{mjd}/sdR-{br}{id}-{frame}.fit.gz'
+    environment: BOSS_SPECTRO_DATA
+    access:
+      in_sdss_access: true
+      path_name: sdR
+      path_template: $BOSS_SPECTRO_DATA/{mjd}/sdR-{br}{id}-{frame}.fit
+      path_kwargs:
+      - frame
+      - id
+      - mjd
+      - br
+      access_string: sdR = $BOSS_SPECTRO_DATA/{mjd}/sdR-{br}{id}-{frame}.fit.gz
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: 'migration: Intro info not in database. Needs update'
+        is_image: true
+        size: 35 MB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: ''
+        - key: BITPIX
+          value: 16
+          comment: ''
+        - key: NAXIS
+          value: 2
+          comment: ''
+        - key: NAXIS1
+          value: 4352
+          comment: ''
+        - key: NAXIS2
+          value: 4224
+          comment: ''
+        - key: EXTEND
+          value: false
+          comment: ''
+        - key: TELESCOP
+          value: SDSS 2.5-M
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: FILENAME
+          value: sdR-b1-00100006.fits
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: CAMERA
+          value: B1
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: OBSID
+          value: 100006
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: BZERO
+          value: 32768.0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: BSCALE
+          value: 1.0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: DATASEC
+          value: '[128:4224,56:4168]'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: DAQVER
+          value: 1.2.0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: CAMDAQ
+          value: 1.2.0:28
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ERRCNT
+          value: '2112'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: SYNCERR
+          value: NONE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: SLINES
+          value: NONE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: PIXERR
+          value: '2112'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: PLINES
+          value: 0,1,2,3,4,5,6,7,8,9,
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: DATASUM
+          value: '0000000000000000'
+          comment: 'migration: description of keyword/column not found. Needs update'
+  DR10:
+    template: $BOSS_SPECTRO_DATA/55049/sdR-b1-00100006.fits.gz
+    example: 55049/sdR-b1-00100006.fits.gz
+    location: 55049/sdR-b1-00100006.fits.gz
+    environment: BOSS_SPECTRO_DATA
+    access:
+      in_sdss_access: true
+      path_name: sdR
+      path_template: $BOSS_SPECTRO_DATA/{mjd}/sdR-{br}{id}-{frame}.fit
+      path_kwargs:
+      - br
+      - mjd
+      - frame
+      - id
+      access_string: sdR = $BOSS_SPECTRO_DATA/55049/sdR-b1-00100006.fits.gz
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: 'migration: Intro info not in database. Needs update'
+        is_image: true
+        size: 35 MB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: ''
+        - key: BITPIX
+          value: 16
+          comment: ''
+        - key: NAXIS
+          value: 2
+          comment: ''
+        - key: NAXIS1
+          value: 4352
+          comment: ''
+        - key: NAXIS2
+          value: 4224
+          comment: ''
+        - key: EXTEND
+          value: false
+          comment: ''
+        - key: TELESCOP
+          value: SDSS 2.5-M
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: FILENAME
+          value: sdR-b1-00100006.fits
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: CAMERA
+          value: B1
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: OBSID
+          value: 100006
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: BZERO
+          value: 32768.0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: BSCALE
+          value: 1.0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: DATASEC
+          value: '[128:4224,56:4168]'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: DAQVER
+          value: 1.2.0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: CAMDAQ
+          value: 1.2.0:28
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ERRCNT
+          value: '2112'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: SYNCERR
+          value: NONE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: SLINES
+          value: NONE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: PIXERR
+          value: '2112'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: PLINES
+          value: 0,1,2,3,4,5,6,7,8,9,
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: DATASUM
+          value: '0000000000000000'
+          comment: 'migration: description of keyword/column not found. Needs update'
+  DR11:
+    template: $BOSS_SPECTRO_DATA/55049/sdR-b1-00100006.fits.gz
+    example: 55049/sdR-b1-00100006.fits.gz
+    location: 55049/sdR-b1-00100006.fits.gz
+    environment: BOSS_SPECTRO_DATA
+    access:
+      in_sdss_access: true
+      path_name: sdR
+      path_template: $BOSS_SPECTRO_DATA/{mjd}/sdR-{br}{id}-{frame}.fit
+      path_kwargs:
+      - id
+      - br
+      - mjd
+      - frame
+      access_string: sdR = $BOSS_SPECTRO_DATA/55049/sdR-b1-00100006.fits.gz
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: 'migration: Intro info not in database. Needs update'
+        is_image: true
+        size: 35 MB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: ''
+        - key: BITPIX
+          value: 16
+          comment: ''
+        - key: NAXIS
+          value: 2
+          comment: ''
+        - key: NAXIS1
+          value: 4352
+          comment: ''
+        - key: NAXIS2
+          value: 4224
+          comment: ''
+        - key: EXTEND
+          value: false
+          comment: ''
+        - key: TELESCOP
+          value: SDSS 2.5-M
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: FILENAME
+          value: sdR-b1-00100006.fits
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: CAMERA
+          value: B1
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: OBSID
+          value: 100006
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: BZERO
+          value: 32768.0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: BSCALE
+          value: 1.0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: DATASEC
+          value: '[128:4224,56:4168]'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: DAQVER
+          value: 1.2.0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: CAMDAQ
+          value: 1.2.0:28
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ERRCNT
+          value: '2112'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: SYNCERR
+          value: NONE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: SLINES
+          value: NONE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: PIXERR
+          value: '2112'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: PLINES
+          value: 0,1,2,3,4,5,6,7,8,9,
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: DATASUM
+          value: '0000000000000000'
+          comment: 'migration: description of keyword/column not found. Needs update'
+  DR12:
+    template: $BOSS_SPECTRO_DATA/55049/sdR-b1-00100006.fits.gz
+    example: 55049/sdR-b1-00100006.fits.gz
+    location: 55049/sdR-b1-00100006.fits.gz
+    environment: BOSS_SPECTRO_DATA
+    access:
+      in_sdss_access: true
+      path_name: sdR
+      path_template: $BOSS_SPECTRO_DATA/{mjd}/sdR-{br}{id}-{frame}.fit
+      path_kwargs:
+      - mjd
+      - id
+      - frame
+      - br
+      access_string: sdR = $BOSS_SPECTRO_DATA/55049/sdR-b1-00100006.fits.gz
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: 'migration: Intro info not in database. Needs update'
+        is_image: true
+        size: 35 MB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: ''
+        - key: BITPIX
+          value: 16
+          comment: ''
+        - key: NAXIS
+          value: 2
+          comment: ''
+        - key: NAXIS1
+          value: 4352
+          comment: ''
+        - key: NAXIS2
+          value: 4224
+          comment: ''
+        - key: EXTEND
+          value: false
+          comment: ''
+        - key: TELESCOP
+          value: SDSS 2.5-M
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: FILENAME
+          value: sdR-b1-00100006.fits
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: CAMERA
+          value: B1
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: OBSID
+          value: 100006
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: BZERO
+          value: 32768.0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: BSCALE
+          value: 1.0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: DATASEC
+          value: '[128:4224,56:4168]'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: DAQVER
+          value: 1.2.0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: CAMDAQ
+          value: 1.2.0:28
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ERRCNT
+          value: '2112'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: SYNCERR
+          value: NONE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: SLINES
+          value: NONE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: PIXERR
+          value: '2112'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: PLINES
+          value: 0,1,2,3,4,5,6,7,8,9,
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: DATASUM
+          value: '0000000000000000'
+          comment: 'migration: description of keyword/column not found. Needs update'
+  DR13:
+    template: $BOSS_SPECTRO_DATA/55049/sdR-b1-00100006.fits.gz
+    example: 55049/sdR-b1-00100006.fits.gz
+    location: 55049/sdR-b1-00100006.fits.gz
+    environment: BOSS_SPECTRO_DATA
+    access:
+      in_sdss_access: true
+      path_name: sdR
+      path_template: $BOSS_SPECTRO_DATA/{mjd}/sdR-{br}{id}-{frame}.fit
+      path_kwargs:
+      - br
+      - id
+      - frame
+      - mjd
+      access_string: sdR = $BOSS_SPECTRO_DATA/55049/sdR-b1-00100006.fits.gz
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: 'migration: Intro info not in database. Needs update'
+        is_image: true
+        size: 35 MB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: ''
+        - key: BITPIX
+          value: 16
+          comment: ''
+        - key: NAXIS
+          value: 2
+          comment: ''
+        - key: NAXIS1
+          value: 4352
+          comment: ''
+        - key: NAXIS2
+          value: 4224
+          comment: ''
+        - key: EXTEND
+          value: false
+          comment: ''
+        - key: TELESCOP
+          value: SDSS 2.5-M
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: FILENAME
+          value: sdR-b1-00100006.fits
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: CAMERA
+          value: B1
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: OBSID
+          value: 100006
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: BZERO
+          value: 32768.0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: BSCALE
+          value: 1.0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: DATASEC
+          value: '[128:4224,56:4168]'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: DAQVER
+          value: 1.2.0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: CAMDAQ
+          value: 1.2.0:28
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ERRCNT
+          value: '2112'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: SYNCERR
+          value: NONE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: SLINES
+          value: NONE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: PIXERR
+          value: '2112'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: PLINES
+          value: 0,1,2,3,4,5,6,7,8,9,
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: DATASUM
+          value: '0000000000000000'
+          comment: 'migration: description of keyword/column not found. Needs update'
+  DR14:
+    template: $BOSS_SPECTRO_DATA/55049/sdR-b1-00100006.fits.gz
+    example: 55049/sdR-b1-00100006.fits.gz
+    location: 55049/sdR-b1-00100006.fits.gz
+    environment: BOSS_SPECTRO_DATA
+    access:
+      in_sdss_access: true
+      path_name: sdR
+      path_template: $BOSS_SPECTRO_DATA/{mjd}/sdR-{br}{id}-{frame}.fit
+      path_kwargs:
+      - mjd
+      - id
+      - br
+      - frame
+      access_string: sdR = $BOSS_SPECTRO_DATA/55049/sdR-b1-00100006.fits.gz
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: 'migration: Intro info not in database. Needs update'
+        is_image: true
+        size: 35 MB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: ''
+        - key: BITPIX
+          value: 16
+          comment: ''
+        - key: NAXIS
+          value: 2
+          comment: ''
+        - key: NAXIS1
+          value: 4352
+          comment: ''
+        - key: NAXIS2
+          value: 4224
+          comment: ''
+        - key: EXTEND
+          value: false
+          comment: ''
+        - key: TELESCOP
+          value: SDSS 2.5-M
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: FILENAME
+          value: sdR-b1-00100006.fits
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: CAMERA
+          value: B1
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: OBSID
+          value: 100006
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: BZERO
+          value: 32768.0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: BSCALE
+          value: 1.0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: DATASEC
+          value: '[128:4224,56:4168]'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: DAQVER
+          value: 1.2.0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: CAMDAQ
+          value: 1.2.0:28
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ERRCNT
+          value: '2112'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: SYNCERR
+          value: NONE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: SLINES
+          value: NONE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: PIXERR
+          value: '2112'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: PLINES
+          value: 0,1,2,3,4,5,6,7,8,9,
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: DATASUM
+          value: '0000000000000000'
+          comment: 'migration: description of keyword/column not found. Needs update'
+  DR15:
+    template: $BOSS_SPECTRO_DATA/55049/sdR-b1-00100006.fits.gz
+    example: 55049/sdR-b1-00100006.fits.gz
+    location: 55049/sdR-b1-00100006.fits.gz
+    environment: BOSS_SPECTRO_DATA
+    access:
+      in_sdss_access: true
+      path_name: sdR
+      path_template: $BOSS_SPECTRO_DATA/{mjd}/sdR-{br}{id}-{frame}.fit
+      path_kwargs:
+      - mjd
+      - frame
+      - id
+      - br
+      access_string: sdR = $BOSS_SPECTRO_DATA/55049/sdR-b1-00100006.fits.gz
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: 'migration: Intro info not in database. Needs update'
+        is_image: true
+        size: 35 MB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: ''
+        - key: BITPIX
+          value: 16
+          comment: ''
+        - key: NAXIS
+          value: 2
+          comment: ''
+        - key: NAXIS1
+          value: 4352
+          comment: ''
+        - key: NAXIS2
+          value: 4224
+          comment: ''
+        - key: EXTEND
+          value: false
+          comment: ''
+        - key: TELESCOP
+          value: SDSS 2.5-M
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: FILENAME
+          value: sdR-b1-00100006.fits
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: CAMERA
+          value: B1
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: OBSID
+          value: 100006
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: BZERO
+          value: 32768.0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: BSCALE
+          value: 1.0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: DATASEC
+          value: '[128:4224,56:4168]'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: DAQVER
+          value: 1.2.0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: CAMDAQ
+          value: 1.2.0:28
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ERRCNT
+          value: '2112'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: SYNCERR
+          value: NONE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: SLINES
+          value: NONE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: PIXERR
+          value: '2112'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: PLINES
+          value: 0,1,2,3,4,5,6,7,8,9,
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: DATASUM
+          value: '0000000000000000'
+          comment: 'migration: description of keyword/column not found. Needs update'
+  DR16:
+    template: $BOSS_SPECTRO_DATA/55049/sdR-b1-00100006.fits.gz
+    example: 55049/sdR-b1-00100006.fits.gz
+    location: 55049/sdR-b1-00100006.fits.gz
+    environment: BOSS_SPECTRO_DATA
+    access:
+      in_sdss_access: true
+      path_name: sdR
+      path_template: $BOSS_SPECTRO_DATA/{mjd}/sdR-{br}{id}-{frame}.fit
+      path_kwargs:
+      - mjd
+      - id
+      - br
+      - frame
+      access_string: sdR = $BOSS_SPECTRO_DATA/55049/sdR-b1-00100006.fits.gz
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: 'migration: Intro info not in database. Needs update'
+        is_image: true
+        size: 35 MB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: ''
+        - key: BITPIX
+          value: 16
+          comment: ''
+        - key: NAXIS
+          value: 2
+          comment: ''
+        - key: NAXIS1
+          value: 4352
+          comment: ''
+        - key: NAXIS2
+          value: 4224
+          comment: ''
+        - key: EXTEND
+          value: false
+          comment: ''
+        - key: TELESCOP
+          value: SDSS 2.5-M
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: FILENAME
+          value: sdR-b1-00100006.fits
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: CAMERA
+          value: B1
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: OBSID
+          value: 100006
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: BZERO
+          value: 32768.0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: BSCALE
+          value: 1.0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: DATASEC
+          value: '[128:4224,56:4168]'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: DAQVER
+          value: 1.2.0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: CAMDAQ
+          value: 1.2.0:28
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ERRCNT
+          value: '2112'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: SYNCERR
+          value: NONE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: SLINES
+          value: NONE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: PIXERR
+          value: '2112'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: PLINES
+          value: 0,1,2,3,4,5,6,7,8,9,
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: DATASUM
+          value: '0000000000000000'
+          comment: 'migration: description of keyword/column not found. Needs update'
+  DR17:
+    template: $BOSS_SPECTRO_DATA/55049/sdR-b1-00100006.fits.gz
+    example: 55049/sdR-b1-00100006.fits.gz
+    location: 55049/sdR-b1-00100006.fits.gz
+    environment: BOSS_SPECTRO_DATA
+    access:
+      in_sdss_access: true
+      path_name: sdR
+      path_template: $BOSS_SPECTRO_DATA/{mjd}/sdR-{br}{id}-{frame}.fit
+      path_kwargs:
+      - br
+      - frame
+      - mjd
+      - id
+      access_string: sdR = $BOSS_SPECTRO_DATA/55049/sdR-b1-00100006.fits.gz
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: 'migration: Intro info not in database. Needs update'
+        is_image: true
+        size: 35 MB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: ''
+        - key: BITPIX
+          value: 16
+          comment: ''
+        - key: NAXIS
+          value: 2
+          comment: ''
+        - key: NAXIS1
+          value: 4352
+          comment: ''
+        - key: NAXIS2
+          value: 4224
+          comment: ''
+        - key: EXTEND
+          value: false
+          comment: ''
+        - key: TELESCOP
+          value: SDSS 2.5-M
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: FILENAME
+          value: sdR-b1-00100006.fits
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: CAMERA
+          value: B1
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: OBSID
+          value: 100006
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: BZERO
+          value: 32768.0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: BSCALE
+          value: 1.0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: DATASEC
+          value: '[128:4224,56:4168]'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: DAQVER
+          value: 1.2.0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: CAMDAQ
+          value: 1.2.0:28
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ERRCNT
+          value: '2112'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: SYNCERR
+          value: NONE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: SLINES
+          value: NONE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: PIXERR
+          value: '2112'
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: PLINES
+          value: 0,1,2,3,4,5,6,7,8,9,
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: DATASUM
+          value: '0000000000000000'
+          comment: 'migration: description of keyword/column not found. Needs update'
   WORK:
     template: $BOSS_SPECTRO_DATA_N/[MJD]/sdR-[BR][ID]-[FRAME].fit.gz
-    example: 59232/sdR-b1-00323718.fit.gz
+    example: 59527/sdR-b1-00334717.fit.gz
     location: '{mjd}/sdR-{br}{id}-{frame}.fit.gz'
     environment: BOSS_SPECTRO_DATA_N
     access:
-      in_sdss_access: false
-      path_name: null
-      path_template: null
-      path_kwargs: null
+      in_sdss_access: true
+      path_name: sdR
+      path_template: $BOSS_SPECTRO_DATA_N/{mjd}/sdR-{br}{id}-{frame}.fit
+      path_kwargs:
+      - mjd
+      - frame
+      - br
+      - id
       access_string: sdR = $BOSS_SPECTRO_DATA_N/{mjd}/sdR-{br}{id}-{frame}.fit.gz
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: Example header
         is_image: true
         size: 35 MB
         header:
@@ -54,20 +947,26 @@ releases:
         - key: EXTEND
           value: true
           comment: ''
+        - key: BSCALE
+          value: 1
+          comment: ''
+        - key: BZERO
+          value: 32768
+          comment: ''
         - key: TELESCOP
           value: SDSS 2-5m
           comment: ''
         - key: FILENAME
-          value: sdR-b1-00323718.fit
+          value: sdR-b1-00334717.fit
           comment: ''
         - key: CAMERAS
           value: b1
           comment: ''
         - key: EXPOSURE
-          value: 323718
+          value: 334717
           comment: ''
         - key: V_BOSS
-          value: 5.0.1
+          value: 6.0.1-alpha.0
           comment: Active version of the BOSS ICC
         - key: CAMDAQ
           value: 1.5.0:37
@@ -97,44 +996,35 @@ releases:
           value: true
           comment: CCD was flushed before integration
         - key: FLAVOR
-          value: dark
+          value: bias
           comment: exposure type, SDSS spectro style
         - key: MJD
-          value: 59232
+          value: 59527
           comment: APO fMJD day at start of exposure
         - key: TAI-BEG
-          value: 5117693531.0
+          value: 5143128023.0
           comment: MJD(TAI) seconds at start of integration
         - key: DATE-OBS
-          value: '2021-01-18T13:32:11'
+          value: '2021-11-08T22:40:23'
           comment: TAI date at start of integration
-        - key: V_GUIDER
-          value: 3.9.4
-          comment: version of the current guiderActor
-        - key: V_SOP
-          value: 4.0.8
-          comment: version of the current sopActor
         - key: NAME
-          value: 15172-59232-01
-          comment: The name of the currently loaded plate
+          value: 0000-00000-00
+          comment: Could not fetch guider.cartridgeLoaded keyword-
         - key: PLATEID
-          value: 15172
+          value: -1
           comment: The currently loaded plate
         - key: CARTID
-          value: 8
+          value: -1
           comment: The currently loaded cartridge
         - key: MAPID
-          value: 1
+          value: -1
           comment: The mapping version of the loaded plate
         - key: POINTING
-          value: A
+          value: '?'
           comment: The currently specified pointing
         - key: PLATETYP
-          value: BHM&MWM
-          comment: Type of plate (e.g. BOSS, MANGA, APOGEE, APOGEE
-        - key: SRVYMODE
-          value: BHM lead
-          comment: Survey leading this observation and its mode
+          value: 'sop.survey KeyError: ''sop'''
+          comment: Type of plate (e.g. BOSS, MANGA, APOG
         - key: OBJSYS
           value: Mount
           comment: The TCC objSys
@@ -153,125 +1043,92 @@ releases:
         - key: SPA
           value: NaN
           comment: Telescope is not tracking the sky
-        - key: ROTPOS
-          value: 0.0
-          comment: Rotator request position (deg)
-        - key: BOREOFFX
-          value: 0.0
-          comment: TCC Boresight offset, deg
-        - key: BOREOFFY
-          value: 0.0
-          comment: TCC Boresight offset, deg
-        - key: ARCOFFX
-          value: 0.0
-          comment: TCC ObjArcOff, deg
-        - key: ARCOFFY
-          value: 0.0
-          comment: TCC ObjArcOff, deg
-        - key: CALOFFX
-          value: 0.0
-          comment: TCC CalibOff, deg
-        - key: CALOFFY
-          value: 0.0
-          comment: TCC CalibOff, deg
-        - key: CALOFFR
-          value: 0.0
-          comment: TCC CalibOff, deg
-        - key: GUIDOFFX
-          value: 0.0
-          comment: TCC GuideOff, deg
-        - key: GUIDOFFY
-          value: 0.0
-          comment: TCC GuideOff, deg
-        - key: GUIDOFFR
-          value: 0.0
-          comment: TCC GuideOff, deg
         - key: AZ
-          value: 121.000002
+          value: 120.999564
           comment: Azimuth axis pos. (approx, deg)
         - key: ALT
-          value: 29.921864
+          value: 29.998911
           comment: Altitude axis pos. (approx, deg)
         - key: IPA
-          value: -0.000237
+          value: -0.000711
           comment: Rotator axis pos. (approx, deg)
         - key: FOCUS
-          value: -31.0813
+          value: 0.0
           comment: User-specified focus offset (um)
         - key: M2PISTON
-          value: 2539.96
+          value: 658.8
           comment: TCC SecOrient
         - key: M2XTILT
-          value: -13.85
+          value: 0.9
           comment: TCC SecOrient
         - key: M2YTILT
-          value: -2.98
+          value: 0.35
           comment: TCC SecOrient
         - key: M2XTRAN
-          value: 12.88
+          value: 0.23
           comment: TCC SecOrient
         - key: M2YTRAN
-          value: 114.56
+          value: 41.61
           comment: TCC SecOrient
         - key: M2ZROT
-          value: -12.01
+          value: -0.26
           comment: TCC SecOrient
         - key: M1PISTON
-          value: -1312.39
+          value: 1.07
           comment: TCC PrimOrient
         - key: M1XTILT
-          value: 69.89
+          value: -59.51
           comment: TCC PrimOrient
         - key: M1YTILT
-          value: 100.0
+          value: -9.21
           comment: TCC PrimOrient
         - key: M1XTRAN
-          value: 374.07
+          value: -512.13
           comment: TCC PrimOrient
         - key: M1YTRAN
-          value: 622.11
+          value: 1906.31
           comment: TCC PrimOrient
         - key: M1ZROT
-          value: -0.09
+          value: 0.03
           comment: TCC PrimOrient
         - key: SCALE
-          value: 1.000133
+          value: 1.0
           comment: User-specified scale factor
         - key: V_APO
-          value: v1_11
+          value: 3.0.0
           comment: version of the current apoActor
         - key: PRESSURE
-          value: 21.352
+          value: 21.624
           comment: ''
         - key: WINDD
-          value: 290.1
+          value: 220.1
           comment: ''
         - key: WINDS
-          value: 17.4
+          value: 10.0
           comment: ''
         - key: GUSTD
-          value: 295.5
+          value: 237.8
           comment: ''
         - key: GUSTS
-          value: 18.7
+          value: 12.3
           comment: ''
         - key: AIRTEMP
-          value: 4.3
+          value: 10.9
           comment: ''
         - key: DEWPOINT
-          value: -22.3
+          value: -4.0
           comment: ''
         - key: TRUSTEMP
-          value: 2.7
+          value: -20.7
           comment: ''
         - key: HUMIDITY
-          value: 13.3
+          value: 32.8
           comment: ''
         - key: DUSTA
-          value: 1520.0
+          value: 23908.0
           comment: ''
         - key: DUSTB
-          value: 108.0
+          value: 710.0
           comment: ''
         - key: WINDD25M
           value: -999.0
@@ -291,87 +1148,99 @@ releases:
         - key: FFS
           value: 1 1 1 1 1 1 1 1
           comment: Flatfield Screen 1:closed 0:open
-        - key: MGDPOS
-          value: C
-          comment: MaNGA dither position (C,N,S,E)
-        - key: MGDRA
-          value: 0.0
-          comment: MaNGA decenter in RA, redundant with MGDPOS
-        - key: MGDDEC
-          value: 0.0
-          comment: MaNGA decenter in Dec, redundant with MGDPOS
-        - key: GUIDER1
-          value: proc-gimg-1552.fits.gz
-          comment: The first guider image
         - key: SLITID1
           value: 0
           comment: Normalized slithead ID. sp1&2 should match.
-        - key: GUIDERN
-          value: proc-gimg-1552.fits.gz
-          comment: The last guider image
         - key: COLLA
-          value: 3301
+          value: 0
           comment: The position of the A collimator motor
         - key: COLLB
-          value: 3300
+          value: 0
           comment: The position of the B collimator motor
         - key: COLLC
-          value: 3348
+          value: 0
           comment: The position of the C collimator motor
         - key: HARTMANN
           value: Closed, Closed
           comment: 'Hartmanns: Left,Right,Out'
         - key: MC1HUMHT
-          value: -5.3
+          value: -5.9
           comment: sp1 mech Hartmann humidity, %
         - key: MC1HUMCO
-          value: -3.2
+          value: -4.2
           comment: sp1 mech Central optics humidity, %
         - key: MC1TEMDN
-          value: 3.1
+          value: 8.5
           comment: sp1 mech Median temp, C
         - key: MC1THT
-          value: 2.7
+          value: 7.8
           comment: sp1 mech Hartmann Top Temp, C
         - key: MC1TRCB
-          value: 3.1
+          value: 8.5
           comment: sp1 mech Red Cam Bottom Temp, C
         - key: MC1TRCT
-          value: 3.3
+          value: 8.5
           comment: sp1 mech Red Cam Top Temp, C
         - key: MC1TBCB
-          value: 3.2
+          value: 8.5
           comment: sp1 mech Blue Cam Bottom Temp, C
         - key: MC1TBCT
-          value: 3.1
+          value: 8.4
           comment: sp1 mech Blue Cam Top Temp, C
         - key: REQTIME
-          value: 900.0
+          value: 0
           comment: requested exposure time
         - key: EXPTIME
-          value: 900.0
+          value: 0
           comment: requested exposure time
         - key: DARKTIME
-          value: 908.5614049434662
+          value: 8.394322156906128
           comment: time between flush end and readout start
         - key: LN2TEMP
-          value: 93.359
+          value: 95.312
           comment: ''
         - key: CCDTEMP
           value: -99.609
           comment: ''
         - key: IONPUMP
-          value: -6.26
-          comment: ''
-        - key: BSCALE
-          value: 1
-          comment: ''
-        - key: BZERO
-          value: 32768
+          value: -6.46
           comment: ''
         - key: CHECKSUM
-          value: WpMHamK9WmKEamK9
-          comment: HDU checksum updated 2021-01-18T13:48:15
+          value: jAAAk377j9AAj955
+          comment: HDU checksum updated 2021-11-08T22:41:25
         - key: DATASUM
-          value: '224195152'
-          comment: data unit checksum updated 2021-01-18T13:48:15
+          value: '1144906806'
+          comment: data unit checksum updated 2021-11-08T22:41:25
+        - key: COMMENT
+          value: failed to make ROTPOS card from nan
+          comment: ''
+        - key: COMMENT
+          value: failed to make BOREOFFX card from nan
+          comment: ''
+        - key: COMMENT
+          value: failed to make BOREOFFY card from nan
+          comment: ''
+        - key: COMMENT
+          value: failed to make ARCOFFX card from nan
+          comment: ''
+        - key: COMMENT
+          value: failed to make ARCOFFY card from nan
+          comment: ''
+        - key: COMMENT
+          value: failed to make CALOFFX card from nan
+          comment: ''
+        - key: COMMENT
+          value: failed to make CALOFFY card from nan
+          comment: ''
+        - key: COMMENT
+          value: failed to make CALOFFR card from nan
+          comment: ''
+        - key: COMMENT
+          value: failed to make GUIDOFFX card from nan
+          comment: ''
+        - key: COMMENT
+          value: failed to make GUIDOFFY card from nan
+          comment: ''
+        - key: COMMENT
+          value: failed to make GUIDOFFR card from nan
+          comment: ''
