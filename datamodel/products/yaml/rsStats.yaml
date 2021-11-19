@@ -1,17 +1,16 @@
 general:
   name: rsStats
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: Statistics summary file for robostrategy
+  description: Statistics as a function of carton for robostrategy results, produced
+    by the robostrategy script rs_stats
   datatype: FITS
   filesize: 14 KB
   releases:
   - WORK
   environments:
   - ROBOSTRATEGY_DATA
-  naming_convention: replace me - with $ROBOSTRATEGY_DATA/allocations/[PLAN]/rsStats-[PLAN].fits
-    or rsStats-epsilon-5-core-2.fits but with regex pattern matches
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  naming_convention: $ROBOSTRATEGY_DATA/allocations/[PLAN]/rsStats-[PLAN].fits
+  generated_by: robostrategy
   design: false
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
@@ -32,7 +31,7 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: Primary HDU
         is_image: true
         size: 0 bytes
         header:
@@ -56,57 +55,60 @@ releases:
           comment: ''
       hdu1:
         name: ''
-        description: replace me description
+        description: Statistics for each carton
         is_image: false
         size: 6 KB
         columns:
           carton:
             name: CARTON
             type: char[40]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Carton name
           ntarget:
             name: NTARGET
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of targets in carton
           ngot:
             name: NGOT
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of targets satisfied in carton
           fgot:
             name: FGOT
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Fraction of targets satisfied in carton (-1 if no targets
+              in carton)
           ntarget_apo:
             name: NTARGET_APO
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of targets in carton (APO)
           ngot_apo:
             name: NGOT_APO
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of targets satisfied in carton (APO)
           fgot_apo:
             name: FGOT_APO
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Fraction of targets satisfied in carton (-1 if no targets
+              in carton), for APO
           ntarget_lco:
             name: NTARGET_LCO
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of targets in carton (LCO)
           ngot_lco:
             name: NGOT_LCO
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of targets satisfied in carton (LCO)
           fgot_lco:
             name: FGOT_LCO
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Fraction of targets satisfied in carton (-1 if no targets
+              in carton), for LCO
