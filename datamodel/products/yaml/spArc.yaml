@@ -1,0 +1,5357 @@
+general:
+  name: spArc
+  short: 'migration: needs update'
+  description: 'This file contains information about flux density, wavelength solution,
+    fibermask and line width obtained from extracted arc calibration frames. This
+    file is generated
+
+    as a product of spcalib.pro.'
+  datatype: FITS
+  filesize: 5 MB
+  releases:
+  - DR9
+  - DR10
+  - DR12
+  - DR11
+  - DR13
+  - DR14
+  - DR15
+  - DR16
+  - DR17
+  - WORK
+  environments:
+  - BOSS_SPECTRO_REDUX
+  naming_convention: Filenames have the form spArc-[c][n]-mmmmmmmm.fits.gz, where
+    c indicates either a blue or red spectrograph, n indicates the spectrograph number
+    (1 or 2) and mmmmmmmm indicates the frame number. An example of filename is spArc-r2-00111704.fits.gz.
+  generated_by: spCalib.pro
+  design: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases:
+    WORK:
+      from: DR17
+      primary_delta_nkeys: 21
+      added_primary_header_kwargs:
+      - PRESSURE
+      - SLITID1
+      - GUSTD
+      - WINDD25M
+      - REQTIME
+      - SRVYMODE
+      - V_APO
+      - LN2TEMP
+      - AIRTEMP
+      - DUSTA
+      - IONPUMP
+      - WINDS25M
+      - M2ZROT
+      - V_BOSS
+      - V_SOP
+      - WINDS
+      - PFERR
+      - MGDRA
+      - GUSTS
+      - CCDTEMP
+      - MGDPOS
+      - HUMIDITY
+      - WINDD
+      - M1ZROT
+      - DARKTIME
+      - PLATETYP
+      - DIDFLUSH
+      - MGDDEC
+      - DUSTB
+      - V_GUIDER
+      - SUBFRAME
+      - DEWPOINT
+      - TRUSTEMP
+      removed_primary_header_kwargs:
+      - MC2HUMHT
+      - BOSSVER
+      - OBJOFFY
+      - MC2TBCT
+      - MC2HUMCO
+      - MC2TBCB
+      - MC2TRCB
+      - DAQVER
+      - MC2TRCT
+      - MC2THT
+      - OBJOFFX
+      - MC2TEMDN
+    DR17:
+      from: DR16
+      note: No changes
+    DR16:
+      from: DR15
+      note: No changes
+    DR15:
+      from: DR14
+      note: No changes
+    DR14:
+      from: DR13
+      note: No changes
+    DR13:
+      from: DR11
+      note: No changes
+    DR11:
+      from: DR12
+      note: No changes
+    DR12:
+      from: DR10
+      note: No changes
+    DR10:
+      from: DR9
+      note: No changes
+releases:
+  DR9:
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID]/spArc-[BR][ID]-[FRAME].fits.gz
+    example: v5_4_45/3682/spArc-b1-00108606.fits.gz
+    location: '{run2d}/{plateid}/spArc-{br}{id}-{frame}.fits.gz'
+    environment: BOSS_SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: spArc
+      path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spArc-{br}{id}-{frame:0>8}.fits.gz'
+      path_kwargs:
+      - plateid
+      - frame
+      - br
+      - run2d
+      - id
+      access_string: spArc = $BOSS_SPECTRO_REDUX/{run2d}/{plateid}/spArc-{br}{id}-{frame}.fits.gz
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: 'The data attribute of Primary HDU stores the extracted flux
+          for the entire image.
+
+          <b>
+
+          Required header keywords:
+
+          </b>
+
+          <b>
+
+          Optional header keywords:
+
+          </b>'
+        is_image: true
+        size: 7 MB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: -32
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 4112
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 500
+          comment: length of dimension 2
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: TELESCOP
+          value: SDSS 2.5-M
+          comment: Sloan Digital Sky Survey
+        - key: FILENAME
+          value: sdR-b1-00108606.fit
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: CAMERAS
+          value: b1
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: EXPOSURE
+          value: 108606
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: DAQVER
+          value: 1.2.8
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: CAMDAQ
+          value: 1.4.1:32
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ERRCNT
+          value: NONE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: SYNCERR
+          value: NONE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: SLINES
+          value: NONE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: PIXERR
+          value: NONE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: PLINES
+          value: NONE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: FLAVOR
+          value: arc
+          comment: exposure type, SDSS spectro style
+        - key: BOSSVER
+          value: v2_0_17
+          comment: ICC version
+        - key: MJD
+          value: 55244
+          comment: APO fMJD day at start of exposure
+        - key: TAI-BEG
+          value: 4773100227.000001
+          comment: MJD(TAI) seconds at start of integration
+        - key: DATE-OBS
+          value: '2010-02-17T05:10:27'
+          comment: TAI date at start of integration
+        - key: FF
+          value: 0 0 0 0
+          comment: FF lamps 1:on 0:0ff
+        - key: NE
+          value: 1 1 1 1
+          comment: NE lamps 1:on 0:0ff
+        - key: HGCD
+          value: 1 1 1 1
+          comment: HGCD lamps 1:on 0:0ff
+        - key: FFS
+          value: 1 1 1 1 1 1 1 1
+          comment: Flatfield Screen 1:closed 0:open
+        - key: OBJSYS
+          value: ICRS
+          comment: The TCC objSys
+        - key: RA
+          value: 120.0777
+          comment: RA of telescope boresight (deg)
+        - key: DEC
+          value: 53.2734
+          comment: Dec of telescope boresight (deg)
+        - key: RADEG
+          value: 120.0777
+          comment: RA of telescope pointing(deg)
+        - key: DECDEG
+          value: 53.2734
+          comment: Dec of telescope pointing (deg)
+        - key: ROTPOS
+          value: 0.0
+          comment: Rotator request position (deg)
+        - key: BOREOFFX
+          value: 0.0
+          comment: TCC Boresight offset, deg
+        - key: BOREOFFY
+          value: 0.0
+          comment: TCC Boresight offset, deg
+        - key: ARCOFFX
+          value: 0.0
+          comment: TCC ObjArcOff, deg
+        - key: ARCOFFY
+          value: 0.0
+          comment: TCC ObjArcOff, deg
+        - key: OBJOFFX
+          value: 0.0
+          comment: TCC ObjOff, deg
+        - key: OBJOFFY
+          value: 0.0
+          comment: TCC ObjOff, deg
+        - key: CALOFFX
+          value: 0.002
+          comment: TCC CalibOff, deg
+        - key: CALOFFY
+          value: -0.001
+          comment: TCC CalibOff, deg
+        - key: CALOFFR
+          value: 0.0
+          comment: TCC CalibOff, deg
+        - key: GUIDOFFX
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: GUIDOFFY
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: GUIDOFFR
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: AZ
+          value: 177.508
+          comment: Azimuth axis pos. (approx, deg)
+        - key: ALT
+          value: 69.516
+          comment: Altitude axis pos. (approx, deg)
+        - key: IPA
+          value: -3.41
+          comment: Rotator axis pos. (approx, deg)
+        - key: SPA
+          value: 176.6889054674645
+          comment: TCC SpiderInstAng
+        - key: FOCUS
+          value: 518.08
+          comment: User-specified focus offset (um)
+        - key: M2PISTON
+          value: 1895.37
+          comment: TCC SecOrient
+        - key: M2XTILT
+          value: -3.97
+          comment: TCC SecOrient
+        - key: M2YTILT
+          value: -9.01
+          comment: TCC SecOrient
+        - key: M2XTRAN
+          value: 9.9
+          comment: TCC SecOrient
+        - key: M2YTRAN
+          value: -14.38
+          comment: TCC SecOrient
+        - key: M1PISTON
+          value: 296.25
+          comment: TCC PrimOrient
+        - key: M1XTILT
+          value: -3.04
+          comment: TCC PrimOrient
+        - key: M1YTILT
+          value: 5.26
+          comment: TCC PrimOrient
+        - key: M1XTRAN
+          value: 277.64
+          comment: TCC PrimOrient
+        - key: M1YTRAN
+          value: 178.07
+          comment: TCC PrimOrient
+        - key: SCALE
+          value: 0.99997
+          comment: User-specified scale factor
+        - key: NAME
+          value: 3682-55244-01
+          comment: The name of the currently loaded plate
+        - key: PLATEID
+          value: 3682
+          comment: The currently loaded plate
+        - key: CARTID
+          value: 12
+          comment: The currently loaded cartridge
+        - key: MAPID
+          value: 1
+          comment: The mapping version of the loaded plate
+        - key: POINTING
+          value: A
+          comment: The currently specified pointing
+        - key: GUIDER1
+          value: proc-gimg-0422.fits
+          comment: The first guider image
+        - key: COLLA
+          value: -8460
+          comment: The position of the A collimator motor
+        - key: COLLB
+          value: -8486
+          comment: The position of the B collimator motor
+        - key: COLLC
+          value: -8505
+          comment: The position of the C collimator motor
+        - key: HARTMANN
+          value: Out
+          comment: 'Hartmanns: Left,Right,Out'
+        - key: MC1HUMHT
+          value: 38.4
+          comment: sp1 mech Hartmann humidity, %
+        - key: MC1HUMCO
+          value: 33.8
+          comment: sp1 mech Central optics humidity, %
+        - key: MC1TEMDN
+          value: -1.1
+          comment: sp1 mech Median temp, C
+        - key: MC1THT
+          value: -1.3
+          comment: sp1 mech Hartmann Top Temp, C
+        - key: MC1TRCB
+          value: -1.5
+          comment: sp1 mech Red Cam Bottom Temp, C
+        - key: MC1TRCT
+          value: -0.7
+          comment: sp1 mech Red Cam Top Temp, C
+        - key: MC1TBCB
+          value: -1.3
+          comment: sp1 mech Blue Cam Bottom Temp, C
+        - key: MC1TBCT
+          value: -1.1
+          comment: sp1 mech Blue Cam Top Temp, C
+        - key: MC2HUMHT
+          value: 32.0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MC2HUMCO
+          value: 20.6
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MC2TEMDN
+          value: -2.0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MC2THT
+          value: -1.4
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MC2TRCB
+          value: -1.6
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MC2TRCT
+          value: -2.0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MC2TBCB
+          value: -2.1
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MC2TBCT
+          value: -1.6
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: GUIDERN
+          value: proc-gimg-0422.fits
+          comment: The last guider image
+        - key: EXPTIME
+          value: 4.0
+          comment: measured exposure time, s
+        - key: SHOPETIM
+          value: 0.73
+          comment: open shutter transit time, s
+        - key: SHCLOTIM
+          value: 0.555
+          comment: close shutter transit time, s
+        - key: CAMROW
+          value: 0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: CAMCOL
+          value: 1
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: AUTHOR
+          value: Scott Burles & David Schlegel
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: VERSIDL
+          value: '7.0'
+          comment: Version of IDL
+        - key: VERSUTIL
+          value: v5_4_24
+          comment: Version of idlutils
+        - key: VERSREAD
+          value: v5_4_45
+          comment: Version of idlspec2d for pre-processing raw dat
+        - key: VERSLOG
+          value: trunk 126283
+          comment: Version of SPECLOG product
+        - key: VERSFLAT
+          value: v1_16
+          comment: Version of SPECFLAT product
+        - key: TWOPHASE
+          value: false
+          comment: Extra 1/3 row in wavecal at array center?
+        - key: QUALITY
+          value: excellent
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: RDNOISE0
+          value: 2.01114
+          comment: CCD read noise amp 0 [electrons]
+        - key: RDNOISE1
+          value: 1.94217
+          comment: CCD read noise amp 1 [electrons]
+        - key: RDNOISE2
+          value: 1.89342
+          comment: CCD read noise amp 2 [electrons]
+        - key: RDNOISE3
+          value: 1.86817
+          comment: CCD read noise amp 3 [electrons]
+        - key: PIXFLAT
+          value: pixflatave-55056-b1.fits.gz
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: BADPIXEL
+          value: badpixels-55056-b1.fits.gz
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: FBADPIX
+          value: 4.82106e-05
+          comment: Fraction of bad pixels in raw image
+        - key: BESTCORR
+          value: 0.70722
+          comment: Best Correlation coefficient
+      hdu1:
+        name: ''
+        description: 'The data attribute of HDU 1 stores the wavelengths of good lamp
+          lines (in Angstroms) and the Y position of each fiber on the CCD for the
+          corresponding wavelengths.
+
+          The data in HDU 1 is of size 65 X 501 in which the first of the 501 columns
+          stores the wavelengths of the good lamp lines, and the remaining 500 columns
+
+          store the Y positions of those lines for each of the 500 fibers.
+
+          <b>
+
+          Required header keywords:
+
+          </b>
+
+          <b>
+
+          Optional header keywords:
+
+          </b>'
+        is_image: true
+        size: 176 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image Extension created by MWRFITS v1.8
+        - key: BITPIX
+          value: -64
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 501
+          comment: length of dimension 2
+        - key: NAXIS2
+          value: 45
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+      hdu2:
+        name: ''
+        description: "The HDU 2 data is a binary table whose fields are used to calculate\
+          \ wavelength solution (units of log10 Angstroms) for the arc calibration\
+          \ frames.\nThe Y-positions on the CCD, which is the independent variable\
+          \ and corresponding wavelength solutions (in Angstroms) which is the dependent\
+          \ variable, \nare fitted to a functional form and the resulting coefficients\
+          \ are stored in the binary table.\n\n<b>\nHow to use these coefficients:\
+          \ \n</b>\n\nLet x be the pixel number of a given trace. We define mu = 2*(x-XMID)/(XMAX-XMIN)\
+          \ and the solution for the wavelength \nis FUNC(mu) where FUNC is the function\
+          \ stored in the FUNC column in this binary table (it is usually a Legendre\
+          \ polynomials).\n\nIf XJUMPLO or XJUMPHI are present in the table, the following\
+          \ formulas need to be applied to correct x due to two-phase read-out of\
+          \ CCDs.\n\n<code>\n<br/>t = (x-XJUMPLO)/(XJUMPHI-XJUMPLO)\n<br/>jump = 0\
+          \ * (t&lt;0) + t * (0&lt;t&lt;1) + 1 * (t&gt;1)\n<br/>x = x + jump * XJUMPVAL\n\
+          <br/>mu = 2*(x-XMID)/(XMAX-XMIN)\n<br/>loglam = FUNC(mu)\n</code>"
+        is_image: false
+        size: 23 KB
+        columns:
+          FUNC:
+            name: FUNC
+            type: char[8]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: describes the function used to fit the wavelength solutions
+              (units of log-10 Angstroms) and Y-positions to a functional form.
+          XMIN:
+            name: XMIN
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: minimum value of the independent variable used by fitting
+              function.
+          XMAX:
+            name: XMAX
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: maximum value of the independent variable which is used along
+              with the fitting coefficients, in the fitting function to get the value
+              of dependent variable, which is the wavelength solution.
+          COEFF:
+            name: COEFF
+            type: float64[3000]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: "[3000](float64)  \t\t\t:  fit coefficents"
+      hdu3:
+        name: ''
+        description: 'The HDU 3 data stores the fibermask. These are fiber status
+          bits and are set to non-zero to indicate bad status. The status bits used
+          for masking are documented in $IDLUTILS/v5_4_12/data/sdss/sdssMaskbits.par.
+
+          <b>
+
+          Required header keywords:
+
+          </b>
+
+          <b>
+
+          Optional header keywords:
+
+          </b>'
+        is_image: true
+        size: 1 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image Extension created by MWRFITS v1.8
+        - key: BITPIX
+          value: 32
+          comment: array data type
+        - key: NAXIS
+          value: 1
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 500
+          comment: length of dimension 1
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+      hdu4:
+        name: ''
+        description: "The data attribute of HDU 4 gives the line width (in the dispersion\
+          \ axis) for each fiber. This Gaussian sigma is in units of pixels.\nThe\
+          \ Y-positions on the CCD, which is the independent variable and the corresponding\
+          \ line width, which is the dependent variable are fitted \nto a functional\
+          \ form and the resulting coefficients are stored in a binary table.\n\n\
+          For instructions on how to use these tracesets, see HDU2 description of\
+          \ this file."
+        is_image: false
+        size: 15 KB
+        columns:
+          FUNC:
+            name: FUNC
+            type: char[8]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: describes the function used to fit the line width (units
+              of pixels) and Y-positions to a functional form.
+          XMIN:
+            name: XMIN
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: minimum value of the independent variable used by fitting
+              function.
+          XMAX:
+            name: XMAX
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: maximum value of the independent variable which is used along
+              with the fitting coefficients, in the fitting function to get the value
+              of dependent variable, which is the line width of fibers.
+          COEFF:
+            name: COEFF
+            type: float64[2000]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+  DR10:
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID]/spArc-[BR][ID]-[FRAME].fits.gz
+    example: v5_5_12/3682/spArc-b1-00108606.fits.gz
+    location: '{run2d}/{plateid}/spArc-{br}{id}-{frame}.fits.gz'
+    environment: BOSS_SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: spArc
+      path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spArc-{br}{id}-{frame:0>8}.fits.gz'
+      path_kwargs:
+      - id
+      - run2d
+      - br
+      - plateid
+      - frame
+      access_string: spArc = $BOSS_SPECTRO_REDUX/{run2d}/{plateid}/spArc-{br}{id}-{frame}.fits.gz
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: 'The data attribute of Primary HDU stores the extracted flux
+          for the entire image.
+
+          <b>
+
+          Required header keywords:
+
+          </b>
+
+          <b>
+
+          Optional header keywords:
+
+          </b>'
+        is_image: true
+        size: 7 MB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: -32
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 4112
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 500
+          comment: length of dimension 2
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: TELESCOP
+          value: SDSS 2.5-M
+          comment: Sloan Digital Sky Survey
+        - key: FILENAME
+          value: sdR-b1-00108606.fit
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: CAMERAS
+          value: b1
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: EXPOSURE
+          value: 108606
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: DAQVER
+          value: 1.2.8
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: CAMDAQ
+          value: 1.4.1:32
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ERRCNT
+          value: NONE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: SYNCERR
+          value: NONE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: SLINES
+          value: NONE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: PIXERR
+          value: NONE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: PLINES
+          value: NONE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: FLAVOR
+          value: arc
+          comment: exposure type, SDSS spectro style
+        - key: BOSSVER
+          value: v2_0_17
+          comment: ICC version
+        - key: MJD
+          value: 55244
+          comment: APO fMJD day at start of exposure
+        - key: TAI-BEG
+          value: 4773100227.000001
+          comment: MJD(TAI) seconds at start of integration
+        - key: DATE-OBS
+          value: '2010-02-17T05:10:27'
+          comment: TAI date at start of integration
+        - key: FF
+          value: 0 0 0 0
+          comment: FF lamps 1:on 0:0ff
+        - key: NE
+          value: 1 1 1 1
+          comment: NE lamps 1:on 0:0ff
+        - key: HGCD
+          value: 1 1 1 1
+          comment: HGCD lamps 1:on 0:0ff
+        - key: FFS
+          value: 1 1 1 1 1 1 1 1
+          comment: Flatfield Screen 1:closed 0:open
+        - key: OBJSYS
+          value: ICRS
+          comment: The TCC objSys
+        - key: RA
+          value: 120.0777
+          comment: RA of telescope boresight (deg)
+        - key: DEC
+          value: 53.2734
+          comment: Dec of telescope boresight (deg)
+        - key: RADEG
+          value: 120.0777
+          comment: RA of telescope pointing(deg)
+        - key: DECDEG
+          value: 53.2734
+          comment: Dec of telescope pointing (deg)
+        - key: ROTPOS
+          value: 0.0
+          comment: Rotator request position (deg)
+        - key: BOREOFFX
+          value: 0.0
+          comment: TCC Boresight offset, deg
+        - key: BOREOFFY
+          value: 0.0
+          comment: TCC Boresight offset, deg
+        - key: ARCOFFX
+          value: 0.0
+          comment: TCC ObjArcOff, deg
+        - key: ARCOFFY
+          value: 0.0
+          comment: TCC ObjArcOff, deg
+        - key: OBJOFFX
+          value: 0.0
+          comment: TCC ObjOff, deg
+        - key: OBJOFFY
+          value: 0.0
+          comment: TCC ObjOff, deg
+        - key: CALOFFX
+          value: 0.002
+          comment: TCC CalibOff, deg
+        - key: CALOFFY
+          value: -0.001
+          comment: TCC CalibOff, deg
+        - key: CALOFFR
+          value: 0.0
+          comment: TCC CalibOff, deg
+        - key: GUIDOFFX
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: GUIDOFFY
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: GUIDOFFR
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: AZ
+          value: 177.508
+          comment: Azimuth axis pos. (approx, deg)
+        - key: ALT
+          value: 69.516
+          comment: Altitude axis pos. (approx, deg)
+        - key: IPA
+          value: -3.41
+          comment: Rotator axis pos. (approx, deg)
+        - key: SPA
+          value: 176.6889054674645
+          comment: TCC SpiderInstAng
+        - key: FOCUS
+          value: 518.08
+          comment: User-specified focus offset (um)
+        - key: M2PISTON
+          value: 1895.37
+          comment: TCC SecOrient
+        - key: M2XTILT
+          value: -3.97
+          comment: TCC SecOrient
+        - key: M2YTILT
+          value: -9.01
+          comment: TCC SecOrient
+        - key: M2XTRAN
+          value: 9.9
+          comment: TCC SecOrient
+        - key: M2YTRAN
+          value: -14.38
+          comment: TCC SecOrient
+        - key: M1PISTON
+          value: 296.25
+          comment: TCC PrimOrient
+        - key: M1XTILT
+          value: -3.04
+          comment: TCC PrimOrient
+        - key: M1YTILT
+          value: 5.26
+          comment: TCC PrimOrient
+        - key: M1XTRAN
+          value: 277.64
+          comment: TCC PrimOrient
+        - key: M1YTRAN
+          value: 178.07
+          comment: TCC PrimOrient
+        - key: SCALE
+          value: 0.99997
+          comment: User-specified scale factor
+        - key: NAME
+          value: 3682-55244-01
+          comment: The name of the currently loaded plate
+        - key: PLATEID
+          value: 3682
+          comment: The currently loaded plate
+        - key: CARTID
+          value: 12
+          comment: The currently loaded cartridge
+        - key: MAPID
+          value: 1
+          comment: The mapping version of the loaded plate
+        - key: POINTING
+          value: A
+          comment: The currently specified pointing
+        - key: GUIDER1
+          value: proc-gimg-0422.fits
+          comment: The first guider image
+        - key: COLLA
+          value: -8460
+          comment: The position of the A collimator motor
+        - key: COLLB
+          value: -8486
+          comment: The position of the B collimator motor
+        - key: COLLC
+          value: -8505
+          comment: The position of the C collimator motor
+        - key: HARTMANN
+          value: Out
+          comment: 'Hartmanns: Left,Right,Out'
+        - key: MC1HUMHT
+          value: 38.4
+          comment: sp1 mech Hartmann humidity, %
+        - key: MC1HUMCO
+          value: 33.8
+          comment: sp1 mech Central optics humidity, %
+        - key: MC1TEMDN
+          value: -1.1
+          comment: sp1 mech Median temp, C
+        - key: MC1THT
+          value: -1.3
+          comment: sp1 mech Hartmann Top Temp, C
+        - key: MC1TRCB
+          value: -1.5
+          comment: sp1 mech Red Cam Bottom Temp, C
+        - key: MC1TRCT
+          value: -0.7
+          comment: sp1 mech Red Cam Top Temp, C
+        - key: MC1TBCB
+          value: -1.3
+          comment: sp1 mech Blue Cam Bottom Temp, C
+        - key: MC1TBCT
+          value: -1.1
+          comment: sp1 mech Blue Cam Top Temp, C
+        - key: MC2HUMHT
+          value: 32.0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MC2HUMCO
+          value: 20.6
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MC2TEMDN
+          value: -2.0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MC2THT
+          value: -1.4
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MC2TRCB
+          value: -1.6
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MC2TRCT
+          value: -2.0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MC2TBCB
+          value: -2.1
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MC2TBCT
+          value: -1.6
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: GUIDERN
+          value: proc-gimg-0422.fits
+          comment: The last guider image
+        - key: EXPTIME
+          value: 4.0
+          comment: measured exposure time, s
+        - key: SHOPETIM
+          value: 0.73
+          comment: open shutter transit time, s
+        - key: SHCLOTIM
+          value: 0.555
+          comment: close shutter transit time, s
+        - key: CAMROW
+          value: 0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: CAMCOL
+          value: 1
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: AUTHOR
+          value: Scott Burles & David Schlegel
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: VERSIDL
+          value: '7.0'
+          comment: Version of IDL
+        - key: VERSUTIL
+          value: v5_5_8
+          comment: Version of idlutils
+        - key: VERSREAD
+          value: v5_5_12
+          comment: Version of idlspec2d for pre-processing raw dat
+        - key: VERSLOG
+          value: trunk 139529
+          comment: Version of SPECLOG product
+        - key: VERSFLAT
+          value: v1_19
+          comment: Version of SPECFLAT product
+        - key: TWOPHASE
+          value: false
+          comment: Extra 1/3 row in wavecal at array center?
+        - key: QUALITY
+          value: excellent
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: RDNOISE0
+          value: 2.01114
+          comment: CCD read noise amp 0 [electrons]
+        - key: RDNOISE1
+          value: 1.94217
+          comment: CCD read noise amp 1 [electrons]
+        - key: RDNOISE2
+          value: 1.89342
+          comment: CCD read noise amp 2 [electrons]
+        - key: RDNOISE3
+          value: 1.86817
+          comment: CCD read noise amp 3 [electrons]
+        - key: PIXFLAT
+          value: pixflatave-55056-b1.fits.gz
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: BADPIXEL
+          value: badpixels-55056-b1.fits.gz
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: FBADPIX
+          value: 4.82106e-05
+          comment: Fraction of bad pixels in raw image
+        - key: BESTCORR
+          value: 0.70722
+          comment: Best Correlation coefficient
+      hdu1:
+        name: ''
+        description: 'The data attribute of HDU 1 stores the wavelengths of good lamp
+          lines (in Angstroms) and the Y position of each fiber on the CCD for the
+          corresponding wavelengths.
+
+          The data in HDU 1 is of size 65 X 501 in which the first of the 501 columns
+          stores the wavelengths of the good lamp lines, and the remaining 500 columns
+
+          store the Y positions of those lines for each of the 500 fibers.
+
+          <b>
+
+          Required header keywords:
+
+          </b>
+
+          <b>
+
+          Optional header keywords:
+
+          </b>'
+        is_image: true
+        size: 176 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image Extension created by MWRFITS v1.8
+        - key: BITPIX
+          value: -64
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 501
+          comment: length of dimension 2
+        - key: NAXIS2
+          value: 45
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+      hdu2:
+        name: ''
+        description: "The HDU 2 data is a binary table whose fields are used to calculate\
+          \ wavelength solution (units of log10 Angstroms) for the arc calibration\
+          \ frames.\nThe Y-positions on the CCD, which is the independent variable\
+          \ and corresponding wavelength solutions (in Angstroms) which is the dependent\
+          \ variable, \nare fitted to a functional form and the resulting coefficients\
+          \ are stored in the binary table.\n\n<b>\nHow to use these coefficients:\
+          \ \n</b>\n\nLet x be the pixel number of a given trace. We define mu = 2*(x-XMID)/(XMAX-XMIN)\
+          \ and the solution for the wavelength \nis FUNC(mu) where FUNC is the function\
+          \ stored in the FUNC column in this binary table (it is usually a Legendre\
+          \ polynomials).\n\nIf XJUMPLO or XJUMPHI are present in the table, the following\
+          \ formulas need to be applied to correct x due to two-phase read-out of\
+          \ CCDs.\n\n<code>\n<br/>t = (x-XJUMPLO)/(XJUMPHI-XJUMPLO)\n<br/>jump = 0\
+          \ * (t&lt;0) + t * (0&lt;t&lt;1) + 1 * (t&gt;1)\n<br/>x = x + jump * XJUMPVAL\n\
+          <br/>mu = 2*(x-XMID)/(XMAX-XMIN)\n<br/>loglam = FUNC(mu)\n</code>"
+        is_image: false
+        size: 23 KB
+        columns:
+          FUNC:
+            name: FUNC
+            type: char[8]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: describes the function used to fit the wavelength solutions
+              (units of log-10 Angstroms) and Y-positions to a functional form.
+          XMIN:
+            name: XMIN
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: minimum value of the independent variable used by fitting
+              function.
+          XMAX:
+            name: XMAX
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: maximum value of the independent variable which is used along
+              with the fitting coefficients, in the fitting function to get the value
+              of dependent variable, which is the wavelength solution.
+          COEFF:
+            name: COEFF
+            type: float64[3000]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: "[3000](float64)  \t\t\t:  fit coefficents"
+      hdu3:
+        name: ''
+        description: 'The HDU 3 data stores the fibermask. These are fiber status
+          bits and are set to non-zero to indicate bad status. The status bits used
+          for masking are documented in $IDLUTILS/v5_4_12/data/sdss/sdssMaskbits.par.
+
+          <b>
+
+          Required header keywords:
+
+          </b>
+
+          <b>
+
+          Optional header keywords:
+
+          </b>'
+        is_image: true
+        size: 1 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image Extension created by MWRFITS v1.8
+        - key: BITPIX
+          value: 32
+          comment: array data type
+        - key: NAXIS
+          value: 1
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 500
+          comment: length of dimension 1
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+      hdu4:
+        name: ''
+        description: "The data attribute of HDU 4 gives the line width (in the dispersion\
+          \ axis) for each fiber. This Gaussian sigma is in units of pixels.\nThe\
+          \ Y-positions on the CCD, which is the independent variable and the corresponding\
+          \ line width, which is the dependent variable are fitted \nto a functional\
+          \ form and the resulting coefficients are stored in a binary table.\n\n\
+          For instructions on how to use these tracesets, see HDU2 description of\
+          \ this file."
+        is_image: false
+        size: 15 KB
+        columns:
+          FUNC:
+            name: FUNC
+            type: char[8]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: describes the function used to fit the line width (units
+              of pixels) and Y-positions to a functional form.
+          XMIN:
+            name: XMIN
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: minimum value of the independent variable used by fitting
+              function.
+          XMAX:
+            name: XMAX
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: maximum value of the independent variable which is used along
+              with the fitting coefficients, in the fitting function to get the value
+              of dependent variable, which is the line width of fibers.
+          COEFF:
+            name: COEFF
+            type: float64[2000]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+  DR11:
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID]/spArc-[BR][ID]-[FRAME].fits.gz
+    example: v5_6_5/3682/spArc-b1-00108606.fits.gz
+    location: '{run2d}/{plateid}/spArc-{br}{id}-{frame}.fits.gz'
+    environment: BOSS_SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: spArc
+      path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spArc-{br}{id}-{frame:0>8}.fits.gz'
+      path_kwargs:
+      - frame
+      - plateid
+      - id
+      - run2d
+      - br
+      access_string: spArc = $BOSS_SPECTRO_REDUX/{run2d}/{plateid}/spArc-{br}{id}-{frame}.fits.gz
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: 'The data attribute of Primary HDU stores the extracted flux
+          for the entire image.
+
+          <b>
+
+          Required header keywords:
+
+          </b>
+
+          <b>
+
+          Optional header keywords:
+
+          </b>'
+        is_image: true
+        size: 7 MB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: -32
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 4112
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 500
+          comment: length of dimension 2
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: TELESCOP
+          value: SDSS 2.5-M
+          comment: Sloan Digital Sky Survey
+        - key: FILENAME
+          value: sdR-b1-00108606.fit
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: CAMERAS
+          value: b1
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: EXPOSURE
+          value: 108606
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: DAQVER
+          value: 1.2.8
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: CAMDAQ
+          value: 1.4.1:32
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ERRCNT
+          value: NONE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: SYNCERR
+          value: NONE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: SLINES
+          value: NONE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: PIXERR
+          value: NONE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: PLINES
+          value: NONE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: FLAVOR
+          value: arc
+          comment: exposure type, SDSS spectro style
+        - key: BOSSVER
+          value: v2_0_17
+          comment: ICC version
+        - key: MJD
+          value: 55244
+          comment: APO fMJD day at start of exposure
+        - key: TAI-BEG
+          value: 4773100227.000001
+          comment: MJD(TAI) seconds at start of integration
+        - key: DATE-OBS
+          value: '2010-02-17T05:10:27'
+          comment: TAI date at start of integration
+        - key: FF
+          value: 0 0 0 0
+          comment: FF lamps 1:on 0:0ff
+        - key: NE
+          value: 1 1 1 1
+          comment: NE lamps 1:on 0:0ff
+        - key: HGCD
+          value: 1 1 1 1
+          comment: HGCD lamps 1:on 0:0ff
+        - key: FFS
+          value: 1 1 1 1 1 1 1 1
+          comment: Flatfield Screen 1:closed 0:open
+        - key: OBJSYS
+          value: ICRS
+          comment: The TCC objSys
+        - key: RA
+          value: 120.0777
+          comment: RA of telescope boresight (deg)
+        - key: DEC
+          value: 53.2734
+          comment: Dec of telescope boresight (deg)
+        - key: RADEG
+          value: 120.0777
+          comment: RA of telescope pointing(deg)
+        - key: DECDEG
+          value: 53.2734
+          comment: Dec of telescope pointing (deg)
+        - key: ROTPOS
+          value: 0.0
+          comment: Rotator request position (deg)
+        - key: BOREOFFX
+          value: 0.0
+          comment: TCC Boresight offset, deg
+        - key: BOREOFFY
+          value: 0.0
+          comment: TCC Boresight offset, deg
+        - key: ARCOFFX
+          value: 0.0
+          comment: TCC ObjArcOff, deg
+        - key: ARCOFFY
+          value: 0.0
+          comment: TCC ObjArcOff, deg
+        - key: OBJOFFX
+          value: 0.0
+          comment: TCC ObjOff, deg
+        - key: OBJOFFY
+          value: 0.0
+          comment: TCC ObjOff, deg
+        - key: CALOFFX
+          value: 0.002
+          comment: TCC CalibOff, deg
+        - key: CALOFFY
+          value: -0.001
+          comment: TCC CalibOff, deg
+        - key: CALOFFR
+          value: 0.0
+          comment: TCC CalibOff, deg
+        - key: GUIDOFFX
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: GUIDOFFY
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: GUIDOFFR
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: AZ
+          value: 177.508
+          comment: Azimuth axis pos. (approx, deg)
+        - key: ALT
+          value: 69.516
+          comment: Altitude axis pos. (approx, deg)
+        - key: IPA
+          value: -3.41
+          comment: Rotator axis pos. (approx, deg)
+        - key: SPA
+          value: 176.6889054674645
+          comment: TCC SpiderInstAng
+        - key: FOCUS
+          value: 518.08
+          comment: User-specified focus offset (um)
+        - key: M2PISTON
+          value: 1895.37
+          comment: TCC SecOrient
+        - key: M2XTILT
+          value: -3.97
+          comment: TCC SecOrient
+        - key: M2YTILT
+          value: -9.01
+          comment: TCC SecOrient
+        - key: M2XTRAN
+          value: 9.9
+          comment: TCC SecOrient
+        - key: M2YTRAN
+          value: -14.38
+          comment: TCC SecOrient
+        - key: M1PISTON
+          value: 296.25
+          comment: TCC PrimOrient
+        - key: M1XTILT
+          value: -3.04
+          comment: TCC PrimOrient
+        - key: M1YTILT
+          value: 5.26
+          comment: TCC PrimOrient
+        - key: M1XTRAN
+          value: 277.64
+          comment: TCC PrimOrient
+        - key: M1YTRAN
+          value: 178.07
+          comment: TCC PrimOrient
+        - key: SCALE
+          value: 0.99997
+          comment: User-specified scale factor
+        - key: NAME
+          value: 3682-55244-01
+          comment: The name of the currently loaded plate
+        - key: PLATEID
+          value: 3682
+          comment: The currently loaded plate
+        - key: CARTID
+          value: 12
+          comment: The currently loaded cartridge
+        - key: MAPID
+          value: 1
+          comment: The mapping version of the loaded plate
+        - key: POINTING
+          value: A
+          comment: The currently specified pointing
+        - key: GUIDER1
+          value: proc-gimg-0422.fits
+          comment: The first guider image
+        - key: COLLA
+          value: -8460
+          comment: The position of the A collimator motor
+        - key: COLLB
+          value: -8486
+          comment: The position of the B collimator motor
+        - key: COLLC
+          value: -8505
+          comment: The position of the C collimator motor
+        - key: HARTMANN
+          value: Out
+          comment: 'Hartmanns: Left,Right,Out'
+        - key: MC1HUMHT
+          value: 38.4
+          comment: sp1 mech Hartmann humidity, %
+        - key: MC1HUMCO
+          value: 33.8
+          comment: sp1 mech Central optics humidity, %
+        - key: MC1TEMDN
+          value: -1.1
+          comment: sp1 mech Median temp, C
+        - key: MC1THT
+          value: -1.3
+          comment: sp1 mech Hartmann Top Temp, C
+        - key: MC1TRCB
+          value: -1.5
+          comment: sp1 mech Red Cam Bottom Temp, C
+        - key: MC1TRCT
+          value: -0.7
+          comment: sp1 mech Red Cam Top Temp, C
+        - key: MC1TBCB
+          value: -1.3
+          comment: sp1 mech Blue Cam Bottom Temp, C
+        - key: MC1TBCT
+          value: -1.1
+          comment: sp1 mech Blue Cam Top Temp, C
+        - key: MC2HUMHT
+          value: 32.0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MC2HUMCO
+          value: 20.6
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MC2TEMDN
+          value: -2.0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MC2THT
+          value: -1.4
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MC2TRCB
+          value: -1.6
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MC2TRCT
+          value: -2.0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MC2TBCB
+          value: -2.1
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MC2TBCT
+          value: -1.6
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: GUIDERN
+          value: proc-gimg-0422.fits
+          comment: The last guider image
+        - key: EXPTIME
+          value: 4.0
+          comment: measured exposure time, s
+        - key: SHOPETIM
+          value: 0.73
+          comment: open shutter transit time, s
+        - key: SHCLOTIM
+          value: 0.555
+          comment: close shutter transit time, s
+        - key: CAMROW
+          value: 0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: CAMCOL
+          value: 1
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: AUTHOR
+          value: Scott Burles & David Schlegel
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: VERSIDL
+          value: '7.0'
+          comment: Version of IDL
+        - key: VERSUTIL
+          value: v5_5_10
+          comment: Version of idlutils
+        - key: VERSREAD
+          value: v5_6_5
+          comment: Version of idlspec2d for pre-processing raw dat
+        - key: VERSLOG
+          value: trunk 146456
+          comment: Version of SPECLOG product
+        - key: VERSFLAT
+          value: v1_20
+          comment: Version of SPECFLAT product
+        - key: TWOPHASE
+          value: false
+          comment: Extra 1/3 row in wavecal at array center?
+        - key: QUALITY
+          value: excellent
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: RDNOISE0
+          value: 2.01114
+          comment: CCD read noise amp 0 [electrons]
+        - key: RDNOISE1
+          value: 1.94212
+          comment: CCD read noise amp 1 [electrons]
+        - key: RDNOISE2
+          value: 1.8936
+          comment: CCD read noise amp 2 [electrons]
+        - key: RDNOISE3
+          value: 1.86914
+          comment: CCD read noise amp 3 [electrons]
+        - key: PIXFLAT
+          value: pixflatave-55056-b1.fits.gz
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: BADPIXEL
+          value: badpixels-55056-b1.fits.gz
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: FBADPIX
+          value: 4.82106e-05
+          comment: Fraction of bad pixels in raw image
+        - key: BESTCORR
+          value: 0.70722
+          comment: Best Correlation coefficient
+      hdu1:
+        name: ''
+        description: 'The data attribute of HDU 1 stores the wavelengths of good lamp
+          lines (in Angstroms) and the Y position of each fiber on the CCD for the
+          corresponding wavelengths.
+
+          The data in HDU 1 is of size 65 X 501 in which the first of the 501 columns
+          stores the wavelengths of the good lamp lines, and the remaining 500 columns
+
+          store the Y positions of those lines for each of the 500 fibers.
+
+          <b>
+
+          Required header keywords:
+
+          </b>
+
+          <b>
+
+          Optional header keywords:
+
+          </b>'
+        is_image: true
+        size: 176 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image Extension created by MWRFITS v1.8
+        - key: BITPIX
+          value: -64
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 501
+          comment: length of dimension 2
+        - key: NAXIS2
+          value: 45
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+      hdu2:
+        name: ''
+        description: "The HDU 2 data is a binary table whose fields are used to calculate\
+          \ wavelength solution (units of log10 Angstroms) for the arc calibration\
+          \ frames.\nThe Y-positions on the CCD, which is the independent variable\
+          \ and corresponding wavelength solutions (in Angstroms) which is the dependent\
+          \ variable, \nare fitted to a functional form and the resulting coefficients\
+          \ are stored in the binary table.\n\n<b>\nHow to use these coefficients:\
+          \ \n</b>\n\nLet x be the pixel number of a given trace. We define mu = 2*(x-XMID)/(XMAX-XMIN)\
+          \ and the solution for the wavelength \nis FUNC(mu) where FUNC is the function\
+          \ stored in the FUNC column in this binary table (it is usually a Legendre\
+          \ polynomials).\n\nIf XJUMPLO or XJUMPHI are present in the table, the following\
+          \ formulas need to be applied to correct x due to two-phase read-out of\
+          \ CCDs.\n\n<code>\n<br/>t = (x-XJUMPLO)/(XJUMPHI-XJUMPLO)\n<br/>jump = 0\
+          \ * (t&lt;0) + t * (0&lt;t&lt;1) + 1 * (t&gt;1)\n<br/>x = x + jump * XJUMPVAL\n\
+          <br/>mu = 2*(x-XMID)/(XMAX-XMIN)\n<br/>loglam = FUNC(mu)\n</code>"
+        is_image: false
+        size: 23 KB
+        columns:
+          FUNC:
+            name: FUNC
+            type: char[8]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: describes the function used to fit the wavelength solutions
+              (units of log-10 Angstroms) and Y-positions to a functional form.
+          XMIN:
+            name: XMIN
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: minimum value of the independent variable used by fitting
+              function.
+          XMAX:
+            name: XMAX
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: maximum value of the independent variable which is used along
+              with the fitting coefficients, in the fitting function to get the value
+              of dependent variable, which is the wavelength solution.
+          COEFF:
+            name: COEFF
+            type: float64[3000]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: "[3000](float64)  \t\t\t:  fit coefficents"
+      hdu3:
+        name: ''
+        description: 'The HDU 3 data stores the fibermask. These are fiber status
+          bits and are set to non-zero to indicate bad status. The status bits used
+          for masking are documented in $IDLUTILS/v5_4_12/data/sdss/sdssMaskbits.par.
+
+          <b>
+
+          Required header keywords:
+
+          </b>
+
+          <b>
+
+          Optional header keywords:
+
+          </b>'
+        is_image: true
+        size: 1 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image Extension created by MWRFITS v1.8
+        - key: BITPIX
+          value: 32
+          comment: array data type
+        - key: NAXIS
+          value: 1
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 500
+          comment: length of dimension 1
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+      hdu4:
+        name: ''
+        description: "The data attribute of HDU 4 gives the line width (in the dispersion\
+          \ axis) for each fiber. This Gaussian sigma is in units of pixels.\nThe\
+          \ Y-positions on the CCD, which is the independent variable and the corresponding\
+          \ line width, which is the dependent variable are fitted \nto a functional\
+          \ form and the resulting coefficients are stored in a binary table.\n\n\
+          For instructions on how to use these tracesets, see HDU2 description of\
+          \ this file."
+        is_image: false
+        size: 15 KB
+        columns:
+          FUNC:
+            name: FUNC
+            type: char[8]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: describes the function used to fit the line width (units
+              of pixels) and Y-positions to a functional form.
+          XMIN:
+            name: XMIN
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: minimum value of the independent variable used by fitting
+              function.
+          XMAX:
+            name: XMAX
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: maximum value of the independent variable which is used along
+              with the fitting coefficients, in the fitting function to get the value
+              of dependent variable, which is the line width of fibers.
+          COEFF:
+            name: COEFF
+            type: float64[2000]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+  DR12:
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID]/spArc-[BR][ID]-[FRAME].fits.gz
+    example: v5_7_0/3682/spArc-b1-00108606.fits.gz
+    location: '{run2d}/{plateid}/spArc-{br}{id}-{frame}.fits.gz'
+    environment: BOSS_SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: spArc
+      path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spArc-{br}{id}-{frame:0>8}.fits.gz'
+      path_kwargs:
+      - id
+      - plateid
+      - run2d
+      - br
+      - frame
+      access_string: spArc = $BOSS_SPECTRO_REDUX/{run2d}/{plateid}/spArc-{br}{id}-{frame}.fits.gz
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: 'The data attribute of Primary HDU stores the extracted flux
+          for the entire image.
+
+          <b>
+
+          Required header keywords:
+
+          </b>
+
+          <b>
+
+          Optional header keywords:
+
+          </b>'
+        is_image: true
+        size: 7 MB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: -32
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 4112
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 500
+          comment: length of dimension 2
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: TELESCOP
+          value: SDSS 2.5-M
+          comment: Sloan Digital Sky Survey
+        - key: FILENAME
+          value: sdR-b1-00108606.fit
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: CAMERAS
+          value: b1
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: EXPOSURE
+          value: 108606
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: DAQVER
+          value: 1.2.8
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: CAMDAQ
+          value: 1.4.1:32
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ERRCNT
+          value: NONE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: SYNCERR
+          value: NONE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: SLINES
+          value: NONE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: PIXERR
+          value: NONE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: PLINES
+          value: NONE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: FLAVOR
+          value: arc
+          comment: exposure type, SDSS spectro style
+        - key: BOSSVER
+          value: v2_0_17
+          comment: ICC version
+        - key: MJD
+          value: 55244
+          comment: APO fMJD day at start of exposure
+        - key: TAI-BEG
+          value: 4773100227.000001
+          comment: MJD(TAI) seconds at start of integration
+        - key: DATE-OBS
+          value: '2010-02-17T05:10:27'
+          comment: TAI date at start of integration
+        - key: FF
+          value: 0 0 0 0
+          comment: FF lamps 1:on 0:0ff
+        - key: NE
+          value: 1 1 1 1
+          comment: NE lamps 1:on 0:0ff
+        - key: HGCD
+          value: 1 1 1 1
+          comment: HGCD lamps 1:on 0:0ff
+        - key: FFS
+          value: 1 1 1 1 1 1 1 1
+          comment: Flatfield Screen 1:closed 0:open
+        - key: OBJSYS
+          value: ICRS
+          comment: The TCC objSys
+        - key: RA
+          value: 120.0777
+          comment: RA of telescope boresight (deg)
+        - key: DEC
+          value: 53.2734
+          comment: Dec of telescope boresight (deg)
+        - key: RADEG
+          value: 120.0777
+          comment: RA of telescope pointing(deg)
+        - key: DECDEG
+          value: 53.2734
+          comment: Dec of telescope pointing (deg)
+        - key: ROTPOS
+          value: 0.0
+          comment: Rotator request position (deg)
+        - key: BOREOFFX
+          value: 0.0
+          comment: TCC Boresight offset, deg
+        - key: BOREOFFY
+          value: 0.0
+          comment: TCC Boresight offset, deg
+        - key: ARCOFFX
+          value: 0.0
+          comment: TCC ObjArcOff, deg
+        - key: ARCOFFY
+          value: 0.0
+          comment: TCC ObjArcOff, deg
+        - key: OBJOFFX
+          value: 0.0
+          comment: TCC ObjOff, deg
+        - key: OBJOFFY
+          value: 0.0
+          comment: TCC ObjOff, deg
+        - key: CALOFFX
+          value: 0.002
+          comment: TCC CalibOff, deg
+        - key: CALOFFY
+          value: -0.001
+          comment: TCC CalibOff, deg
+        - key: CALOFFR
+          value: 0.0
+          comment: TCC CalibOff, deg
+        - key: GUIDOFFX
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: GUIDOFFY
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: GUIDOFFR
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: AZ
+          value: 177.508
+          comment: Azimuth axis pos. (approx, deg)
+        - key: ALT
+          value: 69.516
+          comment: Altitude axis pos. (approx, deg)
+        - key: IPA
+          value: -3.41
+          comment: Rotator axis pos. (approx, deg)
+        - key: SPA
+          value: 176.6889054674645
+          comment: TCC SpiderInstAng
+        - key: FOCUS
+          value: 518.08
+          comment: User-specified focus offset (um)
+        - key: M2PISTON
+          value: 1895.37
+          comment: TCC SecOrient
+        - key: M2XTILT
+          value: -3.97
+          comment: TCC SecOrient
+        - key: M2YTILT
+          value: -9.01
+          comment: TCC SecOrient
+        - key: M2XTRAN
+          value: 9.9
+          comment: TCC SecOrient
+        - key: M2YTRAN
+          value: -14.38
+          comment: TCC SecOrient
+        - key: M1PISTON
+          value: 296.25
+          comment: TCC PrimOrient
+        - key: M1XTILT
+          value: -3.04
+          comment: TCC PrimOrient
+        - key: M1YTILT
+          value: 5.26
+          comment: TCC PrimOrient
+        - key: M1XTRAN
+          value: 277.64
+          comment: TCC PrimOrient
+        - key: M1YTRAN
+          value: 178.07
+          comment: TCC PrimOrient
+        - key: SCALE
+          value: 0.99997
+          comment: User-specified scale factor
+        - key: NAME
+          value: 3682-55244-01
+          comment: The name of the currently loaded plate
+        - key: PLATEID
+          value: 3682
+          comment: The currently loaded plate
+        - key: CARTID
+          value: 12
+          comment: The currently loaded cartridge
+        - key: MAPID
+          value: 1
+          comment: The mapping version of the loaded plate
+        - key: POINTING
+          value: A
+          comment: The currently specified pointing
+        - key: GUIDER1
+          value: proc-gimg-0422.fits
+          comment: The first guider image
+        - key: COLLA
+          value: -8460
+          comment: The position of the A collimator motor
+        - key: COLLB
+          value: -8486
+          comment: The position of the B collimator motor
+        - key: COLLC
+          value: -8505
+          comment: The position of the C collimator motor
+        - key: HARTMANN
+          value: Out
+          comment: 'Hartmanns: Left,Right,Out'
+        - key: MC1HUMHT
+          value: 38.4
+          comment: sp1 mech Hartmann humidity, %
+        - key: MC1HUMCO
+          value: 33.8
+          comment: sp1 mech Central optics humidity, %
+        - key: MC1TEMDN
+          value: -1.1
+          comment: sp1 mech Median temp, C
+        - key: MC1THT
+          value: -1.3
+          comment: sp1 mech Hartmann Top Temp, C
+        - key: MC1TRCB
+          value: -1.5
+          comment: sp1 mech Red Cam Bottom Temp, C
+        - key: MC1TRCT
+          value: -0.7
+          comment: sp1 mech Red Cam Top Temp, C
+        - key: MC1TBCB
+          value: -1.3
+          comment: sp1 mech Blue Cam Bottom Temp, C
+        - key: MC1TBCT
+          value: -1.1
+          comment: sp1 mech Blue Cam Top Temp, C
+        - key: MC2HUMHT
+          value: 32.0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MC2HUMCO
+          value: 20.6
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MC2TEMDN
+          value: -2.0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MC2THT
+          value: -1.4
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MC2TRCB
+          value: -1.6
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MC2TRCT
+          value: -2.0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MC2TBCB
+          value: -2.1
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MC2TBCT
+          value: -1.6
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: GUIDERN
+          value: proc-gimg-0422.fits
+          comment: The last guider image
+        - key: EXPTIME
+          value: 4.0
+          comment: measured exposure time, s
+        - key: SHOPETIM
+          value: 0.73
+          comment: open shutter transit time, s
+        - key: SHCLOTIM
+          value: 0.555
+          comment: close shutter transit time, s
+        - key: CAMROW
+          value: 0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: CAMCOL
+          value: 1
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: AUTHOR
+          value: Scott Burles & David Schlegel
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: VERSIDL
+          value: '7.0'
+          comment: Version of IDL
+        - key: VERSUTIL
+          value: v5_5_14
+          comment: Version of idlutils
+        - key: VERSREAD
+          value: v5_7_0
+          comment: Version of idlspec2d for pre-processing raw dat
+        - key: VERSLOG
+          value: trunk exported
+          comment: Version of SPECLOG product
+        - key: VERSFLAT
+          value: v1_21
+          comment: Version of SPECFLAT product
+        - key: TWOPHASE
+          value: false
+          comment: Extra 1/3 row in wavecal at array center?
+        - key: QUALITY
+          value: excellent
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: RDNOISE0
+          value: 2.01114
+          comment: CCD read noise amp 0 [electrons]
+        - key: RDNOISE1
+          value: 1.94212
+          comment: CCD read noise amp 1 [electrons]
+        - key: RDNOISE2
+          value: 1.8936
+          comment: CCD read noise amp 2 [electrons]
+        - key: RDNOISE3
+          value: 1.86914
+          comment: CCD read noise amp 3 [electrons]
+        - key: PIXFLAT
+          value: pixflatave-55056-b1.fits.gz
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: BADPIXEL
+          value: badpixels-55056-b1.fits.gz
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: FBADPIX
+          value: 4.82106e-05
+          comment: Fraction of bad pixels in raw image
+        - key: BESTCORR
+          value: 0.70722
+          comment: Best Correlation coefficient
+      hdu1:
+        name: ''
+        description: 'The data attribute of HDU 1 stores the wavelengths of good lamp
+          lines (in Angstroms) and the Y position of each fiber on the CCD for the
+          corresponding wavelengths.
+
+          The data in HDU 1 is of size 65 X 501 in which the first of the 501 columns
+          stores the wavelengths of the good lamp lines, and the remaining 500 columns
+
+          store the Y positions of those lines for each of the 500 fibers.
+
+          <b>
+
+          Required header keywords:
+
+          </b>
+
+          <b>
+
+          Optional header keywords:
+
+          </b>'
+        is_image: true
+        size: 176 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image Extension created by MWRFITS v1.8
+        - key: BITPIX
+          value: -64
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 501
+          comment: length of dimension 2
+        - key: NAXIS2
+          value: 45
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+      hdu2:
+        name: ''
+        description: "The HDU 2 data is a binary table whose fields are used to calculate\
+          \ wavelength solution (units of log10 Angstroms) for the arc calibration\
+          \ frames.\nThe Y-positions on the CCD, which is the independent variable\
+          \ and corresponding wavelength solutions (in Angstroms) which is the dependent\
+          \ variable, \nare fitted to a functional form and the resulting coefficients\
+          \ are stored in the binary table.\n\n<b>\nHow to use these coefficients:\
+          \ \n</b>\n\nLet x be the pixel number of a given trace. We define mu = 2*(x-XMID)/(XMAX-XMIN)\
+          \ and the solution for the wavelength \nis FUNC(mu) where FUNC is the function\
+          \ stored in the FUNC column in this binary table (it is usually a Legendre\
+          \ polynomials).\n\nIf XJUMPLO or XJUMPHI are present in the table, the following\
+          \ formulas need to be applied to correct x due to two-phase read-out of\
+          \ CCDs.\n\n<code>\n<br/>t = (x-XJUMPLO)/(XJUMPHI-XJUMPLO)\n<br/>jump = 0\
+          \ * (t&lt;0) + t * (0&lt;t&lt;1) + 1 * (t&gt;1)\n<br/>x = x + jump * XJUMPVAL\n\
+          <br/>mu = 2*(x-XMID)/(XMAX-XMIN)\n<br/>loglam = FUNC(mu)\n</code>"
+        is_image: false
+        size: 23 KB
+        columns:
+          FUNC:
+            name: FUNC
+            type: char[8]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: describes the function used to fit the wavelength solutions
+              (units of log-10 Angstroms) and Y-positions to a functional form.
+          XMIN:
+            name: XMIN
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: minimum value of the independent variable used by fitting
+              function.
+          XMAX:
+            name: XMAX
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: maximum value of the independent variable which is used along
+              with the fitting coefficients, in the fitting function to get the value
+              of dependent variable, which is the wavelength solution.
+          COEFF:
+            name: COEFF
+            type: float64[3000]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: "[3000](float64)  \t\t\t:  fit coefficents"
+      hdu3:
+        name: ''
+        description: 'The HDU 3 data stores the fibermask. These are fiber status
+          bits and are set to non-zero to indicate bad status. The status bits used
+          for masking are documented in $IDLUTILS/v5_4_12/data/sdss/sdssMaskbits.par.
+
+          <b>
+
+          Required header keywords:
+
+          </b>
+
+          <b>
+
+          Optional header keywords:
+
+          </b>'
+        is_image: true
+        size: 1 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image Extension created by MWRFITS v1.8
+        - key: BITPIX
+          value: 32
+          comment: array data type
+        - key: NAXIS
+          value: 1
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 500
+          comment: length of dimension 1
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+      hdu4:
+        name: ''
+        description: "The data attribute of HDU 4 gives the line width (in the dispersion\
+          \ axis) for each fiber. This Gaussian sigma is in units of pixels.\nThe\
+          \ Y-positions on the CCD, which is the independent variable and the corresponding\
+          \ line width, which is the dependent variable are fitted \nto a functional\
+          \ form and the resulting coefficients are stored in a binary table.\n\n\
+          For instructions on how to use these tracesets, see HDU2 description of\
+          \ this file."
+        is_image: false
+        size: 15 KB
+        columns:
+          FUNC:
+            name: FUNC
+            type: char[8]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: describes the function used to fit the line width (units
+              of pixels) and Y-positions to a functional form.
+          XMIN:
+            name: XMIN
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: minimum value of the independent variable used by fitting
+              function.
+          XMAX:
+            name: XMAX
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: maximum value of the independent variable which is used along
+              with the fitting coefficients, in the fitting function to get the value
+              of dependent variable, which is the line width of fibers.
+          COEFF:
+            name: COEFF
+            type: float64[2000]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+  DR13:
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID]/spArc-[BR][ID]-[FRAME].fits.gz
+    example: v5_9_0/3682/spArc-b1-00108606.fits.gz
+    location: '{run2d}/{plateid}/spArc-{br}{id}-{frame}.fits.gz'
+    environment: BOSS_SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: spArc
+      path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spArc-{br}{id}-{frame:0>8}.fits.gz'
+      path_kwargs:
+      - run2d
+      - id
+      - br
+      - frame
+      - plateid
+      access_string: spArc = $BOSS_SPECTRO_REDUX/{run2d}/{plateid}/spArc-{br}{id}-{frame}.fits.gz
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: 'The data attribute of Primary HDU stores the extracted flux
+          for the entire image.
+
+          <b>
+
+          Required header keywords:
+
+          </b>
+
+          <b>
+
+          Optional header keywords:
+
+          </b>'
+        is_image: true
+        size: 7 MB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: -32
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 4112
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 500
+          comment: length of dimension 2
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: TELESCOP
+          value: SDSS 2.5-M
+          comment: Sloan Digital Sky Survey
+        - key: FILENAME
+          value: sdR-b1-00108606.fit
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: CAMERAS
+          value: b1
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: EXPOSURE
+          value: 108606
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: DAQVER
+          value: 1.2.8
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: CAMDAQ
+          value: 1.4.1:32
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ERRCNT
+          value: NONE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: SYNCERR
+          value: NONE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: SLINES
+          value: NONE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: PIXERR
+          value: NONE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: PLINES
+          value: NONE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: FLAVOR
+          value: arc
+          comment: exposure type, SDSS spectro style
+        - key: BOSSVER
+          value: v2_0_17
+          comment: ICC version
+        - key: MJD
+          value: 55244
+          comment: APO fMJD day at start of exposure
+        - key: TAI-BEG
+          value: 4773100227.000001
+          comment: MJD(TAI) seconds at start of integration
+        - key: DATE-OBS
+          value: '2010-02-17T05:10:27'
+          comment: TAI date at start of integration
+        - key: FF
+          value: 0 0 0 0
+          comment: FF lamps 1:on 0:0ff
+        - key: NE
+          value: 1 1 1 1
+          comment: NE lamps 1:on 0:0ff
+        - key: HGCD
+          value: 1 1 1 1
+          comment: HGCD lamps 1:on 0:0ff
+        - key: FFS
+          value: 1 1 1 1 1 1 1 1
+          comment: Flatfield Screen 1:closed 0:open
+        - key: OBJSYS
+          value: ICRS
+          comment: The TCC objSys
+        - key: RA
+          value: 120.0777
+          comment: RA of telescope boresight (deg)
+        - key: DEC
+          value: 53.2734
+          comment: Dec of telescope boresight (deg)
+        - key: RADEG
+          value: 120.0777
+          comment: RA of telescope pointing(deg)
+        - key: DECDEG
+          value: 53.2734
+          comment: Dec of telescope pointing (deg)
+        - key: ROTPOS
+          value: 0.0
+          comment: Rotator request position (deg)
+        - key: BOREOFFX
+          value: 0.0
+          comment: TCC Boresight offset, deg
+        - key: BOREOFFY
+          value: 0.0
+          comment: TCC Boresight offset, deg
+        - key: ARCOFFX
+          value: 0.0
+          comment: TCC ObjArcOff, deg
+        - key: ARCOFFY
+          value: 0.0
+          comment: TCC ObjArcOff, deg
+        - key: OBJOFFX
+          value: 0.0
+          comment: TCC ObjOff, deg
+        - key: OBJOFFY
+          value: 0.0
+          comment: TCC ObjOff, deg
+        - key: CALOFFX
+          value: 0.002
+          comment: TCC CalibOff, deg
+        - key: CALOFFY
+          value: -0.001
+          comment: TCC CalibOff, deg
+        - key: CALOFFR
+          value: 0.0
+          comment: TCC CalibOff, deg
+        - key: GUIDOFFX
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: GUIDOFFY
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: GUIDOFFR
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: AZ
+          value: 177.508
+          comment: Azimuth axis pos. (approx, deg)
+        - key: ALT
+          value: 69.516
+          comment: Altitude axis pos. (approx, deg)
+        - key: IPA
+          value: -3.41
+          comment: Rotator axis pos. (approx, deg)
+        - key: SPA
+          value: 176.6889054674645
+          comment: TCC SpiderInstAng
+        - key: FOCUS
+          value: 518.08
+          comment: User-specified focus offset (um)
+        - key: M2PISTON
+          value: 1895.37
+          comment: TCC SecOrient
+        - key: M2XTILT
+          value: -3.97
+          comment: TCC SecOrient
+        - key: M2YTILT
+          value: -9.01
+          comment: TCC SecOrient
+        - key: M2XTRAN
+          value: 9.9
+          comment: TCC SecOrient
+        - key: M2YTRAN
+          value: -14.38
+          comment: TCC SecOrient
+        - key: M1PISTON
+          value: 296.25
+          comment: TCC PrimOrient
+        - key: M1XTILT
+          value: -3.04
+          comment: TCC PrimOrient
+        - key: M1YTILT
+          value: 5.26
+          comment: TCC PrimOrient
+        - key: M1XTRAN
+          value: 277.64
+          comment: TCC PrimOrient
+        - key: M1YTRAN
+          value: 178.07
+          comment: TCC PrimOrient
+        - key: SCALE
+          value: 0.99997
+          comment: User-specified scale factor
+        - key: NAME
+          value: 3682-55244-01
+          comment: The name of the currently loaded plate
+        - key: PLATEID
+          value: 3682
+          comment: The currently loaded plate
+        - key: CARTID
+          value: 12
+          comment: The currently loaded cartridge
+        - key: MAPID
+          value: 1
+          comment: The mapping version of the loaded plate
+        - key: POINTING
+          value: A
+          comment: The currently specified pointing
+        - key: GUIDER1
+          value: proc-gimg-0422.fits
+          comment: The first guider image
+        - key: COLLA
+          value: -8460
+          comment: The position of the A collimator motor
+        - key: COLLB
+          value: -8486
+          comment: The position of the B collimator motor
+        - key: COLLC
+          value: -8505
+          comment: The position of the C collimator motor
+        - key: HARTMANN
+          value: Out
+          comment: 'Hartmanns: Left,Right,Out'
+        - key: MC1HUMHT
+          value: 38.4
+          comment: sp1 mech Hartmann humidity, %
+        - key: MC1HUMCO
+          value: 33.8
+          comment: sp1 mech Central optics humidity, %
+        - key: MC1TEMDN
+          value: -1.1
+          comment: sp1 mech Median temp, C
+        - key: MC1THT
+          value: -1.3
+          comment: sp1 mech Hartmann Top Temp, C
+        - key: MC1TRCB
+          value: -1.5
+          comment: sp1 mech Red Cam Bottom Temp, C
+        - key: MC1TRCT
+          value: -0.7
+          comment: sp1 mech Red Cam Top Temp, C
+        - key: MC1TBCB
+          value: -1.3
+          comment: sp1 mech Blue Cam Bottom Temp, C
+        - key: MC1TBCT
+          value: -1.1
+          comment: sp1 mech Blue Cam Top Temp, C
+        - key: MC2HUMHT
+          value: 32.0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MC2HUMCO
+          value: 20.6
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MC2TEMDN
+          value: -2.0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MC2THT
+          value: -1.4
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MC2TRCB
+          value: -1.6
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MC2TRCT
+          value: -2.0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MC2TBCB
+          value: -2.1
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MC2TBCT
+          value: -1.6
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: GUIDERN
+          value: proc-gimg-0422.fits
+          comment: The last guider image
+        - key: EXPTIME
+          value: 4.0
+          comment: measured exposure time, s
+        - key: SHOPETIM
+          value: 0.73
+          comment: open shutter transit time, s
+        - key: SHCLOTIM
+          value: 0.555
+          comment: close shutter transit time, s
+        - key: CAMROW
+          value: 0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: CAMCOL
+          value: 1
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: AUTHOR
+          value: Scott Burles & David Schlegel
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: VERSIDL
+          value: 7.1.1
+          comment: Version of IDL
+        - key: VERSUTIL
+          value: v5_5_17
+          comment: Version of idlutils
+        - key: VERSREAD
+          value: v5_9_0
+          comment: Version of idlspec2d for pre-processing raw dat
+        - key: VERSLOG
+          value: v5_9_0
+          comment: Version of SPECLOG product
+        - key: VERSFLAT
+          value: v1_25
+          comment: Version of SPECFLAT product
+        - key: TWOPHASE
+          value: false
+          comment: Extra 1/3 row in wavecal at array center?
+        - key: QUALITY
+          value: excellent
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: RDNOISE0
+          value: 2.01114
+          comment: CCD read noise amp 0 [electrons]
+        - key: RDNOISE1
+          value: 1.94212
+          comment: CCD read noise amp 1 [electrons]
+        - key: RDNOISE2
+          value: 1.8936
+          comment: CCD read noise amp 2 [electrons]
+        - key: RDNOISE3
+          value: 1.86914
+          comment: CCD read noise amp 3 [electrons]
+        - key: PIXFLAT
+          value: pixflatave-55056-b1.fits.gz
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: BADPIXEL
+          value: badpixels-55056-b1.fits.gz
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: FBADPIX
+          value: 4.82106e-05
+          comment: Fraction of bad pixels in raw image
+        - key: BESTCORR
+          value: 0.70722
+          comment: Best Correlation coefficient
+      hdu1:
+        name: ''
+        description: 'The data attribute of HDU 1 stores the wavelengths of good lamp
+          lines (in Angstroms) and the Y position of each fiber on the CCD for the
+          corresponding wavelengths.
+
+          The data in HDU 1 is of size 65 X 501 in which the first of the 501 columns
+          stores the wavelengths of the good lamp lines, and the remaining 500 columns
+
+          store the Y positions of those lines for each of the 500 fibers.
+
+          <b>
+
+          Required header keywords:
+
+          </b>
+
+          <b>
+
+          Optional header keywords:
+
+          </b>'
+        is_image: true
+        size: 176 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image Extension created by MWRFITS v1.8
+        - key: BITPIX
+          value: -64
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 501
+          comment: length of dimension 2
+        - key: NAXIS2
+          value: 45
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+      hdu2:
+        name: ''
+        description: "The HDU 2 data is a binary table whose fields are used to calculate\
+          \ wavelength solution (units of log10 Angstroms) for the arc calibration\
+          \ frames.\nThe Y-positions on the CCD, which is the independent variable\
+          \ and corresponding wavelength solutions (in Angstroms) which is the dependent\
+          \ variable, \nare fitted to a functional form and the resulting coefficients\
+          \ are stored in the binary table.\n\n<b>\nHow to use these coefficients:\
+          \ \n</b>\n\nLet x be the pixel number of a given trace. We define mu = 2*(x-XMID)/(XMAX-XMIN)\
+          \ and the solution for the wavelength \nis FUNC(mu) where FUNC is the function\
+          \ stored in the FUNC column in this binary table (it is usually a Legendre\
+          \ polynomials).\n\nIf XJUMPLO or XJUMPHI are present in the table, the following\
+          \ formulas need to be applied to correct x due to two-phase read-out of\
+          \ CCDs.\n\n<code>\n<br/>t = (x-XJUMPLO)/(XJUMPHI-XJUMPLO)\n<br/>jump = 0\
+          \ * (t&lt;0) + t * (0&lt;t&lt;1) + 1 * (t&gt;1)\n<br/>x = x + jump * XJUMPVAL\n\
+          <br/>mu = 2*(x-XMID)/(XMAX-XMIN)\n<br/>loglam = FUNC(mu)\n</code>"
+        is_image: false
+        size: 23 KB
+        columns:
+          FUNC:
+            name: FUNC
+            type: char[8]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: describes the function used to fit the wavelength solutions
+              (units of log-10 Angstroms) and Y-positions to a functional form.
+          XMIN:
+            name: XMIN
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: minimum value of the independent variable used by fitting
+              function.
+          XMAX:
+            name: XMAX
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: maximum value of the independent variable which is used along
+              with the fitting coefficients, in the fitting function to get the value
+              of dependent variable, which is the wavelength solution.
+          COEFF:
+            name: COEFF
+            type: float64[3000]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: "[3000](float64)  \t\t\t:  fit coefficents"
+      hdu3:
+        name: ''
+        description: 'The HDU 3 data stores the fibermask. These are fiber status
+          bits and are set to non-zero to indicate bad status. The status bits used
+          for masking are documented in $IDLUTILS/v5_4_12/data/sdss/sdssMaskbits.par.
+
+          <b>
+
+          Required header keywords:
+
+          </b>
+
+          <b>
+
+          Optional header keywords:
+
+          </b>'
+        is_image: true
+        size: 1 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image Extension created by MWRFITS v1.8
+        - key: BITPIX
+          value: 32
+          comment: array data type
+        - key: NAXIS
+          value: 1
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 500
+          comment: length of dimension 1
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+      hdu4:
+        name: ''
+        description: "The data attribute of HDU 4 gives the line width (in the dispersion\
+          \ axis) for each fiber. This Gaussian sigma is in units of pixels.\nThe\
+          \ Y-positions on the CCD, which is the independent variable and the corresponding\
+          \ line width, which is the dependent variable are fitted \nto a functional\
+          \ form and the resulting coefficients are stored in a binary table.\n\n\
+          For instructions on how to use these tracesets, see HDU2 description of\
+          \ this file."
+        is_image: false
+        size: 15 KB
+        columns:
+          FUNC:
+            name: FUNC
+            type: char[8]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: describes the function used to fit the line width (units
+              of pixels) and Y-positions to a functional form.
+          XMIN:
+            name: XMIN
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: minimum value of the independent variable used by fitting
+              function.
+          XMAX:
+            name: XMAX
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: maximum value of the independent variable which is used along
+              with the fitting coefficients, in the fitting function to get the value
+              of dependent variable, which is the line width of fibers.
+          COEFF:
+            name: COEFF
+            type: float64[2000]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+  DR14:
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID]/spArc-[BR][ID]-[FRAME].fits.gz
+    example: v5_10_0/3682/spArc-b1-00108606.fits.gz
+    location: '{run2d}/{plateid}/spArc-{br}{id}-{frame}.fits.gz'
+    environment: BOSS_SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: spArc
+      path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spArc-{br}{id}-{frame:0>8}.fits.gz'
+      path_kwargs:
+      - run2d
+      - id
+      - plateid
+      - br
+      - frame
+      access_string: spArc = $BOSS_SPECTRO_REDUX/{run2d}/{plateid}/spArc-{br}{id}-{frame}.fits.gz
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: 'The data attribute of Primary HDU stores the extracted flux
+          for the entire image.
+
+          <b>
+
+          Required header keywords:
+
+          </b>
+
+          <b>
+
+          Optional header keywords:
+
+          </b>'
+        is_image: true
+        size: 7 MB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: -32
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 4112
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 500
+          comment: length of dimension 2
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: TELESCOP
+          value: SDSS 2.5-M
+          comment: Sloan Digital Sky Survey
+        - key: FILENAME
+          value: sdR-b1-00108606.fit
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: CAMERAS
+          value: b1
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: EXPOSURE
+          value: 108606
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: DAQVER
+          value: 1.2.8
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: CAMDAQ
+          value: 1.4.1:32
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ERRCNT
+          value: NONE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: SYNCERR
+          value: NONE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: SLINES
+          value: NONE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: PIXERR
+          value: NONE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: PLINES
+          value: NONE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: FLAVOR
+          value: arc
+          comment: exposure type, SDSS spectro style
+        - key: BOSSVER
+          value: v2_0_17
+          comment: ICC version
+        - key: MJD
+          value: 55244
+          comment: APO fMJD day at start of exposure
+        - key: TAI-BEG
+          value: 4773100227.000001
+          comment: MJD(TAI) seconds at start of integration
+        - key: DATE-OBS
+          value: '2010-02-17T05:10:27'
+          comment: TAI date at start of integration
+        - key: FF
+          value: 0 0 0 0
+          comment: FF lamps 1:on 0:0ff
+        - key: NE
+          value: 1 1 1 1
+          comment: NE lamps 1:on 0:0ff
+        - key: HGCD
+          value: 1 1 1 1
+          comment: HGCD lamps 1:on 0:0ff
+        - key: FFS
+          value: 1 1 1 1 1 1 1 1
+          comment: Flatfield Screen 1:closed 0:open
+        - key: OBJSYS
+          value: ICRS
+          comment: The TCC objSys
+        - key: RA
+          value: 120.0777
+          comment: RA of telescope boresight (deg)
+        - key: DEC
+          value: 53.2734
+          comment: Dec of telescope boresight (deg)
+        - key: RADEG
+          value: 120.0777
+          comment: RA of telescope pointing(deg)
+        - key: DECDEG
+          value: 53.2734
+          comment: Dec of telescope pointing (deg)
+        - key: ROTPOS
+          value: 0.0
+          comment: Rotator request position (deg)
+        - key: BOREOFFX
+          value: 0.0
+          comment: TCC Boresight offset, deg
+        - key: BOREOFFY
+          value: 0.0
+          comment: TCC Boresight offset, deg
+        - key: ARCOFFX
+          value: 0.0
+          comment: TCC ObjArcOff, deg
+        - key: ARCOFFY
+          value: 0.0
+          comment: TCC ObjArcOff, deg
+        - key: OBJOFFX
+          value: 0.0
+          comment: TCC ObjOff, deg
+        - key: OBJOFFY
+          value: 0.0
+          comment: TCC ObjOff, deg
+        - key: CALOFFX
+          value: 0.002
+          comment: TCC CalibOff, deg
+        - key: CALOFFY
+          value: -0.001
+          comment: TCC CalibOff, deg
+        - key: CALOFFR
+          value: 0.0
+          comment: TCC CalibOff, deg
+        - key: GUIDOFFX
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: GUIDOFFY
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: GUIDOFFR
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: AZ
+          value: 177.508
+          comment: Azimuth axis pos. (approx, deg)
+        - key: ALT
+          value: 69.516
+          comment: Altitude axis pos. (approx, deg)
+        - key: IPA
+          value: -3.41
+          comment: Rotator axis pos. (approx, deg)
+        - key: SPA
+          value: 176.6889054674645
+          comment: TCC SpiderInstAng
+        - key: FOCUS
+          value: 518.08
+          comment: User-specified focus offset (um)
+        - key: M2PISTON
+          value: 1895.37
+          comment: TCC SecOrient
+        - key: M2XTILT
+          value: -3.97
+          comment: TCC SecOrient
+        - key: M2YTILT
+          value: -9.01
+          comment: TCC SecOrient
+        - key: M2XTRAN
+          value: 9.9
+          comment: TCC SecOrient
+        - key: M2YTRAN
+          value: -14.38
+          comment: TCC SecOrient
+        - key: M1PISTON
+          value: 296.25
+          comment: TCC PrimOrient
+        - key: M1XTILT
+          value: -3.04
+          comment: TCC PrimOrient
+        - key: M1YTILT
+          value: 5.26
+          comment: TCC PrimOrient
+        - key: M1XTRAN
+          value: 277.64
+          comment: TCC PrimOrient
+        - key: M1YTRAN
+          value: 178.07
+          comment: TCC PrimOrient
+        - key: SCALE
+          value: 0.99997
+          comment: User-specified scale factor
+        - key: NAME
+          value: 3682-55244-01
+          comment: The name of the currently loaded plate
+        - key: PLATEID
+          value: 3682
+          comment: The currently loaded plate
+        - key: CARTID
+          value: 12
+          comment: The currently loaded cartridge
+        - key: MAPID
+          value: 1
+          comment: The mapping version of the loaded plate
+        - key: POINTING
+          value: A
+          comment: The currently specified pointing
+        - key: GUIDER1
+          value: proc-gimg-0422.fits
+          comment: The first guider image
+        - key: COLLA
+          value: -8460
+          comment: The position of the A collimator motor
+        - key: COLLB
+          value: -8486
+          comment: The position of the B collimator motor
+        - key: COLLC
+          value: -8505
+          comment: The position of the C collimator motor
+        - key: HARTMANN
+          value: Out
+          comment: 'Hartmanns: Left,Right,Out'
+        - key: MC1HUMHT
+          value: 38.4
+          comment: sp1 mech Hartmann humidity, %
+        - key: MC1HUMCO
+          value: 33.8
+          comment: sp1 mech Central optics humidity, %
+        - key: MC1TEMDN
+          value: -1.1
+          comment: sp1 mech Median temp, C
+        - key: MC1THT
+          value: -1.3
+          comment: sp1 mech Hartmann Top Temp, C
+        - key: MC1TRCB
+          value: -1.5
+          comment: sp1 mech Red Cam Bottom Temp, C
+        - key: MC1TRCT
+          value: -0.7
+          comment: sp1 mech Red Cam Top Temp, C
+        - key: MC1TBCB
+          value: -1.3
+          comment: sp1 mech Blue Cam Bottom Temp, C
+        - key: MC1TBCT
+          value: -1.1
+          comment: sp1 mech Blue Cam Top Temp, C
+        - key: MC2HUMHT
+          value: 32.0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MC2HUMCO
+          value: 20.6
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MC2TEMDN
+          value: -2.0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MC2THT
+          value: -1.4
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MC2TRCB
+          value: -1.6
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MC2TRCT
+          value: -2.0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MC2TBCB
+          value: -2.1
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MC2TBCT
+          value: -1.6
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: GUIDERN
+          value: proc-gimg-0422.fits
+          comment: The last guider image
+        - key: EXPTIME
+          value: 4.0
+          comment: measured exposure time, s
+        - key: SHOPETIM
+          value: 0.73
+          comment: open shutter transit time, s
+        - key: SHCLOTIM
+          value: 0.555
+          comment: close shutter transit time, s
+        - key: CAMROW
+          value: 0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: CAMCOL
+          value: 1
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: AUTHOR
+          value: Scott Burles & David Schlegel
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: VERSIDL
+          value: 7.1.1
+          comment: Version of IDL
+        - key: VERSUTIL
+          value: v5_5_17
+          comment: Version of idlutils
+        - key: VERSREAD
+          value: v5_10_0
+          comment: Version of idlspec2d for pre-processing raw dat
+        - key: VERSLOG
+          value: trunk 23369
+          comment: Version of SPECLOG product
+        - key: VERSFLAT
+          value: v1_25
+          comment: Version of SPECFLAT product
+        - key: TWOPHASE
+          value: false
+          comment: Extra 1/3 row in wavecal at array center?
+        - key: QUALITY
+          value: excellent
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: RDNOISE0
+          value: 2.01114
+          comment: CCD read noise amp 0 [electrons]
+        - key: RDNOISE1
+          value: 1.94212
+          comment: CCD read noise amp 1 [electrons]
+        - key: RDNOISE2
+          value: 1.8936
+          comment: CCD read noise amp 2 [electrons]
+        - key: RDNOISE3
+          value: 1.86914
+          comment: CCD read noise amp 3 [electrons]
+        - key: PIXFLAT
+          value: pixflatave-55056-b1.fits.gz
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: BADPIXEL
+          value: badpixels-55056-b1.fits.gz
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: FBADPIX
+          value: 4.82106e-05
+          comment: Fraction of bad pixels in raw image
+        - key: BESTCORR
+          value: 0.70722
+          comment: Best Correlation coefficient
+      hdu1:
+        name: ''
+        description: 'The data attribute of HDU 1 stores the wavelengths of good lamp
+          lines (in Angstroms) and the Y position of each fiber on the CCD for the
+          corresponding wavelengths.
+
+          The data in HDU 1 is of size 65 X 501 in which the first of the 501 columns
+          stores the wavelengths of the good lamp lines, and the remaining 500 columns
+
+          store the Y positions of those lines for each of the 500 fibers.
+
+          <b>
+
+          Required header keywords:
+
+          </b>
+
+          <b>
+
+          Optional header keywords:
+
+          </b>'
+        is_image: true
+        size: 176 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image Extension created by MWRFITS v1.8
+        - key: BITPIX
+          value: -64
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 501
+          comment: length of dimension 2
+        - key: NAXIS2
+          value: 45
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+      hdu2:
+        name: ''
+        description: "The HDU 2 data is a binary table whose fields are used to calculate\
+          \ wavelength solution (units of log10 Angstroms) for the arc calibration\
+          \ frames.\nThe Y-positions on the CCD, which is the independent variable\
+          \ and corresponding wavelength solutions (in Angstroms) which is the dependent\
+          \ variable, \nare fitted to a functional form and the resulting coefficients\
+          \ are stored in the binary table.\n\n<b>\nHow to use these coefficients:\
+          \ \n</b>\n\nLet x be the pixel number of a given trace. We define mu = 2*(x-XMID)/(XMAX-XMIN)\
+          \ and the solution for the wavelength \nis FUNC(mu) where FUNC is the function\
+          \ stored in the FUNC column in this binary table (it is usually a Legendre\
+          \ polynomials).\n\nIf XJUMPLO or XJUMPHI are present in the table, the following\
+          \ formulas need to be applied to correct x due to two-phase read-out of\
+          \ CCDs.\n\n<code>\n<br/>t = (x-XJUMPLO)/(XJUMPHI-XJUMPLO)\n<br/>jump = 0\
+          \ * (t&lt;0) + t * (0&lt;t&lt;1) + 1 * (t&gt;1)\n<br/>x = x + jump * XJUMPVAL\n\
+          <br/>mu = 2*(x-XMID)/(XMAX-XMIN)\n<br/>loglam = FUNC(mu)\n</code>"
+        is_image: false
+        size: 23 KB
+        columns:
+          FUNC:
+            name: FUNC
+            type: char[8]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: describes the function used to fit the wavelength solutions
+              (units of log-10 Angstroms) and Y-positions to a functional form.
+          XMIN:
+            name: XMIN
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: minimum value of the independent variable used by fitting
+              function.
+          XMAX:
+            name: XMAX
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: maximum value of the independent variable which is used along
+              with the fitting coefficients, in the fitting function to get the value
+              of dependent variable, which is the wavelength solution.
+          COEFF:
+            name: COEFF
+            type: float64[3000]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: "[3000](float64)  \t\t\t:  fit coefficents"
+      hdu3:
+        name: ''
+        description: 'The HDU 3 data stores the fibermask. These are fiber status
+          bits and are set to non-zero to indicate bad status. The status bits used
+          for masking are documented in $IDLUTILS/v5_4_12/data/sdss/sdssMaskbits.par.
+
+          <b>
+
+          Required header keywords:
+
+          </b>
+
+          <b>
+
+          Optional header keywords:
+
+          </b>'
+        is_image: true
+        size: 1 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image Extension created by MWRFITS v1.8
+        - key: BITPIX
+          value: 32
+          comment: array data type
+        - key: NAXIS
+          value: 1
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 500
+          comment: length of dimension 1
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+      hdu4:
+        name: ''
+        description: "The data attribute of HDU 4 gives the line width (in the dispersion\
+          \ axis) for each fiber. This Gaussian sigma is in units of pixels.\nThe\
+          \ Y-positions on the CCD, which is the independent variable and the corresponding\
+          \ line width, which is the dependent variable are fitted \nto a functional\
+          \ form and the resulting coefficients are stored in a binary table.\n\n\
+          For instructions on how to use these tracesets, see HDU2 description of\
+          \ this file."
+        is_image: false
+        size: 15 KB
+        columns:
+          FUNC:
+            name: FUNC
+            type: char[8]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: describes the function used to fit the line width (units
+              of pixels) and Y-positions to a functional form.
+          XMIN:
+            name: XMIN
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: minimum value of the independent variable used by fitting
+              function.
+          XMAX:
+            name: XMAX
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: maximum value of the independent variable which is used along
+              with the fitting coefficients, in the fitting function to get the value
+              of dependent variable, which is the line width of fibers.
+          COEFF:
+            name: COEFF
+            type: float64[2000]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+  DR15:
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID]/spArc-[BR][ID]-[FRAME].fits.gz
+    example: v5_10_0/3682/spArc-b1-00108606.fits.gz
+    location: '{run2d}/{plateid}/spArc-{br}{id}-{frame}.fits.gz'
+    environment: BOSS_SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: spArc
+      path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spArc-{br}{id}-{frame:0>8}.fits.gz'
+      path_kwargs:
+      - br
+      - id
+      - plateid
+      - frame
+      - run2d
+      access_string: spArc = $BOSS_SPECTRO_REDUX/{run2d}/{plateid}/spArc-{br}{id}-{frame}.fits.gz
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: 'The data attribute of Primary HDU stores the extracted flux
+          for the entire image.
+
+          <b>
+
+          Required header keywords:
+
+          </b>
+
+          <b>
+
+          Optional header keywords:
+
+          </b>'
+        is_image: true
+        size: 7 MB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: -32
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 4112
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 500
+          comment: length of dimension 2
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: TELESCOP
+          value: SDSS 2.5-M
+          comment: Sloan Digital Sky Survey
+        - key: FILENAME
+          value: sdR-b1-00108606.fit
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: CAMERAS
+          value: b1
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: EXPOSURE
+          value: 108606
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: DAQVER
+          value: 1.2.8
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: CAMDAQ
+          value: 1.4.1:32
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ERRCNT
+          value: NONE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: SYNCERR
+          value: NONE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: SLINES
+          value: NONE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: PIXERR
+          value: NONE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: PLINES
+          value: NONE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: FLAVOR
+          value: arc
+          comment: exposure type, SDSS spectro style
+        - key: BOSSVER
+          value: v2_0_17
+          comment: ICC version
+        - key: MJD
+          value: 55244
+          comment: APO fMJD day at start of exposure
+        - key: TAI-BEG
+          value: 4773100227.000001
+          comment: MJD(TAI) seconds at start of integration
+        - key: DATE-OBS
+          value: '2010-02-17T05:10:27'
+          comment: TAI date at start of integration
+        - key: FF
+          value: 0 0 0 0
+          comment: FF lamps 1:on 0:0ff
+        - key: NE
+          value: 1 1 1 1
+          comment: NE lamps 1:on 0:0ff
+        - key: HGCD
+          value: 1 1 1 1
+          comment: HGCD lamps 1:on 0:0ff
+        - key: FFS
+          value: 1 1 1 1 1 1 1 1
+          comment: Flatfield Screen 1:closed 0:open
+        - key: OBJSYS
+          value: ICRS
+          comment: The TCC objSys
+        - key: RA
+          value: 120.0777
+          comment: RA of telescope boresight (deg)
+        - key: DEC
+          value: 53.2734
+          comment: Dec of telescope boresight (deg)
+        - key: RADEG
+          value: 120.0777
+          comment: RA of telescope pointing(deg)
+        - key: DECDEG
+          value: 53.2734
+          comment: Dec of telescope pointing (deg)
+        - key: ROTPOS
+          value: 0.0
+          comment: Rotator request position (deg)
+        - key: BOREOFFX
+          value: 0.0
+          comment: TCC Boresight offset, deg
+        - key: BOREOFFY
+          value: 0.0
+          comment: TCC Boresight offset, deg
+        - key: ARCOFFX
+          value: 0.0
+          comment: TCC ObjArcOff, deg
+        - key: ARCOFFY
+          value: 0.0
+          comment: TCC ObjArcOff, deg
+        - key: OBJOFFX
+          value: 0.0
+          comment: TCC ObjOff, deg
+        - key: OBJOFFY
+          value: 0.0
+          comment: TCC ObjOff, deg
+        - key: CALOFFX
+          value: 0.002
+          comment: TCC CalibOff, deg
+        - key: CALOFFY
+          value: -0.001
+          comment: TCC CalibOff, deg
+        - key: CALOFFR
+          value: 0.0
+          comment: TCC CalibOff, deg
+        - key: GUIDOFFX
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: GUIDOFFY
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: GUIDOFFR
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: AZ
+          value: 177.508
+          comment: Azimuth axis pos. (approx, deg)
+        - key: ALT
+          value: 69.516
+          comment: Altitude axis pos. (approx, deg)
+        - key: IPA
+          value: -3.41
+          comment: Rotator axis pos. (approx, deg)
+        - key: SPA
+          value: 176.6889054674645
+          comment: TCC SpiderInstAng
+        - key: FOCUS
+          value: 518.08
+          comment: User-specified focus offset (um)
+        - key: M2PISTON
+          value: 1895.37
+          comment: TCC SecOrient
+        - key: M2XTILT
+          value: -3.97
+          comment: TCC SecOrient
+        - key: M2YTILT
+          value: -9.01
+          comment: TCC SecOrient
+        - key: M2XTRAN
+          value: 9.9
+          comment: TCC SecOrient
+        - key: M2YTRAN
+          value: -14.38
+          comment: TCC SecOrient
+        - key: M1PISTON
+          value: 296.25
+          comment: TCC PrimOrient
+        - key: M1XTILT
+          value: -3.04
+          comment: TCC PrimOrient
+        - key: M1YTILT
+          value: 5.26
+          comment: TCC PrimOrient
+        - key: M1XTRAN
+          value: 277.64
+          comment: TCC PrimOrient
+        - key: M1YTRAN
+          value: 178.07
+          comment: TCC PrimOrient
+        - key: SCALE
+          value: 0.99997
+          comment: User-specified scale factor
+        - key: NAME
+          value: 3682-55244-01
+          comment: The name of the currently loaded plate
+        - key: PLATEID
+          value: 3682
+          comment: The currently loaded plate
+        - key: CARTID
+          value: 12
+          comment: The currently loaded cartridge
+        - key: MAPID
+          value: 1
+          comment: The mapping version of the loaded plate
+        - key: POINTING
+          value: A
+          comment: The currently specified pointing
+        - key: GUIDER1
+          value: proc-gimg-0422.fits
+          comment: The first guider image
+        - key: COLLA
+          value: -8460
+          comment: The position of the A collimator motor
+        - key: COLLB
+          value: -8486
+          comment: The position of the B collimator motor
+        - key: COLLC
+          value: -8505
+          comment: The position of the C collimator motor
+        - key: HARTMANN
+          value: Out
+          comment: 'Hartmanns: Left,Right,Out'
+        - key: MC1HUMHT
+          value: 38.4
+          comment: sp1 mech Hartmann humidity, %
+        - key: MC1HUMCO
+          value: 33.8
+          comment: sp1 mech Central optics humidity, %
+        - key: MC1TEMDN
+          value: -1.1
+          comment: sp1 mech Median temp, C
+        - key: MC1THT
+          value: -1.3
+          comment: sp1 mech Hartmann Top Temp, C
+        - key: MC1TRCB
+          value: -1.5
+          comment: sp1 mech Red Cam Bottom Temp, C
+        - key: MC1TRCT
+          value: -0.7
+          comment: sp1 mech Red Cam Top Temp, C
+        - key: MC1TBCB
+          value: -1.3
+          comment: sp1 mech Blue Cam Bottom Temp, C
+        - key: MC1TBCT
+          value: -1.1
+          comment: sp1 mech Blue Cam Top Temp, C
+        - key: MC2HUMHT
+          value: 32.0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MC2HUMCO
+          value: 20.6
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MC2TEMDN
+          value: -2.0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MC2THT
+          value: -1.4
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MC2TRCB
+          value: -1.6
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MC2TRCT
+          value: -2.0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MC2TBCB
+          value: -2.1
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MC2TBCT
+          value: -1.6
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: GUIDERN
+          value: proc-gimg-0422.fits
+          comment: The last guider image
+        - key: EXPTIME
+          value: 4.0
+          comment: measured exposure time, s
+        - key: SHOPETIM
+          value: 0.73
+          comment: open shutter transit time, s
+        - key: SHCLOTIM
+          value: 0.555
+          comment: close shutter transit time, s
+        - key: CAMROW
+          value: 0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: CAMCOL
+          value: 1
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: AUTHOR
+          value: Scott Burles & David Schlegel
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: VERSIDL
+          value: 7.1.1
+          comment: Version of IDL
+        - key: VERSUTIL
+          value: v5_5_17
+          comment: Version of idlutils
+        - key: VERSREAD
+          value: v5_10_0
+          comment: Version of idlspec2d for pre-processing raw dat
+        - key: VERSLOG
+          value: trunk 23369
+          comment: Version of SPECLOG product
+        - key: VERSFLAT
+          value: v1_25
+          comment: Version of SPECFLAT product
+        - key: TWOPHASE
+          value: false
+          comment: Extra 1/3 row in wavecal at array center?
+        - key: QUALITY
+          value: excellent
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: RDNOISE0
+          value: 2.01114
+          comment: CCD read noise amp 0 [electrons]
+        - key: RDNOISE1
+          value: 1.94212
+          comment: CCD read noise amp 1 [electrons]
+        - key: RDNOISE2
+          value: 1.8936
+          comment: CCD read noise amp 2 [electrons]
+        - key: RDNOISE3
+          value: 1.86914
+          comment: CCD read noise amp 3 [electrons]
+        - key: PIXFLAT
+          value: pixflatave-55056-b1.fits.gz
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: BADPIXEL
+          value: badpixels-55056-b1.fits.gz
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: FBADPIX
+          value: 4.82106e-05
+          comment: Fraction of bad pixels in raw image
+        - key: BESTCORR
+          value: 0.70722
+          comment: Best Correlation coefficient
+      hdu1:
+        name: ''
+        description: 'The data attribute of HDU 1 stores the wavelengths of good lamp
+          lines (in Angstroms) and the Y position of each fiber on the CCD for the
+          corresponding wavelengths.
+
+          The data in HDU 1 is of size 65 X 501 in which the first of the 501 columns
+          stores the wavelengths of the good lamp lines, and the remaining 500 columns
+
+          store the Y positions of those lines for each of the 500 fibers.
+
+          <b>
+
+          Required header keywords:
+
+          </b>
+
+          <b>
+
+          Optional header keywords:
+
+          </b>'
+        is_image: true
+        size: 176 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image Extension created by MWRFITS v1.8
+        - key: BITPIX
+          value: -64
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 501
+          comment: length of dimension 2
+        - key: NAXIS2
+          value: 45
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+      hdu2:
+        name: ''
+        description: "The HDU 2 data is a binary table whose fields are used to calculate\
+          \ wavelength solution (units of log10 Angstroms) for the arc calibration\
+          \ frames.\nThe Y-positions on the CCD, which is the independent variable\
+          \ and corresponding wavelength solutions (in Angstroms) which is the dependent\
+          \ variable, \nare fitted to a functional form and the resulting coefficients\
+          \ are stored in the binary table.\n\n<b>\nHow to use these coefficients:\
+          \ \n</b>\n\nLet x be the pixel number of a given trace. We define mu = 2*(x-XMID)/(XMAX-XMIN)\
+          \ and the solution for the wavelength \nis FUNC(mu) where FUNC is the function\
+          \ stored in the FUNC column in this binary table (it is usually a Legendre\
+          \ polynomials).\n\nIf XJUMPLO or XJUMPHI are present in the table, the following\
+          \ formulas need to be applied to correct x due to two-phase read-out of\
+          \ CCDs.\n\n<code>\n<br/>t = (x-XJUMPLO)/(XJUMPHI-XJUMPLO)\n<br/>jump = 0\
+          \ * (t&lt;0) + t * (0&lt;t&lt;1) + 1 * (t&gt;1)\n<br/>x = x + jump * XJUMPVAL\n\
+          <br/>mu = 2*(x-XMID)/(XMAX-XMIN)\n<br/>loglam = FUNC(mu)\n</code>"
+        is_image: false
+        size: 23 KB
+        columns:
+          FUNC:
+            name: FUNC
+            type: char[8]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: describes the function used to fit the wavelength solutions
+              (units of log-10 Angstroms) and Y-positions to a functional form.
+          XMIN:
+            name: XMIN
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: minimum value of the independent variable used by fitting
+              function.
+          XMAX:
+            name: XMAX
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: maximum value of the independent variable which is used along
+              with the fitting coefficients, in the fitting function to get the value
+              of dependent variable, which is the wavelength solution.
+          COEFF:
+            name: COEFF
+            type: float64[3000]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: "[3000](float64)  \t\t\t:  fit coefficents"
+      hdu3:
+        name: ''
+        description: 'The HDU 3 data stores the fibermask. These are fiber status
+          bits and are set to non-zero to indicate bad status. The status bits used
+          for masking are documented in $IDLUTILS/v5_4_12/data/sdss/sdssMaskbits.par.
+
+          <b>
+
+          Required header keywords:
+
+          </b>
+
+          <b>
+
+          Optional header keywords:
+
+          </b>'
+        is_image: true
+        size: 1 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image Extension created by MWRFITS v1.8
+        - key: BITPIX
+          value: 32
+          comment: array data type
+        - key: NAXIS
+          value: 1
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 500
+          comment: length of dimension 1
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+      hdu4:
+        name: ''
+        description: "The data attribute of HDU 4 gives the line width (in the dispersion\
+          \ axis) for each fiber. This Gaussian sigma is in units of pixels.\nThe\
+          \ Y-positions on the CCD, which is the independent variable and the corresponding\
+          \ line width, which is the dependent variable are fitted \nto a functional\
+          \ form and the resulting coefficients are stored in a binary table.\n\n\
+          For instructions on how to use these tracesets, see HDU2 description of\
+          \ this file."
+        is_image: false
+        size: 15 KB
+        columns:
+          FUNC:
+            name: FUNC
+            type: char[8]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: describes the function used to fit the line width (units
+              of pixels) and Y-positions to a functional form.
+          XMIN:
+            name: XMIN
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: minimum value of the independent variable used by fitting
+              function.
+          XMAX:
+            name: XMAX
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: maximum value of the independent variable which is used along
+              with the fitting coefficients, in the fitting function to get the value
+              of dependent variable, which is the line width of fibers.
+          COEFF:
+            name: COEFF
+            type: float64[2000]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+  DR16:
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID]/spArc-[BR][ID]-[FRAME].fits.gz
+    example: v5_13_0/3682/spArc-b1-00108606.fits.gz
+    location: '{run2d}/{plateid}/spArc-{br}{id}-{frame}.fits.gz'
+    environment: BOSS_SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: spArc
+      path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spArc-{br}{id}-{frame:0>8}.fits.gz'
+      path_kwargs:
+      - frame
+      - run2d
+      - plateid
+      - br
+      - id
+      access_string: spArc = $BOSS_SPECTRO_REDUX/{run2d}/{plateid}/spArc-{br}{id}-{frame}.fits.gz
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: 'The data attribute of Primary HDU stores the extracted flux
+          for the entire image.
+
+          <b>
+
+          Required header keywords:
+
+          </b>
+
+          <b>
+
+          Optional header keywords:
+
+          </b>'
+        is_image: true
+        size: 7 MB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: -32
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 4112
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 500
+          comment: length of dimension 2
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: TELESCOP
+          value: SDSS 2.5-M
+          comment: Sloan Digital Sky Survey
+        - key: FILENAME
+          value: sdR-b1-00108606.fit
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: CAMERAS
+          value: b1
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: EXPOSURE
+          value: 108606
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: DAQVER
+          value: 1.2.8
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: CAMDAQ
+          value: 1.4.1:32
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ERRCNT
+          value: NONE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: SYNCERR
+          value: NONE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: SLINES
+          value: NONE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: PIXERR
+          value: NONE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: PLINES
+          value: NONE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: FLAVOR
+          value: arc
+          comment: exposure type, SDSS spectro style
+        - key: BOSSVER
+          value: v2_0_17
+          comment: ICC version
+        - key: MJD
+          value: 55244
+          comment: APO fMJD day at start of exposure
+        - key: TAI-BEG
+          value: 4773100227.000001
+          comment: MJD(TAI) seconds at start of integration
+        - key: DATE-OBS
+          value: '2010-02-17T05:10:27'
+          comment: TAI date at start of integration
+        - key: FF
+          value: 0 0 0 0
+          comment: FF lamps 1:on 0:0ff
+        - key: NE
+          value: 1 1 1 1
+          comment: NE lamps 1:on 0:0ff
+        - key: HGCD
+          value: 1 1 1 1
+          comment: HGCD lamps 1:on 0:0ff
+        - key: FFS
+          value: 1 1 1 1 1 1 1 1
+          comment: Flatfield Screen 1:closed 0:open
+        - key: OBJSYS
+          value: ICRS
+          comment: The TCC objSys
+        - key: RA
+          value: 120.0777
+          comment: RA of telescope boresight (deg)
+        - key: DEC
+          value: 53.2734
+          comment: Dec of telescope boresight (deg)
+        - key: RADEG
+          value: 120.0777
+          comment: RA of telescope pointing(deg)
+        - key: DECDEG
+          value: 53.2734
+          comment: Dec of telescope pointing (deg)
+        - key: ROTPOS
+          value: 0.0
+          comment: Rotator request position (deg)
+        - key: BOREOFFX
+          value: 0.0
+          comment: TCC Boresight offset, deg
+        - key: BOREOFFY
+          value: 0.0
+          comment: TCC Boresight offset, deg
+        - key: ARCOFFX
+          value: 0.0
+          comment: TCC ObjArcOff, deg
+        - key: ARCOFFY
+          value: 0.0
+          comment: TCC ObjArcOff, deg
+        - key: OBJOFFX
+          value: 0.0
+          comment: TCC ObjOff, deg
+        - key: OBJOFFY
+          value: 0.0
+          comment: TCC ObjOff, deg
+        - key: CALOFFX
+          value: 0.002
+          comment: TCC CalibOff, deg
+        - key: CALOFFY
+          value: -0.001
+          comment: TCC CalibOff, deg
+        - key: CALOFFR
+          value: 0.0
+          comment: TCC CalibOff, deg
+        - key: GUIDOFFX
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: GUIDOFFY
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: GUIDOFFR
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: AZ
+          value: 177.508
+          comment: Azimuth axis pos. (approx, deg)
+        - key: ALT
+          value: 69.516
+          comment: Altitude axis pos. (approx, deg)
+        - key: IPA
+          value: -3.41
+          comment: Rotator axis pos. (approx, deg)
+        - key: SPA
+          value: 176.6889054674645
+          comment: TCC SpiderInstAng
+        - key: FOCUS
+          value: 518.08
+          comment: User-specified focus offset (um)
+        - key: M2PISTON
+          value: 1895.37
+          comment: TCC SecOrient
+        - key: M2XTILT
+          value: -3.97
+          comment: TCC SecOrient
+        - key: M2YTILT
+          value: -9.01
+          comment: TCC SecOrient
+        - key: M2XTRAN
+          value: 9.9
+          comment: TCC SecOrient
+        - key: M2YTRAN
+          value: -14.38
+          comment: TCC SecOrient
+        - key: M1PISTON
+          value: 296.25
+          comment: TCC PrimOrient
+        - key: M1XTILT
+          value: -3.04
+          comment: TCC PrimOrient
+        - key: M1YTILT
+          value: 5.26
+          comment: TCC PrimOrient
+        - key: M1XTRAN
+          value: 277.64
+          comment: TCC PrimOrient
+        - key: M1YTRAN
+          value: 178.07
+          comment: TCC PrimOrient
+        - key: SCALE
+          value: 0.99997
+          comment: User-specified scale factor
+        - key: NAME
+          value: 3682-55244-01
+          comment: The name of the currently loaded plate
+        - key: PLATEID
+          value: 3682
+          comment: The currently loaded plate
+        - key: CARTID
+          value: 12
+          comment: The currently loaded cartridge
+        - key: MAPID
+          value: 1
+          comment: The mapping version of the loaded plate
+        - key: POINTING
+          value: A
+          comment: The currently specified pointing
+        - key: GUIDER1
+          value: proc-gimg-0422.fits
+          comment: The first guider image
+        - key: COLLA
+          value: -8460
+          comment: The position of the A collimator motor
+        - key: COLLB
+          value: -8486
+          comment: The position of the B collimator motor
+        - key: COLLC
+          value: -8505
+          comment: The position of the C collimator motor
+        - key: HARTMANN
+          value: Out
+          comment: 'Hartmanns: Left,Right,Out'
+        - key: MC1HUMHT
+          value: 38.4
+          comment: sp1 mech Hartmann humidity, %
+        - key: MC1HUMCO
+          value: 33.8
+          comment: sp1 mech Central optics humidity, %
+        - key: MC1TEMDN
+          value: -1.1
+          comment: sp1 mech Median temp, C
+        - key: MC1THT
+          value: -1.3
+          comment: sp1 mech Hartmann Top Temp, C
+        - key: MC1TRCB
+          value: -1.5
+          comment: sp1 mech Red Cam Bottom Temp, C
+        - key: MC1TRCT
+          value: -0.7
+          comment: sp1 mech Red Cam Top Temp, C
+        - key: MC1TBCB
+          value: -1.3
+          comment: sp1 mech Blue Cam Bottom Temp, C
+        - key: MC1TBCT
+          value: -1.1
+          comment: sp1 mech Blue Cam Top Temp, C
+        - key: MC2HUMHT
+          value: 32.0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MC2HUMCO
+          value: 20.6
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MC2TEMDN
+          value: -2.0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MC2THT
+          value: -1.4
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MC2TRCB
+          value: -1.6
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MC2TRCT
+          value: -2.0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MC2TBCB
+          value: -2.1
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MC2TBCT
+          value: -1.6
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: GUIDERN
+          value: proc-gimg-0422.fits
+          comment: The last guider image
+        - key: EXPTIME
+          value: 4.0
+          comment: measured exposure time, s
+        - key: SHOPETIM
+          value: 0.73
+          comment: open shutter transit time, s
+        - key: SHCLOTIM
+          value: 0.555
+          comment: close shutter transit time, s
+        - key: CAMROW
+          value: 0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: CAMCOL
+          value: 1
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: AUTHOR
+          value: Scott Burles & David Schlegel
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: VERSIDL
+          value: 7.1.1
+          comment: Version of IDL
+        - key: VERSUTIL
+          value: v5_5_17
+          comment: Version of idlutils
+        - key: VERSREAD
+          value: v5_13_0
+          comment: Version of idlspec2d for pre-processing raw dat
+        - key: VERSLOG
+          value: trunk 26113
+          comment: Version of SPECLOG product
+        - key: VERSFLAT
+          value: v1_31
+          comment: Version of SPECFLAT product
+        - key: TWOPHASE
+          value: false
+          comment: Extra 1/3 row in wavecal at array center?
+        - key: QUALITY
+          value: excellent
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: RDNOISE0
+          value: 2.01114
+          comment: CCD read noise amp 0 [electrons]
+        - key: RDNOISE1
+          value: 1.94212
+          comment: CCD read noise amp 1 [electrons]
+        - key: RDNOISE2
+          value: 1.8936
+          comment: CCD read noise amp 2 [electrons]
+        - key: RDNOISE3
+          value: 1.86914
+          comment: CCD read noise amp 3 [electrons]
+        - key: PIXFLAT
+          value: pixflatave-55056-b1.fits.gz
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: BADPIXEL
+          value: badpixels-55056-b1.fits.gz
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: FBADPIX
+          value: 4.82106e-05
+          comment: Fraction of bad pixels in raw image
+        - key: BESTCORR
+          value: 0.708455
+          comment: Best Correlation coefficient
+      hdu1:
+        name: ''
+        description: 'The data attribute of HDU 1 stores the wavelengths of good lamp
+          lines (in Angstroms) and the Y position of each fiber on the CCD for the
+          corresponding wavelengths.
+
+          The data in HDU 1 is of size 65 X 501 in which the first of the 501 columns
+          stores the wavelengths of the good lamp lines, and the remaining 500 columns
+
+          store the Y positions of those lines for each of the 500 fibers.
+
+          <b>
+
+          Required header keywords:
+
+          </b>
+
+          <b>
+
+          Optional header keywords:
+
+          </b>'
+        is_image: true
+        size: 113 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image Extension created by MWRFITS v1.8
+        - key: BITPIX
+          value: -64
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 501
+          comment: length of dimension 2
+        - key: NAXIS2
+          value: 29
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+      hdu2:
+        name: ''
+        description: "The HDU 2 data is a binary table whose fields are used to calculate\
+          \ wavelength solution (units of log10 Angstroms) for the arc calibration\
+          \ frames.\nThe Y-positions on the CCD, which is the independent variable\
+          \ and corresponding wavelength solutions (in Angstroms) which is the dependent\
+          \ variable, \nare fitted to a functional form and the resulting coefficients\
+          \ are stored in the binary table.\n\n<b>\nHow to use these coefficients:\
+          \ \n</b>\n\nLet x be the pixel number of a given trace. We define mu = 2*(x-XMID)/(XMAX-XMIN)\
+          \ and the solution for the wavelength \nis FUNC(mu) where FUNC is the function\
+          \ stored in the FUNC column in this binary table (it is usually a Legendre\
+          \ polynomials).\n\nIf XJUMPLO or XJUMPHI are present in the table, the following\
+          \ formulas need to be applied to correct x due to two-phase read-out of\
+          \ CCDs.\n\n<code>\n<br/>t = (x-XJUMPLO)/(XJUMPHI-XJUMPLO)\n<br/>jump = 0\
+          \ * (t&lt;0) + t * (0&lt;t&lt;1) + 1 * (t&gt;1)\n<br/>x = x + jump * XJUMPVAL\n\
+          <br/>mu = 2*(x-XMID)/(XMAX-XMIN)\n<br/>loglam = FUNC(mu)\n</code>"
+        is_image: false
+        size: 23 KB
+        columns:
+          FUNC:
+            name: FUNC
+            type: char[8]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: describes the function used to fit the wavelength solutions
+              (units of log-10 Angstroms) and Y-positions to a functional form.
+          XMIN:
+            name: XMIN
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: minimum value of the independent variable used by fitting
+              function.
+          XMAX:
+            name: XMAX
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: maximum value of the independent variable which is used along
+              with the fitting coefficients, in the fitting function to get the value
+              of dependent variable, which is the wavelength solution.
+          COEFF:
+            name: COEFF
+            type: float64[3000]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: "[3000](float64)  \t\t\t:  fit coefficents"
+      hdu3:
+        name: ''
+        description: 'The HDU 3 data stores the fibermask. These are fiber status
+          bits and are set to non-zero to indicate bad status. The status bits used
+          for masking are documented in $IDLUTILS/v5_4_12/data/sdss/sdssMaskbits.par.
+
+          <b>
+
+          Required header keywords:
+
+          </b>
+
+          <b>
+
+          Optional header keywords:
+
+          </b>'
+        is_image: true
+        size: 1 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image Extension created by MWRFITS v1.8
+        - key: BITPIX
+          value: 32
+          comment: array data type
+        - key: NAXIS
+          value: 1
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 500
+          comment: length of dimension 1
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+      hdu4:
+        name: ''
+        description: "The data attribute of HDU 4 gives the line width (in the dispersion\
+          \ axis) for each fiber. This Gaussian sigma is in units of pixels.\nThe\
+          \ Y-positions on the CCD, which is the independent variable and the corresponding\
+          \ line width, which is the dependent variable are fitted \nto a functional\
+          \ form and the resulting coefficients are stored in a binary table.\n\n\
+          For instructions on how to use these tracesets, see HDU2 description of\
+          \ this file."
+        is_image: false
+        size: 15 KB
+        columns:
+          FUNC:
+            name: FUNC
+            type: char[8]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: describes the function used to fit the line width (units
+              of pixels) and Y-positions to a functional form.
+          XMIN:
+            name: XMIN
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: minimum value of the independent variable used by fitting
+              function.
+          XMAX:
+            name: XMAX
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: maximum value of the independent variable which is used along
+              with the fitting coefficients, in the fitting function to get the value
+              of dependent variable, which is the line width of fibers.
+          COEFF:
+            name: COEFF
+            type: float64[2000]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+  DR17:
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID]/spArc-[BR][ID]-[FRAME].fits.gz
+    example: v5_13_2/3682/spArc-b1-00108606.fits.gz
+    location: '{run2d}/{plateid}/spArc-{br}{id}-{frame}.fits.gz'
+    environment: BOSS_SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: spArc
+      path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spArc-{br}{id}-{frame:0>8}.fits.gz'
+      path_kwargs:
+      - run2d
+      - br
+      - plateid
+      - frame
+      - id
+      access_string: spArc = $BOSS_SPECTRO_REDUX/{run2d}/{plateid}/spArc-{br}{id}-{frame}.fits.gz
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: 'The data attribute of Primary HDU stores the extracted flux
+          for the entire image.
+
+          <b>
+
+          Required header keywords:
+
+          </b>
+
+          <b>
+
+          Optional header keywords:
+
+          </b>'
+        is_image: true
+        size: 7 MB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: -32
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 4112
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 500
+          comment: length of dimension 2
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: TELESCOP
+          value: SDSS 2.5-M
+          comment: Sloan Digital Sky Survey
+        - key: FILENAME
+          value: sdR-b1-00108606.fit
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: CAMERAS
+          value: b1
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: EXPOSURE
+          value: 108606
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: DAQVER
+          value: 1.2.8
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: CAMDAQ
+          value: 1.4.1:32
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: ERRCNT
+          value: NONE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: SYNCERR
+          value: NONE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: SLINES
+          value: NONE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: PIXERR
+          value: NONE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: PLINES
+          value: NONE
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: FLAVOR
+          value: arc
+          comment: exposure type, SDSS spectro style
+        - key: BOSSVER
+          value: v2_0_17
+          comment: ICC version
+        - key: MJD
+          value: 55244
+          comment: APO fMJD day at start of exposure
+        - key: TAI-BEG
+          value: 4773100227.000001
+          comment: MJD(TAI) seconds at start of integration
+        - key: DATE-OBS
+          value: '2010-02-17T05:10:27'
+          comment: TAI date at start of integration
+        - key: FF
+          value: 0 0 0 0
+          comment: FF lamps 1:on 0:0ff
+        - key: NE
+          value: 1 1 1 1
+          comment: NE lamps 1:on 0:0ff
+        - key: HGCD
+          value: 1 1 1 1
+          comment: HGCD lamps 1:on 0:0ff
+        - key: FFS
+          value: 1 1 1 1 1 1 1 1
+          comment: Flatfield Screen 1:closed 0:open
+        - key: OBJSYS
+          value: ICRS
+          comment: The TCC objSys
+        - key: RA
+          value: 120.0777
+          comment: RA of telescope boresight (deg)
+        - key: DEC
+          value: 53.2734
+          comment: Dec of telescope boresight (deg)
+        - key: RADEG
+          value: 120.0777
+          comment: RA of telescope pointing(deg)
+        - key: DECDEG
+          value: 53.2734
+          comment: Dec of telescope pointing (deg)
+        - key: ROTPOS
+          value: 0.0
+          comment: Rotator request position (deg)
+        - key: BOREOFFX
+          value: 0.0
+          comment: TCC Boresight offset, deg
+        - key: BOREOFFY
+          value: 0.0
+          comment: TCC Boresight offset, deg
+        - key: ARCOFFX
+          value: 0.0
+          comment: TCC ObjArcOff, deg
+        - key: ARCOFFY
+          value: 0.0
+          comment: TCC ObjArcOff, deg
+        - key: OBJOFFX
+          value: 0.0
+          comment: TCC ObjOff, deg
+        - key: OBJOFFY
+          value: 0.0
+          comment: TCC ObjOff, deg
+        - key: CALOFFX
+          value: 0.002
+          comment: TCC CalibOff, deg
+        - key: CALOFFY
+          value: -0.001
+          comment: TCC CalibOff, deg
+        - key: CALOFFR
+          value: 0.0
+          comment: TCC CalibOff, deg
+        - key: GUIDOFFX
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: GUIDOFFY
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: GUIDOFFR
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: AZ
+          value: 177.508
+          comment: Azimuth axis pos. (approx, deg)
+        - key: ALT
+          value: 69.516
+          comment: Altitude axis pos. (approx, deg)
+        - key: IPA
+          value: -3.41
+          comment: Rotator axis pos. (approx, deg)
+        - key: SPA
+          value: 176.6889054674645
+          comment: TCC SpiderInstAng
+        - key: FOCUS
+          value: 518.08
+          comment: User-specified focus offset (um)
+        - key: M2PISTON
+          value: 1895.37
+          comment: TCC SecOrient
+        - key: M2XTILT
+          value: -3.97
+          comment: TCC SecOrient
+        - key: M2YTILT
+          value: -9.01
+          comment: TCC SecOrient
+        - key: M2XTRAN
+          value: 9.9
+          comment: TCC SecOrient
+        - key: M2YTRAN
+          value: -14.38
+          comment: TCC SecOrient
+        - key: M1PISTON
+          value: 296.25
+          comment: TCC PrimOrient
+        - key: M1XTILT
+          value: -3.04
+          comment: TCC PrimOrient
+        - key: M1YTILT
+          value: 5.26
+          comment: TCC PrimOrient
+        - key: M1XTRAN
+          value: 277.64
+          comment: TCC PrimOrient
+        - key: M1YTRAN
+          value: 178.07
+          comment: TCC PrimOrient
+        - key: SCALE
+          value: 0.99997
+          comment: User-specified scale factor
+        - key: NAME
+          value: 3682-55244-01
+          comment: The name of the currently loaded plate
+        - key: PLATEID
+          value: 3682
+          comment: The currently loaded plate
+        - key: CARTID
+          value: 12
+          comment: The currently loaded cartridge
+        - key: MAPID
+          value: 1
+          comment: The mapping version of the loaded plate
+        - key: POINTING
+          value: A
+          comment: The currently specified pointing
+        - key: GUIDER1
+          value: proc-gimg-0422.fits
+          comment: The first guider image
+        - key: COLLA
+          value: -8460
+          comment: The position of the A collimator motor
+        - key: COLLB
+          value: -8486
+          comment: The position of the B collimator motor
+        - key: COLLC
+          value: -8505
+          comment: The position of the C collimator motor
+        - key: HARTMANN
+          value: Out
+          comment: 'Hartmanns: Left,Right,Out'
+        - key: MC1HUMHT
+          value: 38.4
+          comment: sp1 mech Hartmann humidity, %
+        - key: MC1HUMCO
+          value: 33.8
+          comment: sp1 mech Central optics humidity, %
+        - key: MC1TEMDN
+          value: -1.1
+          comment: sp1 mech Median temp, C
+        - key: MC1THT
+          value: -1.3
+          comment: sp1 mech Hartmann Top Temp, C
+        - key: MC1TRCB
+          value: -1.5
+          comment: sp1 mech Red Cam Bottom Temp, C
+        - key: MC1TRCT
+          value: -0.7
+          comment: sp1 mech Red Cam Top Temp, C
+        - key: MC1TBCB
+          value: -1.3
+          comment: sp1 mech Blue Cam Bottom Temp, C
+        - key: MC1TBCT
+          value: -1.1
+          comment: sp1 mech Blue Cam Top Temp, C
+        - key: MC2HUMHT
+          value: 32.0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MC2HUMCO
+          value: 20.6
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MC2TEMDN
+          value: -2.0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MC2THT
+          value: -1.4
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MC2TRCB
+          value: -1.6
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MC2TRCT
+          value: -2.0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MC2TBCB
+          value: -2.1
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: MC2TBCT
+          value: -1.6
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: GUIDERN
+          value: proc-gimg-0422.fits
+          comment: The last guider image
+        - key: EXPTIME
+          value: 4.0
+          comment: measured exposure time, s
+        - key: SHOPETIM
+          value: 0.73
+          comment: open shutter transit time, s
+        - key: SHCLOTIM
+          value: 0.555
+          comment: close shutter transit time, s
+        - key: CAMROW
+          value: 0
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: CAMCOL
+          value: 1
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: AUTHOR
+          value: Scott Burles & David Schlegel
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: VERSIDL
+          value: 7.1.1
+          comment: Version of IDL
+        - key: VERSUTIL
+          value: v5_5_17
+          comment: Version of idlutils
+        - key: VERSREAD
+          value: v5_13_2
+          comment: Version of idlspec2d for pre-processing raw dat
+        - key: VERSLOG
+          value: trunk 26892
+          comment: Version of SPECLOG product
+        - key: VERSFLAT
+          value: v1_32
+          comment: Version of SPECFLAT product
+        - key: TWOPHASE
+          value: false
+          comment: Extra 1/3 row in wavecal at array center?
+        - key: QUALITY
+          value: excellent
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: RDNOISE0
+          value: 2.01114
+          comment: CCD read noise amp 0 [electrons]
+        - key: RDNOISE1
+          value: 1.94212
+          comment: CCD read noise amp 1 [electrons]
+        - key: RDNOISE2
+          value: 1.8936
+          comment: CCD read noise amp 2 [electrons]
+        - key: RDNOISE3
+          value: 1.86914
+          comment: CCD read noise amp 3 [electrons]
+        - key: PIXFLAT
+          value: pixflatave-55056-b1.fits.gz
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: BADPIXEL
+          value: badpixels-55056-b1.fits.gz
+          comment: 'migration: description of keyword/column not found. Needs update'
+        - key: FBADPIX
+          value: 4.82106e-05
+          comment: Fraction of bad pixels in raw image
+        - key: BESTCORR
+          value: 0.708455
+          comment: Best Correlation coefficient
+      hdu1:
+        name: ''
+        description: 'The data attribute of HDU 1 stores the wavelengths of good lamp
+          lines (in Angstroms) and the Y position of each fiber on the CCD for the
+          corresponding wavelengths.
+
+          The data in HDU 1 is of size 65 X 501 in which the first of the 501 columns
+          stores the wavelengths of the good lamp lines, and the remaining 500 columns
+
+          store the Y positions of those lines for each of the 500 fibers.
+
+          <b>
+
+          Required header keywords:
+
+          </b>
+
+          <b>
+
+          Optional header keywords:
+
+          </b>'
+        is_image: true
+        size: 113 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image Extension created by MWRFITS v1.8
+        - key: BITPIX
+          value: -64
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 501
+          comment: length of dimension 2
+        - key: NAXIS2
+          value: 29
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+      hdu2:
+        name: ''
+        description: "The HDU 2 data is a binary table whose fields are used to calculate\
+          \ wavelength solution (units of log10 Angstroms) for the arc calibration\
+          \ frames.\nThe Y-positions on the CCD, which is the independent variable\
+          \ and corresponding wavelength solutions (in Angstroms) which is the dependent\
+          \ variable, \nare fitted to a functional form and the resulting coefficients\
+          \ are stored in the binary table.\n\n<b>\nHow to use these coefficients:\
+          \ \n</b>\n\nLet x be the pixel number of a given trace. We define mu = 2*(x-XMID)/(XMAX-XMIN)\
+          \ and the solution for the wavelength \nis FUNC(mu) where FUNC is the function\
+          \ stored in the FUNC column in this binary table (it is usually a Legendre\
+          \ polynomials).\n\nIf XJUMPLO or XJUMPHI are present in the table, the following\
+          \ formulas need to be applied to correct x due to two-phase read-out of\
+          \ CCDs.\n\n<code>\n<br/>t = (x-XJUMPLO)/(XJUMPHI-XJUMPLO)\n<br/>jump = 0\
+          \ * (t&lt;0) + t * (0&lt;t&lt;1) + 1 * (t&gt;1)\n<br/>x = x + jump * XJUMPVAL\n\
+          <br/>mu = 2*(x-XMID)/(XMAX-XMIN)\n<br/>loglam = FUNC(mu)\n</code>"
+        is_image: false
+        size: 23 KB
+        columns:
+          FUNC:
+            name: FUNC
+            type: char[8]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: describes the function used to fit the wavelength solutions
+              (units of log-10 Angstroms) and Y-positions to a functional form.
+          XMIN:
+            name: XMIN
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: minimum value of the independent variable used by fitting
+              function.
+          XMAX:
+            name: XMAX
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: maximum value of the independent variable which is used along
+              with the fitting coefficients, in the fitting function to get the value
+              of dependent variable, which is the wavelength solution.
+          COEFF:
+            name: COEFF
+            type: float64[3000]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: "[3000](float64)  \t\t\t:  fit coefficents"
+      hdu3:
+        name: ''
+        description: 'The HDU 3 data stores the fibermask. These are fiber status
+          bits and are set to non-zero to indicate bad status. The status bits used
+          for masking are documented in $IDLUTILS/v5_4_12/data/sdss/sdssMaskbits.par.
+
+          <b>
+
+          Required header keywords:
+
+          </b>
+
+          <b>
+
+          Optional header keywords:
+
+          </b>'
+        is_image: true
+        size: 1 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image Extension created by MWRFITS v1.8
+        - key: BITPIX
+          value: 32
+          comment: array data type
+        - key: NAXIS
+          value: 1
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 500
+          comment: length of dimension 1
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+      hdu4:
+        name: ''
+        description: "The data attribute of HDU 4 gives the line width (in the dispersion\
+          \ axis) for each fiber. This Gaussian sigma is in units of pixels.\nThe\
+          \ Y-positions on the CCD, which is the independent variable and the corresponding\
+          \ line width, which is the dependent variable are fitted \nto a functional\
+          \ form and the resulting coefficients are stored in a binary table.\n\n\
+          For instructions on how to use these tracesets, see HDU2 description of\
+          \ this file."
+        is_image: false
+        size: 15 KB
+        columns:
+          FUNC:
+            name: FUNC
+            type: char[8]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: describes the function used to fit the line width (units
+              of pixels) and Y-positions to a functional form.
+          XMIN:
+            name: XMIN
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: minimum value of the independent variable used by fitting
+              function.
+          XMAX:
+            name: XMAX
+            type: float64
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: maximum value of the independent variable which is used along
+              with the fitting coefficients, in the fitting function to get the value
+              of dependent variable, which is the line width of fibers.
+          COEFF:
+            name: COEFF
+            type: float64[2000]
+            unit: 'migration: unit of keyword/column not found. Needs update'
+            description: 'migration: description of keyword/column not found. Needs
+              update'
+  WORK:
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/[FIELDID][ISPLATE]/spArc-[BR][ID]-[FRAME].fits.gz
+    example: v6_0_4/15000p/spArc-b1-00318674.fits.gz
+    location: '{run2d}/{fieldid}{isplate}/spArc-{br}{id}-{frame}.fits.gz'
+    environment: BOSS_SPECTRO_REDUX
+    access:
+      in_sdss_access: false
+      path_name: null
+      path_template: null
+      path_kwargs: null
+      access_string: spArc = $BOSS_SPECTRO_REDUX/{run2d}/{fieldid}{isplate}/spArc-{br}{id}-{frame}.fits.gz
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: replace me description
+        is_image: true
+        size: 7 MB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: -32
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 4112
+          comment: ''
+        - key: NAXIS2
+          value: 500
+          comment: ''
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: TELESCOP
+          value: SDSS 2.5-M
+          comment: Sloan Digital Sky Survey
+        - key: FILENAME
+          value: sdR-b1-00318674.fit
+          comment: ''
+        - key: CAMERAS
+          value: b1
+          comment: ''
+        - key: EXPOSURE
+          value: 318674
+          comment: ''
+        - key: V_BOSS
+          value: 5.0.1
+          comment: Active version of the BOSS ICC
+        - key: CAMDAQ
+          value: 1.5.0:37
+          comment: ''
+        - key: SUBFRAME
+          value: ''
+          comment: the subframe readout command
+        - key: ERRCNT
+          value: NONE
+          comment: ''
+        - key: SYNCERR
+          value: NONE
+          comment: ''
+        - key: SLINES
+          value: NONE
+          comment: ''
+        - key: PIXERR
+          value: NONE
+          comment: ''
+        - key: PLINES
+          value: NONE
+          comment: ''
+        - key: PFERR
+          value: NONE
+          comment: ''
+        - key: DIDFLUSH
+          value: true
+          comment: CCD was flushed before integration
+        - key: FLAVOR
+          value: arc
+          comment: exposure type, SDSS spectro style
+        - key: MJD
+          value: 59146
+          comment: APO fMJD day at start of exposure
+        - key: TAI-BEG
+          value: 5110242073.0
+          comment: MJD(TAI) seconds at start of integration
+        - key: DATE-OBS
+          value: '2020-10-24T07:41:13'
+          comment: TAI date at start of integration
+        - key: V_GUIDER
+          value: 3.8.1
+          comment: version of the current guiderActor
+        - key: V_SOP
+          value: 4.0.1dev
+          comment: version of the current sopActor
+        - key: NAME
+          value: 15000-59144-02
+          comment: The name of the currently loaded plate
+        - key: PLATEID
+          value: 15000
+          comment: The currently loaded plate
+        - key: CARTID
+          value: 2
+          comment: The currently loaded cartridge
+        - key: MAPID
+          value: 2
+          comment: The mapping version of the loaded plate
+        - key: POINTING
+          value: A
+          comment: The currently specified pointing
+        - key: PLATETYP
+          value: BHM&MWM
+          comment: Type of plate (e.g. BOSS, MANGA, APOGEE, APOGEE
+        - key: SRVYMODE
+          value: BHM lead
+          comment: Survey leading this observation and its mode
+        - key: OBJSYS
+          value: ICRS
+          comment: The TCC objSys
+        - key: RA
+          value: 35.7083
+          comment: RA of telescope boresight (deg)
+        - key: DEC
+          value: -5.05
+          comment: Dec of telescope boresight (deg)
+        - key: RADEG
+          value: 35.7083
+          comment: RA of telescope pointing(deg)
+        - key: DECDEG
+          value: -5.05
+          comment: Dec of telescope pointing (deg)
+        - key: SPA
+          value: -9.018012363681793
+          comment: TCC SpiderInstAng
+        - key: ROTPOS
+          value: 0.0
+          comment: Rotator request position (deg)
+        - key: BOREOFFX
+          value: 0.0
+          comment: TCC Boresight offset, deg
+        - key: BOREOFFY
+          value: 0.0
+          comment: TCC Boresight offset, deg
+        - key: ARCOFFX
+          value: 0.0
+          comment: TCC ObjArcOff, deg
+        - key: ARCOFFY
+          value: 0.0
+          comment: TCC ObjArcOff, deg
+        - key: CALOFFX
+          value: 0.0
+          comment: TCC CalibOff, deg
+        - key: CALOFFY
+          value: 0.0
+          comment: TCC CalibOff, deg
+        - key: CALOFFR
+          value: 0.0
+          comment: TCC CalibOff, deg
+        - key: GUIDOFFX
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: GUIDOFFY
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: GUIDOFFR
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: AZ
+          value: -10.593513
+          comment: Azimuth axis pos. (approx, deg)
+        - key: ALT
+          value: 51.77349
+          comment: Altitude axis pos. (approx, deg)
+        - key: IPA
+          value: 171.067409
+          comment: Rotator axis pos. (approx, deg)
+        - key: FOCUS
+          value: 2819.8579
+          comment: User-specified focus offset (um)
+        - key: M2PISTON
+          value: 1915.03
+          comment: TCC SecOrient
+        - key: M2XTILT
+          value: -11.25
+          comment: TCC SecOrient
+        - key: M2YTILT
+          value: -4.47
+          comment: TCC SecOrient
+        - key: M2XTRAN
+          value: 17.01
+          comment: TCC SecOrient
+        - key: M2YTRAN
+          value: -3.14
+          comment: TCC SecOrient
+        - key: M2ZROT
+          value: -12.59
+          comment: TCC SecOrient
+        - key: M1PISTON
+          value: -2029.13
+          comment: TCC PrimOrient
+        - key: M1XTILT
+          value: 69.89
+          comment: TCC PrimOrient
+        - key: M1YTILT
+          value: 100.0
+          comment: TCC PrimOrient
+        - key: M1XTRAN
+          value: 372.35
+          comment: TCC PrimOrient
+        - key: M1YTRAN
+          value: 622.11
+          comment: TCC PrimOrient
+        - key: M1ZROT
+          value: -0.16
+          comment: TCC PrimOrient
+        - key: SCALE
+          value: 1.000206
+          comment: User-specified scale factor
+        - key: V_APO
+          value: v1_11
+          comment: version of the current apoActor
+        - key: PRESSURE
+          value: 21.571
+          comment: ''
+        - key: WINDD
+          value: 235.8
+          comment: ''
+        - key: WINDS
+          value: 9.4
+          comment: ''
+        - key: GUSTD
+          value: 246.3
+          comment: ''
+        - key: GUSTS
+          value: 15.9
+          comment: ''
+        - key: AIRTEMP
+          value: NaN
+          comment: failed to index KeyVar('apo', airTempPT=(None,)
+        - key: DEWPOINT
+          value: NaN
+          comment: failed to index KeyVar('apo', dpTempPT=(None,))
+        - key: TRUSTEMP
+          value: NaN
+          comment: failed to index KeyVar('apo', truss25m=(None,))
+        - key: HUMIDITY
+          value: 54.3
+          comment: ''
+        - key: DUSTA
+          value: 39214.0
+          comment: ''
+        - key: DUSTB
+          value: 1836.0
+          comment: ''
+        - key: WINDD25M
+          value: NaN
+          comment: failed to index KeyVar('apo', windd25m=(None,))
+        - key: WINDS25M
+          value: NaN
+          comment: failed to index KeyVar('apo', winds25m=(None,))
+        - key: FF
+          value: 0 0 0 0
+          comment: FF lamps 1:on 0:0ff
+        - key: NE
+          value: 1 1 1 1
+          comment: NE lamps 1:on 0:0ff
+        - key: HGCD
+          value: 1 1 1 1
+          comment: HGCD lamps 1:on 0:0ff
+        - key: FFS
+          value: 1 1 1 1 1 1 1 1
+          comment: Flatfield Screen 1:closed 0:open
+        - key: MGDPOS
+          value: C
+          comment: MaNGA dither position (C,N,S,E)
+        - key: MGDRA
+          value: 0.0
+          comment: MaNGA decenter in RA, redundant with MGDPOS
+        - key: MGDDEC
+          value: 0.0
+          comment: MaNGA decenter in Dec, redundant with MGDPOS
+        - key: GUIDER1
+          value: proc-gimg-0472.fits.gz
+          comment: The first guider image
+        - key: SLITID1
+          value: 2
+          comment: Normalized slithead ID. sp1&2 should match.
+        - key: GUIDERN
+          value: proc-gimg-0472.fits.gz
+          comment: The last guider image
+        - key: COLLA
+          value: 14207
+          comment: The position of the A collimator motor
+        - key: COLLB
+          value: 15358
+          comment: The position of the B collimator motor
+        - key: COLLC
+          value: 14781
+          comment: The position of the C collimator motor
+        - key: HARTMANN
+          value: Out
+          comment: 'Hartmanns: Left,Right,Out'
+        - key: MC1HUMHT
+          value: 10.3
+          comment: sp1 mech Hartmann humidity, %
+        - key: MC1HUMCO
+          value: -4.4
+          comment: sp1 mech Central optics humidity, %
+        - key: MC1TEMDN
+          value: 5.9
+          comment: sp1 mech Median temp, C
+        - key: MC1THT
+          value: 5.7
+          comment: sp1 mech Hartmann Top Temp, C
+        - key: MC1TRCB
+          value: 5.9
+          comment: sp1 mech Red Cam Bottom Temp, C
+        - key: MC1TRCT
+          value: 6.4
+          comment: sp1 mech Red Cam Top Temp, C
+        - key: MC1TBCB
+          value: 5.9
+          comment: sp1 mech Blue Cam Bottom Temp, C
+        - key: MC1TBCT
+          value: 6.2
+          comment: sp1 mech Blue Cam Top Temp, C
+        - key: REQTIME
+          value: 4.0
+          comment: requested exposure time
+        - key: EXPTIME
+          value: 4.07
+          comment: measured exposure time, s
+        - key: SHOPETIM
+          value: 0.75
+          comment: open shutter transit time, s
+        - key: SHCLOTIM
+          value: 0.55
+          comment: close shutter transit time, s
+        - key: DARKTIME
+          value: 15.83412599563599
+          comment: time between flush end and readout start
+        - key: LN2TEMP
+          value: 94.922
+          comment: ''
+        - key: CCDTEMP
+          value: -99.609
+          comment: ''
+        - key: IONPUMP
+          value: -6.57
+          comment: ''
+        - key: CAMROW
+          value: 0
+          comment: ''
+        - key: CAMCOL
+          value: 1
+          comment: ''
+        - key: AUTHOR
+          value: Scott Burles & David Schlegel
+          comment: ''
+        - key: VERSIDL
+          value: 8.7.2
+          comment: Version of IDL
+        - key: VERSUTIL
+          value: v5_5_17
+          comment: Version of idlutils
+        - key: VERSREAD
+          value: v6_0_4
+          comment: Version of idlspec2d for pre-processing raw dat
+        - key: VERSLOG
+          value: trunk 27531
+          comment: Version of SPECLOG product
+        - key: VERSFLAT
+          value: v1_32
+          comment: Version of SPECFLAT product
+        - key: TWOPHASE
+          value: false
+          comment: ''
+        - key: QUALITY
+          value: excellent
+          comment: ''
+        - key: RDNOISE0
+          value: 1.99314
+          comment: CCD read noise amp 0 [electrons]
+        - key: RDNOISE1
+          value: 1.94223
+          comment: CCD read noise amp 1 [electrons]
+        - key: RDNOISE2
+          value: 1.86483
+          comment: CCD read noise amp 2 [electrons]
+        - key: RDNOISE3
+          value: 1.82784
+          comment: CCD read noise amp 3 [electrons]
+        - key: PIXFLAT
+          value: pixflatave-58751-b1.fits.gz
+          comment: ''
+        - key: BADPIXEL
+          value: badpixels-58736-b1.fits.gz
+          comment: ''
+        - key: FBADPIX
+          value: 4.45889e-05
+          comment: Fraction of bad pixels in raw image
+        - key: BESTCORR
+          value: 0.731333
+          comment: Best Correlation coefficient
+      hdu1:
+        name: ''
+        description: replace me description
+        is_image: true
+        size: 109 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image Extension created by MWRFITS v1.11
+        - key: BITPIX
+          value: -64
+          comment: ''
+        - key: NAXIS
+          value: 2
+          comment: ''
+        - key: NAXIS1
+          value: 501
+          comment: ''
+        - key: NAXIS2
+          value: 28
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: ''
+        - key: GCOUNT
+          value: 1
+          comment: ''
+      hdu2:
+        name: ''
+        description: replace me description
+        is_image: false
+        size: 23 KB
+        columns:
+          FUNC:
+            name: FUNC
+            type: char[8]
+            unit: replace me - with content
+            description: replace me - with content
+          XMIN:
+            name: XMIN
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          XMAX:
+            name: XMAX
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          COEFF:
+            name: COEFF
+            type: float64[3000]
+            unit: replace me - with content
+            description: replace me - with content
+      hdu3:
+        name: ''
+        description: replace me description
+        is_image: true
+        size: 1 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image Extension created by MWRFITS v1.11
+        - key: BITPIX
+          value: 32
+          comment: ''
+        - key: NAXIS
+          value: 1
+          comment: ''
+        - key: NAXIS1
+          value: 500
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: ''
+        - key: GCOUNT
+          value: 1
+          comment: ''
+      hdu4:
+        name: ''
+        description: replace me description
+        is_image: false
+        size: 15 KB
+        columns:
+          FUNC:
+            name: FUNC
+            type: char[8]
+            unit: replace me - with content
+            description: replace me - with content
+          XMIN:
+            name: XMIN
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          XMAX:
+            name: XMAX
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          COEFF:
+            name: COEFF
+            type: float64[2000]
+            unit: replace me - with content
+            description: replace me - with content
+      hdu5:
+        name: ''
+        description: replace me description
+        is_image: false
+        size: 15 KB
+        columns:
+          FUNC:
+            name: FUNC
+            type: char[8]
+            unit: replace me - with content
+            description: replace me - with content
+          XMIN:
+            name: XMIN
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          XMAX:
+            name: XMAX
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          COEFF:
+            name: COEFF
+            type: float64[2000]
+            unit: replace me - with content
+            description: replace me - with content
