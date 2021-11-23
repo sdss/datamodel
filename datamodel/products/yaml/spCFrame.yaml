@@ -44,59 +44,59 @@ changelog:
       - SPRESL
       primary_delta_nkeys: 28
       added_primary_header_kwargs:
-      - WINDS25M
-      - DUSTB
-      - GUSTD
-      - DUSTA
-      - V_SOP
-      - DEWPOINT
       - AVGBSH0
-      - HUMIDITY
-      - SLITID1
-      - STDBSH0
-      - AIRTEMP
       - V_GUIDER
-      - PLATETYP
-      - TRUSTEMP
+      - WINDD25M
+      - AIRTEMP
+      - V_SOP
       - AVGASH0
-      - M2ZROT
-      - REQTIME
-      - DIDFLUSH
-      - SUBFRAME
-      - WDISPR
-      - V_BOSS
-      - GUSTS
-      - MGDPOS
-      - CENBSH0
-      - LN2TEMP
-      - WINDD
-      - V_APO
-      - WINDS
-      - M1ZROT
-      - MGDRA
       - MGDDEC
-      - PRESSURE
       - CCDTEMP
       - PFERR
-      - DARKTIME
-      - SIGBSH0
-      - WINDD25M
+      - V_BOSS
+      - GUSTD
+      - PRESSURE
+      - DIDFLUSH
+      - SLITID1
+      - DUSTB
       - SRVYMODE
-      - STDASH0
+      - M2ZROT
+      - MGDRA
+      - PLATETYP
+      - MGDPOS
       - IONPUMP
+      - DEWPOINT
+      - REQTIME
+      - SUBFRAME
+      - STDASH0
+      - DARKTIME
+      - DUSTA
+      - GUSTS
+      - CENBSH0
+      - STDBSH0
+      - WINDS
+      - WINDD
+      - SIGBSH0
+      - V_APO
+      - TRUSTEMP
+      - WDISPR
+      - M1ZROT
+      - LN2TEMP
+      - HUMIDITY
+      - WINDS25M
       removed_primary_header_kwargs:
-      - MC2TRCT
-      - MC2TBCT
-      - BOSSVER
-      - MC2TEMDN
-      - MC2THT
-      - DAQVER
-      - MC2HUMHT
-      - MC2HUMCO
-      - MC2TRCB
       - OBJOFFY
-      - MC2TBCB
       - OBJOFFX
+      - MC2TRCB
+      - MC2TBCT
+      - MC2TRCT
+      - MC2TBCB
+      - BOSSVER
+      - MC2HUMHT
+      - DAQVER
+      - MC2THT
+      - MC2HUMCO
+      - MC2TEMDN
     DR17:
       from: DR16
       note: No changes
@@ -121,14 +121,14 @@ changelog:
     DR10:
       from: DR9
       added_hdus:
-      - SUPERFLAT
-      - MASK
-      - WAVELENGTH
       - IVAR
-      - X
-      - WAVEDISP
-      - PLUGMAP
       - SKY
+      - SUPERFLAT
+      - WAVEDISP
+      - X
+      - MASK
+      - PLUGMAP
+      - WAVELENGTH
       removed_hdus:
       - ''
 releases:
@@ -8571,10 +8571,16 @@ releases:
     location: '{run2d}/{fieldid}{isplate}/spCFrame-{br}{id}-{frame}.fits'
     environment: BOSS_SPECTRO_REDUX
     access:
-      in_sdss_access: false
-      path_name: null
-      path_template: null
-      path_kwargs: null
+      in_sdss_access: true
+      path_name: spCFrame
+      path_template: $BOSS_SPECTRO_REDUX/{run2d}/{fieldid}{isplate}/spFrame-{br}{id}-{frame:0>8}.fits.gz
+      path_kwargs:
+      - id
+      - run2d
+      - isplate
+      - fieldid
+      - br
+      - frame
       access_string: spCFrame = $BOSS_SPECTRO_REDUX/{run2d}/{fieldid}{isplate}/spCFrame-{br}{id}-{frame}.fits
     hdus:
       hdu0:
