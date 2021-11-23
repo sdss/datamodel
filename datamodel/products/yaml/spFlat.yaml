@@ -34,52 +34,52 @@ changelog:
       from: DR17
       primary_delta_nkeys: 21
       added_primary_header_kwargs:
-      - IONPUMP
+      - MGDRA
+      - V_GUIDER
+      - DUSTA
+      - WINDS
+      - AIRTEMP
+      - MGDDEC
+      - REQTIME
+      - SUBFRAME
+      - WINDS25M
+      - PLATETYP
       - DUSTB
+      - MGDPOS
+      - TRUSTEMP
+      - V_APO
+      - PRESSURE
+      - GUSTD
+      - SRVYMODE
+      - CCDTEMP
+      - WINDD
+      - DIDFLUSH
+      - GUSTS
+      - HUMIDITY
+      - V_SOP
+      - M1ZROT
+      - V_BOSS
+      - DEWPOINT
+      - IONPUMP
+      - SLITID1
+      - DARKTIME
       - WINDD25M
       - LN2TEMP
-      - DUSTA
-      - CCDTEMP
-      - SRVYMODE
-      - V_GUIDER
-      - DEWPOINT
-      - TRUSTEMP
-      - MGDRA
-      - DIDFLUSH
-      - PRESSURE
-      - V_BOSS
-      - MGDDEC
-      - WINDS
-      - HUMIDITY
-      - REQTIME
-      - V_APO
-      - SLITID1
-      - WINDS25M
-      - SUBFRAME
-      - M1ZROT
-      - PLATETYP
-      - M2ZROT
-      - MGDPOS
-      - GUSTD
-      - WINDD
-      - GUSTS
       - PFERR
-      - V_SOP
-      - DARKTIME
-      - AIRTEMP
+      - M2ZROT
       removed_primary_header_kwargs:
-      - MC2THT
-      - MC2TBCB
-      - MC2TRCB
-      - OBJOFFY
+      - MC2TBCT
       - MC2HUMCO
-      - MC2HUMHT
+      - MC2TRCB
       - OBJOFFX
+      - MC2TBCB
+      - MC2HUMHT
+      - DAQVER
       - MC2TRCT
       - BOSSVER
-      - DAQVER
-      - MC2TBCT
+      - MC2THT
       - MC2TEMDN
+      - OBJOFFY
     DR17:
       from: DR16
       note: No changes
@@ -466,10 +466,10 @@ releases:
       hdu1:
         name: ''
         description: The HDU 1 data is a binary table whose fields are used to calculate
-          the X-centers, for all fibers in the flat-field calibration frames.
-          The Y-pixel positions on the CCD, which is the independent variable and
-          the corresponding X-centers, which is the dependent variable are fitted
-          to a functional form  and the resulting coefficients are stored in the binary
+          the X-centers, for all fibers in the flat-field calibration frames. The
+          Y-pixel positions on the CCD, which is the independent variable and the
+          corresponding X-centers, which is the dependent variable are fitted to a
+          functional form  and the resulting coefficients are stored in the binary
           table.
         is_image: false
         size: 27 KB
@@ -500,9 +500,9 @@ releases:
             description: "[2000](float64)  \t\t\t:  fit coefficents"
       hdu2:
         name: ''
-        description: The HDU 2 data stores the fibermask. These are fiber status
-          bits and are set to non-zero to indicate bad status. The status bits used
-          for masking are documented in $IDLUTILS/v5_4_12/data/sdss/sdssMaskbits.par.
+        description: The HDU 2 data stores the fibermask. These are fiber status bits
+          and are set to non-zero to indicate bad status. The status bits used for
+          masking are documented in $IDLUTILS/v5_4_12/data/sdss/sdssMaskbits.par.
         is_image: true
         size: 1 KB
         header:
@@ -526,13 +526,11 @@ releases:
           comment: number of groups
       hdu3:
         name: ''
-        description: The data attribute of HDU 3 gives the first-order corrected
-          profile width for each fiber bundle. This Gaussian sigma is in units of
-          pixels.
+        description: The data attribute of HDU 3 gives the first-order corrected profile
+          width for each fiber bundle. This Gaussian sigma is in units of pixels.
           The X-positions on the CCD and their corresponding profile width are fitted
           to a functional form and the resulting coefficients are stored in a binary
-          table.
-          The X-position is the independent variable and the width is the dependent
+          table. The X-position is the independent variable and the width is the dependent
           variable for the fitting function.
         is_image: false
         size: 11 KB
@@ -565,8 +563,7 @@ releases:
         name: ''
         description: The data attribute of HDU 4 contains superflat which is constructed
           from extracted flat-field image and is stored in a bspline set structure
-          form.
-          A superflat is a bspline average across all fibers of the flat spectrum
+          form. A superflat is a bspline average across all fibers of the flat spectrum
           in raw counts as a function of wavelength. The various column name are explained
           in the b-spline routine in $IDLUTILS/pro/bspline.
         is_image: false
@@ -958,10 +955,10 @@ releases:
       hdu1:
         name: ''
         description: The HDU 1 data is a binary table whose fields are used to calculate
-          the X-centers, for all fibers in the flat-field calibration frames.
-          The Y-pixel positions on the CCD, which is the independent variable and
-          the corresponding X-centers, which is the dependent variable are fitted
-          to a functional form  and the resulting coefficients are stored in the binary
+          the X-centers, for all fibers in the flat-field calibration frames. The
+          Y-pixel positions on the CCD, which is the independent variable and the
+          corresponding X-centers, which is the dependent variable are fitted to a
+          functional form  and the resulting coefficients are stored in the binary
           table.
         is_image: false
         size: 27 KB
@@ -992,9 +989,9 @@ releases:
             description: "[2000](float64)  \t\t\t:  fit coefficents"
       hdu2:
         name: ''
-        description: The HDU 2 data stores the fibermask. These are fiber status
-          bits and are set to non-zero to indicate bad status. The status bits used
-          for masking are documented in $IDLUTILS/v5_4_12/data/sdss/sdssMaskbits.par.
+        description: The HDU 2 data stores the fibermask. These are fiber status bits
+          and are set to non-zero to indicate bad status. The status bits used for
+          masking are documented in $IDLUTILS/v5_4_12/data/sdss/sdssMaskbits.par.
         is_image: true
         size: 1 KB
         header:
@@ -1018,13 +1015,11 @@ releases:
           comment: number of groups
       hdu3:
         name: ''
-        description: The data attribute of HDU 3 gives the first-order corrected
-          profile width for each fiber bundle. This Gaussian sigma is in units of
-          pixels.
+        description: The data attribute of HDU 3 gives the first-order corrected profile
+          width for each fiber bundle. This Gaussian sigma is in units of pixels.
           The X-positions on the CCD and their corresponding profile width are fitted
           to a functional form and the resulting coefficients are stored in a binary
-          table.
-          The X-position is the independent variable and the width is the dependent
+          table. The X-position is the independent variable and the width is the dependent
           variable for the fitting function.
         is_image: false
         size: 11 KB
@@ -1057,8 +1052,7 @@ releases:
         name: ''
         description: The data attribute of HDU 4 contains superflat which is constructed
           from extracted flat-field image and is stored in a bspline set structure
-          form.
-          A superflat is a bspline average across all fibers of the flat spectrum
+          form. A superflat is a bspline average across all fibers of the flat spectrum
           in raw counts as a function of wavelength. The various column name are explained
           in the b-spline routine in $IDLUTILS/pro/bspline.
         is_image: false
@@ -1450,10 +1444,10 @@ releases:
       hdu1:
         name: ''
         description: The HDU 1 data is a binary table whose fields are used to calculate
-          the X-centers, for all fibers in the flat-field calibration frames.
-          The Y-pixel positions on the CCD, which is the independent variable and
-          the corresponding X-centers, which is the dependent variable are fitted
-          to a functional form  and the resulting coefficients are stored in the binary
+          the X-centers, for all fibers in the flat-field calibration frames. The
+          Y-pixel positions on the CCD, which is the independent variable and the
+          corresponding X-centers, which is the dependent variable are fitted to a
+          functional form  and the resulting coefficients are stored in the binary
           table.
         is_image: false
         size: 27 KB
@@ -1484,9 +1478,9 @@ releases:
             description: "[2000](float64)  \t\t\t:  fit coefficents"
       hdu2:
         name: ''
-        description: The HDU 2 data stores the fibermask. These are fiber status
-          bits and are set to non-zero to indicate bad status. The status bits used
-          for masking are documented in $IDLUTILS/v5_4_12/data/sdss/sdssMaskbits.par.
+        description: The HDU 2 data stores the fibermask. These are fiber status bits
+          and are set to non-zero to indicate bad status. The status bits used for
+          masking are documented in $IDLUTILS/v5_4_12/data/sdss/sdssMaskbits.par.
         is_image: true
         size: 1 KB
         header:
@@ -1510,13 +1504,11 @@ releases:
           comment: number of groups
       hdu3:
         name: ''
-        description: The data attribute of HDU 3 gives the first-order corrected
-          profile width for each fiber bundle. This Gaussian sigma is in units of
-          pixels.
+        description: The data attribute of HDU 3 gives the first-order corrected profile
+          width for each fiber bundle. This Gaussian sigma is in units of pixels.
           The X-positions on the CCD and their corresponding profile width are fitted
           to a functional form and the resulting coefficients are stored in a binary
-          table.
-          The X-position is the independent variable and the width is the dependent
+          table. The X-position is the independent variable and the width is the dependent
           variable for the fitting function.
         is_image: false
         size: 11 KB
@@ -1549,8 +1541,7 @@ releases:
         name: ''
         description: The data attribute of HDU 4 contains superflat which is constructed
           from extracted flat-field image and is stored in a bspline set structure
-          form.
-          A superflat is a bspline average across all fibers of the flat spectrum
+          form. A superflat is a bspline average across all fibers of the flat spectrum
           in raw counts as a function of wavelength. The various column name are explained
           in the b-spline routine in $IDLUTILS/pro/bspline.
         is_image: false
@@ -1942,10 +1933,10 @@ releases:
       hdu1:
         name: ''
         description: The HDU 1 data is a binary table whose fields are used to calculate
-          the X-centers, for all fibers in the flat-field calibration frames.
-          The Y-pixel positions on the CCD, which is the independent variable and
-          the corresponding X-centers, which is the dependent variable are fitted
-          to a functional form  and the resulting coefficients are stored in the binary
+          the X-centers, for all fibers in the flat-field calibration frames. The
+          Y-pixel positions on the CCD, which is the independent variable and the
+          corresponding X-centers, which is the dependent variable are fitted to a
+          functional form  and the resulting coefficients are stored in the binary
           table.
         is_image: false
         size: 27 KB
@@ -1976,9 +1967,9 @@ releases:
             description: "[2000](float64)  \t\t\t:  fit coefficents"
       hdu2:
         name: ''
-        description: The HDU 2 data stores the fibermask. These are fiber status
-          bits and are set to non-zero to indicate bad status. The status bits used
-          for masking are documented in $IDLUTILS/v5_4_12/data/sdss/sdssMaskbits.par.
+        description: The HDU 2 data stores the fibermask. These are fiber status bits
+          and are set to non-zero to indicate bad status. The status bits used for
+          masking are documented in $IDLUTILS/v5_4_12/data/sdss/sdssMaskbits.par.
         is_image: true
         size: 1 KB
         header:
@@ -2002,13 +1993,11 @@ releases:
           comment: number of groups
       hdu3:
         name: ''
-        description: The data attribute of HDU 3 gives the first-order corrected
-          profile width for each fiber bundle. This Gaussian sigma is in units of
-          pixels.
+        description: The data attribute of HDU 3 gives the first-order corrected profile
+          width for each fiber bundle. This Gaussian sigma is in units of pixels.
           The X-positions on the CCD and their corresponding profile width are fitted
           to a functional form and the resulting coefficients are stored in a binary
-          table.
-          The X-position is the independent variable and the width is the dependent
+          table. The X-position is the independent variable and the width is the dependent
           variable for the fitting function.
         is_image: false
         size: 11 KB
@@ -2041,8 +2030,7 @@ releases:
         name: ''
         description: The data attribute of HDU 4 contains superflat which is constructed
           from extracted flat-field image and is stored in a bspline set structure
-          form.
-          A superflat is a bspline average across all fibers of the flat spectrum
+          form. A superflat is a bspline average across all fibers of the flat spectrum
           in raw counts as a function of wavelength. The various column name are explained
           in the b-spline routine in $IDLUTILS/pro/bspline.
         is_image: false
@@ -2434,10 +2422,10 @@ releases:
       hdu1:
         name: ''
         description: The HDU 1 data is a binary table whose fields are used to calculate
-          the X-centers, for all fibers in the flat-field calibration frames.
-          The Y-pixel positions on the CCD, which is the independent variable and
-          the corresponding X-centers, which is the dependent variable are fitted
-          to a functional form  and the resulting coefficients are stored in the binary
+          the X-centers, for all fibers in the flat-field calibration frames. The
+          Y-pixel positions on the CCD, which is the independent variable and the
+          corresponding X-centers, which is the dependent variable are fitted to a
+          functional form  and the resulting coefficients are stored in the binary
           table.
         is_image: false
         size: 27 KB
@@ -2468,9 +2456,9 @@ releases:
             description: "[2000](float64)  \t\t\t:  fit coefficents"
       hdu2:
         name: ''
-        description: The HDU 2 data stores the fibermask. These are fiber status
-          bits and are set to non-zero to indicate bad status. The status bits used
-          for masking are documented in $IDLUTILS/v5_4_12/data/sdss/sdssMaskbits.par.
+        description: The HDU 2 data stores the fibermask. These are fiber status bits
+          and are set to non-zero to indicate bad status. The status bits used for
+          masking are documented in $IDLUTILS/v5_4_12/data/sdss/sdssMaskbits.par.
         is_image: true
         size: 1 KB
         header:
@@ -2494,13 +2482,11 @@ releases:
           comment: number of groups
       hdu3:
         name: ''
-        description: The data attribute of HDU 3 gives the first-order corrected
-          profile width for each fiber bundle. This Gaussian sigma is in units of
-          pixels.
+        description: The data attribute of HDU 3 gives the first-order corrected profile
+          width for each fiber bundle. This Gaussian sigma is in units of pixels.
           The X-positions on the CCD and their corresponding profile width are fitted
           to a functional form and the resulting coefficients are stored in a binary
-          table.
-          The X-position is the independent variable and the width is the dependent
+          table. The X-position is the independent variable and the width is the dependent
           variable for the fitting function.
         is_image: false
         size: 11 KB
@@ -2533,8 +2519,7 @@ releases:
         name: ''
         description: The data attribute of HDU 4 contains superflat which is constructed
           from extracted flat-field image and is stored in a bspline set structure
-          form.
-          A superflat is a bspline average across all fibers of the flat spectrum
+          form. A superflat is a bspline average across all fibers of the flat spectrum
           in raw counts as a function of wavelength. The various column name are explained
           in the b-spline routine in $IDLUTILS/pro/bspline.
         is_image: false
@@ -2926,10 +2911,10 @@ releases:
       hdu1:
         name: ''
         description: The HDU 1 data is a binary table whose fields are used to calculate
-          the X-centers, for all fibers in the flat-field calibration frames.
-          The Y-pixel positions on the CCD, which is the independent variable and
-          the corresponding X-centers, which is the dependent variable are fitted
-          to a functional form  and the resulting coefficients are stored in the binary
+          the X-centers, for all fibers in the flat-field calibration frames. The
+          Y-pixel positions on the CCD, which is the independent variable and the
+          corresponding X-centers, which is the dependent variable are fitted to a
+          functional form  and the resulting coefficients are stored in the binary
           table.
         is_image: false
         size: 27 KB
@@ -2960,9 +2945,9 @@ releases:
             description: "[2000](float64)  \t\t\t:  fit coefficents"
       hdu2:
         name: ''
-        description: The HDU 2 data stores the fibermask. These are fiber status
-          bits and are set to non-zero to indicate bad status. The status bits used
-          for masking are documented in $IDLUTILS/v5_4_12/data/sdss/sdssMaskbits.par.
+        description: The HDU 2 data stores the fibermask. These are fiber status bits
+          and are set to non-zero to indicate bad status. The status bits used for
+          masking are documented in $IDLUTILS/v5_4_12/data/sdss/sdssMaskbits.par.
         is_image: true
         size: 1 KB
         header:
@@ -2986,13 +2971,11 @@ releases:
           comment: number of groups
       hdu3:
         name: ''
-        description: The data attribute of HDU 3 gives the first-order corrected
-          profile width for each fiber bundle. This Gaussian sigma is in units of
-          pixels.
+        description: The data attribute of HDU 3 gives the first-order corrected profile
+          width for each fiber bundle. This Gaussian sigma is in units of pixels.
           The X-positions on the CCD and their corresponding profile width are fitted
           to a functional form and the resulting coefficients are stored in a binary
-          table.
-          The X-position is the independent variable and the width is the dependent
+          table. The X-position is the independent variable and the width is the dependent
           variable for the fitting function.
         is_image: false
         size: 11 KB
@@ -3025,8 +3008,7 @@ releases:
         name: ''
         description: The data attribute of HDU 4 contains superflat which is constructed
           from extracted flat-field image and is stored in a bspline set structure
-          form.
-          A superflat is a bspline average across all fibers of the flat spectrum
+          form. A superflat is a bspline average across all fibers of the flat spectrum
           in raw counts as a function of wavelength. The various column name are explained
           in the b-spline routine in $IDLUTILS/pro/bspline.
         is_image: false
@@ -3418,10 +3400,10 @@ releases:
       hdu1:
         name: ''
         description: The HDU 1 data is a binary table whose fields are used to calculate
-          the X-centers, for all fibers in the flat-field calibration frames.
-          The Y-pixel positions on the CCD, which is the independent variable and
-          the corresponding X-centers, which is the dependent variable are fitted
-          to a functional form  and the resulting coefficients are stored in the binary
+          the X-centers, for all fibers in the flat-field calibration frames. The
+          Y-pixel positions on the CCD, which is the independent variable and the
+          corresponding X-centers, which is the dependent variable are fitted to a
+          functional form  and the resulting coefficients are stored in the binary
           table.
         is_image: false
         size: 27 KB
@@ -3452,9 +3434,9 @@ releases:
             description: "[2000](float64)  \t\t\t:  fit coefficents"
       hdu2:
         name: ''
-        description: The HDU 2 data stores the fibermask. These are fiber status
-          bits and are set to non-zero to indicate bad status. The status bits used
-          for masking are documented in $IDLUTILS/v5_4_12/data/sdss/sdssMaskbits.par.
+        description: The HDU 2 data stores the fibermask. These are fiber status bits
+          and are set to non-zero to indicate bad status. The status bits used for
+          masking are documented in $IDLUTILS/v5_4_12/data/sdss/sdssMaskbits.par.
         is_image: true
         size: 1 KB
         header:
@@ -3478,13 +3460,11 @@ releases:
           comment: number of groups
       hdu3:
         name: ''
-        description: The data attribute of HDU 3 gives the first-order corrected
-          profile width for each fiber bundle. This Gaussian sigma is in units of
-          pixels.
+        description: The data attribute of HDU 3 gives the first-order corrected profile
+          width for each fiber bundle. This Gaussian sigma is in units of pixels.
           The X-positions on the CCD and their corresponding profile width are fitted
           to a functional form and the resulting coefficients are stored in a binary
-          table.
-          The X-position is the independent variable and the width is the dependent
+          table. The X-position is the independent variable and the width is the dependent
           variable for the fitting function.
         is_image: false
         size: 11 KB
@@ -3517,8 +3497,7 @@ releases:
         name: ''
         description: The data attribute of HDU 4 contains superflat which is constructed
           from extracted flat-field image and is stored in a bspline set structure
-          form.
-          A superflat is a bspline average across all fibers of the flat spectrum
+          form. A superflat is a bspline average across all fibers of the flat spectrum
           in raw counts as a function of wavelength. The various column name are explained
           in the b-spline routine in $IDLUTILS/pro/bspline.
         is_image: false
@@ -3910,10 +3889,10 @@ releases:
       hdu1:
         name: ''
         description: The HDU 1 data is a binary table whose fields are used to calculate
-          the X-centers, for all fibers in the flat-field calibration frames.
-          The Y-pixel positions on the CCD, which is the independent variable and
-          the corresponding X-centers, which is the dependent variable are fitted
-          to a functional form  and the resulting coefficients are stored in the binary
+          the X-centers, for all fibers in the flat-field calibration frames. The
+          Y-pixel positions on the CCD, which is the independent variable and the
+          corresponding X-centers, which is the dependent variable are fitted to a
+          functional form  and the resulting coefficients are stored in the binary
           table.
         is_image: false
         size: 27 KB
@@ -3944,9 +3923,9 @@ releases:
             description: "[2000](float64)  \t\t\t:  fit coefficents"
       hdu2:
         name: ''
-        description: The HDU 2 data stores the fibermask. These are fiber status
-          bits and are set to non-zero to indicate bad status. The status bits used
-          for masking are documented in $IDLUTILS/v5_4_12/data/sdss/sdssMaskbits.par.
+        description: The HDU 2 data stores the fibermask. These are fiber status bits
+          and are set to non-zero to indicate bad status. The status bits used for
+          masking are documented in $IDLUTILS/v5_4_12/data/sdss/sdssMaskbits.par.
         is_image: true
         size: 1 KB
         header:
@@ -3970,13 +3949,11 @@ releases:
           comment: number of groups
       hdu3:
         name: ''
-        description: The data attribute of HDU 3 gives the first-order corrected
-          profile width for each fiber bundle. This Gaussian sigma is in units of
-          pixels.
+        description: The data attribute of HDU 3 gives the first-order corrected profile
+          width for each fiber bundle. This Gaussian sigma is in units of pixels.
           The X-positions on the CCD and their corresponding profile width are fitted
           to a functional form and the resulting coefficients are stored in a binary
-          table.
-          The X-position is the independent variable and the width is the dependent
+          table. The X-position is the independent variable and the width is the dependent
           variable for the fitting function.
         is_image: false
         size: 11 KB
@@ -4009,8 +3986,7 @@ releases:
         name: ''
         description: The data attribute of HDU 4 contains superflat which is constructed
           from extracted flat-field image and is stored in a bspline set structure
-          form.
-          A superflat is a bspline average across all fibers of the flat spectrum
+          form. A superflat is a bspline average across all fibers of the flat spectrum
           in raw counts as a function of wavelength. The various column name are explained
           in the b-spline routine in $IDLUTILS/pro/bspline.
         is_image: false
@@ -4402,10 +4378,10 @@ releases:
       hdu1:
         name: ''
         description: The HDU 1 data is a binary table whose fields are used to calculate
-          the X-centers, for all fibers in the flat-field calibration frames.
-          The Y-pixel positions on the CCD, which is the independent variable and
-          the corresponding X-centers, which is the dependent variable are fitted
-          to a functional form  and the resulting coefficients are stored in the binary
+          the X-centers, for all fibers in the flat-field calibration frames. The
+          Y-pixel positions on the CCD, which is the independent variable and the
+          corresponding X-centers, which is the dependent variable are fitted to a
+          functional form  and the resulting coefficients are stored in the binary
           table.
         is_image: false
         size: 27 KB
@@ -4433,12 +4409,12 @@ releases:
             name: COEFF
             type: float64[3500]
             unit: ''
-            description: "fit coefficents"
+            description: fit coefficents
       hdu2:
         name: ''
-        description: The HDU 2 data stores the fibermask. These are fiber status
-          bits and are set to non-zero to indicate bad status. The status bits used
-          for masking are documented in $IDLUTILS/v5_4_12/data/sdss/sdssMaskbits.par.
+        description: The HDU 2 data stores the fibermask. These are fiber status bits
+          and are set to non-zero to indicate bad status. The status bits used for
+          masking are documented in $IDLUTILS/v5_4_12/data/sdss/sdssMaskbits.par.
         is_image: true
         size: 1 KB
         header:
@@ -4462,13 +4438,11 @@ releases:
           comment: number of groups
       hdu3:
         name: ''
-        description: The data attribute of HDU 3 gives the first-order corrected
-          profile width for each fiber bundle. This Gaussian sigma is in units of
-          pixels.
+        description: The data attribute of HDU 3 gives the first-order corrected profile
+          width for each fiber bundle. This Gaussian sigma is in units of pixels.
           The X-positions on the CCD and their corresponding profile width are fitted
           to a functional form and the resulting coefficients are stored in a binary
-          table.
-          The X-position is the independent variable and the width is the dependent
+          table. The X-position is the independent variable and the width is the dependent
           variable for the fitting function.
         is_image: false
         size: 11 KB
@@ -4501,8 +4475,7 @@ releases:
         name: ''
         description: The data attribute of HDU 4 contains superflat which is constructed
           from extracted flat-field image and is stored in a bspline set structure
-          form.
-          A superflat is a bspline average across all fibers of the flat spectrum
+          form. A superflat is a bspline average across all fibers of the flat spectrum
           in raw counts as a function of wavelength. The various column name are explained
           in the b-spline routine in $IDLUTILS/pro/bspline.
         is_image: false
@@ -4543,12 +4516,12 @@ releases:
       path_name: spFlat
       path_template: $BOSS_SPECTRO_REDUX/{run2d}/{fieldid}{isplate}/spFlat-{br}{id}-{frame:0>8}.fits.gz
       path_kwargs:
-      - br
-      - id
-      - frame
-      - run2d
-      - isplate
       - fieldid
+      - isplate
+      - id
+      - br
+      - run2d
+      - frame
       access_string: spFlat = $BOSS_SPECTRO_REDUX/{run2d}/{fieldid}{isplate}/spFlat-{br}{id}-{frame}.fits.gz
     hdus:
       hdu0:
@@ -4944,10 +4917,10 @@ releases:
       hdu1:
         name: ''
         description: The HDU 1 data is a binary table whose fields are used to calculate
-          the X-centers, for all fibers in the flat-field calibration frames.
-          The Y-pixel positions on the CCD, which is the independent variable and
-          the corresponding X-centers, which is the dependent variable are fitted
-          to a functional form  and the resulting coefficients are stored in the binary
+          the X-centers, for all fibers in the flat-field calibration frames. The
+          Y-pixel positions on the CCD, which is the independent variable and the
+          corresponding X-centers, which is the dependent variable are fitted to a
+          functional form  and the resulting coefficients are stored in the binary
           table.
         is_image: false
         size: 27 KB
@@ -4975,12 +4948,12 @@ releases:
             name: COEFF
             type: float64[3500]
             unit: ''
-            description: "fit coefficents"
+            description: fit coefficents
       hdu2:
         name: ''
-        description: The HDU 2 data stores the fibermask. These are fiber status
-          bits and are set to non-zero to indicate bad status. The status bits used
-          for masking are documented in $IDLUTILS/v5_4_12/data/sdss/sdssMaskbits.par.
+        description: The HDU 2 data stores the fibermask. These are fiber status bits
+          and are set to non-zero to indicate bad status. The status bits used for
+          masking are documented in $IDLUTILS/v5_4_12/data/sdss/sdssMaskbits.par.
         is_image: true
         size: 1 KB
         header:
@@ -5004,13 +4977,11 @@ releases:
           comment: ''
       hdu3:
         name: ''
-        description: The data attribute of HDU 3 gives the first-order corrected
-          profile width for each fiber bundle. This Gaussian sigma is in units of
-          pixels.
+        description: The data attribute of HDU 3 gives the first-order corrected profile
+          width for each fiber bundle. This Gaussian sigma is in units of pixels.
           The X-positions on the CCD and their corresponding profile width are fitted
           to a functional form and the resulting coefficients are stored in a binary
-          table.
-          The X-position is the independent variable and the width is the dependent
+          table. The X-position is the independent variable and the width is the dependent
           variable for the fitting function.
         is_image: false
         size: 11 KB
@@ -5038,13 +5009,12 @@ releases:
             name: COEFF
             type: float64[3500]
             unit: ''
-            description: "fit coefficents"
+            description: fit coefficents
       hdu4:
         name: ''
         description: The data attribute of HDU 4 contains superflat which is constructed
           from extracted flat-field image and is stored in a bspline set structure
-          form.
-          A superflat is a bspline average across all fibers of the flat spectrum
+          form. A superflat is a bspline average across all fibers of the flat spectrum
           in raw counts as a function of wavelength. The various column name are explained
           in the b-spline routine in $IDLUTILS/pro/bspline.
         is_image: false
