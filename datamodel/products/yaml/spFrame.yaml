@@ -38,59 +38,59 @@ changelog:
       from: DR17
       primary_delta_nkeys: 28
       added_primary_header_kwargs:
-      - TRUSTEMP
-      - WINDD25M
-      - PLATETYP
-      - DUSTB
-      - DUSTA
-      - LN2TEMP
-      - CCDTEMP
-      - SUBFRAME
-      - MGDDEC
-      - PRESSURE
-      - DIDFLUSH
-      - SRVYMODE
-      - WINDS25M
-      - V_GUIDER
-      - V_SOP
-      - REQTIME
-      - V_BOSS
-      - WDISPR
       - MGDPOS
       - M1ZROT
-      - MGDRA
-      - M2ZROT
-      - CENBSH0
+      - SUBFRAME
       - STDBSH0
-      - IONPUMP
-      - WINDD
-      - GUSTS
-      - AVGBSH0
-      - DEWPOINT
-      - SIGBSH0
-      - AVGASH0
-      - WINDS
-      - SLITID1
-      - DARKTIME
-      - PFERR
-      - V_APO
+      - SRVYMODE
+      - PLATETYP
       - GUSTD
-      - STDASH0
+      - DARKTIME
+      - IONPUMP
+      - MGDRA
+      - WINDS
+      - SIGBSH0
+      - REQTIME
+      - DUSTB
+      - WINDS25M
+      - PRESSURE
+      - V_APO
       - AIRTEMP
+      - CCDTEMP
+      - M2ZROT
+      - AVGBSH0
+      - WINDD
+      - WDISPR
+      - WINDD25M
+      - STDASH0
+      - DIDFLUSH
+      - V_BOSS
+      - LN2TEMP
       - HUMIDITY
+      - DUSTA
+      - DEWPOINT
+      - MGDDEC
+      - SLITID1
+      - PFERR
+      - CENBSH0
+      - V_GUIDER
+      - V_SOP
+      - AVGASH0
+      - GUSTS
+      - TRUSTEMP
       removed_primary_header_kwargs:
-      - OBJOFFX
-      - BOSSVER
-      - OBJOFFY
-      - MC2THT
-      - MC2TEMDN
-      - DAQVER
-      - MC2HUMCO
       - MC2TRCB
-      - MC2TBCT
-      - MC2TBCB
-      - MC2TRCT
+      - MC2HUMCO
+      - MC2TEMDN
+      - OBJOFFX
+      - DAQVER
+      - MC2THT
       - MC2HUMHT
+      - MC2TBCT
+      - OBJOFFY
+      - MC2TRCT
+      - MC2TBCB
+      - BOSSVER
     DR17:
       from: DR16
       note: No changes
@@ -7991,10 +7991,16 @@ releases:
     location: '{run2d}/{fieldid}{isplate}/spFrame-{br}{id}-{frame}.fits.gz'
     environment: BOSS_SPECTRO_REDUX
     access:
-      in_sdss_access: false
-      path_name: null
-      path_template: null
-      path_kwargs: null
+      in_sdss_access: true
+      path_name: spFrame
+      path_template: $BOSS_SPECTRO_REDUX/{run2d}/{fieldid}{isplate}/spFrame-{br}{id}-{frame:0>8}.fits.gz
+      path_kwargs:
+      - fieldid
+      - frame
+      - br
+      - id
+      - isplate
+      - run2d
       access_string: spFrame = $BOSS_SPECTRO_REDUX/{run2d}/{fieldid}{isplate}/spFrame-{br}{id}-{frame}.fits.gz
     hdus:
       hdu0:
