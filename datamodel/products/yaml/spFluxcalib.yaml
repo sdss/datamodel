@@ -1923,10 +1923,16 @@ releases:
     location: '{run2d}/{fieldid}{isplate}/spFluxcalib-{br}{id}-{frame}.fits.gz'
     environment: BOSS_SPECTRO_REDUX
     access:
-      in_sdss_access: false
-      path_name: null
-      path_template: null
-      path_kwargs: null
+      in_sdss_access: true
+      path_name: spFluxcalib
+      path_template: $BOSS_SPECTRO_REDUX/{run2d}/{fieldid}{isplate}/spFluxcalib-{br}{id}-{frame:0>8}.fits.gz
+      path_kwargs:
+      - br
+      - fieldid
+      - id
+      - frame
+      - run2d
+      - isplate
       access_string: spFluxcalib = $BOSS_SPECTRO_REDUX/{run2d}/{fieldid}{isplate}/spFluxcalib-{br}{id}-{frame}.fits.gz
     hdus:
       hdu0:
