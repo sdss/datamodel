@@ -34,52 +34,52 @@ changelog:
       from: DR17
       primary_delta_nkeys: 21
       added_primary_header_kwargs:
-      - PRESSURE
-      - SLITID1
-      - GUSTD
-      - WINDD25M
-      - REQTIME
-      - SRVYMODE
-      - V_APO
-      - LN2TEMP
-      - AIRTEMP
-      - DUSTA
-      - IONPUMP
-      - WINDS25M
-      - M2ZROT
-      - V_BOSS
-      - V_SOP
-      - WINDS
-      - PFERR
-      - MGDRA
-      - GUSTS
-      - CCDTEMP
-      - MGDPOS
-      - HUMIDITY
-      - WINDD
-      - M1ZROT
-      - DARKTIME
-      - PLATETYP
-      - DIDFLUSH
-      - MGDDEC
-      - DUSTB
       - V_GUIDER
+      - AIRTEMP
+      - GUSTD
+      - V_BOSS
+      - MGDRA
+      - DIDFLUSH
+      - DARKTIME
+      - PRESSURE
       - SUBFRAME
+      - WINDD
+      - WINDS
       - DEWPOINT
+      - PFERR
+      - WINDD25M
+      - SRVYMODE
+      - V_SOP
+      - SLITID1
+      - DUSTA
+      - M2ZROT
+      - MGDPOS
+      - IONPUMP
+      - MGDDEC
+      - CCDTEMP
+      - PLATETYP
+      - DUSTB
       - TRUSTEMP
+      - HUMIDITY
+      - WINDS25M
+      - V_APO
+      - M1ZROT
+      - GUSTS
+      - REQTIME
+      - LN2TEMP
       removed_primary_header_kwargs:
-      - MC2HUMHT
-      - BOSSVER
-      - OBJOFFY
       - MC2TBCT
-      - MC2HUMCO
-      - MC2TBCB
-      - MC2TRCB
-      - DAQVER
-      - MC2TRCT
-      - MC2THT
-      - OBJOFFX
       - MC2TEMDN
+      - DAQVER
+      - BOSSVER
+      - OBJOFFX
+      - OBJOFFY
+      - MC2TBCB
+      - MC2THT
+      - MC2TRCB
+      - MC2HUMHT
+      - MC2TRCT
+      - MC2HUMCO
     DR17:
       from: DR16
       note: No changes
@@ -4827,10 +4827,16 @@ releases:
     location: '{run2d}/{fieldid}{isplate}/spArc-{br}{id}-{frame}.fits.gz'
     environment: BOSS_SPECTRO_REDUX
     access:
-      in_sdss_access: false
-      path_name: null
-      path_template: null
-      path_kwargs: null
+      in_sdss_access: true
+      path_name: spArc
+      path_template: $BOSS_SPECTRO_REDUX/{run2d}/{fieldid}{isplate}/spArc-{br}{id}-{frame:0>8}.fits.gz
+      path_kwargs:
+      - frame
+      - id
+      - br
+      - fieldid
+      - isplate
+      - run2d
       access_string: spArc = $BOSS_SPECTRO_REDUX/{run2d}/{fieldid}{isplate}/spArc-{br}{id}-{frame}.fits.gz
     hdus:
       hdu0:
