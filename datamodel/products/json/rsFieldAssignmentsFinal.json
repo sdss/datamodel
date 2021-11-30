@@ -1,0 +1,624 @@
+{
+  "general": {
+    "name": "rsFieldAssignmentsFinal",
+    "short": "Target assignments for a particular field (version to load into targetdb)",
+    "description": "Targets in the area around a particular field and their assignments within this field. Each entry is an entry from the carton_to_target table in targetdb and has a unique RSID. Different RSIDs can correspond to the same CATALOGID (and thus actually be the same object), but may have different desired cadence or spectrograph requirements. Produced by the robostrategy script rs_assign_final, using the tofits() method of the Field class. Can be read in by fromfits() method of the Field class. This file is the version to be loaded into targetdb.",
+    "environments": [
+      "ROBOSTRATEGY_DATA"
+    ],
+    "datatype": "FITS",
+    "filesize": "20 MB",
+    "releases": [
+      {
+        "name": "WORK",
+        "description": "SDSS unreleased data.  Represents any work-in-progress data.",
+        "public": false,
+        "release_date": "unreleased"
+      }
+    ],
+    "naming_convention": "$ROBOSTRATEGY_DATA/allocations/[PLAN]/final/rsFieldAssignmentsFinal-[PLAN]-[OBSERVATORY]-[FIELDID].fits",
+    "generated_by": "robostrategy",
+    "design": false
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "WORK": {
+      "template": "$ROBOSTRATEGY_DATA/allocations/[PLAN]/final/rsFieldAssignmentsFinal-[PLAN]-[OBSERVATORY]-[FIELDID].fits",
+      "example": "allocations/epsilon-7-core-0/final/rsFieldAssignmentsFinal-epsilon-7-core-0-apo-1.fits",
+      "location": "allocations/{plan}/final/rsFieldAssignmentsFinal-{plan}-{observatory}-{fieldid}.fits",
+      "environment": "ROBOSTRATEGY_DATA",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "rsFieldAssignmentsFinal",
+        "path_template": "$ROBOSTRATEGY_DATA/allocations/{plan}/final/rsFieldAssignments-{plan}-{observatory}-{fieldid}.fits",
+        "path_kwargs": [
+          "observatory",
+          "plan",
+          "fieldid"
+        ],
+        "access_string": "rsFieldAssignmentsFinal = $ROBOSTRATEGY_DATA/allocations/{plan}/final/rsFieldAssignmentsFinal-{plan}-{observatory}-{fieldid}.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Primary header",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "file does conform to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "16",
+              "comment": "number of bits per data pixel"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of data axes"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": "FITS dataset may contain extensions"
+            },
+            {
+              "key": "COMMENT",
+              "value": "  FITS (Flexible Image Transport System) format is defined in 'Astronomy",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "  and Astrophysics', volume 376, page 359; bibcode: 2001A&A...376..359H",
+              "comment": ""
+            },
+            {
+              "key": "STRATVER",
+              "value": "1.0.6dev",
+              "comment": "robostrategy version"
+            },
+            {
+              "key": "SCHEDVER",
+              "value": "0.9.1",
+              "comment": "roboscheduler version"
+            },
+            {
+              "key": "MUGATVER",
+              "value": "0.1.0alpha",
+              "comment": "mugatu version"
+            },
+            {
+              "key": "KAIJUVER",
+              "value": "1.0.0",
+              "comment": "kaiju version"
+            },
+            {
+              "key": "RACEN",
+              "value": "292.128118909909",
+              "comment": "RA J2000 center of field (deg)"
+            },
+            {
+              "key": "DECCEN",
+              "value": "25.2620206919673",
+              "comment": "Dec J2000 center of field (deg)"
+            },
+            {
+              "key": "OBS",
+              "value": "apo",
+              "comment": "observatory used for field"
+            },
+            {
+              "key": "PA",
+              "value": "54.7425765991211",
+              "comment": "position angle (deg E of N)"
+            },
+            {
+              "key": "FCADENCE",
+              "value": "mixed2_single_19x1",
+              "comment": "field cadence"
+            },
+            {
+              "key": "NEXP",
+              "value": "19",
+              "comment": "number of exposures in cadence"
+            },
+            {
+              "key": "DESMODE",
+              "value": "dark_plane dark_plane bright_time bright_time bright_time bright_time bright_time bright_time bright_time bright_time bright_time bright_time bright_time bright_time bright_time bright_time bright_time bright_time bright_time",
+              "comment": "list of design modes"
+            },
+            {
+              "key": "CBUFFER",
+              "value": "2.0",
+              "comment": "kaiju collision buffer"
+            },
+            {
+              "key": "NOCALIB",
+              "value": "False",
+              "comment": "True if this field ignores calibrations"
+            },
+            {
+              "key": "RCNAME0",
+              "value": "sky_boss",
+              "comment": "required calibration category"
+            },
+            {
+              "key": "RCNUM0",
+              "value": "50 50 50 50 50 50 50 50 50 50 50 50 50 50 50 50 50 50 50",
+              "comment": "number re"
+            },
+            {
+              "key": "RCNAME1",
+              "value": "standard_boss",
+              "comment": "required calibration category"
+            },
+            {
+              "key": "RCNUM1",
+              "value": "50 50 50 50 50 50 50 50 50 50 50 50 50 50 50 50 50 50 50",
+              "comment": "number re"
+            },
+            {
+              "key": "RCNAME2",
+              "value": "sky_apogee",
+              "comment": "required calibration category"
+            },
+            {
+              "key": "RCNUM2",
+              "value": "35 35 35 35 35 35 35 35 35 35 35 35 35 35 35 35 35 35 35",
+              "comment": "number re"
+            },
+            {
+              "key": "RCNAME3",
+              "value": "standard_apogee",
+              "comment": "required calibration category"
+            },
+            {
+              "key": "RCNUM3",
+              "value": "15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15",
+              "comment": "number re"
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "TARGET",
+          "is_image": false,
+          "description": "Targets in field",
+          "size": "10 MB",
+          "header": null,
+          "columns": {
+            "rsassign": {
+              "name": "RSASSIGN",
+              "description": "Set to 0 if not to be assigned, 1 if to be assigned, 2 if an open target assignment",
+              "type": "int32",
+              "unit": ""
+            },
+            "rsid": {
+              "name": "RSID",
+              "description": "robostrategy unique ID",
+              "type": "int64",
+              "unit": ""
+            },
+            "carton_to_target_pk": {
+              "name": "CARTON_TO_TARGET_PK",
+              "description": "primary key for carton_to_target table",
+              "type": "int64",
+              "unit": ""
+            },
+            "priority": {
+              "name": "PRIORITY",
+              "description": "priority for assignment (lower numbers assigned first)",
+              "type": "int32",
+              "unit": ""
+            },
+            "value": {
+              "name": "VALUE",
+              "description": "value to be used for cadence allocation to fields",
+              "type": "float32",
+              "unit": ""
+            },
+            "lambda_eff": {
+              "name": "LAMBDA_EFF",
+              "description": "effective wavelength for observation",
+              "type": "float32",
+              "unit": "Angstrom"
+            },
+            "delta_ra": {
+              "name": "DELTA_RA",
+              "description": "RA offset of observation from nominal object position",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "delta_dec": {
+              "name": "DELTA_DEC",
+              "description": "Dec offset of observation from nominal object position",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "ra": {
+              "name": "RA",
+              "description": "Object position in RA J2000",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "dec": {
+              "name": "DEC",
+              "description": "Object position in Dec J2000",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "epoch": {
+              "name": "EPOCH",
+              "description": "Epoch of RA/Dec",
+              "type": "float32",
+              "unit": "years"
+            },
+            "pmra": {
+              "name": "PMRA",
+              "description": "Proper motion in RA",
+              "type": "float32",
+              "unit": "mas/year"
+            },
+            "pmdec": {
+              "name": "PMDEC",
+              "description": "Proper motion in Dec",
+              "type": "float32",
+              "unit": "mas/year"
+            },
+            "parallax": {
+              "name": "PARALLAX",
+              "description": "Parallax",
+              "type": "float32",
+              "unit": "arcsec"
+            },
+            "catalogid": {
+              "name": "CATALOGID",
+              "description": "Unique id in catalog table of catalogdb",
+              "type": "int64",
+              "unit": ""
+            },
+            "target_pk": {
+              "name": "TARGET_PK",
+              "description": "Primary key in target table in targetdb",
+              "type": "int64",
+              "unit": ""
+            },
+            "magnitude": {
+              "name": "MAGNITUDE",
+              "description": "Array of magnitudes (g, r, i, BP, G, RP, H)",
+              "type": "float32[7]",
+              "unit": "mag"
+            },
+            "carton": {
+              "name": "CARTON",
+              "description": "Name of carton for this target",
+              "type": "char[50]",
+              "unit": ""
+            },
+            "carton_pk": {
+              "name": "CARTON_PK",
+              "description": "Primary key of carton for this target's carton",
+              "type": "int32",
+              "unit": ""
+            },
+            "program": {
+              "name": "PROGRAM",
+              "description": "Name of program for this target",
+              "type": "char[15]",
+              "unit": ""
+            },
+            "mapper": {
+              "name": "MAPPER",
+              "description": "Name of mapper for this target",
+              "type": "char[3]",
+              "unit": ""
+            },
+            "category": {
+              "name": "CATEGORY",
+              "description": "Category of target, one of 'science', 'sky_boss', 'standard_boss', 'sky_apogee', and 'standard_apogee'",
+              "type": "char[15]",
+              "unit": ""
+            },
+            "cadence": {
+              "name": "CADENCE",
+              "description": "Desired cadence of target",
+              "type": "char[22]",
+              "unit": ""
+            },
+            "fiberType": {
+              "name": "FIBERTYPE",
+              "description": "Fiber type desired",
+              "type": "char[6]",
+              "unit": ""
+            },
+            "plan": {
+              "name": "PLAN",
+              "description": "Plan associated with targeting version",
+              "type": "char[8]",
+              "unit": ""
+            },
+            "tag": {
+              "name": "TAG",
+              "description": "Tag associated with targeting version",
+              "type": "char[8]",
+              "unit": ""
+            },
+            "x": {
+              "name": "X",
+              "description": "X position in focal plane",
+              "type": "float64",
+              "unit": "mm"
+            },
+            "y": {
+              "name": "Y",
+              "description": "Y position in focal plane",
+              "type": "float64",
+              "unit": "mm"
+            },
+            "within": {
+              "name": "WITHIN",
+              "description": "target is covered by a robot with right fiber type",
+              "type": "int32",
+              "unit": ""
+            },
+            "incadence": {
+              "name": "INCADENCE",
+              "description": "target is observable in field cadence (all 0 in this file)",
+              "type": "int32",
+              "unit": ""
+            }
+          }
+        },
+        "hdu2": {
+          "name": "ASSIGN",
+          "is_image": false,
+          "description": "Assignments for each target for each exposure. Entries are in same order as TARGET HDU.",
+          "size": "14 MB",
+          "header": null,
+          "columns": {
+            "assigned": {
+              "name": "ASSIGNED",
+              "description": "Set to 1 if this RSID was explicitly assigned in any exposure (that is, if any value of robotID is not -1)",
+              "type": "int32",
+              "unit": ""
+            },
+            "satisfied": {
+              "name": "SATISFIED",
+              "description": "Set to 1 if the desired cadence for this RSID is satisfied by the planned observations in this file; even if those observations are not explicitly assigned for this RSID, for example if there are other RSIDs with the same CATALOGID requiring a compatible observation.",
+              "type": "int32",
+              "unit": ""
+            },
+            "nexps": {
+              "name": "NEXPS",
+              "description": "Total number of exposures that can be applied for this RSID, even if not explicitly assigned to it",
+              "type": "int32",
+              "unit": ""
+            },
+            "nepochs": {
+              "name": "NEPOCHS",
+              "description": "Total number of epochs that can be applied for this RSID, even if not explicitly assigned to it",
+              "type": "int32",
+              "unit": ""
+            },
+            "allowed": {
+              "name": "ALLOWED",
+              "description": "For each exposure, whether this target is allowed to be observed based on the design mode for the exposure",
+              "type": "int32[19]",
+              "unit": ""
+            },
+            "robotID": {
+              "name": "ROBOTID",
+              "description": "robotIDs explicitly assigned to this RSID for each exposure (-1 if no assignment)",
+              "type": "int32[19]",
+              "unit": ""
+            },
+            "holeID": {
+              "name": "HOLEID",
+              "description": "hole ID names for explicit assignments for each exposure",
+              "type": "char[19, 15]",
+              "unit": ""
+            },
+            "equivRobotID": {
+              "name": "EQUIVROBOTID",
+              "description": "set to robotID assigned in each exposure that satisfies the desired CATALOGID, FIBERTYPE, DELTA_RA, DELTA_DEC, and LAMBDA_EFF for this RSID (-1 for nothing assigned).",
+              "type": "int32[19]",
+              "unit": ""
+            },
+            "target_skybrightness": {
+              "name": "TARGET_SKYBRIGHTNESS",
+              "description": "Maximum sky brightness for each target in each assigned exposure.",
+              "type": "float32[19]",
+              "unit": ""
+            },
+            "field_skybrightness": {
+              "name": "FIELD_SKYBRIGHTNESS",
+              "description": "Maximum sky brightness for the field in each exposure.",
+              "type": "float32[19]",
+              "unit": ""
+            },
+            "fiberType": {
+              "name": "FIBERTYPE",
+              "description": "Fiber type assigned (should be same as corresponding field in TARGET HDU)",
+              "type": "char[10]",
+              "unit": ""
+            },
+            "rsflags": {
+              "name": "RSFLAGS",
+              "description": "fiber assignment flags (not used)",
+              "type": "int32",
+              "unit": ""
+            }
+          }
+        },
+        "hdu3": {
+          "name": "DESMODE",
+          "is_image": false,
+          "description": "Available design modes",
+          "size": "6 KB",
+          "header": null,
+          "columns": {
+            "label": {
+              "name": "LABEL",
+              "description": "name of design mode",
+              "type": "char[30]",
+              "unit": ""
+            },
+            "boss_n_skies_min": {
+              "name": "BOSS_N_SKIES_MIN",
+              "description": "Minimum number of skies for BOSS",
+              "type": "float64",
+              "unit": ""
+            },
+            "apogee_n_skies_min": {
+              "name": "APOGEE_N_SKIES_MIN",
+              "description": "Minimum number of skies for APOGEE",
+              "type": "float64",
+              "unit": ""
+            },
+            "boss_min_skies_fovmetric": {
+              "name": "BOSS_MIN_SKIES_FOVMETRIC",
+              "description": "Minimum FOV metric for BOSS skies",
+              "type": "float64[3]",
+              "unit": ""
+            },
+            "apogee_min_skies_fovmetric": {
+              "name": "APOGEE_MIN_SKIES_FOVMETRIC",
+              "description": "Minimum FOV metric for APOGEE skies",
+              "type": "float64[3]",
+              "unit": ""
+            },
+            "boss_n_stds_min": {
+              "name": "BOSS_N_STDS_MIN",
+              "description": "Minimum number of standards for BOSS",
+              "type": "float64",
+              "unit": ""
+            },
+            "apogee_n_stds_min": {
+              "name": "APOGEE_N_STDS_MIN",
+              "description": "Minimum number of standards for APOGEE",
+              "type": "float64",
+              "unit": ""
+            },
+            "boss_min_stds_fovmetric": {
+              "name": "BOSS_MIN_STDS_FOVMETRIC",
+              "description": "Minimum FOV metric for BOSS standards",
+              "type": "float64[3]",
+              "unit": ""
+            },
+            "apogee_min_stds_fovmetric": {
+              "name": "APOGEE_MIN_STDS_FOVMETRIC",
+              "description": "Minimum FOV metric for APOGEE standards",
+              "type": "float64[3]",
+              "unit": ""
+            },
+            "boss_stds_mags": {
+              "name": "BOSS_STDS_MAGS",
+              "description": "Minimum and maximum magnitude for BOSS standard in (g, r, i, BP, G, RP, H)",
+              "type": "float64[7, 2]",
+              "unit": "mag"
+            },
+            "apogee_stds_mags": {
+              "name": "APOGEE_STDS_MAGS",
+              "description": "Minimum and maximum magnitude for APOGEE standard in (g, r, i, BP, G, RP, H)",
+              "type": "float64[7, 2]",
+              "unit": "mag"
+            },
+            "boss_bright_limit_targets": {
+              "name": "BOSS_BRIGHT_LIMIT_TARGETS",
+              "description": "Minimum and maximum magnitude for BOSS target in (g, r, i, BP, G, RP, H)",
+              "type": "float64[7, 2]",
+              "unit": "mag"
+            },
+            "apogee_bright_limit_targets": {
+              "name": "APOGEE_BRIGHT_LIMIT_TARGETS",
+              "description": "Minimum and maximum magnitude for APOGEE target in (g, r, i, BP, G, RP, H)",
+              "type": "float64[7, 2]",
+              "unit": "mag"
+            },
+            "boss_sky_neighbors_targets": {
+              "name": "BOSS_SKY_NEIGHBORS_TARGETS",
+              "description": "???",
+              "type": "float64",
+              "unit": ""
+            },
+            "apogee_sky_neighbors_targets": {
+              "name": "APOGEE_SKY_NEIGHBORS_TARGETS",
+              "description": "???",
+              "type": "float64",
+              "unit": ""
+            },
+            "apogee_trace_diff_targets": {
+              "name": "APOGEE_TRACE_DIFF_TARGETS",
+              "description": "maximum difference in H mag for targets neighboring on slit",
+              "type": "float64",
+              "unit": "mag"
+            }
+          }
+        },
+        "hdu4": {
+          "name": "ROBOTS",
+          "is_image": false,
+          "description": "Assignments for each robot",
+          "size": "251 KB",
+          "header": null,
+          "columns": {
+            "robotID": {
+              "name": "ROBOTID",
+              "description": "Robot ID",
+              "type": "int32",
+              "unit": ""
+            },
+            "holeID": {
+              "name": "HOLEID",
+              "description": "Hole ID",
+              "type": "char[15]",
+              "unit": ""
+            },
+            "hasBoss": {
+              "name": "HASBOSS",
+              "description": "Set if this robot carries a BOSS fiber",
+              "type": "bool",
+              "unit": ""
+            },
+            "hasApogee": {
+              "name": "HASAPOGEE",
+              "description": "Set if this robot carries an APOGEE fiber",
+              "type": "bool",
+              "unit": ""
+            },
+            "rsid": {
+              "name": "RSID",
+              "description": "RSID of target assigned to this robot for each exposure (-1 if none)",
+              "type": "int64[19]",
+              "unit": ""
+            },
+            "itarget": {
+              "name": "ITARGET",
+              "description": "position (0-indexed) of RSID assigned in TARGET and ASSIGN HDUs",
+              "type": "int32[19]",
+              "unit": ""
+            },
+            "catalogid": {
+              "name": "CATALOGID",
+              "description": "CATALOGID (from targetdb) of the RSID for this exposure",
+              "type": "int64[19]",
+              "unit": ""
+            },
+            "fiberType": {
+              "name": "FIBERTYPE",
+              "description": "Fiber types used for each exposure",
+              "type": "char[19, 6]",
+              "unit": ""
+            }
+          }
+        }
+      }
+    }
+  }
+}
