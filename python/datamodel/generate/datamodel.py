@@ -440,7 +440,7 @@ class DataModel(object):
             # lookup the sdss_access information
             self.access[self.release]['path_name'] = name
             self.access[self.release]['path_template'] = self.tree.paths[name]
-            self.access[self.release]['path_kwargs'] = path.lookup_keys(name)
+            self.access[self.release]['path_kwargs'] = list(set(path.lookup_keys(name)))
 
     def get_stub(self, format: str = 'yaml') -> BaseStub:
         """ Get a datamodel Stub
