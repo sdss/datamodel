@@ -50,7 +50,8 @@ def setup_sas(monkeypatch, tmp_path, mocker):
     mocker.patch('datamodel.generate.datamodel.Path', new=MockPath)
 
 
-def create_test_fits(name: str = None, version: str = None, env: str = None) -> pathlib.Path:
+def create_test_fits(name: str = None, version: str = None, 
+                     env: str = None, extra_cols: bool = None) -> pathlib.Path:
     """ creates a temporary fake test file
 
     Parameters
@@ -61,6 +62,8 @@ def create_test_fits(name: str = None, version: str = None, env: str = None) -> 
         the version of the file, by default 'v1'
     env : str, optional
         the environment, by default 'testwork'
+    extra_cols : bool, optional
+        If True, add extra columns to the binary table FITS extension, by default False
 
     Returns
     -------
@@ -77,10 +80,13 @@ def create_test_fits(name: str = None, version: str = None, env: str = None) -> 
                           ('testver', version, 'version of the file')])
     primary = fits.PrimaryHDU(header=header)
     imdata = fits.ImageHDU(name='FLUX', data=np.ones([5,5]))
-    bindata = fits.BinTableHDU.from_columns(
-        [fits.Column(name='object', format='20A', array=['a', 'b', 'c']),
-         fits.Column(name='param', format='E', array=np.random.rand(3), unit='m'),
-         fits.Column(name='flag', format='I', array=np.arange(3))])
+    cols = [fits.Column(name='object', format='20A', array=['a', 'b', 'c']),
+            fits.Column(name='param', format='E', array=np.random.rand(3), unit='m'),
+            fits.Column(name='flag', format='I', array=np.arange(3))]
+    if extra_cols:
+        cols.extend([fits.Column(name='field', format='J', array=np.arange(3)),
+                     fits.Column(name='mjd', format='I', array=np.arange(3))])
+    bindata = fits.BinTableHDU.from_columns(cols)
 
     hdu = fits.HDUList([primary, imdata, bindata])
 
@@ -100,8 +106,8 @@ def create_test_fits(name: str = None, version: str = None, env: str = None) -> 
 @pytest.fixture()
 def makefile():
     """ fixture to make a test file """
-    def _make_file(name=None, version=None, env=None):
-        return create_test_fits(name=name, version=version, env=env)
+    def _make_file(name=None, version=None, env=None, extra_cols=None):
+        return create_test_fits(name=name, version=version, env=env, extra_cols=extra_cols)
     return _make_file
 
 

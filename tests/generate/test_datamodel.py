@@ -77,7 +77,7 @@ def test_release_same_cache(makefile, validyaml):
     dr15 = makefile(env='dr15')
     dr16 = makefile(env='dr16')
 
-    # dr15
+    # dr15 - copy valid cache from WORK
     dm = DataModel(file_spec='test', keywords=['ver=v1', 'id=a'], path='TEST_REDUX/{ver}/testfile_{id}.fits', verbose=True, release='DR15')
     dm.write_stubs(use_cache_release='WORK', full_cache=True)
 
@@ -90,3 +90,29 @@ def test_release_same_cache(makefile, validyaml):
     assert set(ss._cache['general']['releases']) == set(['WORK', 'DR15', 'DR16'])
     assert ss._cache['releases']['DR15'] == ss._cache['releases']['DR16']
     assert deepdiff.DeepDiff(ss._cache['releases']['DR15'], ss._cache['releases']['DR16']) == {}
+
+def test_release_partial_cache(makefile, validyaml):
+    dr16 = makefile(env='dr16')
+    dr17 = makefile(env='dr17', extra_cols=True)
+
+    # dr16 - copy valid cache from WORK
+    dm = DataModel(file_spec='test', keywords=['ver=v1', 'id=a'], path='TEST_REDUX/{ver}/testfile_{id}.fits', verbose=True, release='DR16')
+    dm.write_stubs(use_cache_release='WORK', full_cache=True)
+
+    # dr17
+    dm = DataModel(file_spec='test', keywords=['ver=v1', 'id=a'], path='TEST_REDUX/{ver}/testfile_{id}.fits', verbose=True, release='DR17')
+    dm.write_stubs(use_cache_release='DR16')
+
+    ss = dm.get_stub('yaml')
+    ss.update_cache()
+    assert set(ss._cache['general']['releases']) == set(['WORK', 'DR16', 'DR17'])
+    hdu2a = ss._cache['releases']['DR16']['hdus']['hdu2']
+    hdu2b = ss._cache['releases']['DR17']['hdus']['hdu2']
+    assert 'field' not in hdu2a['columns']
+    assert 'field' in hdu2b['columns']
+    assert 'replace me - with content' in hdu2b['columns']['field']['unit']
+    assert hdu2b['columns']['field']['name'] == 'FIELD'
+    assert 'mjd' in hdu2b['columns']
+    
+
+    
