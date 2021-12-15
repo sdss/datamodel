@@ -223,6 +223,7 @@ class Access(BaseModel):
         in_access = values.get('in_sdss_access')
         if in_access and not value:
             raise ValueError(f'{field.name} cannot be None if in_sdss_access is True')
+        return value
 
 class Header(BaseModel):
     """ Pydantic model representing a YAML header section

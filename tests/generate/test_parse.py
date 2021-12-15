@@ -20,6 +20,7 @@ from datamodel.generate.parse import get_abstract_path, get_abstract_key, get_fi
 @pytest.mark.parametrize('name, exp',
                          [('mangaRss', 'mangaRss'),
                           ('plate6', 'plate6'),
+                          ('apogee-rc', 'apogee-rc'),
                           ('bad#$name', None)])
 def test_get_file_spec(name, exp):
     filespec = get_file_spec(name)
