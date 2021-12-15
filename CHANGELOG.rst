@@ -8,6 +8,11 @@ Change Log
 ------------------
 - Removed all references to the old datamodel wiki code, now deprecated for the DSI
 - Fix to Github Action to build sphinx documentation
+- Fix issue :issue:`28` - duplicate access path keywords
+- Fix issue :issue:`19` - invalid file_species when "-" present
+- Fix issue :issue:`32` - new table columns not present in old caches
+- Fix issue :issue:`34` - improved access path validation
+
 
 0.3.2 (07-08-2021)
 ------------------

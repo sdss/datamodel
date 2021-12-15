@@ -213,10 +213,17 @@ class Access(BaseModel):
         The full sdss_access entry, "path_name=path_template"
     """
     in_sdss_access: bool
-    path_name: str
-    path_template: str
-    path_kwargs: List[str]
-    access_string: str
+    path_name: str = None
+    path_template: str = None
+    path_kwargs: List[str] = None
+    access_string: str = None
+    
+    @validator('path_name', 'path_template', 'path_kwargs', 'access_string')
+    def check_path_kwargs(cls, value, values, field):
+        in_access = values.get('in_sdss_access')
+        if in_access and not value:
+            raise ValueError(f'{field.name} cannot be None if in_sdss_access is True')
+        return value
 
 class Header(BaseModel):
     """ Pydantic model representing a YAML header section
