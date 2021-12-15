@@ -65,9 +65,9 @@ def test_datamodel_duplicate_keys():
     path = 'ROBOSTRATEGY_DATA/allocations/{plan}/rsCompleteness-{plan}-{observatory}.fits'
     keys = ['plan=alpha-3', 'observatory=apo']    
     dm = DataModel(file_spec='rsCompleteness', path=path, tree_ver='sdss5', keywords=keys)
-    assert set(dm.access['WORK']['path_kwargs']) == set(['plan', 'observatory'])
+    assert sorted(dm.access['WORK']['path_kwargs']) == sorted(['plan', 'observatory'])
     real_keys = re.findall(r'{(.*?)}', dm.path)
-    assert set(real_keys) == set(['plan', 'plan', 'observatory'])
+    assert real_keys == ['plan', 'plan', 'observatory']
 
 
 def test_valid_datamodel(validmodel):
