@@ -15,6 +15,7 @@ from __future__ import print_function, division, absolute_import
 
 import pytest
 import os
+import re
 
 import deepdiff
 from datamodel.generate import DataModel
@@ -59,6 +60,15 @@ def test_datamodel_nokeys_ok():
 def test_datamodel_nokeys(testfile):
     with pytest.raises(ValueError, match='A set of keywords must be provided along with a either a path or location'):
         DataModel(file_spec='test', path='TEST_REDUX/{ver}/testfile_{id}.fits')
+
+def test_datamodel_duplicate_keys():
+    path = 'ROBOSTRATEGY_DATA/allocations/{plan}/rsCompleteness-{plan}-{observatory}.fits'
+    keys = ['plan=alpha-3', 'observatory=apo']    
+    dm = DataModel(file_spec='rsCompleteness', path=path, tree_ver='sdss5', keywords=keys)
+    assert set(dm.access['WORK']['path_kwargs']) == set(['plan', 'observatory'])
+    real_keys = re.findall(r'{(.*?)}', dm.path)
+    assert set(real_keys) == set(['plan', 'plan', 'observatory'])
+
 
 def test_valid_datamodel(validmodel):
     ss = validmodel.get_stub('yaml')
