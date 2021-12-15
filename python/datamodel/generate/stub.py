@@ -312,8 +312,7 @@ class BaseStub(abc.ABC):
         # set the HDU cache to the given release
         self._cache['releases'][self.datamodel.release]['hdus'] = cached_hdus
 
-    @staticmethod
-    def _update_partial_cache(cached_hdus, old_hdus):
+    def _update_partial_cache(self, cached_hdus, old_hdus):
         old_names = [v['name'] for v in old_hdus.values()]
 
         for k, v in cached_hdus.items():
@@ -321,9 +320,18 @@ class BaseStub(abc.ABC):
             if v['name'] not in old_names:
                 continue
 
+            # get current hdu index
+            current_idx = int(k.split('hdu')[-1])
+
             # get the matching old hdu index
-            idx = old_names.index(v['name'])
+            idx = old_names.index(v['name']) if v['name'] else current_idx
             oldkey = f'hdu{idx}'
+            
+            # issue a warning if the extension has no name
+            if not v['name']:
+                log.warning(f'HDU ext {current_idx} in {self.datamodel.file_species} has no '
+                            'proper FITS extension name.  This breaks SDSS name formatting.  '
+                            'Please correct the FITS file.')
 
             # update the HDU description
             v['description'] = old_hdus[oldkey]['description']
@@ -332,12 +340,17 @@ class BaseStub(abc.ABC):
             if v['is_image'] is True:
                 continue
 
-            for kk,vv in v['columns'].items():
+            for kk, vv in v['columns'].items():
+                # if a new column is not in the old cache of columns, add it
+                if kk not in old_hdus[oldkey]['columns']:
+                    column = self._extract_hdu_column(current_idx, kk)
+                    v['columns'][kk] = self._generate_column_dict(column)
+                    continue
                 vv['unit'] = old_hdus[oldkey]['columns'][kk]['unit']
                 vv['description'] = old_hdus[oldkey]['columns'][kk]['description']
 
         return cached_hdus
-
+    
     def _generate_new_hdu_cache(self) -> dict:
         """ Generates a branch new HDU cache
 
@@ -354,6 +367,12 @@ class BaseStub(abc.ABC):
         with fits.open(self.datamodel.file) as hdulist:
             for hdu_number, hdu in enumerate(hdulist):
 
+                # issue a warning if the extension has no name
+                if not hdu.name:
+                    log.warning(f'HDU ext {hdu_number} in {self.datamodel.file_species} has no '
+                                'proper FITS extension name.  This breaks SDSS name formatting.  '
+                                'Please correct the FITS file.')
+                    
                 # convert an HDU to a dictionary
                 row = self._convert_hdu_to_dict(hdu)
 
@@ -365,7 +384,7 @@ class BaseStub(abc.ABC):
     def _convert_hdu_to_dict(self, hdu: fits.hdu.base._BaseHDU, description: str = None) -> dict:
         """ Convert an HDU into a dictionary entry """
         header = hdu.header
-
+                
         # create a new one
         row = {
             'name': hdu.name,
@@ -383,13 +402,20 @@ class BaseStub(abc.ABC):
         else:
             row['columns'] = {}
             for column in hdu.columns:
-                row['columns'][column.name] = {
-                    'name': column.name.upper(),
-                    'type': self._format_type(column.format),
-                    'unit': self._nonempty_string(column.unit),
-                    'description': self._nonempty_string()
-                } 
+                row['columns'][column.name] = self._generate_column_dict(column)
         return row
+
+    def _extract_hdu_column(self, ext, key):
+        """ Extract a column from a Astropy HDU table extension """
+        with fits.open(self.datamodel.file) as hdulist:
+            return hdulist[ext].columns[key]
+        
+    def _generate_column_dict(self, column):
+        """ Generates a dictionary entry for an Astropy table column """
+        return {'name': column.name.upper(),
+                'type': self._format_type(column.format),
+                'unit': self._nonempty_string(column.unit),
+                'description': self._nonempty_string()} 
     
     def design_hdu(self, ext: str = 'primary', extno: int = None, name: str = 'EXAMPLE', 
                    description: str = None, header: Union[list, dict, fits.Header] = None, 
