@@ -95,7 +95,7 @@ def get_file_spec(file_spec: str = None) -> str:
     str
         the name of the file species
     """
-    if file_spec and not file_spec.isidentifier():
+    if file_spec and not file_spec.replace('-', '').isidentifier():
         print(f"DATAMODEL> invalid file_spec={file_spec}")
         file_spec = None
     return file_spec
