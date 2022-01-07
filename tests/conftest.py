@@ -86,7 +86,7 @@ def create_test_fits(name: str = None, version: str = None,
     if extra_cols:
         cols.extend([fits.Column(name='field', format='J', array=np.arange(3)),
                      fits.Column(name='mjd', format='I', array=np.arange(3))])
-    bindata = fits.BinTableHDU.from_columns(cols)
+    bindata = fits.BinTableHDU.from_columns(cols, name='PARAMS')
 
     hdu = fits.HDUList([primary, imdata, bindata])
 
