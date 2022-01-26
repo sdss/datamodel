@@ -728,7 +728,6 @@ class BaseStub(abc.ABC):
             if i.startswith('typedef'):
                 break
         comments = literal('\n'.join(comments))
-        #comments = literal(self._par._contents[0:3098])
         return comments
     
     def _generate_par_tables(self):
@@ -736,6 +735,7 @@ class BaseStub(abc.ABC):
         for table in self._par.tables():
             out[table] = {
                 'name': table,
+                'description': 'replace me - with a description of this table',
                 'n_rows': self._par.size(table),
                 'structure': self._generate_par_table_structure(table)
             }
@@ -809,7 +809,8 @@ class MdStub(BaseStub):
         selected_release = self.get_selected_release(release=release, group=group)
         #hdus = self._cache['hdus'][selected_release]
         hdus = self._cache['releases'][selected_release]['hdus']
-        self.content = self.template.render(content=self._cache, hdus=hdus, selected_release=selected_release)
+        pars = self._cache['releases'][selected_release]['par']
+        self.content = self.template.render(content=self._cache, hdus=hdus, par=pars, selected_release=selected_release)
 
     # def convert_to_html(self):
     #     htmlpath = self.output.replace('md', 'html')
