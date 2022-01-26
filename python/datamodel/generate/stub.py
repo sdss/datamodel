@@ -227,8 +227,8 @@ class BaseStub(abc.ABC):
         # check the content dictionary has a proper release
         if self.datamodel.release not in content['releases']:
             content['releases'][self.datamodel.release] = {"template": None, "example": None, "location": None,
-                                                           "environment": None, "access": {}, "hdus": {}
-                                                           }
+                                                           "environment": None, "access": {}, "hdus": {},
+                                                           "par": {}}
 
         # set the cache content
         self._cache = content
@@ -241,8 +241,13 @@ class BaseStub(abc.ABC):
         # set the cache with access info
         self._update_cache_access()
 
-        # set the cache for hdus
-        self._set_cache_hdus(force=force)
+        # check the filetype and generate proper YAML content
+        filetype = self._get_filetype()
+        if filetype == 'FITS':
+            # set the cache for hdus
+            self._set_cache_hdus(force=force)
+        elif filetype == 'PAR':
+            self._set_cache_par(force=force)
 
         # update the cache changelog
         self._update_cache_changelog()
@@ -695,6 +700,81 @@ class BaseStub(abc.ABC):
         """ Remove file from the git repo """
         if os.path.exists(self.output):
             self.git.rm(self.output)
+
+    def read_par(self):
+        from pydl.pydlutils.yanny import yanny
+        self._par = yanny(self.datamodel.file)
+        
+    def _generate_par_header(self):
+        head = []
+        for key in self._par.pairs():
+            out = {'key': key, 'value': self._par[key], 'comment': 'replace me - with a description of this header keyword'}
+            head.append(out)
+        return head
+    
+    def _generate_par_comments(self):
+        class literal(str):
+            pass
+            
+        def literal_presenter(dumper, data):
+            return dumper.represent_scalar("tag:yaml.org,2002:str", data, style="|")
+    
+        yaml.add_representer(literal, literal_presenter)
+     
+        comments = []
+        for i in self._par._contents.splitlines():
+            if i.startswith('#'):
+                comments.append(i.strip())
+            if i.startswith('typedef'):
+                break
+        comments = literal('\n'.join(comments))
+        #comments = literal(self._par._contents[0:3098])
+        return comments
+    
+    def _generate_par_tables(self):
+        out = {}
+        for table in self._par.tables():
+            out[table] = {
+                'name': table,
+                'n_rows': self._par.size(table),
+                'structure': self._generate_par_table_structure(table)
+            }
+        return out
+
+    def _generate_par_row(self, table: str):
+        import numpy as np
+        row = self._par.row(table, 0)
+        cols = self._par.columns(table)
+        dd = dict(zip(cols, row))
+        return {k: self._par.convert(table, k, v.decode("utf-8") if isinstance(v, np.bytes_) else v) for k, v in dd.items()}
+        
+    def _generate_par_table_structure(self, table: str):
+
+        row = self._generate_par_row(table)
+        out = []
+        for c in self._par.columns(table):
+            tmp = {
+                'name': c,
+                'type': self._par.type(table, c),
+                'description': 'replace me - with a description of this column',
+                'unit': 'replace me - with a unit of this column',
+                'is_array': self._par.isarray(table, c),
+                'is_enum': self._par.isenum(table, c),
+                'example': row[c]
+            }
+            out.append(tmp)
+        return out
+        
+    def _set_cache_par(self, force=None):
+        self.read_par()
+        
+        cached_par = {'comments': self._generate_par_comments(), 
+                      'header': self._generate_par_header(),
+                      'tables': self._generate_par_tables()}
+
+        # set the HDU cache to the given release
+        self._cache['releases'][self.datamodel.release]['par'] = cached_par
+        
 
     # def workflow(self):
     #     # create stub with datamodel

@@ -144,6 +144,7 @@ class DataModel(object):
     ValueError
         when no path template keywords are specified
     """
+    supported_filetypes = ['.fits', '.par']
 
     def __init__(self, tree_ver: str = None, file_spec: str = None, path: str = None,
                  keywords: list = [], env_label: str = None, location: str = None,
@@ -205,6 +206,11 @@ class DataModel(object):
             self._set_design_location()
         else:
             self._set_real_and_abstract_location()
+
+        # check for valid file support
+        self.suffixes = pathlib.Path(self.location).suffixes
+        if set(self.suffixes).isdisjoint(set(self.supported_filetypes)):
+            raise ValueError(f'File type {self.suffixes[0]} is not currently supported by sdss-datamodel.')    
 
         # set the fully realized filename and access paths
         self._set_file()
@@ -388,10 +394,40 @@ class DataModel(object):
             log.error("Please specify a valid env label option.")
             return
 
+        orig_env = self.tree.get_orig_os_environ()
         tree_dict = self.tree.to_dict()
         if self.env_label in tree_dict:
-            self.env = {"label": self.env_label, "path": tree_dict[self.env_label]}
+            path = tree_dict[self.env_label]
 
+            # check if path is a PRODUCT_ROOT
+            if path.startswith("$PRODUCT_ROOT"):
+
+                if self.verbose:
+                    log.info(f'{self.env_label} path is a PRODUCT_ROOT') 
+                              
+                # check for existing label in enironemnt
+                if self.env_label in orig_env:
+                    path = orig_env.get(self.env_label)
+                else:
+                    # try to resolve your product_root path
+                    path = os.path.expandvars(path) 
+                    
+                    if path.startswith("$PRODUCT_ROOT"):                    
+                        # look for a valid product root
+                        product_root = self.tree.get_product_root()
+                        # fail if PRODUCT_ROOT is not set
+                        if not product_root:
+                            msg = 'No PRODUCT_ROOT found in your environment!  Please set your root directory for all git or svn products.'
+                            log.error(msg)
+                            raise ValueError(msg)
+           
+                        # replace product_root with one found from tree
+                        path = path.replace("$PRODUCT_ROOT", product_root)
+                
+            # assign environment label and path
+            self.env = {"label": self.env_label, "path": path}
+
+        # issue error or info log messages
         if not self.env:
             log.error(f"Please add this environment={self.env_label} to the tree "
                       "product, and try again.")
