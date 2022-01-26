@@ -218,11 +218,20 @@ class Access(BaseModel):
     path_kwargs: List[str] = None
     access_string: str = None
     
-    @validator('path_name', 'path_template', 'path_kwargs', 'access_string')
-    def check_path_kwargs(cls, value, values, field):
+    @validator('path_name', 'path_template', 'access_string')
+    def check_path_nulls(cls, value, values, field):
         in_access = values.get('in_sdss_access')
         if in_access and not value:
             raise ValueError(f'{field.name} cannot be None if in_sdss_access is True')
+        return value
+    
+    @validator('path_kwargs')
+    def check_path_kwargs(cls, value, values):
+        in_access = values.get('in_sdss_access')
+        path = values.get('path_template')
+        needskwargs = re.findall("{(.*?)}", path)
+        if in_access and needskwargs and not value:
+            raise ValueError('path_kwargs cannot be None if path_template has {} kwargs')
         return value
 
 class Header(BaseModel):
