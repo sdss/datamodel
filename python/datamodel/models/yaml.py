@@ -394,7 +394,7 @@ class ParColumn(BaseModel):
     unit: str
     is_array: bool
     is_enum: bool
-    example: str
+    example: Union[str, int, float, list]
     
     _check_replace_me = validator('unit', 'description', allow_reuse=True)(replace_me)
 
