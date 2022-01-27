@@ -32,6 +32,15 @@ from ..models.releases import releases as sdss_releases
 from ..models.yaml import YamlModel, HDU
 from datamodel import log
 
+
+class literal(str):
+    pass
+    
+def literal_presenter(dumper, data):
+    return dumper.represent_scalar("tag:yaml.org,2002:str", data, style="|")
+
+yaml.add_representer(literal, literal_presenter)
+
 class BaseStub(abc.ABC):
     format = None
     cacheable = False
@@ -250,7 +259,7 @@ class BaseStub(abc.ABC):
             self._set_cache_par(force=force)
 
         # update the cache changelog
-        self._update_cache_changelog()
+        #self._update_cache_changelog()
 
     def _check_release_in_cache(self, content: dict) -> dict:
         """ updates the yaml.general.releases list with new releases """
@@ -713,14 +722,9 @@ class BaseStub(abc.ABC):
         return head
     
     def _generate_par_comments(self):
-        class literal(str):
-            pass
-            
-        def literal_presenter(dumper, data):
-            return dumper.represent_scalar("tag:yaml.org,2002:str", data, style="|")
-    
-        yaml.add_representer(literal, literal_presenter)
-     
+        if not self._par:
+            self.read_par()
+
         comments = []
         for i in self._par._contents.splitlines():
             if i.startswith('#'):
@@ -766,15 +770,77 @@ class BaseStub(abc.ABC):
         return out
         
     def _set_cache_par(self, force=None):
-        self.read_par()
-        
-        cached_par = {'comments': self._generate_par_comments(), 
-                      'header': self._generate_par_header(),
-                      'tables': self._generate_par_tables()}
 
-        # set the HDU cache to the given release
+        # get the cached par
+        cached_par = self._cache['releases'][self.datamodel.release].get('par', {})
+
+        # set an empty par cache when in design phase
+        if not cached_par and self.datamodel.design:
+            #self.design_hdu(ext='primary')
+            return
+
+        # if no cache exists or forced update, generate a new cache from file
+        if not cached_par or force:
+            self.read_par()        
+            cached_par = {'comments': self._generate_par_comments(), 
+                        'header': self._generate_par_header(),
+                        'tables': self._generate_par_tables()}
+
+        # updating the par section of the cache
+        if self.use_cache_release and not force:
+            old_pars = self._cache['releases'][self.use_cache_release].get('par', {})
+            if not self.full_cache:
+                # partial copy of the cache
+                cached_par = self._update_partial_par_cache(cached_par, old_pars)
+            else:
+                # full copy of the cache
+                cached_par = old_pars
+
+        # reset all par comments to literal
+        for data in self._cache['releases'].values():
+            if 'comments' in data['par']:
+                data['par']['comments'] = literal(data['par']['comments'])
+
+        # set the yanny cache to the given release
         self._cache['releases'][self.datamodel.release]['par'] = cached_par
+
+    def _update_partial_par_cache(self, cached_par, old_par):
+        # skip comments section
         
+        # update the header section
+        oldhdr = [c['key'] for c in old_par['header']]       
+        for hdr in cached_par['header']:
+            # TODO - add new hdr entry
+            if hdr['key'] not in oldhdr:
+                continue
+            # update the hdr comment
+            hh = [i for i in old_par['header'] if i['key'] == hdr['key']][0]
+            hdr['comment'] = hh['comment']
+        
+        # update the tables section
+        old_tables = old_par['tables']
+        for name, table in cached_par['tables'].items():   
+            # skip the table if it doesn't exist in the old cache
+            if name not in old_tables:
+                # TODO - need to generate a new table entry
+                continue
+            
+            # update the description
+            table['description'] = old_tables[name]['description']
+            
+            # update the structure columns
+            oldcols = [c['name'] for c in old_tables[name]['structure']]
+            for column in table['structure']:
+                # TODO - generate new column entry
+                if column['name'] not in oldcols:
+                    continue
+                
+                # update column parts
+                col = [i for i in old_tables[name]['structure'] if i['name'] == column['name']][0]
+                column['description'] = col['description']
+                column['unit'] = col['unit']
+
+        return cached_par
 
     # def workflow(self):
     #     # create stub with datamodel
