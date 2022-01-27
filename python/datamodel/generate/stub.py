@@ -245,6 +245,7 @@ class BaseStub(abc.ABC):
         # if release is the same, copy over entire cache
         if self.use_cache_release and self.full_cache:
             self._cache['releases'][self.datamodel.release] = self._cache['releases'].get(self.use_cache_release, {})
+            self._literalize_par_comments()
             return
 
         # set the cache with access info
@@ -796,13 +797,15 @@ class BaseStub(abc.ABC):
                 # full copy of the cache
                 cached_par = old_pars
 
-        # reset all par comments to literal
-        for data in self._cache['releases'].values():
-            if 'comments' in data['par']:
-                data['par']['comments'] = literal(data['par']['comments'])
-
         # set the yanny cache to the given release
         self._cache['releases'][self.datamodel.release]['par'] = cached_par
+        
+        # reset all par comments to literal
+        self._literalize_par_comments()
+    
+    def _literalize_par_comments(self):
+        for data in self._cache['releases'].values():
+            data['par']['comments'] = literal(data['par']['comments'])
 
     def _update_partial_par_cache(self, cached_par, old_par):
         # skip comments section
