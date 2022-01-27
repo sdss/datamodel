@@ -102,10 +102,14 @@ Name | Type | Unit | Description |
 {% if par %}
 ## Example PAR List
 
+{% if par.comments %}
 ### Comments
 ```
 {{ par.comments }}
 ```
+{% endif %}
+
+{% if par.header %}
 ### Header
 
 Key | Value | Comment | |
@@ -113,6 +117,8 @@ Key | Value | Comment | |
 {% for header in par.header %}
 | {{ header.key }} | {{ header.value }} | {{ header.comment }} |
 {% endfor %}
+
+{% endif %}
 
 ### Tables
 
