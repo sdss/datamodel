@@ -365,7 +365,80 @@ class HDU(BaseModel):
                                                  header=self.convert_header())
         else:
             return fits.ImageHDU(name=self.name, header=self.convert_header())
-            
+
+class ParColumn(BaseModel):
+    """ Pydantic model representing a YAML par column section
+
+    Represents a typedef column definition in a Yanny parameter file
+    
+    Parameters
+    ----------
+    name : str
+        The name of the column
+    description : str
+        A description of the column
+    type : str
+        The data type of the column
+    unit : str
+        The unit of the column, if any
+    is_array : bool
+        If the column is an array type
+    is_enum : bool
+        If the column is an enum type
+    example : str
+        An example value for the column
+    """
+    name: str
+    type: str
+    description: str
+    unit: str
+    is_array: bool
+    is_enum: bool
+    example: str
+    
+    _check_replace_me = validator('unit', 'description', allow_reuse=True)(replace_me)
+
+class ParTable(BaseModel):
+    """ Pydantic model representing a YAML par table section
+
+    Represents the structure of a single Yanny parameter table
+
+    Parameters
+    ----------
+    name : str
+        The name of the table
+    description : str 
+        A description of the table
+    n_rows : int
+        The number of rows in the table
+    structure : list
+        A list of column definitions for the table
+    """
+    name: str
+    description: str
+    n_rows: int
+    structure: List[ParColumn]
+    
+    _check_replace_me = validator('description', allow_reuse=True)(replace_me)
+
+
+class ParModel(BaseModel):
+    """ Pydantic model representing a YAML par section
+
+    Represents a Yanny parameter file
+
+    Parameters
+    ----------
+    comments : str
+        Any header comments in the parameter file
+    header : list
+        A list of header key-value pairs in the parameter file
+    tables : dict
+        A dictionary of tables in the parameter file
+    """
+    comments: str = None
+    header: List[Header] = None
+    tables: Dict[str, ParTable]       
 
 class Release(BaseModel):
     """ Pydantic model representing an item in the YAML releases section
@@ -394,6 +467,7 @@ class Release(BaseModel):
     environment: str
     access: Access
     hdus: Dict[str, HDU] = None
+    par: ParModel = None
     
     def convert_to_hdulist(self) -> fits.HDUList:
         """ Convert the hdus to a fits.HDUList """
