@@ -246,6 +246,7 @@ class BaseStub(abc.ABC):
         if self.use_cache_release and self.full_cache:
             self._cache['releases'][self.datamodel.release] = self._cache['releases'].get(self.use_cache_release, {})
             self._literalize_par_comments()
+            self._update_cache_changelog()
             return
 
         # set the cache with access info
@@ -260,7 +261,7 @@ class BaseStub(abc.ABC):
             self._set_cache_par(force=force)
 
         # update the cache changelog
-        #self._update_cache_changelog()
+        self._update_cache_changelog()
 
     def _check_release_in_cache(self, content: dict) -> dict:
         """ updates the yaml.general.releases list with new releases """

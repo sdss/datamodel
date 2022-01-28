@@ -25,6 +25,8 @@ from astropy.io import ascii as astropy_ascii
 from astropy.io import fits
 from astropy.table import Table
 
+from pydl.pydlutils.yanny import yanny
+
 from datamodel import log
 
 try:
@@ -393,6 +395,106 @@ class CatalogDiff(FileDiff):
 
         return diffreport
 
+class ParDiff(FileDiff):
+
+    def __init__(self, file1: Union[str, yanny], file2: Union[str, yanny],
+                 full: bool = None, versions: list = None):
+        super(ParDiff, self).__init__(file1, file2, diff_type='par', versions=versions)
+
+        # get the Yanny par objects
+        self.par = self._check_par(self.file1)
+        self.par2 = self._check_par(self.file2)
+
+        # Yanny header differences
+        hdr = self.par.pairs()
+        hdr2 = self.par2.pairs()
+        n_keys = len(hdr)
+        n_keys2 = len(hdr2)
+        self.delta_nkeys = abs(n_keys - n_keys2)
+        self.added_keys = list(set(hdr) - set(hdr2))
+        self.removed_keys = list(set(hdr2) - set(hdr))
+
+        # Yanny table differences
+        tables = self.par.tables()
+        tables2 = self.par2.tables()
+        n_tables = len(tables)
+        n_tables2 = len(tables2)
+        self.delta_ntables = abs(n_tables - n_tables2)
+        self.added_tables = list(set(tables) - set(tables2))
+        self.removed_tables = list(set(tables2) - set(tables))
+
+        # Yanny table column differences
+        self.table_diffs = {}
+        for table in tables:
+            if table in tables2:
+                cols = self.par.columns(table)
+                cols2 = self.par2.columns(table)
+                self.table_diffs[table] = {
+                    'added_cols': list(set(cols) - set(cols2)),
+                    'removed_cols': list(set(cols2) - set(cols)),
+                    'n_rows': self.par.size(table),
+                    'n_rows2': self.par2.size(table),
+                    'delta_rows': abs(self.par.size(table) - self.par2.size(table))
+                }
+
+        # build diff dictionary
+        self.changes = {'version_1': self.versions[0], 'version_2': self.versions[1],
+                        'file_1': self.file1, 'file_2': self.file2,
+                        'added_keys': self.added_keys, 'removed_keys': self.removed_keys,
+                        'added_tables': self.added_tables, 'removed_tables': self.removed_tables,
+                        'table_diffs': self.table_diffs}
+
+    @staticmethod
+    def _check_par(data: Union[str, Type[yanny]]) -> yanny:
+        """ Check the input for proper Yanny par file name or object
+
+        Checks for and opens a valid Yanny par file
+
+        Parameters
+        ----------
+        data : str | Type[yanny]
+            a Yanny par filepath or a valid Yanny object
+
+        Returns
+        -------
+        yanny
+            the Yanny content
+        """
+
+        if not isinstance(data, yanny):
+            assert isinstance(
+                data, six.string_types), 'input must be string filename or a yanny object'
+            assert '.par' in data, 'No .par suffix found.  Is this a proper Yanny par file?'
+            data = yanny(data)
+        return data
+
+    def report(self, split: bool = None, full: bool = None) -> str:
+        """  Print the yanny par difference report """
+
+        diffreport = f"Version: {self.changes['version_1']} to {self.changes['version_2']}\n"
+
+        # print the Yanny header differences
+        diffreport += f'Changes in header number: {self.delta_nkeys}\n'
+        diffreport += f'Added header keys: {", ".join(self.added_keys)}\n'
+        diffreport += f'Removed header keys: {", ".join(self.removed_keys)}\n\n'
+
+        # print the Yanny table differences
+        diffreport += f'Changes in table number: {self.delta_ntables}\n'
+        diffreport += f'Added Tables: {", ".join(self.added_tables)}\n'
+        diffreport += f'Removed Tables: {", ".join(self.removed_tables)}\n\n'
+
+        # print the Yanny table column differences
+        for table, data in self.table_diffs.items():
+            diffreport += f'Table: {table}\n'
+            diffreport += f'Added Columns: {", ".join(data["added_cols"])}\n'
+            diffreport += f'Removed Columns: {", ".join(data["removed_cols"])}\n'
+            diffreport += f'Old row number: {data["n_rows2"]}\n'
+            diffreport += f'New row number: {data["n_rows"]}\n'
+            diffreport += f'Changes in row number: {data["delta_rows"]}\n\n'
+
+        return diffreport
+
+
 
 def compute_diff(oldfile: str, otherfile: str, change: str = 'fits', versions: list = None) -> FileDiff:
     """ Produce a single changelog between two files
@@ -437,6 +539,8 @@ def compute_diff(oldfile: str, otherfile: str, change: str = 'fits', versions: l
         diffobj = FitsDiff
     elif change == 'catalog':
         diffobj = CatalogDiff
+    elif change == 'par':
+        diffobj = ParDiff
     else:
         log.warning(f'Diffs for type "{change}" is not currently supported.  Cannot produce changelog.')
         return
@@ -516,6 +620,9 @@ class YamlDiff(object):
 
         # attempt to get the file species name
         self.name = self.content.get('general', {}).get('name', '')
+        
+        # get datatype
+        self.datatype = self.content.get('general', {}).get('datatype', '')
 
         if 'releases' in self.content:
             self.releases = self.content['releases']
@@ -559,9 +666,18 @@ class YamlDiff(object):
         ValueError
             when no HDULists are found in the YAML cache
         """
+
+        
+        if self.datatype.lower() == 'fits':
+            return self._fits_changes(version1, version2, simple=simple)
+        elif self.datatype.lower() == 'par':
+            return self._par_changes(version1, version2, simple=simple)
+
+    def _fits_changes(self, version1: str, version2: str, simple: bool = None) -> dict:
+        """ Changelog computer for FITS files """
         hdulist = self.releases.get(version1, {}).get('hdus', {})
         hdulist2 = self.releases.get(version2, {}).get('hdus', {})
-
+            
         if not hdulist or not hdulist2:
             raise ValueError('No hdulist found for input versions.')
 
@@ -595,9 +711,78 @@ class YamlDiff(object):
 
         # return only entries that are not null
         if simple:
-            changes[version1] = {k: v for k, v in changes[version1].items() if v}
+            #changes[version1] = {k: v for k, v in changes[version1].items() if v}
+            changes[version1] = self.clean_empty(changes[version1])
 
         return changes
+    
+    def _par_changes(self, version1: str, version2: str, simple: bool = None) -> dict:
+        """ Changelog computer for Yanny par files """
+        par = self.releases.get(version1, {}).get('par', {})
+        par2 = self.releases.get(version2, {}).get('par', {})
+            
+        if not par or not par2:
+            raise ValueError('No par object found for input versions.')
+
+        # Yanny header differences
+        n_keys = len(par['header'])
+        n_keys2 = len(par2['header'])
+        hdr = [i['key'] for i in par['header']]
+        hdr2 = [i['key'] for i in par2['header']]
+        delta_nkeys = abs(n_keys - n_keys2)
+        added_keys = list(set(hdr) - set(hdr2))
+        removed_keys = list(set(hdr2) - set(hdr))
+
+        # Yanny table differences
+        n_tables = len(par['tables'])
+        n_tables2 = len(par2['tables'])
+        delta_ntables = abs(n_tables - n_tables2)
+        tables = par['tables'].keys()
+        tables2 = par2['tables'].keys()
+        added_tables = list(set(tables) - set(tables2))
+        removed_tables = list(set(tables2) - set(tables))
+        
+        # Yanny table column differences
+        tdiffs = {}
+        for table, data in par['tables'].items():
+            if table not in tables2:
+                continue
+            t2 = par2['tables'][table]
+            delta_nrows = abs(data['n_rows'] - t2['n_rows'])
+            cols = [i['name'] for i in data['structure']]
+            cols2 = [i['name'] for i in t2['structure']]
+            tdiffs[table] = {
+                'added_cols': list(set(cols) - set(cols2)),
+                'removed_cols': list(set(cols2) - set(cols)),
+                'delta_nrows': delta_nrows,
+            }
+
+        changes = {
+            version1: {
+                'from': version2,
+                'delta_nkeys': delta_nkeys,
+                'added_header_keys': added_keys,
+                'removed_header_keys': removed_keys,
+                'delta_ntables': delta_ntables,
+                'added_tables': added_tables,
+                'removed_tables': removed_tables,
+                'tables': tdiffs,
+                }
+            }
+
+        # return only entries that are not null
+        if simple:
+            changes[version1] = self.clean_empty(changes[version1])
+
+        return changes
+
+    def clean_empty(self, d: dict) -> dict:
+        """ clean up an empty dictionary """
+        if isinstance(d, dict):
+            return {k: v for k, v in ((k, self.clean_empty(v)) for k, v in d.items()) if v}
+        if isinstance(d, list):
+            return [v for v in map(self.clean_empty, d) if v]
+        return d
 
     def has_changes(self, version1: str = 'A', version2: str = 'B') -> bool:
         """ Check if there are any changes between two releases
@@ -618,11 +803,10 @@ class YamlDiff(object):
         bool
             True if any changes detected
         """
-        changes = self.compute_changelog(version1=version1, version2=version2)
+        changes = self.compute_changelog(version1=version1, version2=version2, simple=True)
         values = changes[version1]
-        return (values['delta_nhdu'] != 0 or any(values['added_hdus']) or any(values['removed_hdus']) or
-                values['primary_delta_nkeys'] != 0 or any(values['added_primary_header_kwargs']) or
-                any(values['removed_primary_header_kwargs']))
+        return (set(values) - set({"from"})) != set()
+            
 
     def generate_changelog(self, order: list = None, simple: bool = False) -> dict:
         """ Generate a full changelog dictionary across all releases

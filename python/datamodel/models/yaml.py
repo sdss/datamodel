@@ -142,6 +142,26 @@ class GeneralSection(BaseModel):
             raise ValueError('Design is set to True. YAML will not validate until out of design phase.')
         return value
 
+class ChangeTable(BaseModel):
+    """ Pydantic model representing a YAML changelog Yanny table section
+
+    Represents a computed section of the changelog, for a specific Yanny table.
+    For each similar Yanny table between releases, the changes in row number
+    and structure columns are computed.
+
+    Parameters
+    ----------
+    delta_nrows : int
+        The difference in rows between Yanny tables
+    added_cols : List[str]
+        A list of any added Yanny table columns
+    removed_cols : List[str]
+        A list of any removed Yanny table columns
+    """
+    delta_nrows: int = None
+    added_cols: List[str] = None
+    removed_cols: List[str] = None
+
 class ChangeRelease(BaseModel):
     """ Pydantic model representing a YAML changelog release section
 
@@ -165,8 +185,23 @@ class ChangeRelease(BaseModel):
         A list of any added primary header keywords
     removed_primary_header_kwargs : List[str]
         A list of any removed primary header keywords
+    delta_nkeys : int
+        The difference in number of Yanny header keys
+    added_header_keys : List[str]
+        A list of any added Yanny header keywords
+    removed_header_keys : List[str]
+        A list of any removed Yanny header keywords
+    delta_tables : int
+        The difference in number of Yanny tables
+    added_tables : List[str]
+        A list of any added Yanny tables
+    removed_tables : List[str]
+        A list of any removed Yanny tables
+    tables : Dict[str, ChangeTable]
+        A dictionary of table column and row changes
     """
     from_: str
+    # fits
     delta_nhdus: int = None
     added_hdus: List[str] = None
     removed_hdus: List[str] = None
@@ -174,7 +209,14 @@ class ChangeRelease(BaseModel):
     added_primary_header_kwargs: List[str] = None
     removed_primary_header_kwargs: List[str] = None
     note: str = None
-
+    # yanny par
+    delta_nkeys: int = None
+    addead_header_keys: List[str] = None
+    removed_header_keys: List[str] = None
+    delta_ntables: int = None
+    addead_tables: List[str] = None
+    removed_tables: List[str] = None
+    tables: Dict[str, ChangeTable] = None
     class Config:
         fields = {
             'from_': 'from'
