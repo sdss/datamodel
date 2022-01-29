@@ -20,7 +20,7 @@ from typing import Iterator
 from pydantic import ValidationError
 
 from ..git import Git
-from .changelog import YamlDiff
+from .changelog import yamldiff_selector
 from ..models.releases import releases as sdss_releases
 from ..models.yaml import YamlModel
 from datamodel.generate.filetypes import file_selector, get_filetype, get_filesize
@@ -228,6 +228,10 @@ class BaseStub(abc.ABC):
         suffix = content['general']['datatype'] or get_filetype(self.datamodel.location)
         file_class = file_selector(suffix)
 
+        # raise error if no class found
+        if not file_class:
+            raise ValueError(f'No supported file class found for {suffix}.')
+
         # update any design entry
         content['general']['design'] = self.datamodel.design
 
@@ -397,7 +401,15 @@ class BaseStub(abc.ABC):
 
     def _update_cache_changelog(self):
         """ Update the changelog in the cache """
-        yaml_diff = YamlDiff(self._cache)
+        # get the correct yamldiff class
+        suffix = self._cache['general']['datatype'] or get_filetype(self.datamodel.location)
+        yd_class = yamldiff_selector(suffix)
+        # return if no class present
+        if not yd_class:
+            return
+
+        # instantiate compute the changelog and update the cache
+        yaml_diff = yd_class(self._cache)
         release_order = reversed(self._cache['general']['releases'])
         changelog = yaml_diff.generate_changelog(release_order, simple=True)
         self._cache['changelog']['releases'] = changelog
