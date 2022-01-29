@@ -632,7 +632,7 @@ class DataModel(object):
         ss.update_cache()
         
         # design the new HDU
-        ss.design_hdu(ext=ext, extno=extno, name=name, description=description, 
+        ss.selected_file.design_content(ext=ext, extno=extno, name=name, description=description, 
                       header=header, columns=columns, **kwargs)
 
         # write it out to the yaml stub        
@@ -686,7 +686,7 @@ class DataModel(object):
         ss = self.get_stub(format='yaml')
         ss.update_cache()
         try:
-            hdulist = ss.create_hdulist_from_cache(release='WORK')
+            hdulist = ss.selected_file.create_hdulist_from_cache(release='WORK')
         except ValidationError as e:
             log.error(f'Failed to create a valid HDUList')
             raise
