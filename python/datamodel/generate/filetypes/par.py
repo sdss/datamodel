@@ -25,6 +25,7 @@ yaml.add_representer(literal, literal_presenter)
 
 
 class ParFile(BaseFile):
+    """ Class for supporting Yanny par files """
     suffix = 'PAR'
     cache_key = 'par'
     
@@ -52,7 +53,7 @@ class ParFile(BaseFile):
         return head
     
     def _generate_comments(self) -> str:
-        """ Genereate a new comments section of the Yanny cache
+        """ Generate a new comments section of the Yanny cache
         
         Extracts any commented lines of a Yanny par file and returns them as
         a literal scalar block.  Only the comment (#) lines before the "typedef" definition
@@ -165,8 +166,22 @@ class ParFile(BaseFile):
         for data in self._cache['releases'].values():
             data[self.cache_key]['comments'] = literal(data[self.cache_key]['comments'])
 
-    def _update_partial_cache(self, cached_par, old_par) -> dict:
-        """ Update the partial cache of a Yanny par file """
+    def _update_partial_cache(self, cached_par: dict, old_par: dict) -> dict:
+        """ Update the partial cache of a Yanny par file 
+        
+        Parameters
+        ----------
+        cached_par : dict
+            The new cache par section
+        old_par : dict
+            The old cache par section
+
+        Returns
+        -------
+        dict
+            The updated cache object
+
+        """
         # skip comments section - always generate a new one
         
         # update the header section

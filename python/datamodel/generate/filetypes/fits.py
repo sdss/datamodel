@@ -15,7 +15,24 @@ class FitsFile(BaseFile):
     suffix = 'FITS'
     cache_key = 'hdus'
 
-    def _update_partial_cache(self, cached_hdus, old_hdus):
+    def _update_partial_cache(self, cached_hdus: dict, old_hdus: dict) -> dict:
+        """ Partially updates an existing cache 
+
+        Updates a new cache with values from an old cache.  Useful for reusing human-edited
+        cache content.
+
+        Parameters
+        ----------
+        cached_hdus : dict
+            The new cache hdus section
+        old_hdus : dict
+            The old cache hdus section
+
+        Returns
+        -------
+        dict
+            The cache dictionary
+        """
         old_names = [v['name'] for v in old_hdus.values()]
 
         for k, v in cached_hdus.items():
@@ -108,12 +125,12 @@ class FitsFile(BaseFile):
                 row['columns'][column.name] = self._generate_column_dict(column)
         return row
 
-    def _extract_hdu_column(self, ext: str, key: str):
+    def _extract_hdu_column(self, ext: str, key: str) -> fits.Column:
         """ Extract a column from a Astropy HDU table extension """
         with fits.open(self.filename) as hdulist:
             return hdulist[ext].columns[key]
         
-    def _generate_column_dict(self, column):
+    def _generate_column_dict(self, column: fits.Column) -> dict:
         """ Generates a dictionary entry for an Astropy table column """
         return {'name': column.name.upper(),
                 'type': self._format_type(column.format),

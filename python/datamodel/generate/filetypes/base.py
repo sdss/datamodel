@@ -59,11 +59,43 @@ def get_filetype(file) -> str:
 
 
 class BaseFile(abc.ABC):
+    """ Base class for supported datamodel file types
+
+    This is the abstract base class used for defining new file types to be supported
+    by the sdss datamodel product.
+
+    Parameters
+    ----------
+    cache : dict
+        The initial yaml cache to be populated.
+    datamodel : DataModel, optional
+        an SDSS datamodel for the file, by default None
+    stub : Stub, optional
+        an datamodel Stub for the file, by default None
+    filename : str, optional
+        the name of file, by default None
+    release : str, optional
+        the data release, by default None
+    file_species : str, optional
+        the file species name, by default None
+    design : bool, optional
+        whether the datamodel is in design mode, by default None
+    use_cache_release : str, optional
+        the release to pull existing cache from, by default None
+    full_cache : bool, optional
+        whether to use the entire previous cache, by default None
+
+    Raises
+    ------
+    ValueError
+        when datamodel is not provided when (filename, release, file_species) are not provided.
+    """      
     suffix = None
     cache_key = None
 
-    def __init__(self, cache: dict, datamodel=None, stub=None, filename=None, release=None, file_species=None,
-                 design=None, use_cache_release=None, full_cache=None):
+    def __init__(self, cache: dict, datamodel=None, stub=None, filename: str = None, 
+                 release: str = None, file_species: str = None, design: bool = None, 
+                 use_cache_release: str = None, full_cache: bool = None):  
         self._cache = cache
         self._datamodel = datamodel
         self._stub = stub
@@ -92,6 +124,8 @@ class BaseFile(abc.ABC):
         return f'<{self.__class__.__name__}("{self.filename}")>'
     
     def _set_cache(self, force=None):
+        """ Default method for setting new cache content based on type of file """
+
         # get the cached data
         cached_data = self._cache['releases'][self.release].get(self.cache_key, {})
 
@@ -117,20 +151,23 @@ class BaseFile(abc.ABC):
         # set the yanny cache to the given release
         self._cache['releases'][self.release][self.cache_key] = cached_data
         
-
     @abc.abstractmethod        
     def _update_partial_cache(self, cached_data, old_cache):
+        """ Abstract method to be implemented by subclass, for partially updating cache content """
         pass
 
     def _use_full_cache(self):
+        """ Default method for using the entire cache of a previous release """
         self._cache['releases'][self.release] = self._cache['releases'].get(self.use_cache_release, {})
                
     @abc.abstractmethod        
     def _generate_new_cache(self):
+        """ Abstract method to be implemented by subclass, for generating new cache content """
         pass
     
     @abc.abstractmethod        
     def design_content(self):
+        """ Abstract method to be implemented by subclass, for designing file content """
         pass
 
     @staticmethod
@@ -139,8 +176,8 @@ class BaseFile(abc.ABC):
 
         Parameters
         ----------
-        value : str?
-            Not sure what type this is supposed to have.
+        value : str
+            The non-null value to check
 
         Returns
         -------
