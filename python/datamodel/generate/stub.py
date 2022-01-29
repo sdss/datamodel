@@ -27,14 +27,6 @@ from datamodel.generate.filetypes import file_selector, get_filetype, get_filesi
 from datamodel import log
 
 
-class literal(str):
-    pass
-    
-def literal_presenter(dumper, data):
-    return dumper.represent_scalar("tag:yaml.org,2002:str", data, style="|")
-
-yaml.add_representer(literal, literal_presenter)
-
 class BaseStub(abc.ABC):
     format = None
     cacheable = False
