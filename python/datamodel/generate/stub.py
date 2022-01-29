@@ -19,11 +19,6 @@ from jinja2 import Environment, PackageLoader
 from typing import Iterator
 from pydantic import ValidationError
 
-try:
-    import markdown
-except ImportError:
-    markdown = None
-
 from ..git import Git
 from .changelog import YamlDiff
 from ..models.releases import releases as sdss_releases
@@ -478,18 +473,6 @@ class MdStub(BaseStub):
         self.content = self.template.render(content=self._cache, hdus=hdus, par=pars, 
                                             selected_release=selected_release)
 
-    # def convert_to_html(self):
-    #     htmlpath = self.output.replace('md', 'html')
-    #     outpath = pathlib.Path(self.output)
-    #     if not outpath.exists():
-    #         raise ValueError(f'Cannot convert md to html. md file {self.output} does not exist.')
-
-    #     if not markdown:
-    #         raise ImportError('Cannot convert md to html.  markdown package is not installed.')
-
-    #     pathlib.Path(htmlpath).parent.mkdir(parents=True, exist_ok=True)
-    #     markdown.markdownFromFile(input=self.output, output=htmlpath, extensions=['markdown.extensions.tables', 'toc'])
-
     def get_selected_release(self, release: str = None, group: str = 'WORK') -> str:
         """ get the hdu content for a given release """
         cached_releases = list(self._cache['releases'].keys())
@@ -551,10 +534,6 @@ class MdStub(BaseStub):
         with open(self.output, 'w') as f:
             f.write(self.content)
 
-        # if html:
-        #     self.convert_to_html()
-
-
 class JsonStub(BaseStub):
     format: str = 'json'
     has_template: bool = False
@@ -572,10 +551,6 @@ class AccessStub(BaseStub):
     def _get_content(self) -> None:
         releases = {k: v.get('access', {}) for k,v in self._cache['releases'].items()}
         self.content = yaml.dump(releases, sort_keys=False)
-
-class HtmlStub(MdStub):
-    format: str = 'html'
-
 
 
 def stub_iterator(format: str = None) -> Iterator[BaseStub]:
