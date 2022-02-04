@@ -577,7 +577,7 @@ class DataModel(object):
     def design_hdu(self, ext: str = 'primary', extno: int = None, name: str = 'EXAMPLE', 
                    description: str = None, header: Union[list, dict, fits.Header] = None, 
                    columns: List[Union[list, dict, fits.Column]] = None, **kwargs):
-        """ Design a new HDU
+        """ Wrapper to _design_content, to design a new HDU
 
         Design a new astropy HDU for the given datamodel.  Specify the extension type ``ext`` 
         to indicate a PRIMARY, IMAGE, or BINTABLE HDU extension.  Each new HDU is added to the
@@ -623,6 +623,46 @@ class DataModel(object):
             when the table columns input is not a list
         """
         
+        self._design_content(ext=ext, extno=extno, name=name, description=description, 
+                            header=header, columns=columns, **kwargs)
+        
+    def design_par(self, comments: str = None, header: Union[list, dict] = None, 
+                       name: str = None, description: str = None, columns: list = None):
+        """ Wrapper to _design_content, to design a new Yanny par section
+        
+        Design a new Yanny par for the given datamodel.  Specify Yanny comments, a header section, 
+        or a table definition.  Each new table is added to the YAML structure.  Use
+        ``name``, and ``description`` to specify the name and description of the new table. 
+        ``comments`` can be a single string of comments, with newlines indicated by "\n"
+
+        ``header`` can be a dictionary of key-value pairs, a list of tuples of header keywords, 
+        conforming to (keyword, value, comment), or list of dictionaries conforming to
+        {"key": key, "value": value, "comment": comment}.
+        
+        The ``columns`` parameter defines the relevant table columns to add to the file.  It can be 
+        a list of column names, a list of tuple values conforming to column (name, type, [description]),
+        or a list of dictionaries with keys defined from the complete column yaml definition. 
+        
+        Allowed column types are any valid Yanny par types, input as strings, e.g. "int", "float", "char".
+        Array columns can be specified by including the array size in "[]", e.g. "float[6]".  
+
+        Parameters
+        ----------
+        comments : str, optional
+            Any comments to add to the file, by default None
+        header : Union[list, dict], optional
+            Keywords to add to the header of the Yanny file, by default None
+        name : str, optional
+            The name of the parameter table
+        description: str, optional
+            A description of the parameter table
+        columns : list, optional
+            A set of Yanny table column definitions
+        """
+        self._design_content(comments=comments, header=header, name=name, 
+                             description=description, columns=columns)
+        
+    def _design_content(self, *args, **kwargs):
         if not self.design:
             log.warning('Cannot design an HDU when not in the datamodel design phase.')
             return
@@ -632,11 +672,10 @@ class DataModel(object):
         ss.update_cache()
         
         # design the new HDU
-        ss.selected_file.design_content(ext=ext, extno=extno, name=name, description=description, 
-                      header=header, columns=columns, **kwargs)
+        ss.selected_file.design_content(*args, **kwargs)
 
         # write it out to the yaml stub        
-        ss.write()
+        ss.write()    
         
         
     def generate_designed_file(self, redesign: bool = None, **kwargs):

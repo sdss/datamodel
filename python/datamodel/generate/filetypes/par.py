@@ -7,6 +7,7 @@ import yaml
 import os
 
 from pydl.pydlutils.yanny import yanny
+from typing import Union
 
 from datamodel import log
 from datamodel.models.yaml import ParModel
@@ -147,7 +148,39 @@ class ParFile(BaseFile):
             out.append(tmp)
         return out
     
-    def design_content(self) -> None:
+    def design_content(self, comments: str = None, header: Union[list, dict] = None, 
+                       name: str = None, description: str = None, columns: list = None) -> None:
+        """ Design a new Yanny par section
+        
+        Design a new Yanny par for the given datamodel.  Specify Yanny comments, a header section, 
+        or a table definition.  Each new table is added to the YAML structure.  Use
+        ``name``, and ``description`` to specify the name and description of the new table. 
+        ``comments`` can be a single string of comments, with newlines indicated by "\n"
+
+        ``header`` can be a dictionary of key-value pairs, a list of tuples of header keywords, 
+        conforming to (keyword, value, comment), or list of dictionaries conforming to
+        {"key": key, "value": value, "comment": comment}.
+        
+        The ``columns`` parameter defines the relevant table columns to add to the file.  It can be 
+        a list of column names, a list of tuple values conforming to column (name, type, [description]),
+        or a list of dictionaries with keys defined from the complete column yaml definition. 
+        
+        Allowed column types are any valid Yanny par types, input as strings, e.g. "int", "float", "char".
+        Array columns can be specified by including the array size in "[]", e.g. "float[6]".  
+
+        Parameters
+        ----------
+        comments : str, optional
+            Any comments to add to the file, by default None
+        header : Union[list, dict], optional
+            Keywords to add to the header of the Yanny file, by default None
+        name : str, optional
+            The name of the parameter table
+        description: str, optional
+            A description of the parameter table
+        columns : list, optional
+            A set of Yanny table column definitions
+        """
         if not self.design or (self.filename and os.path.exists(self.filename)):
             log.warning('Cannot design an new Yanny par when not in the datamodel design phase or '
                         'if a real file already exists.')
@@ -155,18 +188,75 @@ class ParFile(BaseFile):
         
         cached_par = self._cache['releases']['WORK'][self.cache_key]
 
-        cached_par['comments'] = '#This is designer Yanny par\n#\n#Add comments here\n'
-        cached_par['header'] = [{'key': 'key1', 'value': 'value1', 'comment': 'description for key1'}, 
-                                {'key': 'key2', 'value': 'value2', 'comment': 'description for key2'}]
-        cached_par['tables'] = {'NEWPAR': {'name': 'NEWPAR', 'description': 'description for NEWPAR', 
-                                           'n_rows': 0, 
-                                           'structure': []}}
-        cols = [{'name': 'col1', 'type': 'int', 'description': 'description for col1', 
-                 'unit': '', 'is_array': False, 'is_enum': False, 
-                 'example': 1}] 
-        cached_par['tables']['NEWPAR']['structure'] = cols
-        self._cache['releases']['WORK'][self.cache_key] = cached_par
+        # add any comments
+        comments = comments or '#This is designer Yanny par\n#\n#Add comments here\n'
+        cached_par['comments'] = literal(comments)
         
+        # add any header values
+        hdr = cached_par.get('header', [])
+        if not header and not hdr:
+            header = [{'key': 'key1', 'value': 'value1', 'comment': 'description for key1'}, 
+                      {'key': 'key2', 'value': 'value2', 'comment': 'description for key2'}]
+        elif header:
+            header = self._format_header(header)
+            hdr.extend(header)
+        cached_par['header'] = hdr
+        
+        # add any tables
+        name = name or 'TABLE'
+        tables = cached_par.get('tables', {})
+        struct = tables.get(name, {}).get('structure', [])
+        description = description or 'description for TABLE'
+        # update any columns
+        if not columns and not struct:
+            cols = [{'name': 'col1', 'type': 'int', 'description': 'description for col1', 
+                    'unit': '', 'is_array': False, 'is_enum': False, 
+                    'example': 1}]
+        else:
+            cols = self._format_columns(columns)
+        struct.extend(cols) 
+        
+        # create the table dictonary and update existing cache
+        new_table = {name: {'name': name, 'description': description, 'n_rows': 0, 
+                            'structure': struct}}
+        tables.update(new_table)
+        cached_par['tables'] = tables
+
+        # update the cached par
+        self._cache['releases']['WORK'][self.cache_key] = cached_par
+    
+    @staticmethod
+    def _format_header(header: Union[tuple, list, dict]) -> list:
+        """ Format an input header into a YAML header """
+        if not isinstance(header, list):
+            header = [header]
+            
+        if isinstance(header[0], (tuple, list)):
+            return [dict(zip(("key", "value", "comment"), i)) for i in header]
+        elif isinstance(header[0], dict):
+            if 'key' in header[0] and 'value' in header[0]:
+                return header
+            return [{"key": k, "value": v, "comment": f"description for {k}"} for k, v in header[0].items()]
+
+    @staticmethod
+    def _format_columns(columns):
+        if not isinstance(columns, list):
+            raise ValueError('input design columns must be a list.')
+
+
+        if isinstance(columns[0], str):
+            return [{'name': c, 'type': 'char', 'description': f'description for {c}', 
+                    'unit': '', 'is_array': False, 'is_enum': False, 
+                    'example': ''} for c in columns]
+        elif isinstance(columns[0], (list, tuple)):
+            n_len = len(columns[0])
+            return [{'name': c[0], 'type': c[1] if n_len == 2 else 'char', 
+                     'description': c[2] if n_len == 3 else f'description for {c[0]}', 
+                     'unit': '', 'is_array': True if n_len == 2 and '[' in c[1] else False, 
+                     'is_enum': False, 'example': ''} for c in columns]
+        elif isinstance(columns[0], dict):
+            return columns         
+
     def create_from_cache(self, release: str = 'WORK') -> yanny:
         """ Create a Yanny par file from the yaml cache
 

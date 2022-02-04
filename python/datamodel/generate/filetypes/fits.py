@@ -297,6 +297,7 @@ class FitsFile(BaseFile):
         """
         if not self._designed_object:
             raise AttributeError('Cannot write.  Designed object does not exist.')
+
         self._designed_object.writeto(file, overwrite=overwrite, checksum=True)
 
     @staticmethod
