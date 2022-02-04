@@ -170,6 +170,16 @@ class BaseFile(abc.ABC):
         """ Abstract method to be implemented by subclass, for designing file content """
         pass
 
+    @abc.abstractmethod        
+    def create_from_cache(self):
+        """ Abstract method to be implemented by subclass, for creating a valid object from cache """
+        pass
+    
+    @abc.abstractmethod        
+    def write_design(self, file, overwrite=None):
+        """ Abstract method to be implemented by subclass, for writing a design to a file """
+        pass
+    
     @staticmethod
     def _nonempty_string(value: str = None) -> str:
         """Jinja2 Filter to map the format value to a string.

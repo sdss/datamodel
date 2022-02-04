@@ -686,14 +686,14 @@ class DataModel(object):
         ss = self.get_stub(format='yaml')
         ss.update_cache()
         try:
-            hdulist = ss.selected_file.create_hdulist_from_cache(release='WORK')
+            design_obj = ss.selected_file.create_from_cache(release='WORK')
         except ValidationError as e:
-            log.error(f'Failed to create a valid HDUList')
+            log.error(f'Failed to create a valid design object')
             raise
         
-        # exit if for any reason hdulist doesn't exist
-        if not hdulist:
-            log.error('No HDUList to write out.')
+        # exit if for any reason the designed object doesn't exist
+        if not design_obj:
+            log.error('No designed object to write out.')
             return
         
         # create directories if needed
@@ -703,7 +703,7 @@ class DataModel(object):
             path.parent.mkdir(parents=True)
         
         # write out the designed file
-        hdulist.writeto(self.file, overwrite=True, checksum=True)
+        ss.selected_file.write_design(self.file, overwrite=True)
         
         if self.verbose:
             log.info(f'Writing designed filepath: {self.file}')

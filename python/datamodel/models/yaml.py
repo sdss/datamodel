@@ -12,6 +12,7 @@
 
 
 from __future__ import print_function, division, absolute_import, annotations
+from lib2to3.pygram import Symbols
 
 import orjson
 import re
@@ -19,6 +20,7 @@ from typing import List, Dict, Union
 from pydantic import BaseModel, validator
 
 from astropy.io import fits
+from pydl.pydlutils.yanny import yanny
 from .releases import releases, Release as ReleaseMod
 
 
@@ -297,7 +299,7 @@ class Header(BaseModel):
     def to_tuple(self):
         """ Convert the header key to a tuple """
         return (self.key, int(self.value) if self.value.isdigit() else self.value, self.comment)
-
+    
 class Column(BaseModel):
     """ Pydantic model representing a YAML column section
 
@@ -440,6 +442,11 @@ class ParColumn(BaseModel):
     
     _check_replace_me = validator('unit', 'description', allow_reuse=True)(replace_me)
 
+    def parse_type(self):
+        """ Parse the yanny YAML column type """
+        match = re.match(r"(?P<type>\w+)(?P<size>\[\d+\])?", self.type).groupdict()
+        return f"{match['type']} {self.name}{match['size'] or ''}"
+
 class ParTable(BaseModel):
     """ Pydantic model representing a YAML par table section
 
@@ -462,6 +469,20 @@ class ParTable(BaseModel):
     structure: List[ParColumn]
     
     _check_replace_me = validator('description', allow_reuse=True)(replace_me)
+    
+    def create_typedef(self):
+        """ Create a Yanny typedef struct string """
+        cols = " ".join([f"\n\t\t{c.parse_type()};" for c in self.structure])
+        return f"typedef struct {{{ cols }\n}} {self.name};"
+
+    def convert_table(self):
+        """ Create a dictionary to prepare a Yanny table """
+        table = {'symbols': {'enum': None,
+                            'struct': self.create_typedef(),
+                            self.name: [c.name for c in self.structure]}
+                }
+        table[self.name] = {c.name: [c.example] for c in self.structure}
+        return table
 
 
 class ParModel(BaseModel):
@@ -480,7 +501,30 @@ class ParModel(BaseModel):
     """
     comments: str = None
     header: List[Header] = None
-    tables: Dict[str, ParTable]       
+    tables: Dict[str, ParTable]
+    
+    def convert_header(self) -> dict:
+        """ Convert the header into a dicionary """
+        return {i.key: i.value for i in self.header}
+    
+    def convert_par(self):
+        """ Convert the YAML par section into a Yanny par object """
+        # create a blank Yanny structure
+        tmp = yanny()
+        # add generic content so yanny is not None
+        tmp._contents = "#%yanny"
+        # add header info
+        tmp.update(self.convert_header())
+        # add defaults symbols
+        tmp._symbols["enum"] = []
+        tmp._symbols["struct"] = []
+        # add table data
+        for tname, tdata in self.tables.items():
+            tt = tdata.convert_table()
+            tmp[tname] = tt[tname]
+            tmp._symbols[tname] = tt["symbols"][tname]
+            tmp._symbols["struct"].append(tt["symbols"]["struct"])
+        return tmp
 
 class Release(BaseModel):
     """ Pydantic model representing an item in the YAML releases section

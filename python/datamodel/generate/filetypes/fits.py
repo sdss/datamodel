@@ -4,6 +4,7 @@
 import os
 
 from typing import List, Union
+from xml.dom.minidom import Attr
 from astropy.io import fits
 
 from datamodel import log
@@ -12,6 +13,7 @@ from .base import BaseFile, format_bytes
 
 
 class FitsFile(BaseFile):
+    """ Class for supporting FITS files """
     suffix = 'FITS'
     cache_key = 'hdus'
 
@@ -242,7 +244,7 @@ class FitsFile(BaseFile):
         cached_hdus[extno] = row
         self._cache['releases']['WORK'][self.cache_key] = cached_hdus       
 
-    def create_hdulist_from_cache(self, release='WORK') -> fits.HDUList:
+    def create_from_cache(self, release: str = 'WORK') -> fits.HDUList:
         """ Create a fits.HDUList from the yaml cache
 
         Converts the hdu dictionary entry in the YAML cache into
@@ -272,7 +274,30 @@ class FitsFile(BaseFile):
             raise ValueError(f'Release {release} can only be "WORK" when in the datamodel design phase.')
         
         hdus = self._cache['releases'][release][self.cache_key]
-        return fits.HDUList([HDU.parse_obj(v).convert_hdu() for v in hdus.values()])
+        self._designed_object = fits.HDUList([HDU.parse_obj(v).convert_hdu() for v in hdus.values()])
+        return self._designed_object
+
+    def write_design(self, file: str, overwrite: bool = True) -> None:
+        """ Write out the designed file
+
+        Write out a designed fits.HDUList object to a file on disk.  Must have run
+        create_from_cache method first.
+
+        Parameters
+        ----------
+        file : str
+            The designed filename
+        overwrite : bool, optional
+            If True, overwrites any existing file, by default True
+
+        Raises
+        ------
+        AttributeError
+            when the designed object does not exit
+        """
+        if not self._designed_object:
+            raise AttributeError('Cannot write.  Designed object does not exist.')
+        self._designed_object.writeto(file, overwrite=overwrite, checksum=True)
 
     @staticmethod
     def _is_header_keyword(key: str = None) -> bool:

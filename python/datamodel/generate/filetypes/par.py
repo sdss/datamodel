@@ -4,10 +4,12 @@
 
 import numpy as np
 import yaml
+import os
 
 from pydl.pydlutils.yanny import yanny
 
 from datamodel import log
+from datamodel.models.yaml import ParModel
 from .base import BaseFile
 
 #
@@ -145,9 +147,87 @@ class ParFile(BaseFile):
             out.append(tmp)
         return out
     
-    def design_content(self):
-        pass
-    
+    def design_content(self) -> None:
+        if not self.design or (self.filename and os.path.exists(self.filename)):
+            log.warning('Cannot design an new Yanny par when not in the datamodel design phase or '
+                        'if a real file already exists.')
+            return
+        
+        cached_par = self._cache['releases']['WORK'][self.cache_key]
+
+        cached_par['comments'] = '#This is designer Yanny par\n#\n#Add comments here\n'
+        cached_par['header'] = [{'key': 'key1', 'value': 'value1', 'comment': 'description for key1'}, 
+                                {'key': 'key2', 'value': 'value2', 'comment': 'description for key2'}]
+        cached_par['tables'] = {'NEWPAR': {'name': 'NEWPAR', 'description': 'description for NEWPAR', 
+                                           'n_rows': 0, 
+                                           'structure': []}}
+        cols = [{'name': 'col1', 'type': 'int', 'description': 'description for col1', 
+                 'unit': '', 'is_array': False, 'is_enum': False, 
+                 'example': 1}] 
+        cached_par['tables']['NEWPAR']['structure'] = cols
+        self._cache['releases']['WORK'][self.cache_key] = cached_par
+        
+    def create_from_cache(self, release: str = 'WORK') -> yanny:
+        """ Create a Yanny par file from the yaml cache
+
+        Converts the par dictionary entry in the YAML cache into
+        a Yanny par object.
+
+        Parameters
+        ----------
+        release : str, optional
+            the name of the data release, by default 'WORK'
+
+        Returns
+        -------
+        yanny
+            a valid yanny par object
+
+        Raises
+        ------
+        ValueError
+            when the release is not in the cache
+        ValueError
+            when the release is not WORK when in the datamodel design phase
+        """
+        if release not in self._cache['releases']:
+            raise ValueError(f'Release {release} not found in list of cached releases.')
+        
+        if self.design and release != 'WORK':
+            raise ValueError(f'Release {release} can only be "WORK" when in the datamodel design phase.')
+        
+        par = self._cache['releases'][release][self.cache_key]
+        self._designed_object = ParModel.parse_obj(par).convert_par()
+        return self._designed_object 
+
+    def write_design(self, file: str, overwrite: bool = True) -> None:
+        """ Write out the designed file
+
+        Write out a designed Yanny par object to a file on disk.  Must have run
+        create_from_cache method first.
+
+        Parameters
+        ----------
+        file : str
+            The designed filename
+        overwrite : bool, optional
+            If True, overwrites any existing file, by default True
+
+        Raises
+        ------
+        AttributeError
+            when the designed object does not exit
+        """
+        if not self._designed_object:
+            raise AttributeError('Cannot write.  Designed object does not exist.')
+
+        # remove the existing file
+        if overwrite and os.path.exists(file):
+            os.remove(file)
+        
+        par = self._cache['releases']['WORK'][self.cache_key]
+        self._designed_object.write(file, comments=par['comments']) 
+
     def _generate_new_cache(self) -> dict:
         """ Generate a new Yanny parameter file cache entry """
         return {'comments': self._generate_comments(), 
