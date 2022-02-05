@@ -241,7 +241,8 @@ class ParFile(BaseFile):
                 return header
             return [{"key": k, "value": v, "comment": f"description for {k}"} for k, v in header[0].items()]
 
-    def _format_columns(self, columns):
+    def _format_columns(self, columns: list) -> list:
+        """ Format an input column list into a YAML table column structure """
         if not isinstance(columns, list):
             raise ValueError('input design columns must be a list.')
 
@@ -260,7 +261,8 @@ class ParFile(BaseFile):
             return columns
         
     @staticmethod
-    def _format_example(type):
+    def _format_example(type: str) -> str:
+        """ Format the column example based on type """
         examples = {'int': 1, 'char': "a", "float": 1.0, "double": 1.0, "real": 1.0, "bool": False,
                     "bit": 0, "long": 1}
         match = re.match(r"(?P<type>\w+)(?P<size>\[\d+\])?", type).groupdict()
