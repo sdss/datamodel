@@ -5,6 +5,7 @@
 import numpy as np
 import yaml
 import os
+import re
 
 from pydl.pydlutils.yanny import yanny
 from typing import Union
@@ -34,7 +35,7 @@ class ParFile(BaseFile):
     
     def __init__(self, *args, **kwargs):
         super(ParFile, self).__init__(*args, **kwargs)
-        
+
         # read the par file
         self._par = yanny(self.filename)
 
@@ -199,7 +200,9 @@ class ParFile(BaseFile):
                       {'key': 'key2', 'value': 'value2', 'comment': 'description for key2'}]
         elif header:
             header = self._format_header(header)
-            hdr.extend(header)
+        
+        if header:
+            hdr.extend(header) 
         cached_par['header'] = hdr
         
         # add any tables
@@ -238,8 +241,7 @@ class ParFile(BaseFile):
                 return header
             return [{"key": k, "value": v, "comment": f"description for {k}"} for k, v in header[0].items()]
 
-    @staticmethod
-    def _format_columns(columns):
+    def _format_columns(self, columns):
         if not isinstance(columns, list):
             raise ValueError('input design columns must be a list.')
 
@@ -250,12 +252,23 @@ class ParFile(BaseFile):
                     'example': ''} for c in columns]
         elif isinstance(columns[0], (list, tuple)):
             n_len = len(columns[0])
-            return [{'name': c[0], 'type': c[1] if n_len == 2 else 'char', 
-                     'description': c[2] if n_len == 3 else f'description for {c[0]}', 
-                     'unit': '', 'is_array': True if n_len == 2 and '[' in c[1] else False, 
-                     'is_enum': False, 'example': ''} for c in columns]
+            return [{'name': c[0], 'type': c[1] if n_len >= 2 else 'char', 
+                     'description': c[2] if n_len >= 3 else f'description for {c[0]}', 
+                     'unit': '', 'is_array': True if n_len >= 2 and '[' in c[1] else False, 
+                     'is_enum': False, 'example': self._format_example(c[1])} for c in columns]
         elif isinstance(columns[0], dict):
-            return columns         
+            return columns
+        
+    @staticmethod
+    def _format_example(type):
+        examples = {'int': 1, 'char': "a", "float": 1.0, "double": 1.0, "real": 1.0, "bool": False,
+                    "bit": 0, "long": 1}
+        match = re.match(r"(?P<type>\w+)(?P<size>\[\d+\])?", type).groupdict()
+        examp = examples.get(match['type'], "")
+        if match['size']:
+            examp = [examp] * int(match["size"][1])
+        return examp
+            
 
     def create_from_cache(self, release: str = 'WORK') -> yanny:
         """ Create a Yanny par file from the yaml cache
