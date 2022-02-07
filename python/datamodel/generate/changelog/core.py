@@ -105,6 +105,14 @@ class FileDiff(abc.ABC, object):
         ''' Check the data type '''
 
 
+def diff_selector(suffix: str = None) -> FileDiff:
+    """ Select the correct class given a file suffix """
+
+    for ftype in FileDiff.__subclasses__():
+        if suffix and suffix.upper() == ftype.suffix:
+            return ftype
+
+
 def compute_diff(oldfile: str, otherfile: str, change: str = 'fits', versions: list = None) -> FileDiff:
     """ Produce a single changelog between two files
 
@@ -144,12 +152,8 @@ def compute_diff(oldfile: str, otherfile: str, change: str = 'fits', versions: l
 
 
     # check the type of file
-    if change == 'fits':
-        diffobj = FitsDiff
-    elif change == 'catalog':
-        diffobj = CatalogDiff
-    elif change == 'par':
-        diffobj = ParDiff
+    if change in {'fits', 'catalog', 'par'}:
+        diffobj = diff_selector(change)
     else:
         log.warning(f'Diffs for type "{change}" is not currently supported.  Cannot produce changelog.')
         return

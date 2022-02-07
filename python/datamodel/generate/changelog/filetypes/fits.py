@@ -30,6 +30,7 @@ class FitsDiff(FileDiff):
     versions : list, optional
         the named releases/versions corresponding to the two input files, by default None
     """
+    suffix = 'FITS'
 
     def __init__(self, file1: Union[str, fits.HDUList], file2: Union[str, fits.HDUList],
                  full: bool = None, versions: list = None):

@@ -36,6 +36,7 @@ class CatalogDiff(FileDiff):
     versions : list, optional
         the named releases/versions corresponding to the two input files, by default None
     """
+    suffix = "CATALOG"
 
     def __init__(self, file1: Union[str, Table], file2: Union[str, Table],
                  full: bool = None, versions: list = None):

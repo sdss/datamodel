@@ -27,6 +27,7 @@ class ParDiff(FileDiff):
     versions : list, optional
         the named releases/versions corresponding to the two input files, by default None 
     """
+    suffix = 'PAR'
 
     def __init__(self, file1: Union[str, yanny], file2: Union[str, yanny],
                  versions: list = None):

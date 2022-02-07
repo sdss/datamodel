@@ -20,6 +20,7 @@ import shutil
 import numpy as np
 import pytest
 from astropy.io import fits
+from pydl.pydlutils.yanny import yanny
 from sdss_access.path import Path
 from tree import Tree
 
@@ -50,8 +51,37 @@ def setup_sas(monkeypatch, tmp_path, mocker):
     mocker.patch('datamodel.generate.datamodel.Path', new=MockPath)
 
 
-def create_test_fits(name: str = None, version: str = None, 
-                     env: str = None, extra_cols: bool = None) -> pathlib.Path:
+def create_fits(name, version, extra_cols):
+    """ create a test fits hdulist """
+    # create the FITS HDUList
+    header = fits.Header([('filename', name,'name of the file'),
+                          ('testver', version, 'version of the file')])
+    primary = fits.PrimaryHDU(header=header)
+    imdata = fits.ImageHDU(name='FLUX', data=np.ones([5,5]))
+    cols = [fits.Column(name='object', format='20A', array=['a', 'b', 'c']),
+            fits.Column(name='param', format='E', array=np.random.rand(3), unit='m'),
+            fits.Column(name='flag', format='I', array=np.arange(3))]
+    if extra_cols:
+        cols.extend([fits.Column(name='field', format='J', array=np.arange(3)),
+                     fits.Column(name='mjd', format='I', array=np.arange(3))])
+    bindata = fits.BinTableHDU.from_columns(cols, name='PARAMS')
+
+    return fits.HDUList([primary, imdata, bindata])
+
+def create_par():
+    """ create a test yanny par """
+    par = yanny()
+    par._symbols['enum'] = []
+    par._symbols['struct'] = ["typedef struct {\n\t\tint a; \n\t\char b; \n\t\float[5] c;\n} TABLE;"]
+    par._symbols["TABLE"] = ["a", "b", "c"]
+    par['ma1'] = 1
+    par['ma2'] = 2
+    par["TABLE"] = {"a": [1], "b": ['ab'], "c": [[1,2,3,4,5]]}
+    return par
+
+def create_test_file(name: str = None, version: str = None, 
+                     env: str = None, extra_cols: bool = None, 
+                     type: str = 'fits') -> pathlib.Path:
     """ creates a temporary fake test file
 
     Parameters
@@ -64,6 +94,8 @@ def create_test_fits(name: str = None, version: str = None,
         the environment, by default 'testwork'
     extra_cols : bool, optional
         If True, add extra columns to the binary table FITS extension, by default False
+    type : str
+        The type of file to create, by default "fits"
 
     Returns
     -------
@@ -71,24 +103,14 @@ def create_test_fits(name: str = None, version: str = None,
         The full path to the temporary file on disk
     """
     # set defaults
-    name = name or 'testfile_a.fits'
+    name = name or f'testfile_a.{type.lower()}'
     version = version or 'v1'
     env = env or 'testwork'
 
-    # create the FITS HDUList
-    header = fits.Header([('filename','testfile.fits','name of the file'),
-                          ('testver', version, 'version of the file')])
-    primary = fits.PrimaryHDU(header=header)
-    imdata = fits.ImageHDU(name='FLUX', data=np.ones([5,5]))
-    cols = [fits.Column(name='object', format='20A', array=['a', 'b', 'c']),
-            fits.Column(name='param', format='E', array=np.random.rand(3), unit='m'),
-            fits.Column(name='flag', format='I', array=np.arange(3))]
-    if extra_cols:
-        cols.extend([fits.Column(name='field', format='J', array=np.arange(3)),
-                     fits.Column(name='mjd', format='I', array=np.arange(3))])
-    bindata = fits.BinTableHDU.from_columns(cols, name='PARAMS')
-
-    hdu = fits.HDUList([primary, imdata, bindata])
+    if type == 'fits':
+        hdu = create_fits(name, version, extra_cols)
+    elif type == 'par':
+        par = create_par()
 
     # write out the file to the designated path
     redux = os.getenv("TEST_REDUX", "")
@@ -98,7 +120,10 @@ def create_test_fits(name: str = None, version: str = None,
     if not path.exists():
        path.parent.mkdir(parents=True, exist_ok=True)
 
-    hdu.writeto(path, overwrite=True)
+    if type == 'fits':
+        hdu.writeto(path, overwrite=True)
+    elif type == 'par':
+        par.write(path, comments=f'# version\n# {version}\n')
 
     return path
 
@@ -106,8 +131,8 @@ def create_test_fits(name: str = None, version: str = None,
 @pytest.fixture()
 def makefile():
     """ fixture to make a test file """
-    def _make_file(name=None, version=None, env=None, extra_cols=None):
-        return create_test_fits(name=name, version=version, env=env, extra_cols=extra_cols)
+    def _make_file(name=None, version=None, env=None, extra_cols=None, type='fits'):
+        return create_test_file(name=name, version=version, env=env, extra_cols=extra_cols, type=type)
     return _make_file
 
 
@@ -118,6 +143,12 @@ def testfile(makefile):
     yield testfile
     testfile.unlink()
 
+@pytest.fixture()
+def testparfile(makefile):
+    """ fixture to create a default test par file """
+    testfile = makefile(type='par')
+    yield testfile
+    testfile.unlink()
 
 @pytest.fixture
 def yamlfile():
@@ -142,10 +173,23 @@ def datamodel(testfile):
     yield dm
 
 
+@pytest.fixture()
+def pardatamodel(testparfile):
+    """ fixture to create a default par datamodel """
+    dm = DataModel(file_spec='test', keywords=['ver=v1', 'id=a'], path='TEST_REDUX/{ver}/testfile_{id}.par')
+    dm.write_stubs()
+    yield dm
+    
+
 @pytest.fixture
 def validmodel(validyaml, datamodel):
     """ fixture to produce a valud datamodel for the test file """
     yield datamodel
+
+@pytest.fixture
+def validparmodel(validyaml, pardatamodel):
+    """ fixture to produce a valud datamodel for the test file """
+    yield pardatamodel
 
 
 @pytest.fixture()
@@ -158,6 +202,15 @@ def validdesign(yamlfile):
     ss.write()
     yield dm
 
+@pytest.fixture()
+def validpardesign(yamlfile):
+    """ fixture for creating a valid datamodel design """
+    dm = DataModel(file_spec='test', path='TEST_REDUX/{ver}/testfile_{id}.par', design=True)
+    ss = dm.get_stub('yaml')
+    ss.update_cache()
+    ss.write()
+    yield dm
+    
 class MockTree(Tree):
     """ mock out the Tree class to insert test file """
 
