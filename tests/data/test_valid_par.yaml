@@ -1,0 +1,75 @@
+general:
+  name: test
+  short: this is a test Yanny par file
+  description: this is a test file used for testing
+  datatype: PAR
+  filesize: 1 kb
+  releases:
+  - WORK
+  environments:
+  - TEST_REDUX
+  naming_convention: $TEST_REDUX/[VER]/testfile_[ID].par or testfile_a.par
+  generated_by: create_test_file in conftest.py
+  design: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  WORK:
+    template: $TEST_REDUX/[VER]/testfile_[ID].par
+    example: v1/testfile_a.par
+    location: '{ver}/testfile_{id}.par'
+    environment: TEST_REDUX
+    access:
+      in_sdss_access: true
+      path_name: test
+      path_template: $TEST_REDUX/{ver}/testfile_{id}.par
+      path_kwargs:
+      - ver
+      - id
+      access_string: test = $TEST_REDUX/{ver}/testfile_{id}.par
+    par:
+      comments: |
+        #This is designer Yanny par
+        #
+        #Add comments here
+      header:
+      - key: ma1
+        value: 1
+        comment: description for key1
+      - key: ma2
+        value: 2
+        comment: description for key2
+      tables:
+        TABLE:
+          name: TABLE
+          description: description for TABLE
+          n_rows: 0
+          structure:
+          - name: a
+            type: int
+            description: description for col1
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: 1
+          - name: b
+            type: char
+            description: column 2
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: ab
+          - name: c
+            type: float[5]
+            description: column c
+            unit: ''
+            is_array: true
+            is_enum: false
+            example:
+            - 1
+            - 2
+            - 3
+            - 4
+            - 5

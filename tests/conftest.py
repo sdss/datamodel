@@ -72,7 +72,7 @@ def create_par():
     """ create a test yanny par """
     par = yanny()
     par._symbols['enum'] = []
-    par._symbols['struct'] = ["typedef struct {\n\t\tint a; \n\t\char b; \n\t\float[5] c;\n} TABLE;"]
+    par._symbols['struct'] = ["typedef struct {\n\t\tint a; \n\t\tchar b; \n\t\tfloat[5] c;\n} TABLE;"]
     par._symbols["TABLE"] = ["a", "b", "c"]
     par['ma1'] = 1
     par['ma2'] = 2
@@ -162,6 +162,14 @@ def validyaml(yamlfile):
     shutil.copy2(testpath, yamlfile)
     yield yamlfile
 
+@pytest.fixture
+def validparyaml(yamlfile):
+    """ fixture that makes the test yaml file a valid one """
+    yamlfile.parent.mkdir(parents=True, exist_ok=True)
+    testpath = pathlib.Path(__file__).parent / 'data/test_valid_par.yaml'
+    shutil.copy2(testpath, yamlfile)
+    yield yamlfile
+
 
 from datamodel.generate import DataModel
 
@@ -187,7 +195,7 @@ def validmodel(validyaml, datamodel):
     yield datamodel
 
 @pytest.fixture
-def validparmodel(validyaml, pardatamodel):
+def validparmodel(validparyaml, pardatamodel):
     """ fixture to produce a valud datamodel for the test file """
     yield pardatamodel
 
@@ -210,7 +218,7 @@ def validpardesign(yamlfile):
     ss.update_cache()
     ss.write()
     yield dm
-    
+
 class MockTree(Tree):
     """ mock out the Tree class to insert test file """
 
