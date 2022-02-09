@@ -29,3 +29,4 @@ datamodels for SDSS data products.
    api
    CHANGELOG
    commands
+   examples

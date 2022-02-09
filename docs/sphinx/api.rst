@@ -9,11 +9,6 @@ datamodel Reference
 Generate
 --------
 
-.. automodule:: datamodel.generate.changelog
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 .. automodule:: datamodel.generate.datamodel
    :members:
    :undoc-members:
@@ -29,6 +24,52 @@ Generate
    :undoc-members:
    :show-inheritance:
 
+Filetypes
+^^^^^^^^^
+
+.. automodule:: datamodel.generate.filetypes.base
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+.. automodule:: datamodel.generate.filetypes.fits
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+.. automodule:: datamodel.generate.filetypes.par
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Changelog
+^^^^^^^^^
+
+.. automodule:: datamodel.generate.changelog.core
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+.. automodule:: datamodel.generate.changelog.yaml
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+.. automodule:: datamodel.generate.changelog.filetypes.catalog
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+.. automodule:: datamodel.generate.changelog.filetypes.fits
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+.. automodule:: datamodel.generate.changelog.filetypes.par
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   
 Git
 ---
 

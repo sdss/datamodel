@@ -151,12 +151,12 @@ class ParFile(BaseFile):
     
     def design_content(self, comments: str = None, header: Union[list, dict] = None, 
                        name: str = None, description: str = None, columns: list = None) -> None:
-        """ Design a new Yanny par section
+        r""" Design a new Yanny par section
         
         Design a new Yanny par for the given datamodel.  Specify Yanny comments, a header section, 
         or a table definition.  Each new table is added to the YAML structure.  Use
         ``name``, and ``description`` to specify the name and description of the new table. 
-        ``comments`` can be a single string of comments, with newlines indicated by "\n"
+        ``comments`` can be a single string of comments, with newlines indicated by "\\n"
 
         ``header`` can be a dictionary of key-value pairs, a list of tuples of header keywords, 
         conforming to (keyword, value, comment), or list of dictionaries conforming to
