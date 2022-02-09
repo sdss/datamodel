@@ -564,11 +564,9 @@ YAML datamodel file.  With the above calls, the ``par`` section of designed YAML
                 type: char[2]
                 description: description for d3
                 unit: ''
-                is_array: true
+                is_array: false
                 is_enum: false
-                example:
-                - a
-                - a
+                example: a
 
 Adding Content in YAML
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -679,11 +677,9 @@ Let's manually add our new header keys, new columns, and new tables.
             type: char[2]
             description: description for d3
             unit: ''
-            is_array: true
+            is_array: false
             is_enum: false
-            example: [a, b]
-            - a
-            - a
+            example: a
 
 .. _createfile:
 

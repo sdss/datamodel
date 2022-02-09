@@ -74,7 +74,7 @@ def test_design_par(validpardesign):
     assert len(rel['par']['header']) == 6
     assert rel['par']['header'][-1]['key'] == 'f'
     newcol = {'name': 'd3', 'type': 'char[2]', 'description': 'description for d3', 
-              'unit': '', 'is_array': True, 'is_enum': False, 'example': ['a', 'a']}
+              'unit': '', 'is_array': False, 'is_enum': False, 'example': 'a'}
     assert newcol in rel['par']["tables"]["STUFF"]["structure"]
     
     newcol = {"name": "plateid", "type": "int", 

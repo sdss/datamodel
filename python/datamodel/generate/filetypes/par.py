@@ -255,22 +255,27 @@ class ParFile(BaseFile):
             n_len = len(columns[0])
             return [{'name': c[0], 'type': c[1] if n_len >= 2 else 'char', 
                      'description': c[2] if n_len >= 3 else f'description for {c[0]}', 
-                     'unit': '', 'is_array': True if n_len >= 2 and '[' in c[1] else False, 
+                     'unit': '', 'is_array': self._is_array(c[1]) if n_len >=2 else False, 
                      'is_enum': False, 'example': self._format_example(c[1])} for c in columns]
         elif isinstance(columns[0], dict):
             return columns
         
     @staticmethod
-    def _format_example(type: str) -> str:
+    def _is_array(type: str) -> bool:
+        """ Check if a type is an array """
+        match = re.match(r"(?P<type>\w+)(?P<size>\[\d+\])*", type).groupdict()
+        count = len(re.findall(r'\[\d+\]', type))
+        return (count == 2 and match['type'] == 'char') or (count == 1 and match['type'] != 'char') 
+           
+    def _format_example(self, type: str) -> str:
         """ Format the column example based on type """
         examples = {'int': 1, 'char': "a", "float": 1.0, "double": 1.0, "real": 1.0, "bool": False,
                     "bit": 0, "long": 1}
-        match = re.match(r"(?P<type>\w+)(?P<size>\[\d+\])?", type).groupdict()
+        match = re.match(r"(?P<type>\w+)(?P<size>\[\d+\])*", type).groupdict()
         examp = examples.get(match['type'], "")
-        if match['size']:
+        if self._is_array(type) and match['size']:
             examp = [examp] * int(match["size"][1])
         return examp
-            
 
     def create_from_cache(self, release: str = 'WORK') -> yanny:
         """ Create a Yanny par file from the yaml cache
