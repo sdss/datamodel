@@ -16,7 +16,8 @@ Currently the datamodel product supports generating datamodels for the following
 
 The basic procedure for generating datamodels is the same, regardless of filetype.  All of the following code examples 
 below are for generating datamodels for FITS files.  The same procedure can be used for generating datamodels for Yanny files.  
-See the :ref:`yanny` section for explicit differences.
+See the :ref:`yanny` section for explicit differences. See :ref:`examples` for code and output YAML datamodels for supported
+filetypes.
 
 Generating a datamodel
 ----------------------
