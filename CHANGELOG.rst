@@ -8,6 +8,7 @@ Change Log
 ------------------
 - Added support for Yanny parameter files (PR :pr:`36`) 
 - Refactored code for easier addition of new file types
+- Removed remaining deprecated wiki code and references
 
 0.3.3 (01-07-2021)
 ------------------
