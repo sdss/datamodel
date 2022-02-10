@@ -15,7 +15,7 @@ from __future__ import print_function, division, absolute_import
 import abc
 import yaml
 import os
-from jinja2 import Environment, PackageLoader
+from jinja2 import Environment, PackageLoader, TemplateNotFound
 from typing import Iterator
 from pydantic import ValidationError
 
@@ -365,12 +365,18 @@ class MdStub(BaseStub):
     format: str = 'md'
 
     def _get_content(self, release: str = None, group: str = 'WORK') -> None:
+        # update the markdown template to a file specific template
+        try:
+            self.template = self.environment.get_template(f'md/{self.selected_file.suffix.lower()}.md')
+        except TemplateNotFound:
+            log.error(f'Jinja2 markdown template not found for filetype {self.selected_file.suffix.lower()}.'
+                      ' Check that a markdown stub for the filetype has been created in templates/md/.')
+            return
+        
         selected_release = self.get_selected_release(release=release, group=group)
-        #hdus = self._cache['hdus'][selected_release]
-        hdus = self._cache['releases'][selected_release].get('hdus', {})
-        pars = self._cache['releases'][selected_release].get('par', {})
-        self.content = self.template.render(content=self._cache, hdus=hdus, par=pars, 
-                                            selected_release=selected_release)
+        data = self._cache['releases'][selected_release].get(self.selected_file.cache_key, {})
+        self.content = self.template.render(content=self._cache, data=data, filetype=self.selected_file.suffix.lower(),
+                                            selected_release=selected_release, cache_key=self.selected_file.cache_key)
 
     def get_selected_release(self, release: str = None, group: str = 'WORK') -> str:
         """ get the hdu content for a given release """
