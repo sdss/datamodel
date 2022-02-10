@@ -4,6 +4,11 @@
 Change Log
 ==========
 
+0.4.0 (02-10-2022)
+------------------
+- Added support for Yanny parameter files (PR :pr:`36`) 
+- Refactored code for easier addition of new file types
+
 0.3.3 (01-07-2021)
 ------------------
 - Removed all references to the old datamodel wiki code, now deprecated for the DSI
