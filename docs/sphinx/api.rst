@@ -118,15 +118,3 @@ Products
    :undoc-members:
    :show-inheritance:
 
-Wiki
-----
-
-.. automodule:: datamodel.wiki.page
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-.. automodule:: datamodel.wiki.remote
-   :members:
-   :undoc-members:
-   :show-inheritance:
