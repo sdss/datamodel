@@ -15,7 +15,6 @@ from __future__ import print_function, division, absolute_import
 
 import click
 from datamodel.command import Install
-from datamodel.wiki import Page
 from datamodel.generate import DataModel
 from datamodel import log
 

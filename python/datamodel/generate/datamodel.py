@@ -144,6 +144,7 @@ class DataModel(object):
     ValueError
         when no path template keywords are specified
     """
+    supported_filetypes = ['.fits', '.par']
 
     def __init__(self, tree_ver: str = None, file_spec: str = None, path: str = None,
                  keywords: list = [], env_label: str = None, location: str = None,
@@ -205,6 +206,11 @@ class DataModel(object):
             self._set_design_location()
         else:
             self._set_real_and_abstract_location()
+
+        # check for valid file support
+        self.suffixes = pathlib.Path(self.location).suffixes
+        if set(self.suffixes).isdisjoint(set(self.supported_filetypes)):
+            raise ValueError(f'File type {self.suffixes[0]} is not currently supported by sdss-datamodel.')    
 
         # set the fully realized filename and access paths
         self._set_file()
@@ -388,10 +394,40 @@ class DataModel(object):
             log.error("Please specify a valid env label option.")
             return
 
+        orig_env = self.tree.get_orig_os_environ()
         tree_dict = self.tree.to_dict()
         if self.env_label in tree_dict:
-            self.env = {"label": self.env_label, "path": tree_dict[self.env_label]}
+            path = tree_dict[self.env_label]
 
+            # check if path is a PRODUCT_ROOT
+            if path.startswith("$PRODUCT_ROOT"):
+
+                if self.verbose:
+                    log.info(f'{self.env_label} path is a PRODUCT_ROOT') 
+                              
+                # check for existing label in enironemnt
+                if self.env_label in orig_env:
+                    path = orig_env.get(self.env_label)
+                else:
+                    # try to resolve your product_root path
+                    path = os.path.expandvars(path) 
+                    
+                    if path.startswith("$PRODUCT_ROOT"):                    
+                        # look for a valid product root
+                        product_root = self.tree.get_product_root()
+                        # fail if PRODUCT_ROOT is not set
+                        if not product_root:
+                            msg = 'No PRODUCT_ROOT found in your environment!  Please set your root directory for all git or svn products.'
+                            log.error(msg)
+                            raise ValueError(msg)
+           
+                        # replace product_root with one found from tree
+                        path = path.replace("$PRODUCT_ROOT", product_root)
+                
+            # assign environment label and path
+            self.env = {"label": self.env_label, "path": path}
+
+        # issue error or info log messages
         if not self.env:
             log.error(f"Please add this environment={self.env_label} to the tree "
                       "product, and try again.")
@@ -541,7 +577,7 @@ class DataModel(object):
     def design_hdu(self, ext: str = 'primary', extno: int = None, name: str = 'EXAMPLE', 
                    description: str = None, header: Union[list, dict, fits.Header] = None, 
                    columns: List[Union[list, dict, fits.Column]] = None, **kwargs):
-        """ Design a new HDU
+        """ Wrapper to _design_content, to design a new HDU
 
         Design a new astropy HDU for the given datamodel.  Specify the extension type ``ext`` 
         to indicate a PRIMARY, IMAGE, or BINTABLE HDU extension.  Each new HDU is added to the
@@ -587,6 +623,46 @@ class DataModel(object):
             when the table columns input is not a list
         """
         
+        self._design_content(ext=ext, extno=extno, name=name, description=description, 
+                            header=header, columns=columns, **kwargs)
+        
+    def design_par(self, comments: str = None, header: Union[list, dict] = None, 
+                       name: str = None, description: str = None, columns: list = None):
+        r""" Wrapper to _design_content, to design a new Yanny par section
+
+        Design a new Yanny par for the given datamodel.  Specify Yanny comments, a header section, 
+        or a table definition.  Each new table is added to the YAML structure.  Use
+        ``name``, and ``description`` to specify the name and description of the new table. 
+        ``comments`` can be a single string of comments, with newlines indicated by "\\n".
+
+        ``header`` can be a dictionary of key-value pairs, a list of tuples of header keywords, 
+        conforming to (keyword, value, comment), or list of dictionaries conforming to
+        {"key": key, "value": value, "comment": comment}.
+
+        The ``columns`` parameter defines the relevant table columns to add to the file.  It can be 
+        a list of column names, a list of tuple values conforming to column (name, type, [description]),
+        or a list of dictionaries with keys defined from the complete column yaml definition. 
+
+        Allowed column types are any valid Yanny par types, input as strings, e.g. "int", "float", "char".
+        Array columns can be specified by including the array size in "[]", e.g. "float[6]".  
+
+        Parameters
+        ----------
+        comments : str, optional
+            Any comments to add to the file, by default None
+        header : Union[list, dict], optional
+            Keywords to add to the header of the Yanny file, by default None
+        name : str, optional
+            The name of the parameter table
+        description: str, optional
+            A description of the parameter table
+        columns : list, optional
+            A set of Yanny table column definitions
+        """
+        self._design_content(comments=comments, header=header, name=name, 
+                             description=description, columns=columns)
+        
+    def _design_content(self, *args, **kwargs):
         if not self.design:
             log.warning('Cannot design an HDU when not in the datamodel design phase.')
             return
@@ -596,12 +672,10 @@ class DataModel(object):
         ss.update_cache()
         
         # design the new HDU
-        ss.design_hdu(ext=ext, extno=extno, name=name, description=description, 
-                      header=header, columns=columns, **kwargs)
+        ss.selected_file.design_content(*args, **kwargs)
 
         # write it out to the yaml stub        
-        ss.write()
-        
+        ss.write()    
         
     def generate_designed_file(self, redesign: bool = None, **kwargs):
         """ Generate a file from a designed datamodel
@@ -650,14 +724,14 @@ class DataModel(object):
         ss = self.get_stub(format='yaml')
         ss.update_cache()
         try:
-            hdulist = ss.create_hdulist_from_cache(release='WORK')
+            design_obj = ss.selected_file.create_from_cache(release='WORK')
         except ValidationError as e:
-            log.error(f'Failed to create a valid HDUList')
+            log.error(f'Failed to create a valid design object')
             raise
         
-        # exit if for any reason hdulist doesn't exist
-        if not hdulist:
-            log.error('No HDUList to write out.')
+        # exit if for any reason the designed object doesn't exist
+        if not design_obj:
+            log.error('No designed object to write out.')
             return
         
         # create directories if needed
@@ -667,7 +741,7 @@ class DataModel(object):
             path.parent.mkdir(parents=True)
         
         # write out the designed file
-        hdulist.writeto(self.file, overwrite=True, checksum=True)
+        ss.selected_file.write_design(self.file, overwrite=True)
         
         if self.verbose:
             log.info(f'Writing designed filepath: {self.file}')

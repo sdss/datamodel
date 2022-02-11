@@ -15,22 +15,17 @@ from __future__ import print_function, division, absolute_import
 import abc
 import yaml
 import os
-import json
-from astropy.io import fits
-from jinja2 import Environment, PackageLoader
-from typing import Iterator, Union, List
+from jinja2 import Environment, PackageLoader, TemplateNotFound
+from typing import Iterator
 from pydantic import ValidationError
 
-try:
-    import markdown
-except ImportError:
-    markdown = None
-
 from ..git import Git
-from .changelog import YamlDiff
+from .changelog import yamldiff_selector
 from ..models.releases import releases as sdss_releases
-from ..models.yaml import YamlModel, HDU
+from ..models.yaml import YamlModel
+from datamodel.generate.filetypes import file_selector, get_filetype, get_filesize
 from datamodel import log
+
 
 class BaseStub(abc.ABC):
     format = None
@@ -186,8 +181,8 @@ class BaseStub(abc.ABC):
             template_input.update({
                 "path": self.datamodel.file,
                 "filename": os.path.basename(self.datamodel.file),
-                "filesize": self._get_filesize(),
-                "filetype": self._get_filetype()})
+                "filesize": get_filesize(self.datamodel.file),
+                "filetype": get_filetype(self.datamodel.file)})
             
         return template_input
 
@@ -220,29 +215,41 @@ class BaseStub(abc.ABC):
         else:
             # create a brand new cache
             content = self._create_cache()
-            
+        
+        # select the correct file object
+        suffix = content['general']['datatype'] or get_filetype(self.datamodel.location)
+        file_class = file_selector(suffix)
+
+        # raise error if no class found
+        if not file_class:
+            raise ValueError(f'No supported file class found for {suffix}.')
+
         # update any design entry
         content['general']['design'] = self.datamodel.design
 
         # check the content dictionary has a proper release
         if self.datamodel.release not in content['releases']:
             content['releases'][self.datamodel.release] = {"template": None, "example": None, "location": None,
-                                                           "environment": None, "access": {}, "hdus": {}
-                                                           }
+                                                           "environment": None, "access": {}, 
+                                                           file_class.cache_key: {}}
 
         # set the cache content
         self._cache = content
+        
+        # instantiate the file object
+        self.selected_file = file_class(self._cache, datamodel=self.datamodel, stub=self)
 
         # if release is the same, copy over entire cache
         if self.use_cache_release and self.full_cache:
-            self._cache['releases'][self.datamodel.release] = self._cache['releases'].get(self.use_cache_release, {})
+            self.selected_file._use_full_cache()
+            self._update_cache_changelog()
             return
 
         # set the cache with access info
         self._update_cache_access()
 
-        # set the cache for hdus
-        self._set_cache_hdus(force=force)
+        # check the filetype and generate proper YAML content
+        self.selected_file._set_cache(force=force)
 
         # update the cache changelog
         self._update_cache_changelog()
@@ -277,254 +284,19 @@ class BaseStub(abc.ABC):
 
         # update the location/example keyword in the cache
         self._cache['releases'][self.datamodel.release]['location'] = self.datamodel.location
-        self._cache['releases'][self.datamodel.release]['example'] = self.datamodel.real_location
-
-    def _set_cache_hdus(self, force: bool = None) -> None:
-        """ Creates or sets the hdu cache
-
-        [extended_summary]
-
-        Parameters
-        ----------
-        force : bool, optional
-            If True, rewrites hdu cache from scratch, by default None
-        """
-        cached_hdus = self._cache['releases'][self.datamodel.release].get('hdus', {})
-
-        # set an empty hdu cache when in design phase
-        if not cached_hdus and self.datamodel.design:
-            self.design_hdu(ext='primary')
-            return
-
-        # if no cache exists or forced update, generate a new cache from file
-        if not cached_hdus or force:
-            cached_hdus = self._generate_new_hdu_cache()
-
-        if self.use_cache_release and not force:
-            old_hdus = self._cache['releases'][self.use_cache_release].get('hdus', {})
-            if not self.full_cache:
-                # partial copy of the cache
-                cached_hdus = self._update_partial_cache(cached_hdus, old_hdus)
-            else:
-                # full copy of the cache
-                cached_hdus = old_hdus
-
-        # set the HDU cache to the given release
-        self._cache['releases'][self.datamodel.release]['hdus'] = cached_hdus
-
-    def _update_partial_cache(self, cached_hdus, old_hdus):
-        old_names = [v['name'] for v in old_hdus.values()]
-
-        for k, v in cached_hdus.items():
-            # skip extensions that aren't in the old HDU
-            if v['name'] not in old_names:
-                continue
-
-            # get current hdu index
-            current_idx = int(k.split('hdu')[-1])
-
-            # get the matching old hdu index
-            idx = old_names.index(v['name']) if v['name'] else current_idx
-            oldkey = f'hdu{idx}'
-            
-            # issue a warning if the extension has no name
-            if not v['name']:
-                log.warning(f'HDU ext {current_idx} in {self.datamodel.file_species} has no '
-                            'proper FITS extension name.  This breaks SDSS name formatting.  '
-                            'Please correct the FITS file.')
-
-            # update the HDU description
-            v['description'] = old_hdus[oldkey]['description']
-
-            # skip processing of image extensions
-            if v['is_image'] is True:
-                continue
-
-            for kk, vv in v['columns'].items():
-                # if a new column is not in the old cache of columns, add it
-                if kk not in old_hdus[oldkey]['columns']:
-                    column = self._extract_hdu_column(current_idx, kk)
-                    v['columns'][kk] = self._generate_column_dict(column)
-                    continue
-                vv['unit'] = old_hdus[oldkey]['columns'][kk]['unit']
-                vv['description'] = old_hdus[oldkey]['columns'][kk]['description']
-
-        return cached_hdus
-    
-    def _generate_new_hdu_cache(self) -> dict:
-        """ Generates a branch new HDU cache
-
-        Loops over all the HDUs in a FITS file and converts them
-        to dictionary format for insertion into the cache.
-
-        Returns
-        -------
-        dict
-            the HDU formatted for the YAML dictionary
-        """
-        hdus = {}
-
-        with fits.open(self.datamodel.file) as hdulist:
-            for hdu_number, hdu in enumerate(hdulist):
-
-                # issue a warning if the extension has no name
-                if not hdu.name:
-                    log.warning(f'HDU ext {hdu_number} in {self.datamodel.file_species} has no '
-                                'proper FITS extension name.  This breaks SDSS name formatting.  '
-                                'Please correct the FITS file.')
-                    
-                # convert an HDU to a dictionary
-                row = self._convert_hdu_to_dict(hdu)
-
-                # generate HDU extension number
-                extno = f'hdu{hdu_number}'
-                hdus[extno] = row
-        return hdus
-    
-    def _convert_hdu_to_dict(self, hdu: fits.hdu.base._BaseHDU, description: str = None) -> dict:
-        """ Convert an HDU into a dictionary entry """
-        header = hdu.header
-                
-        # create a new one
-        row = {
-            'name': hdu.name,
-            'description': description or 'replace me description',
-            'is_image': hdu.is_image,
-            'size': self._format_bytes(hdu.size),
-        }
-
-        if hdu.is_image:
-            row['header'] = []
-            for key, value in header.items():
-                if self._is_header_keyword(key=key):
-                    column = {"key": key, "value": value, "comment": header.comments[key]}
-                    row['header'].append(column)
-        else:
-            row['columns'] = {}
-            for column in hdu.columns:
-                row['columns'][column.name] = self._generate_column_dict(column)
-        return row
-
-    def _extract_hdu_column(self, ext, key):
-        """ Extract a column from a Astropy HDU table extension """
-        with fits.open(self.datamodel.file) as hdulist:
-            return hdulist[ext].columns[key]
-        
-    def _generate_column_dict(self, column):
-        """ Generates a dictionary entry for an Astropy table column """
-        return {'name': column.name.upper(),
-                'type': self._format_type(column.format),
-                'unit': self._nonempty_string(column.unit),
-                'description': self._nonempty_string()} 
-    
-    def design_hdu(self, ext: str = 'primary', extno: int = None, name: str = 'EXAMPLE', 
-                   description: str = None, header: Union[list, dict, fits.Header] = None, 
-                   columns: List[Union[list, dict, fits.Column]] = None, **kwargs) -> None:
-        """ Design a new HDU
-
-        Design a new astropy HDU for the given datamodel.  Specify the extension type ``ext`` 
-        to indicate a PRIMARY, IMAGE, or BINTABLE HDU extension.  Each new HDU is added to the
-        YAML structure using next hdu extension id found, or the one provided with ``extno``.  Use
-        ``name`` to specify the name of the HDU extension.     
-
-        ``header`` can be a `~astropy.io.fits.Header` instance, a list of tuples of header keywords, 
-        conforming to (keyword, value, comment), or list of dictionaries conforming to 
-        {"keyword": keyword, "value": value, "comment": comment}.
-
-        ``columns`` can be a list of `~astropy.io.fits.Column` objects, a list of tuples 
-        minimally conforming to (name, format, unit), or list of dictionaries minimally conforming
-        to {"name": name, "format": format, "unit": unit}.  See Astropy's Binary Table 
-        `Column Format <https://docs.astropy.org/en/stable/io/fits/usage/table.html#column-creation>`_
-        for the allowed format values.  When supplying a list of tuples or dictionaries, can include
-        any number of valid arguments into `~astropy.io.fits.Column`.
-        
-        Parameters
-        ----------
-        ext : str, optional
-            the type of HDU to create, by default 'primary'
-        extno : int, optional
-            the extension number, by default None
-        name : str, optional
-            the name of the HDU extension, by default 'EXAMPLE'
-        description: str, optional
-            a description for the HDU, by default None
-        header : Union[list, dict, fits.Header], optional
-            valid input to create a Header, by default None
-        columns : List[Union[list, dict, fits.Column]], optional
-            a list of binary table columns, by default None
-        force : bool
-            If True, forces a new design even if the HDU already exists, by default None
-        **kwargs, optional
-            additional keyword arguments to pass to the HDU constructor
-
-        Raises
-        ------
-        ValueError
-            when the ext type is not supported
-        ValueError
-            when the table columns input is not a list
-        """
-        if not self.datamodel.design or (self.datamodel.file and os.path.exists(self.datamodel.file)):
-            log.warning('Cannot design an HDU when not in the datamodel design phase or '
-                        'if a real file already exists.')
-            return
-        
-        cached_hdus = self._cache['releases']['WORK']['hdus']
-
-        if ext not in ['primary', 'image', 'table']:
-            raise ValueError('Can only design a primary, image, or table HDU extension.')
-        
-        # check header keyword
-        if header and not isinstance(header, fits.Header) and isinstance(header, (list, dict)):
-            header = fits.Header(header)
-        else:
-            header = fits.Header()
-            
-        # check binary table column keywords
-        if ext == 'table':
-            if columns and not isinstance(columns, list):
-                raise ValueError('columns keyword must be a valid list')
-            elif not columns:
-                columns = [fits.Column(name='EXAMPLE', format='A5')]
-            elif isinstance(columns[0], dict):
-                columns = [fits.Column(**c) for c in columns]
-            elif isinstance(columns[0], (list, tuple)):
-                columns = [fits.Column(*c) for c in columns]
-    
-        # generate a new HDU extension
-        if ext == 'primary':
-            hdu = fits.PrimaryHDU(header=header, **kwargs)
-        elif ext == 'image':
-            hdu = fits.ImageHDU(name=name, header=header, **kwargs)
-        elif ext == 'table':
-            hdu = fits.BinTableHDU.from_columns(name=name, 
-                                                columns=columns, 
-                                                header=header, **kwargs)
-
-        # convert the new HDU to a dictionary            
-        row = self._convert_hdu_to_dict(hdu, description=description)
-
-        # determine the extension number
-        existing_hdus = [int(i.split('hdu')[-1]) for i in cached_hdus]
-        if existing_hdus:
-            max_extno = max(existing_hdus)
-            if extno and extno <= max_extno:
-                log.warning(f'ExtNo {extno} is lower than existing max extension {max_extno}. '
-                            'Using next extension id {max_extno + 1}')
-            elif not extno:
-                log.warning(f'Found existing extensions.  Using next extension id {max_extno + 1}')
-            extno = max_extno + 1
-        else:
-            extno = 0 if ext == 'primary' else 1
-                    
-        # add the designed HDU to the cache    
-        extno = f'hdu{extno}'
-        cached_hdus[extno] = row
-        self._cache['releases']['WORK']['hdus'] = cached_hdus        
+        self._cache['releases'][self.datamodel.release]['example'] = self.datamodel.real_location       
 
     def _update_cache_changelog(self):
         """ Update the changelog in the cache """
-        yaml_diff = YamlDiff(self._cache)
+        # get the correct yamldiff class
+        suffix = self._cache['general']['datatype'] or get_filetype(self.datamodel.location)
+        yd_class = yamldiff_selector(suffix)
+        # return if no class present
+        if not yd_class:
+            return
+
+        # instantiate compute the changelog and update the cache
+        yaml_diff = yd_class(self._cache)
         release_order = reversed(self._cache['general']['releases'])
         changelog = yaml_diff.generate_changelog(release_order, simple=True)
         self._cache['changelog']['releases'] = changelog
@@ -542,140 +314,7 @@ class BaseStub(abc.ABC):
             log.error(err)
             return False
         else:
-            return True
-        
-    def create_hdulist_from_cache(self, release='WORK') -> fits.HDUList:
-        """ Create a fits.HDUList from the yaml cache
-
-        Converts the hdu dictionary entry in the YAML cache into
-        a Astropy fits.HDUList object.
-
-        Parameters
-        ----------
-        release : str, optional
-            the name of the data release, by default 'WORK'
-
-        Returns
-        -------
-        fits.HDUList
-            a valid astropy fits.HDUList object
-
-        Raises
-        ------
-        ValueError
-            when the release is not in the cache
-        ValueError
-            when the release is not WORK when in the datamodel design phase
-        """
-        if release not in self._cache['releases']:
-            raise ValueError(f'Release {release} not found in list of cached releases.')
-        
-        if self.datamodel.design and release != 'WORK':
-            raise ValueError(f'Release {release} can only be "WORK" when in the datamodel design phase.')
-        
-        hdus = self._cache['releases'][release]['hdus']
-        return fits.HDUList([HDU.parse_obj(v).convert_hdu() for v in hdus.values()])
-
-    @staticmethod
-    def _format_bytes(value: int = None) -> str:
-        """Convert an integer to human-readable format.
-
-        Parameters
-        ----------
-        value : int
-            An integer representing number of bytes.
-
-        Returns
-        -------
-        str
-            Size of the file in human-readable format.
-        """
-
-        try:
-            value = int(value)
-        except:
-            value = 0
-
-        for unit in ("bytes", "KB", "MB", "GB"):
-            if value < 1024:
-                return "{0:d} {1}".format(int(value), unit)
-            else:
-                value /= 1024.0
-
-        return "{0:3.1f} {1}".format(value, "TB")
-
-    def _get_filesize(self) -> str:
-        """Get the size of the input file.
-
-        Returns
-        -------
-        str
-            Size of the file in human-readable format.
-        """
-        return self._format_bytes(os.path.getsize(self.datamodel.file))
-
-    def _get_filetype(self) -> str:
-        """Get the extension of the input file.
-
-        Returns
-        -------
-        str
-            File type in upper case.
-        """
-        filename, file_extension = os.path.splitext(self.datamodel.file)
-        if "gz" in file_extension:
-            filename, file_extension = os.path.splitext(filename)
-        return file_extension[1:].upper()
-
-    @staticmethod
-    def _is_header_keyword(key: str = None) -> bool:
-        """Test for hdu header keyword
-
-        Returns
-        -------
-        bool
-            ``True`` if `key` does *not* contain 'TFORM' or 'TTYPE'.
-        """
-        return tuple(key.find(f) for f in ("TFORM", "TTYPE")) == (-1, -1)
-
-    @staticmethod
-    def _nonempty_string(value: str = None) -> str:
-        """Jinja2 Filter to map the format value to a string.
-
-        Parameters
-        ----------
-        value : str?
-            Not sure what type this is supposed to have.
-
-        Returns
-        -------
-        string: str
-            The string.
-        """
-        return f"{value}" if value else 'replace me - with content'
-
-    @staticmethod
-    def _format_type(value: str = None) -> str:
-        """Jinja2 Filter to map the format type to a data type.
-
-        Parameters
-        ----------
-        value : str?
-            Not sure what type this is supposed to have.
-
-        Returns
-        -------
-        str
-            The data type.
-        """
-        fmap = {"A": "char", "I": "int16", "J": "int32", "K": "int64", "E": "float32",
-                "D": "float64", "B": "bool", "L": "bool"}
-        out = [
-            val if value.isalpha() else "{0}[{1}]".format(val, value[:-1])
-            for key, val in fmap.items()
-            if key in value
-        ]
-        return out[0]        
+            return True     
 
     def commit_to_git(self) -> None:
         """ Commit the stub to Github """
@@ -726,22 +365,18 @@ class MdStub(BaseStub):
     format: str = 'md'
 
     def _get_content(self, release: str = None, group: str = 'WORK') -> None:
+        # update the markdown template to a file specific template
+        try:
+            self.template = self.environment.get_template(f'md/{self.selected_file.suffix.lower()}.md')
+        except TemplateNotFound:
+            log.error(f'Jinja2 markdown template not found for filetype {self.selected_file.suffix.lower()}.'
+                      ' Check that a markdown stub for the filetype has been created in templates/md/.')
+            return
+        
         selected_release = self.get_selected_release(release=release, group=group)
-        #hdus = self._cache['hdus'][selected_release]
-        hdus = self._cache['releases'][selected_release]['hdus']
-        self.content = self.template.render(content=self._cache, hdus=hdus, selected_release=selected_release)
-
-    # def convert_to_html(self):
-    #     htmlpath = self.output.replace('md', 'html')
-    #     outpath = pathlib.Path(self.output)
-    #     if not outpath.exists():
-    #         raise ValueError(f'Cannot convert md to html. md file {self.output} does not exist.')
-
-    #     if not markdown:
-    #         raise ImportError('Cannot convert md to html.  markdown package is not installed.')
-
-    #     pathlib.Path(htmlpath).parent.mkdir(parents=True, exist_ok=True)
-    #     markdown.markdownFromFile(input=self.output, output=htmlpath, extensions=['markdown.extensions.tables', 'toc'])
+        data = self._cache['releases'][selected_release].get(self.selected_file.cache_key, {})
+        self.content = self.template.render(content=self._cache, data=data, filetype=self.selected_file.suffix.lower(),
+                                            selected_release=selected_release, cache_key=self.selected_file.cache_key)
 
     def get_selected_release(self, release: str = None, group: str = 'WORK') -> str:
         """ get the hdu content for a given release """
@@ -804,10 +439,6 @@ class MdStub(BaseStub):
         with open(self.output, 'w') as f:
             f.write(self.content)
 
-        # if html:
-        #     self.convert_to_html()
-
-
 class JsonStub(BaseStub):
     format: str = 'json'
     has_template: bool = False
@@ -825,10 +456,6 @@ class AccessStub(BaseStub):
     def _get_content(self) -> None:
         releases = {k: v.get('access', {}) for k,v in self._cache['releases'].items()}
         self.content = yaml.dump(releases, sort_keys=False)
-
-class HtmlStub(MdStub):
-    format: str = 'html'
-
 
 
 def stub_iterator(format: str = None) -> Iterator[BaseStub]:

@@ -19,6 +19,7 @@ import re
 
 import deepdiff
 from datamodel.generate import DataModel
+from datamodel.generate.filetypes import ParFile, FitsFile
 
 
 
@@ -36,6 +37,13 @@ def test_create_file(makefile, ver, env):
 
 def test_datamodel_generate(testfile):
     dm = DataModel(file_spec='test', keywords=['ver=v1', 'id=a'], path='TEST_REDUX/{ver}/testfile_{id}.fits')
+    dm.write_stubs()
+    ss = dm.get_stub('yaml')
+    assert os.path.exists(ss.output)
+    assert ss.validate_cache() is False
+
+def test_datamodel_par_generate(testparfile):
+    dm = DataModel(file_spec='test', keywords=['ver=v1', 'id=a'], path='TEST_REDUX/{ver}/testfile_{id}.par')
     dm.write_stubs()
     ss = dm.get_stub('yaml')
     assert os.path.exists(ss.output)
@@ -77,12 +85,29 @@ def test_valid_datamodel(validmodel):
     # assert valid yaml content
     assert os.path.exists(ss.output)
     assert ss.validate_cache() is True
+    assert isinstance(ss.selected_file, FitsFile)
+    assert ss._cache["general"]["datatype"] == 'FITS'
 
     # assert other stubs exist
     for stub in ['md', 'json', 'access']:
         ss = validmodel.get_stub(stub)
         assert os.path.exists(ss.output)
 
+def test_valid_par_datamodel(validparmodel):
+    ss = validparmodel.get_stub('yaml')
+    validparmodel.write_stubs()
+    ss.update_cache()
+    # assert valid yaml content
+    assert os.path.exists(ss.output)
+    assert ss.validate_cache() is True
+    assert isinstance(ss.selected_file, ParFile)
+    assert ss._cache["general"]["datatype"] == 'PAR'
+
+    # assert other stubs exist
+    for stub in ['md', 'json', 'access']:
+        ss = validparmodel.get_stub(stub)
+        assert os.path.exists(ss.output)
+        
 def test_release_same_cache(makefile, validyaml):
     dr15 = makefile(env='dr15')
     dr16 = makefile(env='dr16')

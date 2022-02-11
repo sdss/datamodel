@@ -4,7 +4,20 @@
 Generating Datamodels
 =====================
 
-Here we describe the process of generating new datamodels for existing FITS file.  
+Here we describe the process of generating new datamodels for existing SDSS files.  
+
+Supported Filetypes
+-------------------
+
+Currently the datamodel product supports generating datamodels for the following filetypes:
+
+- FITS: a common astronomy data format
+- `"Yanny" parameter files <https://www.sdss.org/dr17/software/par/>`_: human- and machine-readable ASCII parameter (.par) files
+
+The basic procedure for generating datamodels is the same, regardless of filetype.  All of the following code examples 
+below are for generating datamodels for FITS files.  The same procedure can be used for generating datamodels for Yanny files.  
+See the :ref:`yanny` section for explicit differences. See :ref:`examples` for code and output YAML datamodels for supported
+filetypes.
 
 Generating a datamodel
 ----------------------
@@ -93,61 +106,66 @@ modify.  The structure of the YAML is broken up into the following sections:
 - **changelog** - automatically populated section containing any FITS file changes between data releases
 - **releases** - section of information specific for a release
     - **access** - a section containing information on any existing sdss_access entry
-    - **hdus** - a section for each HDU in the FITS file
+    - **hdus** - a section for each HDU in the FITS file (only for FITS files)
+    - **par** - a section containing the header and table content in the par file (only for Yanny files)
 
 Most of the YAML content is automatically generated.  Values containing the text **replace me** are
 areas to be replaced with user custom content, e.g. descriptions of the data product, individual
 descriptions of HDU content, column units, etc.  A truncated example of the newly created
 unvalidated ``datamodel/products/yaml/mangaRSS.yaml`` file is below:
 
-.. code-block:: yaml
+.. tab:: FITS Yaml
 
-    general:
-      name: mangaRss
-      short: replace me - with a short one sentence summary of file
-      description: replace me - with a longer description of the data product
-      datatype: FITS
-      filesize: 14 MB
-      releases:
-        - DR15
-      environments:
-        - MANGA_SPECTRO_REDUX
-      naming_convention: replace me - with $MANGA_SPECTRO_REDUX/[DRPVER]/[PLATE]/stack/manga-[PLATE]-[IFU]-[WAVE]RSS.fits.gz
-        or manga-8485-1901-LOGRSS.fits.gz but with regex pattern matches
-      generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-        this product.
-    changelog:
-      description: Describes changes to the datamodel product and/or file structure from
-        one release to another
-      releases: {}
-    releases:
-      DR15:
-        template: $MANGA_SPECTRO_REDUX/[DRPVER]/[PLATE]/stack/manga-[PLATE]-[IFU]-[WAVE]RSS.fits.gz
-        example: v2_4_3/8485/stack/manga-8485-1901-LOGRSS.fits.gz
-        location: '{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}RSS.fits.gz'
-        environment: MANGA_SPECTRO_REDUX
-        access:
-          in_sdss_access: true
-          path_name: mangarss
-          path_template: $MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}RSS.fits.gz
-          path_kwargs:
-            - plate
-            - drpver
-            - wave
-            - ifu
-          access_string: mangaRss = $MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}RSS.fits.gz
-        hdus:
-          hdu0:
-            name: PRIMARY
-            description: replace me description
-            is_image: true
-            size: 0 bytes
-            header:
-              - key: SIMPLE
-                value: true
-                comment: ''
-          hdu1:
-            ...
+    Example yaml datamodel for the MaNGA RSS FITS file, shortened for brevity
+
+    .. code-block:: yaml
+
+        general:
+          name: mangaRss
+          short: replace me - with a short one sentence summary of file
+          description: replace me - with a longer description of the data product
+          datatype: FITS
+          filesize: 14 MB
+          releases:
+            - DR15
+          environments:
+            - MANGA_SPECTRO_REDUX
+          naming_convention: replace me - with $MANGA_SPECTRO_REDUX/[DRPVER]/[PLATE]/stack/manga-[PLATE]-[IFU]-[WAVE]RSS.fits.gz
+            or manga-8485-1901-LOGRSS.fits.gz but with regex pattern matches
+          generated_by: replace me - with the name(s) of any git or svn product(s) that produces
+            this product.
+        changelog:
+          description: Describes changes to the datamodel product and/or file structure from
+            one release to another
+          releases: {}
+        releases:
+          DR15:
+            template: $MANGA_SPECTRO_REDUX/[DRPVER]/[PLATE]/stack/manga-[PLATE]-[IFU]-[WAVE]RSS.fits.gz
+            example: v2_4_3/8485/stack/manga-8485-1901-LOGRSS.fits.gz
+            location: '{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}RSS.fits.gz'
+            environment: MANGA_SPECTRO_REDUX
+            access:
+              in_sdss_access: true
+              path_name: mangarss
+              path_template: $MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}RSS.fits.gz
+              path_kwargs:
+                - plate
+                - drpver
+                - wave
+                - ifu
+              access_string: mangaRss = $MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}RSS.fits.gz
+            hdus:
+              hdu0:
+                name: PRIMARY
+                description: replace me description
+                is_image: true
+                size: 0 bytes
+                header:
+                  - key: SIMPLE
+                    value: true
+                    comment: ''
+              hdu1:
+                ...
 
 .. _validate:
 
@@ -453,4 +471,164 @@ web application accessible at https://data.sdss5.org/dsi using the standard SDSS
 do not need to do anything extra to have your datamodel appear on the DSI, only ensure that a 
 valid JSON representation has been created.  
 
+.. _yanny:
 
+Yanny Parameter files
+---------------------
+
+While most of the datamodel workflow is the same for `par files <https://www.sdss.org/dr17/software/par/>`_ as for FITS, 
+there are a few differences, which we describe here.
+
+The PRODUCT_ROOT environment variable
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Many Yanny parameter files are defined inside SVN or GIT repository software products, which can be checked out by the user or 
+installed via the ``sdss-install`` product.  For example the SDSS **platePlans.par** lives inside the ``platelist`` repo, whose
+path is defined as ``$PLATELIST_DIR/platePlans.par``, using the ``PLATELIST_DIR`` environment variable.  
+
+Since the ``PLATELIST_DIR`` environment variable can point to any custom user or SAS location, or to a location 
+installed by ``sdss-install``, and can also vary during data releases when software is tagged, a flexible definition 
+is needed.  This flexibility is controlled by a ``PRODUCT_ROOT`` environment variable.  You can find more info on 
+``PRODUCT_ROOT`` in the `SVN/Git Data Files <https://sdss-tree.readthedocs.io/en/latest/paths.html#defining-paths-to-data-files-in-svn>`_ section of the ``tree`` documentation. 
+
+By default the datamodel product will use any existing custom environment variable definition found in your 
+local ``os.environ``.  However, if one cannot be found, it falls back on any definition found in the ``tree`` product.  
+This may invoke the ``PRODUCT_ROOT`` envvar.  For example, in the ``tree`` product, the ``PLATELIST_DIR`` env path 
+for ``sdsswork`` is defined as ``$PRODUCT_ROOT/data/sdss/platelist/trunk``, as a general location where to find platelist files. 
+
+The datamodel product will attempt to find a valid ``PRODUCT_ROOT`` environment variable definition in your system, in the 
+following order of precedence of variable names:
+
+- PRODUCT_ROOT
+- SDSS_GIT_ROOT or SDSS_SVN_ROOT
+- SDSS_INSTALL_PRODUCT_ROOT
+- SDSS4_PRODUCT_ROOT
+- the parent diretory of SAS_BASE_DIR
+
+
+Example Par YAML
+^^^^^^^^^^^^^^^^
+
+The YAML datamodel for a par file is mostly the same as for FITS files, but with a ``par`` section instead of 
+an ``hdus`` section.  Let's generate an example datamodel stub for the SDSS platePlans yanny file, located in the top-level 
+directory of the platelist product.  The code to generate the datamodel stub is:
+
+.. code-block:: python
+
+    dm = DataModel(file_spec='platePlans', path='PLATELIST_DIR/platePlans.par', keywords=[], release="WORK")
+    dm.write_stubs()
+
+The output datamodel file, ``products/yaml/platePlans.yaml`` has the following contents:
+
+.. tab:: PAR Yaml
+
+    Example yaml datamodel for the SDSS plate plans par file, shortened for brevity
+    
+    .. code-block:: yaml
+
+        general:
+          name: platePlans
+          short: replace me - with a short one sentence summary of file
+          description: replace me - with a longer description of the data product
+          datatype: PAR
+          filesize: 1 MB
+          releases:
+          - WORK
+          environments:
+          - PLATELIST_DIR
+          naming_convention: replace me - with $PLATELIST_DIR/platePlans.par or platePlans.par
+            but with regex pattern matches
+          generated_by: replace me - with the name(s) of any git or svn product(s) that produces
+            this product.
+          design: false
+        changelog:
+          description: Describes changes to the datamodel product and/or file structure from
+            one release to another
+          releases: {}
+        releases:
+          WORK:
+            template: $PLATELIST_DIR/platePlans.par
+            example: platePlans.par
+            location: platePlans.par
+            environment: PLATELIST_DIR
+            access:
+              in_sdss_access: true
+              path_name: platePlans
+              path_template: $PLATELIST_DIR/platePlans.par
+              path_kwargs: []
+              access_string: platePlans = $PLATELIST_DIR/platePlans.par
+            par:
+              comments: |-
+                # platePlans.par
+                #
+                # Global plate planning file for SDSS-III
+                #
+                # Every plate number (plateid) has one and only one entry here.
+                #
+                # Numbering of plates starts after last plates of SDSS-II, which
+                # were the MARVELS June 2008 pre-selection plates (3000-3014).
+                # Note that SDSS-II also used plate numbers 8000-8033, which should
+                # therefore be avoided
+                #
+                # Meaning of columns:
+                #  plateid - unique ID of plate
+                #  designid - ID of "design"; two plates can have the same design
+                #             but be drilled for different HA, TEMP, EPOCH
+                # ...
+                # ...
+                #
+              header: []
+              tables:
+                PLATEPLANS:
+                  name: PLATEPLANS
+                  description: replace me - with a description of this table
+                  n_rows: 7551
+                  structure:
+                  - name: plateid
+                    type: int
+                    description: replace me - with a description of this column
+                    unit: replace me - with a unit of this column
+                    is_array: false
+                    is_enum: false
+                    example: 186
+                  - name: designid
+                    type: int
+                    description: replace me - with a description of this column
+                    unit: replace me - with a unit of this column
+                    is_array: false
+                    is_enum: false
+                    example: -1
+                  ...
+
+Yaml "Par" Section
+^^^^^^^^^^^^^^^^^^
+
+The ``par`` section of the YAML file has the following content:
+
+- **comments**: a string block of any comments found at the top of the Yanny par file, up to the "typedef" struct definition.
+- **header**: a list of any header keywords found in the Yanny par file
+- **tables**: a dictionary of tables defined in the Yanny par file
+
+Each table entry has a table name (``name``), a description of the table (``description``), the number of rows 
+in the table (``n_rows``), and a list of column definitions (``structure``). The column definitions are constructed
+from the Yanny ``typedef`` structure definition found in the file for the given table.   
+
+The ``type`` column parameter is pulled directly from the ``typedef`` column definition, eg. ``int plateid``.  For column
+defintions with a size element, they are stored on the type itself.  For example ``char survey[20]`` is stored 
+as type ``char[20]``. The array Yanny column definition ``float ha[6];`` would be converted to the yaml entry:
+
+.. code-block:: yaml
+
+    - name: ha
+      type: float[6]
+      description: replace me - with a description of this column
+      unit: replace me - with a unit of this column
+      is_array: true
+      is_enum: false
+      example:
+      - -45.0
+      - 0.0
+      - 0.0
+      - 0.0
+      - 0.0
+      - 0.0

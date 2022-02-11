@@ -4,15 +4,16 @@
 Designing Datamodels
 ====================
 
-Here we describe the process of designing new datamodels for FITS files that do not yet exist in
-the SDSS ecosystem.     
+Here we describe the process of designing new datamodels for files that do not yet exist in
+the SDSS ecosystem.  Most of the code examples on this page pertain to designing FITS files, but
+the workflow is the same when designing other files, e.g. Yanny parameter files.     
 
 .. _designstub:
 
 Creating the Design Stub
 ------------------------
 
-Desiging a datamodel for a new file is very similar to generating a datamodel for an existing one.  It
+Designing a datamodel for a new file is very similar to generating a datamodel for an existing one.  It
 consists of generating a YAML datamodel file, which can then be updated with new HDU information.
 
 For the following examples, let's assume we are interested in designing a datamodel for a new MaNGA
@@ -22,7 +23,8 @@ will be ``$MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-catalog-{plate}.fits
 ``$MANGA_SPECTRO_REDUX/v3_2_0/8485/stack/manga-catalog-8485.fits.gz``.
 
 When desiging a new datamodel, use the :ref:`datamodel design cli <usage-dmdesign>` or specify 
-the ``design=True`` keyword argument when using `~datamodel.generate.datamodel.DataModel` in Python.
+the ``design=True`` keyword argument when using `~datamodel.generate.datamodel.DataModel` in Python.  For Yanny 
+par files, the syntax below is exactly the same, just replace the path with a designed path to a Yanny parameter file.
 
 .. tab:: CLI
 
@@ -118,6 +120,39 @@ The YAML validation remains the same.  To properly validate your designed datamo
 resolve all validation errors e.g. filling in required fields and any "replace me" text.  You can also
 take the opportunity to define parameters, e.g. ``datatype`` or the ``access`` parameters necessary
 for ``sdss_access``. 
+
+For Yanny parameter files, the designed YAML stub is identical to that of above with a ``par`` section instead of an 
+``hdus`` section.
+
+.. code-block:: yaml
+
+    par:
+      comments: |
+        #This is designer Yanny par
+        #
+        #Add comments here
+      header:
+      - key: key1
+        value: value1
+        comment: description for key1
+      - key: key2
+        value: value2
+        comment: description for key2
+      tables:
+        TABLE:
+          name: TABLE
+          description: description for TABLE
+          n_rows: 0
+          structure:
+          - name: col1
+            type: int
+            description: description for col1
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: 1
+
+For FITS files, see the :ref:`designhdu` section.  For Yanny parameters files, see the :ref:`designpar` section.
 
 .. _designhdu:
 
@@ -376,9 +411,275 @@ Let's manually add our two new HDU extensions, a ``SUMMARY`` ImageHDU and a ``CA
                 type: bool
                 unit: ''
 
+.. _designpar:
 
+Designing a Par File
+--------------------
 
+After the initial design of the datamodel, you can now add additional Yanny content to the datamodel, such as file 
+comments, header keyword-value pairs, or table information. This can be done in two ways, in Python or in the YAML 
+file itself.  
 
+Let's say we're designing a new observation plans file to live in the ``platelist`` product, at the top level directory of
+the product.  Using the file_species name of "obsPlans", we create the initial stub with:
+
+.. code-block:: python
+
+    dm = DataModel(file_spec="obsPlans", path="PLATELIST_DIR/obsPlans.par", verbose=True, design=True)
+    dm.write_stubs()
+
+This creates a YAML like above. Now let's add some new header keywords, a few new column definitions to the "TABLE" table, 
+and add a brand new table definition, called "NEW".    
+
+Adding Content with Python
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To design new Yanny par content in Python, use the `~datamodel.generate.datamodel.DataModel.design_par` method.
+
+There is only one header for a Yanny file.  You can add new keywords with the ``header`` argument.  The keywords
+accepts either a list of tuples of header ``(keyword, value, comment)``, a list of dictionaries 
+of header ``{"key": keyword, "value": value, "comment": comment}``, or a simple dictionary of key-value pairs.
+
+The ``name`` keyword argument specifies the table you want to modify or add.  Table column definitions are added
+with the ``columns`` keyword.  It accepts either a list of column names, a list of tuples of column 
+``(name, type)`` or ``(name, type, description)``, or a list of dictionaries of column 
+``{"name": name, "type": type, "description": description}``.     
+
+When specifying new table columns for an HDU, the ``columns`` keyword accepts either a list of 
+`~astropy.io.fits.Column` objects, a list of tuples of column ``(name, format, unit)``, or a list of 
+dictionaries containing all the written out YAML keys.
+
+Let's first update the header with a single key "cart" , and define three columns in the table: a string, a float 
+array of 5 elements, and an integer.  Let's also create a brand new table in the yaml file, called "NEW", with three 
+new columns, and update the header with three new keys.
+
+.. code-block:: python
+
+    # add a single header keyword, along with new columns to the existing table, "TABLE"
+    dm.design_par(header=("cart", "3", "cart id"), name="TABLE", columns=[("a", "char"), ("b", "float[5]"), ("c", "int")])
+
+    # add three new header keys, and a new table definition, "NEW"
+    dm.design_par(header={"d": 1, "e": 2, "f": 3}, name="NEW", columns=[("d1", "float[6]"), ("d2", "int"), ("d3", "char[2]")])
+
+Each call to `~datamodel.generate.datamodel.DataModel.design_hdu` writes the content out to the 
+YAML datamodel file.  With the above calls, the ``par`` section of designed YAML now looks like
+
+.. code-block:: yaml
+
+    releases:
+      WORK:
+        template: $PLATELIST_DIR/obsPlans.par
+        example: null
+        location: obsPlans.par
+        environment: PLATELIST_DIR
+        access:
+          in_sdss_access: false
+          path_name: null
+          path_template: null
+          path_kwargs: null
+          access_string: obsPlans = $PLATELIST_DIR/obsPlans.par
+        par:
+          comments: |
+            #This is designer Yanny par
+            #
+            #Add comments here
+          header:
+          - key: key1
+            value: value1
+            comment: description for key1
+          - key: key2
+            value: value2
+            comment: description for key2
+          - key: cart
+            value: '3'
+            comment: cart id
+          - key: d
+            value: 1
+            comment: description for d
+          - key: e
+            value: 2
+            comment: description for e
+          - key: f
+            value: 3
+            comment: description for f
+          tables:
+            TABLE:
+              name: TABLE
+              description: description for TABLE
+              n_rows: 0
+              structure:
+              - name: col1
+                type: int
+                description: description for col1
+                unit: ''
+                is_array: false
+                is_enum: false
+                example: 1
+              - name: a
+                type: char
+                description: description for a
+                unit: ''
+                is_array: false
+                is_enum: false
+                example: a
+              - name: b
+                type: float[5]
+                description: description for b
+                unit: ''
+                is_array: true
+                is_enum: false
+                example:
+                - 1.0
+                - 1.0
+                - 1.0
+                - 1.0
+                - 1.0
+              - name: c
+                type: int
+                description: description for c
+                unit: ''
+                is_array: false
+                is_enum: false
+                example: 1
+            NEW:
+              name: NEW
+              description: description for TABLE
+              n_rows: 0
+              structure:
+              - name: d1
+                type: char
+                description: description for d1
+                unit: ''
+                is_array: false
+                is_enum: false
+                example: a
+              - name: d2
+                type: int
+                description: description for d2
+                unit: ''
+                is_array: false
+                is_enum: false
+                example: 1
+              - name: d3
+                type: char[2]
+                description: description for d3
+                unit: ''
+                is_array: false
+                is_enum: false
+                example: a
+
+Adding Content in YAML
+^^^^^^^^^^^^^^^^^^^^^^
+
+Alternatively to Python, you can also specify par content in the YAML file itself.  This is done by adding
+individual HDUs to the ``hdus`` dictionary of the ``WORK`` release.  
+
+The ``par`` content should have the following syntax:
+
+.. code-block:: yaml
+
+    par:
+      comments: a string of comments
+      header: a list of header keywords
+      tables: a dictionary of tables
+
+Each ``header`` entry should have the following syntax:
+
+.. code-block:: yaml
+
+    header:
+    - key: the name of the header keyword
+      value: the value of the header keyword, can be empty
+      comment: a description of the header keyword, can be empty
+
+Each table entry in the ``tables`` section should have the following syntax:
+
+.. code-block:: yaml
+
+    tables:
+      [NAME]:
+        name: the name of the table 
+        description: a description of the table
+        n_rows: the number of rows in the table, can be 0 initially 
+        structure: a list of table column definitions
+
+Each column entry in the ``structure`` section should have the following syntax:
+
+.. code-block:: yaml
+
+    structure:
+    - name: the name of the column
+      type: the datatype of the column, with optional array size
+      description: a description for the column
+      unit: a unit of the column, if any
+      is_array: whether the column is an array 
+      is_enum: whether the column is an enumeration
+      example: an example value for the column
+
+Let's manually add our new header keys, new columns, and new tables.
+
+.. code-block:: yaml
+
+    par:
+      comments: |
+        #This is a new observation plans file
+        #
+      header:
+      - key: cart
+        value: '3'
+        comment: cart id
+      - key: d
+        value: 1
+        comment: this is a d key
+      - key: e
+        value: 2
+        comment: this is a e key
+      - key: f
+        value: 3
+        comment: this is a f key
+      tables:
+        TABLE:
+          name: TABLE
+          description: this is the main table
+          n_rows: 0
+          structure:
+          - name: a
+            type: char
+            description: this is column a
+            example: hello
+          - name: b
+            type: float[5]
+            description: this is column b
+            is_array: true
+          - name: c
+            type: int
+            description: this is column c
+        NEW:
+          name: NEW
+          description: this is a secondary but new table
+          n_rows: 0
+          structure:
+          - name: d1
+            type: char
+            description: description for d1
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: a
+          - name: d2
+            type: int
+            description: description for d2
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: 1
+          - name: d3
+            type: char[2]
+            description: description for d3
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: a
 
 .. _createfile:
 

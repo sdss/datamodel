@@ -48,7 +48,40 @@ def test_design_hdu(validdesign):
     assert rel['hdus']['hdu1']['name'] == 'TEST_IMAGE'
     assert rel['hdus']['hdu2']['name'] == 'TEST_CATALOG'
     assert rel['hdus']['hdu2']['description'] == 'this is a test table extension'
+
+def test_design_par(validpardesign):
+    ss = validpardesign.get_stub('yaml')
+    ss.update_cache()
+    rel = ss._cache['releases']['WORK']
+
+    assert rel['par']['comments'] == '#This is designer Yanny par\n#\n#Add comments here\n'
+    assert len(rel['par']) == 3
+    assert len(rel['par']['header']) == 2
+    assert rel['par']['header'][0]['key'] == 'key1'
+    assert 'TABLE' in rel['par']['tables']
+    assert len(rel["par"]["tables"]["TABLE"]["structure"]) == 1
+    assert rel['par']['tables']['TABLE']['structure'][0]['name'] == 'col1'
+
+    validpardesign.design_par(header=("a", "b", "c"), name="TABLE", columns=["c1", "c2", "c3"])
+    validpardesign.design_par(header={"d": 1, "e": 2, "f": 3}, name="STUFF", 
+                              columns=[("d1", "float[6]"), ("d2", "int"), ("d3", "char[2]")])
+    validpardesign.design_par(name="TABLE", columns=[("plateid", "int", "the plate id of the obs")])
+
+    ss.update_cache()
+    rel = ss._cache['releases']['WORK']
+
+    assert 'STUFF' in rel['par']['tables']
+    assert len(rel['par']['header']) == 6
+    assert rel['par']['header'][-1]['key'] == 'f'
+    newcol = {'name': 'd3', 'type': 'char[2]', 'description': 'description for d3', 
+              'unit': '', 'is_array': False, 'is_enum': False, 'example': 'a'}
+    assert newcol in rel['par']["tables"]["STUFF"]["structure"]
     
+    newcol = {"name": "plateid", "type": "int", 
+              "description": "the plate id of the obs", 
+              "unit": "", "is_array": False, "is_enum": False, "example": 1}
+    assert newcol in rel['par']["tables"]["TABLE"]["structure"]
+
 
 def test_design_generates_file(validdesign):
     assert validdesign.file is None
