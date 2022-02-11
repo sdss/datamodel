@@ -4,7 +4,7 @@
 Change Log
 ==========
 
-0.4.0 (02-10-2022)
+0.4.0 (02-11-2022)
 ------------------
 - Added support for Yanny parameter files (PR :pr:`36`) 
 - Refactored code for easier addition of new file types
