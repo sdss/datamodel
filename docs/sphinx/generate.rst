@@ -505,6 +505,12 @@ following order of precedence of variable names:
 - SDSS4_PRODUCT_ROOT
 - the parent diretory of SAS_BASE_DIR
 
+.. note::
+
+  When running the datamodel product at Utah, most software products are already installed.  Their environment variables 
+  along with the underlying PRODUCT_ROOT environment variable, will already be defined.  The user does not have to do 
+  anything extra to enable this functionality. 
+
 
 Example Par YAML
 ^^^^^^^^^^^^^^^^
