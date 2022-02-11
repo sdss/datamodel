@@ -396,6 +396,7 @@ class DataModel(object):
 
         orig_env = self.tree.get_orig_os_environ()
         tree_dict = self.tree.to_dict()
+        # run logic when the label is found in the tree dictionary
         if self.env_label in tree_dict:
             path = tree_dict[self.env_label]
 
@@ -425,6 +426,10 @@ class DataModel(object):
                         path = path.replace("$PRODUCT_ROOT", product_root)
                 
             # assign environment label and path
+            self.env = {"label": self.env_label, "path": path}
+        elif self.env_label in orig_env:
+            # do final check if label is in original os environ
+            path = orig_env.get(self.env_label)
             self.env = {"label": self.env_label, "path": path}
 
         # issue error or info log messages

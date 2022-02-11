@@ -4,6 +4,10 @@
 Change Log
 ==========
 
+0.4.1 (02-11-2022)
+------------------
+- Fixed bug when environment is not defined in tree but defined locally
+
 0.4.0 (02-11-2022)
 ------------------
 - Added support for Yanny parameter files (PR :pr:`36`) 
