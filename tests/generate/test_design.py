@@ -66,6 +66,9 @@ def test_design_par(validpardesign):
     validpardesign.design_par(header={"d": 1, "e": 2, "f": 3}, name="STUFF", 
                               columns=[("d1", "float[6]"), ("d2", "int"), ("d3", "char[2]")])
     validpardesign.design_par(name="TABLE", columns=[("plateid", "int", "the plate id of the obs")])
+    ecol = {"name": "ecol", "description": "a new enum col", "type": "ETYPE", "unit": "", "is_array": False,
+            "is_enum": True, "enum_values": ["GO", "NO", "FO", "SO"], "example": "GO"}
+    validpardesign.design_par(name="TABLE", columns=[ecol])
 
     ss.update_cache()
     rel = ss._cache['releases']['WORK']
@@ -77,10 +80,14 @@ def test_design_par(validpardesign):
               'unit': '', 'is_array': False, 'is_enum': False, 'example': 'a'}
     assert newcol in rel['par']["tables"]["STUFF"]["structure"]
     
+    # assert plateid column is there
     newcol = {"name": "plateid", "type": "int", 
               "description": "the plate id of the obs", 
               "unit": "", "is_array": False, "is_enum": False, "example": 1}
     assert newcol in rel['par']["tables"]["TABLE"]["structure"]
+
+    # assert the enum column is there
+    assert ecol in rel['par']["tables"]["TABLE"]["structure"]
 
 
 def test_design_generates_file(validdesign):
