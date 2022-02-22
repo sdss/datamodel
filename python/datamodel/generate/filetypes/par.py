@@ -172,7 +172,8 @@ class ParFile(BaseFile):
         or a list of dictionaries with keys defined from the complete column yaml definition. 
         
         Allowed column types are any valid Yanny par types, input as strings, e.g. "int", "float", "char".
-        Array columns can be specified by including the array size in "[]", e.g. "float[6]".  
+        Array columns can be specified by including the array size in "[]", e.g. "float[6]".  Enum types
+        are defined by setting ``is_enum`` to True, and by providing a list of possible values via ``enum_values``.  
 
         Parameters
         ----------

@@ -443,15 +443,16 @@ of header ``{"key": keyword, "value": value, "comment": comment}``, or a simple 
 The ``name`` keyword argument specifies the table you want to modify or add.  Table column definitions are added
 with the ``columns`` keyword.  It accepts either a list of column names, a list of tuples of column 
 ``(name, type)`` or ``(name, type, description)``, or a list of dictionaries of column 
-``{"name": name, "type": type, "description": description}``.     
+``{"name": name, "type": type, "description": description}`` as shorthand or the full YAML dictionary definition.     
 
-When specifying new table columns for an HDU, the ``columns`` keyword accepts either a list of 
-`~astropy.io.fits.Column` objects, a list of tuples of column ``(name, format, unit)``, or a list of 
-dictionaries containing all the written out YAML keys.
+Allowed column types are any valid Yanny par types, input as strings, e.g. "int", "float", "char".
+Array columns can be specified by including the array size in "[]", e.g. "float[6]".  Enum types
+are defined by setting ``is_enum`` to True, and by providing a list of possible values via ``enum_values``.  
 
 Let's first update the header with a single key "cart" , and define three columns in the table: a string, a float 
 array of 5 elements, and an integer.  Let's also create a brand new table in the yaml file, called "NEW", with three 
-new columns, and update the header with three new keys.
+new columns, and update the header with three new keys. And finally, let's add an enumerated column, ``ecol``, 
+to our table using the full column definition syntax.
 
 .. code-block:: python
 
@@ -460,6 +461,11 @@ new columns, and update the header with three new keys.
 
     # add three new header keys, and a new table definition, "NEW"
     dm.design_par(header={"d": 1, "e": 2, "f": 3}, name="NEW", columns=[("d1", "float[6]"), ("d2", "int"), ("d3", "char[2]")])
+
+    # add an enumerated column to the existing table, "TABLE", using the full column dict definition
+    ecol = {"name": "ecol", "description": "a new enum column", "type": "ETYPE", "unit": "", "is_array": False,
+            "is_enum": True, "enum_values": ["GO", "NO", "FO", "SO"], "example": "GO"}
+    dm.design_par(name="TABLE", columns=[ecol])
 
 Each call to `~datamodel.generate.datamodel.DataModel.design_hdu` writes the content out to the 
 YAML datamodel file.  With the above calls, the ``par`` section of designed YAML now looks like
@@ -541,6 +547,18 @@ YAML datamodel file.  With the above calls, the ``par`` section of designed YAML
                 is_array: false
                 is_enum: false
                 example: 1
+              - name: ecol
+                description: a new enum column
+                type: ETYPE
+                unit: ''
+                is_array: false
+                is_enum: true
+                enum_values:
+                - GO
+                - NO
+                - FO
+                - SO
+                example: GO
             NEW:
               name: NEW
               description: description for TABLE
@@ -614,6 +632,7 @@ Each column entry in the ``structure`` section should have the following syntax:
       unit: a unit of the column, if any
       is_array: whether the column is an array 
       is_enum: whether the column is an enumeration
+      enum_values: a list of enumerated values, if any
       example: an example value for the column
 
 Let's manually add our new header keys, new columns, and new tables.
@@ -654,6 +673,14 @@ Let's manually add our new header keys, new columns, and new tables.
           - name: c
             type: int
             description: this is column c
+          - name: ecol
+            description: a new enum column
+            type: ETYPE
+            unit: ''
+            is_array: false
+            is_enum: true
+            enum_values: [GO, NO, FO, SO]
+            example: GO
         NEW:
           name: NEW
           description: this is a secondary but new table

@@ -4,6 +4,10 @@
 Change Log
 ==========
 
+0.4.2 (unreleased)
+------------------
+- Fix issue :issue:`37` - add missing enum support to Yanny par datamodels
+
 0.4.1 (02-11-2022)
 ------------------
 - Fixed bug when environment is not defined in tree but defined locally
