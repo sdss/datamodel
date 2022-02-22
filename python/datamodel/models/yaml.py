@@ -438,6 +438,7 @@ class ParColumn(BaseModel):
     unit: str
     is_array: bool
     is_enum: bool
+    enum_values: list = None
     example: Union[str, int, float, list]
     
     _check_replace_me = validator('unit', 'description', allow_reuse=True)(replace_me)
@@ -474,10 +475,27 @@ class ParTable(BaseModel):
         """ Create a Yanny typedef struct string """
         cols = " ".join([f"\n\t\t{c.parse_type()};" for c in self.structure])
         return f"typedef struct {{{ cols }\n}} {self.name};"
+    
+    def create_enum(self):
+        """ Create a Yanny typedef enum string """
+        enum = []
+        for c in self.structure:
+            # do only when column is an enum
+            if not c.is_enum:
+                continue
+            
+            # do only when there are enum values present
+            if not c.enum_values:
+                continue
+
+            # create enum definiton
+            names = "".join([f"\n\t{v};" for v in c.enum_values])
+            enum.append(f"typedef enum {{{ names }\n}} {c.type};")
+        return enum
 
     def convert_table(self):
         """ Create a dictionary to prepare a Yanny table """
-        table = {'symbols': {'enum': None,
+        table = {'symbols': {'enum': self.create_enum(),
                             'struct': self.create_typedef(),
                             self.name: [c.name for c in self.structure]}
                 }
@@ -524,6 +542,7 @@ class ParModel(BaseModel):
             tmp[tname] = tt[tname]
             tmp._symbols[tname] = tt["symbols"][tname]
             tmp._symbols["struct"].append(tt["symbols"]["struct"])
+            tmp._symbols["enum"].extend(tt["symbols"]["enum"])
         return tmp
 
 class Release(BaseModel):

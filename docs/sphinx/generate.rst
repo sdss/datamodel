@@ -638,3 +638,33 @@ as type ``char[20]``. The array Yanny column definition ``float ha[6];`` would b
       - 0.0
       - 0.0
       - 0.0
+
+For Yanny columns with an "enumerated" definition, the ``type`` will be set to the name of the enum ``typedef`` structure, 
+and have ``is_enum`` set to True.  The enumerated values will be listed in the ``enum_values`` yaml parameter.  For example, 
+the SDSS-V ``sdsscore`` configuration summary file, ``confSummary-XXXX.par`` has a ``fiberType`` column with an ENUM 
+definition of 
+::
+
+  typedef enum {
+      BOSS,
+      APOGEE,
+      METROLOGY,
+      NONE
+  } FIBERTYPE;
+
+The corresponding YAML entry would be:
+
+.. code-block:: yaml
+
+    - name: fiberType
+      type: FIBERTYPE
+      description: replace me - with a description of this column
+      unit: replace me - with a unit of this column
+      is_array: false
+      is_enum: true
+      enum_values:
+      - BOSS
+      - APOGEE
+      - METROLOGY
+      - NONE
+      example: APOGEE

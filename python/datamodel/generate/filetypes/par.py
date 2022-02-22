@@ -143,9 +143,14 @@ class ParFile(BaseFile):
                 'description': 'replace me - with a description of this column',
                 'unit': 'replace me - with a unit of this column',
                 'is_array': self._par.isarray(table, c),
-                'is_enum': self._par.isenum(table, c),
-                'example': row[c]
+                'is_enum': self._par.isenum(table, c)
             }
+            # optionally include enum values
+            if tmp['is_enum']:
+                tmp['enum_values'] = self._par._enum_cache.get(tmp['type'], []) 
+                
+            # add in example
+            tmp['example'] = row[c]
             out.append(tmp)
         return out
     
@@ -167,7 +172,8 @@ class ParFile(BaseFile):
         or a list of dictionaries with keys defined from the complete column yaml definition. 
         
         Allowed column types are any valid Yanny par types, input as strings, e.g. "int", "float", "char".
-        Array columns can be specified by including the array size in "[]", e.g. "float[6]".  
+        Array columns can be specified by including the array size in "[]", e.g. "float[6]".  Enum types
+        are defined by setting ``is_enum`` to True, and by providing a list of possible values via ``enum_values``.  
 
         Parameters
         ----------
