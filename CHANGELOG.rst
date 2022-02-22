@@ -4,7 +4,7 @@
 Change Log
 ==========
 
-0.4.2 (unreleased)
+0.4.2 (02-22-2022)
 ------------------
 - Fix issue :issue:`37` - add missing enum support to Yanny par datamodels
 
