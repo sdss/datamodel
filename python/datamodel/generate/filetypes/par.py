@@ -143,9 +143,14 @@ class ParFile(BaseFile):
                 'description': 'replace me - with a description of this column',
                 'unit': 'replace me - with a unit of this column',
                 'is_array': self._par.isarray(table, c),
-                'is_enum': self._par.isenum(table, c),
-                'example': row[c]
+                'is_enum': self._par.isenum(table, c)
             }
+            # optionally include enum values
+            if tmp['is_enum']:
+                tmp['enum_values'] = self._par._enum_cache.get(tmp['type'], []) 
+                
+            # add in example
+            tmp['example'] = row[c]
             out.append(tmp)
         return out
     
