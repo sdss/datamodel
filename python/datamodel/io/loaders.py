@@ -44,15 +44,12 @@ def include(loader, node):
             data=data.get(m['part'])
 
             if m['index']:
-               if m['index'].isdigit():
-                   data=data[int(m['index'])]
-               elif ":" in m['index']:
-                   key,val=m['index'].split(':')
-                   data = [d for d in data if str(d.get(key))==val]
-                   if data:
-                       return data[0]
-                   else:
-                       return None
+                if m['index'].isdigit():
+                    data=data[int(m['index'])]
+                elif ":" in m['index']:
+                    key,val=m['index'].split(':')
+                    data = [d for d in data if str(d.get(key))==val]
+                    return data[0] if data else None
     return data
 
 def dm(loader, node):
