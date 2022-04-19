@@ -26,7 +26,7 @@ from .releases import releases, Release as ReleaseMod
 
 def orjson_dumps(v, *, default):
     # orjson.dumps returns bytes, to match standard json.dumps we need to decode
-    return orjson.dumps(v, default=default, 
+    return orjson.dumps(v, default=default,
                         option=orjson.OPT_INDENT_2|
                         orjson.OPT_SERIALIZE_NUMPY).decode()
 
@@ -93,7 +93,7 @@ class GeneralSection(BaseModel):
     name : str
         The file species name of the data product (or sdss_access path_name)
     short : str
-        A one sentence summary of the data product 
+        A one sentence summary of the data product
     description : str
         A longer description of the data product
     environments : List[str]
@@ -106,7 +106,7 @@ class GeneralSection(BaseModel):
         A list of SDSS releases the data product is in
     naming_convention : str
         A description of the naming convention
-    generated_by : str 
+    generated_by : str
         An identifiable piece of the code that generates the data product
     design : bool
         If True, the datamodel is in the design phase, before any file exists yet
@@ -114,7 +114,7 @@ class GeneralSection(BaseModel):
     Raises
     ------
     ValueError
-        when any of the releases are not a valid SDSS Release 
+        when any of the releases are not a valid SDSS Release
     """
     name: str
     short: str
@@ -136,7 +136,7 @@ class GeneralSection(BaseModel):
         if value not in releases:
             raise ValueError(f'{value} is not a valid release')
         return releases[value]
-    
+
     @validator('design')
     def no_design(cls, value: bool):
         """ Validator to check if the design flag is set to True """
@@ -168,8 +168,8 @@ class ChangeRelease(BaseModel):
     """ Pydantic model representing a YAML changelog release section
 
     Represents a computed section of the changelog, for the specified
-    release.  Changelog is computed between the data products of release (key) 
-    and the release indicated in `from`. 
+    release.  Changelog is computed between the data products of release (key)
+    and the release indicated in `from`.
 
     Parameters
     ----------
@@ -232,7 +232,7 @@ class ChangeLog(BaseModel):
     description : str
         A description of the changelog
     releases : Dict[str, `.ChangeRelease`]
-        A dictionary of the file changes between the given release and previous one 
+        A dictionary of the file changes between the given release and previous one
     """
     description: str
     releases: Dict[str, ChangeRelease] = None
@@ -261,19 +261,19 @@ class Access(BaseModel):
     path_template: str = None
     path_kwargs: List[str] = None
     access_string: str = None
-    
+
     @validator('path_name', 'path_template', 'access_string')
     def check_path_nulls(cls, value, values, field):
         in_access = values.get('in_sdss_access')
         if in_access and not value:
             raise ValueError(f'{field.name} cannot be None if in_sdss_access is True')
         return value
-    
+
     @validator('path_kwargs')
     def check_path_kwargs(cls, value, values):
         in_access = values.get('in_sdss_access')
         path = values.get('path_template')
-        needskwargs = re.findall("{(.*?)}", path)
+        needskwargs = re.findall("{(.*?)}", path) if path else None
         if in_access and needskwargs and not value:
             raise ValueError('path_kwargs cannot be None if path_template has {} kwargs')
         return value
@@ -295,16 +295,16 @@ class Header(BaseModel):
     key: str
     value: str = ''
     comment: str = ''
-    
+
     def to_tuple(self):
         """ Convert the header key to a tuple """
         return (self.key, int(self.value) if self.value.isdigit() else self.value, self.comment)
-    
+
 class Column(BaseModel):
     """ Pydantic model representing a YAML column section
 
-    Represents a FITS binary table column 
-    
+    Represents a FITS binary table column
+
     Parameters
     ----------
     name : str
@@ -322,12 +322,12 @@ class Column(BaseModel):
     unit: str
 
     _check_replace_me = validator('unit', 'description', allow_reuse=True)(replace_me)
-    
+
     def to_fitscolumn(self) -> fits.Column:
         """ Convert the column to a fits.Column
 
-        Converts the column entry in the yaml file to an 
-        Astropy fits.Column object.  Performs a mapping between ``type`` 
+        Converts the column entry in the yaml file to an
+        Astropy fits.Column object.  Performs a mapping between ``type``
         and ``format``, using the reverse of `.datamodel.generate.stub.Stub._format_type`.
 
         Returns
@@ -340,9 +340,9 @@ class Column(BaseModel):
         TypeError
             when the column type cannot be coerced into a valid fits.Column format
         """
-        tmap = {'char': 'A', 'int16': 'I', 'int32': 'J', 'int64': 'K', 
+        tmap = {'char': 'A', 'int16': 'I', 'int32': 'J', 'int64': 'K',
                 'float32': 'E', 'float64': 'D', 'bool': 'L'}
-        
+
         # regex search for the type
         patt = re.compile(r'(?P<dtype>char|bool|int\d{2}|float\d{2})(?P<charlength>\[(?P<charnum>\d+)\])?')
         match = re.search(patt, self.type)
@@ -356,14 +356,14 @@ class Column(BaseModel):
             return fits.Column(name=self.name, format=format, unit=self.unit)
         else:
             raise TypeError(f'The column type {self.type} could not be properly coerced. '
-                            'Check for a valid fits.Column format.') 
+                            'Check for a valid fits.Column format.')
 
 
 class HDU(BaseModel):
     """ Pydantic model representing a YAML hdu section
 
     Represents a FITS HDU extension
-    
+
     Parameters
     ----------
     name : str
@@ -387,25 +387,25 @@ class HDU(BaseModel):
     columns: Dict[str, Column] = None
 
     _check_replace_me = validator('description', allow_reuse=True)(replace_me)
-    
+
     def convert_header(self) -> fits.Header:
         """ Convert the list of header keys into a fits.Header """
         if not self.header:
             return None
         return fits.Header(i.to_tuple() for i in self.header)
-    
+
     def convert_columns(self) -> List[fits.Column]:
         """ Convert the columns dict into a a list of fits.Columns """
         if not self.columns:
             return None
         return [i.to_fitscolumn() for i in self.columns.values()]
-    
+
     def convert_hdu(self) -> Union[fits.PrimaryHDU, fits.ImageHDU, fits.BinTableHDU]:
         """ Convert the HDU entry into a valid fits.HDU """
         if self.name.lower() == 'primary':
             return fits.PrimaryHDU(header=self.convert_header())
         elif self.columns:
-            return fits.BinTableHDU.from_columns(self.convert_columns(), name=self.name, 
+            return fits.BinTableHDU.from_columns(self.convert_columns(), name=self.name,
                                                  header=self.convert_header())
         else:
             return fits.ImageHDU(name=self.name, header=self.convert_header())
@@ -414,7 +414,7 @@ class ParColumn(BaseModel):
     """ Pydantic model representing a YAML par column section
 
     Represents a typedef column definition in a Yanny parameter file
-    
+
     Parameters
     ----------
     name : str
@@ -440,7 +440,7 @@ class ParColumn(BaseModel):
     is_enum: bool
     enum_values: list = None
     example: Union[str, int, float, list]
-    
+
     _check_replace_me = validator('unit', 'description', allow_reuse=True)(replace_me)
 
     def parse_type(self):
@@ -457,7 +457,7 @@ class ParTable(BaseModel):
     ----------
     name : str
         The name of the table
-    description : str 
+    description : str
         A description of the table
     n_rows : int
         The number of rows in the table
@@ -468,14 +468,14 @@ class ParTable(BaseModel):
     description: str
     n_rows: int
     structure: List[ParColumn]
-    
+
     _check_replace_me = validator('description', allow_reuse=True)(replace_me)
-    
+
     def create_typedef(self):
         """ Create a Yanny typedef struct string """
         cols = " ".join([f"\n\t\t{c.parse_type()};" for c in self.structure])
         return f"typedef struct {{{ cols }\n}} {self.name};"
-    
+
     def create_enum(self):
         """ Create a Yanny typedef enum string """
         enum = []
@@ -483,7 +483,7 @@ class ParTable(BaseModel):
             # do only when column is an enum
             if not c.is_enum:
                 continue
-            
+
             # do only when there are enum values present
             if not c.enum_values:
                 continue
@@ -520,11 +520,11 @@ class ParModel(BaseModel):
     comments: str = None
     header: List[Header] = None
     tables: Dict[str, ParTable]
-    
+
     def convert_header(self) -> dict:
         """ Convert the header into a dicionary """
         return {i.key: i.value for i in self.header}
-    
+
     def convert_par(self):
         """ Convert the YAML par section into a Yanny par object """
         # create a blank Yanny structure
@@ -547,10 +547,10 @@ class ParModel(BaseModel):
 
 class Release(BaseModel):
     """ Pydantic model representing an item in the YAML releases section
-    
+
     Contains any information on the data product that is specific to a given
     release, or that changes across releases.
-    
+
     Parameters
     ----------
     template : str
@@ -573,7 +573,7 @@ class Release(BaseModel):
     access: Access
     hdus: Dict[str, HDU] = None
     par: ParModel = None
-    
+
     def convert_to_hdulist(self) -> fits.HDUList:
         """ Convert the hdus to a fits.HDUList """
         hdus = [HDU.parse_obj(v).convert_hdu() for v in self.hdus.values()]
@@ -581,7 +581,7 @@ class Release(BaseModel):
 
 
 class YamlModel(BaseModel):
-    """ Pydantic model representing a YAML file 
+    """ Pydantic model representing a YAML file
 
     Parameters
     ----------
@@ -607,7 +607,7 @@ class YamlModel(BaseModel):
 
 class ProductModel(YamlModel):
     """ Pydantic model representing a data product JSON file
-    
+
     Parameters
     ----------
     general : `.GeneralSection`

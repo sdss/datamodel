@@ -79,8 +79,8 @@ def create_par():
     par["TABLE"] = {"a": [1], "b": ['ab'], "c": [[1,2,3,4,5]]}
     return par
 
-def create_test_file(name: str = None, version: str = None, 
-                     env: str = None, extra_cols: bool = None, 
+def create_test_file(name: str = None, version: str = None,
+                     env: str = None, extra_cols: bool = None,
                      type: str = 'fits') -> pathlib.Path:
     """ creates a temporary fake test file
 
@@ -187,7 +187,7 @@ def pardatamodel(testparfile):
     dm = DataModel(file_spec='test', keywords=['ver=v1', 'id=a'], path='TEST_REDUX/{ver}/testfile_{id}.par')
     dm.write_stubs()
     yield dm
-    
+
 
 @pytest.fixture
 def validmodel(validyaml, datamodel):

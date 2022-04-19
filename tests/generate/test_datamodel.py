@@ -50,7 +50,7 @@ def test_datamodel_par_generate(testparfile):
     assert ss.validate_cache() is False
 
 def test_diff_file_species_path_name(testfile):
-    dm = DataModel(file_spec='test', keywords=['ver=v1', 'id=a'], 
+    dm = DataModel(file_spec='test', keywords=['ver=v1', 'id=a'],
                    path='TEST_REDUX/{ver}/testfile_{id}.fits', access_path_name="test-file")
     dm.write_stubs()
     ss = dm.get_stub('yaml')
@@ -71,7 +71,7 @@ def test_datamodel_nokeys(testfile):
 
 def test_datamodel_duplicate_keys():
     path = 'ROBOSTRATEGY_DATA/allocations/{plan}/rsCompleteness-{plan}-{observatory}.fits'
-    keys = ['plan=alpha-3', 'observatory=apo']    
+    keys = ['plan=alpha-3', 'observatory=apo']
     dm = DataModel(file_spec='rsCompleteness', path=path, tree_ver='sdss5', keywords=keys)
     assert sorted(dm.access['WORK']['path_kwargs']) == sorted(['plan', 'observatory'])
     real_keys = re.findall(r'{(.*?)}', dm.path)
@@ -107,7 +107,7 @@ def test_valid_par_datamodel(validparmodel):
     for stub in ['md', 'json', 'access']:
         ss = validparmodel.get_stub(stub)
         assert os.path.exists(ss.output)
-        
+
 def test_release_same_cache(makefile, validyaml):
     dr15 = makefile(env='dr15')
     dr16 = makefile(env='dr16')
@@ -148,6 +148,5 @@ def test_release_partial_cache(makefile, validyaml):
     assert 'replace me - with content' in hdu2b['columns']['field']['unit']
     assert hdu2b['columns']['field']['name'] == 'FIELD'
     assert 'mjd' in hdu2b['columns']
-    
 
-    
+
