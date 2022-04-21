@@ -145,7 +145,7 @@ class DataModel(object):
     ValueError
         when no path template keywords are specified
     """
-    supported_filetypes = ['.fits', '.par']
+    supported_filetypes = ['.fits', '.par', '.h5']
 
     def __init__(self, tree_ver: str = None, file_spec: str = None, path: str = None,
                  keywords: list = [], env_label: str = None, location: str = None,

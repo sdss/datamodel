@@ -89,13 +89,13 @@ class BaseFile(abc.ABC):
     ------
     ValueError
         when datamodel is not provided when (filename, release, file_species) are not provided.
-    """      
+    """
     suffix = None
     cache_key = None
 
-    def __init__(self, cache: dict, datamodel=None, stub=None, filename: str = None, 
-                 release: str = None, file_species: str = None, design: bool = None, 
-                 use_cache_release: str = None, full_cache: bool = None):  
+    def __init__(self, cache: dict, datamodel=None, stub=None, filename: str = None,
+                 release: str = None, file_species: str = None, design: bool = None,
+                 use_cache_release: str = None, full_cache: bool = None):
         self._cache = cache
         self._datamodel = datamodel
         self._stub = stub
@@ -122,9 +122,9 @@ class BaseFile(abc.ABC):
 
     def __repr__(self):
         return f'<{self.__class__.__name__}("{self.filename}")>'
-    
+
     def _set_cache(self, force=None):
-        """ Default method for setting new cache content based on type of file """
+        """ Default method for setting new cache content based on the type of file """
 
         # get the cached data
         cached_data = self._cache['releases'][self.release].get(self.cache_key, {})
@@ -150,36 +150,50 @@ class BaseFile(abc.ABC):
 
         # set the yanny cache to the given release
         self._cache['releases'][self.release][self.cache_key] = cached_data
-        
-    @abc.abstractmethod        
-    def _update_partial_cache(self, cached_data, old_cache):
-        """ Abstract method to be implemented by subclass, for partially updating cache content """
+
+    @abc.abstractmethod
+    def _generate_new_cache(self) -> dict:
+        """ Abstract method to be implemented by subclass, for generating new cache content
+
+        This method is used to generate the file content for new datamodel YAML files.  It
+        should return a dictionary to be stored as the value of the cache key.
+        """
+        pass
+
+    @abc.abstractmethod
+    def _update_partial_cache(self, cached_data: dict, old_cache: dict) -> dict:
+        """ Abstract method to be implemented by subclass, for partially updating cache content
+
+        This method updates the descriptions or comments of the new cached_data with the human-edited
+        fields from the old_cache data.  Used when adding a new release to a datamodel and retaining the old
+        descriptions from the previous release.  This method should return the cached_data object.
+        """
         pass
 
     def _use_full_cache(self):
-        """ Default method for using the entire cache of a previous release """
+        """ Default method for using the entire cache of a previous release
+
+        This method is used when copying the entire datamodel cache of a previous release, for cases
+        when the datamodel for a new release is exactly the same as a prior release.  In most case, this
+        method does not need to be overridden.
+        """
         self._cache['releases'][self.release] = self._cache['releases'].get(self.use_cache_release, {})
-               
-    @abc.abstractmethod        
-    def _generate_new_cache(self):
-        """ Abstract method to be implemented by subclass, for generating new cache content """
-        pass
-    
-    @abc.abstractmethod        
+
+    @abc.abstractmethod
     def design_content(self):
         """ Abstract method to be implemented by subclass, for designing file content """
         pass
 
-    @abc.abstractmethod        
-    def create_from_cache(self):
+    @abc.abstractmethod
+    def create_from_cache(self, release: str = 'WORK'):
         """ Abstract method to be implemented by subclass, for creating a valid object from cache """
         pass
-    
-    @abc.abstractmethod        
-    def write_design(self, file, overwrite=None):
+
+    @abc.abstractmethod
+    def write_design(self, file: str, overwrite: bool = None):
         """ Abstract method to be implemented by subclass, for writing a design to a file """
         pass
-    
+
     @staticmethod
     def _nonempty_string(value: str = None) -> str:
         """Jinja2 Filter to map the format value to a string.
@@ -198,7 +212,7 @@ class BaseFile(abc.ABC):
 
 
 def file_selector(suffix: str = None) -> BaseFile:
-    """ Select the correct class given a file suffix """
+    """ Selects the correct File class given a file suffix """
 
     for ftype in BaseFile.__subclasses__():
         if suffix and suffix.upper() == ftype.suffix:
