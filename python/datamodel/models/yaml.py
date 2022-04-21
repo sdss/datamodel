@@ -12,12 +12,12 @@
 
 
 from __future__ import print_function, division, absolute_import, annotations
-from lib2to3.pygram import Symbols
 
 import orjson
 import re
 from typing import List, Dict, Union
 from pydantic import BaseModel, validator
+from enum import Enum
 
 from astropy.io import fits
 from pydl.pydlutils.yanny import yanny
@@ -545,6 +545,130 @@ class ParModel(BaseModel):
             tmp._symbols["enum"].extend(tt["symbols"]["enum"])
         return tmp
 
+class HdfAttr(BaseModel):
+    """ Pydantic model representing a YAML hdfs attrs section
+
+    Represents the Attributes of an HDF5 file.  Each group or dataset has a
+    set of attributes (attrs), which contains metadata about the group or dataset.
+
+    Parameters
+    ----------
+    key : str
+        The name of the attribute
+    value : str
+        The value of the attribute
+    comment : str
+        A description of the attribute
+    dtype : str
+        The numpy dtype of the attribute
+    is_empty : bool
+        If the attribute is an HDF5 Empty atribute
+    shape : tuple
+        The shape of the attribute, if any
+    """
+    key: str
+    value: Union[str, int, float, bool]
+    comment: str
+    dtype : str
+    is_empty: bool = None
+    shape: tuple = []
+
+    _check_replace_me = validator('comment', allow_reuse=True)(replace_me)
+
+
+class HdfEnum(str, Enum):
+    """ Pydantic Enum for HDF5 Group or Dataset """
+    group = 'group'
+    dataset = 'dataset'
+
+class HdfBase(BaseModel):
+    """ Base Pydantic model representing a YAML hdfs section
+
+    Represents  of an HDF5 file.  Each group or dataset has a
+    set of attributes (attrs), which contains metadata about the group or dataset.
+
+    Parameters
+    ----------
+    name : str
+        The name of the attribute
+    parent : str
+        The value of the attribute
+    object : str
+        A description of the attribute
+    description : str
+        The numpy dtype of the attribute
+    attrs : list
+        If the attribute is an HDF5 Empty object
+    """
+    name: str
+    parent: str
+    object: HdfEnum
+    description: str
+    attrs: List[HdfAttr] = []
+
+    _check_replace_me = validator('description', allow_reuse=True)(replace_me)
+
+
+class HdfGroup(HdfBase):
+    """ Pydantic model representing a YAML HDF Group section
+
+    Represents a Group of an HDF5 file.
+
+    Parameters
+    ----------
+    n_members : int
+        The number of members in the group
+    """
+    n_members: int
+
+class HdfDataset(HdfBase):
+    """ Pydantic model representing a YAML HDF Dataset section
+
+    Represents a Dataset of an HDF5 file.
+
+    Parameters
+    ----------
+    shape : tuple
+        The dimensional shape of the dataset
+    size : int
+        The size or number or elements in the dataset
+    ndim : int
+        The number of dimensions in the dataset
+    dtype : str
+        The numpy dtype of the dataset
+    nbytes : int
+        The number of bytes in the dataset
+    is_virutal : bool
+        Whether the dataset is virtual
+    is_empty : bool
+        Whether the dataset is an HDF5 Empty object
+    """
+    shape: tuple
+    size: int
+    ndim: int
+    dtype: str
+    nbytes: int = None
+    is_virtual: bool = None
+    is_empty: bool = None
+
+class HdfModel(HdfGroup, smart_union=True):
+    """ Pydantic model representing a YAML hfds section
+
+    Represents a base HDF5 file, which is also an HDF5 Group.
+    See HdfGroup, HdfDataset, and HdfBase Moodels for more information on
+    the fields.
+
+    Parameters
+    ----------
+    libver : tuple
+        The HDF5 library version used to create the file
+    members : dict
+        All groups and datasets in the HDF5 file
+    """
+    libver: tuple = []
+    members: Dict[str, Union[HdfGroup, HdfDataset]] = {}
+
+
 class Release(BaseModel):
     """ Pydantic model representing an item in the YAML releases section
 
@@ -573,6 +697,7 @@ class Release(BaseModel):
     access: Access
     hdus: Dict[str, HDU] = None
     par: ParModel = None
+    hdfs: HdfModel = None
 
     def convert_to_hdulist(self) -> fits.HDUList:
         """ Convert the hdus to a fits.HDUList """
