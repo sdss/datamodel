@@ -27,8 +27,6 @@ class HdfFile(BaseFile):
     def _update_partial_cache(self, cached_data: dict, old_cache: dict) -> dict:
         """ Updates the partial cache for HDF5 files"""
 
-        print(cached_data.keys())
-
         self._update_hdf_entry(cached_data, old_cache)
 
         # update core members

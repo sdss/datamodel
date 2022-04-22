@@ -164,6 +164,37 @@ class ChangeTable(BaseModel):
     added_cols: List[str] = None
     removed_cols: List[str] = None
 
+class ChangeMember(BaseModel):
+    """ Pydantic model representing a YAML changelog HDF5 member section
+
+    Represents a computed section of the changelog, for a specific HDF member.
+    For each similar HDF5 member between releases, the changes in member number,
+    attributes, and dataset dimensions, size and shape are computed.
+
+    Parameters
+    ----------
+    delta_nmembers : int
+        The difference in member number between HDF5 groups
+    delta_nattrs : int
+        The difference in attribute number between HDF5 members
+    added_attrs : List[str]
+        A list of any added HDF5 Attributes
+    removed_attrs : List[str]
+        A list of any removed HDF5 Attributes
+        The difference in dataset dimension number between HDF5 members
+    new_shape : int
+        The difference in dataset shape between HDF5 members
+    delta_size : int
+        The difference in dataset size between HDF5 members
+    """
+    delta_nmembers: int = None
+    delta_nattrs: int = None
+    added_attrs: List[str] = None
+    removed_attrs: List[str] = None
+    delta_ndim: int = None
+    new_shape: tuple = None
+    delta_size: int = None
+
 class ChangeRelease(BaseModel):
     """ Pydantic model representing a YAML changelog release section
 
@@ -201,6 +232,22 @@ class ChangeRelease(BaseModel):
         A list of any removed Yanny tables
     tables : Dict[str, ChangeTable]
         A dictionary of table column and row changes
+    new_libver : tuple
+        The difference in HDF5 library version
+    delta_nattrs : int
+        The difference in the number of HDF5 Attributes
+    added_attrs : List[str]
+        A list of any added HDF5 Attributes
+    removed_attrs : List[str]
+        A list of any removed HDF5 Attributes
+    delta_nmembers : int
+        The difference in number members in HDF5 file
+    added_members : List[str]
+        A list of any added HDF5 groups or datasets
+    removed_members : List[str]
+        A list of any removed HDF5 groups or datasets
+    members : Dict[str, ChangeMember]
+        A dictionary of HDF5 group/dataset member changes
     """
     from_: str
     # fits
@@ -219,6 +266,15 @@ class ChangeRelease(BaseModel):
     addead_tables: List[str] = None
     removed_tables: List[str] = None
     tables: Dict[str, ChangeTable] = None
+    # hdf5
+    new_libver: tuple = None
+    delta_nattrs: int = None
+    addead_attrs: List[str] = None
+    removed_attrs: List[str] = None
+    delta_nmembers: int = None
+    addead_members: List[str] = None
+    removed_members: List[str] = None
+    members: Dict[str, ChangeMember] = None
     class Config:
         fields = {
             'from_': 'from'
@@ -239,6 +295,21 @@ class ChangeLog(BaseModel):
 
     _check_releases = validator('releases', allow_reuse=True)(check_release)
 
+    def json(self, **kwargs):
+        """ override json method to exclude none fields by default """
+        kwargs.pop('exclude_none', None)
+        return super().json(exclude_none=True, **kwargs)
+
+    def dict(self, **kwargs):
+        """ override dict method to exclude none fields by default
+
+        Need to override this method as well when serializing YamlModel to json,
+        because nested models are already converted to dict when json.dumps is called.
+        See https://github.com/samuelcolvin/pydantic/issues/1778
+
+        """
+        kwargs.pop('exclude_none', None)
+        return super().dict(exclude_none=True, **kwargs)
 
 class Access(BaseModel):
     """ Pydantic model representing the YAML releases access section

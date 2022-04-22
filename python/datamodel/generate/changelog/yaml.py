@@ -46,7 +46,7 @@ class YamlDiff(abc.ABC):
 
         # attempt to get the file species name
         self.name = self.content.get('general', {}).get('name', '')
-        
+
         # get datatype
         self.datatype = self.content.get('general', {}).get('datatype', '')
 
@@ -95,11 +95,20 @@ class YamlDiff(abc.ABC):
 
         if self.datatype.lower() != self.suffix.lower():
             raise AttributeError(f'Datatype {self.datatype} does not match class suffix {self.suffix}.')
-    
+
         return self._get_changes(version1, version2, simple=simple)
-    
+
     @abc.abstractmethod
-    def _get_changes(self, version1: str, version2: str, simple: bool = None):
+    def _get_changes(self, version1: str, version2: str, simple: bool = None) -> dict:
+        """ Abstract method to be implemented by subclass, for generating changelog content
+
+        This method is used to construct a dictionary of changes between two releases for the
+        given file YAML content.  It should return a dictionary object, minimally of the form
+        {version1: {"from": version2, "key1": value1, "key2": value2, ...}} where key1: value1, etc are
+        the custom changes between the two releases.  The input version1 is the new release, and
+        version2 is the older release of which to compute the difference.
+
+        """
         pass
 
     def clean_empty(self, d: dict) -> dict:
@@ -132,7 +141,7 @@ class YamlDiff(abc.ABC):
         changes = self.compute_changelog(version1=version1, version2=version2, simple=True)
         values = changes[version1]
         return (set(values) - set({"from"})) != set()
-            
+
 
     def generate_changelog(self, order: list = None, simple: bool = False) -> dict:
         """ Generate a full changelog dictionary across all releases
