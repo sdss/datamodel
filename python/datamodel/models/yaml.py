@@ -16,7 +16,7 @@ from __future__ import print_function, division, absolute_import, annotations
 import orjson
 import re
 from typing import List, Dict, Union
-from pydantic import BaseModel, validator
+from pydantic import BaseModel, validator, root_validator
 from enum import Enum
 
 from astropy.io import fits
@@ -567,14 +567,21 @@ class HdfAttr(BaseModel):
         The shape of the attribute, if any
     """
     key: str
-    value: Union[str, int, float, bool]
+    value: Union[str, int, float, bool] = None
     comment: str
     dtype : str
     is_empty: bool = None
-    shape: tuple = []
+    shape: tuple = None
 
     _check_replace_me = validator('comment', allow_reuse=True)(replace_me)
 
+    @root_validator
+    def check_value(cls, values):
+        is_empty, shape, value = values.get('is_empty'), values.get('shape'), values.get('value')
+        if not is_empty and (value is None or shape is None):
+            errfield = 'value' if value is None else 'shape'
+            raise ValueError(f'attrs field "{errfield}" cannot be none')
+        return values
 
 class HdfEnum(str, Enum):
     """ Pydantic Enum for HDF5 Group or Dataset """
