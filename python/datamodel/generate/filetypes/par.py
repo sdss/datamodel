@@ -21,7 +21,7 @@ from .base import BaseFile
 #
 class literal(str):
     pass
-    
+
 def literal_presenter(dumper, data):
     return dumper.represent_scalar("tag:yaml.org,2002:str", data, style="|")
 
@@ -32,7 +32,7 @@ class ParFile(BaseFile):
     """ Class for supporting Yanny par files """
     suffix = 'PAR'
     cache_key = 'par'
-    
+
     def __init__(self, *args, **kwargs):
         super(ParFile, self).__init__(*args, **kwargs)
 
@@ -40,7 +40,7 @@ class ParFile(BaseFile):
         self._par = yanny(self.filename)
 
     def _generate_header(self) -> list:
-        """ Generate a new header section of the Yanny cache 
+        """ Generate a new header section of the Yanny cache
 
         Creates a list of any header keywords found in the Yanny par file.
         Returns each entry with key name, value, and comment.
@@ -55,10 +55,10 @@ class ParFile(BaseFile):
             out = {'key': key, 'value': self._par[key], 'comment': 'replace me - with a description of this header keyword'}
             head.append(out)
         return head
-    
+
     def _generate_comments(self) -> str:
         """ Generate a new comments section of the Yanny cache
-        
+
         Extracts any commented lines of a Yanny par file and returns them as
         a literal scalar block.  Only the comment (#) lines before the "typedef" definition
         in a Yanny file are returned.  Returns as a literal block for formatting purposes
@@ -72,13 +72,13 @@ class ParFile(BaseFile):
                 break
         comments = literal('\n'.join(comments))
         return comments
-    
+
     def _generate_tables(self) -> dict:
         """ Generate a new Yanny tables section in the cache
 
         Creates a new "tables" section of a Yanny par cache.  A Yanny par
         file can contain multiple tables.  This makes each table a new key
-        in the dictionary.  For each table, creates an entry with the table name, 
+        in the dictionary.  For each table, creates an entry with the table name,
         description, number of rows, and column definitions.
 
         Returns
@@ -116,11 +116,11 @@ class ParFile(BaseFile):
         cols = self._par.columns(table)
         dd = dict(zip(cols, row))
         return {k: self._par.convert(table, k, v.decode("utf-8") if isinstance(v, np.bytes_) else v) for k, v in dd.items()}
-        
+
     def _generate_table_structure(self, table: str) -> list:
-        """ Generate a new Yanny par table structure section 
-        
-        Creates a new struture section description a Yanny table for the 
+        """ Generate a new Yanny par table structure section
+
+        Creates a new struture section description a Yanny table for the
         cache.  The structure is a list of column definitions based on the Yanny
         typedef structure definition.
 
@@ -128,7 +128,7 @@ class ParFile(BaseFile):
         ----------
         table : str
             The name of a table in a Yanny par file
-        
+
         Returns
         -------
         list
@@ -147,33 +147,33 @@ class ParFile(BaseFile):
             }
             # optionally include enum values
             if tmp['is_enum']:
-                tmp['enum_values'] = self._par._enum_cache.get(tmp['type'], []) 
-                
+                tmp['enum_values'] = self._par._enum_cache.get(tmp['type'], [])
+
             # add in example
             tmp['example'] = row[c]
             out.append(tmp)
         return out
-    
-    def design_content(self, comments: str = None, header: Union[list, dict] = None, 
+
+    def design_content(self, comments: str = None, header: Union[list, dict] = None,
                        name: str = None, description: str = None, columns: list = None) -> None:
         r""" Design a new Yanny par section
-        
-        Design a new Yanny par for the given datamodel.  Specify Yanny comments, a header section, 
+
+        Design a new Yanny par for the given datamodel.  Specify Yanny comments, a header section,
         or a table definition.  Each new table is added to the YAML structure.  Use
-        ``name``, and ``description`` to specify the name and description of the new table. 
+        ``name``, and ``description`` to specify the name and description of the new table.
         ``comments`` can be a single string of comments, with newlines indicated by "\\n"
 
-        ``header`` can be a dictionary of key-value pairs, a list of tuples of header keywords, 
+        ``header`` can be a dictionary of key-value pairs, a list of tuples of header keywords,
         conforming to (keyword, value, comment), or list of dictionaries conforming to
         {"key": key, "value": value, "comment": comment}.
-        
-        The ``columns`` parameter defines the relevant table columns to add to the file.  It can be 
+
+        The ``columns`` parameter defines the relevant table columns to add to the file.  It can be
         a list of column names, a list of tuple values conforming to column (name, type, [description]),
-        or a list of dictionaries with keys defined from the complete column yaml definition. 
-        
+        or a list of dictionaries with keys defined from the complete column yaml definition.
+
         Allowed column types are any valid Yanny par types, input as strings, e.g. "int", "float", "char".
         Array columns can be specified by including the array size in "[]", e.g. "float[6]".  Enum types
-        are defined by setting ``is_enum`` to True, and by providing a list of possible values via ``enum_values``.  
+        are defined by setting ``is_enum`` to True, and by providing a list of possible values via ``enum_values``.
 
         Parameters
         ----------
@@ -192,25 +192,25 @@ class ParFile(BaseFile):
             log.warning('Cannot design an new Yanny par when not in the datamodel design phase or '
                         'if a real file already exists.')
             return
-        
+
         cached_par = self._cache['releases']['WORK'][self.cache_key]
 
         # add any comments
         comments = comments or '#This is designer Yanny par\n#\n#Add comments here\n'
         cached_par['comments'] = literal(comments)
-        
+
         # add any header values
         hdr = cached_par.get('header', [])
         if not header and not hdr:
-            header = [{'key': 'key1', 'value': 'value1', 'comment': 'description for key1'}, 
+            header = [{'key': 'key1', 'value': 'value1', 'comment': 'description for key1'},
                       {'key': 'key2', 'value': 'value2', 'comment': 'description for key2'}]
         elif header:
             header = self._format_header(header)
-        
+
         if header:
-            hdr.extend(header) 
+            hdr.extend(header)
         cached_par['header'] = hdr
-        
+
         # add any tables
         name = name or 'TABLE'
         tables = cached_par.get('tables', {})
@@ -218,28 +218,28 @@ class ParFile(BaseFile):
         description = description or 'description for TABLE'
         # update any columns
         if not columns and not struct:
-            cols = [{'name': 'col1', 'type': 'int', 'description': 'description for col1', 
-                    'unit': '', 'is_array': False, 'is_enum': False, 
+            cols = [{'name': 'col1', 'type': 'int', 'description': 'description for col1',
+                    'unit': '', 'is_array': False, 'is_enum': False,
                     'example': 1}]
         else:
             cols = self._format_columns(columns)
-        struct.extend(cols) 
-        
+        struct.extend(cols)
+
         # create the table dictonary and update existing cache
-        new_table = {name: {'name': name, 'description': description, 'n_rows': 0, 
+        new_table = {name: {'name': name, 'description': description, 'n_rows': 0,
                             'structure': struct}}
         tables.update(new_table)
         cached_par['tables'] = tables
 
         # update the cached par
         self._cache['releases']['WORK'][self.cache_key] = cached_par
-    
+
     @staticmethod
     def _format_header(header: Union[tuple, list, dict]) -> list:
         """ Format an input header into a YAML header """
         if not isinstance(header, list):
             header = [header]
-            
+
         if isinstance(header[0], (tuple, list)):
             return [dict(zip(("key", "value", "comment"), i)) for i in header]
         elif isinstance(header[0], dict):
@@ -254,25 +254,25 @@ class ParFile(BaseFile):
 
 
         if isinstance(columns[0], str):
-            return [{'name': c, 'type': 'char', 'description': f'description for {c}', 
-                    'unit': '', 'is_array': False, 'is_enum': False, 
+            return [{'name': c, 'type': 'char', 'description': f'description for {c}',
+                    'unit': '', 'is_array': False, 'is_enum': False,
                     'example': ''} for c in columns]
         elif isinstance(columns[0], (list, tuple)):
             n_len = len(columns[0])
-            return [{'name': c[0], 'type': c[1] if n_len >= 2 else 'char', 
-                     'description': c[2] if n_len >= 3 else f'description for {c[0]}', 
-                     'unit': '', 'is_array': self._is_array(c[1]) if n_len >=2 else False, 
+            return [{'name': c[0], 'type': c[1] if n_len >= 2 else 'char',
+                     'description': c[2] if n_len >= 3 else f'description for {c[0]}',
+                     'unit': '', 'is_array': self._is_array(c[1]) if n_len >=2 else False,
                      'is_enum': False, 'example': self._format_example(c[1])} for c in columns]
         elif isinstance(columns[0], dict):
             return columns
-        
+
     @staticmethod
     def _is_array(type: str) -> bool:
         """ Check if a type is an array """
         match = re.match(r"(?P<type>\w+)(?P<size>\[\d+\])*", type).groupdict()
         count = len(re.findall(r'\[\d+\]', type))
-        return (count == 2 and match['type'] == 'char') or (count == 1 and match['type'] != 'char') 
-           
+        return (count == 2 and match['type'] == 'char') or (count == 1 and match['type'] != 'char')
+
     def _format_example(self, type: str) -> str:
         """ Format the column example based on type """
         examples = {'int': 1, 'char': "a", "float": 1.0, "double": 1.0, "real": 1.0, "bool": False,
@@ -308,13 +308,13 @@ class ParFile(BaseFile):
         """
         if release not in self._cache['releases']:
             raise ValueError(f'Release {release} not found in list of cached releases.')
-        
+
         if self.design and release != 'WORK':
             raise ValueError(f'Release {release} can only be "WORK" when in the datamodel design phase.')
-        
+
         par = self._cache['releases'][release][self.cache_key]
         self._designed_object = ParModel.parse_obj(par).convert_par()
-        return self._designed_object 
+        return self._designed_object
 
     def write_design(self, file: str, overwrite: bool = True) -> None:
         """ Write out the designed file
@@ -340,31 +340,31 @@ class ParFile(BaseFile):
         # remove the existing file
         if overwrite and os.path.exists(file):
             os.remove(file)
-        
+
         par = self._cache['releases']['WORK'][self.cache_key]
-        self._designed_object.write(file, comments=par['comments']) 
+        self._designed_object.write(file, comments=par['comments'])
 
     def _generate_new_cache(self) -> dict:
         """ Generate a new Yanny parameter file cache entry """
-        return {'comments': self._generate_comments(), 
+        return {'comments': self._generate_comments(),
                     'header': self._generate_header(),
                     'tables': self._generate_tables()}
-        
+
     def _set_cache(self, force: bool = None):
         """ Custom method to set the Yanny par cache """
         super(ParFile, self)._set_cache(force=force)
-        
+
         # reset all par comments to a literal block
         self._literalize_comments()
-    
+
     def _literalize_comments(self):
         """ Convert the Yanny par comments section into a literal block """
         for data in self._cache['releases'].values():
             data[self.cache_key]['comments'] = literal(data[self.cache_key]['comments'])
 
     def _update_partial_cache(self, cached_par: dict, old_par: dict) -> dict:
-        """ Update the partial cache of a Yanny par file 
-        
+        """ Update the partial cache of a Yanny par file
+
         Parameters
         ----------
         cached_par : dict
@@ -379,9 +379,9 @@ class ParFile(BaseFile):
 
         """
         # skip comments section - always generate a new one
-        
+
         # update the header section
-        oldhdr = [c['key'] for c in old_par['header']]       
+        oldhdr = [c['key'] for c in old_par['header']]
         for hdr in cached_par['header']:
             # TODO - add new hdr entry
             if hdr['key'] not in oldhdr:
@@ -389,25 +389,25 @@ class ParFile(BaseFile):
             # update the hdr comment
             hh = [i for i in old_par['header'] if i['key'] == hdr['key']][0]
             hdr['comment'] = hh['comment']
-        
+
         # update the tables section
         old_tables = old_par['tables']
-        for name, table in cached_par['tables'].items():   
+        for name, table in cached_par['tables'].items():
             # skip the table if it doesn't exist in the old cache
             if name not in old_tables:
                 # TODO - need to generate a new table entry
                 continue
-            
+
             # update the description
             table['description'] = old_tables[name]['description']
-            
+
             # update the structure columns
             oldcols = [c['name'] for c in old_tables[name]['structure']]
             for column in table['structure']:
                 # TODO - generate new column entry
                 if column['name'] not in oldcols:
                     continue
-                
+
                 # update column parts
                 col = [i for i in old_tables[name]['structure'] if i['name'] == column['name']][0]
                 column['description'] = col['description']
@@ -417,7 +417,7 @@ class ParFile(BaseFile):
 
     def _use_full_cache(self):
         """ Custom method when using the full cache of a prior releaes
-        
+
         Need to additionally convert comments section into literal blocks
         """
         self._cache['releases'][self.release] = self._cache['releases'].get(self.use_cache_release, {})

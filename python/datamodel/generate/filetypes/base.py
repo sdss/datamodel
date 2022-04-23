@@ -181,17 +181,33 @@ class BaseFile(abc.ABC):
 
     @abc.abstractmethod
     def design_content(self):
-        """ Abstract method to be implemented by subclass, for designing file content """
+        """ Abstract method to be implemented by subclass, for designing file content
+
+        This method is used to design new content for a YAML datamodel cache for new files
+        from within Python.  It should ultimately update the cache line
+        self._cache['releases']['WORK'][self.cache_key] = [updated_cache_content]
+        with the new content.  This method is called by the DataModel's global design_content method.
+        """
         pass
 
     @abc.abstractmethod
     def create_from_cache(self, release: str = 'WORK'):
-        """ Abstract method to be implemented by subclass, for creating a valid object from cache """
+        """ Abstract method to be implemented by subclass, for creating a valid object from cache
+
+        This method is used to create a data object from a designed YAML cache content.  It should
+        set and return a new "self._designed_object" attribute.  Ideally the object should be created
+        through the Pydantic model's parse_obj to ensure proper validation and field type coercion.
+        """
         pass
 
     @abc.abstractmethod
     def write_design(self, file: str, overwrite: bool = None):
-        """ Abstract method to be implemented by subclass, for writing a design to a file """
+        """ Abstract method to be implemented by subclass, for writing a design to a file
+
+        This method is used to write out the designed data object.  It should call the
+        self.designed_object's particular method for writing itself to a file,
+        specific to that filetype.
+        """
         pass
 
     @staticmethod

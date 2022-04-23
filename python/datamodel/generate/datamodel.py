@@ -668,16 +668,35 @@ class DataModel(object):
         self._design_content(comments=comments, header=header, name=name,
                              description=description, columns=columns)
 
+    def design_hdf(self, name: str = '/', description: str = None, hdftype: str = 'group', attrs=None,
+                             ds_shape: tuple = None, ds_size: int = None, ds_dtype: str = None):
+        r""" Wrapper to _design_content, to design a new HDF5 section
+
+        Parameters
+        ----------
+        header : Union[list, dict], optional
+            Keywords to add to the header of the Yanny file, by default None
+        name : str, optional
+            The name of the parameter table
+        description: str, optional
+            A description of the parameter table
+        columns : list, optional
+            A set of Yanny table column definitions
+        """
+
+        self._design_content(name=name, description=description, hdftype=hdftype, attrs=attrs,
+                             ds_shape=ds_shape, ds_size=ds_size, ds_dtype=ds_dtype)
+
     def _design_content(self, *args, **kwargs):
         if not self.design:
-            log.warning('Cannot design an HDU when not in the datamodel design phase.')
+            log.warning('Cannot design new content when not in the datamodel design phase.')
             return
 
         # get the stub and update from disk
         ss = self.get_stub(format='yaml')
         ss.update_cache()
 
-        # design the new HDU
+        # design the new content
         ss.selected_file.design_content(*args, **kwargs)
 
         # write it out to the yaml stub
@@ -736,7 +755,7 @@ class DataModel(object):
             raise
 
         # exit if for any reason the designed object doesn't exist
-        if not design_obj:
+        if design_obj is None:
             log.error('No designed object to write out.')
             return
 

@@ -23,6 +23,10 @@ from astropy.io import fits
 from pydl.pydlutils.yanny import yanny
 from .releases import releases, Release as ReleaseMod
 
+import tempfile
+import numpy as np
+import h5py
+
 
 def orjson_dumps(v, *, default):
     # orjson.dumps returns bytes, to match standard json.dumps we need to decode
@@ -675,6 +679,8 @@ class HdfBase(BaseModel):
         A description of the attribute
     description : str
         The numpy dtype of the attribute
+    pytables : bool
+        Flag is object is a PyTables object
     attrs : list
         If the attribute is an HDF5 Empty object
     """
@@ -682,6 +688,7 @@ class HdfBase(BaseModel):
     parent: str
     object: HdfEnum
     description: str
+    pytables : bool = None
     attrs: List[HdfAttr] = []
 
     _check_replace_me = validator('description', allow_reuse=True)(replace_me)
@@ -746,6 +753,29 @@ class HdfModel(HdfGroup, smart_union=True):
     libver: tuple = []
     members: Dict[str, Union[HdfGroup, HdfDataset]] = {}
 
+    def _create_attrs(self, hdf, attrs):
+        for attr in attrs:
+            if attr.is_empty:
+                hdf.attrs.create(attr.key, h5py.Empty(attr.dtype))
+            else:
+                hdf.attrs.create(attr.key, attr.value, shape=attr.shape, dtype=np.dtype(attr.dtype))
+
+    def convert_hdf(self):
+
+        with tempfile.NamedTemporaryFile(delete=False) as ntf:
+            new = h5py.File(ntf, 'a', libver=self.libver)
+            new.temp_filename = ntf.name
+
+            self._create_attrs(new, self.attrs)
+
+            for v in self.members.values():
+                if v.object == "group":
+                    new.create_group(v.name)
+                elif v.object == "dataset":
+                    new.create_dataset(v.name, v.shape, dtype=np.dtype(v.dtype))
+                self._create_attrs(new[v.name], v.attrs)
+            new.close()
+        return new
 
 class Release(BaseModel):
     """ Pydantic model representing an item in the YAML releases section
