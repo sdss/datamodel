@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 #
 
-from turtle import shape
 from typing import Union
 from datamodel import log
 from .base import BaseFile
@@ -21,18 +20,79 @@ class HdfFile(BaseFile):
 
     def _generate_new_cache(self) -> dict:
         """ Generates the new cache for an HDF5 file """
+
         with h5py.File(self.filename, "r") as data:
             pytables = "PYTABLES_FORMAT_VERSION" in data.attrs
             self._hdf5data = {"name": data.name, "parent": data.parent.name, "object": "group",
                               "description": "replace me - with a description of this group",
                               "libver": data.libver, "n_members": len(data), 'pytables': pytables,
                               "attrs": self._create_attrs(data), "members": {}}
+            # traverse the HDF5 hierarchy
             data.visititems(self._build_cache)
             return self._hdf5data
 
-    def _update_partial_cache(self, cached_data: dict, old_cache: dict) -> dict:
-        """ Updates the partial cache for HDF5 files"""
+    def _build_cache(self, name: str, h5obj: Union[h5py.Group, h5py.Dataset]):
+        """ Build the Yaml cache from a HDF5 object """
+        mem = self._hdf5data["members"]
+        mem[name] = {"name": name, "parent": h5obj.parent.name}
+        mem[name]["object"] = (
+            "group"
+            if isinstance(h5obj, h5py.Group)
+            else "dataset"
+            if isinstance(h5obj, h5py.Dataset)
+            else "null"
+        )
+        if isinstance(h5obj, h5py.Group):
+            mem[name]["description"] = "replace me - with a description of this group"
+            mem[name]["n_members"] = len(h5obj)
+        elif isinstance(h5obj, h5py.Dataset):
+            mem[name] = self._create_dataset(name, h5obj)
+        mem[name]["attrs"] = self._create_attrs(h5obj)
 
+    def _create_attrs(self, h5obj: Union[h5py.Group, h5py.Dataset]) -> list:
+        """ Convert HDF5 attributes to a list of YAML attr dicts """
+        return [{'key': k,
+                 'value': None if isinstance(v, h5py.Empty) else str(v.item()) if isinstance(v.item(), bytes) else v.item(),
+                 'comment': 'replace me - with a description of this attribute',
+                 'dtype': str(v.dtype),
+                 'is_empty': isinstance(v, h5py.Empty),
+                 'shape': v.shape}
+                for k, v in h5obj.attrs.items()]
+
+    def _create_dataset(self, name: str, h5obj: Union[h5py.Group, h5py.Dataset]) -> dict:
+        """ Convert HDF5 dataset to a YAML dataset dict """
+        return {
+            "name": name,
+            "parent": h5obj.parent.name,
+            "object": "dataset",
+            "description": "replace me - with a description of this dataset",
+            "attrs": self._create_attrs(h5obj),
+            "shape": h5obj.shape,
+            "size": h5obj.size.item(),
+            "ndim": h5obj.ndim,
+            "dtype": str(h5obj.dtype),
+            "nbytes": h5obj.nbytes.item(),
+            "is_virtual": h5obj.is_virtual,
+            "is_empty": isinstance(h5obj, h5py.Empty),
+        }
+
+    def _update_partial_cache(self, cached_data: dict, old_cache: dict) -> dict:
+        """ Updates the partial cache for HDF5 files
+
+        Parameters
+        ----------
+        cached_data : dict
+            The new cache to update
+        old_cache : dict
+            The old cache to pull info from
+
+        Returns
+        -------
+        dict :
+            The updated cached data
+        """
+
+        # update the root level cache
         self._update_hdf_entry(cached_data, old_cache)
 
         # update core members
@@ -43,6 +103,15 @@ class HdfFile(BaseFile):
         return cached_data
 
     def _update_hdf_entry(self, new_cache: dict, old_cache: dict) -> None:
+        """ Updates the cache entry for an HDF5 member
+
+        Parameters
+        ----------
+        new_cache : dict
+            The new YAML cache to update
+        old_cache : dict
+            The old YAML to pull info from
+        """
         # update core description
         new_cache['description'] = old_cache['description']
 
@@ -54,31 +123,46 @@ class HdfFile(BaseFile):
 
     def design_content(self, name: str = '/', description: str = None, hdftype: str = 'group',
                        attrs: list = None, ds_shape: tuple = None, ds_size: int = None, ds_dtype: str = None):
-        """ Abstract method to be implemented by subclass, for designing file content
+        """ Design a new HDF5 section for the datamodel
 
-        _extended_summary_
+        Design a new HDF entry for the given datamodel.  Specify h5py groups or dataset definitions,
+        with optional list of attributes.  Each new entry is added to the members entry in the
+        YAML structure.  Use ``name``, and ``description`` to specify the name and description of each new
+        group or dataset the new table.  Use ``hdftype`` to specify a "group" or "dataset" entry.  For
+        datasets, use ``ds_shape``, ``ds_size``, and ``ds_dtype`` to specify the shape, size, and
+        dtype of the array dataset.
+
+        New HDF5 members are added to the datamodel in a flattened structure.  To add a new group or dataset
+        as a child to an existing group, specify the full path in ``name``, e.g ``/mygroup/mydataset``.
+
+        ``attrs`` can be a list of tuples of header keywords,
+        conforming to (key, value, comment, dtype), or list of dictionaries conforming to
+        {"key": key, "value": value, "comment": comment, "dtype": dtype}.
+
+        Allowed attribute or dataset dtypes are any valid string representation of numpy dtypes.  For
+        example, "<i8", "int32", "S10", etc.
 
         Parameters
         ----------
         name : str, optional
-            _description_, by default '/'
+            the name of the HDF group or dataset, by default '/'
         description : str, optional
-            _description_, by default None
+            a description of the HDF group or dataset, by default None
         hdftype : str, optional
-            _description_, by default 'group'
+            the type of HDF5 object, by default 'group'
         attrs : list, optional
-            _description_, by default None
+            a list of HDF5 Attributes, by default None
         ds_shape : tuple, optional
-            _description_, by default None
+            the shape of an HDF5 array dataset, by default None
         ds_size : int, optional
-            _description_, by default None
+            the size of an HDF5 array dataset, by default None
         ds_dtype : str, optional
-            _description_, by default None
+            the dtype of an HDF5 array dataset, by default None
 
         Raises
         ------
         ValueError
-            _description_
+            when an invalid hdftype is specified
         """
         if not self.design or (self.filename and os.path.exists(self.filename)):
             log.warning('Cannot design an new HDF5 member when not in the datamodel design phase or '
@@ -97,7 +181,8 @@ class HdfFile(BaseFile):
             cached_hdf['parent'] = parent
             cached_hdf['object'] = 'group'
             cached_hdf['description'] = description or 'a parent group description'
-            cached_hdf['libver'] = ('earliest', 'v112')
+            hdf5ver = f"v{h5py.version.hdf5_version.rsplit('.',1)[0].replace('.','')}" if h5py else 'v112'
+            cached_hdf['libver'] = ('earliest', hdf5ver)
             cached_hdf['n_members'] = 0
             cached_hdf['attrs'] = self._design_attrs(attrs) or []
             cached_hdf['members'] = {}
@@ -208,44 +293,3 @@ class HdfFile(BaseFile):
         shutil.copy2(self._designed_object.temp_filename, file)
         os.remove(self._designed_object.temp_filename)
 
-    def _create_attrs(self, h5obj: Union[h5py.Group, h5py.Dataset]) -> list:
-        return [{'key': k,
-                 'value': None if isinstance(v, h5py.Empty) else str(v.item()) if isinstance(v.item(), bytes) else v.item(),
-                 'comment': 'replace me - with a description of this attribute',
-                 'dtype': str(v.dtype),
-                 'is_empty': isinstance(v, h5py.Empty),
-                 'shape': v.shape}
-                for k, v in h5obj.attrs.items()]
-
-    def _create_dataset(self, name: str, h5obj: Union[h5py.Group, h5py.Dataset]) -> dict:
-        return {
-            "name": name,
-            "parent": h5obj.parent.name,
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "attrs": self._create_attrs(h5obj),
-            "shape": h5obj.shape,
-            "size": h5obj.size.item(),
-            "ndim": h5obj.ndim,
-            "dtype": str(h5obj.dtype),
-            "nbytes": h5obj.nbytes.item(),
-            "is_virtual": h5obj.is_virtual,
-            "is_empty": isinstance(h5obj, h5py.Empty),
-        }
-
-    def _build_cache(self, name: str, h5obj: Union[h5py.Group, h5py.Dataset]):
-        mem = self._hdf5data["members"]
-        mem[name] = {"name": name, "parent": h5obj.parent.name}
-        mem[name]["object"] = (
-            "group"
-            if isinstance(h5obj, h5py.Group)
-            else "dataset"
-            if isinstance(h5obj, h5py.Dataset)
-            else "null"
-        )
-        if isinstance(h5obj, h5py.Group):
-            mem[name]["description"] = "replace me - with a description of this group"
-            mem[name]["n_members"] = len(h5obj)
-        elif isinstance(h5obj, h5py.Dataset):
-            mem[name] = self._create_dataset(name, h5obj)
-        mem[name]["attrs"] = self._create_attrs(h5obj)

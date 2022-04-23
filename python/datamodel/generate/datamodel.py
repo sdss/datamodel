@@ -672,16 +672,44 @@ class DataModel(object):
                              ds_shape: tuple = None, ds_size: int = None, ds_dtype: str = None):
         r""" Wrapper to _design_content, to design a new HDF5 section
 
+        Design a new HDF entry for the given datamodel.  Specify h5py groups or dataset definitions,
+        with optional list of attributes.  Each new entry is added to the members entry in the
+        YAML structure.  Use ``name``, and ``description`` to specify the name and description of each new
+        group or dataset the new table.  Use ``hdftype`` to specify a "group" or "dataset" entry.  For
+        datasets, use ``ds_shape``, ``ds_size``, and ``ds_dtype`` to specify the shape, size, and
+        dtype of the array dataset.
+
+        New HDF5 members are added to the datamodel in a flattened structure.  To add a new group or dataset
+        as a child to an existing group, specify the full path in ``name``, e.g ``/mygroup/mydataset``.
+
+        ``attrs`` can be a list of tuples of header keywords,
+        conforming to (key, value, comment, dtype), or list of dictionaries conforming to
+        {"key": key, "value": value, "comment": comment, "dtype": dtype}.
+
+        Allowed attribute or dataset dtypes are any valid string representation of numpy dtypes.  For
+        example, "<i8", "int32", "S10", etc.
+
         Parameters
         ----------
-        header : Union[list, dict], optional
-            Keywords to add to the header of the Yanny file, by default None
         name : str, optional
-            The name of the parameter table
-        description: str, optional
-            A description of the parameter table
-        columns : list, optional
-            A set of Yanny table column definitions
+            the name of the HDF group or dataset, by default '/'
+        description : str, optional
+            a description of the HDF group or dataset, by default None
+        hdftype : str, optional
+            the type of HDF5 object, by default 'group'
+        attrs : list, optional
+            a list of HDF5 Attributes, by default None
+        ds_shape : tuple, optional
+            the shape of an HDF5 array dataset, by default None
+        ds_size : int, optional
+            the size of an HDF5 array dataset, by default None
+        ds_dtype : str, optional
+            the dtype of an HDF5 array dataset, by default None
+
+        Raises
+        ------
+        ValueError
+            when an invalid hdftype is specified
         """
 
         self._design_content(name=name, description=description, hdftype=hdftype, attrs=attrs,

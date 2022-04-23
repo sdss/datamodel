@@ -167,6 +167,13 @@ class BaseFile(abc.ABC):
         This method updates the descriptions or comments of the new cached_data with the human-edited
         fields from the old_cache data.  Used when adding a new release to a datamodel and retaining the old
         descriptions from the previous release.  This method should return the cached_data object.
+
+        Parameters
+        ----------
+        cached_data : dict
+            The YAML cache for a the current release
+        old_cache : dict
+            The YAML cache for a previous release
         """
         pass
 
@@ -197,6 +204,11 @@ class BaseFile(abc.ABC):
         This method is used to create a data object from a designed YAML cache content.  It should
         set and return a new "self._designed_object" attribute.  Ideally the object should be created
         through the Pydantic model's parse_obj to ensure proper validation and field type coercion.
+
+        Parameters
+        ----------
+        release : str
+            The SDSS release name, by default 'WORK'
         """
         pass
 
@@ -207,6 +219,13 @@ class BaseFile(abc.ABC):
         This method is used to write out the designed data object.  It should call the
         self.designed_object's particular method for writing itself to a file,
         specific to that filetype.
+
+        Parameters
+        ----------
+        file : str
+            The datamodel filename to write to
+        overwrite : bool
+            Flag to overwrite the file if it exists, by default None
         """
         pass
 
