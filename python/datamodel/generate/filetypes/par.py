@@ -7,8 +7,12 @@ import yaml
 import os
 import re
 
-from pydl.pydlutils.yanny import yanny
 from typing import Union
+
+try:
+    from pydl.pydlutils.yanny import yanny
+except ImportError:
+    yanny = None
 
 from datamodel import log
 from datamodel.models.yaml import ParModel
@@ -35,6 +39,9 @@ class ParFile(BaseFile):
 
     def __init__(self, *args, **kwargs):
         super(ParFile, self).__init__(*args, **kwargs)
+
+        if not yanny:
+            raise ImportError('Generating datamodels for Yanny par files requies the pydl package installed.')
 
         # read the par file
         self._par = yanny(self.filename)

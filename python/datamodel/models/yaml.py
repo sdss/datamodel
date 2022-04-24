@@ -20,12 +20,20 @@ from pydantic import BaseModel, validator, root_validator
 from enum import Enum
 
 from astropy.io import fits
-from pydl.pydlutils.yanny import yanny
 from .releases import releases, Release as ReleaseMod
 
 import tempfile
 import numpy as np
-import h5py
+
+try:
+    from pydl.pydlutils.yanny import yanny
+except ImportError:
+    yanny = None
+
+try:
+    import h5py
+except ImportError:
+    h5py = None
 
 
 def orjson_dumps(v, *, default):
@@ -602,6 +610,9 @@ class ParModel(BaseModel):
 
     def convert_par(self):
         """ Convert the YAML par section into a Yanny par object """
+        if not yanny:
+            raise ImportError('Converting YAML par sections to Yanny files requires the pydl package installed.')
+
         # create a blank Yanny structure
         tmp = yanny()
         # add generic content so yanny is not None
@@ -761,6 +772,8 @@ class HdfModel(HdfGroup, smart_union=True):
                 hdf.attrs.create(attr.key, attr.value, shape=attr.shape, dtype=np.dtype(attr.dtype))
 
     def convert_hdf(self):
+        if not h5py:
+            raise ImportError('Converting YAML hdf sections to HDF5 files requires the h5py package installed.')
 
         with tempfile.NamedTemporaryFile(delete=False) as ntf:
             new = h5py.File(ntf, 'a', libver=self.libver)

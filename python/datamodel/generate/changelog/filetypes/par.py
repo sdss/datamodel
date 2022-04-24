@@ -6,16 +6,19 @@ from __future__ import absolute_import, division, print_function
 import six
 from typing import Type, Union
 
-from pydl.pydlutils.yanny import yanny
 from datamodel.generate.changelog.core import FileDiff
 from datamodel.generate.changelog.yaml import YamlDiff
 
+try:
+    from pydl.pydlutils.yanny import yanny
+except ImportError:
+    yanny = None
 
 class ParDiff(FileDiff):
     """ Class for computing differences between Yanny par files
 
     Computes the differences in table content between two Yanny par
-    files.  Looks for changes in header keys, table number, and any added 
+    files.  Looks for changes in header keys, table number, and any added
     or removed keys, tables, or table columns.
 
     Parameters
@@ -25,7 +28,7 @@ class ParDiff(FileDiff):
     file2 : Union[str, Table]
         the filepath or Table to compute the changes from
     versions : list, optional
-        the named releases/versions corresponding to the two input files, by default None 
+        the named releases/versions corresponding to the two input files, by default None
     """
     suffix = 'PAR'
 
@@ -92,6 +95,8 @@ class ParDiff(FileDiff):
         yanny
             the Yanny content
         """
+        if not yanny:
+            raise ImportError('Computing Yanny file changelog diffs requies the pydl package installed.')
 
         if not isinstance(data, yanny):
             assert isinstance(
@@ -125,18 +130,18 @@ class ParDiff(FileDiff):
             diffreport += f'Changes in row number: {data["delta_rows"]}\n\n'
 
         return diffreport
-    
+
 
 class YamlPar(YamlDiff):
     """ Class for supporting YAML changelog generation for Yanny par files """
     suffix = 'PAR'
     cache_key = 'par'
-    
+
     def _get_changes(self, version1: str, version2: str, simple: bool = None) -> dict:
         """ Changelog computer for Yanny par files """
         par = self.releases.get(version1, {}).get('par', {})
         par2 = self.releases.get(version2, {}).get('par', {})
-            
+
         if not par or not par2:
             raise ValueError('No par object found for input versions.')
 
@@ -157,7 +162,7 @@ class YamlPar(YamlDiff):
         tables2 = par2['tables'].keys()
         added_tables = list(set(tables) - set(tables2))
         removed_tables = list(set(tables2) - set(tables))
-        
+
         # Yanny table column differences
         tdiffs = {}
         for table, data in par['tables'].items():

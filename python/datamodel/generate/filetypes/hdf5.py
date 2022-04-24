@@ -8,9 +8,16 @@ from .base import BaseFile
 
 from datamodel.models.yaml import HdfModel
 
-import h5py
 import os
 import shutil
+
+try:
+    import h5py
+except ImportError:
+    h5py = h5types = h5file = None
+else:
+    h5types = Union[h5py.Group, h5py.Dataset]
+    h5file = h5py.File
 
 class HdfFile(BaseFile):
     """ Class for supporting HDF5 files """
@@ -20,6 +27,9 @@ class HdfFile(BaseFile):
 
     def _generate_new_cache(self) -> dict:
         """ Generates the new cache for an HDF5 file """
+
+        if not h5py:
+            raise ImportError('Generating datamodels for HDF5 files requies the h5py package installed.')
 
         with h5py.File(self.filename, "r") as data:
             pytables = "PYTABLES_FORMAT_VERSION" in data.attrs
@@ -31,7 +41,7 @@ class HdfFile(BaseFile):
             data.visititems(self._build_cache)
             return self._hdf5data
 
-    def _build_cache(self, name: str, h5obj: Union[h5py.Group, h5py.Dataset]):
+    def _build_cache(self, name: str, h5obj: h5types):
         """ Build the Yaml cache from a HDF5 object """
         mem = self._hdf5data["members"]
         mem[name] = {"name": name, "parent": h5obj.parent.name}
@@ -49,7 +59,7 @@ class HdfFile(BaseFile):
             mem[name] = self._create_dataset(name, h5obj)
         mem[name]["attrs"] = self._create_attrs(h5obj)
 
-    def _create_attrs(self, h5obj: Union[h5py.Group, h5py.Dataset]) -> list:
+    def _create_attrs(self, h5obj: h5types) -> list:
         """ Convert HDF5 attributes to a list of YAML attr dicts """
         return [{'key': k,
                  'value': None if isinstance(v, h5py.Empty) else str(v.item()) if isinstance(v.item(), bytes) else v.item(),
@@ -59,7 +69,7 @@ class HdfFile(BaseFile):
                  'shape': v.shape}
                 for k, v in h5obj.attrs.items()]
 
-    def _create_dataset(self, name: str, h5obj: Union[h5py.Group, h5py.Dataset]) -> dict:
+    def _create_dataset(self, name: str, h5obj: h5types) -> dict:
         """ Convert HDF5 dataset to a YAML dataset dict """
         return {
             "name": name,
@@ -230,7 +240,7 @@ class HdfFile(BaseFile):
                 return attrs
             return [{"key": k, "value": v, "comment": f"description for {k}"} for k, v in attrs[0].items()]
 
-    def create_from_cache(self, release: str = 'WORK') -> h5py.File:
+    def create_from_cache(self, release: str = 'WORK') -> h5file:
         """ Create a HDF5 file from the yaml cache
 
         Converts the hdfs dictionary entry in the YAML cache into
