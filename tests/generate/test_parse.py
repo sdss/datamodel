@@ -23,6 +23,7 @@ from datamodel.generate.parse import get_abstract_path, get_abstract_key, get_fi
                           ('apogee-rc', 'apogee-rc'),
                           ('bad#$name', None)])
 def test_get_file_spec(name, exp):
+    """ test the get_file_spec function """
     filespec = get_file_spec(name)
     assert filespec == exp
 
@@ -33,6 +34,7 @@ def test_get_file_spec(name, exp):
                           ('plate:0>5', 'PLATE5', False),
                           (1234, None, False)])
 def test_abstract_key(name, exp, brack):
+    """ test the get_abstract_key function """
     filespec = get_abstract_key(name, add_brackets=brack)
     assert filespec == exp
 
@@ -43,6 +45,7 @@ def test_abstract_key(name, exp, brack):
                           ('path/@one|/{two:0>5}/file.fits', 'path/ONE/TWO5/file.fits', False),
                           ], ids=['normal', 'brackets', 'special'])
 def test_abstract_path(name, exp, brack):
+    """ test the get_abstract_path function """
     filespec = get_abstract_path(name, add_brackets=brack)
     assert filespec == exp
 
