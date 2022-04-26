@@ -10,6 +10,7 @@ from datamodel.models.yaml import HdfModel
 
 import os
 import shutil
+import numpy as np
 
 try:
     import h5py
@@ -62,12 +63,32 @@ class HdfFile(BaseFile):
     def _create_attrs(self, h5obj: h5types) -> list:
         """ Convert HDF5 attributes to a list of YAML attr dicts """
         return [{'key': k,
-                 'value': None if isinstance(v, h5py.Empty) else str(v.item()) if isinstance(v.item(), bytes) else v.item(),
+                 'value': self._parse_attr_value(v),
                  'comment': 'replace me - with a description of this attribute',
-                 'dtype': str(v.dtype),
+                 'dtype': self._parse_attr_value(v, field='dtype'),
                  'is_empty': isinstance(v, h5py.Empty),
-                 'shape': v.shape}
+                 'shape': self._parse_attr_value(v, field='shape')}
                 for k, v in h5obj.attrs.items()]
+
+    @staticmethod
+    def _parse_attr_value(value, field: str = 'value'):
+        """ Parse an HDF5 attribute value """
+        # convert to numpy type if needed - useful for test data
+        if not isinstance(value, np.generic):
+            value = np.dtype(type(value)).type(value)
+
+        # return the dtype, shape, or value of the numpy object
+        if field == 'dtype':
+            return str(value.dtype)
+        elif field == 'shape':
+            return value.shape
+        else:
+            if isinstance(value, h5py.Empty):
+                return None
+            elif isinstance(value, np.generic):
+                return str(value.item()) if isinstance(value.item(), bytes) else value.item()
+            else:
+                return value
 
     def _create_dataset(self, name: str, h5obj: h5types) -> dict:
         """ Convert HDF5 dataset to a YAML dataset dict """

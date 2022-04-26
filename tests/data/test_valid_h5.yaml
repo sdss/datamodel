@@ -1,0 +1,90 @@
+general:
+  name: test
+  short: this is a test HDF5 file
+  description: this is a test file used for testing
+  datatype: H5
+  filesize: 1 kb
+  releases:
+  - WORK
+  environments:
+  - TEST_REDUX
+  naming_convention: $TEST_REDUX/[VER]/testfile_[ID].h5 or testfile_a.h5
+  generated_by: create_test_file in conftest.py
+  design: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  WORK:
+    template: $TEST_REDUX/[VER]/testfile_[ID].h5
+    example: v1/testfile_a.h5
+    location: '{ver}/testfile_{id}.h5'
+    environment: TEST_REDUX
+    access:
+      in_sdss_access: true
+      path_name: test
+      path_template: $TEST_REDUX/{ver}/testfile_{id}.h5
+      path_kwargs:
+      - ver
+      - id
+      access_string: test = $TEST_REDUX/{ver}/testfile_{id}.h5
+    hdfs:
+      name: /
+      parent: /
+      object: group
+      description: core group
+      libver: !!python/tuple
+      - earliest
+      - v112
+      n_members: 3
+      attrs:
+      - key: NEW
+        value: b'STUFF'
+        comment: this is the new attr
+        dtype: '|S5'
+        is_empty: false
+        shape: !!python/tuple []
+      members:
+        bar:
+          name: bar
+          parent: /
+          object: group
+          description: bar group
+          n_members: 1
+          attrs:
+          - key: HELLO
+            value: b'THERE'
+            comment: this is another attr
+            dtype: '|S5'
+            is_empty: false
+            shape: !!python/tuple []
+        bar/ints:
+          name: bar/ints
+          parent: /bar
+          object: dataset
+          description: these are some ints
+          attrs: []
+          shape: !!python/tuple
+          - 100
+          size: 100
+          ndim: 1
+          dtype: int32
+          nbytes: 400
+          is_virtual: false
+          is_empty: false
+        default:
+          name: default
+          parent: /
+          object: dataset
+          description: a default dataset
+          attrs: []
+          shape: !!python/tuple
+          - 2
+          - 10
+          size: 20
+          ndim: 2
+          dtype: float32
+          nbytes: 400
+          is_virtual: false
+          is_empty: false

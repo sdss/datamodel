@@ -60,5 +60,4 @@ def test_cli_dm_design(yamlfile):
     runner = CliRunner()
     result = runner.invoke(cli, ['design', '-f', 'test', '-p', 'TEST_REDUX/{ver}/testfile_{id}.fits'])
     assert os.path.exists(yamlfile)
-    
-    
+
