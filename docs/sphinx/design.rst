@@ -8,6 +8,12 @@ Here we describe the process of designing new datamodels for files that do not y
 the SDSS ecosystem.  Most of the code examples on this page pertain to designing FITS files, but
 the workflow is the same when designing other files, e.g. Yanny parameter files.
 
+To jump to individual sections:
+
+- FITS: see :ref:`designhdu`
+- Yanny: see :ref:`designpar`
+- HDF5: see :ref:`designhdf`
+
 .. _designstub:
 
 Creating the Design Stub
@@ -152,7 +158,25 @@ For Yanny parameter files, the designed YAML stub is identical to that of above 
             is_enum: false
             example: 1
 
-For FITS files, see the :ref:`designhdu` section.  For Yanny parameters files, see the :ref:`designpar` section.
+For HDF5 files, the ``hdf`` section of the designed YAML has the following format:
+
+.. code-block:: yaml
+
+    hdfs:
+      name: /
+      parent: /
+      object: group
+      description: a parent group description
+      libver: !!python/tuple
+      - earliest
+      - v112
+      n_members: 0
+      attrs: []
+      members: {}
+
+
+For FITS files, see the :ref:`designhdu` section.  For Yanny parameters files, see the :ref:`designpar`
+section.  For HDF5 files, see the :ref:`designhdf` section.
 
 .. _designhdu:
 
@@ -467,7 +491,7 @@ to our table using the full column definition syntax.
             "is_enum": True, "enum_values": ["GO", "NO", "FO", "SO"], "example": "GO"}
     dm.design_par(name="TABLE", columns=[ecol])
 
-Each call to `~datamodel.generate.datamodel.DataModel.design_hdu` writes the content out to the
+Each call to `~datamodel.generate.datamodel.DataModel.design_par` writes the content out to the
 YAML datamodel file.  With the above calls, the ``par`` section of designed YAML now looks like
 
 .. code-block:: yaml
@@ -590,7 +614,7 @@ Adding Content in YAML
 ^^^^^^^^^^^^^^^^^^^^^^
 
 Alternatively to Python, you can also specify par content in the YAML file itself.  This is done by adding
-individual HDUs to the ``hdus`` dictionary of the ``WORK`` release.
+individual components to the ``par`` dictionary of the ``WORK`` release.
 
 The ``par`` content should have the following syntax:
 
@@ -707,6 +731,201 @@ Let's manually add our new header keys, new columns, and new tables.
             is_array: false
             is_enum: false
             example: a
+
+.. _designhdf:
+
+Designing a HDF5 File
+---------------------
+
+After the initial design of the datamodel, you can now add additional Yanny content to the datamodel, such as file
+comments, header keyword-value pairs, or table information. This can be done in two ways, in Python or in the YAML
+file itself.
+
+Let's say we're designing a new APOGEE data file to live in the APOGEE sandbox.  Using the file_species
+name of "apoNew", we create the initial stub with:
+
+.. code-block:: python
+
+    dm = DataModel(file_spec="apoNew", path="APOGEE_SANDBOX/aponew.h5", verbose=True, design=True, tree_ver="sdss5")
+    dm.write_stubs()
+
+This creates a YAML like above. Now let's add some new attributes, a new group and a new dataset.
+
+Adding Content in Python
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+To design new Yanny hdf content in Python, use the `~datamodel.generate.datamodel.DataModel.design_hdf` method.
+
+The ``name`` keyword argument is the fully resolved ``group`` or ``dataset`` name you wish to add.  Its ``parent``
+will be everything up to the last ``/`` in the name.  The ``hdftype`` keyword argument specifies whether the new
+component is a ``group`` or ``dataset``.
+
+You can add a list of attributes with the ``attrs`` argument.  The keyword accepts either a
+list of tuples of attribute ``(key, value, comment, dtype)``, a list of dictionaries
+of attribute ``{"key": key, "value": value, "comment": comment, "dtype": dtype}``.
+
+For ``datasets``, use the ``ds_shape``, and ``ds_dtype`` keyword arguments to specify the array
+shape, and data type, respectively.  Allowed dtypes are any string representation of numpy dtypes, e.g.
+"int32", or "<i8", or "S5".
+
+Let's first add a new attribute at the root level.  Then let's add a new "data" group, also with an attribute.
+Inside the "data" group, we'll create a new array dataset of 100 string elements.
+
+.. code-block:: python
+
+    # add an attribute at the root level
+    dm.design_hdf(name='/', attrs=[("foo", "bar", "a new way", "S3")])
+
+    # add a new group, "data", with an attribute
+    dm.design_hdf(name="data", description="this is a data group", attrs=[("name", 1, "this is a name", "<i8")])
+
+    # add a new array dataset to the "data" group
+    dm.design_hdf(name="data/stuff", description="this is a data dataset", hdftype="dataset",
+                  ds_shape=(100,), ds_dtype="S5")
+
+Each call to `~datamodel.generate.datamodel.DataModel.design_hdf` writes the content out to the
+YAML datamodel file.  With the above calls, the ``hdfs`` section of designed YAML now looks like
+
+.. code-block:: yaml
+
+    releases:
+      WORK:
+        template: $APOGEE_SANDBOX/aponew.h5
+        example: null
+        location: 'aponew.h5'
+        environment: APOGEE_SANDBOX
+        access:
+          in_sdss_access: false
+          path_name: null
+          path_template: null
+          path_kwargs: null
+          access_string: apoNew = $APOGEE_SANDBOX/aponew.h5
+        hdfs:
+          name: /
+          parent: /
+          object: group
+          description: a parent group description
+          libver: !!python/tuple
+          - earliest
+          - v112
+          n_members: 1
+          attrs:
+          - key: foo
+            value: bar
+            comment: a new way
+            dtype: S3
+          members:
+            data:
+              name: data
+              parent: /
+              object: group
+              description: this is a data group
+              attrs:
+              - key: name
+                value: 1
+                comment: this is a name
+                dtype: <i8
+              n_members: 1
+            data/stuff:
+              name: data/stuff
+              parent: data
+              object: dataset
+              description: this is a data dataset
+              attrs: []
+              shape: !!python/tuple
+              - 100
+              size: 100
+              dtype: S5
+              ndim: 1
+
+
+Adding Content in YAML
+^^^^^^^^^^^^^^^^^^^^^^
+
+Alternatively to Python, you can also specify hdf content in the YAML file itself.  This is done by adding
+individual components to the ``hdfs.members`` dictionary of the ``WORK`` release.
+
+The ``hdfs`` content should have the following syntax:
+
+.. code-block:: yaml
+
+    hdfs:
+      attrs: a list of top-level attributes
+      members: a dictionary of groups or datasets
+
+Each ``attrs`` entry should have the following syntax:
+
+.. code-block:: yaml
+
+    attrs:
+    - key: the name of the attribute
+      value: the value of the attribute
+      comment: a description of the attribute
+      dtype: a string numpy dtype of the attribute
+      is_empty: a boolean if the attribute is empty or not, can be blank
+      shape: the shape of the attribute, can be blank
+
+Each member entry in the ``members`` section should have the following syntax:
+
+.. code-block:: yaml
+
+    members:
+      [NAME]:
+        name: the name of the group or dataset
+        parent: the name of the immediate parent of the group or dataset
+        object: the type of the group or dataset, can be 'group' or 'dataset'
+        description: a description of the group or dataset
+        n_members: the number of members in the group, for groups only
+        attrs: a list of attributes for the group or dataset
+        shape: the shape of the array, for datasets only
+        size: the size of the array, for datasets only
+        ndim: the number of dimensions of the array, for datasets only
+        dtype:  a string numpy dtype of the array, for datasets only
+        nbytes: the number of bytes of the array, for datasets only, can be blank
+        is_empty: a boolean if the array is empty or not, for datasets only, can be blank
+
+Let's manually add our new header keys, new columns, and new tables.
+
+.. code-block:: yaml
+
+    hdfs:
+      name: /
+      parent: /
+      object: group
+      description: a parent group description
+      libver: !!python/tuple
+      - earliest
+      - v112
+      n_members: 1
+      attrs:
+      - key: foo
+        value: bar
+        comment: a new way
+        dtype: S3
+      members:
+        data:
+          name: data
+          parent: /
+          object: group
+          description: this is a data group
+          attrs:
+          - key: name
+            value: 1
+            comment: this is a name
+            dtype: <i8
+          n_members: 1
+        data/stuff:
+          name: data/stuff
+          parent: data
+          object: dataset
+          description: this is a data dataset
+          attrs: []
+          shape: !!python/tuple
+          - 100
+          size: 100
+          dtype: S5
+          ndim: 1
+
 
 .. _createfile:
 

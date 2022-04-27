@@ -1,5 +1,5 @@
 
-.. _examples:
+.. _examples_gen:
 
 Examples
 ========
@@ -35,7 +35,7 @@ Here are examples of generating datamodels for different supported filetypes.
 
         .. code-block:: python
 
-            # define the inputs 
+            # define the inputs
             file_species = "mangaRss"
             path = "MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}RSS.fits.gz"
             keys = ['plate=8485', 'ifu=1901', 'drpver=v2_4_3', 'wave=LOG']
@@ -1590,4 +1590,199 @@ Here are examples of generating datamodels for different supported filetypes.
                     is_enum: false
                     example: SDSS-I, -II; ctile=v1_0; v1_11
 
+.. tab:: HDF5
+
+    the HDF5 (Hierarchical Data Format) file
+
+    **File Info**
+
+    An APOGEEE deblend catalog file
+
+    - **Example**: $APOGEE_SANDBOX/deblend/v0/deblend_2422101.h5'
+    - **File Species**: apogeeDeblend
+    - **Abstract Path**: APOGEE_SANDBOX/deblend/{ver}/deblend_{chunk}.h5
+    - **Example Keys**: ver=v0; chunk=2422101
+
+    **Generate Commands**
+
+    Command-line and Python commands to generate a datamodel
+
+    .. tab:: CLI
+
+        .. code-block:: console
+
+            $ datamodel generate -f apogeeDeblend \
+            -p APOGEE_SANDBOX/deblend/{ver}/deblend_{chunk}.h5 \
+            -k ver=v0 -k chunk=2422101 -r WORK
+
+    .. tab:: Python
+
+        .. code-block:: python
+
+            # define the inputs
+            file_species = "apogeeDeblend"
+            path = "APOGEE_SANDBOX/deblend/{ver}/deblend_{chunk}.h5"
+            keys = ["ver=v0", "chunk=2422101"]
+
+            # generate a datamodel for the WORK release
+            dm = DataModel(file_spec=file_species, path=path, keywords=keys, release='WORK')
+            dm.write_stubs()
+
+    **Yaml Output**
+
+    The generated output yaml datamodel stub
+
+    .. code-block:: yaml
+
+        general:
+          name: apogeeDeblend
+          short: replace me - with a short one sentence summary of file
+          description: replace me - with a longer description of the data product
+          datatype: H5
+          filesize: 39 MB
+          releases:
+          - WORK
+          environments:
+          - APOGEE_SANDBOX
+          naming_convention: replace me - with $APOGEE_SANDBOX/deblend/[VER]/deblend_[CHUNK].h5
+            or deblend_2422101.h5 but with regex pattern matches
+          generated_by: replace me - with the name(s) of any git or svn product(s) that produces
+            this product.
+          design: false
+        changelog:
+          description: Describes changes to the datamodel product and/or file structure from
+            one release to another
+          releases: {}
+        releases:
+          WORK:
+            template: $APOGEE_SANDBOX/deblend/[VER]/deblend_[CHUNK].h5
+            example: deblend/v0/deblend_2422101.h5
+            location: deblend/{ver}/deblend_{chunk}.h5
+            environment: APOGEE_SANDBOX
+            access:
+              in_sdss_access: false
+              path_name: null
+              path_template: null
+              path_kwargs: null
+              access_string: apogeeDeblend = $APOGEE_SANDBOX/deblend/{ver}/deblend_{chunk}.h5
+            hdfs:
+              name: /
+              parent: /
+              object: group
+              description: replace me - with a description of this group
+              libver: !!python/tuple
+              - earliest
+              - v112
+              n_members: 7
+              pytables: false
+              attrs: []
+              members:
+                chi2:
+                  name: chi2
+                  parent: /
+                  object: dataset
+                  description: replace me - with a description of this dataset
+                  attrs: []
+                  shape: !!python/tuple
+                  - 100
+                  - 4
+                  - 81
+                  size: 32400
+                  ndim: 3
+                  dtype: float64
+                  nbytes: 259200
+                  is_virtual: false
+                  is_empty: false
+                chi2f:
+                  name: chi2f
+                  parent: /
+                  object: dataset
+                  description: replace me - with a description of this dataset
+                  attrs: []
+                  shape: !!python/tuple
+                  - 100
+                  - 3
+                  - 10
+                  size: 3000
+                  ndim: 3
+                  dtype: float64
+                  nbytes: 24000
+                  is_virtual: false
+                  is_empty: false
+                outlst:
+                  name: outlst
+                  parent: /
+                  object: dataset
+                  description: replace me - with a description of this dataset
+                  attrs: []
+                  shape: !!python/tuple
+                  - 100
+                  - 39
+                  size: 3900
+                  ndim: 2
+                  dtype: float64
+                  nbytes: 31200
+                  is_virtual: false
+                  is_empty: false
+                "\u03BC_ad":
+                  name: "\u03BC_ad"
+                  parent: /
+                  object: dataset
+                  description: replace me - with a description of this dataset
+                  attrs: []
+                  shape: !!python/tuple
+                  - 100
+                  - 8575
+                  size: 857500
+                  ndim: 2
+                  dtype: float64
+                  nbytes: 6860000
+                  is_virtual: false
+                  is_empty: false
+                "\u03BC_bd":
+                  name: "\u03BC_bd"
+                  parent: /
+                  object: dataset
+                  description: replace me - with a description of this dataset
+                  attrs: []
+                  shape: !!python/tuple
+                  - 100
+                  - 3
+                  - 8575
+                  size: 2572500
+                  ndim: 3
+                  dtype: float64
+                  nbytes: 20580000
+                  is_virtual: false
+                  is_empty: false
+                "\u03BC_cd":
+                  name: "\u03BC_cd"
+                  parent: /
+                  object: dataset
+                  description: replace me - with a description of this dataset
+                  attrs: []
+                  shape: !!python/tuple
+                  - 100
+                  - 8575
+                  size: 857500
+                  ndim: 2
+                  dtype: float64
+                  nbytes: 6860000
+                  is_virtual: false
+                  is_empty: false
+                "\u03BC_dd":
+                  name: "\u03BC_dd"
+                  parent: /
+                  object: dataset
+                  description: replace me - with a description of this dataset
+                  attrs: []
+                  shape: !!python/tuple
+                  - 100
+                  - 8575
+                  size: 857500
+                  ndim: 2
+                  dtype: float64
+                  nbytes: 6860000
+                  is_virtual: false
+                  is_empty: false
 

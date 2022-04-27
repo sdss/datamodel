@@ -18,7 +18,7 @@ Currently the datamodel product supports generating datamodels for the following
 The basic procedure for generating datamodels is the same, regardless of filetype.  All of the following code
 examples below are for generating datamodels for FITS files.  The same procedure can be used for generating
 datamodels for other supported file types.  See the :ref:`yanny` section for explicit differences on
-Yanny files. See the :ref:`hdf` section for explicit differences on HDF5 files. See :ref:`examples-gen`
+Yanny files. See the :ref:`hdf` section for explicit differences on HDF5 files. See :ref:`examples_gen`
 for code and output YAML datamodels for supported filetypes.
 
 Generating a datamodel
@@ -110,6 +110,7 @@ modify.  The structure of the YAML is broken up into the following sections:
     - **access** - a section containing information on any existing sdss_access entry
     - **hdus** - a section for each HDU in the FITS file (only for FITS files)
     - **par** - a section containing the header and table content in the par file (only for Yanny files)
+    - **hdfs** - a section containing the HDF5 file content and member info (only for HDF5 files)
 
 Most of the YAML content is automatically generated.  Values containing the text **replace me** are
 areas to be replaced with user custom content, e.g. descriptions of the data product, individual
@@ -676,3 +677,238 @@ The corresponding YAML entry would be:
 HDF5 Files
 ----------
 
+While most of the datamodel workflow is the same for HDF5 files as for FITS, there are a few
+differences, which we describe here.  HDF5 files are in a hierarchical data format, with many nested levels
+of groups of information and/or data.  Each group or dataset can also have a list of metadata
+attributes associated with each level.
+
+For ease of representation in the YAML datamodel, we flatten the entire hierachy of the HDF5 file into a single
+``members`` list.  Parent-child relationships, and the numbers of members in each group are maintained.
+
+Example HDF YAML
+^^^^^^^^^^^^^^^^
+
+The YAML datamodel for a HDF5 file is mostly the same as for FITS files, but with a ``hdfs`` section instead of
+an ``hdus`` section.  Let's generate an example datamodel stub for a file that lives in the APOGEE_SANDBOX,
+and contains deblending information for a crowded stellar field.  The code to generate the datamodel stub is:
+
+.. code-block:: python
+
+    dm = DataModel(file_spec='apogeeDeblend', path='APOGEE_SANDBOX/deblend/{ver}/deblend_{chunk}.h5', keywords=["ver=v0", "chunk=2422101"], release="WORK")
+    dm.write_stubs()
+
+The output datamodel file, ``deblend/v0/deblend_2422101.h5`` has the following contents:
+
+.. tab:: HDF Yaml
+
+    Example yaml datamodel for an HDF5 file, shortened for brevity
+
+    .. code-block:: yaml
+
+        general:
+          name: apogeeDeblend
+          short: replace me - with a short one sentence summary of file
+          description: replace me - with a longer description of the data product
+          datatype: H5
+          filesize: 1 MB
+          releases:
+          - WORK
+          ...
+        releases:
+          WORK:
+            ...
+            hdfs:
+              name: /
+              parent: /
+              object: group
+              description: replace me - with a description of this group
+              libver: !!python/tuple
+              - earliest
+              - v112
+              n_members: 7
+              pytables: false
+              attrs: []
+              members:
+                chi2:
+                  name: chi2
+                  parent: /
+                  object: dataset
+                  description: replace me - with a description of this dataset
+                  attrs: []
+                  shape: !!python/tuple
+                  - 100
+                  - 4
+                  - 81
+                  size: 32400
+                  ndim: 3
+                  dtype: float64
+                  nbytes: 259200
+                  is_virtual: false
+                  is_empty: false
+                chi2f:
+                  name: chi2f
+                  parent: /
+                  object: dataset
+                  description: replace me - with a description of this dataset
+                  attrs: []
+                  shape: !!python/tuple
+                  - 100
+                  - 3
+                  - 10
+                  size: 3000
+                  ndim: 3
+                  dtype: float64
+                  nbytes: 24000
+                  is_virtual: false
+                  is_empty: false
+                outlst:
+                  name: outlst
+                  parent: /
+                  object: dataset
+                  description: replace me - with a description of this dataset
+                  attrs: []
+                  shape: !!python/tuple
+                  - 100
+                  - 39
+                  size: 3900
+                  ndim: 2
+                  dtype: float64
+                  nbytes: 31200
+                  is_virtual: false
+                  is_empty: false
+
+
+Yaml "Hdf" Section
+^^^^^^^^^^^^^^^^^^
+
+The ``hdfs`` section of the YAML file has the following content:
+
+- **name**: the root group name of the HDF5 file
+- **parent**: the name of the parent of the current level
+- **object**: the type of HDF5 object, either a "group" or "dataset"
+- **description**: a description of the group
+- **libver**: the HDF5 library version, as a python tuple
+- **n_members**: the number of members in the group
+- **pytables**: a boolean flag whether this file was written using PyTables
+- **attrs**: a list of metadata attributes at the current level
+- **members**: a dictionary of members contained in the HDF5 file, of ``name: {...}`` pairs
+
+Each member of the ``members`` dictionary can either be a ``group`` or a ``dataset``, each a dictionary of its
+own key-value pairs.  The ``group`` dictionary has many of the same keys as the top-level section.  An example
+of a ``group`` member is:
+
+.. code-block:: yaml
+
+    data:
+      name: data
+      parent: /
+      object: group
+      description: replace me - with a description of this group
+      n_members: 12
+      attrs: []
+
+A ``dataset`` member is the equivalent of a numpy array dataset.  In addition to the similar keys as the
+top-level section, a ``dataset`` has the following additional keys:
+
+- **shape**: the shape of the array dataset
+- **size**: the size of the array dataset, i.e. number of elements
+- **ndim**: the number of dimensions of the array dataset
+- **dtype**: the string repr numpy dtype of the array dataset
+- **nbytes**: the memory size in bytes of the array dataset
+- **is_virtual**: flag whether the dataset is a virtual one
+- **is_empty**: flag whether the dataset is an empty one
+
+An example of a ``dataset`` member is:
+
+.. code-block:: yaml
+
+    outlst:
+      name: outlst
+      parent: /
+      object: dataset
+      description: replace me - with a description of this dataset
+      attrs: []
+      shape: !!python/tuple
+      - 100
+      - 39
+      size: 3900
+      ndim: 2
+      dtype: float64
+      nbytes: 31200
+      is_virtual: false
+      is_empty: false
+
+
+Each ``group`` or ``dataset`` can also have a list of metadata attributes, ``attrs``, associated with it.  These
+are stored similarly to FITS header keyword values.
+
+An example attribute:
+
+.. code-block:: yaml
+
+    attrs:
+    - key: name
+      value: b'N.'
+      comment: replace me - with a description of this attribute
+      dtype: '|S2'
+      is_empty: false
+      shape: !!python/tuple []
+
+Nested Membership
+^^^^^^^^^^^^^^^^^
+
+As the hiearchical nature of HDF5 files is flattened in the datamodel, each ``member`` contains a fully
+resolved ``name``, its immediate ``parent``, and the number of members in its subgroup, where relevant.
+Here is an example of a ``group`` at the top level, which contains a sub-``group`` and a ``dataset``.  The
+sub-``group`` also contains a ``dataset``.
+
+.. code-block:: yaml
+
+        foo:
+          name: foo
+          parent: /
+          object: group
+          description: the new foo group
+          n_members: 2
+          attrs:
+          - key: AFOO
+            value: b'ANEW'
+            comment: a foo attr
+            dtype: '|S4'
+            is_empty: false
+            shape: !!python/tuple []
+        foo/foodat:
+          name: foo/foodat
+          parent: /foo
+          object: dataset
+          description: foo dat dataset
+          attrs: []
+          shape: !!python/tuple
+          - 100
+          size: 100
+          ndim: 1
+          dtype: float32
+          nbytes: 400
+          is_virtual: false
+          is_empty: false
+        foo/stuff:
+          name: foo/stuff
+          parent: /foo
+          object: group
+          description: foo has stuff too
+          n_members: 1
+          attrs: []
+        foo/stuff/newints:
+          name: foo/stuff/newints
+          parent: /foo/stuff
+          object: dataset
+          description: new ints for the new stuff
+          attrs: []
+          shape: !!python/tuple
+          - 100
+          size: 100
+          ndim: 1
+          dtype: int64
+          nbytes: 800
+          is_virtual: false
+          is_empty: false

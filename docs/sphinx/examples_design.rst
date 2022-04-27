@@ -1,5 +1,5 @@
 
-.. _examples-des:
+.. _examples_des:
 
 Examples
 ========
