@@ -813,7 +813,7 @@ top-level section, a ``dataset`` has the following additional keys:
 - **shape**: the shape of the array dataset
 - **size**: the size of the array dataset, i.e. number of elements
 - **ndim**: the number of dimensions of the array dataset
-- **dtype**: the string repr numpy dtype of the array dataset
+- **dtype**: the string repr numpy dtype of the array dataset, e.g. int32
 - **nbytes**: the memory size in bytes of the array dataset
 - **is_virtual**: flag whether the dataset is a virtual one
 - **is_empty**: flag whether the dataset is an empty one

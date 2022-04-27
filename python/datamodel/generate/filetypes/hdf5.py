@@ -17,6 +17,7 @@ try:
 except ImportError:
     h5py = h5types = h5file = None
 else:
+    # specify type annotations
     h5types = Union[h5py.Group, h5py.Dataset]
     h5file = h5py.File
 

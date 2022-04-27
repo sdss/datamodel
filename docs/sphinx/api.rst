@@ -31,6 +31,7 @@ Filetypes
    :members:
    :undoc-members:
    :show-inheritance:
+   :private-members: _generate_new_cache, _update_partial_cache
 
 .. automodule:: datamodel.generate.filetypes.fits
    :members:
@@ -59,6 +60,7 @@ Changelog
    :members:
    :undoc-members:
    :show-inheritance:
+   :private-members: _get_changes
 
 .. automodule:: datamodel.generate.changelog.filetypes.catalog
    :members:
