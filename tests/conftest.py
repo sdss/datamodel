@@ -260,6 +260,16 @@ def validmodels(validyamls, datamodels):
     """ a fixture to iterate over multiple file types, creating a valididated datamodel """
     yield datamodels
 
+@pytest.fixture()
+def validdesigns(suffix, validyamls):
+    """ a fixture to iterate over multiple file types, creating datamodel designs """
+    dm = DataModel(file_spec='test', path='TEST_REDUX/{ver}/testfile_{id}.' + f'{suffix}', design=True)
+    ss = dm.get_stub('yaml')
+    ss.update_cache()
+    if suffix == 'fits':
+        ss._cache['releases']['WORK']['hdus']['hdu0']['description'] = 'primary hdu extension'
+    ss.write()
+    yield dm
 
 #####
 # Mocks for Tree and sdss_access Path classes to add in TEST_REDUX and test file paths

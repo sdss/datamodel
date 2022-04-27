@@ -58,7 +58,7 @@ Each new subclass must minimally override and define the following class methods
 - `~datamodel.generate.filetypes.base.BaseFile._generate_new_cache`: creates and returns the initial dictionary data that populates the ``cache_key`` YAML key
 - `~datamodel.generate.filetypes.base.BaseFile._update_partial_cache`: updates the cache of new releases with any cache content from old releases, e.g. field descriptions
 - `~datamodel.generate.filetypes.base.BaseFile.design_content`: when designing datamodels, updates a YAML cache with content via Python
-- `~datamodel.generate.filetypes.base.BaseFile.create_from_cache`: when designing datamodels, creates a new object representation of the file from the YAML cache
+- `~datamodel.generate.filetypes.base.BaseFile._get_designed_object`: when designing datamodels, creates a new object representation of the file from the YAML cache
 - `~datamodel.generate.filetypes.base.BaseFile.write_design`: when designing datamodels, generates a new designed template file on disk
 
 These methods are customized for each file type.  The first two methods in the list above pertain to generating

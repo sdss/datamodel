@@ -4,7 +4,7 @@
 import tempfile
 import numpy as np
 from enum import Enum
-from typing import List, Union, Dict
+from typing import List, Union, Dict, Optional
 from pydantic import BaseModel, validator, root_validator
 from ..validators import replace_me
 
@@ -110,7 +110,7 @@ class HdfAttr(BaseModel):
     comment: str
     dtype : str
     is_empty: bool = None
-    shape: tuple = None
+    shape: Optional[tuple] = ()
 
     _check_replace_me = validator('comment', allow_reuse=True)(replace_me)
 

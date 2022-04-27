@@ -18,6 +18,7 @@ import re
 import pathlib
 
 from typing import TypeVar, Type, Union, List
+from xml.dom.minidom import Attr
 
 from .parse import get_abstract_path, get_abstract_key, get_file_spec
 from datamodel import log
@@ -783,7 +784,7 @@ class DataModel(object):
         # exit if for any reason the designed object doesn't exist
         if design_obj is None:
             log.error('No designed object to write out.')
-            return
+            raise AttributeError('No designed object to write out.')
 
         # create directories if needed
         path = pathlib.Path(self.file)

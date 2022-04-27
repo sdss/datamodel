@@ -120,6 +120,9 @@ class BaseFile(abc.ABC):
             self.use_cache_release = self._stub.use_cache_release
             self.full_cache = self._stub.full_cache
 
+        # set default designed object
+        self._designed_object = None
+
     def __repr__(self):
         return f'<{self.__class__.__name__}("{self.filename}")>'
 
@@ -158,7 +161,6 @@ class BaseFile(abc.ABC):
         This method is used to generate the file content for new datamodel YAML files.  It
         should return a dictionary to be stored as the value of the cache key.
         """
-        pass
 
     @abc.abstractmethod
     def _update_partial_cache(self, cached_data: dict, old_cache: dict) -> dict:
@@ -175,7 +177,6 @@ class BaseFile(abc.ABC):
         old_cache : dict
             The YAML cache for a previous release
         """
-        pass
 
     def _use_full_cache(self):
         """ Default method for using the entire cache of a previous release
@@ -195,22 +196,54 @@ class BaseFile(abc.ABC):
         self._cache['releases']['WORK'][self.cache_key] = [updated_cache_content]
         with the new content.  This method is called by the DataModel's global design_content method.
         """
-        pass
 
-    @abc.abstractmethod
     def create_from_cache(self, release: str = 'WORK'):
-        """ Abstract method to be implemented by subclass, for creating a valid object from cache
+        """ Create a file object from the yaml cache
 
-        This method is used to create a data object from a designed YAML cache content.  It should
-        set and return a new "self._designed_object" attribute.  Ideally the object should be created
-        through the Pydantic model's parse_obj to ensure proper validation and field type coercion.
+        Converts the cache_key dictionary entry in the YAML cache into
+        a file object.
 
         Parameters
         ----------
-        release : str
-            The SDSS release name, by default 'WORK'
+        release : str, optional
+            the name of the data release, by default 'WORK'
+
+        Returns
+        -------
+        object
+            a valid file object
+
+        Raises
+        ------
+        ValueError
+            when the release is not in the cache
+        ValueError
+            when the release is not WORK when in the datamodel design phase
         """
-        pass
+        if release not in self._cache['releases']:
+            raise ValueError(f'Release {release} not found in list of cached releases.')
+
+        if self.design and release != 'WORK':
+            raise ValueError(f'Release {release} can only be "WORK" when in the datamodel design phase.')
+
+        data = self._cache['releases'][release][self.cache_key]
+        self._designed_object = self._get_designed_object(data)
+        return self._designed_object
+
+    @staticmethod
+    @abc.abstractmethod
+    def _get_designed_object(data: dict):
+        """ Abstract static method to be implemented by subclass, for creating a valid object from cache
+
+        This method is used to create a data object from a designed YAML cache content.  It is called
+        by create_from_cache.  It should return a new designed object.  Ideally the object should be
+        created through the Pydantic model's parse_obj to ensure proper validation and field type coercion.
+
+        Parameters
+        ----------
+        data : dict
+            The YAML cache value for the ``cache_key`` field
+        """
 
     @abc.abstractmethod
     def write_design(self, file: str, overwrite: bool = None):
@@ -227,7 +260,6 @@ class BaseFile(abc.ABC):
         overwrite : bool
             Flag to overwrite the file if it exists, by default None
         """
-        pass
 
     @staticmethod
     def _nonempty_string(value: str = None) -> str:

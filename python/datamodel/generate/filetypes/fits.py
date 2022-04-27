@@ -243,38 +243,24 @@ class FitsFile(BaseFile):
         cached_hdus[extno] = row
         self._cache['releases']['WORK'][self.cache_key] = cached_hdus
 
-    def create_from_cache(self, release: str = 'WORK') -> fits.HDUList:
-        """ Create a fits.HDUList from the yaml cache
+    @staticmethod
+    def _get_designed_object(data: dict):
+        """ Return a valid fits HDUList
 
-        Converts the hdu dictionary entry in the YAML cache into
-        a Astropy fits.HDUList object.
+        Parses and validates the hdus YAML cache into a proper Pydantic model
+        and converts the model into an HDUList
 
         Parameters
         ----------
-        release : str, optional
-            the name of the data release, by default 'WORK'
+        data : dict
+            The hdus cache
 
         Returns
         -------
         fits.HDUList
-            a valid astropy fits.HDUList object
-
-        Raises
-        ------
-        ValueError
-            when the release is not in the cache
-        ValueError
-            when the release is not WORK when in the datamodel design phase
+            A valid astropy fits.HDUList object
         """
-        if release not in self._cache['releases']:
-            raise ValueError(f'Release {release} not found in list of cached releases.')
-
-        if self.design and release != 'WORK':
-            raise ValueError(f'Release {release} can only be "WORK" when in the datamodel design phase.')
-
-        hdus = self._cache['releases'][release][self.cache_key]
-        self._designed_object = fits.HDUList([HDU.parse_obj(v).convert_hdu() for v in hdus.values()])
-        return self._designed_object
+        return fits.HDUList([HDU.parse_obj(v).convert_hdu() for v in data.values()])
 
     def write_design(self, file: str, overwrite: bool = True) -> None:
         """ Write out the designed file

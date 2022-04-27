@@ -150,6 +150,7 @@ def test_design_filegen_failure_nokeys(yamlfile):
     with pytest.raises(KeyError, match='Must specify path keywords to generate a real file'):
         dm.generate_designed_file()
 
+
 @pytest.fixture()
 def fulldesign(designedfits):
     """ fixture to create a fully desisgned FITS file """
@@ -179,4 +180,25 @@ def test_updated_genfile(fulldesign):
     assert len(hdu) == 3
     assert hdu[1].name == 'TEST_IMAGE'
     assert hdu[2].name == 'TEST_CATALOG'
+
+def test_design_filegen_failure_nodesign(monkeypatch, designedfits):
+    """ test it fails if we don't have a valid designed object """
+    s = designedfits.get_stub('yaml')
+    s.update_cache()
+
+    @staticmethod
+    def mock_obj(data=None):
+        return None
+
+    # mock the returned get_designed_object
+    from datamodel.generate.filetypes import FitsFile
+    monkeypatch.setattr(FitsFile, '_get_designed_object', mock_obj)
+
+    with pytest.raises(AttributeError, match='No designed object to write out.'):
+        designedfits.generate_designed_file(ver='v1', id='A')
+
+def test_genfiles(validdesigns):
+    """ test we can generate the designed files on disk """
+    validdesigns.generate_designed_file(ver='v1', id='A')
+    assert os.path.exists(validdesigns.file)
 

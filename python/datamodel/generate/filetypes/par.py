@@ -290,38 +290,24 @@ class ParFile(BaseFile):
             examp = [examp] * int(match["size"][1])
         return examp
 
-    def create_from_cache(self, release: str = 'WORK') -> yanny:
-        """ Create a Yanny par file from the yaml cache
+    @staticmethod
+    def _get_designed_object(data: dict):
+        """ Return a valid Yanny par object
 
-        Converts the par dictionary entry in the YAML cache into
-        a Yanny par object.
+        Parses and validates the par YAML cache into a proper Pydantic model
+        and converts the model into an Yanny par object.
 
         Parameters
         ----------
-        release : str, optional
-            the name of the data release, by default 'WORK'
+        data : dict
+            The par cache
 
         Returns
         -------
         yanny
-            a valid yanny par object
-
-        Raises
-        ------
-        ValueError
-            when the release is not in the cache
-        ValueError
-            when the release is not WORK when in the datamodel design phase
+            A valid yanny object
         """
-        if release not in self._cache['releases']:
-            raise ValueError(f'Release {release} not found in list of cached releases.')
-
-        if self.design and release != 'WORK':
-            raise ValueError(f'Release {release} can only be "WORK" when in the datamodel design phase.')
-
-        par = self._cache['releases'][release][self.cache_key]
-        self._designed_object = ParModel.parse_obj(par).convert_par()
-        return self._designed_object
+        return ParModel.parse_obj(data).convert_par()
 
     def write_design(self, file: str, overwrite: bool = True) -> None:
         """ Write out the designed file

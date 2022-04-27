@@ -254,45 +254,32 @@ class HdfFile(BaseFile):
             return None
 
         if isinstance(attrs[0], (tuple, list)):
-            return [dict(zip(("key", "value", "comment", "dtype"), i)) for i in attrs]
+            return [dict(zip(("key", "value", "comment", "dtype", "shape"), i)) for i in attrs]
         elif isinstance(attrs[0], dict):
             if {"key", "value", "comment", "dtype"}.issubset(attrs[0]):
                 return attrs
             return [{"key": k, "value": v, "comment": f"description for {k}"} for k, v in attrs[0].items()]
 
-    def create_from_cache(self, release: str = 'WORK') -> h5file:
-        """ Create a HDF5 file from the yaml cache
+    @staticmethod
+    def _get_designed_object(data: dict):
+        """ Return a valid h5py File
 
-        Converts the hdfs dictionary entry in the YAML cache into
-        a HDF5 h5py.File object.
+        Parses and validates the hdfs YAML cache into a proper Pydantic model
+        and converts the model into an h5py.File object.  The object is closed, with
+        the file object written to a temporary file, and the name saved as ``temp_filename``
+        attribute on the object.
 
         Parameters
         ----------
-        release : str, optional
-            the name of the data release, by default 'WORK'
+        data : dict
+            The hdfs cache
 
         Returns
         -------
         h5py.File
-            a valid h5py.File object
-
-        Raises
-        ------
-        ValueError
-            when the release is not in the cache
-        ValueError
-            when the release is not WORK when in the datamodel design phase
+            A valid h5py.File object
         """
-
-        if release not in self._cache['releases']:
-            raise ValueError(f'Release {release} not found in list of cached releases.')
-
-        if self.design and release != 'WORK':
-            raise ValueError(f'Release {release} can only be "WORK" when in the datamodel design phase.')
-
-        hdfs = self._cache['releases'][release][self.cache_key]
-        self._designed_object = HdfModel.parse_obj(hdfs).convert_hdf()
-        return self._designed_object
+        return HdfModel.parse_obj(data).convert_hdf()
 
     def write_design(self, file: str, overwrite: bool = None) -> None:
         """ Write out the designed file
