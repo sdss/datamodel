@@ -42,6 +42,11 @@ Filetypes
    :undoc-members:
    :show-inheritance:
 
+.. automodule:: datamodel.generate.filetypes.hdf5
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Changelog
 ^^^^^^^^^
 
@@ -69,7 +74,12 @@ Changelog
    :members:
    :undoc-members:
    :show-inheritance:
-   
+
+.. automodule:: datamodel.generate.changelog.filetypes.hdf5
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Git
 ---
 
@@ -109,6 +119,27 @@ Models
    :members:
    :undoc-members:
    :show-inheritance:
+
+.. automodule:: datamodel.models.filetypes.fits
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+.. automodule:: datamodel.models.filetypes.par
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+.. automodule:: datamodel.models.filetypes.hdf5
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+.. automodule:: datamodel.models.validators
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 
 Products
 --------
