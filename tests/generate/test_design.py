@@ -95,6 +95,7 @@ def test_design_par(validdesign):
 
 
 def test_design_hdf(validdesign):
+    """ test we can design a hdfs section in python """
     vd = validdesign('h5')
     ss = vd.get_stub('yaml')
     ss.update_cache()
