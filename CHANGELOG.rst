@@ -25,7 +25,7 @@ Change Log
 - Refactored code for easier addition of new file types
 - Removed remaining deprecated wiki code and references
 
-0.3.3 (01-07-2021)
+0.3.3 (01-07-2022)
 ------------------
 - Removed all references to the old datamodel wiki code, now deprecated for the DSI
 - Fix to Github Action to build sphinx documentation
