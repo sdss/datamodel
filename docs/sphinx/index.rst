@@ -47,8 +47,13 @@ datamodels for SDSS data products.
   Generating Datamodels <generate>
   Navigating Datamodels <navigate>
   Designing Datamodels <design>
-  Examples - Generate <examples_generate>
-  Examples - Design <examples_design>
+
+.. toctree::
+  :maxdepth: 2
+  :caption: Examples
+
+  Generate <examples_generate>
+  Design <examples_design>
 
 .. toctree::
    :maxdepth: 1
