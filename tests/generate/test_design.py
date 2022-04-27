@@ -94,6 +94,41 @@ def test_design_par(validdesign):
     assert ecol in rel['par']["tables"]["TABLE"]["structure"]
 
 
+def test_design_hdf(validdesign):
+    vd = validdesign('h5')
+    ss = vd.get_stub('yaml')
+    ss.update_cache()
+    rel = ss._cache['releases']['WORK']
+
+    assert rel['hdfs']['name'] == '/'
+    assert rel['hdfs']['description'] == 'a parent group description'
+    assert rel['hdfs']['object'] == 'group'
+    assert rel['hdfs']['n_members'] == 0
+    assert rel['hdfs']['members'] == {}
+    assert rel['hdfs']['attrs'] == []
+
+    # design some stuff
+    vd.design_hdf(name="/", attrs=[("foo", "bar", "a new way", "S3")])
+    vd.design_hdf( name="data", description="this is a data group",
+                  attrs=[("name", 1, "this is a name", "<i8")])
+    vd.design_hdf(name="data/stuff", description="this is a data dataset", hdftype="dataset",
+                  ds_shape=(100,), ds_dtype="S5")
+    vd.design_hdf(name="defaults", description="this is a default dataset", hdftype="dataset",
+                  ds_shape=(10, 20), ds_dtype="int32")
+
+    ss.update_cache()
+    rel = ss._cache['releases']['WORK']
+
+    # reassert
+    assert rel['hdfs']['n_members'] == 2
+    assert len(rel['hdfs']['members']) == 3
+    assert rel['hdfs']['attrs'] == [{"key": "foo", "value": "bar", "comment": "a new way", "dtype": "S3"}]
+    assert 'data/stuff' in rel['hdfs']['members']
+    assert rel['hdfs']['members']['data']['n_members'] == 1
+    assert rel['hdfs']['members']['defaults'] == {"name": "defaults", "parent": "/", "object": "dataset",
+                                                 "description": "this is a default dataset", "attrs": [],
+                                                 "shape": (10, 20), "size": 200, "dtype": "int32", "ndim": 2}
+
 def test_design_generates_file(validdesign):
     """ test we can generate a designed file """
     vd = validdesign('fits')
