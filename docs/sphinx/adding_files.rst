@@ -223,13 +223,142 @@ To maintain proper field ordering, it must be added to the front of the list, e.
 Add DataModel Design Code
 -------------------------
 
+To add the option of users designing datamodels for the new file before it exists, you need to override the
+following three methods in your file generation python file.
 
+- `~datamodel.generate.filetypes.base.BaseFile.design_content`: when designing datamodels, updates a YAML cache with content via Python
+- `~datamodel.generate.filetypes.base.BaseFile._get_designed_object`: when designing datamodels, creates a new object representation of the file from the YAML cache
+- `~datamodel.generate.filetypes.base.BaseFile.write_design`: when designing datamodels, generates a new designed template file on disk
 
+Designing New Content
+^^^^^^^^^^^^^^^^^^^^^
+
+On your new file class, override the `~datamodel.generate.filetypes.base.BaseFile.design_content` method, and
+customize it for the specifics of the new file.  It should parse the Python inputs and convert them into the
+proper YAML datamodel structure, populating the content in the ``cache_key`` field.  For example, see FITS
+`~datamodel.generate.filetypes.fits.FitsFile.design_content` method for implementation details of parsing input
+Python into the YAML hdus dictionary content.  Also see the Yanny par
+`~datamodel.generate.filetypes.par.ParFile.design_content` and HDF5 `~datamodel.generate.filetypes.hdf5.HdfFile.design_content`
+methods for details on other filetypes.
+
+Once you've created the above method, you need to add a new ``design_xxx`` convenience method to the
+`~datamodel.generate.datamodel.DataModel` class, which passes your desired inputs into the private
+``_design_content`` method.  This is a convenience for users to easily design new YAML content directly
+from a datamodel instance. For example, the convenient ``design_hdu`` method for FITS files looks like:
+::
+
+    def design_hdu(self, ext: str = 'primary', extno: int = None, name: str = 'EXAMPLE',
+                   description: str = None, header: Union[list, dict, fits.Header] = None,
+                   columns: List[Union[list, dict, fits.Column]] = None, **kwargs):
+        """ Wrapper to _design_content, to design a new HDU """
+        self._design_content(ext=ext, extno=extno, name=name, description=description,
+                            header=header, columns=columns, **kwargs)
+
+Creating the File
+^^^^^^^^^^^^^^^^^
+
+To create a new file object on disk, we need to convert the YAML content to a valid file representation
+and we need to write out that file to disk.
+
+First we need to override the `~datamodel.generate.filetypes.base.BaseFile._get_designed_object` method.
+This is a static method whose input is the ``cache_key`` YAML dictionary content for the new file.  It should
+return a new file object representation.  This method gets called by
+`~datamodel.generate.filetypes.base.BaseFile.create_from_cache` and makes the new object available as the
+``_designed_object`` attribute.  This method should create a new file by parsing and validating the YAML content
+through its Pydantic model and calling a ``convert_xxx`` method to convert the Pydantic model to the new file.
+For example, the method for FITS conversion look like:
+::
+
+    @staticmethod
+    def _get_designed_object(data: dict):
+        """ Return a valid fits HDUList """
+        return fits.HDUList([HDU.parse_obj(v).convert_hdu() for v in data.values()])
+
+with the `~datamodel.models.filetypes.fits.HDU.convert_hdu` method:
+::
+
+    class HDU(BaseModel):
+        ...
+
+        def convert_header(self) -> fits.Header:
+            """ Convert the list of header keys into a fits.Header """
+            if not self.header:
+                return None
+            return fits.Header(i.to_tuple() for i in self.header)
+
+        def convert_columns(self) -> List[fits.Column]:
+            """ Convert the columns dict into a a list of fits.Columns """
+            if not self.columns:
+                return None
+            return [i.to_fitscolumn() for i in self.columns.values()]
+
+        def convert_hdu(self) -> Union[fits.PrimaryHDU, fits.ImageHDU, fits.BinTableHDU]:
+            """ Convert the HDU entry into a valid fits.HDU """
+            if self.name.lower() == 'primary':
+                return fits.PrimaryHDU(header=self.convert_header())
+            elif self.columns:
+                return fits.BinTableHDU.from_columns(self.convert_columns(), name=self.name,
+                                                    header=self.convert_header())
+            else:
+                return fits.ImageHDU(name=self.name, header=self.convert_header())
+
+See also the `~datamodel.models.filetypes.par.ParModel.convert_par` and
+`~datamodel.models.filetypes.hdf5.HdfModel.convert_hdf` methods for details on other filetypes.
+
+Since different file packages have different mechanisms of writing to disk, we need to override the
+`~datamodel.generate.filetypes.base.BaseFile.write_design` method and customize our write method for the
+specifics of the file object.  The method should use the ``self._designed_object`` attribute, which contains
+the file object itself.  For example, the method for writing out a new FITS file looks like:
+::
+
+    def write_design(self, file: str, overwrite: bool = True) -> None:
+        """ Write out the designed file """
+        if not self._designed_object:
+            raise AttributeError('Cannot write.  Designed object does not exist.')
+
+        self._designed_object.writeto(file, overwrite=overwrite, checksum=True)
 
 .. _dmtests:
 
 Add New Tests
 -------------
+
+All the tests are designed around creating a datamodel for a file species "test", located
+at ``$TEST_REDUX/{ver}/testfile_{id}.{suffix}`` where supported filetypes fill in the ``suffix`` field.
+
+In ``tests/conftest.py``, create a new ``create_xxx`` function for your new filetype.  This function creates
+a new test file.  For example,
+::
+
+    def create_fits(name, version, extra_cols):
+        """ create a test fits hdulist """
+        # create the FITS HDUList
+        header = fits.Header([('filename', name,'name of the file'),
+                            ('testver', version, 'version of the file')])
+        primary = fits.PrimaryHDU(header=header)
+        imdata = fits.ImageHDU(name='FLUX', data=np.ones([5,5]))
+        cols = [fits.Column(name='object', format='20A', array=['a', 'b', 'c']),
+                fits.Column(name='param', format='E', array=np.random.rand(3), unit='m'),
+                fits.Column(name='flag', format='I', array=np.arange(3))]
+        if extra_cols:
+            cols.extend([fits.Column(name='field', format='J', array=np.arange(3)),
+                        fits.Column(name='mjd', format='I', array=np.arange(3))])
+        bindata = fits.BinTableHDU.from_columns(cols, name='PARAMS')
+
+        return fits.HDUList([primary, imdata, bindata])
+
+Update the ``create_test_file`` where appropriate to call the new ``create_xxx`` method.
+
+Add a new validated test yaml file for in ``tests/data/``.  Copy an existing test YAML file and modify it
+for your new test filetype.  The validated YAML content should match the content created in the ``create_xxx``
+method.
+
+In ``tests/conftest.py``, add your new file extension to the list of suffixes ``suffixes = ['fits', 'par', 'h5']
+```.
+
+The above setup will automatically add the new filetype to some of the test suite.  Additional tests can be
+added.  Minimally a new design test specific to the new filetype should be added to
+the ``tests/generate/test_design.py`` file.
 
 .. _dmdocs:
 
