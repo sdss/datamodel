@@ -669,7 +669,7 @@ class DataModel(object):
                              description=description, columns=columns)
 
     def design_hdf(self, name: str = '/', description: str = None, hdftype: str = 'group', attrs=None,
-                             ds_shape: tuple = None, ds_size: int = None, ds_dtype: str = None):
+                             ds_shape: tuple = None, ds_dtype: str = None):
         r""" Wrapper to _design_content, to design a new HDF5 section
 
         Design a new HDF entry for the given datamodel.  Specify h5py groups or dataset definitions,
@@ -701,8 +701,6 @@ class DataModel(object):
             a list of HDF5 Attributes, by default None
         ds_shape : tuple, optional
             the shape of an HDF5 array dataset, by default None
-        ds_size : int, optional
-            the size of an HDF5 array dataset, by default None
         ds_dtype : str, optional
             the dtype of an HDF5 array dataset, by default None
 
@@ -713,7 +711,7 @@ class DataModel(object):
         """
 
         self._design_content(name=name, description=description, hdftype=hdftype, attrs=attrs,
-                             ds_shape=ds_shape, ds_size=ds_size, ds_dtype=ds_dtype)
+                             ds_shape=ds_shape, ds_dtype=ds_dtype)
 
     def _design_content(self, *args, **kwargs):
         if not self.design:

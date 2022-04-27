@@ -153,7 +153,7 @@ class HdfFile(BaseFile):
                 item['comment'] = old_cache['attrs'][oldattrs.index(item['key'])]['comment']
 
     def design_content(self, name: str = '/', description: str = None, hdftype: str = 'group',
-                       attrs: list = None, ds_shape: tuple = None, ds_size: int = None, ds_dtype: str = None):
+                       attrs: list = None, ds_shape: tuple = None, ds_dtype: str = None):
         """ Design a new HDF5 section for the datamodel
 
         Design a new HDF entry for the given datamodel.  Specify h5py groups or dataset definitions,
@@ -185,8 +185,6 @@ class HdfFile(BaseFile):
             a list of HDF5 Attributes, by default None
         ds_shape : tuple, optional
             the shape of an HDF5 array dataset, by default None
-        ds_size : int, optional
-            the size of an HDF5 array dataset, by default None
         ds_dtype : str, optional
             the dtype of an HDF5 array dataset, by default None
 
@@ -232,7 +230,7 @@ class HdfFile(BaseFile):
             member['attrs'] = self._design_attrs(attrs) or []
             if hdftype == 'dataset':
                 member['shape'] = ds_shape or (10,)
-                member['size'] = ds_size or 10
+                member['size'] = np.prod(member['shape']).item()
                 member['dtype'] = ds_dtype or 'S10'
                 member['ndim'] = len(member['shape'])
             elif hdftype == 'group':
