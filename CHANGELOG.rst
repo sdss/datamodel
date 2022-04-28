@@ -6,7 +6,7 @@ Change Log
 
 0.5.0 (unreleased)
 ------------------
-- Added support for Yanny parameter files (PR :pr:`40`)
+- Added support for HDF5 files (PR :pr:`40`)
 - Refactored code for easier addition of new file types
 - Updating docs for adding new filetypes
 - Moves `pydl` and `h5py` packages to extras dependencies
