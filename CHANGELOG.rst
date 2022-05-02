@@ -4,7 +4,7 @@
 Change Log
 ==========
 
-0.5.0 (unreleased)
+0.5.0 (05-02-2022)
 ------------------
 - Added support for HDF5 files (PR :pr:`40`)
 - Refactored code for easier addition of new file types
