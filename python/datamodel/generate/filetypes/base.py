@@ -89,13 +89,13 @@ class BaseFile(abc.ABC):
     ------
     ValueError
         when datamodel is not provided when (filename, release, file_species) are not provided.
-    """      
+    """
     suffix = None
     cache_key = None
 
-    def __init__(self, cache: dict, datamodel=None, stub=None, filename: str = None, 
-                 release: str = None, file_species: str = None, design: bool = None, 
-                 use_cache_release: str = None, full_cache: bool = None):  
+    def __init__(self, cache: dict, datamodel=None, stub=None, filename: str = None,
+                 release: str = None, file_species: str = None, design: bool = None,
+                 use_cache_release: str = None, full_cache: bool = None):
         self._cache = cache
         self._datamodel = datamodel
         self._stub = stub
@@ -120,11 +120,14 @@ class BaseFile(abc.ABC):
             self.use_cache_release = self._stub.use_cache_release
             self.full_cache = self._stub.full_cache
 
+        # set default designed object
+        self._designed_object = None
+
     def __repr__(self):
         return f'<{self.__class__.__name__}("{self.filename}")>'
-    
+
     def _set_cache(self, force=None):
-        """ Default method for setting new cache content based on type of file """
+        """ Default method for setting new cache content based on the type of file """
 
         # get the cached data
         cached_data = self._cache['releases'][self.release].get(self.cache_key, {})
@@ -150,36 +153,115 @@ class BaseFile(abc.ABC):
 
         # set the yanny cache to the given release
         self._cache['releases'][self.release][self.cache_key] = cached_data
-        
-    @abc.abstractmethod        
-    def _update_partial_cache(self, cached_data, old_cache):
-        """ Abstract method to be implemented by subclass, for partially updating cache content """
-        pass
+
+    @abc.abstractmethod
+    def _generate_new_cache(self) -> dict:
+        """ Abstract method to be implemented by subclass, for generating new cache content
+
+        This method is used to generate the file content for new datamodel YAML files.  It
+        should return a dictionary to be stored as the value of the cache key.
+        """
+
+    @abc.abstractmethod
+    def _update_partial_cache(self, cached_data: dict, old_cache: dict) -> dict:
+        """ Abstract method to be implemented by subclass, for partially updating cache content
+
+        This method updates the descriptions or comments of the new cached_data with the human-edited
+        fields from the old_cache data.  Used when adding a new release to a datamodel and retaining the old
+        descriptions from the previous release.  This method should return the cached_data object.
+
+        Parameters
+        ----------
+        cached_data : dict
+            The YAML cache for a the current release
+        old_cache : dict
+            The YAML cache for a previous release
+        """
 
     def _use_full_cache(self):
-        """ Default method for using the entire cache of a previous release """
-        self._cache['releases'][self.release] = self._cache['releases'].get(self.use_cache_release, {})
-               
-    @abc.abstractmethod        
-    def _generate_new_cache(self):
-        """ Abstract method to be implemented by subclass, for generating new cache content """
-        pass
-    
-    @abc.abstractmethod        
-    def design_content(self):
-        """ Abstract method to be implemented by subclass, for designing file content """
-        pass
+        """ Default method for using the entire cache of a previous release
 
-    @abc.abstractmethod        
-    def create_from_cache(self):
-        """ Abstract method to be implemented by subclass, for creating a valid object from cache """
-        pass
-    
-    @abc.abstractmethod        
-    def write_design(self, file, overwrite=None):
-        """ Abstract method to be implemented by subclass, for writing a design to a file """
-        pass
-    
+        This method is used when copying the entire datamodel cache of a previous release, for cases
+        when the datamodel for a new release is exactly the same as a prior release.  In most case, this
+        method does not need to be overridden.
+        """
+        self._cache['releases'][self.release] = self._cache['releases'].get(self.use_cache_release, {})
+
+    @abc.abstractmethod
+    def design_content(self):
+        """ Abstract method to be implemented by subclass, for designing file content
+
+        This method is used to design new content for a YAML datamodel cache for new files
+        from within Python.  It should ultimately update the cache line
+        self._cache['releases']['WORK'][self.cache_key] = [updated_cache_content]
+        with the new content.  This method is called by the DataModel's global design_content method.
+        """
+
+    def create_from_cache(self, release: str = 'WORK'):
+        """ Create a file object from the yaml cache
+
+        Converts the cache_key dictionary entry in the YAML cache into
+        a file object.
+
+        Parameters
+        ----------
+        release : str, optional
+            the name of the data release, by default 'WORK'
+
+        Returns
+        -------
+        object
+            a valid file object
+
+        Raises
+        ------
+        ValueError
+            when the release is not in the cache
+        ValueError
+            when the release is not WORK when in the datamodel design phase
+        """
+        if release not in self._cache['releases']:
+            raise ValueError(f'Release {release} not found in list of cached releases.')
+
+        if self.design and release != 'WORK':
+            raise ValueError(f'Release {release} can only be "WORK" when in the datamodel design phase.')
+
+        data = self._cache['releases'][release][self.cache_key]
+        self._designed_object = self._get_designed_object(data)
+        return self._designed_object
+
+    @staticmethod
+    @abc.abstractmethod
+    def _get_designed_object(data: dict):
+        """ Abstract static method to be implemented by subclass, for creating a valid object from cache
+
+        This method is used to create a data object from a designed YAML cache content.  It should return
+        a new designed object.  Ideally the object should be created through the Pydantic model's
+        parse_obj to ensure proper validation and field type coercion.  This method is called
+        by create_from_cache which sets the object as the self._designed_object attribute.
+
+        Parameters
+        ----------
+        data : dict
+            The YAML cache value for the ``cache_key`` field
+        """
+
+    @abc.abstractmethod
+    def write_design(self, file: str, overwrite: bool = None):
+        """ Abstract method to be implemented by subclass, for writing a design to a file
+
+        This method is used to write out the designed data object.  It should call the
+        self.designed_object's particular method for writing itself to a file,
+        specific to that filetype.
+
+        Parameters
+        ----------
+        file : str
+            The datamodel filename to write to
+        overwrite : bool
+            Flag to overwrite the file if it exists, by default None
+        """
+
     @staticmethod
     def _nonempty_string(value: str = None) -> str:
         """Jinja2 Filter to map the format value to a string.
@@ -198,7 +280,7 @@ class BaseFile(abc.ABC):
 
 
 def file_selector(suffix: str = None) -> BaseFile:
-    """ Select the correct class given a file suffix """
+    """ Selects the correct File class given a file suffix """
 
     for ftype in BaseFile.__subclasses__():
         if suffix and suffix.upper() == ftype.suffix:

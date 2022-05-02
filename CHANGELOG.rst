@@ -4,6 +4,13 @@
 Change Log
 ==========
 
+0.5.0 (unreleased)
+------------------
+- Added support for HDF5 files (PR :pr:`40`)
+- Refactored code for easier addition of new file types
+- Updating docs for adding new filetypes
+- Moves `pydl` and `h5py` packages to extras dependencies
+
 0.4.2 (02-22-2022)
 ------------------
 - Fix issue :issue:`37` - add missing enum support to Yanny par datamodels
@@ -14,11 +21,11 @@ Change Log
 
 0.4.0 (02-11-2022)
 ------------------
-- Added support for Yanny parameter files (PR :pr:`36`) 
+- Added support for Yanny parameter files (PR :pr:`36`)
 - Refactored code for easier addition of new file types
 - Removed remaining deprecated wiki code and references
 
-0.3.3 (01-07-2021)
+0.3.3 (01-07-2022)
 ------------------
 - Removed all references to the old datamodel wiki code, now deprecated for the DSI
 - Fix to Github Action to build sphinx documentation

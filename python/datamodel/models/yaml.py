@@ -12,16 +12,17 @@
 
 
 from __future__ import print_function, division, absolute_import, annotations
-from lib2to3.pygram import Symbols
 
-import orjson
 import re
 from typing import List, Dict, Union
+
+import orjson
+from astropy.io import fits
 from pydantic import BaseModel, validator
 
-from astropy.io import fits
-from pydl.pydlutils.yanny import yanny
 from .releases import releases, Release as ReleaseMod
+from .validators import replace_me, check_release
+from .filetypes import HDU, ParModel, HdfModel, ChangeFits, ChangePar, ChangeHdf
 
 
 def orjson_dumps(v, *, default):
@@ -29,61 +30,6 @@ def orjson_dumps(v, *, default):
     return orjson.dumps(v, default=default,
                         option=orjson.OPT_INDENT_2|
                         orjson.OPT_SERIALIZE_NUMPY).decode()
-
-
-def replace_me(value: str) -> str:
-    """ Validator for datamodel text fields
-
-    Validator for yaml fields where the string values have the text
-    "replace me" within it.  This text indicates a template text that
-    must be replaced.
-
-    Parameters
-    ----------
-    value : str
-        the value of the field
-
-    Returns
-    -------
-    str
-        the value of the field
-
-    Raises
-    ------
-    ValueError
-        when "replace me" is the in the value text
-    """
-    if 'replace me' in value:
-        raise ValueError('Generic text needs to be replaced with specific content!')
-    return value
-
-
-def check_release(value: dict) -> str:
-    """ Validator for datamodel release keys
-
-    Validator for yaml "releases" fields.  Checks the "releases" keys against
-    valid SDSS releases, from the Releases Model.
-
-    Parameters
-    ----------
-    value : dict
-        the value of the field
-
-    Returns
-    -------
-    str
-        the value of the field
-
-    Raises
-    ------
-    ValueError
-        when the release key is not a valid release
-    """
-    rr = [i.name for i in releases]
-    badkeys = set(value.keys()) - set(rr)
-    if badkeys:
-        raise ValueError(f"Invalid key(s) {','.join(badkeys)} in releases dict.")
-    return value
 
 class GeneralSection(BaseModel):
     """ Pydantic model representing the YAML general section
@@ -144,27 +90,17 @@ class GeneralSection(BaseModel):
             raise ValueError('Design is set to True. YAML will not validate until out of design phase.')
         return value
 
-class ChangeTable(BaseModel):
-    """ Pydantic model representing a YAML changelog Yanny table section
+class ChangeBase(BaseModel):
+    """ Base Pydantic model representing a YAML changelog release section"""
+    from_: str
+    note: str = None
+    class Config:
+        """ Pydantic model configuration """
+        fields = {
+            'from_': 'from'
+        }
 
-    Represents a computed section of the changelog, for a specific Yanny table.
-    For each similar Yanny table between releases, the changes in row number
-    and structure columns are computed.
-
-    Parameters
-    ----------
-    delta_nrows : int
-        The difference in rows between Yanny tables
-    added_cols : List[str]
-        A list of any added Yanny table columns
-    removed_cols : List[str]
-        A list of any removed Yanny table columns
-    """
-    delta_nrows: int = None
-    added_cols: List[str] = None
-    removed_cols: List[str] = None
-
-class ChangeRelease(BaseModel):
+class ChangeRelease(ChangeHdf, ChangePar, ChangeFits, ChangeBase):
     """ Pydantic model representing a YAML changelog release section
 
     Represents a computed section of the changelog, for the specified
@@ -201,28 +137,23 @@ class ChangeRelease(BaseModel):
         A list of any removed Yanny tables
     tables : Dict[str, ChangeTable]
         A dictionary of table column and row changes
+    new_libver : tuple
+        The difference in HDF5 library version
+    delta_nattrs : int
+        The difference in the number of HDF5 Attributes
+    added_attrs : List[str]
+        A list of any added HDF5 Attributes
+    removed_attrs : List[str]
+        A list of any removed HDF5 Attributes
+    delta_nmembers : int
+        The difference in number members in HDF5 file
+    added_members : List[str]
+        A list of any added HDF5 groups or datasets
+    removed_members : List[str]
+        A list of any removed HDF5 groups or datasets
+    members : Dict[str, ChangeMember]
+        A dictionary of HDF5 group/dataset member changes
     """
-    from_: str
-    # fits
-    delta_nhdus: int = None
-    added_hdus: List[str] = None
-    removed_hdus: List[str] = None
-    primary_delta_nkeys: int = None
-    added_primary_header_kwargs: List[str] = None
-    removed_primary_header_kwargs: List[str] = None
-    note: str = None
-    # yanny par
-    delta_nkeys: int = None
-    addead_header_keys: List[str] = None
-    removed_header_keys: List[str] = None
-    delta_ntables: int = None
-    addead_tables: List[str] = None
-    removed_tables: List[str] = None
-    tables: Dict[str, ChangeTable] = None
-    class Config:
-        fields = {
-            'from_': 'from'
-        }
 
 class ChangeLog(BaseModel):
     """ Pydantic model representing the YAML changelog section
@@ -239,6 +170,21 @@ class ChangeLog(BaseModel):
 
     _check_releases = validator('releases', allow_reuse=True)(check_release)
 
+    def json(self, **kwargs):
+        """ override json method to exclude none fields by default """
+        kwargs.pop('exclude_none', None)
+        return super().json(exclude_none=True, **kwargs)
+
+    def dict(self, **kwargs):
+        """ override dict method to exclude none fields by default
+
+        Need to override this method as well when serializing YamlModel to json,
+        because nested models are already converted to dict when json.dumps is called.
+        See https://github.com/samuelcolvin/pydantic/issues/1778
+
+        """
+        kwargs.pop('exclude_none', None)
+        return super().dict(exclude_none=True, **kwargs)
 
 class Access(BaseModel):
     """ Pydantic model representing the YAML releases access section
@@ -278,273 +224,6 @@ class Access(BaseModel):
             raise ValueError('path_kwargs cannot be None if path_template has {} kwargs')
         return value
 
-class Header(BaseModel):
-    """ Pydantic model representing a YAML header section
-
-    Represents an individual FITS Header Key
-
-    Parameters
-    ----------
-    key : str
-        The name of the header keyword
-    value : str
-        The value of the header keyword
-    comment : str
-        A comment for the header keyword, if any
-    """
-    key: str
-    value: str = ''
-    comment: str = ''
-
-    def to_tuple(self):
-        """ Convert the header key to a tuple """
-        return (self.key, int(self.value) if self.value.isdigit() else self.value, self.comment)
-
-class Column(BaseModel):
-    """ Pydantic model representing a YAML column section
-
-    Represents a FITS binary table column
-
-    Parameters
-    ----------
-    name : str
-        The name of the table column
-    description : str
-        A description of the table column
-    type : str
-        The data type of the table column
-    unit : str
-        The unit of the table column
-    """
-    name: str
-    description: str
-    type: str
-    unit: str
-
-    _check_replace_me = validator('unit', 'description', allow_reuse=True)(replace_me)
-
-    def to_fitscolumn(self) -> fits.Column:
-        """ Convert the column to a fits.Column
-
-        Converts the column entry in the yaml file to an
-        Astropy fits.Column object.  Performs a mapping between ``type``
-        and ``format``, using the reverse of `.datamodel.generate.stub.Stub._format_type`.
-
-        Returns
-        -------
-        fits.Column
-            a valid astropy fits.Column object
-
-        Raises
-        ------
-        TypeError
-            when the column type cannot be coerced into a valid fits.Column format
-        """
-        tmap = {'char': 'A', 'int16': 'I', 'int32': 'J', 'int64': 'K',
-                'float32': 'E', 'float64': 'D', 'bool': 'L'}
-
-        # regex search for the type
-        patt = re.compile(r'(?P<dtype>char|bool|int\d{2}|float\d{2})(?P<charlength>\[(?P<charnum>\d+)\])?')
-        match = re.search(patt, self.type)
-        if match:
-            col = match.groupdict()
-            # convert the type to corresponding format
-            if col['dtype'] == 'char':
-                format = f"{col['charnum']}{tmap[col['dtype']]}"
-            else:
-                format = f"{tmap[col['dtype']]}"
-            return fits.Column(name=self.name, format=format, unit=self.unit)
-        else:
-            raise TypeError(f'The column type {self.type} could not be properly coerced. '
-                            'Check for a valid fits.Column format.')
-
-
-class HDU(BaseModel):
-    """ Pydantic model representing a YAML hdu section
-
-    Represents a FITS HDU extension
-
-    Parameters
-    ----------
-    name : str
-        The name of the HDU extension
-    is_image : bool
-        Whether the HDU is an image extension
-    description : str
-        A description of the HDU extension
-    size : str
-        An estimated size of the HDU extension
-    header : List[`.Header`]
-        A list of header values for the extension
-    columns : Dict[str, `.Column`]
-        A list of any binary table columns for the extension
-    """
-    name: str
-    is_image: bool
-    description: str
-    size: str
-    header: List[Header] = None
-    columns: Dict[str, Column] = None
-
-    _check_replace_me = validator('description', allow_reuse=True)(replace_me)
-
-    def convert_header(self) -> fits.Header:
-        """ Convert the list of header keys into a fits.Header """
-        if not self.header:
-            return None
-        return fits.Header(i.to_tuple() for i in self.header)
-
-    def convert_columns(self) -> List[fits.Column]:
-        """ Convert the columns dict into a a list of fits.Columns """
-        if not self.columns:
-            return None
-        return [i.to_fitscolumn() for i in self.columns.values()]
-
-    def convert_hdu(self) -> Union[fits.PrimaryHDU, fits.ImageHDU, fits.BinTableHDU]:
-        """ Convert the HDU entry into a valid fits.HDU """
-        if self.name.lower() == 'primary':
-            return fits.PrimaryHDU(header=self.convert_header())
-        elif self.columns:
-            return fits.BinTableHDU.from_columns(self.convert_columns(), name=self.name,
-                                                 header=self.convert_header())
-        else:
-            return fits.ImageHDU(name=self.name, header=self.convert_header())
-
-class ParColumn(BaseModel):
-    """ Pydantic model representing a YAML par column section
-
-    Represents a typedef column definition in a Yanny parameter file
-
-    Parameters
-    ----------
-    name : str
-        The name of the column
-    description : str
-        A description of the column
-    type : str
-        The data type of the column
-    unit : str
-        The unit of the column, if any
-    is_array : bool
-        If the column is an array type
-    is_enum : bool
-        If the column is an enum type
-    example : str
-        An example value for the column
-    """
-    name: str
-    type: str
-    description: str
-    unit: str
-    is_array: bool
-    is_enum: bool
-    enum_values: list = None
-    example: Union[str, int, float, list]
-
-    _check_replace_me = validator('unit', 'description', allow_reuse=True)(replace_me)
-
-    def parse_type(self):
-        """ Parse the yanny YAML column type """
-        match = re.match(r"(?P<type>\w+)(?P<size>\[\d+\])?", self.type).groupdict()
-        return f"{match['type']} {self.name}{match['size'] or ''}"
-
-class ParTable(BaseModel):
-    """ Pydantic model representing a YAML par table section
-
-    Represents the structure of a single Yanny parameter table
-
-    Parameters
-    ----------
-    name : str
-        The name of the table
-    description : str
-        A description of the table
-    n_rows : int
-        The number of rows in the table
-    structure : list
-        A list of column definitions for the table
-    """
-    name: str
-    description: str
-    n_rows: int
-    structure: List[ParColumn]
-
-    _check_replace_me = validator('description', allow_reuse=True)(replace_me)
-
-    def create_typedef(self):
-        """ Create a Yanny typedef struct string """
-        cols = " ".join([f"\n\t\t{c.parse_type()};" for c in self.structure])
-        return f"typedef struct {{{ cols }\n}} {self.name};"
-
-    def create_enum(self):
-        """ Create a Yanny typedef enum string """
-        enum = []
-        for c in self.structure:
-            # do only when column is an enum
-            if not c.is_enum:
-                continue
-
-            # do only when there are enum values present
-            if not c.enum_values:
-                continue
-
-            # create enum definiton
-            names = "".join([f"\n\t{v};" for v in c.enum_values])
-            enum.append(f"typedef enum {{{ names }\n}} {c.type};")
-        return enum
-
-    def convert_table(self):
-        """ Create a dictionary to prepare a Yanny table """
-        table = {'symbols': {'enum': self.create_enum(),
-                            'struct': self.create_typedef(),
-                            self.name: [c.name for c in self.structure]}
-                }
-        table[self.name] = {c.name: [c.example] for c in self.structure}
-        return table
-
-
-class ParModel(BaseModel):
-    """ Pydantic model representing a YAML par section
-
-    Represents a Yanny parameter file
-
-    Parameters
-    ----------
-    comments : str
-        Any header comments in the parameter file
-    header : list
-        A list of header key-value pairs in the parameter file
-    tables : dict
-        A dictionary of tables in the parameter file
-    """
-    comments: str = None
-    header: List[Header] = None
-    tables: Dict[str, ParTable]
-
-    def convert_header(self) -> dict:
-        """ Convert the header into a dicionary """
-        return {i.key: i.value for i in self.header}
-
-    def convert_par(self):
-        """ Convert the YAML par section into a Yanny par object """
-        # create a blank Yanny structure
-        tmp = yanny()
-        # add generic content so yanny is not None
-        tmp._contents = "#%yanny"
-        # add header info
-        tmp.update(self.convert_header())
-        # add defaults symbols
-        tmp._symbols["enum"] = []
-        tmp._symbols["struct"] = []
-        # add table data
-        for tname, tdata in self.tables.items():
-            tt = tdata.convert_table()
-            tmp[tname] = tt[tname]
-            tmp._symbols[tname] = tt["symbols"][tname]
-            tmp._symbols["struct"].append(tt["symbols"]["struct"])
-            tmp._symbols["enum"].extend(tt["symbols"]["enum"])
-        return tmp
-
 class Release(BaseModel):
     """ Pydantic model representing an item in the YAML releases section
 
@@ -573,6 +252,7 @@ class Release(BaseModel):
     access: Access
     hdus: Dict[str, HDU] = None
     par: ParModel = None
+    hdfs: HdfModel = None
 
     def convert_to_hdulist(self) -> fits.HDUList:
         """ Convert the hdus to a fits.HDUList """

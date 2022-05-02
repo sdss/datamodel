@@ -4,7 +4,6 @@
 import os
 
 from typing import List, Union
-from xml.dom.minidom import Attr
 from astropy.io import fits
 
 from datamodel import log
@@ -18,7 +17,7 @@ class FitsFile(BaseFile):
     cache_key = 'hdus'
 
     def _update_partial_cache(self, cached_hdus: dict, old_hdus: dict) -> dict:
-        """ Partially updates an existing cache 
+        """ Partially updates an existing cache
 
         Updates a new cache with values from an old cache.  Useful for reusing human-edited
         cache content.
@@ -48,7 +47,7 @@ class FitsFile(BaseFile):
             # get the matching old hdu index
             idx = old_names.index(v['name']) if v['name'] else current_idx
             oldkey = f'hdu{idx}'
-            
+
             # issue a warning if the extension has no name
             if not v['name']:
                 log.warning(f'HDU ext {current_idx} in {self.file_species} has no '
@@ -72,7 +71,7 @@ class FitsFile(BaseFile):
                 vv['description'] = old_hdus[oldkey]['columns'][kk]['description']
 
         return cached_hdus
-    
+
     def _generate_new_cache(self) -> dict:
         """ Generates a branch new HDU cache
 
@@ -94,7 +93,7 @@ class FitsFile(BaseFile):
                     log.warning(f'HDU ext {hdu_number} in {self.file_species} has no '
                                 'proper FITS extension name.  This breaks SDSS name formatting.  '
                                 'Please correct the FITS file.')
-                    
+
                 # convert an HDU to a dictionary
                 row = self._convert_hdu_to_dict(hdu)
 
@@ -102,11 +101,11 @@ class FitsFile(BaseFile):
                 extno = f'hdu{hdu_number}'
                 hdus[extno] = row
         return hdus
-    
+
     def _convert_hdu_to_dict(self, hdu: fits.hdu.base._BaseHDU, description: str = None) -> dict:
         """ Convert an HDU into a dictionary entry """
         header = hdu.header
-                
+
         # create a new one
         row = {
             'name': hdu.name,
@@ -131,35 +130,35 @@ class FitsFile(BaseFile):
         """ Extract a column from a Astropy HDU table extension """
         with fits.open(self.filename) as hdulist:
             return hdulist[ext].columns[key]
-        
+
     def _generate_column_dict(self, column: fits.Column) -> dict:
         """ Generates a dictionary entry for an Astropy table column """
         return {'name': column.name.upper(),
                 'type': self._format_type(column.format),
                 'unit': self._nonempty_string(column.unit),
                 'description': self._nonempty_string()}
-    
-    def design_content(self, ext: str = 'primary', extno: int = None, name: str = 'EXAMPLE', 
-                   description: str = None, header: Union[list, dict, fits.Header] = None, 
+
+    def design_content(self, ext: str = 'primary', extno: int = None, name: str = 'EXAMPLE',
+                   description: str = None, header: Union[list, dict, fits.Header] = None,
                    columns: List[Union[list, dict, fits.Column]] = None, **kwargs) -> None:
         """ Design a new HDU
 
-        Design a new astropy HDU for the given datamodel.  Specify the extension type ``ext`` 
+        Design a new astropy HDU for the given datamodel.  Specify the extension type ``ext``
         to indicate a PRIMARY, IMAGE, or BINTABLE HDU extension.  Each new HDU is added to the
         YAML structure using next hdu extension id found, or the one provided with ``extno``.  Use
-        ``name`` to specify the name of the HDU extension.     
+        ``name`` to specify the name of the HDU extension.
 
-        ``header`` can be a `~astropy.io.fits.Header` instance, a list of tuples of header keywords, 
-        conforming to (keyword, value, comment), or list of dictionaries conforming to 
+        ``header`` can be a `~astropy.io.fits.Header` instance, a list of tuples of header keywords,
+        conforming to (keyword, value, comment), or list of dictionaries conforming to
         {"keyword": keyword, "value": value, "comment": comment}.
 
-        ``columns`` can be a list of `~astropy.io.fits.Column` objects, a list of tuples 
+        ``columns`` can be a list of `~astropy.io.fits.Column` objects, a list of tuples
         minimally conforming to (name, format, unit), or list of dictionaries minimally conforming
-        to {"name": name, "format": format, "unit": unit}.  See Astropy's Binary Table 
+        to {"name": name, "format": format, "unit": unit}.  See Astropy's Binary Table
         `Column Format <https://docs.astropy.org/en/stable/io/fits/usage/table.html#column-creation>`_
         for the allowed format values.  When supplying a list of tuples or dictionaries, can include
         any number of valid arguments into `~astropy.io.fits.Column`.
-        
+
         Parameters
         ----------
         ext : str, optional
@@ -190,18 +189,18 @@ class FitsFile(BaseFile):
             log.warning('Cannot design an HDU when not in the datamodel design phase or '
                         'if a real file already exists.')
             return
-        
+
         cached_hdus = self._cache['releases']['WORK'][self.cache_key]
 
         if ext not in ['primary', 'image', 'table']:
             raise ValueError('Can only design a primary, image, or table HDU extension.')
-        
+
         # check header keyword
         if header and not isinstance(header, fits.Header) and isinstance(header, (list, dict)):
             header = fits.Header(header)
         else:
             header = fits.Header()
-            
+
         # check binary table column keywords
         if ext == 'table':
             if columns and not isinstance(columns, list):
@@ -212,18 +211,18 @@ class FitsFile(BaseFile):
                 columns = [fits.Column(**c) for c in columns]
             elif isinstance(columns[0], (list, tuple)):
                 columns = [fits.Column(*c) for c in columns]
-    
+
         # generate a new HDU extension
         if ext == 'primary':
             hdu = fits.PrimaryHDU(header=header, **kwargs)
         elif ext == 'image':
             hdu = fits.ImageHDU(name=name, header=header, **kwargs)
         elif ext == 'table':
-            hdu = fits.BinTableHDU.from_columns(name=name, 
-                                                columns=columns, 
+            hdu = fits.BinTableHDU.from_columns(name=name,
+                                                columns=columns,
                                                 header=header, **kwargs)
 
-        # convert the new HDU to a dictionary            
+        # convert the new HDU to a dictionary
         row = self._convert_hdu_to_dict(hdu, description=description)
 
         # determine the extension number
@@ -238,44 +237,30 @@ class FitsFile(BaseFile):
             extno = max_extno + 1
         else:
             extno = 0 if ext == 'primary' else 1
-                    
-        # add the designed HDU to the cache    
+
+        # add the designed HDU to the cache
         extno = f'hdu{extno}'
         cached_hdus[extno] = row
-        self._cache['releases']['WORK'][self.cache_key] = cached_hdus       
+        self._cache['releases']['WORK'][self.cache_key] = cached_hdus
 
-    def create_from_cache(self, release: str = 'WORK') -> fits.HDUList:
-        """ Create a fits.HDUList from the yaml cache
+    @staticmethod
+    def _get_designed_object(data: dict):
+        """ Return a valid fits HDUList
 
-        Converts the hdu dictionary entry in the YAML cache into
-        a Astropy fits.HDUList object.
+        Parses and validates the hdus YAML cache into a proper Pydantic model
+        and converts the model into an HDUList
 
         Parameters
         ----------
-        release : str, optional
-            the name of the data release, by default 'WORK'
+        data : dict
+            The hdus cache
 
         Returns
         -------
         fits.HDUList
-            a valid astropy fits.HDUList object
-
-        Raises
-        ------
-        ValueError
-            when the release is not in the cache
-        ValueError
-            when the release is not WORK when in the datamodel design phase
+            A valid astropy fits.HDUList object
         """
-        if release not in self._cache['releases']:
-            raise ValueError(f'Release {release} not found in list of cached releases.')
-        
-        if self.design and release != 'WORK':
-            raise ValueError(f'Release {release} can only be "WORK" when in the datamodel design phase.')
-        
-        hdus = self._cache['releases'][release][self.cache_key]
-        self._designed_object = fits.HDUList([HDU.parse_obj(v).convert_hdu() for v in hdus.values()])
-        return self._designed_object
+        return fits.HDUList([HDU.parse_obj(v).convert_hdu() for v in data.values()])
 
     def write_design(self, file: str, overwrite: bool = True) -> None:
         """ Write out the designed file
@@ -333,5 +318,4 @@ class FitsFile(BaseFile):
             if key in value
         ]
         return out[0]
-    
-    
+

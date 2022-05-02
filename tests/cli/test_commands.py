@@ -39,14 +39,14 @@ def test_datamodel_help(command, msg):
     assert msg in result.output
 
 
-def test_cli_datamodel_generate(testfile):
+def test_cli_datamodel_generate(testfits):
     """ test that cli generates a file """
     runner = CliRunner()
     result = runner.invoke(cli, ['generate', '-f', 'test', '-p', 'TEST_REDUX/{ver}/testfile_{id}.fits', '-k', 'ver=v1', '-k', 'id=a', '-v', '-s'])
     path = os.path.join(os.getenv("DATAMODEL_DIR"), 'datamodel/products/yaml/test.yaml')
     assert os.path.exists(path)
 
-def test_cli_dm_generate_keywords(testfile):
+def test_cli_dm_generate_keywords(testfits):
     """ test that no keywords are allowed in cli """
     runner = CliRunner()
     result = runner.invoke(cli, ['generate', '-f', 'test', '-p', 'TEST_REDUX/testfile.fits', '-v', '-s'])
@@ -60,5 +60,4 @@ def test_cli_dm_design(yamlfile):
     runner = CliRunner()
     result = runner.invoke(cli, ['design', '-f', 'test', '-p', 'TEST_REDUX/{ver}/testfile_{id}.fits'])
     assert os.path.exists(yamlfile)
-    
-    
+

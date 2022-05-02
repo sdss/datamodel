@@ -21,9 +21,14 @@ import numpy as np
 import pytest
 from astropy.io import fits
 from pydl.pydlutils.yanny import yanny
+import h5py
 from sdss_access.path import Path
 from tree import Tree
 
+from datamodel.generate import DataModel
+
+####
+# Fixtures for setting up the test enviroment and paths
 
 @pytest.fixture(autouse=True)
 def setup_datamodel_env(monkeypatch, tmp_path):
@@ -50,6 +55,8 @@ def setup_sas(monkeypatch, tmp_path, mocker):
     mocker.patch('datamodel.generate.datamodel.Tree', new=MockTree)
     mocker.patch('datamodel.generate.datamodel.Path', new=MockPath)
 
+####
+# Fixtures for creating test files and datamodels
 
 def create_fits(name, version, extra_cols):
     """ create a test fits hdulist """
@@ -79,9 +86,19 @@ def create_par():
     par["TABLE"] = {"a": [1], "b": ['ab'], "c": [[1,2,3,4,5]]}
     return par
 
+def create_hdf5(path):
+    """ create a test HDF5 file """
+    with h5py.File(path, 'a') as f:
+        f.attrs.create('NEW', b'STUFF')
+        f.create_group('bar')
+        f['bar'].attrs.create('HELLO', b'THERE')
+        f.create_dataset('bar/ints', shape=(100,), dtype='int32')
+        f.create_dataset('default', shape=(2,10), dtype='<f8')
+        return f
+
 def create_test_file(name: str = None, version: str = None,
                      env: str = None, extra_cols: bool = None,
-                     type: str = 'fits') -> pathlib.Path:
+                     suffix: str = 'fits') -> pathlib.Path:
     """ creates a temporary fake test file
 
     Parameters
@@ -94,7 +111,7 @@ def create_test_file(name: str = None, version: str = None,
         the environment, by default 'testwork'
     extra_cols : bool, optional
         If True, add extra columns to the binary table FITS extension, by default False
-    type : str
+    suffix : str
         The type of file to create, by default "fits"
 
     Returns
@@ -103,13 +120,13 @@ def create_test_file(name: str = None, version: str = None,
         The full path to the temporary file on disk
     """
     # set defaults
-    name = name or f'testfile_a.{type.lower()}'
+    name = name or f'testfile_a.{suffix.lower()}'
     version = version or 'v1'
     env = env or 'testwork'
 
-    if type == 'fits':
+    if suffix == 'fits':
         hdu = create_fits(name, version, extra_cols)
-    elif type == 'par':
+    elif suffix == 'par':
         par = create_par()
 
     # write out the file to the designated path
@@ -120,10 +137,12 @@ def create_test_file(name: str = None, version: str = None,
     if not path.exists():
        path.parent.mkdir(parents=True, exist_ok=True)
 
-    if type == 'fits':
+    if suffix == 'fits':
         hdu.writeto(path, overwrite=True)
-    elif type == 'par':
+    elif suffix == 'par':
         par.write(path, comments=f'# version\n# {version}\n')
+    elif suffix == 'h5':
+        create_hdf5(path)
 
     return path
 
@@ -131,94 +150,129 @@ def create_test_file(name: str = None, version: str = None,
 @pytest.fixture()
 def makefile():
     """ fixture to make a test file """
-    def _make_file(name=None, version=None, env=None, extra_cols=None, type='fits'):
-        return create_test_file(name=name, version=version, env=env, extra_cols=extra_cols, type=type)
+    def _make_file(name=None, version=None, env=None, extra_cols=None, suffix='fits'):
+        return create_test_file(name=name, version=version, env=env, extra_cols=extra_cols, suffix=suffix)
     return _make_file
-
 
 @pytest.fixture()
 def testfile(makefile):
-    """ fixture to create a default test file """
-    testfile = makefile()
-    yield testfile
-    testfile.unlink()
+    """ fixture factory to create a new test file for a given file type suffix """
+    def _testfile(suffix='fits'):
+        return makefile(suffix=suffix)
+    return _testfile
 
 @pytest.fixture()
-def testparfile(makefile):
-    """ fixture to create a default test par file """
-    testfile = makefile(type='par')
-    yield testfile
-    testfile.unlink()
+def testfits(testfile):
+    """ Fixture to create a default test FITS file """
+    yield testfile('fits')
+
 
 @pytest.fixture
 def yamlfile():
     yield os.getenv("DATAMODEL_DIR") / pathlib.Path('datamodel') / 'products/yaml/test.yaml'
 
+
 @pytest.fixture
 def validyaml(yamlfile):
-    """ fixture that makes the test yaml file a valid one """
-    yamlfile.parent.mkdir(parents=True, exist_ok=True)
-    testpath = pathlib.Path(__file__).parent / 'data/test_valid.yaml'
-    shutil.copy2(testpath, yamlfile)
-    yield yamlfile
+    """ fixture factory that creates a valid test yaml file for a given file type suffix"""
+    def _validyaml(suffix='fits'):
+        yamlfile.parent.mkdir(parents=True, exist_ok=True)
+        testpath = pathlib.Path(__file__).parent / f'data/test_valid_{suffix}.yaml'
+        shutil.copy2(testpath, yamlfile)
+        return yamlfile
+    return _validyaml
 
-@pytest.fixture
-def validparyaml(yamlfile):
-    """ fixture that makes the test yaml file a valid one """
-    yamlfile.parent.mkdir(parents=True, exist_ok=True)
-    testpath = pathlib.Path(__file__).parent / 'data/test_valid_par.yaml'
-    shutil.copy2(testpath, yamlfile)
-    yield yamlfile
-
-
-from datamodel.generate import DataModel
 
 @pytest.fixture()
 def datamodel(testfile):
-    """ fixture to create a default datamodel """
-    dm = DataModel(file_spec='test', keywords=['ver=v1', 'id=a'], path='TEST_REDUX/{ver}/testfile_{id}.fits')
-    dm.write_stubs()
-    yield dm
-
-
-@pytest.fixture()
-def pardatamodel(testparfile):
-    """ fixture to create a default par datamodel """
-    dm = DataModel(file_spec='test', keywords=['ver=v1', 'id=a'], path='TEST_REDUX/{ver}/testfile_{id}.par')
-    dm.write_stubs()
-    yield dm
+    """ fixture factory to create a datamodel for a given file type suffix"""
+    def _datamodel(suffix='fits'):
+        testfile(suffix=suffix)
+        dm = DataModel(file_spec='test', keywords=['ver=v1', 'id=a'], path='TEST_REDUX/{ver}/testfile_{id}.' + f'{suffix}')
+        dm.write_stubs()
+        return dm
+    return _datamodel
 
 
 @pytest.fixture
 def validmodel(validyaml, datamodel):
-    """ fixture to produce a valud datamodel for the test file """
-    yield datamodel
-
-@pytest.fixture
-def validparmodel(validparyaml, pardatamodel):
-    """ fixture to produce a valud datamodel for the test file """
-    yield pardatamodel
+    """ fixture factory to produce a valid datamodel for a given file type suffix """
+    def _validmodel(suffix='fits'):
+        validyaml(suffix=suffix)
+        return datamodel(suffix=suffix)
+    return _validmodel
 
 
 @pytest.fixture()
 def validdesign(yamlfile):
-    """ fixture for creating a valid datamodel design """
-    dm = DataModel(file_spec='test', path='TEST_REDUX/{ver}/testfile_{id}.fits', design=True)
-    ss = dm.get_stub('yaml')
-    ss.update_cache()
-    ss._cache['releases']['WORK']['hdus']['hdu0']['description'] = 'primary hdu extension'
-    ss.write()
-    yield dm
+    """ fixture factory for creating a valid datamodel design for a given file type suffix """
+    def _validdesign(suffix='fits'):
+        dm = DataModel(file_spec='test', path='TEST_REDUX/{ver}/testfile_{id}.' + f'{suffix}', design=True)
+        ss = dm.get_stub('yaml')
+        ss.update_cache()
+        if suffix == 'fits':
+            ss._cache['releases']['WORK']['hdus']['hdu0']['description'] = 'primary hdu extension'
+        ss.write()
+        return dm
+    return _validdesign
 
 @pytest.fixture()
-def validpardesign(yamlfile):
-    """ fixture for creating a valid datamodel design """
-    dm = DataModel(file_spec='test', path='TEST_REDUX/{ver}/testfile_{id}.par', design=True)
+def designedfits(validdesign):
+    """ Fixture to create a default designed fits file """
+    yield validdesign('fits')
+
+
+#####
+# Fixtures for iterating over each file type of the given suffix
+
+# a list of filetypes suffixes to test against
+suffixes = ['fits', 'par', 'h5']
+
+@pytest.fixture(params=suffixes)
+def suffix(request):
+    """ fixture to return a suffix """
+    yield request.param
+
+@pytest.fixture
+def testfiles(suffix, makefile):
+    """ a fixture to iterate over multiple file types, creating a test file """
+    testfile = makefile(suffix=suffix)
+    yield testfile
+    testfile.unlink()
+
+@pytest.fixture
+def validyamls(suffix, yamlfile):
+    """ a fixture to iterate over multiple file types, creating a valid yaml file """
+    yamlfile.parent.mkdir(parents=True, exist_ok=True)
+    testpath = pathlib.Path(__file__).parent / f'data/test_valid_{suffix}.yaml'
+    shutil.copy2(testpath, yamlfile)
+    yield yamlfile
+
+@pytest.fixture()
+def datamodels(suffix, testfiles):
+    """ a fixture to iterate over multiple file types, creating a datamodel """
+    dm = DataModel(file_spec='test', keywords=['ver=v1', 'id=a'], path='TEST_REDUX/{ver}/testfile_{id}.' + f'{suffix}')
+    dm.write_stubs()
+    yield dm
+
+@pytest.fixture
+def validmodels(validyamls, datamodels):
+    """ a fixture to iterate over multiple file types, creating a valididated datamodel """
+    yield datamodels
+
+@pytest.fixture()
+def validdesigns(suffix, validyamls):
+    """ a fixture to iterate over multiple file types, creating datamodel designs """
+    dm = DataModel(file_spec='test', path='TEST_REDUX/{ver}/testfile_{id}.' + f'{suffix}', design=True)
     ss = dm.get_stub('yaml')
     ss.update_cache()
+    if suffix == 'fits':
+        ss._cache['releases']['WORK']['hdus']['hdu0']['description'] = 'primary hdu extension'
     ss.write()
     yield dm
 
+#####
+# Mocks for Tree and sdss_access Path classes to add in TEST_REDUX and test file paths
 class MockTree(Tree):
     """ mock out the Tree class to insert test file """
 

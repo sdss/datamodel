@@ -6,7 +6,13 @@ Designing Datamodels
 
 Here we describe the process of designing new datamodels for files that do not yet exist in
 the SDSS ecosystem.  Most of the code examples on this page pertain to designing FITS files, but
-the workflow is the same when designing other files, e.g. Yanny parameter files.     
+the workflow is the same when designing other files, e.g. Yanny parameter files.
+
+To jump to individual sections:
+
+- FITS: see :ref:`designhdu`
+- Yanny: see :ref:`designpar`
+- HDF5: see :ref:`designhdf`
 
 .. _designstub:
 
@@ -18,12 +24,12 @@ consists of generating a YAML datamodel file, which can then be updated with new
 
 For the following examples, let's assume we are interested in designing a datamodel for a new MaNGA
 FITS file, which will be a new summary catalog file produced by the MaNGA pipeline, for each plate
-observed.  The planned file species name is ``mangaCatalog``, and the planned location of this file 
-will be ``$MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-catalog-{plate}.fits.gz``, e.g.  
+observed.  The planned file species name is ``mangaCatalog``, and the planned location of this file
+will be ``$MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-catalog-{plate}.fits.gz``, e.g.
 ``$MANGA_SPECTRO_REDUX/v3_2_0/8485/stack/manga-catalog-8485.fits.gz``.
 
-When desiging a new datamodel, use the :ref:`datamodel design cli <usage-dmdesign>` or specify 
-the ``design=True`` keyword argument when using `~datamodel.generate.datamodel.DataModel` in Python.  For Yanny 
+When desiging a new datamodel, use the :ref:`datamodel design cli <usage-dmdesign>` or specify
+the ``design=True`` keyword argument when using `~datamodel.generate.datamodel.DataModel` in Python.  For Yanny
 par files, the syntax below is exactly the same, just replace the path with a designed path to a Yanny parameter file.
 
 .. tab:: CLI
@@ -47,14 +53,14 @@ par files, the syntax below is exactly the same, just replace the path with a de
         file_species = "mangaCatalog"
         path = "MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-catalog-{plate}.fits.gz"
 
-        # generate a datamodel for design purposes 
+        # generate a datamodel for design purposes
         dm = DataModel(file_spec=file_species, path=path, design=True)
 
         # write out the stub files
         dm.write_stubs()
 
 
-Once the datamodel is "designed", a new YAML file is created at 
+Once the datamodel is "designed", a new YAML file is created at
 ``datamodel/products/yaml/mangaCatalog.yaml``, with the following default structure:
 
 .. code-block:: yaml
@@ -107,7 +113,7 @@ Once the datamodel is "designed", a new YAML file is created at
               value: 0
               comment: number of array dimensions
 
-The structure of the designed datamodel YAML is identical to that of datamodels generated for existing 
+The structure of the designed datamodel YAML is identical to that of datamodels generated for existing
 files, with the following changes:
 
 - A new ``general.design`` flag is set to ``true``.
@@ -116,12 +122,12 @@ files, with the following changes:
 - Any ``sdss_access`` information is ``null``, since that information is not yet available.
 - A mostly empty ``hdus`` section is included, with a single, default ``PRIMARY`` HDU.
 
-The YAML validation remains the same.  To properly validate your designed datamodel, you will need to 
+The YAML validation remains the same.  To properly validate your designed datamodel, you will need to
 resolve all validation errors e.g. filling in required fields and any "replace me" text.  You can also
 take the opportunity to define parameters, e.g. ``datatype`` or the ``access`` parameters necessary
-for ``sdss_access``. 
+for ``sdss_access``.
 
-For Yanny parameter files, the designed YAML stub is identical to that of above with a ``par`` section instead of an 
+For Yanny parameter files, the designed YAML stub is identical to that of above with a ``par`` section instead of an
 ``hdus`` section.
 
 .. code-block:: yaml
@@ -152,44 +158,62 @@ For Yanny parameter files, the designed YAML stub is identical to that of above 
             is_enum: false
             example: 1
 
-For FITS files, see the :ref:`designhdu` section.  For Yanny parameters files, see the :ref:`designpar` section.
+For HDF5 files, the ``hdf`` section of the designed YAML has the following format:
+
+.. code-block:: yaml
+
+    hdfs:
+      name: /
+      parent: /
+      object: group
+      description: a parent group description
+      libver: !!python/tuple
+      - earliest
+      - v112
+      n_members: 0
+      attrs: []
+      members: {}
+
+
+For FITS files, see the :ref:`designhdu` section.  For Yanny parameters files, see the :ref:`designpar`
+section.  For HDF5 files, see the :ref:`designhdf` section.
 
 .. _designhdu:
 
 Designing an HDU
 ----------------
 
-After the initial design of the datamodel, you can now add additional HDUs to the datamodel.  
+After the initial design of the datamodel, you can now add additional HDUs to the datamodel.
 This can be done in two ways, in Python or in the YAML file itself.  Using our example of the new
-``mangaCatalog`` datamodel, let's add two new extensions: a new `~astropy.io.fits.ImageHDU` called 
-``SUMMARY``, and a new `~astropy.io.fits.BinTableHDU` called ``CATALOG``.  The new image HDU 
+``mangaCatalog`` datamodel, let's add two new extensions: a new `~astropy.io.fits.ImageHDU` called
+``SUMMARY``, and a new `~astropy.io.fits.BinTableHDU` called ``CATALOG``.  The new image HDU
 extension will contain a header with three custom keys, and the table HDU will contain three columns
-in the binary table data.       
+in the binary table data.
 
 Adding HDUs with Python
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 To design a new HDU in Python, use the `~datamodel.generate.datamodel.DataModel.design_hdu` method.  The ``ext``
-keyword argument is used to specify the kind of HDU, either `~astropy.io.fits.PrimaryHDU`, 
-`~astropy.io.fits.ImageHDU`, and or `~astropy.io.fits.BinTableHDU`.  Let's first 
-create a new ImageHDU with the name ``SUMMARY`` and a header with three custom keys.  We also 
-optionally include a description for the HDU, which fills the ``description`` field in the YAML file.  
+keyword argument is used to specify the kind of HDU, either `~astropy.io.fits.PrimaryHDU`,
+`~astropy.io.fits.ImageHDU`, and or `~astropy.io.fits.BinTableHDU`.  Let's first
+create a new ImageHDU with the name ``SUMMARY`` and a header with three custom keys.  We also
+optionally include a description for the HDU, which fills the ``description`` field in the YAML file.
 ::
 
     >>> # create the header rows, as a list of tuples
-    >>> hdr = [('CNAME', '', 'the name of the catalog'), 
-    >>>        ('CSOURCE', '', 'the source of the catalog'), 
+    >>> hdr = [('CNAME', '', 'the name of the catalog'),
+    >>>        ('CSOURCE', '', 'the source of the catalog'),
     >>>        ('SDATA', '', 'the type of data aggegrated as summary')]
 
     >>> # create a new ImageHDU with the custom header
     >>> dm.design_hdu(ext='image', name='SUMMARY', header=hdr, description='aggregated summary data')
     [WARNING]: Found existing extensions.  Using next extension id 1
 
-When specifying a new header for an HDU, the ``header`` keyword accepts either a 
-`~astropy.io.fits.Header` instance, a list of tuples of header ``(keyword, value, comment)``, 
-or a list of dictionaries of header ``{"keyword": keyword, "value": value, "comment": comment}``. 
+When specifying a new header for an HDU, the ``header`` keyword accepts either a
+`~astropy.io.fits.Header` instance, a list of tuples of header ``(keyword, value, comment)``,
+or a list of dictionaries of header ``{"keyword": keyword, "value": value, "comment": comment}``.
 
-Now let's create the second binary table HDU extension, with name ``CATALOG``, and three table columns, 
+Now let's create the second binary table HDU extension, with name ``CATALOG``, and three table columns,
 a string column of character length 10, a integer 32 column, and a boolean column.
 ::
 
@@ -200,11 +224,11 @@ a string column of character length 10, a integer 32 column, and a boolean colum
     >>> dm.design_hdu(ext='table', name='CATALOG', columns=columns)
     [WARNING]: Found existing extensions.  Using next extension id 2
 
-When specifying new table columns for an HDU, the ``columns`` keyword accepts either a list of 
-`~astropy.io.fits.Column` objects, a list of tuples of column ``(name, format, unit)``, or a list of 
+When specifying new table columns for an HDU, the ``columns`` keyword accepts either a list of
+`~astropy.io.fits.Column` objects, a list of tuples of column ``(name, format, unit)``, or a list of
 dictionaries of column ``{"name": name, "format": format, "unit": unit}``.
 
-Each call to `~datamodel.generate.datamodel.DataModel.design_hdu` writes a basic new HDU out to the 
+Each call to `~datamodel.generate.datamodel.DataModel.design_hdu` writes a basic new HDU out to the
 YAML datamodel file.  With the above calls, the ``hdus`` sections of designed YAML now looks like
 
 .. code-block:: yaml
@@ -303,7 +327,7 @@ have the following syntax:
 .. code-block:: yaml
 
     hdu[extno]:
-      name: the name of the HDU 
+      name: the name of the HDU
       description: a description of the HDU extension
       is_image: whether the HDU is an ImageHDU or not
       size: the size of the HDU, can be 0 initially
@@ -332,17 +356,17 @@ Each ``column`` entry should have the following syntax:
           unit: any unit for the table column, can be empty
           description: a description of the table column
 
-The column data type will be converted into a valid `~astropy.io.fits.Column` format; see 
+The column data type will be converted into a valid `~astropy.io.fits.Column` format; see
 `fits.Column Formats <https://docs.astropy.org/en/stable/io/fits/usage/table.html#column-creation>`_.
 Valid column types are the following:
 
-============= ===========  
+============= ===========
 Yaml          fits.Column
 ============= ===========
-char[len]     [len]A        
-bool          B, L        
-int[16,32,64] I, J, K         
-float[32,64]  E, D        
+char[len]     [len]A
+bool          B, L
+int[16,32,64] I, J, K
+float[32,64]  E, D
 ============= ===========
 
 Let's manually add our two new HDU extensions, a ``SUMMARY`` ImageHDU and a ``CATALOG`` BinTableHDU.
@@ -416,9 +440,9 @@ Let's manually add our two new HDU extensions, a ``SUMMARY`` ImageHDU and a ``CA
 Designing a Par File
 --------------------
 
-After the initial design of the datamodel, you can now add additional Yanny content to the datamodel, such as file 
-comments, header keyword-value pairs, or table information. This can be done in two ways, in Python or in the YAML 
-file itself.  
+After the initial design of the datamodel, you can now add additional Yanny content to the datamodel, such as file
+comments, header keyword-value pairs, or table information. This can be done in two ways, in Python or in the YAML
+file itself.
 
 Let's say we're designing a new observation plans file to live in the ``platelist`` product, at the top level directory of
 the product.  Using the file_species name of "obsPlans", we create the initial stub with:
@@ -428,8 +452,8 @@ the product.  Using the file_species name of "obsPlans", we create the initial s
     dm = DataModel(file_spec="obsPlans", path="PLATELIST_DIR/obsPlans.par", verbose=True, design=True)
     dm.write_stubs()
 
-This creates a YAML like above. Now let's add some new header keywords, a few new column definitions to the "TABLE" table, 
-and add a brand new table definition, called "NEW".    
+This creates a YAML like above. Now let's add some new header keywords, a few new column definitions to the "TABLE" table,
+and add a brand new table definition, called "NEW".
 
 Adding Content with Python
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -437,21 +461,21 @@ Adding Content with Python
 To design new Yanny par content in Python, use the `~datamodel.generate.datamodel.DataModel.design_par` method.
 
 There is only one header for a Yanny file.  You can add new keywords with the ``header`` argument.  The keywords
-accepts either a list of tuples of header ``(keyword, value, comment)``, a list of dictionaries 
+accepts either a list of tuples of header ``(keyword, value, comment)``, a list of dictionaries
 of header ``{"key": keyword, "value": value, "comment": comment}``, or a simple dictionary of key-value pairs.
 
 The ``name`` keyword argument specifies the table you want to modify or add.  Table column definitions are added
-with the ``columns`` keyword.  It accepts either a list of column names, a list of tuples of column 
-``(name, type)`` or ``(name, type, description)``, or a list of dictionaries of column 
-``{"name": name, "type": type, "description": description}`` as shorthand or the full YAML dictionary definition.     
+with the ``columns`` keyword.  It accepts either a list of column names, a list of tuples of column
+``(name, type)`` or ``(name, type, description)``, or a list of dictionaries of column
+``{"name": name, "type": type, "description": description}`` as shorthand or the full YAML dictionary definition.
 
 Allowed column types are any valid Yanny par types, input as strings, e.g. "int", "float", "char".
 Array columns can be specified by including the array size in "[]", e.g. "float[6]".  Enum types
-are defined by setting ``is_enum`` to True, and by providing a list of possible values via ``enum_values``.  
+are defined by setting ``is_enum`` to True, and by providing a list of possible values via ``enum_values``.
 
-Let's first update the header with a single key "cart" , and define three columns in the table: a string, a float 
-array of 5 elements, and an integer.  Let's also create a brand new table in the yaml file, called "NEW", with three 
-new columns, and update the header with three new keys. And finally, let's add an enumerated column, ``ecol``, 
+Let's first update the header with a single key "cart" , and define three columns in the table: a string, a float
+array of 5 elements, and an integer.  Let's also create a brand new table in the yaml file, called "NEW", with three
+new columns, and update the header with three new keys. And finally, let's add an enumerated column, ``ecol``,
 to our table using the full column definition syntax.
 
 .. code-block:: python
@@ -467,7 +491,7 @@ to our table using the full column definition syntax.
             "is_enum": True, "enum_values": ["GO", "NO", "FO", "SO"], "example": "GO"}
     dm.design_par(name="TABLE", columns=[ecol])
 
-Each call to `~datamodel.generate.datamodel.DataModel.design_hdu` writes the content out to the 
+Each call to `~datamodel.generate.datamodel.DataModel.design_par` writes the content out to the
 YAML datamodel file.  With the above calls, the ``par`` section of designed YAML now looks like
 
 .. code-block:: yaml
@@ -590,7 +614,7 @@ Adding Content in YAML
 ^^^^^^^^^^^^^^^^^^^^^^
 
 Alternatively to Python, you can also specify par content in the YAML file itself.  This is done by adding
-individual HDUs to the ``hdus`` dictionary of the ``WORK`` release.  
+individual components to the ``par`` dictionary of the ``WORK`` release.
 
 The ``par`` content should have the following syntax:
 
@@ -616,9 +640,9 @@ Each table entry in the ``tables`` section should have the following syntax:
 
     tables:
       [NAME]:
-        name: the name of the table 
+        name: the name of the table
         description: a description of the table
-        n_rows: the number of rows in the table, can be 0 initially 
+        n_rows: the number of rows in the table, can be 0 initially
         structure: a list of table column definitions
 
 Each column entry in the ``structure`` section should have the following syntax:
@@ -630,7 +654,7 @@ Each column entry in the ``structure`` section should have the following syntax:
       type: the datatype of the column, with optional array size
       description: a description for the column
       unit: a unit of the column, if any
-      is_array: whether the column is an array 
+      is_array: whether the column is an array
       is_enum: whether the column is an enumeration
       enum_values: a list of enumerated values, if any
       example: an example value for the column
@@ -708,18 +732,213 @@ Let's manually add our new header keys, new columns, and new tables.
             is_enum: false
             example: a
 
+.. _designhdf:
+
+Designing a HDF5 File
+---------------------
+
+After the initial design of the datamodel, you can now add additional Yanny content to the datamodel, such as file
+comments, header keyword-value pairs, or table information. This can be done in two ways, in Python or in the YAML
+file itself.
+
+Let's say we're designing a new APOGEE data file to live in the APOGEE sandbox.  Using the file_species
+name of "apoNew", we create the initial stub with:
+
+.. code-block:: python
+
+    dm = DataModel(file_spec="apoNew", path="APOGEE_SANDBOX/aponew.h5", verbose=True, design=True, tree_ver="sdss5")
+    dm.write_stubs()
+
+This creates a YAML like above. Now let's add some new attributes, a new group and a new dataset.
+
+Adding Content in Python
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+To design new Yanny hdf content in Python, use the `~datamodel.generate.datamodel.DataModel.design_hdf` method.
+
+The ``name`` keyword argument is the fully resolved ``group`` or ``dataset`` name you wish to add.  Its ``parent``
+will be everything up to the last ``/`` in the name.  The ``hdftype`` keyword argument specifies whether the new
+component is a ``group`` or ``dataset``.
+
+You can add a list of attributes with the ``attrs`` argument.  The keyword accepts either a
+list of tuples of attribute ``(key, value, comment, dtype)``, a list of dictionaries
+of attribute ``{"key": key, "value": value, "comment": comment, "dtype": dtype}``.
+
+For ``datasets``, use the ``ds_shape``, and ``ds_dtype`` keyword arguments to specify the array
+shape, and data type, respectively.  Allowed dtypes are any string representation of numpy dtypes, e.g.
+"int32", or "<i8", or "S5".
+
+Let's first add a new attribute at the root level.  Then let's add a new "data" group, also with an attribute.
+Inside the "data" group, we'll create a new array dataset of 100 string elements.
+
+.. code-block:: python
+
+    # add an attribute at the root level
+    dm.design_hdf(name='/', attrs=[("foo", "bar", "a new way", "S3")])
+
+    # add a new group, "data", with an attribute
+    dm.design_hdf(name="data", description="this is a data group", attrs=[("name", 1, "this is a name", "<i8")])
+
+    # add a new array dataset to the "data" group
+    dm.design_hdf(name="data/stuff", description="this is a data dataset", hdftype="dataset",
+                  ds_shape=(100,), ds_dtype="S5")
+
+Each call to `~datamodel.generate.datamodel.DataModel.design_hdf` writes the content out to the
+YAML datamodel file.  With the above calls, the ``hdfs`` section of designed YAML now looks like
+
+.. code-block:: yaml
+
+    releases:
+      WORK:
+        template: $APOGEE_SANDBOX/aponew.h5
+        example: null
+        location: 'aponew.h5'
+        environment: APOGEE_SANDBOX
+        access:
+          in_sdss_access: false
+          path_name: null
+          path_template: null
+          path_kwargs: null
+          access_string: apoNew = $APOGEE_SANDBOX/aponew.h5
+        hdfs:
+          name: /
+          parent: /
+          object: group
+          description: a parent group description
+          libver: !!python/tuple
+          - earliest
+          - v112
+          n_members: 1
+          attrs:
+          - key: foo
+            value: bar
+            comment: a new way
+            dtype: S3
+          members:
+            data:
+              name: data
+              parent: /
+              object: group
+              description: this is a data group
+              attrs:
+              - key: name
+                value: 1
+                comment: this is a name
+                dtype: <i8
+              n_members: 1
+            data/stuff:
+              name: data/stuff
+              parent: data
+              object: dataset
+              description: this is a data dataset
+              attrs: []
+              shape: !!python/tuple
+              - 100
+              size: 100
+              dtype: S5
+              ndim: 1
+
+
+Adding Content in YAML
+^^^^^^^^^^^^^^^^^^^^^^
+
+Alternatively to Python, you can also specify hdf content in the YAML file itself.  This is done by adding
+individual components to the ``hdfs.members`` dictionary of the ``WORK`` release.
+
+The ``hdfs`` content should have the following syntax:
+
+.. code-block:: yaml
+
+    hdfs:
+      attrs: a list of top-level attributes
+      members: a dictionary of groups or datasets
+
+Each ``attrs`` entry should have the following syntax:
+
+.. code-block:: yaml
+
+    attrs:
+    - key: the name of the attribute
+      value: the value of the attribute
+      comment: a description of the attribute
+      dtype: a string numpy dtype of the attribute
+      is_empty: a boolean if the attribute is empty or not, can be blank
+      shape: the shape of the attribute, can be blank
+
+Each member entry in the ``members`` section should have the following syntax:
+
+.. code-block:: yaml
+
+    members:
+      [NAME]:
+        name: the name of the group or dataset
+        parent: the name of the immediate parent of the group or dataset
+        object: the type of the group or dataset, can be 'group' or 'dataset'
+        description: a description of the group or dataset
+        n_members: the number of members in the group, for groups only
+        attrs: a list of attributes for the group or dataset
+        shape: the shape of the array, for datasets only
+        size: the size of the array, for datasets only
+        ndim: the number of dimensions of the array, for datasets only
+        dtype:  a string numpy dtype of the array, for datasets only
+        nbytes: the number of bytes of the array, for datasets only, can be blank
+        is_empty: a boolean if the array is empty or not, for datasets only, can be blank
+
+Let's manually add our new header keys, new columns, and new tables.
+
+.. code-block:: yaml
+
+    hdfs:
+      name: /
+      parent: /
+      object: group
+      description: a parent group description
+      libver: !!python/tuple
+      - earliest
+      - v112
+      n_members: 1
+      attrs:
+      - key: foo
+        value: bar
+        comment: a new way
+        dtype: S3
+      members:
+        data:
+          name: data
+          parent: /
+          object: group
+          description: this is a data group
+          attrs:
+          - key: name
+            value: 1
+            comment: this is a name
+            dtype: <i8
+          n_members: 1
+        data/stuff:
+          name: data/stuff
+          parent: data
+          object: dataset
+          description: this is a data dataset
+          attrs: []
+          shape: !!python/tuple
+          - 100
+          size: 100
+          dtype: S5
+          ndim: 1
+
+
 .. _createfile:
 
 Creating a New File
 -------------------
 
 When you've finished designing a datamodel and want to test out how it looks in FITS form, you can
-easily create a new FITS file from the designed YAML hdus.  From the command-line, specify the 
+easily create a new FITS file from the designed YAML hdus.  From the command-line, specify the
 ``-c``, ``--create`` flag.  In order to construct a real file, you will need to specify any necessary
-path keyword variables for substitution, using the ``-k``, ``--keyword`` flags, the same when using 
-``datamodel generate``.  From Python, call 
-`~datamodel.generate.datamodel.DataModel.generate_designed_file`, passing in all relevant defined 
-path keyword parameters.  In this example, let's create a new test file for MaNGA plate 8485, and 
+path keyword variables for substitution, using the ``-k``, ``--keyword`` flags, the same when using
+``datamodel generate``.  From Python, call
+`~datamodel.generate.datamodel.DataModel.generate_designed_file`, passing in all relevant defined
+path keyword parameters.  In this example, let's create a new test file for MaNGA plate 8485, and
 DRP pipeline version ``v3_2_0``.
 
 .. tab:: CLI
@@ -743,14 +962,14 @@ DRP pipeline version ``v3_2_0``.
         file_species = "mangaCatalog"
         path = "MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-catalog-{plate}.fits.gz"
 
-        # generate a datamodel for design purposes 
+        # generate a datamodel for design purposes
         dm = DataModel(file_spec=file_species, path=path, design=True)
 
         # create a new file
         dm.generate_designed_file(drpver='v3_2_0', plate=8485)
 
 Once we've created the file, we can inspect it in Python with astropy.
-:: 
+::
 
     >>> # see the new datamodel file path
     >>> dm.file
@@ -800,5 +1019,5 @@ Once we've created the file, we can inspect it in Python with astropy.
     CHECKSUM= 'jH7bmG5bjG5bjG5b'   / HDU checksum updated 2021-07-16T10:56:58
     DATASUM = '0       '           / data unit checksum updated 2021-07-16T10:56:58
 
-When you create a new file, you will exit the datamodel design phase. The ``design`` flag will be set 
+When you create a new file, you will exit the datamodel design phase. The ``design`` flag will be set
 to ``False``, and the ``example`` parameter will be populated with your new file.

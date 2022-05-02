@@ -18,6 +18,7 @@ import re
 import pathlib
 
 from typing import TypeVar, Type, Union, List
+from xml.dom.minidom import Attr
 
 from .parse import get_abstract_path, get_abstract_key, get_file_spec
 from datamodel import log
@@ -145,7 +146,7 @@ class DataModel(object):
     ValueError
         when no path template keywords are specified
     """
-    supported_filetypes = ['.fits', '.par']
+    supported_filetypes = ['.fits', '.par', '.h5']
 
     def __init__(self, tree_ver: str = None, file_spec: str = None, path: str = None,
                  keywords: list = [], env_label: str = None, location: str = None,
@@ -668,16 +669,61 @@ class DataModel(object):
         self._design_content(comments=comments, header=header, name=name,
                              description=description, columns=columns)
 
+    def design_hdf(self, name: str = '/', description: str = None, hdftype: str = 'group', attrs=None,
+                             ds_shape: tuple = None, ds_dtype: str = None):
+        r""" Wrapper to _design_content, to design a new HDF5 section
+
+        Design a new HDF entry for the given datamodel.  Specify h5py groups or dataset definitions,
+        with optional list of attributes.  Each new entry is added to the members entry in the
+        YAML structure.  Use ``name``, and ``description`` to specify the name and description of each new
+        group or dataset the new table.  Use ``hdftype`` to specify a "group" or "dataset" entry.  For
+        datasets, use ``ds_shape``, ``ds_size``, and ``ds_dtype`` to specify the shape, size, and
+        dtype of the array dataset.
+
+        New HDF5 members are added to the datamodel in a flattened structure.  To add a new group or dataset
+        as a child to an existing group, specify the full path in ``name``, e.g ``/mygroup/mydataset``.
+
+        ``attrs`` can be a list of tuples of header keywords,
+        conforming to (key, value, comment, dtype), or list of dictionaries conforming to
+        {"key": key, "value": value, "comment": comment, "dtype": dtype}.
+
+        Allowed attribute or dataset dtypes are any valid string representation of numpy dtypes.  For
+        example, "<i8", "int32", "S10", etc.
+
+        Parameters
+        ----------
+        name : str, optional
+            the name of the HDF group or dataset, by default '/'
+        description : str, optional
+            a description of the HDF group or dataset, by default None
+        hdftype : str, optional
+            the type of HDF5 object, by default 'group'
+        attrs : list, optional
+            a list of HDF5 Attributes, by default None
+        ds_shape : tuple, optional
+            the shape of an HDF5 array dataset, by default None
+        ds_dtype : str, optional
+            the dtype of an HDF5 array dataset, by default None
+
+        Raises
+        ------
+        ValueError
+            when an invalid hdftype is specified
+        """
+
+        self._design_content(name=name, description=description, hdftype=hdftype, attrs=attrs,
+                             ds_shape=ds_shape, ds_dtype=ds_dtype)
+
     def _design_content(self, *args, **kwargs):
         if not self.design:
-            log.warning('Cannot design an HDU when not in the datamodel design phase.')
+            log.warning('Cannot design new content when not in the datamodel design phase.')
             return
 
         # get the stub and update from disk
         ss = self.get_stub(format='yaml')
         ss.update_cache()
 
-        # design the new HDU
+        # design the new content
         ss.selected_file.design_content(*args, **kwargs)
 
         # write it out to the yaml stub
@@ -736,9 +782,9 @@ class DataModel(object):
             raise
 
         # exit if for any reason the designed object doesn't exist
-        if not design_obj:
+        if design_obj is None:
             log.error('No designed object to write out.')
-            return
+            raise AttributeError('No designed object to write out.')
 
         # create directories if needed
         path = pathlib.Path(self.file)
