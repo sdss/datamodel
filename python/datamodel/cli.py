@@ -53,7 +53,7 @@ stb_grp = OptionGroup("Stub Options", help='options for writing out datamodel st
 @cloup.constraint(mutually_exclusive, ['path', 'location'])
 @cloup.constraint(RequireExactly(1), ['filename', 'file_species'])
 @cloup.constraint(If('file_species', then=RequireExactly(1)), ['path', 'location'])
-def generate(filename, file_species, path, location, env_label, keywords, tree_ver, release, 
+def generate(filename, file_species, path, location, env_label, keywords, tree_ver, release,
              force, use_cache, hdus_only, verbose, skip_git, access_path_name):
     """ Generate a datamodel file for a SDSS data product """
 
@@ -85,10 +85,11 @@ cli.add_command(generate)
 @click.option('-F', '--force', help='force a (re)install of the datamodel product', is_flag=True, default=False)
 @click.option('-v', '--verbose', help='turn on verbosity', is_flag=True, default=False)
 @click.option('-d', '--debug', help='turn on debugging', is_flag=True, default=False)
-def install(branch: str, force: bool, verbose: bool, debug: bool):
+@click.option('-t', '--test', help='test the install without installing', is_flag=True, default=False)
+def install(branch: str, force: bool, verbose: bool, debug: bool, test: bool):
     """ Install the datamodel product at Utah """
 
-    install = Install(branch=branch, force=force, verbose=verbose, debug=debug)
+    install = Install(branch=branch, force=force, verbose=verbose, debug=debug, test=test)
     install.set_directory()
     install.clone()
     install.checkout_branch()
@@ -119,7 +120,7 @@ def design(file_species, path, location, env_label, verbose, create, keywords):
 
     # write out all the datamodel stubs
     dm.write_stubs()
-    
+
     # sort out any keywords
     if keywords:
         kwargs = {k.split('=')[0]:k.split('=')[1] for k in keywords}
