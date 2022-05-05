@@ -1,65 +1,302 @@
-# encoding: utf-8
-#
-# @Author: Joel Brownstein <joelbrownstein@sdss.org>
-# @Date: Nov 9, 2020
-# @Filename: remote.py
-# @License: BSD 3-Clause
-# @Copyright: SDSS.
+# !/usr/bin/env python
+# -*- coding: utf-8 -*-
 
-import re
-from os import getenv
-from os.path import join
-from subprocess import check_output, CalledProcessError
+
+import os
+import pathlib
+
 from datamodel import log
 
-__author__ = "Joel Brownstein <joelbrownstein@sdss.org>"
+from git import Repo, InvalidGitRepositoryError, GitCommandError
 
 
 class Git(object):
-    """Class to run the git commands."""
+    """ Class to run the git commands
 
-    actions = ["add", "checkout", "clone", "commit", "pull", "push", "rm", "status"]
+    Wrapper class to the GitPython package.
+    """
 
     def __init__(self, verbose=None):
         self.verbose = verbose
-        self.set_directory()
 
-    def __repr__(self):
-        return f'<Git (directory="{self.directory}")>'
+        # try to initialize the git repo
+        try:
+            self.repo = Repo(self.directory)
+        except InvalidGitRepositoryError:
+            self.repo = None
+        else:
+            if self.verbose:
+                log.info(f"Instantiating new repo for {self.directory}")
+
+    def __repr__(self) -> str:
+        return f'<Git (directory="{self.directory}", branch="{self.current_branch}")>'
 
     @property
-    def current_branch(self):
-        self.status()
-        match = re.search(r'(^|#|\s+)On branch (?P<branch>[a-z0-9A-Z]+)\n', self.response)
-        if match:
-            return match.groupdict()['branch']
+    def directory(self) -> str:
+        """ the directory of the git repo """
+        dmdir = os.getenv("DATAMODEL_DIR")
+        if not dmdir:
+            p = pathlib.Path(__file__)
+            dmdir = p.resolve().parent.parent.parent.parent
+        return dmdir
 
-    def set_directory(self):
-        self.directory = getenv("DATAMODEL_DIR")
-        if not self.directory:
-            log.error("GIT> cannot set directory.  Please set DATAMODEL_DIR.")
+    @property
+    def current_branch(self) -> str:
+        """ the current active branch"""
+        return self.repo.active_branch.name if self.repo else ''
 
-    def status(self, path=None, location=None):
-        if path and not location:
-            location = self.get_location_from_path(path=path)
-        self.run_action(action="status", arg=location)
+    @property
+    def branch_exists_on_remote(self) -> bool:
+        """ if the current active branch exists at the remote """
+        return self.repo.active_branch.tracking_branch() is not None
 
-    def pull(self) -> None:
-        """ Pull from Github remote origin
+    @property
+    def is_main_branch(self) -> bool:
+        """ if the current active branch is the main branch """
+        return self.current_branch == 'main'
 
-        Performs a "git pull" on the datamodel repo
+    @property
+    def origin(self):
+        """ the git remote origin """
+        return self.repo.remotes.origin
+
+    @property
+    def is_dirty(self) -> bool:
+        """ if the repo is dirty"""
+        return self.repo.is_dirty()
+
+    def list_branches(self, pprint: bool = None) -> list:
+        """ List all local branches for the repo """
+        return [b.name for b in self.repo.branches] if pprint else self.repo.branches
+
+    def list_remotes(self, pprint: bool = None) -> list:
+        """ List all remotes for the repo """
+        return [r.name for r in self.repo.remotes] if pprint else self.repo.remotes
+
+    def set_repo(self):
+        """ Set the repo if needed """
+        if not self.repo:
+            self.repo = Repo(self.directory)
+
+    def clone(self, product: str = None, branch: str = None):
+        """ Clones the git repo
+
+        Performs a "git clone" of the datamodel repo.
+
+        Parameters
+        ----------
+        product : str, optional
+            the Github repo URL by default None
+        branch : str, optional
+            the name or directory path of the clone, by default None
 
         Raises
         ------
         RuntimeError
-            when the subprocess git command fails
+            when the git command fails
         """
-        try:
-            self.run_action(action="pull")
-        except CalledProcessError as err:
-            raise RuntimeError(f'Cannot perform git pull.  Check for merge conflicts or remote repo exists: {err}') from err
+        product = product or "git@github.com:sdss/datamodel.git"
+        branch = branch or self.current_branch or "main"
+        self.repo = Repo.clone_from(product, branch)
 
-    def push(self) -> None:
+        if self.verbose:
+            log.info(f"Cloning new repo to {branch}.")
+
+        # temporarily set the DATAMODEL_DIR to the new clone working directory
+        os.environ["DATAMODEL_DIR"] = self.repo.working_dir
+
+    def checkout(self, branch: str = None):
+        """ Checks out a branch from the git repo
+
+        Performs a "git checkout" on the datamodel repo.  If the branch does not
+        exist, it will be created.
+
+        Parameters
+        ----------
+        branch : str, optional
+            the name of the branch to checkout, by default None
+
+        Raises
+        ------
+        RuntimeError
+            when the git command fails
+        """
+        # get a branch name
+        branch = branch or self.current_branch or "main"
+
+        # create the branch if needed
+        if branch not in self.list_branches():
+            log.warning(f"Git branch {branch} does not exist.  Creating it.")
+            try:
+                self.repo.git.checkout(b=branch)
+            except GitCommandError as err:
+                raise RuntimeError(f'Cannot perform git checkout.  Check for problems: {err}') from err
+            return
+
+        # checkout the existing branch
+        try:
+            self.repo.git.checkout(branch)
+        except GitCommandError as err:
+            raise RuntimeError(f'Cannot perform git checkout.  Check for problems: {err}') from err
+        else:
+            if self.verbose:
+                log.info(f"Checking out branch {branch}.")
+
+    def get_path_location(self, path: str = None) -> str:
+        """ Gets the path location
+
+        Gets the location relative to the git repo directory
+        of the filepath.
+
+        Parameters
+        ----------
+        path : str, optional
+            the full path of the file to add, by default None
+
+        Returns
+        -------
+        str
+            the relative location of the path
+        """
+        if not path:
+            return None
+
+        x = str(path).partition(self.directory)
+        if not x[-1]:
+            return None
+
+        return x[-1][1:]
+
+    def check_if_untracked(self, path: str = None) -> bool:
+        """ Checks if a file is untracked in the git repo
+
+        Parameters
+        ----------
+        path : str, optional
+            the full path of the file to add, by default None
+
+        Returns
+        -------
+        bool
+            if the file is untracked
+        """
+        if not path:
+            return None
+
+        location = self.get_path_location(path)
+        if not location:
+            return None
+
+        return location in self.repo.untracked_files
+
+    def rm(self, path: str = None):
+        """ Remove a file from the git repo
+
+        Performs a "git rm" on the datamodel repo
+
+        Parameters
+        ----------
+        path : str, optional
+            the full path of the file to remove, by default None
+
+        Raises
+        ------
+        AttributeError
+            when on the main branch
+        RuntimeError
+            when the git command fails
+        """
+        if self.is_main_branch:
+            raise AttributeError("Cannot remove files from the main branch. Please make your changes in a new branch.")
+
+        if not path:
+            return
+
+        try:
+            self.repo.index.remove(path)
+        except GitCommandError as err:
+            raise RuntimeError(f'Cannot perform git rm.  Check for file conflicts: {err}') from err
+        else:
+            if self.verbose:
+                log.info(f"Removing file {path}")
+
+    def add(self, path: str = None):
+        """ Add a file to the git repo
+
+        Performs a "git add" on the datamodel repo
+
+        Parameters
+        ----------
+        path : str, optional
+            the full path of the file to add, by default None
+
+        Raises
+        ------
+        AttributeError
+            when on the main branch
+        RuntimeError
+            when the git command fails
+        """
+        if self.is_main_branch:
+            raise AttributeError("Cannot add files to the main branch. Please make your changes in a new branch.")
+
+        if not path:
+            return
+
+        if not self.check_if_untracked(path):
+            if self.verbose:
+                log.info(f"{path} is not an untracked file. Cannot add.")
+            return
+
+        try:
+            self.repo.index.add(path)
+        except GitCommandError as err:
+            raise RuntimeError(f'Cannot perform git add.  Check for proper file and path existence: {err}') from err
+        else:
+            if self.verbose:
+                log.info(f"Added new file {path}")
+
+    def commit(self, message: str = None):
+        """ Commit a file to the git repo
+
+        Performs a "git commit" on the datamodel repo
+
+        Parameters
+        ----------
+        message : str, optional
+            a git commit message, by default None
+
+        Raises
+        ------
+        AttributeError
+            when on the main branch
+        RuntimeError
+            when the git command fails
+        """
+        if self.is_main_branch:
+            raise AttributeError("Cannot commit files to the main branch. Please make your changes in a new branch.")
+
+        if not message:
+            message = 'a default datamodel commit message. I have done something, but do not know what.'
+
+        try:
+            self.repo.index.commit(message)
+        except GitCommandError as err:
+            raise RuntimeError(f'Cannot perform git commit.  Check for problems: {err}') from err
+        else:
+            if self.verbose:
+                log.info(f"Committed change with message: {message}")
+
+    def _push(self, cmd):
+        try:
+            cmd
+        except GitCommandError as err:
+            raise RuntimeError(f'Cannot perform git push.  Check for merge conflicts or outdated local repo: {err}') from err
+        else:
+            if self.verbose:
+                log.info("Pushing to repo.")
+
+    def push(self):
         """ Push to Github remote origin
 
         Performs a "git push" on the datamodel repo
@@ -67,158 +304,61 @@ class Git(object):
         Raises
         ------
         RuntimeError
-            when the subprocess git command fails
+            when the current branch does not exist on remote
+        RuntimeError
+            when the current repo is dirty
+        RuntimeError
+            when the git command fails
         """
-        try:
-            self.run_action(action="push")
-        except CalledProcessError as err:
-            raise RuntimeError(f'Cannot perform git push.  Check for merge conflicts or outdated local repo: {err}') from err
 
-    def rm(self, location: str = None) -> None:
-        """ Remove a git remove of a file
+        if self.repo.is_dirty():
+            raise RuntimeError('Current repo is dirty.  Please stash or commit your changes before pushing.')
 
-        Performs a "git rm" on a given file.
+        if not self.branch_exists_on_remote:
+            log.warning(f'Current active branch {self.current_branch} does not exist on remote. Setting upstream to {self.origin.name}.')
+            # try:
+            #     self.origin.push(self.repo.active_branch, set_upstream=True)
+            # except GitCommandError as err:
+            #     raise RuntimeError(f'Cannot perform git push.  Check for merge conflicts or outdated local repo: {err}') from err
+            # else:
+            #     if self.verbose:
+            #         log.info("Pushing to repo.")
+            self._push(self.origin.push(self.repo.active_branch, set_upstream=True))
 
-        Parameters
-        ----------
-        location : str, optional
-            The filepath to be removed, by default None
+        # try:
+        #     self.origin.push()
+        # except GitCommandError as err:
+        #     raise RuntimeError(f'Cannot perform git push.  Check for merge conflicts or outdated local repo: {err}') from err
+        # else:
+        #     if self.verbose:
+        #         log.info("Pushing to repo.")
+        self._push(self.origin.push())
+
+    def pull(self):
+        """ Pull from Github remote origin
+
+        Performs a "git pull" on the datamodel repo
 
         Raises
         ------
         RuntimeError
-            when the subprocess git command fails
+            when the current branch does not exist on remote
+        RuntimeError
+            when the current repo is dirty
+        RuntimeError
+            when the git command fails
         """
-        try:
-            self.run_action(action="rm", arg=location)
-        except CalledProcessError as err:
-            raise RuntimeError(f'Cannot perform git rm. Check for file conflicts: {err}') from err
+        if not self.branch_exists_on_remote:
+            raise RuntimeError(f'Current active branch {self.current_branch} does not exist on remote.')
 
-    def get_location_from_path(self, path=None):
-        if path:
-            directory = join(self.directory, "") if self.directory else None
-            location = path[len(directory):] if directory and path.startswith(directory) else None
+        if self.repo.is_dirty():
+            raise RuntimeError('Current repo is dirty.  Please stash or commit your changes before pulling.')
+
+        try:
+            self.origin.pull()
+        except GitCommandError as err:
+            raise RuntimeError(f'Cannot perform git pull.  Check for merge conflicts or remote repo exists: {err}') from err
         else:
-            location = None
-        return location
-
-    def add(self, path: str = None, location: str = None) -> None:
-        """ Add a file to the git repo
-
-        Performs a "git add" on a given file.
-
-        Parameters
-        ----------
-        path : str, optional
-            the full path of the file to add, by default None
-        location : str, optional
-            the file location relative to the top datamodel directory, by default None
-
-        Raises
-        ------
-        RuntimeError
-            when the subprocess git command fails
-        """
-        # get the file location if none provided
-        if path and not location:
-            location = self.get_location_from_path(path=path)
-
-        # if no file location found, do nothing
-        if not location:
-            return
-
-        # get the status of the file
-        self.status(location=location)
-        if "Untracked files" in self.response:
-            try:
-                self.run_action(action="add", arg=location)
-            except CalledProcessError as err:
-                raise RuntimeError(f'Cannot perform git add. Check for proper file and path: {err}') from err
-
-    def clone(self, product=None, branch=None):
-        if product and branch:
-            self.run_action(action="clone", args=[product, branch])
-
-    def checkout(self, branch=None):
-        if branch:
-            self.run_action(action="checkout", arg=branch)
-
-    def commit(self, path: str = None, location: str = None, all: bool = None,
-               message: str = None) -> None:
-        """ Commit a file to the git repo
-
-        Performs a "git commit" on a given file.
-
-        Parameters
-        ----------
-        path : str, optional
-            the full path of the file to add, by default None
-        location : str, optional
-            the file location relative to the top datamodel directory, by default None
-        all : bool, optional
-            if True commits everything in the repo, by default None
-        message : str, optional
-            a git commit message, by default None
-
-        Raises
-        ------
-        RuntimeError
-            when the subprocess git command fails
-        """
-        args = ["--all"] if all else []
-
-        # a git commit message is required
-        if not message:
-            log.error("GIT> commit requires message")
-            return
-
-        args += ["-m", message]
-        # get the location if none is provided
-        if path and not location:
-            location = self.get_location_from_path(path=path)
-
-        if location and not all:
-            args += [location]
-            self.status(location=location)
-            if "new file" in self.response or "modified" in self.response:
-                try:
-                    self.run_action(action="commit", args=args)
-                except CalledProcessError as err:
-                    raise RuntimeError(f'Cannot perform git commit. Check for problems: {err}') from err
-        elif all:
-            try:
-                self.run_action(action="commit", args=args)
-            except CalledProcessError as err:
-                raise RuntimeError(f'Cannot perform git commit. Check for problems: {err}') from err
-
-    def run_action(self, action=None, arg=None, args=None):
-        if action in self.actions:
-            self.action = [action]
-            if arg:
-                self.action += [arg]
-            elif args:
-                self.action += args
-            self.set_command()
-            self.set_response()
             if self.verbose:
-                self.print_response()
-        else:
-            print("GIT> %r is not a valid git action" % action)
+                log.info("Pulling from repo.")
 
-    def set_command(self):
-        self.command = ["git"] + self.action if self.action else None
-        if self.command and self.verbose:
-            log.info("GIT> %s" % " ".join(self.command))
-
-    def set_response(self):
-        self.response = (
-            check_output(self.command, cwd=self.directory, universal_newlines=True).rstrip()
-            if self.command and self.directory
-            else None
-        )
-
-    def print_response(self):
-        if self.response:
-            for index, response in enumerate(self.response.split("\n")):
-                if response:
-                    log.info("%s %s" % (" " * 4 if index else "GIT>", response))

@@ -175,7 +175,7 @@ class BaseStub(abc.ABC):
             "access": self._get_access_cache(),
             "design": self.datamodel.design
         }
-        
+
         # add additional real info if not in the design phase
         if not self.datamodel.design:
             template_input.update({
@@ -183,7 +183,7 @@ class BaseStub(abc.ABC):
                 "filename": os.path.basename(self.datamodel.file),
                 "filesize": get_filesize(self.datamodel.file),
                 "filetype": get_filetype(self.datamodel.file)})
-            
+
         return template_input
 
     def _get_access_cache(self) -> dict:
@@ -215,7 +215,7 @@ class BaseStub(abc.ABC):
         else:
             # create a brand new cache
             content = self._create_cache()
-        
+
         # select the correct file object
         suffix = content['general']['datatype'] or get_filetype(self.datamodel.location)
         file_class = file_selector(suffix)
@@ -230,12 +230,12 @@ class BaseStub(abc.ABC):
         # check the content dictionary has a proper release
         if self.datamodel.release not in content['releases']:
             content['releases'][self.datamodel.release] = {"template": None, "example": None, "location": None,
-                                                           "environment": None, "access": {}, 
+                                                           "environment": None, "access": {},
                                                            file_class.cache_key: {}}
 
         # set the cache content
         self._cache = content
-        
+
         # instantiate the file object
         self.selected_file = file_class(self._cache, datamodel=self.datamodel, stub=self)
 
@@ -284,7 +284,7 @@ class BaseStub(abc.ABC):
 
         # update the location/example keyword in the cache
         self._cache['releases'][self.datamodel.release]['location'] = self.datamodel.location
-        self._cache['releases'][self.datamodel.release]['example'] = self.datamodel.real_location       
+        self._cache['releases'][self.datamodel.release]['example'] = self.datamodel.real_location
 
     def _update_cache_changelog(self):
         """ Update the changelog in the cache """
@@ -314,13 +314,13 @@ class BaseStub(abc.ABC):
             log.error(err)
             return False
         else:
-            return True     
+            return True
 
     def commit_to_git(self) -> None:
         """ Commit the stub to Github """
         # add and commit the file
         self.git.add(path=self.output)
-        self.git.commit(path=self.output, message=f"committing {self.datamodel.file_species}.{self.format}")
+        self.git.commit(message=f"committing {self.datamodel.file_species}.{self.format}")
 
     def push_to_git(self) -> None:
         """ Push changes to Github """
@@ -334,6 +334,8 @@ class BaseStub(abc.ABC):
         """ Remove file from the git repo """
         if os.path.exists(self.output):
             self.git.rm(self.output)
+            self.git.commit(message=f"removing file {self.datamodel.file_species}.{self.format}")
+
 
     # def workflow(self):
     #     # create stub with datamodel
@@ -372,7 +374,7 @@ class MdStub(BaseStub):
             log.error(f'Jinja2 markdown template not found for filetype {self.selected_file.suffix.lower()}.'
                       ' Check that a markdown stub for the filetype has been created in templates/md/.')
             return
-        
+
         selected_release = self.get_selected_release(release=release, group=group)
         data = self._cache['releases'][selected_release].get(self.selected_file.cache_key, {})
         self.content = self.template.render(content=self._cache, data=data, filetype=self.selected_file.suffix.lower(),
