@@ -93,32 +93,37 @@ def test_git_remove(git, test_file):
     git.commit('removing test file')
     assert git.check_if_untracked(test_file) is True
 
+@pytest.mark.gitremote
 def test_git_pull_fail_no_remote(remote):
     remote.checkout("test")
     with pytest.raises(RuntimeError, match='Current active branch test does not exist on remote.'):
         remote.pull()
 
+@pytest.mark.gitremote
 def test_git_pull_fail_dirty(remote, make_file):
     path = make_file('test')
     remote.add(path)
     with pytest.raises(RuntimeError, match='Current repo is dirty.  Please stash or commit your changes before pulling.'):
         remote.pull()
 
+@pytest.mark.gitremote
 def test_git_pull(remote, test_file, caplog):
     remote.pull()
     assert "Pulling from repo." in caplog.text
 
-
+@pytest.mark.gitremote
 def test_git_push_fail_dirty(remote, make_file):
     path = make_file('test')
     remote.add(path)
     with pytest.raises(RuntimeError, match='Current repo is dirty.  Please stash or commit your changes before pushing.'):
         remote.push()
 
+@pytest.mark.gitremote
 def test_git_push(remote, test_file, caplog):
     remote.push()
     assert "Pushing to repo." in caplog.text
 
+@pytest.mark.gitremote
 def test_git_push_no_remote(remote, test_file, caplog):
     remote.checkout("test")
     remote.push()
