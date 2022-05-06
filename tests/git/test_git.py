@@ -13,7 +13,7 @@ def git(monkeypatch, git_repo):
     path = git_repo.workspace
     monkeypatch.setenv("DATAMODEL_DIR", path)
     g = Git(verbose=True)
-    g.repo.create_remote('origin', 'https://github.com/havok2063/test.git')
+    g.repo.create_remote('origin', 'git@github.com:havok2063/test.git')
     yield g
     g = None
 
