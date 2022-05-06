@@ -288,6 +288,7 @@ class Git(object):
                 log.info(f"Committed change with message: {message}")
 
     def _push(self, cmd):
+        """ Generic wrapper around git push """
         try:
             cmd
         except GitCommandError as err:
@@ -316,22 +317,9 @@ class Git(object):
 
         if not self.branch_exists_on_remote:
             log.warning(f'Current active branch {self.current_branch} does not exist on remote. Setting upstream to {self.origin.name}.')
-            # try:
-            #     self.origin.push(self.repo.active_branch, set_upstream=True)
-            # except GitCommandError as err:
-            #     raise RuntimeError(f'Cannot perform git push.  Check for merge conflicts or outdated local repo: {err}') from err
-            # else:
-            #     if self.verbose:
-            #         log.info("Pushing to repo.")
             self._push(self.origin.push(self.repo.active_branch, set_upstream=True))
+            return
 
-        # try:
-        #     self.origin.push()
-        # except GitCommandError as err:
-        #     raise RuntimeError(f'Cannot perform git push.  Check for merge conflicts or outdated local repo: {err}') from err
-        # else:
-        #     if self.verbose:
-        #         log.info("Pushing to repo.")
         self._push(self.origin.push())
 
     def pull(self):
