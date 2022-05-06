@@ -43,11 +43,10 @@ def test_install_modules(checkins):
     assert os.path.exists(checkins.modulefile['path'])
     assert "set version main\n" in checkins.modulefile["content"]
 
-def test_install_done(modins, capsys):
+def test_install_done(modins, caplog):
     """ test output install done messaging """
     modins.done()
-    captured = capsys.readouterr()
-    assert "INSTALL> main branch installed at path=" in captured.out
-    assert "please do the following in a new terminal:" in captured.out
-    assert "module load datamodel/main." in captured.out
+    assert "INSTALL> main branch installed at path=" in caplog.text
+    assert "please do the following in a new terminal:" in caplog.text
+    assert "module load datamodel/main." in caplog.text
 
