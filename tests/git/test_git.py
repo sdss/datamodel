@@ -75,6 +75,11 @@ def test_git_clone(git):
     git.clone(branch=outpath)
     assert os.path.exists(outpath)
 
+def test_git_status(git, test_file):
+    output = git.status()
+    assert 'On branch master' in output
+    assert "nothing to commit, working tree clean" in output
+
 def test_git_checkout(git):
     """ test git checkout of a new branch """
     assert git.current_branch == 'master'

@@ -78,6 +78,10 @@ class Git(object):
         if not self.repo:
             self.repo = Repo(self.directory)
 
+    def status(self) -> str:
+        """ Return the git status of the repo """
+        return self.repo.git.status()
+
     def clone(self, product: str = None, branch: str = None):
         """ Clones the git repo
 
