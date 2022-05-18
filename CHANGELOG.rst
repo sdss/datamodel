@@ -4,6 +4,12 @@
 Change Log
 ==========
 
+0.5.1 (unreleased)
+------------------
+- Refactored internal git code to use ``GitPython`` package
+- Change to datamodel to force work in a new git branch, outside of the main branch
+- Adds new tests for install and git modules of the datamodel
+
 0.5.0 (05-02-2022)
 ------------------
 - Added support for HDF5 files (PR :pr:`40`)
