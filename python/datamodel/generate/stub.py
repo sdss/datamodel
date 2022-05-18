@@ -318,6 +318,13 @@ class BaseStub(abc.ABC):
 
     def commit_to_git(self) -> None:
         """ Commit the stub to Github """
+
+        # create new branch if needed
+        if self.git.current_branch == 'main':
+            branch = f'dmgen-fs-{self.datamodel.file_species}'
+            log.info(f'Creating new working branch {branch}.')
+            self.git.create_new_branch(branch)
+
         # add and commit the file
         self.git.add(path=self.output)
         self.git.commit(message=f"committing {self.datamodel.file_species}.{self.format}")
@@ -325,13 +332,24 @@ class BaseStub(abc.ABC):
     def push_to_git(self) -> None:
         """ Push changes to Github """
         # try a git pull
-        self.git.pull()
+        try:
+            self.git.pull()
+        except RuntimeError as err:
+            log.warning(err)
 
         # try a git push
         self.git.push()
 
     def remove_from_git(self) -> None:
         """ Remove file from the git repo """
+
+        # create new branch if needed
+        if self.git.current_branch == 'main':
+            branch = f'dmgen-fs-{self.datamodel.file_species}'
+            log.info(f'Creating new working branch {branch}.')
+            self.git.create_new_branch(branch)
+
+        # try to remove the file
         if os.path.exists(self.output):
             self.git.rm(self.output)
             self.git.commit(message=f"removing file {self.datamodel.file_species}.{self.format}")

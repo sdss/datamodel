@@ -4,6 +4,7 @@
 
 import os
 import pathlib
+import uuid
 
 from datamodel import log
 
@@ -77,6 +78,28 @@ class Git(object):
         """ Set the repo if needed """
         if not self.repo:
             self.repo = Repo(self.directory)
+
+    def create_new_branch(self, branch: str = None):
+        """ Create a new branch
+
+        Create a new branch.  If no branch name is provided, it will create
+        a branch name based on the email head found in the git user config.  If
+        none found, creates a random branch name using a UUID.
+
+        Parameters
+        ----------
+        branch : str, optional
+            the name of the branch to create, by default None
+        """
+
+        if not branch:
+            cfg = self.repo.config_reader()
+            if cfg.has_option("user", "email"):
+                name = cfg.get("user", "email").split("@")[0]
+            else:
+                name = str(uuid.uuid4())[:13]
+            branch = f'dmgen_{name}'
+        self.checkout(branch=branch)
 
     def status(self) -> str:
         """ Return the git status of the repo """
@@ -354,3 +377,21 @@ class Git(object):
             if self.verbose:
                 log.info("Pulling from repo.")
 
+    def fetch(self):
+        """ Fetch from Github remote origin
+
+        Performs a "git fetch" on the datamodel repo
+
+        Raises
+        ------
+        RuntimeError
+            when the git command fails
+        """
+
+        try:
+            self.origin.fetch()
+        except GitCommandError as err:
+            raise RuntimeError(f'Cannot perform git fetch.  Check for merge conflicts or remote repo exists: {err}') from err
+        else:
+            if self.verbose:
+                log.info("Fetching from repo.")

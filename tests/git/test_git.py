@@ -6,6 +6,39 @@ import os
 import pathlib
 import pytest
 from datamodel.git import Git
+from datamodel.git.git import Repo
+from datamodel.generate.stub import YamlStub
+
+#cfg = self.repo.config_reader()
+
+class Cfg(dict):
+    """ Fake git repo config ini """
+
+    def has_option(self, section, option):
+        """ fake ini has_option method """
+        return (section in self) and (option in self[section])
+
+    def get(self, key, value=None):
+        """ fake ini get method """
+        return self[key][value] if value else self[key]
+
+def cfgpatch_nouser(self):
+    """ patch a git config with no user info """
+    return Cfg({})
+
+def cfgpatch_user(self):
+    """ patch a git config with user info """
+    return Cfg({"user": {"email": "testuser@test.edu"}})
+
+@pytest.fixture
+def mock_cfg_nouser(monkeypatch):
+    """ mock the config reader to return a mock config object """
+    monkeypatch.setattr(Repo, 'config_reader', cfgpatch_nouser)
+
+@pytest.fixture
+def mock_cfg_user(monkeypatch):
+    """ mock the config reader to return a mock config object """
+    monkeypatch.setattr(Repo, 'config_reader', cfgpatch_user)
 
 
 @pytest.fixture
@@ -40,6 +73,18 @@ def remote(main):
     # delete it from the remote
     main.origin.push(main.repo.heads.master, delete=True)
     main.origin.fetch()
+
+
+@pytest.fixture()
+def stub(remote, make_file):
+    """ fixture to create a simple fake stub with the mock git repo """
+    path = make_file('test')
+    yy = YamlStub()
+    yy.git = remote
+    yy.output = path
+    yy.datamodel = type('obj', (object,), {'file_species' : 'test'})
+    yield yy
+    yy = None
 
 
 @pytest.fixture
@@ -86,6 +131,25 @@ def test_git_checkout(git):
     git.checkout('test')
     assert git.current_branch == 'test'
     assert git.is_main_branch is False
+
+def test_git_create_branch(git):
+    """ test git create a new named branch """
+    assert git.current_branch == 'master'
+    git.create_new_branch("test")
+    assert git.current_branch == "test"
+    assert git.is_main_branch is False
+
+def test_git_create_branch_cfg_user(mock_cfg_user, git):
+    """ test git create a new branch with git config email """
+    assert git.current_branch == 'master'
+    git.create_new_branch()
+    assert git.current_branch == "dmgen_testuser"
+
+def test_git_create_branch_cfg_nouser(mock_cfg_nouser, git):
+    """ test git create new branch with uuid """
+    assert git.current_branch == 'master'
+    git.create_new_branch()
+    assert git.current_branch.startswith("dmgen_")
 
 def test_get_location(git):
     """ test that we can extract a relative location from a path """
@@ -173,3 +237,38 @@ def test_git_push_no_remote(remote, test_file, caplog):
     assert "Current active branch test does not exist on remote. Setting upstream to origin" in caplog.text
     assert "Pushing to repo." in caplog.text
     remote.origin.push(remote.repo.active_branch, delete=True)
+
+
+@pytest.mark.gitremote
+def test_dm_git_commit(stub):
+    """ test the stub git add/commit """
+    stub.git.checkout('main')
+    assert stub.git.current_branch == 'main'
+    stub.commit_to_git()
+    assert stub.git.current_branch != 'main'
+    assert stub.git.current_branch == 'dmgen-fs-test'
+
+
+@pytest.mark.gitremote
+def test_dm_git_pushpull(stub):
+    """ test the stub git push/pull """
+    stub.git.checkout('dmgen-fs-test')
+    assert stub.git.current_branch == 'dmgen-fs-test'
+    assert stub.git.branch_exists_on_remote is False
+    stub.push_to_git()
+    assert stub.git.current_branch != 'main'
+    assert stub.git.branch_exists_on_remote is True
+
+
+@pytest.mark.gitremote
+def test_dm_git_remove(stub):
+    """ test the stub git remove """
+    stub.git.checkout('main')
+    assert stub.git.current_branch == 'main'
+    stub.commit_to_git()
+    stub.remove_from_git()
+    assert stub.git.current_branch != 'main'
+    assert stub.git.current_branch == 'dmgen-fs-test'
+
+
+
