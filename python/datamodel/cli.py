@@ -16,6 +16,7 @@ from __future__ import print_function, division, absolute_import
 import click
 from datamodel.command import Install
 from datamodel.generate import DataModel
+from datamodel.tree.check import check_products
 from datamodel import log
 
 import cloup
@@ -131,6 +132,30 @@ def design(file_species, path, location, env_label, verbose, create, keywords):
 
 
 cli.add_command(design)
+
+
+@click.group(name='tree')
+def tree():
+    """ Interact with the SDSS tree product """
+
+
+@tree.command(short_help='Check datamodel paths against tree')
+@click.option('-r', '--release', help='the SDSS data release')
+@click.option('-v', '--verbose', help='turn on verbosity', is_flag=True, default=False)
+def check(release: str, verbose: bool):
+    """ Check the product path definitions are correct in tree """
+    check_products(release, verbose=verbose)
+    log.info('All products paths are correct in tree!')
+
+
+# @tree.command(short_help='Add datamodel paths to the tree')
+# def add(branch: str, force: bool, verbose: bool, debug: bool, test: bool):
+#     """ Add new tree paths  """
+#     pass
+
+
+cli.add_command(tree)
+
 
 
 if __name__ == '__main__':
