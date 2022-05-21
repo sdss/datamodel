@@ -24,6 +24,7 @@ else:
 class HdfFile(BaseFile):
     """ Class for supporting HDF5 files """
     suffix = 'H5'
+    aliases = ['HDF5']
     cache_key = 'hdfs'
     _hdf5data = None
 

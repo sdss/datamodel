@@ -14,6 +14,7 @@ from .base import BaseFile, format_bytes
 class FitsFile(BaseFile):
     """ Class for supporting FITS files """
     suffix = 'FITS'
+    aliases = ['FIT']
     cache_key = 'hdus'
 
     def _update_partial_cache(self, cached_hdus: dict, old_hdus: dict) -> dict:

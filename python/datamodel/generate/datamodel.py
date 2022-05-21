@@ -18,14 +18,13 @@ import re
 import pathlib
 
 from typing import TypeVar, Type, Union, List
-from xml.dom.minidom import Attr
 
 from .parse import get_abstract_path, get_abstract_key, get_file_spec
 from datamodel import log
 
 from astropy.io import fits
 from datamodel.generate.stub import stub_iterator
-from datamodel.generate.filetypes import get_filetype, get_filesize
+from datamodel.generate.filetypes import get_filetype, get_filesize, get_supported_filetypes
 from tree import Tree
 from sdss_access.path import Path
 from pydantic import ValidationError
@@ -146,7 +145,7 @@ class DataModel(object):
     ValueError
         when no path template keywords are specified
     """
-    supported_filetypes = ['.fits', '.par', '.h5']
+    supported_filetypes = get_supported_filetypes()
 
     def __init__(self, tree_ver: str = None, file_spec: str = None, path: str = None,
                  keywords: list = [], env_label: str = None, location: str = None,

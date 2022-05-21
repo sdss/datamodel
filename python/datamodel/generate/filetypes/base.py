@@ -91,7 +91,9 @@ class BaseFile(abc.ABC):
         when datamodel is not provided when (filename, release, file_species) are not provided.
     """
     suffix = None
+    aliases = []
     cache_key = None
+    compressions = ['.gz', '.bz2', '.zip']
 
     def __init__(self, cache: dict, datamodel=None, stub=None, filename: str = None,
                  release: str = None, file_species: str = None, design: bool = None,
@@ -285,3 +287,22 @@ def file_selector(suffix: str = None) -> BaseFile:
     for ftype in BaseFile.__subclasses__():
         if suffix and suffix.upper() == ftype.suffix:
             return ftype
+
+
+def get_supported_filetypes() -> list:
+    """ Get a list of supported filetypes
+
+    Constructs a list of supported filetypes for datamodels,
+    based on the BaseFile subclasses.  Collects each subclass
+    file suffix attribute as well as any designated aliases.
+
+    Returns
+    -------
+    list
+        A list of supported file types
+    """
+    s = []
+    for ftype in BaseFile.__subclasses__():
+        s.append(ftype.suffix)
+        s.extend(ftype.aliases)
+    return list(map(str.lower, map(lambda x: f".{x}", s)))
