@@ -18,7 +18,6 @@ import re
 import pathlib
 
 from typing import TypeVar, Type, Union, List
-from xml.dom.minidom import Attr
 
 from .parse import get_abstract_path, get_abstract_key, get_file_spec
 from datamodel import log
@@ -30,7 +29,7 @@ from tree import Tree
 from sdss_access.path import Path
 from pydantic import ValidationError
 
-from ..git import Git
+from ..gitio import Git
 from .stub import BaseStub
 
 # Create a generic variable that can be 'DataModel', or any subclass.

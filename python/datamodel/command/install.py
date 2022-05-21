@@ -11,7 +11,7 @@ from os.path import dirname, exists, join
 from pathlib import Path
 from shutil import rmtree
 
-from datamodel.git import Git
+from datamodel.gitio import Git
 from datamodel import log
 
 __author__ = "Joel Brownstein <joelbrownstein@sdss.org>"

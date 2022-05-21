@@ -61,3 +61,10 @@ def test_cli_dm_design(yamlfile):
     result = runner.invoke(cli, ['design', '-f', 'test', '-p', 'TEST_REDUX/{ver}/testfile_{id}.fits'])
     assert os.path.exists(yamlfile)
 
+
+def test_cli_dm_tree_check():
+    """ test that cli can run a tree check """
+    runner = CliRunner()
+    result = runner.invoke(cli, ['tree', 'check', '-r', 'DR17'])
+    assert result.exit_code == 0
+

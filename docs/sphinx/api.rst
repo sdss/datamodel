@@ -85,7 +85,7 @@ Changelog
 Git
 ---
 
-.. automodule:: datamodel.git.git
+.. automodule:: datamodel.gitio.gitio
    :members:
    :undoc-members:
    :show-inheritance:
@@ -151,3 +151,11 @@ Products
    :undoc-members:
    :show-inheritance:
 
+
+Validate
+--------
+
+.. automodule:: datamodel.validate.check
+   :members:
+   :undoc-members:
+   :show-inheritance:
