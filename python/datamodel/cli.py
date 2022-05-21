@@ -16,7 +16,7 @@ from __future__ import print_function, division, absolute_import
 import click
 from datamodel.command import Install
 from datamodel.generate import DataModel
-from datamodel.tree.check import check_products
+from datamodel.validate.check import check_products
 from datamodel import log
 
 import cloup

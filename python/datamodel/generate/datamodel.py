@@ -29,7 +29,7 @@ from tree import Tree
 from sdss_access.path import Path
 from pydantic import ValidationError
 
-from ..git import Git
+from ..gitio import Git
 from .stub import BaseStub
 
 # Create a generic variable that can be 'DataModel', or any subclass.

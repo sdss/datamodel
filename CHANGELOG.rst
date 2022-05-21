@@ -9,6 +9,8 @@ Change Log
 - Refactored internal git code to use ``GitPython`` package
 - Change to datamodel to force work in a new git branch, outside of the main branch
 - Adds new tests for install and git modules of the datamodel
+- Renames ``git`` module to ``gitio`` to resolve package namespace conflicts
+- Adds new command ``datamodel tree check`` to validate paths against tree configs
 
 0.5.0 (05-02-2022)
 ------------------
