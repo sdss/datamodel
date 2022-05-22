@@ -292,7 +292,7 @@ class DataModel(object):
             when no path keyword arguments can be extracted
         """
         # get the file species YAML datamodel
-        yfile = get_yaml_files(species)
+        yfile = get_yaml_files(f'{species}.yaml')
         if not yfile:
             raise ValueError(f'No yaml file found for file species {species}')
         data = read_yaml(yfile)

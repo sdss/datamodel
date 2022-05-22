@@ -168,6 +168,7 @@ def check_models():
     validate_models()
     log.info('All YAML datamodels have validated JSON models.')
 
+
 @validate.command(short_help='Revalidate a datamodel stub.')
 @click.option('-f', '--file_species', help='unique name of the product file species', required=True)
 @click.option('-r', '--release', help='the SDSS data release')

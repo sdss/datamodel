@@ -146,7 +146,7 @@ def check_invalid(product: str, data: dict, release: str, verbose: bool = None) 
         pathwork = check_path(product, data, Tree('sdsswork'), verbose=verbose)
         # if both are invalid then the product path is really invalid
         if all([path5, pathwork]):
-            return path5 or pathwork
+            return path5[0], f'{path5[1]}; {pathwork[1]}'
     else:
         # check for all other releases
         path = check_path(product, data, Tree(release.lower()), verbose=verbose)
