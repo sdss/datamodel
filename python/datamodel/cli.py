@@ -16,7 +16,7 @@ from __future__ import print_function, division, absolute_import
 import click
 from datamodel.command import Install
 from datamodel.generate import DataModel
-from datamodel.validate.check import check_products
+from datamodel.validate import check_products, validate_models, revalidate
 from datamodel import log
 
 import cloup
@@ -139,13 +139,13 @@ def tree():
     """ Interact with the SDSS tree product """
 
 
-@tree.command(short_help='Check datamodel paths against tree')
+@tree.command('check', short_help='Check datamodel paths against tree')
 @click.option('-r', '--release', help='the SDSS data release')
 @click.option('-v', '--verbose', help='turn on verbosity', is_flag=True, default=False)
-def check(release: str, verbose: bool):
+def check_paths(release: str, verbose: bool):
     """ Check the product path definitions are correct in tree """
     check_products(release, verbose=verbose)
-    log.info('All products paths are correct in tree!')
+    log.info('All products paths are correct in tree.')
 
 
 # @tree.command(short_help='Add datamodel paths to the tree')
@@ -156,6 +156,29 @@ def check(release: str, verbose: bool):
 
 cli.add_command(tree)
 
+
+@click.group(name='validate')
+def validate():
+    """ Commands related to datamodel validation """
+
+@validate.command('check', short_help='Check JSON datamodel validation.')
+def check_models():
+    """ Check that all YAML datamodel have corresponding JSON datamodels """
+
+    validate_models()
+    log.info('All YAML datamodels have validated JSON models.')
+
+@validate.command(short_help='Revalidate a datamodel stub.')
+@click.option('-f', '--file_species', help='unique name of the product file species')
+@click.option('-r', '--release', help='the SDSS data release')
+@click.option('-v', '--verbose', help='turn on verbosity', is_flag=True, default=False)
+def redo(file_species: str, release: str, verbose: bool):
+    """ Rewrite all datamodel stubs for a given file species  """
+
+    revalidate(species=file_species, release=release, verbose=verbose)
+    log.info('All YAML datamodels have validated JSON models.')
+
+cli.add_command(validate)
 
 
 if __name__ == '__main__':
