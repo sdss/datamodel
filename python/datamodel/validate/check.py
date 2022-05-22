@@ -3,6 +3,7 @@
 #
 
 import re
+import pathlib
 from typing import Union
 
 from datamodel import log
@@ -145,7 +146,7 @@ def check_invalid(product: str, data: dict, release: str, verbose: bool = None) 
         pathwork = check_path(product, data, Tree('sdsswork'), verbose=verbose)
         # if both are invalid then the product path is really invalid
         if all([path5, pathwork]):
-            return path5 or pathwork
+            return path5[0], f'{path5[1]}; {pathwork[1]}'
     else:
         # check for all other releases
         path = check_path(product, data, Tree(release.lower()), verbose=verbose)
@@ -212,17 +213,48 @@ def check_path(product: str, data: dict, tree: Tree, verbose: bool = None) -> Un
     msg = f"product access key {path_template} does not match {tree.config_name} tree path template {tree_path}."
 
     # check case of normal path template
-    if not special_fxn and (path_template != tree_path):
+    if not special_fxn and (not compare_path(path_template, tree_path)):
         if verbose:
             log.error(msg)
         return (product, msg)
 
     # check case when path template starts with a special function, e.g. @spectrodir|
     # only compare path part that isn't the envvar/specialfxn name
-    if special_fxn and (path_template.split("/", 1)[-1] != tree_path.split("/", 1)[-1]):
+    if special_fxn and (not compare_path(path_template.split("/", 1)[-1], tree_path.split("/", 1)[-1])):
         if verbose:
             log.error(msg)
         return (product, msg)
+
+
+def compare_path(a: str, b: str) -> bool:
+    """ Compares two paths
+
+    Compares two paths for equality.  Tries to account for comparison
+    between a path with and without compression suffixes,
+    i.e. "fits" and "fits.gz".  Strips the last suffix from paths with
+    more than one.
+
+    Parameters
+    ----------
+    a : str
+        a str filepath or path location
+    b : str
+        a str filepath or path location
+
+    Returns
+    -------
+    bool
+        If the two paths are the same
+    """
+    a = pathlib.Path(a)
+    a = a.parent / (a.stem if len(a.suffixes) > 1 else a.name)
+
+    b = pathlib.Path(b)
+    b = b.parent / (b.stem if len(b.suffixes) > 1 else b.name)
+
+    return a == b
+
+
 
 
 

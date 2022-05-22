@@ -41,6 +41,13 @@ Commands
    :prog: tree
    :nested: full
 
+.. _usage-dmvalid:
+
+.. click:: datamodel.cli:validate
+   :prog: validate
+   :nested: full
+
+
 .. _cli-diff:
 
 Cli Differences

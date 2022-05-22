@@ -82,6 +82,12 @@ def test_datamodel_duplicate_keys():
     real_keys = re.findall(r'{(.*?)}', dm.path)
     assert real_keys == ['plan', 'plan', 'observatory']
 
+def test_datamodel_from_yaml(validmodel):
+    validmodel('fits')
+    dm = DataModel.from_yaml('test', release='WORK')
+    assert isinstance(dm, DataModel)
+
+
 
 def test_valid_datamodel(validmodels, suffix):
     """ test we can produce valid datamodels for different file types """

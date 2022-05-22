@@ -19,12 +19,13 @@ import pathlib
 
 from typing import TypeVar, Type, Union, List
 
-from .parse import get_abstract_path, get_abstract_key, get_file_spec
+from .parse import get_abstract_path, get_abstract_key, get_file_spec, find_kwargs
+from ..io.loaders import read_yaml, get_yaml_files
 from datamodel import log
 
 from astropy.io import fits
 from datamodel.generate.stub import stub_iterator
-from datamodel.generate.filetypes import get_filetype, get_filesize
+from datamodel.generate.filetypes import get_filetype, get_filesize, get_supported_filetypes
 from tree import Tree
 from sdss_access.path import Path
 from pydantic import ValidationError
@@ -145,7 +146,7 @@ class DataModel(object):
     ValueError
         when no path template keywords are specified
     """
-    supported_filetypes = ['.fits', '.par', '.h5']
+    supported_filetypes = get_supported_filetypes()
 
     def __init__(self, tree_ver: str = None, file_spec: str = None, path: str = None,
                  keywords: list = [], env_label: str = None, location: str = None,
@@ -253,7 +254,66 @@ class DataModel(object):
         file_species, path, keys = prompt_for_access(filename, path_name, tree_ver)
         if not file_species:
             return None
-        return DataModel(file_spec=file_species, path=path, keywords=keys, verbose=verbose, tree_ver=tree_ver)
+        return cls(file_spec=file_species, path=path, keywords=keys, verbose=verbose, tree_ver=tree_ver)
+
+    @classmethod
+    def from_yaml(cls: Type[D], species: str, release: str = None, verbose: bool = None) -> D:
+        """ class method to create a datamodel from a YAML file species name
+
+        Creates a DataModel for a given file species name, from an existing
+        YAML datamodel file.  Extracts the abstract path and keyword arguments
+        needed to instantiate a DataModel.  Keywords are extracted using the
+        datamodel "location" and "example" fields.  The abstract path is
+        extracted from the pre-existing "access_string" field.  Fields are
+        pulled from the specified release.  If no release specified, it uses
+        the first release it can find from the datamodel.
+
+        Parameters
+        ----------
+        species : str
+            the file species datamodel name
+        release : str, optional
+            the SDSS release, by default None
+        verbose : bool, optional
+            if True, turn on verbosity, by default None
+
+        Returns
+        -------
+        DataModel
+            a SDSS DataModel instance
+
+        Raises
+        ------
+        ValueError
+            when no yaml file can be found for the file species
+        ValueError
+            when no release can be found in the datamodel
+        ValueError
+            when no path keyword arguments can be extracted
+        """
+        # get the file species YAML datamodel
+        yfile = get_yaml_files(f'{species}.yaml')
+        if not yfile:
+            raise ValueError(f'No yaml file found for file species {species}')
+        data = read_yaml(yfile)
+
+        # get a release from the datamodel
+        if not release:
+            release = next(iter(data['releases']))
+        reldata = data['releases'].get(release, {})
+        if not reldata:
+            raise ValueError(f'No data found for release {release}')
+
+        # construct the datamodel path using the access_string
+        path = reldata["access"]["access_string"].split(" = ")[-1][1:]
+
+        # attempt to extract the keyword arguments using the datamodel location and example fields
+        kwargs = find_kwargs(reldata["location"], reldata["example"])
+        if not kwargs:
+            raise ValueError(f'No keyword arguments extracted from datamodel location/example for species {species}, release {release}.')
+        joined_kwargs = ["=".join(i) for i in kwargs.items()]
+
+        return cls(file_spec=species, path=path, keywords=joined_kwargs, verbose=verbose, release=release)
 
     def _construct_path(self) -> None:
         """ Construct a path, template path, or env_label and location """

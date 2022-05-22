@@ -13,6 +13,7 @@
 
 from __future__ import print_function, division, absolute_import
 import re
+from collections import Counter
 
 
 def get_abstract_path(path: str = None, add_brackets: bool = None) -> str:
@@ -100,3 +101,134 @@ def get_file_spec(file_spec: str = None) -> str:
         print(f"DATAMODEL> invalid file_spec={file_spec}")
         file_spec = None
     return file_spec
+
+
+def find_kwargs(location: str, example: str) -> dict:
+    """ Find and extract keyword arguments
+
+    Attempts to extract keyword argumets from an input
+    abstract datamodel path `location` and its `example` path. The location
+    and example parts must match exactly.  For example,
+    given "{mjd}/sdR-{br}{id}-{frame}.fits.gz" and
+    "55049/sdR-b1-00100006.fits.gz", it returns
+    {'mjd': '55049', 'br': 'b', 'id': '1', 'frame': '00100006'}
+
+    Parameters
+    ----------
+    location : str
+        a datamodel abstract location
+    example : str
+        a datamodel example location
+
+    Returns
+    -------
+    dict
+        any extracted keyword arguments
+    """
+
+    # get the keyword names from the location
+    names = [i.split(":")[0] for i in re.findall("{(.*?)}", location)]
+
+    # replace any "." with "\\." and remove any string formatting
+    patt = re.sub(":.*?}", "}", re.sub(r"[.](?!\*)", "\\.", location))
+
+    # replace content between {} with a named capture group matched on pattern .+?
+    new_patt = deduplicate(remap_patterns(re.sub("{(.*?)}", r"(?P<\g<1>>.+?)", patt)), names)
+    dd = re.search(new_patt, example)
+    if dd:
+        # if kwargs found, cleanup any duplicate keys
+        return cleanup_dups(dd.groupdict())
+
+
+def deduplicate(value: str, names: list) -> str:
+    """ De-duplicate regex pattern field names
+
+    Some paths have duplicate field names, e.g. "run".  The default
+    regex named group replace fails with duplicate field names.
+    To handle this we append each duplicate field name with "_"
+    so the re.groupdict method can work properly.
+
+    Parameters
+    ----------
+    value : str
+        the input regex search pattern
+    names : list
+        a list of path field names
+
+    Returns
+    -------
+    str
+        the new regex search pattern
+    """
+    # loop over duplicated names and append dups with "_"
+    for term, count in Counter(names).items():
+        if count > 1:
+            for i in range(count - 1):
+                _ = "_" * (1 + i)
+                new_term = f"{_}{term.strip('<>')}"
+                value = value.replace(f"<{term}>", f"<{new_term}>", 1)
+    return value
+
+
+def remap_patterns(value: str) -> str:
+    """ Remaps regex search patterns for certain fields
+
+    Some paths have abutted keywords, i.e. "{br}{id}" or "{dr}{version}".
+    The default regex search pattern of ".+?" can sometimes handle these
+    but sometimes not. We replace certain fields with specific patterns
+    to help the extraction process.
+
+    Parameters
+    ----------
+    value : str
+        the input regex search pattern
+
+    Returns
+    -------
+    str
+        the new regex search pattern
+    """
+    # for cases with abutted kwargs, e.g. {camrow}{camcol}, {filter}{camcol}, {br}{id}, etc
+    mapping = {'<dr>': "DR\\d{1,2}", '<br>': '[br]', '<id>': '.+?', "<camcol>": '[1-6]',
+               "<filter>": '[ugriz]'}
+
+    # loop over specific key names
+    for i in mapping:
+        if i not in value:
+            continue
+        # replace the pattern with the specific pattern
+        value = value.replace(f"{i}.+?", f"{i}{mapping.get(i, '.+?')}")
+    return value
+
+
+def cleanup_dups(kwargs: dict) -> dict:
+    """ Cleanup duplicate keys in the extracted keywords
+
+    Removes the duplicated keywords from the extracted kwargs.
+    If both key values are the same, uses it.  If both are digits,
+    attempts to remove any front zero-padding, e.g. "45", and ""000045" -> "45".
+
+    Parameters
+    ----------
+    kwargs : dict
+        the input extracted keywords
+
+    Returns
+    -------
+    dict
+        reduced keyword dictionary
+    """
+    newdd = {}
+    # loop over the kwargs
+    for key, val in kwargs.items():
+        # for duplicated keys with "_"
+        if key.startswith("_"):
+            other_val = kwargs.get(key.lstrip("_"))
+            # use key if both are the same; otherise if digits, strip out front zero-padding
+            if val == other_val:
+                newdd[key.lstrip("_")] = val
+            elif val.isdigit() and other_val.isdigit():
+                newdd[key.lstrip("_")] = val.lstrip("0")
+        elif key.lstrip("_") not in newdd:
+            newdd[key] = val
+    return newdd

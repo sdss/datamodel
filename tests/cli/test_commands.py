@@ -68,3 +68,15 @@ def test_cli_dm_tree_check():
     result = runner.invoke(cli, ['tree', 'check', '-r', 'DR17'])
     assert result.exit_code == 0
 
+def test_cli_dm_validate_check():
+    """ test that cli can run a validate check """
+    runner = CliRunner()
+    result = runner.invoke(cli, ['validate', 'check'])
+    assert result.exit_code == 0
+
+def test_cli_dm_validate_redo(validmodel):
+    """ test that cli can run a validate redo """
+    validmodel('fits')
+    runner = CliRunner()
+    result = runner.invoke(cli, ['validate', 'redo', '-f', 'test', '-v'])
+    assert result.exit_code == 0

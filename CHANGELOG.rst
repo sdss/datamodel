@@ -11,6 +11,8 @@ Change Log
 - Adds new tests for install and git modules of the datamodel
 - Renames ``git`` module to ``gitio`` to resolve package namespace conflicts
 - Adds new command ``datamodel tree check`` to validate paths against tree configs
+- Adds new command ``datamodel validate check`` to check for valid JSON datamodels
+- Adds new command ``datamodel validate redo`` to rewrite the datamodel stubs
 
 0.5.0 (05-02-2022)
 ------------------

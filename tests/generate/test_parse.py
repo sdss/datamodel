@@ -14,7 +14,7 @@
 from __future__ import print_function, division, absolute_import
 
 import pytest
-from datamodel.generate.parse import get_abstract_path, get_abstract_key, get_file_spec
+from datamodel.generate.parse import get_abstract_path, get_abstract_key, get_file_spec, find_kwargs
 
 
 @pytest.mark.parametrize('name, exp',
@@ -49,3 +49,19 @@ def test_abstract_path(name, exp, brack):
     filespec = get_abstract_path(name, add_brackets=brack)
     assert filespec == exp
 
+
+@pytest.mark.parametrize('loc, examp, keys',
+                         [('{mjd}/sdR-{br}{id}-{frame}.fits.gz', '55049/sdR-b1-00100006.fits.gz',
+                           {'mjd': '55049', 'br': 'b', 'id': '1', 'frame': '00100006'}),
+                          ('{rerun}/{run}/objcs/{camcol}/fpBIN-{run:0>6}-{filter}{camcol}-{field:0>4}.fit',
+                           '1/45/objcs/3/fpBIN-000045-g3-0123.fit',
+                           {'rerun': '1', 'run': '45', 'camcol': '3', 'filter': 'g', 'field': '0123'}),
+                          ('galaxy_{dr}{version}_{sample}_{ns}.fits.gz', 'galaxy_DR12v1.0_1_n.fits.gz',
+                           {'dr': 'DR12', 'version': 'v1.0', 'sample': '1', 'ns': 'n'}),
+                          ('{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}RSS.fits.gz',
+                           'v2_4_3/8485/stack/manga-8485-1901-LOGRSS.fits.gz',
+                           {'drpver': 'v2_4_3', 'plate': '8485', 'ifu': '1901', 'wave': 'LOG'})],
+                         ids=['sdR', 'fpBIN', 'galaxy', 'mangarss'])
+def test_find_kwargs(loc, examp, keys):
+    out = find_kwargs(loc, examp)
+    assert out == keys

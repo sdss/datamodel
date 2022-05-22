@@ -54,6 +54,7 @@ def setup_sas(monkeypatch, tmp_path, mocker):
 
     mocker.patch('datamodel.generate.datamodel.Tree', new=MockTree)
     mocker.patch('datamodel.generate.datamodel.Path', new=MockPath)
+    mocker.patch('datamodel.validate.check.Tree', new=MockTree)
 
 ####
 # Fixtures for creating test files and datamodels
