@@ -159,3 +159,8 @@ Validate
    :members:
    :undoc-members:
    :show-inheritance:
+
+.. automodule:: datamodel.validate.models
+   :members:
+   :undoc-members:
+   :show-inheritance:

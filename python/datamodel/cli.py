@@ -169,14 +169,14 @@ def check_models():
     log.info('All YAML datamodels have validated JSON models.')
 
 @validate.command(short_help='Revalidate a datamodel stub.')
-@click.option('-f', '--file_species', help='unique name of the product file species')
+@click.option('-f', '--file_species', help='unique name of the product file species', required=True)
 @click.option('-r', '--release', help='the SDSS data release')
 @click.option('-v', '--verbose', help='turn on verbosity', is_flag=True, default=False)
 def redo(file_species: str, release: str, verbose: bool):
     """ Rewrite all datamodel stubs for a given file species  """
 
     revalidate(species=file_species, release=release, verbose=verbose)
-    log.info('All YAML datamodels have validated JSON models.')
+    log.info(f'Regenerating datamodel stubs for {file_species}.')
 
 cli.add_command(validate)
 
