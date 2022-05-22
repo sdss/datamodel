@@ -19,7 +19,7 @@ from jinja2 import Environment, PackageLoader, TemplateNotFound
 from typing import Iterator
 from pydantic import ValidationError
 
-from ..git import Git
+from ..gitio import Git
 from .changelog import yamldiff_selector
 from ..models.releases import releases as sdss_releases
 from ..models.yaml import YamlModel

@@ -14,6 +14,7 @@ import functools
 import itertools
 import os
 import pathlib
+from contextlib import contextmanager
 from typing import Type, TypeVar, Union
 
 from fuzzy_types import FuzzyList
@@ -89,6 +90,24 @@ class Product(object):
         for field in self._extract:
             setattr(self, field, getattr(self._model.general, field))
         self.loaded = True
+
+    def unload(self) -> None:
+        """ Unloads the DataModel content from the Product"""
+        if not self.loaded:
+            return
+
+        del self._model
+        del self.releases
+        for field in self._extract:
+            delattr(self, field)
+        self.loaded = False
+
+    @contextmanager
+    def loader(self) -> PType:
+        """ Contextmanager to temporarily load the product """
+        self.load()
+        yield self
+        self.unload()
 
     def get_release(self, value: str) -> Release:
         """ Get the JSON content for the given product for a given SDSS release
@@ -280,6 +299,46 @@ class Product(object):
         """
         return self._get_path('location', release=release, symbolic=symbolic,
                               expand=expand, **kwargs)
+
+    def get_access(self, release: str = None) -> dict:
+        """ Get the sdss-access information for a given release
+
+        Get the "access" entry from the datamodel for a given release.
+        If no release is given, returns the access information for all releases
+        for the product.  The access information returned is also the same content as
+        in the `products/access/[fileSpecies].access` file.
+
+        Parameters
+        ----------
+        release : str, optional
+            The data release to use, by default None
+
+        Returns
+        -------
+        dict
+            the access information from the datamodel
+
+        Raises
+        ------
+        AttributeError
+            when "releases" is not set and product is not loaded
+        ValueError
+            when the specified release is not a valid one for the product
+        """
+
+        # check if the product has the releases attribute
+        if not hasattr(self, 'releases'):
+            raise AttributeError("Product is not loaded.  Try running the load() method.")
+
+        access = {k: v.access.dict() for k,v in self._model.releases.items()}
+
+        # check if the release is valid for this product
+        if release and release not in self.releases:
+            raise ValueError(f'Release {release} is not a valid release for product {self.name}.')
+
+        if release:
+            return access.get(release, {})
+        return access
 
 class DataProducts(FuzzyList):
     """ Class of a fuzzy list of SDSS data products

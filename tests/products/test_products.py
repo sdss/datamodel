@@ -64,6 +64,14 @@ def test_load_from_file():
     assert p.loaded is True
     assert p.short == 'this is a test file'
 
+def test_load_context():
+    """ test contextmanager product loader """
+    p = Product('test')
+    assert p.loaded is False
+    with p.loader() as pp:
+        assert pp.loaded is True
+    assert p.loaded is False
+
 
 def test_get_release(product):
     """ test we can get a release from a product """
@@ -104,6 +112,15 @@ def test_get_location(product, symbolic, exp):
     """ test we can get the location of a product """
     path = product.get_location(symbolic=symbolic, ver='v2', id='b')
     assert exp in path
+
+def test_get_acces(product):
+    """ test we can get the product acces info"""
+    # naming this test acces so the stub does not replace test name during "access"->"yaml" cache file check
+    data = product.get_access("WORK")
+    assert data['in_sdss_access'] is True
+    assert data['path_name'] == 'test'
+    assert data['path_template'] == '$TEST_REDUX/{ver}/testfile_{id}.fits'
+    assert data['access_string'] == 'test = $TEST_REDUX/{ver}/testfile_{id}.fits'
 
 def test_data_products():
     """ test all data products """

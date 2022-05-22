@@ -35,6 +35,12 @@ Commands
    :prog: install
    :nested: full
 
+.. _usage-dmtree:
+
+.. click:: datamodel.cli:tree
+   :prog: tree
+   :nested: full
+
 .. _cli-diff:
 
 Cli Differences

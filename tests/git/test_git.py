@@ -5,8 +5,8 @@
 import os
 import pathlib
 import pytest
-from datamodel.git import Git
-from datamodel.git.git import Repo
+from datamodel.gitio import Git
+from datamodel.gitio.gitio import Repo
 from datamodel.generate.stub import YamlStub
 
 #cfg = self.repo.config_reader()

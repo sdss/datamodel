@@ -6,10 +6,11 @@ import os
 import pathlib
 import uuid
 
-from datamodel import log
-
 from git import Repo, InvalidGitRepositoryError, GitCommandError
 
+from datamodel import log
+
+__all__ = ["Git"]
 
 class Git(object):
     """ Class to run the git commands
