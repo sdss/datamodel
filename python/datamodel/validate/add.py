@@ -184,7 +184,13 @@ def update_tree(release: str = None, work_ver: str = None, branch: str = 'dm_upd
     repo = clone_tree(branch=branch, local=local)
 
     # iterate over all the new products, grouped by release
+    new_items = []
     for rr, items in itertools.groupby(sorted(get_new_products(release=release)), key=lambda x: x[0]):
+        # do nothing if no new products
+        if not rr or not items:
+            log.info("Nothing to update.")
+            break
+
         # split the access path into a name and template
         paths = [p[1].replace(" = ", "=").split("=") for p in items]
 
@@ -214,6 +220,11 @@ def update_tree(release: str = None, work_ver: str = None, branch: str = 'dm_upd
         else:
             # remove the backup file
             os.remove(backup_cfg)
+
+    # if no new items, return
+    if not new_items:
+        log.info("Nothing to update.")
+        return
 
     # push the changes
     if not test and not skip_push:
