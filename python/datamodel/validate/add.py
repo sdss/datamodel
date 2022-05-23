@@ -266,6 +266,9 @@ def update_datamodel_access(test: bool = None):
     """
     # loop for new JSON datamodel products
     for release, access_string in get_new_products():
+        # no missing products
+        if not release or not access_string:
+            continue
 
         if test:
             log.info('Test mode: not writing datamodel stubs.')
@@ -274,6 +277,11 @@ def update_datamodel_access(test: bool = None):
         species = access_string.split(' = ')[0]
 
         dm = DataModel.from_yaml(species, release)
+
+        # checkout a branch
+        if not test:
+            dm._git.checkout('dm_update_models')
+
         # if the access is updated, write out the stubs
         if dm.access[release]['in_sdss_access'] and not test:
             dm.write_stubs()
@@ -287,7 +295,6 @@ def update_datamodel_access(test: bool = None):
 
         if dm.access[release]['in_sdss_access']:
             log.info(f'Found updated path for file species {species}, release {release}.')
-
 
         if test:
             continue
