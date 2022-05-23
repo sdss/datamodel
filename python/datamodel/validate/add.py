@@ -15,58 +15,64 @@ from datamodel.generate import DataModel
 from .check import yield_products
 
 
-def get_new_products(release: str = None):
-    """_summary_
+def get_new_products(release: str = None) -> tuple:
+    """ Get new datamodel products for the tree
 
-    _extended_summary_
+    Retrieves any valid JSON datamodels that do not
+    yet have a corresponding tree entry, i.e. the `in_sdss_access`
+    field is False.
 
     Parameters
     ----------
     release : str, optional
-        _description_, by default None
+        the SDSS release, by default None
 
     Yields
     ------
-    _type_
-        _description_
+    tuple
+        The release and access string
     """
     for product, data in yield_products(release=release):
+        # if not data, the skip
         if not data:
             continue
 
         if not release:
+            # if no release specified, loop over all releases
             for rr, info in data.items():
                 if info['in_sdss_access']:
                     continue
-                #print(f'new product {product} with access {info["access_string"]}.')
+                log.info(f'new product {product} with access {info["access_string"]}.')
                 yield rr, info["access_string"]
         elif not data['in_sdss_access']:
-            #print(f'new product {product} with access {data["access_string"]}.')
+            log.info(f'new product {product} with access {data["access_string"]}.')
             yield release, data["access_string"]
 
 
-def make_branch(repo: Repo, branch=None):
-    """_summary_
+def make_branch(repo: Repo, branch: str = 'dm_update_tree') -> Repo:
+    """ Make a new branch in the tree repo
 
-    _extended_summary_
+    Checkout or create a branch in the tree repo.
 
     Parameters
     ----------
     repo : Repo
-        _description_
+        the git repo
     branch : _type_, optional
-        _description_, by default None
+        the name of the branch, by default "dm_update_tree"
 
     Returns
     -------
-    _type_
-        _description_
+    Repo
+        the git repo
     """
+    # set to master and fetch/pull
     log.info('Setting up tree repo.')
     repo.git.checkout('master')
     repo.remotes.origin.fetch()
     repo.remotes.origin.pull()
-    branch = branch or 'dm_update_tree'
+
+    # checkout a new branch
     if branch in repo.branches:
         log.info(f'Checking out existing branch {branch}.')
         repo.git.checkout(branch)
@@ -76,22 +82,23 @@ def make_branch(repo: Repo, branch=None):
     return repo
 
 
-def clone_tree(branch: str = None, local: bool = None):
-    """_summary_
+def clone_tree(branch: str = None, local: bool = None) -> Repo:
+    """ Clone the tree repo
 
-    _extended_summary_
+    Clone the tree repo from either an existing local source
+    or cloning the remote repo into a temporary directory.
 
     Parameters
     ----------
     branch : str, optional
-        _description_, by default None
+        the name of the branch, by default None
     local : bool, optional
-        _description_, by default None
+        if True, use a local tree repo, by default None
 
     Returns
     -------
-    _type_
-        _description_
+    Repo
+        the git repo
     """
     treedir = os.getenv("TREE_DIR")
     if local and treedir:
@@ -105,10 +112,10 @@ def clone_tree(branch: str = None, local: bool = None):
     return make_branch(r, branch=branch)
 
 
-def add_and_commit(repo: Repo, file: str, message: str = 'datamodel auto updating tree with new paths'):
-    """_summary_
+def add_and_commit(repo: Repo, file: str, message: str = None):
+    """ Add and commit a file to the tree
 
-    _extended_summary_
+    Add and commit a file to the tree repo.
 
     Parameters
     ----------
@@ -117,50 +124,60 @@ def add_and_commit(repo: Repo, file: str, message: str = 'datamodel auto updatin
     file : str
         _description_
     message : str, optional
-        _description_, by default 'datamodel auto updating tree with new paths'
+        _description_, by default None
     """
     repo.index.add(file)
-    repo.index.commit(message)
+    repo.index.commit(message or "datamodel auto updating tree with new paths")
     log.info(f'Committing changes to file {file}.')
-    #repo.remotes.origin.push(repo.active_branch, set_upstream=True)
-    #repo.remotes.origin.push(repo.active_branch, delete=True)
+
 
 def pull_and_push(repo: Repo):
-    """_summary_
+    """ Pull and push the tree repo
 
-    _extended_summary_
+    Pull and push the current tree repo head to the remote.
 
     Parameters
     ----------
     repo : Repo
-        _description_
+        the git repo
     """
+    # if the branch has a remote tracking branch, pull
     if repo.active_branch.tracking_branch():
         repo.remotes.origin.pull()
+
+    # push the branch
     repo.remotes.origin.push(repo.active_branch, set_upstream=True)
     log.info('Pushing changes to origin.')
 
 
 def update_tree(release: str = None, work_ver: str = None, branch: str = 'dm_update_tree',
                 local: bool = None, test: bool = None, skip_push: bool = False):
-    """_summary_
+    """ Update the tree repo with new paths
 
-    _extended_summary_
+    Updates the tree repo with new paths for datamodel products.  Gets all new
+    JSON datamodels that do not yet have tree paths, and adds them to the PATH
+    ini section of the respective release config file.  Clones the tree repo and
+    makes all commits in a new branch, by default 'dm_update_tree'.  Commits and
+    pushes the branch to the remote.  Makes a backup of the tree config file before
+    writing any new changes.  On failure, the backup is restored.
+
+    Use the test flag to skip all write operations and just print the new paths.
+    Use the skip_push flag to bypass the push to the remote.
 
     Parameters
     ----------
     release : str, optional
-        _description_, by default None
+        the SDSS release, by default None
     work_ver : str, optional
-        _description_, by default None
+        the tree config work version, by default None
     branch : str, optional
-        _description_, by default 'dm_update_tree'
+        the tree repo branch name, by default 'dm_update_tree'
     local : bool, optional
-        _description_, by default None
+        if set, uses an existing local repo, by default None
     test : bool, optional
-        _description_, by default None
+        if set, turns on testing, by default None
     skip_push : bool, optional
-        _description_, by default None
+        if set, skips the git push, by default None
     """
 
     # clone the tree repo
@@ -209,16 +226,20 @@ def update_tree(release: str = None, work_ver: str = None, branch: str = 'dm_upd
 
 
 def write_no_comments(cfgfile: str, paths: list):
-    """_summary_
+    """ Update a tree config file
 
-    _extended_summary_
+    Write a tree config file with new paths added into it.
+    This removes all comments from the tree ini config file.
+    The list of paths to add is a list of tuples of
+    path_name, path_template.  Does not add them if they already
+    exist in the config file.
 
     Parameters
     ----------
     cfgfile : str
-        _description_
+        the tree config file path
     paths : list
-        _description_
+        a list of paths to add
     """
     # no comments
     cfg = ConfigParser()
@@ -235,16 +256,20 @@ def write_no_comments(cfgfile: str, paths: list):
 
 
 def write_comments(cfgfile: str, paths: list):
-    """_summary_
+    """ Update a tree config file
 
-    _extended_summary_
+    Write a tree config file with new paths added into it.
+    This preserves all comments from the tree ini config file.
+    The list of paths to add is a list of tuples of
+    path_name, path_template.  Does not add them if they already
+    exist in the config file.
 
     Parameters
     ----------
     cfgfile : str
-        _description_
+        the tree config file path
     paths : list
-        _description_
+        a list of paths to add
     """
     # preserve comments
     config = ConfigObj(cfgfile)
@@ -259,10 +284,19 @@ def write_comments(cfgfile: str, paths: list):
     config.write()
 
 
-def update_datamodel_access(test: bool = None):
-    """_summary_
+def update_datamodel_access(branch: str = 'dm_update_models', test: bool = None):
+    """ Updates the datamodel access info sections
 
-    _extended_summary_
+    Checks all "new" JSON datamodels for updated access info.  Creates a new
+    datamodel instance using the product file species, and updates YAML file
+    and all stubs with the updated access info for the indicated release.
+
+    Parameters
+    ----------
+    branch : str, optional
+        the datamodel repo branch name, by default 'dm_update_models'
+    test : bool, optional
+        if set, skips all write operations, by default None
     """
     # loop for new JSON datamodel products
     for release, access_string in get_new_products():
@@ -280,7 +314,7 @@ def update_datamodel_access(test: bool = None):
 
         # checkout a branch
         if not test:
-            dm._git.checkout('dm_update_models')
+            dm._git.checkout(branch)
 
         # if the access is updated, write out the stubs
         if dm.access[release]['in_sdss_access'] and not test:
