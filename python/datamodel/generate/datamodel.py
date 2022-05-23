@@ -638,7 +638,10 @@ class DataModel(object):
             A stub format to commit, by default None
         """
         # attempt a git pull
-        self._git.pull()
+        try:
+            self._git.pull()
+        except RuntimeError as err:
+            log.warning(err)
 
         # commit the stubs
         for stub in stub_iterator(format=format):
@@ -647,7 +650,7 @@ class DataModel(object):
                 log.info(f'Committing stub: {ss}')
             ss.commit_to_git()
 
-        # attempt a push
+        # attempt a git push
         self._git.push()
 
     def design_hdu(self, ext: str = 'primary', extno: int = None, name: str = 'EXAMPLE',
