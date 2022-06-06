@@ -17,8 +17,10 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Create Pull Request
+        id: open-pr
         uses: repo-sync/pull-request@v2
         with:
+          source_branch: ""
           destination_branch: "main"
           pr_title: "New file species: ${{ github.ref##*dmgen-fs-}}"
           pr_body: ":crown: *An automated PR*"
