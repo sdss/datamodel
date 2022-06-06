@@ -2,13 +2,8 @@
 # -*- coding: utf-8 -*-
 #
 
-import importlib
-import os
-from turtle import clone
 import pytest
 
-import datamodel.generate.datamodel
-import datamodel.validate.check
 from datamodel.validate import update_datamodel_access, update_tree, clone_tree
 from ..conftest import MockTreeEnv, MockTree, MockPath
 from sdss_access.path import Path
