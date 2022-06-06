@@ -295,7 +295,7 @@ def write_comments(cfgfile: str, paths: list):
     config.write()
 
 
-def update_datamodel_access(branch: str = 'dm_update_models', test: bool = None):
+def update_datamodel_access(branch: str = 'dm_update_models', test: bool = None, commit_to_git: bool = False):
     """ Updates the datamodel access info sections
 
     Checks all "new" JSON datamodels for updated access info.  Creates a new
@@ -308,6 +308,8 @@ def update_datamodel_access(branch: str = 'dm_update_models', test: bool = None)
         the datamodel repo branch name, by default 'dm_update_models'
     test : bool, optional
         if set, skips all write operations, by default None
+    commit_to_git : bool, optional
+        if set, commits to git, by default False
     """
     # loop for new JSON datamodel products
     for release, access_string in get_new_products():
@@ -345,7 +347,8 @@ def update_datamodel_access(branch: str = 'dm_update_models', test: bool = None)
             continue
 
         # commit the stubs into git
-        try:
-            dm.commit_stubs()
-        except RuntimeError as err:
-            log.error(f'Could not commit stubs to git.  Check for errors and try again. Error - {err}')
+        if commit_to_git:
+            try:
+                dm.commit_stubs()
+            except RuntimeError as err:
+                log.error(f'Could not commit stubs to git.  Check for errors and try again. Error - {err}')

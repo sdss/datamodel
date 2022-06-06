@@ -29,8 +29,9 @@ def test_datamodel_cli():
 @pytest.mark.parametrize('command, msg',
                          [('generate', 'Generate a datamodel file for a SDSS data product'),
                           ('install', 'Install the datamodel product at Utah'),
-                          ('design', 'Design a datamodel for a new file')],
-                         ids=['generate', 'install', 'design'])
+                          ('design', 'Design a datamodel for a new file'),
+                          ('tree', 'Interact with the SDSS tree product')],
+                         ids=['generate', 'install', 'design', 'tree'])
 def test_datamodel_help(command, msg):
     """ test the help of each datamodel click subcommand """
     runner = CliRunner()
@@ -38,6 +39,17 @@ def test_datamodel_help(command, msg):
     assert result.exit_code == 0
     assert msg in result.output
 
+@pytest.mark.parametrize('command, msg',
+                         [('add', 'Add new access paths into the tree git product'),
+                          ('check', 'Check the product path definitions are correct in tree'),
+                          ('update', 'Update datamodel stubs with new access paths')],
+                         ids=['add', 'check', 'update'])
+def test_datamodel_tree_help(command, msg):
+    """ test the help of each datamodel tree click subcommand """
+    runner = CliRunner()
+    result = runner.invoke(cli, ['tree', command, '--help'])
+    assert result.exit_code == 0
+    assert msg in result.output
 
 def test_cli_datamodel_generate(testfits):
     """ test that cli generates a file """

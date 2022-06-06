@@ -165,9 +165,10 @@ def add(release: str, work_ver: str, branch: str, local: bool, test: bool, skip_
 @tree.command(short_help='Update the datamodel stubs with new access paths', aliases=['updm', 'up', 'update'])
 @click.option('-b', '--branch', help='install a specific branch of the datamodel product', default='dm_update_models')
 @click.option('-t', '--test', help='test the update without performing write ops', is_flag=True, default=False)
-def update_dm(branch: str, test: bool):
+@click.option('-c', '--commit-to-git', help='manually commit to git', is_flag=True, default=False)
+def update_dm(branch: str, test: bool, commit_to_git: bool):
     """ Update datamodel stubs with new access paths  """
-    update_datamodel_access(branch=branch, test=test)
+    update_datamodel_access(branch=branch, test=test, commit_to_git=commit_to_git)
 
 
 cli.add_command(tree)
