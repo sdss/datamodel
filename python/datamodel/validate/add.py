@@ -82,7 +82,7 @@ def make_branch(repo: Repo, branch: str = 'dm_update_tree') -> Repo:
     return repo
 
 
-def clone_tree(branch: str = None, local: bool = None) -> Repo:
+def clone_tree(branch: str = 'dm_update_tree', local: bool = None, path: str = None) -> Repo:
     """ Clone the tree repo
 
     Clone the tree repo from either an existing local source
@@ -94,6 +94,8 @@ def clone_tree(branch: str = None, local: bool = None) -> Repo:
         the name of the branch, by default None
     local : bool, optional
         if True, use a local tree repo, by default None
+    path : str, optional
+        a path to check out the tree repo to
 
     Returns
     -------
@@ -106,7 +108,7 @@ def clone_tree(branch: str = None, local: bool = None) -> Repo:
         r = Repo(treedir)
         return make_branch(r, branch=branch)
 
-    tmpdir = tempfile.TemporaryDirectory()
+    tmpdir = path or tempfile.TemporaryDirectory()
     log.info(f'Cloning tree repository at {tmpdir}')
     r = Repo.clone_from("https://github.com/sdss/tree", tmpdir)
     return make_branch(r, branch=branch)

@@ -290,6 +290,16 @@ class MockTree(Tree):
         paths.update({'test-file': '$TEST_REDUX/{ver}/testfile_{id}.fits'})
         return paths
 
+class MockTreeEnv(Tree):
+    """ mock out the Tree class to only TEST_REDUX enviroment """
+
+    def _create_environment(self, cfg=None, sections=None):
+        environ = super(MockTreeEnv, self)._create_environment(cfg=cfg, sections=sections)
+        env = 'testwork' if self.config_name in ['sdsswork', 'sdss5'] else self.config_name.lower()
+        path = os.getenv("TEST_REDUX").replace('testwork', env)
+        environ['general'].update({'TEST_REDUX': path})
+        return environ
+
 class MockPath(Path):
     """ mock out the Path class to insert test file """
 
