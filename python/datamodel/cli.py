@@ -12,12 +12,14 @@
 
 
 from __future__ import print_function, division, absolute_import
+import os
 
 import click
 from datamodel.command import Install
 from datamodel.generate import DataModel
 from datamodel.validate import (check_products, validate_models, revalidate,
                                 update_tree, update_datamodel_access)
+from datamodel.io.move import dm_move, construct_new_path, dm_move_species
 from datamodel import log
 
 import cloup
@@ -197,6 +199,67 @@ def redo(file_species: str, release: str, verbose: bool):
     log.info(f'Regenerating datamodel stubs for {file_species}.')
 
 cli.add_command(validate)
+
+
+@cloup.command(short_help='Move a datamodel from one location to another')
+@click.option('-s', '--file_species', help='unique name of the product file species', required=True)
+@click.option('-f', '--from-release', help='the release to move from', required=True, default="WORK")
+@click.option('-t', '--to-release', help='the release to move to', required=True)
+@click.option('-p', '--to-path', help='the new abstract path')
+@click.option('-e', '--to-envvar', help='the new envvar')
+@click.option('-v', '--verbose', help='turn on verbosity', is_flag=True, default=False)
+@click.option('-m', '--move', help='move the example file ', is_flag=True, default=True)
+@click.option('-r', '--parent', help='move the example file parent directory ', is_flag=True, default=False)
+@click.option('-l', '--symlink', help='create a symlink from the old to the new file', is_flag=True, default=True)
+@click.option('-c', '--species', help='move an entire file species', is_flag=True, default=False)
+@click.option('-n', '--test', help='test without moving', is_flag=True, default=False)
+@cloup.constraint(mutually_exclusive, ['to_path', 'to_envvar'])
+@cloup.constraint(If('file_species', then=RequireExactly(1)), ['to_path', 'to_envvar'])
+def move(file_species: str, from_release: str, to_release: str,
+         to_path: str = None, to_envvar: str = None, verbose: bool = None,
+         move: bool = False, parent: bool = False, symlink: bool = False,
+         species: bool = None, test: bool = None):
+    """ Move a datamodel from a SANDBOX to a final location """
+
+    # get the existing old datamodel
+    olddm = DataModel.from_yaml(file_species, release=from_release, verbose=verbose)
+
+    # construct the new path
+    if to_path:
+        new_path = to_path
+    elif to_envvar:
+        new_path = f'{to_envvar}/{olddm.path.split("/", 1)[-1]}'
+
+    if move and species:
+        # move all file species
+        log.info(f'Moving all files from file species {file_species}.')
+        dm_move_species(olddm.path, new_path, to_release, test=test)
+    elif move:
+        # get and move the file
+        newfile = construct_new_path(new_path=new_path, release=to_release, kwargs=olddm.kwargs)
+        log.info(f'Moving {file_species} to {newfile}.')
+        if not test:
+            dm_move(olddm.file, newfile, parent=parent, symlink=symlink)
+
+    # get any access path name
+    access_name = olddm._access_path_name or olddm.access[from_release].get("path_name", None)
+
+    # write out the new datamodel
+    newdm = DataModel(file_spec=olddm.file_species,
+                      path=new_path,
+                      keywords=olddm.keywords,
+                      release=to_release, verbose=verbose, access_path_name=access_name)
+
+    if not os.path.exists(newdm.file):
+        log.error('New datamodel file does not exist at new location. Cannot write out stubs.')
+        return
+
+    # write out new stubs
+    if not test:
+        newdm.write_stubs(use_cache_release=from_release)
+
+
+cli.add_command(move)
 
 
 if __name__ == '__main__':
