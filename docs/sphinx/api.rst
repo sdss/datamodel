@@ -98,6 +98,10 @@ Io
    :undoc-members:
    :show-inheritance:
 
+.. automodule:: datamodel.io.move
+   :members:
+   :undoc-members:
+   :show-inheritance:
 
 Models
 ------
