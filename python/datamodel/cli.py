@@ -16,7 +16,8 @@ from __future__ import print_function, division, absolute_import
 import click
 from datamodel.command import Install
 from datamodel.generate import DataModel
-from datamodel.validate import check_products, validate_models, revalidate
+from datamodel.validate import (check_products, validate_models, revalidate,
+                                update_tree, update_datamodel_access)
 from datamodel import log
 
 import cloup
@@ -134,7 +135,7 @@ def design(file_species, path, location, env_label, verbose, create, keywords):
 cli.add_command(design)
 
 
-@click.group(name='tree')
+@cloup.group(name='tree')
 def tree():
     """ Interact with the SDSS tree product """
 
@@ -148,10 +149,26 @@ def check_paths(release: str, verbose: bool):
     log.info('All products paths are correct in tree.')
 
 
-# @tree.command(short_help='Add datamodel paths to the tree')
-# def add(branch: str, force: bool, verbose: bool, debug: bool, test: bool):
-#     """ Add new tree paths  """
-#     pass
+@tree.command(short_help='Add datamodel paths to the tree')
+@click.option('-r', '--release', help='the SDSS data release')
+@click.option('-w', '--work-ver', help='the SDSS tree config work version, i.e. sdss5 or sdsswork')
+@click.option('-b', '--branch', help='install a specific branch of the tree product', default='dm_update_tree')
+@click.option('-l', '--local', help='use an existing local tree repo', is_flag=True, default=False)
+@click.option('-t', '--test', help='test the update without performing write ops', is_flag=True, default=False)
+@click.option('-s', '--skip-push', help='skips the git push step', is_flag=True, default=False)
+@cloup.constraint(AcceptAtMost(1) & mutually_exclusive, ['work_ver', 'release'])
+def add(release: str, work_ver: str, branch: str, local: bool, test: bool, skip_push: bool):
+    """ Add new access paths into the tree git product """
+    update_tree(release=release, work_ver=work_ver, branch=branch, local=local, test=test, skip_push=skip_push)
+
+
+@tree.command(short_help='Update the datamodel stubs with new access paths', aliases=['updm', 'up', 'update'])
+@click.option('-b', '--branch', help='install a specific branch of the datamodel product', default='dm_update_models')
+@click.option('-t', '--test', help='test the update without performing write ops', is_flag=True, default=False)
+@click.option('-c', '--commit-to-git', help='manually commit to git', is_flag=True, default=False)
+def update_dm(branch: str, test: bool, commit_to_git: bool):
+    """ Update datamodel stubs with new access paths  """
+    update_datamodel_access(branch=branch, test=test, commit_to_git=commit_to_git)
 
 
 cli.add_command(tree)

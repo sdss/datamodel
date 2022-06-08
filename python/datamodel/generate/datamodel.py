@@ -257,7 +257,8 @@ class DataModel(object):
         return cls(file_spec=file_species, path=path, keywords=keys, verbose=verbose, tree_ver=tree_ver)
 
     @classmethod
-    def from_yaml(cls: Type[D], species: str, release: str = None, verbose: bool = None) -> D:
+    def from_yaml(cls: Type[D], species: str, release: str = None, verbose: bool = None,
+                  tree_ver: str = None) -> D:
         """ class method to create a datamodel from a YAML file species name
 
         Creates a DataModel for a given file species name, from an existing
@@ -266,7 +267,10 @@ class DataModel(object):
         datamodel "location" and "example" fields.  The abstract path is
         extracted from the pre-existing "access_string" field.  Fields are
         pulled from the specified release.  If no release specified, it uses
-        the first release it can find from the datamodel.
+        the first release it can find from the datamodel.  Can optionally
+        specify a tree config version instead for the cases where the WORK release
+        is from the sdss5 config instead of sdsswork. If the tree_ver is set,
+        it supersedes the release keyword.
 
         Parameters
         ----------
@@ -276,7 +280,8 @@ class DataModel(object):
             the SDSS release, by default None
         verbose : bool, optional
             if True, turn on verbosity, by default None
-
+        tree_ver : str, optional
+            the SDSS tree config version, by default None
         Returns
         -------
         DataModel
@@ -313,7 +318,12 @@ class DataModel(object):
             raise ValueError(f'No keyword arguments extracted from datamodel location/example for species {species}, release {release}.')
         joined_kwargs = ["=".join(i) for i in kwargs.items()]
 
-        return cls(file_spec=species, path=path, keywords=joined_kwargs, verbose=verbose, release=release)
+        # tree_ver and release is set, use the tree_ver as precedence and set release to None
+        if tree_ver and release:
+            release=None
+
+        return cls(file_spec=species, path=path, keywords=joined_kwargs, verbose=verbose,
+                   release=release, tree_ver=tree_ver)
 
     def _construct_path(self) -> None:
         """ Construct a path, template path, or env_label and location """
@@ -628,7 +638,10 @@ class DataModel(object):
             A stub format to commit, by default None
         """
         # attempt a git pull
-        self._git.pull()
+        try:
+            self._git.pull()
+        except RuntimeError as err:
+            log.warning(err)
 
         # commit the stubs
         for stub in stub_iterator(format=format):
@@ -637,7 +650,7 @@ class DataModel(object):
                 log.info(f'Committing stub: {ss}')
             ss.commit_to_git()
 
-        # attempt a push
+        # attempt a git push
         self._git.push()
 
     def design_hdu(self, ext: str = 'primary', extno: int = None, name: str = 'EXAMPLE',

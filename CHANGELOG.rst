@@ -13,6 +13,9 @@ Change Log
 - Adds new command ``datamodel tree check`` to validate paths against tree configs
 - Adds new command ``datamodel validate check`` to check for valid JSON datamodels
 - Adds new command ``datamodel validate redo`` to rewrite the datamodel stubs
+- Adds new command ``datamodel tree add`` to add paths into the tree configs
+- Adds new github actions to automate datamodel validation checks
+- Adds new github actions to automate datamodel access, and tree path config, updates
 
 0.5.0 (05-02-2022)
 ------------------

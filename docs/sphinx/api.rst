@@ -155,6 +155,11 @@ Products
 Validate
 --------
 
+.. automodule:: datamodel.validate.add
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 .. automodule:: datamodel.validate.check
    :members:
    :undoc-members:
