@@ -47,6 +47,11 @@ Commands
    :prog: validate
    :nested: full
 
+.. _usage-dmmove:
+
+.. click:: datamodel.cli:move
+   :prog: move
+   :nested: full
 
 .. _cli-diff:
 

@@ -99,7 +99,7 @@ def create_hdf5(path):
 
 def create_test_file(name: str = None, version: str = None,
                      env: str = None, extra_cols: bool = None,
-                     suffix: str = 'fits') -> pathlib.Path:
+                     id: str = 'a', suffix: str = 'fits') -> pathlib.Path:
     """ creates a temporary fake test file
 
     Parameters
@@ -114,6 +114,8 @@ def create_test_file(name: str = None, version: str = None,
         If True, add extra columns to the binary table FITS extension, by default False
     suffix : str
         The type of file to create, by default "fits"
+    id : str
+        The id of the file, by default "a"
 
     Returns
     -------
@@ -121,7 +123,7 @@ def create_test_file(name: str = None, version: str = None,
         The full path to the temporary file on disk
     """
     # set defaults
-    name = name or f'testfile_a.{suffix.lower()}'
+    name = name or f'testfile_{id}.{suffix.lower()}'
     version = version or 'v1'
     env = env or 'testwork'
 
@@ -151,8 +153,9 @@ def create_test_file(name: str = None, version: str = None,
 @pytest.fixture()
 def makefile():
     """ fixture to make a test file """
-    def _make_file(name=None, version=None, env=None, extra_cols=None, suffix='fits'):
-        return create_test_file(name=name, version=version, env=env, extra_cols=extra_cols, suffix=suffix)
+    def _make_file(name=None, version=None, env=None, extra_cols=None, id='a', suffix='fits'):
+        return create_test_file(name=name, version=version, env=env, extra_cols=extra_cols,
+                                id=id, suffix=suffix)
     return _make_file
 
 @pytest.fixture()

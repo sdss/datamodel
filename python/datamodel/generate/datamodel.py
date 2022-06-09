@@ -312,6 +312,9 @@ class DataModel(object):
         # construct the datamodel path using the access_string
         path = reldata["access"]["access_string"].split(" = ")[-1][1:]
 
+        # get any access path name
+        access_name = reldata["access"].get("path_name", None)
+
         # attempt to extract the keyword arguments using the datamodel location and example fields
         kwargs = find_kwargs(reldata["location"], reldata["example"])
         if not kwargs:
@@ -323,7 +326,7 @@ class DataModel(object):
             release=None
 
         return cls(file_spec=species, path=path, keywords=joined_kwargs, verbose=verbose,
-                   release=release, tree_ver=tree_ver)
+                   release=release, tree_ver=tree_ver, access_path_name=access_name)
 
     def _construct_path(self) -> None:
         """ Construct a path, template path, or env_label and location """

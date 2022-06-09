@@ -16,6 +16,7 @@ Change Log
 - Adds new command ``datamodel tree add`` to add paths into the tree configs
 - Adds new github actions to automate datamodel validation checks
 - Adds new github actions to automate datamodel access, and tree path config, updates
+- Adds new command ``datamodel move`` to move a datamodel and file/species to a new location
 
 0.5.0 (05-02-2022)
 ------------------
