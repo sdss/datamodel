@@ -8,6 +8,8 @@ on:
   push:
     branches:
       - dmgen-fs*
+    paths:
+     - datamodel/products/**
 
 jobs:
   createpr:
@@ -16,14 +18,22 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Get species if
+        id: get-id
+        run: |
+          id=$(echo ${{ github.ref }} | awk -F 'dmgen-fs-' '{print $2;}')
+          echo "::set-output name=id::$id"
+
       - name: Create Pull Request
         id: open-pr
         uses: repo-sync/pull-request@v2
         with:
           source_branch: ""
           destination_branch: "main"
-          pr_title: "New file species: ${{ github.ref##*dmgen-fs-}}"
-          pr_body: ":crown: *An automated PR*"
+          pr_title: "New file species: ${{ steps.get-id.outputs.id }}"
+          pr_body: |
+            :crown: *An automated PR*
+            This PR adds new yaml, json datamodels into the datamodel product.
           pr_reviewer: "havok2063"
           pr_label: "auto-pr,enhancement"
           pr_draft: true
