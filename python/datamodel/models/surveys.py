@@ -56,6 +56,8 @@ class Survey(BaseModel):
         A description of the survey
     phase : `.Phase`
         The main phase the survey was in
+    id : str
+        An internal reference id for the survey
 
     Raises
     ------
@@ -66,9 +68,11 @@ class Survey(BaseModel):
     long: str = None
     description: str
     phase: Union[int, Phase] = None
+    id : str = None
 
     @validator('phase')
     def get_phase(cls, v):
+        """ check the phase is a valid SDSS phase """
         if type(v) == Phase:
             return v
 
