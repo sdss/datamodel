@@ -15,3 +15,4 @@ from __future__ import print_function, division, absolute_import
 
 from .releases import releases
 from .surveys import surveys, phases
+from .versions import tags

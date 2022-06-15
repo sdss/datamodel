@@ -81,6 +81,10 @@ class Tag(BaseModel):
             raise ValueError(f'Tag survey {v} is not a valid SDSS Survey.')
         return opt[0]
 
+    @property
+    def name(self):
+        """ A name for the tag """
+        return f"{self.survey.id}_{self.version.name}_{self.tag}"
 
 
 class Tags(BaseList):
