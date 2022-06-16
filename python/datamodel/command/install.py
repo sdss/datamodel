@@ -11,8 +11,8 @@ from os.path import dirname, exists, join
 from pathlib import Path
 from shutil import rmtree
 
-from datamodel.git import Git
-
+from datamodel.gitio import Git
+from datamodel import log
 
 __author__ = "Joel Brownstein <joelbrownstein@sdss.org>"
 
@@ -32,11 +32,12 @@ class Install(object):
 
     product = "git@github.com:sdss/datamodel.git"
 
-    def __init__(self, options=None, branch=None, force=None, verbose=None, debug=None):
-        self.branch = options.branch if options else branch
-        self.force = options.force if options else force
-        self.verbose = options.verbose if options else verbose
-        self.debug = options.debug if options else debug
+    def __init__(self, branch=None, force=None, verbose=None, debug=None, test=None):
+        self.branch = branch
+        self.force = force
+        self.verbose = verbose
+        self.debug = debug
+        self.test = test
         self.git = Git(verbose=self.verbose)
         self.message = []
 
@@ -81,10 +82,10 @@ class Install(object):
                 if folder in self.directory:
                     directory = self.directory[folder]
                     try:
-                        if not exists(directory):
+                        if not exists(directory) and not self.test:
                             makedirs(directory)
                     except Exception as e:
-                        print("INSTALL> cannot make %r folder due to %r" % (folder, e))
+                        log.error("INSTALL> cannot make %r folder due to %r" % (folder, e))
                         self.directory[folder] = None
 
     def clone(self):
@@ -94,41 +95,42 @@ class Install(object):
                     if exists(self.directory["branch"]):
                         if self.force:
                             if self.verbose:
-                                print(
+                                log.info(
                                     "INSTALL> removing %(branch)s due to --force" % self.directory
                                 )
                             try:
                                 rmtree(self.directory["branch"])
                             except Exception as e:
-                                print("INSTALL> cannot remove branch due to %r" % e)
+                                log.error("INSTALL> cannot remove branch due to %r" % e)
                                 self.directory["branch"] = None
                         else:
-                            print(
+                            log.info(
                                 "INSTALL> Cannot overwrite branch folder at %(branch)s without --force"
                                 % self.directory
                             )
                             self.directory["branch"] = None
                     if self.directory["branch"]:
-                        self.git.directory = self.directory["software"]
                         if self.verbose:
-                            print(
+                            log.info(
                                 "INSTALL> Preparing to clone datamodel to %(branch)s"
                                 % self.directory
                             )
-                        self.git.clone(product=self.product, branch=self.branch)
+                        if not self.test:
+                            self.git.clone(product=self.product, branch=self.directory["branch"])
+                        # reset the directories after the clone; with new DATAMODEL_DIR
+                        self.set_directory()
                         self.message.append(
                             self.branch + " branch installed at path=%(branch)r" % self.directory
                         )
                 else:
-                    print(
+                    log.error(
                         "INSTALL> Nonexistent install directory path=%(software)r" % self.directory
                     )
 
     def checkout_branch(self):
         if self.branch:
             if self.directory and "branch" in self.directory:
-                if exists(self.directory["branch"]):
-                    self.git.directory = self.directory["branch"]
+                if exists(self.directory["branch"]) and not self.test:
                     self.git.checkout(branch=self.branch)
 
     def set_modulefile(self):
@@ -141,7 +143,7 @@ class Install(object):
                     with open(self.modulefile["etc"]) as etc_file:
                         self.modulefile["content"] = etc_file.read()
                 else:
-                    print("INSTALL> Nonexistent etc directory path=%(etc)r" % self.directory)
+                    log.error("INSTALL> Nonexistent etc directory path=%(etc)r" % self.directory)
                 if self.modulefile["content"] and self.directory["root"]:
                     try:
                         self.modulefile["content"] = self.modulefile["content"].format(
@@ -155,14 +157,14 @@ class Install(object):
                     if exists(self.modulefile["path"]):
                         if self.force:
                             if self.verbose:
-                                print("INSTALL> removing %(path)s due to --force" % self.modulefile)
+                                log.info("INSTALL> removing %(path)s due to --force" % self.modulefile)
                             try:
                                 remove(self.modulefile["path"])
                             except Exception as e:
-                                print("INSTALL> cannot remove modulefile due to %r" % e)
+                                log.error("INSTALL> cannot remove modulefile due to %r" % e)
                                 self.modulefile["path"] = None
                         else:
-                            print("INSTALL> Cannot overwrite modulefile without --force")
+                            log.error("INSTALL> Cannot overwrite modulefile without --force")
                             self.modulefile["path"] = None
             if self.modulefile["path"] and self.modulefile["content"]:
                 try:
@@ -173,10 +175,16 @@ class Install(object):
                         % self.branch
                     )
                     if self.verbose:
-                        print("INSTALL> modulefile added at path=%(path)r" % self.modulefile)
+                        log.info("INSTALL> modulefile added at path=%(path)r" % self.modulefile)
                 except Exception as e:
-                    print("INSTALL> unable to add modulefile due to %r" % e)
+                    log.error("INSTALL> unable to add modulefile due to %r" % e)
 
     def done(self):
+        if self.test:
+            log.info("INSTALL> test mode, no changes made")
+            log.info('install directories')
+            for k, v in self.directory.items():
+                log.info(f'{k}: {v}')
+
         if self.message:
-            print("INSTALL> %s." % ", ".join(self.message))
+            log.info("INSTALL> %s." % ", ".join(self.message))

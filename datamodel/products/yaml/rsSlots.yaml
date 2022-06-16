@@ -1,0 +1,93 @@
+general:
+  name: rsSlots
+  short: LST and sky brightness distribution for a robostrategy run
+  description: LST and sky brightness distribution for a robostrategy run, output
+    from rs_slots. The image is in hours and is split into 24 LST bins (one per hour)
+    and two sky brightness bins (dark and bright).
+  datatype: FITS
+  filesize: 5 KB
+  releases:
+  - WORK
+  environments:
+  - ROBOSTRATEGY_DATA
+  naming_convention: $ROBOSTRATEGY_DATA/allocations/[PLAN]/rsSlots-[PLAN]-[OBSERVATORY].fits
+  generated_by: robostrategy
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  WORK:
+    template: $ROBOSTRATEGY_DATA/allocations/[PLAN]/rsSlots-[PLAN]-[OBSERVATORY].fits
+    example: allocations/epsilon-5-core-0/rsSlots-epsilon-5-core-0-apo.fits
+    location: allocations/{plan}/rsSlots-{plan}-{observatory}.fits
+    environment: ROBOSTRATEGY_DATA
+    access:
+      in_sdss_access: true
+      path_name: rsSlots
+      path_template: $ROBOSTRATEGY_DATA/allocations/{plan}/rsSlots-{plan}-{observatory}.fits
+      path_kwargs:
+      - observatory
+      - plan
+      access_string: rsSlots = $ROBOSTRATEGY_DATA/allocations/{plan}/rsSlots-{plan}-{observatory}.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Binary image of hours per LST and sky brightness slot
+        is_image: true
+        size: 192 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: file does conform to FITS standard
+        - key: BITPIX
+          value: -32
+          comment: number of bits per data pixel
+        - key: NAXIS
+          value: 2
+          comment: number of data axes
+        - key: NAXIS1
+          value: 2
+          comment: length of data axis 1
+        - key: NAXIS2
+          value: 24
+          comment: length of data axis 2
+        - key: EXTEND
+          value: true
+          comment: FITS dataset may contain extensions
+        - key: COMMENT
+          value: '  FITS (Flexible Image Transport System) format is defined in ''Astronomy'
+          comment: ''
+        - key: COMMENT
+          value: '  and Astrophysics'', volume 376, page 359; bibcode: 2001A&A...376..359H'
+          comment: ''
+        - key: STRATVER
+          value: 1.0.5
+          comment: version of robostrategy
+        - key: SCHEDVER
+          value: 0.9.1
+          comment: version of roboscheduler
+        - key: NLST
+          value: 24
+          comment: number of LST bins
+        - key: DURATION
+          value: 0.3
+          comment: duration in hours of each slot considered
+        - key: FCLEAR
+          value: '0.50'
+          comment: Assumption for this observatory of clear fraction (not applied)
+        - key: OBSERVAT
+          value: apo
+          comment: Observatory, apo or lco
+        - key: NSB
+          value: 2
+          comment: number of sky brightness bins
+        - key: SB0
+          value: 0.0
+          comment: edge 0 of sky brightness bins
+        - key: SB1
+          value: 0.35
+          comment: edge 1 of sky brightness bins
+        - key: SB2
+          value: 1.0
+          comment: edge 2 of sky brightness bins

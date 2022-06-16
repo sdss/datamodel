@@ -1,0 +1,120 @@
+general:
+  name: rsFieldCount
+  short: Count of targets within each field
+  description: Count of targets as a function of carton and cadence in each field.
+    Produced by robostrategy script rs_field_count
+  datatype: FITS
+  filesize: 2 MB
+  releases:
+  - WORK
+  environments:
+  - ROBOSTRATEGY_DATA
+  naming_convention: $ROBOSTRATEGY_DATA/allocations/[PLAN]/rsFieldCount-[PLAN]-[OBSERVATORY].fits
+  generated_by: robostrategy
+  design: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  WORK:
+    template: $ROBOSTRATEGY_DATA/allocations/[PLAN]/rsFieldCount-[PLAN]-[OBSERVATORY].fits
+    example: allocations/epsilon-5-core-2/rsFieldCount-epsilon-5-core-2-apo.fits
+    location: allocations/{plan}/rsFieldCount-{plan}-{observatory}.fits
+    environment: ROBOSTRATEGY_DATA
+    access:
+      in_sdss_access: false
+      path_name: null
+      path_template: null
+      path_kwargs: null
+      access_string: rsFieldCount = $ROBOSTRATEGY_DATA/allocations/{plan}/rsFieldCount-{plan}-{observatory}.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Primary header
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: file does conform to FITS standard
+        - key: BITPIX
+          value: 16
+          comment: number of bits per data pixel
+        - key: NAXIS
+          value: 0
+          comment: number of data axes
+        - key: EXTEND
+          value: true
+          comment: FITS dataset may contain extensions
+        - key: COMMENT
+          value: '  FITS (Flexible Image Transport System) format is defined in ''Astronomy'
+          comment: ''
+        - key: COMMENT
+          value: '  and Astrophysics'', volume 376, page 359; bibcode: 2001A&A...376..359H'
+          comment: ''
+      hdu1:
+        name: ''
+        description: List of fields with counts
+        is_image: false
+        size: 2 MB
+        columns:
+          fieldid:
+            name: FIELDID
+            type: int32
+            unit: ''
+            description: Field identifier
+          racen:
+            name: RACEN
+            type: float64
+            unit: deg
+            description: RA Center (J2000)
+          deccen:
+            name: DECCEN
+            type: float64
+            unit: deg
+            description: Dec Center (J2000)
+          ntargets:
+            name: NTARGETS
+            type: int32
+            unit: ''
+            description: number of targets in rsFieldTargets file
+          nwithin:
+            name: NWITHIN
+            type: int32
+            unit: ''
+            description: number of targets accessible by an appropriate positioner
+          nwithin_pcd:
+            name: NWITHIN_PCD
+            type: int32[32]
+            unit: ''
+            description: for each cadence, number of targets accessible by an appropriate
+              positioner (see HDU2)
+          nwithin_pct:
+            name: NWITHIN_PCT
+            type: int32[82]
+            unit: ''
+            description: for each carton, number of targets accessible by an appropriate
+              positioner (see HDU3)
+      hdu2:
+        name: ''
+        description: List of cadence names associated with NWITHIN_PCD array
+        is_image: false
+        size: 960 bytes
+        columns:
+          cadence:
+            name: CADENCE
+            type: char[30]
+            unit: ''
+            description: cadence name
+      hdu3:
+        name: ''
+        description: List of carton names associated with NWITHIN_PCT array
+        is_image: false
+        size: 2 KB
+        columns:
+          carton:
+            name: CARTON
+            type: char[30]
+            unit: ''
+            description: carton name

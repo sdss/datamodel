@@ -1,0 +1,92 @@
+general:
+  name: rsSparesExp
+  short: Number of spare fibers for each exposure in each field
+  description: For each exposure in each field, how many spare fibers are available.
+    The number of BOSS spare fibers is inclusive of robots with both APOGEE and BOSS
+    fibers. Produced by the robostrategy script rs_spares.
+  datatype: FITS
+  filesize: 863 KB
+  releases:
+  - WORK
+  environments:
+  - ROBOSTRATEGY_DATA
+  naming_convention: $ROBOSTRATEGY_DATA/allocations/[PLAN]/rsSparesExp-[OBSERVATORY]-[PLAN].fits
+  generated_by: robostrategy
+  design: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  WORK:
+    template: $ROBOSTRATEGY_DATA/allocations/[PLAN]/rsSparesExp-[OBSERVATORY]-[PLAN].fits
+    example: allocations/epsilon-5-core-2/rsSparesExp-apo-epsilon-5-core-2.fits
+    location: allocations/{plan}/rsSparesExp-{observatory}-{plan}.fits
+    environment: ROBOSTRATEGY_DATA
+    access:
+      in_sdss_access: false
+      path_name: null
+      path_template: null
+      path_kwargs: null
+      access_string: rsSparesExp = $ROBOSTRATEGY_DATA/allocations/{plan}/rsSparesExp-{observatory}-{plan}.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Primary header
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: file does conform to FITS standard
+        - key: BITPIX
+          value: 16
+          comment: number of bits per data pixel
+        - key: NAXIS
+          value: 0
+          comment: number of data axes
+        - key: EXTEND
+          value: true
+          comment: FITS dataset may contain extensions
+        - key: COMMENT
+          value: '  FITS (Flexible Image Transport System) format is defined in ''Astronomy'
+          comment: ''
+        - key: COMMENT
+          value: '  and Astrophysics'', volume 376, page 359; bibcode: 2001A&A...376..359H'
+          comment: ''
+      hdu1:
+        name: ''
+        description: List  of numbers of spares per exposure per field
+        is_image: false
+        size: 857 KB
+        columns:
+          fieldid:
+            name: FIELDID
+            type: int32
+            unit: ''
+            description: Field identifier
+          iexp:
+            name: IEXP
+            type: int32
+            unit: ''
+            description: Exposure number (0-indexed)
+          racen:
+            name: RACEN
+            type: float64
+            unit: deg
+            description: RA Center (J2000)
+          deccen:
+            name: DECCEN
+            type: float64
+            unit: deg
+            description: Dec Center (J2000)
+          nboss_spare:
+            name: NBOSS_SPARE
+            type: int32
+            unit: ''
+            description: Number of spare BOSS fibers
+          napogee_spare:
+            name: NAPOGEE_SPARE
+            type: int32
+            unit: ''
+            description: Number of spare APOGEE fibers

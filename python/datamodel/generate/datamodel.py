@@ -15,17 +15,22 @@ from __future__ import print_function, division, absolute_import
 
 import os
 import re
+import pathlib
 
-from typing import TypeVar, Type
+from typing import TypeVar, Type, Union, List
 
-from .parse import get_abstract_path, get_abstract_key, get_file_spec
+from .parse import get_abstract_path, get_abstract_key, get_file_spec, find_kwargs
+from ..io.loaders import read_yaml, get_yaml_files
 from datamodel import log
 
+from astropy.io import fits
 from datamodel.generate.stub import stub_iterator
+from datamodel.generate.filetypes import get_filetype, get_filesize, get_supported_filetypes
 from tree import Tree
 from sdss_access.path import Path
+from pydantic import ValidationError
 
-from ..git import Git
+from ..gitio import Git
 from .stub import BaseStub
 
 # Create a generic variable that can be 'DataModel', or any subclass.
@@ -129,6 +134,10 @@ class DataModel(object):
         The name of the SDSS release the file is a part of, by default None
     filename : str, optional
         A full filepath to a real file on disk to create the datamodel for
+    access_path_name : str, optional
+        A name of the path name in sdss_access, if different than the file species name, by default None
+    design : bool, optional
+        If True, indicates the datamodel is in a design phase, by default None
 
     Raises
     ------
@@ -137,11 +146,12 @@ class DataModel(object):
     ValueError
         when no path template keywords are specified
     """
+    supported_filetypes = get_supported_filetypes()
 
     def __init__(self, tree_ver: str = None, file_spec: str = None, path: str = None,
                  keywords: list = [], env_label: str = None, location: str = None,
-                 verbose: bool = None, release: str = None, filename: str = None, 
-                 access_path_name: str = None) -> None:
+                 verbose: bool = None, release: str = None, filename: str = None,
+                 access_path_name: str = None, design: bool = False) -> None:
 
         # environment options
         self.tree_ver = tree_ver
@@ -161,6 +171,7 @@ class DataModel(object):
         self.real_location = None
         self.abstract_location = None
         self.file = None
+        self.design = design
 
         # setting options
         self.verbose = verbose
@@ -169,7 +180,7 @@ class DataModel(object):
         self.access = {}
         self.access_string = None
         self.in_sdss_access = None
-        self._access_path_name = access_path_name 
+        self._access_path_name = access_path_name
 
         # check for a real filename
         if self.filename:
@@ -180,9 +191,9 @@ class DataModel(object):
         # set path, locations, and file_species
         if not self.path and not (self.env_label and self.location):
             raise ValueError('Either a path or an env_label + location must be specified.')
-        
+
         # check if keywords are expected
-        if re.search(r'{(.*?)}', self.path) and not self.keywords:
+        if re.search(r'{(.*?)}', self.path) and not self.keywords and not self.design:
             raise ValueError('A set of keywords must be provided along with a either a '
                              'path or location.')
         self._construct_path()
@@ -193,7 +204,15 @@ class DataModel(object):
 
         # create the tree and file locations
         self._set_tree()
-        self._set_real_and_abstract_location()
+        if self.design:
+            self._set_design_location()
+        else:
+            self._set_real_and_abstract_location()
+
+        # check for valid file support
+        self.suffixes = pathlib.Path(self.location).suffixes
+        if set(self.suffixes).isdisjoint(set(self.supported_filetypes)):
+            raise ValueError(f'File type {self.suffixes[0]} is not currently supported by sdss-datamodel.')
 
         # set the fully realized filename and access paths
         self._set_file()
@@ -235,7 +254,79 @@ class DataModel(object):
         file_species, path, keys = prompt_for_access(filename, path_name, tree_ver)
         if not file_species:
             return None
-        return DataModel(file_spec=file_species, path=path, keywords=keys, verbose=verbose, tree_ver=tree_ver)
+        return cls(file_spec=file_species, path=path, keywords=keys, verbose=verbose, tree_ver=tree_ver)
+
+    @classmethod
+    def from_yaml(cls: Type[D], species: str, release: str = None, verbose: bool = None,
+                  tree_ver: str = None) -> D:
+        """ class method to create a datamodel from a YAML file species name
+
+        Creates a DataModel for a given file species name, from an existing
+        YAML datamodel file.  Extracts the abstract path and keyword arguments
+        needed to instantiate a DataModel.  Keywords are extracted using the
+        datamodel "location" and "example" fields.  The abstract path is
+        extracted from the pre-existing "access_string" field.  Fields are
+        pulled from the specified release.  If no release specified, it uses
+        the first release it can find from the datamodel.  Can optionally
+        specify a tree config version instead for the cases where the WORK release
+        is from the sdss5 config instead of sdsswork. If the tree_ver is set,
+        it supersedes the release keyword.
+
+        Parameters
+        ----------
+        species : str
+            the file species datamodel name
+        release : str, optional
+            the SDSS release, by default None
+        verbose : bool, optional
+            if True, turn on verbosity, by default None
+        tree_ver : str, optional
+            the SDSS tree config version, by default None
+        Returns
+        -------
+        DataModel
+            a SDSS DataModel instance
+
+        Raises
+        ------
+        ValueError
+            when no yaml file can be found for the file species
+        ValueError
+            when no release can be found in the datamodel
+        ValueError
+            when no path keyword arguments can be extracted
+        """
+        # get the file species YAML datamodel
+        yfile = get_yaml_files(f'{species}.yaml')
+        if not yfile:
+            raise ValueError(f'No yaml file found for file species {species}')
+        data = read_yaml(yfile)
+
+        # get a release from the datamodel
+        if not release:
+            release = next(iter(data['releases']))
+        reldata = data['releases'].get(release, {})
+        if not reldata:
+            raise ValueError(f'No data found for release {release}')
+
+        # construct the datamodel path using the access_string
+        path = reldata["access"]["access_string"].split(" = ")[-1][1:]
+
+        # get any access path name
+        access_name = reldata["access"].get("path_name", None)
+
+        # attempt to extract the keyword arguments using the datamodel location and example fields
+        kwargs = find_kwargs(reldata["location"], reldata["example"])
+        if not kwargs:
+            raise ValueError(f'No keyword arguments extracted from datamodel location/example for species {species}, release {release}.')
+        joined_kwargs = ["=".join(i) for i in kwargs.items()]
+
+        # tree_ver and release is set, use the tree_ver as precedence and set release to None
+        if tree_ver and release:
+            release=None
+
+        return cls(file_spec=species, path=path, keywords=joined_kwargs, verbose=verbose,
+                   release=release, tree_ver=tree_ver, access_path_name=access_name)
 
     def _construct_path(self) -> None:
         """ Construct a path, template path, or env_label and location """
@@ -299,6 +390,14 @@ class DataModel(object):
             release = 'WORK'
         return release
 
+    def _set_design_location(self) -> None:
+        """ Sets the abstract file location for the design """
+        design_keys = re.findall(r'{(.*?)}', self.location)
+        abstract = {key: get_abstract_key(key=key) for key in design_keys}
+        self.abstract_location = self.location.format(**abstract)
+        if self.verbose:
+            log.info(f'Designing abstract location {self.abstract_location}')
+
     def _set_real_and_abstract_location(self) -> None:
         """ Create a real location from path keywords
 
@@ -338,6 +437,10 @@ class DataModel(object):
             log.error(f"Nonexistent environ at {self.env}")
             return
 
+        # exit if in design phase
+        if self.design:
+            return
+
         if not self.real_location:
             log.error('Cannot build file path. No real location identified.')
             return
@@ -365,10 +468,45 @@ class DataModel(object):
             log.error("Please specify a valid env label option.")
             return
 
+        orig_env = self.tree.get_orig_os_environ()
         tree_dict = self.tree.to_dict()
+        # run logic when the label is found in the tree dictionary
         if self.env_label in tree_dict:
-            self.env = {"label": self.env_label, "path": tree_dict[self.env_label]}
+            path = tree_dict[self.env_label]
 
+            # check if path is a PRODUCT_ROOT
+            if path.startswith("$PRODUCT_ROOT"):
+
+                if self.verbose:
+                    log.info(f'{self.env_label} path is a PRODUCT_ROOT')
+
+                # check for existing label in enironemnt
+                if self.env_label in orig_env:
+                    path = orig_env.get(self.env_label)
+                else:
+                    # try to resolve your product_root path
+                    path = os.path.expandvars(path)
+
+                    if path.startswith("$PRODUCT_ROOT"):
+                        # look for a valid product root
+                        product_root = self.tree.get_product_root()
+                        # fail if PRODUCT_ROOT is not set
+                        if not product_root:
+                            msg = 'No PRODUCT_ROOT found in your environment!  Please set your root directory for all git or svn products.'
+                            log.error(msg)
+                            raise ValueError(msg)
+
+                        # replace product_root with one found from tree
+                        path = path.replace("$PRODUCT_ROOT", product_root)
+
+            # assign environment label and path
+            self.env = {"label": self.env_label, "path": path}
+        elif self.env_label in orig_env:
+            # do final check if label is in original os environ
+            path = orig_env.get(self.env_label)
+            self.env = {"label": self.env_label, "path": path}
+
+        # issue error or info log messages
         if not self.env:
             log.error(f"Please add this environment={self.env_label} to the tree "
                       "product, and try again.")
@@ -385,7 +523,7 @@ class DataModel(object):
         sdss_access.
 
         """
-        # set the access path name 
+        # set the access path name
         aname = self._access_path_name or self.file_species
 
         # create the original access string
@@ -417,7 +555,7 @@ class DataModel(object):
             # lookup the sdss_access information
             self.access[self.release]['path_name'] = name
             self.access[self.release]['path_template'] = self.tree.paths[name]
-            self.access[self.release]['path_kwargs'] = path.lookup_keys(name)
+            self.access[self.release]['path_kwargs'] = list(set(path.lookup_keys(name)))
 
     def get_stub(self, format: str = 'yaml') -> BaseStub:
         """ Get a datamodel Stub
@@ -503,7 +641,10 @@ class DataModel(object):
             A stub format to commit, by default None
         """
         # attempt a git pull
-        self._git.pull()
+        try:
+            self._git.pull()
+        except RuntimeError as err:
+            log.warning(err)
 
         # commit the stubs
         for stub in stub_iterator(format=format):
@@ -512,8 +653,240 @@ class DataModel(object):
                 log.info(f'Committing stub: {ss}')
             ss.commit_to_git()
 
-        # attempt a push
+        # attempt a git push
         self._git.push()
+
+    def design_hdu(self, ext: str = 'primary', extno: int = None, name: str = 'EXAMPLE',
+                   description: str = None, header: Union[list, dict, fits.Header] = None,
+                   columns: List[Union[list, dict, fits.Column]] = None, **kwargs):
+        """ Wrapper to _design_content, to design a new HDU
+
+        Design a new astropy HDU for the given datamodel.  Specify the extension type ``ext``
+        to indicate a PRIMARY, IMAGE, or BINTABLE HDU extension.  Each new HDU is added to the
+        YAML structure using next hdu extension id found, or the one provided with ``extno``.  Use
+        ``name`` to specify the name of the HDU extension.  Each call to this method will write out
+        the new HDU to the YAML design file.
+
+        ``header`` can be a `~astropy.io.fits.Header` instance, a list of tuples of header keywords,
+        conforming to (keyword, value, comment), or list of dictionaries conforming to
+        {"keyword": keyword, "value": value, "comment": comment}.
+
+        ``columns`` can be a list of `~astropy.io.fits.Column` objects, a list of tuples
+        minimally conforming to (name, format, unit), or list of dictionaries minimally conforming
+        to {"name": name, "format": format, "unit": unit}.  See Astropy's Binary Table
+        `Column Format <https://docs.astropy.org/en/stable/io/fits/usage/table.html#column-creation>`_
+        for the allowed format values.  When supplying a list of tuples or dictionaries, can include
+        any number of valid arguments into `~astropy.io.fits.Column`.
+
+        Parameters
+        ----------
+        ext : str, optional
+            the type of HDU to create, by default 'primary'
+        extno : int, optional
+            the extension number, by default None
+        name : str, optional
+            the name of the HDU extension, by default 'EXAMPLE'
+        description: str, optional
+            a description for the HDU, by default None
+        header : Union[list, dict, fits.Header], optional
+            valid input to create a Header, by default None
+        columns : List[Union[list, dict, fits.Column]], optional
+            a list of binary table columns, by default None
+        force : bool
+            If True, forces a new design even if the HDU already exists, by default None
+        **kwargs, optional
+            additional keyword arguments to pass to the HDU constructor
+
+        Raises
+        ------
+        ValueError
+            when the ext type is not supported
+        ValueError
+            when the table columns input is not a list
+        """
+
+        self._design_content(ext=ext, extno=extno, name=name, description=description,
+                            header=header, columns=columns, **kwargs)
+
+    def design_par(self, comments: str = None, header: Union[list, dict] = None,
+                       name: str = None, description: str = None, columns: list = None):
+        r""" Wrapper to _design_content, to design a new Yanny par section
+
+        Design a new Yanny par for the given datamodel.  Specify Yanny comments, a header section,
+        or a table definition.  Each new table is added to the YAML structure.  Use
+        ``name``, and ``description`` to specify the name and description of the new table.
+        ``comments`` can be a single string of comments, with newlines indicated by "\\n".
+
+        ``header`` can be a dictionary of key-value pairs, a list of tuples of header keywords,
+        conforming to (keyword, value, comment), or list of dictionaries conforming to
+        {"key": key, "value": value, "comment": comment}.
+
+        The ``columns`` parameter defines the relevant table columns to add to the file.  It can be
+        a list of column names, a list of tuple values conforming to column (name, type, [description]),
+        or a list of dictionaries with keys defined from the complete column yaml definition.
+
+        Allowed column types are any valid Yanny par types, input as strings, e.g. "int", "float", "char".
+        Array columns can be specified by including the array size in "[]", e.g. "float[6]".
+
+        Parameters
+        ----------
+        comments : str, optional
+            Any comments to add to the file, by default None
+        header : Union[list, dict], optional
+            Keywords to add to the header of the Yanny file, by default None
+        name : str, optional
+            The name of the parameter table
+        description: str, optional
+            A description of the parameter table
+        columns : list, optional
+            A set of Yanny table column definitions
+        """
+        self._design_content(comments=comments, header=header, name=name,
+                             description=description, columns=columns)
+
+    def design_hdf(self, name: str = '/', description: str = None, hdftype: str = 'group', attrs=None,
+                             ds_shape: tuple = None, ds_dtype: str = None):
+        r""" Wrapper to _design_content, to design a new HDF5 section
+
+        Design a new HDF entry for the given datamodel.  Specify h5py groups or dataset definitions,
+        with optional list of attributes.  Each new entry is added to the members entry in the
+        YAML structure.  Use ``name``, and ``description`` to specify the name and description of each new
+        group or dataset the new table.  Use ``hdftype`` to specify a "group" or "dataset" entry.  For
+        datasets, use ``ds_shape``, ``ds_size``, and ``ds_dtype`` to specify the shape, size, and
+        dtype of the array dataset.
+
+        New HDF5 members are added to the datamodel in a flattened structure.  To add a new group or dataset
+        as a child to an existing group, specify the full path in ``name``, e.g ``/mygroup/mydataset``.
+
+        ``attrs`` can be a list of tuples of header keywords,
+        conforming to (key, value, comment, dtype), or list of dictionaries conforming to
+        {"key": key, "value": value, "comment": comment, "dtype": dtype}.
+
+        Allowed attribute or dataset dtypes are any valid string representation of numpy dtypes.  For
+        example, "<i8", "int32", "S10", etc.
+
+        Parameters
+        ----------
+        name : str, optional
+            the name of the HDF group or dataset, by default '/'
+        description : str, optional
+            a description of the HDF group or dataset, by default None
+        hdftype : str, optional
+            the type of HDF5 object, by default 'group'
+        attrs : list, optional
+            a list of HDF5 Attributes, by default None
+        ds_shape : tuple, optional
+            the shape of an HDF5 array dataset, by default None
+        ds_dtype : str, optional
+            the dtype of an HDF5 array dataset, by default None
+
+        Raises
+        ------
+        ValueError
+            when an invalid hdftype is specified
+        """
+
+        self._design_content(name=name, description=description, hdftype=hdftype, attrs=attrs,
+                             ds_shape=ds_shape, ds_dtype=ds_dtype)
+
+    def _design_content(self, *args, **kwargs):
+        if not self.design:
+            log.warning('Cannot design new content when not in the datamodel design phase.')
+            return
+
+        # get the stub and update from disk
+        ss = self.get_stub(format='yaml')
+        ss.update_cache()
+
+        # design the new content
+        ss.selected_file.design_content(*args, **kwargs)
+
+        # write it out to the yaml stub
+        ss.write()
+
+    def generate_designed_file(self, redesign: bool = None, **kwargs):
+        """ Generate a file from a designed datamodel
+
+        Generates a real file on disk from a designed datamodel. If there are any
+        path template keywords, they must be specified here as input keyword arguments
+        to convert the symbolic path / abstract location to a real example location on
+        disk.  After generating the file, the datamodel sets ``design`` to False and exits
+        design mode.
+
+        Parameters
+        ----------
+        redesign : bool
+            If True, re-enters design mode to create a new file
+        kwargs
+            Any path keyword arguments to be filled in
+
+        Raises
+        ------
+        KeyError
+            when there are missing path keywords
+        AttributeError
+            when the release is not WORK when in the datamodel design phase
+        """
+        if redesign:
+            log.info("Re-entering datamodel design mode. Setting to True.")
+            self.design = True
+
+        if not self.design:
+            log.warning('Cannot generate a file when not in the datamodel design phase.')
+            return
+
+        if self.design and self.release != 'WORK':
+            raise AttributeError(f'The release {self.release} must be "WORK" when in '
+                                 'the datamodel design phase.')
+
+        # create a real location and filepath
+        try:
+            self.real_location = self.location.format(**kwargs)
+        except KeyError as e:
+            raise KeyError(f'Must specify path keywords to generate a real file: {e}') from e
+        else:
+            self.file = os.path.join(self.env["path"], self.real_location)
+
+        # generate the designed HDUList
+        ss = self.get_stub(format='yaml')
+        ss.update_cache()
+        try:
+            design_obj = ss.selected_file.create_from_cache(release='WORK')
+        except ValidationError as e:
+            log.error('Failed to create a valid design object')
+            raise
+
+        # exit if for any reason the designed object doesn't exist
+        if design_obj is None:
+            log.error('No designed object to write out.')
+            raise AttributeError('No designed object to write out.')
+
+        # create directories if needed
+        path = pathlib.Path(self.file)
+        if not path.parent.exists():
+            log.info(f'Creating directory: {path.parent}')
+            path.parent.mkdir(parents=True)
+
+        # write out the designed file
+        ss.selected_file.write_design(self.file, overwrite=True)
+
+        if self.verbose:
+            log.info(f'Writing designed filepath: {self.file}')
+            log.info("Setting datamodel design mode to False")
+
+        # set design to False
+        # updates the YAML cache with the file and real locations
+        self.design = False if not redesign else self.design
+        ss = self.get_stub(format='yaml')
+
+        # update the datatype and filesize
+        ss.update_cache()
+        ss._cache["general"]["datatype"] = get_filetype(self.real_location)
+        ss._cache["general"]["filesize"] = get_filesize(self.file)
+
+        ss.write()
+
+
 
 #
 # code to create a markdown table

@@ -1,0 +1,137 @@
+{
+  "general": {
+    "name": "rsFieldSlots",
+    "short": "Needed and available slots for field-cadence combination.",
+    "description": "For every field-cadence combination in rsOptions, this file has whether each LST and sky brightness slot is available for the field, and what number of exposures is needed total for the cadence. LST is broken up into 24 hour-long slots, covering 0-1h, 1-2h, etc. Sky brightness is broken up into dark and bright in that order, based on a maximum illumination of 0.35 for dark time. The LST allowed depends on the airmass; the airmass must be less than 1.4 or less than the minimum possible airmass for the field plus 0.2. Note that this criterion does not account for the detailed obsmode information for each exposure. The file is created by the robostrategy script rs_field_slots. The information is used in rs_allocate when the cadence choices are made.",
+    "environments": [
+      "ROBOSTRATEGY_DATA"
+    ],
+    "datatype": "FITS",
+    "filesize": "221 MB",
+    "releases": [
+      {
+        "name": "WORK",
+        "description": "SDSS unreleased data.  Represents any work-in-progress data.",
+        "public": false,
+        "release_date": "unreleased"
+      }
+    ],
+    "naming_convention": "$ROBOSTRATEGY_DATA/allocations/[PLAN]/rsFieldSlots-[PLAN]-[OBSERVATORY].fits",
+    "generated_by": "robostrategy",
+    "design": false
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "WORK": {
+      "template": "$ROBOSTRATEGY_DATA/allocations/[PLAN]/rsFieldSlots-[PLAN]-[OBSERVATORY].fits",
+      "example": "allocations/epsilon-5-core-2/rsFieldSlots-epsilon-5-core-2-apo.fits",
+      "location": "allocations/{plan}/rsFieldSlots-{plan}-{observatory}.fits",
+      "environment": "ROBOSTRATEGY_DATA",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "rsFieldSlots",
+        "path_template": "$ROBOSTRATEGY_DATA/allocations/{plan}/rsFieldSlots-{plan}-{observatory}.fits",
+        "path_kwargs": [
+          "observatory",
+          "plan"
+        ],
+        "access_string": "rsFieldSlots = $ROBOSTRATEGY_DATA/allocations/{plan}/rsFieldSlots-{plan}-{observatory}.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Primary header",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "file does conform to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "16",
+              "comment": "number of bits per data pixel"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of data axes"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": "FITS dataset may contain extensions"
+            },
+            {
+              "key": "COMMENT",
+              "value": "  FITS (Flexible Image Transport System) format is defined in 'Astronomy",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "  and Astrophysics', volume 376, page 359; bibcode: 2001A&A...376..359H",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "Needed and available slots for field-cadence combination.",
+          "size": "221 MB",
+          "header": null,
+          "columns": {
+            "fieldid": {
+              "name": "FIELDID",
+              "description": "Field identifier",
+              "type": "int32",
+              "unit": ""
+            },
+            "cadence": {
+              "name": "CADENCE",
+              "description": "Name of cadence",
+              "type": "char[30]",
+              "unit": ""
+            },
+            "racen": {
+              "name": "RACEN",
+              "description": "RA Center (J2000)",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "deccen": {
+              "name": "DECCEN",
+              "description": "Dec Center (J2000)",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "needed": {
+              "name": "NEEDED",
+              "description": "Number of exposures needed for this cadence",
+              "type": "int32",
+              "unit": ""
+            },
+            "needed_sb": {
+              "name": "NEEDED_SB",
+              "description": "Number of exposures needed for this cadence of each sky brightness type (in dark, bright order)",
+              "type": "int32[2]",
+              "unit": ""
+            },
+            "slots": {
+              "name": "SLOTS",
+              "description": "0 or 1 for whether the LST and skybrightness slot can be used for this field-cadence, based on sky brightness and airmass requirements.",
+              "type": "int32[24, 2]",
+              "unit": ""
+            }
+          }
+        }
+      }
+    }
+  }
+}

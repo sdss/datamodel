@@ -1,0 +1,124 @@
+{
+  "general": {
+    "name": "rsFields",
+    "short": "List of fields initialized in robostrategy",
+    "description": "List of fields initialized in robostrategy. Does not include rotation angles. Created by rs_fields.",
+    "environments": [
+      "ROBOSTRATEGY_DATA"
+    ],
+    "datatype": "FITS",
+    "filesize": "267 KB",
+    "releases": [
+      {
+        "name": "WORK",
+        "description": "SDSS unreleased data.  Represents any work-in-progress data.",
+        "public": false,
+        "release_date": "unreleased"
+      }
+    ],
+    "naming_convention": "$ROBOSTRATEGY_DATA/allocations/[PLAN]/rsFields-[PLAN]-[OBSERVATORY].fits",
+    "generated_by": "robostrategy"
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "WORK": {
+      "template": "$ROBOSTRATEGY_DATA/allocations/[PLAN]/rsFields-[PLAN]-[OBSERVATORY].fits",
+      "example": "allocations/epsilon-5-core-0/rsFields-epsilon-5-core-0-apo.fits",
+      "location": "allocations/{plan}/rsFields-{plan}-{observatory}.fits",
+      "environment": "ROBOSTRATEGY_DATA",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "rsFields",
+        "path_template": "$ROBOSTRATEGY_DATA/allocations/{plan}/rsFields-{plan}-{observatory}.fits",
+        "path_kwargs": [
+          "observatory",
+          "plan"
+        ],
+        "access_string": "rsFields = $ROBOSTRATEGY_DATA/allocations/{plan}/rsFields-{plan}-{observatory}.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Primary Header",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "file does conform to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "16",
+              "comment": "number of bits per data pixel"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of data axes"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": "FITS dataset may contain extensions"
+            },
+            {
+              "key": "COMMENT",
+              "value": "  FITS (Flexible Image Transport System) format is defined in 'Astronomy",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "  and Astrophysics', volume 376, page 359; bibcode: 2001A&A...376..359H",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "Binary table of fields",
+          "size": "258 KB",
+          "header": null,
+          "columns": {
+            "fieldid": {
+              "name": "FIELDID",
+              "description": "Field identifier",
+              "type": "int32",
+              "unit": "N/A"
+            },
+            "racen": {
+              "name": "RACEN",
+              "description": "RA Center (J2000)",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "deccen": {
+              "name": "DECCEN",
+              "description": "Dec Center (J2000)",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "radius": {
+              "name": "RADIUS",
+              "description": "Radius over which to output targets",
+              "type": "float32",
+              "unit": "deg"
+            },
+            "type": {
+              "name": "TYPE",
+              "description": "Type of field (used for setting cadence and allocation choices)",
+              "type": "char[30]",
+              "unit": "N/A"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,155 @@
+{
+  "general": {
+    "name": "rsAssignments",
+    "short": "All assignments performed",
+    "description": "Lists all assignments performed by robostrategy in a given run for a given observatory (the results of rs_assign_final). This is created by the robostrategy script rs_assignments, which reads the rsFieldAssignments files.",
+    "environments": [
+      "ROBOSTRATEGY_DATA"
+    ],
+    "datatype": "FITS",
+    "filesize": "1 GB",
+    "releases": [
+      {
+        "name": "WORK",
+        "description": "SDSS unreleased data.  Represents any work-in-progress data.",
+        "public": false,
+        "release_date": "unreleased"
+      }
+    ],
+    "naming_convention": "$ROBOSTRATEGY_DATA/allocations/[PLAN]/rsAssignments-[PLAN]-[OBSERVATORY].fits",
+    "generated_by": "robostrategy",
+    "design": false
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "WORK": {
+      "template": "$ROBOSTRATEGY_DATA/allocations/[PLAN]/rsAssignments-[PLAN]-[OBSERVATORY].fits",
+      "example": "allocations/epsilon-5-core-2/rsAssignments-epsilon-5-core-2-apo.fits",
+      "location": "allocations/{plan}/rsAssignments-{plan}-{observatory}.fits",
+      "environment": "ROBOSTRATEGY_DATA",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "rsAssignments",
+        "path_template": "$ROBOSTRATEGY_DATA/allocations/{plan}/rsAssignments-{plan}-{observatory}.fits",
+        "path_kwargs": [
+          "observatory",
+          "plan"
+        ],
+        "access_string": "rsAssignments = $ROBOSTRATEGY_DATA/allocations/{plan}/rsAssignments-{plan}-{observatory}.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Primary header",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "file does conform to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "16",
+              "comment": "number of bits per data pixel"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of data axes"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": "FITS dataset may contain extensions"
+            },
+            {
+              "key": "COMMENT",
+              "value": "  FITS (Flexible Image Transport System) format is defined in 'Astronomy",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "  and Astrophysics', volume 376, page 359; bibcode: 2001A&A...376..359H",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "List of all assignments",
+          "size": "1 GB",
+          "header": null,
+          "columns": {
+            "carton_to_target_pk": {
+              "name": "CARTON_TO_TARGET_PK",
+              "description": "Primary key in carton_to_target table in catalogdb",
+              "type": "int64",
+              "unit": ""
+            },
+            "rsid": {
+              "name": "RSID",
+              "description": "Unique ID within this robostrategy run",
+              "type": "int64",
+              "unit": ""
+            },
+            "catalogid": {
+              "name": "CATALOGID",
+              "description": "catalogid from catalog table in catalogdb",
+              "type": "int64",
+              "unit": ""
+            },
+            "ra": {
+              "name": "RA",
+              "description": "Object position in RA J2000",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "dec": {
+              "name": "DEC",
+              "description": "Object position in Dec J2000",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "cadence": {
+              "name": "CADENCE",
+              "description": "Desired cadence of target",
+              "type": "char[22]",
+              "unit": ""
+            },
+            "fieldid": {
+              "name": "FIELDID",
+              "description": "Field identifier",
+              "type": "int32",
+              "unit": ""
+            },
+            "exposure": {
+              "name": "EXPOSURE",
+              "description": "Index of exposure in field",
+              "type": "int32",
+              "unit": ""
+            },
+            "robotID": {
+              "name": "ROBOTID",
+              "description": "Assigned robotID",
+              "type": "int32",
+              "unit": ""
+            },
+            "field_cadence": {
+              "name": "FIELD_CADENCE",
+              "description": "Cadence of the field",
+              "type": "char[30]",
+              "unit": ""
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -28,10 +28,10 @@ def test_datamodel_cli():
 
 @pytest.mark.parametrize('command, msg',
                          [('generate', 'Generate a datamodel file for a SDSS data product'),
-                          ('wiki', 'Upload a datamodel to the wiki'),
                           ('install', 'Install the datamodel product at Utah'),
-                          ('design', 'Design a datamodel for a new file')],
-                         ids=['generate', 'wiki', 'install', 'design'])
+                          ('design', 'Design a datamodel for a new file'),
+                          ('tree', 'Interact with the SDSS tree product')],
+                         ids=['generate', 'install', 'design', 'tree'])
 def test_datamodel_help(command, msg):
     """ test the help of each datamodel click subcommand """
     runner = CliRunner()
@@ -39,14 +39,26 @@ def test_datamodel_help(command, msg):
     assert result.exit_code == 0
     assert msg in result.output
 
+@pytest.mark.parametrize('command, msg',
+                         [('add', 'Add new access paths into the tree git product'),
+                          ('check', 'Check the product path definitions are correct in tree'),
+                          ('update', 'Update datamodel stubs with new access paths')],
+                         ids=['add', 'check', 'update'])
+def test_datamodel_tree_help(command, msg):
+    """ test the help of each datamodel tree click subcommand """
+    runner = CliRunner()
+    result = runner.invoke(cli, ['tree', command, '--help'])
+    assert result.exit_code == 0
+    assert msg in result.output
 
-def test_cli_datamodel_generate(testfile):
+def test_cli_datamodel_generate(testfits):
+    """ test that cli generates a file """
     runner = CliRunner()
     result = runner.invoke(cli, ['generate', '-f', 'test', '-p', 'TEST_REDUX/{ver}/testfile_{id}.fits', '-k', 'ver=v1', '-k', 'id=a', '-v', '-s'])
     path = os.path.join(os.getenv("DATAMODEL_DIR"), 'datamodel/products/yaml/test.yaml')
     assert os.path.exists(path)
 
-def test_cli_dm_generate_keywords(testfile):
+def test_cli_dm_generate_keywords(testfits):
     """ test that no keywords are allowed in cli """
     runner = CliRunner()
     result = runner.invoke(cli, ['generate', '-f', 'test', '-p', 'TEST_REDUX/testfile.fits', '-v', '-s'])
@@ -54,3 +66,29 @@ def test_cli_dm_generate_keywords(testfile):
             'parameters must be set:') not in result.output
     assert result.exit_code == 1
 
+
+def test_cli_dm_design(yamlfile):
+    """ test that cli designs a file """
+    runner = CliRunner()
+    result = runner.invoke(cli, ['design', '-f', 'test', '-p', 'TEST_REDUX/{ver}/testfile_{id}.fits'])
+    assert os.path.exists(yamlfile)
+
+
+def test_cli_dm_tree_check():
+    """ test that cli can run a tree check """
+    runner = CliRunner()
+    result = runner.invoke(cli, ['tree', 'check', '-r', 'DR17'])
+    assert result.exit_code == 0
+
+def test_cli_dm_validate_check():
+    """ test that cli can run a validate check """
+    runner = CliRunner()
+    result = runner.invoke(cli, ['validate', 'check'])
+    assert result.exit_code == 0
+
+def test_cli_dm_validate_redo(validmodel):
+    """ test that cli can run a validate redo """
+    validmodel('fits')
+    runner = CliRunner()
+    result = runner.invoke(cli, ['validate', 'redo', '-f', 'test', '-v'])
+    assert result.exit_code == 0

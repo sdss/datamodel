@@ -37,7 +37,7 @@ use_releases = 'no'
 # ones.
 extensions = ['sphinx.ext.autodoc', 'sphinx.ext.napoleon', 'sphinx.ext.autosummary',
               'sphinx.ext.todo', 'sphinx.ext.viewcode', 'sphinx.ext.mathjax',
-              'sphinx.ext.intersphinx', 'sphinx_click', 'sphinx_copybutton', 
+              'sphinx.ext.intersphinx', 'sphinx_click', 'sphinx_copybutton',
               'sphinx_inline_tabs', 'sphinx_issues']
 
 # Add any paths that contain templates here, relative to this directory.

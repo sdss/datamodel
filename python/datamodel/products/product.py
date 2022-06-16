@@ -14,6 +14,7 @@ import functools
 import itertools
 import os
 import pathlib
+from contextlib import contextmanager
 from typing import Type, TypeVar, Union
 
 from fuzzy_types import FuzzyList
@@ -32,7 +33,7 @@ PType = TypeVar('PType', bound='Product')
 
 class ReleaseList(FuzzyList):
     """ Class for a fuzzy list of Releases """
-    
+
     @staticmethod
     def mapper(item):
         return item.name
@@ -46,43 +47,43 @@ class Product(object):
     `~datamodel.models.yaml.ProductModel`.  By default, products are lazy-loaded, i.e.
     they will not load the underlying JSON content.  Pass ``load=True`` or use ``load()``
     to manually load the product's datamodel.
-    
+
     Parameters
     ----------
     name : str
-        The file species name of the datamodel 
+        The file species name of the datamodel
     load : bool, optional
         If True, loads the model's JSON content, by default False
     """
     # contains JSON content fields to extract from the model into the main instance
     _extract = ['short', 'description']
-    
+
     def __init__(self, name: str, load: bool = False):
         self.name = name
         products_path = pathlib.Path(os.getenv("DATAMODEL_DIR")) / 'datamodel' / 'products' / 'json'
         self.path = products_path / f"{name}.json"
         self.loaded = False
-        
+
         if load:
             self._load_product_from_model()
 
     def __repr__(self) -> str:
         short = hasattr(self, 'short')
         return f'<Product ("{self.name}", summary="{self.short if short else ""}")>'
-    
+
     def load(self) -> None:
         """ Loads the DataModel content into the Product """
         if self.loaded:
-            return 
+            return
         self._load_product_from_model()
 
     def _load_product_from_model(self) -> None:
         """ Loads the Datamodel content into the Product
-        
+
         Loads the Pydantic Model content from the JSON file into a hidden
         ``_model`` attribute.  Extracts the product's available releases and
-        sets to a new attribute.  Also extracts any general fields included in the 
-        ``_extract`` list of attributes. 
+        sets to a new attribute.  Also extracts any general fields included in the
+        ``_extract`` list of attributes.
         """
         self._model = ProductModel.parse_file(self.path)
         self.releases = ReleaseList(self._model.general.releases)
@@ -90,12 +91,30 @@ class Product(object):
             setattr(self, field, getattr(self._model.general, field))
         self.loaded = True
 
+    def unload(self) -> None:
+        """ Unloads the DataModel content from the Product"""
+        if not self.loaded:
+            return
+
+        del self._model
+        del self.releases
+        for field in self._extract:
+            delattr(self, field)
+        self.loaded = False
+
+    @contextmanager
+    def loader(self) -> PType:
+        """ Contextmanager to temporarily load the product """
+        self.load()
+        yield self
+        self.unload()
+
     def get_release(self, value: str) -> Release:
         """ Get the JSON content for the given product for a given SDSS release
 
         Returns the Pydantic yaml.Release model for a given SDSS release.  All JSON keys
-        are accessible as instance attributes.  The model can be dumped into a dictionary 
-        with the ``dict()`` method.    
+        are accessible as instance attributes.  The model can be dumped into a dictionary
+        with the ``dict()`` method.
 
         Parameters
         ----------
@@ -114,10 +133,10 @@ class Product(object):
         """
         if value not in self.releases:
             raise ValueError(f"release {value} is not a valid SDSS release")
-        
+
         return self._model.releases[value]
-    
-    def get_content(self) -> dict:
+
+    def get_content(self, *args, **kwargs) -> dict:
         """ Returns the entire cached JSON datamodel content
 
         Returns
@@ -125,8 +144,18 @@ class Product(object):
         dict
             The JSON datamodel content
         """
-        return self._model.dict()
-    
+        return self._model.dict(*args, **kwargs)
+
+    def get_schema(self, *args, **kwargs) -> dict:
+        """ Returns the Pydantic schema datamodel definition
+
+        Returns
+        -------
+        dict
+            The datamodel schema
+        """
+        return self._model.schema(*args, **kwargs)
+
     @classmethod
     def from_file(cls: Type[PType], value: Union[str, pathlib.Path], load: bool = None) -> PType:
         """ Class method to load a data Product from a JSON datamodel filepath
@@ -145,12 +174,12 @@ class Product(object):
         """
         path = pathlib.Path(value)
         return cls(name=path.stem, load=load)
-    
-    def _get_path(self, name: str, release: str = "WORK", expand: bool = True, 
+
+    def _get_path(self, name: str, release: str = "WORK", expand: bool = True,
                   symbolic: bool = False, **kwargs) -> str:
         """ Get a file path from the datamodel
 
-        Returns a resolved filepath for a specified release.  Either returns the given 
+        Returns a resolved filepath for a specified release.  Either returns the given
         datamodel example, or the symbolic location.  The symbolic location can be given
         keyword arguments to resolve it to a real filepath.  By default the SAS environment
         variable will be expanded, but can optionally return the path unresolved.
@@ -183,10 +212,10 @@ class Product(object):
         # check if the product has the releases attribute
         if not hasattr(self, 'releases'):
             raise AttributeError("Product is not loaded.  Try running the load() method.")
-        
+
         # check if the release is valid for this product
         if release not in self.releases:
-            raise ValueError(f'Release {release} is not a valid release for product {self.name}.') 
+            raise ValueError(f'Release {release} is not a valid release for product {self.name}.')
 
         # extract the example or location path from the release dictionary
         rr = self._model.releases[release]
@@ -204,14 +233,14 @@ class Product(object):
         if expand:
             Path(release=release)
             return os.path.expandvars(path)
-                        
+
         return path
 
     def get_example(self, release: str = "WORK", expand: bool = True) -> str:
         """ Get the example file from the datamodel
 
-        Returns the resolved example filepath for a specified release.  By default the 
-        SAS environment variable will be expanded, but can optionally return 
+        Returns the resolved example filepath for a specified release.  By default the
+        SAS environment variable will be expanded, but can optionally return
         the path unresolved.
 
         Parameters
@@ -234,8 +263,8 @@ class Product(object):
             when the specified release is not a valid one for the product
         """
         return self._get_path('example', release=release, expand=expand)
-        
-    def get_location(self, release: str = "WORK", symbolic: bool = False, 
+
+    def get_location(self, release: str = "WORK", symbolic: bool = False,
                      expand: bool = True, **kwargs) -> str:
         """ Get a file location from the datamodel
 
@@ -268,16 +297,56 @@ class Product(object):
         ValueError
             when the specified release is not a valid one for the product
         """
-        return self._get_path('location', release=release, symbolic=symbolic, 
+        return self._get_path('location', release=release, symbolic=symbolic,
                               expand=expand, **kwargs)
+
+    def get_access(self, release: str = None) -> dict:
+        """ Get the sdss-access information for a given release
+
+        Get the "access" entry from the datamodel for a given release.
+        If no release is given, returns the access information for all releases
+        for the product.  The access information returned is also the same content as
+        in the `products/access/[fileSpecies].access` file.
+
+        Parameters
+        ----------
+        release : str, optional
+            The data release to use, by default None
+
+        Returns
+        -------
+        dict
+            the access information from the datamodel
+
+        Raises
+        ------
+        AttributeError
+            when "releases" is not set and product is not loaded
+        ValueError
+            when the specified release is not a valid one for the product
+        """
+
+        # check if the product has the releases attribute
+        if not hasattr(self, 'releases'):
+            raise AttributeError("Product is not loaded.  Try running the load() method.")
+
+        access = {k: v.access.dict() for k,v in self._model.releases.items()}
+
+        # check if the release is valid for this product
+        if release and release not in self.releases:
+            raise ValueError(f'Release {release} is not a valid release for product {self.name}.')
+
+        if release:
+            return access.get(release, {})
+        return access
 
 class DataProducts(FuzzyList):
     """ Class of a fuzzy list of SDSS data products
 
-    Creates a list of all available SDSS data products that have valid JSON datamodel 
-    files, i.e. those in the ``datamodel/products/json/`` directory.  All products are 
-    lazy-loaded at first for efficiency.  Products are automatically loaded with content when 
-    the items in the list are accessed. 
+    Creates a list of all available SDSS data products that have valid JSON datamodel
+    files, i.e. those in the ``datamodel/products/json/`` directory.  All products are
+    lazy-loaded at first for efficiency.  Products are automatically loaded with content when
+    the items in the list are accessed.
     """
     def __init__(self):
         products_path = pathlib.Path(os.getenv("DATAMODEL_DIR")) / 'datamodel' / 'products' / 'json'
@@ -285,7 +354,7 @@ class DataProducts(FuzzyList):
 
     def __repr__(self):
         return f'<DataProducts (n_products={len(self)})>'
-    
+
     @staticmethod
     def mapper(item) -> str:
         """ Override the fuzzy mapper to match on product's name """
@@ -296,23 +365,23 @@ class DataProducts(FuzzyList):
         val = super(DataProducts, self).__getitem__(item)
         val.load()
         return val
-    
+
     def list_products(self) -> list:
         """ List all data products """
         return [item.name for item in self]
-    
+
     def load_all(self):
         """ Load all data products """
         for item in self:
             item.load()
-            
+
     def group_by(self, field: str) -> dict:
-        """ Group the products by an attribute 
-        
-        Group all products by either a product attribute, e.g. "releases", 
+        """ Group the products by an attribute
+
+        Group all products by either a product attribute, e.g. "releases",
         or a field in the underlying JSON model, e.g. "_model.general.environments".
-        A dotted attribute string is resolved as a set of nested attribute. Returns 
-        a dictionary of products grouped by the field, or fields, if the requested 
+        A dotted attribute string is resolved as a set of nested attribute. Returns
+        a dictionary of products grouped by the field, or fields, if the requested
         field is a list.
 
         Parameters
@@ -324,14 +393,14 @@ class DataProducts(FuzzyList):
         -------
         dict
             A dictionary of products grouped by desired field
-            
+
         Example
         -------
         >>> from datamodel.products import DataProducts
         >>> dp = DataProducts()
         >>> gg = dp.group_by('releases')
         >>> gg
-            {"DR15": ..., 
+            {"DR15": ...,
              "DR16": ....}
         """
         return grouper(field, self)
@@ -347,7 +416,7 @@ class SDSSDataModel(object):
         self.surveys = surveys
         self.phases = phases
         self.products = DataProducts()
-    
+
     def __repr__(self) -> str:
         return (f'<SDSS DataModel (n_releases={len(self.releases)}, '
                 f'n_products={len(self.products)}, n_surveys={len(self.surveys)}, '
@@ -356,7 +425,7 @@ class SDSSDataModel(object):
 
 def rgetattr(obj: object, attr: str, *args):
     """ recursive getattr for nested attributes
-    
+
     Recursively get attributes from nested classes.  See
     https://stackoverflow.com/questions/31174295/getattr-and-setattr-on-nested-subobjects-chained-properties
     """
@@ -366,12 +435,12 @@ def rgetattr(obj: object, attr: str, *args):
 
 
 def grouper(field: str, products: list) -> dict:
-    """ Group the products by an attribute 
+    """ Group the products by an attribute
 
-    Group all products by either a product attribute, e.g. "releases", 
+    Group all products by either a product attribute, e.g. "releases",
     or a field in the underlying JSON model, e.g. "_model.general.environments".
-    A dotted attribute string is resolved as a set of nested attribute. Returns 
-    a dictionary of products grouped by the field, or fields, if the requested 
+    A dotted attribute string is resolved as a set of nested attribute. Returns
+    a dictionary of products grouped by the field, or fields, if the requested
     field is a list.
 
     Parameters
@@ -385,14 +454,14 @@ def grouper(field: str, products: list) -> dict:
     -------
     dict
         A dictionary of products grouped by desired field
-    
+
     """
     # check if the products are loaded
     if not all(i.loaded for i in products):
         log.warning('Input list of products are not loaded.  Loading all!')
         products.load_all()
 
-    # check if the field is a list    
+    # check if the field is a list
     value = rgetattr(products[0], field)
     if not isinstance(value, list):
         zipper = lambda x: list(zip(itertools.repeat(x), [rgetattr(x, field)]))

@@ -29,16 +29,28 @@ Commands
    :prog: design
    :nested: full
 
-.. _usage-dmwiki:
-
-.. click:: datamodel.cli:wiki
-   :prog: wiki
-   :nested: full
-
 .. _usage-dminstall:
 
 .. click:: datamodel.cli:install
    :prog: install
+   :nested: full
+
+.. _usage-dmtree:
+
+.. click:: datamodel.cli:tree
+   :prog: tree
+   :nested: full
+
+.. _usage-dmvalid:
+
+.. click:: datamodel.cli:validate
+   :prog: validate
+   :nested: full
+
+.. _usage-dmmove:
+
+.. click:: datamodel.cli:move
+   :prog: move
    :nested: full
 
 .. _cli-diff:

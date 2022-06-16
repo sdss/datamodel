@@ -1,0 +1,99 @@
+general:
+  name: rsFieldsRotated
+  short: List of fields in robostrategy with position angles assigned
+  description: List of fields in robostrategy. Include position angles. Created by
+    rs_field_rotator.
+  datatype: FITS
+  filesize: 303 KB
+  releases:
+  - WORK
+  environments:
+  - ROBOSTRATEGY_DATA
+  naming_convention: $ROBOSTRATEGY_DATA/allocations/[PLAN]/rsFieldsRotated-[PLAN]-[OBSERVATORY].fits
+  generated_by: robostrategy
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  WORK:
+    template: $ROBOSTRATEGY_DATA/allocations/[PLAN]/rsFieldsRotated-[PLAN]-[OBSERVATORY].fits
+    example: allocations/epsilon-5-core-0/rsFieldsRotated-epsilon-5-core-0-apo.fits
+    location: allocations/{plan}/rsFieldsRotated-{plan}-{observatory}.fits
+    environment: ROBOSTRATEGY_DATA
+    access:
+      in_sdss_access: true
+      path_name: rsFieldsRotated
+      path_template: $ROBOSTRATEGY_DATA/allocations/{plan}/rsFieldsRotated-{plan}-{observatory}.fits
+      path_kwargs:
+      - observatory
+      - plan
+      access_string: rsFieldsRotated = $ROBOSTRATEGY_DATA/allocations/{plan}/rsFieldsRotated-{plan}-{observatory}.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Primary header
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: CHECKSUM
+          value: C9gCE6ZAC6fAC6ZA
+          comment: HDU checksum updated 2021-10-01T14:15:53
+        - key: DATASUM
+          value: '0'
+          comment: data unit checksum updated 2021-10-01T14:15:53
+      hdu1:
+        name: ''
+        description: Binary table of fields
+        is_image: false
+        size: 297 KB
+        columns:
+          fieldid:
+            name: FIELDID
+            type: int32
+            unit: N/A
+            description: Field identifier
+          racen:
+            name: RACEN
+            type: float64
+            unit: deg
+            description: RA Center (J2000)
+          deccen:
+            name: DECCEN
+            type: float64
+            unit: deg
+            description: Dec Center (J2000)
+          radius:
+            name: RADIUS
+            type: float32
+            unit: deg
+            description: Radius over which to output targets
+          type:
+            name: TYPE
+            type: char[30]
+            unit: N/A
+            description: Type of field (used for setting cadence and allocation choices)
+          pa1:
+            name: PA1
+            type: float32
+            unit: deg
+            description: proposed position angle using algorithm 1 (mean bearing to
+              neighboring fields)
+          pa2:
+            name: PA2
+            type: float32
+            unit: deg
+            description: proposed position angle using algorithm 2 (bearing to furthest
+              neighboring field)

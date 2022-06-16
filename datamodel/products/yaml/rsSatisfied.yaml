@@ -1,0 +1,129 @@
+general:
+  name: rsSatisfied
+  short: Whether each target is satisfied
+  description: For all targets in a robostrategy run, gives whether it is satisfied.
+    The list of targets is parallel to the list in rsTargets. The file is created
+    by the robostrategy script rs_satisfied.
+  datatype: FITS
+  filesize: 6 GB
+  releases:
+  - WORK
+  environments:
+  - ROBOSTRATEGY_DATA
+  naming_convention: $ROBOSTRATEGY_DATA/allocations/[PLAN]/rsSatisfied-[PLAN]-[OBSERVATORY].fits
+  generated_by: robostrategy
+  design: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  WORK:
+    template: $ROBOSTRATEGY_DATA/allocations/[PLAN]/rsSatisfied-[PLAN]-[OBSERVATORY].fits
+    example: allocations/epsilon-5-core-2/rsSatisfied-epsilon-5-core-2-apo.fits
+    location: allocations/{plan}/rsSatisfied-{plan}-{observatory}.fits
+    environment: ROBOSTRATEGY_DATA
+    access:
+      in_sdss_access: false
+      path_name: null
+      path_template: null
+      path_kwargs: null
+      access_string: rsSatisfied = $ROBOSTRATEGY_DATA/allocations/{plan}/rsSatisfied-{plan}-{observatory}.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Primary header
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: file does conform to FITS standard
+        - key: BITPIX
+          value: 16
+          comment: number of bits per data pixel
+        - key: NAXIS
+          value: 0
+          comment: number of data axes
+        - key: EXTEND
+          value: true
+          comment: FITS dataset may contain extensions
+        - key: COMMENT
+          value: '  FITS (Flexible Image Transport System) format is defined in ''Astronomy'
+          comment: ''
+        - key: COMMENT
+          value: '  and Astrophysics'', volume 376, page 359; bibcode: 2001A&A...376..359H'
+          comment: ''
+      hdu1:
+        name: ''
+        description: List of targets and whether they have been satisfied
+        is_image: false
+        size: 6 GB
+        columns:
+          carton_to_target_pk:
+            name: CARTON_TO_TARGET_PK
+            type: int64
+            unit: ''
+            description: Primary key in carton_to_target table
+          rsid:
+            name: RSID
+            type: int64
+            unit: ''
+            description: robostrategy unique ID
+          catalogid:
+            name: CATALOGID
+            type: int64
+            unit: ''
+            description: Unique id in catalog table of catalogdb
+          ra:
+            name: RA
+            type: float64
+            unit: deg
+            description: Object position in RA J2000
+          dec:
+            name: DEC
+            type: float64
+            unit: deg
+            description: Object position in Dec J2000
+          cadence:
+            name: CADENCE
+            type: char[22]
+            unit: ''
+            description: Desired cadence of target
+          allowed:
+            name: ALLOWED
+            type: int32
+            unit: ''
+            description: Number of exposures in all fields where this RSID would be
+              allowed by designmode.
+          incadence:
+            name: INCADENCE
+            type: int32
+            unit: ''
+            description: Number of fields in which the cadence of this RSID could
+              be satisfied.
+          satisfied:
+            name: SATISFIED
+            type: int32
+            unit: ''
+            description: Number of fields in which the cadence of this RSID is satisfied.
+          assigned:
+            name: ASSIGNED
+            type: int32
+            unit: ''
+            description: Number  of fields in which this RSID is explicitly assigned
+              to a robot at least once.
+          nexps:
+            name: NEXPS
+            type: int32
+            unit: ''
+            description: Total number of exposures in which a robotID is assigned
+              which corresponds to the requirements of this RSID; i.e. same CATALOGID,
+              LAMBDA_EFF, DELTA_RA, DELTA_DEC, and FIBERTYPE.
+          nepochs:
+            name: NEPOCHS
+            type: int32
+            unit: ''
+            description: Total number of epochs in which a robotID is assigned which
+              corresponds to the requirements of this RSID; i.e. same CATALOGID, LAMBDA_EFF,
+              DELTA_RA, DELTA_DEC, and FIBERTYPE.

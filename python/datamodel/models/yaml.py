@@ -13,73 +13,23 @@
 
 from __future__ import print_function, division, absolute_import, annotations
 
-import orjson
+import re
 from typing import List, Dict, Union
+
+import orjson
+from astropy.io import fits
 from pydantic import BaseModel, validator
 
 from .releases import releases, Release as ReleaseMod
+from .validators import replace_me, check_release
+from .filetypes import HDU, ParModel, HdfModel, ChangeFits, ChangePar, ChangeHdf
 
 
 def orjson_dumps(v, *, default):
     # orjson.dumps returns bytes, to match standard json.dumps we need to decode
-    return orjson.dumps(v, default=default, 
+    return orjson.dumps(v, default=default,
                         option=orjson.OPT_INDENT_2|
                         orjson.OPT_SERIALIZE_NUMPY).decode()
-
-
-def replace_me(value: str) -> str:
-    """ Validator for datamodel text fields
-
-    Validator for yaml fields where the string values have the text
-    "replace me" within it.  This text indicates a template text that
-    must be replaced.
-
-    Parameters
-    ----------
-    value : str
-        the value of the field
-
-    Returns
-    -------
-    str
-        the value of the field
-
-    Raises
-    ------
-    ValueError
-        when "replace me" is the in the value text
-    """
-    if 'replace me' in value:
-        raise ValueError('Generic text needs to be replaced with specific content!')
-    return value
-
-
-def check_release(value: dict) -> str:
-    """ Validator for datamodel release keys
-
-    Validator for yaml "releases" fields.  Checks the "releases" keys against
-    valid SDSS releases, from the Releases Model.
-
-    Parameters
-    ----------
-    value : dict
-        the value of the field
-
-    Returns
-    -------
-    str
-        the value of the field
-
-    Raises
-    ------
-    ValueError
-        when the release key is not a valid release
-    """
-    rr = [i.name for i in releases]
-    badkeys = set(value.keys()) - set(rr)
-    if badkeys:
-        raise ValueError(f"Invalid key(s) {','.join(badkeys)} in releases dict.")
-    return value
 
 class GeneralSection(BaseModel):
     """ Pydantic model representing the YAML general section
@@ -89,7 +39,7 @@ class GeneralSection(BaseModel):
     name : str
         The file species name of the data product (or sdss_access path_name)
     short : str
-        A one sentence summary of the data product 
+        A one sentence summary of the data product
     description : str
         A longer description of the data product
     environments : List[str]
@@ -102,13 +52,15 @@ class GeneralSection(BaseModel):
         A list of SDSS releases the data product is in
     naming_convention : str
         A description of the naming convention
-    generated_by : str 
+    generated_by : str
         An identifiable piece of the code that generates the data product
+    design : bool
+        If True, the datamodel is in the design phase, before any file exists yet
 
     Raises
     ------
     ValueError
-        when any of the releases are not a valid SDSS Release 
+        when any of the releases are not a valid SDSS Release
     """
     name: str
     short: str
@@ -119,22 +71,41 @@ class GeneralSection(BaseModel):
     releases: List[Union[str, ReleaseMod]] = None
     naming_convention: str
     generated_by: str
+    design: bool = None
 
     _check_replace_me = validator('short', 'description', 'naming_convention',
                                   'generated_by', allow_reuse=True)(replace_me)
 
     @validator('releases', each_item=True)
     def check_release(cls, value: str) -> str:
+        """ Validator to check release against list of releases """
         if value not in releases:
             raise ValueError(f'{value} is not a valid release')
         return releases[value]
 
-class ChangeRelease(BaseModel):
+    @validator('design')
+    def no_design(cls, value: bool):
+        """ Validator to check if the design flag is set to True """
+        if value:
+            raise ValueError('Design is set to True. YAML will not validate until out of design phase.')
+        return value
+
+class ChangeBase(BaseModel):
+    """ Base Pydantic model representing a YAML changelog release section"""
+    from_: str
+    note: str = None
+    class Config:
+        """ Pydantic model configuration """
+        fields = {
+            'from_': 'from'
+        }
+
+class ChangeRelease(ChangeHdf, ChangePar, ChangeFits, ChangeBase):
     """ Pydantic model representing a YAML changelog release section
 
     Represents a computed section of the changelog, for the specified
-    release.  Changelog is computed between the data products of release (key) 
-    and the release indicated in `from`. 
+    release.  Changelog is computed between the data products of release (key)
+    and the release indicated in `from`.
 
     Parameters
     ----------
@@ -152,20 +123,37 @@ class ChangeRelease(BaseModel):
         A list of any added primary header keywords
     removed_primary_header_kwargs : List[str]
         A list of any removed primary header keywords
+    delta_nkeys : int
+        The difference in number of Yanny header keys
+    added_header_keys : List[str]
+        A list of any added Yanny header keywords
+    removed_header_keys : List[str]
+        A list of any removed Yanny header keywords
+    delta_tables : int
+        The difference in number of Yanny tables
+    added_tables : List[str]
+        A list of any added Yanny tables
+    removed_tables : List[str]
+        A list of any removed Yanny tables
+    tables : Dict[str, ChangeTable]
+        A dictionary of table column and row changes
+    new_libver : tuple
+        The difference in HDF5 library version
+    delta_nattrs : int
+        The difference in the number of HDF5 Attributes
+    added_attrs : List[str]
+        A list of any added HDF5 Attributes
+    removed_attrs : List[str]
+        A list of any removed HDF5 Attributes
+    delta_nmembers : int
+        The difference in number members in HDF5 file
+    added_members : List[str]
+        A list of any added HDF5 groups or datasets
+    removed_members : List[str]
+        A list of any removed HDF5 groups or datasets
+    members : Dict[str, ChangeMember]
+        A dictionary of HDF5 group/dataset member changes
     """
-    from_: str
-    delta_nhdus: int = None
-    added_hdus: List[str] = None
-    removed_hdus: List[str] = None
-    primary_delta_nkeys: int = None
-    added_primary_header_kwargs: List[str] = None
-    removed_primary_header_kwargs: List[str] = None
-    note: str = None
-
-    class Config:
-        fields = {
-            'from_': 'from'
-        }
 
 class ChangeLog(BaseModel):
     """ Pydantic model representing the YAML changelog section
@@ -175,13 +163,28 @@ class ChangeLog(BaseModel):
     description : str
         A description of the changelog
     releases : Dict[str, `.ChangeRelease`]
-        A dictionary of the file changes between the given release and previous one 
+        A dictionary of the file changes between the given release and previous one
     """
     description: str
     releases: Dict[str, ChangeRelease] = None
 
     _check_releases = validator('releases', allow_reuse=True)(check_release)
 
+    def json(self, **kwargs):
+        """ override json method to exclude none fields by default """
+        kwargs.pop('exclude_none', None)
+        return super().json(exclude_none=True, **kwargs)
+
+    def dict(self, **kwargs):
+        """ override dict method to exclude none fields by default
+
+        Need to override this method as well when serializing YamlModel to json,
+        because nested models are already converted to dict when json.dumps is called.
+        See https://github.com/samuelcolvin/pydantic/issues/1778
+
+        """
+        kwargs.pop('exclude_none', None)
+        return super().dict(exclude_none=True, **kwargs)
 
 class Access(BaseModel):
     """ Pydantic model representing the YAML releases access section
@@ -200,90 +203,33 @@ class Access(BaseModel):
         The full sdss_access entry, "path_name=path_template"
     """
     in_sdss_access: bool
-    path_name: str
-    path_template: str
-    path_kwargs: List[str]
-    access_string: str
+    path_name: str = None
+    path_template: str = None
+    path_kwargs: List[str] = None
+    access_string: str = None
 
-class Header(BaseModel):
-    """ Pydantic model representing a YAML header section
+    @validator('path_name', 'path_template', 'access_string')
+    def check_path_nulls(cls, value, values, field):
+        in_access = values.get('in_sdss_access')
+        if in_access and not value:
+            raise ValueError(f'{field.name} cannot be None if in_sdss_access is True')
+        return value
 
-    Represents a FITS Header
-
-    Parameters
-    ----------
-    key : str
-        The name of the header keyword
-    value : str
-        The value of the header keyword
-    comment : str
-        A comment for the header keyword, if any
-    """
-    key: str
-    value: str
-    comment: str
-
-
-class Column(BaseModel):
-    """ Pydantic model representing a YAML column section
-
-    Represents a FITS binary table column 
-    
-    Parameters
-    ----------
-    name : str
-        The name of the table column
-    description : str
-        A description of the table column
-    type : str
-        The data type of the table column
-    unit : str
-        The unit of the table column
-    """
-    name: str
-    description: str
-    type: str
-    unit: str
-
-    _check_replace_me = validator('unit', 'description', allow_reuse=True)(replace_me)
-
-
-class HDU(BaseModel):
-    """ Pydantic model representing a YAML hdu section
-
-    Represents a FITS HDU extension
-    
-    Parameters
-    ----------
-    name : str
-        The name of the HDU extension
-    is_image : bool
-        Whether the HDU is an image extension
-    description : str
-        A description of the HDU extension
-    size : str
-        An estimated size of the HDU extension
-    header : List[`.Header`]
-        A list of header values for the extension
-    columns : Dict[str, `.Column`]
-        A list of any binary table columns for the extension
-    """
-    name: str
-    is_image: bool
-    description: str
-    size: str
-    header: List[Header] = None
-    columns: Dict[str, Column] = None
-
-    _check_replace_me = validator('description', allow_reuse=True)(replace_me)
-
+    @validator('path_kwargs')
+    def check_path_kwargs(cls, value, values):
+        in_access = values.get('in_sdss_access')
+        path = values.get('path_template')
+        needskwargs = re.findall("{(.*?)}", path) if path else None
+        if in_access and needskwargs and not value:
+            raise ValueError('path_kwargs cannot be None if path_template has {} kwargs')
+        return value
 
 class Release(BaseModel):
     """ Pydantic model representing an item in the YAML releases section
-    
+
     Contains any information on the data product that is specific to a given
     release, or that changes across releases.
-    
+
     Parameters
     ----------
     template : str
@@ -305,10 +251,17 @@ class Release(BaseModel):
     environment: str
     access: Access
     hdus: Dict[str, HDU] = None
+    par: ParModel = None
+    hdfs: HdfModel = None
+
+    def convert_to_hdulist(self) -> fits.HDUList:
+        """ Convert the hdus to a fits.HDUList """
+        hdus = [HDU.parse_obj(v).convert_hdu() for v in self.hdus.values()]
+        return fits.HDUList(hdus)
 
 
 class YamlModel(BaseModel):
-    """ Pydantic model representing a YAML file 
+    """ Pydantic model representing a YAML file
 
     Parameters
     ----------
@@ -334,7 +287,7 @@ class YamlModel(BaseModel):
 
 class ProductModel(YamlModel):
     """ Pydantic model representing a data product JSON file
-    
+
     Parameters
     ----------
     general : `.GeneralSection`

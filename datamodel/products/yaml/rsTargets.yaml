@@ -1,0 +1,197 @@
+general:
+  name: rsTargets
+  short: List of targets for a robostrategy run
+  description: Targets for robostrategy run. Each entry corresponds to a row of the
+    carton_to_target table of targetdb. This file only contains a subset of the cartons,
+    and gathers other information for use by robostrategy. Produced by robostrategy's
+    rs_targets_extract.
+  datatype: FITS
+  filesize: 16 GB
+  releases:
+  - WORK
+  environments:
+  - ROBOSTRATEGY_DATA
+  naming_convention: $ROBOSTRATEGY_DATA/allocations/[PLAN]/rsTargets-[PLAN]-[OBSERVATORY].fits
+  generated_by: robostrategy
+  design: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  WORK:
+    template: $ROBOSTRATEGY_DATA/allocations/[PLAN]/rsTargets-[PLAN]-[OBSERVATORY].fits
+    example: allocations/epsilon-5-core-0/rsTargets-epsilon-5-core-0-apo.fits
+    location: allocations/{plan}/rsTargets-{plan}-{observatory}.fits
+    environment: ROBOSTRATEGY_DATA
+    access:
+      in_sdss_access: true
+      path_name: rsTargets
+      path_template: $ROBOSTRATEGY_DATA/allocations/{plan}/rsTargets-{plan}-{observatory}.fits
+      path_kwargs:
+      - observatory
+      - plan
+      access_string: rsTargets = $ROBOSTRATEGY_DATA/allocations/{plan}/rsTargets-{plan}-{observatory}.fits
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Primary HDU
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: file does conform to FITS standard
+        - key: BITPIX
+          value: 16
+          comment: number of bits per data pixel
+        - key: NAXIS
+          value: 0
+          comment: number of data axes
+        - key: EXTEND
+          value: true
+          comment: FITS dataset may contain extensions
+        - key: COMMENT
+          value: '  FITS (Flexible Image Transport System) format is defined in ''Astronomy'
+          comment: ''
+        - key: COMMENT
+          value: '  and Astrophysics'', volume 376, page 359; bibcode: 2001A&A...376..359H'
+          comment: ''
+      hdu1:
+        name: ''
+        description: List of targets
+        is_image: false
+        size: 16 GB
+        columns:
+          rsassign:
+            name: RSASSIGN
+            type: int32
+            unit: ''
+            description: Set to 0 if not to be assigned, 1 if to be assigned, 2 if
+              an open target assignment
+          rsid:
+            name: RSID
+            type: int64
+            unit: ''
+            description: robostrategy unique ID
+          carton_to_target_pk:
+            name: CARTON_TO_TARGET_PK
+            type: int64
+            unit: ''
+            description: primary key for carton_to_target table
+          priority:
+            name: PRIORITY
+            type: int32
+            unit: ''
+            description: priority for assignment (lower numbers assigned first)
+          value:
+            name: VALUE
+            type: float32
+            unit: ''
+            description: value to be used for cadence allocation to fields
+          lambda_eff:
+            name: LAMBDA_EFF
+            type: float32
+            unit: Angstrom
+            description: effective wavelength for observation
+          delta_ra:
+            name: DELTA_RA
+            type: float64
+            unit: arcsec
+            description: RA offset of observation from nominal object position
+          delta_dec:
+            name: DELTA_DEC
+            type: float64
+            unit: arcsec
+            description: Dec offset of observation from nominal object position
+          ra:
+            name: RA
+            type: float64
+            unit: deg
+            description: Object position in RA J2000
+          dec:
+            name: DEC
+            type: float64
+            unit: deg
+            description: Object position in Dec J2000
+          epoch:
+            name: EPOCH
+            type: float32
+            unit: years
+            description: Epoch of RA/Dec
+          pmra:
+            name: PMRA
+            type: float32
+            unit: mas/year
+            description: Proper motion in RA
+          pmdec:
+            name: PMDEC
+            type: float32
+            unit: mas/year
+            description: Proper motion in Dec
+          parallax:
+            name: PARALLAX
+            type: float32
+            unit: arcsec
+            description: Parallax
+          catalogid:
+            name: CATALOGID
+            type: int64
+            unit: ''
+            description: Unique id in catalog table of catalogdb
+          target_pk:
+            name: TARGET_PK
+            type: int64
+            unit: ''
+            description: Primary key in target table in targetdb
+          magnitude:
+            name: MAGNITUDE
+            type: float32[7]
+            unit: mag
+            description: Array of magnitudes (g, r, i, BP, G, RP, H)
+          carton:
+            name: CARTON
+            type: char[50]
+            unit: ''
+            description: Name of carton for this target
+          carton_pk:
+            name: CARTON_PK
+            type: int32
+            unit: ''
+            description: Primary key of carton for this target's carton
+          program:
+            name: PROGRAM
+            type: char[15]
+            unit: ''
+            description: Name of program for this target
+          mapper:
+            name: MAPPER
+            type: char[3]
+            unit: ''
+            description: Name of mapper for this target
+          category:
+            name: CATEGORY
+            type: char[15]
+            unit: ''
+            description: Category of target, one of 'science', 'sky_boss', 'standard_boss',
+              'sky_apogee', and 'standard_apogee'
+          cadence:
+            name: CADENCE
+            type: char[22]
+            unit: ''
+            description: Desired cadence of target
+          fiberType:
+            name: FIBERTYPE
+            type: char[6]
+            unit: ''
+            description: Fiber type desired
+          plan:
+            name: PLAN
+            type: char[8]
+            unit: ''
+            description: Plan associated with targeting version
+          tag:
+            name: TAG
+            type: char[8]
+            unit: ''
+            description: Tag associated with targeting version

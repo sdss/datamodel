@@ -1,0 +1,185 @@
+{
+  "general": {
+    "name": "rsCadences",
+    "short": "Cadence specifications",
+    "description": "Contains cadence specifications. Output by rs_cadences_extract in robostrategy using the tofits() method of the CadenceList class in roboscheduler.",
+    "environments": [
+      "ROBOSTRATEGY_DATA"
+    ],
+    "datatype": "FITS",
+    "filesize": "2 MB",
+    "releases": [
+      {
+        "name": "WORK",
+        "description": "SDSS unreleased data.  Represents any work-in-progress data.",
+        "public": false,
+        "release_date": "unreleased"
+      }
+    ],
+    "naming_convention": "$ROBOSTRATEGY_DATA/allocations/[PLAN]/rsCadences-[PLAN]-[OBSERVATORY].fits",
+    "generated_by": "roboscheduler",
+    "design": false
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "WORK": {
+      "template": "$ROBOSTRATEGY_DATA/allocations/[PLAN]/rsCadences-[PLAN]-[OBSERVATORY].fits",
+      "example": "allocations/epsilon-5-core-0/rsCadences-epsilon-5-core-0-apo.fits",
+      "location": "allocations/{plan}/rsCadences-{plan}-{observatory}.fits",
+      "environment": "ROBOSTRATEGY_DATA",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "rsCadences",
+        "path_template": "$ROBOSTRATEGY_DATA/allocations/{plan}/rsCadences-{plan}-{observatory}.fits",
+        "path_kwargs": [
+          "plan",
+          "observatory"
+        ],
+        "access_string": "rsCadences = $ROBOSTRATEGY_DATA/allocations/{plan}/rsCadences-{plan}-{observatory}.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Primary header",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "file does conform to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "16",
+              "comment": "number of bits per data pixel"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of data axes"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": "FITS dataset may contain extensions"
+            },
+            {
+              "key": "COMMENT",
+              "value": "  FITS (Flexible Image Transport System) format is defined in 'Astronomy",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "  and Astrophysics', volume 376, page 359; bibcode: 2001A&A...376..359H",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "Cadence specifications",
+          "size": "2 MB",
+          "header": null,
+          "columns": {
+            "CADENCE": {
+              "name": "CADENCE",
+              "description": "name of cadence",
+              "type": "char[40]",
+              "unit": ""
+            },
+            "NEPOCHS": {
+              "name": "NEPOCHS",
+              "description": "number of epochs",
+              "type": "int32",
+              "unit": ""
+            },
+            "DELTA": {
+              "name": "DELTA",
+              "description": "for each epoch, ideal time since previous epoch",
+              "type": "float64[174]",
+              "unit": "days"
+            },
+            "SKYBRIGHTNESS": {
+              "name": "SKYBRIGHTNESS",
+              "description": "maximum sky brightness in units of full moon illumination (0 to 1)",
+              "type": "float32[174]",
+              "unit": ""
+            },
+            "DELTA_MAX": {
+              "name": "DELTA_MAX",
+              "description": "for each epoch, maximum time since previous epoch",
+              "type": "float32[174]",
+              "unit": "days"
+            },
+            "DELTA_MIN": {
+              "name": "DELTA_MIN",
+              "description": "for each epoch, minimum time since previous epoch",
+              "type": "float32[174]",
+              "unit": "days"
+            },
+            "NEXP": {
+              "name": "NEXP",
+              "description": "for each epoch, number of exposures",
+              "type": "int32[174]",
+              "unit": ""
+            },
+            "MAX_LENGTH": {
+              "name": "MAX_LENGTH",
+              "description": "maximum length for an epoch",
+              "type": "float32[174]",
+              "unit": "hours"
+            },
+            "OBSMODE_PK": {
+              "name": "OBSMODE_PK",
+              "description": "name of observing mode for each epoch (primary key in obsmode table in db)",
+              "type": "char[]",
+              "unit": ""
+            },
+            "MIN_MOON_SEP": {
+              "name": "MIN_MOON_SEP",
+              "description": "minimum moon separation",
+              "type": "float32[174]",
+              "unit": "deg"
+            },
+            "MIN_DELTAV_KS91": {
+              "name": "MIN_DELTAV_KS91",
+              "description": "minimum sky surface brightness difference",
+              "type": "float32[174]",
+              "unit": "mag arcsec^{-2}"
+            },
+            "MIN_TWILIGHT_ANG": {
+              "name": "MIN_TWILIGHT_ANG",
+              "description": "angle of twilight required",
+              "type": "float32[174]",
+              "unit": "deg"
+            },
+            "MAX_AIRMASS": {
+              "name": "MAX_AIRMASS",
+              "description": "maximum airmass allowed",
+              "type": "float32[174]",
+              "unit": ""
+            },
+            "LABEL_ROOT": {
+              "name": "LABEL_ROOT",
+              "description": "root of cadence label (ie. without version)",
+              "type": "char[40]",
+              "unit": ""
+            },
+            "LABEL_VERSION": {
+              "name": "LABEL_VERSION",
+              "description": "version part of cadence label (e.g. '_v1')",
+              "type": "char[40]",
+              "unit": ""
+            }
+          }
+        }
+      }
+    }
+  }
+}

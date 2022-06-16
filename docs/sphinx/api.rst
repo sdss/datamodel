@@ -9,11 +9,6 @@ datamodel Reference
 Generate
 --------
 
-.. automodule:: datamodel.generate.changelog
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 .. automodule:: datamodel.generate.datamodel
    :members:
    :undoc-members:
@@ -29,10 +24,68 @@ Generate
    :undoc-members:
    :show-inheritance:
 
+Filetypes
+^^^^^^^^^
+
+.. automodule:: datamodel.generate.filetypes.base
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members: _generate_new_cache, _update_partial_cache, _get_designed_object
+
+.. automodule:: datamodel.generate.filetypes.fits
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+.. automodule:: datamodel.generate.filetypes.par
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+.. automodule:: datamodel.generate.filetypes.hdf5
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Changelog
+^^^^^^^^^
+
+.. automodule:: datamodel.generate.changelog.core
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+.. automodule:: datamodel.generate.changelog.yaml
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members: _get_changes
+
+.. automodule:: datamodel.generate.changelog.filetypes.catalog
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+.. automodule:: datamodel.generate.changelog.filetypes.fits
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+.. automodule:: datamodel.generate.changelog.filetypes.par
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+.. automodule:: datamodel.generate.changelog.filetypes.hdf5
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Git
 ---
 
-.. automodule:: datamodel.git.git
+.. automodule:: datamodel.gitio.gitio
    :members:
    :undoc-members:
    :show-inheritance:
@@ -45,6 +98,10 @@ Io
    :undoc-members:
    :show-inheritance:
 
+.. automodule:: datamodel.io.move
+   :members:
+   :undoc-members:
+   :show-inheritance:
 
 Models
 ------
@@ -69,6 +126,27 @@ Models
    :undoc-members:
    :show-inheritance:
 
+.. automodule:: datamodel.models.filetypes.fits
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+.. automodule:: datamodel.models.filetypes.par
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+.. automodule:: datamodel.models.filetypes.hdf5
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+.. automodule:: datamodel.models.validators
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
 Products
 --------
 
@@ -77,15 +155,21 @@ Products
    :undoc-members:
    :show-inheritance:
 
-Wiki
-----
 
-.. automodule:: datamodel.wiki.page
+Validate
+--------
+
+.. automodule:: datamodel.validate.add
    :members:
    :undoc-members:
    :show-inheritance:
 
-.. automodule:: datamodel.wiki.remote
+.. automodule:: datamodel.validate.check
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+.. automodule:: datamodel.validate.models
    :members:
    :undoc-members:
    :show-inheritance:

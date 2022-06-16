@@ -1,0 +1,45 @@
+
+# this action creates a new pull request when any new branch dmgen-fs-* is pushed.
+# these branch names are used when new datamodels are generated.
+
+name: Add New DataModels
+
+on:
+  push:
+    branches:
+      - dmgen-fs*
+    paths:
+     - datamodel/products/**
+
+jobs:
+  createpr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Get species if
+        id: get-id
+        run: |
+          id=$(echo ${{ github.ref }} | awk -F 'dmgen-fs-' '{print $2;}')
+          echo "::set-output name=id::$id"
+
+      - name: Create Pull Request
+        id: open-pr
+        uses: repo-sync/pull-request@v2
+        with:
+          source_branch: ""
+          destination_branch: "main"
+          pr_title: "New file species: ${{ steps.get-id.outputs.id }}"
+          pr_body: |
+            :crown: *An automated PR*
+            This PR adds new yaml, json datamodels into the datamodel product.
+          pr_reviewer: "havok2063"
+          pr_label: "auto-pr,enhancement"
+          pr_draft: true
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Output PR URL
+        run: echo ${{steps.open-pr.outputs.pr_url}}
+      - name: Output PR Number
+        run: echo ${{steps.open-pr.outputs.pr_number}}

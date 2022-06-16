@@ -10,20 +10,38 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    continue-on-error: ${{ matrix.allow_failure }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: [3.7, 3.8, 3.9]
+        allow_failure: [false]
+        os: [ubuntu-latest]
+        include:
+          - python: "3.10"
+            os: ubuntu-latest
+            allow_failure: true
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
-    # Run a sphinx build test
-    - name: Sphinx Build
-      uses: ammaraskar/sphinx-action@0.4
+    # setup python version
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v2
       with:
-        # The folder containing your sphinx docs.
-        docs-folder: "docs/sphinx/"  # default is docs/
-        # The command used to build your documentation.
-        build-command: make html  # optional, default is make html
-        # Pre-build command
-        pre-build-command: "apt-get update -y && apt-get install -y gcc && pip install .[docs]"
+        python-version: ${{ matrix.python-version }}
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install wheel
+        pip install -e .[docs]
+
+    - name: Build Sphinx docs 
+      run: |
+        cd "docs/sphinx/"
+        make html

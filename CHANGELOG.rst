@@ -4,8 +4,50 @@
 Change Log
 ==========
 
-0.3.3 (unreleased)
+0.5.1 (unreleased)
 ------------------
+- Refactored internal git code to use ``GitPython`` package
+- Change to datamodel to force work in a new git branch, outside of the main branch
+- Adds new tests for install and git modules of the datamodel
+- Renames ``git`` module to ``gitio`` to resolve package namespace conflicts
+- Adds new command ``datamodel tree check`` to validate paths against tree configs
+- Adds new command ``datamodel validate check`` to check for valid JSON datamodels
+- Adds new command ``datamodel validate redo`` to rewrite the datamodel stubs
+- Adds new command ``datamodel tree add`` to add paths into the tree configs
+- Adds new github actions to automate datamodel validation checks
+- Adds new github actions to automate datamodel access, and tree path config, updates
+- Adds new command ``datamodel move`` to move a datamodel and file/species to a new location
+
+0.5.0 (05-02-2022)
+------------------
+- Added support for HDF5 files (PR :pr:`40`)
+- Refactored code for easier addition of new file types
+- Updating docs for adding new filetypes
+- Moves `pydl` and `h5py` packages to extras dependencies
+
+0.4.2 (02-22-2022)
+------------------
+- Fix issue :issue:`37` - add missing enum support to Yanny par datamodels
+
+0.4.1 (02-11-2022)
+------------------
+- Fixed bug when environment is not defined in tree but defined locally
+
+0.4.0 (02-11-2022)
+------------------
+- Added support for Yanny parameter files (PR :pr:`36`)
+- Refactored code for easier addition of new file types
+- Removed remaining deprecated wiki code and references
+
+0.3.3 (01-07-2022)
+------------------
+- Removed all references to the old datamodel wiki code, now deprecated for the DSI
+- Fix to Github Action to build sphinx documentation
+- Fix issue :issue:`28` - duplicate access path keywords
+- Fix issue :issue:`19` - invalid file_species when "-" present
+- Fix issue :issue:`32` - new table columns not present in old caches
+- Fix issue :issue:`34` - improved access path validation
+
 
 0.3.2 (07-08-2021)
 ------------------
@@ -13,7 +55,6 @@ Change Log
 - Issue :issue:`14` - adds Release model to yaml; sorts releases/changelog by release_date
 - Issue :issue:`15` - verifies paths with special functions work
 - Adds new `access_path_name` field to `DataModel` to allow for case when sdss_access path names different than file species names
-
 
 0.3.1 (07-02-2021)
 ------------------
