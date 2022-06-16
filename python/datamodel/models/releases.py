@@ -49,7 +49,7 @@ class Release(BaseModel):
         if not value.startswith(('WORK', 'DR', 'MPL', 'IPL', 'EDR')):
             raise ValueError('release name must start with WORK, DR, MPL, or IPL.')
         return value
-    
+
 class Releases(BaseList):
     """ Pydantic model representing a list of Releases """
     __root__: List[Release]

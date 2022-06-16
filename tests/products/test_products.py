@@ -17,6 +17,7 @@ import pytest
 from datamodel.products import Product, DataProducts, SDSSDataModel
 from datamodel.models.releases import Releases
 from datamodel.models.surveys import Phases, Surveys
+from datamodel.models.versions import Tags
 
 
 @pytest.fixture()
@@ -167,6 +168,7 @@ def test_sdss_datamodel():
     assert isinstance(dm.releases, Releases)
     assert isinstance(dm.surveys, Surveys)
     assert isinstance(dm.phases, Phases)
+    assert isinstance(dm.tags, Tags)
 
     assert 'WORK' in dm.releases
     assert 'MaNGA' in dm.surveys

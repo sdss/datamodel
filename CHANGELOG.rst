@@ -17,6 +17,7 @@ Change Log
 - Adds new github actions to automate datamodel validation checks
 - Adds new github actions to automate datamodel access, and tree path config, updates
 - Adds new command ``datamodel move`` to move a datamodel and file/species to a new location
+- Add new python models for SDSS software versions and tags, e.g. `~datamodel.models.versions.Tags`.
 
 0.5.0 (05-02-2022)
 ------------------

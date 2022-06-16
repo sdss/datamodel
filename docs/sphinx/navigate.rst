@@ -15,6 +15,7 @@ currently contains the following accessible properties
 - **releases**: a list of all public and internal data releases, plus the active "WORK" release
 - **surveys**: a list of all SDSS surveys
 - **phases**: a list of all SDSS phases
+- **tags**: a list of all SDSS software tags
 - **products**: a list of all SDSS data products
 
 .. code-block:: python
@@ -341,3 +342,81 @@ As a reminder, all metadata items are accessible on the main `.datamodel.product
      Phase(name='Phase-III', id=3, start=2008, end=2014, active=False)
      Phase(name='Phase-II', id=2, start=2005, end=2008, active=False)
      Phase(name='Phase-I', id=1, start=2000, end=2005, active=False)]
+
+.. _metatags:
+
+Tags
+^^^^
+
+The SDSS ``Tag`` model represents a software release tag.  A specific tag is associated with a SDSS
+data release, a SDSS survey, and is commonly referenced by a specific version name.
+::
+
+    >>> from datamodel.products import SDSSDataModel
+    >>> dm = SDSSDataModel()
+    >>> tag = dm.tags[0]
+    >>> tag
+    Tag(version=Version(name='drpver', description='software tag key for the MaNGA Data Reduction Pipeline (DRP)'), tag='v3_1_1', release=Release(name='DR17', description='SDSS public data release 17', public=True, release_date='2021-12-06'), survey=Survey(name='MaNGA', long='Mapping Nearby Galaxies at Apache Point Observatory', description='A wide-field optical spectroscopic IFU survey of extragalactic sources to study galaxy dynamics and kinematics', phase=Phase(name='Phase-IV', id=4, start=2014, end=2020, active=False), id='manga'))
+
+    >>> # examine the tag release
+    >>> tag.release
+    Release(name='DR17', description='SDSS public data release 17', public=True, release_date='2021-12-06')
+
+    >>> # examine the tag survey
+    >>> tag.survey
+    Survey(name='MaNGA', long='Mapping Nearby Galaxies at Apache Point Observatory', description='A wide-field optical spectroscopic IFU survey of extragalactic sources to study galaxy dynamics and kinematics', phase=Phase(name='Phase-IV', id=4, start=2014, end=2020, active=False), id='manga')
+
+    >>> # examine the tag version
+    >>> tag.version
+    Version(name='drpver', description='software tag key for the MaNGA Data Reduction Pipeline (DRP)')
+
+You can reorganize the list of ``Tags`` into a nested dictionary, grouped by release or survey, using
+the ``group_by``.  The default ordering is by SDSS data release.
+
+::
+
+    >>> from datamodel.products import SDSSDataModel
+    >>> dm = SDSSDataModel()
+    >>> dm.tags.group_by()
+    {'DR17':
+        {'manga': {'drpver': 'v3_1_1', 'dapver': '3.1.0'},
+         'mastar': {'drpver': 'v3_1_1'},
+         'eboss': {'run2d': 'v5_13_2', 'run1d': 'v5_13_2'},
+         'apogee2': {'apred_vers': 'dr17',
+            'apstar_vers': 'stars',
+            'aspcap_vers': 'synspec_rev1',
+            'results_vers': 'synspec_rev1'},
+         'legacy': {'run2d': [26, 103, 104]}},
+    'DR16':
+        {'manga': {'drpver': 'v2_4_3', 'dapver': '2.2.1'},
+         'mastar': {'drpver': 'v2_4_3'},
+         'eboss': {'run2d': 'v5_13_0', 'run1d': 'v5_13_0'},
+         'apogee2': {'apred_vers': 'r12',
+            'apstar_vers': 'stars',
+            'aspcap_vers': 'l33',
+            'results_vers': 'l33'},
+         'legacy': {'run2d': [26, 103, 104]}
+         },
+    ...
+    }
+
+Or to reorder by SDSS survey, set `order_by` to `survey`.
+::
+
+    >>> from datamodel.products import SDSSDataModel
+    >>> dm = SDSSDataModel()
+    >>> dm.tags.group_by('survey')
+    {'manga':
+        {'DR17': {'drpver': 'v3_1_1', 'dapver': '3.1.0'},
+         'DR16': {'drpver': 'v2_4_3', 'dapver': '2.2.1'},
+         'DR15': {'drpver': 'v2_4_3', 'dapver': '2.2.1'},
+         ...
+         }
+     'eboss':
+        {'DR17': {'run2d': 'v5_13_2', 'run1d': 'v5_13_2'},
+         'DR16': {'run2d': 'v5_13_0', 'run1d': 'v5_13_0'},
+         'DR15': {'run2d': 'v5_10_0', 'run1d': 'v5_10_0'},
+         ...
+         },
+    ...
+    }

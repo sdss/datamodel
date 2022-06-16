@@ -1,0 +1,169 @@
+schema:
+  versions:
+    title: Version
+    key: versions
+    description: SDSS software version key name
+    properties:
+      name:
+        title: name
+        description: the name of the software release version
+        type: string
+        required: true
+      description:
+        title: description
+        description: a short description of the version
+        type: string
+        required: true
+  tags:
+    title: Tag
+    key: tags
+    description: SDSS software tag or pipeline version associated with a data release
+    properties:
+      version:
+        title: version
+        description: the version name of the software tag
+        type: object
+        required: true
+      tag:
+        title: tag
+        description: the softare tag number or name
+        type: string
+        required: true
+      release:
+        title: release
+        description: the SDSS data release the tag is associated with
+        type: string
+        required: true
+      survey:
+        title: survey
+        description: the survey the tag is relevant for
+        type: string
+        required: true
+
+versions:
+  - &drpver
+    name: drpver
+    description: software tag key for the MaNGA Data Reduction Pipeline (DRP)
+  - &dapver
+    name: dapver
+    description: software tag key for the MaNGA Data Analaysis Pipeline (DAP)
+  - &run2d
+    name: run2d
+    description: software tag key for the eBOSS/BOSS data reduction pipeline
+  - &run1d
+    name: run1d
+    description: software tag key for the eBOSS/BOSS data reduction pipeline
+  - &apred
+    name: apred_vers
+    description: software tag key for the APOGEE/APOGEE-2 reduction pipeline
+  - &apstar
+    name: apstar_vers
+    description: software tag key for the APOGEE/APOGEE-2
+  - &aspcap
+    name: aspcap_vers
+    description: software tag key for the APOGEE/APOGEE-2
+  - &results
+    name: results_vers
+    description: software tag key for the APOGEE/APOGEE-2
+
+
+tags:
+  # DR17
+  - {version: *drpver, tag: v3_1_1, release: DR17, survey: manga}
+  - {version: *dapver, tag: 3.1.0, release: DR17, survey: manga}
+  - {version: *drpver, tag: v3_1_1, release: DR17, survey: mastar}
+  - {version: *run2d, tag: v5_13_2, release: DR17, survey: eboss}
+  - {version: *run1d, tag: v5_13_2, release: DR17, survey: eboss}
+  - {version: *apred, tag: dr17, release: DR17, survey: apogee2}
+  - {version: *apstar, tag: stars, release: DR17, survey: apogee2}
+  - {version: *aspcap, tag: synspec_rev1, release: DR17, survey: apogee2}
+  - {version: *results, tag: synspec_rev1,  release: DR17, survey: apogee2}
+  # DR16
+  - {version: *drpver, tag: v2_4_3, release: DR16, survey: manga}
+  - {version: *dapver, tag: 2.2.1, release: DR16, survey: manga}
+  - {version: *drpver, tag: v2_4_3, release: DR16, survey: mastar}
+  - {version: *run2d, tag: v5_13_0, release: DR16, survey: eboss}
+  - {version: *run1d, tag: v5_13_0, release: DR16, survey: eboss}
+  - {version: *apred, tag: r12, release: DR16, survey: apogee2}
+  - {version: *apstar, tag: stars, release: DR16, survey: apogee2}
+  - {version: *aspcap, tag: l33, release: DR16, survey: apogee2}
+  - {version: *results, tag: l33,  release: DR16, survey: apogee2}
+  # DR15
+  - {version: *drpver, tag: v2_4_3, release: DR15, survey: manga}
+  - {version: *dapver, tag: 2.2.1, release: DR15, survey: manga}
+  - {version: *drpver, tag: v2_4_3, release: DR15, survey: mastar}
+  - {version: *run2d, tag: v5_10_0, release: DR15, survey: eboss}
+  - {version: *run1d, tag: v5_10_0, release: DR15, survey: eboss}
+  - {version: *apred, tag: r8, release: DR15, survey: apogee2}
+  - {version: *apstar, tag: stars, release: DR15, survey: apogee2}
+  - {version: *aspcap, tag: l31c, release: DR15, survey: apogee2}
+  - {version: *results, tag: l31c.2,  release: DR15, survey: apogee2}
+  # DR14
+  - {version: *drpver, tag: v2_1_2, release: DR14, survey: manga}
+  - {version: *dapver, tag: null, release: DR14, survey: manga}
+  - {version: *run2d, tag: v5_10_0, release: DR14, survey: eboss}
+  - {version: *run1d, tag: v5_10_0, release: DR14, survey: eboss}
+  - {version: *apred, tag: r8, release: DR14, survey: apogee2}
+  - {version: *apstar, tag: stars, release: DR14, survey: apogee2}
+  - {version: *aspcap, tag: l31c, release: DR14, survey: apogee2}
+  - {version: *results, tag: l31c.2,  release: DR14, survey: apogee2}
+  # DR13
+  - {version: *drpver, tag: v1_5_4, release: DR13, survey: manga}
+  - {version: *dapver, tag: null, release: DR13, survey: manga}
+  - {version: *run2d, tag: v5_9_0, release: DR13, survey: eboss}
+  - {version: *run1d, tag: v5_9_0, release: DR13, survey: eboss}
+  - {version: *apred, tag: r6, release: DR13, survey: apogee2}
+  - {version: *apstar, tag: stars, release: DR13, survey: apogee2}
+  - {version: *aspcap, tag: l30e, release: DR13, survey: apogee2}
+  - {version: *results, tag: l30e.2,  release: DR13, survey: apogee2}
+  # DR12
+  - {version: *run2d, tag: [v5_7_0, v5_7_2], release: DR12, survey: boss}
+  - {version: *run1d, tag: [v5_7_0, v5_7_2], release: DR12, survey: boss}
+  - {version: *apred, tag: r5, release: DR12, survey: apogee}
+  - {version: *apstar, tag: stars, release: DR12, survey: apogee}
+  - {version: *aspcap, tag: l25_6d, release: DR12, survey: apogee}
+  - {version: *results, tag: v603,  release: DR12, survey: apogee}
+  # DR11
+  - {version: *run2d, tag: v5_6_5, release: DR11, survey: boss}
+  - {version: *run1d, tag: v5_6_5, release: DR11, survey: boss}
+  - {version: *apred, tag: r4, release: DR11, survey: apogee}
+  - {version: *apstar, tag: s4, release: DR11, survey: apogee}
+  - {version: *aspcap, tag: a4, release: DR11, survey: apogee}
+  - {version: *results, tag: v402,  release: DR11, survey: apogee}
+  # DR10
+  - {version: *run2d, tag: v5_5_12, release: DR10, survey: boss}
+  - {version: *run1d, tag: v5_5_12, release: DR10, survey: boss}
+  - {version: *apred, tag: r3, release: DR10, survey: apogee}
+  - {version: *apstar, tag: s3, release: DR10, survey: apogee}
+  - {version: *aspcap, tag: a3, release: DR10, survey: apogee}
+  - {version: *results, tag: v304,  release: DR10, survey: apogee}
+  # DR9
+  - {version: *run2d, tag: v5_4_45, release: DR9, survey: boss}
+  - {version: *run1d, tag: v5_4_45, release: DR9, survey: boss}
+  - {version: *apred, tag: r8, release: DR9, survey: apogee}
+  - {version: *apstar, tag: stars, release: DR9, survey: apogee}
+  - {version: *aspcap, tag: l31c, release: DR9, survey: apogee}
+  - {version: *results, tag: l31c.1,  release: DR9, survey: apogee}
+  # DR8
+  - {version: *run2d, tag: v5_10_4, release: DR8, survey: boss}
+  - {version: *run1d, tag: v5_10_4, release: DR8, survey: boss}
+  # Legacy All
+  - {version: *run2d, tag: [26, 103, 104], release: all, survey: legacy}
+  # MaNGA MPLs
+  - {version: *drpver, tag: v3_1_1, release: MPL11, survey: manga}
+  - {version: *dapver, tag: 3.1.0, release: MPL11, survey: manga}
+  - {version: *drpver, tag: v3_0_1, release: MPL10, survey: manga}
+  - {version: *dapver, tag: 3.0.1, release: MPL10, survey: manga}
+  - {version: *drpver, tag: v2_7_1, release: MPL9, survey: manga}
+  - {version: *dapver, tag: 2.4.1, release: MPL9, survey: manga}
+  - {version: *drpver, tag: v2_5_3, release: MPL8, survey: manga}
+  - {version: *dapver, tag: 2.3.0, release: MPL8, survey: manga}
+  - {version: *drpver, tag: v2_4_3, release: MPL7, survey: manga}
+  - {version: *dapver, tag: 2.2.1, release: MPL7, survey: manga}
+  - {version: *drpver, tag: v2_3_1, release: MPL6, survey: manga}
+  - {version: *dapver, tag: 2.3.1, release: MPL6, survey: manga}
+  - {version: *drpver, tag: v2_0_1, release: MPL5, survey: manga}
+  - {version: *dapver, tag: 2.0.2, release: MPL5, survey: manga}
+  - {version: *drpver, tag: v1_5_1, release: MPL4, survey: manga}
+  - {version: *dapver, tag: 1.1.1, release: MPL4, survey: manga}
+

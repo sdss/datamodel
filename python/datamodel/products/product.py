@@ -20,7 +20,7 @@ from typing import Type, TypeVar, Union
 from fuzzy_types import FuzzyList
 
 from datamodel import log
-from datamodel.models import phases, releases, surveys
+from datamodel.models import phases, releases, surveys, tags
 from datamodel.models.yaml import ProductModel, Release
 from pydantic import BaseModel
 from sdss_access.path import Path
@@ -39,7 +39,7 @@ class ReleaseList(FuzzyList):
         return item.name
 
 
-class Product(object):
+class Product:
     """ Class for an SDSS data product
 
     Entry point for individual SDSS data products.  This class reads in the content
@@ -405,7 +405,7 @@ class DataProducts(FuzzyList):
         """
         return grouper(field, self)
 
-class SDSSDataModel(object):
+class SDSSDataModel:
     """ Class for the SDSS DataModel
 
     High-level entry point into the SDSS DataModel.  Contains accounting of
@@ -415,12 +415,13 @@ class SDSSDataModel(object):
         self.releases = releases
         self.surveys = surveys
         self.phases = phases
+        self.tags = tags
         self.products = DataProducts()
 
     def __repr__(self) -> str:
         return (f'<SDSS DataModel (n_releases={len(self.releases)}, '
                 f'n_products={len(self.products)}, n_surveys={len(self.surveys)}, '
-                f'n_phases={len(self.phases)})>')
+                f'n_phases={len(self.phases)}, n_tags={len(self.tags)})>')
 
 
 def rgetattr(obj: object, attr: str, *args):
