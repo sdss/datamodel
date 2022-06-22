@@ -204,15 +204,19 @@ class BaseStub(abc.ABC):
         input = self._prepare_input()
         return yaml.load(self.template.render(input), Loader=yaml.FullLoader)
 
+    def _read_cache(self, path: str) -> dict:
+        """ read the raw yaml cache file"""
+        with open(path) as file:
+            content = yaml.load(file, Loader=yaml.FullLoader)
+            return self._check_release_in_cache(content)
+
     def _get_cache(self, force: bool = None) -> None:
         # only cache-able format is yaml - load that content
         cached_file = self.output.replace(self.format, 'yaml')
 
         if os.path.exists(cached_file) and not force:
             # read existing cache
-            with open(cached_file) as file:
-                content = yaml.load(file, Loader=yaml.FullLoader)
-                content = self._check_release_in_cache(content)
+            content = self._read_cache(cached_file)
         else:
             # create a brand new cache
             content = self._create_cache()
@@ -281,14 +285,10 @@ class BaseStub(abc.ABC):
         self._cache['releases'][self.datamodel.release]['survey'] = self.datamodel.survey
 
         # update the general environments sections in cache
-        # if self.datamodel.env_label not in self._cache['general']['environments']:
-        #     self._cache['general']['environments'].append(self.datamodel.env_label)
         self._update_general_section('environments', self.datamodel.env_label)
 
         # update the general surveys sections in cache
         self._update_general_section('surveys', self.datamodel.survey)
-        # if self.datamodel.survey not in self._cache['general']['surveys']:
-        #     self._cache['general']['surveys'].append(self.datamodel.survey)
 
         # update the location/example keyword in the cache
         self._cache['releases'][self.datamodel.release]['location'] = self.datamodel.location
