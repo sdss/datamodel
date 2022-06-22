@@ -69,6 +69,7 @@ class Survey(BaseModel):
     description: str
     phase: Union[int, Phase] = None
     id : str = None
+    aliases: list = []
 
     @validator('phase')
     def get_phase(cls, v):

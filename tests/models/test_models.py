@@ -52,6 +52,13 @@ def test_survey():
     assert s.phase.id == 5
     assert s.phase.name == 'Phase-V'
 
+def test_surveys_list():
+    assert 'MaNGA' in surveys
+    assert surveys['MaNGA'].name == 'MaNGA'
+    assert surveys[3].name == 'MaNGA'
+    assert 'manga' in surveys
+    assert surveys['MaNGA'] == surveys['MANGA']
+
 
 def test_tags():
     """ test the tag model """
