@@ -45,6 +45,7 @@ def test_datamodel_generate(testfiles, suffix):
     dm = DataModel(file_spec='test', keywords=['ver=v1', 'id=a'], path='TEST_REDUX/{ver}/testfile_{id}.' + f'{suffix}')
     dm.write_stubs()
     ss = dm.get_stub('yaml')
+    assert dm.survey == 'SDSS'
     assert os.path.exists(ss.output)
     assert ss.validate_cache() is False
 
