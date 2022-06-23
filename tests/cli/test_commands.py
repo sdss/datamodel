@@ -30,8 +30,9 @@ def test_datamodel_cli():
                          [('generate', 'Generate a datamodel file for a SDSS data product'),
                           ('install', 'Install the datamodel product at Utah'),
                           ('design', 'Design a datamodel for a new file'),
+                          ('update', 'Update existing datamodels with any new content added into the template'),
                           ('tree', 'Interact with the SDSS tree product')],
-                         ids=['generate', 'install', 'design', 'tree'])
+                         ids=['generate', 'install', 'design', 'update', 'tree'])
 def test_datamodel_help(command, msg):
     """ test the help of each datamodel click subcommand """
     runner = CliRunner()
@@ -92,3 +93,11 @@ def test_cli_dm_validate_redo(validmodel):
     runner = CliRunner()
     result = runner.invoke(cli, ['validate', 'redo', '-f', 'test', '-v'])
     assert result.exit_code == 0
+
+def test_cli_dm_update(validmodel):
+    """ test that cli can run an datamodel update """
+    validmodel('fits')
+    runner = CliRunner()
+    result = runner.invoke(cli, ['update', '-f', 'test', '-v'])
+    assert result.exit_code == 0
+

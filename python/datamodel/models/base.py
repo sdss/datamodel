@@ -23,14 +23,14 @@ class BaseList(BaseModel):
     def __contains__(self, value) -> bool:
         """ Uses the model name to check list inclusion """
         if isinstance(value, str):
-            return value in [i.name for i in self]
+            return value.lower() in [i.name.lower() for i in self]
         return value in self.__root__
 
     def __getitem__(self, item: Union[str, int]) -> BaseModel:
         """ Allows item access by index or model name """
         if isinstance(item, str) and item in self:
-            vals = [i.name for i in self.__root__]
-            return self.__root__[vals.index(item)]
+            vals = [i.name.lower() for i in self.__root__]
+            return self.__root__[vals.index(item.lower())]
         elif isinstance(item, BaseModel):
             return self[self.__root__.index(item)]
         return self.__root__[item]

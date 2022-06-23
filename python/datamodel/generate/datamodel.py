@@ -32,6 +32,7 @@ from pydantic import ValidationError
 
 from ..gitio import Git
 from .stub import BaseStub
+from datamodel.models import surveys
 
 # Create a generic variable that can be 'DataModel', or any subclass.
 D = TypeVar('D', bound='DataModel')
@@ -316,8 +317,9 @@ class DataModel(object):
         access_name = reldata["access"].get("path_name", None)
 
         # attempt to extract the keyword arguments using the datamodel location and example fields
+        needs_kwargs = "{" in path and "}" in path
         kwargs = find_kwargs(reldata["location"], reldata["example"])
-        if not kwargs:
+        if not kwargs and needs_kwargs:
             raise ValueError(f'No keyword arguments extracted from datamodel location/example for species {species}, release {release}.')
         joined_kwargs = ["=".join(i) for i in kwargs.items()]
 
@@ -886,7 +888,25 @@ class DataModel(object):
 
         ss.write()
 
+    def determine_survey(self, name_only: bool = False):
+        """ Attempt to determine the SDSS survey for this datamodel """
 
+        ini_sec = self.tree.identify_section(self.env_label, guess=True)
+        if not ini_sec:
+            log.warning(f'No tree config section found for environment {self.env_label}. '
+                        'Defaulting to general survey SDSS.')
+            ini_sec = 'SDSS'
+
+        # get the SDSS survey
+        ini_sec = ini_sec.lower()
+        dmsurvey = [s for s in surveys if ini_sec == s.id or ini_sec in s.id]
+        output = dmsurvey[0] if dmsurvey else surveys['SDSS']
+        return output.name if name_only else output
+
+    @property
+    def survey(self):
+        """ Get the SDSS survey for this datamodel """
+        return self.determine_survey(name_only=True)
 
 #
 # code to create a markdown table

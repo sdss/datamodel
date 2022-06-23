@@ -169,6 +169,7 @@ class BaseStub(abc.ABC):
             "file_species": self.datamodel.file_species,
             'file_template': self.datamodel.template,
             "environments": [self.datamodel.env_label],
+            "surveys": [self.datamodel.survey],
             "releases": [self.datamodel.release],
             "example": [self.datamodel.real_location],
             "location": [self.datamodel.location],
@@ -203,15 +204,19 @@ class BaseStub(abc.ABC):
         input = self._prepare_input()
         return yaml.load(self.template.render(input), Loader=yaml.FullLoader)
 
+    def _read_cache(self, path: str) -> dict:
+        """ read the raw yaml cache file"""
+        with open(path) as file:
+            content = yaml.load(file, Loader=yaml.FullLoader)
+            return self._check_release_in_cache(content)
+
     def _get_cache(self, force: bool = None) -> None:
         # only cache-able format is yaml - load that content
         cached_file = self.output.replace(self.format, 'yaml')
 
         if os.path.exists(cached_file) and not force:
             # read existing cache
-            with open(cached_file) as file:
-                content = yaml.load(file, Loader=yaml.FullLoader)
-                content = self._check_release_in_cache(content)
+            content = self._read_cache(cached_file)
         else:
             # create a brand new cache
             content = self._create_cache()
@@ -230,7 +235,7 @@ class BaseStub(abc.ABC):
         # check the content dictionary has a proper release
         if self.datamodel.release not in content['releases']:
             content['releases'][self.datamodel.release] = {"template": None, "example": None, "location": None,
-                                                           "environment": None, "access": {},
+                                                           "environment": None, "access": {}, "survey": None,
                                                            file_class.cache_key: {}}
 
         # set the cache content
@@ -277,14 +282,32 @@ class BaseStub(abc.ABC):
         # update the template/location, environment keywords in the cache
         self._cache['releases'][self.datamodel.release]['template'] = self.datamodel.template
         self._cache['releases'][self.datamodel.release]['environment'] = self.datamodel.env_label
+        self._cache['releases'][self.datamodel.release]['survey'] = self.datamodel.survey
 
         # update the general environments sections in cache
-        if self.datamodel.env_label not in self._cache['general']['environments']:
-            self._cache['general']['environments'].append(self.datamodel.env_label)
+        self._update_general_section('environments', self.datamodel.env_label)
+
+        # update the general surveys sections in cache
+        self._update_general_section('surveys', self.datamodel.survey)
 
         # update the location/example keyword in the cache
         self._cache['releases'][self.datamodel.release]['location'] = self.datamodel.location
         self._cache['releases'][self.datamodel.release]['example'] = self.datamodel.real_location
+
+    def _update_general_section(self, key: str, value: str) -> None:
+        """ Updates or adds a value into a new general section """
+
+        section = self._cache['general'].get(key, [])
+        if not section:
+            log.warning(f'No {key} section found in cache.  Adding new section.')
+            self._cache['general'][key] = section
+
+        # update the general sections in the cache
+        if value not in self._cache['general'][key]:
+            if isinstance(section, list):
+                self._cache['general'][key].append(value)
+            else:
+                self._cache['general'][key] = value
 
     def _update_cache_changelog(self):
         """ Update the changelog in the cache """

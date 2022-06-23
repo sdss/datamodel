@@ -38,9 +38,9 @@ class Tag(BaseModel):
         The version key
     tag : str
         The version tag number or name
-    release : `.Release`
+    release : `~datamodel.models.releases.Release`
         The SDSS release the tag is associated with
-    survey : `.Survey`
+    survey : `~datamodel.models.surveys.Survey`
         The SDSS survey the tag is associated with
 
     Raises

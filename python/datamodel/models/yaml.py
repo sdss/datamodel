@@ -21,6 +21,7 @@ from astropy.io import fits
 from pydantic import BaseModel, validator
 
 from .releases import releases, Release as ReleaseMod
+from .surveys import surveys, Survey
 from .validators import replace_me, check_release
 from .filetypes import HDU, ParModel, HdfModel, ChangeFits, ChangePar, ChangeHdf
 
@@ -66,6 +67,7 @@ class GeneralSection(BaseModel):
     short: str
     description: str
     environments: List[str] = None
+    surveys: List[Union[str, Survey]] = None
     datatype: str
     filesize: str
     releases: List[Union[str, ReleaseMod]] = None
@@ -89,6 +91,13 @@ class GeneralSection(BaseModel):
         if value:
             raise ValueError('Design is set to True. YAML will not validate until out of design phase.')
         return value
+
+    @validator('surveys', each_item=True)
+    def check_survey(cls, value: str):
+        """ Validator to check survey against list of surveys """
+        if value not in surveys:
+            raise ValueError(f'{value} is not a valid survey')
+        return surveys[value]
 
 class ChangeBase(BaseModel):
     """ Base Pydantic model representing a YAML changelog release section"""
@@ -249,6 +258,7 @@ class Release(BaseModel):
     example: str
     location: str
     environment: str
+    survey: str
     access: Access
     hdus: Dict[str, HDU] = None
     par: ParModel = None

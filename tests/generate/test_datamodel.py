@@ -45,6 +45,7 @@ def test_datamodel_generate(testfiles, suffix):
     dm = DataModel(file_spec='test', keywords=['ver=v1', 'id=a'], path='TEST_REDUX/{ver}/testfile_{id}.' + f'{suffix}')
     dm.write_stubs()
     ss = dm.get_stub('yaml')
+    assert dm.survey == 'SDSS'
     assert os.path.exists(ss.output)
     assert ss.validate_cache() is False
 
@@ -87,7 +88,19 @@ def test_datamodel_from_yaml(validmodel):
     dm = DataModel.from_yaml('test', release='WORK')
     assert isinstance(dm, DataModel)
 
+def test_dm_survey(validyaml, dmonly):
+    validyaml('noaccess')
+    dm = dmonly(suffix='fits')
+    assert dm.survey == 'SDSS'
+    ss = dm.get_stub()
+    data = ss._read_cache(ss.output)
+    assert 'surveys' not in data['general']
 
+    ss.update_cache()
+    assert 'surveys' in ss._cache['general']
+    dm.write_stubs()
+    data = ss._read_cache(ss.output)
+    assert 'surveys' in data['general']
 
 def test_valid_datamodel(validmodels, suffix):
     """ test we can produce valid datamodels for different file types """
