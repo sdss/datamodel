@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# this script file is deprecated in favor of the datamodel cli
+# if the datamodel product was pip installed, just type "datamodel --help"
+# to see a list of commands.
+#
+# this file is still used for backwards compatibility when simply "installing"
+# the git repo datamodel product via modules
+
+# current path
+full_path=$(realpath $0)
+dir_path=$(dirname $full_path)
+
+# datamodel_dir
+dmdir=$(dirname $dir_path )
+
+{ # try
+    python ${dmdir}/python/datamodel/cli.py update "$@" 2>&1
+} ||
+{ # except
+    echo 'Error finding cli file.  If the datamodel product was pip installed, try running "datamodel update" instead.'
+}

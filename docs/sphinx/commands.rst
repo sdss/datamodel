@@ -53,6 +53,12 @@ Commands
    :prog: move
    :nested: full
 
+.. _usage-dmup:
+
+.. click:: datamodel.cli:move
+   :prog: update
+   :nested: full
+
 .. _cli-diff:
 
 Cli Differences
