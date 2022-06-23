@@ -55,7 +55,7 @@ Commands
 
 .. _usage-dmup:
 
-.. click:: datamodel.cli:move
+.. click:: datamodel.cli:update
    :prog: update
    :nested: full
 

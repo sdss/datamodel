@@ -18,6 +18,8 @@ Change Log
 - Adds new github actions to automate datamodel access, and tree path config, updates
 - Adds new command ``datamodel move`` to move a datamodel and file/species to a new location
 - Add new python models for SDSS software versions and tags, e.g. `~datamodel.models.versions.Tags`.
+- Adding surveys into the datamodel YAML template and adds a datamodel ``determine_survey`` to guess the SDSS survey for a file species
+- Add new command ``datamodel update`` to update existing datamodels with any new template field content
 
 0.5.0 (05-02-2022)
 ------------------
