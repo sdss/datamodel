@@ -1,0 +1,173 @@
+{
+  "general": {
+    "name": "rsStats",
+    "short": "Statistics summary file for robostrategy",
+    "description": "Statistics as a function of carton for robostrategy results, produced by the robostrategy script rs_stats",
+    "environments": [
+      "ROBOSTRATEGY_DATA"
+    ],
+    "surveys": [
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "FITS",
+    "filesize": "14 KB",
+    "releases": [
+      {
+        "name": "WORK",
+        "description": "SDSS unreleased data.  Represents any work-in-progress data.",
+        "public": false,
+        "release_date": "unreleased"
+      }
+    ],
+    "naming_convention": "$ROBOSTRATEGY_DATA/allocations/[PLAN]/rsStats-[PLAN].fits",
+    "generated_by": "robostrategy",
+    "design": false
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "WORK": {
+      "template": "$ROBOSTRATEGY_DATA/allocations/[PLAN]/rsStats-[PLAN].fits",
+      "example": "allocations/epsilon-5-core-2/rsStats-epsilon-5-core-2.fits",
+      "location": "allocations/{plan}/rsStats-{plan}.fits",
+      "environment": "ROBOSTRATEGY_DATA",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "rsStats",
+        "path_template": "$ROBOSTRATEGY_DATA/allocations/{plan}/rsStats-{plan}.fits",
+        "path_kwargs": [
+          "plan"
+        ],
+        "access_string": "rsStats = $ROBOSTRATEGY_DATA/allocations/{plan}/rsStats-{plan}.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Primary HDU",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "file does conform to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "16",
+              "comment": "number of bits per data pixel"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of data axes"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": "FITS dataset may contain extensions"
+            },
+            {
+              "key": "COMMENT",
+              "value": "  FITS (Flexible Image Transport System) format is defined in 'Astronomy",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "  and Astrophysics', volume 376, page 359; bibcode: 2001A&A...376..359H",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "Statistics for each carton",
+          "size": "6 KB",
+          "header": null,
+          "columns": {
+            "carton": {
+              "name": "CARTON",
+              "description": "Carton name",
+              "type": "char[40]",
+              "unit": ""
+            },
+            "ntarget": {
+              "name": "NTARGET",
+              "description": "Number of targets in carton",
+              "type": "int32",
+              "unit": ""
+            },
+            "ngot": {
+              "name": "NGOT",
+              "description": "Number of targets satisfied in carton",
+              "type": "int32",
+              "unit": ""
+            },
+            "fgot": {
+              "name": "FGOT",
+              "description": "Fraction of targets satisfied in carton (-1 if no targets in carton)",
+              "type": "float32",
+              "unit": ""
+            },
+            "ntarget_apo": {
+              "name": "NTARGET_APO",
+              "description": "Number of targets in carton (APO)",
+              "type": "int32",
+              "unit": ""
+            },
+            "ngot_apo": {
+              "name": "NGOT_APO",
+              "description": "Number of targets satisfied in carton (APO)",
+              "type": "int32",
+              "unit": ""
+            },
+            "fgot_apo": {
+              "name": "FGOT_APO",
+              "description": "Fraction of targets satisfied in carton (-1 if no targets in carton), for APO",
+              "type": "float32",
+              "unit": ""
+            },
+            "ntarget_lco": {
+              "name": "NTARGET_LCO",
+              "description": "Number of targets in carton (LCO)",
+              "type": "int32",
+              "unit": ""
+            },
+            "ngot_lco": {
+              "name": "NGOT_LCO",
+              "description": "Number of targets satisfied in carton (LCO)",
+              "type": "int32",
+              "unit": ""
+            },
+            "fgot_lco": {
+              "name": "FGOT_LCO",
+              "description": "Fraction of targets satisfied in carton (-1 if no targets in carton), for LCO",
+              "type": "float32",
+              "unit": ""
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null
+    }
+  }
+}

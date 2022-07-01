@@ -6,6 +6,22 @@
     "environments": [
       "ROBOSTRATEGY_DATA"
     ],
+    "surveys": [
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
     "datatype": "FITS",
     "filesize": "16 GB",
     "releases": [
@@ -27,16 +43,17 @@
   "releases": {
     "WORK": {
       "template": "$ROBOSTRATEGY_DATA/allocations/[PLAN]/rsTargets-[PLAN]-[OBSERVATORY].fits",
-      "example": "allocations/epsilon-5-core-0/rsTargets-epsilon-5-core-0-apo.fits",
+      "example": "allocations/epsilon/rsTargets-epsilon-5-core-0-apo.fits",
       "location": "allocations/{plan}/rsTargets-{plan}-{observatory}.fits",
       "environment": "ROBOSTRATEGY_DATA",
+      "survey": "SDSS",
       "access": {
         "in_sdss_access": true,
         "path_name": "rsTargets",
         "path_template": "$ROBOSTRATEGY_DATA/allocations/{plan}/rsTargets-{plan}-{observatory}.fits",
         "path_kwargs": [
-          "observatory",
-          "plan"
+          "plan",
+          "observatory"
         ],
         "access_string": "rsTargets = $ROBOSTRATEGY_DATA/allocations/{plan}/rsTargets-{plan}-{observatory}.fits"
       },
@@ -245,7 +262,9 @@
             }
           }
         }
-      }
+      },
+      "par": null,
+      "hdfs": null
     }
   }
 }

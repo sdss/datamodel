@@ -26,6 +26,8 @@ general:
     (1 or 2), and the frame number.
   generated_by: ???
   design: false
+  surveys:
+  - eBOSS
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
@@ -35,88 +37,88 @@ changelog:
       primary_delta_nkeys: 84
       added_primary_header_kwargs:
       - M2PISTON
-      - AIRTEMP
-      - M1YTILT
-      - COLLC
-      - M2YTRAN
-      - COLLB
-      - PLATETYP
-      - HGCD
-      - NE
-      - AZ
-      - RADEG
-      - DATE-OBS
-      - GUSTS
-      - MC1TRCB
-      - CHECKSUM
-      - FOCUS
-      - SPA
-      - FF
-      - DUSTB
-      - GUSTD
-      - COLLA
-      - M1YTRAN
-      - MC1TBCT
       - M2YTILT
-      - DEC
-      - NAME
-      - LN2TEMP
-      - SUBFRAME
-      - OBJSYS
-      - TRUSTEMP
-      - MC1THT
-      - TAI-BEG
-      - M1ZROT
-      - MAPID
-      - WINDS25M
-      - EXPTIME
-      - PRESSURE
-      - IPA
-      - IONPUMP
-      - M2ZROT
-      - MC1HUMHT
-      - HARTMANN
-      - REQTIME
       - ALT
-      - MC1HUMCO
-      - DECDEG
-      - COMMENT
-      - HUMIDITY
-      - EXPOSURE
-      - PFERR
-      - DIDFLUSH
-      - MC1TBCB
+      - TRUSTEMP
+      - WINDS
+      - V_BOSS
+      - M2XTILT
+      - MC1TBCT
+      - HGCD
+      - HARTMANN
+      - TAI-BEG
+      - M1XTILT
       - FLAVOR
+      - MC1THT
+      - M1YTILT
+      - CARTID
+      - POINTING
+      - FF
+      - REQTIME
+      - M1YTRAN
+      - SPA
+      - PLATEID
+      - DEWPOINT
+      - NAME
+      - EXPOSURE
+      - IPA
+      - WINDD
+      - GUSTS
+      - DUSTB
+      - DIDFLUSH
+      - CAMERAS
+      - OBJSYS
+      - RA
+      - DEC
+      - PRESSURE
+      - COMMENT
+      - M1PISTON
+      - WINDD25M
+      - PFERR
+      - V_APO
+      - GUSTD
+      - MC1TRCB
+      - LN2TEMP
+      - M1ZROT
+      - MC1HUMCO
+      - SUBFRAME
+      - M1XTRAN
       - FFS
       - DUSTA
-      - DARKTIME
-      - PLATEID
-      - MJD
-      - CCDTEMP
-      - V_APO
+      - DECDEG
       - SLITID1
-      - DEWPOINT
-      - MC1TEMDN
-      - V_BOSS
-      - CAMERAS
-      - M2XTRAN
-      - RA
-      - POINTING
-      - WINDS
-      - M1PISTON
-      - WINDD
-      - M1XTRAN
-      - MC1TRCT
-      - WINDD25M
-      - M1XTILT
-      - CARTID
       - SCALE
-      - M2XTILT
+      - COLLC
+      - CHECKSUM
+      - MJD
+      - FOCUS
+      - MC1TEMDN
+      - HUMIDITY
+      - M2ZROT
+      - MC1TBCB
+      - AZ
+      - WINDS25M
+      - DATE-OBS
+      - AIRTEMP
+      - M2YTRAN
+      - PLATETYP
+      - COLLA
+      - M2XTRAN
+      - IONPUMP
+      - DARKTIME
+      - COLLB
+      - MC1TRCT
+      - RADEG
+      - MAPID
+      - NE
+      - CCDTEMP
+      - MC1HUMHT
+      - EXPTIME
       removed_primary_header_kwargs:
       - DATASEC
       - DAQVER
-      - CAMERA
       - OBSID
+      - CAMERA
     DR17:
       from: DR16
       note: No changes
@@ -227,6 +229,7 @@ releases:
         - key: DATASUM
           value: '0000000000000000'
           comment: 'migration: description of keyword/column not found. Needs update'
+    survey: eBOSS
   DR10:
     template: $BOSS_SPECTRO_DATA/[MJD]/sdR-[BR][ID]-[FRAME].fit.gz
     example: 55049/sdR-b1-00100006.fits.gz
@@ -917,10 +920,10 @@ releases:
       path_name: sdR
       path_template: $BOSS_SPECTRO_DATA/{mjd}/sdR-{br}{id}-{frame}.fit
       path_kwargs:
-      - id
       - br
-      - mjd
       - frame
+      - id
+      - mjd
       access_string: sdR = $BOSS_SPECTRO_DATA/{mjd}/sdR-{br}{id}-{frame}.fit.gz
     hdus:
       hdu0:
@@ -1244,3 +1247,4 @@ releases:
         - key: COMMENT
           value: failed to make GUIDOFFR card from nan
           comment: ''
+    survey: eBOSS

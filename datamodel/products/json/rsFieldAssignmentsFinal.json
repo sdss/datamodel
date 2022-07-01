@@ -6,6 +6,23 @@
     "environments": [
       "ROBOSTRATEGY_DATA"
     ],
+    "surveys": [
+,
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
     "datatype": "FITS",
     "filesize": "20 MB",
     "releases": [
@@ -27,16 +44,17 @@
   "releases": {
     "WORK": {
       "template": "$ROBOSTRATEGY_DATA/allocations/[PLAN]/final/rsFieldAssignmentsFinal-[PLAN]-[OBSERVATORY]-[FIELDID].fits",
-      "example": "allocations/epsilon-7-core-0/final/rsFieldAssignmentsFinal-epsilon-7-core-0-apo-1.fits",
+      "example": "allocations/epsilon/final/rsFieldAssignmentsFinal-epsilon-7-core-0-apo-1.fits",
       "location": "allocations/{plan}/final/rsFieldAssignmentsFinal-{plan}-{observatory}-{fieldid}.fits",
       "environment": "ROBOSTRATEGY_DATA",
+      "survey": "SDSS",
       "access": {
         "in_sdss_access": true,
         "path_name": "rsFieldAssignmentsFinal",
         "path_template": "$ROBOSTRATEGY_DATA/allocations/{plan}/final/rsFieldAssignmentsFinal-{plan}-{observatory}-{fieldid}.fits",
         "path_kwargs": [
-          "observatory",
           "plan",
+          "observatory",
           "fieldid"
         ],
         "access_string": "rsFieldAssignmentsFinal = $ROBOSTRATEGY_DATA/allocations/{plan}/final/rsFieldAssignmentsFinal-{plan}-{observatory}-{fieldid}.fits"
@@ -618,7 +636,9 @@
             }
           }
         }
-      }
+      },
+      "par": null,
+      "hdfs": null
     }
   }
 }

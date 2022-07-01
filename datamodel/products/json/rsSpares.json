@@ -1,0 +1,144 @@
+{
+  "general": {
+    "name": "rsSpares",
+    "short": "Numbers of spare  fibers for each field.",
+    "description": "For each field, how many spare fibers are available. The number of BOSS spare fibers is inclusive of robots with both APOGEE and BOSS fibers. Produced by the robostrategy script rs_spares.",
+    "environments": [
+      "ROBOSTRATEGY_DATA"
+    ],
+    "surveys": [
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "FITS",
+    "filesize": "140 KB",
+    "releases": [
+      {
+        "name": "WORK",
+        "description": "SDSS unreleased data.  Represents any work-in-progress data.",
+        "public": false,
+        "release_date": "unreleased"
+      }
+    ],
+    "naming_convention": "$ROBOSTRATEGY_DATA/allocations/[PLAN]/rsSpares-[OBSERVATORY]-[PLAN].fits",
+    "generated_by": "robostrategy",
+    "design": false
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "WORK": {
+      "template": "$ROBOSTRATEGY_DATA/allocations/[PLAN]/rsSpares-[OBSERVATORY]-[PLAN].fits",
+      "example": "allocations/epsilon-5-core-2/rsSpares-apo-epsilon-5-core-2.fits",
+      "location": "allocations/{plan}/rsSpares-{observatory}-{plan}.fits",
+      "environment": "ROBOSTRATEGY_DATA",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "rsSpares",
+        "path_template": "$ROBOSTRATEGY_DATA/allocations/{plan}/rsSpares-{observatory}-{plan}.fits",
+        "path_kwargs": [
+          "plan",
+          "observatory"
+        ],
+        "access_string": "rsSpares = $ROBOSTRATEGY_DATA/allocations/{plan}/rsSpares-{observatory}-{plan}.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Primary header",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "file does conform to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "16",
+              "comment": "number of bits per data pixel"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of data axes"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": "FITS dataset may contain extensions"
+            },
+            {
+              "key": "COMMENT",
+              "value": "  FITS (Flexible Image Transport System) format is defined in 'Astronomy",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "  and Astrophysics', volume 376, page 359; bibcode: 2001A&A...376..359H",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "List of numbers of spares per field",
+          "size": "134 KB",
+          "header": null,
+          "columns": {
+            "fieldid": {
+              "name": "FIELDID",
+              "description": "Field identifier",
+              "type": "int32",
+              "unit": ""
+            },
+            "racen": {
+              "name": "RACEN",
+              "description": "RA Center (J2000)",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "deccen": {
+              "name": "DECCEN",
+              "description": "Dec Center (J2000)",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "nboss_spare": {
+              "name": "NBOSS_SPARE",
+              "description": "Number of spare BOSS fibers",
+              "type": "int32",
+              "unit": ""
+            },
+            "napogee_spare": {
+              "name": "NAPOGEE_SPARE",
+              "description": "Number of spare APOGEE fibers",
+              "type": "int32",
+              "unit": ""
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null
+    }
+  }
+}

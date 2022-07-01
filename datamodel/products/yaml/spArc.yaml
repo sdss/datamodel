@@ -26,6 +26,8 @@ general:
     (1 or 2) and mmmmmmmm indicates the frame number. An example of filename is spArc-r2-00111704.fits.gz.
   generated_by: spCalib.pro
   design: false
+  surveys:
+  - eBOSS
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
@@ -34,52 +36,52 @@ changelog:
       from: DR17
       primary_delta_nkeys: 21
       added_primary_header_kwargs:
-      - V_GUIDER
-      - AIRTEMP
+      - V_APO
       - GUSTD
-      - V_BOSS
-      - MGDRA
-      - DIDFLUSH
-      - DARKTIME
-      - PRESSURE
-      - SUBFRAME
-      - WINDD
-      - WINDS
-      - DEWPOINT
-      - PFERR
-      - WINDD25M
-      - SRVYMODE
+      - LN2TEMP
       - V_SOP
-      - SLITID1
+      - TRUSTEMP
+      - WINDS
+      - M1ZROT
+      - V_BOSS
+      - SUBFRAME
       - DUSTA
+      - SLITID1
+      - HUMIDITY
+      - REQTIME
       - M2ZROT
+      - WINDS25M
+      - SRVYMODE
+      - AIRTEMP
+      - DEWPOINT
       - MGDPOS
-      - IONPUMP
+      - V_GUIDER
       - MGDDEC
-      - CCDTEMP
+      - WINDD
+      - GUSTS
       - PLATETYP
       - DUSTB
-      - TRUSTEMP
-      - HUMIDITY
-      - WINDS25M
-      - V_APO
-      - M1ZROT
-      - GUSTS
-      - REQTIME
-      - LN2TEMP
+      - DIDFLUSH
+      - IONPUMP
+      - DARKTIME
+      - MGDRA
+      - CCDTEMP
+      - PRESSURE
+      - WINDD25M
+      - PFERR
       removed_primary_header_kwargs:
-      - MC2TBCT
-      - MC2TEMDN
       - DAQVER
-      - BOSSVER
-      - OBJOFFX
-      - OBJOFFY
+      - MC2TEMDN
       - MC2TBCB
-      - MC2THT
-      - MC2TRCB
-      - MC2HUMHT
-      - MC2TRCT
       - MC2HUMCO
+      - BOSSVER
+      - MC2THT
+      - OBJOFFY
+      - OBJOFFX
+      - MC2TRCB
+      - MC2TBCT
+      - MC2TRCT
+      - MC2HUMHT
     DR17:
       from: DR16
       note: No changes
@@ -115,11 +117,11 @@ releases:
       path_name: spArc
       path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spArc-{br}{id}-{frame:0>8}.fits.gz'
       path_kwargs:
+      - br
+      - id
       - plateid
       - frame
-      - br
       - run2d
-      - id
       access_string: spArc = $BOSS_SPECTRO_REDUX/{run2d}/{plateid}/spArc-{br}{id}-{frame}.fits.gz
     hdus:
       hdu0:
@@ -629,6 +631,7 @@ releases:
             unit: 'migration: unit of keyword/column not found. Needs update'
             description: 'migration: description of keyword/column not found. Needs
               update'
+    survey: eBOSS
   DR10:
     template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID]/spArc-[BR][ID]-[FRAME].fits.gz
     example: v5_5_12/3682/spArc-b1-00108606.fits.gz
@@ -639,11 +642,11 @@ releases:
       path_name: spArc
       path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spArc-{br}{id}-{frame:0>8}.fits.gz'
       path_kwargs:
-      - id
-      - run2d
       - br
+      - id
       - plateid
       - frame
+      - run2d
       access_string: spArc = $BOSS_SPECTRO_REDUX/{run2d}/{plateid}/spArc-{br}{id}-{frame}.fits.gz
     hdus:
       hdu0:
@@ -1153,6 +1156,7 @@ releases:
             unit: 'migration: unit of keyword/column not found. Needs update'
             description: 'migration: description of keyword/column not found. Needs
               update'
+    survey: eBOSS
   DR11:
     template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID]/spArc-[BR][ID]-[FRAME].fits.gz
     example: v5_6_5/3682/spArc-b1-00108606.fits.gz
@@ -1163,11 +1167,11 @@ releases:
       path_name: spArc
       path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spArc-{br}{id}-{frame:0>8}.fits.gz'
       path_kwargs:
-      - frame
-      - plateid
-      - id
-      - run2d
       - br
+      - id
+      - plateid
+      - frame
+      - run2d
       access_string: spArc = $BOSS_SPECTRO_REDUX/{run2d}/{plateid}/spArc-{br}{id}-{frame}.fits.gz
     hdus:
       hdu0:
@@ -1677,6 +1681,7 @@ releases:
             unit: 'migration: unit of keyword/column not found. Needs update'
             description: 'migration: description of keyword/column not found. Needs
               update'
+    survey: eBOSS
   DR12:
     template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID]/spArc-[BR][ID]-[FRAME].fits.gz
     example: v5_7_0/3682/spArc-b1-00108606.fits.gz
@@ -1687,11 +1692,11 @@ releases:
       path_name: spArc
       path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spArc-{br}{id}-{frame:0>8}.fits.gz'
       path_kwargs:
+      - br
       - id
       - plateid
-      - run2d
-      - br
       - frame
+      - run2d
       access_string: spArc = $BOSS_SPECTRO_REDUX/{run2d}/{plateid}/spArc-{br}{id}-{frame}.fits.gz
     hdus:
       hdu0:
@@ -2201,6 +2206,7 @@ releases:
             unit: 'migration: unit of keyword/column not found. Needs update'
             description: 'migration: description of keyword/column not found. Needs
               update'
+    survey: eBOSS
   DR13:
     template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID]/spArc-[BR][ID]-[FRAME].fits.gz
     example: v5_9_0/3682/spArc-b1-00108606.fits.gz
@@ -2211,11 +2217,11 @@ releases:
       path_name: spArc
       path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spArc-{br}{id}-{frame:0>8}.fits.gz'
       path_kwargs:
-      - run2d
-      - id
       - br
-      - frame
+      - id
       - plateid
+      - frame
+      - run2d
       access_string: spArc = $BOSS_SPECTRO_REDUX/{run2d}/{plateid}/spArc-{br}{id}-{frame}.fits.gz
     hdus:
       hdu0:
@@ -2725,6 +2731,7 @@ releases:
             unit: 'migration: unit of keyword/column not found. Needs update'
             description: 'migration: description of keyword/column not found. Needs
               update'
+    survey: eBOSS
   DR14:
     template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID]/spArc-[BR][ID]-[FRAME].fits.gz
     example: v5_10_0/3682/spArc-b1-00108606.fits.gz
@@ -2735,11 +2742,11 @@ releases:
       path_name: spArc
       path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spArc-{br}{id}-{frame:0>8}.fits.gz'
       path_kwargs:
-      - run2d
+      - br
       - id
       - plateid
-      - br
       - frame
+      - run2d
       access_string: spArc = $BOSS_SPECTRO_REDUX/{run2d}/{plateid}/spArc-{br}{id}-{frame}.fits.gz
     hdus:
       hdu0:
@@ -3249,6 +3256,7 @@ releases:
             unit: 'migration: unit of keyword/column not found. Needs update'
             description: 'migration: description of keyword/column not found. Needs
               update'
+    survey: eBOSS
   DR15:
     template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID]/spArc-[BR][ID]-[FRAME].fits.gz
     example: v5_10_0/3682/spArc-b1-00108606.fits.gz
@@ -3773,6 +3781,7 @@ releases:
             unit: 'migration: unit of keyword/column not found. Needs update'
             description: 'migration: description of keyword/column not found. Needs
               update'
+    survey: eBOSS
   DR16:
     template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID]/spArc-[BR][ID]-[FRAME].fits.gz
     example: v5_13_0/3682/spArc-b1-00108606.fits.gz
@@ -3783,11 +3792,11 @@ releases:
       path_name: spArc
       path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spArc-{br}{id}-{frame:0>8}.fits.gz'
       path_kwargs:
-      - frame
-      - run2d
-      - plateid
       - br
       - id
+      - plateid
+      - frame
+      - run2d
       access_string: spArc = $BOSS_SPECTRO_REDUX/{run2d}/{plateid}/spArc-{br}{id}-{frame}.fits.gz
     hdus:
       hdu0:
@@ -4297,6 +4306,7 @@ releases:
             unit: 'migration: unit of keyword/column not found. Needs update'
             description: 'migration: description of keyword/column not found. Needs
               update'
+    survey: eBOSS
   DR17:
     template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID]/spArc-[BR][ID]-[FRAME].fits.gz
     example: v5_13_2/3682/spArc-b1-00108606.fits.gz
@@ -4307,11 +4317,11 @@ releases:
       path_name: spArc
       path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spArc-{br}{id}-{frame:0>8}.fits.gz'
       path_kwargs:
-      - run2d
       - br
+      - id
       - plateid
       - frame
-      - id
+      - run2d
       access_string: spArc = $BOSS_SPECTRO_REDUX/{run2d}/{plateid}/spArc-{br}{id}-{frame}.fits.gz
     hdus:
       hdu0:
@@ -4821,6 +4831,7 @@ releases:
             unit: 'migration: unit of keyword/column not found. Needs update'
             description: 'migration: description of keyword/column not found. Needs
               update'
+    survey: eBOSS
   WORK:
     template: $BOSS_SPECTRO_REDUX/[RUN2D]/[FIELDID][ISPLATE]/spArc-[BR][ID]-[FRAME].fits.gz
     example: v6_0_4/15000p/spArc-b1-00318674.fits.gz
@@ -4829,14 +4840,13 @@ releases:
     access:
       in_sdss_access: true
       path_name: spArc
-      path_template: $BOSS_SPECTRO_REDUX/{run2d}/{fieldid}{isplate}/spArc-{br}{id}-{frame:0>8}.fits.gz
+      path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spArc-{br}{id}-{frame:0>8}.fits.gz'
       path_kwargs:
-      - frame
       - id
-      - br
-      - fieldid
-      - isplate
       - run2d
+      - br
+      - frame
+      - plateid
       access_string: spArc = $BOSS_SPECTRO_REDUX/{run2d}/{fieldid}{isplate}/spArc-{br}{id}-{frame}.fits.gz
     hdus:
       hdu0:
@@ -5361,3 +5371,4 @@ releases:
             type: float64[2000]
             unit: replace me - with content
             description: replace me - with content
+    survey: eBOSS

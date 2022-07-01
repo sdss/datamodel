@@ -6,6 +6,22 @@
     "environments": [
       "ROBOSTRATEGY_DATA"
     ],
+    "surveys": [
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
     "datatype": "FITS",
     "filesize": "5 KB",
     "releases": [
@@ -17,7 +33,8 @@
       }
     ],
     "naming_convention": "$ROBOSTRATEGY_DATA/allocations/[PLAN]/rsSlots-[PLAN]-[OBSERVATORY].fits",
-    "generated_by": "robostrategy"
+    "generated_by": "robostrategy",
+    "design": false
   },
   "changelog": {
     "description": "Describes changes to the datamodel product and/or file structure from one release to another",
@@ -26,16 +43,17 @@
   "releases": {
     "WORK": {
       "template": "$ROBOSTRATEGY_DATA/allocations/[PLAN]/rsSlots-[PLAN]-[OBSERVATORY].fits",
-      "example": "allocations/epsilon-5-core-0/rsSlots-epsilon-5-core-0-apo.fits",
+      "example": "allocations/epsilon/rsSlots-epsilon-5-core-0-apo.fits",
       "location": "allocations/{plan}/rsSlots-{plan}-{observatory}.fits",
       "environment": "ROBOSTRATEGY_DATA",
+      "survey": "SDSS",
       "access": {
         "in_sdss_access": true,
         "path_name": "rsSlots",
         "path_template": "$ROBOSTRATEGY_DATA/allocations/{plan}/rsSlots-{plan}-{observatory}.fits",
         "path_kwargs": [
-          "observatory",
-          "plan"
+          "plan",
+          "observatory"
         ],
         "access_string": "rsSlots = $ROBOSTRATEGY_DATA/allocations/{plan}/rsSlots-{plan}-{observatory}.fits"
       },
@@ -139,7 +157,9 @@
           ],
           "columns": null
         }
-      }
+      },
+      "par": null,
+      "hdfs": null
     }
   }
 }

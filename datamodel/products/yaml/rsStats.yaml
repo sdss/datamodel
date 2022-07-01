@@ -12,6 +12,9 @@ general:
   naming_convention: $ROBOSTRATEGY_DATA/allocations/[PLAN]/rsStats-[PLAN].fits
   generated_by: robostrategy
   design: false
+  surveys:
+  - APOGEE-2
+  - SDSS
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
@@ -23,10 +26,11 @@ releases:
     location: allocations/{plan}/rsStats-{plan}.fits
     environment: ROBOSTRATEGY_DATA
     access:
-      in_sdss_access: false
-      path_name: null
-      path_template: null
-      path_kwargs: null
+      in_sdss_access: true
+      path_name: rsStats
+      path_template: $ROBOSTRATEGY_DATA/allocations/{plan}/rsStats-{plan}.fits
+      path_kwargs:
+      - plan
       access_string: rsStats = $ROBOSTRATEGY_DATA/allocations/{plan}/rsStats-{plan}.fits
     hdus:
       hdu0:
@@ -112,3 +116,4 @@ releases:
             unit: ''
             description: Fraction of targets satisfied in carton (-1 if no targets
               in carton), for LCO
+    survey: SDSS
