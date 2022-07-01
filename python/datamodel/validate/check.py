@@ -62,6 +62,9 @@ def yield_products(release: str = None) -> tuple:
     dm = SDSSDataModel()
     for pp in dm.products:
         with pp.loader() as prod:
+            if not prod.releases:
+                log.warning(f'Error. No releases found for {prod.name}. Product not properly loaded.')
+                continue
             if not release or release in prod.releases:
                 yield prod.name, prod.get_access(release=release)
 
