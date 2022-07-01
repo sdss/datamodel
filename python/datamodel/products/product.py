@@ -18,6 +18,7 @@ from contextlib import contextmanager
 from typing import Type, TypeVar, Union
 
 from fuzzy_types import FuzzyList
+from pydantic import ValidationError
 
 from datamodel import log
 from datamodel.models import phases, releases, surveys, tags
@@ -85,7 +86,12 @@ class Product:
         sets to a new attribute.  Also extracts any general fields included in the
         ``_extract`` list of attributes.
         """
-        self._model = ProductModel.parse_file(self.path)
+        try:
+            self._model = ProductModel.parse_file(self.path)
+        except ValidationError as e:
+            log.warning(f'{self.name} product not validated.  Cannot load.')
+            self.releases = []
+            return
         self.releases = ReleaseList(self._model.general.releases)
         for field in self._extract:
             setattr(self, field, getattr(self._model.general, field))
