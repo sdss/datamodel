@@ -295,6 +295,8 @@ class DataModel(object):
         ValueError
             when no release can be found in the datamodel
         ValueError
+            when no location or example can be found in the datamodel
+        ValueError
             when no path keyword arguments can be extracted
         """
         # get the file species YAML datamodel
@@ -315,6 +317,10 @@ class DataModel(object):
 
         # get any access path name
         access_name = reldata["access"].get("path_name", None)
+
+        # raise error
+        if not reldata['location'] or not reldata['example']:
+            raise ValueError('No location or example found in YAML datamodel.')
 
         # attempt to extract the keyword arguments using the datamodel location and example fields
         needs_kwargs = "{" in path and "}" in path
