@@ -47,8 +47,8 @@ Describes changes to the datamodel product and/or file structure from one releas
  - WORK
    - from: DR17
    - primary_delta_nkeys: 21
-   - added_primary_header_kwargs: ['V_APO', 'GUSTD', 'LN2TEMP', 'V_SOP', 'TRUSTEMP', 'WINDS', 'M1ZROT', 'V_BOSS', 'SUBFRAME', 'DUSTA', 'SLITID1', 'HUMIDITY', 'REQTIME', 'M2ZROT', 'WINDS25M', 'SRVYMODE', 'AIRTEMP', 'DEWPOINT', 'MGDPOS', 'V_GUIDER', 'MGDDEC', 'WINDD', 'GUSTS', 'PLATETYP', 'DUSTB', 'DIDFLUSH', 'IONPUMP', 'DARKTIME', 'MGDRA', 'CCDTEMP', 'PRESSURE', 'WINDD25M', 'PFERR']
-   - removed_primary_header_kwargs: ['DAQVER', 'MC2TEMDN', 'MC2TBCB', 'MC2HUMCO', 'BOSSVER', 'MC2THT', 'OBJOFFY', 'OBJOFFX', 'MC2TRCB', 'MC2TBCT', 'MC2TRCT', 'MC2HUMHT']
+   - added_primary_header_kwargs: ['HUMIDITY', 'DEWPOINT', 'DUSTB', 'DIDFLUSH', 'PRESSURE', 'SUBFRAME', 'AIRTEMP', 'PFERR', 'LN2TEMP', 'MGDPOS', 'DARKTIME', 'SLITID1', 'GUSTD', 'CCDTEMP', 'V_GUIDER', 'M1ZROT', 'V_BOSS', 'WINDD', 'TRUSTEMP', 'V_APO', 'SRVYMODE', 'GUSTS', 'DUSTA', 'M2ZROT', 'REQTIME', 'PLATETYP', 'MGDRA', 'V_SOP', 'WINDS25M', 'MGDDEC', 'WINDD25M', 'WINDS', 'IONPUMP']
+   - removed_primary_header_kwargs: ['DAQVER', 'OBJOFFY', 'MC2TBCT', 'BOSSVER', 'MC2TEMDN', 'MC2THT', 'OBJOFFX', 'MC2HUMHT', 'MC2TRCT', 'MC2TBCB', 'MC2TRCB', 'MC2HUMCO']
  - DR17
    - from: DR16
    - note: No changes
