@@ -1,0 +1,251 @@
+{
+  "general": {
+    "name": "rsFieldOptions",
+    "short": "Assignment results for cadence options for field",
+    "description": "Assignment results for cadence options for a given field. This file is written by the robostrategy script rs_assign. Each field is written out individually so that the process can be resumed smoothly if it dies; this information is ultimately summaries in the rsOptions file. The results here ignore assignment of calibration targets. They are used by rs_allocate in deciding how to allocate a cadence to each field.",
+    "environments": [
+      "ROBOSTRATEGY_DATA"
+    ],
+    "surveys": [
+      {
+        "name": "APOGEE-2",
+        "long": "Apache Point Observatory Galactic Evolution Experiment 2",
+        "description": "An infrared stellar spectroscopic survey of Milky Way stars in the Northern and Southern hemispheres",
+        "phase": {
+          "name": "Phase-IV",
+          "id": 4,
+          "start": 2014,
+          "end": 2020,
+          "active": false
+        },
+        "id": "apogee2",
+        "aliases": [
+          "apogee"
+        ]
+      },
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "FITS",
+    "filesize": "317 KB",
+    "releases": [
+      {
+        "name": "WORK",
+        "description": "SDSS unreleased data.  Represents any work-in-progress data.",
+        "public": false,
+        "release_date": "unreleased"
+      }
+    ],
+    "naming_convention": "$ROBOSTRATEGY_DATA/allocations/[PLAN]/targets/rsFieldOptions-[PLAN]-[OBSERVATORY]-[FIELDID].fits",
+    "generated_by": "robostrategy",
+    "design": false
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "WORK": {
+      "template": "$ROBOSTRATEGY_DATA/allocations/[PLAN]/targets/rsFieldOptions-[PLAN]-[OBSERVATORY]-[FIELDID].fits",
+      "example": "allocations/epsilon/targets/rsFieldOptions-epsilon-5-core-2-apo-1.fits",
+      "location": "allocations/{plan}/targets/rsFieldOptions-{plan}-{observatory}-{fieldid}.fits",
+      "environment": "ROBOSTRATEGY_DATA",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "rsFieldOptions",
+        "path_template": "$ROBOSTRATEGY_DATA/allocations/{plan}/targets/rsFieldOptions-{plan}-{observatory}-{fieldid}.fits",
+        "path_kwargs": [
+          "observatory",
+          "plan",
+          "fieldid"
+        ],
+        "access_string": "rsFieldOptions = $ROBOSTRATEGY_DATA/allocations/{plan}/targets/rsFieldOptions-{plan}-{observatory}-{fieldid}.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Primary header",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "file does conform to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "16",
+              "comment": "number of bits per data pixel"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of data axes"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": "FITS dataset may contain extensions"
+            },
+            {
+              "key": "COMMENT",
+              "value": "  FITS (Flexible Image Transport System) format is defined in 'Astronomy",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "  and Astrophysics', volume 376, page 359; bibcode: 2001A&A...376..359H",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "Results for each cadence for each field",
+          "size": "296 KB",
+          "header": null,
+          "columns": {
+            "fieldid": {
+              "name": "FIELDID",
+              "description": "Field identifier",
+              "type": "int32",
+              "unit": ""
+            },
+            "racen": {
+              "name": "RACEN",
+              "description": "RA Center (J2000)",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "deccen": {
+              "name": "DECCEN",
+              "description": "Dec Center (J2000)",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "ntargets": {
+              "name": "NTARGETS",
+              "description": "Total number of targets in rsFieldTargets file",
+              "type": "int32",
+              "unit": ""
+            },
+            "cadence": {
+              "name": "CADENCE",
+              "description": "Field cadence name",
+              "type": "char[30]",
+              "unit": ""
+            },
+            "nvisit": {
+              "name": "NVISIT",
+              "description": "Number of exposures for this cadence",
+              "type": "int32",
+              "unit": ""
+            },
+            "nwithin": {
+              "name": "NWITHIN",
+              "description": "Number of targets reachable by a suitable positioner",
+              "type": "int32",
+              "unit": ""
+            },
+            "ngot": {
+              "name": "NGOT",
+              "description": "Number of targets gotten",
+              "type": "int32",
+              "unit": ""
+            },
+            "valuegot": {
+              "name": "VALUEGOT",
+              "description": "Total value of targets gotten",
+              "type": "float32",
+              "unit": ""
+            },
+            "nwithin_pcd": {
+              "name": "NWITHIN_PCD",
+              "description": "Number of targets reachable by a suitable positioner, for each target cadence (see HDU2)",
+              "type": "int32[32]",
+              "unit": ""
+            },
+            "ngot_pcd": {
+              "name": "NGOT_PCD",
+              "description": "Number of targets gotten for each target cadence (see HDU2)",
+              "type": "int32[32]",
+              "unit": ""
+            },
+            "valuegot_pcd": {
+              "name": "VALUEGOT_PCD",
+              "description": "Total value of targets gotten for each target cadence (see HDU2)",
+              "type": "float32[32]",
+              "unit": ""
+            },
+            "nwithin_pct": {
+              "name": "NWITHIN_PCT",
+              "description": "Number of targets reachable by a suitable positioner, for each target carton (see HDU3)",
+              "type": "int32[82]",
+              "unit": ""
+            },
+            "ngot_pct": {
+              "name": "NGOT_PCT",
+              "description": "Number of targets gotten for each target carton (see HDU3)",
+              "type": "int32[82]",
+              "unit": ""
+            },
+            "valuegot_pct": {
+              "name": "VALUEGOT_PCT",
+              "description": "Total value of targets gotten for each target carton (see HDU3)",
+              "type": "float32[82]",
+              "unit": ""
+            }
+          }
+        },
+        "hdu2": {
+          "name": "",
+          "is_image": false,
+          "description": "List of cadences that arrays in HDU1 refer to",
+          "size": "960 bytes",
+          "header": null,
+          "columns": {
+            "cadence": {
+              "name": "CADENCE",
+              "description": "Cadence name",
+              "type": "char[30]",
+              "unit": ""
+            }
+          }
+        },
+        "hdu3": {
+          "name": "",
+          "is_image": false,
+          "description": "List of cartons that arrays in HDU1 refer to",
+          "size": "2 KB",
+          "header": null,
+          "columns": {
+            "carton": {
+              "name": "CARTON",
+              "description": "Carton name",
+              "type": "char[30]",
+              "unit": ""
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null
+    }
+  }
+}

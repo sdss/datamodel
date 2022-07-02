@@ -34,6 +34,8 @@ general:
   naming_convention: ' <code>spCFrame-[br][12]-[0-9]{8}\.fits</code> '
   generated_by: spec2d (spcoadd_v5.pro)
   design: false
+  surveys:
+  - eBOSS
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
@@ -44,59 +46,59 @@ changelog:
       - SPRESL
       primary_delta_nkeys: 28
       added_primary_header_kwargs:
+      - V_APO
+      - GUSTD
+      - LN2TEMP
+      - V_SOP
+      - TRUSTEMP
+      - WINDS
+      - M1ZROT
+      - V_BOSS
+      - SUBFRAME
+      - DUSTA
+      - SLITID1
+      - CENBSH0
+      - SIGBSH0
+      - HUMIDITY
+      - REQTIME
+      - M2ZROT
+      - WDISPR
+      - STDBSH0
+      - WINDS25M
+      - SRVYMODE
+      - AIRTEMP
+      - DEWPOINT
+      - MGDPOS
       - AVGBSH0
       - V_GUIDER
-      - WINDD25M
-      - AIRTEMP
-      - V_SOP
-      - AVGASH0
       - MGDDEC
-      - CCDTEMP
-      - PFERR
-      - V_BOSS
-      - GUSTD
-      - PRESSURE
-      - DIDFLUSH
-      - SLITID1
-      - DUSTB
-      - SRVYMODE
-      - M2ZROT
-      - MGDRA
-      - PLATETYP
-      - MGDPOS
-      - IONPUMP
-      - DEWPOINT
-      - REQTIME
-      - SUBFRAME
-      - STDASH0
-      - DARKTIME
-      - DUSTA
-      - GUSTS
-      - CENBSH0
-      - STDBSH0
-      - WINDS
       - WINDD
-      - SIGBSH0
-      - V_APO
-      - TRUSTEMP
-      - WDISPR
-      - M1ZROT
-      - LN2TEMP
-      - HUMIDITY
-      - WINDS25M
+      - GUSTS
+      - PLATETYP
+      - DUSTB
+      - DIDFLUSH
+      - IONPUMP
+      - DARKTIME
+      - MGDRA
+      - AVGASH0
+      - CCDTEMP
+      - STDASH0
+      - PRESSURE
+      - WINDD25M
+      - PFERR
       removed_primary_header_kwargs:
+      - DAQVER
+      - MC2TEMDN
+      - MC2TBCB
+      - MC2HUMCO
+      - BOSSVER
+      - MC2THT
       - OBJOFFY
       - OBJOFFX
       - MC2TRCB
       - MC2TBCT
       - MC2TRCT
-      - MC2TBCB
-      - BOSSVER
       - MC2HUMHT
-      - DAQVER
-      - MC2THT
-      - MC2HUMCO
-      - MC2TEMDN
     DR17:
       from: DR16
       note: No changes
@@ -121,16 +123,14 @@ changelog:
     DR10:
       from: DR9
       added_hdus:
-      - IVAR
-      - SKY
-      - SUPERFLAT
-      - WAVEDISP
-      - X
       - MASK
-      - PLUGMAP
+      - SKY
+      - X
       - WAVELENGTH
-      removed_hdus:
-      - ''
+      - IVAR
+      - WAVEDISP
+      - SUPERFLAT
+      - PLUGMAP
 releases:
   DR9:
     template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID]/spCFrame-[BR][ID]-[FRAME].fits
@@ -142,11 +142,11 @@ releases:
       path_name: spCFrame
       path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spFrame-{br}{id}-{frame:0>8}.fits.gz'
       path_kwargs:
-      - run2d
-      - plateid
       - br
       - id
+      - plateid
       - frame
+      - run2d
       access_string: spCFrame = $BOSS_SPECTRO_REDUX/{run2d}/{plateid}/spCFrame-{br}{id}-{frame}.fits
     hdus:
       hdu0:
@@ -1045,6 +1045,7 @@ releases:
         - key: GCOUNT
           value: 1
           comment: number of groups
+    survey: eBOSS
   DR10:
     template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID]/spCFrame-[BR][ID]-[FRAME].fits
     example: v5_5_12/3682/spCFrame-b1-00108607.fits
@@ -1055,11 +1056,11 @@ releases:
       path_name: spCFrame
       path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spFrame-{br}{id}-{frame:0>8}.fits.gz'
       path_kwargs:
-      - run2d
-      - frame
-      - plateid
       - br
       - id
+      - plateid
+      - frame
+      - run2d
       access_string: spCFrame = $BOSS_SPECTRO_REDUX/{run2d}/{plateid}/spCFrame-{br}{id}-{frame}.fits
     hdus:
       hdu0:
@@ -1985,6 +1986,7 @@ releases:
         - key: GCOUNT
           value: 1
           comment: number of groups
+    survey: eBOSS
   DR11:
     template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID]/spCFrame-[BR][ID]-[FRAME].fits
     example: v5_6_5/3682/spCFrame-b1-00108607.fits
@@ -1995,11 +1997,11 @@ releases:
       path_name: spCFrame
       path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spFrame-{br}{id}-{frame:0>8}.fits.gz'
       path_kwargs:
-      - run2d
+      - br
       - id
       - plateid
       - frame
-      - br
+      - run2d
       access_string: spCFrame = $BOSS_SPECTRO_REDUX/{run2d}/{plateid}/spCFrame-{br}{id}-{frame}.fits
     hdus:
       hdu0:
@@ -2925,6 +2927,7 @@ releases:
         - key: GCOUNT
           value: 1
           comment: number of groups
+    survey: eBOSS
   DR12:
     template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID]/spCFrame-[BR][ID]-[FRAME].fits
     example: v5_7_0/3682/spCFrame-b1-00108607.fits
@@ -2935,10 +2938,10 @@ releases:
       path_name: spCFrame
       path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spFrame-{br}{id}-{frame:0>8}.fits.gz'
       path_kwargs:
-      - frame
-      - plateid
       - br
       - id
+      - plateid
+      - frame
       - run2d
       access_string: spCFrame = $BOSS_SPECTRO_REDUX/{run2d}/{plateid}/spCFrame-{br}{id}-{frame}.fits
     hdus:
@@ -3865,6 +3868,7 @@ releases:
         - key: GCOUNT
           value: 1
           comment: number of groups
+    survey: eBOSS
   DR13:
     template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID]/spCFrame-[BR][ID]-[FRAME].fits
     example: v5_9_0/3682/spCFrame-b1-00108607.fits
@@ -3875,11 +3879,11 @@ releases:
       path_name: spCFrame
       path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spFrame-{br}{id}-{frame:0>8}.fits.gz'
       path_kwargs:
+      - br
       - id
-      - run2d
       - plateid
       - frame
-      - br
+      - run2d
       access_string: spCFrame = $BOSS_SPECTRO_REDUX/{run2d}/{plateid}/spCFrame-{br}{id}-{frame}.fits
     hdus:
       hdu0:
@@ -4805,6 +4809,7 @@ releases:
         - key: GCOUNT
           value: 1
           comment: number of groups
+    survey: eBOSS
   DR14:
     template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID]/spCFrame-[BR][ID]-[FRAME].fits
     example: v5_10_0/3682/spCFrame-b1-00108607.fits
@@ -4815,10 +4820,10 @@ releases:
       path_name: spCFrame
       path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spFrame-{br}{id}-{frame:0>8}.fits.gz'
       path_kwargs:
+      - br
       - id
       - plateid
       - frame
-      - br
       - run2d
       access_string: spCFrame = $BOSS_SPECTRO_REDUX/{run2d}/{plateid}/spCFrame-{br}{id}-{frame}.fits
     hdus:
@@ -5745,6 +5750,7 @@ releases:
         - key: GCOUNT
           value: 1
           comment: number of groups
+    survey: eBOSS
   DR15:
     template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID]/spCFrame-[BR][ID]-[FRAME].fits
     example: v5_10_0/3682/spCFrame-b1-00108607.fits
@@ -5755,10 +5761,10 @@ releases:
       path_name: spCFrame
       path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spFrame-{br}{id}-{frame:0>8}.fits.gz'
       path_kwargs:
-      - frame
       - br
       - id
       - plateid
+      - frame
       - run2d
       access_string: spCFrame = $BOSS_SPECTRO_REDUX/{run2d}/{plateid}/spCFrame-{br}{id}-{frame}.fits
     hdus:
@@ -6685,6 +6691,7 @@ releases:
         - key: GCOUNT
           value: 1
           comment: number of groups
+    survey: eBOSS
   DR16:
     template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID]/spCFrame-[BR][ID]-[FRAME].fits
     example: v5_13_0/3682/spCFrame-b1-00108607.fits
@@ -6697,8 +6704,8 @@ releases:
       path_kwargs:
       - br
       - id
-      - frame
       - plateid
+      - frame
       - run2d
       access_string: spCFrame = $BOSS_SPECTRO_REDUX/{run2d}/{plateid}/spCFrame-{br}{id}-{frame}.fits
     hdus:
@@ -7625,6 +7632,7 @@ releases:
         - key: GCOUNT
           value: 1
           comment: number of groups
+    survey: eBOSS
   DR17:
     template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID]/spCFrame-[BR][ID]-[FRAME].fits
     example: v5_13_2/3682/spCFrame-b1-00108607.fits
@@ -7635,11 +7643,11 @@ releases:
       path_name: spCFrame
       path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spFrame-{br}{id}-{frame:0>8}.fits.gz'
       path_kwargs:
-      - plateid
-      - run2d
-      - frame
-      - id
       - br
+      - id
+      - plateid
+      - frame
+      - run2d
       access_string: spCFrame = $BOSS_SPECTRO_REDUX/{run2d}/{plateid}/spCFrame-{br}{id}-{frame}.fits
     hdus:
       hdu0:
@@ -8565,6 +8573,7 @@ releases:
         - key: GCOUNT
           value: 1
           comment: number of groups
+    survey: eBOSS
   WORK:
     template: $BOSS_SPECTRO_REDUX/[RUN2D]/[FIELDID][ISPLATE]/spCFrame-[BR][ID]-[FRAME].fits
     example: v6_0_4/15000p/spCFrame-b1-00318676.fits
@@ -8573,14 +8582,13 @@ releases:
     access:
       in_sdss_access: true
       path_name: spCFrame
-      path_template: $BOSS_SPECTRO_REDUX/{run2d}/{fieldid}{isplate}/spFrame-{br}{id}-{frame:0>8}.fits.gz
+      path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spFrame-{br}{id}-{frame:0>8}.fits.gz'
       path_kwargs:
       - id
       - run2d
-      - isplate
-      - fieldid
       - br
       - frame
+      - plateid
       access_string: spCFrame = $BOSS_SPECTRO_REDUX/{run2d}/{fieldid}{isplate}/spCFrame-{br}{id}-{frame}.fits
     hdus:
       hdu0:
@@ -9658,3 +9666,4 @@ releases:
         - key: GCOUNT
           value: 1
           comment: ''
+    survey: eBOSS

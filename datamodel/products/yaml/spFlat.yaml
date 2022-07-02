@@ -26,6 +26,9 @@ general:
     (1 or 2) and mmmmmmmm indicates the frame number. An example of filename is spFlat-r2-00111703.fits.gz.
   generated_by: spCalib.pro
   design: false
+  surveys:
+  - eBOSS
+  - BHM
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
@@ -34,52 +37,52 @@ changelog:
       from: DR17
       primary_delta_nkeys: 21
       added_primary_header_kwargs:
-      - MGDRA
-      - V_GUIDER
-      - DUSTA
-      - WINDS
-      - AIRTEMP
-      - MGDDEC
-      - REQTIME
-      - SUBFRAME
-      - WINDS25M
-      - PLATETYP
-      - DUSTB
-      - MGDPOS
-      - TRUSTEMP
-      - V_APO
-      - PRESSURE
-      - GUSTD
-      - SRVYMODE
-      - CCDTEMP
-      - WINDD
-      - DIDFLUSH
-      - GUSTS
       - HUMIDITY
-      - V_SOP
+      - DEWPOINT
+      - DUSTB
+      - DIDFLUSH
+      - PRESSURE
+      - SUBFRAME
+      - AIRTEMP
+      - PFERR
+      - LN2TEMP
+      - MGDPOS
+      - DARKTIME
+      - SLITID1
+      - GUSTD
+      - CCDTEMP
+      - V_GUIDER
       - M1ZROT
       - V_BOSS
-      - DEWPOINT
-      - IONPUMP
-      - SLITID1
-      - DARKTIME
-      - WINDD25M
-      - LN2TEMP
-      - PFERR
+      - WINDD
+      - TRUSTEMP
+      - V_APO
+      - SRVYMODE
+      - GUSTS
+      - DUSTA
       - M2ZROT
+      - REQTIME
+      - PLATETYP
+      - MGDRA
+      - V_SOP
+      - WINDS25M
+      - MGDDEC
+      - WINDD25M
+      - WINDS
+      - IONPUMP
       removed_primary_header_kwargs:
-      - MC2TBCT
-      - MC2HUMCO
-      - MC2TRCB
-      - OBJOFFX
-      - MC2TBCB
-      - MC2HUMHT
       - DAQVER
-      - MC2TRCT
-      - BOSSVER
-      - MC2THT
-      - MC2TEMDN
       - OBJOFFY
+      - MC2TBCT
+      - BOSSVER
+      - MC2TEMDN
+      - MC2THT
+      - OBJOFFX
+      - MC2HUMHT
+      - MC2TRCT
+      - MC2TBCB
+      - MC2TRCB
+      - MC2HUMCO
     DR17:
       from: DR16
       note: No changes
@@ -116,10 +119,10 @@ releases:
       path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spFlat-{br}{id}-{frame:0>8}.fits.gz'
       path_kwargs:
       - br
-      - plateid
-      - run2d
       - id
+      - plateid
       - frame
+      - run2d
       access_string: spFlat = $BOSS_SPECTRO_REDUX/{run2d}/{plateid}/spFlat-{br}{id}-{frame}.fits.gz
     hdus:
       hdu0:
@@ -594,6 +597,7 @@ releases:
             type: float32[1808]
             unit: 'migration: unit of keyword/column not found. Needs update'
             description: '[float]'
+    survey: eBOSS
   DR10:
     template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID]/spFlat-[BR][ID]-[FRAME].fits.gz
     example: v5_5_12/3682/spFlat-b1-00108605.fits.gz
@@ -604,11 +608,11 @@ releases:
       path_name: spFlat
       path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spFlat-{br}{id}-{frame:0>8}.fits.gz'
       path_kwargs:
-      - plateid
       - br
+      - id
+      - plateid
       - frame
       - run2d
-      - id
       access_string: spFlat = $BOSS_SPECTRO_REDUX/{run2d}/{plateid}/spFlat-{br}{id}-{frame}.fits.gz
     hdus:
       hdu0:
@@ -1083,6 +1087,7 @@ releases:
             type: float32[1808]
             unit: 'migration: unit of keyword/column not found. Needs update'
             description: '[float]'
+    survey: eBOSS
   DR11:
     template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID]/spFlat-[BR][ID]-[FRAME].fits.gz
     example: v5_6_5/3682/spFlat-b1-00108605.fits.gz
@@ -1093,11 +1098,11 @@ releases:
       path_name: spFlat
       path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spFlat-{br}{id}-{frame:0>8}.fits.gz'
       path_kwargs:
-      - id
-      - run2d
       - br
-      - frame
+      - id
       - plateid
+      - frame
+      - run2d
       access_string: spFlat = $BOSS_SPECTRO_REDUX/{run2d}/{plateid}/spFlat-{br}{id}-{frame}.fits.gz
     hdus:
       hdu0:
@@ -1572,6 +1577,7 @@ releases:
             type: float32[1808]
             unit: 'migration: unit of keyword/column not found. Needs update'
             description: '[float]'
+    survey: eBOSS
   DR12:
     template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID]/spFlat-[BR][ID]-[FRAME].fits.gz
     example: v5_7_0/3682/spFlat-b1-00108605.fits.gz
@@ -1582,10 +1588,10 @@ releases:
       path_name: spFlat
       path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spFlat-{br}{id}-{frame:0>8}.fits.gz'
       path_kwargs:
-      - frame
-      - plateid
-      - id
       - br
+      - id
+      - plateid
+      - frame
       - run2d
       access_string: spFlat = $BOSS_SPECTRO_REDUX/{run2d}/{plateid}/spFlat-{br}{id}-{frame}.fits.gz
     hdus:
@@ -2061,6 +2067,7 @@ releases:
             type: float32[1808]
             unit: 'migration: unit of keyword/column not found. Needs update'
             description: '[float]'
+    survey: eBOSS
   DR13:
     template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID]/spFlat-[BR][ID]-[FRAME].fits.gz
     example: v5_9_0/3682/spFlat-b1-00108605.fits.gz
@@ -2550,6 +2557,7 @@ releases:
             type: float32[1808]
             unit: 'migration: unit of keyword/column not found. Needs update'
             description: '[float]'
+    survey: eBOSS
   DR14:
     template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID]/spFlat-[BR][ID]-[FRAME].fits.gz
     example: v5_10_0/3682/spFlat-b1-00108605.fits.gz
@@ -2560,10 +2568,10 @@ releases:
       path_name: spFlat
       path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spFlat-{br}{id}-{frame:0>8}.fits.gz'
       path_kwargs:
-      - id
       - br
-      - frame
+      - id
       - plateid
+      - frame
       - run2d
       access_string: spFlat = $BOSS_SPECTRO_REDUX/{run2d}/{plateid}/spFlat-{br}{id}-{frame}.fits.gz
     hdus:
@@ -3039,6 +3047,7 @@ releases:
             type: float32[1808]
             unit: 'migration: unit of keyword/column not found. Needs update'
             description: '[float]'
+    survey: eBOSS
   DR15:
     template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID]/spFlat-[BR][ID]-[FRAME].fits.gz
     example: v5_10_0/3682/spFlat-b1-00108605.fits.gz
@@ -3049,11 +3058,11 @@ releases:
       path_name: spFlat
       path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spFlat-{br}{id}-{frame:0>8}.fits.gz'
       path_kwargs:
-      - run2d
-      - frame
-      - id
       - br
+      - id
       - plateid
+      - frame
+      - run2d
       access_string: spFlat = $BOSS_SPECTRO_REDUX/{run2d}/{plateid}/spFlat-{br}{id}-{frame}.fits.gz
     hdus:
       hdu0:
@@ -3528,6 +3537,7 @@ releases:
             type: float32[1808]
             unit: 'migration: unit of keyword/column not found. Needs update'
             description: '[float]'
+    survey: eBOSS
   DR16:
     template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID]/spFlat-[BR][ID]-[FRAME].fits.gz
     example: v5_13_0/3682/spFlat-b1-00108605.fits.gz
@@ -3539,10 +3549,10 @@ releases:
       path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spFlat-{br}{id}-{frame:0>8}.fits.gz'
       path_kwargs:
       - br
-      - frame
-      - run2d
       - id
       - plateid
+      - frame
+      - run2d
       access_string: spFlat = $BOSS_SPECTRO_REDUX/{run2d}/{plateid}/spFlat-{br}{id}-{frame}.fits.gz
     hdus:
       hdu0:
@@ -4017,6 +4027,7 @@ releases:
             type: float32[1811]
             unit: 'migration: unit of keyword/column not found. Needs update'
             description: '[float]'
+    survey: eBOSS
   DR17:
     template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID]/spFlat-[BR][ID]-[FRAME].fits.gz
     example: v5_13_2/3682/spFlat-b1-00108605.fits.gz
@@ -4027,11 +4038,11 @@ releases:
       path_name: spFlat
       path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spFlat-{br}{id}-{frame:0>8}.fits.gz'
       path_kwargs:
+      - br
       - id
-      - run2d
       - plateid
       - frame
-      - br
+      - run2d
       access_string: spFlat = $BOSS_SPECTRO_REDUX/{run2d}/{plateid}/spFlat-{br}{id}-{frame}.fits.gz
     hdus:
       hdu0:
@@ -4506,6 +4517,7 @@ releases:
             type: float32[1811]
             unit: 'migration: unit of keyword/column not found. Needs update'
             description: '[float]'
+    survey: eBOSS
   WORK:
     template: $BOSS_SPECTRO_REDUX/[RUN2D]/[FIELDID][ISPLATE]/spFlat-[BR][ID]-[FRAME].fits.gz
     example: v6_0_4/15000p/spFlat-b1-00318675.fits.gz
@@ -4518,10 +4530,10 @@ releases:
       path_kwargs:
       - fieldid
       - isplate
-      - id
       - br
-      - run2d
       - frame
+      - run2d
+      - id
       access_string: spFlat = $BOSS_SPECTRO_REDUX/{run2d}/{fieldid}{isplate}/spFlat-{br}{id}-{frame}.fits.gz
     hdus:
       hdu0:
@@ -5045,3 +5057,4 @@ releases:
             type: float32[1802]
             unit: ''
             description: Bspline fitting coefficients
+    survey: BHM

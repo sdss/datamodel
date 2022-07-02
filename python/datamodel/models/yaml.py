@@ -258,7 +258,7 @@ class Release(BaseModel):
     example: str
     location: str
     environment: str
-    survey: str
+    survey: str = None
     access: Access
     hdus: Dict[str, HDU] = None
     par: ParModel = None

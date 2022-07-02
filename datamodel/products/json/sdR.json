@@ -7,6 +7,24 @@
       "BOSS_SPECTRO_DATA",
       "BOSS_SPECTRO_DATA_N"
     ],
+    "surveys": [
+      {
+        "name": "eBOSS",
+        "long": "Extended Baryon Oscillation Spectroscopic Survey",
+        "description": "A cosmological survey of quasars and galaxies to understand baryon acoustic oscillations",
+        "phase": {
+          "name": "Phase-IV",
+          "id": 4,
+          "start": 2014,
+          "end": 2020,
+          "active": false
+        },
+        "id": "eboss",
+        "aliases": [
+          "boss"
+        ]
+      }
+    ],
     "datatype": "FITS",
     "filesize": "35 KB",
     "releases": [
@@ -82,89 +100,89 @@
         "from": "DR17",
         "primary_delta_nkeys": 84,
         "added_primary_header_kwargs": [
-          "M2PISTON",
-          "AIRTEMP",
-          "M1YTILT",
-          "COLLC",
-          "M2YTRAN",
-          "COLLB",
-          "PLATETYP",
-          "HGCD",
-          "NE",
-          "AZ",
-          "RADEG",
-          "DATE-OBS",
-          "GUSTS",
-          "MC1TRCB",
-          "CHECKSUM",
-          "FOCUS",
-          "SPA",
           "FF",
-          "DUSTB",
           "GUSTD",
-          "COLLA",
-          "M1YTRAN",
-          "MC1TBCT",
-          "M2YTILT",
-          "DEC",
-          "NAME",
-          "LN2TEMP",
-          "SUBFRAME",
-          "OBJSYS",
-          "TRUSTEMP",
-          "MC1THT",
-          "TAI-BEG",
-          "M1ZROT",
-          "MAPID",
-          "WINDS25M",
-          "EXPTIME",
-          "PRESSURE",
-          "IPA",
-          "IONPUMP",
-          "M2ZROT",
-          "MC1HUMHT",
-          "HARTMANN",
-          "REQTIME",
-          "ALT",
-          "MC1HUMCO",
-          "DECDEG",
-          "COMMENT",
-          "HUMIDITY",
-          "EXPOSURE",
-          "PFERR",
-          "DIDFLUSH",
-          "MC1TBCB",
-          "FLAVOR",
-          "FFS",
-          "DUSTA",
           "DARKTIME",
-          "PLATEID",
-          "MJD",
-          "CCDTEMP",
-          "V_APO",
-          "SLITID1",
-          "DEWPOINT",
-          "MC1TEMDN",
+          "FFS",
+          "WINDS25M",
           "V_BOSS",
-          "CAMERAS",
-          "M2XTRAN",
-          "RA",
-          "POINTING",
-          "WINDS",
-          "M1PISTON",
-          "WINDD",
-          "M1XTRAN",
-          "MC1TRCT",
-          "WINDD25M",
-          "M1XTILT",
+          "MC1TBCT",
+          "AIRTEMP",
+          "IONPUMP",
+          "EXPTIME",
+          "FLAVOR",
+          "M2PISTON",
+          "COLLA",
+          "MC1TBCB",
+          "ALT",
           "CARTID",
+          "M2YTRAN",
+          "DECDEG",
+          "RA",
+          "PLATETYP",
+          "SPA",
+          "DEWPOINT",
+          "TAI-BEG",
+          "MC1TRCB",
+          "MC1TRCT",
+          "M1XTILT",
+          "AZ",
+          "HARTMANN",
+          "M1ZROT",
+          "FOCUS",
+          "PFERR",
+          "HUMIDITY",
+          "LN2TEMP",
+          "M2XTRAN",
+          "CHECKSUM",
+          "RADEG",
+          "MC1HUMHT",
+          "NAME",
+          "IPA",
           "SCALE",
-          "M2XTILT"
+          "WINDD25M",
+          "M2ZROT",
+          "POINTING",
+          "EXPOSURE",
+          "M2YTILT",
+          "M2XTILT",
+          "CAMERAS",
+          "MC1THT",
+          "COMMENT",
+          "OBJSYS",
+          "MC1HUMCO",
+          "WINDS",
+          "M1XTRAN",
+          "WINDD",
+          "MAPID",
+          "COLLC",
+          "DIDFLUSH",
+          "TRUSTEMP",
+          "M1YTILT",
+          "DUSTA",
+          "MC1TEMDN",
+          "GUSTS",
+          "REQTIME",
+          "CCDTEMP",
+          "HGCD",
+          "DEC",
+          "MJD",
+          "M1YTRAN",
+          "COLLB",
+          "SLITID1",
+          "M1PISTON",
+          "PLATEID",
+          "SUBFRAME",
+          "PRESSURE",
+          "NE",
+          "DUSTB",
+          "V_APO",
+          "DATE-OBS"
         ],
         "removed_primary_header_kwargs": [
-          "DATASEC",
           "DAQVER",
           "CAMERA",
+          "DATASEC",
           "OBSID"
         ]
       },
@@ -208,15 +226,16 @@
       "example": "55752/sdR-b1-00132973.fit.gz",
       "location": "{mjd}/sdR-{br}{id}-{frame}.fit.gz",
       "environment": "BOSS_SPECTRO_DATA",
+      "survey": "eBOSS",
       "access": {
         "in_sdss_access": true,
         "path_name": "sdR",
         "path_template": "$BOSS_SPECTRO_DATA/{mjd}/sdR-{br}{id}-{frame}.fit",
         "path_kwargs": [
-          "frame",
+          "br",
           "id",
-          "mjd",
-          "br"
+          "frame",
+          "mjd"
         ],
         "access_string": "sdR = $BOSS_SPECTRO_DATA/{mjd}/sdR-{br}{id}-{frame}.fit.gz"
       },
@@ -341,18 +360,19 @@
     },
     "DR10": {
       "template": "$BOSS_SPECTRO_DATA/[MJD]/sdR-[BR][ID]-[FRAME].fit.gz",
-      "example": "55049/sdR-b1-00100006.fits.gz",
+      "example": "55049/sdR-b1-00100006.fit.gz",
       "location": "{mjd}/sdR-{br}{id}-{frame}.fit.gz",
       "environment": "BOSS_SPECTRO_DATA",
+      "survey": "eBOSS",
       "access": {
         "in_sdss_access": true,
         "path_name": "sdR",
         "path_template": "$BOSS_SPECTRO_DATA/{mjd}/sdR-{br}{id}-{frame}.fit",
         "path_kwargs": [
           "br",
-          "mjd",
+          "id",
           "frame",
-          "id"
+          "mjd"
         ],
         "access_string": "sdR = $BOSS_SPECTRO_DATA/{mjd}/sdR-{br}{id}-{frame}.fit.gz"
       },
@@ -477,18 +497,19 @@
     },
     "DR11": {
       "template": "$BOSS_SPECTRO_DATA/[MJD]/sdR-[BR][ID]-[FRAME].fit.gz",
-      "example": "55049/sdR-b1-00100006.fits.gz",
+      "example": "55049/sdR-b1-00100006.fit.gz",
       "location": "{mjd}/sdR-{br}{id}-{frame}.fit.gz",
       "environment": "BOSS_SPECTRO_DATA",
+      "survey": "eBOSS",
       "access": {
         "in_sdss_access": true,
         "path_name": "sdR",
         "path_template": "$BOSS_SPECTRO_DATA/{mjd}/sdR-{br}{id}-{frame}.fit",
         "path_kwargs": [
-          "id",
           "br",
-          "mjd",
-          "frame"
+          "id",
+          "frame",
+          "mjd"
         ],
         "access_string": "sdR = $BOSS_SPECTRO_DATA/{mjd}/sdR-{br}{id}-{frame}.fit.gz"
       },
@@ -613,18 +634,19 @@
     },
     "DR12": {
       "template": "$BOSS_SPECTRO_DATA/[MJD]/sdR-[BR][ID]-[FRAME].fit.gz",
-      "example": "55049/sdR-b1-00100006.fits.gz",
+      "example": "55049/sdR-b1-00100006.fit.gz",
       "location": "{mjd}/sdR-{br}{id}-{frame}.fit.gz",
       "environment": "BOSS_SPECTRO_DATA",
+      "survey": "eBOSS",
       "access": {
         "in_sdss_access": true,
         "path_name": "sdR",
         "path_template": "$BOSS_SPECTRO_DATA/{mjd}/sdR-{br}{id}-{frame}.fit",
         "path_kwargs": [
-          "mjd",
+          "br",
           "id",
           "frame",
-          "br"
+          "mjd"
         ],
         "access_string": "sdR = $BOSS_SPECTRO_DATA/{mjd}/sdR-{br}{id}-{frame}.fit.gz"
       },
@@ -749,9 +771,10 @@
     },
     "DR13": {
       "template": "$BOSS_SPECTRO_DATA/[MJD]/sdR-[BR][ID]-[FRAME].fit.gz",
-      "example": "55049/sdR-b1-00100006.fits.gz",
+      "example": "55049/sdR-b1-00100006.fit.gz",
       "location": "{mjd}/sdR-{br}{id}-{frame}.fit.gz",
       "environment": "BOSS_SPECTRO_DATA",
+      "survey": "eBOSS",
       "access": {
         "in_sdss_access": true,
         "path_name": "sdR",
@@ -885,18 +908,19 @@
     },
     "DR14": {
       "template": "$BOSS_SPECTRO_DATA/[MJD]/sdR-[BR][ID]-[FRAME].fit.gz",
-      "example": "55049/sdR-b1-00100006.fits.gz",
+      "example": "55049/sdR-b1-00100006.fit.gz",
       "location": "{mjd}/sdR-{br}{id}-{frame}.fit.gz",
       "environment": "BOSS_SPECTRO_DATA",
+      "survey": "eBOSS",
       "access": {
         "in_sdss_access": true,
         "path_name": "sdR",
         "path_template": "$BOSS_SPECTRO_DATA/{mjd}/sdR-{br}{id}-{frame}.fit",
         "path_kwargs": [
-          "mjd",
-          "id",
           "br",
-          "frame"
+          "id",
+          "frame",
+          "mjd"
         ],
         "access_string": "sdR = $BOSS_SPECTRO_DATA/{mjd}/sdR-{br}{id}-{frame}.fit.gz"
       },
@@ -1021,18 +1045,19 @@
     },
     "DR15": {
       "template": "$BOSS_SPECTRO_DATA/[MJD]/sdR-[BR][ID]-[FRAME].fit.gz",
-      "example": "55049/sdR-b1-00100006.fits.gz",
+      "example": "55049/sdR-b1-00100006.fit.gz",
       "location": "{mjd}/sdR-{br}{id}-{frame}.fit.gz",
       "environment": "BOSS_SPECTRO_DATA",
+      "survey": "eBOSS",
       "access": {
         "in_sdss_access": true,
         "path_name": "sdR",
         "path_template": "$BOSS_SPECTRO_DATA/{mjd}/sdR-{br}{id}-{frame}.fit",
         "path_kwargs": [
-          "mjd",
-          "frame",
+          "br",
           "id",
-          "br"
+          "frame",
+          "mjd"
         ],
         "access_string": "sdR = $BOSS_SPECTRO_DATA/{mjd}/sdR-{br}{id}-{frame}.fit.gz"
       },
@@ -1157,18 +1182,19 @@
     },
     "DR16": {
       "template": "$BOSS_SPECTRO_DATA/[MJD]/sdR-[BR][ID]-[FRAME].fit.gz",
-      "example": "55049/sdR-b1-00100006.fits.gz",
+      "example": "55049/sdR-b1-00100006.fit.gz",
       "location": "{mjd}/sdR-{br}{id}-{frame}.fit.gz",
       "environment": "BOSS_SPECTRO_DATA",
+      "survey": "eBOSS",
       "access": {
         "in_sdss_access": true,
         "path_name": "sdR",
         "path_template": "$BOSS_SPECTRO_DATA/{mjd}/sdR-{br}{id}-{frame}.fit",
         "path_kwargs": [
-          "mjd",
-          "id",
           "br",
-          "frame"
+          "id",
+          "frame",
+          "mjd"
         ],
         "access_string": "sdR = $BOSS_SPECTRO_DATA/{mjd}/sdR-{br}{id}-{frame}.fit.gz"
       },
@@ -1293,18 +1319,19 @@
     },
     "DR17": {
       "template": "$BOSS_SPECTRO_DATA/[MJD]/sdR-[BR][ID]-[FRAME].fit.gz",
-      "example": "55049/sdR-b1-00100006.fits.gz",
+      "example": "55049/sdR-b1-00100006.fit.gz",
       "location": "{mjd}/sdR-{br}{id}-{frame}.fit.gz",
       "environment": "BOSS_SPECTRO_DATA",
+      "survey": "eBOSS",
       "access": {
         "in_sdss_access": true,
         "path_name": "sdR",
         "path_template": "$BOSS_SPECTRO_DATA/{mjd}/sdR-{br}{id}-{frame}.fit",
         "path_kwargs": [
           "br",
+          "id",
           "frame",
-          "mjd",
-          "id"
+          "mjd"
         ],
         "access_string": "sdR = $BOSS_SPECTRO_DATA/{mjd}/sdR-{br}{id}-{frame}.fit.gz"
       },
@@ -1432,15 +1459,16 @@
       "example": "55752/sdR-b1-00132973.fit.gz",
       "location": "{mjd}/sdR-{br}{id}-{frame}.fit.gz",
       "environment": "BOSS_SPECTRO_DATA",
+      "survey": "eBOSS",
       "access": {
         "in_sdss_access": true,
         "path_name": "sdR",
         "path_template": "$BOSS_SPECTRO_DATA/{mjd}/sdR-{br}{id}-{frame}.fit",
         "path_kwargs": [
-          "id",
           "br",
-          "mjd",
-          "frame"
+          "frame",
+          "id",
+          "mjd"
         ],
         "access_string": "sdR = $BOSS_SPECTRO_DATA/{mjd}/sdR-{br}{id}-{frame}.fit.gz"
       },
