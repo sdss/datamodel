@@ -5,7 +5,7 @@
 from __future__ import print_function, division, absolute_import
 
 from collections import defaultdict
-from typing import List, Union
+from typing import List, Union, Optional
 from pydantic import BaseModel, validator
 
 from ..io.loaders import read_yaml, get_yaml_files
@@ -29,7 +29,7 @@ class Version(BaseModel):
     description: str
 
 
-class Tag(BaseModel):
+class Tag(BaseModel, smart_union=True):
     """ Pydantic model representing an SDSS software tag
 
     Parameters
@@ -52,20 +52,27 @@ class Tag(BaseModel):
     """
     version: Version
     tag: Union[str, list] = None
-    release: Union[str, Release]
+    release: Union[str, Release, List[Release]]
     survey: Union[str, Survey]
 
     @validator('release')
     def get_release(cls, v):
         """ check the release is a valid SDSS release """
-        if type(v) == Release:
+        if isinstance(v, Release):
             return v
 
         # return all public releases
         if v == 'all':
             return [i for i in releases if i.public]
 
-        opt = [p for p in releases if p.name==v]
+        # check release
+        if isinstance(v, str):
+            # check string release name
+            opt = [p for p in releases if p.name==v]
+        elif isinstance(v, list):
+            # check list of release names
+            vv = [i.name for i in v]
+            opt = [p for p in releases if p.name in vv]
         if not opt:
             raise ValueError(f'Tag release {v} is not a valid SDSS Release.')
         return opt[0]
@@ -73,7 +80,7 @@ class Tag(BaseModel):
     @validator('survey')
     def get_survey(cls, v):
         """ check the survey is a valid SDSS survey """
-        if type(v) == Survey:
+        if isinstance(v, Survey):
             return v
 
         opt = [p for p in surveys if p.id==v]

@@ -43,7 +43,7 @@ class Phase(BaseModel):
     active: bool = False
 
 
-class Survey(BaseModel):
+class Survey(BaseModel, smart_union=True):
     """ Pydantic model representing an SDSS survey
 
     Parameters
@@ -74,10 +74,11 @@ class Survey(BaseModel):
     @validator('phase')
     def get_phase(cls, v):
         """ check the phase is a valid SDSS phase """
-        if type(v) == Phase:
+        if isinstance(v, Phase):
             return v
 
-        opt = [p for p in phases if p.id==v]
+        pid = v if isinstance(v, int) else v['id'] if isinstance(v, dict) else None
+        opt = [p for p in phases if p.id==pid]
         if not opt:
             raise ValueError(f'Survey phase {v} is not a valid SDSS Phase!')
         return opt[0]
