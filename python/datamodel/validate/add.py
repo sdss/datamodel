@@ -185,6 +185,10 @@ def update_tree(release: str = None, work_ver: str = None, branch: str = 'dm_upd
     # clone the tree repo
     repo = clone_tree(branch=branch, local=local)
 
+    # update tree dir to point to cloned path
+    new_tree_dir = repo.git_dir.split('/.git')[0]
+    os.environ['TREE_DIR'] = new_tree_dir
+
     # iterate over all the new products, grouped by release
     new_items = []
     for rr, items in itertools.groupby(sorted(get_new_products(release=release)), key=lambda x: x[0]):
