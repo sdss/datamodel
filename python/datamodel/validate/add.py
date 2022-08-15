@@ -190,7 +190,7 @@ def update_tree(release: str = None, work_ver: str = None, branch: str = 'dm_upd
     os.environ['TREE_DIR'] = new_tree_dir
 
     # iterate over all the new products, grouped by release
-    new_items = []
+    #new_items = []
     for rr, items in itertools.groupby(sorted(get_new_products(release=release)), key=lambda x: x[0]):
         # do nothing if no new products
         if not rr or not items:
@@ -227,10 +227,10 @@ def update_tree(release: str = None, work_ver: str = None, branch: str = 'dm_upd
             # remove the backup file
             os.remove(backup_cfg)
 
-    # if no new items, return
-    if not new_items:
-        log.info("Nothing to update.")
-        return
+    # # if no new items, return
+    # if not new_items:
+    #     log.info("Nothing to update.")
+    #     return
 
     # push the changes
     if not test and not skip_push:
