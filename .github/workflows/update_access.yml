@@ -34,12 +34,14 @@ jobs:
         run: echo "::set-output name=upout::$(datamodel tree update)\n"
 
       - name: Push Branch
+        id: pushbr
         if: ${{ contains(steps.dmupdate.outputs.upout, 'Found updated path for file species') }}
         run: |
           git push origin dm_update_models
 
       - name: Create Pull Request
         id: cpr
+        if: ${{ steps.pushbr.outcome }} == "success"
         uses: peter-evans/create-pull-request@v4
         with:
           title: Auto update datamodel access
