@@ -8,6 +8,7 @@ name: Update access models
 on:
   schedule:
     - cron: '0 9 * * 1'
+  workflow_dispatch:
 
 jobs:
   createpr:
@@ -29,10 +30,18 @@ jobs:
           pip install -e ".[dev, all]"
 
       - name: Update Models
-        run: datamodel tree update
+        id: dmupdate
+        run: echo "::set-output name=upout::$(datamodel tree update)\n"
+
+      - name: Push Branch
+        id: pushbr
+        if: ${{ contains(steps.dmupdate.outputs.upout, 'Found updated path for file species') }}
+        run: |
+          git push origin dm_update_models
 
       - name: Create Pull Request
         id: cpr
+        if: ${{ steps.pushbr.outcome }} == "success"
         uses: peter-evans/create-pull-request@v4
         with:
           title: Auto update datamodel access
