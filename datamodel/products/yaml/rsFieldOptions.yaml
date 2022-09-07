@@ -16,6 +16,9 @@ general:
   naming_convention: $ROBOSTRATEGY_DATA/allocations/[PLAN]/targets/rsFieldOptions-[PLAN]-[OBSERVATORY]-[FIELDID].fits
   generated_by: robostrategy
   design: false
+  surveys:
+  - APOGEE-2
+  - SDSS
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
@@ -23,14 +26,17 @@ changelog:
 releases:
   WORK:
     template: $ROBOSTRATEGY_DATA/allocations/[PLAN]/targets/rsFieldOptions-[PLAN]-[OBSERVATORY]-[FIELDID].fits
-    example: allocations/epsilon-5-core-2/targets/rsFieldOptions-epsilon-5-core-2-apo-1.fits
+    example: allocations/epsilon/targets/rsFieldOptions-epsilon-5-core-2-apo-1.fits
     location: allocations/{plan}/targets/rsFieldOptions-{plan}-{observatory}-{fieldid}.fits
     environment: ROBOSTRATEGY_DATA
     access:
-      in_sdss_access: false
-      path_name: null
-      path_template: null
-      path_kwargs: null
+      in_sdss_access: true
+      path_name: rsFieldOptions
+      path_template: $ROBOSTRATEGY_DATA/allocations/{plan}/targets/rsFieldOptions-{plan}-{observatory}-{fieldid}.fits
+      path_kwargs:
+      - observatory
+      - plan
+      - fieldid
       access_string: rsFieldOptions = $ROBOSTRATEGY_DATA/allocations/{plan}/targets/rsFieldOptions-{plan}-{observatory}-{fieldid}.fits
     hdus:
       hdu0:
@@ -164,3 +170,4 @@ releases:
             type: char[30]
             unit: ''
             description: Carton name
+    survey: SDSS

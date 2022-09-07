@@ -186,6 +186,13 @@ def validyaml(yamlfile):
         return yamlfile
     return _validyaml
 
+@pytest.fixture()
+def dmonly(testfile):
+    """ fixture factory to create a datamodel (but not write out stubs) for a given file type suffix"""
+    def _datamodel(suffix='fits'):
+        testfile(suffix=suffix)
+        return DataModel(file_spec='test', keywords=['ver=v1', 'id=a'], path='TEST_REDUX/{ver}/testfile_{id}.' + f'{suffix}')
+    return _datamodel
 
 @pytest.fixture()
 def datamodel(testfile):

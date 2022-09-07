@@ -10,7 +10,6 @@
 # Last Modified: Monday, June 28 2021 4:08:00 pm
 # Modified By: Brian Cherinka
 
-from datetime import date
 from pydantic import BaseModel
 from typing import Iterator, Union, Callable
 
@@ -24,14 +23,14 @@ class BaseList(BaseModel):
     def __contains__(self, value) -> bool:
         """ Uses the model name to check list inclusion """
         if isinstance(value, str):
-            return value in [i.name for i in self]
+            return value.lower() in [i.name.lower() for i in self]
         return value in self.__root__
 
     def __getitem__(self, item: Union[str, int]) -> BaseModel:
         """ Allows item access by index or model name """
         if isinstance(item, str) and item in self:
-            vals = [i.name for i in self.__root__]
-            return self.__root__[vals.index(item)]
+            vals = [i.name.lower() for i in self.__root__]
+            return self.__root__[vals.index(item.lower())]
         elif isinstance(item, BaseModel):
             return self[self.__root__.index(item)]
         return self.__root__[item]
@@ -44,7 +43,7 @@ class BaseList(BaseModel):
     def __str__(self) -> str:
         """ Stringifies the model names """
         return f"[{', '.join([i.name for i in self])}]"
-    
+
     def __len__(self) -> int:
         """ Returns the length of the list """
         return len(self.__root__)
@@ -55,8 +54,8 @@ class BaseList(BaseModel):
         Performs an in-place sort of the Pydantic Models using Python's
         built-in ``sorted()`` method. Sets the newly sorted list to the
         ``__root__`` attribute, to preserve the original BaseList object
-        instance.  By default, the input sort ``key`` to the ``sorted`` 
-        function is the field attribute on the model.   
+        instance.  By default, the input sort ``key`` to the ``sorted``
+        function is the field attribute on the model.
 
         Parameters
         ----------
@@ -69,7 +68,7 @@ class BaseList(BaseModel):
             key = lambda x: getattr(x, field)
         vals = sorted(self.__root__.copy(), key=key, **kwargs)
         self.__root__ = vals
-        
+
     def list_names(self):
         """ Create a simplified list of name attributes """
         return [item.name for item in self.__root__]

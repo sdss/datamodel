@@ -15,6 +15,8 @@ general:
   naming_convention: spXCSAO-[FIELDID]-[MJD].fits
   generated_by: idlspec2d - run_pyXCSAO.py
   design: false
+  surveys:
+  - eBOSS
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
@@ -22,19 +24,14 @@ changelog:
 releases:
   WORK:
     template: $BOSS_SPECTRO_REDUX/[RUN2D]/[FIELDID][ISPLATE]/[RUN1D]/spXCSAO-[FIELDID]-[MJD].fits
-    example: v6_0_4/15000p/v6_0_4/spXCSAO-15000-59146.fits
+    example: v6_0_4/15000p/v6_0_4/spXCSAO-1-59146.fits
     location: '{run2d}/{fieldid}{isplate}/{run1d}/spXCSAO-{fieldid}-{mjd}.fits'
     environment: BOSS_SPECTRO_REDUX
     access:
-      in_sdss_access: true
-      path_name: spXCSAO
-      path_template: $BOSS_SPECTRO_REDUX/{run2d}/{fieldid}{isplate}/{run1d}/spXCSAO-{fieldid}-{mjd}.fits
-      path_kwargs:
-      - run1d
-      - mjd
-      - isplate
-      - fieldid
-      - run2d
+      in_sdss_access: false
+      path_name: null
+      path_template: null
+      path_kwargs: null
       access_string: spXCSAO = $BOSS_SPECTRO_REDUX/{run2d}/{fieldid}{isplate}/{run1d}/spXCSAO-{fieldid}-{mjd}.fits
     hdus:
       hdu0:
@@ -262,3 +259,4 @@ releases:
             type: float64
             unit: '[Sun]'
             description: Uncertainty in alpha
+    survey: eBOSS

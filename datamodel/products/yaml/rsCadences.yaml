@@ -12,6 +12,9 @@ general:
   naming_convention: $ROBOSTRATEGY_DATA/allocations/[PLAN]/rsCadences-[PLAN]-[OBSERVATORY].fits
   generated_by: roboscheduler
   design: false
+  surveys:
+  - APOGEE-2
+  - SDSS
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
@@ -19,7 +22,7 @@ changelog:
 releases:
   WORK:
     template: $ROBOSTRATEGY_DATA/allocations/[PLAN]/rsCadences-[PLAN]-[OBSERVATORY].fits
-    example: allocations/epsilon-5-core-0/rsCadences-epsilon-5-core-0-apo.fits
+    example: allocations/epsilon/rsCadences-epsilon-5-core-0-apo.fits
     location: allocations/{plan}/rsCadences-{plan}-{observatory}.fits
     environment: ROBOSTRATEGY_DATA
     access:
@@ -27,8 +30,8 @@ releases:
       path_name: rsCadences
       path_template: $ROBOSTRATEGY_DATA/allocations/{plan}/rsCadences-{plan}-{observatory}.fits
       path_kwargs:
-      - plan
       - observatory
+      - plan
       access_string: rsCadences = $ROBOSTRATEGY_DATA/allocations/{plan}/rsCadences-{plan}-{observatory}.fits
     hdus:
       hdu0:
@@ -138,3 +141,4 @@ releases:
             type: char[40]
             unit: ''
             description: version part of cadence label (e.g. '_v1')
+    survey: SDSS

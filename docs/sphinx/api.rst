@@ -126,6 +126,11 @@ Models
    :undoc-members:
    :show-inheritance:
 
+.. automodule:: datamodel.models.versions
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 .. automodule:: datamodel.models.filetypes.fits
    :members:
    :undoc-members:

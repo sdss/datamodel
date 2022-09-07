@@ -20,6 +20,7 @@ from datamodel.generate import DataModel
 from datamodel.validate import (check_products, validate_models, revalidate,
                                 update_tree, update_datamodel_access)
 from datamodel.io.move import dm_move, construct_new_path, dm_move_species
+from datamodel.io.loaders import get_yaml_files
 from datamodel import log
 
 import cloup
@@ -260,6 +261,31 @@ def move(file_species: str, from_release: str, to_release: str,
 
 
 cli.add_command(move)
+
+@cli.command(short_help='Update datamodels with new template content')
+@click.option('-f', '--file_species', help='unique name of the product file species')
+@click.option('-r', '--release', help='the SDSS data release', required=True, default='WORK')
+@click.option('-v', '--verbose', help='turn on verbosity', is_flag=True, default=False)
+def update(file_species: str, release: str, verbose: bool):
+    """ Update existing datamodels with any new content added into the template """
+
+    if file_species:
+        files = [get_yaml_files(file_species)]
+    else:
+        files = get_yaml_files("products")
+
+    for file in files:
+        log.info(f"Updating datamodel {file.stem}.")
+        try:
+            dm = DataModel.from_yaml(file.stem, release=release, verbose=verbose)
+        except Exception as e:
+            log.error(f'DM update failed. Failed to instantiate datamodel {file.stem}.')
+        else:
+            try:
+                dm.write_stubs()
+            except Exception as e:
+                log.error(f'DM update failed. Could not write stubs for {file.stem}. Error: {e}')
+
 
 
 if __name__ == '__main__':
