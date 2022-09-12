@@ -1,8 +1,8 @@
 {
   "general": {
     "name": "mwmStar",
-    "short": "replace-me - with a short one sentence summary of file",
-    "description": "replace-me - with a longer description of the data product",
+    "short": "The stacked spectra for a single star from APOGEE APO, APOGEE LCO, and BOSS",
+    "description": "mwmStar file contains all stacked spectra for a MWM source. This includes a stacked optical BOSS spectrum, and a stacked infrared spectrum from the APOGEE instrument at Apache Point Observatory, and a stacked infrared spectrum from the APOGEE instrument on the du Pont telescope at Las Campanas Observatory. Currently we do not stack spectra from different APOGEE instruments because of their different line spread function profiles. Stacked spectra from each telescope/instrument combination are stored in their own HDU (see mwmVisit HDU definition).",
     "environments": [
       "MWM_ASTRA"
     ],
@@ -32,8 +32,8 @@
         "release_date": "unreleased"
       }
     ],
-    "naming_convention": "replace-me - with $MWM_ASTRA/[ASTRA_VERSION]/[RUN2D]-[APRED]/spectra/star/[CATALOGID_GROUPS]/mwmStar-[ASTRA_VERSION]-[CATALOGID].fits or mwmStar-0.2.3-27021598031085682.fits but with regex pattern matches",
-    "generated_by": "replace-me - with the name(s) of any git or svn product(s) that produces this product.",
+    "naming_convention": "$MWM_ASTRA/[ASTRA_VERSION]/[RUN2D]-[APRED]/spectra/star/[CATALOGID_GROUPS]/mwmStar-[ASTRA_VERSION]-[CATALOGID].fits",
+    "generated_by": "astra this product.",
     "design": false
   },
   "changelog": {
@@ -52,10 +52,10 @@
         "path_name": "mwmStar",
         "path_template": "$MWM_ASTRA/{astra_version}/{run2d}-{apred}/spectra/star/@catalogid_groups|/mwmStar-{astra_version}-{catalogid}@component_default|.fits",
         "path_kwargs": [
+          "catalogid",
           "apred",
           "run2d",
-          "astra_version",
-          "catalogid"
+          "astra_version"
         ],
         "access_string": "mwmStar = $MWM_ASTRA/{astra_version}/{run2d}-{apred}/spectra/star/{catalogid_groups}/mwmStar-{astra_version}-{catalogid}.fits"
       },
@@ -63,7 +63,7 @@
         "hdu0": {
           "name": "PRIMARY",
           "is_image": true,
-          "description": "replace-me description",
+          "description": "Souce information only",
           "size": "0 bytes",
           "header": [
             {
@@ -317,40 +317,40 @@
         "hdu1": {
           "name": "BOSS/APO",
           "is_image": false,
-          "description": "replace-me description",
+          "description": "Stacked BOSS spectrum.",
           "size": "90 KB",
           "header": null,
           "columns": {
             "LAMBDA": {
               "name": "LAMBDA",
-              "description": "replace-me - with content",
+              "description": "wavelength",
               "type": "float32",
-              "unit": "replace-me - with content"
+              "unit": "Angstrom"
             },
             "FLUX": {
               "name": "FLUX",
-              "description": "replace-me - with content",
+              "description": "continuum-normalized flux from stacked spectra",
               "type": "float32",
-              "unit": "replace-me - with content"
+              "unit": "unitless"
             },
             "E_FLUX": {
               "name": "E_FLUX",
-              "description": "replace-me - with content",
+              "description": "flux error",
               "type": "float32",
-              "unit": "replace-me - with content"
+              "unit": "unitless"
             },
             "BITMASK": {
               "name": "BITMASK",
-              "description": "replace-me - with content",
+              "description": "per-pixel reduction flags",
               "type": "int64",
-              "unit": "replace-me - with content"
+              "unit": "unitless"
             }
           }
         },
         "hdu2": {
           "name": "BOSS/LCO",
           "is_image": false,
-          "description": "replace-me description",
+          "description": "Placeholder for a stacked spectrum from BOSS south should such an instrument exist.",
           "size": "0 bytes",
           "header": null,
           "columns": {}
@@ -358,7 +358,7 @@
         "hdu3": {
           "name": "APOGEE/APO",
           "is_image": false,
-          "description": "replace-me description",
+          "description": "Stacked APOGEE north spectrum",
           "size": "0 bytes",
           "header": null,
           "columns": {}
@@ -366,7 +366,7 @@
         "hdu4": {
           "name": "APOGEE/LCO",
           "is_image": false,
-          "description": "replace-me description",
+          "description": "Stacked APOGEE south spectrum",
           "size": "0 bytes",
           "header": null,
           "columns": {}

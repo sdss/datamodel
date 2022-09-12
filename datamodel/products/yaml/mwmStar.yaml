@@ -1,7 +1,13 @@
 general:
   name: mwmStar
-  short: replace-me - with a short one sentence summary of file
-  description: replace-me - with a longer description of the data product
+  short: The stacked spectra for a single star from APOGEE APO, APOGEE LCO, and BOSS
+  description: mwmStar file contains all stacked spectra for a MWM source. This includes
+    a stacked optical BOSS spectrum, and a stacked infrared spectrum from the APOGEE
+    instrument at Apache Point Observatory, and a stacked infrared spectrum from the
+    APOGEE instrument on the du Pont telescope at Las Campanas Observatory. Currently
+    we do not stack spectra from different APOGEE instruments because of their different
+    line spread function profiles. Stacked spectra from each telescope/instrument
+    combination are stored in their own HDU (see mwmVisit HDU definition).
   datatype: FITS
   filesize: 112 KB
   releases:
@@ -10,10 +16,8 @@ general:
   - MWM_ASTRA
   surveys:
   - MWM
-  naming_convention: replace-me - with $MWM_ASTRA/[ASTRA_VERSION]/[RUN2D]-[APRED]/spectra/star/[CATALOGID_GROUPS]/mwmStar-[ASTRA_VERSION]-[CATALOGID].fits
-    or mwmStar-0.2.3-27021598031085682.fits but with regex pattern matches
-  generated_by: replace-me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  naming_convention: $MWM_ASTRA/[ASTRA_VERSION]/[RUN2D]-[APRED]/spectra/star/[CATALOGID_GROUPS]/mwmStar-[ASTRA_VERSION]-[CATALOGID].fits
+  generated_by: astra this product.
   design: false
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
@@ -30,16 +34,16 @@ releases:
       path_name: mwmStar
       path_template: $MWM_ASTRA/{astra_version}/{run2d}-{apred}/spectra/star/@catalogid_groups|/mwmStar-{astra_version}-{catalogid}@component_default|.fits
       path_kwargs:
+      - catalogid
       - apred
       - run2d
       - astra_version
-      - catalogid
       access_string: mwmStar = $MWM_ASTRA/{astra_version}/{run2d}-{apred}/spectra/star/{catalogid_groups}/mwmStar-{astra_version}-{catalogid}.fits
     survey: MWM
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace-me description
+        description: Souce information only
         is_image: true
         size: 0 bytes
         header:
@@ -192,45 +196,46 @@ releases:
           comment: ''
       hdu1:
         name: BOSS/APO
-        description: replace-me description
+        description: Stacked BOSS spectrum.
         is_image: false
         size: 90 KB
         columns:
           LAMBDA:
             name: LAMBDA
             type: float32
-            unit: replace-me - with content
-            description: replace-me - with content
+            unit: Angstrom
+            description: wavelength
           FLUX:
             name: FLUX
             type: float32
-            unit: replace-me - with content
-            description: replace-me - with content
+            unit: unitless
+            description: continuum-normalized flux from stacked spectra
           E_FLUX:
             name: E_FLUX
             type: float32
-            unit: replace-me - with content
-            description: replace-me - with content
+            unit: unitless
+            description: flux error
           BITMASK:
             name: BITMASK
             type: int64
-            unit: replace-me - with content
-            description: replace-me - with content
+            unit: unitless
+            description: per-pixel reduction flags
       hdu2:
         name: BOSS/LCO
-        description: replace-me description
+        description: Placeholder for a stacked spectrum from BOSS south should such
+          an instrument exist.
         is_image: false
         size: 0 bytes
         columns: {}
       hdu3:
         name: APOGEE/APO
-        description: replace-me description
+        description: Stacked APOGEE north spectrum
         is_image: false
         size: 0 bytes
         columns: {}
       hdu4:
         name: APOGEE/LCO
-        description: replace-me description
+        description: Stacked APOGEE south spectrum
         is_image: false
         size: 0 bytes
         columns: {}
