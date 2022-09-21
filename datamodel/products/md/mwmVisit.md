@@ -76,8 +76,8 @@ Key | Value | Comment | |
 | E_PMRA | 0.0895841981154207 | Gaia DR2 proper motion in RA error [mas/yr] |
 | PMDE | -2.66593312497714 | Gaia DR2 proper motion in DEC [mas/yr] |
 | E_PMDE | 0.07196212849371764 | Gaia DR2 proper motion in DEC error [mas/yr] |
-| VRAD | 0 | Gaia DR2 radial velocity [km/s] |
-| E_VRAD | 0 | Gaia DR2 radial velocity error [km/s] |
+| VRAD |  | Gaia DR2 radial velocity [km/s] |
+| E_VRAD |  | Gaia DR2 radial velocity error [km/s] |
 | G_MAG | 16.282585 | Gaia DR2 mean apparent G magnitude [mag] |
 | BP_MAG | 16.598904 | Gaia DR2 mean apparent BP magnitude [mag] |
 | RP_MAG | 15.799481 | Gaia DR2 mean apparent RP magnitude [mag] |
