@@ -1,0 +1,269 @@
+{
+  "general": {
+    "name": "mos_target_bhm_efeds_veto",
+    "short": "MOS Target Table: bhm_efeds_veto",
+    "description": "The BHM-SPIDERS eFEDS veto catalogue.",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "BHM",
+        "long": "Black Hole Mapper",
+        "description": "An optical time-domain spectroscopic survey of quasars and X-ray sources",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "bhm",
+        "aliases": []
+      },
+      {
+        "name": "MWM",
+        "long": "Milky Way Mapper",
+        "description": "A time-domain, optical+IR spectroscopic survey of Milky Way stars of all types.",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "mwm",
+        "aliases": []
+      },
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "FITS",
+    "filesize": "382 KB",
+    "releases": [
+      {
+        "name": "WORK",
+        "description": "SDSS unreleased data.  Represents any work-in-progress data.",
+        "public": false,
+        "release_date": "unreleased"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/mos_target_bhm_efeds_veto.fits, where V_TARG=1.0.1 for DR18",
+    "generated_by": "sdss5db> targetdb, operations database server",
+    "design": false
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "WORK": {
+      "template": "$MOS_TARGET/[V_TARG]/mos_target_bhm_efeds_veto.fits",
+      "example": "1.0.1/mos_target_bhm_efeds_veto.fits",
+      "location": "{v_targ}/mos_target_bhm_efeds_veto.fits",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_bhm_efeds_veto",
+        "path_template": "$MOS_TARGET/{v_targ}/mos_target_bhm_efeds_veto",
+        "path_kwargs": [
+          "v_targ"
+        ],
+        "access_string": "mos_target_bhm_efeds_veto = $MOS_TARGET/{v_targ}/mos_target_bhm_efeds_veto.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Primary header",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "MOS Target Table: bhm_efeds_veto",
+          "size": "371 KB",
+          "header": null,
+          "columns": {
+            "programname": {
+              "name": "PROGRAMNAME",
+              "description": "program name within a given survey",
+              "type": "char[5]",
+              "unit": ""
+            },
+            "chunk": {
+              "name": "CHUNK",
+              "description": "Name of tiling chunk",
+              "type": "char[7]",
+              "unit": ""
+            },
+            "platesn2": {
+              "name": "PLATESN2",
+              "description": "Overall (S/N)^2 measure for plate; minimum of all 4 cameras",
+              "type": "float32",
+              "unit": ""
+            },
+            "plate": {
+              "name": "PLATE",
+              "description": "Plate ID",
+              "type": "int32",
+              "unit": ""
+            },
+            "tile": {
+              "name": "TILE",
+              "description": "Tile ID",
+              "type": "int32",
+              "unit": ""
+            },
+            "mjd": {
+              "name": "MJD",
+              "description": "MJD of (last) observation",
+              "type": "int32",
+              "unit": "days"
+            },
+            "fiberid": {
+              "name": "FIBERID",
+              "description": "Fiber ID (1-1000)",
+              "type": "int32",
+              "unit": ""
+            },
+            "run2d": {
+              "name": "RUN2D",
+              "description": "idlspec 2D reduction version",
+              "type": "char[7]",
+              "unit": ""
+            },
+            "run1d": {
+              "name": "RUN1D",
+              "description": "idlspec 1D reduction version",
+              "type": "char[7]",
+              "unit": ""
+            },
+            "plug_ra": {
+              "name": "PLUG_RA",
+              "description": "Object RA (drilled fiber position at expected epoch of observation)",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "plug_dec": {
+              "name": "PLUG_DEC",
+              "description": "Object Dec (drilled fiber position at expected epoch of observation)",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "z_err": {
+              "name": "Z_ERR",
+              "description": "Redshift error based upon fit to chi^2 minimum; negative for invalid fit",
+              "type": "float32",
+              "unit": ""
+            },
+            "rchi2": {
+              "name": "RCHI2",
+              "description": "Reduced chi^2 for best fit",
+              "type": "float32",
+              "unit": ""
+            },
+            "dof": {
+              "name": "DOF",
+              "description": "Degrees of freedom for best fit",
+              "type": "int32",
+              "unit": ""
+            },
+            "rchi2diff": {
+              "name": "RCHI2DIFF",
+              "description": "Difference in reduced chi^2 of best solution to 2nd best solution",
+              "type": "float32",
+              "unit": ""
+            },
+            "wavemin": {
+              "name": "WAVEMIN",
+              "description": "Minimum observed (vacuum) wavelength for this object",
+              "type": "float32",
+              "unit": "Angstroms"
+            },
+            "wavemax": {
+              "name": "WAVEMAX",
+              "description": "Maximum observed (vacuum) wavelength for this object",
+              "type": "float32",
+              "unit": "Angstroms"
+            },
+            "wcoverage": {
+              "name": "WCOVERAGE",
+              "description": "Amount of wavelength coverage in log-10(Angstroms)",
+              "type": "float32",
+              "unit": ""
+            },
+            "zwarning": {
+              "name": "ZWARNING",
+              "description": "A flag bitmask set for bad data or redshift fits",
+              "type": "int32",
+              "unit": ""
+            },
+            "sn_median_all": {
+              "name": "SN_MEDIAN_ALL",
+              "description": "Median S/N for all good pixels in all filters",
+              "type": "float32",
+              "unit": ""
+            },
+            "anyandmask": {
+              "name": "ANYANDMASK",
+              "description": "Mask bits which are set if any pixels for an object's ANDMASK have that bit set",
+              "type": "int32",
+              "unit": ""
+            },
+            "anyormask": {
+              "name": "ANYORMASK",
+              "description": "Mask bits which are set if any pixels for an object's ORMASK have that bit set",
+              "type": "int32",
+              "unit": ""
+            },
+            "pk": {
+              "name": "PK",
+              "description": "primary key in the database table",
+              "type": "int64",
+              "unit": ""
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null
+    }
+  }
+}

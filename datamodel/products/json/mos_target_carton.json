@@ -1,0 +1,161 @@
+{
+  "general": {
+    "name": "mos_target_carton",
+    "short": "MOS Target Table: carton",
+    "description": "The table contains the list of cartons along with the target selection plan that generated them.",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "BHM",
+        "long": "Black Hole Mapper",
+        "description": "An optical time-domain spectroscopic survey of quasars and X-ray sources",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "bhm",
+        "aliases": []
+      },
+      {
+        "name": "MWM",
+        "long": "Milky Way Mapper",
+        "description": "A time-domain, optical+IR spectroscopic survey of Milky Way stars of all types.",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "mwm",
+        "aliases": []
+      },
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "FITS",
+    "filesize": "14 KB",
+    "releases": [
+      {
+        "name": "WORK",
+        "description": "SDSS unreleased data.  Represents any work-in-progress data.",
+        "public": false,
+        "release_date": "unreleased"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/mos_target_carton.fits, where V_TARG=1.0.1 for DR18",
+    "generated_by": "sdss5db> targetdb, operations database server",
+    "design": false
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "WORK": {
+      "template": "$MOS_TARGET/[V_TARG]/mos_target_carton.fits",
+      "example": "1.0.1/mos_target_carton.fits",
+      "location": "{v_targ}/mos_target_carton.fits",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_carton",
+        "path_template": "$MOS_TARGET/{v_targ}/mos_target_carton",
+        "path_kwargs": [
+          "v_targ"
+        ],
+        "access_string": "mos_target_carton = $MOS_TARGET/{v_targ}/mos_target_carton.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Primary header",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "MOS Target Table: carton",
+          "size": "6 KB",
+          "header": null,
+          "columns": {
+            "carton": {
+              "name": "CARTON",
+              "description": "The name of the carton.",
+              "type": "char[37]",
+              "unit": ""
+            },
+            "carton_pk": {
+              "name": "CARTON_PK",
+              "description": "The primary key. A sequential identifier.",
+              "type": "int32",
+              "unit": ""
+            },
+            "mapper_pk": {
+              "name": "MAPPER_PK",
+              "description": "The primary key of the mapper leading this carton. See mos_target_mapper.",
+              "type": "int16",
+              "unit": ""
+            },
+            "category_pk": {
+              "name": "CATEGORY_PK",
+              "description": "The primary key of the category in the mos_target_category table.",
+              "type": "int16",
+              "unit": ""
+            },
+            "target_selection_plan": {
+              "name": "TARGET_SELECTION_PLAN",
+              "description": "The target selection plan version for which this carton was run.",
+              "type": "char[6]",
+              "unit": ""
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null
+    }
+  }
+}

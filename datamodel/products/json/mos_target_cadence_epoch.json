@@ -1,0 +1,197 @@
+{
+  "general": {
+    "name": "mos_target_cadence_epoch",
+    "short": "MOS Target Table: cadence_epoch",
+    "description": "Constraints for a single epoch within a cadence.",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "BHM",
+        "long": "Black Hole Mapper",
+        "description": "An optical time-domain spectroscopic survey of quasars and X-ray sources",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "bhm",
+        "aliases": []
+      },
+      {
+        "name": "MWM",
+        "long": "Milky Way Mapper",
+        "description": "A time-domain, optical+IR spectroscopic survey of Milky Way stars of all types.",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "mwm",
+        "aliases": []
+      },
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "FITS",
+    "filesize": "1 MB",
+    "releases": [
+      {
+        "name": "WORK",
+        "description": "SDSS unreleased data.  Represents any work-in-progress data.",
+        "public": false,
+        "release_date": "unreleased"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/mos_target_cadence_epoch.fits, where V_TARG=1.0.1 for DR18",
+    "generated_by": "sdss5db> targetdb, operations database server",
+    "design": false
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "WORK": {
+      "template": "$MOS_TARGET/[V_TARG]/mos_target_cadence_epoch.fits",
+      "example": "1.0.1/mos_target_cadence_epoch.fits",
+      "location": "{v_targ}/mos_target_cadence_epoch.fits",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_cadence_epoch",
+        "path_template": "$MOS_TARGET/{v_targ}/mos_target_cadence_epoch",
+        "path_kwargs": [
+          "v_targ"
+        ],
+        "access_string": "mos_target_cadence_epoch = $MOS_TARGET/{v_targ}/mos_target_cadence_epoch.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Primary header",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "MOS Target Table: cadence_epoch",
+          "size": "1 MB",
+          "header": null,
+          "columns": {
+            "label": {
+              "name": "LABEL",
+              "description": "Descriptive name for the cadence with a version",
+              "type": "char[21]",
+              "unit": ""
+            },
+            "nepochs": {
+              "name": "NEPOCHS",
+              "description": "Number of epochs in the cadence",
+              "type": "int32",
+              "unit": ""
+            },
+            "cadence_pk": {
+              "name": "CADENCE_PK",
+              "description": "Primary key of the cadence this epoch belongs to",
+              "type": "int64",
+              "unit": ""
+            },
+            "epoch": {
+              "name": "EPOCH",
+              "description": "Which epoch is this in the cadence (0-indexed)",
+              "type": "int32",
+              "unit": ""
+            },
+            "delta": {
+              "name": "DELTA",
+              "description": "Nominal (goal) time since previous epoch",
+              "type": "float64",
+              "unit": "days"
+            },
+            "skybrightness": {
+              "name": "SKYBRIGHTNESS",
+              "description": "Maximum allowed skybrightness, i.e. moon illumination (0.0 to 1.0)",
+              "type": "float32",
+              "unit": ""
+            },
+            "delta_max": {
+              "name": "DELTA_MAX",
+              "description": "Maximum allowed time since previous epoch",
+              "type": "float32",
+              "unit": "days"
+            },
+            "delta_min": {
+              "name": "DELTA_MIN",
+              "description": "Minimum allowed time since previous epoch",
+              "type": "float32",
+              "unit": "days"
+            },
+            "nexp": {
+              "name": "NEXP",
+              "description": "Number of exposures in this epoch",
+              "type": "int32",
+              "unit": ""
+            },
+            "max_length": {
+              "name": "MAX_LENGTH",
+              "description": "Maximum allowed length of epoch, i.e. time between first and last exposure",
+              "type": "float32",
+              "unit": ""
+            },
+            "obsmode_pk": {
+              "name": "OBSMODE_PK",
+              "description": "Reference to the observing parameters (airmass, moon seperation, etc.)",
+              "type": "char[11]",
+              "unit": ""
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null
+    }
+  }
+}

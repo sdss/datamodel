@@ -1,0 +1,210 @@
+{
+  "general": {
+    "name": "mos_target_magnitude",
+    "short": "MOS Target Table: magnitude",
+    "description": "This table stores magnitude information for a target. Optical magnitudes that are not selected from SDSS photometry have been converted to the SDSS system.",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "BHM",
+        "long": "Black Hole Mapper",
+        "description": "An optical time-domain spectroscopic survey of quasars and X-ray sources",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "bhm",
+        "aliases": []
+      },
+      {
+        "name": "MWM",
+        "long": "Milky Way Mapper",
+        "description": "A time-domain, optical+IR spectroscopic survey of Milky Way stars of all types.",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "mwm",
+        "aliases": []
+      },
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "FITS",
+    "filesize": "129 MB",
+    "releases": [
+      {
+        "name": "WORK",
+        "description": "SDSS unreleased data.  Represents any work-in-progress data.",
+        "public": false,
+        "release_date": "unreleased"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/mos_target_magnitude-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 01..34 to partition the file into parts",
+    "generated_by": "sdss5db> targetdb, operations database server",
+    "design": false
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "WORK": {
+      "template": "$MOS_TARGET/[V_TARG]/mos_target_magnitude-[NUM].fits",
+      "example": "1.0.1/mos_target_magnitude-01.fits",
+      "location": "{v_targ}/mos_target_magnitude-{num}.fits",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_magnitude",
+        "path_template": "$MOS_TARGET/{v_targ}/mos_target_magnitude-{num}",
+        "path_kwargs": [
+          "num",
+          "v_targ"
+        ],
+        "access_string": "mos_target_magnitude = $MOS_TARGET/{v_targ}/mos_target_magnitude-{num}.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Primary header",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "MOS Target Table: magnitude",
+          "size": "129 MB",
+          "header": null,
+          "columns": {
+            "carton_to_target_pk": {
+              "name": "CARTON_TO_TARGET_PK",
+              "description": "The primary key of the target in the mos_target_carton_to_target table.",
+              "type": "int32",
+              "unit": ""
+            },
+            "magnitude_pk": {
+              "name": "MAGNITUDE_PK",
+              "description": "The primary key. A sequential identifier.",
+              "type": "int64",
+              "unit": ""
+            },
+            "g": {
+              "name": "G",
+              "description": "The optical g magnitude.",
+              "type": "float32",
+              "unit": ""
+            },
+            "r": {
+              "name": "R",
+              "description": "The optical r magnitude.",
+              "type": "float32",
+              "unit": ""
+            },
+            "i": {
+              "name": "I",
+              "description": "The optical i magnitude.",
+              "type": "float32",
+              "unit": ""
+            },
+            "h": {
+              "name": "H",
+              "description": "The IR H magnitude.",
+              "type": "float32",
+              "unit": ""
+            },
+            "bp": {
+              "name": "BP",
+              "description": "The Gaia BP magnitude.",
+              "type": "float32",
+              "unit": ""
+            },
+            "rp": {
+              "name": "RP",
+              "description": "The Gaia RP magnitude.",
+              "type": "float32",
+              "unit": ""
+            },
+            "z": {
+              "name": "Z",
+              "description": "The optical z magnitude.",
+              "type": "float32",
+              "unit": ""
+            },
+            "j": {
+              "name": "J",
+              "description": "The IR J magnitude.",
+              "type": "float32",
+              "unit": ""
+            },
+            "k": {
+              "name": "K",
+              "description": "The IR K magnitude.",
+              "type": "float32",
+              "unit": ""
+            },
+            "gaia_g": {
+              "name": "GAIA_G",
+              "description": "The Gaia G magnitude.",
+              "type": "float32",
+              "unit": ""
+            },
+            "optical_prov": {
+              "name": "OPTICAL_PROV",
+              "description": "The source of the optical magnitudes.",
+              "type": "char[16]",
+              "unit": ""
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null
+    }
+  }
+}
