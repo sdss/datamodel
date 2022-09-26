@@ -1,0 +1,198 @@
+{
+  "general": {
+    "name": "mos_target_carton_to_target",
+    "short": "MOS Target Table: carton_to_target",
+    "description": "The table stores the targets assigned to a given carton along with information about the instrument that will observe that target, and offseting data.",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "BHM",
+        "long": "Black Hole Mapper",
+        "description": "An optical time-domain spectroscopic survey of quasars and X-ray sources",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "bhm",
+        "aliases": []
+      },
+      {
+        "name": "MWM",
+        "long": "Milky Way Mapper",
+        "description": "A time-domain, optical+IR spectroscopic survey of Milky Way stars of all types.",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "mwm",
+        "aliases": []
+      },
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "FITS",
+    "filesize": "93 MB",
+    "releases": [
+      {
+        "name": "WORK",
+        "description": "SDSS unreleased data.  Represents any work-in-progress data.",
+        "public": false,
+        "release_date": "unreleased"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/mos_target_carton_to_target-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 01..64 to partition the file into parts",
+    "generated_by": "sdss5db> targetdb, operations database server",
+    "design": false
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "WORK": {
+      "template": "$MOS_TARGET/[V_TARG]/mos_target_carton_to_target-[NUM].fits",
+      "example": "1.0.1/mos_target_carton_to_target-01.fits",
+      "location": "{v_targ}/mos_target_carton_to_target-{num}.fits",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_carton_to_target",
+        "path_template": "$MOS_TARGET/{v_targ}/mos_target_carton_to_target-{num}",
+        "path_kwargs": [
+          "num",
+          "v_targ"
+        ],
+        "access_string": "mos_target_carton_to_target = $MOS_TARGET/{v_targ}/mos_target_carton_to_target-{num}.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Primary header",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "MOS Target Table: carton_to_target",
+          "size": "93 MB",
+          "header": null,
+          "columns": {
+            "carton_to_target_pk": {
+              "name": "CARTON_TO_TARGET_PK",
+              "description": "The primary key. A sequential identifier.",
+              "type": "int32",
+              "unit": ""
+            },
+            "lambda_eff": {
+              "name": "LAMBDA_EFF",
+              "description": "The effective wavelength at which the object will be observed",
+              "type": "float32",
+              "unit": "angstrom"
+            },
+            "carton_pk": {
+              "name": "CARTON_PK",
+              "description": "The primary key of the carton in the mos_target_carton table.",
+              "type": "int16",
+              "unit": ""
+            },
+            "target_pk": {
+              "name": "TARGET_PK",
+              "description": "The primary key of the target in the mos_target_target table.",
+              "type": "int64",
+              "unit": ""
+            },
+            "cadence_pk": {
+              "name": "CADENCE_PK",
+              "description": "The primary key of the cadence in the mos_target_cadence table.",
+              "type": "int16",
+              "unit": ""
+            },
+            "priority": {
+              "name": "PRIORITY",
+              "description": "The target priority. Used for scheduling.",
+              "type": "int32",
+              "unit": ""
+            },
+            "value": {
+              "name": "VALUE",
+              "description": "An internal metric of the target value used for scheduling.",
+              "type": "float32",
+              "unit": ""
+            },
+            "instrument_pk": {
+              "name": "INSTRUMENT_PK",
+              "description": "The primary key of the instrument in the mos_target_instrument table.",
+              "type": "int32",
+              "unit": ""
+            },
+            "delta_ra": {
+              "name": "DELTA_RA",
+              "description": "The RA offset for fibre positioning, in arcsec.",
+              "type": "float64",
+              "unit": ""
+            },
+            "delta_dec": {
+              "name": "DELTA_DEC",
+              "description": "The Dec offset for fibre positioning, in arcsec.",
+              "type": "float64",
+              "unit": ""
+            },
+            "inertial": {
+              "name": "INERTIAL",
+              "description": "Whether this is an inertial target (no proper motion will be applied).",
+              "type": "bool",
+              "unit": ""
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null
+    }
+  }
+}

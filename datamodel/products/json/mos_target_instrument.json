@@ -1,0 +1,149 @@
+{
+  "general": {
+    "name": "mos_target_instrument",
+    "short": "MOS Target Table: instrument",
+    "description": "This table stores the instruments used by SDSS-V.",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "BHM",
+        "long": "Black Hole Mapper",
+        "description": "An optical time-domain spectroscopic survey of quasars and X-ray sources",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "bhm",
+        "aliases": []
+      },
+      {
+        "name": "MWM",
+        "long": "Milky Way Mapper",
+        "description": "A time-domain, optical+IR spectroscopic survey of Milky Way stars of all types.",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "mwm",
+        "aliases": []
+      },
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "FITS",
+    "filesize": "8 KB",
+    "releases": [
+      {
+        "name": "WORK",
+        "description": "SDSS unreleased data.  Represents any work-in-progress data.",
+        "public": false,
+        "release_date": "unreleased"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/mos_target_instrument.fits, where V_TARG=1.0.1 for DR18",
+    "generated_by": "sdss5db> targetdb, operations database server",
+    "design": false
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "WORK": {
+      "template": "$MOS_TARGET/[V_TARG]/mos_target_instrument.fits",
+      "example": "1.0.1/mos_target_instrument.fits",
+      "location": "{v_targ}/mos_target_instrument.fits",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_instrument",
+        "path_template": "$MOS_TARGET/{v_targ}/mos_target_instrument",
+        "path_kwargs": [
+          "v_targ"
+        ],
+        "access_string": "mos_target_instrument = $MOS_TARGET/{v_targ}/mos_target_instrument.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Primary header",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "MOS Target Table: instrument",
+          "size": "28 bytes",
+          "header": null,
+          "columns": {
+            "pk": {
+              "name": "PK",
+              "description": "The primary key. A sequential identifier.",
+              "type": "int32",
+              "unit": ""
+            },
+            "label": {
+              "name": "LABEL",
+              "description": "The name of the instrument.",
+              "type": "char[6]",
+              "unit": ""
+            },
+            "default_lambda_eff": {
+              "name": "DEFAULT_LAMBDA_EFF",
+              "description": "The default wavelength for which fibre positioning will be optimised",
+              "type": "float32",
+              "unit": "angstrom"
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null
+    }
+  }
+}
