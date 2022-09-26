@@ -1,7 +1,7 @@
 general:
   name: mos_target_bhm_efeds_veto
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: 'MOS Target Table: bhm_efeds_veto'
+  description: The BHM-SPIDERS eFEDS veto catalogue.
   datatype: FITS
   filesize: 382 KB
   releases:
@@ -9,11 +9,11 @@ general:
   environments:
   - MOS_TARGET
   surveys:
-  - SDSS
-  naming_convention: replace me - with $MOS_TARGET/[V_TARG]/mos_target_bhm_efeds_veto.fits
-    or mos_target_bhm_efeds_veto.fits but with regex pattern matches
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  - BHM
+  - MWM
+  naming_convention: $MOS_TARGET/[V_TARG]/mos_target_bhm_efeds_veto.fits, where V_TARG=1.0.1
+    for DR18
+  generated_by: sdss5db> targetdb, operations database server
   design: false
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
@@ -36,7 +36,7 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: Primary header
         is_image: true
         size: 0 bytes
         header:
@@ -54,122 +54,126 @@ releases:
           comment: ''
       hdu1:
         name: ''
-        description: replace me description
+        description: 'MOS Target Table: bhm_efeds_veto'
         is_image: false
         size: 371 KB
         columns:
           programname:
             name: PROGRAMNAME
             type: char[5]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: program name within a given survey
           chunk:
             name: CHUNK
             type: char[7]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Name of tiling chunk
           platesn2:
             name: PLATESN2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Overall (S/N)^2 measure for plate; minimum of all 4 cameras
           plate:
             name: PLATE
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Plate ID
           tile:
             name: TILE
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Tile ID
           mjd:
             name: MJD
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: days
+            description: MJD of (last) observation
           fiberid:
             name: FIBERID
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Fiber ID (1-1000)
           run2d:
             name: RUN2D
             type: char[7]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: idlspec 2D reduction version
           run1d:
             name: RUN1D
             type: char[7]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: idlspec 1D reduction version
           plug_ra:
             name: PLUG_RA
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: Object RA (drilled fiber position at expected epoch of observation)
           plug_dec:
             name: PLUG_DEC
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: Object Dec (drilled fiber position at expected epoch of observation)
           z_err:
             name: Z_ERR
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Redshift error based upon fit to chi^2 minimum; negative
+              for invalid fit
           rchi2:
             name: RCHI2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Reduced chi^2 for best fit
           dof:
             name: DOF
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Degrees of freedom for best fit
           rchi2diff:
             name: RCHI2DIFF
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Difference in reduced chi^2 of best solution to 2nd best
+              solution
           wavemin:
             name: WAVEMIN
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Angstroms
+            description: Minimum observed (vacuum) wavelength for this object
           wavemax:
             name: WAVEMAX
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Angstroms
+            description: Maximum observed (vacuum) wavelength for this object
           wcoverage:
             name: WCOVERAGE
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Amount of wavelength coverage in log-10(Angstroms)
           zwarning:
             name: ZWARNING
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: A flag bitmask set for bad data or redshift fits
           sn_median_all:
             name: SN_MEDIAN_ALL
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Median S/N for all good pixels in all filters
           anyandmask:
             name: ANYANDMASK
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Mask bits which are set if any pixels for an object's ANDMASK
+              have that bit set
           anyormask:
             name: ANYORMASK
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Mask bits which are set if any pixels for an object's ORMASK
+              have that bit set
           pk:
             name: PK
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: primary key in the database table

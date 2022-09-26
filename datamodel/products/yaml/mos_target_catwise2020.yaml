@@ -1,7 +1,11 @@
 general:
   name: mos_target_catwise2020
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: 'MOS Target Table: catwise2020'
+  description: '"The CatWISE2020 Catalog contains positions and brightnesses for 1,890,715,640
+    sources selected from combined WISE and NEOWISE all-sky survey data collected
+    from 2010 to 2018 at 3.4 and 4.6 microns (W1 and W2). The CatWISE Preliminary
+    Catalog contains positions and brightnesses for 900,849,014 sources collected
+    from 2010 to 2016."'
   datatype: FITS
   filesize: 1 GB
   releases:
@@ -9,11 +13,11 @@ general:
   environments:
   - MOS_TARGET
   surveys:
-  - SDSS
-  naming_convention: replace me - with $MOS_TARGET/[V_TARG]/mos_target_catwise2020-[NUM].fits
-    or mos_target_catwise2020-01.fits but with regex pattern matches
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  - BHM
+  - MWM
+  naming_convention: $MOS_TARGET/[V_TARG]/mos_target_catwise2020-[NUM].fits, where
+    V_TARG=1.0.1 for DR18; and NUM = 01..19 to partition the file into parts
+  generated_by: sdss5db> targetdb, operations database server
   design: false
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
@@ -37,7 +41,7 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: Primary header
         is_image: true
         size: 0 bytes
         header:
@@ -55,942 +59,996 @@ releases:
           comment: ''
       hdu1:
         name: ''
-        description: replace me description
+        description: 'MOS Target Table: catwise2020'
         is_image: false
         size: 1 GB
         columns:
           source_name:
             name: SOURCE_NAME
             type: char[21]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: source hexagesimal designation
           source_id:
             name: SOURCE_ID
             type: char[25]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: tile name + processing code + wphot index
           ra:
             name: RA
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: right ascension (J2000); (note uncorrected systematic in
+              CatWISE2020)
           dec:
             name: DEC
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: declination (J2000); (note uncorrected systematic in CatWISE2020)
           sigra:
             name: SIGRA
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: arcsec
+            description: uncertainty in RA
           sigdec:
             name: SIGDEC
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: arcsec
+            description: uncertainty in DEC
           sigradec:
             name: SIGRADEC
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: arcsec
+            description: cross-term of RA and Dec uncertainties
           wx:
             name: WX
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: pix
+            description: x pixel value
           wy:
             name: WY
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: pix
+            description: y pixel value
           w1sky:
             name: W1SKY
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: '''dn'''
+            description: frame sky background value, band 1
           w1sigsk:
             name: W1SIGSK
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: '''dn'''
+            description: frame sky background value uncertainty, band 1
           w1conf:
             name: W1CONF
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: '''dn'''
+            description: frame sky confusion based on the uncertainty images, band
+              1
           w2sky:
             name: W2SKY
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: '''dn'''
+            description: frame sky background value, band 2
           w2sigsk:
             name: W2SIGSK
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: '''dn'''
+            description: frame sky background value uncertainty, band 2
           w2conf:
             name: W2CONF
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: '''dn'''
+            description: frame sky confusion based on the uncertainty images, band
+              2
           w1fitr:
             name: W1FITR
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: not define in CatWISE Catalog Definition webpage
           w2fitr:
             name: W2FITR
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: not define in CatWISE Catalog Definition webpage
           w1snr:
             name: W1SNR
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: instrumental profile-fit photometry S/N ratio, band 1
           w2snr:
             name: W2SNR
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: instrumental profile-fit photometry S/N ratio, band 2
           w1flux:
             name: W1FLUX
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: '''dn'''
+            description: profile-fit photometry raw flux, band 1
           w1sigflux:
             name: W1SIGFLUX
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: '''dn'''
+            description: profile-fit photometry raw flux uncertainty, band 1
           w2flux:
             name: W2FLUX
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: '''db'''
+            description: profile-fit photometry raw flux, band 2
           w2sigflux:
             name: W2SIGFLUX
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: '''dn'''
+            description: profile-fit photometry raw flux uncertainty, band 2
           w1mpro:
             name: W1MPRO
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: instrumental profile-fit photometry magnitude, band 1
           w1sigmpro:
             name: W1SIGMPRO
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: instrumental profile-fit photometry flux uncertainty in mag
+              units, band 1
           w1rchi2:
             name: W1RCHI2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: instrumental profile-fit photometry reduced chi^2, band 1
           w2mpro:
             name: W2MPRO
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: instrumental profile-fit photometry magnitude, band 2
           w2sigmpro:
             name: W2SIGMPRO
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: instrumental profile-fit photometry flux uncertainty in mag
+              units, band 2
           w2rchi2:
             name: W2RCHI2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: instrumental profile-fit photometry reduced chi^2, band 2
           rchi2:
             name: RCHI2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: instrumental profile-fit photometry reduced chi squared,
+              total
           nb:
             name: NB
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: number of blend components used in each fit
           na:
             name: NA
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: number of actively deblended components
           w1sat:
             name: W1SAT
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: fraction of pixels affected by saturation, band 1
           w2sat:
             name: W2SAT
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: fraction of pixels affected by saturation, band 2
           w1mag:
             name: W1MAG
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: instrumental standard aperture (8.25") mag w/ aperture correction
+              applied, band 1
           w1sigm:
             name: W1SIGM
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: instrumental standard aperture mag uncertainty, band 1
           w1flg:
             name: W1FLG
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: instrumental standard aperture flag, band 1
           w1cov:
             name: W1COV
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: mean coverage depth, band 1
           w2mag:
             name: W2MAG
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: instrumental standard aperture (8.25") mag w/ aperture correction
+              applied, band 2
           w2sigm:
             name: W2SIGM
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: instrumental standard aperture mag uncertainty, band 2
           w2flg:
             name: W2FLG
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: instrumental standard aperture flag, band 2
           w2cov:
             name: W2COV
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: mean coverage depth, band 2
           w1mag_1:
             name: W1MAG_1
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: aperture 1 (5.50") instrumental aperture mag, band 1
           w1sigm_1:
             name: W1SIGM_1
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: aperture 1 instrumental aperture mag uncertainty, band 1
           w1flg_1:
             name: W1FLG_1
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: aperture 1 instrumental aperture flag, band 1
           w2mag_1:
             name: W2MAG_1
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: aperture 1 (5.50") instrumental aperture mag, band 2
           w2sigm_1:
             name: W2SIGM_1
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: aperture 1 instrumental aperture mag uncertainty, band 2
           w2flg_1:
             name: W2FLG_1
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: aperture 1 instrumental aperture flag, band 2
           w1mag_2:
             name: W1MAG_2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: aperture 2 (8.25") instrumental aperture mag, band 1
           w1sigm_2:
             name: W1SIGM_2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: aperture 2 instrumental aperture mag uncertainty, band 1
           w1flg_2:
             name: W1FLG_2
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: aperture 2 instrumental aperture flag, band 1
           w2mag_2:
             name: W2MAG_2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: aperture 2 (8.25") instrumental aperture mag, band 2
           w2sigm_2:
             name: W2SIGM_2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: aperture 2 instrumental aperture mag uncertainty, band 2
           w2flg_2:
             name: W2FLG_2
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: aperture 2 instrumental aperture flag, band 2
           w1mag_3:
             name: W1MAG_3
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: aperture 3 (11.00") instrumental aperture mag, band 1
           w1sigm_3:
             name: W1SIGM_3
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: aperture 3 instrumental aperture mag uncertainty, band 1
           w1flg_3:
             name: W1FLG_3
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: aperture 3 instrumental aperture flag, band 1
           w2mag_3:
             name: W2MAG_3
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: aperture 3 (11.00") instrumental aperture mag, band 2
           w2sigm_3:
             name: W2SIGM_3
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: aperture 3 instrumental aperture mag uncertainty, band 2
           w2flg_3:
             name: W2FLG_3
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: aperture 3 instrumental aperture flag, band 2
           w1mag_4:
             name: W1MAG_4
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: aperture 4 (13.75") instrumental aperture mag, band 1
           w1sigm_4:
             name: W1SIGM_4
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: aperture 4 instrumental aperture mag uncertainty, band 1
           w1flg_4:
             name: W1FLG_4
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: aperture 4 instrumental aperture flag, band 1
           w2mag_4:
             name: W2MAG_4
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: aperture 4 (13.75") instrumental aperture mag, band 2
           w2sigm_4:
             name: W2SIGM_4
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: aperture 4 instrumental aperture mag uncertainty, band 2
           w2flg_4:
             name: W2FLG_4
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: aperture 4 instrumental aperture flag, band 2
           w1mag_5:
             name: W1MAG_5
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: aperture 5 (16.50") instrumental aperture mag, band 1
           w1sigm_5:
             name: W1SIGM_5
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: aperture 5 instrumental aperture mag uncertainty, band 1
           w1flg_5:
             name: W1FLG_5
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: aperture 5 instrumental aperture flag, band 1
           w2mag_5:
             name: W2MAG_5
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: aperture 5 (16.50") instrumental aperture mag, band 2
           w2sigm_5:
             name: W2SIGM_5
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: aperture 5 instrumental aperture mag uncertainty, band 2
           w2flg_5:
             name: W2FLG_5
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: aperture 5 instrumental aperture flag, band 2
           w1mag_6:
             name: W1MAG_6
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: aperture 6 (19.25") instrumental aperture mag, band 1
           w1sigm_6:
             name: W1SIGM_6
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: aperture 6 instrumental aperture mag uncertainty, band 1
           w1flg_6:
             name: W1FLG_6
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: aperture 6 instrumental aperture flag, band 1
           w2mag_6:
             name: W2MAG_6
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: aperture 6 (19.25") instrumental aperture mag, band 2
           w2sigm_6:
             name: W2SIGM_6
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: aperture 6 instrumental aperture mag uncertainty, band 2
           w2flg_6:
             name: W2FLG_6
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: aperture 6 instrumental aperture flag, band 2
           w1mag_7:
             name: W1MAG_7
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: aperture 7 (22.00") instrumental aperture mag, band 1
           w1sigm_7:
             name: W1SIGM_7
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: aperture 7 instrumental aperture mag uncertainty, band 1
           w1flg_7:
             name: W1FLG_7
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: aperture 7 instrumental aperture flag, band 1
           w2mag_7:
             name: W2MAG_7
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: aperture 7 (22.00") instrumental aperture mag, band 2
           w2sigm_7:
             name: W2SIGM_7
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: aperture 7 instrumental aperture mag uncertainty, band 2
           w2flg_7:
             name: W2FLG_7
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: aperture 7 instrumental aperture flag, band 2
           w1mag_8:
             name: W1MAG_8
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: aperture 8 (24.75") instrumental aperture mag, band 1
           w1sigm_8:
             name: W1SIGM_8
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: aperture 8 instrumental aperture mag uncertainty, band 1
           w1flg_8:
             name: W1FLG_8
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: aperture 8 instrumental aperture flag, band 1
           w2mag_8:
             name: W2MAG_8
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: aperture 8 (24.75") instrumental aperture mag, band 2
           w2sigm_8:
             name: W2SIGM_8
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: aperture 8 instrumental aperture mag uncertainty, band 2
           w2flg_8:
             name: W2FLG_8
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: aperture 8 instrumental aperture flag, band 2
           w1nm:
             name: W1NM
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: number of profile-fit flux measurements for source with SNR
+              >= 3, band 1
           w1m:
             name: W1M
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: number of profile-fit flux measurements for source, band
+              1
           w1magp:
             name: W1MAGP
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: profile-fit repeatability mag -- inverse-variance weighted
+              mean mag, band 1
           w1sigp1:
             name: W1SIGP1
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: standard deviation of population of profile-fit repeatability
+              mag, band 1
           w1sigp2:
             name: W1SIGP2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: standard deviation of the mean of profile-fit repeatability
+              mag, band 1
           w1k:
             name: W1K
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Stetson K variability index, band 1
           w1ndf:
             name: W1NDF
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: number degrees of freedom in variability chi^2, band 1
           w1mlq:
             name: W1MLQ
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: -ln(Q), where Q = 1 - P(chi^2), band 1
           w1mjdmin:
             name: W1MJDMIN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: d
+            description: minimum modified Julian Date of frame extractions, band 1
           w1mjdmax:
             name: W1MJDMAX
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: d
+            description: maximum modified Julian Date of frame extractions, band 1
           w1mjdmean:
             name: W1MJDMEAN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: d
+            description: mean modified Julian Date of frame extractions, band 1
           w2nm:
             name: W2NM
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: number of profile-fit flux measurements for source with SNR
+              >= 3, band 2
           w2m:
             name: W2M
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: number of profile-fit flux measurements for source, band
+              2
           w2magp:
             name: W2MAGP
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: profile-fit repeatability mag -- inverse-variance weighted
+              mean mag, band 2
           w2sigp1:
             name: W2SIGP1
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: standard deviation of population of profile-fit repeatability
+              mag, band 2
           w2sigp2:
             name: W2SIGP2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: standard deviation of the mean of profile-fit repeatability
+              mag, band 2
           w2k:
             name: W2K
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Stetson K variability index, band 2
           w2ndf:
             name: W2NDF
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: number degrees of freedom in variability chi^2, band 2
           w2mlq:
             name: W2MLQ
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: -ln(Q), where Q = 1 - P(chi^2), band 2
           w2mjdmin:
             name: W2MJDMIN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: d
+            description: minimum modified Julian Date of frame extractions, band 2
           w2mjdmax:
             name: W2MJDMAX
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: d
+            description: maximum modified Julian Date of frame extractions, band 2
           w2mjdmean:
             name: W2MJDMEAN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: d
+            description: mean modified Julian Date of frame extractions, band 2
           rho12:
             name: RHO12
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: '%'
+            description: band 1 - band 2 correlation coefficient
           q12:
             name: Q12
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: '%'
+            description: -log10(1 - P(rho12)), given no real correlation
           niters:
             name: NITERS
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: number of chi-square minimization iterations
           nsteps:
             name: NSTEPS
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: number of steps in all iterations
           mdetid:
             name: MDETID
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: source ID in mdet list
           p1:
             name: P1
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: arcsec
+            description: distance in ra from the mdet position to the wphot template-fit
+              position
           p2:
             name: P2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: arcsec
+            description: distance in dec from the mdet position to the wphot template-fit
+              position
           meanobsmjd:
             name: MEANOBSMJD
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: d
+            description: mean observation epoch
           ra_pm:
             name: RA_PM
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: Right ascension from psf model incl. motion at epoch MJD=56700.0
+              (2014.118) for Preliminary Catalog and MJD=57170 (2015.405) for CatWISE2020
           dec_pm:
             name: DEC_PM
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: Declination from psf model incl. motion at epoch MJD=56700.0
+              (2014.118) for Preliminary Catalog and MJD=57170 (2015.405) for CatWISE2020
           sigra_pm:
             name: SIGRA_PM
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: arcsec
+            description: One-sigma uncertainty in RA from psf model incl. motion
           sigdec_pm:
             name: SIGDEC_PM
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: arcsec
+            description: One-sigma uncertainty in DEC from psf model incl. motion
           sigradec_pm:
             name: SIGRADEC_PM
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: arcsec
+            description: The co-sigma of the equatorial position uncertainties from
+              psf model incl motion
           pmra:
             name: PMRA
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: arcsec/yr
+            description: Apparent motion in RA; (note uncorrected systematic in CatWISE2020)
           pmdec:
             name: PMDEC
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: arcsec/yr
+            description: Apparent motion in DEC; (note uncorrected systematic in CatWISE2020)
           sigpmra:
             name: SIGPMRA
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: arcsec/yr
+            description: Uncertainty in the RA motion estimate
           sigpmdec:
             name: SIGPMDEC
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: arcsec/yr
+            description: Uncertainty in the Dec motion estimate
           w1snr_pm:
             name: W1SNR_PM
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: S/N ratio of the W1 profile-fit photometry including motion
           w2snr_pm:
             name: W2SNR_PM
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: S/N ratio of the W2 profile-fit photometry including motion
           w1flux_pm:
             name: W1FLUX_PM
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: '''dn'''
+            description: Raw flux W1 profile-fit photometry including motion
           w1sigflux_pm:
             name: W1SIGFLUX_PM
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: '''dn'''
+            description: Raw flux uncertainty W1 profile-fit photometry including
+              motion
           w2flux_pm:
             name: W2FLUX_PM
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: '''dn'''
+            description: Raw flux W2 profile-fit photometry including motion
           w2sigflux_pm:
             name: W2SIGFLUX_PM
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: '''dn'''
+            description: Raw flux uncertainty W2 profile-fit photometry including
+              motion
           w1mpro_pm:
             name: W1MPRO_PM
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nag
+            description: W1 magnitude from profile-fit photometry including motion
           w1sigmpro_pm:
             name: W1SIGMPRO_PM
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: W1 flux uncertainty in mag units from profile-fit photometry
+              including motion
           w1rchi2_pm:
             name: W1RCHI2_PM
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Reduced chi^2 of the W1 profile-fit photometry measurement
+              including motion est
           w2mpro_pm:
             name: W2MPRO_PM
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: W2 magnitude from profile-fit photometry including motion
           w2sigmpro_pm:
             name: W2SIGMPRO_PM
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: W2 flux uncertainty in mag units from profile-fit photometry
+              including motion
           w2rchi2_pm:
             name: W2RCHI2_PM
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Reduced chi^2 of the W2 profile-fit photometry measurement
+              including motion est
           rchi2_pm:
             name: RCHI2_PM
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Combined Reduced chi^2 in all bands for the psf photometry
+              includes src motion
           pmcode:
             name: PMCODE
             type: char[7]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 'Motion estimate quality code: the format is ABCCC, where
+              A is the number of components in the passive blend group (including
+              the primary) before any are removed or added, B is "Y" or "N" to indicate
+              "Yes" or "No" that a secondary blend component replaced the primary,
+              and CCC is the distance in hundredths of an arcsec between the PM position
+              solution for the mean observation epoch and the stationary solution'
           niters_pm:
             name: NITERS_PM
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: number of chi-square minimization iterations
           nsteps_pm:
             name: NSTEPS_PM
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: number of steps in all iterations
           dist:
             name: DIST
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: arcsec
+            description: radial distance between source positions in ascending and
+              descending scans
           dw1mag:
             name: DW1MAG
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: difference in w1mpro between ascending and descending scans
           rch2w1:
             name: RCH2W1
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: chi-square for dw1mag (1 degree of freedom)
           dw2mag:
             name: DW2MAG
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: difference in w2mpro between ascending and descending scans
           rch2w2:
             name: RCH2W2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: chi-square for dw2mag (1 degree of freedom)
           elon_avg:
             name: ELON_AVG
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: average ecliptic longitude
           elonsig:
             name: ELONSIG
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: arcsec
+            description: uncertainty in elon_avg
           elat_avg:
             name: ELAT_AVG
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: average ecliptic latitude
           elatsig:
             name: ELATSIG
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: arcsec
+            description: uncertainty in elat_avg
           delon:
             name: DELON
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: arcsec
+            description: descending scan - ascending scan ecliptic longitude difference
+              (notes)
           delonsig:
             name: DELONSIG
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: arcsec
+            description: one-sigma uncertainty in Delon
           delat:
             name: DELAT
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: arcsec
+            description: descending scan - ascending scan ecliptic longitude difference
           delatsig:
             name: DELATSIG
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: arcsec
+            description: one-sigma uncertainty in Delat
           delonsnr:
             name: DELONSNR
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: abs(Delon)/DelonSig
           delatsnr:
             name: DELATSNR
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: abs(Delat)/DelatSig
           chi2pmra:
             name: CHI2PMRA
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: chi-square for PMRA difference (1 degree of freedom)
           chi2pmdec:
             name: CHI2PMDEC
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: chi-square for PMDec difference (1 degree of freedom)
           ka:
             name: KA
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 'astrometry usage code: 0 neither the ascending nor the descending
+              scan provided a solution; 1 only the ascending scan provided a solution;
+              2 only the descending scan provided a solutio; 3 both scans provided
+              solutions which were combined in the relevant way'
           k1:
             name: K1
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 'W1 photometry usage code: 0 neither the ascending nor the
+              descending scan provided a solution; 1 only the ascending scan provided
+              a solution; 2 only the descending scan provided a solutio; 3 both scans
+              provided solutions which were combined in the relevant way'
           k2:
             name: K2
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 'W2 photometry usage code: 0 neither the ascending nor the
+              descending scan provided a solution; 1 only the ascending scan provided
+              a solution; 2 only the descending scan provided a solutio; 3 both scans
+              provided solutions which were combined in the relevant way'
           km:
             name: KM
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 'proper motion usage code: 0 neither the ascending nor the
+              descending scan provided a solution; 1 only the ascending scan provided
+              a solution; 2 only the descending scan provided a solutio; 3 both scans
+              provided solutions which were combined in the relevant way'
           par_pm:
             name: PAR_PM
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: arcsec
+            description: parallax from PM desc-asce elon (notes)
           par_pmsig:
             name: PAR_PMSIG
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: arcsec
+            description: one-sigma uncertainty in par_pm
           par_stat:
             name: PAR_STAT
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: arcsec
+            description: parallax estimate from stationary solution (notes)
           par_sigma:
             name: PAR_SIGMA
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: arcsec
+            description: one-sigma uncertainty in par_stat
           dist_x:
             name: DIST_X
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: arcsec
+            description: distance between CatWISE and AllWISE source
           cc_flags:
             name: CC_FLAGS
             type: char[16]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: worst case 4 character cc_flag from AllWISE (See Table A1
+              in Eisenhardt et al. (2020))
           w1cc_map:
             name: W1CC_MAP
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: worst case w1cc_map from AllWISE (See Table A1 in Eisenhardt
+              et al. (2020))
           w1cc_map_str:
             name: W1CC_MAP_STR
             type: char[20]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: worst case w1cc_map_str from AllWISE (See Table A1 in Eisenhardt
+              et al. (2020))
           w2cc_map:
             name: W2CC_MAP
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: worst case w2cc_map from AllWISE (See Table A1 in Eisenhardt
+              et al. (2020))
           w2cc_map_str:
             name: W2CC_MAP_STR
             type: char[20]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: worst case w2cc_map_str from AllWISE (See Table A1 in Eisenhardt
+              et al. (2020))
           n_aw:
             name: N_AW
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: number of sources within 2.75" in AllWISE
           ab_flags:
             name: AB_FLAGS
             type: char[9]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: unWISE artifact bitmask contamination flags
           w1ab_map:
             name: W1AB_MAP
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: unWISE artifact bitmask contamination map for W1
           w1ab_map_str:
             name: W1AB_MAP_STR
             type: char[13]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: unWISE artifact bitmask contamination string for W1
           w2ab_map:
             name: W2AB_MAP
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: unWISE artifact bitmask contamination map for W2
           w2ab_map_str:
             name: W2AB_MAP_STR
             type: char[13]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: unWISE artifact bitmask contamination string for W1
           glon:
             name: GLON
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: Galactic longitude (only present in CatWISE 2020)
           glat:
             name: GLAT
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: Galactic latitude (only present in CatWISE 2020)
           elon:
             name: ELON
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: Ecliptic longitude
           elat:
             name: ELAT
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: Ecliptic latitude
           unwise_objid:
             name: UNWISE_OBJID
             type: char[20]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: UnWISE Object ID (only present in CatWISE 2020)

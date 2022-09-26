@@ -1,7 +1,8 @@
 general:
   name: mos_target_cadence
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: 'MOS Target Table: cadence'
+  description: Cadences define the time between series of exposures (one "epoch")
+    on a field, and the observing conditions, e.g., skybrightness, for each epoch.
   datatype: FITS
   filesize: 36 KB
   releases:
@@ -9,11 +10,11 @@ general:
   environments:
   - MOS_TARGET
   surveys:
-  - SDSS
-  naming_convention: replace me - with $MOS_TARGET/[V_TARG]/mos_target_cadence.fits
-    or mos_target_cadence.fits but with regex pattern matches
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  - BHM
+  - MWM
+  naming_convention: $MOS_TARGET/[V_TARG]/mos_target_cadence.fits, where V_TARG=1.0.1
+    for DR18
+  generated_by: sdss5db> targetdb, operations database server
   design: false
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
@@ -36,7 +37,7 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: Primary header
         is_image: true
         size: 0 bytes
         header:
@@ -54,42 +55,42 @@ releases:
           comment: ''
       hdu1:
         name: ''
-        description: replace me description
+        description: 'MOS Target Table: cadence'
         is_image: false
         size: 29 KB
         columns:
           label:
             name: LABEL
             type: char[21]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Descriptive name for the cadence with a version
           nepochs:
             name: NEPOCHS
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of epochs in the cadence
           pk:
             name: PK
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Primary key
           label_root:
             name: LABEL_ROOT
             type: char[18]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Descriptive name, typically {bright/dark}_{nepochs}x{nexps}
           label_version:
             name: LABEL_VERSION
             type: char[3]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Version; cadences are added in versioned batches
           max_skybrightness:
             name: MAX_SKYBRIGHTNESS
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The maximum skybrightness for all epochs in this cadence
           nexp_total:
             name: NEXP_TOTAL
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The total number of exposures planned for this cadence

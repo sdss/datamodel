@@ -1,7 +1,9 @@
 general:
   name: mos_target_carton_to_target
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: 'MOS Target Table: carton_to_target'
+  description: The table stores the targets assigned to a given carton along with
+    information about the instrument that will observe that target, and offseting
+    data.
   datatype: FITS
   filesize: 93 MB
   releases:
@@ -9,11 +11,11 @@ general:
   environments:
   - MOS_TARGET
   surveys:
-  - SDSS
-  naming_convention: replace me - with $MOS_TARGET/[V_TARG]/mos_target_carton_to_target-[NUM].fits
-    or mos_target_carton_to_target-01.fits but with regex pattern matches
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  - BHM
+  - MWM
+  naming_convention: $MOS_TARGET/[V_TARG]/mos_target_carton_to_target-[NUM].fits,
+    where V_TARG=1.0.1 for DR18; and NUM = 01..64 to partition the file into parts
+  generated_by: sdss5db> targetdb, operations database server
   design: false
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
@@ -37,7 +39,7 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: Primary header
         is_image: true
         size: 0 bytes
         header:
@@ -55,62 +57,65 @@ releases:
           comment: ''
       hdu1:
         name: ''
-        description: replace me description
+        description: 'MOS Target Table: carton_to_target'
         is_image: false
         size: 93 MB
         columns:
           carton_to_target_pk:
             name: CARTON_TO_TARGET_PK
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The primary key. A sequential identifier.
           lambda_eff:
             name: LAMBDA_EFF
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: angstrom
+            description: The effective wavelength at which the object will be observed
           carton_pk:
             name: CARTON_PK
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The primary key of the carton in the mos_target_carton table.
           target_pk:
             name: TARGET_PK
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The primary key of the target in the mos_target_target table.
           cadence_pk:
             name: CADENCE_PK
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The primary key of the cadence in the mos_target_cadence
+              table.
           priority:
             name: PRIORITY
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The target priority. Used for scheduling.
           value:
             name: VALUE
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: An internal metric of the target value used for scheduling.
           instrument_pk:
             name: INSTRUMENT_PK
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The primary key of the instrument in the mos_target_instrument
+              table.
           delta_ra:
             name: DELTA_RA
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The RA offset for fibre positioning, in arcsec.
           delta_dec:
             name: DELTA_DEC
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The Dec offset for fibre positioning, in arcsec.
           inertial:
             name: INERTIAL
             type: bool
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Whether this is an inertial target (no proper motion will
+              be applied).

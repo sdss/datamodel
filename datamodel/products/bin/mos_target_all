@@ -3,10 +3,14 @@ from txt_to_datamodel import load_datamodel_summary, update_datamodel, save_data
 release = 'dr18'
 product = 'mos_target'
 #tables = ["allwise", "bhm_efeds_veto", "bhm_rm_v0_2_1", "cadence", "cadence_epoch", "carton", "carton_to_target", "catalogdb_version", "category", "catwise2020", "instrument", "magnitude", "mapper", "target.0", "target", "targetdb_version"]
-tables = ["bhm_efeds_veto", "bhm_rm_v0_2_1", "cadence", "cadence_epoch", "carton", "carton_to_target", "catalogdb_version", "category", "catwise2020", "instrument", "magnitude", "mapper", "targetdb_version"]
 for table in tables:
     file = '%s_%s.txt' % (release, table)
     table = '%s_%s' % (product, table)
     datamodel, summary = load_datamodel_summary(release = release, file = file)
     datamodel = update_datamodel(table = table, datamodel = datamodel, summary = summary)
     save_datamodel_yaml(table = table, datamodel = datamodel)
+
+
+FileExistsError: dr18_bhm_rm_v0_2_1.txt does not exist.
+FileExistsError: dr18_catalogdb_version.txt does not exist.
+FileExistsError: dr18_targetdb_version.txt does not exist.

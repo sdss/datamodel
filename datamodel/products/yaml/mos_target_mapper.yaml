@@ -1,7 +1,8 @@
 general:
   name: mos_target_mapper
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: 'MOS Target Table: mapper'
+  description: This table stores the names of the mappers associated with cartons
+    in mos_target_carton.
   datatype: FITS
   filesize: 8 KB
   releases:
@@ -9,11 +10,11 @@ general:
   environments:
   - MOS_TARGET
   surveys:
-  - SDSS
-  naming_convention: replace me - with $MOS_TARGET/[V_TARG]/mos_target_mapper.fits
-    or mos_target_mapper.fits but with regex pattern matches
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  - BHM
+  - MWM
+  naming_convention: $MOS_TARGET/[V_TARG]/mos_target_mapper.fits, where V_TARG=1.0.1
+    for DR18
+  generated_by: sdss5db> targetdb, operations database server
   design: false
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
@@ -36,7 +37,7 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: Primary header
         is_image: true
         size: 0 bytes
         header:
@@ -54,17 +55,17 @@ releases:
           comment: ''
       hdu1:
         name: ''
-        description: replace me description
+        description: 'MOS Target Table: mapper'
         is_image: false
         size: 14 bytes
         columns:
           pk:
             name: PK
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The primary key. A sequential identifier.
           label:
             name: LABEL
             type: char[3]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The name of the mapper.

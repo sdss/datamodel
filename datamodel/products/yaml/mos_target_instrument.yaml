@@ -1,7 +1,7 @@
 general:
   name: mos_target_instrument
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: 'MOS Target Table: instrument'
+  description: This table stores the instruments used by SDSS-V.
   datatype: FITS
   filesize: 8 KB
   releases:
@@ -9,11 +9,11 @@ general:
   environments:
   - MOS_TARGET
   surveys:
-  - SDSS
-  naming_convention: replace me - with $MOS_TARGET/[V_TARG]/mos_target_instrument.fits
-    or mos_target_instrument.fits but with regex pattern matches
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  - BHM
+  - MWM
+  naming_convention: $MOS_TARGET/[V_TARG]/mos_target_instrument.fits, where V_TARG=1.0.1
+    for DR18
+  generated_by: sdss5db> targetdb, operations database server
   design: false
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
@@ -36,7 +36,7 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: Primary header
         is_image: true
         size: 0 bytes
         header:
@@ -54,22 +54,23 @@ releases:
           comment: ''
       hdu1:
         name: ''
-        description: replace me description
+        description: 'MOS Target Table: instrument'
         is_image: false
         size: 28 bytes
         columns:
           pk:
             name: PK
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The primary key. A sequential identifier.
           label:
             name: LABEL
             type: char[6]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The name of the instrument.
           default_lambda_eff:
             name: DEFAULT_LAMBDA_EFF
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: angstrom
+            description: The default wavelength for which fibre positioning will be
+              optimised

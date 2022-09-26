@@ -1,7 +1,8 @@
 general:
   name: mos_target_magnitude
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: 'MOS Target Table: magnitude'
+  description: This table stores magnitude information for a target. Optical magnitudes
+    that are not selected from SDSS photometry have been converted to the SDSS system.
   datatype: FITS
   filesize: 129 MB
   releases:
@@ -9,11 +10,11 @@ general:
   environments:
   - MOS_TARGET
   surveys:
-  - SDSS
-  naming_convention: replace me - with $MOS_TARGET/[V_TARG]/mos_target_magnitude-[NUM].fits
-    or mos_target_magnitude-01.fits but with regex pattern matches
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  - BHM
+  - MWM
+  naming_convention: $MOS_TARGET/[V_TARG]/mos_target_magnitude-[NUM].fits, where V_TARG=1.0.1
+    for DR18; and NUM = 01..34 to partition the file into parts
+  generated_by: sdss5db> targetdb, operations database server
   design: false
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
@@ -37,7 +38,7 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: Primary header
         is_image: true
         size: 0 bytes
         header:
@@ -55,72 +56,73 @@ releases:
           comment: ''
       hdu1:
         name: ''
-        description: replace me description
+        description: 'MOS Target Table: magnitude'
         is_image: false
         size: 129 MB
         columns:
           carton_to_target_pk:
             name: CARTON_TO_TARGET_PK
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The primary key of the target in the mos_target_carton_to_target
+              table.
           magnitude_pk:
             name: MAGNITUDE_PK
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The primary key. A sequential identifier.
           g:
             name: G
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The optical g magnitude.
           r:
             name: R
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The optical r magnitude.
           i:
             name: I
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The optical i magnitude.
           h:
             name: H
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The IR H magnitude.
           bp:
             name: BP
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The Gaia BP magnitude.
           rp:
             name: RP
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The Gaia RP magnitude.
           z:
             name: Z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The optical z magnitude.
           j:
             name: J
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The IR J magnitude.
           k:
             name: K
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The IR K magnitude.
           gaia_g:
             name: GAIA_G
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The Gaia G magnitude.
           optical_prov:
             name: OPTICAL_PROV
             type: char[16]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The source of the optical magnitudes.

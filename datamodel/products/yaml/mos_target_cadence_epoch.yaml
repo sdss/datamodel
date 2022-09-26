@@ -1,7 +1,7 @@
 general:
   name: mos_target_cadence_epoch
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: 'MOS Target Table: cadence_epoch'
+  description: Constraints for a single epoch within a cadence.
   datatype: FITS
   filesize: 1 MB
   releases:
@@ -9,11 +9,11 @@ general:
   environments:
   - MOS_TARGET
   surveys:
-  - SDSS
-  naming_convention: replace me - with $MOS_TARGET/[V_TARG]/mos_target_cadence_epoch.fits
-    or mos_target_cadence_epoch.fits but with regex pattern matches
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  - BHM
+  - MWM
+  naming_convention: $MOS_TARGET/[V_TARG]/mos_target_cadence_epoch.fits, where V_TARG=1.0.1
+    for DR18
+  generated_by: sdss5db> targetdb, operations database server
   design: false
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
@@ -36,7 +36,7 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: Primary header
         is_image: true
         size: 0 bytes
         header:
@@ -54,62 +54,65 @@ releases:
           comment: ''
       hdu1:
         name: ''
-        description: replace me description
+        description: 'MOS Target Table: cadence_epoch'
         is_image: false
         size: 1 MB
         columns:
           label:
             name: LABEL
             type: char[21]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Descriptive name for the cadence with a version
           nepochs:
             name: NEPOCHS
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of epochs in the cadence
           cadence_pk:
             name: CADENCE_PK
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Primary key of the cadence this epoch belongs to
           epoch:
             name: EPOCH
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Which epoch is this in the cadence (0-indexed)
           delta:
             name: DELTA
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: days
+            description: Nominal (goal) time since previous epoch
           skybrightness:
             name: SKYBRIGHTNESS
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Maximum allowed skybrightness, i.e. moon illumination (0.0
+              to 1.0)
           delta_max:
             name: DELTA_MAX
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: days
+            description: Maximum allowed time since previous epoch
           delta_min:
             name: DELTA_MIN
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: days
+            description: Minimum allowed time since previous epoch
           nexp:
             name: NEXP
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of exposures in this epoch
           max_length:
             name: MAX_LENGTH
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Maximum allowed length of epoch, i.e. time between first
+              and last exposure
           obsmode_pk:
             name: OBSMODE_PK
             type: char[11]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Reference to the observing parameters (airmass, moon seperation,
+              etc.)
