@@ -1,12 +1,40 @@
 {
   "general": {
     "name": "mos_target_target",
-    "short": "MOS Target table of targets",
-    "description": "This fits table stores the targets associated with DR18 target selection cartons. Note that the targets in this table are unique, but a target can be associated with multiple cartons. That many-to-many relationship is encoded in the mos_target_carton_to_target table",
+    "short": "MOS Target Table: target",
+    "description": "This table stores the targets associated with DR18 target selection cartons. Note that the targets in this table are unique, but a target can be associated with multiple cartons. That many-to-many relationship is encoded in the mos_target_carton_to_target table.",
     "environments": [
       "MOS_TARGET"
     ],
     "surveys": [
+      {
+        "name": "BHM",
+        "long": "Black Hole Mapper",
+        "description": "An optical time-domain spectroscopic survey of quasars and X-ray sources",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "bhm",
+        "aliases": []
+      },
+      {
+        "name": "MWM",
+        "long": "Milky Way Mapper",
+        "description": "A time-domain, optical+IR spectroscopic survey of Milky Way stars of all types.",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "mwm",
+        "aliases": []
+      },
       {
         "name": "SDSS",
         "long": "Sloan Digital Sky Survey",
@@ -23,7 +51,7 @@
       }
     ],
     "datatype": "FITS",
-    "filesize": "457 MB",
+    "filesize": "91 MB",
     "releases": [
       {
         "name": "WORK",
@@ -32,7 +60,7 @@
         "release_date": "unreleased"
       }
     ],
-    "naming_convention": "$MOS_TARGET/[TRG_VERSION]/mos_target_target-[NUM].fits, where TRG_VERSION=1.0 for DR18; and NUM = 1..8 to partition the file into 8 parts",
+    "naming_convention": "$MOS_TARGET/[V_TARG]/mos_target_target-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 01..37 to partition the file into parts",
     "generated_by": "sdss5db> targetdb, operations database server",
     "design": false
   },
@@ -42,20 +70,20 @@
   },
   "releases": {
     "WORK": {
-      "template": "$MOS_TARGET/[TRG_VERSION]/mos_target_target-[NUM].fits",
-      "example": "1.0/mos_target_target-1.fits",
-      "location": "{trg_version}/mos_target_target-{num}.fits",
+      "template": "$MOS_TARGET/[V_TARG]/mos_target_target-[NUM].fits",
+      "example": "1.0.1/mos_target_target-01.fits",
+      "location": "{v_targ}/mos_target_target-{num}.fits",
       "environment": "MOS_TARGET",
       "survey": "SDSS",
       "access": {
         "in_sdss_access": true,
         "path_name": "mos_target_target",
-        "path_template": "$MOS_TARGET/{trg_version}/mos_target_target-{num}.fits",
+        "path_template": "$MOS_TARGET/{v_targ}/mos_target_target-{num}",
         "path_kwargs": [
-          "trg_version",
+          "v_targ",
           "num"
         ],
-        "access_string": "mos_target_target = $MOS_TARGET/{trg_version}/mos_target_target-{num}.fits"
+        "access_string": "mos_target_target = $MOS_TARGET/{v_targ}/mos_target_target-{num}.fits"
       },
       "hdus": {
         "hdu0": {
@@ -90,8 +118,8 @@
         "hdu1": {
           "name": "",
           "is_image": false,
-          "description": "Targets",
-          "size": "457 MB",
+          "description": "MOS Target Table: target",
+          "size": "91 MB",
           "header": null,
           "columns": {
             "target_pk": {

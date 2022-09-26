@@ -1,7 +1,7 @@
 # Data Model: mos_target_target
 
 
-MOS Target table of targets
+MOS Target Table: target
 
 
 ## Contents
@@ -12,10 +12,10 @@ MOS Target table of targets
 ---
 
 ## Basic Information
-This fits table stores the targets associated with DR18 target selection cartons. Note that the targets in this table are unique, but a target can be associated with multiple cartons. That many-to-many relationship is encoded in the mos_target_carton_to_target table
+This table stores the targets associated with DR18 target selection cartons. Note that the targets in this table are unique, but a target can be associated with multiple cartons. That many-to-many relationship is encoded in the mos_target_carton_to_target table.
 
 ### Naming Convention
-$MOS_TARGET/[TRG_VERSION]/mos_target_target-[NUM].fits, where TRG_VERSION=1.0 for DR18; and NUM = 1..8 to partition the file into 8 parts
+$MOS_TARGET/[V_TARG]/mos_target_target-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 01..37 to partition the file into parts
 
 ### Releases
 WORK
@@ -24,7 +24,7 @@ WORK
 MOS_TARGET
 
 ### Approximate Size
-457 MB
+91 MB
 
 ### File Type
 FITS
@@ -61,10 +61,10 @@ Key | Value | Comment | |
 
 
 ### HDU1: 
-Targets
+MOS Target Table: target
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  457 MB
+#### HDU Size:  91 MB
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
