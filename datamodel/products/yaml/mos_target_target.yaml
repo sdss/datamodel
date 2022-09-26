@@ -1,19 +1,20 @@
 general:
   name: mos_target_target
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: 'MOS Target Table: target'
+  description: This table stores the targets associated with DR18 target selection
+    cartons. Note that the targets in this table are unique, but a target can be associated
+    with multiple cartons. That many-to-many relationship is encoded in the mos_target_carton_to_target
+    table.
   datatype: FITS
   filesize: 91 MB
   releases:
   - WORK
   environments:
   - MOS_TARGET
-  surveys:
-  - SDSS
-  naming_convention: replace me - with $MOS_TARGET/[V_TARG]/mos_target_target-[NUM].fits
-    or mos_target_target-01.fits but with regex pattern matches
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  surveys: SDSS-V Multi-Object Spectroscopy (MOS)
+  naming_convention: $MOS_TARGET/[V_TARG]/mos_target_target-[NUM].fits, where V_TARG=1.0.1
+    for DR18; and NUM = 01..37 to partition the file into parts
+  generated_by: sdss5db> targetdb, operations database server
   design: false
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
@@ -37,7 +38,7 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: Primary header
         is_image: true
         size: 0 bytes
         header:
@@ -55,47 +56,51 @@ releases:
           comment: ''
       hdu1:
         name: ''
-        description: replace me description
+        description: 'MOS Target Table: target'
         is_image: false
         size: 91 MB
         columns:
           target_pk:
             name: TARGET_PK
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The primary key. A sequential identifier.
           ra:
             name: RA
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: degree
+            description: The right ascension of the target in ICRS coordinates at
+              epoch. From mos_target_catalog.
           dec:
             name: DEC
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: degree
+            description: The declination of the target in ICRS coordinates at epoch.
+              From mos_target_catalog.
           pmra:
             name: PMRA
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mas/yr
+            description: The proper motion in right ascenscion of the target, as a
+              true angle. From mos_target_catalog.
           pmdec:
             name: PMDEC
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mas/yr
+            description: The proper motion in declination of the target. From mos_target_catalog.
           epoch:
             name: EPOCH
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: years
+            description: The epoch of the coordinates, as a Julian epoch.
           parallax:
             name: PARALLAX
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: arcsec
+            description: The parallax of the target. From mos_target_catalog.
           catalogid:
             name: CATALOGID
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The catalogid of the entry in mos_target_catalog associated
+              with this target.
