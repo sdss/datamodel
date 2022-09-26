@@ -12,7 +12,7 @@ MOS Target Table: allwise
 ---
 
 ## Basic Information
-
+TBD in minidb_docs (as of 09/27/2022)
 
 ### Naming Convention
 $MOS_TARGET/[V_TARG]/mos_target_allwise-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 01..20 to partition the file into parts
@@ -69,303 +69,303 @@ MOS Target Table: allwise
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | DESIGNATION | char[20] |  |  |
- | RA | float32 |  |  |
- | DEC | float32 |  |  |
- | SIGRA | float32 |  |  |
- | SIGDEC | float32 |  |  |
- | SIGRADEC | float32 |  |  |
- | GLON | float32 |  |  |
- | GLAT | float32 |  |  |
- | ELON | float32 |  |  |
- | ELAT | float32 |  |  |
- | WX | float32 |  |  |
- | WY | float32 |  |  |
- | CNTR | int64 |  |  |
- | SOURCE_ID | char[28] |  |  |
- | COADD_ID | char[20] |  |  |
- | SRC | int32 |  |  |
- | W1MPRO | float32 |  |  |
- | W1SIGMPRO | float32 |  |  |
- | W1SNR | float32 |  |  |
- | W1RCHI2 | float32 |  |  |
- | W2MPRO | float32 |  |  |
- | W2SIGMPRO | float32 |  |  |
- | W2SNR | float32 |  |  |
- | W2RCHI2 | float32 |  |  |
- | W3MPRO | float32 |  |  |
- | W3SIGMPRO | float32 |  |  |
- | W3SNR | float32 |  |  |
- | W3RCHI2 | float32 |  |  |
- | W4MPRO | float32 |  |  |
- | W4SIGMPRO | float32 |  |  |
- | W4SNR | float32 |  |  |
- | W4RCHI2 | float32 |  |  |
- | RCHI2 | float32 |  |  |
- | NB | int32 |  |  |
- | NA | int32 |  |  |
- | W1SAT | float32 |  |  |
- | W2SAT | float32 |  |  |
- | W3SAT | float32 |  |  |
- | W4SAT | float32 |  |  |
- | SATNUM | char[4] |  |  |
- | RA_PM | float32 |  |  |
- | DEC_PM | float32 |  |  |
- | SIGRA_PM | float32 |  |  |
- | SIGDEC_PM | float32 |  |  |
- | SIGRADEC_PM | float32 |  |  |
- | PMRA | int32 |  |  |
- | SIGPMRA | int32 |  |  |
- | PMDEC | int32 |  |  |
- | SIGPMDEC | int32 |  |  |
- | W1RCHI2_PM | float32 |  |  |
- | W2RCHI2_PM | float32 |  |  |
- | W3RCHI2_PM | float32 |  |  |
- | W4RCHI2_PM | float32 |  |  |
- | RCHI2_PM | float32 |  |  |
- | PMCODE | char[5] |  |  |
- | CC_FLAGS | char[4] |  |  |
- | REL | char[4] |  |  |
- | EXT_FLG | int32 |  |  |
- | VAR_FLG | char[4] |  |  |
- | PH_QUAL | char[4] |  |  |
- | DET_BIT | int32 |  |  |
- | MOON_LEV | char[4] |  |  |
- | W1NM | int32 |  |  |
- | W1M | int32 |  |  |
- | W2NM | int32 |  |  |
- | W2M | int32 |  |  |
- | W3NM | int32 |  |  |
- | W3M | int32 |  |  |
- | W4NM | int32 |  |  |
- | W4M | int32 |  |  |
- | W1COV | float32 |  |  |
- | W2COV | float32 |  |  |
- | W3COV | float32 |  |  |
- | W4COV | float32 |  |  |
- | W1CC_MAP | int32 |  |  |
- | W1CC_MAP_STR | char[9] |  |  |
- | W2CC_MAP | int32 |  |  |
- | W2CC_MAP_STR | char[9] |  |  |
- | W3CC_MAP | int32 |  |  |
- | W3CC_MAP_STR | char[9] |  |  |
- | W4CC_MAP | int32 |  |  |
- | W4CC_MAP_STR | char[9] |  |  |
- | BEST_USE_CNTR | int64 |  |  |
- | NGRP | int16 |  |  |
- | W1FLUX | float32 |  |  |
- | W1SIGFLUX | float32 |  |  |
- | W1SKY | float32 |  |  |
- | W1SIGSK | float32 |  |  |
- | W1CONF | float32 |  |  |
- | W2FLUX | float32 |  |  |
- | W2SIGFLUX | float32 |  |  |
- | W2SKY | float32 |  |  |
- | W2SIGSK | float32 |  |  |
- | W2CONF | float32 |  |  |
- | W3FLUX | float32 |  |  |
- | W3SIGFLUX | float32 |  |  |
- | W3SKY | float32 |  |  |
- | W3SIGSK | float32 |  |  |
- | W3CONF | float32 |  |  |
- | W4FLUX | float32 |  |  |
- | W4SIGFLUX | float32 |  |  |
- | W4SKY | float32 |  |  |
- | W4SIGSK | float32 |  |  |
- | W4CONF | float32 |  |  |
- | W1MAG | float32 |  |  |
- | W1SIGM | float32 |  |  |
- | W1FLG | int32 |  |  |
- | W1MCOR | float32 |  |  |
- | W2MAG | float32 |  |  |
- | W2SIGM | float32 |  |  |
- | W2FLG | int32 |  |  |
- | W2MCOR | float32 |  |  |
- | W3MAG | float32 |  |  |
- | W3SIGM | float32 |  |  |
- | W3FLG | int32 |  |  |
- | W3MCOR | float32 |  |  |
- | W4MAG | float32 |  |  |
- | W4SIGM | float32 |  |  |
- | W4FLG | int32 |  |  |
- | W4MCOR | float32 |  |  |
- | W1MAG_1 | float32 |  |  |
- | W1SIGM_1 | float32 |  |  |
- | W1FLG_1 | int32 |  |  |
- | W2MAG_1 | float32 |  |  |
- | W2SIGM_1 | float32 |  |  |
- | W2FLG_1 | int32 |  |  |
- | W3MAG_1 | float32 |  |  |
- | W3SIGM_1 | float32 |  |  |
- | W3FLG_1 | int32 |  |  |
- | W4MAG_1 | float32 |  |  |
- | W4SIGM_1 | float32 |  |  |
- | W4FLG_1 | int32 |  |  |
- | W1MAG_2 | float32 |  |  |
- | W1SIGM_2 | float32 |  |  |
- | W1FLG_2 | int32 |  |  |
- | W2MAG_2 | float32 |  |  |
- | W2SIGM_2 | float32 |  |  |
- | W2FLG_2 | int32 |  |  |
- | W3MAG_2 | float32 |  |  |
- | W3SIGM_2 | float32 |  |  |
- | W3FLG_2 | int32 |  |  |
- | W4MAG_2 | float32 |  |  |
- | W4SIGM_2 | float32 |  |  |
- | W4FLG_2 | int32 |  |  |
- | W1MAG_3 | float32 |  |  |
- | W1SIGM_3 | float32 |  |  |
- | W1FLG_3 | int32 |  |  |
- | W2MAG_3 | float32 |  |  |
- | W2SIGM_3 | float32 |  |  |
- | W2FLG_3 | int32 |  |  |
- | W3MAG_3 | float32 |  |  |
- | W3SIGM_3 | float32 |  |  |
- | W3FLG_3 | int32 |  |  |
- | W4MAG_3 | float32 |  |  |
- | W4SIGM_3 | float32 |  |  |
- | W4FLG_3 | int32 |  |  |
- | W1MAG_4 | float32 |  |  |
- | W1SIGM_4 | float32 |  |  |
- | W1FLG_4 | int32 |  |  |
- | W2MAG_4 | float32 |  |  |
- | W2SIGM_4 | float32 |  |  |
- | W2FLG_4 | int32 |  |  |
- | W3MAG_4 | float32 |  |  |
- | W3SIGM_4 | float32 |  |  |
- | W3FLG_4 | int32 |  |  |
- | W4MAG_4 | float32 |  |  |
- | W4SIGM_4 | float32 |  |  |
- | W4FLG_4 | int32 |  |  |
- | W1MAG_5 | float32 |  |  |
- | W1SIGM_5 | float32 |  |  |
- | W1FLG_5 | int32 |  |  |
- | W2MAG_5 | float32 |  |  |
- | W2SIGM_5 | float32 |  |  |
- | W2FLG_5 | int32 |  |  |
- | W3MAG_5 | float32 |  |  |
- | W3SIGM_5 | float32 |  |  |
- | W3FLG_5 | int32 |  |  |
- | W4MAG_5 | float32 |  |  |
- | W4SIGM_5 | float32 |  |  |
- | W4FLG_5 | int32 |  |  |
- | W1MAG_6 | float32 |  |  |
- | W1SIGM_6 | float32 |  |  |
- | W1FLG_6 | int32 |  |  |
- | W2MAG_6 | float32 |  |  |
- | W2SIGM_6 | float32 |  |  |
- | W2FLG_6 | int32 |  |  |
- | W3MAG_6 | float32 |  |  |
- | W3SIGM_6 | float32 |  |  |
- | W3FLG_6 | int32 |  |  |
- | W4MAG_6 | float32 |  |  |
- | W4SIGM_6 | float32 |  |  |
- | W4FLG_6 | int32 |  |  |
- | W1MAG_7 | float32 |  |  |
- | W1SIGM_7 | float32 |  |  |
- | W1FLG_7 | int32 |  |  |
- | W2MAG_7 | float32 |  |  |
- | W2SIGM_7 | float32 |  |  |
- | W2FLG_7 | int32 |  |  |
- | W3MAG_7 | float32 |  |  |
- | W3SIGM_7 | float32 |  |  |
- | W3FLG_7 | int32 |  |  |
- | W4MAG_7 | float32 |  |  |
- | W4SIGM_7 | float32 |  |  |
- | W4FLG_7 | int32 |  |  |
- | W1MAG_8 | float32 |  |  |
- | W1SIGM_8 | float32 |  |  |
- | W1FLG_8 | int32 |  |  |
- | W2MAG_8 | float32 |  |  |
- | W2SIGM_8 | float32 |  |  |
- | W2FLG_8 | int32 |  |  |
- | W3MAG_8 | float32 |  |  |
- | W3SIGM_8 | float32 |  |  |
- | W3FLG_8 | int32 |  |  |
- | W4MAG_8 | float32 |  |  |
- | W4SIGM_8 | float32 |  |  |
- | W4FLG_8 | int32 |  |  |
- | W1MAGP | float32 |  |  |
- | W1SIGP1 | float32 |  |  |
- | W1SIGP2 | float32 |  |  |
- | W1K | float32 |  |  |
- | W1NDF | int32 |  |  |
- | W1MLQ | float32 |  |  |
- | W1MJDMIN | float32 |  |  |
- | W1MJDMAX | float32 |  |  |
- | W1MJDMEAN | float32 |  |  |
- | W2MAGP | float32 |  |  |
- | W2SIGP1 | float32 |  |  |
- | W2SIGP2 | float32 |  |  |
- | W2K | float32 |  |  |
- | W2NDF | int32 |  |  |
- | W2MLQ | float32 |  |  |
- | W2MJDMIN | float32 |  |  |
- | W2MJDMAX | float32 |  |  |
- | W2MJDMEAN | float32 |  |  |
- | W3MAGP | float32 |  |  |
- | W3SIGP1 | float32 |  |  |
- | W3SIGP2 | float32 |  |  |
- | W3K | float32 |  |  |
- | W3NDF | int32 |  |  |
- | W3MLQ | float32 |  |  |
- | W3MJDMIN | float32 |  |  |
- | W3MJDMAX | float32 |  |  |
- | W3MJDMEAN | float32 |  |  |
- | W4MAGP | float32 |  |  |
- | W4SIGP1 | float32 |  |  |
- | W4SIGP2 | float32 |  |  |
- | W4K | float32 |  |  |
- | W4NDF | int32 |  |  |
- | W4MLQ | float32 |  |  |
- | W4MJDMIN | float32 |  |  |
- | W4MJDMAX | float32 |  |  |
- | W4MJDMEAN | float32 |  |  |
- | RHO12 | int32 |  |  |
- | RHO23 | int32 |  |  |
- | RHO34 | int32 |  |  |
- | Q12 | int32 |  |  |
- | Q23 | int32 |  |  |
- | Q34 | int32 |  |  |
- | XSCPROX | float32 |  |  |
- | W1RSEMI | float32 |  |  |
- | W1BA | float32 |  |  |
- | W1PA | float32 |  |  |
- | W1GMAG | float32 |  |  |
- | W1GERR | float32 |  |  |
- | W1GFLG | int32 |  |  |
- | W2RSEMI | float32 |  |  |
- | W2BA | float32 |  |  |
- | W2PA | float32 |  |  |
- | W2GMAG | float32 |  |  |
- | W2GERR | float32 |  |  |
- | W2GFLG | int32 |  |  |
- | W3RSEMI | float32 |  |  |
- | W3BA | float32 |  |  |
- | W3PA | float32 |  |  |
- | W3GMAG | float32 |  |  |
- | W3GERR | float32 |  |  |
- | W3GFLG | int32 |  |  |
- | W4RSEMI | float32 |  |  |
- | W4BA | float32 |  |  |
- | W4PA | float32 |  |  |
- | W4GMAG | float32 |  |  |
- | W4GERR | float32 |  |  |
- | W4GFLG | int32 |  |  |
- | TMASS_KEY | int32 |  |  |
- | R_2MASS | float32 |  |  |
- | PA_2MASS | float32 |  |  |
- | N_2MASS | int32 |  |  |
- | J_M_2MASS | float32 |  |  |
- | J_MSIG_2MASS | float32 |  |  |
- | H_M_2MASS | float32 |  |  |
- | H_MSIG_2MASS | float32 |  |  |
- | K_M_2MASS | float32 |  |  |
- | K_MSIG_2MASS | float32 |  |  |
- | X | float32 |  |  |
- | Y | float32 |  |  |
- | Z | float32 |  |  |
- | SPT_IND | int32 |  |  |
- | HTM20 | int64 |  |  |
+ | DESIGNATION | char[20] |  | TBD in minidb_docs (as of 09/27/2022) |
+ | RA | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | DEC | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | SIGRA | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | SIGDEC | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | SIGRADEC | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | GLON | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | GLAT | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | ELON | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | ELAT | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | WX | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | WY | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | CNTR | int64 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | SOURCE_ID | char[28] |  | TBD in minidb_docs (as of 09/27/2022) |
+ | COADD_ID | char[20] |  | TBD in minidb_docs (as of 09/27/2022) |
+ | SRC | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W1MPRO | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W1SIGMPRO | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W1SNR | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W1RCHI2 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W2MPRO | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W2SIGMPRO | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W2SNR | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W2RCHI2 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W3MPRO | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W3SIGMPRO | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W3SNR | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W3RCHI2 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W4MPRO | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W4SIGMPRO | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W4SNR | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W4RCHI2 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | RCHI2 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | NB | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | NA | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W1SAT | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W2SAT | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W3SAT | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W4SAT | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | SATNUM | char[4] |  | TBD in minidb_docs (as of 09/27/2022) |
+ | RA_PM | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | DEC_PM | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | SIGRA_PM | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | SIGDEC_PM | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | SIGRADEC_PM | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | PMRA | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | SIGPMRA | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | PMDEC | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | SIGPMDEC | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W1RCHI2_PM | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W2RCHI2_PM | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W3RCHI2_PM | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W4RCHI2_PM | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | RCHI2_PM | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | PMCODE | char[5] |  | TBD in minidb_docs (as of 09/27/2022) |
+ | CC_FLAGS | char[4] |  | TBD in minidb_docs (as of 09/27/2022) |
+ | REL | char[4] |  | TBD in minidb_docs (as of 09/27/2022) |
+ | EXT_FLG | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | VAR_FLG | char[4] |  | TBD in minidb_docs (as of 09/27/2022) |
+ | PH_QUAL | char[4] |  | TBD in minidb_docs (as of 09/27/2022) |
+ | DET_BIT | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | MOON_LEV | char[4] |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W1NM | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W1M | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W2NM | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W2M | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W3NM | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W3M | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W4NM | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W4M | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W1COV | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W2COV | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W3COV | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W4COV | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W1CC_MAP | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W1CC_MAP_STR | char[9] |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W2CC_MAP | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W2CC_MAP_STR | char[9] |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W3CC_MAP | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W3CC_MAP_STR | char[9] |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W4CC_MAP | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W4CC_MAP_STR | char[9] |  | TBD in minidb_docs (as of 09/27/2022) |
+ | BEST_USE_CNTR | int64 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | NGRP | int16 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W1FLUX | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W1SIGFLUX | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W1SKY | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W1SIGSK | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W1CONF | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W2FLUX | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W2SIGFLUX | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W2SKY | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W2SIGSK | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W2CONF | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W3FLUX | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W3SIGFLUX | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W3SKY | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W3SIGSK | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W3CONF | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W4FLUX | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W4SIGFLUX | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W4SKY | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W4SIGSK | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W4CONF | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W1MAG | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W1SIGM | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W1FLG | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W1MCOR | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W2MAG | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W2SIGM | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W2FLG | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W2MCOR | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W3MAG | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W3SIGM | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W3FLG | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W3MCOR | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W4MAG | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W4SIGM | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W4FLG | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W4MCOR | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W1MAG_1 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W1SIGM_1 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W1FLG_1 | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W2MAG_1 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W2SIGM_1 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W2FLG_1 | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W3MAG_1 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W3SIGM_1 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W3FLG_1 | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W4MAG_1 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W4SIGM_1 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W4FLG_1 | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W1MAG_2 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W1SIGM_2 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W1FLG_2 | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W2MAG_2 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W2SIGM_2 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W2FLG_2 | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W3MAG_2 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W3SIGM_2 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W3FLG_2 | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W4MAG_2 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W4SIGM_2 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W4FLG_2 | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W1MAG_3 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W1SIGM_3 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W1FLG_3 | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W2MAG_3 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W2SIGM_3 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W2FLG_3 | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W3MAG_3 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W3SIGM_3 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W3FLG_3 | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W4MAG_3 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W4SIGM_3 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W4FLG_3 | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W1MAG_4 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W1SIGM_4 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W1FLG_4 | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W2MAG_4 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W2SIGM_4 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W2FLG_4 | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W3MAG_4 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W3SIGM_4 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W3FLG_4 | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W4MAG_4 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W4SIGM_4 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W4FLG_4 | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W1MAG_5 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W1SIGM_5 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W1FLG_5 | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W2MAG_5 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W2SIGM_5 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W2FLG_5 | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W3MAG_5 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W3SIGM_5 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W3FLG_5 | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W4MAG_5 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W4SIGM_5 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W4FLG_5 | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W1MAG_6 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W1SIGM_6 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W1FLG_6 | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W2MAG_6 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W2SIGM_6 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W2FLG_6 | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W3MAG_6 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W3SIGM_6 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W3FLG_6 | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W4MAG_6 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W4SIGM_6 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W4FLG_6 | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W1MAG_7 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W1SIGM_7 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W1FLG_7 | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W2MAG_7 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W2SIGM_7 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W2FLG_7 | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W3MAG_7 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W3SIGM_7 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W3FLG_7 | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W4MAG_7 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W4SIGM_7 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W4FLG_7 | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W1MAG_8 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W1SIGM_8 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W1FLG_8 | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W2MAG_8 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W2SIGM_8 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W2FLG_8 | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W3MAG_8 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W3SIGM_8 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W3FLG_8 | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W4MAG_8 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W4SIGM_8 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W4FLG_8 | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W1MAGP | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W1SIGP1 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W1SIGP2 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W1K | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W1NDF | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W1MLQ | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W1MJDMIN | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W1MJDMAX | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W1MJDMEAN | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W2MAGP | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W2SIGP1 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W2SIGP2 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W2K | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W2NDF | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W2MLQ | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W2MJDMIN | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W2MJDMAX | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W2MJDMEAN | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W3MAGP | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W3SIGP1 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W3SIGP2 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W3K | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W3NDF | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W3MLQ | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W3MJDMIN | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W3MJDMAX | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W3MJDMEAN | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W4MAGP | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W4SIGP1 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W4SIGP2 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W4K | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W4NDF | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W4MLQ | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W4MJDMIN | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W4MJDMAX | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W4MJDMEAN | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | RHO12 | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | RHO23 | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | RHO34 | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | Q12 | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | Q23 | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | Q34 | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | XSCPROX | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W1RSEMI | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W1BA | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W1PA | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W1GMAG | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W1GERR | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W1GFLG | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W2RSEMI | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W2BA | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W2PA | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W2GMAG | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W2GERR | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W2GFLG | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W3RSEMI | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W3BA | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W3PA | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W3GMAG | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W3GERR | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W3GFLG | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W4RSEMI | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W4BA | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W4PA | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W4GMAG | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W4GERR | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | W4GFLG | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | TMASS_KEY | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | R_2MASS | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | PA_2MASS | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | N_2MASS | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | J_M_2MASS | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | J_MSIG_2MASS | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | H_M_2MASS | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | H_MSIG_2MASS | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | K_M_2MASS | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | K_MSIG_2MASS | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | X | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | Y | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | Z | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | SPT_IND | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | HTM20 | int64 |  | TBD in minidb_docs (as of 09/27/2022) |
 
 
