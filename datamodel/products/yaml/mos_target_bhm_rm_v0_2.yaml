@@ -1,7 +1,9 @@
 general:
   name: mos_target_bhm_rm_v0_2
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: 'MOS Target Table: bhm_rm_v0_2'
+  description: Parent sample for the RM project, used to select confirmed and candidate
+    quasar targets for the BHM-RM Program in SDSS-V. For more details please see Yang
+    and Shen, (2022, https://ui.adsabs.harvard.edu/abs/2022arXiv220608989Y/abstract).
   datatype: FITS
   filesize: 130 MB
   releases:
@@ -9,11 +11,11 @@ general:
   environments:
   - MOS_TARGET
   surveys:
-  - SDSS
-  naming_convention: replace me - with $MOS_TARGET/[V_TARG]/mos_target_bhm_rm_v0_2.fits
-    or mos_target_bhm_rm_v0_2.fits but with regex pattern matches
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  - BHM
+  - MWM
+  naming_convention: $MOS_TARGET/[V_TARG]/mos_target_bhm_rm_v0_2.fits, where V_TARG=1.0.1
+    for DR18
+  generated_by: sdss5db> targetdb, operations database server
   design: false
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
@@ -36,7 +38,7 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: Primary header
         is_image: true
         size: 0 bytes
         header:
@@ -54,1252 +56,1305 @@ releases:
           comment: ''
       hdu1:
         name: ''
-        description: replace me description
+        description: 'MOS Target Table: bhm_rm_v0_2'
         is_image: false
         size: 130 MB
         columns:
           field_name:
             name: FIELD_NAME
             type: char[8]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: One of COSMOS, SDSS-RM, XMM-LSS, CDFS, S-CVZ, or ELAIS-S1
           ra:
             name: RA
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: Fiducial Right Ascension (J2000)
           dec:
             name: DEC
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: Fiducial Declination (J2000)
           distance:
             name: DISTANCE
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: Angular distance from the field center
           pos_ref:
             name: POS_REF
             type: char[4]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 'Fiducial coordinates reference, priority: Gaia > DES > PS1
+              > NSC'
           ebv:
             name: EBV
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: "Galactic E(B\u2212V) reddening from Schlegel et al. (1998)"
           des:
             name: DES
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: A flag set to 1 if in DES photometric catalog
           coadd_object_id:
             name: COADD_OBJECT_ID
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: DES coadd object ID
           ra_des:
             name: RA_DES
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: DES Right Ascension (J2000)
           dec_des:
             name: DEC_DES
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: DES Declination (J2000)
           extended_coadd:
             name: EXTENDED_COADD
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 'DES type classifier: 0 (high-confidence stars), 1 (likely
+              stars), 2 (mostly galaxies), and 3 (high-confidence galaxies)'
           separation_des:
             name: SEPARATION_DES
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: arcsec
+            description: Angular distance between DES position and the fiducial coordinates
           ps1:
             name: PS1
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: A flag set to 1 if in PS1 photometric catalog
           objid_ps1:
             name: OBJID_PS1
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: PS1 unique object identifier
           ra_ps1:
             name: RA_PS1
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: PS1 right ascension from i filter stack detection
           dec_ps1:
             name: DEC_PS1
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: PS1 declination from i filter stack detection
           class_ps1:
             name: CLASS_PS1
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: PS1 source classification = iPsfMag - iKronMag
           separation_ps1:
             name: SEPARATION_PS1
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: arcsec
+            description: Angular distance between PS1 position and the fiducial coordinates
           nsc:
             name: NSC
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: A flag set to 1 if in  photometric catalog
           id_nsc:
             name: ID_NSC
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: NSC unique object identifier
           ra_nsc:
             name: RA_NSC
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: Right Ascension (J2000)
           dec_nsc:
             name: DEC_NSC
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: Declination (J2000)
           class_star:
             name: CLASS_STAR
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: NSC Star/Galaxy classifier
           flags_nsc:
             name: FLAGS_NSC
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: NSC SExtractor flag value
           separation_nsc:
             name: SEPARATION_NSC
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: arcsec
+            description: Angular distance between NSC position and the fiducial coordinates
           sdss:
             name: SDSS
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: A flag set to 1 if in SDSS photometric catalog
           objid_sdss:
             name: OBJID_SDSS
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Unique SDSS identifier
           ra_sdss:
             name: RA_SDSS
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: Right Ascension (J2000)
           dec_sdss:
             name: DEC_SDSS
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: Declination (J2000)
           type_sdss:
             name: TYPE_SDSS
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: SDSS type classifier (star 6, galaxy 3, etc.)
           clean_sdss:
             name: CLEAN_SDSS
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: SDSS clean photometry flag (1=clean, 0=unclean)
           separation_sdss:
             name: SEPARATION_SDSS
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: arcsec
+            description: Angular distance between SDSS position and the fiducial coordinates
           gaia:
             name: GAIA
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: A flag set to 1 if in Gaia DR2 photometric catalog
           source_id_gaia:
             name: SOURCE_ID_GAIA
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Gaia DR2 unique source identifier
           mg:
             name: MG
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Gaia g-band magnitude (phot_g_mean_mag in Gaia catalog, Vega)
           parallax:
             name: PARALLAX
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mas
+            description: Parallax, Angle,
           parallax_error:
             name: PARALLAX_ERROR
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mas
+            description: Standard error of parallax, Angle,
           plxsig:
             name: PLXSIG
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Parallax significance defined as |PARALLAX/PARALLAX_ERROR|
           pmra:
             name: PMRA
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mas/year
+            description: Proper motion in RA direction, Angular Velocity,
           pmra_error:
             name: PMRA_ERROR
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mas/year
+            description: Standard error of proper motion in RA direction, Angular
+              Velocity,
           pmdec:
             name: PMDEC
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mas/year
+            description: Proper motion in DEC direction, Angular Velocity,
           pmdec_error:
             name: PMDEC_ERROR
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mas/year
+            description: Standard error of proper motion in DEC direction, Angular
+              Velocity,
           pmsig:
             name: PMSIG
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Proper motion significance defined as (pmra^2+pmdec^2)/sqrt(pmra^2*pmra_error^2
+              + pmdec^2*pmdec_error^2)
           unwise:
             name: UNWISE
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: A flag set to 1 if in unWISE photometric catalog
           objid_unwise:
             name: OBJID_UNWISE
             type: char[16]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: unWISE unique object id
           ra_unwise:
             name: RA_UNWISE
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: unWISE Right Ascension (J2000)
           dec_unwise:
             name: DEC_UNWISE
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: unWISE Declination (J2000)
           separation_unwise:
             name: SEPARATION_UNWISE
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: arcsec
+            description: Angular distance between unWISE position and the fiducial
+              coordinates
           near_ir:
             name: NEAR_IR
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: A flag set to 1 if in NIR photometric catalog
           survey_ir:
             name: SURVEY_IR
             type: char[6]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 'Near-IR survey name: LAS, UHS, VHS, Viking, VMC, VIDEO'
           sourceid_ir:
             name: SOURCEID_IR
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: NIR source identifier
           ra_ir:
             name: RA_IR
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: NIR Right Ascension (J2000)
           dec_ir:
             name: DEC_IR
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: NIR Declination (J2000)
           separation_ir:
             name: SEPARATION_IR
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: arcsec
+            description: Angular distance between NIR position and the fiducial coordinates
           optical_survey:
             name: OPTICAL_SURVEY
             type: char[4]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Optical survey used in Skewt-QSO, e.g., DES, PS1, Gaia, NSC
           mi:
             name: MI
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: i-band PSF magnitude (galactic extinction not corrected)
           cal_skewt_qso:
             name: CAL_SKEWT_QSO
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: A flag indicates whether Skewt-QSO is calculated.(Set to
+              1 when Nband_Optical_use > 2.)
           nband_optical_use:
             name: NBAND_OPTICAL_USE
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of optical bands used in Skewt-QSQ.
           use_unwise:
             name: USE_UNWISE
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Set to 1 when unWISE photometry is used in Skewt-QSO calculation.
           use_nir:
             name: USE_NIR
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Set to 1 when NIR photometry is usedin Skewt-QSO calculation.
           photo_combination:
             name: PHOTO_COMBINATION
             type: char[17]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The photometric data combinations used in Skewt-QSO, for
+              example, "DECam-YJHK-unWISE" - DECam/PS1 includes grizy bands; unWISE
+              incldes unWISE W1 and W2 bands; and Gaia includes Gaia bp, g, and rp
+              bands
           log_qso:
             name: LOG_QSO
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The (natural) logarithmic probability of a target fitting
+              to QSO colors convolved with a QLF. Set to -323 if log_QSO<-323 (close
+              to the lower limit of double-precision data).
           log_star:
             name: LOG_STAR
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The logarithmic probability of a target fitting to star colors
+              multiplied by star number counts based on a stellar simulation. Set
+              to -323 if log_Star<-323.
           log_galaxy:
             name: LOG_GALAXY
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The logarithmic probability of a target fitting to galaxy
+              colors convolved with a GLF. Set to -323 if  log_Galaxy<-323.
           p_qso:
             name: P_QSO
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: QSO probability from Skewt-QSO. P_QSO = exp(log_qso)/(exp(log_qso)
+              + exp(log_star) + exp(log_galaxy))
           p_star:
             name: P_STAR
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Star probability from Skewt-QSO.
           p_galaxy:
             name: P_GALAXY
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Galaxy probability from Skewt-QSO.
           class_skewt_qso:
             name: CLASS_SKEWT_QSO
             type: char[6]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Classification based on the highest probability from Skewt-QSO,
+              QSO/Star/Galaxy
           skewt_qso:
             name: SKEWT_QSO
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: flag indicating whether the object is a QSO (same as class_skewt_qso,
+              except additionally requiring log_QSO>-10). (P_QSO>P_Star & P_QSO>P_galaxy
+              & log_QSO>-10)
           p_qso_prior:
             name: P_QSO_PRIOR
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 'QSO probability with prior probabilities from additional
+              info, such as separation (between optical survey and unWISE), morphology,
+              variability, and/or proper motion.(Note: *_Prior are generally not populated
+              in this version, except for the "S-CVZ" field, where we take into account
+              the separation between optical surveys and unWISE.)'
           p_star_prior:
             name: P_STAR_PRIOR
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Star probability with prior probabilities.
           p_galaxy_prior:
             name: P_GALAXY_PRIOR
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Galaxy probability with prior probabilities.
           class_skewt_qso_prior:
             name: CLASS_SKEWT_QSO_PRIOR
             type: char[6]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Classification based on Skewt-QSO with prior probabilities
+              described above.
           skewt_qso_prior:
             name: SKEWT_QSO_PRIOR
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: flag indicating whether the object is QSO based on Skewt-QSO
+              with prior probabilities described above.
           photoz_qso:
             name: PHOTOZ_QSO
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Photometric redshift of QSO from Skewt-QSO
           photoz_qso_lower:
             name: PHOTOZ_QSO_LOWER
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Lower limit of photoz_QSO
           photoz_qso_upper:
             name: PHOTOZ_QSO_UPPER
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Upper limit of photoz_QSO
           prob_photoz_qso:
             name: PROB_PHOTOZ_QSO
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The total probability of z located between photoz_QSO_lower
+              and photoz_QSO_upper (assuming it is QSO).
           photoz_galaxy:
             name: PHOTOZ_GALAXY
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Photometric redshift of Galaxy from Skewt-QSO (fitting to
+              galaxy colors).
           photoz_galaxy_lower:
             name: PHOTOZ_GALAXY_LOWER
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Lower limit of photoz_Galaxy.
           photoz_galaxy_upper:
             name: PHOTOZ_GALAXY_UPPER
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Upper limit of photoz_Galaxy.
           pqso_xdqso:
             name: PQSO_XDQSO
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: QSO probability from the public XDQSO catalog
           photoz_xdqso:
             name: PHOTOZ_XDQSO
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Photometric redshift of QSO from the public XDQSO catalog
           prob_rf_gaia_unwise:
             name: PROB_RF_GAIA_UNWISE
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: AGN probability from the Gaia-unWISE AGN catalog
           photoz_gaia_unwise:
             name: PHOTOZ_GAIA_UNWISE
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Photometric redshift from the Gaia-unWISE AGN catalog
           des_var_sn_max:
             name: DES_VAR_SN_MAX
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The signal-to-noise ratio of the measured intrinsic RMS in
+              grizy bands (DES).
           ps1_var_sn_max:
             name: PS1_VAR_SN_MAX
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The maximum signal-to-noise ratio of the measured intrinsic
+              RMS over 5 bands (PS1).
           spec_q:
             name: SPEC_Q
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: flag indicating if the object was spectroscopically confirmed
+              as QSO from earlier surveys.
           spec_strmask:
             name: SPEC_STRMASK
             type: char[6]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: string format of spec_bitmask, e.g., '000001'.
           spec_bitmask:
             name: SPEC_BITMASK
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 'bitmask - bit 0: SDSS-DR14Q, bit 1: SDSS-DR7Q, bit 2: OzDES-DR1Q,
+              bit 3: SDSS-RM_Q, bit 4: COSMOS_Q, bit 5: Milliquas_QA. (Note: Milliquas_QA=1
+              are objects spectroscopically classified as broad-line QSO/AGN in the
+              Million Quasars (MILLIQUAS) catalog.)'
           specz:
             name: SPECZ
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 'spectroscopic redshift from multiple surveys. Priority:
+              SDSS-RM_Q/COSMOS_Q > SDSS-DR14Q > SDSS-DR7Q > OzDES-DR1Q > Milliquas_QA'
           specz_ref:
             name: SPECZ_REF
             type: char[16]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Reference of specz.
           photo_q:
             name: PHOTO_Q
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: flag indicating if the object was selected as QSO in public
+              photometric quasar catalogs.
           photo_strmask:
             name: PHOTO_STRMASK
             type: char[3]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: string format of photo_bitmask
           photo_bitmask:
             name: PHOTO_BITMASK
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 'bit mask, bit 0: XDQSO catalog, bit 1: Gaia-unWISE AGN catalog;
+              bit 2: Milliquas_photo: photometric quasar candidates in the Milliquas
+              catalog'
           photoz:
             name: PHOTOZ
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 'Photometric redshift from public photometric quasar catalogs.
+              Priority: XDQSO > Gaia-unWISE > Milliquas_photo'
           pqso_photo:
             name: PQSO_PHOTO
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: QSO probability from public photometric quasar catalogs.
           photoz_ref:
             name: PHOTOZ_REF
             type: char[16]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: photoz reference.
           pk:
             name: PK
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: primary key for the database table
           psfmag_des_g:
             name: PSFMAG_DES_G
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: DES PSF photometry
           psfmag_des_r:
             name: PSFMAG_DES_R
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: DES PSF photometry
           psfmag_des_i:
             name: PSFMAG_DES_I
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: DES PSF photometry
           psfmag_des_z:
             name: PSFMAG_DES_Z
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: DES PSF photometry
           psfmag_des_y:
             name: PSFMAG_DES_Y
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: DES PSF photometry
           psfmagerr_des_g:
             name: PSFMAGERR_DES_G
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: DES PSF photometry error
           psfmagerr_des_r:
             name: PSFMAGERR_DES_R
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: DES PSF photometry error
           psfmagerr_des_i:
             name: PSFMAGERR_DES_I
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: DES PSF photometry error
           psfmagerr_des_z:
             name: PSFMAGERR_DES_Z
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: DES PSF photometry error
           psfmagerr_des_y:
             name: PSFMAGERR_DES_Y
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: DES PSF photometry error
           mag_auto_des_g:
             name: MAG_AUTO_DES_G
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: DES auto photometry
           mag_auto_des_r:
             name: MAG_AUTO_DES_R
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: DES auto photometry
           mag_auto_des_i:
             name: MAG_AUTO_DES_I
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: DES auto photometry
           mag_auto_des_z:
             name: MAG_AUTO_DES_Z
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: DES auto photometry
           mag_auto_des_y:
             name: MAG_AUTO_DES_Y
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: DES auto photometry
           magerr_auto_des_g:
             name: MAGERR_AUTO_DES_G
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: DES auto photometry error
           magerr_auto_des_r:
             name: MAGERR_AUTO_DES_R
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: DES auto photometry error
           magerr_auto_des_i:
             name: MAGERR_AUTO_DES_I
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: DES auto photometry error
           magerr_auto_des_z:
             name: MAGERR_AUTO_DES_Z
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: DES auto photometry error
           magerr_auto_des_y:
             name: MAGERR_AUTO_DES_Y
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: DES auto photometry error
           imaflags_iso_g:
             name: IMAFLAGS_ISO_G
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: DES flag identifying sources with missing/flagged pixels,
+              considering all single epoch images
           imaflags_iso_r:
             name: IMAFLAGS_ISO_R
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: DES flag identifying sources with missing/flagged pixels,
+              considering all single epoch images
           imaflags_iso_i:
             name: IMAFLAGS_ISO_I
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: DES flag identifying sources with missing/flagged pixels,
+              considering all single epoch images
           imaflags_iso_z:
             name: IMAFLAGS_ISO_Z
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: DES flag identifying sources with missing/flagged pixels,
+              considering all single epoch images
           imaflags_iso_y:
             name: IMAFLAGS_ISO_Y
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: DES flag identifying sources with missing/flagged pixels,
+              considering all single epoch images
           psfmag_ps1_g:
             name: PSFMAG_PS1_G
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: PS1 PSF magnitude
           psfmag_ps1_r:
             name: PSFMAG_PS1_R
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: PS1 PSF magnitude
           psfmag_ps1_i:
             name: PSFMAG_PS1_I
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: PS1 PSF magnitude
           psfmag_ps1_z:
             name: PSFMAG_PS1_Z
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: PS1 PSF magnitude
           psfmag_ps1_y:
             name: PSFMAG_PS1_Y
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: PS1 PSF magnitude
           psfmagerr_ps1_g:
             name: PSFMAGERR_PS1_G
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: PS1 PSF magnitude error
           psfmagerr_ps1_r:
             name: PSFMAGERR_PS1_R
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: PS1 PSF magnitude error
           psfmagerr_ps1_i:
             name: PSFMAGERR_PS1_I
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: PS1 PSF magnitude error
           psfmagerr_ps1_z:
             name: PSFMAGERR_PS1_Z
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: PS1 PSF magnitude error
           psfmagerr_ps1_y:
             name: PSFMAGERR_PS1_Y
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: PS1 PSF magnitude error
           kronmag_ps1_g:
             name: KRONMAG_PS1_G
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: PS1 Kron magnitude
           kronmag_ps1_r:
             name: KRONMAG_PS1_R
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: PS1 Kron magnitude
           kronmag_ps1_i:
             name: KRONMAG_PS1_I
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: PS1 Kron magnitude
           kronmag_ps1_z:
             name: KRONMAG_PS1_Z
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: PS1 Kron magnitude
           kronmag_ps1_y:
             name: KRONMAG_PS1_Y
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: PS1 Kron magnitude
           kronmagerr_ps1_g:
             name: KRONMAGERR_PS1_G
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: PS1 Kron magnitude error
           kronmagerr_ps1_r:
             name: KRONMAGERR_PS1_R
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: PS1 Kron magnitude error
           kronmagerr_ps1_i:
             name: KRONMAGERR_PS1_I
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: PS1 Kron magnitude error
           kronmagerr_ps1_z:
             name: KRONMAGERR_PS1_Z
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: PS1 Kron magnitude error
           kronmagerr_ps1_y:
             name: KRONMAGERR_PS1_Y
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: PS1 Kron magnitude error
           infoflag2_g:
             name: INFOFLAG2_G
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: PS1 flags, values listed in DetectionFlags2
           infoflag2_r:
             name: INFOFLAG2_R
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: PS1 flags, values listed in DetectionFlags2
           infoflag2_i:
             name: INFOFLAG2_I
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: PS1 flags, values listed in DetectionFlags2
           infoflag2_z:
             name: INFOFLAG2_Z
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: PS1 flags, values listed in DetectionFlags2
           infoflag2_y:
             name: INFOFLAG2_Y
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: PS1 flags, values listed in DetectionFlags2
           mag_nsc_g:
             name: MAG_NSC_G
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Weighted-average magnitude
           mag_nsc_r:
             name: MAG_NSC_R
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Weighted-average magnitude
           mag_nsc_i:
             name: MAG_NSC_I
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Weighted-average magnitude
           mag_nsc_z:
             name: MAG_NSC_Z
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Weighted-average magnitude
           mag_nsc_y:
             name: MAG_NSC_Y
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Weighted-average magnitude
           magerr_nsc_g:
             name: MAGERR_NSC_G
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Weighted-average NSC magnitude
           magerr_nsc_r:
             name: MAGERR_NSC_R
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Weighted-average NSC magnitude
           magerr_nsc_i:
             name: MAGERR_NSC_I
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Weighted-average NSC magnitude
           magerr_nsc_z:
             name: MAGERR_NSC_Z
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Weighted-average NSC magnitude
           magerr_nsc_y:
             name: MAGERR_NSC_Y
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Weighted-average NSC magnitude
           psfmag_sdss_u:
             name: PSFMAG_SDSS_U
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: SDSS PSF magnitude
           psfmag_sdss_g:
             name: PSFMAG_SDSS_G
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: SDSS PSF magnitude
           psfmag_sdss_r:
             name: PSFMAG_SDSS_R
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: SDSS PSF magnitude
           psfmag_sdss_i:
             name: PSFMAG_SDSS_I
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: SDSS PSF magnitude
           psfmag_sdss_z:
             name: PSFMAG_SDSS_Z
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: SDSS PSF magnitude
           psfmagerr_sdss_u:
             name: PSFMAGERR_SDSS_U
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: SDSS PSF magnitude error
           psfmagerr_sdss_g:
             name: PSFMAGERR_SDSS_G
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: SDSS PSF magnitude error
           psfmagerr_sdss_r:
             name: PSFMAGERR_SDSS_R
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: SDSS PSF magnitude error
           psfmagerr_sdss_i:
             name: PSFMAGERR_SDSS_I
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: SDSS PSF magnitude error
           psfmagerr_sdss_z:
             name: PSFMAGERR_SDSS_Z
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: SDSS PSF magnitude error
           modelmag_sdss_u:
             name: MODELMAG_SDSS_U
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: SDSS Model magnitude
           modelmag_sdss_g:
             name: MODELMAG_SDSS_G
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: SDSS Model magnitude
           modelmag_sdss_r:
             name: MODELMAG_SDSS_R
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: SDSS Model magnitude
           modelmag_sdss_i:
             name: MODELMAG_SDSS_I
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: SDSS Model magnitude
           modelmag_sdss_z:
             name: MODELMAG_SDSS_Z
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: SDSS Model magnitude
           modelmagerr_sdss_u:
             name: MODELMAGERR_SDSS_U
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: SDSS Model magnitude error
           modelmagerr_sdss_g:
             name: MODELMAGERR_SDSS_G
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: SDSS Model magnitude error
           modelmagerr_sdss_r:
             name: MODELMAGERR_SDSS_R
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: SDSS Model magnitude error
           modelmagerr_sdss_i:
             name: MODELMAGERR_SDSS_I
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: SDSS Model magnitude error
           modelmagerr_sdss_z:
             name: MODELMAGERR_SDSS_Z
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: SDSS Model magnitude error
           mag_gaia_g:
             name: MAG_GAIA_G
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Gaia DR2 G-band magnitude, Vega
           mag_gaia_bp:
             name: MAG_GAIA_BP
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Gaia DR2 BP-band magnitude, Vega
           mag_gaia_rp:
             name: MAG_GAIA_RP
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Gaia DR2 RP-band magnitude, Vega
           magerr_gaia_g:
             name: MAGERR_GAIA_G
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Gaia DR2 G-band magnitude error, Vega
           magerr_gaia_bp:
             name: MAGERR_GAIA_BP
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Gaia DR2 BP-band magnitude error, Vega
           magerr_gaia_rp:
             name: MAGERR_GAIA_RP
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Gaia DR2 RP-band magnitude error, Vega
           mag_unwise_w1:
             name: MAG_UNWISE_W1
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: unWISE (Vega) magnitude,
           mag_unwise_w2:
             name: MAG_UNWISE_W2
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: unWISE (Vega) magnitude,
           magerr_unwise_w1:
             name: MAGERR_UNWISE_W1
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: unWISE (Vega) magnitude error,
           magerr_unwise_w2:
             name: MAGERR_UNWISE_W2
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: unWISE (Vega) magnitude error,
           flags_unwise_w1:
             name: FLAGS_UNWISE_W1
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: unWISE Coadd Flags
           flags_unwise_w2:
             name: FLAGS_UNWISE_W2
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: unWISE Coadd Flags
           mag_ir_y:
             name: MAG_IR_Y
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: (Vega) magnitude in near-IR,
           mag_ir_j:
             name: MAG_IR_J
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: (Vega) magnitude in near-IR,
           mag_ir_h:
             name: MAG_IR_H
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: (Vega) magnitude in near-IR,
           mag_ir_k:
             name: MAG_IR_K
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: (Vega) magnitude in near-IR,
           magerr_ir_y:
             name: MAGERR_IR_Y
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: magnitude error in near-IR
           magerr_ir_j:
             name: MAGERR_IR_J
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: magnitude error in near-IR
           magerr_ir_h:
             name: MAGERR_IR_H
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: magnitude error in near-IR
           magerr_ir_k:
             name: MAGERR_IR_K
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: magnitude error in near-IR
           des_var_nepoch_g:
             name: DES_VAR_NEPOCH_G
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of DES single-epoch photometric datapoints per band
           des_var_nepoch_r:
             name: DES_VAR_NEPOCH_R
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of DES single-epoch photometric datapoints per band
           des_var_nepoch_i:
             name: DES_VAR_NEPOCH_I
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of DES single-epoch photometric datapoints per band
           des_var_nepoch_z:
             name: DES_VAR_NEPOCH_Z
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of DES single-epoch photometric datapoints per band
           des_var_nepoch_y:
             name: DES_VAR_NEPOCH_Y
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of DES single-epoch photometric datapoints per band
           des_var_status_g:
             name: DES_VAR_STATUS_G
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Status of intrinsic variability calculation from DES
           des_var_status_r:
             name: DES_VAR_STATUS_R
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Status of intrinsic variability calculation from DES
           des_var_status_i:
             name: DES_VAR_STATUS_I
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Status of intrinsic variability calculation from DES
           des_var_status_z:
             name: DES_VAR_STATUS_Z
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Status of intrinsic variability calculation from DES
           des_var_status_y:
             name: DES_VAR_STATUS_Y
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Status of intrinsic variability calculation from DES
           des_var_rms_g:
             name: DES_VAR_RMS_G
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Intrinsic RMS from DES
           des_var_rms_r:
             name: DES_VAR_RMS_R
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Intrinsic RMS from DES
           des_var_rms_i:
             name: DES_VAR_RMS_I
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Intrinsic RMS from DES
           des_var_rms_z:
             name: DES_VAR_RMS_Z
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Intrinsic RMS from DES
           des_var_rms_y:
             name: DES_VAR_RMS_Y
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Intrinsic RMS from DES
           des_var_sigrms_g:
             name: DES_VAR_SIGRMS_G
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Error of intrinsic RMS from DES
           des_var_sigrms_r:
             name: DES_VAR_SIGRMS_R
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Error of intrinsic RMS from DES
           des_var_sigrms_i:
             name: DES_VAR_SIGRMS_I
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Error of intrinsic RMS from DES
           des_var_sigrms_z:
             name: DES_VAR_SIGRMS_Z
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Error of intrinsic RMS from DES
           des_var_sigrms_y:
             name: DES_VAR_SIGRMS_Y
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Error of intrinsic RMS from DES
           des_var_sn_g:
             name: DES_VAR_SN_G
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The signal-to-noise ratio of the measured intrinsic RMS from
+              DES
           des_var_sn_r:
             name: DES_VAR_SN_R
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The signal-to-noise ratio of the measured intrinsic RMS from
+              DES
           des_var_sn_i:
             name: DES_VAR_SN_I
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The signal-to-noise ratio of the measured intrinsic RMS from
+              DES
           des_var_sn_z:
             name: DES_VAR_SN_Z
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The signal-to-noise ratio of the measured intrinsic RMS from
+              DES
           des_var_sn_y:
             name: DES_VAR_SN_Y
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The signal-to-noise ratio of the measured intrinsic RMS from
+              DES
           ps1_var_nepoch_g:
             name: PS1_VAR_NEPOCH_G
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of PS1 single-epoch photometric data points
           ps1_var_nepoch_r:
             name: PS1_VAR_NEPOCH_R
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of PS1 single-epoch photometric data points
           ps1_var_nepoch_i:
             name: PS1_VAR_NEPOCH_I
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of PS1 single-epoch photometric data points
           ps1_var_nepoch_z:
             name: PS1_VAR_NEPOCH_Z
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of PS1 single-epoch photometric data points
           ps1_var_nepoch_y:
             name: PS1_VAR_NEPOCH_Y
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of PS1 single-epoch photometric data points
           ps1_var_status_g:
             name: PS1_VAR_STATUS_G
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Status of intrinsic variability calculation from PS1
           ps1_var_status_r:
             name: PS1_VAR_STATUS_R
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Status of intrinsic variability calculation from PS1
           ps1_var_status_i:
             name: PS1_VAR_STATUS_I
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Status of intrinsic variability calculation from PS1
           ps1_var_status_z:
             name: PS1_VAR_STATUS_Z
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Status of intrinsic variability calculation from PS1
           ps1_var_status_y:
             name: PS1_VAR_STATUS_Y
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Status of intrinsic variability calculation from PS1
           ps1_var_rms_g:
             name: PS1_VAR_RMS_G
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Intrinsic RMS from PS1
           ps1_var_rms_r:
             name: PS1_VAR_RMS_R
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Intrinsic RMS from PS1
           ps1_var_rms_i:
             name: PS1_VAR_RMS_I
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Intrinsic RMS from PS1
           ps1_var_rms_z:
             name: PS1_VAR_RMS_Z
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Intrinsic RMS from PS1
           ps1_var_rms_y:
             name: PS1_VAR_RMS_Y
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Intrinsic RMS from PS1
           ps1_var_sigrms_g:
             name: PS1_VAR_SIGRMS_G
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Error of intrinsic RMS from PS1
           ps1_var_sigrms_r:
             name: PS1_VAR_SIGRMS_R
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Error of intrinsic RMS from PS1
           ps1_var_sigrms_i:
             name: PS1_VAR_SIGRMS_I
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Error of intrinsic RMS from PS1
           ps1_var_sigrms_z:
             name: PS1_VAR_SIGRMS_Z
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Error of intrinsic RMS from PS1
           ps1_var_sigrms_y:
             name: PS1_VAR_SIGRMS_Y
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Error of intrinsic RMS from PS1
           ps1_var_sn_g:
             name: PS1_VAR_SN_G
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The signal-to-noise ratio of the measured intrinsic RMS from
+              PS1
           ps1_var_sn_r:
             name: PS1_VAR_SN_R
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The signal-to-noise ratio of the measured intrinsic RMS from
+              PS1
           ps1_var_sn_i:
             name: PS1_VAR_SN_I
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The signal-to-noise ratio of the measured intrinsic RMS from
+              PS1
           ps1_var_sn_z:
             name: PS1_VAR_SN_Z
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The signal-to-noise ratio of the measured intrinsic RMS from
+              PS1
           ps1_var_sn_y:
             name: PS1_VAR_SN_Y
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The signal-to-noise ratio of the measured intrinsic RMS from
+              PS1
