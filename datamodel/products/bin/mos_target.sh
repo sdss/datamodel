@@ -16,7 +16,7 @@ datamodel_generate -f mos_target_magnitude -p MOS_TARGET/{v_targ}/mos_target_mag
 datamodel_generate -f mos_target_allwise -p MOS_TARGET/{v_targ}/mos_target_allwise-{num}.fits -k v_targ=1.0.1 -k num=01 -t sdss5 --skip-git
 # MOS Target paths
 
-datamodel_generate -f mos_target_bhm_rm_v0_2_1 -p MOS_TARGET/{v_targ}/mos_target_bhm_rm_v0_2_1.fits -k v_targ=1.0.1 -t sdss5 --skip-git
+datamodel_generate -f mos_target_bhm_rm_v0_2 -p MOS_TARGET/{v_targ}/mos_target_bhm_rm_v0_2.fits -k v_targ=1.0.1 -t sdss5 --skip-git
 datamodel_generate -f mos_target_cadence -p MOS_TARGET/{v_targ}/mos_target_cadence.fits -k v_targ=1.0.1 -t sdss5 --skip-git
 datamodel_generate -f mos_target_catalogdb_version -p MOS_TARGET/{v_targ}/mos_target_catalogdb_version.fits -k v_targ=1.0.1 -t sdss5 --skip-git
 datamodel_generate -f mos_target_targetdb_version -p MOS_TARGET/{v_targ}/mos_target_targetdb_version.fits -k v_targ=1.0.1 -t sdss5 --skip-git
