@@ -65,8 +65,8 @@ class FitsFile(BaseFile):
             for kk, vv in v['columns'].items():
                 # if a new column is not in the old cache of columns, add it
                 if kk not in old_hdus[oldkey]['columns']:
-                    column = self._extract_hdu_column(current_idx, kk)
-                    v['columns'][kk] = self._generate_column_dict(column)
+                    column, desc = self._extract_hdu_column(current_idx, kk)
+                    v['columns'][kk] = self._generate_column_dict(column, desc=desc)
                     continue
                 vv['unit'] = old_hdus[oldkey]['columns'][kk]['unit']
                 vv['description'] = old_hdus[oldkey]['columns'][kk]['description']
@@ -124,20 +124,33 @@ class FitsFile(BaseFile):
         else:
             row['columns'] = {}
             for column in hdu.columns:
-                row['columns'][column.name] = self._generate_column_dict(column)
+                row['columns'][column.name] = self._generate_column_dict(column, hdu=hdu)
         return row
 
     def _extract_hdu_column(self, ext: str, key: str) -> fits.Column:
         """ Extract a column from a Astropy HDU table extension """
         with fits.open(self.filename) as hdulist:
-            return hdulist[ext].columns[key]
+            column = hdulist[ext].data.columns[key]
+            desc = self._get_table_column_desc(column, hdulist[ext])
+            return column, desc
 
-    def _generate_column_dict(self, column: fits.Column) -> dict:
+    def _generate_column_dict(self, column: fits.Column, hdu: fits.TableHDU = None,
+                              desc: str = None) -> dict:
         """ Generates a dictionary entry for an Astropy table column """
         return {'name': column.name.upper(),
                 'type': self._format_type(column.format),
                 'unit': self._nonempty_string(column.unit),
-                'description': self._nonempty_string()}
+                'description': desc if desc else
+                    self._get_table_column_desc(column, hdu=hdu, desc=desc)}
+
+    def _get_table_column_desc(self, column: fits.Column, hdu: fits.TableHDU = None) -> str:
+        """ Get a table column description """
+        if column.name not in hdu.columns.names:
+            return self._nonempty_string()
+
+        idx = hdu.columns.names.index(column.name) + 1
+        tcomm = hdu.header.get( f'TCOMM{idx}', None)
+        return tcomm or self._nonempty_string()
 
     def design_content(self, ext: str = 'primary', extno: int = None, name: str = 'EXAMPLE',
                    description: str = None, header: Union[list, dict, fits.Header] = None,
