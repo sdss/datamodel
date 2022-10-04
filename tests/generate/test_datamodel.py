@@ -175,3 +175,45 @@ def test_release_partial_cache(makefile, validyaml):
     assert 'mjd' in hdu2b['columns']
 
 
+def test_default_work_release_sdss5(caplog):
+    dm = DataModel(file_spec='rsCompleteness', keywords=['plan=A', 'observatory=APO'],
+                   path='ROBOSTRATEGY_DATA/allocations/{plan}/rsCompleteness-{plan}-{observatory}.fits',
+                   verbose=True, release='WORK')
+    assert dm.release == 'WORK'
+    assert dm.tree_ver == 'sdss5'
+
+    msg = 'Please add this environment=ROBOSTRATEGY_DATA to the tree product, and try again.'
+    assert msg not in caplog.text
+
+
+def test_work_release_sdsswork(caplog, monkeypatch, mocker):
+    monkeypatch.delenv("MANGA_SPECTRO_REDUX")
+    assert 'MANGA_SPECTRO_REDUX' not in os.environ
+
+    # patch this to return an empty dict
+    mocker.patch('datamodel.generate.datamodel.Tree.get_orig_os_environ', return_value={})
+
+    dm = DataModel(file_spec='mangacube',
+                   path='MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}CUBE.fits.gz',
+                   keywords=['drpver=v3_1_1','plate=8485','ifu=1901','wave=LOG'],
+                   release='WORK', verbose=True)
+    assert dm.release == 'WORK'
+    assert dm.tree_ver == 'sdss5'
+
+    msg = 'Please add this environment=MANGA_SPECTRO_REDUX to the tree product, and try again.'
+    assert msg in caplog.text
+
+def test_work_treever_sdsswork(caplog):
+    dm = DataModel(file_spec='mangacube',
+                   path='MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}CUBE.fits.gz',
+                   keywords=['drpver=v3_1_1','plate=8485','ifu=1901','wave=LOG'],
+                   tree_ver='sdsswork', verbose=True)
+    assert dm.release == 'WORK'
+    assert dm.tree_ver == 'sdsswork'
+
+    msg = 'Please add this environment=MANGA_SPECTRO_REDUX to the tree product, and try again.'
+    assert msg not in caplog.text
+
+
+
+
