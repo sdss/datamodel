@@ -20,6 +20,7 @@ Change Log
 - Add new python models for SDSS software versions and tags, e.g. `~datamodel.models.versions.Tags`.
 - Adding surveys into the datamodel YAML template and adds a datamodel ``determine_survey`` to guess the SDSS survey for a file species
 - Add new command ``datamodel update`` to update existing datamodels with any new template field content
+- Add support for ``TCOMM`` header keywords for FITS binary tables.  Allows for adding table column descriptions.
 
 0.5.0 (05-02-2022)
 ------------------
