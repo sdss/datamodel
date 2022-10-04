@@ -169,7 +169,8 @@ def test_release_partial_cache(makefile, validyaml):
     hdu2b = ss._cache['releases']['DR17']['hdus']['hdu2']
     assert 'field' not in hdu2a['columns']
     assert 'field' in hdu2b['columns']
-    assert 'replace me - with content' in hdu2b['columns']['field']['unit']
+    assert hdu2b['columns']['param']['unit'] == 'm'
+    assert hdu2b['columns']['field']['unit'] == ''
     assert hdu2b['columns']['field']['name'] == 'FIELD'
     assert 'mjd' in hdu2b['columns']
 
