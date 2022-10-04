@@ -4,7 +4,12 @@
 Change Log
 ==========
 
-0.5.1 (unreleased)
+0.5.2 (unreleased)
+------------------
+- Switched the ``skip-git`` cli arg to ``with-git`` flag and turned off the git commit stage by default.
+- Switched the WORK release to use sdss5.cfg tree config by default.
+
+0.5.1 (10-04-2022)
 ------------------
 - Refactored internal git code to use ``GitPython`` package
 - Change to datamodel to force work in a new git branch, outside of the main branch
@@ -20,6 +25,7 @@ Change Log
 - Add new python models for SDSS software versions and tags, e.g. `~datamodel.models.versions.Tags`.
 - Adding surveys into the datamodel YAML template and adds a datamodel ``determine_survey`` to guess the SDSS survey for a file species
 - Add new command ``datamodel update`` to update existing datamodels with any new template field content
+- Add support for ``TCOMM`` header keywords for FITS binary tables.  Allows for adding table column descriptions.
 
 0.5.0 (05-02-2022)
 ------------------
