@@ -96,6 +96,34 @@ any user modification.  During the initial YAML file creation, it will produce a
 YAML file.  The additional files only get written out if, and when, the YAML file is validated.
 See :ref:`yaml` and :ref:`validate` below for the next steps.
 
+.. _releases:
+
+A Note on Releases
+------------------
+
+The ``release`` keyword argument is used to specify which internal (IPL) or public data release (DR) to use
+for the product datamodel generation.  The allowed values are any release specified in the
+**Releases** :ref:`metadata`. For a complete list of current releases, see the
+`Release Models <https://github.com/sdss/datamodel/blob/9c95da7b06087d014e9db322403c9dc9fd4b2244/datamodel/releases.yaml>`_.
+
+For products in development, there is an available ``WORK`` release.  A ``WORK`` release should be used for any
+products that have not yet been released in a DR or IPL, i.e. any products defined in the
+``sdsswork`` or ``sdss5`` tree configurations.  A datamodel for a ``WORK`` release product represents the latest
+version of that data product and should be considered an in-flux datamodel.  As the product itself changes, a new
+``WORK`` datamodel should be regenerated to reflect the updated changes.
+
+By default, a ``WORK`` release will use the SDSS-V tree configuration, ``sdss5.cfg``.  To generate ``WORK``
+datamodels for any legacy products that exist in the SDSS-IV tree configuration, ``sdsswork.cfg``, you
+should explicitly set the ``tree_ver`` keyword argument, rather than ``release``, e.g.
+::
+
+  file_species = "mangacube"
+  path = "MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}CUBE.fits.gz"
+  keys = ['plate=8485', 'ifu=1901', 'drpver=v2_4_3', 'wave=LOG']
+
+  dm = DataModel(file_spec=file_species, path=path, keywords=keys, tree_ver='sdsswork')
+
+
 .. _yaml:
 
 The YAML structure
