@@ -4,7 +4,12 @@
 Change Log
 ==========
 
-0.5.1 (unreleased)
+0.5.2 (unreleased)
+------------------
+- Switched the ``skip-git`` cli arg to ``with-git`` flag and turned off the git commit stage by default.
+- Switched the WORK release to use sdss5.cfg tree config by default.
+
+0.5.1 (10-04-2022)
 ------------------
 - Refactored internal git code to use ``GitPython`` package
 - Change to datamodel to force work in a new git branch, outside of the main branch
