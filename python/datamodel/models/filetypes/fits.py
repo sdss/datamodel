@@ -3,7 +3,7 @@
 #
 import re
 
-from typing import List, Union, Dict
+from typing import List, Union, Dict, Optional
 from pydantic import BaseModel, validator
 from astropy.io import fits
 from ..validators import replace_me
@@ -81,7 +81,7 @@ class Column(BaseModel):
     name: str
     description: str
     type: str
-    unit: str
+    unit: str = ''
 
     _check_replace_me = validator('unit', 'description', allow_reuse=True)(replace_me)
 
