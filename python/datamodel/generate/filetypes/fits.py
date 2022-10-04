@@ -141,7 +141,7 @@ class FitsFile(BaseFile):
                 'type': self._format_type(column.format),
                 'unit': self._nonempty_string(column.unit),
                 'description': desc if desc else
-                    self._get_table_column_desc(column, hdu=hdu, desc=desc)}
+                    self._get_table_column_desc(column, hdu=hdu)}
 
     def _get_table_column_desc(self, column: fits.Column, hdu: fits.TableHDU = None) -> str:
         """ Get a table column description """

@@ -74,6 +74,16 @@ def test_datamodel_nokeys(testfits):
     with pytest.raises(ValueError, match='A set of keywords must be provided along with a either a path or location'):
         DataModel(file_spec='test', path='TEST_REDUX/{ver}/testfile_{id}.fits')
 
+def test_datamodel_tcomm(testfits):
+    dm = DataModel(file_spec='test', keywords=['ver=v1', 'id=a'],
+                   path='TEST_REDUX/{ver}/testfile_{id}.fits', access_path_name="test-file")
+    dm.write_stubs()
+    ss = dm.get_stub('yaml')
+    ss.update_cache()
+    cols = ss._cache['releases']['WORK']['hdus']['hdu2']['columns']
+    assert cols['object']['description'] == 'replace me - with content'
+    assert cols['param']['description'] == 'A parameter description'
+
 def test_datamodel_duplicate_keys():
     """ test that datamodel generate correctly handles duplicate keys """
     path = 'ROBOSTRATEGY_DATA/allocations/{plan}/rsCompleteness-{plan}-{observatory}.fits'

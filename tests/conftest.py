@@ -72,7 +72,8 @@ def create_fits(name, version, extra_cols):
     if extra_cols:
         cols.extend([fits.Column(name='field', format='J', array=np.arange(3)),
                      fits.Column(name='mjd', format='I', array=np.arange(3))])
-    bindata = fits.BinTableHDU.from_columns(cols, name='PARAMS')
+    thead = fits.Header([('TCOMM2', 'A parameter description', '')])
+    bindata = fits.BinTableHDU.from_columns(cols, name='PARAMS', header=thead)
 
     return fits.HDUList([primary, imdata, bindata])
 
