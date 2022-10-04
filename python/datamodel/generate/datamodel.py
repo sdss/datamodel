@@ -377,6 +377,10 @@ class DataModel(object):
         if self.tree_ver is None:
             self.tree_ver = os.getenv('TREE_VER', None)
 
+        # set the default WORK release to Tree sdss5.cfg for SDSS-V
+        if self.tree_ver == 'work':
+            self.tree_ver = 'sdss5'
+
         # add the tree and config_name
         self.tree = Tree(config=self.tree_ver)
         if self.tree_ver != self.tree.config_name:
