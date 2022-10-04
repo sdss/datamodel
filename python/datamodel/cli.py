@@ -52,14 +52,14 @@ stb_grp = OptionGroup("Stub Options", help='options for writing out datamodel st
 @stb_grp.option("-c", "--use-cache", help="specify an existing cached release to use", default=None)
 @stb_grp.option('-h', "--hdus-only", help="set to True to only use the user descriptions/comments from the specified cached release", is_flag=True, default=False)
 @click.option('-v', '--verbose', help='turn on verbosity', is_flag=True, default=False)
-@click.option("-s", "--skip-git", help="skip the git commit process", is_flag=True, default=False)
+@click.option("-w", "--with-git", help="set to use the auto git commit process", is_flag=True, default=False)
 @cloup.constraint(AcceptAtMost(1) & mutually_exclusive, ['tree_ver', 'release'])
 @cloup.constraint(all_or_none, ['location', 'env_label'])
 @cloup.constraint(mutually_exclusive, ['path', 'location'])
 @cloup.constraint(RequireExactly(1), ['filename', 'file_species'])
 @cloup.constraint(If('file_species', then=RequireExactly(1)), ['path', 'location'])
 def generate(filename, file_species, path, location, env_label, keywords, tree_ver, release,
-             force, use_cache, hdus_only, verbose, skip_git, access_path_name):
+             force, use_cache, hdus_only, verbose, with_git, access_path_name):
     """ Generate a datamodel file for a SDSS data product """
 
     # create a datamodel object
@@ -73,8 +73,8 @@ def generate(filename, file_species, path, location, env_label, keywords, tree_v
     dm.write_stubs(force=force, use_cache_release=use_cache,
                 full_cache=not hdus_only)
 
-    # only run if we are not skipping the git commit stage
-    if not skip_git:
+    # only run if we using the git commit option
+    if with_git:
         # commit the stubs into git
         try:
             dm.commit_stubs()

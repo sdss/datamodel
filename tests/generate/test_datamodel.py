@@ -74,6 +74,16 @@ def test_datamodel_nokeys(testfits):
     with pytest.raises(ValueError, match='A set of keywords must be provided along with a either a path or location'):
         DataModel(file_spec='test', path='TEST_REDUX/{ver}/testfile_{id}.fits')
 
+def test_datamodel_tcomm(testfits):
+    dm = DataModel(file_spec='test', keywords=['ver=v1', 'id=a'],
+                   path='TEST_REDUX/{ver}/testfile_{id}.fits', access_path_name="test-file")
+    dm.write_stubs()
+    ss = dm.get_stub('yaml')
+    ss.update_cache()
+    cols = ss._cache['releases']['WORK']['hdus']['hdu2']['columns']
+    assert cols['object']['description'] == 'replace me - with content'
+    assert cols['param']['description'] == 'A parameter description'
+
 def test_datamodel_duplicate_keys():
     """ test that datamodel generate correctly handles duplicate keys """
     path = 'ROBOSTRATEGY_DATA/allocations/{plan}/rsCompleteness-{plan}-{observatory}.fits'
@@ -159,8 +169,51 @@ def test_release_partial_cache(makefile, validyaml):
     hdu2b = ss._cache['releases']['DR17']['hdus']['hdu2']
     assert 'field' not in hdu2a['columns']
     assert 'field' in hdu2b['columns']
-    assert 'replace me - with content' in hdu2b['columns']['field']['unit']
+    assert hdu2b['columns']['param']['unit'] == 'm'
+    assert hdu2b['columns']['field']['unit'] == ''
     assert hdu2b['columns']['field']['name'] == 'FIELD'
     assert 'mjd' in hdu2b['columns']
+
+
+def test_default_work_release_sdss5(caplog):
+    dm = DataModel(file_spec='rsCompleteness', keywords=['plan=A', 'observatory=APO'],
+                   path='ROBOSTRATEGY_DATA/allocations/{plan}/rsCompleteness-{plan}-{observatory}.fits',
+                   verbose=True, release='WORK')
+    assert dm.release == 'WORK'
+    assert dm.tree_ver == 'sdss5'
+
+    msg = 'Please add this environment=ROBOSTRATEGY_DATA to the tree product, and try again.'
+    assert msg not in caplog.text
+
+
+def test_work_release_sdsswork(caplog, monkeypatch, mocker):
+    monkeypatch.delenv("MANGA_SPECTRO_REDUX")
+    assert 'MANGA_SPECTRO_REDUX' not in os.environ
+
+    # patch this to return an empty dict
+    mocker.patch('datamodel.generate.datamodel.Tree.get_orig_os_environ', return_value={})
+
+    dm = DataModel(file_spec='mangacube',
+                   path='MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}CUBE.fits.gz',
+                   keywords=['drpver=v3_1_1','plate=8485','ifu=1901','wave=LOG'],
+                   release='WORK', verbose=True)
+    assert dm.release == 'WORK'
+    assert dm.tree_ver == 'sdss5'
+
+    msg = 'Please add this environment=MANGA_SPECTRO_REDUX to the tree product, and try again.'
+    assert msg in caplog.text
+
+def test_work_treever_sdsswork(caplog):
+    dm = DataModel(file_spec='mangacube',
+                   path='MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}CUBE.fits.gz',
+                   keywords=['drpver=v3_1_1','plate=8485','ifu=1901','wave=LOG'],
+                   tree_ver='sdsswork', verbose=True)
+    assert dm.release == 'WORK'
+    assert dm.tree_ver == 'sdsswork'
+
+    msg = 'Please add this environment=MANGA_SPECTRO_REDUX to the tree product, and try again.'
+    assert msg not in caplog.text
+
+
 
 
