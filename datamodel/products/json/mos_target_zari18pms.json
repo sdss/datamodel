@@ -1,0 +1,258 @@
+{
+  "general": {
+    "name": "mos_target_zari18pms",
+    "short": "MOS Target Table: zari18pms",
+    "description": "Pre-Main Sequence (PMS) catalogue from Zari+2018.",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "BHM",
+        "long": "Black Hole Mapper",
+        "description": "An optical time-domain spectroscopic survey of quasars and X-ray sources",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "bhm",
+        "aliases": []
+      },
+      {
+        "name": "MWM",
+        "long": "Milky Way Mapper",
+        "description": "A time-domain, optical+IR spectroscopic survey of Milky Way stars of all types.",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "mwm",
+        "aliases": []
+      },
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "FITS",
+    "filesize": "3 MB",
+    "releases": [
+      {
+        "name": "WORK",
+        "description": "SDSS unreleased data.  Represents any work-in-progress data.",
+        "public": false,
+        "release_date": "unreleased"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/mos_target_zari18pms-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts",
+    "generated_by": "sdss5db> targetdb, operations database server",
+    "design": false,
+    "vac": false
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "WORK": {
+      "template": "$MOS_TARGET/[V_TARG]/mos_target_zari18pms.fits",
+      "example": "1.0.1/mos_target_zari18pms.fits",
+      "location": "{v_targ}/mos_target_zari18pms.fits",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_zari18pms",
+        "path_template": "$MOS_TARGET/{v_targ}/mos_target_zari18pms",
+        "path_kwargs": [
+          "v_targ"
+        ],
+        "access_string": "mos_target_zari18pms = $MOS_TARGET/{v_targ}/mos_target_zari18pms.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Primary header",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "MOS Target Table: zari18pms",
+          "size": "3 MB",
+          "header": null,
+          "columns": {
+            "source": {
+              "name": "SOURCE",
+              "description": "Unique source identifier (Gaia DR2 source_id)",
+              "type": "int64",
+              "unit": ""
+            },
+            "glon": {
+              "name": "GLON",
+              "description": "Galactic longitude",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "glat": {
+              "name": "GLAT",
+              "description": "Galactic latitude",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "plx": {
+              "name": "PLX",
+              "description": "Parallax",
+              "type": "float32",
+              "unit": "mas"
+            },
+            "e_plx": {
+              "name": "E_PLX",
+              "description": "Standard error of parallax (parallax_error)",
+              "type": "float32",
+              "unit": "mas"
+            },
+            "pmglon": {
+              "name": "PMGLON",
+              "description": "Proper motion in galactic longitude",
+              "type": "float32",
+              "unit": "mas/yr"
+            },
+            "e_pmglon": {
+              "name": "E_PMGLON",
+              "description": "Standard error of proper motion in galactic longitude",
+              "type": "float32",
+              "unit": "mas/yr"
+            },
+            "pmglat": {
+              "name": "PMGLAT",
+              "description": "Proper motion in galactic latitude",
+              "type": "float32",
+              "unit": "mas/yr"
+            },
+            "e_pmglat": {
+              "name": "E_PMGLAT",
+              "description": "Standard error of proper motion in galactic latitude",
+              "type": "float32",
+              "unit": "mas/yr"
+            },
+            "pmlbcorr": {
+              "name": "PMLBCORR",
+              "description": "Correlation between proper motion in galactic longitude and proper motion in galactic latitude",
+              "type": "float32",
+              "unit": ""
+            },
+            "rv": {
+              "name": "RV",
+              "description": "radial velocity",
+              "type": "float32",
+              "unit": "km/s"
+            },
+            "e_rv": {
+              "name": "E_RV",
+              "description": "radial velocity error",
+              "type": "float32",
+              "unit": "km/s"
+            },
+            "gmag": {
+              "name": "GMAG",
+              "description": "G-band mean magnitude (phot_g_mean_mag)",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "bpmag": {
+              "name": "BPMAG",
+              "description": "BP-band mean magnitude (phot_bp_mean_mag)",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "rpmag": {
+              "name": "RPMAG",
+              "description": "RP-band mean magnitude (phot_g_mean_mag)",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "bp_over_rp": {
+              "name": "BP_OVER_RP",
+              "description": "BP/RP excess factor",
+              "type": "float32",
+              "unit": ""
+            },
+            "chi2al": {
+              "name": "CHI2AL",
+              "description": "AL chi-square value (astrometric_chi2_al)",
+              "type": "float32",
+              "unit": ""
+            },
+            "ngal": {
+              "name": "NGAL",
+              "description": "Number of good observation AL (astrometric_n_good_obs_al)",
+              "type": "int32",
+              "unit": ""
+            },
+            "ag": {
+              "name": "AG",
+              "description": "Extinction in G-band (A_G)",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "bp_rp": {
+              "name": "BP_RP",
+              "description": "Colour excess in BP-RP",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "uwe": {
+              "name": "UWE",
+              "description": "Unit Weight Error, as defined in Lindegren et al., 2018A&A...616A...2L",
+              "type": "float32",
+              "unit": ""
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null
+    }
+  }
+}

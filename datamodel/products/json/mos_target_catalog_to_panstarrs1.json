@@ -1,0 +1,163 @@
+{
+  "general": {
+    "name": "mos_target_catalog_to_panstarrs1",
+    "short": "MOS Target Table: catalog_to_panstarrs1",
+    "description": "The table contains the cross-match between the mos_target_catalog targets and the mos_target_panstarrs1 table.",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "BHM",
+        "long": "Black Hole Mapper",
+        "description": "An optical time-domain spectroscopic survey of quasars and X-ray sources",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "bhm",
+        "aliases": []
+      },
+      {
+        "name": "MWM",
+        "long": "Milky Way Mapper",
+        "description": "A time-domain, optical+IR spectroscopic survey of Milky Way stars of all types.",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "mwm",
+        "aliases": []
+      },
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "FITS",
+    "filesize": "51 MB",
+    "releases": [
+      {
+        "name": "WORK",
+        "description": "SDSS unreleased data.  Represents any work-in-progress data.",
+        "public": false,
+        "release_date": "unreleased"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/mos_target_catalog_to_panstarrs1-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts",
+    "generated_by": "sdss5db> targetdb, operations database server",
+    "design": false,
+    "vac": false
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "WORK": {
+      "template": "$MOS_TARGET/[V_TARG]/mos_target_catalog_to_panstarrs1-[NUM].fits",
+      "example": "1.0.1/mos_target_catalog_to_panstarrs1-01.fits",
+      "location": "{v_targ}/mos_target_catalog_to_panstarrs1-{num}.fits",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_catalog_to_panstarrs1",
+        "path_template": "$MOS_TARGET/{v_targ}/mos_target_catalog_to_panstarrs1-{num:0>2}",
+        "path_kwargs": [
+          "v_targ",
+          "num"
+        ],
+        "access_string": "mos_target_catalog_to_panstarrs1 = $MOS_TARGET/{v_targ}/mos_target_catalog_to_panstarrs1-{num}.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Primary header",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "MOS Target Table: catalog_to_panstarrs1",
+          "size": "51 MB",
+          "header": null,
+          "columns": {
+            "catalogid": {
+              "name": "CATALOGID",
+              "description": "The catalogid identifier in the mos_target_catalog table.",
+              "type": "int64",
+              "unit": ""
+            },
+            "target_id": {
+              "name": "TARGET_ID",
+              "description": "The primary key identifier in the mos_target_panstarrs1 table.",
+              "type": "int64",
+              "unit": ""
+            },
+            "version_id": {
+              "name": "VERSION_ID",
+              "description": "The internal version for the cross-match.",
+              "type": "int16",
+              "unit": ""
+            },
+            "distance": {
+              "name": "DISTANCE",
+              "description": "The distance between the catalog and target coordinates if best=F.",
+              "type": "float64",
+              "unit": ""
+            },
+            "best": {
+              "name": "BEST",
+              "description": "Whether this is considered the best match between the catalog entry and mos_target_panstarrs1.",
+              "type": "bool",
+              "unit": ""
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null
+    }
+  }
+}
