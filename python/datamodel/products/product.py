@@ -21,7 +21,7 @@ from fuzzy_types import FuzzyList
 from pydantic import ValidationError
 
 from datamodel import log
-from datamodel.models import phases, releases, surveys, tags
+from datamodel.models import phases, releases, surveys, tags, vacs
 from datamodel.models.yaml import ProductModel, Release
 from pydantic import BaseModel
 from sdss_access.path import Path
@@ -422,6 +422,7 @@ class SDSSDataModel:
         self.surveys = surveys
         self.phases = phases
         self.tags = tags
+        self.vacs = vacs
         self.products = DataProducts()
 
     def __repr__(self) -> str:

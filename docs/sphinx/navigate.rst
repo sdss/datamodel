@@ -17,6 +17,7 @@ currently contains the following accessible properties
 - **phases**: a list of all SDSS phases
 - **tags**: a list of all SDSS software tags
 - **products**: a list of all SDSS data products
+- **vacs**: a list of SDSS VAC environment variables
 
 .. code-block:: python
 

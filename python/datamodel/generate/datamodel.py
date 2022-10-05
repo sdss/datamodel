@@ -32,7 +32,7 @@ from pydantic import ValidationError
 
 from ..gitio import Git
 from .stub import BaseStub
-from datamodel.models import surveys
+from datamodel.models import surveys, vacs
 
 # Create a generic variable that can be 'DataModel', or any subclass.
 D = TypeVar('D', bound='DataModel')
@@ -914,9 +914,15 @@ class DataModel(object):
         return output.name if name_only else output
 
     @property
-    def survey(self):
+    def survey(self) -> str:
         """ Get the SDSS survey for this datamodel """
         return self.determine_survey(name_only=True)
+
+    @property
+    def vac(self) -> bool:
+        """ Checks if the datamodel product is a vac by its envvar label"""
+        return self.env_label in vacs
+
 
 #
 # code to create a markdown table

@@ -131,6 +131,11 @@ Models
    :undoc-members:
    :show-inheritance:
 
+.. automodule:: datamodel.models.vacs
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 .. automodule:: datamodel.models.filetypes.fits
    :members:
    :undoc-members:
