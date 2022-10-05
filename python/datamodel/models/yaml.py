@@ -57,6 +57,8 @@ class GeneralSection(BaseModel):
         An identifiable piece of the code that generates the data product
     design : bool
         If True, the datamodel is in the design phase, before any file exists yet
+    vac: bool
+        True if the datamodel is a VAC
 
     Raises
     ------
@@ -74,6 +76,7 @@ class GeneralSection(BaseModel):
     naming_convention: str
     generated_by: str
     design: bool = None
+    vac: bool = None
 
     _check_replace_me = validator('short', 'description', 'naming_convention',
                                   'generated_by', allow_reuse=True)(replace_me)

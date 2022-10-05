@@ -232,6 +232,9 @@ class BaseStub(abc.ABC):
         # update any design entry
         content['general']['design'] = self.datamodel.design
 
+        # update the VAC field
+        content['general']['vac'] = self.datamodel.vac
+
         # check the content dictionary has a proper release
         if self.datamodel.release not in content['releases']:
             content['releases'][self.datamodel.release] = {"template": None, "example": None, "location": None,
