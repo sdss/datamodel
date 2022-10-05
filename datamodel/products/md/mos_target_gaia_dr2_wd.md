@@ -12,7 +12,7 @@ MOS Target Table: gaia_dr2_wd
 ---
 
 ## Basic Information
-TBD in minidb_docs (as of 09/27/2022)
+TBD in minidb_docs (as of 04/05/2022)
 
 ### Naming Convention
 $MOS_TARGET/[V_TARG]/mos_target_gaia_dr2_wd-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
@@ -69,62 +69,62 @@ MOS Target Table: gaia_dr2_wd
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | WD | char[23] |  | TBD in minidb_docs (as of 09/27/2022) |
- | DR2NAME | char[28] |  | TBD in minidb_docs (as of 09/27/2022) |
- | SOURCE_ID | int64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | SOURCE | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | RA | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | E_RA | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | DEC | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | E_DEC | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | PLX | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | E_PLX | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | PMRA | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | E_PMRA | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | PMDEC | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | E_PMDEC | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | EPSI | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | AMAX | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | FG_GAIA | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | E_FG_GAIA | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | G_GAIA_MAG | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | FBP | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | E_FBP | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | BPMAG | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | FRP | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | E_FRP | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | RPMAG | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | E_BR_RP | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | GLON | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | GLAT | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | DENSITY | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | AG | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | SDSS | char[19] |  | TBD in minidb_docs (as of 09/27/2022) |
- | UMAG | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | E_UMAG | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | GMAG | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | E_GMAG | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | RMAG | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | E_RMAG | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | IMAG | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | E_IMAG | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | ZMAG | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | E_ZMAG | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | PWD | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | F_PWD | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | TEFFH | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | E_TEFFH | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | LOGGH | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | E_LOGGH | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | MASSH | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | E_MASSH | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | CHI2H | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | TEFFHE | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | E_TEFFHE | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | LOGGHE | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | E_LOGGHE | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | MASSHE | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | E_MASSHE | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | CHISQHE | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | WD | char[23] |  | TBD in minidb_docs (as of 04/05/2022) |
+ | DR2NAME | char[28] |  | TBD in minidb_docs (as of 04/05/2022) |
+ | SOURCE_ID | int64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | SOURCE | int32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | RA | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | E_RA | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | DEC | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | E_DEC | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | PLX | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | E_PLX | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | PMRA | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | E_PMRA | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | PMDEC | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | E_PMDEC | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | EPSI | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | AMAX | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | FG_GAIA | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | E_FG_GAIA | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | G_GAIA_MAG | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | FBP | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | E_FBP | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | BPMAG | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | FRP | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | E_FRP | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | RPMAG | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | E_BR_RP | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | GLON | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | GLAT | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | DENSITY | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | AG | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | SDSS | char[19] |  | TBD in minidb_docs (as of 04/05/2022) |
+ | UMAG | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | E_UMAG | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | GMAG | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | E_GMAG | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | RMAG | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | E_RMAG | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | IMAG | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | E_IMAG | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | ZMAG | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | E_ZMAG | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | PWD | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | F_PWD | int32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | TEFFH | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | E_TEFFH | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | LOGGH | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | E_LOGGH | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | MASSH | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | E_MASSH | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | CHI2H | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | TEFFHE | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | E_TEFFHE | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | LOGGHE | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | E_LOGGHE | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | MASSHE | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | E_MASSHE | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | CHISQHE | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
 
 

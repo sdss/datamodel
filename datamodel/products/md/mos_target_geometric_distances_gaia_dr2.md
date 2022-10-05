@@ -12,7 +12,7 @@ MOS Target Table: geometric_distances_gaia_dr2
 ---
 
 ## Basic Information
-TBD in minidb_docs (as of 09/27/2022)
+TBD in minidb_docs (as of 04/05/2022)
 
 ### Naming Convention
 $MOS_TARGET/[V_TARG]/mos_target_geometric_distances_gaia_dr2-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
@@ -69,12 +69,12 @@ MOS Target Table: geometric_distances_gaia_dr2
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | SOURCE_ID | int64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | R_EST | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | R_LO | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | R_HI | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | R_LEN | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | RESULT_FLAG | char[1] |  | TBD in minidb_docs (as of 09/27/2022) |
- | MODALITY_FLAG | int16 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | SOURCE_ID | int64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | R_EST | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | R_LO | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | R_HI | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | R_LEN | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | RESULT_FLAG | char[1] |  | TBD in minidb_docs (as of 04/05/2022) |
+ | MODALITY_FLAG | int16 |  | TBD in minidb_docs (as of 04/05/2022) |
 
 

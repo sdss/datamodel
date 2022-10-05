@@ -12,7 +12,7 @@ MOS Target Table: sdss_apogeeallstarmerge_r13
 ---
 
 ## Basic Information
-TBD in minidb_docs (as of 09/27/2022)
+TBD in minidb_docs (as of 04/05/2022)
 
 ### Naming Convention
 $MOS_TARGET/[V_TARG]/mos_target_sdss_apogeeallstarmerge_r13-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
@@ -69,55 +69,55 @@ MOS Target Table: sdss_apogeeallstarmerge_r13
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | APOGEE_ID | char[18] |  | TBD in minidb_docs (as of 09/27/2022) |
- | NVISITS | int16 |  | TBD in minidb_docs (as of 09/27/2022) |
- | NENTRIES | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | RA | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | DEC | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | GLON | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | GLAT | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | PMRA | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | PMDEC | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | PM_SRC | char[4] |  | TBD in minidb_docs (as of 09/27/2022) |
- | J | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | J_ERR | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | H | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | H_ERR | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | K | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | K_ERR | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | AK | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | VHELIO_AVG | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | VHELIO_ERR | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | VSCATTER | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | SIG_RVVAR | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | BASELINE | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | MEAN_FIBER | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | SIG_FIBER | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | APSTAR_IDS | char[675] |  | TBD in minidb_docs (as of 09/27/2022) |
- | VISITS | char[1379] |  | TBD in minidb_docs (as of 09/27/2022) |
- | FIELDS | char[142] |  | TBD in minidb_docs (as of 09/27/2022) |
- | SURVEYS | char[181] |  | TBD in minidb_docs (as of 09/27/2022) |
- | TELESCOPES | char[90] |  | TBD in minidb_docs (as of 09/27/2022) |
- | TARGFLAGS | char[236] |  | TBD in minidb_docs (as of 09/27/2022) |
- | STARFLAGS | char[165] |  | TBD in minidb_docs (as of 09/27/2022) |
- | ASPCAPFLAGS | char[108] |  | TBD in minidb_docs (as of 09/27/2022) |
- | TEFF | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | TEFF_ERR | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | LOGG | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | LOGG_ERR | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | FEH | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | FEH_ERR | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | STARTYPE | char[3] |  | TBD in minidb_docs (as of 09/27/2022) |
- | VJITTER | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | DIST | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | DIST_ERR | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | DIST_SRC | char[9] |  | TBD in minidb_docs (as of 09/27/2022) |
- | DIST_SRCLIST | char[93] |  | TBD in minidb_docs (as of 09/27/2022) |
- | MSTAR | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | MSTAR_ERR | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | RSTAR | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | RSTAR_ERR | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | MSTAR_SRC | char[8] |  | TBD in minidb_docs (as of 09/27/2022) |
- | DESIGNATION | char[16] |  | TBD in minidb_docs (as of 09/27/2022) |
+ | APOGEE_ID | char[18] |  | TBD in minidb_docs (as of 04/05/2022) |
+ | NVISITS | int16 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | NENTRIES | int32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | RA | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | DEC | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | GLON | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | GLAT | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | PMRA | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | PMDEC | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | PM_SRC | char[4] |  | TBD in minidb_docs (as of 04/05/2022) |
+ | J | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | J_ERR | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | H | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | H_ERR | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | K | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | K_ERR | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | AK | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | VHELIO_AVG | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | VHELIO_ERR | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | VSCATTER | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | SIG_RVVAR | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | BASELINE | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | MEAN_FIBER | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | SIG_FIBER | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | APSTAR_IDS | char[675] |  | TBD in minidb_docs (as of 04/05/2022) |
+ | VISITS | char[1379] |  | TBD in minidb_docs (as of 04/05/2022) |
+ | FIELDS | char[142] |  | TBD in minidb_docs (as of 04/05/2022) |
+ | SURVEYS | char[181] |  | TBD in minidb_docs (as of 04/05/2022) |
+ | TELESCOPES | char[90] |  | TBD in minidb_docs (as of 04/05/2022) |
+ | TARGFLAGS | char[236] |  | TBD in minidb_docs (as of 04/05/2022) |
+ | STARFLAGS | char[165] |  | TBD in minidb_docs (as of 04/05/2022) |
+ | ASPCAPFLAGS | char[108] |  | TBD in minidb_docs (as of 04/05/2022) |
+ | TEFF | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | TEFF_ERR | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | LOGG | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | LOGG_ERR | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | FEH | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | FEH_ERR | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | STARTYPE | char[3] |  | TBD in minidb_docs (as of 04/05/2022) |
+ | VJITTER | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | DIST | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | DIST_ERR | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | DIST_SRC | char[9] |  | TBD in minidb_docs (as of 04/05/2022) |
+ | DIST_SRCLIST | char[93] |  | TBD in minidb_docs (as of 04/05/2022) |
+ | MSTAR | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | MSTAR_ERR | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | RSTAR | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | RSTAR_ERR | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | MSTAR_SRC | char[8] |  | TBD in minidb_docs (as of 04/05/2022) |
+ | DESIGNATION | char[16] |  | TBD in minidb_docs (as of 04/05/2022) |
 
 

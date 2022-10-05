@@ -12,7 +12,7 @@ MOS Target Table: best_brightest
 ---
 
 ## Basic Information
-TBD in minidb_docs (as of 09/27/2022)
+TBD in minidb_docs (as of 04/05/2022)
 
 ### Naming Convention
 $MOS_TARGET/[V_TARG]/mos_target_best_brightest-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
@@ -87,8 +87,8 @@ Name | Type | Unit | Description |
  | RAERR | float64 |  | 2MASS coordinate? |
  | DEC_2 | float64 |  | 2MASS coordinate? |
  | DECERR | float64 |  | 2MASS coordinate? |
- | NOBS | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | MOBS | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | NOBS | int32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | MOBS | int32 |  | TBD in minidb_docs (as of 04/05/2022) |
  | VJMAG | float32 |  | APASS magnitude |
  | BJMAG | float32 |  | APASS magnitude |
  | GMAG | float32 |  | APASS magnitude |
@@ -99,11 +99,11 @@ Name | Type | Unit | Description |
  | EGMAG | float32 |  | APASS magnitude |
  | ERMAG | float32 |  | APASS magnitude |
  | EIMAG | float32 |  | APASS magnitude |
- | NAME | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | SEPARATION | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | NAME | int32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | SEPARATION | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
  | EBV | float32 |  | SFD dustmap |
  | VERSION | int32 |  | version 2 is high priiority, version 1 is low priority (see Schlaufman + Casey 2014 for definitions) |
- | ORIGINAL_EXT_SOURCE_ID | char[16] |  | TBD in minidb_docs (as of 09/27/2022) |
- | CNTR | int64 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | ORIGINAL_EXT_SOURCE_ID | char[16] |  | TBD in minidb_docs (as of 04/05/2022) |
+ | CNTR | int64 |  | TBD in minidb_docs (as of 04/05/2022) |
 
 

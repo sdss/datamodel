@@ -12,7 +12,7 @@ MOS Target Table: legacy_survey_dr8
 ---
 
 ## Basic Information
-TBD in minidb_docs (as of 09/27/2022)
+TBD in minidb_docs (as of 04/05/2022)
 
 ### Naming Convention
 $MOS_TARGET/[V_TARG]/mos_target_legacy_survey_dr8-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
@@ -78,11 +78,11 @@ Name | Type | Unit | Description |
  | DEC | float64 | deg | Declination at equinox J2000 |
  | RA_IVAR | float32 | 1/deg^2 | Inverse variance of RA (no cosine term!), excluding astrometric calibration errors |
  | DEC_IVAR | float32 | 1/deg^2 | Inverse variance of DEC, excluding astrometric calibration errors |
- | DCHISQ_PSF | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | DCHISQ_REX | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | DCHISQ_DEV | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | DCHISQ_EXP | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | DCHISQ_COMP | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | DCHISQ_PSF | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | DCHISQ_REX | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | DCHISQ_DEV | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | DCHISQ_EXP | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | DCHISQ_COMP | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
  | EBV | float32 | mag | Galactic extinction E(B-V) reddening from SFD98, used to compute MW_TRANSMISSION |
  | FLUX_G | float32 | nanomaggies | model flux in g |
  | FLUX_R | float32 | nanomaggies | model flux in r |

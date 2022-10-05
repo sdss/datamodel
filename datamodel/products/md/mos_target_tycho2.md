@@ -12,7 +12,7 @@ MOS Target Table: tycho2
 ---
 
 ## Basic Information
-TBD in minidb_docs (as of 09/27/2022)
+TBD in minidb_docs (as of 04/05/2022)
 
 ### Naming Convention
 $MOS_TARGET/[V_TARG]/mos_target_tycho2-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
@@ -69,44 +69,44 @@ MOS Target Table: tycho2
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | TYC1 | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | TYC2 | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | TYC3 | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | PFLAG | char[4] |  | TBD in minidb_docs (as of 09/27/2022) |
- | RAMDEG | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | DEMDEG | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | PMRA | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | PMDE | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | E_RAMDEG | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | E_DEMDEG | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | E_PMRA | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | E_PMDE | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | EPRAM | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | EPDEM | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | NUM | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | Q_RAMDEG | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | Q_DEMDEG | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | Q_PMRA | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | Q_PMDE | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | BTMAG | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | E_BTMAG | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | VTMAG | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | E_VTMAG | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | PROX | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | TYC | char[4] |  | TBD in minidb_docs (as of 09/27/2022) |
- | HIP | int64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | CCDM | char[4] |  | TBD in minidb_docs (as of 09/27/2022) |
- | RADEG | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | DEDEG | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | EPRA_1990 | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | EPDE_1990 | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | E_RADEG | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | E_DEDEG | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | POSFLG | char[4] |  | TBD in minidb_docs (as of 09/27/2022) |
- | CORR | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | FLAG | char[4] |  | TBD in minidb_docs (as of 09/27/2022) |
- | MFLAG | char[4] |  | TBD in minidb_docs (as of 09/27/2022) |
- | DESIGNATION | char[12] |  | TBD in minidb_docs (as of 09/27/2022) |
- | TYCID | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | TYC1 | int32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | TYC2 | int32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | TYC3 | int32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | PFLAG | char[4] |  | TBD in minidb_docs (as of 04/05/2022) |
+ | RAMDEG | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | DEMDEG | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | PMRA | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | PMDE | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | E_RAMDEG | int32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | E_DEMDEG | int32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | E_PMRA | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | E_PMDE | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | EPRAM | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | EPDEM | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | NUM | int32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | Q_RAMDEG | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | Q_DEMDEG | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | Q_PMRA | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | Q_PMDE | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | BTMAG | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | E_BTMAG | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | VTMAG | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | E_VTMAG | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | PROX | int32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | TYC | char[4] |  | TBD in minidb_docs (as of 04/05/2022) |
+ | HIP | int64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | CCDM | char[4] |  | TBD in minidb_docs (as of 04/05/2022) |
+ | RADEG | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | DEDEG | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | EPRA_1990 | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | EPDE_1990 | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | E_RADEG | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | E_DEDEG | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | POSFLG | char[4] |  | TBD in minidb_docs (as of 04/05/2022) |
+ | CORR | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | FLAG | char[4] |  | TBD in minidb_docs (as of 04/05/2022) |
+ | MFLAG | char[4] |  | TBD in minidb_docs (as of 04/05/2022) |
+ | DESIGNATION | char[12] |  | TBD in minidb_docs (as of 04/05/2022) |
+ | TYCID | int32 |  | TBD in minidb_docs (as of 04/05/2022) |
 
 

@@ -12,7 +12,7 @@ MOS Target Table: supercosmos
 ---
 
 ## Basic Information
-TBD in minidb_docs (as of 09/27/2022)
+TBD in minidb_docs (as of 04/05/2022)
 
 ### Naming Convention
 $MOS_TARGET/[V_TARG]/mos_target_supercosmos-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
@@ -69,62 +69,62 @@ MOS Target Table: supercosmos
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | OBJID | int64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | OBJIDB | int64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | OBJIDR1 | int64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | OBJIDR2 | int64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | OBJIDI | int64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | HTMID | int64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | EPOCH | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | RA | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | DEC | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | SIGRA | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | SIGDEC | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | CX | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | CY | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | CZ | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | MUACOSD | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | MUD | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | SIGMUACOSD | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | SIGMUD | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | CHI2 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | NPLATES | int16 |  | TBD in minidb_docs (as of 09/27/2022) |
- | CLASSMAGB | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | CLASSMAGR1 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | CLASSMAGR2 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | CLASSMAGI | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | GCORMAGB | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | GCORMAGR1 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | GCORMAGR2 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | GCORMAGI | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | SCORMAGB | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | SCORMAGR1 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | SCORMAGR2 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | SCORMAGI | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | MEANCLASS | int16 |  | TBD in minidb_docs (as of 09/27/2022) |
- | CLASSB | int16 |  | TBD in minidb_docs (as of 09/27/2022) |
- | CLASSR1 | int16 |  | TBD in minidb_docs (as of 09/27/2022) |
- | CLASSR2 | int16 |  | TBD in minidb_docs (as of 09/27/2022) |
- | CLASSI | int16 |  | TBD in minidb_docs (as of 09/27/2022) |
- | ELLIPB | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | ELLIPR1 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | ELLIPR2 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | ELLIPI | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | QUALB | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | QUALR1 | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | QUALR2 | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | QUALI | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | BLENDB | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | BLENDR1 | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | BLENDR2 | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | BLENDI | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | PRFSTATB | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | PRFSTATR1 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | PRFSTATR2 | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | PRFSTATI | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | L | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | B | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | D | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | EBMV | float32 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | OBJID | int64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | OBJIDB | int64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | OBJIDR1 | int64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | OBJIDR2 | int64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | OBJIDI | int64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | HTMID | int64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | EPOCH | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | RA | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | DEC | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | SIGRA | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | SIGDEC | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | CX | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | CY | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | CZ | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | MUACOSD | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | MUD | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | SIGMUACOSD | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | SIGMUD | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | CHI2 | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | NPLATES | int16 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | CLASSMAGB | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | CLASSMAGR1 | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | CLASSMAGR2 | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | CLASSMAGI | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | GCORMAGB | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | GCORMAGR1 | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | GCORMAGR2 | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | GCORMAGI | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | SCORMAGB | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | SCORMAGR1 | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | SCORMAGR2 | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | SCORMAGI | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | MEANCLASS | int16 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | CLASSB | int16 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | CLASSR1 | int16 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | CLASSR2 | int16 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | CLASSI | int16 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | ELLIPB | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | ELLIPR1 | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | ELLIPR2 | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | ELLIPI | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | QUALB | int32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | QUALR1 | int32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | QUALR2 | int32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | QUALI | int32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | BLENDB | int32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | BLENDR1 | int32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | BLENDR2 | int32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | BLENDI | int32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | PRFSTATB | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | PRFSTATR1 | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | PRFSTATR2 | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | PRFSTATI | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | L | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | B | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | D | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | EBMV | float32 |  | TBD in minidb_docs (as of 04/05/2022) |
 
 
