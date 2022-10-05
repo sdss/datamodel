@@ -1,17 +1,17 @@
 general:
-  name: mos_target_gaia_unwise_agn
+  name: mos_target_skies_v2
   short: replace me - with a short one sentence summary of file
   description: replace me - with a longer description of the data product
   datatype: FITS
-  filesize: 526 MB
+  filesize: 183 MB
   releases:
   - WORK
   environments:
   - MOS_TARGET
   surveys:
   - SDSS
-  naming_convention: replace me - with $MOS_TARGET/[V_TARG]/mos_target_gaia_unwise_agn-[NUM].fits
-    or mos_target_gaia_unwise_agn-1.fits but with regex pattern matches
+  naming_convention: replace me - with $MOS_TARGET/[V_TARG]/mos_target_skies_v2-[NUM].fits
+    or mos_target_skies_v2-01.fits but with regex pattern matches
   generated_by: replace me - with the name(s) of any git or svn product(s) that produces
     this product.
   design: false
@@ -21,18 +21,18 @@ changelog:
   releases: {}
 releases:
   WORK:
-    template: $MOS_TARGET/[V_TARG]/mos_target_gaia_unwise_agn-[NUM].fits
-    example: 1.0.1/mos_target_gaia_unwise_agn-1.fits
-    location: '{v_targ}/mos_target_gaia_unwise_agn-{num}.fits'
+    template: $MOS_TARGET/[V_TARG]/mos_target_skies_v2-[NUM].fits
+    example: 1.0.1/mos_target_skies_v2-01.fits
+    location: '{v_targ}/mos_target_skies_v2-{num}.fits'
     environment: MOS_TARGET
     access:
       in_sdss_access: true
-      path_name: mos_target_gaia_unwise_agn
-      path_template: $MOS_TARGET/{v_targ}/mos_target_gaia_unwise_agn-{num}
+      path_name: mos_target_skies_v2
+      path_template: $MOS_TARGET/{v_targ}/mos_target_skies_v2-{num}
       path_kwargs:
       - v_targ
       - num
-      access_string: mos_target_gaia_unwise_agn = $MOS_TARGET/{v_targ}/mos_target_gaia_unwise_agn-{num}.fits
+      access_string: mos_target_skies_v2 = $MOS_TARGET/{v_targ}/mos_target_skies_v2-{num}.fits
     survey: SDSS
     hdus:
       hdu0:
@@ -57,8 +57,13 @@ releases:
         name: ''
         description: replace me description
         is_image: false
-        size: 526 MB
+        size: 183 MB
         columns:
+          pix_32768:
+            name: PIX_32768
+            type: int64
+            unit: replace me - with content
+            description: replace me - with content
           ra:
             name: RA
             type: float64
@@ -69,178 +74,128 @@ releases:
             type: float64
             unit: replace me - with content
             description: replace me - with content
-          gaia_sourceid:
-            name: GAIA_SOURCEID
+          down_pix:
+            name: DOWN_PIX
             type: int64
             unit: replace me - with content
             description: replace me - with content
-          unwise_objid:
-            name: UNWISE_OBJID
-            type: char[16]
+          tile_32:
+            name: TILE_32
+            type: int64
             unit: replace me - with content
             description: replace me - with content
-          plx:
-            name: PLX
-            type: float64
+          valid_gaia:
+            name: VALID_GAIA
+            type: bool
             unit: replace me - with content
             description: replace me - with content
-          plx_err:
-            name: PLX_ERR
-            type: float64
+          selected_gaia:
+            name: SELECTED_GAIA
+            type: bool
             unit: replace me - with content
             description: replace me - with content
-          pmra:
-            name: PMRA
-            type: float64
+          sep_neighbour_gaia:
+            name: SEP_NEIGHBOUR_GAIA
+            type: float32
             unit: replace me - with content
             description: replace me - with content
-          pmra_err:
-            name: PMRA_ERR
-            type: float64
+          mag_neighbour_gaia:
+            name: MAG_NEIGHBOUR_GAIA
+            type: float32
             unit: replace me - with content
             description: replace me - with content
-          pmdec:
-            name: PMDEC
-            type: float64
+          valid_ls8:
+            name: VALID_LS8
+            type: bool
             unit: replace me - with content
             description: replace me - with content
-          pmdec_err:
-            name: PMDEC_ERR
-            type: float64
+          selected_ls8:
+            name: SELECTED_LS8
+            type: bool
             unit: replace me - with content
             description: replace me - with content
-          plxsig:
-            name: PLXSIG
-            type: float64
+          sep_neighbour_ls8:
+            name: SEP_NEIGHBOUR_LS8
+            type: float32
             unit: replace me - with content
             description: replace me - with content
-          pmsig:
-            name: PMSIG
-            type: float64
+          mag_neighbour_ls8:
+            name: MAG_NEIGHBOUR_LS8
+            type: float32
             unit: replace me - with content
             description: replace me - with content
-          ebv:
-            name: EBV
-            type: float64
+          valid_ps1dr2:
+            name: VALID_PS1DR2
+            type: bool
             unit: replace me - with content
             description: replace me - with content
-          n_obs:
-            name: N_OBS
-            type: int32
+          selected_ps1dr2:
+            name: SELECTED_PS1DR2
+            type: bool
             unit: replace me - with content
             description: replace me - with content
-          g:
-            name: G
-            type: float64
+          sep_neighbour_ps1dr2:
+            name: SEP_NEIGHBOUR_PS1DR2
+            type: float32
             unit: replace me - with content
             description: replace me - with content
-          bp:
-            name: BP
-            type: float64
+          mag_neighbour_ps1dr2:
+            name: MAG_NEIGHBOUR_PS1DR2
+            type: float32
             unit: replace me - with content
             description: replace me - with content
-          rp:
-            name: RP
-            type: float64
+          valid_tmass:
+            name: VALID_TMASS
+            type: bool
             unit: replace me - with content
             description: replace me - with content
-          w1:
-            name: W1
-            type: float64
+          selected_tmass:
+            name: SELECTED_TMASS
+            type: bool
             unit: replace me - with content
             description: replace me - with content
-          w2:
-            name: W2
-            type: float64
+          sep_neighbour_tmass:
+            name: SEP_NEIGHBOUR_TMASS
+            type: float32
             unit: replace me - with content
             description: replace me - with content
-          bp_g:
-            name: BP_G
-            type: float64
+          mag_neighbour_tmass:
+            name: MAG_NEIGHBOUR_TMASS
+            type: float32
             unit: replace me - with content
             description: replace me - with content
-          bp_rp:
-            name: BP_RP
-            type: float64
+          valid_tycho2:
+            name: VALID_TYCHO2
+            type: bool
             unit: replace me - with content
             description: replace me - with content
-          g_rp:
-            name: G_RP
-            type: float64
+          selected_tycho2:
+            name: SELECTED_TYCHO2
+            type: bool
             unit: replace me - with content
             description: replace me - with content
-          g_w1:
-            name: G_W1
-            type: float64
+          sep_neighbour_tycho2:
+            name: SEP_NEIGHBOUR_TYCHO2
+            type: float32
             unit: replace me - with content
             description: replace me - with content
-          gw_sep:
-            name: GW_SEP
-            type: float64
+          mag_neighbour_tycho2:
+            name: MAG_NEIGHBOUR_TYCHO2
+            type: float32
             unit: replace me - with content
             description: replace me - with content
-          w1_w2:
-            name: W1_W2
-            type: float64
+          valid_tmass_xsc:
+            name: VALID_TMASS_XSC
+            type: bool
             unit: replace me - with content
             description: replace me - with content
-          g_var:
-            name: G_VAR
-            type: float64
+          selected_tmass_xsc:
+            name: SELECTED_TMASS_XSC
+            type: bool
             unit: replace me - with content
             description: replace me - with content
-          bprp_ef:
-            name: BPRP_EF
-            type: float64
-            unit: replace me - with content
-            description: replace me - with content
-          aen:
-            name: AEN
-            type: float64
-            unit: replace me - with content
-            description: replace me - with content
-          gof:
-            name: GOF
-            type: float64
-            unit: replace me - with content
-            description: replace me - with content
-          cnt1:
-            name: CNT1
-            type: int32
-            unit: replace me - with content
-            description: replace me - with content
-          cnt2:
-            name: CNT2
-            type: int32
-            unit: replace me - with content
-            description: replace me - with content
-          cnt4:
-            name: CNT4
-            type: int32
-            unit: replace me - with content
-            description: replace me - with content
-          cnt8:
-            name: CNT8
-            type: int32
-            unit: replace me - with content
-            description: replace me - with content
-          cnt16:
-            name: CNT16
-            type: int32
-            unit: replace me - with content
-            description: replace me - with content
-          cnt32:
-            name: CNT32
-            type: int32
-            unit: replace me - with content
-            description: replace me - with content
-          phot_z:
-            name: PHOT_Z
-            type: float64
-            unit: replace me - with content
-            description: replace me - with content
-          prob_rf:
-            name: PROB_RF
-            type: float64
+          sep_neighbour_tmass_xsc:
+            name: SEP_NEIGHBOUR_TMASS_XSC
+            type: float32
             unit: replace me - with content
             description: replace me - with content

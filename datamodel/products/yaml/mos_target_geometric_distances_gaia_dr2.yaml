@@ -1,5 +1,5 @@
 general:
-  name: mos_target_catalog_to_glimpse
+  name: mos_target_geometric_distances_gaia_dr2
   short: replace me - with a short one sentence summary of file
   description: replace me - with a longer description of the data product
   datatype: FITS
@@ -10,8 +10,8 @@ general:
   - MOS_TARGET
   surveys:
   - SDSS
-  naming_convention: replace me - with $MOS_TARGET/[V_TARG]/mos_target_catalog_to_glimpse-[NUM].fits
-    or mos_target_catalog_to_glimpse-1.fits but with regex pattern matches
+  naming_convention: replace me - with $MOS_TARGET/[V_TARG]/mos_target_geometric_distances_gaia_dr2-[NUM].fits
+    or mos_target_geometric_distances_gaia_dr2-01.fits but with regex pattern matches
   generated_by: replace me - with the name(s) of any git or svn product(s) that produces
     this product.
   design: false
@@ -21,18 +21,18 @@ changelog:
   releases: {}
 releases:
   WORK:
-    template: $MOS_TARGET/[V_TARG]/mos_target_catalog_to_glimpse-[NUM].fits
-    example: 1.0.1/mos_target_catalog_to_glimpse-1.fits
-    location: '{v_targ}/mos_target_catalog_to_glimpse-{num}.fits'
+    template: $MOS_TARGET/[V_TARG]/mos_target_geometric_distances_gaia_dr2-[NUM].fits
+    example: 1.0.1/mos_target_geometric_distances_gaia_dr2-01.fits
+    location: '{v_targ}/mos_target_geometric_distances_gaia_dr2-{num}.fits'
     environment: MOS_TARGET
     access:
       in_sdss_access: true
-      path_name: mos_target_catalog_to_glimpse
-      path_template: $MOS_TARGET/{v_targ}/mos_target_catalog_to_glimpse-{num}
+      path_name: mos_target_geometric_distances_gaia_dr2
+      path_template: $MOS_TARGET/{v_targ}/mos_target_geometric_distances_gaia_dr2-{num}
       path_kwargs:
       - num
       - v_targ
-      access_string: mos_target_catalog_to_glimpse = $MOS_TARGET/{v_targ}/mos_target_catalog_to_glimpse-{num}.fits
+      access_string: mos_target_geometric_distances_gaia_dr2 = $MOS_TARGET/{v_targ}/mos_target_geometric_distances_gaia_dr2-{num}.fits
     survey: SDSS
     hdus:
       hdu0:
@@ -59,28 +59,38 @@ releases:
         is_image: false
         size: 51 MB
         columns:
-          catalogid:
-            name: CATALOGID
+          source_id:
+            name: SOURCE_ID
             type: int64
             unit: replace me - with content
             description: replace me - with content
-          target_id:
-            name: TARGET_ID
-            type: int64
+          r_est:
+            name: R_EST
+            type: float32
             unit: replace me - with content
             description: replace me - with content
-          version_id:
-            name: VERSION_ID
+          r_lo:
+            name: R_LO
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          r_hi:
+            name: R_HI
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          r_len:
+            name: R_LEN
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          result_flag:
+            name: RESULT_FLAG
+            type: char[1]
+            unit: replace me - with content
+            description: replace me - with content
+          modality_flag:
+            name: MODALITY_FLAG
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
-          distance:
-            name: DISTANCE
-            type: float64
-            unit: replace me - with content
-            description: replace me - with content
-          best:
-            name: BEST
-            type: bool
             unit: replace me - with content
             description: replace me - with content

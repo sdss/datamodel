@@ -1,17 +1,17 @@
 general:
-  name: mos_target_sdss_dr13_photoobj_primary
+  name: mos_target_catalog_to_skies_v2
   short: replace me - with a short one sentence summary of file
   description: replace me - with a longer description of the data product
   datatype: FITS
-  filesize: 45 MB
+  filesize: 51 MB
   releases:
   - WORK
   environments:
   - MOS_TARGET
   surveys:
   - SDSS
-  naming_convention: replace me - with $MOS_TARGET/[V_TARG]/mos_target_sdss_dr13_photoobj_primary-[NUM].fits
-    or mos_target_sdss_dr13_photoobj_primary-1.fits but with regex pattern matches
+  naming_convention: replace me - with $MOS_TARGET/[V_TARG]/mos_target_catalog_to_skies_v2-[NUM].fits
+    or mos_target_catalog_to_skies_v2-01.fits but with regex pattern matches
   generated_by: replace me - with the name(s) of any git or svn product(s) that produces
     this product.
   design: false
@@ -21,18 +21,18 @@ changelog:
   releases: {}
 releases:
   WORK:
-    template: $MOS_TARGET/[V_TARG]/mos_target_sdss_dr13_photoobj_primary-[NUM].fits
-    example: 1.0.1/mos_target_sdss_dr13_photoobj_primary-1.fits
-    location: '{v_targ}/mos_target_sdss_dr13_photoobj_primary-{num}.fits'
+    template: $MOS_TARGET/[V_TARG]/mos_target_catalog_to_skies_v2-[NUM].fits
+    example: 1.0.1/mos_target_catalog_to_skies_v2-01.fits
+    location: '{v_targ}/mos_target_catalog_to_skies_v2-{num}.fits'
     environment: MOS_TARGET
     access:
       in_sdss_access: true
-      path_name: mos_target_sdss_dr13_photoobj_primary
-      path_template: $MOS_TARGET/{v_targ}/mos_target_sdss_dr13_photoobj_primary-{num}
+      path_name: mos_target_catalog_to_skies_v2
+      path_template: $MOS_TARGET/{v_targ}/mos_target_catalog_to_skies_v2-{num}
       path_kwargs:
       - v_targ
       - num
-      access_string: mos_target_sdss_dr13_photoobj_primary = $MOS_TARGET/{v_targ}/mos_target_sdss_dr13_photoobj_primary-{num}.fits
+      access_string: mos_target_catalog_to_skies_v2 = $MOS_TARGET/{v_targ}/mos_target_catalog_to_skies_v2-{num}.fits
     survey: SDSS
     hdus:
       hdu0:
@@ -57,20 +57,30 @@ releases:
         name: ''
         description: replace me description
         is_image: false
-        size: 45 MB
+        size: 51 MB
         columns:
-          objid:
-            name: OBJID
+          catalogid:
+            name: CATALOGID
             type: int64
             unit: replace me - with content
             description: replace me - with content
-          ra:
-            name: RA
+          target_id:
+            name: TARGET_ID
+            type: int64
+            unit: replace me - with content
+            description: replace me - with content
+          version_id:
+            name: VERSION_ID
+            type: int16
+            unit: replace me - with content
+            description: replace me - with content
+          distance:
+            name: DISTANCE
             type: float64
             unit: replace me - with content
             description: replace me - with content
-          dec:
-            name: DEC
-            type: float64
+          best:
+            name: BEST
+            type: bool
             unit: replace me - with content
             description: replace me - with content
