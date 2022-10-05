@@ -11,8 +11,16 @@ is |datamodel_version|. You can install the package by doing
   $ cd datamodel
   $ pip install -e .
 
-By default the datamodel package supports FITS files only.  Support for additional file types requires
-extra dependency packages to be installed.
+The above pip command installs a lightweight package for using the Python datamodel representations
+only, see :ref:`navigate`.  For generating or designing new datamodels, you need to install
+extra dependencies with the ``gen`` extras options, i.e.
+
+.. code-block:: console
+
+  $ pip install -e ".[gen]"
+
+This will install all dependencies needed for generating datamodels, with support for FITS files only.
+Support for additional file types requires extra dependency packages to be installed.
 
 .. list-table:: Supported Files
    :widths: 25 25 25 25
@@ -29,11 +37,11 @@ extra dependency packages to be installed.
    * - Yanny files
      - .par
      - `pydl <https://pydl.readthedocs.io/en/latest/>`_
-     - ".[par]"
+     - ".[gen, par]"
    * - HDF5 files
      - .h5
      - `h5py <https://docs.h5py.org/en/stable/>`_
-     - ".[hdf]"
+     - ".[gen, hdf]"
 
 To install all extra file dependencies, run ``pip install -e ".[all]"`` during the installation process.
 
