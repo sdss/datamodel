@@ -1,7 +1,8 @@
 general:
   name: mos_target_catalog_to_uvotssc1
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: 'MOS Target Table: catalog_to_uvotssc1'
+  description: The table contains the cross-match between the mos_target_catalog targets
+    and the mos_target_uvotssc1 table.
   datatype: FITS
   filesize: 41 MB
   releases:
@@ -9,11 +10,11 @@ general:
   environments:
   - MOS_TARGET
   surveys:
-  - SDSS
-  naming_convention: replace me - with $MOS_TARGET/[V_TARG]/mos_target_catalog_to_uvotssc1.fits
-    or mos_target_catalog_to_uvotssc1.fits but with regex pattern matches
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  - BHM
+  - MWM
+  naming_convention: $MOS_TARGET/[V_TARG]/mos_target_catalog_to_uvotssc1-[NUM].fits,
+    where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
+  generated_by: sdss5db> targetdb, operations database server
   design: false
   vac: false
 changelog:
@@ -37,7 +38,7 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: Primary header
         is_image: true
         size: 0 bytes
         header:
@@ -55,32 +56,34 @@ releases:
           comment: ''
       hdu1:
         name: ''
-        description: replace me description
+        description: 'MOS Target Table: catalog_to_uvotssc1'
         is_image: false
         size: 41 MB
         columns:
           catalogid:
             name: CATALOGID
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The catalogid identifier in the mos_target_catalog table.
           target_id:
             name: TARGET_ID
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The primary key identifier in the mos_target_uvotssc1 table.
           version_id:
             name: VERSION_ID
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The internal version for the cross-match.
           distance:
             name: DISTANCE
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The distance between the catalog and target coordinates if
+              best=F.
           best:
             name: BEST
             type: bool
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Whether this is considered the best match between the catalog
+              entry and mos_target_uvotssc1.

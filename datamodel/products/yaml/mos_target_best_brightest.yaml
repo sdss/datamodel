@@ -1,7 +1,7 @@
 general:
   name: mos_target_best_brightest
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: 'MOS Target Table: best_brightest'
+  description: TBD in minidb_docs (as of 09/27/2022)
   datatype: FITS
   filesize: 28 MB
   releases:
@@ -9,11 +9,11 @@ general:
   environments:
   - MOS_TARGET
   surveys:
-  - SDSS
-  naming_convention: replace me - with $MOS_TARGET/[V_TARG]/mos_target_best_brightest.fits
-    or mos_target_best_brightest.fits but with regex pattern matches
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  - BHM
+  - MWM
+  naming_convention: $MOS_TARGET/[V_TARG]/mos_target_best_brightest-[NUM].fits, where
+    V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
+  generated_by: sdss5db> targetdb, operations database server
   design: false
   vac: false
 changelog:
@@ -37,7 +37,7 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: Primary header
         is_image: true
         size: 0 bytes
         header:
@@ -55,187 +55,188 @@ releases:
           comment: ''
       hdu1:
         name: ''
-        description: replace me description
+        description: 'MOS Target Table: best_brightest'
         is_image: false
         size: 28 MB
         columns:
           designation:
             name: DESIGNATION
             type: char[19]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 2MASS Designation
           ra_1:
             name: RA_1
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: WISE position
           dec_1:
             name: DEC_1
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: WISE position
           glon:
             name: GLON
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: WISE position?
           glat:
             name: GLAT
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: WISE position?
           w1mpro:
             name: W1MPRO
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: WISE magnitude
           w2mpro:
             name: W2MPRO
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: WISE magnitude
           w3mpro:
             name: W3MPRO
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: WISE magnitude
           w4mpro:
             name: W4MPRO
             type: char[6]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: WISE magnitude
           pmra:
             name: PMRA
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Gaia DR2 proper motion?
           pmdec:
             name: PMDEC
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Gaia DR2 proper motion?
           j_m_2mass:
             name: J_M_2MASS
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 2MASS magnitude
           h_m_2mass:
             name: H_M_2MASS
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 2MASS magnitude
           k_m_2mass:
             name: K_M_2MASS
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 2MASS magnitude
           ra_2:
             name: RA_2
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 2MASS coordinate?
           raerr:
             name: RAERR
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 2MASS coordinate?
           dec_2:
             name: DEC_2
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 2MASS coordinate?
           decerr:
             name: DECERR
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 2MASS coordinate?
           nobs:
             name: NOBS
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: TBD in minidb_docs (as of 09/27/2022)
           mobs:
             name: MOBS
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: TBD in minidb_docs (as of 09/27/2022)
           vjmag:
             name: VJMAG
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: APASS magnitude
           bjmag:
             name: BJMAG
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: APASS magnitude
           gmag:
             name: GMAG
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: APASS magnitude
           rmag:
             name: RMAG
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: APASS magnitude
           imag:
             name: IMAG
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: APASS magnitude
           evjmag:
             name: EVJMAG
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: APASS magnitude
           ebjmag:
             name: EBJMAG
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: APASS magnitude
           egmag:
             name: EGMAG
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: APASS magnitude
           ermag:
             name: ERMAG
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: APASS magnitude
           eimag:
             name: EIMAG
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: APASS magnitude
           name:
             name: NAME
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: TBD in minidb_docs (as of 09/27/2022)
           separation:
             name: SEPARATION
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: TBD in minidb_docs (as of 09/27/2022)
           ebv:
             name: EBV
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: SFD dustmap
           version:
             name: VERSION
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: version 2 is high priiority, version 1 is low priority (see
+              Schlaufman + Casey 2014 for definitions)
           original_ext_source_id:
             name: ORIGINAL_EXT_SOURCE_ID
             type: char[16]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: TBD in minidb_docs (as of 09/27/2022)
           cntr:
             name: CNTR
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: TBD in minidb_docs (as of 09/27/2022)

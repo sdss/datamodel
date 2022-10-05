@@ -1,7 +1,8 @@
 general:
   name: mos_target_ebosstarget_v5
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: 'MOS Target Table: ebosstarget_v5'
+  description: A catalog of targets, selected from SDSS+WISE imaging that were considered
+    for observation in the
   datatype: FITS
   filesize: 555 MB
   releases:
@@ -9,11 +10,11 @@ general:
   environments:
   - MOS_TARGET
   surveys:
-  - SDSS
-  naming_convention: replace me - with $MOS_TARGET/[V_TARG]/mos_target_ebosstarget_v5.fits
-    or mos_target_ebosstarget_v5.fits but with regex pattern matches
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  - BHM
+  - MWM
+  naming_convention: $MOS_TARGET/[V_TARG]/mos_target_ebosstarget_v5-[NUM].fits, where
+    V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
+  generated_by: sdss5db> targetdb, operations database server
   design: false
   vac: false
 changelog:
@@ -37,7 +38,7 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: Primary header
         is_image: true
         size: 0 bytes
         header:
@@ -55,502 +56,515 @@ releases:
           comment: ''
       hdu1:
         name: ''
-        description: replace me description
+        description: 'MOS Target Table: ebosstarget_v5'
         is_image: false
         size: 555 MB
         columns:
           run:
             name: RUN
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: SDSS imaging run
           camcol:
             name: CAMCOL
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: SDSS imaging camcol
           field:
             name: FIELD
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: SDSS imaging field
           id:
             name: ID
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: SDSS imaging object id
           rerun:
             name: RERUN
             type: char[3]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: SDSS imaging rerun
           fibermag_u:
             name: FIBERMAG_U
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Magnitude in 3 arcsec diameter fiber radius, u-band
           fibermag_g:
             name: FIBERMAG_G
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Magnitude in 3 arcsec diameter fiber radius, g-band
           fibermag_r:
             name: FIBERMAG_R
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Magnitude in 3 arcsec diameter fiber radius, r-band
           fibermag_i:
             name: FIBERMAG_I
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Magnitude in 3 arcsec diameter fiber radius, i-band
           fibermag_z:
             name: FIBERMAG_Z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Magnitude in 3 arcsec diameter fiber radius, z-band
           fiber2mag_u:
             name: FIBER2MAG_U
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Magnitude in 2 arcsec diameter fiber radius, u-band
           fiber2mag_g:
             name: FIBER2MAG_G
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Magnitude in 2 arcsec diameter fiber radius, g-band
           fiber2mag_r:
             name: FIBER2MAG_R
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Magnitude in 2 arcsec diameter fiber radius, r-band
           fiber2mag_i:
             name: FIBER2MAG_I
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Magnitude in 2 arcsec diameter fiber radius, i-band
           fiber2mag_z:
             name: FIBER2MAG_Z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Magnitude in 2 arcsec diameter fiber radius, z-band
           calib_status_u:
             name: CALIB_STATUS_U
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Calibration status in u-band
           calib_status_g:
             name: CALIB_STATUS_G
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Calibration status in g-band
           calib_status_r:
             name: CALIB_STATUS_R
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Calibration status in r-band
           calib_status_i:
             name: CALIB_STATUS_I
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Calibration status in i-band
           calib_status_z:
             name: CALIB_STATUS_Z
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Calibration status in z-band
           ra:
             name: RA
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: J2000 Right Ascension
           dec:
             name: DEC
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: J2000 Declination
           epoch:
             name: EPOCH
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: year
+            description: Epoch of position
           pmra:
             name: PMRA
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mas/yr
+            description: proper motion in RA direction
           pmdec:
             name: PMDEC
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mas/yr
+            description: '- proper motion in Dec direction'
           eboss_target1:
             name: EBOSS_TARGET1
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: eBOSS target selection information, for eBOSS plates
           eboss_target2:
             name: EBOSS_TARGET2
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: eBOSS target selection information, for TDSS, SPIDERS, ELG,
+              etc. plates
           eboss_target_id:
             name: EBOSS_TARGET_ID
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: eBOSS unique target identifier for every spectroscopic target
           thing_id_targeting:
             name: THING_ID_TARGETING
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: thing_id value from the version of resolve from which the
+              targeting was created
           objc_type:
             name: OBJC_TYPE
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Type classification of the object (star, galaxy, cosmic ray,
+              etc.)
           objc_flags:
             name: OBJC_FLAGS
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Photo Object Attribute Flags(?)
           objc_flags2:
             name: OBJC_FLAGS2
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Additional Photo Object Attribute Flags(?)
           flags:
             name: FLAGS
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Target selection flags set by ebosstarget (?)
           flags2:
             name: FLAGS2
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Additional target selection flags set by ebosstarget (?)
           psf_fwhm_u:
             name: PSF_FWHM_U
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: arcsec
+            description: Imaging FWHM in u-band
           psf_fwhm_g:
             name: PSF_FWHM_G
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: arcsec
+            description: Imaging FWHM in g-band
           psf_fwhm_r:
             name: PSF_FWHM_R
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: arcsec
+            description: Imaging FWHM in r-band
           psf_fwhm_i:
             name: PSF_FWHM_I
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: arcsec
+            description: Imaging FWHM in i-band
           psf_fwhm_z:
             name: PSF_FWHM_Z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: arcsec
+            description: Imaging FWHM in z-band
           psfflux_u:
             name: PSFFLUX_U
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nMgy
+            description: PSF flux, u-band
           psfflux_g:
             name: PSFFLUX_G
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nMgy
+            description: PSF flux, g-band
           psfflux_r:
             name: PSFFLUX_R
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nMgy
+            description: PSF flux, r-band
           psfflux_i:
             name: PSFFLUX_I
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nMgy
+            description: PSF flux, i-band
           psfflux_z:
             name: PSFFLUX_Z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nMgy
+            description: PSF flux, z-band
           psfflux_ivar_u:
             name: PSFFLUX_IVAR_U
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nMgy^{-2}
+            description: PSF flux inverse variance, u-band
           psfflux_ivar_g:
             name: PSFFLUX_IVAR_G
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nMgy^{-2}
+            description: PSF flux inverse variance, g-band
           psfflux_ivar_r:
             name: PSFFLUX_IVAR_R
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nMgy^{-2}
+            description: PSF flux inverse variance, r-band
           psfflux_ivar_i:
             name: PSFFLUX_IVAR_I
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nMgy^{-2}
+            description: PSF flux inverse variance, r-band
           psfflux_ivar_z:
             name: PSFFLUX_IVAR_Z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nMgy^{-2}
+            description: PSF flux inverse variance, i-band
           extinction_u:
             name: EXTINCTION_U
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Extinction in u-band
           extinction_g:
             name: EXTINCTION_G
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Extinction in g-band
           extinction_r:
             name: EXTINCTION_R
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Extinction in r-band
           extinction_i:
             name: EXTINCTION_I
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Extinction in i-band
           extinction_z:
             name: EXTINCTION_Z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Extinction in z-band
           fiberflux_u:
             name: FIBERFLUX_U
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nMgy
+            description: Flux in 3 arcsec diameter fiber radius, u-band
           fiberflux_g:
             name: FIBERFLUX_G
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nMgy
+            description: Flux in 3 arcsec diameter fiber radius, g-band
           fiberflux_r:
             name: FIBERFLUX_R
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nMgy
+            description: Flux in 3 arcsec diameter fiber radius, r-band
           fiberflux_i:
             name: FIBERFLUX_I
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nMgy
+            description: Flux in 3 arcsec diameter fiber radius, i-band
           fiberflux_z:
             name: FIBERFLUX_Z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nMgy
+            description: Flux in 3 arcsec diameter fiber radius, z-band
           fiberflux_ivar_u:
             name: FIBERFLUX_IVAR_U
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nMgy^{-2}
+            description: Inverse variance of flux in 3 arcsec diameter fiber radius,
+              u-band
           fiberflux_ivar_g:
             name: FIBERFLUX_IVAR_G
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nMgy^{-2}
+            description: Inverse variance of flux in 3 arcsec diameter fiber radius,
+              g-band
           fiberflux_ivar_r:
             name: FIBERFLUX_IVAR_R
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nMgy^{-2}
+            description: Inverse variance of flux in 3 arcsec diameter fiber radius,
+              r-band
           fiberflux_ivar_i:
             name: FIBERFLUX_IVAR_I
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nMgy^{-2}
+            description: Inverse variance of flux in 3 arcsec diameter fiber radius,
+              i-band
           fiberflux_ivar_z:
             name: FIBERFLUX_IVAR_Z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nMgy^{-2}
+            description: Inverse variance of flux in 3 arcsec diameter fiber radius,
+              z-band
           fiber2flux_ivar_u:
             name: FIBER2FLUX_IVAR_U
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nMgy^{-2}
+            description: Inverse variance of flux in 2 arcsec diameter fiber radius,
+              u-band
           fiber2flux_ivar_g:
             name: FIBER2FLUX_IVAR_G
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nMgy^{-2}
+            description: Inverse variance of flux in 2 arcsec diameter fiber radius,
+              g-band
           fiber2flux_ivar_r:
             name: FIBER2FLUX_IVAR_R
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nMgy^{-2}
+            description: Inverse variance of flux in 2 arcsec diameter fiber radius,
+              r-band
           fiber2flux_ivar_i:
             name: FIBER2FLUX_IVAR_I
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nMgy^{-2}
+            description: Inverse variance of flux in 2 arcsec diameter fiber radius,
+              i-band
           fiber2flux_ivar_z:
             name: FIBER2FLUX_IVAR_Z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nMgy^{-2}
+            description: Inverse variance of flux in 2 arcsec diameter fiber radius,
+              z-band
           modelflux_u:
             name: MODELFLUX_U
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nMgy
+            description: Flux of best fitting model, u-band
           modelflux_g:
             name: MODELFLUX_G
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nMgy
+            description: Flux of best fitting model, g-band
           modelflux_r:
             name: MODELFLUX_R
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nMgy
+            description: Flux of best fitting model, r-band
           modelflux_i:
             name: MODELFLUX_I
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nMgy
+            description: Flux of best fitting model, i-band
           modelflux_z:
             name: MODELFLUX_Z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nMgy
+            description: Flux of best fitting model, z-band
           modelflux_ivar_u:
             name: MODELFLUX_IVAR_U
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nMgy^{-2}
+            description: Inverse variance of flux of best fitting model, u-band
           modelflux_ivar_g:
             name: MODELFLUX_IVAR_G
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nMgy^{-2}
+            description: Inverse variance of flux of best fitting model, g-band
           modelflux_ivar_r:
             name: MODELFLUX_IVAR_R
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nMgy^{-2}
+            description: Inverse variance of flux of best fitting model, r-band
           modelflux_ivar_i:
             name: MODELFLUX_IVAR_I
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nMgy^{-2}
+            description: Inverse variance of flux of best fitting model, i-band
           modelflux_ivar_z:
             name: MODELFLUX_IVAR_Z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nMgy^{-2}
+            description: Inverse variance of flux of best fitting model, z-band
           modelmag_u:
             name: MODELMAG_U
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nMgy
+            description: Magnitude of best fitting model, u-band
           modelmag_g:
             name: MODELMAG_G
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nMgy
+            description: Magnitude of best fitting model, g-band
           modelmag_r:
             name: MODELMAG_R
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nMgy
+            description: Magnitude of best fitting model, r-band
           modelmag_i:
             name: MODELMAG_I
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nMgy
+            description: Magnitude of best fitting model, i-band
           modelmag_z:
             name: MODELMAG_Z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nMgy
+            description: Magnitude of best fitting model, z-band
           modelmag_ivar_u:
             name: MODELMAG_IVAR_U
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nMgy^{-2}
+            description: Inverse variance of magnitude of best fitting model, u-band
           modelmag_ivar_g:
             name: MODELMAG_IVAR_G
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nMgy^{-2}
+            description: Inverse variance of magnitude of best fitting model, g-band
           modelmag_ivar_r:
             name: MODELMAG_IVAR_R
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nMgy^{-2}
+            description: Inverse variance of magnitude of best fitting model, r-band
           modelmag_ivar_i:
             name: MODELMAG_IVAR_I
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nMgy^{-2}
+            description: Inverse variance of magnitude of best fitting model, i-band
           modelmag_ivar_z:
             name: MODELMAG_IVAR_Z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nMgy^{-2}
+            description: Inverse variance of magnitude of best fitting model, z-band
           resolve_status:
             name: RESOLVE_STATUS
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Resolve status of object
           w1_mag:
             name: W1_MAG
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: WISE AllSky magnitude of the object, W1-band
           w1_mag_err:
             name: W1_MAG_ERR
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Error on WISE AllSky magnitude of the object, W1-band
           w1_nanomaggies:
             name: W1_NANOMAGGIES
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nMgy
+            description: WISE AllSky flux of the object, W1-band
           w1_nanomaggies_ivar:
             name: W1_NANOMAGGIES_IVAR
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nMgy^{-2}
+            description: Inverse variance of WISE AllSky flux of the object, W1-band
           w2_nanomaggies:
             name: W2_NANOMAGGIES
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nMgy
+            description: WISE AllSky flux of the object, W2-band
           w2_nanomaggies_ivar:
             name: W2_NANOMAGGIES_IVAR
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nMgy^{-2}
+            description: Inverse variance of WISE AllSky flux of the object, W2-band
           has_wise_phot:
             name: HAS_WISE_PHOT
             type: bool
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: True if WISE photometry is available for this object
           objid_targeting:
             name: OBJID_TARGETING
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Object ID of target
           pk:
             name: PK
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: primary key for entry in database table

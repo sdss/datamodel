@@ -1,7 +1,12 @@
 general:
   name: mos_target_skies_v2
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: 'MOS Target Table: skies_v2'
+  description: This table stores the positions used as blank sky regions for DR18
+    targetting. The sky regions are selected by dividing the sky in tiles of HEALpix
+    nside 32. Each tile is then subdivided in candidate regions of HEALpix nside 32768
+    and the pixels that meet the isolation requirements are considered valid skies.
+    This process is repeated for a number of all-sky catalogues. See <a href="https://sdss.org/dr18/targeting/fps/">
+    for further details on skies target selection.
   datatype: FITS
   filesize: 183 MB
   releases:
@@ -9,11 +14,11 @@ general:
   environments:
   - MOS_TARGET
   surveys:
-  - SDSS
-  naming_convention: replace me - with $MOS_TARGET/[V_TARG]/mos_target_skies_v2-[NUM].fits
-    or mos_target_skies_v2-01.fits but with regex pattern matches
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  - BHM
+  - MWM
+  naming_convention: $MOS_TARGET/[V_TARG]/mos_target_skies_v2-[NUM].fits, where V_TARG=1.0.1
+    for DR18; and NUM = 1..1 to partition the file into parts
+  generated_by: sdss5db> targetdb, operations database server
   design: false
   vac: false
 changelog:
@@ -38,7 +43,7 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: Primary header
         is_image: true
         size: 0 bytes
         header:
@@ -56,147 +61,155 @@ releases:
           comment: ''
       hdu1:
         name: ''
-        description: replace me description
+        description: 'MOS Target Table: skies_v2'
         is_image: false
         size: 183 MB
         columns:
           pix_32768:
             name: PIX_32768
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The HEALpix pixel (nside=32768) of the sky region.
           ra:
             name: RA
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The RA of the centre of the sky pixel.
           dec:
             name: DEC
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The declination of the centre of the sky pixel.
           down_pix:
             name: DOWN_PIX
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The HEALpix pixel (nside=256) of the sky region. Used internally
+              to downsample the list of candidate region.
           tile_32:
             name: TILE_32
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The HEALpix pixel (nside=32) of the sky region.
           valid_gaia:
             name: VALID_GAIA
             type: bool
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Whether this is a valid sky region in the Gaia catalogue.
           selected_gaia:
             name: SELECTED_GAIA
             type: bool
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Whether this sky region was selected in the Gaia catalogue.
           sep_neighbour_gaia:
             name: SEP_NEIGHBOUR_GAIA
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: arcsec
+            description: Separation to the nearest neighbour
           mag_neighbour_gaia:
             name: MAG_NEIGHBOUR_GAIA
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Magnitude of the nearest neighbour (G band).
           valid_ls8:
             name: VALID_LS8
             type: bool
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Whether this is a valid sky region in the Legacy Survey DR18
+              catalogue.
           selected_ls8:
             name: SELECTED_LS8
             type: bool
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Whether this sky region was selected in the Legacy Survey
+              DR18 catalogue.
           sep_neighbour_ls8:
             name: SEP_NEIGHBOUR_LS8
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: arcsec
+            description: Separation to the nearest neighbour
           mag_neighbour_ls8:
             name: MAG_NEIGHBOUR_LS8
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Magnitude of the nearest neighbour (r-band).
           valid_ps1dr2:
             name: VALID_PS1DR2
             type: bool
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Whether this is a valid sky region in the PanSTARRS DR2 catalogue.
           selected_ps1dr2:
             name: SELECTED_PS1DR2
             type: bool
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Whether this sky region was selected in the PanSTARRS DR2
+              catalogue.
           sep_neighbour_ps1dr2:
             name: SEP_NEIGHBOUR_PS1DR2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: arcsec
+            description: Separation to the nearest neighbour
           mag_neighbour_ps1dr2:
             name: MAG_NEIGHBOUR_PS1DR2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Magnitude of the nearest neighbour (r-band).
           valid_tmass:
             name: VALID_TMASS
             type: bool
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Whether this is a valid sky region in the 2MASS point source
+              catalogue.
           selected_tmass:
             name: SELECTED_TMASS
             type: bool
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Whether this sky region was selected in the 2MASS point source
+              catalogue.
           sep_neighbour_tmass:
             name: SEP_NEIGHBOUR_TMASS
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: arcsec
+            description: Separation to the nearest neighbour
           mag_neighbour_tmass:
             name: MAG_NEIGHBOUR_TMASS
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Magnitude of the nearest neighbour (H band).
           valid_tycho2:
             name: VALID_TYCHO2
             type: bool
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Whether this is a valid sky region in the Tycho2 catalogue.
           selected_tycho2:
             name: SELECTED_TYCHO2
             type: bool
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Whether this sky region was selected in the Tycho2 catalogue.
           sep_neighbour_tycho2:
             name: SEP_NEIGHBOUR_TYCHO2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: arcsec
+            description: Separation to the nearest neighbour
           mag_neighbour_tycho2:
             name: MAG_NEIGHBOUR_TYCHO2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Magnitude of the nearest neighbour (Vt band).
           valid_tmass_xsc:
             name: VALID_TMASS_XSC
             type: bool
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Whether this is a valid sky region in the 2MASS extended
+              source catalogue.
           selected_tmass_xsc:
             name: SELECTED_TMASS_XSC
             type: bool
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Whether this sky region was selected in the 2MASS extended
+              source catalogue.
           sep_neighbour_tmass_xsc:
             name: SEP_NEIGHBOUR_TMASS_XSC
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: arcsec
+            description: Separation to the nearest neighbour

@@ -1,7 +1,7 @@
 general:
   name: mos_target_zari18pms
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: 'MOS Target Table: zari18pms'
+  description: Pre-Main Sequence (PMS) catalogue from Zari+2018.
   datatype: FITS
   filesize: 3 MB
   releases:
@@ -9,11 +9,11 @@ general:
   environments:
   - MOS_TARGET
   surveys:
-  - SDSS
-  naming_convention: replace me - with $MOS_TARGET/[V_TARG]/mos_target_zari18pms.fits
-    or mos_target_zari18pms.fits but with regex pattern matches
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  - BHM
+  - MWM
+  naming_convention: $MOS_TARGET/[V_TARG]/mos_target_zari18pms-[NUM].fits, where V_TARG=1.0.1
+    for DR18; and NUM = 1..1 to partition the file into parts
+  generated_by: sdss5db> targetdb, operations database server
   design: false
   vac: false
 changelog:
@@ -37,7 +37,7 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: Primary header
         is_image: true
         size: 0 bytes
         header:
@@ -55,112 +55,113 @@ releases:
           comment: ''
       hdu1:
         name: ''
-        description: replace me description
+        description: 'MOS Target Table: zari18pms'
         is_image: false
         size: 3 MB
         columns:
           source:
             name: SOURCE
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Unique source identifier (Gaia DR2 source_id)
           glon:
             name: GLON
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: Galactic longitude
           glat:
             name: GLAT
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: Galactic latitude
           plx:
             name: PLX
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mas
+            description: Parallax
           e_plx:
             name: E_PLX
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mas
+            description: Standard error of parallax (parallax_error)
           pmglon:
             name: PMGLON
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mas/yr
+            description: Proper motion in galactic longitude
           e_pmglon:
             name: E_PMGLON
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mas/yr
+            description: Standard error of proper motion in galactic longitude
           pmglat:
             name: PMGLAT
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mas/yr
+            description: Proper motion in galactic latitude
           e_pmglat:
             name: E_PMGLAT
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mas/yr
+            description: Standard error of proper motion in galactic latitude
           pmlbcorr:
             name: PMLBCORR
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Correlation between proper motion in galactic longitude and
+              proper motion in galactic latitude
           rv:
             name: RV
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: km/s
+            description: radial velocity
           e_rv:
             name: E_RV
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: km/s
+            description: radial velocity error
           gmag:
             name: GMAG
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: G-band mean magnitude (phot_g_mean_mag)
           bpmag:
             name: BPMAG
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: BP-band mean magnitude (phot_bp_mean_mag)
           rpmag:
             name: RPMAG
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: RP-band mean magnitude (phot_g_mean_mag)
           bp_over_rp:
             name: BP_OVER_RP
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: BP/RP excess factor
           chi2al:
             name: CHI2AL
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: AL chi-square value (astrometric_chi2_al)
           ngal:
             name: NGAL
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of good observation AL (astrometric_n_good_obs_al)
           ag:
             name: AG
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Extinction in G-band (A_G)
           bp_rp:
             name: BP_RP
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Colour excess in BP-RP
           uwe:
             name: UWE
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Unit Weight Error, as defined in Lindegren et al., 2018A&A...616A...2L
