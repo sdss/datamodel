@@ -12,7 +12,7 @@ MOS Target Table: gaia_unwise_agn
 ---
 
 ## Basic Information
-TBD in minidb_docs (as of 09/27/2022)
+TBD in minidb_docs (as of 04/05/2022)
 
 ### Naming Convention
 $MOS_TARGET/[V_TARG]/mos_target_gaia_unwise_agn-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
@@ -69,42 +69,42 @@ MOS Target Table: gaia_unwise_agn
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | RA | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | DEC | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | GAIA_SOURCEID | int64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | UNWISE_OBJID | char[16] |  | TBD in minidb_docs (as of 09/27/2022) |
- | PLX | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | PLX_ERR | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | PMRA | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | PMRA_ERR | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | PMDEC | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | PMDEC_ERR | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | PLXSIG | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | PMSIG | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | EBV | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | N_OBS | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | G | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | BP | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | RP | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | W1 | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | W2 | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | BP_G | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | BP_RP | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | G_RP | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | G_W1 | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | GW_SEP | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | W1_W2 | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | G_VAR | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | BPRP_EF | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | AEN | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | GOF | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | CNT1 | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | CNT2 | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | CNT4 | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | CNT8 | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | CNT16 | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | CNT32 | int32 |  | TBD in minidb_docs (as of 09/27/2022) |
- | PHOT_Z | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
- | PROB_RF | float64 |  | TBD in minidb_docs (as of 09/27/2022) |
+ | RA | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | DEC | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | GAIA_SOURCEID | int64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | UNWISE_OBJID | char[16] |  | TBD in minidb_docs (as of 04/05/2022) |
+ | PLX | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | PLX_ERR | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | PMRA | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | PMRA_ERR | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | PMDEC | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | PMDEC_ERR | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | PLXSIG | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | PMSIG | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | EBV | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | N_OBS | int32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | G | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | BP | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | RP | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | W1 | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | W2 | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | BP_G | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | BP_RP | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | G_RP | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | G_W1 | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | GW_SEP | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | W1_W2 | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | G_VAR | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | BPRP_EF | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | AEN | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | GOF | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | CNT1 | int32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | CNT2 | int32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | CNT4 | int32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | CNT8 | int32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | CNT16 | int32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | CNT32 | int32 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | PHOT_Z | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
+ | PROB_RF | float64 |  | TBD in minidb_docs (as of 04/05/2022) |
 
 

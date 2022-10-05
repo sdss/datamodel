@@ -65,4 +65,4 @@ datamodel_generate -f mos_target_yso_clustering -p MOS_TARGET/{v_targ}/mos_targe
 datamodel_generate -f mos_target_zari18pms -p MOS_TARGET/{v_targ}/mos_target_zari18pms.fits -k v_targ=1.0.1
 
 
-# TBD in minidb_docs (as of 09/27/2022)
+# TBD in minidb_docs (as of 04/05/2022)
