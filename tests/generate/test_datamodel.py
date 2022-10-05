@@ -25,6 +25,16 @@ from datamodel.generate.filetypes import ParFile, FitsFile, HdfFile
 suffix_map = {'fits': FitsFile, 'par': ParFile, 'h5': HdfFile}
 
 
+@pytest.fixture
+def testdm(testfits):
+    dm = DataModel(file_spec='test', keywords=['ver=v1', 'id=a'],
+                   path='TEST_REDUX/{ver}/testfile_{id}.fits', access_path_name="test-file")
+    dm.write_stubs()
+    ss = dm.get_stub('yaml')
+    ss.update_cache()
+    yield dm, ss
+
+
 def test_default_create_file(testfile):
     """ test we can create a test file """
     assert testfile().exists()
@@ -74,12 +84,8 @@ def test_datamodel_nokeys(testfits):
     with pytest.raises(ValueError, match='A set of keywords must be provided along with a either a path or location'):
         DataModel(file_spec='test', path='TEST_REDUX/{ver}/testfile_{id}.fits')
 
-def test_datamodel_tcomm(testfits):
-    dm = DataModel(file_spec='test', keywords=['ver=v1', 'id=a'],
-                   path='TEST_REDUX/{ver}/testfile_{id}.fits', access_path_name="test-file")
-    dm.write_stubs()
-    ss = dm.get_stub('yaml')
-    ss.update_cache()
+def test_datamodel_tcomm(testdm):
+    dm, ss = testdm
     cols = ss._cache['releases']['WORK']['hdus']['hdu2']['columns']
     assert cols['object']['description'] == 'replace me - with content'
     assert cols['param']['description'] == 'A parameter description'
@@ -213,6 +219,26 @@ def test_work_treever_sdsswork(caplog):
 
     msg = 'Please add this environment=MANGA_SPECTRO_REDUX to the tree product, and try again.'
     assert msg not in caplog.text
+
+
+def test_vac_false(testdm):
+    dm, ss = testdm
+    assert dm.vac is False
+    assert ss._cache['general']['vac'] is False
+
+def test_vac_true():
+    dm = DataModel(file_spec='mangaGEMA',
+                   path='MANGA_GEMA/{gemaver}/GEMA-{gemaver}.fits',
+                   keywords=['gemaver=1.0.1'],
+                   tree_ver='sdsswork', verbose=True)
+    #dm.write_stubs()
+    #ss = dm.get_stub('yaml')
+    #ss.update_cache()
+
+    assert dm.vac is True
+    #assert ss._cache['general']['vac'] is True
+
+
 
 
 

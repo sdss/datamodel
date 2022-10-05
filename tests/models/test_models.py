@@ -3,14 +3,16 @@
 #
 import pytest
 
-from datamodel.models import releases, phases, surveys, tags
+from datamodel.models import releases, phases, surveys, tags, vacs
 from datamodel.models.releases import Releases, Release
 from datamodel.models.surveys import Survey, Phase
 from datamodel.models.versions import Tag, Version, Tags
+from datamodel.models.vacs import VACS, VAC
 
-models = [releases, phases, surveys, tags]
 
-@pytest.fixture(params=models, ids=["releases", "phases", "surveys", "tags"])
+models = [releases, phases, surveys, tags, vacs]
+
+@pytest.fixture(params=models, ids=["releases", "phases", "surveys", "tags", 'vacs'])
 def model(request):
     return request.param
 
@@ -90,4 +92,11 @@ def test_tag_groupby_survey():
     assert 'DR17' in tmp['manga']
     assert tmp['manga']['DR17'] == {'drpver': 'v3_1_1', 'dapver': '3.1.0'}
 
+def test_vac():
+    """ test the vac pydantic model """
+    assert 'MANGA_GEMA' in vacs
+    assert isinstance(vacs, VACS)
+    vac = vacs['MANGA_GEMA']
+    assert isinstance(vac, VAC)
+    assert vac.name == 'MANGA_GEMA'
 
