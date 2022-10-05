@@ -15,7 +15,7 @@ MOS Target Table: allwise
 TBD in minidb_docs (as of 09/27/2022)
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_target_allwise-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 01..20 to partition the file into parts
+$MOS_TARGET/[V_TARG]/mos_target_allwise-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
 
 ### Releases
 WORK

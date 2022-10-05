@@ -15,7 +15,7 @@ MOS Target Table: cadence
 Cadences define the time between series of exposures (one "epoch") on a field, and the observing conditions, e.g., skybrightness, for each epoch.
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_target_cadence.fits, where V_TARG=1.0.1 for DR18
+$MOS_TARGET/[V_TARG]/mos_target_cadence-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
 
 ### Releases
 WORK

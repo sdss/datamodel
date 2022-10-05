@@ -15,7 +15,7 @@ MOS Target Table: mapper
 This table stores the names of the mappers associated with cartons in mos_target_carton.
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_target_mapper.fits, where V_TARG=1.0.1 for DR18
+$MOS_TARGET/[V_TARG]/mos_target_mapper-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
 
 ### Releases
 WORK

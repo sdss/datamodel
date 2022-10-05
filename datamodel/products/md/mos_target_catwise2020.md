@@ -15,7 +15,7 @@ MOS Target Table: catwise2020
 "The CatWISE2020 Catalog contains positions and brightnesses for 1,890,715,640 sources selected from combined WISE and NEOWISE all-sky survey data collected from 2010 to 2018 at 3.4 and 4.6 microns (W1 and W2). The CatWISE Preliminary Catalog contains positions and brightnesses for 900,849,014 sources collected from 2010 to 2016."
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_target_catwise2020-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 01..19 to partition the file into parts
+$MOS_TARGET/[V_TARG]/mos_target_catwise2020-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
 
 ### Releases
 WORK

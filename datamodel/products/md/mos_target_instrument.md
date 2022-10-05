@@ -15,7 +15,7 @@ MOS Target Table: instrument
 This table stores the instruments used by SDSS-V.
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_target_instrument.fits, where V_TARG=1.0.1 for DR18
+$MOS_TARGET/[V_TARG]/mos_target_instrument-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
 
 ### Releases
 WORK

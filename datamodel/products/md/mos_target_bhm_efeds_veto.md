@@ -15,7 +15,7 @@ MOS Target Table: bhm_efeds_veto
 The BHM-SPIDERS eFEDS veto catalogue.
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_target_bhm_efeds_veto.fits, where V_TARG=1.0.1 for DR18
+$MOS_TARGET/[V_TARG]/mos_target_bhm_efeds_veto-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
 
 ### Releases
 WORK

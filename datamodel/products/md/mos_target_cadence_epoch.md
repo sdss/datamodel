@@ -15,7 +15,7 @@ MOS Target Table: cadence_epoch
 Constraints for a single epoch within a cadence.
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_target_cadence_epoch.fits, where V_TARG=1.0.1 for DR18
+$MOS_TARGET/[V_TARG]/mos_target_cadence_epoch-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
 
 ### Releases
 WORK
