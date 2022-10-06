@@ -139,6 +139,7 @@ modify.  The structure of the YAML is broken up into the following sections:
     - **hdus** - a section for each HDU in the FITS file (only for FITS files)
     - **par** - a section containing the header and table content in the par file (only for Yanny files)
     - **hdfs** - a section containing the HDF5 file content and member info (only for HDF5 files)
+- **notes** - a section containing any additional information or caveats on the data product, as multi-line text
 
 Most of the YAML content is automatically generated.  Values containing the text **replace me** are
 areas to be replaced with user custom content, e.g. descriptions of the data product, individual
