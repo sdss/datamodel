@@ -66,77 +66,68 @@ releases:
             name: ERO_NAME
             type: char[22]
             unit: ''
-            description: From Salvato et al. (2022), eROSITA official source Name
-              (see Brunne
+            description: From Brunner+22, eROSITA official source Name
           ERO_ID_SRC:
             name: ERO_ID_SRC
             type: int32
             unit: ''
-            description: From Salvato et al. (2022), ID of eROSITA source in the Main
-              Sample
+            description: From Brunner+22, ID of eROSITA source in the Main Sample
           ERO_RA_CORR:
             name: ERO_RA_CORR
             type: float64
             unit: deg
-            description: From Salvato et al. (2022), J2000 Right Ascension of the
-              eROSITA sou
+            description: From Brunner+22, J2000 Right Ascension of eROSITA source
+              (corrected)
           ERO_DEC_CORR:
             name: ERO_DEC_CORR
             type: float64
             unit: deg
-            description: From Salvato et al. (2022), J2000 Declination of the eROSITA
-              source
+            description: From Brunner+22, J2000 Declination of eROSITA source (corrected)
           ERO_RADEC_ERR_CORR:
             name: ERO_RADEC_ERR_CORR
             type: float32
             unit: arcsec
-            description: From Salvato et al. (2022), eROSITA positional uncertainty
-              (correcte
+            description: From Brunner+22, eROSITA positional uncertainty (corrected)
           ERO_ML_FLUX:
             name: ERO_ML_FLUX
             type: float32
             unit: erg/cm^2/s
-            description: From Salvato et al. (2022), 0.2-2.3 keV source flux (originally
-              from
+            description: From Brunner+22, 0.2-2.3 keV source flux
           ERO_ML_FLUX_ERR:
             name: ERO_ML_FLUX_ERR
             type: float32
             unit: erg/cm^2/s
-            description: From Salvato et al. (2022), 0.2-2.3 keV source flux error
-              (1 sigma)
+            description: From Brunner+22, 0.2-2.3 keV source flux error (1 sigma)
           ERO_DET_LIKE:
             name: ERO_DET_LIKE
             type: float32
             unit: ''
-            description: From Salvato et al. (2022), 0.2-2.3 keV detection likelihood
-              measure
+            description: From Brunner+22, 0.2-2.3 keV detection likelihood via PSF-fitting
           CTP_LS8_UNIQUE_OBJID:
             name: CTP_LS8_UNIQUE_OBJID
             type: char[11]
             unit: ''
-            description: From Salvato et al. (2022), LS8 unique identifier for the
-              counterpar
+            description: From Salvato+22, LS8 unique id for ctp to the eROSITA source
           CTP_LS8_RA:
             name: CTP_LS8_RA
             type: float64
             unit: deg
-            description: From Salvato et al. (2022), Right Ascension of the LS8 countepart
+            description: From Salvato+22, Right Ascension of the LS8 counterpart
           CTP_LS8_DEC:
             name: CTP_LS8_DEC
             type: float64
             unit: deg
-            description: From Salvato et al. (2022), Declination of the best LS8 countepart
+            description: From Salvato+22, Declination of the best LS8 counterpart
           Dist_CTP_LS8_ERO:
             name: DIST_CTP_LS8_ERO
             type: float32
             unit: arcsec
-            description: From Salvato et al. (2022), Separation between selected counterpart
+            description: From Salvato+22, Separation between ctp and eROSITA position
           CTP_quality:
             name: CTP_QUALITY
             type: int16
             unit: ''
-            description: 'From Salvato et al. (2022), counterpart quality: 4=best,
-              3=good, 2=w'
+            description: 'From Salvato+22, ctp qual: 4=best,3=good,2=secondary,1/0=unreliable'
           LS_ID:
             name: LS_ID
             type: int64
@@ -231,14 +222,13 @@ releases:
             name: SPECZ_BITMASK
             type: int64
             unit: ''
-            description: Bitmask encoding which input catalogues contained spec-z
-              for this ob
+            description: Bitmask encoding catalogues containing spec-z for this object
           SPECZ_SEL_BITMASK:
             name: SPECZ_SEL_BITMASK
             type: int64
             unit: ''
-            description: Bitmask encoding which input catalogues contained informative
-              spec-z
+            description: Bitmask encoding catalogues containing informative spec-z
+              for object
           SPECZ_FLAGS:
             name: SPECZ_FLAGS
             type: int32
@@ -269,7 +259,7 @@ releases:
             type: float32
             unit: ''
             description: Standard deviation of REDSHIFTs for informative spec-z for
-              this obje
+              object
           SPECZ_ORIG_RA:
             name: SPECZ_ORIG_RA
             type: float64
@@ -295,41 +285,39 @@ releases:
             name: SPECZ_ORIG_LS_GT1CTP
             type: bool
             unit: ''
-            description: True if this spec-z can be associated with more than one
-              possible ls
+            description: Can spec-z be associated with >1 possible lsdr9 counterpart?
           SPECZ_ORIG_LS_CTP_RANK:
             name: SPECZ_ORIG_LS_CTP_RANK
             type: int32
             unit: ''
-            description: Rank of this photometric counterpart out of all possibilities
-              for th
+            description: Rank of ctp out of all possibilities for this spec-z (1=closest)
           SPECZ_ORIG_ID:
             name: SPECZ_ORIG_ID
             type: char[32]
             unit: ''
-            description: Original value of ID of individual spec-z measurement (represented
-              a
+            description: Orig. value of ID of individual spec-z measurement (as a
+              string)
           SPECZ_ORIG_REDSHIFT:
             name: SPECZ_ORIG_REDSHIFT
             type: float32
             unit: ''
-            description: Original redshift value of individual spec-z measurement
+            description: Orig. redshift value of individual spec-z measurement
           SPECZ_ORIG_QUAL:
             name: SPECZ_ORIG_QUAL
             type: char[8]
             unit: ''
-            description: Original redshift quality value of individual spec-z measurement
+            description: Orig. redshift quality value of individual spec-z measurement
           SPECZ_ORIG_NORMQ:
             name: SPECZ_ORIG_NORMQ
             type: int32
             unit: ''
-            description: Original redshift quality of individual spec-z measurement
-              - as norm
+            description: Orig. redshift quality of individual spec-z measurement -
+              normalised
           SPECZ_ORIG_CLASS:
             name: SPECZ_ORIG_CLASS
             type: char[16]
             unit: ''
-            description: Original classification label of individual spec-z measurement
+            description: Orig. classification label of individual spec-z measurement
           SPECZ_ORIG_HASVI:
             name: SPECZ_ORIG_HASVI
             type: bool
@@ -345,27 +333,24 @@ releases:
             name: SPECZ_RA_USED
             type: float64
             unit: deg
-            description: Adopted coordinate of this specz when matching to Salvato
-              et al. (20
+            description: Adopted coordinate of specz when matching to Salvato+22 counterpart
           SPECZ_DEC_USED:
             name: SPECZ_DEC_USED
             type: float64
             unit: deg
-            description: Adopted coordinate of this specz when matching to Salvato
-              et al. (20
+            description: Adopted coordinate of specz when matching to Salvato+22 counterpart
           Separation_SPECZ_CTP:
             name: SEPARATION_SPECZ_CTP
             type: float64
             unit: arcsec
-            description: Distance between CTP_LS8_RA,CTP_LS8_DEC and SPECZ_RA_specz,SPECZ_DEC
+            description: Dist. from CTP_LS8_RA,CTP_LS8_DEC to SPECZ_RA_specz,SPECZ_DEC_specz
           has_specz:
             name: HAS_SPECZ
             type: bool
             unit: ''
-            description: True if this Salvato et al (2022) counterpart has a spec-z
+            description: Does this Salvato+22 counterpart have a spec-z?
           has_informative_specz:
             name: HAS_INFORMATIVE_SPECZ
             type: bool
             unit: ''
-            description: True if this Salvato et al (2022) counterpart has a spec-z
-              with an i
+            description: Does this Salvato+22 counterpart have an informative spec-z?
