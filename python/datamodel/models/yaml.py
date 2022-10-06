@@ -284,11 +284,14 @@ class YamlModel(BaseModel):
         An automated log of data product changes across releases
     releases : Dict[str, `.Release`]
         A dictionary of information specific to that release
+    notes : str
+        A string or multi-line text blob of additional information
 
     """
     general: GeneralSection
     changelog: ChangeLog
     releases: Dict[str, Release]
+    notes: str = None
 
     _check_releases = validator('releases', allow_reuse=True)(check_release)
 
