@@ -23,7 +23,7 @@ from ..gitio import Git
 from .changelog import yamldiff_selector
 from ..models.releases import releases as sdss_releases
 from ..models.yaml import YamlModel
-from datamodel.generate.filetypes import file_selector, get_filetype, get_filesize
+from datamodel.generate.filetypes import file_selector, get_filetype, get_filesize, literal
 from datamodel import log
 
 
@@ -261,6 +261,9 @@ class BaseStub(abc.ABC):
 
         # update the cache changelog
         self._update_cache_changelog()
+
+        # literal-ize any cache notes (see notes on literal in filetypes/par.py)
+        self._cache['notes'] = literal(self._cache['notes'])
 
     def _check_release_in_cache(self, content: dict) -> dict:
         """ updates the yaml.general.releases list with new releases """
