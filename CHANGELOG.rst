@@ -8,6 +8,9 @@ Change Log
 ------------------
 - Switched the ``skip-git`` cli arg to ``with-git`` flag and turned off the git commit stage by default.
 - Switched the WORK release to use sdss5.cfg tree config by default.
+- Added a new ``vacs.yaml`` model file and support for ``vac`` boolean flag in the datamodel
+- Streamlines the package dependencies for a lite version.  Moved dependencies for dm generate to new ``gen`` extras section.
+- Added new notes section to the datamodel, for caveats, etc
 
 0.5.1 (10-04-2022)
 ------------------

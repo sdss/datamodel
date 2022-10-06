@@ -231,15 +231,21 @@ def test_vac_true():
                    path='MANGA_GEMA/{gemaver}/GEMA-{gemaver}.fits',
                    keywords=['gemaver=1.0.1'],
                    tree_ver='sdsswork', verbose=True)
-    #dm.write_stubs()
-    #ss = dm.get_stub('yaml')
-    #ss.update_cache()
 
     assert dm.vac is True
-    #assert ss._cache['general']['vac'] is True
 
+def test_valid_notes(validmodel):
+    validmodel('fits')
+    dm = DataModel.from_yaml('test', release='WORK')
+    dm.write_stubs()
 
+    ss = dm.get_stub('yaml')
+    ss.update_cache()
+    assert ss._cache['notes'] == 'here are some notes\nand more notes'
 
+    ss = dm.get_stub('json')
+    ss.update_cache()
+    assert ss._cache['notes'] == 'here are some notes\nand more notes'
 
 
 
