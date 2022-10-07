@@ -11,6 +11,7 @@ Change Log
 - Added a new ``vacs.yaml`` model file and support for ``vac`` boolean flag in the datamodel
 - Streamlines the package dependencies for a lite version.  Moved dependencies for dm generate to new ``gen`` extras section.
 - Added new notes section to the datamodel, for caveats, etc
+- Switched name sytax for the model ``Release`` and the yaml section releases to ``ReleaseModel``.
 
 0.5.1 (10-04-2022)
 ------------------
