@@ -20,7 +20,7 @@ import orjson
 from astropy.io import fits
 from pydantic import BaseModel, validator
 
-from .releases import releases, Release as ReleaseMod
+from .releases import releases, Release
 from .surveys import surveys, Survey
 from .validators import replace_me, check_release
 from .filetypes import HDU, ParModel, HdfModel, ChangeFits, ChangePar, ChangeHdf
@@ -72,7 +72,7 @@ class GeneralSection(BaseModel):
     surveys: List[Union[str, Survey]] = None
     datatype: str
     filesize: str
-    releases: List[Union[str, ReleaseMod]] = None
+    releases: List[Union[str, Release]] = None
     naming_convention: str
     generated_by: str
     design: bool = None
@@ -236,7 +236,7 @@ class Access(BaseModel):
             raise ValueError('path_kwargs cannot be None if path_template has {} kwargs')
         return value
 
-class Release(BaseModel):
+class ReleaseModel(BaseModel):
     """ Pydantic model representing an item in the YAML releases section
 
     Contains any information on the data product that is specific to a given
@@ -282,7 +282,7 @@ class YamlModel(BaseModel):
         The general metadata section of the datamodel
     changelog : `.ChangeLog`
         An automated log of data product changes across releases
-    releases : Dict[str, `.Release`]
+    releases : Dict[str, `.ReleaseModel`]
         A dictionary of information specific to that release
     notes : str
         A string or multi-line text blob of additional information
@@ -290,7 +290,7 @@ class YamlModel(BaseModel):
     """
     general: GeneralSection
     changelog: ChangeLog
-    releases: Dict[str, Release]
+    releases: Dict[str, ReleaseModel]
     notes: str = None
 
     _check_releases = validator('releases', allow_reuse=True)(check_release)
@@ -310,7 +310,7 @@ class ProductModel(YamlModel):
         The general metadata section of the datamodel
     changelog : `.ChangeLog`
         An automated log of data product changes across releases
-    releases : Dict[str, `.Release`]
+    releases : Dict[str, `.ReleaseModel`]
         A dictionary of information specific to that release
     """
     class Config:
