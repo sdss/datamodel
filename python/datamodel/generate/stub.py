@@ -263,6 +263,8 @@ class BaseStub(abc.ABC):
         self._update_cache_changelog()
 
         # literal-ize any cache notes (see notes on literal in filetypes/par.py)
+        if 'notes' not in self._cache:
+            self._cache['notes'] = None
         self._cache['notes'] = literal(self._cache['notes'])
 
     def _check_release_in_cache(self, content: dict) -> dict:
