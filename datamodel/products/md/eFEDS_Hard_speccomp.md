@@ -19,7 +19,7 @@ A catalogue of hard X-ray (2.3-5 keV) selected sources detected in the eROSITA/e
 $BHM_EFEDS_SPECCOMP/[V_SPECCOMP]/eFEDS_Hard_speccomp-[V_SPECCOMP].fits, where V_SPECCOMP=v1.4.3 for DR18.
 
 ### Releases
-WORK
+DR18
 
 ### Enviroments
 BHM_EFEDS_SPECCOMP
@@ -36,7 +36,7 @@ https://gitlab.mpcdf.mpg.de/tdwelly/efeds_speccomp
 ### Is a VAC
 True
 
-### HDUS List for release WORK
+### HDUS List for release DR18
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1: eFEDS_Hard_ctp_wspecz](#hdu1-efeds_hard_ctp_wspecz)
 

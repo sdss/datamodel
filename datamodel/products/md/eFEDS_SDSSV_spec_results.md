@@ -19,7 +19,7 @@ A catalogue of spectroscopic redshifts and classifications derived solely from t
 $BHM_EFEDS_SPECCOMP/[V_SPECCOMP]/eFEDS_SDSSV_spec_results-[V_SPECCOMP].fits, where V_SPECCOMP=v1.4.3 for DR18. or eFEDS_SDSSV_spec_results-v1.4.3.fits but with regex pattern matches
 
 ### Releases
-WORK
+DR18
 
 ### Enviroments
 BHM_EFEDS_SPECCOMP
@@ -36,7 +36,7 @@ https://gitlab.mpcdf.mpg.de/tdwelly/efeds_speccomp
 ### Is a VAC
 True
 
-### HDUS List for release WORK
+### HDUS List for release DR18
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1: Joined](#hdu1-joined)
 
