@@ -12,15 +12,27 @@ general:
   - DR14
   - DR15
   - DR16
+  - DR17
   environments:
   - APOGEE_REDUX
   - APOGEE_ROOT
+  - APOGEE_ASPCAP
   naming_convention: <code>allstar-RESULTS_VERS.fits</code>
   generated_by: idlwrap (aspcap_allstar)
+  design: false
+  vac: false
+  surveys:
+  - APOGEE-2
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
   releases:
+    DR17:
+      from: DR16
+      added_primary_header_kwargs:
+      - VERSION
+      removed_primary_header_kwargs:
+      - COMMENT
     DR16:
       from: DR15
       primary_delta_nkeys: 10
@@ -6757,3 +6769,1298 @@ releases:
             type: char[132]
             unit: 'migration: unit of keyword/column not found. Needs update'
             description: Gives order of classes in FPARAM_CLASS arrays in HDU1
+  DR17:
+    template: $APOGEE_ASPCAP/[APRED]/[ASPCAP]/allStar-[APRED]-[ASPCAP].fits
+    example: dr17/synspec_rev1/allStar-dr17-synspec_rev1.fits
+    location: '{apred}/{aspcap}/allStar-{apred}-{aspcap}.fits'
+    environment: APOGEE_ASPCAP
+    access:
+      in_sdss_access: true
+      path_name: allStar
+      path_template: $APOGEE_ASPCAP/{apred}/{aspcap}/allStar-{apred}-{aspcap}.fits
+      path_kwargs:
+      - apred
+      - aspcap
+      access_string: allStar = $APOGEE_ASPCAP/{apred}/{aspcap}/allStar-{apred}-{aspcap}.fits
+    survey: APOGEE-2
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: replace me description
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: VERSION
+          value: trunk
+          comment: APOGEE software version APOGEE_VER
+      hdu1:
+        name: ''
+        description: replace me description
+        is_image: false
+        size: 3 GB
+        columns:
+          FILE:
+            name: FILE
+            type: char[64]
+            unit: replace me - with content
+            description: replace me - with content
+          APOGEE_ID:
+            name: APOGEE_ID
+            type: char[30]
+            unit: replace me - with content
+            description: replace me - with content
+          TARGET_ID:
+            name: TARGET_ID
+            type: char[58]
+            unit: replace me - with content
+            description: replace me - with content
+          APSTAR_ID:
+            name: APSTAR_ID
+            type: char[71]
+            unit: replace me - with content
+            description: replace me - with content
+          ASPCAP_ID:
+            name: ASPCAP_ID
+            type: char[77]
+            unit: replace me - with content
+            description: replace me - with content
+          TELESCOPE:
+            name: TELESCOPE
+            type: char[6]
+            unit: replace me - with content
+            description: replace me - with content
+          LOCATION_ID:
+            name: LOCATION_ID
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          FIELD:
+            name: FIELD
+            type: char[20]
+            unit: replace me - with content
+            description: replace me - with content
+          ALT_ID:
+            name: ALT_ID
+            type: char[30]
+            unit: replace me - with content
+            description: replace me - with content
+          RA:
+            name: RA
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          DEC:
+            name: DEC
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          GLON:
+            name: GLON
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          GLAT:
+            name: GLAT
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          J:
+            name: J
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          J_ERR:
+            name: J_ERR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          H:
+            name: H
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          H_ERR:
+            name: H_ERR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          K:
+            name: K
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          K_ERR:
+            name: K_ERR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          SRC_H:
+            name: SRC_H
+            type: char[16]
+            unit: replace me - with content
+            description: replace me - with content
+          WASH_M:
+            name: WASH_M
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          WASH_M_ERR:
+            name: WASH_M_ERR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          WASH_T2:
+            name: WASH_T2
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          WASH_T2_ERR:
+            name: WASH_T2_ERR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          DDO51:
+            name: DDO51
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          DDO51_ERR:
+            name: DDO51_ERR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          IRAC_3_6:
+            name: IRAC_3_6
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          IRAC_3_6_ERR:
+            name: IRAC_3_6_ERR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          IRAC_4_5:
+            name: IRAC_4_5
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          IRAC_4_5_ERR:
+            name: IRAC_4_5_ERR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          IRAC_5_8:
+            name: IRAC_5_8
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          IRAC_5_8_ERR:
+            name: IRAC_5_8_ERR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          IRAC_8_0:
+            name: IRAC_8_0
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          IRAC_8_0_ERR:
+            name: IRAC_8_0_ERR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          WISE_4_5:
+            name: WISE_4_5
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          WISE_4_5_ERR:
+            name: WISE_4_5_ERR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          TARG_4_5:
+            name: TARG_4_5
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          TARG_4_5_ERR:
+            name: TARG_4_5_ERR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          WASH_DDO51_GIANT_FLAG:
+            name: WASH_DDO51_GIANT_FLAG
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          WASH_DDO51_STAR_FLAG:
+            name: WASH_DDO51_STAR_FLAG
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          TARG_PMRA:
+            name: TARG_PMRA
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          TARG_PMDEC:
+            name: TARG_PMDEC
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          TARG_PM_SRC:
+            name: TARG_PM_SRC
+            type: char[16]
+            unit: replace me - with content
+            description: replace me - with content
+          AK_TARG:
+            name: AK_TARG
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          AK_TARG_METHOD:
+            name: AK_TARG_METHOD
+            type: char[32]
+            unit: replace me - with content
+            description: replace me - with content
+          AK_WISE:
+            name: AK_WISE
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          SFD_EBV:
+            name: SFD_EBV
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          APOGEE_TARGET1:
+            name: APOGEE_TARGET1
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          APOGEE_TARGET2:
+            name: APOGEE_TARGET2
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          APOGEE2_TARGET1:
+            name: APOGEE2_TARGET1
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          APOGEE2_TARGET2:
+            name: APOGEE2_TARGET2
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          APOGEE2_TARGET3:
+            name: APOGEE2_TARGET3
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          APOGEE2_TARGET4:
+            name: APOGEE2_TARGET4
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          TARGFLAGS:
+            name: TARGFLAGS
+            type: char[132]
+            unit: replace me - with content
+            description: replace me - with content
+          SURVEY:
+            name: SURVEY
+            type: char[32]
+            unit: replace me - with content
+            description: replace me - with content
+          PROGRAMNAME:
+            name: PROGRAMNAME
+            type: char[32]
+            unit: replace me - with content
+            description: replace me - with content
+          NVISITS:
+            name: NVISITS
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          SNR:
+            name: SNR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          SNREV:
+            name: SNREV
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          STARFLAG:
+            name: STARFLAG
+            type: int64
+            unit: replace me - with content
+            description: replace me - with content
+          STARFLAGS:
+            name: STARFLAGS
+            type: char[132]
+            unit: replace me - with content
+            description: replace me - with content
+          ANDFLAG:
+            name: ANDFLAG
+            type: int64
+            unit: replace me - with content
+            description: replace me - with content
+          ANDFLAGS:
+            name: ANDFLAGS
+            type: char[132]
+            unit: replace me - with content
+            description: replace me - with content
+          VHELIO_AVG:
+            name: VHELIO_AVG
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          VSCATTER:
+            name: VSCATTER
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          VERR:
+            name: VERR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          RV_TEFF:
+            name: RV_TEFF
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          RV_LOGG:
+            name: RV_LOGG
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          RV_FEH:
+            name: RV_FEH
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          RV_ALPHA:
+            name: RV_ALPHA
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          RV_CARB:
+            name: RV_CARB
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          RV_CHI2:
+            name: RV_CHI2
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          RV_CCFWHM:
+            name: RV_CCFWHM
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          RV_AUTOFWHM:
+            name: RV_AUTOFWHM
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          RV_FLAG:
+            name: RV_FLAG
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          N_COMPONENTS:
+            name: N_COMPONENTS
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          MEANFIB:
+            name: MEANFIB
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          SIGFIB:
+            name: SIGFIB
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          MIN_H:
+            name: MIN_H
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          MAX_H:
+            name: MAX_H
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          MIN_JK:
+            name: MIN_JK
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          MAX_JK:
+            name: MAX_JK
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          GAIAEDR3_SOURCE_ID:
+            name: GAIAEDR3_SOURCE_ID
+            type: int64
+            unit: replace me - with content
+            description: replace me - with content
+          GAIAEDR3_PARALLAX:
+            name: GAIAEDR3_PARALLAX
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          GAIAEDR3_PARALLAX_ERROR:
+            name: GAIAEDR3_PARALLAX_ERROR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          GAIAEDR3_PMRA:
+            name: GAIAEDR3_PMRA
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          GAIAEDR3_PMRA_ERROR:
+            name: GAIAEDR3_PMRA_ERROR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          GAIAEDR3_PMDEC:
+            name: GAIAEDR3_PMDEC
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          GAIAEDR3_PMDEC_ERROR:
+            name: GAIAEDR3_PMDEC_ERROR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          GAIAEDR3_PHOT_G_MEAN_MAG:
+            name: GAIAEDR3_PHOT_G_MEAN_MAG
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          GAIAEDR3_PHOT_BP_MEAN_MAG:
+            name: GAIAEDR3_PHOT_BP_MEAN_MAG
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          GAIAEDR3_PHOT_RP_MEAN_MAG:
+            name: GAIAEDR3_PHOT_RP_MEAN_MAG
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          GAIAEDR3_DR2_RADIAL_VELOCITY:
+            name: GAIAEDR3_DR2_RADIAL_VELOCITY
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          GAIAEDR3_DR2_RADIAL_VELOCITY_ERROR:
+            name: GAIAEDR3_DR2_RADIAL_VELOCITY_ERROR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          GAIAEDR3_R_MED_GEO:
+            name: GAIAEDR3_R_MED_GEO
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          GAIAEDR3_R_LO_GEO:
+            name: GAIAEDR3_R_LO_GEO
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          GAIAEDR3_R_HI_GEO:
+            name: GAIAEDR3_R_HI_GEO
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          GAIAEDR3_R_MED_PHOTOGEO:
+            name: GAIAEDR3_R_MED_PHOTOGEO
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          GAIAEDR3_R_LO_PHOTOGEO:
+            name: GAIAEDR3_R_LO_PHOTOGEO
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          GAIAEDR3_R_HI_PHOTOGEO:
+            name: GAIAEDR3_R_HI_PHOTOGEO
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          ASPCAP_GRID:
+            name: ASPCAP_GRID
+            type: char[8]
+            unit: replace me - with content
+            description: replace me - with content
+          FPARAM_GRID:
+            name: FPARAM_GRID
+            type: float32[189]
+            unit: replace me - with content
+            description: replace me - with content
+          CHI2_GRID:
+            name: CHI2_GRID
+            type: float32[21]
+            unit: replace me - with content
+            description: replace me - with content
+          FPARAM:
+            name: FPARAM
+            type: float32[9]
+            unit: replace me - with content
+            description: replace me - with content
+          FPARAM_COV:
+            name: FPARAM_COV
+            type: float32[81]
+            unit: replace me - with content
+            description: replace me - with content
+          ASPCAP_CHI2:
+            name: ASPCAP_CHI2
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          PARAM:
+            name: PARAM
+            type: float32[9]
+            unit: replace me - with content
+            description: replace me - with content
+          PARAM_COV:
+            name: PARAM_COV
+            type: float32[81]
+            unit: replace me - with content
+            description: replace me - with content
+          PARAMFLAG:
+            name: PARAMFLAG
+            type: int64[9]
+            unit: replace me - with content
+            description: replace me - with content
+          ASPCAPFLAG:
+            name: ASPCAPFLAG
+            type: int64
+            unit: replace me - with content
+            description: replace me - with content
+          ASPCAPFLAGS:
+            name: ASPCAPFLAGS
+            type: char[256]
+            unit: replace me - with content
+            description: replace me - with content
+          FRAC_BADPIX:
+            name: FRAC_BADPIX
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          FRAC_LOWSNR:
+            name: FRAC_LOWSNR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          FRAC_SIGSKY:
+            name: FRAC_SIGSKY
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          FELEM:
+            name: FELEM
+            type: float32[27]
+            unit: replace me - with content
+            description: replace me - with content
+          FELEM_ERR:
+            name: FELEM_ERR
+            type: float64[27]
+            unit: replace me - with content
+            description: replace me - with content
+          X_H:
+            name: X_H
+            type: float32[27]
+            unit: replace me - with content
+            description: replace me - with content
+          X_H_ERR:
+            name: X_H_ERR
+            type: float32[27]
+            unit: replace me - with content
+            description: replace me - with content
+          X_M:
+            name: X_M
+            type: float32[27]
+            unit: replace me - with content
+            description: replace me - with content
+          X_M_ERR:
+            name: X_M_ERR
+            type: float32[27]
+            unit: replace me - with content
+            description: replace me - with content
+          ELEM_CHI2:
+            name: ELEM_CHI2
+            type: float32[27]
+            unit: replace me - with content
+            description: replace me - with content
+          ELEMFRAC:
+            name: ELEMFRAC
+            type: float32[27]
+            unit: replace me - with content
+            description: replace me - with content
+          ELEMFLAG:
+            name: ELEMFLAG
+            type: int64[27]
+            unit: replace me - with content
+            description: replace me - with content
+          EXTRATARG:
+            name: EXTRATARG
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          MEMBERFLAG:
+            name: MEMBERFLAG
+            type: int64
+            unit: replace me - with content
+            description: replace me - with content
+          MEMBER:
+            name: MEMBER
+            type: char[10]
+            unit: replace me - with content
+            description: replace me - with content
+          X_H_SPEC:
+            name: X_H_SPEC
+            type: float32[27]
+            unit: replace me - with content
+            description: replace me - with content
+          X_M_SPEC:
+            name: X_M_SPEC
+            type: float32[27]
+            unit: replace me - with content
+            description: replace me - with content
+          TEFF:
+            name: TEFF
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          TEFF_ERR:
+            name: TEFF_ERR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          LOGG:
+            name: LOGG
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          LOGG_ERR:
+            name: LOGG_ERR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          M_H:
+            name: M_H
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          M_H_ERR:
+            name: M_H_ERR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          ALPHA_M:
+            name: ALPHA_M
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          ALPHA_M_ERR:
+            name: ALPHA_M_ERR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          VMICRO:
+            name: VMICRO
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          VMACRO:
+            name: VMACRO
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          VSINI:
+            name: VSINI
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          TEFF_SPEC:
+            name: TEFF_SPEC
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          LOGG_SPEC:
+            name: LOGG_SPEC
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          C_FE:
+            name: C_FE
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          C_FE_SPEC:
+            name: C_FE_SPEC
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          C_FE_ERR:
+            name: C_FE_ERR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          C_FE_FLAG:
+            name: C_FE_FLAG
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          CI_FE:
+            name: CI_FE
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          CI_FE_SPEC:
+            name: CI_FE_SPEC
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          CI_FE_ERR:
+            name: CI_FE_ERR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          CI_FE_FLAG:
+            name: CI_FE_FLAG
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          N_FE:
+            name: N_FE
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          N_FE_SPEC:
+            name: N_FE_SPEC
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          N_FE_ERR:
+            name: N_FE_ERR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          N_FE_FLAG:
+            name: N_FE_FLAG
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          O_FE:
+            name: O_FE
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          O_FE_SPEC:
+            name: O_FE_SPEC
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          O_FE_ERR:
+            name: O_FE_ERR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          O_FE_FLAG:
+            name: O_FE_FLAG
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          NA_FE:
+            name: NA_FE
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          NA_FE_SPEC:
+            name: NA_FE_SPEC
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          NA_FE_ERR:
+            name: NA_FE_ERR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          NA_FE_FLAG:
+            name: NA_FE_FLAG
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          MG_FE:
+            name: MG_FE
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          MG_FE_SPEC:
+            name: MG_FE_SPEC
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          MG_FE_ERR:
+            name: MG_FE_ERR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          MG_FE_FLAG:
+            name: MG_FE_FLAG
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          AL_FE:
+            name: AL_FE
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          AL_FE_SPEC:
+            name: AL_FE_SPEC
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          AL_FE_ERR:
+            name: AL_FE_ERR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          AL_FE_FLAG:
+            name: AL_FE_FLAG
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          SI_FE:
+            name: SI_FE
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          SI_FE_SPEC:
+            name: SI_FE_SPEC
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          SI_FE_ERR:
+            name: SI_FE_ERR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          SI_FE_FLAG:
+            name: SI_FE_FLAG
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          P_FE:
+            name: P_FE
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          P_FE_SPEC:
+            name: P_FE_SPEC
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          P_FE_ERR:
+            name: P_FE_ERR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          P_FE_FLAG:
+            name: P_FE_FLAG
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          S_FE:
+            name: S_FE
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          S_FE_SPEC:
+            name: S_FE_SPEC
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          S_FE_ERR:
+            name: S_FE_ERR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          S_FE_FLAG:
+            name: S_FE_FLAG
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          K_FE:
+            name: K_FE
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          K_FE_SPEC:
+            name: K_FE_SPEC
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          K_FE_ERR:
+            name: K_FE_ERR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          K_FE_FLAG:
+            name: K_FE_FLAG
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          CA_FE:
+            name: CA_FE
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          CA_FE_SPEC:
+            name: CA_FE_SPEC
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          CA_FE_ERR:
+            name: CA_FE_ERR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          CA_FE_FLAG:
+            name: CA_FE_FLAG
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          TI_FE:
+            name: TI_FE
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          TI_FE_SPEC:
+            name: TI_FE_SPEC
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          TI_FE_ERR:
+            name: TI_FE_ERR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          TI_FE_FLAG:
+            name: TI_FE_FLAG
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          TIII_FE:
+            name: TIII_FE
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          TIII_FE_SPEC:
+            name: TIII_FE_SPEC
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          TIII_FE_ERR:
+            name: TIII_FE_ERR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          TIII_FE_FLAG:
+            name: TIII_FE_FLAG
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          V_FE:
+            name: V_FE
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          V_FE_SPEC:
+            name: V_FE_SPEC
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          V_FE_ERR:
+            name: V_FE_ERR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          V_FE_FLAG:
+            name: V_FE_FLAG
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          CR_FE:
+            name: CR_FE
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          CR_FE_SPEC:
+            name: CR_FE_SPEC
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          CR_FE_ERR:
+            name: CR_FE_ERR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          CR_FE_FLAG:
+            name: CR_FE_FLAG
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          MN_FE:
+            name: MN_FE
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          MN_FE_SPEC:
+            name: MN_FE_SPEC
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          MN_FE_ERR:
+            name: MN_FE_ERR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          MN_FE_FLAG:
+            name: MN_FE_FLAG
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          FE_H:
+            name: FE_H
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          FE_H_SPEC:
+            name: FE_H_SPEC
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          FE_H_ERR:
+            name: FE_H_ERR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          FE_H_FLAG:
+            name: FE_H_FLAG
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          CO_FE:
+            name: CO_FE
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          CO_FE_SPEC:
+            name: CO_FE_SPEC
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          CO_FE_ERR:
+            name: CO_FE_ERR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          CO_FE_FLAG:
+            name: CO_FE_FLAG
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          NI_FE:
+            name: NI_FE
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          NI_FE_SPEC:
+            name: NI_FE_SPEC
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          NI_FE_ERR:
+            name: NI_FE_ERR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          NI_FE_FLAG:
+            name: NI_FE_FLAG
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          CU_FE:
+            name: CU_FE
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          CU_FE_SPEC:
+            name: CU_FE_SPEC
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          CU_FE_ERR:
+            name: CU_FE_ERR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          CU_FE_FLAG:
+            name: CU_FE_FLAG
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          CE_FE:
+            name: CE_FE
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          CE_FE_SPEC:
+            name: CE_FE_SPEC
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          CE_FE_ERR:
+            name: CE_FE_ERR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          CE_FE_FLAG:
+            name: CE_FE_FLAG
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          YB_FE:
+            name: YB_FE
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          YB_FE_SPEC:
+            name: YB_FE_SPEC
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          YB_FE_ERR:
+            name: YB_FE_ERR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          YB_FE_FLAG:
+            name: YB_FE_FLAG
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          VISIT_PK:
+            name: VISIT_PK
+            type: int32[100]
+            unit: replace me - with content
+            description: replace me - with content
+      hdu2:
+        name: ''
+        description: replace me description
+        is_image: true
+        size: 2 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image extension
+        - key: BITPIX
+          value: 64
+          comment: array data type
+        - key: NAXIS
+          value: 1
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 360
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: number of parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+      hdu3:
+        name: ''
+        description: replace me description
+        is_image: false
+        size: 32 KB
+        columns:
+          WAVE:
+            name: WAVE
+            type: float32[7514]
+            unit: replace me - with content
+            description: replace me - with content
+          PARAM_SYMBOL:
+            name: PARAM_SYMBOL
+            type: char[576]
+            unit: replace me - with content
+            description: replace me - with content
+          ELEM_SYMBOL:
+            name: ELEM_SYMBOL
+            type: char[540]
+            unit: replace me - with content
+            description: replace me - with content
+          ELEMTOH:
+            name: ELEMTOH
+            type: int32[27]
+            unit: replace me - with content
+            description: replace me - with content
+          ELEM_VALUE:
+            name: ELEM_VALUE
+            type: char[1296]
+            unit: replace me - with content
+            description: replace me - with content
+          GRIDS:
+            name: GRIDS
+            type: char[420]
+            unit: replace me - with content
+            description: replace me - with content
+      hdu4:
+        name: ''
+        description: replace me description
+        is_image: false
+        size: 121 KB
+        columns:
+          TELESCOPE:
+            name: TELESCOPE
+            type: char[12]
+            unit: replace me - with content
+            description: replace me - with content
+          FIELD:
+            name: FIELD
+            type: char[32]
+            unit: replace me - with content
+            description: replace me - with content
+          APOGEE_VERS:
+            name: APOGEE_VERS
+            type: char[12]
+            unit: replace me - with content
+            description: replace me - with content
+notes: |-
+  None
