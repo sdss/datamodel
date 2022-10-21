@@ -116,16 +116,22 @@ class FitsFile(BaseFile):
         }
 
         if hdu.is_image:
-            row['header'] = []
-            for key, value in header.items():
-                if self._is_header_keyword(key=key):
-                    column = {"key": key, "value": value, "comment": header.comments[key]}
-                    row['header'].append(column)
+            row['header'] = self._generate_header(header)
         else:
+            row['header'] = self._generate_header(header)
             row['columns'] = {}
             for column in hdu.columns:
                 row['columns'][column.name] = self._generate_column_dict(column, hdu=hdu)
         return row
+
+    def _generate_header(self, header: fits.Header) -> list:
+        """ Generate a yaml header section """
+        hdr = []
+        for key, value in header.items():
+            if self._is_header_keyword(key=key):
+                column = {"key": key, "value": value, "comment": header.comments[key]}
+                hdr.append(column)
+        return hdr
 
     def _extract_hdu_column(self, ext: str, key: str) -> fits.Column:
         """ Extract a column from a Astropy HDU table extension
@@ -150,13 +156,43 @@ class FitsFile(BaseFile):
                     self._get_table_column_desc(column, hdu=hdu)}
 
     def _get_table_column_desc(self, column: fits.Column, hdu: fits.TableHDU = None) -> str:
-        """ Get a table column description """
+        """ Get a table column description
+
+        Get a FITS binary table column description.  Attempts to identify
+        a column description from either the header TTYPE comment field,
+        or the TCOMM header key field.  If neither can be found, of if the
+        column name is not in the list of columns, then it returns the
+        default "replace me" text to be filled in manually.
+
+        Parameters
+        ----------
+        column : fits.Column
+            the Astropy FITS column
+        hdu : fits.TableHDU, optional
+            the complete HDU extension, by default None
+
+        Returns
+        -------
+        str
+            a description of the column, if found
+        """
         if column.name not in hdu.columns.names:
             return self._nonempty_string()
 
+        # get index of header key
         idx = hdu.columns.names.index(column.name) + 1
+
+        # get header comment
+        try:
+            ttype = hdu.header.comments[f'TTYPE{idx}']
+        except KeyError:
+            ttype = None
+
+        # get TCOMM value
         tcomm = hdu.header.get( f'TCOMM{idx}', None)
-        return tcomm or self._nonempty_string()
+
+        # return the TTYPE, TCOMM, or default
+        return ttype or tcomm or self._nonempty_string()
 
     def _get_table_column_unit(self, column: fits.Column, hdu: fits.TableHDU = None) -> str:
         """ Get a table column unit """
