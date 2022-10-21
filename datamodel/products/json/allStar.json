@@ -24,6 +24,20 @@
         "aliases": [
           "apogee"
         ]
+      },
+      {
+        "name": "MWM",
+        "long": "Milky Way Mapper",
+        "description": "A time-domain, optical+IR spectroscopic survey of Milky Way stars of all types.",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "mwm",
+        "aliases": []
       }
     ],
     "datatype": "FITS",
@@ -70,6 +84,12 @@
         "description": "SDSS public data release 17",
         "public": true,
         "release_date": "2021-12-06"
+      },
+      {
+        "name": "WORK",
+        "description": "SDSS unreleased data.  Represents any work-in-progress data.",
+        "public": false,
+        "release_date": "unreleased"
       }
     ],
     "naming_convention": "<code>allstar-RESULTS_VERS.fits</code>",
@@ -80,6 +100,13 @@
   "changelog": {
     "description": "Describes changes to the datamodel product and/or file structure from one release to another",
     "releases": {
+      "WORK": {
+        "from": "DR17",
+        "primary_delta_nkeys": 1,
+        "removed_primary_header_kwargs": [
+          "VERSION"
+        ]
+      },
       "DR17": {
         "from": "DR16",
         "added_primary_header_kwargs": [
@@ -7620,27 +7647,27 @@
             {
               "key": "SIMPLE",
               "value": "True",
-              "comment": "NB: description of keyword/column not found. Needs update"
+              "comment": "conforms to FITS standard"
             },
             {
               "key": "BITPIX",
-              "value": "8",
-              "comment": "NB: description of keyword/column not found. Needs update"
+              "value": "16",
+              "comment": "array data type"
             },
             {
               "key": "NAXIS",
               "value": "0",
-              "comment": "NB: description of keyword/column not found. Needs update"
+              "comment": "number of array dimensions"
             },
             {
               "key": "EXTEND",
               "value": "True",
-              "comment": "NB: description of keyword/column not found. Needs update"
+              "comment": ""
             },
             {
               "key": "VERSION",
-              "value": "trunk",
-              "comment": "NB: description of keyword/column not found. Needs update"
+              "value": "1.0",
+              "comment": "Code version"
             }
           ],
           "columns": null
@@ -9165,6 +9192,520 @@
               "name": "APOGEE_VERS",
               "description": "APOGEE_VERS",
               "type": "char[12]",
+              "unit": ""
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null
+    },
+    "WORK": {
+      "template": "$APOGEE_REDUX/[APRED]/summary/allStar-[APRED]-[TELESCOPE].fits",
+      "example": "1.0/summary/allStar-1.0-apo25m.fits",
+      "location": "{apred}/summary/allStar-{apred}-{telescope}.fits",
+      "environment": "APOGEE_REDUX",
+      "survey": "MWM",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "allStar",
+        "path_template": "$APOGEE_REDUX/{apred}/summary/allStar-{apred}.fits",
+        "path_kwargs": [
+          "apred"
+        ],
+        "access_string": "allStar = $APOGEE_REDUX/{apred}/summary/allStar-{apred}-{telescope}.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "",
+          "size": "142 MB",
+          "header": null,
+          "columns": {
+            "pk": {
+              "name": "PK",
+              "description": "IPL1: description of column needs update",
+              "type": "int64",
+              "unit": ""
+            },
+            "apogee_id": {
+              "name": "APOGEE_ID",
+              "description": "TMASS-STYLE object name",
+              "type": "char[28]",
+              "unit": ""
+            },
+            "file": {
+              "name": "FILE",
+              "description": "File name",
+              "type": "char[57]",
+              "unit": ""
+            },
+            "uri": {
+              "name": "URI",
+              "description": "IPL1: description of column needs update",
+              "type": "char[106]",
+              "unit": ""
+            },
+            "starver": {
+              "name": "STARVER",
+              "description": "IPL1: description of column needs update",
+              "type": "char[15]",
+              "unit": ""
+            },
+            "mjdbeg": {
+              "name": "MJDBEG",
+              "description": "IPL1: description of column needs update",
+              "type": "int64",
+              "unit": ""
+            },
+            "mjdend": {
+              "name": "MJDEND",
+              "description": "IPL1: description of column needs update",
+              "type": "int64",
+              "unit": ""
+            },
+            "telescope": {
+              "name": "TELESCOPE",
+              "description": "String representation of of telescope used for observation (currently APO 2.5m / 1m or LCO)",
+              "type": "char[16]",
+              "unit": ""
+            },
+            "apred_vers": {
+              "name": "APRED_VERS",
+              "description": "IPL1: description of column needs update",
+              "type": "char[13]",
+              "unit": ""
+            },
+            "healpix": {
+              "name": "HEALPIX",
+              "description": "IPL1: description of column needs update",
+              "type": "int64",
+              "unit": ""
+            },
+            "snr": {
+              "name": "SNR",
+              "description": "median S/N per pixel in combined frame (at apStar sampling)",
+              "type": "float32",
+              "unit": ""
+            },
+            "ra": {
+              "name": "RA",
+              "description": "Right ascension (J2000)",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "dec": {
+              "name": "DEC",
+              "description": "Declination (J2000)",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "glon": {
+              "name": "GLON",
+              "description": "Galactic longitude",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "glat": {
+              "name": "GLAT",
+              "description": "Galactic latitude",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "jmag": {
+              "name": "JMAG",
+              "description": "IPL1: description of column needs update",
+              "type": "float32",
+              "unit": ""
+            },
+            "jerr": {
+              "name": "JERR",
+              "description": "IPL1: description of column needs update",
+              "type": "float32",
+              "unit": ""
+            },
+            "hmag": {
+              "name": "HMAG",
+              "description": "IPL1: description of column needs update",
+              "type": "float32",
+              "unit": ""
+            },
+            "herr": {
+              "name": "HERR",
+              "description": "IPL1: description of column needs update",
+              "type": "float32",
+              "unit": ""
+            },
+            "kmag": {
+              "name": "KMAG",
+              "description": "IPL1: description of column needs update",
+              "type": "float32",
+              "unit": ""
+            },
+            "kerr": {
+              "name": "KERR",
+              "description": "IPL1: description of column needs update",
+              "type": "float32",
+              "unit": ""
+            },
+            "src_h": {
+              "name": "SRC_H",
+              "description": "Source of H-Band photometry",
+              "type": "char[10]",
+              "unit": ""
+            },
+            "targ_pmra": {
+              "name": "TARG_PMRA",
+              "description": "NB: description of column needs update",
+              "type": "float32",
+              "unit": ""
+            },
+            "targ_pmdec": {
+              "name": "TARG_PMDEC",
+              "description": "NB: description of column needs update",
+              "type": "float32",
+              "unit": ""
+            },
+            "targ_pm_src": {
+              "name": "TARG_PM_SRC",
+              "description": "NB: description of column needs update",
+              "type": "char[10]",
+              "unit": ""
+            },
+            "apogee_target1": {
+              "name": "APOGEE_TARGET1",
+              "description": "Bitwise OR of first APOGEE-1 target flag of all visits, see <a href=\"http://www.sdss.org/dr14/algorithms/bitmasks/#APOGEE_TARGET1\"> bitmask definitions</a>.",
+              "type": "int64",
+              "unit": ""
+            },
+            "apogee_target2": {
+              "name": "APOGEE_TARGET2",
+              "description": "Bitwise OR of second APOGEE-1 target flag of all visits, see <a href=\"http://www.sdss.org/dr14/algorithms/bitmasks/#APOGEE_TARGET2\"> bitmask definitions</a>",
+              "type": "int64",
+              "unit": ""
+            },
+            "apogee2_target1": {
+              "name": "APOGEE2_TARGET1",
+              "description": "Bitwise OR of first APOGEE-2 target flag of all visits, see <a href=\"http://www.sdss.org/dr14/algorithms/bitmasks/#APOGEE2_TARGET1\"> bitmask definitions</a>",
+              "type": "int64",
+              "unit": ""
+            },
+            "apogee2_target2": {
+              "name": "APOGEE2_TARGET2",
+              "description": "Bitwise OR of second APOGEE-2 target flag of all visits, see <a href=\"http://www.sdss.org/dr14/algorithms/bitmasks/#APOGEE2_TARGET2\"> bitmask definitions</a>",
+              "type": "int64",
+              "unit": ""
+            },
+            "apogee2_target3": {
+              "name": "APOGEE2_TARGET3",
+              "description": "Bitwise OR of third APOGEE-2 target flag of all visits, see <a href=\"http://www.sdss.org/dr14/algorithms/bitmasks/#APOGEE2_TARGET3\"> bitmask definitions</a>",
+              "type": "int64",
+              "unit": ""
+            },
+            "apogee2_target4": {
+              "name": "APOGEE2_TARGET4",
+              "description": "NB: description of column needs update",
+              "type": "int64",
+              "unit": ""
+            },
+            "catalogid": {
+              "name": "CATALOGID",
+              "description": "IPL1: description of column needs update",
+              "type": "int64",
+              "unit": ""
+            },
+            "gaiadr2_sourceid": {
+              "name": "GAIADR2_SOURCEID",
+              "description": "IPL1: description of column needs update",
+              "type": "int64",
+              "unit": ""
+            },
+            "gaiadr2_plx": {
+              "name": "GAIADR2_PLX",
+              "description": "IPL1: description of column needs update",
+              "type": "float32",
+              "unit": ""
+            },
+            "gaiadr2_plx_error": {
+              "name": "GAIADR2_PLX_ERROR",
+              "description": "IPL1: description of column needs update",
+              "type": "float32",
+              "unit": ""
+            },
+            "gaiadr2_pmra": {
+              "name": "GAIADR2_PMRA",
+              "description": "IPL1: description of column needs update",
+              "type": "float32",
+              "unit": ""
+            },
+            "gaiadr2_pmra_error": {
+              "name": "GAIADR2_PMRA_ERROR",
+              "description": "IPL1: description of column needs update",
+              "type": "float32",
+              "unit": ""
+            },
+            "gaiadr2_pmdec": {
+              "name": "GAIADR2_PMDEC",
+              "description": "IPL1: description of column needs update",
+              "type": "float32",
+              "unit": ""
+            },
+            "gaiadr2_pmdec_error": {
+              "name": "GAIADR2_PMDEC_ERROR",
+              "description": "IPL1: description of column needs update",
+              "type": "float32",
+              "unit": ""
+            },
+            "gaiadr2_gmag": {
+              "name": "GAIADR2_GMAG",
+              "description": "IPL1: description of column needs update",
+              "type": "float32",
+              "unit": ""
+            },
+            "gaiadr2_gerr": {
+              "name": "GAIADR2_GERR",
+              "description": "IPL1: description of column needs update",
+              "type": "float32",
+              "unit": ""
+            },
+            "gaiadr2_bpmag": {
+              "name": "GAIADR2_BPMAG",
+              "description": "IPL1: description of column needs update",
+              "type": "float32",
+              "unit": ""
+            },
+            "gaiadr2_bperr": {
+              "name": "GAIADR2_BPERR",
+              "description": "IPL1: description of column needs update",
+              "type": "float32",
+              "unit": ""
+            },
+            "gaiadr2_rpmag": {
+              "name": "GAIADR2_RPMAG",
+              "description": "IPL1: description of column needs update",
+              "type": "float32",
+              "unit": ""
+            },
+            "gaiadr2_rperr": {
+              "name": "GAIADR2_RPERR",
+              "description": "IPL1: description of column needs update",
+              "type": "float32",
+              "unit": ""
+            },
+            "sdssv_apogee_target0": {
+              "name": "SDSSV_APOGEE_TARGET0",
+              "description": "IPL1: description of column needs update",
+              "type": "int64",
+              "unit": ""
+            },
+            "firstcarton": {
+              "name": "FIRSTCARTON",
+              "description": "IPL1: description of column needs update",
+              "type": "char[45]",
+              "unit": ""
+            },
+            "targflags": {
+              "name": "TARGFLAGS",
+              "description": "Verbose/text form of APOGEE-1 target flags",
+              "type": "char[113]",
+              "unit": ""
+            },
+            "nvisits": {
+              "name": "NVISITS",
+              "description": "Number of visits into combined spectrum",
+              "type": "int64",
+              "unit": ""
+            },
+            "ngoodvisits": {
+              "name": "NGOODVISITS",
+              "description": "IPL1: description of column needs update",
+              "type": "int64",
+              "unit": ""
+            },
+            "ngoodrvs": {
+              "name": "NGOODRVS",
+              "description": "IPL1: description of column needs update",
+              "type": "int64",
+              "unit": ""
+            },
+            "starflag": {
+              "name": "STARFLAG",
+              "description": "Flag for star condition taken from bitwise OR of individual visits, see <a href=\"http://www.sdss.org/dr14/algorithms/bitmasks/#APOGEE_STARFLAG\"> bitmask definitions</a>",
+              "type": "int64",
+              "unit": ""
+            },
+            "starflags": {
+              "name": "STARFLAGS",
+              "description": "Verbose/text form of STARFLAG",
+              "type": "char[92]",
+              "unit": ""
+            },
+            "andflag": {
+              "name": "ANDFLAG",
+              "description": "Flag for star condition taken from bitwise AND of individual visits, see <a href=\"http://www.sdss.org/dr14/algorithms/bitmasks/#APOGEE_STARFLAG\"> bitmask definitions</a>",
+              "type": "int64",
+              "unit": ""
+            },
+            "andflags": {
+              "name": "ANDFLAGS",
+              "description": "Verbose/text form of ANDFLAG",
+              "type": "char[10]",
+              "unit": ""
+            },
+            "vrad": {
+              "name": "VRAD",
+              "description": "IPL1: description of column needs update",
+              "type": "float32",
+              "unit": "km/s"
+            },
+            "vscatter": {
+              "name": "VSCATTER",
+              "description": "Scatter of individual visit RVs around average",
+              "type": "float32",
+              "unit": "km/s"
+            },
+            "verr": {
+              "name": "VERR",
+              "description": "Uncertainty in VHELIO_AVG from the S/N-weighted individual RVs",
+              "type": "float32",
+              "unit": "km/s"
+            },
+            "vmederr": {
+              "name": "VMEDERR",
+              "description": "IPL1: description of column needs update",
+              "type": "float32",
+              "unit": "IPL1: unit of column needs update"
+            },
+            "chisq": {
+              "name": "CHISQ",
+              "description": "IPL1: description of column needs update",
+              "type": "float32",
+              "unit": ""
+            },
+            "rv_teff": {
+              "name": "RV_TEFF",
+              "description": "Teff of best-match synthetic spectrum from RV grid (NOT ASPCAP!)",
+              "type": "float32",
+              "unit": "K"
+            },
+            "rv_tefferr": {
+              "name": "RV_TEFFERR",
+              "description": "IPL1: description of column needs update",
+              "type": "float32",
+              "unit": "K"
+            },
+            "rv_logg": {
+              "name": "RV_LOGG",
+              "description": "log g of best-match synthetic spectrum  from RV grid (NOT ASPCAP!)",
+              "type": "float32",
+              "unit": "log (cgs)"
+            },
+            "rv_loggerr": {
+              "name": "RV_LOGGERR",
+              "description": "IPL1: description of column needs update",
+              "type": "float32",
+              "unit": "log (cgs)"
+            },
+            "rv_feh": {
+              "name": "RV_FEH",
+              "description": "[Fe/H] of best-match synthetic spectrum  from RV grid (NOT ASPCAP!)",
+              "type": "float32",
+              "unit": ""
+            },
+            "rv_feherr": {
+              "name": "RV_FEHERR",
+              "description": "IPL1: description of column needs update",
+              "type": "float32",
+              "unit": "IPL1: description of column needs update"
+            },
+            "rv_ccpfwhm": {
+              "name": "RV_CCPFWHM",
+              "description": "IPL1: description of column needs update",
+              "type": "float32",
+              "unit": "IPL1: description of column needs update"
+            },
+            "rv_autofwhm": {
+              "name": "RV_AUTOFWHM",
+              "description": "FWHM of auto-correlation of best-match synthetic spectrum",
+              "type": "float32",
+              "unit": "km/s"
+            },
+            "n_components": {
+              "name": "N_COMPONENTS",
+              "description": "NB: description of column needs update",
+              "type": "int64",
+              "unit": ""
+            },
+            "meanfib": {
+              "name": "MEANFIB",
+              "description": "Mean fiber number of the set of observations",
+              "type": "float32",
+              "unit": ""
+            },
+            "sigfib": {
+              "name": "SIGFIB",
+              "description": "Dispersion in fiber number",
+              "type": "float32",
+              "unit": ""
+            },
+            "created": {
+              "name": "CREATED",
+              "description": "IPL1: description of column needs update",
+              "type": "char[39]",
+              "unit": ""
+            },
+            "v_apred": {
+              "name": "V_APRED",
+              "description": "IPL1: description of column needs update",
+              "type": "char[50]",
+              "unit": "IPL1: description of column needs update"
+            },
+            "cadence": {
+              "name": "CADENCE",
+              "description": "IPL1: description of column needs update",
+              "type": "char[10]",
+              "unit": "IPL1: description of column needs update"
+            },
+            "program": {
+              "name": "PROGRAM",
+              "description": "IPL1: description of column needs update",
+              "type": "char[10]",
+              "unit": ""
+            },
+            "category": {
+              "name": "CATEGORY",
+              "description": "IPL1: description of column needs update",
+              "type": "char[10]",
               "unit": ""
             }
           }

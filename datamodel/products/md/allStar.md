@@ -19,7 +19,7 @@ The allStar-RESULTS_VERS.fits file contains all final data product and summary i
 <code>allstar-RESULTS_VERS.fits</code>
 
 ### Releases
-DR10, DR12, DR13, DR14, DR15, DR16, DR17
+DR10, DR12, DR13, DR14, DR15, DR16, DR17, WORK
 
 ### Enviroments
 APOGEE_REDUX, APOGEE_ROOT, APOGEE_ASPCAP
@@ -36,17 +36,18 @@ idlwrap (aspcap_allstar)
 ### Is a VAC
 False
 
-### HDUS List for release DR17
+### HDUS List for release WORK
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1: ](#hdu1-)
-  - [HDU2: ](#hdu2-)
-  - [HDU3: ](#hdu3-)
-  - [HDU4: ](#hdu4-)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - WORK
+   - from: DR17
+   - primary_delta_nkeys: 1
+   - removed_primary_header_kwargs: ['VERSION']
  - DR17
    - from: DR16
    - added_primary_header_kwargs: ['VERSION']
@@ -80,11 +81,10 @@ Describes changes to the datamodel product and/or file structure from one releas
 ##### Header Table Caption for HDU0
 Key | Value | Comment | |
 | --- | --- | --- | --- |
-| SIMPLE | True | NB: description of keyword/column not found. Needs update |
-| BITPIX | 8 | NB: description of keyword/column not found. Needs update |
-| NAXIS | 0 | NB: description of keyword/column not found. Needs update |
-| EXTEND | True | NB: description of keyword/column not found. Needs update |
-| VERSION | trunk | NB: description of keyword/column not found. Needs update |
+| SIMPLE | True | conforms to FITS standard |
+| BITPIX | 8 | array data type |
+| NAXIS | 0 | number of array dimensions |
+| EXTEND | True |  |
 
 
 
@@ -92,296 +92,87 @@ Key | Value | Comment | |
 
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  3 GB
+#### HDU Size:  142 MB
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | FILE | char[64] |  | File name |
- | APOGEE_ID | char[30] |  | TMASS-STYLE object name |
- | TARGET_ID | char[58] |  | NB: description not found. Needs update |
- | APSTAR_ID | char[71] |  | Unique apStar identifier: apogee.[ns].[sc].APSTAR_VERS.LOC.STAR, where [ns] is for APOGEE North/South, [sc] is for survey/commissioning |
- | ASPCAP_ID | char[77] |  | Unique ASPCAP identifier: apogee.[ns].[sc].RESULTS_VERS.LOC.STAR |
- | TELESCOPE | char[6] |  | String representation of of telescope used for observation (currently APO 2.5m / 1m or LCO) |
- | LOCATION_ID | int32 |  | Field Location ID |
- | FIELD | char[20] |  | Field name |
- | ALT_ID | char[30] |  | NB: description not found. Needs update |
+ | PK | int64 |  | IPL1: description of column needs update |
+ | APOGEE_ID | char[28] |  | TMASS-STYLE object name |
+ | FILE | char[57] |  | File name |
+ | URI | char[106] |  | IPL1: description of column needs update |
+ | STARVER | char[15] |  | IPL1: description of column needs update |
+ | MJDBEG | int64 |  | IPL1: description of column needs update |
+ | MJDEND | int64 |  | IPL1: description of column needs update |
+ | TELESCOPE | char[16] |  | String representation of of telescope used for observation (currently APO 2.5m / 1m or LCO) |
+ | APRED_VERS | char[13] |  | IPL1: description of column needs update |
+ | HEALPIX | int64 |  | IPL1: description of column needs update |
+ | SNR | float32 |  | median S/N per pixel in combined frame (at apStar sampling) |
  | RA | float64 | degrees | Right ascension (J2000) |
  | DEC | float64 | degrees | Declination (J2000) |
  | GLON | float64 | degrees | Galactic longitude |
  | GLAT | float64 | degrees | Galactic latitude |
- | J | float32 |  | 2MASS J mag [bad=99] |
- | J_ERR | float32 |  | Uncertainty in 2MASS J mag |
- | H | float32 |  | 2MASS H mag [bad=99] |
- | H_ERR | float32 |  | Uncertainty in 2MASS H mag |
- | K | float32 |  | 2MASS Ks mag  [bad=99] |
- | K_ERR | float32 |  | Uncertainty in 2MASS Ks mag |
- | SRC_H | char[16] |  | Source of H-Band photometry |
- | WASH_M | float32 |  | Washington M mag |
- | WASH_M_ERR | float32 |  | Washington M mag error |
- | WASH_T2 | float32 |  | Washington T2 mag |
- | WASH_T2_ERR | float32 |  | Washington T2 mag error |
- | DDO51 | float32 |  | DDO 51 mag |
- | DDO51_ERR | float32 |  | DDO 51 mag error |
- | IRAC_3_6 | float32 |  | IRAC 3.6micron mag |
- | IRAC_3_6_ERR | float32 |  | IRAC 3.6micron mag error |
- | IRAC_4_5 | float32 |  | IRAC 4.5micron mag |
- | IRAC_4_5_ERR | float32 |  | IRAC 4.5micron mag error |
- | IRAC_5_8 | float32 |  | IRAC 5.8 micron mag |
- | IRAC_5_8_ERR | float32 |  | IRAC 5.8 micron mag error |
- | IRAC_8_0 | float32 |  | IRAC 8.0 micron mag |
- | IRAC_8_0_ERR | float32 |  | IRAC 8.0 micron mag error |
- | WISE_4_5 | float32 |  | WISE 4.5 micron mag |
- | WISE_4_5_ERR | float32 |  | WISE 4.5 micron mag error |
- | TARG_4_5 | float32 |  | 4.5 micron mag adopted for dereddening for targeting |
- | TARG_4_5_ERR | float32 |  | 4.5 micron mag adopted for dereddening for targeting, error |
- | WASH_DDO51_GIANT_FLAG | int32 |  | Flagged as a giant for targeting purposes based on Washington/DDO 51 photometry |
- | WASH_DDO51_STAR_FLAG | int32 |  | Flagged as a starfor targeting purposes based on Washington/DDO 51 photometry |
+ | JMAG | float32 |  | IPL1: description of column needs update |
+ | JERR | float32 |  | IPL1: description of column needs update |
+ | HMAG | float32 |  | IPL1: description of column needs update |
+ | HERR | float32 |  | IPL1: description of column needs update |
+ | KMAG | float32 |  | IPL1: description of column needs update |
+ | KERR | float32 |  | IPL1: description of column needs update |
+ | SRC_H | char[10] |  | Source of H-Band photometry |
  | TARG_PMRA | float32 |  | NB: description of column needs update |
  | TARG_PMDEC | float32 |  | NB: description of column needs update |
- | TARG_PM_SRC | char[16] |  | NB: description of column needs update |
- | AK_TARG | float32 |  | K-band extinction adopted for targetting |
- | AK_TARG_METHOD | char[32] |  | Method used to get targetting extinction |
- | AK_WISE | float32 |  | WISE all-sky K-band extinction |
- | SFD_EBV | float32 |  | SFD reddening |
- | APOGEE_TARGET1 | int32 |  | Bitwise OR of first APOGEE-1 target flag of all visits, see <a href="http://www.sdss.org/dr14/algorithms/bitmasks/#APOGEE_TARGET1"> bitmask definitions</a>. |
- | APOGEE_TARGET2 | int32 |  | Bitwise OR of second APOGEE-1 target flag of all visits, see <a href="http://www.sdss.org/dr14/algorithms/bitmasks/#APOGEE_TARGET2"> bitmask definitions</a> |
- | APOGEE2_TARGET1 | int32 |  | Bitwise OR of first APOGEE-2 target flag of all visits, see <a href="http://www.sdss.org/dr14/algorithms/bitmasks/#APOGEE2_TARGET1"> bitmask definitions</a> |
- | APOGEE2_TARGET2 | int32 |  | Bitwise OR of second APOGEE-2 target flag of all visits, see <a href="http://www.sdss.org/dr14/algorithms/bitmasks/#APOGEE2_TARGET2"> bitmask definitions</a> |
- | APOGEE2_TARGET3 | int32 |  | Bitwise OR of third APOGEE-2 target flag of all visits, see <a href="http://www.sdss.org/dr14/algorithms/bitmasks/#APOGEE2_TARGET3"> bitmask definitions</a> |
- | APOGEE2_TARGET4 | int32 |  | NB: description of column needs update |
- | TARGFLAGS | char[132] |  | Verbose/text form of APOGEE-1 target flags |
- | SURVEY | char[32] |  | Survey-associated with object: apogee, apo1m, apogee-marvels, apogee2, apogee2-manga, manga-apogee2 |
- | PROGRAMNAME | char[32] |  | NB: description not found. Needs update |
- | NVISITS | int32 |  | Number of visits into combined spectrum |
- | SNR | float32 |  | median S/N per pixel in combined frame (at apStar sampling) |
- | SNREV | float32 |  | Revised S/N estimate (avoiding persistence issues) |
+ | TARG_PM_SRC | char[10] |  | NB: description of column needs update |
+ | APOGEE_TARGET1 | int64 |  | Bitwise OR of first APOGEE-1 target flag of all visits, see <a href="http://www.sdss.org/dr14/algorithms/bitmasks/#APOGEE_TARGET1"> bitmask definitions</a>. |
+ | APOGEE_TARGET2 | int64 |  | Bitwise OR of second APOGEE-1 target flag of all visits, see <a href="http://www.sdss.org/dr14/algorithms/bitmasks/#APOGEE_TARGET2"> bitmask definitions</a> |
+ | APOGEE2_TARGET1 | int64 |  | Bitwise OR of first APOGEE-2 target flag of all visits, see <a href="http://www.sdss.org/dr14/algorithms/bitmasks/#APOGEE2_TARGET1"> bitmask definitions</a> |
+ | APOGEE2_TARGET2 | int64 |  | Bitwise OR of second APOGEE-2 target flag of all visits, see <a href="http://www.sdss.org/dr14/algorithms/bitmasks/#APOGEE2_TARGET2"> bitmask definitions</a> |
+ | APOGEE2_TARGET3 | int64 |  | Bitwise OR of third APOGEE-2 target flag of all visits, see <a href="http://www.sdss.org/dr14/algorithms/bitmasks/#APOGEE2_TARGET3"> bitmask definitions</a> |
+ | APOGEE2_TARGET4 | int64 |  | NB: description of column needs update |
+ | CATALOGID | int64 |  | IPL1: description of column needs update |
+ | GAIADR2_SOURCEID | int64 |  | IPL1: description of column needs update |
+ | GAIADR2_PLX | float32 |  | IPL1: description of column needs update |
+ | GAIADR2_PLX_ERROR | float32 |  | IPL1: description of column needs update |
+ | GAIADR2_PMRA | float32 |  | IPL1: description of column needs update |
+ | GAIADR2_PMRA_ERROR | float32 |  | IPL1: description of column needs update |
+ | GAIADR2_PMDEC | float32 |  | IPL1: description of column needs update |
+ | GAIADR2_PMDEC_ERROR | float32 |  | IPL1: description of column needs update |
+ | GAIADR2_GMAG | float32 |  | IPL1: description of column needs update |
+ | GAIADR2_GERR | float32 |  | IPL1: description of column needs update |
+ | GAIADR2_BPMAG | float32 |  | IPL1: description of column needs update |
+ | GAIADR2_BPERR | float32 |  | IPL1: description of column needs update |
+ | GAIADR2_RPMAG | float32 |  | IPL1: description of column needs update |
+ | GAIADR2_RPERR | float32 |  | IPL1: description of column needs update |
+ | SDSSV_APOGEE_TARGET0 | int64 |  | IPL1: description of column needs update |
+ | FIRSTCARTON | char[45] |  | IPL1: description of column needs update |
+ | TARGFLAGS | char[113] |  | Verbose/text form of APOGEE-1 target flags |
+ | NVISITS | int64 |  | Number of visits into combined spectrum |
+ | NGOODVISITS | int64 |  | IPL1: description of column needs update |
+ | NGOODRVS | int64 |  | IPL1: description of column needs update |
  | STARFLAG | int64 |  | Flag for star condition taken from bitwise OR of individual visits, see <a href="http://www.sdss.org/dr14/algorithms/bitmasks/#APOGEE_STARFLAG"> bitmask definitions</a> |
- | STARFLAGS | char[132] |  | Verbose/text form of STARFLAG |
+ | STARFLAGS | char[92] |  | Verbose/text form of STARFLAG |
  | ANDFLAG | int64 |  | Flag for star condition taken from bitwise AND of individual visits, see <a href="http://www.sdss.org/dr14/algorithms/bitmasks/#APOGEE_STARFLAG"> bitmask definitions</a> |
- | ANDFLAGS | char[132] |  | Verbose/text form of ANDFLAG |
- | VHELIO_AVG | float32 | km/s | Average radial velocity, weighted by S/N, using RVs determined from cross-correlation of individual spectra with combined spectrum |
+ | ANDFLAGS | char[10] |  | Verbose/text form of ANDFLAG |
+ | VRAD | float32 | km/s | IPL1: description of column needs update |
  | VSCATTER | float32 | km/s | Scatter of individual visit RVs around average |
  | VERR | float32 | km/s | Uncertainty in VHELIO_AVG from the S/N-weighted individual RVs |
+ | VMEDERR | float32 | IPL1: unit of column needs update | IPL1: description of column needs update |
+ | CHISQ | float32 |  | IPL1: description of column needs update |
  | RV_TEFF | float32 | K | Teff of best-match synthetic spectrum from RV grid (NOT ASPCAP!) |
+ | RV_TEFFERR | float32 | K | IPL1: description of column needs update |
  | RV_LOGG | float32 | log (cgs) | log g of best-match synthetic spectrum  from RV grid (NOT ASPCAP!) |
+ | RV_LOGGERR | float32 | log (cgs) | IPL1: description of column needs update |
  | RV_FEH | float32 |  | [Fe/H] of best-match synthetic spectrum  from RV grid (NOT ASPCAP!) |
- | RV_ALPHA | float32 |  | [alpha/M] of best-match synthetic spectrum from RV grid (NOT ASPCAP!) |
- | RV_CARB | float32 |  | [C/M] of best-match synthetic spectrum  from RV grid (NOT ASPCAP!) |
- | RV_CHI2 | float32 |  | NB: description of column needs update |
- | RV_CCFWHM | float32 | km/s | FWHM of cross-correlation peak from combined vs best-match synthetic spectrum |
+ | RV_FEHERR | float32 | IPL1: description of column needs update | IPL1: description of column needs update |
+ | RV_CCPFWHM | float32 | IPL1: description of column needs update | IPL1: description of column needs update |
  | RV_AUTOFWHM | float32 | km/s | FWHM of auto-correlation of best-match synthetic spectrum |
- | RV_FLAG | int32 |  | NB: description of column needs update |
- | N_COMPONENTS | int32 |  | NB: description of column needs update |
+ | N_COMPONENTS | int64 |  | NB: description of column needs update |
  | MEANFIB | float32 |  | Mean fiber number of the set of observations |
  | SIGFIB | float32 |  | Dispersion in fiber number |
- | MIN_H | float32 |  | Bright H limit for target selection for this object |
- | MAX_H | float32 |  | Faint H limit for target selection for this object |
- | MIN_JK | float32 |  | Blue (J-K) limit for target selection for this object |
- | MAX_JK | float32 |  | Red (J-K) limit for target selection for this object |
- | GAIAEDR3_SOURCE_ID | int64 |  | NB: description of column needs update |
- | GAIAEDR3_PARALLAX | float32 |  | NB: description of column needs update |
- | GAIAEDR3_PARALLAX_ERROR | float32 |  | NB: description of column needs update |
- | GAIAEDR3_PMRA | float32 |  | NB: description of column needs update |
- | GAIAEDR3_PMRA_ERROR | float32 |  | NB: description of column needs update |
- | GAIAEDR3_PMDEC | float32 |  | NB: description of column needs update |
- | GAIAEDR3_PMDEC_ERROR | float32 |  | NB: description of column needs update |
- | GAIAEDR3_PHOT_G_MEAN_MAG | float32 |  | NB: description of column needs update |
- | GAIAEDR3_PHOT_BP_MEAN_MAG | float32 |  | NB: description of column needs update |
- | GAIAEDR3_PHOT_RP_MEAN_MAG | float32 |  | NB: description of column needs update |
- | GAIAEDR3_DR2_RADIAL_VELOCITY | float32 |  | NB: description of column needs update |
- | GAIAEDR3_DR2_RADIAL_VELOCITY_ERROR | float32 |  | NB: description of column needs update |
- | GAIAEDR3_R_MED_GEO | float32 |  | NB: description of column needs update |
- | GAIAEDR3_R_LO_GEO | float32 |  | NB: description of column needs update |
- | GAIAEDR3_R_HI_GEO | float32 |  | NB: description of column needs update |
- | GAIAEDR3_R_MED_PHOTOGEO | float32 |  | NB: description of column needs update |
- | GAIAEDR3_R_LO_PHOTOGEO | float32 |  | NB: description of column needs update |
- | GAIAEDR3_R_HI_PHOTOGEO | float32 |  | NB: description of column needs update |
- | ASPCAP_GRID | char[8] |  | NB: description of column needs update |
- | FPARAM_GRID | float32[189] |  | NB: description of column needs update |
- | CHI2_GRID | float32[21] |  | NB: description of column needs update |
- | FPARAM | float32[9] |  | Output parameter array from ASPCAP stellar parameters fit, in order given in PARAM_SYMBOL array in HDU3: Teff, logg, vmicro, [M/H], [C/M], [N/M], [alpha/M], vsini/vmacro |
- | FPARAM_COV | float32[81] |  | Covariance of fitted parameters from FERRE |
- | ASPCAP_CHI2 | float32 |  | Chi^2 from ASPCAP fit |
- | PARAM | float32[9] |  | Empirically calibrated parameter array, using ASPCAP stellar parameters fit + calibrations, in order given in PARAM_SYMBOL array in HDU3: Teff, logg, vmicro, [M/H], [C/M], [N/M], [alpha/M], vsini/vmacro |
- | PARAM_COV | float32[81] |  | Covariance of calibrated parameters, but with only diagonal elements from "external" uncertainty estimation |
- | PARAMFLAG | int64[9] |  | Individual parameter flag for ASPCAP analysis, see <a href="http://www.sdss.org/dr14/algorithms/bitmasks/#APOGEE_PARAMFLAG"> bitmask definitions</a> |
- | ASPCAPFLAG | int64 |  | Flag for ASPCAP analysis, see <a href="http://www.sdss.org/dr14/algorithms/bitmasks/#APOGEE_ASPCAPFLAG"> bitmask definitions</a> |
- | ASPCAPFLAGS | char[256] |  | Verbose/text form ASPCAPFLAG |
- | FRAC_BADPIX | float32 |  | NB: description of column needs update |
- | FRAC_LOWSNR | float32 |  | NB: description of column needs update |
- | FRAC_SIGSKY | float32 |  | NB: description of column needs update |
- | FELEM | float32[27] |  | Output individual element array from ASPCAP stellar abundances fit, in order given in ELEM_SYMBOL array in HDU3 |
- | FELEM_ERR | float64[27] |  | Uncertainty from FERRE in individual element abundances |
- | X_H | float32[27] |  | Empirically calibrated individual element array, using ASPCAP stellar abundances fit + calibrations, all expressed in logarithmic abundance relative to H ([X/H]), in order given in ELEM_SYMBOL array in HDU3 |
- | X_H_ERR | float32[27] |  | Empirical uncertainties in [X/H], derived from scatter within clusters |
- | X_M | float32[27] |  | Empirically calibrated individual element array, using ASPCAP stellar abundances fit + calibrations, all expressed in logarithmic abundance relative to M ([X/M]) in order given in ELEM_SYMBOL array in HDU3 |
- | X_M_ERR | float32[27] |  | Empirical uncertainties in [X/M], derived from scatter within clusters |
- | ELEM_CHI2 | float32[27] |  | Chi^2 from ASPCAP fit of individual abundances |
- | ELEMFRAC | float32[27] |  | NB: description of column needs update |
- | ELEMFLAG | int64[27] |  | Flags for analysis of individual abundances, see <a href="http://www.sdss.org/dr14/algorithms/bitmasks/#APOGEE_STARFLAG"> bitmask definitions</a> |
- | EXTRATARG | int32 |  | Bitmask which identifies main survey targets and other classes, see <a href="http://www.sdss.org/dr14/algorithms/bitmasks/#EXTRATARG"> bitmask definitions</a>. |
- | MEMBERFLAG | int64 |  | NB: description of column needs update |
- | MEMBER | char[10] |  | NB: description of column needs update |
- | X_H_SPEC | float32[27] |  | NB: description of column needs update |
- | X_M_SPEC | float32[27] |  | NB: description of column needs update |
- | TEFF | float32 | K | Teff from ASPCAP analysis of combined spectrum (from PARAM) |
- | TEFF_ERR | float32 | K | Teff uncertainty (from PARAM_COV) |
- | LOGG | float32 | log (cgs) | log g from ASPCAP analysis of combined spectrum (from PARAM) |
- | LOGG_ERR | float32 | log (cgs) | log g uncertainty (from PARAM_COV) |
- | M_H | float32 | dex | [Z/H] from ASPCAP analysis of combined spectrum (from PARAM) |
- | M_H_ERR | float32 | dex | [Z/H] uncertainty (from PARAM_COV) |
- | ALPHA_M | float32 | dex | [alpha/M] from ASPCAP analysis of combined spectrum (from PARAM) |
- | ALPHA_M_ERR | float32 | dex | [alpha/M] uncertainty (from PARAM_COV) |
- | VMICRO | float32 | (cgs) | microturbulent velocity (fit for dwarfs, f(log g) for giants) |
- | VMACRO | float32 | (cgs) | macroturbulent velocity (f(log Teff, [M/H]) for giants) |
- | VSINI | float32 | (cgs) | rotational+macroturbulent velocity (fit for dwarfs) |
- | TEFF_SPEC | float32 |  | NB: description not found. Needs update |
- | LOGG_SPEC | float32 |  | NB: description not found. Needs update |
- | C_FE | float32 | dex | [C/Fe] from ASPCAP analysis  of combined spectrum (from X_M) |
- | C_FE_SPEC | float32 |  | NB: description of column needs update |
- | C_FE_ERR | float32 | dex | [C/Fe] uncertainty from ASPCAP analysis  of combined spectrum (from X_M) |
- | C_FE_FLAG | int32 | dex | [C/Fe] flag |
- | CI_FE | float32 | dex | [CI/Fe] from ASPCAP analysis  of combined spectrum (from X_M) |
- | CI_FE_SPEC | float32 |  | NB: description of column needs update |
- | CI_FE_ERR | float32 | dex | [CI/Fe] uncertainty from ASPCAP analysis  of combined spectrum (from X_M) |
- | CI_FE_FLAG | int32 | dex | [CI/Fe] flag |
- | N_FE | float32 | dex | [N/Fe] from ASPCAP analysis  of combined spectrum (from X_M) |
- | N_FE_SPEC | float32 |  | NB: description of column needs update |
- | N_FE_ERR | float32 | dex | [N/Fe] uncertainty from ASPCAP analysis  of combined spectrum (from X_M) |
- | N_FE_FLAG | int32 | dex | [N/Fe] flag |
- | O_FE | float32 | dex | [O/Fe] from ASPCAP analysis  of combined spectrum (from X_M) |
- | O_FE_SPEC | float32 |  | NB: description of column needs update |
- | O_FE_ERR | float32 | dex | [O/Fe] uncertainty from ASPCAP analysis  of combined spectrum (from X_M) |
- | O_FE_FLAG | int32 | dex | [O/Fe] flag |
- | NA_FE | float32 | dex | [Na/Fe] from ASPCAP analysis  of combined spectrum (from X_M) |
- | NA_FE_SPEC | float32 |  | NB: description of column needs update |
- | NA_FE_ERR | float32 | dex | [Na/Fe] uncertainty from ASPCAP analysis  of combined spectrum (from X_M) |
- | NA_FE_FLAG | int32 | dex | [Na/Fe] flag |
- | MG_FE | float32 | dex | [Mg/Fe] from ASPCAP analysis  of combined spectrum (from X_M) |
- | MG_FE_SPEC | float32 |  | NB: description of column needs update |
- | MG_FE_ERR | float32 | dex | [Mg/Fe] uncertainty from ASPCAP analysis  of combined spectrum (from X_M) |
- | MG_FE_FLAG | int32 | dex | [Mg/Fe] flag |
- | AL_FE | float32 | dex | [Al/Fe] from ASPCAP analysis  of combined spectrum (from X_M) |
- | AL_FE_SPEC | float32 |  | NB: description of column needs update |
- | AL_FE_ERR | float32 | dex | [Al/Fe] uncertainty from ASPCAP analysis  of combined spectrum (from X_M) |
- | AL_FE_FLAG | int32 | dex | [Al/Fe] flag |
- | SI_FE | float32 | dex | [Si/Fe] from ASPCAP analysis  of combined spectrum (from X_M) |
- | SI_FE_SPEC | float32 |  | NB: description of column needs update |
- | SI_FE_ERR | float32 | dex | [Si/Fe] uncertainty from ASPCAP analysis  of combined spectrum (from X_M) |
- | SI_FE_FLAG | int32 | dex | [Si/Fe] flag |
- | P_FE | float32 | dex | [P/Fe] from ASPCAP analysis  of combined spectrum (from X_M) |
- | P_FE_SPEC | float32 |  | NB: description of column needs update |
- | P_FE_ERR | float32 | dex | [P/Fe] uncertainty from ASPCAP analysis  of combined spectrum (from X_M) |
- | P_FE_FLAG | int32 | dex | [P/Fe] flag |
- | S_FE | float32 | dex | [S/Fe] from ASPCAP analysis  of combined spectrum (from X_M) |
- | S_FE_SPEC | float32 |  | NB: description of column needs update |
- | S_FE_ERR | float32 | dex | [S/Fe] uncertainty from ASPCAP analysis  of combined spectrum (from X_M) |
- | S_FE_FLAG | int32 | dex | [S/Fe] flag |
- | K_FE | float32 | dex | [K/Fe] from ASPCAP analysis  of combined spectrum (from X_M) |
- | K_FE_SPEC | float32 |  | NB: description of column needs update |
- | K_FE_ERR | float32 | dex | [K/Fe] uncertainty from ASPCAP analysis  of combined spectrum (from X_M) |
- | K_FE_FLAG | int32 | dex | [K/Fe] flag |
- | CA_FE | float32 | dex | [Ca/Fe] from ASPCAP analysis  of combined spectrum (from X_M) |
- | CA_FE_SPEC | float32 |  | NB: description of column needs update |
- | CA_FE_ERR | float32 | dex | [Ca/Fe] uncertainty from ASPCAP analysis  of combined spectrum (from X_M) |
- | CA_FE_FLAG | int32 | dex | [Ca/Fe] flag |
- | TI_FE | float32 | dex | [Ti/Fe] from ASPCAP analysis  of combined spectrum (from X_M) |
- | TI_FE_SPEC | float32 |  | NB: description of column needs update |
- | TI_FE_ERR | float32 | dex | [Ti/Fe] uncertainty from ASPCAP analysis  of combined spectrum (from X_M) |
- | TI_FE_FLAG | int32 | dex | [Ti/Fe] flag |
- | TIII_FE | float32 | dex | [TiII/Fe] from ASPCAP analysis  of combined spectrum (from X_M) |
- | TIII_FE_SPEC | float32 |  | NB: description of column needs update |
- | TIII_FE_ERR | float32 | dex | [TiII/Fe] uncertainty from ASPCAP analysis  of combined spectrum (from X_M) |
- | TIII_FE_FLAG | int32 | dex | [TiII/Fe] flag |
- | V_FE | float32 | dex | [V/Fe] from ASPCAP analysis  of combined spectrum (from X_M) |
- | V_FE_SPEC | float32 |  | NB: description of column needs update |
- | V_FE_ERR | float32 | dex | [V/Fe] uncertainty from ASPCAP analysis  of combined spectrum (from X_M) |
- | V_FE_FLAG | int32 | dex | [V/Fe] flag |
- | CR_FE | float32 | dex | [Cr/Fe] from ASPCAP analysis  of combined spectrum (from X_M) |
- | CR_FE_SPEC | float32 |  | NB: description of column needs update |
- | CR_FE_ERR | float32 | dex | [Cr/Fe] uncertainty from ASPCAP analysis  of combined spectrum (from X_M) |
- | CR_FE_FLAG | int32 | dex | [Cr/Fe] flag |
- | MN_FE | float32 | dex | [Mn/Fe] from ASPCAP analysis  of combined spectrum (from X_M) |
- | MN_FE_SPEC | float32 |  | NB: description of column needs update |
- | MN_FE_ERR | float32 | dex | [Mn/Fe] uncertainty from ASPCAP analysis  of combined spectrum (from X_M) |
- | MN_FE_FLAG | int32 | dex | [Mn/Fe] flag |
- | FE_H | float32 | dex | [Fe/H] from ASPCAP analysis  of combined spectrum (from X_M) |
- | FE_H_SPEC | float32 |  | NB: description of column needs update |
- | FE_H_ERR | float32 | dex | [Fe/H] uncertainty from ASPCAP analysis  of combined spectrum (from X_M) |
- | FE_H_FLAG | int32 | dex | [Fe/H] flag |
- | CO_FE | float32 | dex | [Co/Fe] from ASPCAP analysis  of combined spectrum (from X_M) |
- | CO_FE_SPEC | float32 |  | NB: description of column needs update |
- | CO_FE_ERR | float32 | dex | [Co/Fe] uncertainty from ASPCAP analysis  of combined spectrum (from X_M) |
- | CO_FE_FLAG | int32 | dex | [Co/Fe] flag |
- | NI_FE | float32 | dex | [Ni/Fe] from ASPCAP analysis  of combined spectrum (from X_M) |
- | NI_FE_SPEC | float32 |  | NB: description of column needs update |
- | NI_FE_ERR | float32 | dex | [Ni/Fe] uncertainty from ASPCAP analysis  of combined spectrum (from X_M) |
- | NI_FE_FLAG | int32 | dex | [Ni/Fe] flag |
- | CU_FE | float32 | dex | [Cu/Fe] from ASPCAP analysis  of combined spectrum (from X_M) |
- | CU_FE_SPEC | float32 |  | NB: description of column needs update |
- | CU_FE_ERR | float32 | dex | [Cu/Fe] uncertainty from ASPCAP analysis  of combined spectrum (from X_M) |
- | CU_FE_FLAG | int32 | dex | [Cu/Fe] flag |
- | CE_FE | float32 |  | NB: description not found. Needs update |
- | CE_FE_SPEC | float32 |  | NB: description of column needs update |
- | CE_FE_ERR | float32 |  | NB: description not found. Needs update |
- | CE_FE_FLAG | int32 |  | NB: description not found. Needs update |
- | YB_FE | float32 |  | NB: description not found. Needs update |
- | YB_FE_SPEC | float32 |  | NB: description of column needs update |
- | YB_FE_ERR | float32 |  | NB: description not found. Needs update |
- | YB_FE_FLAG | int32 |  | NB: description not found. Needs update |
- | VISIT_PK | int32[100] |  | Index of visits (used in combined spectrum) in allVisit file |
-
-
-
-### HDU2: 
-
-
-#### HDU Type: IMAGE
-#### HDU Size:  2 KB
-
-##### Header Table Caption for HDU2
-Key | Value | Comment | |
-| --- | --- | --- | --- |
-| XTENSION | IMAGE | number of groups |
-| BITPIX | 64 | number of groups |
-| NAXIS | 1 | number of groups |
-| NAXIS1 | 360 | number of groups |
-| PCOUNT | 0 | number of groups |
-| GCOUNT | 1 | number of groups |
-
-
-
-### HDU3: 
-
-
-#### HDU Type: BINARY TABLE
-#### HDU Size:  32 KB
-
-##### Binary Table Caption for HDU3
-Name | Type | Unit | Description |
-| --- | --- | --- | --- |
- | WAVE | float32[7514] |  | NB: description of column needs update |
- | PARAM_SYMBOL | char[576] |  | Gives order of parameters for PARAM and FPARAM arrays in HDU1 |
- | ELEM_SYMBOL | char[540] |  | Gives order of elements for X_H, X_M and FELEM arrays in HDU1 |
- | ELEMTOH | int32[27] |  | Set to 1 for FELEM array element that is relative to H, 0 if relative to M (note caveat for C and N, which are relative to H in the dwarf grids) |
- | ELEM_VALUE | char[1296] |  | Gives nature of values in FELEM arrays in HDU1, i.e. [X/H] or [X/M] |
- | GRIDS | char[420] |  | NB: description of column needs update |
-
-
-
-### HDU4: 
-
-
-#### HDU Type: BINARY TABLE
-#### HDU Size:  121 KB
-
-##### Binary Table Caption for HDU4
-Name | Type | Unit | Description |
-| --- | --- | --- | --- |
- | TELESCOPE | char[12] |  | String representation of of telescope used for observation (currently APO 2.5m / 1m or LCO) |
- | FIELD | char[32] |  | Field name |
- | APOGEE_VERS | char[12] |  | APOGEE_VERS |
+ | CREATED | char[39] |  | IPL1: description of column needs update |
+ | V_APRED | char[50] | IPL1: description of column needs update | IPL1: description of column needs update |
+ | CADENCE | char[10] | IPL1: description of column needs update | IPL1: description of column needs update |
+ | PROGRAM | char[10] |  | IPL1: description of column needs update |
+ | CATEGORY | char[10] |  | IPL1: description of column needs update |
 
 
 
