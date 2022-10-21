@@ -17,16 +17,16 @@
 #### HDU Type: {{ 'IMAGE' if hdu.is_image else 'BINARY TABLE' }}
 #### HDU Size:  {{ hdu.size }}
 
-{% if hdu.is_image %}
-{# IMAGE HDUS #}
+{% if hdu.header %}
 ##### Header Table Caption for {{ hdu_id | upper }}
 Key | Value | Comment | |
 | --- | --- | --- | --- |
 {% for header in hdu.header %}
 | {{ header.key }} | {{ header.value }} | {{ header.comment }} |
 {% endfor %}
+{% endif %}
 
-{% else %}
+{% if not hdu.is_image %}
 {# BINARY TABLE HDUS #}
 ##### Binary Table Caption for {{ hdu_id | upper }}
 Name | Type | Unit | Description |
