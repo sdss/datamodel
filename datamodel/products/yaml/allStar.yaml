@@ -13,6 +13,7 @@ general:
   - DR15
   - DR16
   - DR17
+  - WORK
   environments:
   - APOGEE_REDUX
   - APOGEE_ROOT
@@ -23,10 +24,16 @@ general:
   vac: false
   surveys:
   - APOGEE-2
+  - MWM
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
   releases:
+    WORK:
+      from: DR17
+      primary_delta_nkeys: 1
+      removed_primary_header_kwargs:
+      - VERSION
     DR17:
       from: DR16
       added_primary_header_kwargs:
@@ -37,8 +44,8 @@ changelog:
       from: DR15
       primary_delta_nkeys: 10
       removed_primary_header_kwargs:
-      - HISTORY
       - DATE
+      - HISTORY
     DR15:
       from: DR14
       note: No changes
@@ -8079,5 +8086,423 @@ releases:
             type: char[12]
             unit: ''
             description: APOGEE_VERS
+  WORK:
+    template: $APOGEE_REDUX/[APRED]/summary/allStar-[APRED]-[TELESCOPE].fits
+    example: 1.0/summary/allStar-1.0-apo25m.fits
+    location: '{apred}/summary/allStar-{apred}-{telescope}.fits'
+    environment: APOGEE_REDUX
+    access:
+      in_sdss_access: true
+      path_name: allStar
+      path_template: $APOGEE_REDUX/{apred}/summary/allStar-{apred}.fits
+      path_kwargs:
+      - apred
+      access_string: allStar = $APOGEE_REDUX/{apred}/summary/allStar-{apred}-{telescope}.fits
+    survey: MWM
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: replace me description
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: replace me description
+        is_image: false
+        size: 142 MB
+        columns:
+          pk:
+            name: PK
+            type: int64
+            unit: replace me - with content
+            description: replace me - with content
+          apogee_id:
+            name: APOGEE_ID
+            type: char[28]
+            unit: replace me - with content
+            description: replace me - with content
+          file:
+            name: FILE
+            type: char[57]
+            unit: replace me - with content
+            description: replace me - with content
+          uri:
+            name: URI
+            type: char[106]
+            unit: replace me - with content
+            description: replace me - with content
+          starver:
+            name: STARVER
+            type: char[15]
+            unit: replace me - with content
+            description: replace me - with content
+          mjdbeg:
+            name: MJDBEG
+            type: int64
+            unit: replace me - with content
+            description: replace me - with content
+          mjdend:
+            name: MJDEND
+            type: int64
+            unit: replace me - with content
+            description: replace me - with content
+          telescope:
+            name: TELESCOPE
+            type: char[16]
+            unit: replace me - with content
+            description: replace me - with content
+          apred_vers:
+            name: APRED_VERS
+            type: char[13]
+            unit: replace me - with content
+            description: replace me - with content
+          healpix:
+            name: HEALPIX
+            type: int64
+            unit: replace me - with content
+            description: replace me - with content
+          snr:
+            name: SNR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          ra:
+            name: RA
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          dec:
+            name: DEC
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          glon:
+            name: GLON
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          glat:
+            name: GLAT
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          jmag:
+            name: JMAG
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          jerr:
+            name: JERR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          hmag:
+            name: HMAG
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          herr:
+            name: HERR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          kmag:
+            name: KMAG
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          kerr:
+            name: KERR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          src_h:
+            name: SRC_H
+            type: char[10]
+            unit: replace me - with content
+            description: replace me - with content
+          targ_pmra:
+            name: TARG_PMRA
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          targ_pmdec:
+            name: TARG_PMDEC
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          targ_pm_src:
+            name: TARG_PM_SRC
+            type: char[10]
+            unit: replace me - with content
+            description: replace me - with content
+          apogee_target1:
+            name: APOGEE_TARGET1
+            type: int64
+            unit: replace me - with content
+            description: replace me - with content
+          apogee_target2:
+            name: APOGEE_TARGET2
+            type: int64
+            unit: replace me - with content
+            description: replace me - with content
+          apogee2_target1:
+            name: APOGEE2_TARGET1
+            type: int64
+            unit: replace me - with content
+            description: replace me - with content
+          apogee2_target2:
+            name: APOGEE2_TARGET2
+            type: int64
+            unit: replace me - with content
+            description: replace me - with content
+          apogee2_target3:
+            name: APOGEE2_TARGET3
+            type: int64
+            unit: replace me - with content
+            description: replace me - with content
+          apogee2_target4:
+            name: APOGEE2_TARGET4
+            type: int64
+            unit: replace me - with content
+            description: replace me - with content
+          catalogid:
+            name: CATALOGID
+            type: int64
+            unit: replace me - with content
+            description: replace me - with content
+          gaiadr2_sourceid:
+            name: GAIADR2_SOURCEID
+            type: int64
+            unit: replace me - with content
+            description: replace me - with content
+          gaiadr2_plx:
+            name: GAIADR2_PLX
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          gaiadr2_plx_error:
+            name: GAIADR2_PLX_ERROR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          gaiadr2_pmra:
+            name: GAIADR2_PMRA
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          gaiadr2_pmra_error:
+            name: GAIADR2_PMRA_ERROR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          gaiadr2_pmdec:
+            name: GAIADR2_PMDEC
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          gaiadr2_pmdec_error:
+            name: GAIADR2_PMDEC_ERROR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          gaiadr2_gmag:
+            name: GAIADR2_GMAG
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          gaiadr2_gerr:
+            name: GAIADR2_GERR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          gaiadr2_bpmag:
+            name: GAIADR2_BPMAG
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          gaiadr2_bperr:
+            name: GAIADR2_BPERR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          gaiadr2_rpmag:
+            name: GAIADR2_RPMAG
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          gaiadr2_rperr:
+            name: GAIADR2_RPERR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          sdssv_apogee_target0:
+            name: SDSSV_APOGEE_TARGET0
+            type: int64
+            unit: replace me - with content
+            description: replace me - with content
+          firstcarton:
+            name: FIRSTCARTON
+            type: char[45]
+            unit: replace me - with content
+            description: replace me - with content
+          targflags:
+            name: TARGFLAGS
+            type: char[113]
+            unit: replace me - with content
+            description: replace me - with content
+          nvisits:
+            name: NVISITS
+            type: int64
+            unit: replace me - with content
+            description: replace me - with content
+          ngoodvisits:
+            name: NGOODVISITS
+            type: int64
+            unit: replace me - with content
+            description: replace me - with content
+          ngoodrvs:
+            name: NGOODRVS
+            type: int64
+            unit: replace me - with content
+            description: replace me - with content
+          starflag:
+            name: STARFLAG
+            type: int64
+            unit: replace me - with content
+            description: replace me - with content
+          starflags:
+            name: STARFLAGS
+            type: char[92]
+            unit: replace me - with content
+            description: replace me - with content
+          andflag:
+            name: ANDFLAG
+            type: int64
+            unit: replace me - with content
+            description: replace me - with content
+          andflags:
+            name: ANDFLAGS
+            type: char[10]
+            unit: replace me - with content
+            description: replace me - with content
+          vrad:
+            name: VRAD
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          vscatter:
+            name: VSCATTER
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          verr:
+            name: VERR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          vmederr:
+            name: VMEDERR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          chisq:
+            name: CHISQ
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          rv_teff:
+            name: RV_TEFF
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          rv_tefferr:
+            name: RV_TEFFERR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          rv_logg:
+            name: RV_LOGG
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          rv_loggerr:
+            name: RV_LOGGERR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          rv_feh:
+            name: RV_FEH
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          rv_feherr:
+            name: RV_FEHERR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          rv_ccpfwhm:
+            name: RV_CCPFWHM
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          rv_autofwhm:
+            name: RV_AUTOFWHM
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          n_components:
+            name: N_COMPONENTS
+            type: int64
+            unit: replace me - with content
+            description: replace me - with content
+          meanfib:
+            name: MEANFIB
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          sigfib:
+            name: SIGFIB
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          created:
+            name: CREATED
+            type: char[39]
+            unit: replace me - with content
+            description: replace me - with content
+          v_apred:
+            name: V_APRED
+            type: char[50]
+            unit: replace me - with content
+            description: replace me - with content
+          cadence:
+            name: CADENCE
+            type: char[10]
+            unit: replace me - with content
+            description: replace me - with content
+          program:
+            name: PROGRAM
+            type: char[10]
+            unit: replace me - with content
+            description: replace me - with content
+          category:
+            name: CATEGORY
+            type: char[10]
+            unit: replace me - with content
+            description: replace me - with content
 notes: |-
   None
