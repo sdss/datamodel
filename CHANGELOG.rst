@@ -12,6 +12,8 @@ Change Log
 - Streamlines the package dependencies for a lite version.  Moved dependencies for dm generate to new ``gen`` extras section.
 - Added new notes section to the datamodel, for caveats, etc
 - Switched name sytax for the model ``Release`` and the yaml section releases to ``ReleaseModel``.
+- Added FITS binary table headers into the datamodel yaml as ``header`` section.
+- FITS table column descriptions now pull from TTYPE header comment or TCOMM.
 
 0.5.1 (10-04-2022)
 ------------------
