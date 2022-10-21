@@ -129,6 +129,7 @@ class FitsFile(BaseFile):
         hdr = []
         for key, value in header.items():
             if self._is_header_keyword(key=key):
+                value = None if isinstance(value, fits.card.Undefined) else value
                 column = {"key": key, "value": value, "comment": header.comments[key]}
                 hdr.append(column)
         return hdr
