@@ -14,6 +14,7 @@ Change Log
 - Switched name sytax for the model ``Release`` and the yaml section releases to ``ReleaseModel``.
 - Added FITS binary table headers into the datamodel yaml as ``header`` section.
 - FITS table column descriptions now pull from TTYPE header comment or TCOMM.
+- Adding new releases and tags for DR18 and IPL-1
 
 0.5.1 (10-04-2022)
 ------------------
