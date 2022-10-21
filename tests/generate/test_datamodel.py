@@ -181,6 +181,16 @@ def test_release_partial_cache(makefile, validyaml):
     assert 'mjd' in hdu2b['columns']
 
 
+def test_datamodel_table_header(validmodel):
+    validmodel('fits')
+    dm = DataModel.from_yaml('test', release='WORK')
+    ss = dm.get_stub('yaml')
+    ss.update_cache()
+    hdu2 = ss._cache['releases']['WORK']['hdus']['hdu2']
+    assert 'header' in hdu2
+    assert hdu2['header'][0] == {"key": "TTYPE1", "value": "OBJECT", "comment": "an object name"}
+
+
 def test_default_work_release_sdss5(caplog):
     dm = DataModel(file_spec='rsCompleteness', keywords=['plan=A', 'observatory=APO'],
                    path='ROBOSTRATEGY_DATA/allocations/{plan}/rsCompleteness-{plan}-{observatory}.fits',

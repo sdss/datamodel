@@ -54,7 +54,7 @@ class Header(BaseModel):
         A comment for the header keyword, if any
     """
     key: str
-    value: str = ''
+    value: Optional[str] = ''
     comment: str = ''
 
     def to_tuple(self):
