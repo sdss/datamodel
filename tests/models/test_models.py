@@ -35,7 +35,7 @@ def test_list_names(model):
 @pytest.mark.parametrize('name, exp',
                          [('release_date', 'EDR'),
                           ('name', 'DR1'),
-                          ('public', 'MPL1')],
+                          ('public', 'IPL1')],
                          ids=['date', 'name', 'public'])
 def test_sort(name, exp):
     """ test we can sort model lists """
