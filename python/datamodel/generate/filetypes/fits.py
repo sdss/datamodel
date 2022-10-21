@@ -115,10 +115,11 @@ class FitsFile(BaseFile):
             'size': format_bytes(hdu.size),
         }
 
-        if hdu.is_image:
-            row['header'] = self._generate_header(header)
-        else:
-            row['header'] = self._generate_header(header)
+        # add the extension header
+        row['header'] = self._generate_header(header)
+
+        # add the binary table columns
+        if not hdu.is_image:
             row['columns'] = {}
             for column in hdu.columns:
                 row['columns'][column.name] = self._generate_column_dict(column, hdu=hdu)
