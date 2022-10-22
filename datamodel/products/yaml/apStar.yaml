@@ -1,11 +1,10 @@
 general:
   name: apStar
   short: APOGEE Redux combined spectrum file
-  description: 'apStar files contain the spectral data for a given star.  apStar files
-    combine data from multiple visits, and combine the data from the three
-    chips. Spectra are resampled onto a simple logarithmic wavelength
-    scale. Both combined spectra as well as the resampled individual visit
-    spectra are output.'
+  description: apStar files contain the spectral data for a given star.  apStar files
+    combine data from multiple visits, and combine the data from the three chips.
+    Spectra are resampled onto a simple logarithmic wavelength scale. Both combined
+    spectra as well as the resampled individual visit spectra are output.
   datatype: FITS
   filesize: 1 MB
   releases:
@@ -14,58 +13,158 @@ general:
   - DR14
   - DR15
   - DR16
+  - DR17
   environments:
   - APOGEE_REDUX
-  naming_convention: '<code>apStar-.+-[0-9]{5}\.fits</code>, where .+ (a.k.a. STARNAME)
+  naming_convention: <code>apStar-.+-[0-9]{5}\.fits</code>, where .+ (a.k.a. STARNAME)
     uniquely identifies each star and [0-9]{5} is the 5-digit MJD number of the last
     data included in the combined frames. There will also be a link, apStar-STARNAME.fits
-    to the latest combined frame.
-    apStar-STARNAME\.html'
+    to the latest combined frame. apStar-STARNAME\.html
   generated_by: apogeereduce (apstar_output)
+  design: false
+  vac: false
+  surveys:
+  - APOGEE-2
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
   releases:
+    DR17:
+      from: DR16
+      primary_delta_nkeys: 48
+      added_primary_header_kwargs:
+      - NRES
+      - J_ERR
+      - H_ERR
+      - N_COMP
+      - SRC_H
+      - AP2TARG1
+      - IRAC_3_6
+      - APTARG2
+      - MIN_JK
+      - RV_FEH
+      - IRAC_5_8
+      - MAX_H
+      - MIN_H
+      - TARG_4_5
+      - SNREV
+      - AP2TARG3
+      - IRAC_4_5
+      - RV_CHI2
+      - MAX_JK
+      - CCFWHM
+      - WASH_T2
+      - AP2TARG4
+      - RV_TEFF
+      - K_ERR
+      - WASH_M
+      - WISE_4_5
+      - RV_LOGG
+      - DDO51
+      - APTARG1
+      - AP2TARG2
+      removed_primary_header_kwargs:
+      - JD3
+      - OVERR
+      - RVALPH1
+      - VTYPE3
+      - VGSR
+      - RVTEFF
+      - RVTEFF3
+      - OVSCAT
+      - SVERR
+      - RVALPH2
+      - RVLOGG2
+      - CCPFWHM
+      - RVLOGG3
+      - SVHELIO
+      - CHISQ2
+      - OVERR_ME
+      - CHISQ1
+      - HJD2
+      - RVFEH
+      - HJD1
+      - RVCARB2
+      - VTYPE1
+      - TARG2
+      - TARG1
+      - SVSCAT
+      - RVLOGG1
+      - RVFEH2
+      - VLSR
+      - DATE3
+      - CHISQ3
+      - SYNTHSCA
+      - VERR3
+      - SURVEY
+      - RVALPH3
+      - OVHELIO
+      - RVTEFF1
+      - FIBER3
+      - BC3
+      - SFILE3
+      - FLAG3
+      - HJD3
+      - TELESCOP
+      - COMBTYPE
+      - DATE
+      - VHELIO3
+      - CHISQ
+      - RVTEFF2
+      - RVLOGG
+      - RVFEH3
+      - LOCID
+      - RVCARB1
+      - VTYPE2
+      - VRAD
+      - SVERR_ME
+      - RVCARB
+      - VRAD3
+      - RVALPH
+      - RVFEH1
+      - SNRVIS3
+      - TARG3
+      - RVCARB3
     DR16:
       from: DR15
       primary_delta_nkeys: 38
       removed_primary_header_kwargs:
-      - FLAG4
-      - BC5
-      - SNRVIS4
-      - SNRVIS5
-      - VRAD4
-      - RVLOGG5
-      - SFILE5
-      - VHELIO5
-      - VERR5
-      - VHELIO4
-      - VRAD5
-      - RVCARB5
-      - FIBER4
-      - CHISQ4
-      - HJD5
-      - RVALPH4
-      - HJD4
-      - DATE4
-      - VTYPE4
-      - BC4
-      - RVFEH5
-      - RVTEFF5
-      - FLAG5
-      - RVCARB4
-      - RVTEFF4
       - JD4
-      - SFILE4
-      - RVFEH4
-      - CHISQ5
+      - RVALPH4
+      - VERR5
+      - HJD4
+      - RVTEFF5
+      - RVCARB4
       - RVALPH5
       - VTYPE5
-      - DATE5
-      - FIBER5
+      - SNRVIS4
+      - VRAD5
+      - RVTEFF4
+      - VHELIO4
+      - VTYPE4
+      - FLAG5
+      - RVLOGG5
+      - CHISQ4
       - JD5
-      - VERR4
+      - BC5
+      - DATE5
+      - CHISQ5
+      - SFILE4
+      - RVCARB5
+      - SFILE5
+      - VHELIO5
+      - VRAD4
       - RVLOGG4
+      - RVFEH5
+      - RVFEH4
+      - FLAG4
+      - VERR4
+      - SNRVIS5
+      - HJD5
+      - FIBER4
+      - FIBER5
+      - DATE4
+      - BC4
     DR15:
       from: DR14
       note: No changes
@@ -73,23 +172,23 @@ changelog:
       from: DR13
       primary_delta_nkeys: 17
       added_primary_header_kwargs:
-      - CHISQ1
-      - AKMETHOD
-      - COMBTYPE
-      - OVSCAT
-      - OVERR
       - CHISQ5
-      - CHISQ2
-      - SFD_EBV
-      - CHISQ
-      - CHISQ4
-      - AKTARG
+      - OVERR
       - VGSR
-      - CHISQ3
-      - OVERR_ME
-      - VLSR
-      - OVHELIO
+      - AKMETHOD
+      - CHISQ4
+      - COMBTYPE
       - AKWISE
+      - OVSCAT
+      - AKTARG
+      - CHISQ1
+      - VLSR
+      - CHISQ
+      - CHISQ3
+      - SFD_EBV
+      - CHISQ2
+      - OVERR_ME
+      - OVHELIO
     DR13:
       from: DR12
       primary_delta_nkeys: 2
@@ -661,12 +760,10 @@ releases:
       hdu1:
         name: ''
         description: 'Combined and individual spectra for star, at apStar sampling.
-          Each
-          spectrum has 8575 columns with the spectra, and 2+NVISITS rows. The first
-          two rows are both combined spectra, with different weighting: first row
-          uses pixel-based weighting, while second uses a more "global" weighting.
-          If NVISITS=1, there will only be one row.
-          Data: FITS image'
+          Each spectrum has 8575 columns with the spectra, and 2+NVISITS rows. The
+          first two rows are both combined spectra, with different weighting: first
+          row uses pixel-based weighting, while second uses a more "global" weighting.
+          If NVISITS=1, there will only be one row. Data: FITS image'
         is_image: true
         size: 234 KB
         header:
@@ -712,8 +809,7 @@ releases:
       hdu2:
         name: ''
         description: 'Uncertainty in spectrum. Rows are as in HDU1. Note that these
-          errors
-          are not strictly independent, because the spectra have been resampled.
+          errors are not strictly independent, because the spectra have been resampled.
           Data: FITS image'
         is_image: true
         size: 234 KB
@@ -760,8 +856,7 @@ releases:
       hdu3:
         name: ''
         description: 'Mask arrays corresponding to the spectra in HDU1. See <a href="http://www.sdss.org/dr14/algorithms/bitmasks/#APOGEE_PIXMASK">APOGEE_PIXMASK</a>
-          definition
-          Data: FITS image'
+          definition Data: FITS image'
         is_image: true
         size: 117 KB
         header:
@@ -808,8 +903,7 @@ releases:
         name: ''
         description: 'Sky spectra corresponding to HDU1. Note that these are not directly
           what was subtracted, as sky subtraction is done at the individual exposure
-          level!
-          Data: FITS image'
+          level! Data: FITS image'
         is_image: true
         size: 234 KB
         header:
@@ -854,8 +948,7 @@ releases:
           comment: ''
       hdu5:
         name: ''
-        description: 'Uncertainty for HDU5
-          Data: FITS image'
+        description: 'Uncertainty for HDU5 Data: FITS image'
         is_image: true
         size: 234 KB
         header:
@@ -902,8 +995,7 @@ releases:
         name: ''
         description: 'Telluric spectra corresponding to HDU1. Note that these are
           not directly what was subtracted, as sky subtraction is done at the individual
-          exposure level!
-          Data: FITS image'
+          exposure level! Data: FITS image'
         is_image: true
         size: 234 KB
         header:
@@ -948,8 +1040,7 @@ releases:
           comment: ''
       hdu7:
         name: ''
-        description: 'Uncertainty for HDU6
-          Data: FITS image'
+        description: 'Uncertainty for HDU6 Data: FITS image'
         is_image: true
         size: 234 KB
         header:
@@ -994,8 +1085,8 @@ releases:
           comment: ''
       hdu8:
         name: ''
-        description: 'Gauss-Hermite coefficients for LSF for spectra in HDU1
-          Data: FITS image'
+        description: 'Gauss-Hermite coefficients for LSF for spectra in HDU1 Data:
+          FITS image'
         is_image: true
         size: 216 bytes
         header:
@@ -1817,12 +1908,10 @@ releases:
       hdu1:
         name: ''
         description: 'Combined and individual spectra for star, at apStar sampling.
-          Each
-          spectrum has 8575 columns with the spectra, and 2+NVISITS rows. The first
-          two rows are both combined spectra, with different weighting: first row
-          uses pixel-based weighting, while second uses a more "global" weighting.
-          If NVISITS=1, there will only be one row.
-          Data: FITS image'
+          Each spectrum has 8575 columns with the spectra, and 2+NVISITS rows. The
+          first two rows are both combined spectra, with different weighting: first
+          row uses pixel-based weighting, while second uses a more "global" weighting.
+          If NVISITS=1, there will only be one row. Data: FITS image'
         is_image: true
         size: 234 KB
         header:
@@ -1868,8 +1957,7 @@ releases:
       hdu2:
         name: ''
         description: 'Uncertainty in spectrum. Rows are as in HDU1. Note that these
-          errors
-          are not strictly independent, because the spectra have been resampled.
+          errors are not strictly independent, because the spectra have been resampled.
           Data: FITS image'
         is_image: true
         size: 234 KB
@@ -1916,8 +2004,7 @@ releases:
       hdu3:
         name: ''
         description: 'Mask arrays corresponding to the spectra in HDU1. See <a href="http://www.sdss.org/dr14/algorithms/bitmasks/#APOGEE_PIXMASK">APOGEE_PIXMASK</a>
-          definition
-          Data: FITS image'
+          definition Data: FITS image'
         is_image: true
         size: 117 KB
         header:
@@ -1964,8 +2051,7 @@ releases:
         name: ''
         description: 'Sky spectra corresponding to HDU1. Note that these are not directly
           what was subtracted, as sky subtraction is done at the individual exposure
-          level!
-          Data: FITS image'
+          level! Data: FITS image'
         is_image: true
         size: 234 KB
         header:
@@ -2010,8 +2096,7 @@ releases:
           comment: ''
       hdu5:
         name: ''
-        description: 'Uncertainty for HDU5
-          Data: FITS image'
+        description: 'Uncertainty for HDU5 Data: FITS image'
         is_image: true
         size: 234 KB
         header:
@@ -2058,8 +2143,7 @@ releases:
         name: ''
         description: 'Telluric spectra corresponding to HDU1. Note that these are
           not directly what was subtracted, as sky subtraction is done at the individual
-          exposure level!
-          Data: FITS image'
+          exposure level! Data: FITS image'
         is_image: true
         size: 234 KB
         header:
@@ -2104,8 +2188,7 @@ releases:
           comment: ''
       hdu7:
         name: ''
-        description: 'Uncertainty for HDU6
-          Data: FITS image'
+        description: 'Uncertainty for HDU6 Data: FITS image'
         is_image: true
         size: 234 KB
         header:
@@ -2150,8 +2233,8 @@ releases:
           comment: ''
       hdu8:
         name: ''
-        description: 'Gauss-Hermite coefficients for LSF for spectra in HDU1
-          Data: FITS image'
+        description: 'Gauss-Hermite coefficients for LSF for spectra in HDU1 Data:
+          FITS image'
         is_image: true
         size: 208 bytes
         header:
@@ -3024,12 +3107,10 @@ releases:
       hdu1:
         name: ''
         description: 'Combined and individual spectra for star, at apStar sampling.
-          Each
-          spectrum has 8575 columns with the spectra, and 2+NVISITS rows. The first
-          two rows are both combined spectra, with different weighting: first row
-          uses pixel-based weighting, while second uses a more "global" weighting.
-          If NVISITS=1, there will only be one row.
-          Data: FITS image'
+          Each spectrum has 8575 columns with the spectra, and 2+NVISITS rows. The
+          first two rows are both combined spectra, with different weighting: first
+          row uses pixel-based weighting, while second uses a more "global" weighting.
+          If NVISITS=1, there will only be one row. Data: FITS image'
         is_image: true
         size: 234 KB
         header:
@@ -3075,8 +3156,7 @@ releases:
       hdu2:
         name: ''
         description: 'Uncertainty in spectrum. Rows are as in HDU1. Note that these
-          errors
-          are not strictly independent, because the spectra have been resampled.
+          errors are not strictly independent, because the spectra have been resampled.
           Data: FITS image'
         is_image: true
         size: 234 KB
@@ -3123,8 +3203,7 @@ releases:
       hdu3:
         name: ''
         description: 'Mask arrays corresponding to the spectra in HDU1. See <a href="http://www.sdss.org/dr14/algorithms/bitmasks/#APOGEE_PIXMASK">APOGEE_PIXMASK</a>
-          definition
-          Data: FITS image'
+          definition Data: FITS image'
         is_image: true
         size: 117 KB
         header:
@@ -3171,8 +3250,7 @@ releases:
         name: ''
         description: 'Sky spectra corresponding to HDU1. Note that these are not directly
           what was subtracted, as sky subtraction is done at the individual exposure
-          level!
-          Data: FITS image'
+          level! Data: FITS image'
         is_image: true
         size: 234 KB
         header:
@@ -3217,8 +3295,7 @@ releases:
           comment: ''
       hdu5:
         name: ''
-        description: 'Uncertainty for HDU5
-          Data: FITS image'
+        description: 'Uncertainty for HDU5 Data: FITS image'
         is_image: true
         size: 234 KB
         header:
@@ -3265,8 +3342,7 @@ releases:
         name: ''
         description: 'Telluric spectra corresponding to HDU1. Note that these are
           not directly what was subtracted, as sky subtraction is done at the individual
-          exposure level!
-          Data: FITS image'
+          exposure level! Data: FITS image'
         is_image: true
         size: 234 KB
         header:
@@ -3311,8 +3387,7 @@ releases:
           comment: ''
       hdu7:
         name: ''
-        description: 'Uncertainty for HDU6
-          Data: FITS image'
+        description: 'Uncertainty for HDU6 Data: FITS image'
         is_image: true
         size: 234 KB
         header:
@@ -3357,8 +3432,8 @@ releases:
           comment: ''
       hdu8:
         name: ''
-        description: 'Gauss-Hermite coefficients for LSF for spectra in HDU1
-          Data: FITS image'
+        description: 'Gauss-Hermite coefficients for LSF for spectra in HDU1 Data:
+          FITS image'
         is_image: true
         size: 208 bytes
         header:
@@ -4251,12 +4326,10 @@ releases:
       hdu1:
         name: ''
         description: 'Combined and individual spectra for star, at apStar sampling.
-          Each
-          spectrum has 8575 columns with the spectra, and 2+NVISITS rows. The first
-          two rows are both combined spectra, with different weighting: first row
-          uses pixel-based weighting, while second uses a more "global" weighting.
-          If NVISITS=1, there will only be one row.
-          Data: FITS image'
+          Each spectrum has 8575 columns with the spectra, and 2+NVISITS rows. The
+          first two rows are both combined spectra, with different weighting: first
+          row uses pixel-based weighting, while second uses a more "global" weighting.
+          If NVISITS=1, there will only be one row. Data: FITS image'
         is_image: true
         size: 234 KB
         header:
@@ -4302,8 +4375,7 @@ releases:
       hdu2:
         name: ''
         description: 'Uncertainty in spectrum. Rows are as in HDU1. Note that these
-          errors
-          are not strictly independent, because the spectra have been resampled.
+          errors are not strictly independent, because the spectra have been resampled.
           Data: FITS image'
         is_image: true
         size: 234 KB
@@ -4350,8 +4422,7 @@ releases:
       hdu3:
         name: ''
         description: 'Mask arrays corresponding to the spectra in HDU1. See <a href="http://www.sdss.org/dr14/algorithms/bitmasks/#APOGEE_PIXMASK">APOGEE_PIXMASK</a>
-          definition
-          Data: FITS image'
+          definition Data: FITS image'
         is_image: true
         size: 117 KB
         header:
@@ -4398,8 +4469,7 @@ releases:
         name: ''
         description: 'Sky spectra corresponding to HDU1. Note that these are not directly
           what was subtracted, as sky subtraction is done at the individual exposure
-          level!
-          Data: FITS image'
+          level! Data: FITS image'
         is_image: true
         size: 234 KB
         header:
@@ -4444,8 +4514,7 @@ releases:
           comment: ''
       hdu5:
         name: ''
-        description: 'Uncertainty for HDU5
-          Data: FITS image'
+        description: 'Uncertainty for HDU5 Data: FITS image'
         is_image: true
         size: 234 KB
         header:
@@ -4492,8 +4561,7 @@ releases:
         name: ''
         description: 'Telluric spectra corresponding to HDU1. Note that these are
           not directly what was subtracted, as sky subtraction is done at the individual
-          exposure level!
-          Data: FITS image'
+          exposure level! Data: FITS image'
         is_image: true
         size: 234 KB
         header:
@@ -4538,8 +4606,7 @@ releases:
           comment: ''
       hdu7:
         name: ''
-        description: 'Uncertainty for HDU6
-          Data: FITS image'
+        description: 'Uncertainty for HDU6 Data: FITS image'
         is_image: true
         size: 234 KB
         header:
@@ -4584,8 +4651,8 @@ releases:
           comment: ''
       hdu8:
         name: ''
-        description: 'Gauss-Hermite coefficients for LSF for spectra in HDU1
-          Data: FITS image'
+        description: 'Gauss-Hermite coefficients for LSF for spectra in HDU1 Data:
+          FITS image'
         is_image: true
         size: 208 bytes
         header:
@@ -5364,12 +5431,10 @@ releases:
       hdu1:
         name: ''
         description: 'Combined and individual spectra for star, at apStar sampling.
-          Each
-          spectrum has 8575 columns with the spectra, and 2+NVISITS rows. The first
-          two rows are both combined spectra, with different weighting: first row
-          uses pixel-based weighting, while second uses a more "global" weighting.
-          If NVISITS=1, there will only be one row.
-          Data: FITS image'
+          Each spectrum has 8575 columns with the spectra, and 2+NVISITS rows. The
+          first two rows are both combined spectra, with different weighting: first
+          row uses pixel-based weighting, while second uses a more "global" weighting.
+          If NVISITS=1, there will only be one row. Data: FITS image'
         is_image: true
         size: 167 KB
         header:
@@ -5415,8 +5480,7 @@ releases:
       hdu2:
         name: ''
         description: 'Uncertainty in spectrum. Rows are as in HDU1. Note that these
-          errors
-          are not strictly independent, because the spectra have been resampled.
+          errors are not strictly independent, because the spectra have been resampled.
           Data: FITS image'
         is_image: true
         size: 167 KB
@@ -5463,8 +5527,7 @@ releases:
       hdu3:
         name: ''
         description: 'Mask arrays corresponding to the spectra in HDU1. See <a href="http://www.sdss.org/dr14/algorithms/bitmasks/#APOGEE_PIXMASK">APOGEE_PIXMASK</a>
-          definition
-          Data: FITS image'
+          definition Data: FITS image'
         is_image: true
         size: 83 KB
         header:
@@ -5511,8 +5574,7 @@ releases:
         name: ''
         description: 'Sky spectra corresponding to HDU1. Note that these are not directly
           what was subtracted, as sky subtraction is done at the individual exposure
-          level!
-          Data: FITS image'
+          level! Data: FITS image'
         is_image: true
         size: 167 KB
         header:
@@ -5557,8 +5619,7 @@ releases:
           comment: ''
       hdu5:
         name: ''
-        description: 'Uncertainty for HDU5
-          Data: FITS image'
+        description: 'Uncertainty for HDU5 Data: FITS image'
         is_image: true
         size: 167 KB
         header:
@@ -5605,8 +5666,7 @@ releases:
         name: ''
         description: 'Telluric spectra corresponding to HDU1. Note that these are
           not directly what was subtracted, as sky subtraction is done at the individual
-          exposure level!
-          Data: FITS image'
+          exposure level! Data: FITS image'
         is_image: true
         size: 167 KB
         header:
@@ -5651,8 +5711,7 @@ releases:
           comment: ''
       hdu7:
         name: ''
-        description: 'Uncertainty for HDU6
-          Data: FITS image'
+        description: 'Uncertainty for HDU6 Data: FITS image'
         is_image: true
         size: 167 KB
         header:
@@ -5697,8 +5756,8 @@ releases:
           comment: ''
       hdu8:
         name: ''
-        description: 'Gauss-Hermite coefficients for LSF for spectra in HDU1
-          Data: FITS image'
+        description: 'Gauss-Hermite coefficients for LSF for spectra in HDU1 Data:
+          FITS image'
         is_image: true
         size: 208 bytes
         header:
@@ -5970,3 +6029,991 @@ releases:
             type: float32[401]
             unit: ''
             description: ''
+  DR17:
+    template: $APOGEE_REDUX/[APRED]/[APSTAR]/[TELESCOPE]/[FIELD]/[PREFIX]Star-[APRED]-[OBJ].fits
+    example: dr17/stars/apo25m/K01_082+17/apStar-dr17-2M19085185+5058401.fits
+    location: '{apred}/{apstar}/{telescope}/{field}/{prefix}Star-{apred}-{obj}.fits'
+    environment: APOGEE_REDUX
+    access:
+      in_sdss_access: true
+      path_name: apStar
+      path_template: $APOGEE_REDUX/{apred}/{apstar}/{telescope}/{field}/{prefix}Star-{apred}-{obj}.fits
+      path_kwargs:
+      - obj
+      - field
+      - telescope
+      - apstar
+      - prefix
+      - apred
+      access_string: apStar = $APOGEE_REDUX/{apred}/{apstar}/{telescope}/{field}/{prefix}Star-{apred}-{obj}.fits
+    survey: APOGEE-2
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: replace me description
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: CRVAL1
+          value: 4.179
+          comment: Start log10(wavelength) in subsequent HDUs
+        - key: CDELT1
+          value: 6.0e-06
+          comment: Dispersion in log10(wave) in subsequent HDUs
+        - key: CRPIX1
+          value: 1
+          comment: Pixel of starting wavelength in subsequent HDUs
+        - key: CTYPE1
+          value: LOG-LINEAR
+          comment: Logarithmic wavelength scale in subsequent HDUs
+        - key: DC-FLAG
+          value: 1
+          comment: Logarithmic wavelength scale in subsequent HDUs
+        - key: NWAVE
+          value: 8575
+          comment: Number of wavelengths in subsequent HDUs
+        - key: FIELD
+          value: K01_082+17
+          comment: APOGEE field name
+        - key: OBJID
+          value: 2M19085185+5058401
+          comment: APOGEE object name
+        - key: SNR
+          value: 139.3368456952584
+          comment: Median S/N per apStar pixel
+        - key: SNREV
+          value: 141.8032211662602
+          comment: Median S/N per apStar pixel in middle chip
+        - key: RA
+          value: 287.216083
+          comment: right ascension, deg, J2000
+        - key: DEC
+          value: 50.977833
+          comment: declination, deg, J2000
+        - key: GLON
+          value: 81.5773993874468
+          comment: Galactic longitude
+        - key: GLAT
+          value: 18.1611557911745
+          comment: Galactic latitude
+        - key: J
+          value: 10.72200012207031
+          comment: 2MASS J magnitude
+        - key: J_ERR
+          value: 0.01899999938905239
+          comment: 2MASS J magnitude uncertainty
+        - key: H
+          value: 10.36600017547607
+          comment: 2MASS H magnitude
+        - key: H_ERR
+          value: 0.02300000004470348
+          comment: 2MASS H magnitude uncertainty
+        - key: K
+          value: 10.28800010681152
+          comment: 2MASS K magnitude
+        - key: K_ERR
+          value: 0.02199999988079071
+          comment: 2MASS K magnitude uncertainty
+        - key: SRC_H
+          value: 2MASS
+          comment: source of H magnitude
+        - key: WASH_M
+          value: -9999.990234375
+          comment: ''
+        - key: WASH_T2
+          value: -9999.990234375
+          comment: ''
+        - key: DDO51
+          value: -9999.990234375
+          comment: ''
+        - key: IRAC_3_6
+          value: -9999.990234375
+          comment: ''
+        - key: IRAC_4_5
+          value: -9999.990234375
+          comment: ''
+        - key: IRAC_5_8
+          value: -9999.990234375
+          comment: ''
+        - key: WISE_4_5
+          value: 10.25899982452393
+          comment: ''
+        - key: TARG_4_5
+          value: -9999.990234375
+          comment: ''
+        - key: AKTARG
+          value: 0.02057172171771526
+          comment: Extinction used for targeting
+        - key: AKMETHOD
+          value: SFD
+          comment: Extinction method using for targeting
+        - key: AKWISE
+          value: 0.05232632160186768
+          comment: WISE all-sky extinction
+        - key: SFD_EBV
+          value: 0.06811828911304474
+          comment: SFD E(B-V)
+        - key: APTARG1
+          value: 0
+          comment: APOGEE_TARGET1 targeting flag
+        - key: APTARG2
+          value: 0
+          comment: APOGEE_TARGET2 targeting flag
+        - key: AP2TARG1
+          value: -805306368
+          comment: APOGEE2_TARGET1 targeting flag
+        - key: AP2TARG2
+          value: 0
+          comment: APOGEE2_TARGET2 targeting flag
+        - key: AP2TARG3
+          value: 0
+          comment: APOGEE2_TARGET3 targeting flag
+        - key: AP2TARG4
+          value: 0
+          comment: APOGEE2_TARGET4 targeting flag
+        - key: NVISITS
+          value: 2
+          comment: Number of visit spectra combined flag
+        - key: STARFLAG
+          value: 0
+          comment: bitwise OR of individual visit starflags
+        - key: ANDFLAG
+          value: 0
+          comment: bitwise AND of individual visit starflags
+        - key: N_COMP
+          value: 1
+          comment: Maximum number of components in RV CCFs
+        - key: VHELIO
+          value: -42.19239833788937
+          comment: S/N weighted mean barycentric RV
+        - key: VSCATTER
+          value: 0.04544044581460206
+          comment: standard deviation of visit RVs
+        - key: VERR
+          value: 0.0421103797171252
+          comment: weighted error in VHELIO
+        - key: VERR_MED
+          value: 0.04270710790741473
+          comment: median error in VHELIO
+        - key: RV_TEFF
+          value: 5957.255266985657
+          comment: Effective temperature from RV fit
+        - key: RV_LOGG
+          value: 4.642012582613373
+          comment: Surface gravity from RV fit
+        - key: RV_FEH
+          value: -0.2909194686505274
+          comment: Metallicity from RV fit
+        - key: RV_CHI2
+          value: 3.909138202667236
+          comment: chisq from Doppler RV fit
+        - key: CCFWHM
+          value: 22.66982465482068
+          comment: FWHM of RV CCF of star with template (km/s)
+        - key: AUTOFWHM
+          value: 18.9161230579002
+          comment: FWHM of RV CCF of template with template (km/s)
+        - key: MEANFIB
+          value: 214.0
+          comment: S/N weighted mean fiber number
+        - key: SIGFIB
+          value: 0.0
+          comment: standard deviation (unweighted) of fiber number
+        - key: NRES
+          value: ' 5.00 4.25 3.50'
+          comment: number of pixels/resolution used for sinc
+        - key: MIN_H
+          value: -9999.990234375
+          comment: minimum H mag of cohort
+        - key: MAX_H
+          value: 9999.990234375
+          comment: maximum H mag of cohort
+        - key: MIN_JK
+          value: -9999.990234375
+          comment: minimum J-K of cohort
+        - key: MAX_JK
+          value: 9999.990234375
+          comment: maximum J-K of cohort
+        - key: RMIN
+          value: 6303
+          comment: Min pixel of red chip contrib, any frame
+        - key: RMAX
+          value: 8389
+          comment: Maxmm pixel of red chip contrib, any frame
+        - key: GMIN
+          value: 3546
+          comment: Min pixel of green chip contrib, any frame
+        - key: GMAX
+          value: 6137
+          comment: Maxm pixel of green chip contrib, any frame
+        - key: BMIN
+          value: 207
+          comment: Min pixel of blue chip contrib, any frame
+        - key: BMAX
+          value: 3329
+          comment: Maxm pixel of blue chip contrib, any frame
+        - key: ROVERMIN
+          value: 6303
+          comment: Min pixel of red chip contrib, all frames
+        - key: ROVERMAX
+          value: 8389
+          comment: Max pixel of red chip contrib, all frames
+        - key: GOVERMIN
+          value: 3546
+          comment: Min pixel of green chip contrib, all frames
+        - key: GOVERMAX
+          value: 6137
+          comment: Max pixel of green chip contrib, all frames
+        - key: BOVERMIN
+          value: 207
+          comment: Minimum pixel of blue chip contrib, all frames
+        - key: BOVERMAX
+          value: 3329
+          comment: Maximum pixel of blue chip contrib, all frames
+        - key: COMMENT
+          value: VISIT 1 INFORMATION
+          comment: ''
+        - key: SFILE1
+          value: apVisit-dr17-10008-57936-214.fits
+          comment: 'Visit #1 spectrum file'
+        - key: DATE1
+          value: '2017-07-02T06:23:07.601'
+          comment: DATE-OBS of visit 1
+        - key: JD1
+          value: 2457936.79517
+          comment: Julian date of visit 1
+        - key: FIBER1
+          value: 214
+          comment: Fiber, visit 1
+        - key: BC1
+          value: 4.144699096679688
+          comment: Barycentric correction (km/s), visit 1
+        - key: VRAD1
+          value: -46.30815727415322
+          comment: Radial velocity (km/s) of visit 1
+        - key: VERR1
+          value: 0.03877600957948142
+          comment: Uncertainty in radial velocity (km/s)
+        - key: VHELIO1
+          value: -42.16345817747354
+          comment: Barycentric velocity (km/s), visit 1
+        - key: SNRVIS1
+          value: 107.3487744856979
+          comment: Median S/N per apStar pixel,, visit 1
+        - key: FLAG1
+          value: 0
+          comment: STARFLAG for visit 1
+        - key: COMMENT
+          value: VISIT 2 INFORMATION
+          comment: ''
+        - key: SFILE2
+          value: apVisit-dr17-10008-57938-214.fits
+          comment: 'Visit #2 spectrum file'
+        - key: DATE2
+          value: '2017-07-04T06:52:12.851'
+          comment: DATE-OBS of visit 2
+        - key: JD2
+          value: 2457938.79789
+          comment: Julian date of visit 2
+        - key: FIBER2
+          value: 214
+          comment: Fiber, visit 2
+        - key: BC2
+          value: 3.845256328582764
+          comment: Barycentric correction (km/s), visit 2
+        - key: VRAD2
+          value: -46.07297700080759
+          comment: Radial velocity (km/s) of visit 2
+        - key: VERR2
+          value: 0.04663820623534803
+          comment: Uncertainty in radial velocity (km/s)
+        - key: VHELIO2
+          value: -42.22772067222483
+          comment: Barycentric velocity (km/s), visit 2
+        - key: SNRVIS2
+          value: 89.00482172345633
+          comment: Median S/N per apStar pixel,, visit 2
+        - key: FLAG2
+          value: 0
+          comment: STARFLAG for visit 2
+        - key: HISTORY
+          value: 'APOGEE Reduction Pipeline Version: 0.17.22'
+          comment: ''
+        - key: HISTORY
+          value: 'HDU0 : header'
+          comment: ''
+        - key: HISTORY
+          value: 'HDU1 : flux'
+          comment: ''
+        - key: HISTORY
+          value: 'HDU2 : flux uncertainty'
+          comment: ''
+        - key: HISTORY
+          value: 'HDU3 : pixel bitmask'
+          comment: ''
+        - key: HISTORY
+          value: 'HDU4 : sky'
+          comment: ''
+        - key: HISTORY
+          value: 'HDU5 : sky uncertainty'
+          comment: ''
+        - key: HISTORY
+          value: 'HDU6 : telluric'
+          comment: ''
+        - key: HISTORY
+          value: 'HDU7 : telluric uncertainty'
+          comment: ''
+        - key: HISTORY
+          value: 'HDU8 : LSF table'
+          comment: ''
+        - key: HISTORY
+          value: 'HDU9 : RV table'
+          comment: ''
+        - key: HISTORY
+          value: 'HDU10 : RV table for combined spectrum'
+          comment: ''
+      hdu1:
+        name: ''
+        description: replace me description
+        is_image: true
+        size: 267 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image extension
+        - key: BITPIX
+          value: -64
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 8575
+          comment: ''
+        - key: NAXIS2
+          value: 4
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: number of parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: CRVAL1
+          value: 4.179
+          comment: ''
+        - key: CDELT1
+          value: 6.0e-06
+          comment: ''
+        - key: CRPIX1
+          value: 1
+          comment: ''
+        - key: CTYPE1
+          value: LOG-LINEAR
+          comment: ''
+        - key: BUNIT
+          value: Flux (10^-17 erg/s/cm^2/Ang)
+          comment: ''
+      hdu2:
+        name: ''
+        description: replace me description
+        is_image: true
+        size: 267 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image extension
+        - key: BITPIX
+          value: -64
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 8575
+          comment: ''
+        - key: NAXIS2
+          value: 4
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: number of parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: CRVAL1
+          value: 4.179
+          comment: ''
+        - key: CDELT1
+          value: 6.0e-06
+          comment: ''
+        - key: CRPIX1
+          value: 1
+          comment: ''
+        - key: CTYPE1
+          value: LOG-LINEAR
+          comment: ''
+        - key: BUNIT
+          value: Err (10^-17 erg/s/cm^2/Ang)
+          comment: ''
+      hdu3:
+        name: ''
+        description: replace me description
+        is_image: true
+        size: 267 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image extension
+        - key: BITPIX
+          value: 64
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 8575
+          comment: ''
+        - key: NAXIS2
+          value: 4
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: number of parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: CRVAL1
+          value: 4.179
+          comment: ''
+        - key: CDELT1
+          value: 6.0e-06
+          comment: ''
+        - key: CRPIX1
+          value: 1
+          comment: ''
+        - key: CTYPE1
+          value: LOG-LINEAR
+          comment: ''
+        - key: BUNIT
+          value: Pixel bitmask
+          comment: ''
+      hdu4:
+        name: ''
+        description: replace me description
+        is_image: true
+        size: 267 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image extension
+        - key: BITPIX
+          value: -64
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 8575
+          comment: ''
+        - key: NAXIS2
+          value: 4
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: number of parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: CRVAL1
+          value: 4.179
+          comment: ''
+        - key: CDELT1
+          value: 6.0e-06
+          comment: ''
+        - key: CRPIX1
+          value: 1
+          comment: ''
+        - key: CTYPE1
+          value: LOG-LINEAR
+          comment: ''
+        - key: BUNIT
+          value: Sky (10^-17 erg/s/cm^2/Ang)
+          comment: ''
+      hdu5:
+        name: ''
+        description: replace me description
+        is_image: true
+        size: 267 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image extension
+        - key: BITPIX
+          value: -64
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 8575
+          comment: ''
+        - key: NAXIS2
+          value: 4
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: number of parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: CRVAL1
+          value: 4.179
+          comment: ''
+        - key: CDELT1
+          value: 6.0e-06
+          comment: ''
+        - key: CRPIX1
+          value: 1
+          comment: ''
+        - key: CTYPE1
+          value: LOG-LINEAR
+          comment: ''
+        - key: BUNIT
+          value: Sky error (10^-17 erg/s/cm^2/Ang)
+          comment: ''
+      hdu6:
+        name: ''
+        description: replace me description
+        is_image: true
+        size: 267 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image extension
+        - key: BITPIX
+          value: -64
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 8575
+          comment: ''
+        - key: NAXIS2
+          value: 4
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: number of parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: CRVAL1
+          value: 4.179
+          comment: ''
+        - key: CDELT1
+          value: 6.0e-06
+          comment: ''
+        - key: CRPIX1
+          value: 1
+          comment: ''
+        - key: CTYPE1
+          value: LOG-LINEAR
+          comment: ''
+        - key: BUNIT
+          value: Telluric
+          comment: ''
+      hdu7:
+        name: ''
+        description: replace me description
+        is_image: true
+        size: 267 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image extension
+        - key: BITPIX
+          value: -64
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 8575
+          comment: ''
+        - key: NAXIS2
+          value: 4
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: number of parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: CRVAL1
+          value: 4.179
+          comment: ''
+        - key: CDELT1
+          value: 6.0e-06
+          comment: ''
+        - key: CRPIX1
+          value: 1
+          comment: ''
+        - key: CTYPE1
+          value: LOG-LINEAR
+          comment: ''
+        - key: BUNIT
+          value: Telluric error
+          comment: ''
+      hdu8:
+        name: ''
+        description: replace me description
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: PCOUNT
+          value: 0
+          comment: number of parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+      hdu9:
+        name: ''
+        description: replace me description
+        is_image: false
+        size: 48 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 24696
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 2
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 23
+          comment: number of table fields
+        - key: TDIM15
+          value: (765)
+          comment: ''
+        - key: TDIM16
+          value: (765)
+          comment: ''
+        - key: TDIM17
+          value: (765)
+          comment: ''
+        - key: TDIM23
+          value: (765)
+          comment: ''
+        columns:
+          filename:
+            name: FILENAME
+            type: char[72]
+            unit: replace me - with content
+            description: replace me - with content
+          jd:
+            name: JD
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          snr:
+            name: SNR
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          vhelio:
+            name: VHELIO
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          vrel:
+            name: VREL
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          vrelerr:
+            name: VRELERR
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          teff:
+            name: TEFF
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          tefferr:
+            name: TEFFERR
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          logg:
+            name: LOGG
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          loggerr:
+            name: LOGGERR
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          feh:
+            name: FEH
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          feherr:
+            name: FEHERR
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          chisq:
+            name: CHISQ
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          bc:
+            name: BC
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          x_ccf:
+            name: X_CCF
+            type: float64[765]
+            unit: replace me - with content
+            description: replace me - with content
+          ccf:
+            name: CCF
+            type: float64[765]
+            unit: replace me - with content
+            description: replace me - with content
+          ccferr:
+            name: CCFERR
+            type: float64[765]
+            unit: replace me - with content
+            description: replace me - with content
+          xcorr_vrel:
+            name: XCORR_VREL
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          xcorr_vrelerr:
+            name: XCORR_VRELERR
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          xcorr_vhelio:
+            name: XCORR_VHELIO
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          ccpfwhm:
+            name: CCPFWHM
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          autofwhm:
+            name: AUTOFWHM
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          autoccf:
+            name: AUTOCCF
+            type: float64[765]
+            unit: replace me - with content
+            description: replace me - with content
+      hdu10:
+        name: ''
+        description: replace me description
+        is_image: false
+        size: 7 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 7992
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 1
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 23
+          comment: number of table fields
+        - key: TDIM15
+          value: (243)
+          comment: ''
+        - key: TDIM16
+          value: (243)
+          comment: ''
+        - key: TDIM17
+          value: (243)
+          comment: ''
+        - key: TDIM23
+          value: (243)
+          comment: ''
+        columns:
+          filename:
+            name: FILENAME
+            type: char[72]
+            unit: replace me - with content
+            description: replace me - with content
+          jd:
+            name: JD
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          snr:
+            name: SNR
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          vhelio:
+            name: VHELIO
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          vrel:
+            name: VREL
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          vrelerr:
+            name: VRELERR
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          teff:
+            name: TEFF
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          tefferr:
+            name: TEFFERR
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          logg:
+            name: LOGG
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          loggerr:
+            name: LOGGERR
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          feh:
+            name: FEH
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          feherr:
+            name: FEHERR
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          chisq:
+            name: CHISQ
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          bc:
+            name: BC
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          x_ccf:
+            name: X_CCF
+            type: float64[243]
+            unit: replace me - with content
+            description: replace me - with content
+          ccf:
+            name: CCF
+            type: float64[243]
+            unit: replace me - with content
+            description: replace me - with content
+          ccferr:
+            name: CCFERR
+            type: float64[243]
+            unit: replace me - with content
+            description: replace me - with content
+          xcorr_vrel:
+            name: XCORR_VREL
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          xcorr_vrelerr:
+            name: XCORR_VRELERR
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          xcorr_vhelio:
+            name: XCORR_VHELIO
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          ccpfwhm:
+            name: CCPFWHM
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          autofwhm:
+            name: AUTOFWHM
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          autoccf:
+            name: AUTOCCF
+            type: float64[243]
+            unit: replace me - with content
+            description: replace me - with content
+notes: |-
+  None
