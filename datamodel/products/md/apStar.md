@@ -55,28 +55,28 @@ Describes changes to the datamodel product and/or file structure from one releas
  - WORK
    - from: DR17
    - primary_delta_nkeys: 13
-   - added_primary_header_kwargs: ['SVTARG0', 'RPMAG', 'CHISQ2', 'BPMAG', 'KERR', 'STARVER', 'SVAPTRG0', 'HMAG', 'FRSTCRTN', 'EPLX', 'RPERR', 'GERR', 'EPMRA', 'APTARG3', 'CADENCE', 'PROGRAM', 'PMRA', 'HEALPIX', 'CATEGORY', 'JMAG', 'HERR', 'JERR', 'V_APRED', 'APRED', 'EPMDEC', 'KMAG', 'CHISQ1', 'CARTON1', 'PLX', 'VRAD', 'GMAG', 'CATID', 'BPERR', 'PMDEC']
-   - removed_primary_header_kwargs: ['RMIN', 'BOVERMIN', 'IRAC_4_5', 'K_ERR', 'BMIN', 'IRAC_3_6', 'VHELIO1', 'WASH_T2', 'VERR_MED', 'VHELIO', 'CCFWHM', 'WASH_M', 'VHELIO2', 'IRAC_5_8', 'ROVERMIN', 'K', 'FIELD', 'BOVERMAX', 'VERR1', 'MIN_JK', 'AKMETHOD', 'BMAX', 'J', 'TARG_4_5', 'SNREV', 'SFD_EBV', 'AKTARG', 'RV_CHI2', 'GMAX', 'ROVERMAX', 'MAX_JK', 'H_ERR', 'AKWISE', 'NWAVE', 'WISE_4_5', 'J_ERR', 'VERR2', 'DDO51', 'GMIN', 'H', 'RMAX', 'MAX_H', 'GOVERMAX', 'AUTOFWHM', 'MIN_H', 'GOVERMIN']
+   - added_primary_header_kwargs: ['V_APRED', 'VRAD', 'HMAG', 'APTARG3', 'APRED', 'STARVER', 'PROGRAM', 'RPERR', 'PMRA', 'CHISQ1', 'EPLX', 'SVTARG0', 'CATID', 'PLX', 'SVAPTRG0', 'GMAG', 'KERR', 'FRSTCRTN', 'BPMAG', 'HERR', 'CARTON1', 'HEALPIX', 'CATEGORY', 'PMDEC', 'EPMRA', 'KMAG', 'RPMAG', 'CHISQ2', 'JERR', 'JMAG', 'CADENCE', 'GERR', 'BPERR', 'EPMDEC']
+   - removed_primary_header_kwargs: ['VERR2', 'AUTOFWHM', 'RMAX', 'H_ERR', 'MAX_H', 'ROVERMIN', 'SFD_EBV', 'RV_CHI2', 'FIELD', 'VERR1', 'SNREV', 'WASH_T2', 'MAX_JK', 'BOVERMIN', 'IRAC_3_6', 'ROVERMAX', 'AKTARG', 'MIN_H', 'BOVERMAX', 'WASH_M', 'IRAC_5_8', 'CCFWHM', 'RMIN', 'VERR_MED', 'NWAVE', 'MIN_JK', 'GOVERMAX', 'BMAX', 'AKWISE', 'IRAC_4_5', 'GMIN', 'VHELIO2', 'GMAX', 'VHELIO1', 'H', 'DDO51', 'TARG_4_5', 'GOVERMIN', 'AKMETHOD', 'WISE_4_5', 'J', 'K_ERR', 'J_ERR', 'VHELIO', 'BMIN', 'K']
  - DR17
    - from: DR16
    - primary_delta_nkeys: 48
-   - added_primary_header_kwargs: ['N_COMP', 'IRAC_4_5', 'APTARG1', 'K_ERR', 'WASH_T2', 'CCFWHM', 'WASH_M', 'IRAC_5_8', 'MIN_JK', 'TARG_4_5', 'SNREV', 'RV_CHI2', 'RV_TEFF', 'MAX_JK', 'H_ERR', 'AP2TARG1', 'AP2TARG4', 'WISE_4_5', 'MIN_H', 'J_ERR', 'APTARG2', 'DDO51', 'NRES', 'RV_LOGG', 'AP2TARG2', 'AP2TARG3', 'MAX_H', 'RV_FEH', 'SRC_H', 'IRAC_3_6']
-   - removed_primary_header_kwargs: ['SURVEY', 'RVCARB2', 'SVERR_ME', 'VERR3', 'CHISQ2', 'RVTEFF1', 'TARG2', 'RVLOGG', 'RVALPH3', 'SYNTHSCA', 'CHISQ', 'LOCID', 'OVERR', 'SVERR', 'SVSCAT', 'RVFEH3', 'VRAD3', 'VLSR', 'RVTEFF2', 'RVCARB3', 'DATE', 'VGSR', 'VTYPE3', 'RVALPH2', 'CHISQ3', 'RVLOGG1', 'SFILE3', 'OVHELIO', 'RVTEFF3', 'DATE3', 'VHELIO3', 'VTYPE2', 'BC3', 'RVFEH2', 'TARG3', 'RVTEFF', 'OVSCAT', 'RVLOGG3', 'RVCARB', 'RVFEH', 'CHISQ1', 'FLAG3', 'RVCARB1', 'SNRVIS3', 'TARG1', 'CCPFWHM', 'TELESCOP', 'JD3', 'COMBTYPE', 'OVERR_ME', 'VRAD', 'HJD1', 'SVHELIO', 'FIBER3', 'RVLOGG2', 'RVALPH', 'RVALPH1', 'HJD3', 'HJD2', 'VTYPE1', 'RVFEH1']
+   - added_primary_header_kwargs: ['RV_LOGG', 'AP2TARG3', 'NRES', 'H_ERR', 'MAX_H', 'RV_CHI2', 'SNREV', 'RV_FEH', 'WASH_T2', 'AP2TARG1', 'APTARG2', 'MAX_JK', 'IRAC_3_6', 'MIN_H', 'WASH_M', 'MIN_JK', 'IRAC_5_8', 'CCFWHM', 'AP2TARG4', 'SRC_H', 'RV_TEFF', 'IRAC_4_5', 'APTARG1', 'AP2TARG2', 'DDO51', 'TARG_4_5', 'WISE_4_5', 'N_COMP', 'K_ERR', 'J_ERR']
+   - removed_primary_header_kwargs: ['RVFEH3', 'CHISQ3', 'VRAD', 'VGSR', 'OVHELIO', 'BC3', 'HJD1', 'RVALPH2', 'RVCARB1', 'LOCID', 'VRAD3', 'TARG1', 'OVERR_ME', 'SYNTHSCA', 'SVSCAT', 'SFILE3', 'RVLOGG2', 'RVCARB2', 'SVERR', 'CHISQ1', 'TARG2', 'JD3', 'RVTEFF1', 'HJD2', 'RVTEFF', 'RVTEFF3', 'RVLOGG', 'OVERR', 'VERR3', 'RVFEH1', 'DATE', 'TARG3', 'SVERR_ME', 'VHELIO3', 'VTYPE1', 'DATE3', 'RVFEH', 'RVALPH3', 'RVLOGG3', 'VTYPE3', 'CHISQ', 'SNRVIS3', 'RVALPH1', 'OVSCAT', 'HJD3', 'RVCARB', 'RVFEH2', 'SVHELIO', 'RVLOGG1', 'COMBTYPE', 'TELESCOP', 'SURVEY', 'RVALPH', 'RVTEFF2', 'CHISQ2', 'CCPFWHM', 'RVCARB3', 'VTYPE2', 'VLSR', 'FIBER3', 'FLAG3']
  - DR16
    - from: DR15
    - primary_delta_nkeys: 38
-   - removed_primary_header_kwargs: ['RVTEFF4', 'RVFEH4', 'SNRVIS5', 'JD4', 'RVCARB4', 'RVCARB5', 'VERR4', 'RVTEFF5', 'HJD5', 'CHISQ5', 'DATE4', 'SFILE4', 'JD5', 'SNRVIS4', 'FLAG4', 'CHISQ4', 'HJD4', 'VHELIO5', 'RVALPH5', 'VERR5', 'VRAD5', 'DATE5', 'RVFEH5', 'FLAG5', 'BC4', 'FIBER4', 'RVLOGG4', 'RVLOGG5', 'FIBER5', 'VHELIO4', 'BC5', 'VTYPE5', 'VRAD4', 'SFILE5', 'RVALPH4', 'VTYPE4']
+   - removed_primary_header_kwargs: ['VTYPE5', 'DATE5', 'CHISQ4', 'HJD4', 'RVALPH4', 'JD4', 'RVCARB5', 'VERR4', 'RVTEFF5', 'VERR5', 'VTYPE4', 'SFILE4', 'SNRVIS5', 'DATE4', 'FIBER5', 'BC5', 'FIBER4', 'RVLOGG5', 'VHELIO5', 'RVLOGG4', 'RVTEFF4', 'VRAD4', 'RVFEH5', 'HJD5', 'VHELIO4', 'JD5', 'RVALPH5', 'VRAD5', 'FLAG4', 'SFILE5', 'FLAG5', 'CHISQ5', 'RVCARB4', 'RVFEH4', 'SNRVIS4', 'BC4']
  - DR15
    - from: DR14
    - note: No changes
  - DR14
    - from: DR13
    - primary_delta_nkeys: 17
-   - added_primary_header_kwargs: ['AKTARG', 'CHISQ5', 'COMBTYPE', 'OVERR_ME', 'CHISQ2', 'VGSR', 'CHISQ', 'CHISQ4', 'OVERR', 'AKMETHOD', 'OVSCAT', 'CHISQ3', 'AKWISE', 'CHISQ1', 'VLSR', 'OVHELIO', 'SFD_EBV']
+   - added_primary_header_kwargs: ['CHISQ1', 'CHISQ3', 'COMBTYPE', 'VGSR', 'OVHELIO', 'AKMETHOD', 'CHISQ2', 'AKWISE', 'CHISQ4', 'CHISQ', 'SFD_EBV', 'OVERR', 'OVERR_ME', 'AKTARG', 'CHISQ5', 'OVSCAT', 'VLSR']
  - DR13
    - from: DR12
    - primary_delta_nkeys: 2
-   - added_primary_header_kwargs: ['SURVEY', 'TARG3']
+   - added_primary_header_kwargs: ['TARG3', 'SURVEY']
 
 ---
 ## Example HDUS List
@@ -94,29 +94,29 @@ Key | Value | Comment | |
 | BITPIX | 8 |  |
 | NAXIS | 0 |  |
 | EXTEND | True |  |
-| CRVAL1 | 4.179 |  |
-| CDELT1 | 6e-06 |  |
-| CRPIX1 | 1 |  |
+| CRVAL1 | 4.179 | Start log10(wavelength) |
+| CDELT1 | 6e-06 | Dispersion in log10(wavelength) |
+| CRPIX1 | 1 | Pixel of starting wavelength |
 | CTYPE1 | LOG-LINEAR |  |
 | DC-FLAG | 1 |  |
-| OBJID | 2M13593121+6335074 |  |
+| OBJID | 2M13593121+6335074 | Object ID |
 | V_APRED | e3d3e47d8cc59a8c6fe843286012406797e4265d |  |
 | APRED | 1.0 |  |
 | STARVER | 59380 |  |
 | HEALPIX | 10105 |  |
-| SNR | 55.79573596219787 |  |
-| RA | 209.88019 |  |
-| DEC | 63.585385 |  |
-| GLON | 110.7479855645902 |  |
-| GLAT | 51.90245725450458 |  |
-| JMAG | 99.98999786376953 |  |
-| JERR | -9999.990234375 |  |
-| HMAG | 12.41699981689453 |  |
-| HERR | -9999.990234375 |  |
-| KMAG | 99.98999786376953 |  |
-| KERR | -9999.990234375 |  |
+| SNR | 55.79573596219787 | final median signal-to-noise ratio |
+| RA | 209.88019 | right ascension, deg, J2000 |
+| DEC | 63.585385 | declination, deg, J2000 |
+| GLON | 110.7479855645902 | galactic longitude, deg, J2000 |
+| GLAT | 51.90245725450458 | galactic latitude, deg, J2000 |
+| JMAG | 99.98999786376953 | 2MASS J magnitude |
+| JERR | -9999.990234375 | 2MASS J magnitude uncertainty |
+| HMAG | 12.41699981689453 | 2MASS H magnitude |
+| HERR | -9999.990234375 | 2MASS H magnitude uncertainty |
+| KMAG | 99.98999786376953 | 2MASS K magnitude |
+| KERR | -9999.990234375 | 2MASS K magnitude uncertainty |
 | SRC_H |  |  |
-| CATID | 4349650353 |  |
+| CATID | 4349650353 | Catalog ID |
 | SVTARG0 | 0 |  |
 | CARTON1 | ops_std_boss |  |
 | CADENCE |  |  |
@@ -128,12 +128,12 @@ Key | Value | Comment | |
 | EPMRA | -9999.990234375 |  |
 | PMDEC | -9999.990234375 |  |
 | EPMDEC | -9999.990234375 |  |
-| GMAG | -9999.990234375 |  |
-| GERR | -9999.990234375 |  |
-| BPMAG | -9999.990234375 |  |
-| BPERR | -9999.990234375 |  |
-| RPMAG | -9999.990234375 |  |
-| RPERR | -9999.990234375 |  |
+| GMAG | -9999.990234375 | Gaia G-band magnitude |
+| GERR | -9999.990234375 | Gaia G-band magnitude uncertainty |
+| BPMAG | -9999.990234375 | Gaia BP-band magnitude |
+| BPERR | -9999.990234375 | Gaia BP-band magnitude uncertainty |
+| RPMAG | -9999.990234375 | Gaia RP-band magnitude |
+| RPERR | -9999.990234375 | Gaia RP-band magnitude uncertainty |
 | SVAPTRG0 | 0 |  |
 | FRSTCRTN | 0 |  |
 | APTARG1 | 0 |  |
@@ -206,9 +206,9 @@ Key | Value | Comment | |
 | NAXIS2 | 4 |  |
 | PCOUNT | 0 |  |
 | GCOUNT | 1 |  |
-| CRVAL1 | 4.179 |  |
-| CDELT1 | 6e-06 |  |
-| CRPIX1 | 1 |  |
+| CRVAL1 | 4.179 | Start log10(wavelength) |
+| CDELT1 | 6e-06 | Dispersion in log10(wavelength) |
+| CRPIX1 | 1 | Pixel of starting wavelength |
 | CTYPE1 | LOG-LINEAR |  |
 | BUNIT | Flux (10^-17 erg/s/cm^2/Ang) |  |
 
@@ -230,9 +230,9 @@ Key | Value | Comment | |
 | NAXIS2 | 4 |  |
 | PCOUNT | 0 |  |
 | GCOUNT | 1 |  |
-| CRVAL1 | 4.179 |  |
-| CDELT1 | 6e-06 |  |
-| CRPIX1 | 1 |  |
+| CRVAL1 | 4.179 | Start log10(wavelength) |
+| CDELT1 | 6e-06 | Dispersion in log10(wavelength) |
+| CRPIX1 | 1 | Pixel of starting wavelength |
 | CTYPE1 | LOG-LINEAR |  |
 | BUNIT | Err (10^-17 erg/s/cm^2/Ang) |  |
 
@@ -254,9 +254,9 @@ Key | Value | Comment | |
 | NAXIS2 | 4 |  |
 | PCOUNT | 0 |  |
 | GCOUNT | 1 |  |
-| CRVAL1 | 4.179 |  |
-| CDELT1 | 6e-06 |  |
-| CRPIX1 | 1 |  |
+| CRVAL1 | 4.179 | Start log10(wavelength) |
+| CDELT1 | 6e-06 | Dispersion in log10(wavelength) |
+| CRPIX1 | 1 | Pixel of starting wavelength |
 | CTYPE1 | LOG-LINEAR |  |
 | BUNIT | Pixel bitmask |  |
 
@@ -278,9 +278,9 @@ Key | Value | Comment | |
 | NAXIS2 | 4 |  |
 | PCOUNT | 0 |  |
 | GCOUNT | 1 |  |
-| CRVAL1 | 4.179 |  |
-| CDELT1 | 6e-06 |  |
-| CRPIX1 | 1 |  |
+| CRVAL1 | 4.179 | Start log10(wavelength) |
+| CDELT1 | 6e-06 | Dispersion in log10(wavelength) |
+| CRPIX1 | 1 | Pixel of starting wavelength |
 | CTYPE1 | LOG-LINEAR |  |
 | BUNIT | Sky (10^-17 erg/s/cm^2/Ang) |  |
 
@@ -302,9 +302,9 @@ Key | Value | Comment | |
 | NAXIS2 | 4 |  |
 | PCOUNT | 0 |  |
 | GCOUNT | 1 |  |
-| CRVAL1 | 4.179 |  |
-| CDELT1 | 6e-06 |  |
-| CRPIX1 | 1 |  |
+| CRVAL1 | 4.179 | Start log10(wavelength) |
+| CDELT1 | 6e-06 | Dispersion in log10(wavelength) |
+| CRPIX1 | 1 | Pixel of starting wavelength |
 | CTYPE1 | LOG-LINEAR |  |
 | BUNIT | Sky error (10^-17 erg/s/cm^2/Ang) |  |
 
@@ -326,9 +326,9 @@ Key | Value | Comment | |
 | NAXIS2 | 4 |  |
 | PCOUNT | 0 |  |
 | GCOUNT | 1 |  |
-| CRVAL1 | 4.179 |  |
-| CDELT1 | 6e-06 |  |
-| CRPIX1 | 1 |  |
+| CRVAL1 | 4.179 | Start log10(wavelength) |
+| CDELT1 | 6e-06 | Dispersion in log10(wavelength) |
+| CRPIX1 | 1 | Pixel of starting wavelength |
 | CTYPE1 | LOG-LINEAR |  |
 | BUNIT | Telluric |  |
 
@@ -350,9 +350,9 @@ Key | Value | Comment | |
 | NAXIS2 | 4 |  |
 | PCOUNT | 0 |  |
 | GCOUNT | 1 |  |
-| CRVAL1 | 4.179 |  |
-| CDELT1 | 6e-06 |  |
-| CRPIX1 | 1 |  |
+| CRVAL1 | 4.179 | Start log10(wavelength) |
+| CDELT1 | 6e-06 | Dispersion in log10(wavelength) |
+| CRPIX1 | 1 | Pixel of starting wavelength |
 | CTYPE1 | LOG-LINEAR |  |
 | BUNIT | Telluric error |  |
 
