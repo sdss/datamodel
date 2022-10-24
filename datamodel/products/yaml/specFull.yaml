@@ -1,11 +1,21 @@
 general:
   name: specFull
   short: BOSS Spectro Redux spectrum file (full version)
-  description: "The spec-PLATE-MJD-FIBER.fits files contain a repackaging of all spectral data for a given plugging (plate, mjd, fiber), including both the coadded spectrum and optionally the individual exposure frames. This groups the information from <a href=\"../../PLATE4/spFrame.html\">spFrame</a>, <a href=\"../../PLATE4/spCFrame.html\">spCFrame</a>, <a href=\"../../PLATE4/spFlat.html\"\
-    >spFlat</a>, <a href=\"../../PLATE4/spPlate.html\">spPlate</a>, <a href=\"https://data.sdss5.org/dsi/file/select-spZbest/ipl/env-BOSS_SPECTRO_REDUX\"\
-    >spZbest</a>, <a href=\"https://data.sdss5.org/dsi/file/select-spZline/ipl/env-BOSS_SPECTRO_REDUX\">spZline</a>, and \
-    <a href=\"../../spAll.html\">spAll</a> so that for each object one only needs to read a single file. <pre>     HDU 0  : Header info from spPlate     HDU 1  : Coadded spectrum from spPlate     HDU 2  : Summary metadata copied from spAll     HDU 3  : Line fitting metadata from spZline     HDU 4+ : [Optional] Individual spCFrame spectra [B, R for each exposure] </pre> A <a href=\"\
-    ../lite/PLATE4/spec.html\">\"lite\" version of these files</a> also exists in the \"lite\" subdirectory tree. These contain HDUS 0-3, but do not have the individual frame data and thus are much smaller."
+  description: 'The spec-PLATE-MJD-FIBER.fits files contain a repackaging of all spectral
+    data for a given plugging (plate, mjd, fiber), including both the coadded spectrum
+    and optionally the individual exposure frames. This groups the information from
+    <a href="../../PLATE4/spFrame.html">spFrame</a>, <a href="../../PLATE4/spCFrame.html">spCFrame</a>,
+    <a href="../../PLATE4/spFlat.html">spFlat</a>, <a href="../../PLATE4/spPlate.html">spPlate</a>,
+    <a href="https://data.sdss5.org/dsi/file/select-spZbest/ipl/env-BOSS_SPECTRO_REDUX">spZbest</a>,
+    <a href="https://data.sdss5.org/dsi/file/select-spZline/ipl/env-BOSS_SPECTRO_REDUX">spZline</a>,
+    and <a href="../../spAll.html">spAll</a> so that for each object one only needs
+    to read a single file. <pre>     HDU 0  : Header info from spPlate     HDU 1  :
+    Coadded spectrum from spPlate     HDU 2  : Summary metadata copied from spAll     HDU
+    3  : Line fitting metadata from spZline     HDU 4+ : [Optional] Individual spCFrame
+    spectra [B, R for each exposure] </pre> A <a href="../lite/PLATE4/spec.html">"lite"
+    version of these files</a> also exists in the "lite" subdirectory tree. These
+    contain HDUS 0-3, but do not have the individual frame data and thus are much
+    smaller.'
   datatype: FITS
   filesize: 1 MB
   releases:
@@ -20,16 +30,17 @@ general:
   - DR17
   environments:
   - BOSS_SPECTRO_REDUX
-  naming_convention: '<code>spec-[0-9]{4}-[0-9]{5}-[0-9]{4}\.fits</code>, where
-    <code>[0-9]{4}</code> is a zero-padded, four-digit number containing the plate
-    number, <code>[0-9]{5}</code> is a five-digit number containing the MJD
-    number and <code>[0-9]{4}</code> is a four-digit number containing the fiber id.'
+  naming_convention: <code>spec-[0-9]{4}-[0-9]{5}-[0-9]{4}\.fits</code>, where <code>[0-9]{4}</code>
+    is a zero-padded, four-digit number containing the plate number, <code>[0-9]{5}</code>
+    is a five-digit number containing the MJD number and <code>[0-9]{4}</code> is
+    a four-digit number containing the fiber id.
   generated_by: idlspec2d/bin/reformat_spectra.py and reformat_sdss_spectra.py
   design: false
   surveys:
   - BHM
   - BOSS
   - eBOSS
+  vac: false
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
@@ -37,45 +48,73 @@ changelog:
     DR17:
       from: DR16
       added_hdus:
-      - SPZLINE
+      - R1-00104933-00104934-00104935
+      - B1-00104929-00104934-00104935
+      - B1-00104931-00104934-00104935
+      - B1-00104928-00104934-00104935
+      - R1-00104927-00104934-00104935
+      - R1-00104928-00104934-00104935
+      - B1-00104932-00104934-00104935
       - SPALL
+      - R1-00104930-00104934-00104935
+      - B1-00104927-00104934-00104935
+      - B1-00104933-00104934-00104935
+      - R1-00104932-00104934-00104935
       - COADD
+      - R1-00104931-00104934-00104935
+      - SPZLINE
+      - B1-00104930-00104934-00104935
+      - R1-00104929-00104934-00104935
     DR16:
       from: DR15
       removed_hdus:
-      - SPZLINE
+      - R1-00104933-00104934-00104935
+      - B1-00104929-00104934-00104935
+      - B1-00104931-00104934-00104935
+      - B1-00104928-00104934-00104935
+      - R1-00104927-00104934-00104935
+      - R1-00104928-00104934-00104935
+      - B1-00104932-00104934-00104935
       - SPALL
+      - R1-00104930-00104934-00104935
+      - B1-00104927-00104934-00104935
+      - B1-00104933-00104934-00104935
+      - R1-00104932-00104934-00104935
       - COADD
+      - R1-00104931-00104934-00104935
+      - SPZLINE
+      - B1-00104930-00104934-00104935
+      - R1-00104929-00104934-00104935
       added_primary_header_kwargs:
+      - EXPID006
+      - EXPID003
+      - EXPID005
+      - EXPID013
+      - EXPID002
+      - EXPID012
+      - EXPID007
+      - EXPID001
+      - EXPID008
       - EXPID009
       - EXPID014
-      - EXPID008
-      - EXPID013
-      - EXPID005
-      - EXPID003
-      - EXPID007
-      - EXPID002
-      - EXPID006
-      - EXPID011
-      - EXPID012
       - EXPID010
-      - EXPID001
+      - EXPID011
       - EXPID004
       removed_primary_header_kwargs:
-      - EXPID04
-      - EXPID06
-      - EXPID11
-      - EXPID03
+      - EXPID05
       - EXPID14
       - EXPID12
-      - EXPID09
-      - EXPID13
-      - EXPID02
-      - EXPID05
-      - EXPID08
       - EXPID07
-      - EXPID01
+      - EXPID03
+      - EXPID11
+      - EXPID08
       - EXPID10
+      - EXPID04
+      - EXPID01
+      - EXPID13
+      - EXPID09
+      - EXPID06
+      - EXPID02
     DR15:
       from: DR14
       note: No changes
@@ -86,8 +125,8 @@ changelog:
       from: DR11
       primary_delta_nkeys: 2
       removed_primary_header_kwargs:
-      - XCHI2MIN
       - XCHI2MAX
+      - XCHI2MIN
     DR11:
       from: DR12
       note: No changes
@@ -120,11 +159,11 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: "Copied from <a href=\"../../PLATE4/spPlate.html\">spPlate</a> \
+        description: 'Copied from <a href="../../PLATE4/spPlate.html">spPlate</a>
           with the following additions/modifications:<li>PLUG_RA, PLUG_DEC, THING_ID,
-           FIBERID: added from spAll</li> <li>NEXP and EXPID*: modified to just
-           include the frames which     contributed to this fiber</li> <li>Removed
-           keywords which apply only to single exposures</li>"
+          FIBERID: added from spAll</li> <li>NEXP and EXPID*: modified to just include
+          the frames which     contributed to this fiber</li> <li>Removed keywords
+          which apply only to single exposures</li>'
         is_image: true
         size: 0 bytes
         header:
@@ -551,10 +590,9 @@ releases:
             description: pipeline best model fit used for classification and redshift
       hdu2:
         name: SPALL
-        description: "BOSS spectra: copy of row from <a href=\"../../spAll.html\"\
-          >spAll</a>   for this (plate, mjd, fiber) SDSS-I/-II spectra: copy of
-           row from <a href=\"/datamodel/files/SPECTRO_REDUX/specObj.html\">specObj</a>
-            for this (plate, mjd, fiber)"
+        description: 'BOSS spectra: copy of row from <a href="../../spAll.html">spAll</a>   for
+          this (plate, mjd, fiber) SDSS-I/-II spectra: copy of row from <a href="/datamodel/files/SPECTRO_REDUX/specObj.html">specObj</a>
+          for this (plate, mjd, fiber)'
         is_image: false
         size: 3 KB
         columns:
@@ -1946,8 +1984,8 @@ releases:
               update'
       hdu3:
         name: SPZLINE
-        description: "copy of row from <a href=\"../../PLATE4/RUN1D/spZline.html\"\
-          >spZLine</a>   for this (plate, mjd, fiber)"
+        description: copy of row from <a href="../../PLATE4/RUN1D/spZline.html">spZLine</a>   for
+          this (plate, mjd, fiber)
         is_image: false
         size: 2 KB
         columns:
@@ -2067,12 +2105,12 @@ releases:
               update'
       hdu4:
         name: B1-00104927-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 79 KB
         columns:
@@ -2120,12 +2158,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu5:
         name: B1-00104928-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 79 KB
         columns:
@@ -2173,12 +2211,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu6:
         name: B1-00104929-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 79 KB
         columns:
@@ -2226,12 +2264,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu7:
         name: B1-00104930-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 79 KB
         columns:
@@ -2279,12 +2317,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu8:
         name: B1-00104931-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 79 KB
         columns:
@@ -2332,12 +2370,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu9:
         name: B1-00104932-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 79 KB
         columns:
@@ -2385,12 +2423,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu10:
         name: B1-00104933-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 79 KB
         columns:
@@ -2438,12 +2476,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu11:
         name: R1-00104927-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 97 KB
         columns:
@@ -2491,12 +2529,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu12:
         name: R1-00104928-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 97 KB
         columns:
@@ -2544,12 +2582,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu13:
         name: R1-00104929-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 97 KB
         columns:
@@ -2597,12 +2635,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu14:
         name: R1-00104930-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 97 KB
         columns:
@@ -2650,12 +2688,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu15:
         name: R1-00104931-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 97 KB
         columns:
@@ -2703,12 +2741,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu16:
         name: R1-00104932-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 97 KB
         columns:
@@ -2756,12 +2794,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu17:
         name: R1-00104933-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 97 KB
         columns:
@@ -2826,11 +2864,11 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: "Copied from <a href=\"../../PLATE4/spPlate.html\">spPlate</a> \
+        description: 'Copied from <a href="../../PLATE4/spPlate.html">spPlate</a>
           with the following additions/modifications:<li>PLUG_RA, PLUG_DEC, THING_ID,
-           FIBERID: added from spAll</li> <li>NEXP and EXPID*: modified to just
-           include the frames which     contributed to this fiber</li> <li>Removed
-           keywords which apply only to single exposures</li>"
+          FIBERID: added from spAll</li> <li>NEXP and EXPID*: modified to just include
+          the frames which     contributed to this fiber</li> <li>Removed keywords
+          which apply only to single exposures</li>'
         is_image: true
         size: 0 bytes
         header:
@@ -3263,10 +3301,9 @@ releases:
             description: pipeline best model fit used for classification and redshift
       hdu2:
         name: SPALL
-        description: "BOSS spectra: copy of row from <a href=\"../../spAll.html\"\
-          >spAll</a>   for this (plate, mjd, fiber) SDSS-I/-II spectra: copy of
-           row from <a href=\"/datamodel/files/SPECTRO_REDUX/specObj.html\">specObj</a>
-            for this (plate, mjd, fiber)"
+        description: 'BOSS spectra: copy of row from <a href="../../spAll.html">spAll</a>   for
+          this (plate, mjd, fiber) SDSS-I/-II spectra: copy of row from <a href="/datamodel/files/SPECTRO_REDUX/specObj.html">specObj</a>
+          for this (plate, mjd, fiber)'
         is_image: false
         size: 3 KB
         columns:
@@ -4658,8 +4695,8 @@ releases:
               update'
       hdu3:
         name: SPZLINE
-        description: "copy of row from <a href=\"../../PLATE4/RUN1D/spZline.html\"\
-          >spZLine</a>   for this (plate, mjd, fiber)"
+        description: copy of row from <a href="../../PLATE4/RUN1D/spZline.html">spZLine</a>   for
+          this (plate, mjd, fiber)
         is_image: false
         size: 2 KB
         columns:
@@ -4779,12 +4816,12 @@ releases:
               update'
       hdu4:
         name: B1-00104927-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 79 KB
         columns:
@@ -4832,12 +4869,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu5:
         name: B1-00104928-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 79 KB
         columns:
@@ -4885,12 +4922,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu6:
         name: B1-00104929-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 79 KB
         columns:
@@ -4938,12 +4975,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu7:
         name: B1-00104930-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 79 KB
         columns:
@@ -4991,12 +5028,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu8:
         name: B1-00104931-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 79 KB
         columns:
@@ -5044,12 +5081,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu9:
         name: B1-00104932-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 79 KB
         columns:
@@ -5097,12 +5134,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu10:
         name: B1-00104933-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 79 KB
         columns:
@@ -5150,12 +5187,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu11:
         name: R1-00104927-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 97 KB
         columns:
@@ -5203,12 +5240,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu12:
         name: R1-00104928-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 97 KB
         columns:
@@ -5256,12 +5293,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu13:
         name: R1-00104929-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 97 KB
         columns:
@@ -5309,12 +5346,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu14:
         name: R1-00104930-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 97 KB
         columns:
@@ -5362,12 +5399,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu15:
         name: R1-00104931-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 97 KB
         columns:
@@ -5415,12 +5452,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu16:
         name: R1-00104932-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 97 KB
         columns:
@@ -5468,12 +5505,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu17:
         name: R1-00104933-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 97 KB
         columns:
@@ -5538,11 +5575,11 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: "Copied from <a href=\"../../PLATE4/spPlate.html\">spPlate</a> \
+        description: 'Copied from <a href="../../PLATE4/spPlate.html">spPlate</a>
           with the following additions/modifications:<li>PLUG_RA, PLUG_DEC, THING_ID,
-           FIBERID: added from spAll</li> <li>NEXP and EXPID*: modified to just
-           include the frames which     contributed to this fiber</li> <li>Removed
-           keywords which apply only to single exposures</li>"
+          FIBERID: added from spAll</li> <li>NEXP and EXPID*: modified to just include
+          the frames which     contributed to this fiber</li> <li>Removed keywords
+          which apply only to single exposures</li>'
         is_image: true
         size: 0 bytes
         header:
@@ -5969,10 +6006,9 @@ releases:
             description: pipeline best model fit used for classification and redshift
       hdu2:
         name: SPALL
-        description: "BOSS spectra: copy of row from <a href=\"../../spAll.html\"\
-          >spAll</a>   for this (plate, mjd, fiber) SDSS-I/-II spectra: copy of
-           row from <a href=\"/datamodel/files/SPECTRO_REDUX/specObj.html\">specObj</a>
-            for this (plate, mjd, fiber)"
+        description: 'BOSS spectra: copy of row from <a href="../../spAll.html">spAll</a>   for
+          this (plate, mjd, fiber) SDSS-I/-II spectra: copy of row from <a href="/datamodel/files/SPECTRO_REDUX/specObj.html">specObj</a>
+          for this (plate, mjd, fiber)'
         is_image: false
         size: 3 KB
         columns:
@@ -7364,8 +7400,8 @@ releases:
               update'
       hdu3:
         name: SPZLINE
-        description: "copy of row from <a href=\"../../PLATE4/RUN1D/spZline.html\"\
-          >spZLine</a>   for this (plate, mjd, fiber)"
+        description: copy of row from <a href="../../PLATE4/RUN1D/spZline.html">spZLine</a>   for
+          this (plate, mjd, fiber)
         is_image: false
         size: 2 KB
         columns:
@@ -7485,12 +7521,12 @@ releases:
               update'
       hdu4:
         name: B1-00104927-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 79 KB
         columns:
@@ -7538,12 +7574,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu5:
         name: B1-00104928-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 79 KB
         columns:
@@ -7591,12 +7627,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu6:
         name: B1-00104929-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 79 KB
         columns:
@@ -7644,12 +7680,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu7:
         name: B1-00104930-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 79 KB
         columns:
@@ -7697,12 +7733,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu8:
         name: B1-00104931-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 79 KB
         columns:
@@ -7750,12 +7786,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu9:
         name: B1-00104932-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 79 KB
         columns:
@@ -7803,12 +7839,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu10:
         name: B1-00104933-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 79 KB
         columns:
@@ -7856,12 +7892,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu11:
         name: R1-00104927-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 97 KB
         columns:
@@ -7909,12 +7945,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu12:
         name: R1-00104928-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 97 KB
         columns:
@@ -7962,12 +7998,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu13:
         name: R1-00104929-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 97 KB
         columns:
@@ -8015,12 +8051,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu14:
         name: R1-00104930-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 97 KB
         columns:
@@ -8068,12 +8104,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu15:
         name: R1-00104931-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 97 KB
         columns:
@@ -8121,12 +8157,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu16:
         name: R1-00104932-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 97 KB
         columns:
@@ -8174,12 +8210,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu17:
         name: R1-00104933-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 97 KB
         columns:
@@ -8244,11 +8280,11 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: "Copied from <a href=\"../../PLATE4/spPlate.html\">spPlate</a> \
+        description: 'Copied from <a href="../../PLATE4/spPlate.html">spPlate</a>
           with the following additions/modifications:<li>PLUG_RA, PLUG_DEC, THING_ID,
-           FIBERID: added from spAll</li> <li>NEXP and EXPID*: modified to just
-           include the frames which     contributed to this fiber</li> <li>Removed
-           keywords which apply only to single exposures</li>"
+          FIBERID: added from spAll</li> <li>NEXP and EXPID*: modified to just include
+          the frames which     contributed to this fiber</li> <li>Removed keywords
+          which apply only to single exposures</li>'
         is_image: true
         size: 0 bytes
         header:
@@ -8675,10 +8711,9 @@ releases:
             description: pipeline best model fit used for classification and redshift
       hdu2:
         name: SPALL
-        description: "BOSS spectra: copy of row from <a href=\"../../spAll.html\"\
-          >spAll</a>   for this (plate, mjd, fiber) SDSS-I/-II spectra: copy of
-           row from <a href=\"/datamodel/files/SPECTRO_REDUX/specObj.html\">specObj</a>
-            for this (plate, mjd, fiber)"
+        description: 'BOSS spectra: copy of row from <a href="../../spAll.html">spAll</a>   for
+          this (plate, mjd, fiber) SDSS-I/-II spectra: copy of row from <a href="/datamodel/files/SPECTRO_REDUX/specObj.html">specObj</a>
+          for this (plate, mjd, fiber)'
         is_image: false
         size: 3 KB
         columns:
@@ -10076,8 +10111,8 @@ releases:
               update'
       hdu3:
         name: SPZLINE
-        description: "copy of row from <a href=\"../../PLATE4/RUN1D/spZline.html\"\
-          >spZLine</a>   for this (plate, mjd, fiber)"
+        description: copy of row from <a href="../../PLATE4/RUN1D/spZline.html">spZLine</a>   for
+          this (plate, mjd, fiber)
         is_image: false
         size: 2 KB
         columns:
@@ -10197,12 +10232,12 @@ releases:
               update'
       hdu4:
         name: B1-00104927-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 79 KB
         columns:
@@ -10250,12 +10285,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu5:
         name: B1-00104928-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 79 KB
         columns:
@@ -10303,12 +10338,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu6:
         name: B1-00104929-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 79 KB
         columns:
@@ -10356,12 +10391,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu7:
         name: B1-00104930-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 79 KB
         columns:
@@ -10409,12 +10444,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu8:
         name: B1-00104931-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 79 KB
         columns:
@@ -10462,12 +10497,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu9:
         name: B1-00104932-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 79 KB
         columns:
@@ -10515,12 +10550,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu10:
         name: B1-00104933-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 79 KB
         columns:
@@ -10568,12 +10603,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu11:
         name: R1-00104927-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 97 KB
         columns:
@@ -10621,12 +10656,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu12:
         name: R1-00104928-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 97 KB
         columns:
@@ -10674,12 +10709,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu13:
         name: R1-00104929-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 97 KB
         columns:
@@ -10727,12 +10762,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu14:
         name: R1-00104930-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 97 KB
         columns:
@@ -10780,12 +10815,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu15:
         name: R1-00104931-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 97 KB
         columns:
@@ -10833,12 +10868,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu16:
         name: R1-00104932-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 97 KB
         columns:
@@ -10886,12 +10921,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu17:
         name: R1-00104933-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 97 KB
         columns:
@@ -10956,11 +10991,11 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: "Copied from <a href=\"../../PLATE4/spPlate.html\">spPlate</a> \
+        description: 'Copied from <a href="../../PLATE4/spPlate.html">spPlate</a>
           with the following additions/modifications:<li>PLUG_RA, PLUG_DEC, THING_ID,
-           FIBERID: added from spAll</li> <li>NEXP and EXPID*: modified to just
-           include the frames which     contributed to this fiber</li> <li>Removed
-           keywords which apply only to single exposures</li>"
+          FIBERID: added from spAll</li> <li>NEXP and EXPID*: modified to just include
+          the frames which     contributed to this fiber</li> <li>Removed keywords
+          which apply only to single exposures</li>'
         is_image: true
         size: 0 bytes
         header:
@@ -11387,10 +11422,9 @@ releases:
               update'
       hdu2:
         name: SPALL
-        description: "BOSS spectra: copy of row from <a href=\"../../spAll.html\"\
-          >spAll</a>   for this (plate, mjd, fiber) SDSS-I/-II spectra: copy of
-           row from <a href=\"/datamodel/files/SPECTRO_REDUX/specObj.html\">specObj</a>
-            for this (plate, mjd, fiber)"
+        description: 'BOSS spectra: copy of row from <a href="../../spAll.html">spAll</a>   for
+          this (plate, mjd, fiber) SDSS-I/-II spectra: copy of row from <a href="/datamodel/files/SPECTRO_REDUX/specObj.html">specObj</a>
+          for this (plate, mjd, fiber)'
         is_image: false
         size: 3 KB
         columns:
@@ -12812,8 +12846,8 @@ releases:
               update'
       hdu3:
         name: SPZLINE
-        description: "copy of row from <a href=\"../../PLATE4/RUN1D/spZline.html\"\
-          >spZLine</a>   for this (plate, mjd, fiber)"
+        description: copy of row from <a href="../../PLATE4/RUN1D/spZline.html">spZLine</a>   for
+          this (plate, mjd, fiber)
         is_image: false
         size: 2 KB
         columns:
@@ -12933,12 +12967,12 @@ releases:
               update'
       hdu4:
         name: B1-00104927-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 79 KB
         columns:
@@ -12986,12 +13020,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu5:
         name: B1-00104928-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 79 KB
         columns:
@@ -13039,12 +13073,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu6:
         name: B1-00104929-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 79 KB
         columns:
@@ -13092,12 +13126,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu7:
         name: B1-00104930-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 79 KB
         columns:
@@ -13145,12 +13179,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu8:
         name: B1-00104931-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 79 KB
         columns:
@@ -13198,12 +13232,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu9:
         name: B1-00104932-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 79 KB
         columns:
@@ -13251,12 +13285,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu10:
         name: B1-00104933-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 79 KB
         columns:
@@ -13304,12 +13338,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu11:
         name: R1-00104927-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 97 KB
         columns:
@@ -13357,12 +13391,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu12:
         name: R1-00104928-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 97 KB
         columns:
@@ -13410,12 +13444,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu13:
         name: R1-00104929-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 97 KB
         columns:
@@ -13463,12 +13497,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu14:
         name: R1-00104930-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 97 KB
         columns:
@@ -13516,12 +13550,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu15:
         name: R1-00104931-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 97 KB
         columns:
@@ -13569,12 +13603,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu16:
         name: R1-00104932-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 97 KB
         columns:
@@ -13622,12 +13656,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu17:
         name: R1-00104933-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 97 KB
         columns:
@@ -13692,11 +13726,11 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: "Copied from <a href=\"../../PLATE4/spPlate.html\">spPlate</a> \
+        description: 'Copied from <a href="../../PLATE4/spPlate.html">spPlate</a>
           with the following additions/modifications:<li>PLUG_RA, PLUG_DEC, THING_ID,
-           FIBERID: added from spAll</li> <li>NEXP and EXPID*: modified to just
-           include the frames which     contributed to this fiber</li> <li>Removed
-           keywords which apply only to single exposures</li>"
+          FIBERID: added from spAll</li> <li>NEXP and EXPID*: modified to just include
+          the frames which     contributed to this fiber</li> <li>Removed keywords
+          which apply only to single exposures</li>'
         is_image: true
         size: 0 bytes
         header:
@@ -14117,10 +14151,9 @@ releases:
             description: pipeline best model fit used for classification and redshift
       hdu2:
         name: SPALL
-        description: "BOSS spectra: copy of row from <a href=\"../../spAll.html\"\
-          >spAll</a>   for this (plate, mjd, fiber) SDSS-I/-II spectra: copy of
-           row from <a href=\"/datamodel/files/SPECTRO_REDUX/specObj.html\">specObj</a>
-            for this (plate, mjd, fiber)"
+        description: 'BOSS spectra: copy of row from <a href="../../spAll.html">spAll</a>   for
+          this (plate, mjd, fiber) SDSS-I/-II spectra: copy of row from <a href="/datamodel/files/SPECTRO_REDUX/specObj.html">specObj</a>
+          for this (plate, mjd, fiber)'
         is_image: false
         size: 3 KB
         columns:
@@ -15542,8 +15575,8 @@ releases:
               update'
       hdu3:
         name: SPZLINE
-        description: "copy of row from <a href=\"../../PLATE4/RUN1D/spZline.html\"\
-          >spZLine</a>   for this (plate, mjd, fiber)"
+        description: copy of row from <a href="../../PLATE4/RUN1D/spZline.html">spZLine</a>   for
+          this (plate, mjd, fiber)
         is_image: false
         size: 2 KB
         columns:
@@ -15663,12 +15696,12 @@ releases:
               update'
       hdu4:
         name: B1-00104927-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 79 KB
         columns:
@@ -15716,12 +15749,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu5:
         name: B1-00104928-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 79 KB
         columns:
@@ -15769,12 +15802,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu6:
         name: B1-00104929-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 79 KB
         columns:
@@ -15822,12 +15855,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu7:
         name: B1-00104930-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 79 KB
         columns:
@@ -15875,12 +15908,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu8:
         name: B1-00104931-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 79 KB
         columns:
@@ -15928,12 +15961,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu9:
         name: B1-00104932-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 79 KB
         columns:
@@ -15981,12 +16014,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu10:
         name: B1-00104933-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 79 KB
         columns:
@@ -16034,12 +16067,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu11:
         name: R1-00104927-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 97 KB
         columns:
@@ -16087,12 +16120,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu12:
         name: R1-00104928-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 97 KB
         columns:
@@ -16140,12 +16173,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu13:
         name: R1-00104929-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 97 KB
         columns:
@@ -16193,12 +16226,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu14:
         name: R1-00104930-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 97 KB
         columns:
@@ -16246,12 +16279,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu15:
         name: R1-00104931-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 97 KB
         columns:
@@ -16299,12 +16332,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu16:
         name: R1-00104932-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 97 KB
         columns:
@@ -16352,12 +16385,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu17:
         name: R1-00104933-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 97 KB
         columns:
@@ -16422,11 +16455,11 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: "Copied from <a href=\"../../PLATE4/spPlate.html\">spPlate</a> \
+        description: 'Copied from <a href="../../PLATE4/spPlate.html">spPlate</a>
           with the following additions/modifications:<li>PLUG_RA, PLUG_DEC, THING_ID,
-           FIBERID: added from spAll</li> <li>NEXP and EXPID*: modified to just
-           include the frames which     contributed to this fiber</li> <li>Removed
-           keywords which apply only to single exposures</li>"
+          FIBERID: added from spAll</li> <li>NEXP and EXPID*: modified to just include
+          the frames which     contributed to this fiber</li> <li>Removed keywords
+          which apply only to single exposures</li>'
         is_image: true
         size: 0 bytes
         header:
@@ -16847,10 +16880,9 @@ releases:
             description: pipeline best model fit used for classification and redshift
       hdu2:
         name: SPALL
-        description: "BOSS spectra: copy of row from <a href=\"../../spAll.html\"\
-          >spAll</a>   for this (plate, mjd, fiber) SDSS-I/-II spectra: copy of
-           row from <a href=\"/datamodel/files/SPECTRO_REDUX/specObj.html\">specObj</a>
-            for this (plate, mjd, fiber)"
+        description: 'BOSS spectra: copy of row from <a href="../../spAll.html">spAll</a>   for
+          this (plate, mjd, fiber) SDSS-I/-II spectra: copy of row from <a href="/datamodel/files/SPECTRO_REDUX/specObj.html">specObj</a>
+          for this (plate, mjd, fiber)'
         is_image: false
         size: 3 KB
         columns:
@@ -18272,8 +18304,8 @@ releases:
               update'
       hdu3:
         name: SPZLINE
-        description: "copy of row from <a href=\"../../PLATE4/RUN1D/spZline.html\"\
-          >spZLine</a>   for this (plate, mjd, fiber)"
+        description: copy of row from <a href="../../PLATE4/RUN1D/spZline.html">spZLine</a>   for
+          this (plate, mjd, fiber)
         is_image: false
         size: 2 KB
         columns:
@@ -18393,12 +18425,12 @@ releases:
               update'
       hdu4:
         name: B1-00104927-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 79 KB
         columns:
@@ -18446,12 +18478,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu5:
         name: B1-00104928-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 79 KB
         columns:
@@ -18499,12 +18531,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu6:
         name: B1-00104929-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 79 KB
         columns:
@@ -18552,12 +18584,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu7:
         name: B1-00104930-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 79 KB
         columns:
@@ -18605,12 +18637,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu8:
         name: B1-00104931-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 79 KB
         columns:
@@ -18658,12 +18690,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu9:
         name: B1-00104932-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 79 KB
         columns:
@@ -18711,12 +18743,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu10:
         name: B1-00104933-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 79 KB
         columns:
@@ -18764,12 +18796,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu11:
         name: R1-00104927-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 97 KB
         columns:
@@ -18817,12 +18849,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu12:
         name: R1-00104928-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 97 KB
         columns:
@@ -18870,12 +18902,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu13:
         name: R1-00104929-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 97 KB
         columns:
@@ -18923,12 +18955,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu14:
         name: R1-00104930-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 97 KB
         columns:
@@ -18976,12 +19008,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu15:
         name: R1-00104931-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 97 KB
         columns:
@@ -19029,12 +19061,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu16:
         name: R1-00104932-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 97 KB
         columns:
@@ -19082,12 +19114,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu17:
         name: R1-00104933-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 97 KB
         columns:
@@ -19152,11 +19184,11 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: "Copied from <a href=\"../../PLATE4/spPlate.html\">spPlate</a> \
+        description: 'Copied from <a href="../../PLATE4/spPlate.html">spPlate</a>
           with the following additions/modifications:<li>PLUG_RA, PLUG_DEC, THING_ID,
-           FIBERID: added from spAll</li> <li>NEXP and EXPID*: modified to just
-           include the frames which     contributed to this fiber</li> <li>Removed
-           keywords which apply only to single exposures</li>"
+          FIBERID: added from spAll</li> <li>NEXP and EXPID*: modified to just include
+          the frames which     contributed to this fiber</li> <li>Removed keywords
+          which apply only to single exposures</li>'
         is_image: true
         size: 0 bytes
         header:
@@ -19577,10 +19609,9 @@ releases:
             description: pipeline best model fit used for classification and redshift
       hdu2:
         name: ''
-        description: "BOSS spectra: copy of row from <a href=\"../../spAll.html\"\
-          >spAll</a>   for this (plate, mjd, fiber) SDSS-I/-II spectra: copy of
-           row from <a href=\"/datamodel/files/SPECTRO_REDUX/specObj.html\">specObj</a>
-            for this (plate, mjd, fiber)"
+        description: 'BOSS spectra: copy of row from <a href="../../spAll.html">spAll</a>   for
+          this (plate, mjd, fiber) SDSS-I/-II spectra: copy of row from <a href="/datamodel/files/SPECTRO_REDUX/specObj.html">specObj</a>
+          for this (plate, mjd, fiber)'
         is_image: false
         size: 3 KB
         columns:
@@ -21002,8 +21033,8 @@ releases:
               update'
       hdu3:
         name: ''
-        description: "copy of row from <a href=\"../../PLATE4/RUN1D/spZline.html\"\
-          >spZLine</a>   for this (plate, mjd, fiber)"
+        description: copy of row from <a href="../../PLATE4/RUN1D/spZline.html">spZLine</a>   for
+          this (plate, mjd, fiber)
         is_image: false
         size: 2 KB
         columns:
@@ -21123,12 +21154,12 @@ releases:
               update'
       hdu4:
         name: ''
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 79 KB
         columns:
@@ -21878,28 +21909,24 @@ releases:
               update'
     survey: eBOSS
   DR17:
-    template: $BOSS_SPECTRO_REDUX/v5_13_2/spectra/lite/3586/spec-3586-55181-0001.fits
-    example: v5_13_2/spectra/lite/3586/spec-3586-55181-0001.fits
-    location: v5_13_2/spectra/lite/3586/spec-3586-55181-0001.fits
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/spectra/full/[PLATEID]/spec-[PLATEID]-[MJD]-[FIBERID].fits
+    example: v5_13_2/spectra/full/3606/spec-3606-55182-0510.fits
+    location: '{run2d}/spectra/full/{plateid}/spec-{plateid}-{mjd}-{fiberid}.fits'
     environment: BOSS_SPECTRO_REDUX
     access:
-      in_sdss_access: true
-      path_name: spec
-      path_template: '@spectrodir|/{run2d}/spectra/full/{plateid:0>4}/spec-{plateid:0>4}-{mjd}-{fiberid:0>4}.fits'
-      path_kwargs:
-      - run2d
-      - mjd
-      - plateid
-      - fiberid
-      access_string: spec = $BOSS_SPECTRO_REDUX/v5_13_2/spectra/lite/3586/spec-3586-55181-0001.fits
+      in_sdss_access: false
+      path_name: null
+      path_template: null
+      path_kwargs: null
+      access_string: specFull = $BOSS_SPECTRO_REDUX/{run2d}/spectra/full/{plateid}/spec-{plateid}-{mjd}-{fiberid}.fits
     hdus:
       hdu0:
         name: PRIMARY
-        description: "Copied from <a href=\"../../PLATE4/spPlate.html\">spPlate</a> \
+        description: 'Copied from <a href="../../PLATE4/spPlate.html">spPlate</a>
           with the following additions/modifications:<li>PLUG_RA, PLUG_DEC, THING_ID,
-           FIBERID: added from spAll</li> <li>NEXP and EXPID*: modified to just
-           include the frames which     contributed to this fiber</li> <li>Removed
-           keywords which apply only to single exposures</li>"
+          FIBERID: added from spAll</li> <li>NEXP and EXPID*: modified to just include
+          the frames which     contributed to this fiber</li> <li>Removed keywords
+          which apply only to single exposures</li>'
         is_image: true
         size: 0 bytes
         header:
@@ -22320,10 +22347,9 @@ releases:
             description: pipeline best model fit used for classification and redshift
       hdu2:
         name: SPALL
-        description: "BOSS spectra: copy of row from <a href=\"../../spAll.html\"\
-          >spAll</a>   for this (plate, mjd, fiber) SDSS-I/-II spectra: copy of
-           row from <a href=\"/datamodel/files/SPECTRO_REDUX/specObj.html\">specObj</a>
-            for this (plate, mjd, fiber)"
+        description: 'BOSS spectra: copy of row from <a href="../../spAll.html">spAll</a>   for
+          this (plate, mjd, fiber) SDSS-I/-II spectra: copy of row from <a href="/datamodel/files/SPECTRO_REDUX/specObj.html">specObj</a>
+          for this (plate, mjd, fiber)'
         is_image: false
         size: 3 KB
         columns:
@@ -23745,8 +23771,8 @@ releases:
               update'
       hdu3:
         name: SPZLINE
-        description: "copy of row from <a href=\"../../PLATE4/RUN1D/spZline.html\"\
-          >spZLine</a>   for this (plate, mjd, fiber)"
+        description: copy of row from <a href="../../PLATE4/RUN1D/spZline.html">spZLine</a>   for
+          this (plate, mjd, fiber)
         is_image: false
         size: 2 KB
         columns:
@@ -23866,12 +23892,12 @@ releases:
               update'
       hdu4:
         name: B1-00104927-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 79 KB
         columns:
@@ -23919,12 +23945,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu5:
         name: B1-00104928-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 79 KB
         columns:
@@ -23972,12 +23998,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu6:
         name: B1-00104929-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 79 KB
         columns:
@@ -24025,12 +24051,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu7:
         name: B1-00104930-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 79 KB
         columns:
@@ -24078,12 +24104,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu8:
         name: B1-00104931-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 79 KB
         columns:
@@ -24131,12 +24157,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu9:
         name: B1-00104932-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 79 KB
         columns:
@@ -24184,12 +24210,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu10:
         name: B1-00104933-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 79 KB
         columns:
@@ -24237,12 +24263,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu11:
         name: R1-00104927-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 97 KB
         columns:
@@ -24290,12 +24316,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu12:
         name: R1-00104928-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 97 KB
         columns:
@@ -24343,12 +24369,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu13:
         name: R1-00104929-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 97 KB
         columns:
@@ -24396,12 +24422,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu14:
         name: R1-00104930-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 97 KB
         columns:
@@ -24449,12 +24475,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu15:
         name: R1-00104931-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 97 KB
         columns:
@@ -24502,12 +24528,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu16:
         name: R1-00104932-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 97 KB
         columns:
@@ -24555,12 +24581,12 @@ releases:
             description: x-pixel location of trace on CCD (BOSS spectra only)
       hdu17:
         name: R1-00104933-00104934-00104935
-        description: "For each exposure there is one HDU for the red camera and one
-           for the blue. These are in the order of the EXPIDnn keywords in the HDU
-           0 header, and their EXTNAME keywords match the EXPIDnn keywords from
-           HDU 0. <b>Required Header Keywords:</b>   Taken from <a href=\"../../PLATE4/spCFrame.html\"\
-          >spCFrame</a> files.   BOSS spectra have the addition of YPIX0 defining
-           the y-pixel   location of the first flux bin. Binary table with columns:"
+        description: 'For each exposure there is one HDU for the red camera and one
+          for the blue. These are in the order of the EXPIDnn keywords in the HDU
+          0 header, and their EXTNAME keywords match the EXPIDnn keywords from HDU
+          0. <b>Required Header Keywords:</b>   Taken from <a href="../../PLATE4/spCFrame.html">spCFrame</a>
+          files.   BOSS spectra have the addition of YPIX0 defining the y-pixel   location
+          of the first flux bin. Binary table with columns:'
         is_image: false
         size: 97 KB
         columns:
@@ -24607,3 +24633,5 @@ releases:
             unit: 'migration: unit of keyword/column not found. Needs update'
             description: x-pixel location of trace on CCD (BOSS spectra only)
     survey: eBOSS
+notes: |-
+  None
