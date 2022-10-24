@@ -1,7 +1,7 @@
 general:
   name: mwmStar
-  short: The stacked spectra for a single star from APOGEE APO, APOGEE LCO, and BOSS
-  description: mwmStar file contains all stacked spectra for a MWM source. This includes
+  short: stacked spectra for a single star from APOGEE APO, APOGEE LCO, and BOSS
+  description: mwmStar contains all stacked spectra for a MWM source. This includes
     a stacked optical BOSS spectrum, and a stacked infrared spectrum from the APOGEE
     instrument at Apache Point Observatory, and a stacked infrared spectrum from the
     APOGEE instrument on the du Pont telescope at Las Campanas Observatory. Currently
@@ -9,7 +9,7 @@ general:
     line spread function profiles. Stacked spectra from each telescope/instrument
     combination are stored in their own HDU (see mwmVisit HDU definition).
   datatype: FITS
-  filesize: 112 KB
+  filesize: 303 KB
   releases:
   - WORK
   environments:
@@ -17,8 +17,9 @@ general:
   surveys:
   - MWM
   naming_convention: $MWM_ASTRA/[ASTRA_VERSION]/[RUN2D]-[APRED]/spectra/star/[CATALOGID_GROUPS]/mwmStar-[ASTRA_VERSION]-[CATALOGID].fits
-  generated_by: astra this product.
+  generated_by: astra
   design: false
+  vac: false
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
@@ -26,24 +27,24 @@ changelog:
 releases:
   WORK:
     template: $MWM_ASTRA/[ASTRA_VERSION]/[RUN2D]-[APRED]/spectra/star/[CATALOGID_GROUPS]/mwmStar-[ASTRA_VERSION]-[CATALOGID].fits
-    example: 0.2.3/v6_0_8-daily/spectra/star/100/100753/mwmStar-0.2.3-27021598031085682.fits
+    example: 0.2.6/v6_0_9-1.0/spectra/star/46/03/mwmStar-0.2.6-27021597910404603.fits
     location: '{astra_version}/{run2d}-{apred}/spectra/star/{catalogid_groups}/mwmStar-{astra_version}-{catalogid}.fits'
     environment: MWM_ASTRA
     access:
       in_sdss_access: true
       path_name: mwmStar
-      path_template: $MWM_ASTRA/{astra_version}/{run2d}-{apred}/spectra/star/@catalogid_groups|/mwmStar-{astra_version}-{catalogid}@component_default|.fits
+      path_template: $MWM_ASTRA/{v_astra}/{run2d}-{apred}/spectra/star/@cat_id_groups|/mwmStar-{v_astra}-{cat_id}@component_default|.fits
       path_kwargs:
-      - catalogid
-      - astra_version
-      - run2d
       - apred
+      - run2d
+      - v_astra
+      - cat_id
       access_string: mwmStar = $MWM_ASTRA/{astra_version}/{run2d}-{apred}/spectra/star/{catalogid_groups}/mwmStar-{astra_version}-{catalogid}.fits
     survey: MWM
     hdus:
       hdu0:
         name: PRIMARY
-        description: Souce information only
+        description: Target information
         is_image: true
         size: 0 bytes
         header:
@@ -59,126 +60,105 @@ releases:
         - key: EXTEND
           value: true
           comment: ''
-        - key: ''
-          value: METADATA
-          comment: ''
-        - key: ASTRA
-          value: 0.2.3
+        - key: V_ASTRA
+          value: 0.2.6
           comment: Astra version
         - key: CREATED
-          value: 22-08-29 10:41:06
+          value: 22-10-18 06:19:09
           comment: File creation time (UTC %y-%m-%d %H:%M:%S)
         - key: HEALPIX
-          value: 100753
+          value: 13779
           comment: Healpix location (128 sides)
-        - key: ''
-          value: IDENTIFIERS
-          comment: ''
-        - key: SDSS_ID
-          value: 27021598031085682
+        - key: CAT_ID
+          value: 27021597910404603
           comment: SDSS-V catalog identifier
         - key: TIC_ID
-          value: 36222482
+          value: 55761576
           comment: TESS Input Catalog (v8) identifier
         - key: GAIA_ID
-          value: 3107096203698444672
+          value: 1576126661170066688
           comment: Gaia DR2 source identifier
-        - key: ''
-          value: ASTROMETRY
-          comment: ''
         - key: RA
-          value: 101.9617814906622
+          value: 181.7710643666084
           comment: SDSS-V catalog right ascension (J2000) [deg]
         - key: DEC
-          value: -1.256634126099392
+          value: 59.21282318647164
           comment: SDSS-V catalog declination (J2000) [deg]
         - key: GAIA_RA
-          value: 101.9617814906622
+          value: 181.7710643666084
           comment: Gaia DR2 right ascension [deg]
         - key: GAIA_DEC
-          value: -1.256634126099392
+          value: 59.21282318647164
           comment: Gaia DR2 declination [deg]
         - key: PLX
-          value: 0.1611521798502125
+          value: 1.339033974056371
           comment: Gaia DR2 parallax [mas]
         - key: E_PLX
-          value: 0.04071035664555925
+          value: 0.02200754038283536
           comment: Gaia DR2 parallax error [mas]
         - key: PMRA
-          value: 0.1324311085317166
+          value: 2.261744965710382
           comment: Gaia DR2 proper motion in RA [mas/yr]
         - key: E_PMRA
-          value: 0.05965347109320542
+          value: 0.03586677274251623
           comment: Gaia DR2 proper motion in RA error [mas/yr]
         - key: PMDE
-          value: 0.3523249934984181
+          value: -10.02587343266854
           comment: Gaia DR2 proper motion in DEC [mas/yr]
         - key: E_PMDE
-          value: 0.06060995887588483
+          value: 0.03423975401123466
           comment: Gaia DR2 proper motion in DEC error [mas/yr]
-        - key: VRAD
-          value: 100
+        - key: V_RAD
+          value: -61.64333233793816
           comment: Gaia DR2 radial velocity [km/s]
-        - key: E_VRAD
-          value: 1
+        - key: E_V_RAD
+          value: 0.8742333863301371
           comment: Gaia DR2 radial velocity error [km/s]
-        - key: ''
-          value: PHOTOMETRY
-          comment: ''
         - key: G_MAG
-          value: 14.75118
+          value: 12.360463
           comment: Gaia DR2 mean apparent G magnitude [mag]
         - key: BP_MAG
-          value: 15.156284
+          value: 12.839755
           comment: Gaia DR2 mean apparent BP magnitude [mag]
         - key: RP_MAG
-          value: 14.1503525
+          value: 11.742541
           comment: Gaia DR2 mean apparent RP magnitude [mag]
         - key: J_MAG
-          value: 13.299
+          value: 10.991
           comment: 2MASS mean apparent J magnitude [mag]
         - key: E_J_MAG
-          value: 0.023
+          value: 0.017
           comment: 2MASS mean apparent J magnitude error [mag]
         - key: H_MAG
-          value: 13.117
+          value: 10.502
           comment: 2MASS mean apparent H magnitude [mag]
         - key: E_H_MAG
-          value: 0.031
+          value: 0.021
           comment: 2MASS mean apparent H magnitude error [mag]
         - key: K_MAG
-          value: 12.982
+          value: 10.402
           comment: 2MASS mean apparent K magnitude [mag]
         - key: E_K_MAG
-          value: 0.038
+          value: 0.015
           comment: 2MASS mean apparent K magnitude error [mag]
-        - key: ''
-          value: TARGETING
-          comment: ''
         - key: CARTON_0
-          value: mwm_ob_core
+          value: mwm_rv_short_fps
           comment: First carton for source (see documentation)
         - key: CARTONS
-          value: mwm_ob_core,openfibertargets_nov2020_34a
+          value: mwm_rv_short_fps,mwm_rv_short_fps,ops_std_apogee,manual_fps_position_stars_10,manual_fps_position_stars_apogee_10,ops_gaia_brightneighbors
           comment: SDSS-V cartons
         - key: PROGRAMS
-          value: open_fiber,mwm_ob
+          value: mwm_rv,commissioning,ops_std,ops
           comment: SDSS-V programs
         - key: MAPPERS
-          value: mwm,open
+          value: mwm,commissioning,ops
           comment: SDSS-V mappers
-        - key: ''
-          value: DATA INTEGRITY
-          comment: ''
         - key: CHECKSUM
-          value: 0o0i2o0f0o0f0o0f
-          comment: HDU checksum updated 2022-08-29T04:42:38
+          value: OGBJR9AJOEAJO9AJ
+          comment: HDU checksum updated 2022-10-18T00:19:38
         - key: DATASUM
           value: '0'
-          comment: data unit checksum updated 2022-08-29T04:42:38
-        - key: ''
-          value: HDU DESCRIPTIONS
-          comment: ''
+          comment: data unit checksum updated 2022-10-18T00:19:38
         - key: COMMENT
           value: 'HDU 0: Source information only'
           comment: ''
@@ -196,46 +176,453 @@ releases:
           comment: ''
       hdu1:
         name: BOSS/APO
-        description: Stacked BOSS spectrum.
+        description: Stacked spectra from the BOSS instrument at Apache Point Observatory
         is_image: false
-        size: 90 KB
+        size: 108 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 111556
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 1
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 6
+          comment: number of table fields
+        - key: EXTNAME
+          value: BOSS/APO
+          comment: Short extension name
+        - key: OBSRVTRY
+          value: APO
+          comment: Observatory name
+        - key: INSTRMNT
+          value: BOSS
+          comment: Instrument name
+        - key: V_BOSS
+          value: 6.0.1
+          comment: Version of the BOSS ICC
+        - key: VJAEGER
+          value: 0.13.2-alpha.0
+          comment: Version of Jaeger
+        - key: VKAIJU
+          value: 1.2.2-alpha.1
+          comment: Version of Kaiju
+        - key: VCOORDIO
+          value: 1.2.2-alpha.0
+          comment: Version of coordIO
+        - key: VCALIBS
+          value: APO.2021.12.25+960cb05
+          comment: Version of FPS calibrations
+        - key: VERSIDL
+          value: 8.8.0
+          comment: Version of IDL
+        - key: VERSUTIL
+          value: v5_5_17
+          comment: Version of idlutils
+        - key: VERSREAD
+          value: v6_0_9
+          comment: Version of idlspec2d for processing raw data
+        - key: VERS2D
+          value: v6_0_9
+          comment: Version of idlspec2d for 2D reduction
+        - key: VERSCOMB
+          value: v6_0_9
+          comment: Version of idlspec2d for combining exposures
+        - key: VERSLOG
+          value: trunk 27531
+          comment: Version of SPECLOG product
+        - key: VERSFLAT
+          value: v1_34
+          comment: Version of SPECFLAT product
+        - key: DIDFLUSH
+          value: true
+          comment: Was CCD flushed before integration
+        - key: CARTID
+          value: FPS-N
+          comment: Cartridge identifier
+        - key: PSFSKY
+          value: 3
+          comment: Order of PSF sky subtraction
+        - key: PREJECT
+          value: 0.2
+          comment: Profile area rejection threshold
+        - key: LOWREJ
+          value: 4
+          comment: 'Extraction: low rejection'
+        - key: HIGHREJ
+          value: 50
+          comment: 'Extraction: high rejection'
+        - key: SCATPOLY
+          value: 0
+          comment: 'Extraction: Order of scattered light polynomial'
+        - key: PROFTYPE
+          value: 1
+          comment: 'Extraction profile: 1=Gaussian'
+        - key: NFITPOLY
+          value: 1
+          comment: 'Extraction: Number of profile parameters'
+        - key: SKYCHI2
+          value: 1.03626722288
+          comment: Mean \chi^2 of sky subtraction
+        - key: SCHI2MIN
+          value: 1.01396622969
+          comment: Minimum \chi^2 of sky subtraction
+        - key: SCHI2MAX
+          value: 1.08650361514
+          comment: Maximum \chi^2 of sky subtraction
+        - key: V_HELIO
+          value: -5.2041389503
+          comment: Heliocentric velocity correction [km/s]
+        - key: RDNOISE0
+          value: 2.07779
+          comment: CCD read noise amp 0 [electrons]
+        - key: NRES
+          value: '5'
+          comment: Sinc bandlimit [pixel/resolution element]
+        - key: FILTSIZE
+          value: 501
+          comment: Median filter size for pseudo-continuum [pixel]
+        - key: NORMSIZE
+          value: 100
+          comment: Gaussian width for pseudo-continuum [pixel]
+        - key: CONSCALE
+          value: false
+          comment: Scale by pseudo-continuum when stacking
+        - key: CRVAL
+          value: 3.5523
+          comment: Log(10) wavelength of first pixel [Angstrom]
+        - key: CDELT
+          value: 0.0001
+          comment: Log(10) delta wavelength per pixel [Angstrom]
+        - key: CTYPE
+          value: LOG-LINEAR
+          comment: Wavelength solution description
+        - key: CUNIT
+          value: Angstrom (Vacuum)
+          comment: Wavelength solution unit
+        - key: CRPIX
+          value: 1
+          comment: Pixel offset from the first pixel
+        - key: DC-FLAG
+          value: 1
+          comment: Wavelength solution flag
+        - key: NPIXELS
+          value: 4648
+          comment: Number of pixels per spectrum
+        - key: TDIM1
+          value: (1)
+          comment: ''
+        - key: TDIM2
+          value: (4648)
+          comment: ''
+        - key: TDIM3
+          value: (4648)
+          comment: ''
+        - key: TDIM4
+          value: (4648)
+          comment: ''
+        - key: TDIM5
+          value: (4648)
+          comment: ''
+        - key: TDIM6
+          value: (4648)
+          comment: ''
+        - key: CHECKSUM
+          value: ZWoDZUl9ZUlAZUl9
+          comment: HDU checksum updated 2022-10-18T00:19:38
+        - key: DATASUM
+          value: '644102797'
+          comment: data unit checksum updated 2022-10-18T00:19:38
         columns:
+          SNR:
+            name: SNR
+            type: float32[1]
+            unit: ''
+            description: Mean signal-to-noise ratio
           LAMBDA:
             name: LAMBDA
-            type: float32
-            unit: Angstrom
-            description: wavelength
+            type: float32[4648]
+            unit: ''
+            description: 'Source rest frame vacuum wavelength '
           FLUX:
             name: FLUX
-            type: float32
-            unit: unitless
-            description: continuum-normalized flux from stacked spectra
+            type: float32[4648]
+            unit: ''
+            description: Source flux
           E_FLUX:
             name: E_FLUX
-            type: float32
-            unit: unitless
-            description: flux error
+            type: float32[4648]
+            unit: ''
+            description: Standard deviation of source flux
           BITMASK:
             name: BITMASK
-            type: int64
-            unit: unitless
-            description: per-pixel reduction flags
+            type: int64[4648]
+            unit: ''
+            description: Pixel-level bitmask (see documentation)
+          WRESL:
+            name: WRESL
+            type: float32[4648]
+            unit: ''
+            description: ''
       hdu2:
         name: BOSS/LCO
         description: Placeholder for a stacked spectrum from BOSS south should such
           an instrument exist.
         is_image: false
         size: 0 bytes
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 0
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 0
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 0
+          comment: number of table fields
+        - key: EXTNAME
+          value: BOSS/LCO
+          comment: ''
+        - key: OBSRVTRY
+          value: LCO
+          comment: ''
+        - key: INSTRMNT
+          value: BOSS
+          comment: ''
+        - key: CHECKSUM
+          value: cij8eZj6cfj6cZj6
+          comment: HDU checksum updated 2022-10-18T00:19:38
+        - key: DATASUM
+          value: '0'
+          comment: data unit checksum updated 2022-10-18T00:19:38
+        - key: COMMENT
+          value: No BOSS data available from LCO for this source.
+          comment: ''
         columns: {}
       hdu3:
         name: APOGEE/APO
-        description: Stacked APOGEE north spectrum
+        description: Spectra from the APOGEE instrument at Apache Point Observatory.
         is_image: false
-        size: 0 bytes
-        columns: {}
+        size: 167 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 171504
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 1
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 5
+          comment: number of table fields
+        - key: EXTNAME
+          value: APOGEE/APO
+          comment: Short extension name
+        - key: OBSRVTRY
+          value: APO
+          comment: Observatory name
+        - key: INSTRMNT
+          value: APOGEE
+          comment: Instrument name
+        - key: V_APRED
+          value: 6fb9549cfadd8e08a69335736a315f1d533830da
+          comment: apogee software version
+        - key: NRES
+          value: 5 4.25 3.5
+          comment: Sinc bandlimit [pixel/resolution element]
+        - key: FILTSIZE
+          value: 501
+          comment: Median filter size for pseudo-continuum [pixel]
+        - key: NORMSIZE
+          value: 100
+          comment: Gaussian width for pseudo-continuum [pixel]
+        - key: CONSCALE
+          value: false
+          comment: Scale by pseudo-continuum when stacking
+        - key: DITHERED
+          value: 0.0
+          comment: Fraction of visits that were dithered
+        - key: NVISITS
+          value: 13
+          comment: Number of visits included in the stack
+        - key: TEFF_D
+          value: 5528.1
+          comment: Effective temperature from DOPPLER [K]
+        - key: E_TEFF_D
+          value: 15.4
+          comment: Error in effective temperature from DOPPLER [K]
+        - key: LOGG_D
+          value: 4.485
+          comment: Surface gravity from DOPPLER
+        - key: E_LOGG_D
+          value: 0.015
+          comment: Error in surface gravity from DOPPLER
+        - key: FEH_D
+          value: -0.265
+          comment: Metallicity from DOPPLER
+        - key: E_FEH_D
+          value: 0.007
+          comment: Error in metallicity from DOPPLER
+        - key: CRVAL
+          value: 4.179
+          comment: Log(10) wavelength of first pixel [Angstrom]
+        - key: CDELT
+          value: 6.0e-06
+          comment: Log(10) delta wavelength per pixel [Angstrom]
+        - key: CTYPE
+          value: LOG-LINEAR
+          comment: Wavelength solution description
+        - key: CUNIT
+          value: Angstrom (Vacuum)
+          comment: Wavelength solution unit
+        - key: CRPIX
+          value: 1
+          comment: Pixel offset from the first pixel
+        - key: DC-FLAG
+          value: 1
+          comment: Wavelength solution flag
+        - key: NPIXELS
+          value: 8575
+          comment: Number of pixels per spectrum
+        - key: TDIM1
+          value: (1)
+          comment: ''
+        - key: TDIM2
+          value: (8575)
+          comment: ''
+        - key: TDIM3
+          value: (8575)
+          comment: ''
+        - key: TDIM4
+          value: (8575)
+          comment: ''
+        - key: TDIM5
+          value: (8575)
+          comment: ''
+        - key: CHECKSUM
+          value: aKRpaIOoaIOoaIOo
+          comment: HDU checksum updated 2022-10-18T00:19:38
+        - key: DATASUM
+          value: '1170225260'
+          comment: data unit checksum updated 2022-10-18T00:19:38
+        columns:
+          SNR:
+            name: SNR
+            type: float32[1]
+            unit: ''
+            description: Mean signal-to-noise ratio
+          LAMBDA:
+            name: LAMBDA
+            type: float32[8575]
+            unit: ''
+            description: 'Source rest frame vacuum wavelength '
+          FLUX:
+            name: FLUX
+            type: float32[8575]
+            unit: ''
+            description: Source flux
+          E_FLUX:
+            name: E_FLUX
+            type: float32[8575]
+            unit: ''
+            description: Standard deviation of source flux
+          BITMASK:
+            name: BITMASK
+            type: int64[8575]
+            unit: ''
+            description: Pixel-level bitmask (see documentation)
       hdu4:
         name: APOGEE/LCO
-        description: Stacked APOGEE south spectrum
+        description: Stacked spectra from the APOGEE instrument at Las Campanas Observatory.
         is_image: false
         size: 0 bytes
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 0
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 0
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 0
+          comment: number of table fields
+        - key: EXTNAME
+          value: APOGEE/LCO
+          comment: ''
+        - key: OBSRVTRY
+          value: LCO
+          comment: ''
+        - key: INSTRMNT
+          value: APOGEE
+          comment: ''
+        - key: CHECKSUM
+          value: HooWJolTHolTHolT
+          comment: HDU checksum updated 2022-10-18T00:19:38
+        - key: DATASUM
+          value: '0'
+          comment: data unit checksum updated 2022-10-18T00:19:38
+        - key: COMMENT
+          value: No APOGEE data available from LCO for this source.
+          comment: ''
         columns: {}
+notes: |-
+  None
