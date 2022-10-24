@@ -21914,10 +21914,14 @@ releases:
     location: '{run2d}/spectra/full/{plateid}/spec-{plateid}-{mjd}-{fiberid}.fits'
     environment: BOSS_SPECTRO_REDUX
     access:
-      in_sdss_access: false
-      path_name: null
-      path_template: null
-      path_kwargs: null
+      in_sdss_access: true
+      path_name: spec
+      path_template: '@spectrodir|/{run2d}/spectra/full/{plateid:0>4}/spec-{plateid:0>4}-{mjd}-{fiberid:0>4}.fits'
+      path_kwargs:
+      - run2d
+      - mjd
+      - plateid
+      - fiberid
       access_string: specFull = $BOSS_SPECTRO_REDUX/{run2d}/spectra/full/{plateid}/spec-{plateid}-{mjd}-{fiberid}.fits
     hdus:
       hdu0:
