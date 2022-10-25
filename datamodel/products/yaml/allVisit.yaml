@@ -8,8 +8,10 @@ general:
   releases:
   - DR16
   - DR17
+  - WORK
   environments:
   - APOGEE_ASPCAP
+  - APOGEE_REDUX
   naming_convention: allVisit-RESULTS_VERS.fits
   generated_by: idlwrap (aspcap_allstar)
   design: false
@@ -21,12 +23,15 @@ changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
   releases:
+    WORK:
+      from: DR17
+      note: No changes
     DR17:
       from: DR16
       primary_delta_nkeys: 9
       removed_primary_header_kwargs:
-      - HISTORY
       - DATE
+      - HISTORY
       - COMMENT
 releases:
   DR16:
@@ -766,7 +771,6 @@ releases:
         - key: COMMENT
           value: ' *** End of mandatory fields ***'
           comment: ''
-          comment: ''
         columns:
           APOGEE_ID:
             name: APOGEE_ID
@@ -1226,6 +1230,402 @@ releases:
           RV_FLAG:
             name: RV_FLAG
             type: int32
+            unit: replace me - with content
+            description: replace me - with content
+  WORK:
+    template: $APOGEE_REDUX/[APRED]/summary/allVisit-[APRED]-[TELESCOPE].fits
+    example: 1.0/summary/allVisit-1.0-apo25m.fits
+    location: '{apred}/summary/allVisit-{apred}-{telescope}.fits'
+    environment: APOGEE_REDUX
+    access:
+      in_sdss_access: true
+      path_name: allVisit
+      path_template: $APOGEE_REDUX/{apred}/summary/allVisit-{apred}.fits
+      path_kwargs:
+      - apred
+      access_string: allVisit = $APOGEE_REDUX/{apred}/summary/allVisit-{apred}-{telescope}.fits
+    survey: MWM
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: replace me description
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: replace me description
+        is_image: false
+        size: 557 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 1083
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 539646
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 66
+          comment: number of table fields
+        - key: TDIM66
+          value: (3)
+          comment: ''
+        columns:
+          apogee_id:
+            name: APOGEE_ID
+            type: char[28]
+            unit: replace me - with content
+            description: replace me - with content
+          target_id:
+            name: TARGET_ID
+            type: char[28]
+            unit: replace me - with content
+            description: replace me - with content
+          apred_vers:
+            name: APRED_VERS
+            type: char[13]
+            unit: replace me - with content
+            description: replace me - with content
+          file:
+            name: FILE
+            type: char[49]
+            unit: replace me - with content
+            description: replace me - with content
+          uri:
+            name: URI
+            type: char[122]
+            unit: replace me - with content
+            description: replace me - with content
+          fiberid:
+            name: FIBERID
+            type: int64
+            unit: replace me - with content
+            description: replace me - with content
+          plate:
+            name: PLATE
+            type: char[15]
+            unit: replace me - with content
+            description: replace me - with content
+          mjd:
+            name: MJD
+            type: int64
+            unit: replace me - with content
+            description: replace me - with content
+          telescope:
+            name: TELESCOPE
+            type: char[16]
+            unit: replace me - with content
+            description: replace me - with content
+          survey:
+            name: SURVEY
+            type: char[17]
+            unit: replace me - with content
+            description: replace me - with content
+          field:
+            name: FIELD
+            type: char[32]
+            unit: replace me - with content
+            description: replace me - with content
+          programname:
+            name: PROGRAMNAME
+            type: char[45]
+            unit: replace me - with content
+            description: replace me - with content
+          ra:
+            name: RA
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          dec:
+            name: DEC
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          glon:
+            name: GLON
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          glat:
+            name: GLAT
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          jmag:
+            name: JMAG
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          jerr:
+            name: JERR
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          hmag:
+            name: HMAG
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          herr:
+            name: HERR
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          kmag:
+            name: KMAG
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          kerr:
+            name: KERR
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          src_h:
+            name: SRC_H
+            type: char[10]
+            unit: replace me - with content
+            description: replace me - with content
+          pmra:
+            name: PMRA
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          pmdec:
+            name: PMDEC
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          pm_src:
+            name: PM_SRC
+            type: char[10]
+            unit: replace me - with content
+            description: replace me - with content
+          apogee_target1:
+            name: APOGEE_TARGET1
+            type: int64
+            unit: replace me - with content
+            description: replace me - with content
+          apogee_target2:
+            name: APOGEE_TARGET2
+            type: int64
+            unit: replace me - with content
+            description: replace me - with content
+          apogee_target3:
+            name: APOGEE_TARGET3
+            type: int64
+            unit: replace me - with content
+            description: replace me - with content
+          apogee_target4:
+            name: APOGEE_TARGET4
+            type: int64
+            unit: replace me - with content
+            description: replace me - with content
+          catalogid:
+            name: CATALOGID
+            type: int64
+            unit: replace me - with content
+            description: replace me - with content
+          gaiadr2_plx:
+            name: GAIADR2_PLX
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          gaiadr2_plx_error:
+            name: GAIADR2_PLX_ERROR
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          gaiadr2_pmra:
+            name: GAIADR2_PMRA
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          gaiadr2_pmra_error:
+            name: GAIADR2_PMRA_ERROR
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          gaiadr2_pmdec:
+            name: GAIADR2_PMDEC
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          gaiadr2_pmdec_error:
+            name: GAIADR2_PMDEC_ERROR
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          gaiadr2_gmag:
+            name: GAIADR2_GMAG
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          gaiadr2_gerr:
+            name: GAIADR2_GERR
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          gaiadr2_bpmag:
+            name: GAIADR2_BPMAG
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          gaiadr2_bperr:
+            name: GAIADR2_BPERR
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          gaiadr2_rpmag:
+            name: GAIADR2_RPMAG
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          gaiadr2_rperr:
+            name: GAIADR2_RPERR
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          sdssv_apogee_target0:
+            name: SDSSV_APOGEE_TARGET0
+            type: int64
+            unit: replace me - with content
+            description: replace me - with content
+          firstcarton:
+            name: FIRSTCARTON
+            type: char[45]
+            unit: replace me - with content
+            description: replace me - with content
+          targflags:
+            name: TARGFLAGS
+            type: char[113]
+            unit: replace me - with content
+            description: replace me - with content
+          snr:
+            name: SNR
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          starflag:
+            name: STARFLAG
+            type: int64
+            unit: replace me - with content
+            description: replace me - with content
+          starflags:
+            name: STARFLAGS
+            type: char[84]
+            unit: replace me - with content
+            description: replace me - with content
+          dateobs:
+            name: DATEOBS
+            type: char[33]
+            unit: replace me - with content
+            description: replace me - with content
+          jd:
+            name: JD
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          starver:
+            name: STARVER
+            type: char[15]
+            unit: replace me - with content
+            description: replace me - with content
+          bc:
+            name: BC
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          vtype:
+            name: VTYPE
+            type: int64
+            unit: replace me - with content
+            description: replace me - with content
+          vrel:
+            name: VREL
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          vrelerr:
+            name: VRELERR
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          vrad:
+            name: VRAD
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          chisq:
+            name: CHISQ
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          rv_teff:
+            name: RV_TEFF
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          rv_feh:
+            name: RV_FEH
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          rv_logg:
+            name: RV_LOGG
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          xcorr_vrel:
+            name: XCORR_VREL
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          xcorr_vrelerr:
+            name: XCORR_VRELERR
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          xcorr_vrad:
+            name: XCORR_VRAD
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          n_components:
+            name: N_COMPONENTS
+            type: int64
+            unit: replace me - with content
+            description: replace me - with content
+          rv_components:
+            name: RV_COMPONENTS
+            type: float64[3]
             unit: replace me - with content
             description: replace me - with content
 notes: |-
