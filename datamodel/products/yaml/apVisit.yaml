@@ -32,84 +32,84 @@ changelog:
       from: DR17
       primary_delta_nkeys: 2
       added_primary_header_kwargs:
-      - G2GMAG
-      - APRED
-      - PROGRAM
-      - JMAG
+      - KMAG
       - TARG4
-      - ASSIGNED
+      - G2GMAG
+      - G2RPMAG
       - G2PMDEC
-      - VALID
-      - SVAPTRG0
       - ONTARGET
       - CARTON1
-      - G2PLX
       - CATID
-      - CADENCE
-      - KMAG
-      - G2PMRA
-      - SVTARG0
       - HMAG
+      - SVTARG0
+      - CADENCE
+      - PROGRAM
+      - G2PLX
+      - JMAG
+      - G2PMRA
+      - VALID
+      - ASSIGNED
+      - SVAPTRG0
       - CATEGORY
       - G2BPMAG
-      - G2RPMAG
+      - APRED
       removed_primary_header_kwargs:
-      - LSFID
-      - FRAME6
-      - J
-      - FRAME2
-      - AKMETHOD
-      - FRAME8
-      - AKWISE
-      - FRAME3
-      - RELFLUX
-      - MTPFLUX
-      - WAVEID
-      - AKTARG
       - K
-      - FRAME4
-      - FRAME7
+      - RELFLUX
+      - FRAME6
       - FRAME5
+      - LSFID
+      - AKTARG
+      - FRAME2
       - CARTID
+      - FRAME4
       - SFD_EBV
+      - AKMETHOD
+      - WAVEID
+      - FRAME3
+      - MTPFLUX
+      - FRAME7
       - H
+      - FRAME8
+      - J
+      - AKWISE
     DR17:
       from: DR16
       primary_delta_nkeys: 25
       added_primary_header_kwargs:
       - LSFID
       - RELFLUX
-      - MTPFLUX
-      - WAVEID
       - CARTID
+      - WAVEID
+      - MTPFLUX
       removed_primary_header_kwargs:
-      - RVCARB
-      - CCPEAK
-      - RVTEFF
-      - RVLOGG
-      - VGSR
-      - RVFEH
-      - HJD
       - VSCATTER
-      - VTYPE
-      - RVALPH
-      - XSHIFT
-      - GLAT
-      - GLON
-      - VHELIO
-      - VRAD
-      - LONGSTRN
-      - JD
-      - BC
-      - VLSR
+      - RVFEH
       - VRADERR
       - CHISQ
-      - CCPFWHM
+      - CCPEAK
+      - RVTEFF
+      - XSHIFT
+      - LONGSTRN
+      - VTYPE
+      - GLAT
+      - HJD
+      - RVALPH
       - SYNTHFIL
+      - VHELIO
+      - CCPFWHM
+      - BC
+      - VLSR
+      - GLON
+      - VRAD
+      - VGSR
+      - JD
+      - RVCARB
+      - RVLOGG
 releases:
   DR16:
     template: $APOGEE_REDUX/[APRED]/visit/[TELESCOPE]/[FIELD]/[PLATE]/[MJD]/[PREFIX]Visit-[APRED]-[PLATE]-[MJD]-{fiber:0
-    example: null
+    example: ''
     location: '{apred}/visit/{telescope}/{field}/{plate}/{mjd}/{prefix}Visit-{apred}-{plate}-{mjd}-{fiber:0'
     environment: APOGEE_REDUX
     access:
@@ -2183,7 +2183,7 @@ releases:
             description: ''
   WORK:
     template: $APOGEE_REDUX/[APRED]/visit/[TELESCOPE]/[FIELD]/[PLATE]/[MJD]/apVisit-[APRED]-[TELESCOPE]-[PLATE]-[MJD]-[FIBER].fits
-    example: 1.0/visit/apo25m/100537/4895/59683/apVisit-1.0-apo25m-4895-59683-101.fits
+    example: 1.0/visit/apo25m/100001/6340/59804/apVisit-1.0-apo25m-6340-59804-145.fits
     location: '{apred}/visit/{telescope}/{field}/{plate}/{mjd}/apVisit-{apred}-{telescope}-{plate}-{mjd}-{fiber}.fits'
     environment: APOGEE_REDUX
     access:
@@ -2191,12 +2191,12 @@ releases:
       path_name: apVisit
       path_template: $APOGEE_REDUX/{apred}/visit/{telescope}/{field}/{plate}/{mjd}/apVisit-{apred}-{telescope}-{plate}-{mjd}-{fiber:0>3}.fits
       path_kwargs:
+      - plate
+      - field
+      - telescope
       - fiber
       - mjd
-      - telescope
-      - field
       - apred
-      - plate
       access_string: apVisit = $APOGEE_REDUX/{apred}/visit/{telescope}/{field}/{plate}/{mjd}/apVisit-{apred}-{telescope}-{plate}-{mjd}-{fiber}.fits
     survey: MWM
     hdus:
@@ -3226,4 +3226,5 @@ releases:
             type: float64
             unit: ''
             description: ''
-notes: None
+notes: |-
+  None
