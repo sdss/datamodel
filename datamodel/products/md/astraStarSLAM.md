@@ -1,7 +1,7 @@
 # Data Model: astraStarSLAM
 
 
-Results and best-fit models from the SLAM astra pipeline for a single star.
+Results and best-fit models from the SLAM astra pipeline for a single star
 
 
 ## Contents
@@ -13,7 +13,7 @@ Results and best-fit models from the SLAM astra pipeline for a single star.
 ---
 
 ## Basic Information
-Results and best-fit models from the SLAM astra pipeline for a single star.
+Results and best-fit models from the SLAM astra pipeline for a single star
 
 ### Naming Convention
 $MWM_ASTRA/[ASTRA_VERSION]/[RUN2D]-[APRED]/results/star/[CATALOGID_GROUPS]/astraStar-SLAM-[ASTRA_VERSION]-[CATALOGID]-[TASK_ID].fits
@@ -115,7 +115,7 @@ Key | Value | Comment | |
 
 
 ### HDU1: BOSS/APO
-best-fit model and parameters for stacked BOSS spectrum.
+best-fit model and parameters for stacked BOSS spectrum
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  36 KB
@@ -185,7 +185,7 @@ Name | Type | Unit | Description |
  | PARENT_DATA_PRODUCT_ID | int32 |  |  |
  | TEFF | float32 | K | Stellar effective temperature  |
  | LOGG | float32 | log10(cm/s^2) | Surface gravity  |
- | FE_H | float32 | Fe/H] [dex | Iron abundance as  |
+ | FE_H | float32 | dex | Iron abundance as [Fe/H]  |
  | E_TEFF | float32 | K | Error in stellar effective temperature  |
  | E_LOGG | float32 | log10(cm/s^2) | Error in surface gravity  |
  | E_FE_H | float32 | dex | Error in metallicity  |
@@ -237,7 +237,7 @@ Name | Type | Unit | Description |
 
 
 ### HDU3: APOGEE/APO
-best-fit model and parameters for stacked APOGEE north spectrum.
+best-fit model and parameters for stacked APOGEE north spectrum
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  0 bytes
@@ -267,7 +267,7 @@ Name | Type | Unit | Description |
 
 
 ### HDU4: APOGEE/LCO
-best-fit model and parameters for stacked APOGEE south spectrum.
+best-fit model and parameters for stacked APOGEE south spectrum
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  0 bytes
