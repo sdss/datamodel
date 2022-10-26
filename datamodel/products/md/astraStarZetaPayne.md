@@ -190,7 +190,7 @@ Name | Type | Unit | Description |
  | E_VSINI | float32 | km/s | Error in projected rotational velocity  |
  | V_MICRO | float32 | km/s | Microturbulent velocity  |
  | E_V_MICRO | float32 | km/s | Error in microturbulent velocity  |
- | FE_H | float32 | Fe/H] [dex | Iron abundance as  |
+ | FE_H | float32 | dex | Iron abundance as [Fe/H]  |
  | E_FE_H | float32 | dex | Error in metallicity  |
  | V_REL | float32 | km/s | Relative velocity  |
  | E_V_REL | float32 | km/s | Error in relative velocity  |
