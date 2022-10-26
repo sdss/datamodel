@@ -1,7 +1,7 @@
 # Data Model: astraStarPayne
 
 
-Results and best-fit models from the Payne astra pipeline for a single star.
+Results and best-fit models from the Payne astra pipeline for a single star
 
 
 ## Contents
@@ -13,7 +13,7 @@ Results and best-fit models from the Payne astra pipeline for a single star.
 ---
 
 ## Basic Information
-Results and best-fit models from the Payne astra pipeline for a single star.
+Results and best-fit models from the Payne astra pipeline for a single star
 
 ### Naming Convention
 $MWM_ASTRA/[ASTRA_VERSION]/[RUN2D]-[APRED]/results/star/[CATALOGID_GROUPS]/astraStar-Payne-[ASTRA_VERSION]-[CATALOGID]-[TASK_ID].fits
@@ -115,7 +115,7 @@ Key | Value | Comment | |
 
 
 ### HDU1: BOSS/APO
-best-fit model and parameters for stacked BOSS spectrum.
+best-fit model and parameters for stacked BOSS spectrum
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  0 bytes
@@ -175,7 +175,7 @@ Name | Type | Unit | Description |
 
 
 ### HDU3: APOGEE/APO
-best-fit model and parameters for stacked APOGEE north spectrum.
+best-fit model and parameters for stacked APOGEE north spectrum
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  68 KB
@@ -226,56 +226,56 @@ Name | Type | Unit | Description |
 | --- | --- | --- | --- |
  | SOURCE_ID | int64 |  |  |
  | PARENT_DATA_PRODUCT_ID | int32 |  |  |
- | TEFF | float32 |  | Stellar effective temperature  |
- | LOGG | float32 |  | Surface gravity  |
+ | TEFF | float32 | K | Stellar effective temperature  |
+ | LOGG | float32 | log10(cm/s^2) | Surface gravity  |
  | V_TURB | float32 |  |  |
- | C_H | float32 |  | Carbon abundance as  |
- | N_H | float32 |  | Nitrogen abundance as  |
- | O_H | float32 |  | Oxygen abundance as  |
- | NA_H | float32 |  | Sodium abundance as  |
- | MG_H | float32 |  | Magnesium abundance as  |
- | AL_H | float32 |  | Aluminium abundance as  |
- | SI_H | float32 |  | Silicon abundance as  |
- | P_H | float32 |  | Phosphorus abundance as  |
- | S_H | float32 |  | Sulfur abundance as  |
- | K_H | float32 |  | Potassium abundance as  |
- | CA_H | float32 |  | Calcium abundance as  |
- | TI_H | float32 |  | Titanium abundance as  |
- | V_H | float32 |  | Vanadium abundance as  |
- | CR_H | float32 |  | Chromium abundance as  |
- | MN_H | float32 |  | Manganese abundance as  |
- | FE_H | float32 |  | Iron abundance as  |
- | CO_H | float32 |  | Cobalt abundance as  |
- | NI_H | float32 |  | Nickel abundance as  |
- | CU_H | float32 |  | Copper abundance as  |
- | GE_H | float32 |  | Germanium abundance as  |
+ | C_H | float32 | dex | Carbon abundance as [C/H]  |
+ | N_H | float32 | dex | Nitrogen abundance as [N/H]  |
+ | O_H | float32 | dex | Oxygen abundance as [O/H]  |
+ | NA_H | float32 | dex | Sodium abundance as [Na/H]  |
+ | MG_H | float32 | dex | Magnesium abundance as [Mg/H]  |
+ | AL_H | float32 | dex | Aluminium abundance as [Al/H]  |
+ | SI_H | float32 | dex | Silicon abundance as [Si/H]  |
+ | P_H | float32 | dex | Phosphorus abundance as [P/H]  |
+ | S_H | float32 | dex | Sulfur abundance as [S/H]  |
+ | K_H | float32 | dex | Potassium abundance as [K/H]  |
+ | CA_H | float32 | dex | Calcium abundance as [Ca/H]  |
+ | TI_H | float32 | dex | Titanium abundance as [Ti/H]  |
+ | V_H | float32 | dex | Vanadium abundance as [V/H]  |
+ | CR_H | float32 | dex | Chromium abundance as [Cr/H]  |
+ | MN_H | float32 | dex | Manganese abundance as [Mn/H]  |
+ | FE_H | float32 | dex | Iron abundance as [Fe/H]  |
+ | CO_H | float32 | dex | Cobalt abundance as [Co/H]  |
+ | NI_H | float32 | dex | Nickel abundance as [Ni/H]  |
+ | CU_H | float32 | dex | Copper abundance as [Cu/H]  |
+ | GE_H | float32 | dex | Germanium abundance as [Ge/H]  |
  | C12_C13 | float32 |  | Carbon isotopic ratio as 12C/13C |
- | V_MACRO | float32 |  | Macro-turbulent velocity  |
- | E_TEFF | float32 |  | Error in stellar effective temperature  |
- | E_LOGG | float32 |  | Error in surface gravity  |
+ | V_MACRO | float32 | km/s | Macro-turbulent velocity  |
+ | E_TEFF | float32 | K | Error in stellar effective temperature  |
+ | E_LOGG | float32 | log10(cm/s^2) | Error in surface gravity  |
  | E_V_TURB | float32 |  |  |
- | E_C_H | float32 |  | Error in carbon abundance as  |
- | E_N_H | float32 |  | Error in nitrogen abundance as  |
- | E_O_H | float32 |  | Error in oxygen abundance as  |
- | E_NA_H | float32 |  | Error in sodium abundance as  |
- | E_MG_H | float32 |  | Error in magnesium abundance as  |
- | E_AL_H | float32 |  | Error in aluminium abundance as  |
- | E_SI_H | float32 |  | Error in silicon abundance as  |
- | E_P_H | float32 |  | Error in phosphorus abundance as  |
- | E_S_H | float32 |  | Error in sulfur abundance as  |
- | E_K_H | float32 |  | Error in potassium abundance as  |
- | E_CA_H | float32 |  | Error in calcium abundance as  |
- | E_TI_H | float32 |  | Error in titanium abundance as  |
- | E_V_H | float32 |  | Error in vanadium abundance as  |
- | E_CR_H | float32 |  | Error in chromium abundance as  |
- | E_MN_H | float32 |  | Error in manganese abundance as  |
- | E_FE_H | float32 |  | Error in metallicity  |
- | E_CO_H | float32 |  | Error in cobalt abundance as  |
- | E_NI_H | float32 |  | Error in nickel abundance as  |
- | E_CU_H | float32 |  | Error in gopper abundance as  |
- | E_GE_H | float32 |  | Error in germanium abundance as  |
+ | E_C_H | float32 | dex | Error in carbon abundance as [C/H]  |
+ | E_N_H | float32 | dex | Error in nitrogen abundance as [N/H]  |
+ | E_O_H | float32 | dex | Error in oxygen abundance as [O/H]  |
+ | E_NA_H | float32 | dex | Error in sodium abundance as [Na/H]  |
+ | E_MG_H | float32 | dex | Error in magnesium abundance as [Mg/H]  |
+ | E_AL_H | float32 | dex | Error in aluminium abundance as [Al/H]  |
+ | E_SI_H | float32 | dex | Error in silicon abundance as [Si/H]  |
+ | E_P_H | float32 | dex | Error in phosphorus abundance as [P/H]  |
+ | E_S_H | float32 | dex | Error in sulfur abundance as [S/H]  |
+ | E_K_H | float32 | dex | Error in potassium abundance as [K/H]  |
+ | E_CA_H | float32 | dex | Error in calcium abundance as [Ca/H]  |
+ | E_TI_H | float32 | dex | Error in titanium abundance as [Ti/H]  |
+ | E_V_H | float32 | dex | Error in vanadium abundance as [V/H]  |
+ | E_CR_H | float32 | dex | Error in chromium abundance as [Cr/H]  |
+ | E_MN_H | float32 | dex | Error in manganese abundance as [Mn/H]  |
+ | E_FE_H | float32 | dex | Error in metallicity  |
+ | E_CO_H | float32 | dex | Error in cobalt abundance as [Co/H]  |
+ | E_NI_H | float32 | dex | Error in nickel abundance as [Ni/H]  |
+ | E_CU_H | float32 | dex | Error in gopper abundance as [Cu/H]  |
+ | E_GE_H | float32 | dex | Error in germanium abundance as [Ge/H]  |
  | E_C12_C13 | float32 |  | Error in carbon isotopic ratio as 12C/13C |
- | E_V_MACRO | float32 |  | Error in macro-turbulent velocity  |
+ | E_V_MACRO | float32 | km/s | Error in macro-turbulent velocity  |
  | RHO_TEFF_LOGG | float32 |  | Correlation between TEFF and LOGG |
  | RHO_TEFF_V_TURB | float32 |  | Correlation between TEFF and V_TURB |
  | RHO_TEFF_C_H | float32 |  | Correlation between TEFF and C_H |
@@ -585,7 +585,7 @@ Name | Type | Unit | Description |
 
 
 ### HDU4: APOGEE/LCO
-best-fit model and parameters for stacked APOGEE south spectrum.
+best-fit model and parameters for stacked APOGEE south spectrum
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  0 bytes
