@@ -1,7 +1,7 @@
 # Data Model: astraStarASPCAP
 
 
-Results and best-fit models from the ASPCAP astra pipeline for a single star.
+Results and best-fit models from the ASPCAP astra pipeline for a single star
 
 
 ## Contents
@@ -13,7 +13,7 @@ Results and best-fit models from the ASPCAP astra pipeline for a single star.
 ---
 
 ## Basic Information
-Results and best-fit models from the ASPCAP astra pipeline for a single star.
+Results and best-fit models from the ASPCAP astra pipeline for a single star. The ASPCAP bitmaps are documented [here](https://www.sdss.org/dr17/irspec/apogee-bitmasks#ParamBitMask).
 
 ### Naming Convention
 $MWM_ASTRA/[ASTRA_VERSION]/[RUN2D]-[APRED]/results/star/[CATALOGID_GROUPS]/astraStar-ASPCAP-[ASTRA_VERSION]-[CATALOGID]-[TASK_ID].fits
@@ -115,7 +115,7 @@ Key | Value | Comment | |
 
 
 ### HDU1: BOSS/APO
-best-fit model and parameters for stacked BOSS spectrum.
+best-fit model and parameters for stacked BOSS spectrum
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  0 bytes
@@ -175,7 +175,7 @@ Name | Type | Unit | Description |
 
 
 ### HDU3: APOGEE/APO
-best-fit model and parameters for stacked APOGEE north spectrum.
+best-fit model and parameters for stacked APOGEE north spectrum
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  1 MB
@@ -281,7 +281,7 @@ Name | Type | Unit | Description |
  | E_LOGG | float32 | log10(cm/s^2) | Error in surface gravity  |
  | METALS | float32 | dex | Metallicity  |
  | E_METALS | float32 | dex | Error in metallicity  |
- | O_MG_SI_S_CA_TI | float32 | alpha/Fe] abundance ratio [dex |  |
+ | O_MG_SI_S_CA_TI | float32 | dex | [alpha/Fe] abundance ratio  |
  | E_O_MG_SI_S_CA_TI | float32 |  |  |
  | LOG10VDOP | float32 | km/s | Log10 of the doppler broadening  |
  | E_LOG10VDOP | float32 | km/s | Error in the log10 doppler broadening  |
@@ -291,58 +291,58 @@ Name | Type | Unit | Description |
  | E_C | float32 | dex | Error on photosphere carbon abundance  |
  | N | float32 | dex | Photosphere nitrogen abundance  |
  | E_N | float32 | dex | Error on photosphere nitrogen abundance  |
- | AL_H | float32 | Al/H] [dex | Aluminium abundance as  |
- | E_AL_H | float32 | Al/H] [dex | Error in aluminium abundance as  |
- | CA_H | float32 | Ca/H] [dex | Calcium abundance as  |
- | E_CA_H | float32 | Ca/H] [dex | Error in calcium abundance as  |
- | CE_H | float32 | Ce/H] [dex | Cerium abundance as  |
- | E_CE_H | float32 | Ce/H] [dex | Error on cerium abundance as  |
- | CI_H | float32 | C I/H] [dex | Carbon abundance as  |
- | E_CI_H | float32 | C I/H] [dex | Error on carbon abundance as  |
- | C_H | float32 | C/H] [dex | Carbon abundance as  |
- | E_C_H | float32 | C/H] [dex | Error in carbon abundance as  |
- | CO_H | float32 | Co/H] [dex | Cobalt abundance as  |
- | E_CO_H | float32 | Co/H] [dex | Error in cobalt abundance as  |
- | CR_H | float32 | Cr/H] [dex | Chromium abundance as  |
- | E_CR_H | float32 | Cr/H] [dex | Error in chromium abundance as  |
- | CU_H | float32 | Cu/H] [dex | Copper abundance as  |
- | E_CU_H | float32 | Cu/H] [dex | Error in gopper abundance as  |
- | FE_H | float32 | Fe/H] [dex | Iron abundance as  |
+ | AL_H | float32 | dex | Aluminium abundance as [Al/H]  |
+ | E_AL_H | float32 | dex | Error in aluminium abundance as [Al/H]  |
+ | CA_H | float32 | dex | Calcium abundance as [Ca/H]  |
+ | E_CA_H | float32 | dex | Error in calcium abundance as [Ca/H]  |
+ | CE_H | float32 | dex | Cerium abundance as [Ce/H]  |
+ | E_CE_H | float32 | dex | Error on cerium abundance as [Ce/H]  |
+ | CI_H | float32 | dex | Carbon abundance as [C I/H]  |
+ | E_CI_H | float32 | dex | Error on carbon abundance as [C I/H]  |
+ | C_H | float32 | dex | Carbon abundance as [C/H]  |
+ | E_C_H | float32 | dex | Error in carbon abundance as [C/H]  |
+ | CO_H | float32 | dex | Cobalt abundance as [Co/H]  |
+ | E_CO_H | float32 | dex | Error in cobalt abundance as [Co/H]  |
+ | CR_H | float32 | dex | Chromium abundance as [Cr/H]  |
+ | E_CR_H | float32 | dex | Error in chromium abundance as [Cr/H]  |
+ | CU_H | float32 | dex | Copper abundance as [Cu/H]  |
+ | E_CU_H | float32 | dex | Error in gopper abundance as [Cu/H]  |
+ | FE_H | float32 | dex | Iron abundance as [Fe/H]  |
  | E_FE_H | float32 | dex | Error in metallicity  |
- | GE_H | float32 | Ge/H] [dex | Germanium abundance as  |
- | E_GE_H | float32 | Ge/H] [dex | Error in germanium abundance as  |
- | K_H | float32 | K/H] [dex | Potassium abundance as  |
- | E_K_H | float32 | K/H] [dex | Error in potassium abundance as  |
- | MG_H | float32 | Mg/H] [dex | Magnesium abundance as  |
- | E_MG_H | float32 | Mg/H] [dex | Error in magnesium abundance as  |
- | MN_H | float32 | Mn/H] [dex | Manganese abundance as  |
- | E_MN_H | float32 | Mn/H] [dex | Error in manganese abundance as  |
- | NA_H | float32 | Na/H] [dex | Sodium abundance as  |
- | E_NA_H | float32 | Na/H] [dex | Error in sodium abundance as  |
- | ND_H | float32 | Nd/H] [dex | Neodymium abundance as  |
- | E_ND_H | float32 | Nd/H] [dex | Error on neodymium abundance as  |
- | NI_H | float32 | Ni/H] [dex | Nickel abundance as  |
- | E_NI_H | float32 | Ni/H] [dex | Error in nickel abundance as  |
- | N_H | float32 | N/H] [dex | Nitrogen abundance as  |
- | E_N_H | float32 | N/H] [dex | Error in nitrogen abundance as  |
- | O_H | float32 | O/H] [dex | Oxygen abundance as  |
- | E_O_H | float32 | O/H] [dex | Error in oxygen abundance as  |
- | P_H | float32 | P/H] [dex | Phosphorus abundance as  |
- | E_P_H | float32 | P/H] [dex | Error in phosphorus abundance as  |
- | RB_H | float32 | Rb/H] [dex | Rubidium abundance as  |
- | E_RB_H | float32 | Rb/H] [dex | Error on rubidium abundance as  |
- | SI_H | float32 | Si/H] [dex | Silicon abundance as  |
- | E_SI_H | float32 | Si/H] [dex | Error in silicon abundance as  |
- | S_H | float32 | S/H] [dex | Sulfur abundance as  |
- | E_S_H | float32 | S/H] [dex | Error in sulfur abundance as  |
- | TIII_H | float32 | Ti II/H] [dex | Titanium abundance as  |
- | E_TIII_H | float32 | Ti II/H] [dex | Error in titanium abundance as  |
- | TI_H | float32 | Ti/H] [dex | Titanium abundance as  |
- | E_TI_H | float32 | Ti/H] [dex | Error in titanium abundance as  |
- | V_H | float32 | V/H] [dex | Vanadium abundance as  |
- | E_V_H | float32 | V/H] [dex | Error in vanadium abundance as  |
- | YB_H | float32 | Yb/H] [dex | Ytterbium abundance as  |
- | E_YB_H | float32 | Yb/H] [dex | Error in ytterbium abundance as  |
+ | GE_H | float32 | dex | Germanium abundance as [Ge/H]  |
+ | E_GE_H | float32 | dex | Error in germanium abundance as [Ge/H]  |
+ | K_H | float32 | dex | Potassium abundance as [K/H]  |
+ | E_K_H | float32 | dex | Error in potassium abundance as [K/H]  |
+ | MG_H | float32 | dex | Magnesium abundance as [Mg/H]  |
+ | E_MG_H | float32 | dex | Error in magnesium abundance as [Mg/H]  |
+ | MN_H | float32 | dex | Manganese abundance as [Mn/H]  |
+ | E_MN_H | float32 | dex | Error in manganese abundance as [Mn/H]  |
+ | NA_H | float32 | dex | Sodium abundance as [Na/H]  |
+ | E_NA_H | float32 | dex | Error in sodium abundance as [Na/H]  |
+ | ND_H | float32 | dex | Neodymium abundance as [Nd/H]  |
+ | E_ND_H | float32 | dex | Error on neodymium abundance as [Nd/H]  |
+ | NI_H | float32 | dex | Nickel abundance as [Ni/H]  |
+ | E_NI_H | float32 | dex | Error in nickel abundance as [Ni/H]  |
+ | N_H | float32 | dex | Nitrogen abundance as [N/H]  |
+ | E_N_H | float32 | dex | Error in nitrogen abundance as [N/H]  |
+ | O_H | float32 | dex | Oxygen abundance as [O/H]  |
+ | E_O_H | float32 | dex | Error in oxygen abundance as [O/H]  |
+ | P_H | float32 | dex | Phosphorus abundance as [P/H]  |
+ | E_P_H | float32 | dex | Error in phosphorus abundance as [P/H]  |
+ | RB_H | float32 | dex | Rubidium abundance as [Rb/H]  |
+ | E_RB_H | float32 | dex | Error on rubidium abundance as [Rb/H]  |
+ | SI_H | float32 | dex | Silicon abundance as [Si/H]  |
+ | E_SI_H | float32 | dex | Error in silicon abundance as [Si/H]  |
+ | S_H | float32 | dex | Sulfur abundance as [S/H]  |
+ | E_S_H | float32 | dex | Error in sulfur abundance as [S/H]  |
+ | TIII_H | float32 | dex | Titanium abundance as [Ti II/H]  |
+ | E_TIII_H | float32 | dex | Error in titanium abundance as [Ti II/H]  |
+ | TI_H | float32 | dex | Titanium abundance as [Ti/H]  |
+ | E_TI_H | float32 | dex | Error in titanium abundance as [Ti/H]  |
+ | V_H | float32 | dex | Vanadium abundance as [V/H]  |
+ | E_V_H | float32 | dex | Error in vanadium abundance as [V/H]  |
+ | YB_H | float32 | dex | Ytterbium abundance as [Yb/H]  |
+ | E_YB_H | float32 | dex | Error in ytterbium abundance as [Yb/H]  |
  | BITMASK_TEFF | int32 |  | Bitmask flag for TEFF |
  | BITMASK_LOGG | int32 |  | Bitmask flag for LOGG |
  | BITMASK_METALS | int32 |  | Bitmask flag for METALS |
@@ -465,7 +465,7 @@ Name | Type | Unit | Description |
 
 
 ### HDU4: APOGEE/LCO
-best-fit model and parameters for stacked APOGEE south spectrum.
+best-fit model and parameters for stacked APOGEE south spectrum
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  0 bytes
