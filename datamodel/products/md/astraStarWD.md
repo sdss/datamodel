@@ -1,7 +1,7 @@
 # Data Model: astraStarWD
 
 
-Results and best-fit models from the WD astra pipeline for a single star
+Results and best-fit models from the SnowWhite astra pipeline for a single star
 
 
 ## Contents
@@ -13,7 +13,7 @@ Results and best-fit models from the WD astra pipeline for a single star
 ---
 
 ## Basic Information
-Results and best-fit models from the WD astra pipeline for a single star
+Results and best-fit models from the SnowWhite astra pipeline for a single star
 
 ### Naming Convention
 $MWM_ASTRA/[ASTRA_VERSION]/[RUN2D]-[APRED]/results/star/[CATALOGID_GROUPS]/astraStar-WD-[ASTRA_VERSION]-[CATALOGID]-[TASK_ID].fits
