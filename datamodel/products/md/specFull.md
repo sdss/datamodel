@@ -62,12 +62,12 @@ False
 Describes changes to the datamodel product and/or file structure from one release to another
  - DR17
    - from: DR16
-   - added_hdus: ['R1-00104933-00104934-00104935', 'B1-00104929-00104934-00104935', 'B1-00104931-00104934-00104935', 'B1-00104928-00104934-00104935', 'R1-00104927-00104934-00104935', 'R1-00104928-00104934-00104935', 'B1-00104932-00104934-00104935', 'SPALL', 'R1-00104930-00104934-00104935', 'B1-00104927-00104934-00104935', 'B1-00104933-00104934-00104935', 'R1-00104932-00104934-00104935', 'COADD', 'R1-00104931-00104934-00104935', 'SPZLINE', 'B1-00104930-00104934-00104935', 'R1-00104929-00104934-00104935']
+   - added_hdus: ['B1-00104933-00104934-00104935', 'COADD', 'R1-00104931-00104934-00104935', 'B1-00104931-00104934-00104935', 'B1-00104928-00104934-00104935', 'R1-00104927-00104934-00104935', 'R1-00104933-00104934-00104935', 'B1-00104927-00104934-00104935', 'SPALL', 'B1-00104929-00104934-00104935', 'R1-00104930-00104934-00104935', 'B1-00104930-00104934-00104935', 'B1-00104932-00104934-00104935', 'R1-00104928-00104934-00104935', 'R1-00104929-00104934-00104935', 'R1-00104932-00104934-00104935', 'SPZLINE']
  - DR16
    - from: DR15
-   - removed_hdus: ['R1-00104933-00104934-00104935', 'B1-00104929-00104934-00104935', 'B1-00104931-00104934-00104935', 'B1-00104928-00104934-00104935', 'R1-00104927-00104934-00104935', 'R1-00104928-00104934-00104935', 'B1-00104932-00104934-00104935', 'SPALL', 'R1-00104930-00104934-00104935', 'B1-00104927-00104934-00104935', 'B1-00104933-00104934-00104935', 'R1-00104932-00104934-00104935', 'COADD', 'R1-00104931-00104934-00104935', 'SPZLINE', 'B1-00104930-00104934-00104935', 'R1-00104929-00104934-00104935']
-   - added_primary_header_kwargs: ['EXPID006', 'EXPID003', 'EXPID005', 'EXPID013', 'EXPID002', 'EXPID012', 'EXPID007', 'EXPID001', 'EXPID008', 'EXPID009', 'EXPID014', 'EXPID010', 'EXPID011', 'EXPID004']
-   - removed_primary_header_kwargs: ['EXPID05', 'EXPID14', 'EXPID12', 'EXPID07', 'EXPID03', 'EXPID11', 'EXPID08', 'EXPID10', 'EXPID04', 'EXPID01', 'EXPID13', 'EXPID09', 'EXPID06', 'EXPID02']
+   - removed_hdus: ['B1-00104933-00104934-00104935', 'COADD', 'R1-00104931-00104934-00104935', 'B1-00104931-00104934-00104935', 'B1-00104928-00104934-00104935', 'R1-00104927-00104934-00104935', 'R1-00104933-00104934-00104935', 'B1-00104927-00104934-00104935', 'SPALL', 'B1-00104929-00104934-00104935', 'R1-00104930-00104934-00104935', 'B1-00104930-00104934-00104935', 'B1-00104932-00104934-00104935', 'R1-00104928-00104934-00104935', 'R1-00104929-00104934-00104935', 'R1-00104932-00104934-00104935', 'SPZLINE']
+   - added_primary_header_kwargs: ['EXPID006', 'EXPID004', 'EXPID012', 'EXPID008', 'EXPID010', 'EXPID013', 'EXPID011', 'EXPID001', 'EXPID007', 'EXPID014', 'EXPID009', 'EXPID002', 'EXPID003', 'EXPID005']
+   - removed_primary_header_kwargs: ['EXPID13', 'EXPID09', 'EXPID11', 'EXPID02', 'EXPID08', 'EXPID12', 'EXPID03', 'EXPID07', 'EXPID04', 'EXPID10', 'EXPID05', 'EXPID01', 'EXPID14', 'EXPID06']
  - DR15
    - from: DR14
    - note: No changes
@@ -77,7 +77,7 @@ Describes changes to the datamodel product and/or file structure from one releas
  - DR13
    - from: DR11
    - primary_delta_nkeys: 2
-   - removed_primary_header_kwargs: ['XCHI2MAX', 'XCHI2MIN']
+   - removed_primary_header_kwargs: ['XCHI2MIN', 'XCHI2MAX']
  - DR11
    - from: DR12
    - note: No changes
@@ -237,14 +237,14 @@ Binary table with columns:
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | FLUX | float32 | migration: unit of keyword/column not found. Needs update | coadded calibrated flux [10<sup>-17</sup> ergs/s/cm<sup>2</sup>/Å] |
- | LOGLAM | float32 | migration: unit of keyword/column not found. Needs update | log10(wavelength [Å]) |
- | IVAR | float32 | migration: unit of keyword/column not found. Needs update | inverse variance of flux |
- | AND_MASK | int32 | migration: unit of keyword/column not found. Needs update | AND mask |
- | OR_MASK | int32 | migration: unit of keyword/column not found. Needs update | OR mask |
- | WDISP | float32 | migration: unit of keyword/column not found. Needs update | Wavelength dispersion (sigma of fitted Gaussian) in units of number of pixel |
- | SKY | float32 | migration: unit of keyword/column not found. Needs update | subtracted sky flux [10<sup>-17</sup> ergs/s/cm<sup>2</sup>/Å] |
- | MODEL | float32 | migration: unit of keyword/column not found. Needs update | pipeline best model fit used for classification and redshift |
+ | FLUX | float32 |  | coadded calibrated flux [10<sup>-17</sup> ergs/s/cm<sup>2</sup>/Å] |
+ | LOGLAM | float32 |  | log10(wavelength [Å]) |
+ | IVAR | float32 |  | inverse variance of flux |
+ | AND_MASK | int32 |  | AND mask |
+ | OR_MASK | int32 |  | OR mask |
+ | WDISP | float32 |  | Wavelength dispersion (sigma of fitted Gaussian) in units of number of pixel |
+ | SKY | float32 |  | subtracted sky flux [10<sup>-17</sup> ergs/s/cm<sup>2</sup>/Å] |
+ | MODEL | float32 |  | pipeline best model fit used for classification and redshift |
 
 
 
@@ -258,242 +258,242 @@ BOSS spectra: copy of row from <a href="../../spAll.html">spAll</a>   for this (
 ##### Binary Table Caption for HDU2
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | PROGRAMNAME | char[27] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | CHUNK | char[14] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | PLATEQUALITY | char[4] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | PLATESN2 | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | DEREDSN2 | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | PRIMTARGET | int32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | SECTARGET | int32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | LAMBDA_EFF | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | BLUEFIBER | int32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | ZOFFSET | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | XFOCAL | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | YFOCAL | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | BOSS_TARGET1 | int64 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | BOSS_TARGET2 | int64 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | ANCILLARY_TARGET1 | int64 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | ANCILLARY_TARGET2 | int64 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | EBOSS_TARGET0 | int64 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | EBOSS_TARGET1 | int64 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | EBOSS_TARGET2 | int64 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | EBOSS_TARGET_ID | int64 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | THING_ID_TARGETING | int64 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | SPECPRIMARY | bool | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | SPECBOSS | bool | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | BOSS_SPECOBJ_ID | int32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | NSPECOBS | int16 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | CALIBFLUX | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | CALIBFLUX_IVAR | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | PLATE | int32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | TILE | int32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | MJD | int32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | FIBERID | int32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | RUN2D | char[7] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | RUN1D | char[7] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | OBJTYPE | char[16] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | PLUG_RA | float64 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | PLUG_DEC | float64 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | CLASS | char[6] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | SUBCLASS | char[21] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | Z | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | Z_ERR | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | RCHI2 | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | DOF | int32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | RCHI2DIFF | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | TFILE | char[24] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | TCOLUMN | int32[10] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | NPOLY | int32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | THETA | float32[10] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | VDISP | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | VDISP_ERR | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | VDISPZ | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | VDISPZ_ERR | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | VDISPCHI2 | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | VDISPNPIX | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | VDISPDOF | int32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | WAVEMIN | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | WAVEMAX | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | WCOVERAGE | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | ZWARNING | int32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | SN_MEDIAN | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | SN_MEDIAN_ALL | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | CHI68P | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | FRACNSIGMA | float32[10] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | FRACNSIGHI | float32[10] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | FRACNSIGLO | float32[10] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | SPECTROFLUX | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | SPECTROFLUX_IVAR | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | SPECTROSYNFLUX | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | SPECTROSYNFLUX_IVAR | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | SPECTROSKYFLUX | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | ANYANDMASK | int32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | ANYORMASK | int32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | SPEC1_G | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | SPEC1_R | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | SPEC1_I | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | SPEC2_G | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | SPEC2_R | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | SPEC2_I | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | ELODIE_FILENAME | char[16] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | ELODIE_OBJECT | char[9] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | ELODIE_SPTYPE | char[12] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | ELODIE_BV | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | ELODIE_TEFF | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | ELODIE_LOGG | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | ELODIE_FEH | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | ELODIE_Z | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | ELODIE_Z_ERR | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | ELODIE_Z_MODELERR | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | ELODIE_RCHI2 | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | ELODIE_DOF | int32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | Z_NOQSO | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | Z_ERR_NOQSO | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | ZNUM_NOQSO | int32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | ZWARNING_NOQSO | int32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | CLASS_NOQSO | char[6] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | SUBCLASS_NOQSO | char[21] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | RCHI2DIFF_NOQSO | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | VDISP_LNL | float32[35] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | SPECOBJID | int64 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | OBJID | char[19] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | PARENTID | char[19] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | FIELDID | char[19] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | SKYVERSION | bool | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | MODE | bool | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | CLEAN | bool | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | RUN | int16 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | RERUN | char[3] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | CAMCOL | bool | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | FIELD | int16 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | ID | int16 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | PARENT | int16 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | NCHILD | int16 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | OBJC_TYPE | int32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | OBJC_PROB_PSF | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | OBJC_FLAGS | int32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | OBJC_FLAGS2 | int32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | OBJC_ROWC | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | OBJC_ROWCERR | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | OBJC_COLC | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | OBJC_COLCERR | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | ROWVDEG | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | ROWVDEGERR | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | COLVDEG | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | COLVDEGERR | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | ROWC | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | ROWCERR | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | COLC | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | COLCERR | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | PETROTHETA | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | PETROTHETAERR | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | PETROTH50 | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | PETROTH50ERR | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | PETROTH90 | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | PETROTH90ERR | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | Q | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | QERR | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | U | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | UERR | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | M_E1 | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | M_E2 | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | M_E1E1ERR | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | M_E1E2ERR | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | M_E2E2ERR | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | M_RR_CC | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | M_RR_CCERR | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | M_CR4 | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | M_E1_PSF | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | M_E2_PSF | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | M_RR_CC_PSF | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | M_CR4_PSF | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | THETA_DEV | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | THETA_DEVERR | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | AB_DEV | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | AB_DEVERR | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | THETA_EXP | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | THETA_EXPERR | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | AB_EXP | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | AB_EXPERR | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | FRACDEV | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | FLAGS | int32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | FLAGS2 | int32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | TYPE | int32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | PROB_PSF | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | NPROF | int32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | PROFMEAN_NMGY | float32[75] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | PROFERR_NMGY | float32[75] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | STAR_LNL | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | EXP_LNL | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | DEV_LNL | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | PSP_STATUS | int32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | PIXSCALE | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | RA | float64 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | DEC | float64 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | CX | float64 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | CY | float64 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | CZ | float64 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | RAERR | float64 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | DECERR | float64 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | L | float64 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | B | float64 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | OFFSETRA | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | OFFSETDEC | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | PSF_FWHM | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | AIRMASS | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | PHI_OFFSET | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | PHI_DEV_DEG | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | PHI_EXP_DEG | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | EXTINCTION | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | SKYFLUX | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | SKYFLUX_IVAR | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | PSFFLUX | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | PSFFLUX_IVAR | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | PSFMAG | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | PSFMAGERR | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | FIBERFLUX | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | FIBERFLUX_IVAR | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | FIBERMAG | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | FIBERMAGERR | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | FIBER2FLUX | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | FIBER2FLUX_IVAR | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | FIBER2MAG | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | FIBER2MAGERR | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | CMODELFLUX | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | CMODELFLUX_IVAR | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | CMODELMAG | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | CMODELMAGERR | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | MODELFLUX | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | MODELFLUX_IVAR | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | MODELMAG | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | MODELMAGERR | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | PETROFLUX | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | PETROFLUX_IVAR | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | PETROMAG | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | PETROMAGERR | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | DEVFLUX | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | DEVFLUX_IVAR | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | DEVMAG | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | DEVMAGERR | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | EXPFLUX | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | EXPFLUX_IVAR | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | EXPMAG | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | EXPMAGERR | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | APERFLUX | float32[40] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | APERFLUX_IVAR | float32[40] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | CLOUDCAM | int32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | CALIB_STATUS | int32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | NMGYPERCOUNT | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | NMGYPERCOUNT_IVAR | float32[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | TAI | float64[5] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | RESOLVE_STATUS | int32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | THING_ID | int32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | IFIELD | int32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | BALKAN_ID | int32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | NOBSERVE | int32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | NDETECT | int32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | NEDGE | int32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | SCORE | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
+ | PROGRAMNAME | char[27] |  | migration: description of keyword/column not found. Needs update |
+ | CHUNK | char[14] |  | migration: description of keyword/column not found. Needs update |
+ | PLATEQUALITY | char[4] |  | migration: description of keyword/column not found. Needs update |
+ | PLATESN2 | float32 |  | migration: description of keyword/column not found. Needs update |
+ | DEREDSN2 | float32 |  | migration: description of keyword/column not found. Needs update |
+ | PRIMTARGET | int32 |  | migration: description of keyword/column not found. Needs update |
+ | SECTARGET | int32 |  | migration: description of keyword/column not found. Needs update |
+ | LAMBDA_EFF | float32 |  | migration: description of keyword/column not found. Needs update |
+ | BLUEFIBER | int32 |  | migration: description of keyword/column not found. Needs update |
+ | ZOFFSET | float32 |  | migration: description of keyword/column not found. Needs update |
+ | XFOCAL | float32 |  | migration: description of keyword/column not found. Needs update |
+ | YFOCAL | float32 |  | migration: description of keyword/column not found. Needs update |
+ | BOSS_TARGET1 | int64 |  | migration: description of keyword/column not found. Needs update |
+ | BOSS_TARGET2 | int64 |  | migration: description of keyword/column not found. Needs update |
+ | ANCILLARY_TARGET1 | int64 |  | migration: description of keyword/column not found. Needs update |
+ | ANCILLARY_TARGET2 | int64 |  | migration: description of keyword/column not found. Needs update |
+ | EBOSS_TARGET0 | int64 |  | migration: description of keyword/column not found. Needs update |
+ | EBOSS_TARGET1 | int64 |  | migration: description of keyword/column not found. Needs update |
+ | EBOSS_TARGET2 | int64 |  | migration: description of keyword/column not found. Needs update |
+ | EBOSS_TARGET_ID | int64 |  | migration: description of keyword/column not found. Needs update |
+ | THING_ID_TARGETING | int64 |  | migration: description of keyword/column not found. Needs update |
+ | SPECPRIMARY | bool |  | migration: description of keyword/column not found. Needs update |
+ | SPECBOSS | bool |  | migration: description of keyword/column not found. Needs update |
+ | BOSS_SPECOBJ_ID | int32 |  | migration: description of keyword/column not found. Needs update |
+ | NSPECOBS | int16 |  | migration: description of keyword/column not found. Needs update |
+ | CALIBFLUX | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | CALIBFLUX_IVAR | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | PLATE | int32 |  | migration: description of keyword/column not found. Needs update |
+ | TILE | int32 |  | migration: description of keyword/column not found. Needs update |
+ | MJD | int32 |  | migration: description of keyword/column not found. Needs update |
+ | FIBERID | int32 |  | migration: description of keyword/column not found. Needs update |
+ | RUN2D | char[7] |  | migration: description of keyword/column not found. Needs update |
+ | RUN1D | char[7] |  | migration: description of keyword/column not found. Needs update |
+ | OBJTYPE | char[16] |  | migration: description of keyword/column not found. Needs update |
+ | PLUG_RA | float64 |  | migration: description of keyword/column not found. Needs update |
+ | PLUG_DEC | float64 |  | migration: description of keyword/column not found. Needs update |
+ | CLASS | char[6] |  | migration: description of keyword/column not found. Needs update |
+ | SUBCLASS | char[21] |  | migration: description of keyword/column not found. Needs update |
+ | Z | float32 |  | migration: description of keyword/column not found. Needs update |
+ | Z_ERR | float32 |  | migration: description of keyword/column not found. Needs update |
+ | RCHI2 | float32 |  | migration: description of keyword/column not found. Needs update |
+ | DOF | int32 |  | migration: description of keyword/column not found. Needs update |
+ | RCHI2DIFF | float32 |  | migration: description of keyword/column not found. Needs update |
+ | TFILE | char[24] |  | migration: description of keyword/column not found. Needs update |
+ | TCOLUMN | int32[10] |  | migration: description of keyword/column not found. Needs update |
+ | NPOLY | int32 |  | migration: description of keyword/column not found. Needs update |
+ | THETA | float32[10] |  | migration: description of keyword/column not found. Needs update |
+ | VDISP | float32 |  | migration: description of keyword/column not found. Needs update |
+ | VDISP_ERR | float32 |  | migration: description of keyword/column not found. Needs update |
+ | VDISPZ | float32 |  | migration: description of keyword/column not found. Needs update |
+ | VDISPZ_ERR | float32 |  | migration: description of keyword/column not found. Needs update |
+ | VDISPCHI2 | float32 |  | migration: description of keyword/column not found. Needs update |
+ | VDISPNPIX | float32 |  | migration: description of keyword/column not found. Needs update |
+ | VDISPDOF | int32 |  | migration: description of keyword/column not found. Needs update |
+ | WAVEMIN | float32 |  | migration: description of keyword/column not found. Needs update |
+ | WAVEMAX | float32 |  | migration: description of keyword/column not found. Needs update |
+ | WCOVERAGE | float32 |  | migration: description of keyword/column not found. Needs update |
+ | ZWARNING | int32 |  | migration: description of keyword/column not found. Needs update |
+ | SN_MEDIAN | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | SN_MEDIAN_ALL | float32 |  | migration: description of keyword/column not found. Needs update |
+ | CHI68P | float32 |  | migration: description of keyword/column not found. Needs update |
+ | FRACNSIGMA | float32[10] |  | migration: description of keyword/column not found. Needs update |
+ | FRACNSIGHI | float32[10] |  | migration: description of keyword/column not found. Needs update |
+ | FRACNSIGLO | float32[10] |  | migration: description of keyword/column not found. Needs update |
+ | SPECTROFLUX | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | SPECTROFLUX_IVAR | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | SPECTROSYNFLUX | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | SPECTROSYNFLUX_IVAR | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | SPECTROSKYFLUX | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | ANYANDMASK | int32 |  | migration: description of keyword/column not found. Needs update |
+ | ANYORMASK | int32 |  | migration: description of keyword/column not found. Needs update |
+ | SPEC1_G | float32 |  | migration: description of keyword/column not found. Needs update |
+ | SPEC1_R | float32 |  | migration: description of keyword/column not found. Needs update |
+ | SPEC1_I | float32 |  | migration: description of keyword/column not found. Needs update |
+ | SPEC2_G | float32 |  | migration: description of keyword/column not found. Needs update |
+ | SPEC2_R | float32 |  | migration: description of keyword/column not found. Needs update |
+ | SPEC2_I | float32 |  | migration: description of keyword/column not found. Needs update |
+ | ELODIE_FILENAME | char[16] |  | migration: description of keyword/column not found. Needs update |
+ | ELODIE_OBJECT | char[9] |  | migration: description of keyword/column not found. Needs update |
+ | ELODIE_SPTYPE | char[12] |  | migration: description of keyword/column not found. Needs update |
+ | ELODIE_BV | float32 |  | migration: description of keyword/column not found. Needs update |
+ | ELODIE_TEFF | float32 |  | migration: description of keyword/column not found. Needs update |
+ | ELODIE_LOGG | float32 |  | migration: description of keyword/column not found. Needs update |
+ | ELODIE_FEH | float32 |  | migration: description of keyword/column not found. Needs update |
+ | ELODIE_Z | float32 |  | migration: description of keyword/column not found. Needs update |
+ | ELODIE_Z_ERR | float32 |  | migration: description of keyword/column not found. Needs update |
+ | ELODIE_Z_MODELERR | float32 |  | migration: description of keyword/column not found. Needs update |
+ | ELODIE_RCHI2 | float32 |  | migration: description of keyword/column not found. Needs update |
+ | ELODIE_DOF | int32 |  | migration: description of keyword/column not found. Needs update |
+ | Z_NOQSO | float32 |  | migration: description of keyword/column not found. Needs update |
+ | Z_ERR_NOQSO | float32 |  | migration: description of keyword/column not found. Needs update |
+ | ZNUM_NOQSO | int32 |  | migration: description of keyword/column not found. Needs update |
+ | ZWARNING_NOQSO | int32 |  | migration: description of keyword/column not found. Needs update |
+ | CLASS_NOQSO | char[6] |  | migration: description of keyword/column not found. Needs update |
+ | SUBCLASS_NOQSO | char[21] |  | migration: description of keyword/column not found. Needs update |
+ | RCHI2DIFF_NOQSO | float32 |  | migration: description of keyword/column not found. Needs update |
+ | VDISP_LNL | float32[35] |  | migration: description of keyword/column not found. Needs update |
+ | SPECOBJID | int64 |  | migration: description of keyword/column not found. Needs update |
+ | OBJID | char[19] |  | migration: description of keyword/column not found. Needs update |
+ | PARENTID | char[19] |  | migration: description of keyword/column not found. Needs update |
+ | FIELDID | char[19] |  | migration: description of keyword/column not found. Needs update |
+ | SKYVERSION | bool |  | migration: description of keyword/column not found. Needs update |
+ | MODE | bool |  | migration: description of keyword/column not found. Needs update |
+ | CLEAN | bool |  | migration: description of keyword/column not found. Needs update |
+ | RUN | int16 |  | migration: description of keyword/column not found. Needs update |
+ | RERUN | char[3] |  | migration: description of keyword/column not found. Needs update |
+ | CAMCOL | bool |  | migration: description of keyword/column not found. Needs update |
+ | FIELD | int16 |  | migration: description of keyword/column not found. Needs update |
+ | ID | int16 |  | migration: description of keyword/column not found. Needs update |
+ | PARENT | int16 |  | migration: description of keyword/column not found. Needs update |
+ | NCHILD | int16 |  | migration: description of keyword/column not found. Needs update |
+ | OBJC_TYPE | int32 |  | migration: description of keyword/column not found. Needs update |
+ | OBJC_PROB_PSF | float32 |  | migration: description of keyword/column not found. Needs update |
+ | OBJC_FLAGS | int32 |  | migration: description of keyword/column not found. Needs update |
+ | OBJC_FLAGS2 | int32 |  | migration: description of keyword/column not found. Needs update |
+ | OBJC_ROWC | float32 |  | migration: description of keyword/column not found. Needs update |
+ | OBJC_ROWCERR | float32 |  | migration: description of keyword/column not found. Needs update |
+ | OBJC_COLC | float32 |  | migration: description of keyword/column not found. Needs update |
+ | OBJC_COLCERR | float32 |  | migration: description of keyword/column not found. Needs update |
+ | ROWVDEG | float32 |  | migration: description of keyword/column not found. Needs update |
+ | ROWVDEGERR | float32 |  | migration: description of keyword/column not found. Needs update |
+ | COLVDEG | float32 |  | migration: description of keyword/column not found. Needs update |
+ | COLVDEGERR | float32 |  | migration: description of keyword/column not found. Needs update |
+ | ROWC | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | ROWCERR | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | COLC | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | COLCERR | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | PETROTHETA | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | PETROTHETAERR | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | PETROTH50 | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | PETROTH50ERR | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | PETROTH90 | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | PETROTH90ERR | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | Q | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | QERR | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | U | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | UERR | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | M_E1 | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | M_E2 | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | M_E1E1ERR | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | M_E1E2ERR | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | M_E2E2ERR | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | M_RR_CC | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | M_RR_CCERR | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | M_CR4 | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | M_E1_PSF | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | M_E2_PSF | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | M_RR_CC_PSF | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | M_CR4_PSF | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | THETA_DEV | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | THETA_DEVERR | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | AB_DEV | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | AB_DEVERR | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | THETA_EXP | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | THETA_EXPERR | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | AB_EXP | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | AB_EXPERR | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | FRACDEV | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | FLAGS | int32[5] |  | migration: description of keyword/column not found. Needs update |
+ | FLAGS2 | int32[5] |  | migration: description of keyword/column not found. Needs update |
+ | TYPE | int32[5] |  | migration: description of keyword/column not found. Needs update |
+ | PROB_PSF | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | NPROF | int32[5] |  | migration: description of keyword/column not found. Needs update |
+ | PROFMEAN_NMGY | float32[75] |  | migration: description of keyword/column not found. Needs update |
+ | PROFERR_NMGY | float32[75] |  | migration: description of keyword/column not found. Needs update |
+ | STAR_LNL | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | EXP_LNL | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | DEV_LNL | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | PSP_STATUS | int32[5] |  | migration: description of keyword/column not found. Needs update |
+ | PIXSCALE | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | RA | float64 |  | migration: description of keyword/column not found. Needs update |
+ | DEC | float64 |  | migration: description of keyword/column not found. Needs update |
+ | CX | float64 |  | migration: description of keyword/column not found. Needs update |
+ | CY | float64 |  | migration: description of keyword/column not found. Needs update |
+ | CZ | float64 |  | migration: description of keyword/column not found. Needs update |
+ | RAERR | float64 |  | migration: description of keyword/column not found. Needs update |
+ | DECERR | float64 |  | migration: description of keyword/column not found. Needs update |
+ | L | float64 |  | migration: description of keyword/column not found. Needs update |
+ | B | float64 |  | migration: description of keyword/column not found. Needs update |
+ | OFFSETRA | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | OFFSETDEC | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | PSF_FWHM | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | AIRMASS | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | PHI_OFFSET | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | PHI_DEV_DEG | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | PHI_EXP_DEG | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | EXTINCTION | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | SKYFLUX | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | SKYFLUX_IVAR | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | PSFFLUX | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | PSFFLUX_IVAR | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | PSFMAG | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | PSFMAGERR | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | FIBERFLUX | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | FIBERFLUX_IVAR | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | FIBERMAG | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | FIBERMAGERR | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | FIBER2FLUX | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | FIBER2FLUX_IVAR | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | FIBER2MAG | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | FIBER2MAGERR | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | CMODELFLUX | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | CMODELFLUX_IVAR | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | CMODELMAG | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | CMODELMAGERR | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | MODELFLUX | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | MODELFLUX_IVAR | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | MODELMAG | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | MODELMAGERR | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | PETROFLUX | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | PETROFLUX_IVAR | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | PETROMAG | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | PETROMAGERR | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | DEVFLUX | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | DEVFLUX_IVAR | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | DEVMAG | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | DEVMAGERR | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | EXPFLUX | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | EXPFLUX_IVAR | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | EXPMAG | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | EXPMAGERR | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | APERFLUX | float32[40] |  | migration: description of keyword/column not found. Needs update |
+ | APERFLUX_IVAR | float32[40] |  | migration: description of keyword/column not found. Needs update |
+ | CLOUDCAM | int32[5] |  | migration: description of keyword/column not found. Needs update |
+ | CALIB_STATUS | int32[5] |  | migration: description of keyword/column not found. Needs update |
+ | NMGYPERCOUNT | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | NMGYPERCOUNT_IVAR | float32[5] |  | migration: description of keyword/column not found. Needs update |
+ | TAI | float64[5] |  | migration: description of keyword/column not found. Needs update |
+ | RESOLVE_STATUS | int32 |  | migration: description of keyword/column not found. Needs update |
+ | THING_ID | int32 |  | migration: description of keyword/column not found. Needs update |
+ | IFIELD | int32 |  | migration: description of keyword/column not found. Needs update |
+ | BALKAN_ID | int32 |  | migration: description of keyword/column not found. Needs update |
+ | NOBSERVE | int32 |  | migration: description of keyword/column not found. Needs update |
+ | NDETECT | int32 |  | migration: description of keyword/column not found. Needs update |
+ | NEDGE | int32 |  | migration: description of keyword/column not found. Needs update |
+ | SCORE | float32 |  | migration: description of keyword/column not found. Needs update |
 
 
 
@@ -507,25 +507,25 @@ copy of row from <a href="../../PLATE4/RUN1D/spZline.html">spZLine</a>   for thi
 ##### Binary Table Caption for HDU3
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | PLATE | int32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | MJD | int32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | FIBERID | int32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | LINENAME | char[13] | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | LINEWAVE | float64 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | LINEZ | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | LINEZ_ERR | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | LINESIGMA | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | LINESIGMA_ERR | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | LINEAREA | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | LINEAREA_ERR | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | LINEEW | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | LINEEW_ERR | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | LINECONTLEVEL | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | LINECONTLEVEL_ERR | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | LINENPIXLEFT | int32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | LINENPIXRIGHT | int32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | LINEDOF | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
- | LINECHI2 | float32 | migration: unit of keyword/column not found. Needs update | migration: description of keyword/column not found. Needs update |
+ | PLATE | int32 |  | migration: description of keyword/column not found. Needs update |
+ | MJD | int32 |  | migration: description of keyword/column not found. Needs update |
+ | FIBERID | int32 |  | migration: description of keyword/column not found. Needs update |
+ | LINENAME | char[13] |  | migration: description of keyword/column not found. Needs update |
+ | LINEWAVE | float64 |  | migration: description of keyword/column not found. Needs update |
+ | LINEZ | float32 |  | migration: description of keyword/column not found. Needs update |
+ | LINEZ_ERR | float32 |  | migration: description of keyword/column not found. Needs update |
+ | LINESIGMA | float32 |  | migration: description of keyword/column not found. Needs update |
+ | LINESIGMA_ERR | float32 |  | migration: description of keyword/column not found. Needs update |
+ | LINEAREA | float32 |  | migration: description of keyword/column not found. Needs update |
+ | LINEAREA_ERR | float32 |  | migration: description of keyword/column not found. Needs update |
+ | LINEEW | float32 |  | migration: description of keyword/column not found. Needs update |
+ | LINEEW_ERR | float32 |  | migration: description of keyword/column not found. Needs update |
+ | LINECONTLEVEL | float32 |  | migration: description of keyword/column not found. Needs update |
+ | LINECONTLEVEL_ERR | float32 |  | migration: description of keyword/column not found. Needs update |
+ | LINENPIXLEFT | int32 |  | migration: description of keyword/column not found. Needs update |
+ | LINENPIXRIGHT | int32 |  | migration: description of keyword/column not found. Needs update |
+ | LINEDOF | float32 |  | migration: description of keyword/column not found. Needs update |
+ | LINECHI2 | float32 |  | migration: description of keyword/column not found. Needs update |
 
 
 
@@ -539,14 +539,14 @@ For each exposure there is one HDU for the red camera and one for the blue. Thes
 ##### Binary Table Caption for HDU4
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | FLUX | float32 | migration: unit of keyword/column not found. Needs update | coadded calibrated flux [10<sup>-17</sup> ergs/s/cm<sup>2</sup>/Å] |
- | LOGLAM | float32 | migration: unit of keyword/column not found. Needs update | log10(wavelength [Å]) |
- | IVAR | float32 | migration: unit of keyword/column not found. Needs update | inverse variance of flux |
- | MASK | int32 | migration: unit of keyword/column not found. Needs update | mask |
- | WDISP | float32 | migration: unit of keyword/column not found. Needs update | wavelength dispersion in dloglam units |
- | SKY | float32 | migration: unit of keyword/column not found. Needs update | subtracted sky flux [10<sup>-17</sup> ergs/s/cm<sup>2</sup>/Å] |
- | CALIB | float32 | migration: unit of keyword/column not found. Needs update | conversion between flux and electrons: flux = electrons*calib |
- | X | float32 | migration: unit of keyword/column not found. Needs update | x-pixel location of trace on CCD (BOSS spectra only) |
+ | FLUX | float32 |  | coadded calibrated flux [10<sup>-17</sup> ergs/s/cm<sup>2</sup>/Å] |
+ | LOGLAM | float32 |  | log10(wavelength [Å]) |
+ | IVAR | float32 |  | inverse variance of flux |
+ | MASK | int32 |  | mask |
+ | WDISP | float32 |  | wavelength dispersion in dloglam units |
+ | SKY | float32 |  | subtracted sky flux [10<sup>-17</sup> ergs/s/cm<sup>2</sup>/Å] |
+ | CALIB | float32 |  | conversion between flux and electrons: flux = electrons*calib |
+ | X | float32 |  | x-pixel location of trace on CCD (BOSS spectra only) |
 
 
 
@@ -560,14 +560,14 @@ For each exposure there is one HDU for the red camera and one for the blue. Thes
 ##### Binary Table Caption for HDU5
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | FLUX | float32 | migration: unit of keyword/column not found. Needs update | coadded calibrated flux [10<sup>-17</sup> ergs/s/cm<sup>2</sup>/Å] |
- | LOGLAM | float32 | migration: unit of keyword/column not found. Needs update | log10(wavelength [Å]) |
- | IVAR | float32 | migration: unit of keyword/column not found. Needs update | inverse variance of flux |
- | MASK | int32 | migration: unit of keyword/column not found. Needs update | mask |
- | WDISP | float32 | migration: unit of keyword/column not found. Needs update | wavelength dispersion in dloglam units |
- | SKY | float32 | migration: unit of keyword/column not found. Needs update | subtracted sky flux [10<sup>-17</sup> ergs/s/cm<sup>2</sup>/Å] |
- | CALIB | float32 | migration: unit of keyword/column not found. Needs update | conversion between flux and electrons: flux = electrons*calib |
- | X | float32 | migration: unit of keyword/column not found. Needs update | x-pixel location of trace on CCD (BOSS spectra only) |
+ | FLUX | float32 |  | coadded calibrated flux [10<sup>-17</sup> ergs/s/cm<sup>2</sup>/Å] |
+ | LOGLAM | float32 |  | log10(wavelength [Å]) |
+ | IVAR | float32 |  | inverse variance of flux |
+ | MASK | int32 |  | mask |
+ | WDISP | float32 |  | wavelength dispersion in dloglam units |
+ | SKY | float32 |  | subtracted sky flux [10<sup>-17</sup> ergs/s/cm<sup>2</sup>/Å] |
+ | CALIB | float32 |  | conversion between flux and electrons: flux = electrons*calib |
+ | X | float32 |  | x-pixel location of trace on CCD (BOSS spectra only) |
 
 
 
@@ -581,14 +581,14 @@ For each exposure there is one HDU for the red camera and one for the blue. Thes
 ##### Binary Table Caption for HDU6
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | FLUX | float32 | migration: unit of keyword/column not found. Needs update | coadded calibrated flux [10<sup>-17</sup> ergs/s/cm<sup>2</sup>/Å] |
- | LOGLAM | float32 | migration: unit of keyword/column not found. Needs update | log10(wavelength [Å]) |
- | IVAR | float32 | migration: unit of keyword/column not found. Needs update | inverse variance of flux |
- | MASK | int32 | migration: unit of keyword/column not found. Needs update | mask |
- | WDISP | float32 | migration: unit of keyword/column not found. Needs update | wavelength dispersion in dloglam units |
- | SKY | float32 | migration: unit of keyword/column not found. Needs update | subtracted sky flux [10<sup>-17</sup> ergs/s/cm<sup>2</sup>/Å] |
- | CALIB | float32 | migration: unit of keyword/column not found. Needs update | conversion between flux and electrons: flux = electrons*calib |
- | X | float32 | migration: unit of keyword/column not found. Needs update | x-pixel location of trace on CCD (BOSS spectra only) |
+ | FLUX | float32 |  | coadded calibrated flux [10<sup>-17</sup> ergs/s/cm<sup>2</sup>/Å] |
+ | LOGLAM | float32 |  | log10(wavelength [Å]) |
+ | IVAR | float32 |  | inverse variance of flux |
+ | MASK | int32 |  | mask |
+ | WDISP | float32 |  | wavelength dispersion in dloglam units |
+ | SKY | float32 |  | subtracted sky flux [10<sup>-17</sup> ergs/s/cm<sup>2</sup>/Å] |
+ | CALIB | float32 |  | conversion between flux and electrons: flux = electrons*calib |
+ | X | float32 |  | x-pixel location of trace on CCD (BOSS spectra only) |
 
 
 
@@ -602,14 +602,14 @@ For each exposure there is one HDU for the red camera and one for the blue. Thes
 ##### Binary Table Caption for HDU7
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | FLUX | float32 | migration: unit of keyword/column not found. Needs update | coadded calibrated flux [10<sup>-17</sup> ergs/s/cm<sup>2</sup>/Å] |
- | LOGLAM | float32 | migration: unit of keyword/column not found. Needs update | log10(wavelength [Å]) |
- | IVAR | float32 | migration: unit of keyword/column not found. Needs update | inverse variance of flux |
- | MASK | int32 | migration: unit of keyword/column not found. Needs update | mask |
- | WDISP | float32 | migration: unit of keyword/column not found. Needs update | wavelength dispersion in dloglam units |
- | SKY | float32 | migration: unit of keyword/column not found. Needs update | subtracted sky flux [10<sup>-17</sup> ergs/s/cm<sup>2</sup>/Å] |
- | CALIB | float32 | migration: unit of keyword/column not found. Needs update | conversion between flux and electrons: flux = electrons*calib |
- | X | float32 | migration: unit of keyword/column not found. Needs update | x-pixel location of trace on CCD (BOSS spectra only) |
+ | FLUX | float32 |  | coadded calibrated flux [10<sup>-17</sup> ergs/s/cm<sup>2</sup>/Å] |
+ | LOGLAM | float32 |  | log10(wavelength [Å]) |
+ | IVAR | float32 |  | inverse variance of flux |
+ | MASK | int32 |  | mask |
+ | WDISP | float32 |  | wavelength dispersion in dloglam units |
+ | SKY | float32 |  | subtracted sky flux [10<sup>-17</sup> ergs/s/cm<sup>2</sup>/Å] |
+ | CALIB | float32 |  | conversion between flux and electrons: flux = electrons*calib |
+ | X | float32 |  | x-pixel location of trace on CCD (BOSS spectra only) |
 
 
 
@@ -623,14 +623,14 @@ For each exposure there is one HDU for the red camera and one for the blue. Thes
 ##### Binary Table Caption for HDU8
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | FLUX | float32 | migration: unit of keyword/column not found. Needs update | coadded calibrated flux [10<sup>-17</sup> ergs/s/cm<sup>2</sup>/Å] |
- | LOGLAM | float32 | migration: unit of keyword/column not found. Needs update | log10(wavelength [Å]) |
- | IVAR | float32 | migration: unit of keyword/column not found. Needs update | inverse variance of flux |
- | MASK | int32 | migration: unit of keyword/column not found. Needs update | mask |
- | WDISP | float32 | migration: unit of keyword/column not found. Needs update | wavelength dispersion in dloglam units |
- | SKY | float32 | migration: unit of keyword/column not found. Needs update | subtracted sky flux [10<sup>-17</sup> ergs/s/cm<sup>2</sup>/Å] |
- | CALIB | float32 | migration: unit of keyword/column not found. Needs update | conversion between flux and electrons: flux = electrons*calib |
- | X | float32 | migration: unit of keyword/column not found. Needs update | x-pixel location of trace on CCD (BOSS spectra only) |
+ | FLUX | float32 |  | coadded calibrated flux [10<sup>-17</sup> ergs/s/cm<sup>2</sup>/Å] |
+ | LOGLAM | float32 |  | log10(wavelength [Å]) |
+ | IVAR | float32 |  | inverse variance of flux |
+ | MASK | int32 |  | mask |
+ | WDISP | float32 |  | wavelength dispersion in dloglam units |
+ | SKY | float32 |  | subtracted sky flux [10<sup>-17</sup> ergs/s/cm<sup>2</sup>/Å] |
+ | CALIB | float32 |  | conversion between flux and electrons: flux = electrons*calib |
+ | X | float32 |  | x-pixel location of trace on CCD (BOSS spectra only) |
 
 
 
@@ -644,14 +644,14 @@ For each exposure there is one HDU for the red camera and one for the blue. Thes
 ##### Binary Table Caption for HDU9
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | FLUX | float32 | migration: unit of keyword/column not found. Needs update | coadded calibrated flux [10<sup>-17</sup> ergs/s/cm<sup>2</sup>/Å] |
- | LOGLAM | float32 | migration: unit of keyword/column not found. Needs update | log10(wavelength [Å]) |
- | IVAR | float32 | migration: unit of keyword/column not found. Needs update | inverse variance of flux |
- | MASK | int32 | migration: unit of keyword/column not found. Needs update | mask |
- | WDISP | float32 | migration: unit of keyword/column not found. Needs update | wavelength dispersion in dloglam units |
- | SKY | float32 | migration: unit of keyword/column not found. Needs update | subtracted sky flux [10<sup>-17</sup> ergs/s/cm<sup>2</sup>/Å] |
- | CALIB | float32 | migration: unit of keyword/column not found. Needs update | conversion between flux and electrons: flux = electrons*calib |
- | X | float32 | migration: unit of keyword/column not found. Needs update | x-pixel location of trace on CCD (BOSS spectra only) |
+ | FLUX | float32 |  | coadded calibrated flux [10<sup>-17</sup> ergs/s/cm<sup>2</sup>/Å] |
+ | LOGLAM | float32 |  | log10(wavelength [Å]) |
+ | IVAR | float32 |  | inverse variance of flux |
+ | MASK | int32 |  | mask |
+ | WDISP | float32 |  | wavelength dispersion in dloglam units |
+ | SKY | float32 |  | subtracted sky flux [10<sup>-17</sup> ergs/s/cm<sup>2</sup>/Å] |
+ | CALIB | float32 |  | conversion between flux and electrons: flux = electrons*calib |
+ | X | float32 |  | x-pixel location of trace on CCD (BOSS spectra only) |
 
 
 
@@ -665,14 +665,14 @@ For each exposure there is one HDU for the red camera and one for the blue. Thes
 ##### Binary Table Caption for HDU10
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | FLUX | float32 | migration: unit of keyword/column not found. Needs update | coadded calibrated flux [10<sup>-17</sup> ergs/s/cm<sup>2</sup>/Å] |
- | LOGLAM | float32 | migration: unit of keyword/column not found. Needs update | log10(wavelength [Å]) |
- | IVAR | float32 | migration: unit of keyword/column not found. Needs update | inverse variance of flux |
- | MASK | int32 | migration: unit of keyword/column not found. Needs update | mask |
- | WDISP | float32 | migration: unit of keyword/column not found. Needs update | wavelength dispersion in dloglam units |
- | SKY | float32 | migration: unit of keyword/column not found. Needs update | subtracted sky flux [10<sup>-17</sup> ergs/s/cm<sup>2</sup>/Å] |
- | CALIB | float32 | migration: unit of keyword/column not found. Needs update | conversion between flux and electrons: flux = electrons*calib |
- | X | float32 | migration: unit of keyword/column not found. Needs update | x-pixel location of trace on CCD (BOSS spectra only) |
+ | FLUX | float32 |  | coadded calibrated flux [10<sup>-17</sup> ergs/s/cm<sup>2</sup>/Å] |
+ | LOGLAM | float32 |  | log10(wavelength [Å]) |
+ | IVAR | float32 |  | inverse variance of flux |
+ | MASK | int32 |  | mask |
+ | WDISP | float32 |  | wavelength dispersion in dloglam units |
+ | SKY | float32 |  | subtracted sky flux [10<sup>-17</sup> ergs/s/cm<sup>2</sup>/Å] |
+ | CALIB | float32 |  | conversion between flux and electrons: flux = electrons*calib |
+ | X | float32 |  | x-pixel location of trace on CCD (BOSS spectra only) |
 
 
 
@@ -686,14 +686,14 @@ For each exposure there is one HDU for the red camera and one for the blue. Thes
 ##### Binary Table Caption for HDU11
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | FLUX | float32 | migration: unit of keyword/column not found. Needs update | coadded calibrated flux [10<sup>-17</sup> ergs/s/cm<sup>2</sup>/Å] |
- | LOGLAM | float32 | migration: unit of keyword/column not found. Needs update | log10(wavelength [Å]) |
- | IVAR | float32 | migration: unit of keyword/column not found. Needs update | inverse variance of flux |
- | MASK | int32 | migration: unit of keyword/column not found. Needs update | mask |
- | WDISP | float32 | migration: unit of keyword/column not found. Needs update | wavelength dispersion in dloglam units |
- | SKY | float32 | migration: unit of keyword/column not found. Needs update | subtracted sky flux [10<sup>-17</sup> ergs/s/cm<sup>2</sup>/Å] |
- | CALIB | float32 | migration: unit of keyword/column not found. Needs update | conversion between flux and electrons: flux = electrons*calib |
- | X | float32 | migration: unit of keyword/column not found. Needs update | x-pixel location of trace on CCD (BOSS spectra only) |
+ | FLUX | float32 |  | coadded calibrated flux [10<sup>-17</sup> ergs/s/cm<sup>2</sup>/Å] |
+ | LOGLAM | float32 |  | log10(wavelength [Å]) |
+ | IVAR | float32 |  | inverse variance of flux |
+ | MASK | int32 |  | mask |
+ | WDISP | float32 |  | wavelength dispersion in dloglam units |
+ | SKY | float32 |  | subtracted sky flux [10<sup>-17</sup> ergs/s/cm<sup>2</sup>/Å] |
+ | CALIB | float32 |  | conversion between flux and electrons: flux = electrons*calib |
+ | X | float32 |  | x-pixel location of trace on CCD (BOSS spectra only) |
 
 
 
@@ -707,14 +707,14 @@ For each exposure there is one HDU for the red camera and one for the blue. Thes
 ##### Binary Table Caption for HDU12
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | FLUX | float32 | migration: unit of keyword/column not found. Needs update | coadded calibrated flux [10<sup>-17</sup> ergs/s/cm<sup>2</sup>/Å] |
- | LOGLAM | float32 | migration: unit of keyword/column not found. Needs update | log10(wavelength [Å]) |
- | IVAR | float32 | migration: unit of keyword/column not found. Needs update | inverse variance of flux |
- | MASK | int32 | migration: unit of keyword/column not found. Needs update | mask |
- | WDISP | float32 | migration: unit of keyword/column not found. Needs update | wavelength dispersion in dloglam units |
- | SKY | float32 | migration: unit of keyword/column not found. Needs update | subtracted sky flux [10<sup>-17</sup> ergs/s/cm<sup>2</sup>/Å] |
- | CALIB | float32 | migration: unit of keyword/column not found. Needs update | conversion between flux and electrons: flux = electrons*calib |
- | X | float32 | migration: unit of keyword/column not found. Needs update | x-pixel location of trace on CCD (BOSS spectra only) |
+ | FLUX | float32 |  | coadded calibrated flux [10<sup>-17</sup> ergs/s/cm<sup>2</sup>/Å] |
+ | LOGLAM | float32 |  | log10(wavelength [Å]) |
+ | IVAR | float32 |  | inverse variance of flux |
+ | MASK | int32 |  | mask |
+ | WDISP | float32 |  | wavelength dispersion in dloglam units |
+ | SKY | float32 |  | subtracted sky flux [10<sup>-17</sup> ergs/s/cm<sup>2</sup>/Å] |
+ | CALIB | float32 |  | conversion between flux and electrons: flux = electrons*calib |
+ | X | float32 |  | x-pixel location of trace on CCD (BOSS spectra only) |
 
 
 
@@ -728,14 +728,14 @@ For each exposure there is one HDU for the red camera and one for the blue. Thes
 ##### Binary Table Caption for HDU13
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | FLUX | float32 | migration: unit of keyword/column not found. Needs update | coadded calibrated flux [10<sup>-17</sup> ergs/s/cm<sup>2</sup>/Å] |
- | LOGLAM | float32 | migration: unit of keyword/column not found. Needs update | log10(wavelength [Å]) |
- | IVAR | float32 | migration: unit of keyword/column not found. Needs update | inverse variance of flux |
- | MASK | int32 | migration: unit of keyword/column not found. Needs update | mask |
- | WDISP | float32 | migration: unit of keyword/column not found. Needs update | wavelength dispersion in dloglam units |
- | SKY | float32 | migration: unit of keyword/column not found. Needs update | subtracted sky flux [10<sup>-17</sup> ergs/s/cm<sup>2</sup>/Å] |
- | CALIB | float32 | migration: unit of keyword/column not found. Needs update | conversion between flux and electrons: flux = electrons*calib |
- | X | float32 | migration: unit of keyword/column not found. Needs update | x-pixel location of trace on CCD (BOSS spectra only) |
+ | FLUX | float32 |  | coadded calibrated flux [10<sup>-17</sup> ergs/s/cm<sup>2</sup>/Å] |
+ | LOGLAM | float32 |  | log10(wavelength [Å]) |
+ | IVAR | float32 |  | inverse variance of flux |
+ | MASK | int32 |  | mask |
+ | WDISP | float32 |  | wavelength dispersion in dloglam units |
+ | SKY | float32 |  | subtracted sky flux [10<sup>-17</sup> ergs/s/cm<sup>2</sup>/Å] |
+ | CALIB | float32 |  | conversion between flux and electrons: flux = electrons*calib |
+ | X | float32 |  | x-pixel location of trace on CCD (BOSS spectra only) |
 
 
 
@@ -749,14 +749,14 @@ For each exposure there is one HDU for the red camera and one for the blue. Thes
 ##### Binary Table Caption for HDU14
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | FLUX | float32 | migration: unit of keyword/column not found. Needs update | coadded calibrated flux [10<sup>-17</sup> ergs/s/cm<sup>2</sup>/Å] |
- | LOGLAM | float32 | migration: unit of keyword/column not found. Needs update | log10(wavelength [Å]) |
- | IVAR | float32 | migration: unit of keyword/column not found. Needs update | inverse variance of flux |
- | MASK | int32 | migration: unit of keyword/column not found. Needs update | mask |
- | WDISP | float32 | migration: unit of keyword/column not found. Needs update | wavelength dispersion in dloglam units |
- | SKY | float32 | migration: unit of keyword/column not found. Needs update | subtracted sky flux [10<sup>-17</sup> ergs/s/cm<sup>2</sup>/Å] |
- | CALIB | float32 | migration: unit of keyword/column not found. Needs update | conversion between flux and electrons: flux = electrons*calib |
- | X | float32 | migration: unit of keyword/column not found. Needs update | x-pixel location of trace on CCD (BOSS spectra only) |
+ | FLUX | float32 |  | coadded calibrated flux [10<sup>-17</sup> ergs/s/cm<sup>2</sup>/Å] |
+ | LOGLAM | float32 |  | log10(wavelength [Å]) |
+ | IVAR | float32 |  | inverse variance of flux |
+ | MASK | int32 |  | mask |
+ | WDISP | float32 |  | wavelength dispersion in dloglam units |
+ | SKY | float32 |  | subtracted sky flux [10<sup>-17</sup> ergs/s/cm<sup>2</sup>/Å] |
+ | CALIB | float32 |  | conversion between flux and electrons: flux = electrons*calib |
+ | X | float32 |  | x-pixel location of trace on CCD (BOSS spectra only) |
 
 
 
@@ -770,14 +770,14 @@ For each exposure there is one HDU for the red camera and one for the blue. Thes
 ##### Binary Table Caption for HDU15
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | FLUX | float32 | migration: unit of keyword/column not found. Needs update | coadded calibrated flux [10<sup>-17</sup> ergs/s/cm<sup>2</sup>/Å] |
- | LOGLAM | float32 | migration: unit of keyword/column not found. Needs update | log10(wavelength [Å]) |
- | IVAR | float32 | migration: unit of keyword/column not found. Needs update | inverse variance of flux |
- | MASK | int32 | migration: unit of keyword/column not found. Needs update | mask |
- | WDISP | float32 | migration: unit of keyword/column not found. Needs update | wavelength dispersion in dloglam units |
- | SKY | float32 | migration: unit of keyword/column not found. Needs update | subtracted sky flux [10<sup>-17</sup> ergs/s/cm<sup>2</sup>/Å] |
- | CALIB | float32 | migration: unit of keyword/column not found. Needs update | conversion between flux and electrons: flux = electrons*calib |
- | X | float32 | migration: unit of keyword/column not found. Needs update | x-pixel location of trace on CCD (BOSS spectra only) |
+ | FLUX | float32 |  | coadded calibrated flux [10<sup>-17</sup> ergs/s/cm<sup>2</sup>/Å] |
+ | LOGLAM | float32 |  | log10(wavelength [Å]) |
+ | IVAR | float32 |  | inverse variance of flux |
+ | MASK | int32 |  | mask |
+ | WDISP | float32 |  | wavelength dispersion in dloglam units |
+ | SKY | float32 |  | subtracted sky flux [10<sup>-17</sup> ergs/s/cm<sup>2</sup>/Å] |
+ | CALIB | float32 |  | conversion between flux and electrons: flux = electrons*calib |
+ | X | float32 |  | x-pixel location of trace on CCD (BOSS spectra only) |
 
 
 
@@ -791,14 +791,14 @@ For each exposure there is one HDU for the red camera and one for the blue. Thes
 ##### Binary Table Caption for HDU16
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | FLUX | float32 | migration: unit of keyword/column not found. Needs update | coadded calibrated flux [10<sup>-17</sup> ergs/s/cm<sup>2</sup>/Å] |
- | LOGLAM | float32 | migration: unit of keyword/column not found. Needs update | log10(wavelength [Å]) |
- | IVAR | float32 | migration: unit of keyword/column not found. Needs update | inverse variance of flux |
- | MASK | int32 | migration: unit of keyword/column not found. Needs update | mask |
- | WDISP | float32 | migration: unit of keyword/column not found. Needs update | wavelength dispersion in dloglam units |
- | SKY | float32 | migration: unit of keyword/column not found. Needs update | subtracted sky flux [10<sup>-17</sup> ergs/s/cm<sup>2</sup>/Å] |
- | CALIB | float32 | migration: unit of keyword/column not found. Needs update | conversion between flux and electrons: flux = electrons*calib |
- | X | float32 | migration: unit of keyword/column not found. Needs update | x-pixel location of trace on CCD (BOSS spectra only) |
+ | FLUX | float32 |  | coadded calibrated flux [10<sup>-17</sup> ergs/s/cm<sup>2</sup>/Å] |
+ | LOGLAM | float32 |  | log10(wavelength [Å]) |
+ | IVAR | float32 |  | inverse variance of flux |
+ | MASK | int32 |  | mask |
+ | WDISP | float32 |  | wavelength dispersion in dloglam units |
+ | SKY | float32 |  | subtracted sky flux [10<sup>-17</sup> ergs/s/cm<sup>2</sup>/Å] |
+ | CALIB | float32 |  | conversion between flux and electrons: flux = electrons*calib |
+ | X | float32 |  | x-pixel location of trace on CCD (BOSS spectra only) |
 
 
 
@@ -812,14 +812,14 @@ For each exposure there is one HDU for the red camera and one for the blue. Thes
 ##### Binary Table Caption for HDU17
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | FLUX | float32 | migration: unit of keyword/column not found. Needs update | coadded calibrated flux [10<sup>-17</sup> ergs/s/cm<sup>2</sup>/Å] |
- | LOGLAM | float32 | migration: unit of keyword/column not found. Needs update | log10(wavelength [Å]) |
- | IVAR | float32 | migration: unit of keyword/column not found. Needs update | inverse variance of flux |
- | MASK | int32 | migration: unit of keyword/column not found. Needs update | mask |
- | WDISP | float32 | migration: unit of keyword/column not found. Needs update | wavelength dispersion in dloglam units |
- | SKY | float32 | migration: unit of keyword/column not found. Needs update | subtracted sky flux [10<sup>-17</sup> ergs/s/cm<sup>2</sup>/Å] |
- | CALIB | float32 | migration: unit of keyword/column not found. Needs update | conversion between flux and electrons: flux = electrons*calib |
- | X | float32 | migration: unit of keyword/column not found. Needs update | x-pixel location of trace on CCD (BOSS spectra only) |
+ | FLUX | float32 |  | coadded calibrated flux [10<sup>-17</sup> ergs/s/cm<sup>2</sup>/Å] |
+ | LOGLAM | float32 |  | log10(wavelength [Å]) |
+ | IVAR | float32 |  | inverse variance of flux |
+ | MASK | int32 |  | mask |
+ | WDISP | float32 |  | wavelength dispersion in dloglam units |
+ | SKY | float32 |  | subtracted sky flux [10<sup>-17</sup> ergs/s/cm<sup>2</sup>/Å] |
+ | CALIB | float32 |  | conversion between flux and electrons: flux = electrons*calib |
+ | X | float32 |  | x-pixel location of trace on CCD (BOSS spectra only) |
 
 
 
