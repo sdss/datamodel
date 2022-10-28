@@ -2,7 +2,7 @@
   "general": {
     "name": "astraStarASPCAP",
     "short": "Results and best-fit models from the ASPCAP astra pipeline for a single star",
-    "description": "Results and best-fit models from the ASPCAP astra pipeline for a single star. The ASPCAP bitmaps are documented [here](https://www.sdss.org/dr17/irspec/apogee-bitmasks#ParamBitMask).",
+    "description": "Results and best-fit models from the ASPCAP astra pipeline for a single star. The ASPCAP flag bitmaps are documented at https://www.sdss.org/dr17/irspec/apogee-bitmasks#ParamBitMask, and the weights used when computing each abundance are documented at https://data.sdss5.org/sas/sdsswork/mwm/spectro/astra/component_data/aspcap/masks/",
     "environments": [
       "MWM_ASTRA"
     ],
@@ -53,11 +53,11 @@
         "path_name": "astraStarASPCAP",
         "path_template": "$MWM_ASTRA/{v_astra}/{run2d}-{apred}/results/star/@cat_id_groups|/astraStar-ASPCAP-{v_astra}-{cat_id}@component_default|-{task_id}.fits",
         "path_kwargs": [
-          "apred",
-          "run2d",
           "cat_id",
           "v_astra",
-          "task_id"
+          "run2d",
+          "task_id",
+          "apred"
         ],
         "access_string": "astraStarASPCAP = $MWM_ASTRA/{astra_version}/{run2d}-{apred}/results/star/{catalogid_groups}/astraStar-ASPCAP-{astra_version}-{catalogid}-{task_id}.fits"
       },
@@ -936,43 +936,43 @@
               "name": "TEFF",
               "description": "Stellar effective temperature ",
               "type": "float32",
-              "unit": "K"
+              "unit": ""
             },
             "E_TEFF": {
               "name": "E_TEFF",
               "description": "Error in stellar effective temperature ",
               "type": "float32",
-              "unit": "K"
+              "unit": ""
             },
             "LOGG": {
               "name": "LOGG",
               "description": "Surface gravity ",
               "type": "float32",
-              "unit": "log10(cm/s^2)"
+              "unit": ""
             },
             "E_LOGG": {
               "name": "E_LOGG",
               "description": "Error in surface gravity ",
               "type": "float32",
-              "unit": "log10(cm/s^2)"
+              "unit": ""
             },
             "METALS": {
               "name": "METALS",
               "description": "Metallicity ",
               "type": "float32",
-              "unit": "dex"
+              "unit": ""
             },
             "E_METALS": {
               "name": "E_METALS",
               "description": "Error in metallicity ",
               "type": "float32",
-              "unit": "dex"
+              "unit": ""
             },
             "O_MG_SI_S_CA_TI": {
               "name": "O_MG_SI_S_CA_TI",
               "description": "[alpha/Fe] abundance ratio ",
               "type": "float32",
-              "unit": "dex"
+              "unit": ""
             },
             "E_O_MG_SI_S_CA_TI": {
               "name": "E_O_MG_SI_S_CA_TI",
@@ -984,19 +984,19 @@
               "name": "LOG10VDOP",
               "description": "Log10 of the doppler broadening ",
               "type": "float32",
-              "unit": "km/s"
+              "unit": ""
             },
             "E_LOG10VDOP": {
               "name": "E_LOG10VDOP",
               "description": "Error in the log10 doppler broadening ",
               "type": "float32",
-              "unit": "km/s"
+              "unit": ""
             },
             "LGVSINI": {
               "name": "LGVSINI",
               "description": "Log of the projected rotational velocity ",
               "type": "float32",
-              "unit": "km/s"
+              "unit": ""
             },
             "E_LGVSINI": {
               "name": "E_LGVSINI",
@@ -1008,337 +1008,337 @@
               "name": "C",
               "description": "Photosphere carbon abundance ",
               "type": "float32",
-              "unit": "dex"
+              "unit": ""
             },
             "E_C": {
               "name": "E_C",
               "description": "Error on photosphere carbon abundance ",
               "type": "float32",
-              "unit": "dex"
+              "unit": ""
             },
             "N": {
               "name": "N",
               "description": "Photosphere nitrogen abundance ",
               "type": "float32",
-              "unit": "dex"
+              "unit": ""
             },
             "E_N": {
               "name": "E_N",
               "description": "Error on photosphere nitrogen abundance ",
               "type": "float32",
-              "unit": "dex"
+              "unit": ""
             },
             "AL_H": {
               "name": "AL_H",
               "description": "Aluminium abundance as [Al/H] ",
               "type": "float32",
-              "unit": "dex"
+              "unit": ""
             },
             "E_AL_H": {
               "name": "E_AL_H",
               "description": "Error in aluminium abundance as [Al/H] ",
               "type": "float32",
-              "unit": "dex"
+              "unit": ""
             },
             "CA_H": {
               "name": "CA_H",
               "description": "Calcium abundance as [Ca/H] ",
               "type": "float32",
-              "unit": "dex"
+              "unit": ""
             },
             "E_CA_H": {
               "name": "E_CA_H",
               "description": "Error in calcium abundance as [Ca/H] ",
               "type": "float32",
-              "unit": "dex"
+              "unit": ""
             },
             "CE_H": {
               "name": "CE_H",
               "description": "Cerium abundance as [Ce/H] ",
               "type": "float32",
-              "unit": "dex"
+              "unit": ""
             },
             "E_CE_H": {
               "name": "E_CE_H",
               "description": "Error on cerium abundance as [Ce/H] ",
               "type": "float32",
-              "unit": "dex"
+              "unit": ""
             },
             "CI_H": {
               "name": "CI_H",
               "description": "Carbon abundance as [C I/H] ",
               "type": "float32",
-              "unit": "dex"
+              "unit": ""
             },
             "E_CI_H": {
               "name": "E_CI_H",
               "description": "Error on carbon abundance as [C I/H] ",
               "type": "float32",
-              "unit": "dex"
+              "unit": ""
             },
             "C_H": {
               "name": "C_H",
               "description": "Carbon abundance as [C/H] ",
               "type": "float32",
-              "unit": "dex"
+              "unit": ""
             },
             "E_C_H": {
               "name": "E_C_H",
               "description": "Error in carbon abundance as [C/H] ",
               "type": "float32",
-              "unit": "dex"
+              "unit": ""
             },
             "CO_H": {
               "name": "CO_H",
               "description": "Cobalt abundance as [Co/H] ",
               "type": "float32",
-              "unit": "dex"
+              "unit": ""
             },
             "E_CO_H": {
               "name": "E_CO_H",
               "description": "Error in cobalt abundance as [Co/H] ",
               "type": "float32",
-              "unit": "dex"
+              "unit": ""
             },
             "CR_H": {
               "name": "CR_H",
               "description": "Chromium abundance as [Cr/H] ",
               "type": "float32",
-              "unit": "dex"
+              "unit": ""
             },
             "E_CR_H": {
               "name": "E_CR_H",
               "description": "Error in chromium abundance as [Cr/H] ",
               "type": "float32",
-              "unit": "dex"
+              "unit": ""
             },
             "CU_H": {
               "name": "CU_H",
               "description": "Copper abundance as [Cu/H] ",
               "type": "float32",
-              "unit": "dex"
+              "unit": ""
             },
             "E_CU_H": {
               "name": "E_CU_H",
               "description": "Error in gopper abundance as [Cu/H] ",
               "type": "float32",
-              "unit": "dex"
+              "unit": ""
             },
             "FE_H": {
               "name": "FE_H",
               "description": "Iron abundance as [Fe/H] ",
               "type": "float32",
-              "unit": "dex"
+              "unit": ""
             },
             "E_FE_H": {
               "name": "E_FE_H",
               "description": "Error in metallicity ",
               "type": "float32",
-              "unit": "dex"
+              "unit": ""
             },
             "GE_H": {
               "name": "GE_H",
               "description": "Germanium abundance as [Ge/H] ",
               "type": "float32",
-              "unit": "dex"
+              "unit": ""
             },
             "E_GE_H": {
               "name": "E_GE_H",
               "description": "Error in germanium abundance as [Ge/H] ",
               "type": "float32",
-              "unit": "dex"
+              "unit": ""
             },
             "K_H": {
               "name": "K_H",
               "description": "Potassium abundance as [K/H] ",
               "type": "float32",
-              "unit": "dex"
+              "unit": ""
             },
             "E_K_H": {
               "name": "E_K_H",
               "description": "Error in potassium abundance as [K/H] ",
               "type": "float32",
-              "unit": "dex"
+              "unit": ""
             },
             "MG_H": {
               "name": "MG_H",
               "description": "Magnesium abundance as [Mg/H] ",
               "type": "float32",
-              "unit": "dex"
+              "unit": ""
             },
             "E_MG_H": {
               "name": "E_MG_H",
               "description": "Error in magnesium abundance as [Mg/H] ",
               "type": "float32",
-              "unit": "dex"
+              "unit": ""
             },
             "MN_H": {
               "name": "MN_H",
               "description": "Manganese abundance as [Mn/H] ",
               "type": "float32",
-              "unit": "dex"
+              "unit": ""
             },
             "E_MN_H": {
               "name": "E_MN_H",
               "description": "Error in manganese abundance as [Mn/H] ",
               "type": "float32",
-              "unit": "dex"
+              "unit": ""
             },
             "NA_H": {
               "name": "NA_H",
               "description": "Sodium abundance as [Na/H] ",
               "type": "float32",
-              "unit": "dex"
+              "unit": ""
             },
             "E_NA_H": {
               "name": "E_NA_H",
               "description": "Error in sodium abundance as [Na/H] ",
               "type": "float32",
-              "unit": "dex"
+              "unit": ""
             },
             "ND_H": {
               "name": "ND_H",
               "description": "Neodymium abundance as [Nd/H] ",
               "type": "float32",
-              "unit": "dex"
+              "unit": ""
             },
             "E_ND_H": {
               "name": "E_ND_H",
               "description": "Error on neodymium abundance as [Nd/H] ",
               "type": "float32",
-              "unit": "dex"
+              "unit": ""
             },
             "NI_H": {
               "name": "NI_H",
               "description": "Nickel abundance as [Ni/H] ",
               "type": "float32",
-              "unit": "dex"
+              "unit": ""
             },
             "E_NI_H": {
               "name": "E_NI_H",
               "description": "Error in nickel abundance as [Ni/H] ",
               "type": "float32",
-              "unit": "dex"
+              "unit": ""
             },
             "N_H": {
               "name": "N_H",
               "description": "Nitrogen abundance as [N/H] ",
               "type": "float32",
-              "unit": "dex"
+              "unit": ""
             },
             "E_N_H": {
               "name": "E_N_H",
               "description": "Error in nitrogen abundance as [N/H] ",
               "type": "float32",
-              "unit": "dex"
+              "unit": ""
             },
             "O_H": {
               "name": "O_H",
               "description": "Oxygen abundance as [O/H] ",
               "type": "float32",
-              "unit": "dex"
+              "unit": ""
             },
             "E_O_H": {
               "name": "E_O_H",
               "description": "Error in oxygen abundance as [O/H] ",
               "type": "float32",
-              "unit": "dex"
+              "unit": ""
             },
             "P_H": {
               "name": "P_H",
               "description": "Phosphorus abundance as [P/H] ",
               "type": "float32",
-              "unit": "dex"
+              "unit": ""
             },
             "E_P_H": {
               "name": "E_P_H",
               "description": "Error in phosphorus abundance as [P/H] ",
               "type": "float32",
-              "unit": "dex"
+              "unit": ""
             },
             "RB_H": {
               "name": "RB_H",
               "description": "Rubidium abundance as [Rb/H] ",
               "type": "float32",
-              "unit": "dex"
+              "unit": ""
             },
             "E_RB_H": {
               "name": "E_RB_H",
               "description": "Error on rubidium abundance as [Rb/H] ",
               "type": "float32",
-              "unit": "dex"
+              "unit": ""
             },
             "SI_H": {
               "name": "SI_H",
               "description": "Silicon abundance as [Si/H] ",
               "type": "float32",
-              "unit": "dex"
+              "unit": ""
             },
             "E_SI_H": {
               "name": "E_SI_H",
               "description": "Error in silicon abundance as [Si/H] ",
               "type": "float32",
-              "unit": "dex"
+              "unit": ""
             },
             "S_H": {
               "name": "S_H",
               "description": "Sulfur abundance as [S/H] ",
               "type": "float32",
-              "unit": "dex"
+              "unit": ""
             },
             "E_S_H": {
               "name": "E_S_H",
               "description": "Error in sulfur abundance as [S/H] ",
               "type": "float32",
-              "unit": "dex"
+              "unit": ""
             },
             "TIII_H": {
               "name": "TIII_H",
               "description": "Titanium abundance as [Ti II/H] ",
               "type": "float32",
-              "unit": "dex"
+              "unit": ""
             },
             "E_TIII_H": {
               "name": "E_TIII_H",
               "description": "Error in titanium abundance as [Ti II/H] ",
               "type": "float32",
-              "unit": "dex"
+              "unit": ""
             },
             "TI_H": {
               "name": "TI_H",
               "description": "Titanium abundance as [Ti/H] ",
               "type": "float32",
-              "unit": "dex"
+              "unit": ""
             },
             "E_TI_H": {
               "name": "E_TI_H",
               "description": "Error in titanium abundance as [Ti/H] ",
               "type": "float32",
-              "unit": "dex"
+              "unit": ""
             },
             "V_H": {
               "name": "V_H",
               "description": "Vanadium abundance as [V/H] ",
               "type": "float32",
-              "unit": "dex"
+              "unit": ""
             },
             "E_V_H": {
               "name": "E_V_H",
               "description": "Error in vanadium abundance as [V/H] ",
               "type": "float32",
-              "unit": "dex"
+              "unit": ""
             },
             "YB_H": {
               "name": "YB_H",
               "description": "Ytterbium abundance as [Yb/H] ",
               "type": "float32",
-              "unit": "dex"
+              "unit": ""
             },
             "E_YB_H": {
               "name": "E_YB_H",
               "description": "Error in ytterbium abundance as [Yb/H] ",
               "type": "float32",
-              "unit": "dex"
+              "unit": ""
             },
             "BITMASK_TEFF": {
               "name": "BITMASK_TEFF",
