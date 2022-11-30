@@ -4,7 +4,7 @@
 Change Log
 ==========
 
-0.5.2 (unreleased)
+0.5.2 (11-30-2022)
 ------------------
 - Switched the ``skip-git`` cli arg to ``with-git`` flag and turned off the git commit stage by default.
 - Switched the WORK release to use sdss5.cfg tree config by default.
