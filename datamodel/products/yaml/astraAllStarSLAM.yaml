@@ -1,0 +1,412 @@
+general:
+  name: astraAllStarSLAM
+  short: Results from the SLAM astra pipeline for each star
+  description: Results from the SLAM astra pipeline for each star.
+  datatype: FITS
+  filesize: 75 MB
+  releases:
+  - WORK
+  environments:
+  - MWM_ASTRA
+  surveys:
+  - MWM
+  naming_convention: $MWM_ASTRA/[ASTRA_VERSION]/[RUN2D]-[APRED]/results/summary/astraAllStar-SLAM-[ASTRA_VERSION]-[RUN2D]-[APRED].fits
+  generated_by: astra
+  design: false
+  vac: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  WORK:
+    template: $MWM_ASTRA/[ASTRA_VERSION]/[RUN2D]-[APRED]/results/summary/astraAllStar-SLAM-[ASTRA_VERSION]-[RUN2D]-[APRED].fits
+    example: 0.2.6/v6_0_9-1.0/results/summary/astraAllStar-SLAM-0.2.6-v6_0_9-1.0.fits
+    location: '{astra_version}/{run2d}-{apred}/results/summary/astraAllStar-SLAM-{astra_version}-{run2d}-{apred}.fits'
+    environment: MWM_ASTRA
+    access:
+      in_sdss_access: false
+      path_name: null
+      path_template: null
+      path_kwargs: null
+      access_string: astraAllStarSLAM = $MWM_ASTRA/{astra_version}/{run2d}-{apred}/results/summary/astraAllStar-SLAM-{astra_version}-{run2d}-{apred}.fits
+    survey: MWM
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Metadata
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: V_ASTRA
+          value: 0.2.6
+          comment: Astra version
+        - key: RUN2D
+          value: v6_0_9
+          comment: Spectro-2D reduction name
+        - key: APRED
+          value: '1.0'
+          comment: APOGEE reduction tag
+        - key: PIPELINE
+          value: SLAM
+          comment: Pipeline name that produced these results
+        - key: CREATED
+          value: 22-10-28 01:18:18
+          comment: File creation time (UTC %y-%m-%d %H:%M:%S)
+        - key: CHECKSUM
+          value: 9ASEA7QB3AQB95QB
+          comment: HDU checksum updated 2022-10-27T19:18:19
+        - key: DATASUM
+          value: '0'
+          comment: data unit checksum updated 2022-10-27T19:18:19
+      hdu1:
+        name: ''
+        description: SLAM results for each star
+        is_image: false
+        size: 75 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 390
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 202667
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 60
+          comment: number of table fields
+        - key: CHECKSUM
+          value: FYahIVReFVXeFVXe
+          comment: HDU checksum updated 2022-10-27T19:18:20
+        - key: DATASUM
+          value: '183305573'
+          comment: data unit checksum updated 2022-10-27T19:18:20
+        columns:
+          GAIA_ID:
+            name: GAIA_ID
+            type: int64
+            unit: ''
+            description: Gaia DR2 source identifier
+          TIC_ID:
+            name: TIC_ID
+            type: int32
+            unit: ''
+            description: TESS Input Catalog (v8) identifier
+          BOSS_SPECOBJ_ID:
+            name: BOSS_SPECOBJ_ID
+            type: int32
+            unit: ''
+            description: BOSS spectrum object identifier
+          RA:
+            name: RA
+            type: float32
+            unit: deg
+            description: 'SDSS-V catalog right ascension (J2000) '
+          DEC:
+            name: DEC
+            type: float32
+            unit: deg
+            description: 'SDSS-V catalog declination (J2000) '
+          HEALPIX:
+            name: HEALPIX
+            type: int32
+            unit: ''
+            description: Healpix location (128 sides)
+          RA_GAIA:
+            name: RA_GAIA
+            type: float32
+            unit: deg
+            description: 'Gaia DR2 right ascension '
+          DEC_GAIA:
+            name: DEC_GAIA
+            type: float32
+            unit: deg
+            description: 'Gaia DR2 declination '
+          PLX:
+            name: PLX
+            type: float32
+            unit: mas
+            description: 'Gaia DR2 parallax '
+          E_PLX:
+            name: E_PLX
+            type: float32
+            unit: mas
+            description: 'Gaia DR2 parallax error '
+          PMRA:
+            name: PMRA
+            type: float32
+            unit: mas/yr
+            description: 'Gaia DR2 proper motion in RA '
+          E_PMRA:
+            name: E_PMRA
+            type: float32
+            unit: mas/yr
+            description: 'Gaia DR2 proper motion in RA error '
+          PMDE:
+            name: PMDE
+            type: float32
+            unit: mas/yr
+            description: 'Gaia DR2 proper motion in DEC '
+          E_PMDE:
+            name: E_PMDE
+            type: float32
+            unit: mas/yr
+            description: 'Gaia DR2 proper motion in DEC error '
+          V_RAD_GAIA:
+            name: V_RAD_GAIA
+            type: float32
+            unit: km/s
+            description: 'Gaia DR2 radial velocity '
+          E_V_RAD_GAIA:
+            name: E_V_RAD_GAIA
+            type: float32
+            unit: km/s
+            description: 'Gaia DR2 radial velocity error '
+          G_MAG:
+            name: G_MAG
+            type: float32
+            unit: mag
+            description: 'Gaia DR2 mean apparent G magnitude '
+          BP_MAG:
+            name: BP_MAG
+            type: float32
+            unit: mag
+            description: 'Gaia DR2 mean apparent BP magnitude '
+          RP_MAG:
+            name: RP_MAG
+            type: float32
+            unit: mag
+            description: 'Gaia DR2 mean apparent RP magnitude '
+          J_MAG:
+            name: J_MAG
+            type: float32
+            unit: mag
+            description: '2MASS mean apparent J magnitude '
+          H_MAG:
+            name: H_MAG
+            type: float32
+            unit: mag
+            description: '2MASS mean apparent H magnitude '
+          K_MAG:
+            name: K_MAG
+            type: float32
+            unit: mag
+            description: '2MASS mean apparent K magnitude '
+          CARTON_0:
+            name: CARTON_0
+            type: char[32]
+            unit: ''
+            description: First carton for source (see documentation)
+          PROGRAMS:
+            name: PROGRAMS
+            type: char[72]
+            unit: ''
+            description: SDSS-V programs
+          MAPPERS:
+            name: MAPPERS
+            type: char[30]
+            unit: ''
+            description: SDSS-V mappers
+          CLASS_NOQSO:
+            name: CLASS_NOQSO
+            type: char[6]
+            unit: ''
+            description: ''
+          SUBCLASS_NOQSO:
+            name: SUBCLASS_NOQSO
+            type: char[19]
+            unit: ''
+            description: ''
+          ZWARNING:
+            name: ZWARNING
+            type: int32
+            unit: ''
+            description: See sdss.org/dr17/algorithms/bitmasks/#ZWARNING
+          ZWARNING_NOQSO:
+            name: ZWARNING_NOQSO
+            type: int32
+            unit: ''
+            description: ''
+          V_RAD:
+            name: V_RAD
+            type: float32
+            unit: ''
+            description: Radial velocity in Solar barycentric rest frame
+          E_V_RAD:
+            name: E_V_RAD
+            type: float32
+            unit: km/s
+            description: 'Error in radial velocity '
+          RXC_XCSAO:
+            name: RXC_XCSAO
+            type: float32
+            unit: ''
+            description: Cross-correlation R-value (1979AJ.....84.1511T)
+          TEFF_XCSAO:
+            name: TEFF_XCSAO
+            type: float32
+            unit: K
+            description: 'Effective temperature from XCSAO '
+          E_TEFF_XCSAO:
+            name: E_TEFF_XCSAO
+            type: float32
+            unit: K
+            description: 'Error in effective temperature from XCSAO '
+          LOGG_XCSAO:
+            name: LOGG_XCSAO
+            type: float32
+            unit: ''
+            description: Surface gravity from XCSAO
+          E_LOGG_XCSAO:
+            name: E_LOGG_XCSAO
+            type: float32
+            unit: ''
+            description: Error in surface gravity from XCSAO
+          FEH_XCSAO:
+            name: FEH_XCSAO
+            type: float32
+            unit: ''
+            description: Metallicity from XCSAO
+          E_FEH_XCSAO:
+            name: E_FEH_XCSAO
+            type: float32
+            unit: ''
+            description: Error in metallicity from XCSAO
+          RELEASE:
+            name: RELEASE
+            type: char[5]
+            unit: ''
+            description: SDSS data release name
+          FILETYPE:
+            name: FILETYPE
+            type: char[7]
+            unit: ''
+            description: SDSS data model filetype
+          V_ASTRA:
+            name: V_ASTRA
+            type: char[5]
+            unit: ''
+            description: Astra version
+          RUN2D:
+            name: RUN2D
+            type: char[6]
+            unit: ''
+            description: Spectro-2D reduction name
+          APRED:
+            name: APRED
+            type: char[3]
+            unit: ''
+            description: APOGEE reduction tag
+          CAT_ID:
+            name: CAT_ID
+            type: int64
+            unit: ''
+            description: SDSS-V catalog identifier
+          TEFF:
+            name: TEFF
+            type: float32
+            unit: K
+            description: 'Stellar effective temperature '
+          LOGG:
+            name: LOGG
+            type: float32
+            unit: log10(cm/s^2)
+            description: 'Surface gravity '
+          FE_H:
+            name: FE_H
+            type: float32
+            unit: dex
+            description: 'Iron abundance as [Fe/H] '
+          E_TEFF:
+            name: E_TEFF
+            type: float32
+            unit: K
+            description: 'Error in stellar effective temperature '
+          E_LOGG:
+            name: E_LOGG
+            type: float32
+            unit: log10(cm/s^2)
+            description: 'Error in surface gravity '
+          E_FE_H:
+            name: E_FE_H
+            type: float32
+            unit: dex
+            description: 'Error in metallicity '
+          INITIAL_TEFF:
+            name: INITIAL_TEFF
+            type: float32
+            unit: K
+            description: 'Initial stellar effective temperature '
+          INITIAL_LOGG:
+            name: INITIAL_LOGG
+            type: float32
+            unit: dex
+            description: 'Initial stellar surface gravity '
+          INITIAL_FE_H:
+            name: INITIAL_FE_H
+            type: float32
+            unit: dex
+            description: 'Initial stellar metallicity '
+          SNR:
+            name: SNR
+            type: float32
+            unit: ''
+            description: Mean signal-to-noise ratio
+          SUCCESS:
+            name: SUCCESS
+            type: bool
+            unit: ''
+            description: Flag returned by optimization routine
+          CHI_SQ:
+            name: CHI_SQ
+            type: float32
+            unit: ''
+            description: \chi-squared of model fit
+          REDUCED_CHI_SQ:
+            name: REDUCED_CHI_SQ
+            type: float32
+            unit: ''
+            description: Reduced \chi-squared of model fit
+          TASK_ID:
+            name: TASK_ID
+            type: int32
+            unit: ''
+            description: Astra unique task identifier
+          OUTPUT_ID:
+            name: OUTPUT_ID
+            type: int32
+            unit: ''
+            description: Astra unique output identifier
+          DATA_PRODUCT_ID:
+            name: DATA_PRODUCT_ID
+            type: int32
+            unit: ''
+            description: Astra data product identifier
+notes: |-
+  None

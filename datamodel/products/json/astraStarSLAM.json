@@ -1,8 +1,8 @@
 {
   "general": {
-    "name": "mwmStar",
-    "short": "stacked spectra for a single star from APOGEE APO, APOGEE LCO, and BOSS",
-    "description": "mwmStar contains all stacked spectra for a MWM source. This includes a stacked optical BOSS spectrum, and a stacked infrared spectrum from the APOGEE instrument at Apache Point Observatory, and a stacked infrared spectrum from the APOGEE instrument on the du Pont telescope at Las Campanas Observatory. Currently we do not stack spectra from different APOGEE instruments because of their different line spread function profiles. Stacked spectra from each telescope/instrument combination are stored in their own HDU (see mwmVisit HDU definition).",
+    "name": "astraStarSLAM",
+    "short": "Results and best-fit models from the SLAM astra pipeline for a single star",
+    "description": "Results and best-fit models from the SLAM astra pipeline for a single star",
     "environments": [
       "MWM_ASTRA"
     ],
@@ -23,7 +23,7 @@
       }
     ],
     "datatype": "FITS",
-    "filesize": "303 KB",
+    "filesize": "61 KB",
     "releases": [
       {
         "name": "WORK",
@@ -32,7 +32,7 @@
         "release_date": "unreleased"
       }
     ],
-    "naming_convention": "$MWM_ASTRA/[ASTRA_VERSION]/[RUN2D]-[APRED]/spectra/star/[CATALOGID_GROUPS]/mwmStar-[ASTRA_VERSION]-[CATALOGID].fits",
+    "naming_convention": "$MWM_ASTRA/[ASTRA_VERSION]/[RUN2D]-[APRED]/results/star/[CATALOGID_GROUPS]/astraStar-SLAM-[ASTRA_VERSION]-[CATALOGID]-[TASK_ID].fits",
     "generated_by": "astra",
     "design": false,
     "vac": false
@@ -43,22 +43,23 @@
   },
   "releases": {
     "WORK": {
-      "template": "$MWM_ASTRA/[ASTRA_VERSION]/[RUN2D]-[APRED]/spectra/star/[CATALOGID_GROUPS]/mwmStar-[ASTRA_VERSION]-[CATALOGID].fits",
-      "example": "0.2.6/v6_0_9-1.0/spectra/star/46/03/mwmStar-0.2.6-27021597910404603.fits",
-      "location": "{astra_version}/{run2d}-{apred}/spectra/star/{catalogid_groups}/mwmStar-{astra_version}-{catalogid}.fits",
+      "template": "$MWM_ASTRA/[ASTRA_VERSION]/[RUN2D]-[APRED]/results/star/[CATALOGID_GROUPS]/astraStar-SLAM-[ASTRA_VERSION]-[CATALOGID]-[TASK_ID].fits",
+      "example": "0.2.6/v6_0_9-1.0/results/star/00/00/astraStar-SLAM-0.2.6-27021597845720000-2394338.fits",
+      "location": "{astra_version}/{run2d}-{apred}/results/star/{catalogid_groups}/astraStar-SLAM-{astra_version}-{catalogid}-{task_id}.fits",
       "environment": "MWM_ASTRA",
       "survey": "MWM",
       "access": {
         "in_sdss_access": true,
-        "path_name": "mwmStar",
-        "path_template": "$MWM_ASTRA/{v_astra}/{run2d}-{apred}/spectra/star/@cat_id_groups|/mwmStar-{v_astra}-{cat_id}@component_default|.fits",
+        "path_name": "astraStarSLAM",
+        "path_template": "$MWM_ASTRA/{v_astra}/{run2d}-{apred}/results/star/@cat_id_groups|/astraStar-SLAM-{v_astra}-{cat_id}@component_default|-{task_id}.fits",
         "path_kwargs": [
-          "apred",
           "run2d",
           "v_astra",
-          "cat_id"
+          "cat_id",
+          "apred",
+          "task_id"
         ],
-        "access_string": "mwmStar = $MWM_ASTRA/{astra_version}/{run2d}-{apred}/spectra/star/{catalogid_groups}/mwmStar-{astra_version}-{catalogid}.fits"
+        "access_string": "astraStarSLAM = $MWM_ASTRA/{astra_version}/{run2d}-{apred}/results/star/{catalogid_groups}/astraStar-SLAM-{astra_version}-{catalogid}-{task_id}.fits"
       },
       "hdus": {
         "hdu0": {
@@ -94,163 +95,208 @@
             },
             {
               "key": "CREATED",
-              "value": "22-10-18 06:19:09",
+              "value": "22-10-18 02:56:13",
               "comment": "File creation time (UTC %y-%m-%d %H:%M:%S)"
             },
             {
               "key": "HEALPIX",
-              "value": "13779",
+              "value": "1713",
               "comment": "Healpix location (128 sides)"
             },
             {
               "key": "CAT_ID",
-              "value": "27021597910404603",
+              "value": "27021597845720000",
               "comment": "SDSS-V catalog identifier"
             },
             {
               "key": "TIC_ID",
-              "value": "55761576",
+              "value": "288603852",
               "comment": "TESS Input Catalog (v8) identifier"
             },
             {
               "key": "GAIA_ID",
-              "value": "1576126661170066688",
+              "value": "2294158434722324736",
               "comment": "Gaia DR2 source identifier"
             },
             {
+              "key": "TASK_ID",
+              "value": "2394338",
+              "comment": "Astra unique task identifier"
+            },
+            {
+              "key": "IDP_ID",
+              "value": "9239626",
+              "comment": "Astra input data product identifier"
+            },
+            {
               "key": "RA",
-              "value": "181.7710643666084",
+              "value": "276.7478873122679",
               "comment": "SDSS-V catalog right ascension (J2000) [deg]"
             },
             {
               "key": "DEC",
-              "value": "59.21282318647164",
+              "value": "79.59034766242196",
               "comment": "SDSS-V catalog declination (J2000) [deg]"
             },
             {
               "key": "GAIA_RA",
-              "value": "181.7710643666084",
+              "value": "276.7478873122679",
               "comment": "Gaia DR2 right ascension [deg]"
             },
             {
               "key": "GAIA_DEC",
-              "value": "59.21282318647164",
+              "value": "79.59034766242196",
               "comment": "Gaia DR2 declination [deg]"
             },
             {
               "key": "PLX",
-              "value": "1.339033974056371",
+              "value": "0.08916745444922311",
               "comment": "Gaia DR2 parallax [mas]"
             },
             {
               "key": "E_PLX",
-              "value": "0.02200754038283536",
+              "value": "0.02332827145636582",
               "comment": "Gaia DR2 parallax error [mas]"
             },
             {
               "key": "PMRA",
-              "value": "2.261744965710382",
+              "value": "-0.4657399902130295",
               "comment": "Gaia DR2 proper motion in RA [mas/yr]"
             },
             {
               "key": "E_PMRA",
-              "value": "0.03586677274251623",
+              "value": "0.0341346981159126",
               "comment": "Gaia DR2 proper motion in RA error [mas/yr]"
             },
             {
               "key": "PMDE",
-              "value": "-10.02587343266854",
+              "value": "0.3939177441701403",
               "comment": "Gaia DR2 proper motion in DEC [mas/yr]"
             },
             {
               "key": "E_PMDE",
-              "value": "0.03423975401123466",
+              "value": "0.04471296602783253",
               "comment": "Gaia DR2 proper motion in DEC error [mas/yr]"
             },
             {
               "key": "V_RAD",
-              "value": "-61.64333233793816",
+              "value": null,
               "comment": "Gaia DR2 radial velocity [km/s]"
             },
             {
               "key": "E_V_RAD",
-              "value": "0.8742333863301371",
+              "value": null,
               "comment": "Gaia DR2 radial velocity error [km/s]"
             },
             {
               "key": "G_MAG",
-              "value": "12.360463",
+              "value": "14.690567",
               "comment": "Gaia DR2 mean apparent G magnitude [mag]"
             },
             {
               "key": "BP_MAG",
-              "value": "12.839755",
+              "value": "15.29412",
               "comment": "Gaia DR2 mean apparent BP magnitude [mag]"
             },
             {
               "key": "RP_MAG",
-              "value": "11.742541",
+              "value": "13.954433",
               "comment": "Gaia DR2 mean apparent RP magnitude [mag]"
             },
             {
               "key": "J_MAG",
-              "value": "10.991",
+              "value": "12.982",
               "comment": "2MASS mean apparent J magnitude [mag]"
             },
             {
               "key": "E_J_MAG",
-              "value": "0.017",
+              "value": "0.019",
               "comment": "2MASS mean apparent J magnitude error [mag]"
             },
             {
               "key": "H_MAG",
-              "value": "10.502",
+              "value": "12.372",
               "comment": "2MASS mean apparent H magnitude [mag]"
             },
             {
               "key": "E_H_MAG",
-              "value": "0.021",
+              "value": "0.019",
               "comment": "2MASS mean apparent H magnitude error [mag]"
             },
             {
               "key": "K_MAG",
-              "value": "10.402",
+              "value": "12.245",
               "comment": "2MASS mean apparent K magnitude [mag]"
             },
             {
               "key": "E_K_MAG",
-              "value": "0.015",
+              "value": "0.023",
               "comment": "2MASS mean apparent K magnitude error [mag]"
             },
             {
               "key": "CARTON_0",
-              "value": "mwm_rv_short_fps",
-              "comment": "First carton for source (see documentation)"
+              "value": "openfibertargets_nov2020_34a",
+              "comment": "First carton for source (see document"
             },
             {
               "key": "CARTONS",
-              "value": "mwm_rv_short_fps,mwm_rv_short_fps,ops_std_apogee,manual_fps_position_stars_10,manual_fps_position_stars_apogee_10,ops_gaia_brightneighbors",
+              "value": "openfibertargets_nov2020_34a",
               "comment": "SDSS-V cartons"
             },
             {
               "key": "PROGRAMS",
-              "value": "mwm_rv,commissioning,ops_std,ops",
+              "value": "open_fiber",
               "comment": "SDSS-V programs"
             },
             {
               "key": "MAPPERS",
-              "value": "mwm,commissioning,ops",
+              "value": "open",
               "comment": "SDSS-V mappers"
             },
             {
+              "key": "RELEASE",
+              "value": "sdss5",
+              "comment": "SDSS data release name"
+            },
+            {
+              "key": "FILETYPE",
+              "value": "mwmStar",
+              "comment": "SDSS data model filetype"
+            },
+            {
+              "key": "APRED",
+              "value": "1.0",
+              "comment": "APOGEE reduction tag"
+            },
+            {
+              "key": "RUN2D",
+              "value": "v6_0_9",
+              "comment": "Spectro-2D reduction name"
+            },
+            {
+              "key": "CAT_ID",
+              "value": "27021597845720000",
+              "comment": "SDSS-V catalog identifier"
+            },
+            {
+              "key": "V_ASTRA",
+              "value": "0.2.6",
+              "comment": "Astra version"
+            },
+            {
+              "key": "IDP_URL",
+              "value": "https://data.sdss5.org/sas/sdsswork/mwm/spectro/astra/0.2.6/v6_0_9-1.0/spectra/star/00/00/mwmStar-0.2.6-27021597845720000.fits",
+              "comment": ""
+            },
+            {
               "key": "CHECKSUM",
-              "value": "OGBJR9AJOEAJO9AJ",
-              "comment": "HDU checksum updated 2022-10-18T00:19:38"
+              "value": "MmQXPjQXMjQXMjQX",
+              "comment": "HDU checksum updated 2022-10-18T20:52:56"
             },
             {
               "key": "DATASUM",
               "value": "0",
-              "comment": "data unit checksum updated 2022-10-18T00:19:38"
+              "comment": "data unit checksum updated 2022-10-18T20:52:56"
             },
             {
               "key": "COMMENT",
@@ -259,22 +305,22 @@
             },
             {
               "key": "COMMENT",
-              "value": "HDU 1: BOSS spectra from Apache Point Observatory",
+              "value": "HDU 1: Model fits to BOSS spectra from Apache Point Observatory",
               "comment": ""
             },
             {
               "key": "COMMENT",
-              "value": "HDU 2: BOSS spectra from Las Campanas Observatory",
+              "value": "HDU 2: Model fits to BOSS spectra from Las Campanas Observatory",
               "comment": ""
             },
             {
               "key": "COMMENT",
-              "value": "HDU 3: APOGEE spectra from Apache Point Observatory",
+              "value": "HDU 3: Model fits to APOGEE spectra from Apache Point Observatory",
               "comment": ""
             },
             {
               "key": "COMMENT",
-              "value": "HDU 4: APOGEE spectra from Las Campanas Observatory",
+              "value": "HDU 4: Model fits to APOGEE spectra from Las Campanas Observatory",
               "comment": ""
             }
           ],
@@ -283,8 +329,8 @@
         "hdu1": {
           "name": "BOSS/APO",
           "is_image": false,
-          "description": "Stacked spectra from the BOSS instrument at Apache Point Observatory",
-          "size": "108 KB",
+          "description": "best-fit model and parameters for stacked BOSS spectrum",
+          "size": "36 KB",
           "header": [
             {
               "key": "XTENSION",
@@ -303,7 +349,7 @@
             },
             {
               "key": "NAXIS1",
-              "value": "111556",
+              "value": "37265",
               "comment": "length of dimension 1"
             },
             {
@@ -323,7 +369,7 @@
             },
             {
               "key": "TFIELDS",
-              "value": "6",
+              "value": "22",
               "comment": "number of table fields"
             },
             {
@@ -348,22 +394,22 @@
             },
             {
               "key": "VJAEGER",
-              "value": "0.13.2-alpha.0",
+              "value": "0.15.2-alpha.0",
               "comment": "Version of Jaeger"
             },
             {
               "key": "VKAIJU",
-              "value": "1.2.2-alpha.1",
+              "value": "1.2.4-alpha.0",
               "comment": "Version of Kaiju"
             },
             {
               "key": "VCOORDIO",
-              "value": "1.2.2-alpha.0",
+              "value": "1.4.0-alpha.0",
               "comment": "Version of coordIO"
             },
             {
               "key": "VCALIBS",
-              "value": "APO.2021.12.25+960cb05",
+              "value": "APO.2022.04.21+e0e43d5",
               "comment": "Version of FPS calibrations"
             },
             {
@@ -448,27 +494,27 @@
             },
             {
               "key": "SKYCHI2",
-              "value": "1.03626722288",
+              "value": "0.962075389147",
               "comment": "Mean \\chi^2 of sky subtraction"
             },
             {
               "key": "SCHI2MIN",
-              "value": "1.01396622969",
+              "value": "0.962075389147",
               "comment": "Minimum \\chi^2 of sky subtraction"
             },
             {
               "key": "SCHI2MAX",
-              "value": "1.08650361514",
+              "value": "0.962075389147",
               "comment": "Maximum \\chi^2 of sky subtraction"
             },
             {
               "key": "V_HELIO",
-              "value": "-5.2041389503",
+              "value": "2.90850336142",
               "comment": "Heliocentric velocity correction [km/s]"
             },
             {
               "key": "RDNOISE0",
-              "value": "2.07779",
+              "value": "2.05984",
               "comment": "CCD read noise amp 0 [electrons]"
             },
             {
@@ -527,80 +573,166 @@
               "comment": "Number of pixels per spectrum"
             },
             {
-              "key": "TDIM1",
+              "key": "PIPELINE",
+              "value": "slam",
+              "comment": "Pipeline name that produced these results"
+            },
+            {
+              "key": "TDIM18",
               "value": "(1)",
               "comment": ""
             },
             {
-              "key": "TDIM2",
+              "key": "TDIM21",
               "value": "(4648)",
               "comment": ""
             },
             {
-              "key": "TDIM3",
-              "value": "(4648)",
-              "comment": ""
-            },
-            {
-              "key": "TDIM4",
-              "value": "(4648)",
-              "comment": ""
-            },
-            {
-              "key": "TDIM5",
-              "value": "(4648)",
-              "comment": ""
-            },
-            {
-              "key": "TDIM6",
+              "key": "TDIM22",
               "value": "(4648)",
               "comment": ""
             },
             {
               "key": "CHECKSUM",
-              "value": "ZWoDZUl9ZUlAZUl9",
-              "comment": "HDU checksum updated 2022-10-18T00:19:38"
+              "value": "XdeGYabDXabDXabD",
+              "comment": "HDU checksum updated 2022-10-18T20:52:56"
             },
             {
               "key": "DATASUM",
-              "value": "644102797",
-              "comment": "data unit checksum updated 2022-10-18T00:19:38"
+              "value": "378599057",
+              "comment": "data unit checksum updated 2022-10-18T20:52:56"
             }
           ],
           "columns": {
+            "SOURCE_ID": {
+              "name": "SOURCE_ID",
+              "description": "",
+              "type": "int64",
+              "unit": ""
+            },
+            "PARENT_DATA_PRODUCT_ID": {
+              "name": "PARENT_DATA_PRODUCT_ID",
+              "description": "",
+              "type": "int32",
+              "unit": ""
+            },
+            "TEFF": {
+              "name": "TEFF",
+              "description": "Stellar effective temperature ",
+              "type": "float32",
+              "unit": "K"
+            },
+            "LOGG": {
+              "name": "LOGG",
+              "description": "Surface gravity ",
+              "type": "float32",
+              "unit": "log10(cm/s^2)"
+            },
+            "FE_H": {
+              "name": "FE_H",
+              "description": "Iron abundance as [Fe/H] ",
+              "type": "float32",
+              "unit": "dex"
+            },
+            "E_TEFF": {
+              "name": "E_TEFF",
+              "description": "Error in stellar effective temperature ",
+              "type": "float32",
+              "unit": "K"
+            },
+            "E_LOGG": {
+              "name": "E_LOGG",
+              "description": "Error in surface gravity ",
+              "type": "float32",
+              "unit": "log10(cm/s^2)"
+            },
+            "E_FE_H": {
+              "name": "E_FE_H",
+              "description": "Error in metallicity ",
+              "type": "float32",
+              "unit": "dex"
+            },
+            "INITIAL_TEFF": {
+              "name": "INITIAL_TEFF",
+              "description": "Initial stellar effective temperature ",
+              "type": "float32",
+              "unit": "K"
+            },
+            "INITIAL_LOGG": {
+              "name": "INITIAL_LOGG",
+              "description": "Initial stellar surface gravity ",
+              "type": "float32",
+              "unit": "dex"
+            },
+            "INITIAL_FE_H": {
+              "name": "INITIAL_FE_H",
+              "description": "Initial stellar metallicity ",
+              "type": "float32",
+              "unit": "dex"
+            },
+            "RHO_TEFF_LOGG": {
+              "name": "RHO_TEFF_LOGG",
+              "description": "Correlation between TEFF and LOGG",
+              "type": "float32",
+              "unit": ""
+            },
+            "RHO_TEFF_FE_H": {
+              "name": "RHO_TEFF_FE_H",
+              "description": "Correlation between TEFF and FE_H",
+              "type": "float32",
+              "unit": ""
+            },
+            "RHO_LOGG_FE_H": {
+              "name": "RHO_LOGG_FE_H",
+              "description": "Correlation between LOGG and FE_H",
+              "type": "float32",
+              "unit": ""
+            },
+            "STATUS": {
+              "name": "STATUS",
+              "description": "Status flag returned by optimization routine",
+              "type": "int32",
+              "unit": ""
+            },
+            "SUCCESS": {
+              "name": "SUCCESS",
+              "description": "Flag returned by optimization routine",
+              "type": "bool",
+              "unit": ""
+            },
+            "OPTIMALITY": {
+              "name": "OPTIMALITY",
+              "description": "Metric for goodness of fit",
+              "type": "float32",
+              "unit": ""
+            },
             "SNR": {
               "name": "SNR",
               "description": "Mean signal-to-noise ratio",
               "type": "float32[1]",
               "unit": ""
             },
-            "LAMBDA": {
-              "name": "LAMBDA",
-              "description": "Source rest frame vacuum wavelength ",
+            "CHI_SQ": {
+              "name": "CHI_SQ",
+              "description": "\\chi-squared of model fit",
+              "type": "float32",
+              "unit": ""
+            },
+            "REDUCED_CHI_SQ": {
+              "name": "REDUCED_CHI_SQ",
+              "description": "Reduced \\chi-squared of model fit",
+              "type": "float32",
+              "unit": ""
+            },
+            "MODEL_FLUX": {
+              "name": "MODEL_FLUX",
+              "description": "Best-fitting model of source flux",
               "type": "float32[4648]",
               "unit": ""
             },
-            "FLUX": {
-              "name": "FLUX",
-              "description": "Source flux",
-              "type": "float32[4648]",
-              "unit": ""
-            },
-            "E_FLUX": {
-              "name": "E_FLUX",
-              "description": "Standard deviation of source flux",
-              "type": "float32[4648]",
-              "unit": ""
-            },
-            "BITMASK": {
-              "name": "BITMASK",
-              "description": "Pixel-level bitmask (see documentation)",
-              "type": "int64[4648]",
-              "unit": ""
-            },
-            "WRESL": {
-              "name": "WRESL",
-              "description": "",
+            "CONTINUUM": {
+              "name": "CONTINUUM",
+              "description": "Continuum flux used in model fit",
               "type": "float32[4648]",
               "unit": ""
             }
@@ -609,7 +741,7 @@
         "hdu2": {
           "name": "BOSS/LCO",
           "is_image": false,
-          "description": "Placeholder for a stacked spectrum from BOSS south should such an instrument exist.",
+          "description": "Placeholder for best-fit model and parameters for stacked BOSS south spectrm, should such an instrument exist",
           "size": "0 bytes",
           "header": [
             {
@@ -669,13 +801,13 @@
             },
             {
               "key": "CHECKSUM",
-              "value": "cij8eZj6cfj6cZj6",
-              "comment": "HDU checksum updated 2022-10-18T00:19:38"
+              "value": "dgm6eZj6dfj6dZj6",
+              "comment": "HDU checksum updated 2022-10-18T20:52:56"
             },
             {
               "key": "DATASUM",
               "value": "0",
-              "comment": "data unit checksum updated 2022-10-18T00:19:38"
+              "comment": "data unit checksum updated 2022-10-18T20:52:56"
             },
             {
               "key": "COMMENT",
@@ -688,8 +820,8 @@
         "hdu3": {
           "name": "APOGEE/APO",
           "is_image": false,
-          "description": "Spectra from the APOGEE instrument at Apache Point Observatory.",
-          "size": "167 KB",
+          "description": "best-fit model and parameters for stacked APOGEE north spectrum",
+          "size": "0 bytes",
           "header": [
             {
               "key": "XTENSION",
@@ -708,12 +840,12 @@
             },
             {
               "key": "NAXIS1",
-              "value": "171504",
+              "value": "0",
               "comment": "length of dimension 1"
             },
             {
               "key": "NAXIS2",
-              "value": "1",
+              "value": "0",
               "comment": "length of dimension 2"
             },
             {
@@ -728,197 +860,46 @@
             },
             {
               "key": "TFIELDS",
-              "value": "5",
+              "value": "0",
               "comment": "number of table fields"
             },
             {
               "key": "EXTNAME",
               "value": "APOGEE/APO",
-              "comment": "Short extension name"
+              "comment": ""
             },
             {
               "key": "OBSRVTRY",
               "value": "APO",
-              "comment": "Observatory name"
+              "comment": ""
             },
             {
               "key": "INSTRMNT",
               "value": "APOGEE",
-              "comment": "Instrument name"
-            },
-            {
-              "key": "V_APRED",
-              "value": "6fb9549cfadd8e08a69335736a315f1d533830da",
-              "comment": "apogee software version"
-            },
-            {
-              "key": "NRES",
-              "value": "5 4.25 3.5",
-              "comment": "Sinc bandlimit [pixel/resolution element]"
-            },
-            {
-              "key": "FILTSIZE",
-              "value": "501",
-              "comment": "Median filter size for pseudo-continuum [pixel]"
-            },
-            {
-              "key": "NORMSIZE",
-              "value": "100",
-              "comment": "Gaussian width for pseudo-continuum [pixel]"
-            },
-            {
-              "key": "CONSCALE",
-              "value": "False",
-              "comment": "Scale by pseudo-continuum when stacking"
-            },
-            {
-              "key": "DITHERED",
-              "value": "0.0",
-              "comment": "Fraction of visits that were dithered"
-            },
-            {
-              "key": "NVISITS",
-              "value": "13",
-              "comment": "Number of visits included in the stack"
-            },
-            {
-              "key": "TEFF_D",
-              "value": "5528.1",
-              "comment": "Effective temperature from DOPPLER [K]"
-            },
-            {
-              "key": "E_TEFF_D",
-              "value": "15.4",
-              "comment": "Error in effective temperature from DOPPLER [K]"
-            },
-            {
-              "key": "LOGG_D",
-              "value": "4.485",
-              "comment": "Surface gravity from DOPPLER"
-            },
-            {
-              "key": "E_LOGG_D",
-              "value": "0.015",
-              "comment": "Error in surface gravity from DOPPLER"
-            },
-            {
-              "key": "FEH_D",
-              "value": "-0.265",
-              "comment": "Metallicity from DOPPLER"
-            },
-            {
-              "key": "E_FEH_D",
-              "value": "0.007",
-              "comment": "Error in metallicity from DOPPLER"
-            },
-            {
-              "key": "CRVAL",
-              "value": "4.179",
-              "comment": "Log(10) wavelength of first pixel [Angstrom]"
-            },
-            {
-              "key": "CDELT",
-              "value": "6e-06",
-              "comment": "Log(10) delta wavelength per pixel [Angstrom]"
-            },
-            {
-              "key": "CTYPE",
-              "value": "LOG-LINEAR",
-              "comment": "Wavelength solution description"
-            },
-            {
-              "key": "CUNIT",
-              "value": "Angstrom (Vacuum)",
-              "comment": "Wavelength solution unit"
-            },
-            {
-              "key": "CRPIX",
-              "value": "1",
-              "comment": "Pixel offset from the first pixel"
-            },
-            {
-              "key": "DC-FLAG",
-              "value": "1",
-              "comment": "Wavelength solution flag"
-            },
-            {
-              "key": "NPIXELS",
-              "value": "8575",
-              "comment": "Number of pixels per spectrum"
-            },
-            {
-              "key": "TDIM1",
-              "value": "(1)",
-              "comment": ""
-            },
-            {
-              "key": "TDIM2",
-              "value": "(8575)",
-              "comment": ""
-            },
-            {
-              "key": "TDIM3",
-              "value": "(8575)",
-              "comment": ""
-            },
-            {
-              "key": "TDIM4",
-              "value": "(8575)",
-              "comment": ""
-            },
-            {
-              "key": "TDIM5",
-              "value": "(8575)",
               "comment": ""
             },
             {
               "key": "CHECKSUM",
-              "value": "aKRpaIOoaIOoaIOo",
-              "comment": "HDU checksum updated 2022-10-18T00:19:38"
+              "value": "EloaGkmTEkmYEkmY",
+              "comment": "HDU checksum updated 2022-10-18T20:52:56"
             },
             {
               "key": "DATASUM",
-              "value": "1170225260",
-              "comment": "data unit checksum updated 2022-10-18T00:19:38"
+              "value": "0",
+              "comment": "data unit checksum updated 2022-10-18T20:52:56"
+            },
+            {
+              "key": "COMMENT",
+              "value": "No APOGEE data available from APO for this source.",
+              "comment": ""
             }
           ],
-          "columns": {
-            "SNR": {
-              "name": "SNR",
-              "description": "Mean signal-to-noise ratio",
-              "type": "float32[1]",
-              "unit": ""
-            },
-            "LAMBDA": {
-              "name": "LAMBDA",
-              "description": "Source rest frame vacuum wavelength ",
-              "type": "float32[8575]",
-              "unit": ""
-            },
-            "FLUX": {
-              "name": "FLUX",
-              "description": "Source flux",
-              "type": "float32[8575]",
-              "unit": ""
-            },
-            "E_FLUX": {
-              "name": "E_FLUX",
-              "description": "Standard deviation of source flux",
-              "type": "float32[8575]",
-              "unit": ""
-            },
-            "BITMASK": {
-              "name": "BITMASK",
-              "description": "Pixel-level bitmask (see documentation)",
-              "type": "int64[8575]",
-              "unit": ""
-            }
-          }
+          "columns": {}
         },
         "hdu4": {
           "name": "APOGEE/LCO",
           "is_image": false,
-          "description": "Stacked spectra from the APOGEE instrument at Las Campanas Observatory.",
+          "description": "best-fit model and parameters for stacked APOGEE south spectrum",
           "size": "0 bytes",
           "header": [
             {
@@ -978,13 +959,13 @@
             },
             {
               "key": "CHECKSUM",
-              "value": "HooWJolTHolTHolT",
-              "comment": "HDU checksum updated 2022-10-18T00:19:38"
+              "value": "IpoUJnmTInmTInmT",
+              "comment": "HDU checksum updated 2022-10-18T20:52:56"
             },
             {
               "key": "DATASUM",
               "value": "0",
-              "comment": "data unit checksum updated 2022-10-18T00:19:38"
+              "comment": "data unit checksum updated 2022-10-18T20:52:56"
             },
             {
               "key": "COMMENT",

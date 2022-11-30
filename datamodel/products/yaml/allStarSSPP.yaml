@@ -1,0 +1,182 @@
+general:
+  name: allStarSSPP
+  short: SSPP stellar parameters
+  description: This is a value added catalog, and contains Teff, logg, [Fe/H], [C/Fe],
+    and [alpha/Fe] derived by SEGUE Stellar Parameter Pipeline (SSPP) for stars with
+    S/N > 10 and the temperature range 4400 - 7000 K.
+  datatype: FITS
+  filesize: 13 MB
+  releases:
+  - WORK
+  environments:
+  - MWM_SSPP
+  surveys:
+  - MWM
+  naming_convention: allStar-SSPP-BOSS_pipeline.fits
+  generated_by: SSPP
+  design: false
+  vac: false
+changelog:
+  description: This is a value added catalog specifically generated for IPL-1.
+  releases: {}
+releases:
+  WORK:
+    template: $MWM_SSPP/[V_SSPP]/allStar-SSPP-[V_SSPP].fits
+    example: v6_0_9/allStar-SSPP-v6_0_9.fits
+    location: '{v_sspp}/allStar-SSPP-{v_sspp}.fits'
+    environment: MWM_SSPP
+    access:
+      in_sdss_access: false
+      path_name: null
+      path_template: null
+      path_kwargs: null
+      access_string: allStarSSPP = $MWM_SSPP/{v_sspp}/allStar-SSPP-{v_sspp}.fits
+    survey: MWM
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Null extension
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: Dummy Created by MWRFITS v1.11
+        - key: BITPIX
+          value: 8
+          comment: Dummy primary header created by MWRFITS
+        - key: NAXIS
+          value: 0
+          comment: No data is associated with this header
+        - key: EXTEND
+          value: true
+          comment: Extensions may (will!) be present
+      hdu1:
+        name: ''
+        description: HDU1 contains the stellar parameters.
+        is_image: false
+        size: 13 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: 'Written by IDL:  Fri Oct 28 03:17:55 2022'
+        - key: BITPIX
+          value: 8
+          comment: ''
+        - key: NAXIS
+          value: 2
+          comment: Binary table
+        - key: NAXIS1
+          value: 104
+          comment: Number of bytes per row
+        - key: NAXIS2
+          value: 131393
+          comment: Number of rows
+        - key: PCOUNT
+          value: 0
+          comment: Random parameter count
+        - key: GCOUNT
+          value: 1
+          comment: Group count
+        - key: TFIELDS
+          value: 18
+          comment: Number of columns
+        - key: SSPP_VER
+          value: v22_02
+          comment: Version of the SSPP
+        - key: CREATION
+          value: Thu Oct 27 18:17:55 2022
+          comment: Creation Date
+        columns:
+          FIELD:
+            name: FIELD
+            type: int32
+            unit: ''
+            description: Field number
+          MJD:
+            name: MJD
+            type: int32
+            unit: ''
+            description: Modified Julian Date
+          TARGET_INDEX:
+            name: TARGET_INDEX
+            type: int16
+            unit: ''
+            description: Target index
+          SPSPEC:
+            name: SPSPEC
+            type: char[17]
+            unit: ''
+            description: Field-MJD-Target_index
+          TEFF:
+            name: TEFF
+            type: int16
+            unit: K
+            description: Estimated Teff
+          TEFF_ERR:
+            name: TEFF_ERR
+            type: float32
+            unit: K
+            description: Error in Teff
+          LOGG:
+            name: LOGG
+            type: float32
+            unit: ''
+            description: Estimated log g
+          LOGG_ERR:
+            name: LOGG_ERR
+            type: float32
+            unit: dex
+            description: Error in log g
+          FEH:
+            name: FEH
+            type: float32
+            unit: ''
+            description: Estimated [Fe/H]
+          FEH_ERR:
+            name: FEH_ERR
+            type: float32
+            unit: dex
+            description: Error in [Fe/H]
+          AFE:
+            name: AFE
+            type: float32
+            unit: ''
+            description: Estimated [alpha/Fe]
+          AFE_ERR:
+            name: AFE_ERR
+            type: float32
+            unit: dex
+            description: Error in [alpha/Fe]
+          CFE:
+            name: CFE
+            type: float32
+            unit: ''
+            description: Estimated [C/Fe]
+          CFE_ERR:
+            name: CFE_ERR
+            type: float32
+            unit: dex
+            description: Error in [C/Fe]
+          SNR:
+            name: SNR
+            type: float32
+            unit: ''
+            description: Average S/N per pixel over 4000 - 8000 A
+          RA:
+            name: RA
+            type: float64
+            unit: degree
+            description: RA in degree
+          DEC:
+            name: DEC
+            type: float64
+            unit: degree
+            description: DEC in degree
+          CATALOGID:
+            name: CATALOGID
+            type: char[19]
+            unit: ''
+            description: Catalog ID
+notes: |-
+  None

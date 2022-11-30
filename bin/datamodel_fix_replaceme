@@ -1,0 +1,65 @@
+#!/bin/bash
+
+# this script tries to save effort by making an initial pass
+# to replace as many replace mes as possible using the info
+# already in the yaml
+
+import oyaml
+yaml_file = 'apVisit.yaml'
+yaml_file1 = yaml_file.replace('.yaml', '.1.yaml')
+with open(yaml_file, 'r') as file:
+    data = oyaml.load(file.read(), Loader=oyaml.FullLoader)
+#rs = ['DR16', 'DR17'] #migration from DR16 to DR17
+rs = ['DR17', 'WORK'] #migration from DR17 to IPL-1
+data_release = {r: data['releases'][r] for r in rs}
+data_hdus = {r: release['hdus'] for r, release in data_release.items()}
+
+hdu_header = {}
+hdu_desc = {}
+col_desc = {}
+col_unit = {}
+
+
+for hdu_number, hdu in data_hdus[rs[0]].items():
+    hdu_name = hdu['name'] if hdu['name'] else "hdu%r" % hdu_number
+    print("HDU %r" % hdu_name)
+    hdu_desc[hdu_name] = hdu['description']
+    if 'header' in hdu:
+        for header in hdu['header']:
+            if 'comment' in header:
+                 hdu_header[hdu_name] = header['comment']
+                 continue
+    if 'columns' in hdu:
+        for column_name, column in hdu['columns'].items():
+            print("COL %r" % column_name)
+            print(column_name)
+            column_name = column_name.lower()
+            col_desc[column_name] = column['description']
+            col_unit[column_name] = column['unit']
+            
+
+for hdu_number, hdu in data_hdus[rs[1]].items():
+    hdu_name = hdu['name'] if hdu['name'] else "hdu%r" % hdu_number
+    hdu_desc[hdu_name] = hdu['description']
+    #if 'columns' in hdu: break
+    if 'header' in hdu:
+        for header in hdu['header']:
+            if 'comment' in header:
+                 if hdu_name in hdu_header:
+                    header['comment'] = hdu_header[hdu_name]
+                 continue
+    if 'columns' in hdu:
+        for column_name, column in hdu['columns'].items():
+            column_name = column_name.lower()
+            if column_name in col_desc:
+                column['description'] = v = col_desc[column_name]
+                print("update description %s with %s" % (column_name, v))
+            else:
+                print("skipping description %s" % (column_name))
+            if column_name in col_unit:
+                column['unit'] = v = col_unit[column_name]
+                print("update unit %s with %s" % (column_name, v))
+            else:
+                print("skipping unit %s" % (column_name))
+
+with open(yaml_file1, 'w') as file: void = oyaml.dump(data, file)
