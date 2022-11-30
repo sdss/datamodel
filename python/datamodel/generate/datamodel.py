@@ -139,6 +139,8 @@ class DataModel(object):
         A name of the path name in sdss_access, if different than the file species name, by default None
     design : bool, optional
         If True, indicates the datamodel is in a design phase, by default None
+    science_product : bool, optional
+        If True, indicates the datamodel is a recommended science product, by default None
 
     Raises
     ------
@@ -152,7 +154,8 @@ class DataModel(object):
     def __init__(self, tree_ver: str = None, file_spec: str = None, path: str = None,
                  keywords: list = [], env_label: str = None, location: str = None,
                  verbose: bool = None, release: str = None, filename: str = None,
-                 access_path_name: str = None, design: bool = False) -> None:
+                 access_path_name: str = None, design: bool = False,
+                 science_product: bool = None) -> None:
 
         # environment options
         self.tree_ver = tree_ver
@@ -173,6 +176,7 @@ class DataModel(object):
         self.abstract_location = None
         self.file = None
         self.design = design
+        self._science_product = science_product
 
         # setting options
         self.verbose = verbose
@@ -923,6 +927,10 @@ class DataModel(object):
         """ Checks if the datamodel product is a vac by its envvar label"""
         return self.env_label in vacs
 
+    @property
+    def recommended_science_product(self) -> bool:
+        """ Checks if the datamodel product is a recommended science product """
+        return bool(self.vac or self._science_product)
 
 #
 # code to create a markdown table
