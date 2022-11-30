@@ -231,10 +231,26 @@ def test_work_treever_sdsswork(caplog):
     assert msg not in caplog.text
 
 
+def test_rsp_true(testfits):
+    dm = DataModel(file_spec='test', keywords=['ver=v1', 'id=a'],
+                   path='TEST_REDUX/{ver}/testfile_{id}.fits',
+                   access_path_name="test-file", science_product=True)
+    dm.write_stubs()
+    ss = dm.get_stub('yaml')
+    ss.update_cache()
+
+    assert dm.recommended_science_product is True
+    assert ss._cache['general']['recommended_science_product'] is True
+
+
 def test_vac_false(testdm):
     dm, ss = testdm
     assert dm.vac is False
     assert ss._cache['general']['vac'] is False
+
+    # also check for rsp is false generically
+    assert dm.recommended_science_product is False
+    assert ss._cache['general']['recommended_science_product'] is False
 
 def test_vac_true():
     dm = DataModel(file_spec='mangaGEMA',
@@ -243,6 +259,7 @@ def test_vac_true():
                    tree_ver='sdsswork', verbose=True)
 
     assert dm.vac is True
+    assert dm.recommended_science_product is True
 
 def test_valid_notes(validmodel):
     validmodel('fits')
