@@ -4,7 +4,10 @@
 Change Log
 ==========
 
-0.5.2 (unreleased)
+0.5.3 (unreleased)
+------------------
+
+0.5.2 (11-30-2022)
 ------------------
 - Switched the ``skip-git`` cli arg to ``with-git`` flag and turned off the git commit stage by default.
 - Switched the WORK release to use sdss5.cfg tree config by default.
@@ -15,6 +18,7 @@ Change Log
 - Added FITS binary table headers into the datamodel yaml as ``header`` section.
 - FITS table column descriptions now pull from TTYPE header comment or TCOMM.
 - Adding new releases and tags for DR18 and IPL-1
+- Adding support for ``recommended_science_product`` boolean flag in the datamodel
 
 0.5.1 (10-04-2022)
 ------------------
