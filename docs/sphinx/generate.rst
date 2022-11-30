@@ -428,6 +428,38 @@ the `sdss5.cfg` ``tree`` configuration, you can specify the ``--tree_ver``, ``-t
 
         dm = DataModel(file_spec=file_species, path=path, keywords=keys, tree_ver='sdss5')
 
+Recommended Science Product
+---------------------------
+
+Datamodels include a boolean flag ``recommended_science_product`` that indicates if the data
+product is recommended for science.  This flag is used to differentiate "final" science-ready
+pipeline products, such as catalog summary files or final calibrated spectral products, from
+products such as raw input products or intermediate products produced by a pipeline. By default,
+all VACs are considered recommended for science and have this flag set to True.
+Otherwise by default this flag is set to False.
+
+You can manually set this flag either in the YAML file after it's created, or when
+generating the initial YAML file, e.g.
+
+.. tab:: CLI
+
+    From the command-line, specify the ``-s`` or ``--science_product`` flag
+
+    .. code-block:: console
+
+        $ datamodel generate -f mangaRss \
+        -p MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}RSS.fits.gz \
+        -k plate=8485 -k ifu=1901 -k drpver=v3_1_1 -k wave=LOG -s
+
+.. tab:: Python
+
+    From within Python, set the ``science_product`` keyword to True
+
+    .. code-block:: python
+
+        dm = DataModel(file_spec=file_species, path=path, keywords=keys, science_product=True)
+        dm.write_stubs()
+
 
 Generating a datamodel by file
 ------------------------------
