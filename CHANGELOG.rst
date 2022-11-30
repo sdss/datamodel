@@ -15,6 +15,7 @@ Change Log
 - Added FITS binary table headers into the datamodel yaml as ``header`` section.
 - FITS table column descriptions now pull from TTYPE header comment or TCOMM.
 - Adding new releases and tags for DR18 and IPL-1
+- Adding support for ``recommended_science_product`` boolean flag in the datamodel
 
 0.5.1 (10-04-2022)
 ------------------

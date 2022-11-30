@@ -235,6 +235,9 @@ class BaseStub(abc.ABC):
         # update the VAC field
         content['general']['vac'] = self.datamodel.vac
 
+        # update the RSP field
+        content['general']['recommended_science_product'] = self.datamodel.recommended_science_product
+
         # check the content dictionary has a proper release
         if self.datamodel.release not in content['releases']:
             content['releases'][self.datamodel.release] = {"template": None, "example": None, "location": None,

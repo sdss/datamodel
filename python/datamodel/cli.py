@@ -24,7 +24,7 @@ from datamodel.io.loaders import get_yaml_files
 from datamodel import log
 
 import cloup
-from cloup import OptionGroup
+from cloup import OptionGroup, option_group, option
 from cloup.constraints import mutually_exclusive, If, all_or_none, RequireExactly, AcceptAtMost
 
 
@@ -39,18 +39,25 @@ rel_grp = OptionGroup("Release Options", help='options for specifying the releas
 stb_grp = OptionGroup("Stub Options", help='options for writing out datamodel stubs.')
 
 @cloup.command(short_help='Generate a datamodel file for a SDSS data product', show_constraints=True)
-@data_grp.option('-n', '--filename', help='the name of a file on disk', type=click.Path(exists=True))
-@data_grp.option('-f', '--file_species', help='unique name of the product file species')
-@data_grp.option('-p', '--path', help='symbolic path to the file')
-@data_grp.option('-l', '--location', help='symbolic location of the file')
-@data_grp.option('-e', '--env_label', help='environment variable name of the root location')
-@data_grp.option("-k", "--keywords", multiple=True, help="template variable keyword=value pair(s)")
-@data_grp.option('-a', '--access_path_name', help='name of the sdss_access path, if different than file species')
-@rel_grp.option('-t', '--tree_ver', help='the SDSS tree configuration')
-@rel_grp.option('-r', '--release', help='the SDSS data release')
-@stb_grp.option('-F', '--force', help='force override of a stub cache', is_flag=True, default=False)
-@stb_grp.option("-c", "--use-cache", help="specify an existing cached release to use", default=None)
-@stb_grp.option('-h', "--hdus-only", help="set to True to only use the user descriptions/comments from the specified cached release", is_flag=True, default=False)
+@option_group('Product Options', 'options for specifying a data product.',
+    option('-n', '--filename', help='the name of a file on disk', type=click.Path(exists=True)),
+    option('-f', '--file_species', help='unique name of the product file species'),
+    option('-p', '--path', help='symbolic path to the file'),
+    option('-l', '--location', help='symbolic location of the file'),
+    option('-e', '--env_label', help='environment variable name of the root location'),
+    option("-k", "--keywords", multiple=True, help="template variable keyword=value pair(s)"),
+    option('-a', '--access_path_name', help='name of the sdss_access path, if different than file species'),
+    option('-s', '--science_product', help='set product as a recommended science product', is_flag=True, default=False)
+    )
+@option_group('Release Options', 'options for specifying the release or environment.',
+    option('-t', '--tree_ver', help='the SDSS tree configuration'),
+    option('-r', '--release', help='the SDSS data release')
+    )
+@option_group('Stub Options', 'options for writing out datamodel stubs.',
+    option('-F', '--force', help='force override of a stub cache', is_flag=True, default=False),
+    option("-c", "--use-cache", help="specify an existing cached release to use", default=None),
+    option('-h', "--hdus-only", help="set to True to only use the user descriptions/comments from the specified cached release", is_flag=True, default=False)
+    )
 @click.option('-v', '--verbose', help='turn on verbosity', is_flag=True, default=False)
 @click.option("-w", "--with-git", help="set to use the auto git commit process", is_flag=True, default=False)
 @cloup.constraint(AcceptAtMost(1) & mutually_exclusive, ['tree_ver', 'release'])
@@ -59,7 +66,7 @@ stb_grp = OptionGroup("Stub Options", help='options for writing out datamodel st
 @cloup.constraint(RequireExactly(1), ['filename', 'file_species'])
 @cloup.constraint(If('file_species', then=RequireExactly(1)), ['path', 'location'])
 def generate(filename, file_species, path, location, env_label, keywords, tree_ver, release,
-             force, use_cache, hdus_only, verbose, with_git, access_path_name):
+             force, use_cache, hdus_only, verbose, with_git, access_path_name, science_product):
     """ Generate a datamodel file for a SDSS data product """
 
     # create a datamodel object
@@ -67,7 +74,8 @@ def generate(filename, file_species, path, location, env_label, keywords, tree_v
                 path=path, keywords=keywords,
                 env_label=env_label, location=location,
                 verbose=verbose, release=release,
-                filename=filename, access_path_name=access_path_name)
+                filename=filename, access_path_name=access_path_name,
+                science_product=science_product)
 
     # write out all the datamodel stubs
     dm.write_stubs(force=force, use_cache_release=use_cache,
