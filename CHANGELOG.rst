@@ -4,6 +4,9 @@
 Change Log
 ==========
 
+0.5.3 (unreleased)
+------------------
+
 0.5.2 (11-30-2022)
 ------------------
 - Switched the ``skip-git`` cli arg to ``with-git`` flag and turned off the git commit stage by default.
