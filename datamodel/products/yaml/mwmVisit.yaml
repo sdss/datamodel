@@ -1,13 +1,12 @@
 general:
   name: mwmVisit
+  short: individual spectra for a single star from APOGEE APO, APOGEE LCO, and BOSS
   description: Individual spectra for a MWM source from BOSS, the APOGEE instrument
     at Apache Point Observatory, and the APOGEE instrument on the du Pont telescope
     at Las Campanas Observatory. These spectra are stacked to generate an mwmStar
     file, though note that bad spectra are excluded (see the IN_STACK for HDUs 1-4).
-  short: The individual spectra for a single star from APOGEE APO, APOGEE LCO, and
-    BOSS
   datatype: FITS
-  filesize: 174 KB
+  filesize: 1 MB
   releases:
   - WORK
   environments:
@@ -17,6 +16,7 @@ general:
   naming_convention: $MWM_ASTRA/[ASTRA_VERSION]/[RUN2D]-[APRED]/spectra/visit/[CATALOGID_GROUPS]/mwmVisit-[ASTRA_VERSION]-[CATALOGID].fits
   generated_by: astra
   design: false
+  vac: false
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
@@ -24,18 +24,18 @@ changelog:
 releases:
   WORK:
     template: $MWM_ASTRA/[ASTRA_VERSION]/[RUN2D]-[APRED]/spectra/visit/[CATALOGID_GROUPS]/mwmVisit-[ASTRA_VERSION]-[CATALOGID].fits
-    example: 0.2.4dev/v6_0_9-daily/spectra/visit/2630/30/mwmVisit-0.2.4dev-27021597906292630.fits
+    example: 0.2.6/v6_0_9-1.0/spectra/visit/46/31/mwmVisit-0.2.6-27021597906174631.fits
     location: '{astra_version}/{run2d}-{apred}/spectra/visit/{catalogid_groups}/mwmVisit-{astra_version}-{catalogid}.fits'
     environment: MWM_ASTRA
     access:
       in_sdss_access: true
       path_name: mwmVisit
-      path_template: $MWM_ASTRA/{astra_version}/{run2d}-{apred}/spectra/visit/@catalogid_groups|/mwmVisit-{astra_version}-{catalogid}@component_default|.fits
+      path_template: $MWM_ASTRA/{v_astra}/{run2d}-{apred}/spectra/visit/@cat_id_groups|/mwmVisit-{v_astra}-{cat_id}@component_default|.fits
       path_kwargs:
-      - catalogid
-      - apred
+      - cat_id
+      - v_astra
       - run2d
-      - astra_version
+      - apred
       access_string: mwmVisit = $MWM_ASTRA/{astra_version}/{run2d}-{apred}/spectra/visit/{catalogid_groups}/mwmVisit-{astra_version}-{catalogid}.fits
     survey: MWM
     hdus:
@@ -57,357 +57,900 @@ releases:
         - key: EXTEND
           value: true
           comment: ''
-        - key: ASTRA
-          value: 0.2.4dev
+        - key: V_ASTRA
+          value: 0.2.6
           comment: Astra version
         - key: CREATED
-          value: 22-09-19 02:57:03
+          value: 22-10-18 04:32:07
           comment: File creation time (UTC %y-%m-%d %H:%M:%S)
         - key: HEALPIX
-          value: 6545
+          value: 5454
           comment: Healpix location (128 sides)
-        - key: SDSS_ID
-          value: 27021597906292630
+        - key: CAT_ID
+          value: 27021597906174631
           comment: SDSS-V catalog identifier
         - key: TIC_ID
-          value: 219844665
+          value: 219877921
           comment: TESS Input Catalog (v8) identifier
         - key: GAIA_ID
-          value: 1649053689731717888
+          value: 1650790991119524608
           comment: Gaia DR2 source identifier
         - key: RA
-          value: 255.0981077843221
+          value: 260.8847889451969
           comment: SDSS-V catalog right ascension (J2000) [deg]
         - key: DEC
-          value: 69.26319252922727
+          value: 70.85378600252214
           comment: SDSS-V catalog declination (J2000) [deg]
         - key: GAIA_RA
-          value: 255.0981077843221
+          value: 260.8847889451969
           comment: Gaia DR2 right ascension [deg]
         - key: GAIA_DEC
-          value: 69.26319252922727
+          value: 70.85378600252214
           comment: Gaia DR2 declination [deg]
         - key: PLX
-          value: 1.286354525601753
+          value: 20.16823478828524
           comment: Gaia DR2 parallax [mas]
         - key: E_PLX
-          value: 0.2389434012694998
+          value: 0.05653599799947087
           comment: Gaia DR2 parallax error [mas]
         - key: PMRA
-          value: 6.733678832767406
+          value: -31.43803558469352
           comment: Gaia DR2 proper motion in RA [mas/yr]
         - key: E_PMRA
-          value: 0.4077289409168461
+          value: 0.09460795642927922
           comment: Gaia DR2 proper motion in RA error [mas/yr]
         - key: PMDE
-          value: -11.24074646986305
+          value: -195.0432437896582
           comment: Gaia DR2 proper motion in DEC [mas/yr]
         - key: E_PMDE
-          value: 0.6407075479373667
+          value: 0.1141010015090367
           comment: Gaia DR2 proper motion in DEC error [mas/yr]
-        - key: VRAD
-          value: ''
+        - key: V_RAD
+          value: null
           comment: Gaia DR2 radial velocity [km/s]
-        - key: E_VRAD
-          value: ''
+        - key: E_V_RAD
+          value: null
           comment: Gaia DR2 radial velocity error [km/s]
         - key: G_MAG
-          value: 16.824116
+          value: 15.681586
           comment: Gaia DR2 mean apparent G magnitude [mag]
         - key: BP_MAG
-          value: 17.399414
+          value: 17.51942
           comment: Gaia DR2 mean apparent BP magnitude [mag]
         - key: RP_MAG
-          value: 16.078173
+          value: 14.379027
           comment: Gaia DR2 mean apparent RP magnitude [mag]
         - key: J_MAG
-          value: 15.257
+          value: 12.491
           comment: 2MASS mean apparent J magnitude [mag]
         - key: E_J_MAG
-          value: 0.049
+          value: 0.019
           comment: 2MASS mean apparent J magnitude error [mag]
         - key: H_MAG
-          value: 14.406
+          value: 11.926
           comment: 2MASS mean apparent H magnitude [mag]
         - key: E_H_MAG
-          value: 0.06
+          value: 0.013
           comment: 2MASS mean apparent H magnitude error [mag]
         - key: K_MAG
-          value: 14.703
+          value: 11.616
           comment: 2MASS mean apparent K magnitude [mag]
         - key: E_K_MAG
-          value: 0.146
+          value: 0.02
           comment: 2MASS mean apparent K magnitude error [mag]
         - key: CARTON_0
-          value: openfibertargets_nov2020_34a
-          comment: First carton for source (see document
+          value: mwm_snc_100pc_boss
+          comment: First carton for source (see documentation)
         - key: CARTONS
-          value: openfibertargets_nov2020_34a
+          value: mwm_snc_100pc_boss,mwm_tess_planet,manual_planet_gaia_astrometry_v0,openfibertargets_nov2020_19a,openfibertargets_nov2020_34a,mwm_legacy_ir2opt
           comment: SDSS-V cartons
         - key: PROGRAMS
-          value: open_fiber
+          value: mwm_planet,mwm_snc,mwm_legacy,open_fiber
           comment: SDSS-V programs
         - key: MAPPERS
-          value: open
+          value: open,mwm
           comment: SDSS-V mappers
         - key: CHECKSUM
-          value: DDTjF9RhDARhD9Rh
-          comment: HDU checksum updated 2022-09-18T20:57:04
+          value: 2FhA3Ef72EfA2Ef5
+          comment: HDU checksum updated 2022-10-17T22:32:45
         - key: DATASUM
           value: '0'
-          comment: data unit checksum updated 2022-09-18T20:57:04
+          comment: data unit checksum updated 2022-10-17T22:32:45
+        - key: COMMENT
+          value: 'HDU 0: Source information only'
+          comment: ''
+        - key: COMMENT
+          value: 'HDU 1: BOSS spectra from Apache Point Observatory'
+          comment: ''
+        - key: COMMENT
+          value: 'HDU 2: BOSS spectra from Las Campanas Observatory'
+          comment: ''
+        - key: COMMENT
+          value: 'HDU 3: APOGEE spectra from Apache Point Observatory'
+          comment: ''
+        - key: COMMENT
+          value: 'HDU 4: APOGEE spectra from Las Campanas Observatory'
+          comment: ''
       hdu1:
         name: BOSS/APO
         description: Spectra from the BOSS instrument at Apache Point Observatory
         is_image: false
-        size: 145 KB
+        size: 272 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 93138
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 3
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 48
+          comment: number of table fields
+        - key: EXTNAME
+          value: BOSS/APO
+          comment: Short extension name
+        - key: OBSRVTRY
+          value: APO
+          comment: Observatory name
+        - key: INSTRMNT
+          value: BOSS
+          comment: Instrument name
+        - key: V_BOSS
+          value: 6.0.1
+          comment: Version of the BOSS ICC
+        - key: VJAEGER
+          value: 0.14.1-alpha.0
+          comment: Version of Jaeger
+        - key: VKAIJU
+          value: 1.2.2-alpha.1
+          comment: Version of Kaiju
+        - key: VCOORDIO
+          value: 1.2.2-alpha.1
+          comment: Version of coordIO
+        - key: VCALIBS
+          value: APO.2021.12.25+960cb05
+          comment: Version of FPS calibrations
+        - key: VERSIDL
+          value: 8.8.0
+          comment: Version of IDL
+        - key: VERSUTIL
+          value: v5_5_17
+          comment: Version of idlutils
+        - key: VERSREAD
+          value: v6_0_9
+          comment: Version of idlspec2d for processing raw data
+        - key: VERS2D
+          value: v6_0_9
+          comment: Version of idlspec2d for 2D reduction
+        - key: VERSCOMB
+          value: v6_0_9
+          comment: Version of idlspec2d for combining exposures
+        - key: VERSLOG
+          value: trunk 27531
+          comment: Version of SPECLOG product
+        - key: VERSFLAT
+          value: v1_34
+          comment: Version of SPECFLAT product
+        - key: DIDFLUSH
+          value: true
+          comment: Was CCD flushed before integration
+        - key: CARTID
+          value: FPS-N
+          comment: Cartridge identifier
+        - key: PSFSKY
+          value: 3
+          comment: Order of PSF sky subtraction
+        - key: PREJECT
+          value: 0.2
+          comment: Profile area rejection threshold
+        - key: LOWREJ
+          value: 4
+          comment: 'Extraction: low rejection'
+        - key: HIGHREJ
+          value: 50
+          comment: 'Extraction: high rejection'
+        - key: SCATPOLY
+          value: 0
+          comment: 'Extraction: Order of scattered light polynomial'
+        - key: PROFTYPE
+          value: 1
+          comment: 'Extraction profile: 1=Gaussian'
+        - key: NFITPOLY
+          value: 1
+          comment: 'Extraction: Number of profile parameters'
+        - key: SKYCHI2
+          value: 0.914361915393
+          comment: Mean \chi^2 of sky subtraction
+        - key: SCHI2MIN
+          value: 0.914361915393
+          comment: Minimum \chi^2 of sky subtraction
+        - key: SCHI2MAX
+          value: 0.914361915393
+          comment: Maximum \chi^2 of sky subtraction
+        - key: V_HELIO
+          value: 1.56687012183
+          comment: Heliocentric velocity correction [km/s]
+        - key: RDNOISE0
+          value: 2.0681
+          comment: CCD read noise amp 0 [electrons]
+        - key: NRES
+          value: '5'
+          comment: Sinc bandlimit [pixel/resolution element]
+        - key: FILTSIZE
+          value: 501
+          comment: Median filter size for pseudo-continuum [pixel]
+        - key: NORMSIZE
+          value: 100
+          comment: Gaussian width for pseudo-continuum [pixel]
+        - key: CONSCALE
+          value: false
+          comment: Scale by pseudo-continuum when stacking
+        - key: CRVAL
+          value: 3.5523
+          comment: Log(10) wavelength of first pixel [Angstrom]
+        - key: CDELT
+          value: 0.0001
+          comment: Log(10) delta wavelength per pixel [Angstrom]
+        - key: CTYPE
+          value: LOG-LINEAR
+          comment: Wavelength solution description
+        - key: CUNIT
+          value: Angstrom (Vacuum)
+          comment: Wavelength solution unit
+        - key: CRPIX
+          value: 1
+          comment: Pixel offset from the first pixel
+        - key: DC-FLAG
+          value: 1
+          comment: Wavelength solution flag
+        - key: NPIXELS
+          value: 4648
+          comment: Number of pixels per spectrum
+        - key: TDIM2
+          value: (4648)
+          comment: ''
+        - key: TDIM3
+          value: (4648)
+          comment: ''
+        - key: TDIM4
+          value: (4648)
+          comment: ''
+        - key: TDIM5
+          value: (4648)
+          comment: ''
+        - key: CHECKSUM
+          value: ZRaQgOZOZOaOdOWO
+          comment: HDU checksum updated 2022-10-17T22:32:45
+        - key: DATASUM
+          value: '1758921356'
+          comment: data unit checksum updated 2022-10-17T22:32:45
         columns:
           SNR:
             name: SNR
             type: float32
-            unit: replace-me - with content
-            description: replace-me - with content
+            unit: ''
+            description: Mean signal-to-noise ratio
           FLUX:
             name: FLUX
             type: float32[4648]
-            unit: replace-me - with content
-            description: replace-me - with content
+            unit: ''
+            description: Source flux
           E_FLUX:
             name: E_FLUX
             type: float32[4648]
-            unit: replace-me - with content
-            description: replace-me - with content
+            unit: ''
+            description: Standard deviation of source flux
           BITMASK:
             name: BITMASK
             type: int64[4648]
-            unit: replace-me - with content
-            description: replace-me - with content
+            unit: ''
+            description: Pixel-level bitmask (see documentation)
+          WRESL:
+            name: WRESL
+            type: float32[4648]
+            unit: ''
+            description: ''
           RELEASE:
             name: RELEASE
             type: char[5]
-            unit: replace-me - with content
-            description: replace-me - with content
+            unit: ''
+            description: SDSS data release name
           FILETYPE:
             name: FILETYPE
             type: char[8]
-            unit: replace-me - with content
-            description: replace-me - with content
+            unit: ''
+            description: SDSS data model filetype
           MJD:
             name: MJD
             type: int32
-            unit: replace-me - with content
-            description: replace-me - with content
+            unit: ''
+            description: Modified Julian Date of the observations
           RUN2D:
             name: RUN2D
             type: char[6]
-            unit: replace-me - with content
-            description: replace-me - with content
+            unit: ''
+            description: Spectro-2D reduction name
           FIELDID:
             name: FIELDID
             type: int32
-            unit: replace-me - with content
-            description: replace-me - with content
+            unit: ''
+            description: Field identifier
           ISPLATE:
             name: ISPLATE
             type: char[1]
-            unit: replace-me - with content
-            description: replace-me - with content
+            unit: ''
+            description: Whether the data were taken with plates
           CATALOGID:
             name: CATALOGID
             type: int64
-            unit: replace-me - with content
-            description: replace-me - with content
+            unit: ''
+            description: SDSS-V catalog identifier
           ALT:
             name: ALT
             type: float32
-            unit: replace-me - with content
-            description: replace-me - with content
+            unit: deg
+            description: 'Telescope altitude '
           AZ:
             name: AZ
             type: float32
-            unit: replace-me - with content
-            description: replace-me - with content
+            unit: deg
+            description: 'Telescope azimuth '
           SEEING:
             name: SEEING
             type: float32
-            unit: replace-me - with content
-            description: replace-me - with content
+            unit: arcsecond
+            description: 'Median seeing conditions '
           AIRMASS:
             name: AIRMASS
             type: float32
-            unit: replace-me - with content
-            description: replace-me - with content
+            unit: ''
+            description: Mean airmass
           AIRTEMP:
             name: AIRTEMP
             type: float32
-            unit: replace-me - with content
-            description: replace-me - with content
+            unit: C
+            description: 'Air temperature '
           DEWPOINT:
             name: DEWPOINT
             type: float32
-            unit: replace-me - with content
-            description: replace-me - with content
+            unit: C
+            description: 'Dew point temperature '
           HUMIDITY:
             name: HUMIDITY
             type: float32
-            unit: replace-me - with content
-            description: replace-me - with content
+            unit: '%'
+            description: 'Humidity '
           PRESSURE:
             name: PRESSURE
             type: float32
-            unit: replace-me - with content
-            description: replace-me - with content
+            unit: inch Hg?
+            description: 'Air pressure '
           GUSTD:
             name: GUSTD
             type: float32
-            unit: replace-me - with content
-            description: replace-me - with content
+            unit: deg
+            description: 'Wind gust direction '
           GUSTS:
             name: GUSTS
             type: float32
-            unit: replace-me - with content
-            description: replace-me - with content
+            unit: km/s
+            description: 'Wind gust speed '
           WINDD:
             name: WINDD
             type: float32
-            unit: replace-me - with content
-            description: replace-me - with content
+            unit: deg
+            description: 'Wind direction '
           WINDS:
             name: WINDS
             type: float32
-            unit: replace-me - with content
-            description: replace-me - with content
+            unit: km/s
+            description: 'Wind speed '
           MOON_DIST_MEAN:
             name: MOON_DIST_MEAN
             type: float32
-            unit: replace-me - with content
-            description: replace-me - with content
+            unit: deg
+            description: 'Mean sky distance to the moon '
           MOON_PHASE_MEAN:
             name: MOON_PHASE_MEAN
             type: float32
-            unit: replace-me - with content
-            description: replace-me - with content
+            unit: ''
+            description: Mean phase of the moon
           EXPTIME:
             name: EXPTIME
             type: int32
-            unit: replace-me - with content
-            description: replace-me - with content
+            unit: s
+            description: 'Total exposure time '
           NEXP:
             name: NEXP
             type: int32
-            unit: replace-me - with content
-            description: replace-me - with content
+            unit: ''
+            description: Number of exposures taken
           NGUIDE:
             name: NGUIDE
-            type: float32
-            unit: replace-me - with content
-            description: replace-me - with content
+            type: int32
+            unit: ''
+            description: Number of guider frames during integration
           TAI-BEG:
             name: TAI-BEG
             type: float32
-            unit: replace-me - with content
-            description: replace-me - with content
+            unit: s
+            description: 'MJD (TAI) at start of integrations '
           TAI-END:
             name: TAI-END
             type: float32
-            unit: replace-me - with content
-            description: replace-me - with content
+            unit: s
+            description: 'MJD (TAI) at end of integrations '
           FIBER_OFFSET:
             name: FIBER_OFFSET
             type: bool
-            unit: replace-me - with content
-            description: replace-me - with content
+            unit: ''
+            description: Position offset applied during observations
           DELTA_RA:
             name: DELTA_RA
             type: float32
-            unit: replace-me - with content
-            description: replace-me - with content
+            unit: arcsecond
+            description: 'Offset in right ascension '
           DELTA_DEC:
             name: DELTA_DEC
             type: float32
-            unit: replace-me - with content
-            description: replace-me - with content
+            unit: arcsecond
+            description: 'Offset in declination '
           V_RAD:
             name: V_RAD
             type: float32
-            unit: replace-me - with content
-            description: replace-me - with content
+            unit: ''
+            description: Radial velocity in Solar barycentric rest frame
           E_V_RAD:
             name: E_V_RAD
             type: float32
-            unit: replace-me - with content
-            description: replace-me - with content
+            unit: km/s
+            description: 'Error in radial velocity '
           RXC_XCSAO:
             name: RXC_XCSAO
             type: float32
-            unit: replace-me - with content
-            description: replace-me - with content
+            unit: ''
+            description: Cross-correlation R-value (1979AJ.....84.1511T)
           V_BC:
             name: V_BC
             type: float32
-            unit: replace-me - with content
-            description: replace-me - with content
+            unit: km/s
+            description: 'Solar barycentric velocity applied '
           TEFF_XCSAO:
             name: TEFF_XCSAO
             type: float32
-            unit: replace-me - with content
-            description: replace-me - with content
+            unit: K
+            description: 'Effective temperature from XCSAO '
           E_TEFF_XCSAO:
             name: E_TEFF_XCSAO
             type: float32
-            unit: replace-me - with content
-            description: replace-me - with content
+            unit: K
+            description: 'Error in effective temperature from XCSAO '
           LOGG_XCSAO:
             name: LOGG_XCSAO
             type: float32
-            unit: replace-me - with content
-            description: replace-me - with content
+            unit: ''
+            description: Surface gravity from XCSAO
           E_LOGG_XCSAO:
             name: E_LOGG_XCSAO
             type: float32
-            unit: replace-me - with content
-            description: replace-me - with content
+            unit: ''
+            description: Error in surface gravity from XCSAO
           FEH_XCSAO:
             name: FEH_XCSAO
             type: float32
-            unit: replace-me - with content
-            description: replace-me - with content
+            unit: ''
+            description: Metallicity from XCSAO
           E_FEH_XCSAO:
             name: E_FEH_XCSAO
             type: float32
-            unit: replace-me - with content
-            description: replace-me - with content
+            unit: ''
+            description: Error in metallicity from XCSAO
           V_SHIFT:
             name: V_SHIFT
             type: float32
-            unit: replace-me - with content
-            description: replace-me - with content
+            unit: km/s
+            description: 'Relative velocity shift used in stack '
           IN_STACK:
             name: IN_STACK
             type: bool
-            unit: replace-me - with content
-            description: replace-me - with content
+            unit: ''
+            description: Was this spectrum used in the stack?
           ZWARNING:
             name: ZWARNING
             type: int32
-            unit: replace-me - with content
-            description: replace-me - with content
+            unit: ''
+            description: See sdss.org/dr17/algorithms/bitmasks/#ZWARNING
+          DATA_PRODUCT_ID:
+            name: DATA_PRODUCT_ID
+            type: int32
+            unit: ''
+            description: Astra data product identifier
       hdu2:
         name: BOSS/LCO
         description: Placeholder for spectra from a BOSS instrument at Las Campanas
           Observatory should one exist.
         is_image: false
         size: 0 bytes
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 0
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 0
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 0
+          comment: number of table fields
+        - key: EXTNAME
+          value: BOSS/LCO
+          comment: ''
+        - key: OBSRVTRY
+          value: LCO
+          comment: ''
+        - key: INSTRMNT
+          value: BOSS
+          comment: ''
+        - key: CHECKSUM
+          value: dhl7gZk6dfk6dZk6
+          comment: HDU checksum updated 2022-10-17T22:32:45
+        - key: DATASUM
+          value: '0'
+          comment: data unit checksum updated 2022-10-17T22:32:45
+        - key: COMMENT
+          value: No BOSS data available from LCO for this source.
+          comment: ''
         columns: {}
       hdu3:
         name: APOGEE/APO
         description: Spectra from the APOGEE instrument at Apache Point Observatory.
         is_image: false
-        size: 0 bytes
-        columns: {}
+        size: 1 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 137349
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 9
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 33
+          comment: number of table fields
+        - key: EXTNAME
+          value: APOGEE/APO
+          comment: Short extension name
+        - key: OBSRVTRY
+          value: APO
+          comment: Observatory name
+        - key: INSTRMNT
+          value: APOGEE
+          comment: Instrument name
+        - key: V_APRED
+          value: 6fb9549cfadd8e08a69335736a315f1d533830da
+          comment: apogee software version
+        - key: NRES
+          value: 5 4.25 3.5
+          comment: Sinc bandlimit [pixel/resolution element]
+        - key: FILTSIZE
+          value: 501
+          comment: Median filter size for pseudo-continuum [pixel]
+        - key: NORMSIZE
+          value: 100
+          comment: Gaussian width for pseudo-continuum [pixel]
+        - key: CONSCALE
+          value: false
+          comment: Scale by pseudo-continuum when stacking
+        - key: TEFF_D
+          value: 4913.4
+          comment: Effective temperature from DOPPLER [K]
+        - key: E_TEFF_D
+          value: 95.7
+          comment: Error in effective temperature from DOPPLER [K]
+        - key: LOGG_D
+          value: 2.422
+          comment: Surface gravity from DOPPLER
+        - key: E_LOGG_D
+          value: 0.22
+          comment: Error in surface gravity from DOPPLER
+        - key: FEH_D
+          value: 0.487
+          comment: Metallicity from DOPPLER
+        - key: E_FEH_D
+          value: 0.038
+          comment: Error in metallicity from DOPPLER
+        - key: CRVAL
+          value: 4.179
+          comment: Log(10) wavelength of first pixel [Angstrom]
+        - key: CDELT
+          value: 6.0e-06
+          comment: Log(10) delta wavelength per pixel [Angstrom]
+        - key: CTYPE
+          value: LOG-LINEAR
+          comment: Wavelength solution description
+        - key: CUNIT
+          value: Angstrom (Vacuum)
+          comment: Wavelength solution unit
+        - key: CRPIX
+          value: 1
+          comment: Pixel offset from the first pixel
+        - key: DC-FLAG
+          value: 1
+          comment: Wavelength solution flag
+        - key: NPIXELS
+          value: 8575
+          comment: Number of pixels per spectrum
+        - key: TDIM2
+          value: (8575)
+          comment: ''
+        - key: TDIM3
+          value: (8575)
+          comment: ''
+        - key: TDIM4
+          value: (8575)
+          comment: ''
+        - key: CHECKSUM
+          value: 9AnTG6lS9AlSG3lS
+          comment: HDU checksum updated 2022-10-17T22:32:45
+        - key: DATASUM
+          value: '2215063837'
+          comment: data unit checksum updated 2022-10-17T22:32:45
+        columns:
+          SNR:
+            name: SNR
+            type: float32
+            unit: ''
+            description: Mean signal-to-noise ratio
+          FLUX:
+            name: FLUX
+            type: float32[8575]
+            unit: ''
+            description: Source flux
+          E_FLUX:
+            name: E_FLUX
+            type: float32[8575]
+            unit: ''
+            description: Standard deviation of source flux
+          BITMASK:
+            name: BITMASK
+            type: int64[8575]
+            unit: ''
+            description: Pixel-level bitmask (see documentation)
+          RELEASE:
+            name: RELEASE
+            type: char[5]
+            unit: ''
+            description: SDSS data release name
+          FILETYPE:
+            name: FILETYPE
+            type: char[7]
+            unit: ''
+            description: SDSS data model filetype
+          MJD:
+            name: MJD
+            type: int32
+            unit: ''
+            description: Modified Julian Date of the observations
+          APRED:
+            name: APRED
+            type: char[5]
+            unit: ''
+            description: APOGEE reduction tag
+          FIBER:
+            name: FIBER
+            type: int32
+            unit: ''
+            description: Fiber number
+          FIELD:
+            name: FIELD
+            type: char[6]
+            unit: ''
+            description: Field number
+          PLATE:
+            name: PLATE
+            type: char[4]
+            unit: ''
+            description: Plate number
+          TELESCOPE:
+            name: TELESCOPE
+            type: char[6]
+            unit: ''
+            description: Telescope name
+          DATE-OBS:
+            name: DATE-OBS
+            type: char[23]
+            unit: ''
+            description: Observation date (UTC)
+          EXPTIME:
+            name: EXPTIME
+            type: float32
+            unit: s
+            description: 'Total exposure time '
+          FLUXFLAM:
+            name: FLUXFLAM
+            type: float32
+            unit: ergs/s/cm^2/A
+            description: 'ADU to flux conversion factor '
+          NPAIRS:
+            name: NPAIRS
+            type: int32
+            unit: ''
+            description: Number of dither pairs combined
+          DITHERED:
+            name: DITHERED
+            type: float32
+            unit: ''
+            description: Fraction of visits that were dithered
+          JD:
+            name: JD
+            type: float32
+            unit: ''
+            description: Julian date at mid-point of visit
+          V_RAD:
+            name: V_RAD
+            type: float32
+            unit: ''
+            description: Radial velocity in Solar barycentric rest frame
+          E_V_RAD:
+            name: E_V_RAD
+            type: float32
+            unit: km/s
+            description: 'Error in radial velocity '
+          V_REL:
+            name: V_REL
+            type: float32
+            unit: km/s
+            description: 'Relative velocity '
+          V_BC:
+            name: V_BC
+            type: float32
+            unit: km/s
+            description: 'Solar barycentric velocity applied '
+          RCHISQ:
+            name: RCHISQ
+            type: float32
+            unit: ''
+            description: Reduced \chi-squared of model fit
+          V_RAD_XCORR:
+            name: V_RAD_XCORR
+            type: float32
+            unit: ''
+            description: Radial velocity in Solar barycentric rest frame
+          V_REL_XCORR:
+            name: V_REL_XCORR
+            type: float32
+            unit: km/s
+            description: 'Relative velocity from XCORR '
+          E_V_RAD_XCORR:
+            name: E_V_RAD_XCORR
+            type: float32
+            unit: km/s
+            description: 'Error in relative velocity from XCORR '
+          N_RV_COMPONENTS:
+            name: N_RV_COMPONENTS
+            type: int32
+            unit: ''
+            description: Number of detected RV components
+          V_SHIFT:
+            name: V_SHIFT
+            type: float32
+            unit: km/s
+            description: 'Relative velocity shift used in stack '
+          STARFLAG:
+            name: STARFLAG
+            type: int64
+            unit: ''
+            description: APOGEE DRP quality bit mask
+          IN_STACK:
+            name: IN_STACK
+            type: bool
+            unit: ''
+            description: Was this spectrum used in the stack?
+          VISIT_PK:
+            name: VISIT_PK
+            type: int32
+            unit: ''
+            description: Primary key in `apogee_drp.visit` table
+          RV_VISIT_PK:
+            name: RV_VISIT_PK
+            type: int32
+            unit: ''
+            description: Primary key in `apogee_drp.rv_visit` table
+          DATA_PRODUCT_ID:
+            name: DATA_PRODUCT_ID
+            type: int32
+            unit: ''
+            description: Astra data product identifier
       hdu4:
         name: APOGEE/LCO
         description: Spectra from the APOGEE instrument at Las Campanas Observatory.
         is_image: false
         size: 0 bytes
+        header: - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 0
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 0
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 0
+          comment: number of table fields
+        - key: EXTNAME
+          value: APOGEE/LCO
+          comment: ''
+        - key: OBSRVTRY
+          value: LCO
+          comment: ''
+        - key: INSTRMNT
+          value: APOGEE
+          comment: ''
+        - key: CHECKSUM
+          value: IqnVLnnTInnTInnT
+          comment: HDU checksum updated 2022-10-17T22:32:45
+        - key: DATASUM
+          value: '0'
+          comment: data unit checksum updated 2022-10-17T22:32:45
+        - key: COMMENT
+          value: No APOGEE data available from LCO for this source.
+          comment: ''
         columns: {}
+notes: |-
+  None

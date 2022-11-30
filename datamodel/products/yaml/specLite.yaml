@@ -1,6 +1,6 @@
 general:
-  name: specFull
-  short: BOSS Spectro Redux spectrum file (full version)
+  name: specLite
+  short: BOSS Spectro Redux spectrum file (lite version)
   description: 'The spec-PLATE-MJD-FIBER.fits files contain a repackaging of all spectral
     data for a given plugging (plate, mjd, fiber), including both the coadded spectrum
     and optionally the individual exposure frames. This groups the information from
@@ -12,10 +12,9 @@ general:
     to read a single file. <pre>     HDU 0  : Header info from spPlate     HDU 1  :
     Coadded spectrum from spPlate     HDU 2  : Summary metadata copied from spAll     HDU
     3  : Line fitting metadata from spZline     HDU 4+ : [Optional] Individual spCFrame
-    spectra [B, R for each exposure] </pre> A <a href="https://data.sdss5.org/dsi/file/select-specLite/ipl/env-BOSS_SPECTRO_REDUX">"lite"
-    version of these files</a> also exists in the "lite" subdirectory tree. These
-    contain HDUS 0-3, but do not have the individual frame data and thus are much
-    smaller.'
+    spectra [B, R for each exposure] </pre> A <a href="https://data.sdss5.org/dsi/file/select-specFull/ipl/env-BOSS_SPECTRO_REDUX">"full"
+    version of these files</a> also exists in the "full" subdirectory tree. These
+    contain HDUS > 3, which include the individual frame data and thus are much larger.'
   datatype: FITS
   filesize: 1 MB
   releases:
@@ -48,73 +47,73 @@ changelog:
     DR17:
       from: DR16
       added_hdus:
-      - B1-00104927-00104934-00104935
-      - B1-00104930-00104934-00104935
-      - B1-00104932-00104934-00104935
-      - R1-00104928-00104934-00104935
       - R1-00104929-00104934-00104935
       - COADD
-      - R1-00104933-00104934-00104935
       - R1-00104932-00104934-00104935
-      - R1-00104930-00104934-00104935
+      - B1-00104932-00104934-00104935
+      - B1-00104930-00104934-00104935
+      - SPZLINE
       - SPALL
-      - B1-00104933-00104934-00104935
+      - B1-00104928-00104934-00104935
+      - R1-00104931-00104934-00104935
       - B1-00104931-00104934-00104935
+      - R1-00104933-00104934-00104935
+      - R1-00104928-00104934-00104935
+      - B1-00104927-00104934-00104935
+      - R1-00104930-00104934-00104935
+      - B1-00104933-00104934-00104935
       - B1-00104929-00104934-00104935
       - R1-00104927-00104934-00104935
-      - R1-00104931-00104934-00104935
-      - SPZLINE
-      - B1-00104928-00104934-00104935
     DR16:
       from: DR15
       removed_hdus:
-      - B1-00104927-00104934-00104935
-      - B1-00104930-00104934-00104935
-      - B1-00104932-00104934-00104935
-      - R1-00104928-00104934-00104935
       - R1-00104929-00104934-00104935
       - COADD
-      - R1-00104933-00104934-00104935
       - R1-00104932-00104934-00104935
-      - R1-00104930-00104934-00104935
+      - B1-00104932-00104934-00104935
+      - B1-00104930-00104934-00104935
+      - SPZLINE
       - SPALL
-      - B1-00104933-00104934-00104935
+      - B1-00104928-00104934-00104935
+      - R1-00104931-00104934-00104935
       - B1-00104931-00104934-00104935
+      - R1-00104933-00104934-00104935
+      - R1-00104928-00104934-00104935
+      - B1-00104927-00104934-00104935
+      - R1-00104930-00104934-00104935
+      - B1-00104933-00104934-00104935
       - B1-00104929-00104934-00104935
       - R1-00104927-00104934-00104935
-      - R1-00104931-00104934-00104935
-      - SPZLINE
-      - B1-00104928-00104934-00104935
       added_primary_header_kwargs:
-      - EXPID003
-      - EXPID005
+      - EXPID002
       - EXPID004
+      - EXPID007
+      - EXPID014
+      - EXPID003
+      - EXPID008
+      - EXPID005
       - EXPID012
       - EXPID013
-      - EXPID002
-      - EXPID006
-      - EXPID014
-      - EXPID008
-      - EXPID007
-      - EXPID009
       - EXPID001
-      - EXPID010
       - EXPID011
+      - EXPID006
+      - EXPID010
+      - EXPID009
       removed_primary_header_kwargs:
-      - EXPID05
-      - EXPID02
+      - EXPID07
+      - EXPID04
       - EXPID14
-      - EXPID09
-      - EXPID06
+      - EXPID05
+      - EXPID01
+      - EXPID10
+      - EXPID02
+      - EXPID11
       - EXPID13
       - EXPID12
-      - EXPID01
       - EXPID08
-      - EXPID10
-      - EXPID11
-      - EXPID07
       - EXPID03
-      - EXPID04
+      - EXPID09
+      - EXPID06
     DR15:
       from: DR14
       note: No changes
@@ -149,7 +148,7 @@ releases:
     access:
       in_sdss_access: true
       path_name: spec
-      path_template: '@spectrodir|/{run2d}/spectra/full/{plateid:0>4}/spec-{plateid:0>4}-{mjd}-{fiberid:0>4}.fits'
+      path_template: '@spectrodir|/{run2d}/spectra/lite/{plateid:0>4}/spec-{plateid:0>4}-{mjd}-{fiberid:0>4}.fits'
       path_kwargs:
       - run2d
       - mjd
@@ -2854,7 +2853,7 @@ releases:
     access:
       in_sdss_access: true
       path_name: spec
-      path_template: '@spectrodir|/{run2d}/spectra/full/{plateid:0>4}/spec-{plateid:0>4}-{mjd}-{fiberid:0>4}.fits'
+      path_template: '@spectrodir|/{run2d}/spectra/lite/{plateid:0>4}/spec-{plateid:0>4}-{mjd}-{fiberid:0>4}.fits'
       path_kwargs:
       - run2d
       - mjd
@@ -5565,7 +5564,7 @@ releases:
     access:
       in_sdss_access: true
       path_name: spec
-      path_template: '@spectrodir|/{run2d}/spectra/full/{plateid:0>4}/spec-{plateid:0>4}-{mjd}-{fiberid:0>4}.fits'
+      path_template: '@spectrodir|/{run2d}/spectra/lite/{plateid:0>4}/spec-{plateid:0>4}-{mjd}-{fiberid:0>4}.fits'
       path_kwargs:
       - run2d
       - mjd
@@ -8270,7 +8269,7 @@ releases:
     access:
       in_sdss_access: true
       path_name: spec
-      path_template: '@spectrodir|/{run2d}/spectra/full/{plateid:0>4}/spec-{plateid:0>4}-{mjd}-{fiberid:0>4}.fits'
+      path_template: '@spectrodir|/{run2d}/spectra/lite/{plateid:0>4}/spec-{plateid:0>4}-{mjd}-{fiberid:0>4}.fits'
       path_kwargs:
       - run2d
       - mjd
@@ -10981,7 +10980,7 @@ releases:
     access:
       in_sdss_access: true
       path_name: spec
-      path_template: '@spectrodir|/{run2d}/spectra/full/{plateid:0>4}/spec-{plateid:0>4}-{mjd}-{fiberid:0>4}.fits'
+      path_template: '@spectrodir|/{run2d}/spectra/lite/{plateid:0>4}/spec-{plateid:0>4}-{mjd}-{fiberid:0>4}.fits'
       path_kwargs:
       - run2d
       - mjd
@@ -13716,7 +13715,7 @@ releases:
     access:
       in_sdss_access: true
       path_name: spec
-      path_template: '@spectrodir|/{run2d}/spectra/full/{plateid:0>4}/spec-{plateid:0>4}-{mjd}-{fiberid:0>4}.fits'
+      path_template: '@spectrodir|/{run2d}/spectra/lite/{plateid:0>4}/spec-{plateid:0>4}-{mjd}-{fiberid:0>4}.fits'
       path_kwargs:
       - run2d
       - mjd
@@ -16445,7 +16444,7 @@ releases:
     access:
       in_sdss_access: true
       path_name: spec
-      path_template: '@spectrodir|/{run2d}/spectra/full/{plateid:0>4}/spec-{plateid:0>4}-{mjd}-{fiberid:0>4}.fits'
+      path_template: '@spectrodir|/{run2d}/spectra/lite/{plateid:0>4}/spec-{plateid:0>4}-{mjd}-{fiberid:0>4}.fits'
       path_kwargs:
       - run2d
       - mjd
@@ -19174,7 +19173,7 @@ releases:
     access:
       in_sdss_access: true
       path_name: spec
-      path_template: '@spectrodir|/{run2d}/spectra/full/{plateid:0>4}/spec-{plateid:0>4}-{mjd}-{fiberid:0>4}.fits'
+      path_template: '@spectrodir|/{run2d}/spectra/lite/{plateid:0>4}/spec-{plateid:0>4}-{mjd}-{fiberid:0>4}.fits'
       path_kwargs:
       - run2d
       - mjd
@@ -21909,16 +21908,16 @@ releases:
               update'
     survey: eBOSS
   DR17:
-    template: $BOSS_SPECTRO_REDUX/[RUN2D]/spectra/full/[PLATEID]/spec-[PLATEID]-[MJD]-[FIBERID].fits
-    example: v5_13_2/spectra/full/3606/spec-3606-55182-0510.fits
-    location: '{run2d}/spectra/full/{plateid}/spec-{plateid}-{mjd}-{fiberid}.fits'
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/spectra/lite/[PLATEID]/spec-[PLATEID]-[MJD]-[FIBERID].fits
+    example: v5_13_2/spectra/lite/3606/spec-3606-55182-0510.fits
+    location: '{run2d}/spectra/lite/{plateid}/spec-{plateid}-{mjd}-{fiberid}.fits'
     environment: BOSS_SPECTRO_REDUX
     access:
       in_sdss_access: false
       path_name: null
       path_template: null
       path_kwargs: null
-      access_string: specFull = $BOSS_SPECTRO_REDUX/{run2d}/spectra/full/{plateid}/spec-{plateid}-{mjd}-{fiberid}.fits
+      access_string: specLite = $BOSS_SPECTRO_REDUX/{run2d}/spectra/lite/{plateid}/spec-{plateid}-{mjd}-{fiberid}.fits
     hdus:
       hdu0:
         name: PRIMARY

@@ -1,0 +1,192 @@
+general:
+  name: astraAllStarClassifier
+  short: Results from the Classifier astra pipeline for each star
+  description: Results from the Classifier astra pipeline for each star.
+  datatype: FITS
+  filesize: 13 MB
+  releases:
+  - WORK
+  environments:
+  - MWM_ASTRA
+  surveys:
+  - MWM
+  naming_convention: $MWM_ASTRA/[ASTRA_VERSION]/[RUN2D]-[APRED]/results/summary/astraAllStar-Classifier-[ASTRA_VERSION]-[RUN2D]-[APRED].fits
+  generated_by: astra
+  design: false
+  vac: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  WORK:
+    template: $MWM_ASTRA/[ASTRA_VERSION]/[RUN2D]-[APRED]/results/summary/astraAllStar-Classifier-[ASTRA_VERSION]-[RUN2D]-[APRED].fits
+    example: 0.2.6/v6_0_9-1.0/results/summary/astraAllStar-Classifier-0.2.6-v6_0_9-1.0.fits
+    location: '{astra_version}/{run2d}-{apred}/results/summary/astraAllStar-Classifier-{astra_version}-{run2d}-{apred}.fits'
+    environment: MWM_ASTRA
+    access:
+      in_sdss_access: false
+      path_name: null
+      path_template: null
+      path_kwargs: null
+      access_string: astraAllStarClassifier = $MWM_ASTRA/{astra_version}/{run2d}-{apred}/results/summary/astraAllStar-Classifier-{astra_version}-{run2d}-{apred}.fits
+    survey: MWM
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Metadata
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: V_ASTRA
+          value: 0.2.6
+          comment: Astra version
+        - key: RUN2D
+          value: v6_0_9
+          comment: Spectro-2D reduction name
+        - key: APRED
+          value: '1.0'
+          comment: APOGEE reduction tag
+        - key: PIPELINE
+          value: Classifier
+          comment: Pipeline name that produced these results
+        - key: CREATED
+          value: 22-10-28 01:30:23
+          comment: File creation time (UTC %y-%m-%d %H:%M:%S)
+        - key: CHECKSUM
+          value: URAiaO0gWO7gaO7g
+          comment: HDU checksum updated 2022-10-27T19:30:23
+        - key: DATASUM
+          value: '0'
+          comment: data unit checksum updated 2022-10-27T19:30:23
+      hdu1:
+        name: ''
+        description: Classifier results for each star
+        is_image: false
+        size: 13 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 71
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 198564
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 16
+          comment: number of table fields
+        - key: CHECKSUM
+          value: 5UOTAULQ5ULQAULQ
+          comment: HDU checksum updated 2022-10-27T19:30:23
+        - key: DATASUM
+          value: '1133829885'
+          comment: data unit checksum updated 2022-10-27T19:30:23
+        columns:
+          CAT_ID:
+            name: CAT_ID
+            type: int64
+            unit: ''
+            description: SDSS-V catalog identifier
+          TASK_ID:
+            name: TASK_ID
+            type: int32
+            unit: ''
+            description: Astra unique task identifier
+          OUTPUT_ID:
+            name: OUTPUT_ID
+            type: int32
+            unit: ''
+            description: Astra unique output identifier
+          CLASS:
+            name: CLASS
+            type: char[7]
+            unit: ''
+            description: Most probable classification
+          P_CV:
+            name: P_CV
+            type: float32
+            unit: ''
+            description: Relative probability of being a cataclysmic var
+          P_FGKM:
+            name: P_FGKM
+            type: float32
+            unit: ''
+            description: Relative probability of being a FGKM star
+          P_HOTSTAR:
+            name: P_HOTSTAR
+            type: float32
+            unit: ''
+            description: Relative probability of being a hot star
+          P_WD:
+            name: P_WD
+            type: float32
+            unit: ''
+            description: Relative probability of being a white dwarf
+          P_SB2:
+            name: P_SB2
+            type: float32
+            unit: ''
+            description: Relative probability of being a spectroscopic b
+          P_YSO:
+            name: P_YSO
+            type: float32
+            unit: ''
+            description: Relative probability of being a young stellar o
+          LP_CV:
+            name: LP_CV
+            type: float32
+            unit: ''
+            description: Log probability of being a cataclysmic variable
+          LP_FGKM:
+            name: LP_FGKM
+            type: float32
+            unit: ''
+            description: Log probability of being a FGKM star
+          LP_HOTSTAR:
+            name: LP_HOTSTAR
+            type: float32
+            unit: ''
+            description: Log probability of being a hot star
+          LP_WD:
+            name: LP_WD
+            type: float32
+            unit: ''
+            description: Log probability of being a white dwarf
+          LP_SB2:
+            name: LP_SB2
+            type: float32
+            unit: ''
+            description: Log probability of being a spectroscopic binary
+          LP_YSO:
+            name: LP_YSO
+            type: float32
+            unit: ''
+            description: Log probability of being a young stellar object
+notes: |-
+  None

@@ -1,0 +1,262 @@
+{
+  "general": {
+    "name": "allStarSSPP",
+    "short": "SSPP stellar parameters",
+    "description": "This is a value added catalog, and contains Teff, logg, [Fe/H], [C/Fe], and [alpha/Fe] derived by SEGUE Stellar Parameter Pipeline (SSPP) for stars with S/N > 10 and the temperature range 4400 - 7000 K.",
+    "environments": [
+      "MWM_SSPP"
+    ],
+    "surveys": [
+      {
+        "name": "MWM",
+        "long": "Milky Way Mapper",
+        "description": "A time-domain, optical+IR spectroscopic survey of Milky Way stars of all types.",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "mwm",
+        "aliases": []
+      }
+    ],
+    "datatype": "FITS",
+    "filesize": "13 MB",
+    "releases": [
+      {
+        "name": "WORK",
+        "description": "SDSS unreleased data.  Represents any work-in-progress data.",
+        "public": false,
+        "release_date": "unreleased"
+      }
+    ],
+    "naming_convention": "allStar-SSPP-BOSS_pipeline.fits",
+    "generated_by": "SSPP",
+    "design": false,
+    "vac": false
+  },
+  "changelog": {
+    "description": "This is a value added catalog specifically generated for IPL-1.",
+    "releases": {}
+  },
+  "releases": {
+    "WORK": {
+      "template": "$MWM_SSPP/[V_SSPP]/allStar-SSPP-[V_SSPP].fits",
+      "example": "v6_0_9/allStar-SSPP-v6_0_9.fits",
+      "location": "{v_sspp}/allStar-SSPP-{v_sspp}.fits",
+      "environment": "MWM_SSPP",
+      "survey": "MWM",
+      "access": {
+        "in_sdss_access": false,
+        "path_name": null,
+        "path_template": null,
+        "path_kwargs": null,
+        "access_string": "allStarSSPP = $MWM_SSPP/{v_sspp}/allStar-SSPP-{v_sspp}.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Null extension",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "Dummy Created by MWRFITS v1.11"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "Dummy primary header created by MWRFITS"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "No data is associated with this header"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": "Extensions may (will!) be present"
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "HDU1 contains the stellar parameters.",
+          "size": "13 MB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "BINTABLE",
+              "comment": "Written by IDL:  Fri Oct 28 03:17:55 2022"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": ""
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "Binary table"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "104",
+              "comment": "Number of bytes per row"
+            },
+            {
+              "key": "NAXIS2",
+              "value": "131393",
+              "comment": "Number of rows"
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "Random parameter count"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "Group count"
+            },
+            {
+              "key": "TFIELDS",
+              "value": "18",
+              "comment": "Number of columns"
+            },
+            {
+              "key": "SSPP_VER",
+              "value": "v22_02",
+              "comment": "Version of the SSPP"
+            },
+            {
+              "key": "CREATION",
+              "value": "Thu Oct 27 18:17:55 2022",
+              "comment": "Creation Date"
+            }
+          ],
+          "columns": {
+            "FIELD": {
+              "name": "FIELD",
+              "description": "Field number",
+              "type": "int32",
+              "unit": ""
+            },
+            "MJD": {
+              "name": "MJD",
+              "description": "Modified Julian Date",
+              "type": "int32",
+              "unit": ""
+            },
+            "TARGET_INDEX": {
+              "name": "TARGET_INDEX",
+              "description": "Target index",
+              "type": "int16",
+              "unit": ""
+            },
+            "SPSPEC": {
+              "name": "SPSPEC",
+              "description": "Field-MJD-Target_index",
+              "type": "char[17]",
+              "unit": ""
+            },
+            "TEFF": {
+              "name": "TEFF",
+              "description": "Estimated Teff",
+              "type": "int16",
+              "unit": "K"
+            },
+            "TEFF_ERR": {
+              "name": "TEFF_ERR",
+              "description": "Error in Teff",
+              "type": "float32",
+              "unit": "K"
+            },
+            "LOGG": {
+              "name": "LOGG",
+              "description": "Estimated log g",
+              "type": "float32",
+              "unit": ""
+            },
+            "LOGG_ERR": {
+              "name": "LOGG_ERR",
+              "description": "Error in log g",
+              "type": "float32",
+              "unit": "dex"
+            },
+            "FEH": {
+              "name": "FEH",
+              "description": "Estimated [Fe/H]",
+              "type": "float32",
+              "unit": ""
+            },
+            "FEH_ERR": {
+              "name": "FEH_ERR",
+              "description": "Error in [Fe/H]",
+              "type": "float32",
+              "unit": "dex"
+            },
+            "AFE": {
+              "name": "AFE",
+              "description": "Estimated [alpha/Fe]",
+              "type": "float32",
+              "unit": ""
+            },
+            "AFE_ERR": {
+              "name": "AFE_ERR",
+              "description": "Error in [alpha/Fe]",
+              "type": "float32",
+              "unit": "dex"
+            },
+            "CFE": {
+              "name": "CFE",
+              "description": "Estimated [C/Fe]",
+              "type": "float32",
+              "unit": ""
+            },
+            "CFE_ERR": {
+              "name": "CFE_ERR",
+              "description": "Error in [C/Fe]",
+              "type": "float32",
+              "unit": "dex"
+            },
+            "SNR": {
+              "name": "SNR",
+              "description": "Average S/N per pixel over 4000 - 8000 A",
+              "type": "float32",
+              "unit": ""
+            },
+            "RA": {
+              "name": "RA",
+              "description": "RA in degree",
+              "type": "float64",
+              "unit": "degree"
+            },
+            "DEC": {
+              "name": "DEC",
+              "description": "DEC in degree",
+              "type": "float64",
+              "unit": "degree"
+            },
+            "CATALOGID": {
+              "name": "CATALOGID",
+              "description": "Catalog ID",
+              "type": "char[19]",
+              "unit": ""
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null
+    }
+  },
+  "notes": "None"
+}
