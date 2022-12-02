@@ -77,6 +77,7 @@ class GeneralSection(BaseModel):
     generated_by: str
     design: bool = None
     vac: bool = None
+    recommended_science_product: bool = None
 
     _check_replace_me = validator('short', 'description', 'naming_convention',
                                   'generated_by', allow_reuse=True)(replace_me)
