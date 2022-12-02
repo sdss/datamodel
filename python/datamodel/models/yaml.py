@@ -57,8 +57,10 @@ class GeneralSection(BaseModel):
         An identifiable piece of the code that generates the data product
     design : bool
         If True, the datamodel is in the design phase, before any file exists yet
-    vac: bool
+    vac : bool
         True if the datamodel is a VAC
+    recommended_science_product : bool
+        True if the product is recommended for science use
 
     Raises
     ------
