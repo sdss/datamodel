@@ -1,7 +1,8 @@
 general:
   name: mos_target_supercosmos
   short: 'MOS Target Table: supercosmos'
-  description: TBD in minidb_docs (as of 04/05/2022)
+  description: Contains merged sources for every field in the SuperCOSMOS Science
+    Archive (SSA).
   datatype: FITS
   filesize: 511 MB
   releases:
@@ -11,7 +12,6 @@ general:
   surveys:
   - BHM
   - MWM
-  - SDSS
   naming_convention: $MOS_TARGET/[V_TARG]/mos_target_supercosmos-[NUM].fits, where
     V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
   generated_by: sdss5db> targetdb, operations database server
@@ -65,284 +65,290 @@ releases:
             name: OBJID
             type: int64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Unique identifier of merged source
           objidb:
             name: OBJIDB
             type: int64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: objID for B band detection merged into this object
           objidr1:
             name: OBJIDR1
             type: int64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: objID for R1 band detection merged into this object
           objidr2:
             name: OBJIDR2
             type: int64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: objID for R2 band detection merged into this object
           objidi:
             name: OBJIDI
             type: int64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: objID for I band detection merged into this object
           htmid:
             name: HTMID
             type: int64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Hierarchical Triangular Mesh (20-deep) of centroid
           epoch:
             name: EPOCH
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: yr
+            description: Epoch of position (variance weighted mean epoch of available
+              measures)
           ra:
             name: RA
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: deg
+            description: Mean RA, computed from detections merged in this catalogue
           dec:
             name: DEC
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: deg
+            description: Mean Dec, computed from detections merged in this catalogue
           sigra:
             name: SIGRA
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: deg
+            description: Uncertainty in RA (formal random error not inc. systematic
+              errors)
           sigdec:
             name: SIGDEC
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: deg
+            description: Uncertainty in Dec (formal random error not inc. systematic
+              errors)
           cx:
             name: CX
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Cartesian x of unit (ra,dec) vector on celestial sphere
           cy:
             name: CY
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Cartesian y of unit (ra,dec) vector on celestial sphere
           cz:
             name: CZ
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Cartesian z of unit (ra,dec) vector on celestial sphere
           muacosd:
             name: MUACOSD
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mas/yr
+            description: Proper motion in RA direction
           mud:
             name: MUD
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mas/yr
+            description: Proper motion in Dec direction
           sigmuacosd:
             name: SIGMUACOSD
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mas/yr
+            description: Error on proper motion in RA direction
           sigmud:
             name: SIGMUD
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mas/yr
+            description: Error on proper motion in Dec direction
           chi2:
             name: CHI2
             type: float32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Chi-squared value of proper motion solution
           nplates:
             name: NPLATES
             type: int16
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: No. of plates used for this proper motion measurement
           classmagb:
             name: CLASSMAGB
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: B band magnitude selected by B image class
           classmagr1:
             name: CLASSMAGR1
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: R1 band magnitude selected by R1 image class
           classmagr2:
             name: CLASSMAGR2
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: R2 band magnitude selected by R2 image class
           classmagi:
             name: CLASSMAGI
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: I band magnitude selected by I image class
           gcormagb:
             name: GCORMAGB
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: B band magnitude assuming object is galaxy
           gcormagr1:
             name: GCORMAGR1
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: R1 band magnitude assuming object is galaxy
           gcormagr2:
             name: GCORMAGR2
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: R2 band magnitude assuming object is galaxy
           gcormagi:
             name: GCORMAGI
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: I band magnitude assuming object is galaxy
           scormagb:
             name: SCORMAGB
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: B band magnitude assuming object is star
           scormagr1:
             name: SCORMAGR1
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: R1 band magnitude assuming object is star
           scormagr2:
             name: SCORMAGR2
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: R2 band magnitude assuming object is star
           scormagi:
             name: SCORMAGI
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: I band magnitude assuming object is star
           meanclass:
             name: MEANCLASS
             type: int16
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Estimate of image class based on unit-weighted mean of individual
+              classes
           classb:
             name: CLASSB
             type: int16
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Image classification from B band detection
           classr1:
             name: CLASSR1
             type: int16
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Image classification from R1 band detection
           classr2:
             name: CLASSR2
             type: int16
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Image classification from R2 band detection
           classi:
             name: CLASSI
             type: int16
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Image classification from I band detection
           ellipb:
             name: ELLIPB
             type: float32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Ellipticity of B band detection
           ellipr1:
             name: ELLIPR1
             type: float32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Ellipticity of R1 band detection
           ellipr2:
             name: ELLIPR2
             type: float32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Ellipticity of R2 band detection
           ellipi:
             name: ELLIPI
             type: float32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Ellipticity of I band detection
           qualb:
             name: QUALB
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Bitwise quality flag from B band detection
           qualr1:
             name: QUALR1
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Bitwise quality flag from R1 band detection
           qualr2:
             name: QUALR2
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Bitwise quality flag from R2 band detection
           quali:
             name: QUALI
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Bitwise quality flag from I band detection
           blendb:
             name: BLENDB
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Blend flag from B band detection
           blendr1:
             name: BLENDR1
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Blend flag from R1 band detection
           blendr2:
             name: BLENDR2
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Blend flag from R2 band detection
           blendi:
             name: BLENDI
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Blend flag from I band detection
           prfstatb:
             name: PRFSTATB
             type: float32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Profile statistic from B band detection
           prfstatr1:
             name: PRFSTATR1
             type: float32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Profile statistic from R1 band detection
           prfstatr2:
             name: PRFSTATR2
             type: float32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Profile statistic from R2 band detection
           prfstati:
             name: PRFSTATI
             type: float32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Profile statistic from I band detection
           l:
             name: L
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: deg
+            description: The Galactic longitude of the source
           b:
             name: B
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: deg
+            description: The Galactic latitude of the source
           d:
             name: D
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: deg
+            description: The great-circle distance of the source from the Galactic
+              centre
           ebmv:
             name: EBMV
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: The estimated foreground reddening at this position from
+              Schlegel et al. (1998)

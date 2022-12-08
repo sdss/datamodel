@@ -1,7 +1,8 @@
 general:
   name: mos_target_gaia_unwise_agn
   short: 'MOS Target Table: gaia_unwise_agn'
-  description: TBD in minidb_docs (as of 04/05/2022)
+  description: AGN identified using information from WISE and Gaia DR2 from the catalog
+    of Shu et al. 2019. See complete information on the columns in https://academic.oup.com/mnras/article/489/4/4741/5561523
   datatype: FITS
   filesize: 526 MB
   releases:
@@ -11,7 +12,6 @@ general:
   surveys:
   - BHM
   - MWM
-  - SDSS
   naming_convention: $MOS_TARGET/[V_TARG]/mos_target_gaia_unwise_agn-[NUM].fits, where
     V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
   generated_by: sdss5db> targetdb, operations database server
@@ -64,185 +64,192 @@ releases:
           ra:
             name: RA
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: degrees
+            description: Right ascension from Gaia DR2
           dec:
             name: DEC
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: degrees
+            description: Declination from Gaia DR2
           gaia_sourceid:
             name: GAIA_SOURCEID
             type: int64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Unique Gaia DR2 source identifier
           unwise_objid:
             name: UNWISE_OBJID
             type: char[16]
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Unique unWISE source identifier
           plx:
             name: PLX
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mas
+            description: Parallax from Gaia DR2
           plx_err:
             name: PLX_ERR
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mas
+            description: Error in parallax from Gaia DR2
           pmra:
             name: PMRA
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mas/yr
+            description: Proper motion in right ascension from Gaia DR2
           pmra_err:
             name: PMRA_ERR
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mas/yr
+            description: Error in proper motion in right ascension from Gaia DR2
           pmdec:
             name: PMDEC
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mas/yr
+            description: Proper motion in declination from Gaia DR2
           pmdec_err:
             name: PMDEC_ERR
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mas/yr
+            description: Error in proper motinon in declination from Gaia DR2
           plxsig:
             name: PLXSIG
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Parallax significance defined as parallax/parallax_error
           pmsig:
             name: PMSIG
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Proper motion significance
           ebv:
             name: EBV
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: Galactic E(B-V) reddening from Schlegel et al. 1998
           n_obs:
             name: N_OBS
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Number of observations contributing to Gaia DR2 G photometry
           g:
             name: G
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: Gaia DR2 G-band mean magnitude (extinction corrected)
           bp:
             name: BP
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: Gaia DR2 BP-band mean magnitude (extinction corrected)
           rp:
             name: RP
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: Gaia DR2 RP-band mean magnitude (extinction corrected)
           w1:
             name: W1
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: unWISE W1-band magnitude
           w2:
             name: W2
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: unWISE W2-band magnitude
           bp_g:
             name: BP_G
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: "Gaia DR2 BP \u2212 G color (extinction corrected)"
           bp_rp:
             name: BP_RP
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: "Gaia DR2 BP \u2212 RP color (extinction corrected)"
           g_rp:
             name: G_RP
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: "Gaia DR2 G \u2212 RP color (extinction corrected)"
           g_w1:
             name: G_W1
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: "Gaia DR2 G \u2212 unWISE W1 color (extinction corrected)"
           gw_sep:
             name: GW_SEP
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: arcsec
+            description: Separation between a Gaia source and its unWISE counterpart
           w1_w2:
             name: W1_W2
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: "unWISE W1 \u2212W2 color"
           g_var:
             name: G_VAR
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Variation in GaiaG-band flux
           bprp_ef:
             name: BPRP_EF
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: BP/RP excess factor from Gaia DR2
           aen:
             name: AEN
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mas
+            description: Astrometric excess noise from Gaia DR2
           gof:
             name: GOF
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Goodness-of-fit statistic of the astrometric solution from
+              Gaia DR2
           cnt1:
             name: CNT1
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Number of Gaia DR2 sources within a 1 arcsec radius circular
+              aperture
           cnt2:
             name: CNT2
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Number of Gaia DR2 sources within a 2 arcsec radius circular
+              aperture
           cnt4:
             name: CNT4
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Number of Gaia DR2 sources within a 4 arcsec radius circular
+              aperture
           cnt8:
             name: CNT8
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Number of Gaia DR2 sources within a 8 arcsec radius circular
+              aperture
           cnt16:
             name: CNT16
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Number of Gaia DR2 sources within a 16 arcsec radius circular
+              aperture
           cnt32:
             name: CNT32
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Number of Gaia DR2 sources within a 32 arcsec radius circular
+              aperture
           phot_z:
             name: PHOT_Z
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Photometric redshift
           prob_rf:
             name: PROB_RF
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: AGN probability

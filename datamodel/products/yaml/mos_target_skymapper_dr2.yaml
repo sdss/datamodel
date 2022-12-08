@@ -1,7 +1,8 @@
 general:
   name: mos_target_skymapper_dr2
   short: 'MOS Target Table: skymapper_dr2'
-  description: TBD in minidb_docs (as of 04/05/2022)
+  description: 'Skymapper Data Release 2 photometry. For detailed descriptions, please
+    see the SkyMapper documentation: https://skymapper.anu.edu.au/table-browser/'
   datatype: FITS
   filesize: 789 MB
   releases:
@@ -11,7 +12,6 @@ general:
   surveys:
   - BHM
   - MWM
-  - SDSS
   naming_convention: $MOS_TARGET/[V_TARG]/mos_target_skymapper_dr2-[NUM].fits, where
     V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
   generated_by: sdss5db> targetdb, operations database server
@@ -65,499 +65,529 @@ releases:
             name: OBJECT_ID
             type: int64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Global unique SkyMapper object ID in the master table
           raj2000:
             name: RAJ2000
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: degrees
+            description: Mean ICRS Right Ascension of the object
           dej2000:
             name: DEJ2000
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: degrees
+            description: Mean ICRS Declination of the object
           e_raj2000:
             name: E_RAJ2000
             type: int32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mas
+            description: RMS variation around the mean Right Ascension
           e_dej2000:
             name: E_DEJ2000
             type: int32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mas
+            description: RMS variation around the mean Declination
           smss_j:
             name: SMSS_J
             type: char[18]
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: SkyMapper Southern Survey designation of the form SMSS Jhhmmss.ss+/-ddmmss.s
           mean_epoch:
             name: MEAN_EPOCH
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: days
+            description: Mean MJD epoch of the observations
           rms_epoch:
             name: RMS_EPOCH
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: days
+            description: RMS variation around the mean epoch
           glon:
             name: GLON
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: degrees
+            description: Galactic longitude derived from ICRS coordinate
           glat:
             name: GLAT
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: degrees
+            description: Galactic latitude derived from ICRS coordinate
           flags:
             name: FLAGS
             type: int16
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Bitwise OR of Source Extractor flags across all observations
           nimaflags:
             name: NIMAFLAGS
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Total number of flagged pixels from bad, saturated, and crosstalk
+              pixel masks across all observations
           ngood:
             name: NGOOD
             type: int16
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Number of observations used across all filters
           ngood_min:
             name: NGOOD_MIN
             type: int16
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Minimum number of observations used in any filter
           nch_max:
             name: NCH_MAX
             type: int16
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Maximum number of child sources combined into this global
+              object_id in any filter
           density:
             name: DENSITY
             type: float32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Number of DR2 sources within 15 arcsec (including this source)
           u_flags:
             name: U_FLAGS
             type: int16
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Bitwise OR of Source Extractor flags from u-band measurements
+              in photometry table
           u_nimaflags:
             name: U_NIMAFLAGS
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Number of flagged pixels from bad, saturated, and crosstalk
+              pixel masks from u-band measurements in photometry table
           u_ngood:
             name: U_NGOOD
             type: int16
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Number of u-band observations used
           u_nch:
             name: U_NCH
             type: int16
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Number of u-band child sources combined into this object_id
           u_nclip:
             name: U_NCLIP
             type: int16
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Number of u-band observations with magnitudes clipped from
+              the final PSF magnitude estimate
           v_flags:
             name: V_FLAGS
             type: int16
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Bitwise OR of Source Extractor flags from v-band measurements
+              in photometry table
           v_nimaflags:
             name: V_NIMAFLAGS
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Number of flagged pixels from bad, saturated, and crosstalk
+              pixel masks from u-band measurements in photometry table
           v_ngood:
             name: V_NGOOD
             type: int16
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Number of v-band observations used
           v_nch:
             name: V_NCH
             type: int16
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Number of v-band child sources combined into this object_id
           v_nclip:
             name: V_NCLIP
             type: int16
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Number of v-band observations with magnitudes clipped from
+              the final PSF magnitude estimate
           g_flags:
             name: G_FLAGS
             type: int16
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Bitwise OR of Source Extractor flags from g-band measurements
+              in photometry table
           g_nimaflags:
             name: G_NIMAFLAGS
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Number of flagged pixels from bad, saturated, and crosstalk
+              pixel masks from g-band measurements in photometry table
           g_ngood:
             name: G_NGOOD
             type: int16
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Number of g-band observations used
           g_nch:
             name: G_NCH
             type: int16
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Number of g-band child sources combined into this object_id
           g_nclip:
             name: G_NCLIP
             type: int16
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Number of g-band observations with magnitudes clipped from
+              the final PSF magnitude estimate
           r_flags:
             name: R_FLAGS
             type: int16
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Bitwise OR of Source Extractor flags from r-band measurements
+              in photometry table
           r_nimaflags:
             name: R_NIMAFLAGS
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Number of flagged pixels from bad, saturated, and crosstalk
+              pixel masks from r-band measurements in photometry table
           r_ngood:
             name: R_NGOOD
             type: int16
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Number of r-band observations used
           r_nch:
             name: R_NCH
             type: int16
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Number of r-band child sources combined into this object_id
           r_nclip:
             name: R_NCLIP
             type: int16
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Number of r-band observations with magnitudes clipped from
+              the final PSF magnitude estimate
           i_flags:
             name: I_FLAGS
             type: int16
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Bitwise OR of Source Extractor flags from i-band measurements
+              in photometry table
           i_nimaflags:
             name: I_NIMAFLAGS
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Number of flagged pixels from bad, saturated, and crosstalk
+              pixel masks from i-band measurements in photometry table
           i_ngood:
             name: I_NGOOD
             type: int16
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Number of i-band observations used
           i_nch:
             name: I_NCH
             type: int16
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Number of i-band child sources combined into this object_id
           i_nclip:
             name: I_NCLIP
             type: int16
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Number of i-band observations with magnitudes clipped from
+              the final PSF magnitude estimate
           z_flags:
             name: Z_FLAGS
             type: int16
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Bitwise OR of Source Extractor flags from z-band measurements
+              in photometry table
           z_nimaflags:
             name: Z_NIMAFLAGS
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Number of flagged pixels from bad, saturated, and crosstalk
+              pixel masks from z-band measurements in photometry table
           z_ngood:
             name: Z_NGOOD
             type: int16
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Number of z-band observations used
           z_nch:
             name: Z_NCH
             type: int16
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Number of z-band child sources combined into this object_id
           z_nclip:
             name: Z_NCLIP
             type: int16
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Number of a-band observations with magnitudes clipped from
+              the final PSF magnitude estimate
           class_star:
             name: CLASS_STAR
             type: float32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Maximum stellarity index from photometry table (between 0=no
+              star and 1=star)
           flags_psf:
             name: FLAGS_PSF
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Bitmask indicating whether photometry is likely biased by
+              neighbours at greater than 1%
           radius_petro:
             name: RADIUS_PETRO
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: pix
+            description: Mean r-band Petrosian radius
           u_psf:
             name: U_PSF
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: Mean u-band PSF magnitude
           e_u_psf:
             name: E_U_PSF
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: Error in u-band PSF magnitude
           u_rchi2var:
             name: U_RCHI2VAR
             type: float32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Reduced chi-squared for a constant-magnitude model of the
+              u-band PSF magnitude, including clipped sources
           u_petro:
             name: U_PETRO
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: Mean u-band Petrosian magnitude
           e_u_petro:
             name: E_U_PETRO
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: Error in u-band Petrosian magnitude
           v_psf:
             name: V_PSF
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: Mean v-band PSF magnitude
           e_v_psf:
             name: E_V_PSF
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: Error in v-band PSF magnitude
           v_rchi2var:
             name: V_RCHI2VAR
             type: float32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Reduced chi-squared for a constant-magnitude model of the
+              v-band PSF magnitude, including clipped sources
           v_petro:
             name: V_PETRO
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: Mean v-band Petrosian magnitude
           e_v_petro:
             name: E_V_PETRO
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: Error in v-band Petrosian magnitude
           g_psf:
             name: G_PSF
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: Mean g-band PSF magnitude
           e_g_psf:
             name: E_G_PSF
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: Error in g-band PSF magnitude
           g_rchi2var:
             name: G_RCHI2VAR
             type: float32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Reduced chi-squared for a constant-magnitude model of the
+              g-band PSF magnitude, including clipped sources
           g_petro:
             name: G_PETRO
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: Mean g-band Petrosian magnitude
           e_g_petro:
             name: E_G_PETRO
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: Error in g-band Petrosian magnitude
           r_psf:
             name: R_PSF
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: Mean r-band PSF magnitude
           e_r_psf:
             name: E_R_PSF
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: Error in r-band PSF magnitude
           r_rchi2var:
             name: R_RCHI2VAR
             type: float32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Reduced chi-squared for a constant-magnitude model of the
+              r-band PSF magnitude, including clipped sources
           r_petro:
             name: R_PETRO
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: Mean r-band Petrosian magnitude
           e_r_petro:
             name: E_R_PETRO
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: Error in r-band Petrosian magnitude
           i_psf:
             name: I_PSF
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: Mean i-band PSF magnitude
           e_i_psf:
             name: E_I_PSF
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: Error in i-band PSF magnitude
           i_rchi2var:
             name: I_RCHI2VAR
             type: float32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Reduced chi-squared for a constant-magnitude model of the
+              i-band PSF magnitude, including clipped sources
           i_petro:
             name: I_PETRO
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: Mean i-band Petrosian magnitude
           e_i_petro:
             name: E_I_PETRO
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: Error in i-band Petrosian magnitude
           z_psf:
             name: Z_PSF
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: Mean z-band PSF magnitude
           e_z_psf:
             name: E_Z_PSF
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: Error in z-band PSF magnitude
           z_rchi2var:
             name: Z_RCHI2VAR
             type: float32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Reduced chi-squared for a constant-magnitude model of the
+              z-band PSF magnitude, including clipped sources
           z_petro:
             name: Z_PETRO
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: Mean z-band Petrosian magnitude
           e_z_petro:
             name: E_Z_PETRO
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: Error in z-band Petrosian magnitude
           ebmv_sfd:
             name: EBMV_SFD
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: E(B-V) from Schlegel+1998 extinction maps at the ICRS coordinates
           prox:
             name: PROX
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: arcsec
+            description: Distance to next-closest DR2 source
           prox_id:
             name: PROX_ID
             type: int64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: object_id of next-closest DR2 source
           dr1_id:
             name: DR1_ID
             type: int64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: object_id of closest SkyMapper Data Release 1 source
           dr1_dist:
             name: DR1_DIST
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: arcsec
+            description: Distance to closest SkyMapper Data Release 1 source
           twomass_key:
             name: TWOMASS_KEY
             type: int64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Unique identifier (pts_key) of closest 2MASS PSC source
           twomass_dist:
             name: TWOMASS_DIST
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: arcsec
+            description: Distance on sky to closest 2MASS PSC source
           allwise_cntr:
             name: ALLWISE_CNTR
             type: int64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Unique identifier (cntr) of closest AllWISE source
           allwise_dist:
             name: ALLWISE_DIST
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: arcsec
+            description: Distance on sky to closest AllWISE source
           ucac4_mpos:
             name: UCAC4_MPOS
             type: int64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Unique identifier (mpos) of closest UCAC4 source
           ucac4_dist:
             name: UCAC4_DIST
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: arcsec
+            description: Distance on sky to closest UCAC4 source
           refcat2_id:
             name: REFCAT2_ID
             type: int64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Unique identifier (objid) of closest ATLAS Refcat2 source
           refcat2_dist:
             name: REFCAT2_DIST
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: arcsec
+            description: Distance on sky to closest ATLAS Refcat2 source
           ps1_dr1_id:
             name: PS1_DR1_ID
             type: int64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Unique identifier (objID) of closest Pan-STARRS1 DR1 source
           ps1_dr1_dist:
             name: PS1_DR1_DIST
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: arcsec
+            description: Distance on sky to closest Pan-STARRS1 DR1 source
           galex_guv_id:
             name: GALEX_GUV_ID
             type: int64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Unique identifier (objid) of closest GALEX GUVcat AIS source
+              (Bianchi et al. 2017)
           galex_guv_dist:
             name: GALEX_GUV_DIST
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: arcsec
+            description: Distance on sky to closest GALEX GUVcat AIS source
           gaia_dr2_id1:
             name: GAIA_DR2_ID1
             type: int64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Unique identifier (source_id) of closest Gaia DR2 source
           gaia_dr2_dist1:
             name: GAIA_DR2_DIST1
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: arcsec
+            description: Distance on sky to closest Gaia DR2 source
           gaia_dr2_id2:
             name: GAIA_DR2_ID2
             type: int64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Unique identifier (source_id) of second-closest Gaia DR2
+              source
           gaia_dr2_dist2:
             name: GAIA_DR2_DIST2
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: arcsec
+            description: Distance on sky to second-closest Gaia DR2 source

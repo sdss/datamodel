@@ -1,7 +1,9 @@
 general:
   name: mos_target_tycho2
   short: 'MOS Target Table: tycho2'
-  description: TBD in minidb_docs (as of 04/05/2022)
+  description: Tycho-2 catalog. For complete details, please see the original Tycho-2
+    documentation from Hog et al (2020) https://ui.adsabs.harvard.edu/abs/2000A%26A...355L..27H/abstract
+    and https://www.cosmos.esa.int/web/hipparcos/tycho-2
   datatype: FITS
   filesize: 446 MB
   releases:
@@ -11,7 +13,6 @@ general:
   surveys:
   - BHM
   - MWM
-  - SDSS
   naming_convention: $MOS_TARGET/[V_TARG]/mos_target_tycho2-[NUM].fits, where V_TARG=1.0.1
     for DR18; and NUM = 1..1 to partition the file into parts
   generated_by: sdss5db> targetdb, operations database server
@@ -64,194 +65,196 @@ releases:
             name: TYC1
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: TYC1 from TYC or GSC (used to construct the Tycho identifier)
           tyc2:
             name: TYC2
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: TYC2 from TYC or GSC (used to construct the Tycho identifier)
           tyc3:
             name: TYC3
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: TYC3 from TYC (used to construct the Tycho identifier)
           pflag:
             name: PFLAG
             type: char[4]
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Mean position flag
           ramdeg:
             name: RAMDEG
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: degrees
+            description: Mean Right Asc, ICRS, epoch=J2000
           demdeg:
             name: DEMDEG
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: degrees
+            description: Mean Decl, ICRS, at epoch=J2000
           pmra:
             name: PMRA
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mas/yr
+            description: Proper motion in RA*cos(dec)
           pmde:
             name: PMDE
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mas/yr
+            description: Proper motion in Dec
           e_ramdeg:
             name: E_RAMDEG
             type: int32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mas
+            description: standard error of RA*cos(dec) at mean epoch
           e_demdeg:
             name: E_DEMDEG
             type: int32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mas
+            description: standard error of Declination at mean epoch
           e_pmra:
             name: E_PMRA
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mas/yr
+            description: standard error of proper motion in RA*cos(dec)
           e_pmde:
             name: E_PMDE
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mas/yr
+            description: standard error of proper motion in Declination
           epram:
             name: EPRAM
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: yr
+            description: mean epoch of RA
           epdem:
             name: EPDEM
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: yr
+            description: mean epoch of Dec
           num:
             name: NUM
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Number of positions used
           q_ramdeg:
             name: Q_RAMDEG
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Goodness of fit for mean RA
           q_demdeg:
             name: Q_DEMDEG
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Goodness of fit for mean Dec
           q_pmra:
             name: Q_PMRA
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Goodness of fit for pmra
           q_pmde:
             name: Q_PMDE
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Goodness of fit for pmde
           btmag:
             name: BTMAG
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: Tycho-2 BT magnitude
           e_btmag:
             name: E_BTMAG
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: Standard error of BT magnitude
           vtmag:
             name: VTMAG
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: Tycho-2 VT magnitude
           e_vtmag:
             name: E_VTMAG
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: Standard error of VT magnitude
           prox:
             name: PROX
             type: int32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: 0.1 arcsec
+            description: Distance to the nearest entry in the Tycho-2 main catalogue
+              or supplement
           tyc:
             name: TYC
             type: char[4]
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Tycho-1 star flag
           hip:
             name: HIP
             type: int64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Hipparcos number
           ccdm:
             name: CCDM
             type: char[4]
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: CCDM component identifiers for double or multiple Hipparcos
+              stars contributing to this Tycho-2 entry
           radeg:
             name: RADEG
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: degrees
+            description: Observed Tycho-2 Right Ascension, ICRS
           dedeg:
             name: DEDEG
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: degrees
+            description: Observed Tycho-2 Declination, ICRS
           epra_1990:
             name: EPRA_1990
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: yr
+            description: epoch-1990 of RAdeg
           epde_1990:
             name: EPDE_1990
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: yr
+            description: epoch-1990 of Dedeg
           e_radeg:
             name: E_RADEG
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mas
+            description: Standard error of RA*cos(dec), of observed Tycho-2 RA
           e_dedeg:
             name: E_DEDEG
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mas
+            description: Standard error of observed Tycho-2 Dec
           posflg:
             name: POSFLG
             type: char[4]
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Type of Tycho-2 solution
           corr:
             name: CORR
             type: float32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: correlation (RAdeg,DEdeg)
           flag:
             name: FLAG
             type: char[4]
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: flag indicating whether data from Hipparcos or Tycho-1
           mflag:
             name: MFLAG
             type: char[4]
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: magnitude flag
           designation:
             name: DESIGNATION
             type: char[12]
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Unique Tycho designation
           tycid:
             name: TYCID
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Tycho ID

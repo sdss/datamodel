@@ -6,7 +6,8 @@ general:
     nside 32. Each tile is then subdivided in candidate regions of HEALpix nside 32768
     and the pixels that meet the isolation requirements are considered valid skies.
     This process is repeated for a number of all-sky catalogues. See <a href="https://sdss.org/dr18/targeting/fps/">
-    for further details on skies target selection.
+    for further details of the process by which suitable sky locations are selected
+    in SDSS-V/FPS.
   datatype: FITS
   filesize: 183 MB
   releases:
@@ -16,7 +17,6 @@ general:
   surveys:
   - BHM
   - MWM
-  - SDSS
   naming_convention: $MOS_TARGET/[V_TARG]/mos_target_skies_v2-[NUM].fits, where V_TARG=1.0.1
     for DR18; and NUM = 1..1 to partition the file into parts
   generated_by: sdss5db> targetdb, operations database server
@@ -70,28 +70,31 @@ releases:
             name: PIX_32768
             type: int64
             unit: ''
-            description: The HEALpix pixel (nside=32768) of the sky region.
+            description: The HEALpix pixel (nside=32768, nested indexing, Equatorial
+              coords) of the sky region.
           ra:
             name: RA
             type: float64
-            unit: ''
+            unit: degrees
             description: The RA of the centre of the sky pixel.
           dec:
             name: DEC
             type: float64
-            unit: ''
+            unit: degrees
             description: The declination of the centre of the sky pixel.
           down_pix:
             name: DOWN_PIX
             type: int64
             unit: ''
-            description: The HEALpix pixel (nside=256) of the sky region. Used internally
-              to downsample the list of candidate region.
+            description: The HEALpix pixel (nside=256, nested indexing, Equatorial
+              coords) of the sky region. Used internally to downsample the list of
+              candidate region.
           tile_32:
             name: TILE_32
             type: int64
             unit: ''
-            description: The HEALpix pixel (nside=32) of the sky region.
+            description: The HEALpix pixel (nside=32, nested indexing, Equatorial
+              coords) of the sky region.
           valid_gaia:
             name: VALID_GAIA
             type: bool
@@ -106,55 +109,58 @@ releases:
             name: SEP_NEIGHBOUR_GAIA
             type: float32
             unit: arcsec
-            description: Separation to the nearest neighbour
+            description: Separation to the nearest Gaia DR2 neighbour
           mag_neighbour_gaia:
             name: MAG_NEIGHBOUR_GAIA
             type: float32
-            unit: ''
-            description: Magnitude of the nearest neighbour (G band).
+            unit: mag
+            description: Magnitude of the nearest Gaia DR2 neighbour (G band, Vega).
           valid_ls8:
             name: VALID_LS8
             type: bool
             unit: ''
-            description: Whether this is a valid sky region in the Legacy Survey DR18
+            description: Whether this is a valid sky region in the Legacy Survey DR8
               catalogue.
           selected_ls8:
             name: SELECTED_LS8
             type: bool
             unit: ''
             description: Whether this sky region was selected in the Legacy Survey
-              DR18 catalogue.
+              DR8 catalogue.
           sep_neighbour_ls8:
             name: SEP_NEIGHBOUR_LS8
             type: float32
             unit: arcsec
-            description: Separation to the nearest neighbour
+            description: Separation to the nearest Legacy Survey DR8 neighbour
           mag_neighbour_ls8:
             name: MAG_NEIGHBOUR_LS8
             type: float32
-            unit: ''
-            description: Magnitude of the nearest neighbour (r-band).
+            unit: mag
+            description: Magnitude of the nearest Legacy Survey DR8 neighbour (r-band,
+              AB).
           valid_ps1dr2:
             name: VALID_PS1DR2
             type: bool
             unit: ''
-            description: Whether this is a valid sky region in the PanSTARRS DR2 catalogue.
+            description: Whether this is a valid sky region in the PanSTARRS1 DR2
+              catalogue.
           selected_ps1dr2:
             name: SELECTED_PS1DR2
             type: bool
             unit: ''
-            description: Whether this sky region was selected in the PanSTARRS DR2
+            description: Whether this sky region was selected in the PanSTARRS1 DR2
               catalogue.
           sep_neighbour_ps1dr2:
             name: SEP_NEIGHBOUR_PS1DR2
             type: float32
             unit: arcsec
-            description: Separation to the nearest neighbour
+            description: Separation to the nearest PanSTARRS1 DR2 neighbour
           mag_neighbour_ps1dr2:
             name: MAG_NEIGHBOUR_PS1DR2
             type: float32
-            unit: ''
-            description: Magnitude of the nearest neighbour (r-band).
+            unit: mag
+            description: Magnitude of the nearest PanSTARRS1 DR2 neighbour (r-band,
+              AB).
           valid_tmass:
             name: VALID_TMASS
             type: bool
@@ -171,12 +177,13 @@ releases:
             name: SEP_NEIGHBOUR_TMASS
             type: float32
             unit: arcsec
-            description: Separation to the nearest neighbour
+            description: Separation to the nearest 2MASS point source neighbour
           mag_neighbour_tmass:
             name: MAG_NEIGHBOUR_TMASS
             type: float32
-            unit: ''
-            description: Magnitude of the nearest neighbour (H band).
+            unit: mag
+            description: Magnitude of the nearest 2MASS point source neighbour (H
+              band, Vega).
           valid_tycho2:
             name: VALID_TYCHO2
             type: bool
@@ -191,12 +198,12 @@ releases:
             name: SEP_NEIGHBOUR_TYCHO2
             type: float32
             unit: arcsec
-            description: Separation to the nearest neighbour
+            description: Separation to the nearest Tycho2 neighbour
           mag_neighbour_tycho2:
             name: MAG_NEIGHBOUR_TYCHO2
             type: float32
-            unit: ''
-            description: Magnitude of the nearest neighbour (Vt band).
+            unit: mag
+            description: Magnitude of the nearest Tycho2 neighbour (Vt band, Vega).
           valid_tmass_xsc:
             name: VALID_TMASS_XSC
             type: bool
@@ -213,4 +220,4 @@ releases:
             name: SEP_NEIGHBOUR_TMASS_XSC
             type: float32
             unit: arcsec
-            description: Separation to the nearest neighbour
+            description: Separation to the nearest 2MASS extended source neighbour

@@ -1,7 +1,8 @@
 general:
   name: mos_target_legacy_survey_dr8
   short: 'MOS Target Table: legacy_survey_dr8'
-  description: TBD in minidb_docs (as of 04/05/2022)
+  description: Legacy Survey DR8 catalogue derived from 'sweep' catalogues (See <a
+    href="https://www.legacysurvey.org/dr8/">https://www.legacysurvey.org/dr8/</a>).
   datatype: FITS
   filesize: 1 GB
   releases:
@@ -11,7 +12,6 @@ general:
   surveys:
   - BHM
   - MWM
-  - SDSS
   naming_convention: $MOS_TARGET/[V_TARG]/mos_target_legacy_survey_dr8-[NUM].fits,
     where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
   generated_by: sdss5db> targetdb, operations database server
@@ -70,8 +70,8 @@ releases:
           brickid:
             name: BRICKID
             type: int64
-            unit: 1, 662174]) [
-            description: A unique Brick ID (in the range
+            unit: ''
+            description: A unique Brick ID (in the range 1-662174)
           brickname:
             name: BRICKNAME
             type: char[8]
@@ -81,9 +81,10 @@ releases:
           objid:
             name: OBJID
             type: int64
-            unit: 0,N-1] and is contiguously enumerated within each blob [
+            unit: ''
             description: Catalog object number within this brick; a unique identifier
-              hash is RELEASE,BRICKID,OBJID; OBJID spans
+              hash is RELEASE,BRICKID,OBJID; OBJID spans 0 to N-1 and is contiguously
+              enumerated within each blob
           type:
             name: TYPE
             type: char[4]
@@ -120,27 +121,32 @@ releases:
             name: DCHISQ_PSF
             type: float32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: 'Difference in chi2 between successively more-complex model
+              fits: PSF. The difference is versus no source.'
           dchisq_rex:
             name: DCHISQ_REX
             type: float32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: 'Difference in chi2 between successively more-complex model
+              fits: REX. The difference is versus no source.'
           dchisq_dev:
             name: DCHISQ_DEV
             type: float32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: 'Difference in chi2 between successively more-complex model
+              fits: DEV. The difference is versus no source.'
           dchisq_exp:
             name: DCHISQ_EXP
             type: float32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: 'Difference in chi2 between successively more-complex model
+              fits: EXP. The difference is versus no source.'
           dchisq_comp:
             name: DCHISQ_COMP
             type: float32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: 'Difference in chi2 between successively more-complex model
+              fits: COMP. The difference is versus no source.'
           ebv:
             name: EBV
             type: float32
@@ -220,37 +226,37 @@ releases:
           mw_transmission_g:
             name: MW_TRANSMISSION_G
             type: float32
-            unit: 0,1
+            unit: ''
             description: Galactic transmission in g filter in linear units
           mw_transmission_r:
             name: MW_TRANSMISSION_R
             type: float32
-            unit: 0,1
+            unit: ''
             description: Galactic transmission in r filter in linear units
           mw_transmission_z:
             name: MW_TRANSMISSION_Z
             type: float32
-            unit: 0,1
+            unit: ''
             description: Galactic transmission in z filter in linear units
           mw_transmission_w1:
             name: MW_TRANSMISSION_W1
             type: float32
-            unit: 0,1
+            unit: ''
             description: Galactic transmission in W1 filter in linear units
           mw_transmission_w2:
             name: MW_TRANSMISSION_W2
             type: float32
-            unit: 0,1
+            unit: ''
             description: Galactic transmission in W2 filter in linear units
           mw_transmission_w3:
             name: MW_TRANSMISSION_W3
             type: float32
-            unit: 0,1
+            unit: ''
             description: Galactic transmission in W3 filter in linear units
           mw_transmission_w4:
             name: MW_TRANSMISSION_W4
             type: float32
-            unit: 0,1
+            unit: ''
             description: Galactic transmission in W4 filter in linear units
           nobs_g:
             name: NOBS_G
@@ -298,104 +304,104 @@ releases:
             name: RCHISQ_G
             type: float32
             unit: ''
-            description: "Profile-weighted \u03C7\xB2 of model fit normalized by the\
-              \ number of pixels in g"
+            description: Profile-weighted chi2 of model fit normalized by the number
+              of pixels in g
           rchisq_r:
             name: RCHISQ_R
             type: float32
             unit: ''
-            description: "Profile-weighted \u03C7\xB2 of model fit normalized by the\
-              \ number of pixels in r"
+            description: Profile-weighted chi2 of model fit normalized by the number
+              of pixels in r
           rchisq_z:
             name: RCHISQ_Z
             type: float32
             unit: ''
-            description: "Profile-weighted \u03C7\xB2 of model fit normalized by the\
-              \ number of pixels in z"
+            description: Profile-weighted chi2 of model fit normalized by the number
+              of pixels in z
           rchisq_w1:
             name: RCHISQ_W1
             type: float32
             unit: ''
-            description: "Profile-weighted \u03C7\xB2 of model fit normalized by the\
-              \ number of pixels in W1"
+            description: Profile-weighted chi2 of model fit normalized by the number
+              of pixels in W1
           rchisq_w2:
             name: RCHISQ_W2
             type: float32
             unit: ''
-            description: "Profile-weighted \u03C7\xB2 of model fit normalized by the\
-              \ number of pixels in W2"
+            description: Profile-weighted chi2 of model fit normalized by the number
+              of pixels in W2
           rchisq_w3:
             name: RCHISQ_W3
             type: float32
             unit: ''
-            description: "Profile-weighted \u03C7\xB2 of model fit normalized by the\
-              \ number of pixels in W3"
+            description: Profile-weighted chi2 of model fit normalized by the number
+              of pixels in W3
           rchisq_w4:
             name: RCHISQ_W4
             type: float32
             unit: ''
-            description: "Profile-weighted \u03C7\xB2 of model fit normalized by the\
-              \ number of pixels in W4"
+            description: Profile-weighted chi2 of model fit normalized by the number
+              of pixels in W4
           fracflux_g:
             name: FRACFLUX_G
             type: float32
-            unit: 0,1]) [
+            unit: ''
             description: Profile-weighted fraction of the flux from other sources
-              divided by the total flux in g (typically
+              divided by the total flux in g (typically in 0..1)
           fracflux_r:
             name: FRACFLUX_R
             type: float32
-            unit: 0,1]) [
+            unit: ''
             description: Profile-weighted fraction of the flux from other sources
-              divided by the total flux in r (typically
+              divided by the total flux in r (typically in 0..1)
           fracflux_z:
             name: FRACFLUX_Z
             type: float32
-            unit: 0,1]) [
+            unit: ''
             description: Profile-weighted fraction of the flux from other sources
-              divided by the total flux in z (typically
+              divided by the total flux in z (typically in 0..1)
           fracflux_w1:
             name: FRACFLUX_W1
             type: float32
-            unit: 0,1]) [
+            unit: ''
             description: Profile-weighted fraction of the flux from other sources
-              divided by the total flux in W1 (typically
+              divided by the total flux in W1 (typically in 0..1)
           fracflux_w2:
             name: FRACFLUX_W2
             type: float32
-            unit: 0,1]) [
+            unit: ''
             description: Profile-weighted fraction of the flux from other sources
-              divided by the total flux in W2 (typically
+              divided by the total flux in W2 (typically in 0..1)
           fracflux_w3:
             name: FRACFLUX_W3
             type: float32
-            unit: 0,1]) [
+            unit: ''
             description: Profile-weighted fraction of the flux from other sources
-              divided by the total flux in W3 (typically
+              divided by the total flux in W3 (typically in 0..1)
           fracflux_w4:
             name: FRACFLUX_W4
             type: float32
-            unit: 0,1]) [
+            unit: ''
             description: Profile-weighted fraction of the flux from other sources
-              divided by the total flux in W4 (typically
+              divided by the total flux in W4 (typically in 0..1)
           fracmasked_g:
             name: FRACMASKED_G
             type: float32
-            unit: 0,1] [
+            unit: ''
             description: Profile-weighted fraction of pixels masked from all observations
-              of this object in g, strictly between
+              of this object in g, strictly between 0..1
           fracmasked_r:
             name: FRACMASKED_R
             type: float32
-            unit: 0,1] [
+            unit: ''
             description: Profile-weighted fraction of pixels masked from all observations
-              of this object in r, strictly between
+              of this object in r, strictly between 0..1
           fracmasked_z:
             name: FRACMASKED_Z
             type: float32
-            unit: 0,1] [
+            unit: ''
             description: Profile-weighted fraction of pixels masked from all observations
-              of this object in z, strictly between
+              of this object in z, strictly between 0..1
           fracin_g:
             name: FRACIN_G
             type: float32
@@ -534,8 +540,8 @@ releases:
           fracdev:
             name: FRACDEV
             type: float32
-            unit: 0,1] [
-            description: Fraction of model in deVauc
+            unit: ''
+            description: Fraction of model in deVauc (in range 0..1)
           fracdev_ivar:
             name: FRACDEV_IVAR
             type: float32
@@ -658,7 +664,7 @@ releases:
             name: GAIA_PHOT_G_MEAN_MAG
             type: float32
             unit: mag
-            description: Gaia G band magnitude
+            description: Gaia G band magnitude, Vega
           gaia_phot_g_mean_flux_over_error:
             name: GAIA_PHOT_G_MEAN_FLUX_OVER_ERROR
             type: float32
@@ -668,7 +674,7 @@ releases:
             name: GAIA_PHOT_BP_MEAN_MAG
             type: float32
             unit: mag
-            description: Gaia BP band magnitude
+            description: Gaia BP band magnitude, Vega
           gaia_phot_bp_mean_flux_over_error:
             name: GAIA_PHOT_BP_MEAN_FLUX_OVER_ERROR
             type: float32
@@ -678,7 +684,7 @@ releases:
             name: GAIA_PHOT_RP_MEAN_MAG
             type: float32
             unit: mag
-            description: Gaia RP band magnitude
+            description: Gaia RP band magnitude, Vega
           gaia_phot_rp_mean_flux_over_error:
             name: GAIA_PHOT_RP_MEAN_FLUX_OVER_ERROR
             type: float32
@@ -749,14 +755,17 @@ releases:
             name: LS_ID
             type: int64
             unit: ''
-            description: not defined on legacysurvey webpage
+            description: 'Added by SDSS-V: Derived unique object identifier. Computed
+              as follows: ls_id = objid + (brickid << 16) + (release << 40)'
           tycho_ref:
             name: TYCHO_REF
             type: int64
             unit: ''
-            description: not defined on legacysurvey webpage
+            description: 'Added by SDSS-V: TychoII identifier (equal to ref_id when
+              ref_cat = "T2")'
           gaia_sourceid:
             name: GAIA_SOURCEID
             type: int64
             unit: ''
-            description: not defined on legacysurvey webpage
+            description: 'Added by SDSS-V: Gaia DR2 source_id identifier (equal to
+              ref_id when ref_cat = "G2")'

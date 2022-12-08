@@ -1,7 +1,8 @@
 general:
   name: mos_target_sdss_dr16_qso
   short: 'MOS Target Table: sdss_dr16_qso'
-  description: TBD in minidb_docs (as of 04/05/2022)
+  description: 'SDSS Data Release 16 Quasar Catalog (Lyke et al. 2020). For complete
+    details, please see the original paper: https://ui.adsabs.harvard.edu/abs/2020ApJS..250....8L/abstract'
   datatype: FITS
   filesize: 1 GB
   releases:
@@ -11,7 +12,6 @@ general:
   surveys:
   - BHM
   - MWM
-  - SDSS
   naming_convention: $MOS_TARGET/[V_TARG]/mos_target_sdss_dr16_qso-[NUM].fits, where
     V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
   generated_by: sdss5db> targetdb, operations database server
@@ -64,457 +64,469 @@ releases:
             name: SDSS_NAME
             type: char[18]
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: SDSS-DR16 designation (hhmmss.ss+-ddmmss.s, J2000)
           ra:
             name: RA
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: degrees
+            description: Right ascension in decimal degrees (J2000)
           dec:
             name: DEC
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: degrees
+            description: Declination in decimal degrees (J2000)
           plate:
             name: PLATE
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Spectroscopic plate number
           mjd:
             name: MJD
             type: int32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: day
+            description: Modified Julian day of the spectroscopic observation
           fiberid:
             name: FIBERID
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Fiber ID number
           autoclass_pqn:
             name: AUTOCLASS_PQN
             type: char[6]
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Object classification post-QuasarNET
           autoclass_dr14q:
             name: AUTOCLASS_DR14Q
             type: char[6]
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Object classification based only on the DR14Q algorithm
           is_qso_qn:
             name: IS_QSO_QN
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Binary flag for QuasarNET quasar identification
           z_qn:
             name: Z_QN
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Systemic redshift from QuasarNET
           random_select:
             name: RANDOM_SELECT
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Binary flag indicating objects selected for random visual
+              inspection
           z_10k:
             name: Z_10K
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Redshift from visual inspection in random set
           z_conf_10k:
             name: Z_CONF_10K
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Confidence rating for visual inspection redshift in random
+              set
           pipe_corr_10k:
             name: PIPE_CORR_10K
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Binary flag indicating if the automated pipeline classification
+              and redshift were correct in the random set
           is_qso_10k:
             name: IS_QSO_10K
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Binary flag for random set quasar identification
           thing_id:
             name: THING_ID
             type: int64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: SDSS identifier
           z_vi:
             name: Z_VI
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Visual inspection redshift
           z_conf:
             name: Z_CONF
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Confidence rating for visual inspection redshift
           class_person:
             name: CLASS_PERSON
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Object classification from visual inspection
           z_dr12q:
             name: Z_DR12Q
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Redshift taken from DR12Q visual inspection
           is_qso_dr12q:
             name: IS_QSO_DR12Q
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Flag indicating if an object was a quasar in DR12Q
           z_dr7q_sch:
             name: Z_DR7Q_SCH
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Redshift taken from DR7Q Schneider et al (2010) catalog
           is_qso_dr7q:
             name: IS_QSO_DR7Q
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Flag indicating if an object was a quasar in DR7Q
           z_dr6q_hw:
             name: Z_DR6Q_HW
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Redshift taken from DR6-based Hewett and Wild (2010) catalog
           z_dr7q_hw:
             name: Z_DR7Q_HW
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Redshift using Hewett and Wild (2010) updates for DR7Q sources
+              from the Shen et al. (2011) catalog
           is_qso_final:
             name: IS_QSO_FINAL
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Flag indicating quasars to be included in final catalog
           z:
             name: Z
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Best available redshift taken from Z_VI, Z_PIPE, Z_DR12Q,
+              Z_DR7Q_SCH, Z_DR6Q_HW, and Z_10K
           source_z:
             name: SOURCE_Z
             type: char[9]
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Origin of the reported redshift in Z
           z_pipe:
             name: Z_PIPE
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: SDSS automated pipeline redshift
           zwarning:
             name: ZWARNING
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Quality flag on the pipeline redshift estimate
           objid:
             name: OBJID
             type: char[19]
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: SDSS object identification number
           z_pca:
             name: Z_PCA
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: PCA-derived systemic redshift from redvsblue
           zwarn_pca:
             name: ZWARN_PCA
             type: int64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Warning flag for redvsblue redshift
           deltachi2_pca:
             name: DELTACHI2_PCA
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: "Delta \u03C72 for PCA redshift vs. cubic continuum fit"
           z_halpha:
             name: Z_HALPHA
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: PCA line redshift for Halpha from redvsblue
           zwarn_halpha:
             name: ZWARN_HALPHA
             type: int64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Warning flag for Halpha redshift
           deltachi2_halpha:
             name: DELTACHI2_HALPHA
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: "Delta \u03C72 for Halpha line redshift vs. cubic continuum\
+              \ fit"
           z_hbeta:
             name: Z_HBETA
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: PCA line redshift for Hbeta from redvsblue
           zwarn_hbeta:
             name: ZWARN_HBETA
             type: int64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Warning flag for Hbeta redshift
           deltachi2_hbeta:
             name: DELTACHI2_HBETA
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: "Delta \u03C72 for Hbeta line redshift vs. cubic continuum\
+              \ fit"
           z_mgii:
             name: Z_MGII
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: PCA line redshift for Mg II 2799AA from redvsblue
           zwarn_mgii:
             name: ZWARN_MGII
             type: int64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Warning flag for Mg II 2799AA redshift
           deltachi2_mgii:
             name: DELTACHI2_MGII
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: "Delta \u03C72 for Mg II 2799AA line redshift vs. cubic continuum\
+              \ fit"
           z_ciii:
             name: Z_CIII
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: PCA line redshift for C III] 1908AA from redvsblue
           zwarn_ciii:
             name: ZWARN_CIII
             type: int64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Warning flag for C III] 1908AA redshift
           deltachi2_ciii:
             name: DELTACHI2_CIII
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: "Delta \u03C72 for C III] 1908AA line redshift vs. cubic\
+              \ continuum fit"
           z_civ:
             name: Z_CIV
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: PCA line redshift for C IV 1549AA from redvsblue
           zwarn_civ:
             name: ZWARN_CIV
             type: int64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Warning flag for C IV 1549AA redshift
           deltachi2_civ:
             name: DELTACHI2_CIV
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: "Delta \u03C72 for C IV 1549AA line redshift vs. cubic continuum\
+              \ fit"
           z_lya:
             name: Z_LYA
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: PCA line redshift for Lyalpha from redvsblue
           zwarn_lya:
             name: ZWARN_LYA
             type: int64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Warning flag for Lyalpha redshift
           deltachi2_lya:
             name: DELTACHI2_LYA
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: "Delta \u03C72 for Lyalpha line redshift vs. cubic continuum\
+              \ fit"
           z_lyawg:
             name: Z_LYAWG
             type: float32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: PCA systemic redshift from redvsblue with a masked Lyalpha
+              emission line and forest
           z_dla:
             name: Z_DLA
             type: char[91]
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Redshift for damped Lyalpha features
           nhi_dla:
             name: NHI_DLA
             type: char[94]
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: log(cm**-2)
+            description: Absorber column density for damped Lyalpha features
           conf_dla:
             name: CONF_DLA
             type: char[43]
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Confidence of detection for damped Lyalpha features
           bal_prob:
             name: BAL_PROB
             type: float32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: BAL probability
           bi_civ:
             name: BI_CIV
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: km/s
+            description: BALnicity index for C IV 1549AA region
           err_bi_civ:
             name: ERR_BI_CIV
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: km/s
+            description: Uncertainty of BI for C IV 1549AA region
           ai_civ:
             name: AI_CIV
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: km/s
+            description: Absorption index for C IV 1549AA region
           err_ai_civ:
             name: ERR_AI_CIV
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: km/s
+            description: Uncertainty of absorption index for C IV 1549AA region
           bi_siiv:
             name: BI_SIIV
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: km/s
+            description: BALnicity index for Si IV 1396AA region
           err_bi_siiv:
             name: ERR_BI_SIIV
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: km/s
+            description: Uncertainty of BI for Si IV 1396AA region
           ai_siiv:
             name: AI_SIIV
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: km/s
+            description: Absorption index for Si IV 1396AA region
           err_ai_siiv:
             name: ERR_AI_SIIV
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: km/s
+            description: Uncertainty of absorption index for Si IV 1396AA region
           boss_target1:
             name: BOSS_TARGET1
             type: int64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: BOSS target selection bitmask for main survey
           eboss_target0:
             name: EBOSS_TARGET0
             type: int64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Target selection bitmask for the eBOSS pilot survey (SEQUELS)
           eboss_target1:
             name: EBOSS_TARGET1
             type: int64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: eBOSS target selection bitmask
           eboss_target2:
             name: EBOSS_TARGET2
             type: int64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: eBOSS target selection bitmask
           ancillary_target1:
             name: ANCILLARY_TARGET1
             type: int64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: BOSS target selection bitmask for ancillary programs
           ancillary_target2:
             name: ANCILLARY_TARGET2
             type: int64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: BOSS target selection bitmask for ancillary programs
           nspec_sdss:
             name: NSPEC_SDSS
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Number of additional observations from SDSS-I/II
           nspec_boss:
             name: NSPEC_BOSS
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Number of additional observations from BOSS/eBOSS
           nspec:
             name: NSPEC
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Total number of additional observations
           plate_duplicate:
             name: PLATE_DUPLICATE
             type: char[364]
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Spectroscopic plate number of duplicate spectroscopic observations
           mjd_duplicate:
             name: MJD_DUPLICATE
             type: char[437]
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Spectroscopic MJD of duplicate spectroscopic observations
           fiberid_duplicate:
             name: FIBERID_DUPLICATE
             type: char[297]
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Fiber ID number of duplicate spectrocscopic observations.
           spectro_duplicate:
             name: SPECTRO_DUPLICATE
             type: char[145]
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Spectroscopic instrument for each duplicate, 1=SDSS, 2=(e)BOSS
           skyversion:
             name: SKYVERSION
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: SDSS photometric sky version number
           run_number:
             name: RUN_NUMBER
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: SDSS photometric run number
           rerun_number:
             name: RERUN_NUMBER
             type: char[4]
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: SDSS photometric rerun number
           camcol_number:
             name: CAMCOL_NUMBER
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: SDSS photometric camera column
           field_number:
             name: FIELD_NUMBER
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: SDSS photometric field number
           id_number:
             name: ID_NUMBER
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: SDSS photometric ID number
           lambda_eff:
             name: LAMBDA_EFF
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: Angstrom
+            description: Wavelength to optimize hold location for
           zoffset:
             name: ZOFFSET
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: um
+            description: Backstopping offset distance
           xfocal:
             name: XFOCAL
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mm
+            description: Hole x-axis position in focal plane
           yfocal:
             name: YFOCAL
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mm
+            description: Hole y-axis position in focal plane
           chunk:
             name: CHUNK
             type: char[14]
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Name of tiling chunk (from platelist product)
           tile:
             name: TILE
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Tile number
           platesn2:
             name: PLATESN2
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Overall (S/N)^2 measure for plate, minimum of all 4 cameras
           psfflux_u:
             name: PSFFLUX_U
             type: float32
@@ -643,268 +655,272 @@ releases:
           m_i:
             name: M_I
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: Absolute i-band magnitude. Assuming H0 = 67.6 km/s/Mpc, OmegaM=0.31,
+              OmegaL=0.69, Omega_r=9.11e-5. K-corrections taken from Table 4 of Richards
+              et al. (2006). Z_PCA used for redshifts
           sn_median_all:
             name: SN_MEDIAN_ALL
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Median S/N value of all good spectroscopic pixels
           galex_matched:
             name: GALEX_MATCHED
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Matching flag for GALEX
           fuv:
             name: FUV
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: nMgy
+            description: FUV flux from GALEX
           fuv_ivar:
             name: FUV_IVAR
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: nMgy**-2
+            description: Inverse variance of FUV flux from GALEX
           nuv:
             name: NUV
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: nMgy
+            description: NUV flux from GALEX
           nuv_ivar:
             name: NUV_IVAR
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: nMgy**-2
+            description: Inverse variance of NUV flux from GALEX
           ukidss_matched:
             name: UKIDSS_MATCHED
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Matching flag for UKIDSS
           yflux:
             name: YFLUX
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: W m-2 Hz-1
+            description: Y-band flux density from UKIDSS
           yflux_err:
             name: YFLUX_ERR
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: W m-2 Hz-1
+            description: Error in Y-band flux density from UKIDSS
           jflux:
             name: JFLUX
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: W m-2 Hz-1
+            description: J-band flux density from UKIDSS
           jflux_err:
             name: JFLUX_ERR
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: W m-2 Hz-1
+            description: Error in J-band flux density from UKIDSS
           hflux:
             name: HFLUX
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: W m-2 Hz-1
+            description: H-band flux density from UKIDSS
           hflux_err:
             name: HFLUX_ERR
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: W m-2 Hz-1
+            description: Error in H-band flux density from UKIDSS
           kflux:
             name: KFLUX
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: W m-2 Hz-1
+            description: K-band flux density from UKIDSS
           kflux_err:
             name: KFLUX_ERR
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: W m-2 Hz-1
+            description: Error in K-band flux density from UKIDSS
           w1_flux:
             name: W1_FLUX
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: nMgy
+            description: WISE flux in W1-band (Vega)
           w1_flux_ivar:
             name: W1_FLUX_IVAR
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: nMgy**-2
+            description: Inverse variance in W1-band (Vega)
           w1_mag:
             name: W1_MAG
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: W1-band magnitude (Vega)
           w1_mag_err:
             name: W1_MAG_ERR
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: W1-band uncertainty in magnitude (Vega)
           w1_chi2:
             name: W1_CHI2
             type: float32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: "Profile-weighed \u03C72"
           w1_flux_snr:
             name: W1_FLUX_SNR
             type: float32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: S/N from flux and inverse variance
           w1_src_frac:
             name: W1_SRC_FRAC
             type: float32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Profile-weighted number of exposures in coadd
           w1_ext_flux:
             name: W1_EXT_FLUX
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: nMgy
+            description: Profile-weighted flux from other sources
           w1_ext_frac:
             name: W1_EXT_FRAC
             type: float32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Profile-weighted fraction of flux from other sources (blendedness
+              measure)
           w1_npix:
             name: W1_NPIX
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Number of pixels in fit
           w2_flux:
             name: W2_FLUX
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: nMgy
+            description: WISE flux in W2-band (Vega)
           w2_flux_ivar:
             name: W2_FLUX_IVAR
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: nMgy**-2
+            description: Inverse variance in W2-band (Vega)
           w2_mag:
             name: W2_MAG
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: W2-band magnitude (Vega)
           w2_mag_err:
             name: W2_MAG_ERR
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: W2-band uncertainty in magnitude (Vega)
           w2_chi2:
             name: W2_CHI2
             type: float32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: "Profile-weighed \u03C72"
           w2_flux_snr:
             name: W2_FLUX_SNR
             type: float32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: S/N from flux and inverse variance
           w2_src_frac:
             name: W2_SRC_FRAC
             type: float32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Profile-weighted number of exposures in coadd
           w2_ext_flux:
             name: W2_EXT_FLUX
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: nMgy
+            description: Profile-weighted flux from other sources
           w2_ext_frac:
             name: W2_EXT_FRAC
             type: float32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Profile-weighted fraction of flux from other sources (blendedness
+              measure)
           w2_npix:
             name: W2_NPIX
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Number of pixels in fit
           first_matched:
             name: FIRST_MATCHED
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Matching flag for FIRST
           first_flux:
             name: FIRST_FLUX
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mJy
+            description: FIRST peak flux density at 20 cm
           first_snr:
             name: FIRST_SNR
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: FIRST flux density S/N
           sdss2first_sep:
             name: SDSS2FIRST_SEP
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: SDSS-FIRST separation in arcsec
           jmag:
             name: JMAG
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: 2MASS J-band magnitude (Vega)
           jmag_err:
             name: JMAG_ERR
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: 2MASS Error in J-band magnitude
           jsnr:
             name: JSNR
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: 2MASS J-band S/N
           jrdflag:
             name: JRDFLAG
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: 2MASS J-band photometry flag
           hmag:
             name: HMAG
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: 2MASS H-band magnitude (Vega)
           hmag_err:
             name: HMAG_ERR
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: 2MASS Error in H-band magnitude
           hsnr:
             name: HSNR
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: 2MASS H-band S/N
           hrdflag:
             name: HRDFLAG
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: 2MASS H-band photometry flag
           kmag:
             name: KMAG
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: 2MASS Ks-band magnitude (Vega)
           kmag_err:
             name: KMAG_ERR
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: 2MASS Error in Ks-band magnitude
           ksnr:
             name: KSNR
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: 2MASS Ks-band S/N
           krdflag:
             name: KRDFLAG
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: 2MASS Ks-band photometry flag
           sdss2mass_sep:
             name: SDSS2MASS_SEP
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: arcsec
+            description: SDSS-2MASS separation
           rass2rxs_id:
             name: RASS2RXS_ID
             type: char[21]
@@ -933,150 +949,151 @@ releases:
           sdss2rosat_sep:
             name: SDSS2ROSAT_SEP
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: arcsec
+            description: SDSS-ROSAT separation
           xmm_src_id:
             name: XMM_SRC_ID
             type: int64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: XMM source ID
           xmm_ra:
             name: XMM_RA
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: degrees
+            description: Right ascension for XMM source in decimal degrees (J2000)
           xmm_dec:
             name: XMM_DEC
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: degrees
+            description: Declination for XMM source in decimal degrees (J2000)
           xmm_soft_flux:
             name: XMM_SOFT_FLUX
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: erg/s/cm2
+            description: Soft (0.2-2.0 keV) X-ray flux from XMM-Newton
           xmm_soft_flux_err:
             name: XMM_SOFT_FLUX_ERR
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: erg/s/cm2
+            description: Error on soft X-ray flux from XMM-Newton
           xmm_hard_flux:
             name: XMM_HARD_FLUX
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: erg/s/cm2
+            description: Hard (2.0-12.0 keV) X-ray flux from XMM-Newton
           xmm_hard_flux_err:
             name: XMM_HARD_FLUX_ERR
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: erg/s/cm2
+            description: Error on hard X-ray flux from XMM-Newton
           xmm_total_flux:
             name: XMM_TOTAL_FLUX
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: erg/s/cm2
+            description: Total (0.2-12.0 keV) X-ray flux from XMM-Newton
           xmm_total_flux_err:
             name: XMM_TOTAL_FLUX_ERR
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: erg/s/cm2
+            description: Error on total X-ray flux from XMM-Newton
           xmm_total_lum:
             name: XMM_TOTAL_LUM
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: erg/s
+            description: Total (0.2-12.0 keV) X-ray luminosity from XMM-Newton
           sdss2xmm_sep:
             name: SDSS2XMM_SEP
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: arcsec
+            description: SDSS-XMM-Newton separation
           gaia_matched:
             name: GAIA_MATCHED
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Gaia matching flag
           gaia_designation:
             name: GAIA_DESIGNATION
             type: char[28]
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Gaia designation, includes data release and source ID in
+              that release
           gaia_ra:
             name: GAIA_RA
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: degrees
+            description: Gaia barycentric right ascension in decimal degrees (J2015.5)
           gaia_dec:
             name: GAIA_DEC
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: degrees
+            description: Gaia barycentric declination in decimal degrees (J2015.5)
           gaia_parallax:
             name: GAIA_PARALLAX
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mas
+            description: Absolute stellar parallax
           gaia_parallax_err:
             name: GAIA_PARALLAX_ERR
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mas**-2
+            description: Inverse variance of the stellar parallax
           gaia_pm_ra:
             name: GAIA_PM_RA
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mas/yr
+            description: Proper motion in right ascension
           gaia_pm_ra_err:
             name: GAIA_PM_RA_ERR
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: (mas/yr)**-2
+            description: Inverse variance of the proper motion in right ascension
           gaia_pm_dec:
             name: GAIA_PM_DEC
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mas/yr
+            description: Proper motion in declination
           gaia_pm_dec_err:
             name: GAIA_PM_DEC_ERR
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: (mas/yr)**-2
+            description: Inverse variance of the proper motion in declination
           gaia_g_mag:
             name: GAIA_G_MAG
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: Mean magnitude in G-band (Vega)
           gaia_g_flux_snr:
             name: GAIA_G_FLUX_SNR
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Mean flux over standard deviation in G-band
           gaia_bp_mag:
             name: GAIA_BP_MAG
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: Mean magnitude in BP-band (Vega)
           gaia_bp_flux_snr:
             name: GAIA_BP_FLUX_SNR
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Mean flux over standard deviation in BP-band
           gaia_rp_mag:
             name: GAIA_RP_MAG
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: Mean magnitude in RP-band (Vega)
           gaia_rp_flux_snr:
             name: GAIA_RP_FLUX_SNR
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Mean flux over standard deviation in RP-band
           sdss2gaia_sep:
             name: SDSS2GAIA_SEP
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: arcsec
+            description: SDSS-Gaia separation
           pk:
             name: PK
             type: int64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Added for convenience - serial integer primary key

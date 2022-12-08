@@ -1,7 +1,7 @@
 general:
   name: mos_target_glimpse
   short: 'MOS Target Table: glimpse'
-  description: TBD in minidb_docs (as of 04/05/2022)
+  description: GLIMPSE catalog (I, II and 3-D). See full documentation at https://irsa.ipac.caltech.edu/data/SPITZER/GLIMPSE/doc/glimpse1_dataprod_v2.0.pdf
   datatype: FITS
   filesize: 732 MB
   releases:
@@ -11,7 +11,6 @@ general:
   surveys:
   - BHM
   - MWM
-  - SDSS
   naming_convention: $MOS_TARGET/[V_TARG]/mos_target_glimpse-[NUM].fits, where V_TARG=1.0.1
     for DR18; and NUM = 1..1 to partition the file into parts
   generated_by: sdss5db> targetdb, operations database server
@@ -65,394 +64,409 @@ releases:
             name: DESIGNATION
             type: char[24]
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: position-based designation in Galactic coordinates
           tmass_designation:
             name: TMASS_DESIGNATION
             type: char[16]
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: 2MASS designation from PSC
           tmass_cntr:
             name: TMASS_CNTR
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: 2MASS counter
           l:
             name: L
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: degrees
+            description: Galactic longitude
           b:
             name: B
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: degrees
+            description: Galactic latitude
           dl:
             name: DL
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: degrees
+            description: uncertaintiy in Galactic longitude
           db:
             name: DB
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: degrees
+            description: uncertainty in Galactic latitude
           ra:
             name: RA
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: degrees
+            description: right ascension
           dec:
             name: DEC
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: degrees
+            description: declination
           dra:
             name: DRA
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: degrees
+            description: uncertainity in RA
           ddec:
             name: DDEC
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: degrees
+            description: uncertainity in Dec
           csf:
             name: CSF
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: close source flag (see GLIMPSE documentation for details)
           mag_j:
             name: MAG_J
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: 2MASS J-band magnitude
           dj_m:
             name: DJ_M
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: uncertainity in 2MASS J-band magnitude
           mag_h:
             name: MAG_H
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: 2MASS H-band magnitude
           dh_m:
             name: DH_M
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: uncertainity in 2MASS H-band magnitude
           mag_ks:
             name: MAG_KS
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: 2MASS Ks-band magnitude
           dks_m:
             name: DKS_M
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: uncertainity in 2MASS Ks-band magnitude
           mag3_6:
             name: MAG3_6
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: IRAC 3.6-band magnitude
           d3_6m:
             name: D3_6M
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: uncertainty in IRAC 3.6-band magnitude
           mag4_5:
             name: MAG4_5
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: IRAC 4.5-band magnitude
           d4_5m:
             name: D4_5M
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: uncertainty in IRAC 4.5-band magnitude
           mag5_8:
             name: MAG5_8
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: IRAC 5.8-band magnitude
           d5_8m:
             name: D5_8M
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: uncertainty in IRAC 5.8-band magnitude
           mag8_0:
             name: MAG8_0
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: IRAC 8.0-band magnitude
           d8_0m:
             name: D8_0M
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: uncertainty in IRAC 8.0-band magnitude
           f_j:
             name: F_J
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mJy
+            description: 2MASS J-band flux
           df_j:
             name: DF_J
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mJy
+            description: uncertainity in 2MASS J-band flux
           f_h:
             name: F_H
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mJy
+            description: 2MASS H-band flux
           df_h:
             name: DF_H
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mJy
+            description: uncertainty in 2MASS H-band flux
           f_ks:
             name: F_KS
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mJy
+            description: 2MASS Ks-band flux
           df_ks:
             name: DF_KS
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mJy
+            description: uncertainity in 2MASS Ks-band flux
           f3_6:
             name: F3_6
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mJy
+            description: IRAC 3.6-band flux
           df3_6:
             name: DF3_6
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mJy
+            description: uncertainty in IRAC 3.6-band flux
           f4_5:
             name: F4_5
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mJy
+            description: IRAC 4.5-band flux
           df4_5:
             name: DF4_5
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mJy
+            description: uncertainty in IRAC 4.5-band flux
           f5_8:
             name: F5_8
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mJy
+            description: IRAC 5.8-band flux
           df5_8:
             name: DF5_8
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mJy
+            description: uncertainty in IRAC 5.8-band flux
           f8_0:
             name: F8_0
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mJy
+            description: IRAC 8.0-band flux
           df8_0:
             name: DF8_0
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mJy
+            description: uncertainty in IRAC 8.0-band flux
           rms_f3_6:
             name: RMS_F3_6
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mJy
+            description: RMS deviation of the individual detections from final flux
+              in IRAC 3.6-band
           rms_f4_5:
             name: RMS_F4_5
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mJy
+            description: RMS deviation of the individual detections from final flux
+              in IRAC 4.5-band
           rms_f5_8:
             name: RMS_F5_8
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mJy
+            description: RMS deviation of the individual detections from final flux
+              in IRAC 5.8-band
           rms_f8_0:
             name: RMS_F8_0
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mJy
+            description: RMS deviation of the individual detections from final flux
+              in IRAC 8.0-band
           sky_3_6:
             name: SKY_3_6
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mJy/sr
+            description: local background sky in IRAC 3.6-band
           sky_4_5:
             name: SKY_4_5
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mJy/sr
+            description: local background sky in IRAC 4.5-band
           sky_5_8:
             name: SKY_5_8
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mJy/sr
+            description: local background sky in IRAC 5.8-band
           sky_8_0:
             name: SKY_8_0
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mJy/sr
+            description: local background sky in IRAC 8.0-band
           sn_j:
             name: SN_J
             type: float32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: j_snr in 2MASS J-band
           sn_h:
             name: SN_H
             type: float32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: h_snr from 2MASS catalog
           sn_ks:
             name: SN_KS
             type: float32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: ks_snr from 2MASS catalog
           sn_3_6:
             name: SN_3_6
             type: float32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: (flux)/(uncertainty in flux) in IRAC 3.5-band
           sn_4_5:
             name: SN_4_5
             type: float32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: (flux)/(uncertainty in flux) in IRAC 4.5-band
           sn_5_8:
             name: SN_5_8
             type: float32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: (flux)/(uncertainty in flux) in IRAC 5.8-band
           sn_8_0:
             name: SN_8_0
             type: float32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: (flux)/(uncertainty in flux) in IRAC 8.0-band
           dens_3_6:
             name: DENS_3_6
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: '#/sqarcmin'
+            description: local source density in IRAC 3.6-band
           dens_4_5:
             name: DENS_4_5
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: '#/sqarcmin'
+            description: local source density in IRAC 4.5-band
           dens_5_8:
             name: DENS_5_8
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: '#/sqarcmin'
+            description: local source density in IRAC 5.8-band
           dens_8_0:
             name: DENS_8_0
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: '#/sqarcmin'
+            description: local source density in IRAC 8.0-band
           m3_6:
             name: M3_6
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: number of source detections in IRAC 3.6-band
           m4_5:
             name: M4_5
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: number of source detections in IRAC 4.5-band
           m5_8:
             name: M5_8
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: number of source detections in IRAC 5.8-band
           m8_0:
             name: M8_0
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: number of source detections in IRAC 8.0-band
           n3_6:
             name: N3_6
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: number of observations in IRAC 3.6-band
           n4_5:
             name: N4_5
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: number of observations in IRAC 4.5-band
           n5_8:
             name: N5_8
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: number of observations in IRAC 5.8-band
           n8_0:
             name: N8_0
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: number of observations in IRAC 8.0-band
           sqf_j:
             name: SQF_J
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: source quality flag for 2MASS J-band (see GLIMPSE documentation
+              for details)
           sqf_h:
             name: SQF_H
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: source quality flag for 2MASS H-band (see GLIMPSE documentation
+              for details)
           sqf_ks:
             name: SQF_KS
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: source quality flag for 2MASS Ks-band (see GLIMPSE documentation
+              for details)
           sqf_3_6:
             name: SQF_3_6
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: source quality flag for IRAC 3.6-band (see GLIMPSE documentation
+              for details)
           sqf_4_5:
             name: SQF_4_5
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: source quality flag for IRAC 4.5-band (see GLIMPSE documentation
+              for details)
           sqf_5_8:
             name: SQF_5_8
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: source quality flag for IRAC 5.8-band (see GLIMPSE documentation
+              for details)
           sqf_8_0:
             name: SQF_8_0
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: source quality flag for IRAC 8.0-band (see GLIMPSE documentation
+              for details)
           mf3_6:
             name: MF3_6
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: method flag for IRAC 3.6-band (see GLIMPSE documentation
+              for details)
           mf4_5:
             name: MF4_5
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: method flag for IRAC 4.5-band (see GLIMPSE documentation
+              for details)
           mf5_8:
             name: MF5_8
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: method flag for IRAC 5.8-band (see GLIMPSE documentation
+              for details)
           mf8_0:
             name: MF8_0
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: method flag for IRAC 8.0-band (see GLIMPSE documentation
+              for details)
           pk:
             name: PK
             type: int64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: primary key

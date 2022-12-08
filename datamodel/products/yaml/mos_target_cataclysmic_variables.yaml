@@ -1,7 +1,10 @@
 general:
   name: mos_target_cataclysmic_variables
   short: 'MOS Target Table: cataclysmic_variables'
-  description: TBD in minidb_docs (as of 04/05/2022)
+  description: Gaia DR2 parameters for AAVSO cataclysmic variables from cataclysmic
+    (explosive and novalike) variables (N, NA, NB, NC, NL, NR, SN, SNI, SNII, UG,
+    UGSS, UGSU, UGZ, ZAND). VSX catalog downloaded in summer 2019 and then manually
+    pruned.
   datatype: FITS
   filesize: 3 MB
   releases:
@@ -11,7 +14,6 @@ general:
   surveys:
   - BHM
   - MWM
-  - SDSS
   naming_convention: $MOS_TARGET/[V_TARG]/mos_target_cataclysmic_variables-[NUM].fits,
     where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
   generated_by: sdss5db> targetdb, operations database server
@@ -64,474 +66,482 @@ releases:
             name: REF_ID
             type: int64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: same as source_id
           solution_id:
             name: SOLUTION_ID
             type: int64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: ID that identifies the version of all the subsystems that
+              were used in the generation of the data as well as the input data used
           designation:
             name: DESIGNATION
             type: char[28]
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Unique source designation across all Gaia data releases
           source_id:
             name: SOURCE_ID
             type: int64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Unique source identifier within a particular Gaia data release
           random_index:
             name: RANDOM_INDEX
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Random index which can be used to select smaller subsets
+              of the data
           ref_epoch:
             name: REF_EPOCH
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: Julian Years
+            description: Time
           ra:
             name: RA
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: degrees
+            description: Right Ascension
           ra_error:
             name: RA_ERROR
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: degrees
+            description: Standard error of the right ascension
           dec:
             name: DEC
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: degrees
+            description: Declination
           dec_error:
             name: DEC_ERROR
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: degrees
+            description: Standard error of the declination
           parallax:
             name: PARALLAX
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mas
+            description: Absolute stellar parallax of the source at the reference
+              epoch
           parallax_error:
             name: PARALLAX_ERROR
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mas
+            description: Standard error of parallax
           parallax_over_error:
             name: PARALLAX_OVER_ERROR
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Parallax divided by its error
           pmra:
             name: PMRA
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mas/yr
+            description: Proper motion in right ascension direction
           pmra_error:
             name: PMRA_ERROR
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mas/yr
+            description: Standard error of proper motion in right ascension direction
           pmdec:
             name: PMDEC
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mas/yr
+            description: Proper motion in declination direction
           pmdec_error:
             name: PMDEC_ERROR
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mas/yr
+            description: Standard error of proper motion in declination direction
           ra_dec_corr:
             name: RA_DEC_CORR
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Correlation between right ascension and declination
           ra_parallax_corr:
             name: RA_PARALLAX_CORR
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Correlation between right ascension and parallax
           ra_pmra_corr:
             name: RA_PMRA_CORR
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Correlation between right ascension and proper motion in
+              right ascension
           ra_pmdec_corr:
             name: RA_PMDEC_CORR
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Correlation between right ascension and proper motion in
+              declination
           dec_parallax_corr:
             name: DEC_PARALLAX_CORR
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Correlation between declination and parallax
           dec_pmra_corr:
             name: DEC_PMRA_CORR
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Correlation between declination and proper motion in right
+              ascension
           dec_pmdec_corr:
             name: DEC_PMDEC_CORR
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Correlation between declination and proper motion in declination
           parallax_pmra_corr:
             name: PARALLAX_PMRA_CORR
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Correlation between parallax and proper motion in right ascension
           parallax_pmdec_corr:
             name: PARALLAX_PMDEC_CORR
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Correlation between parallax and proper motion in declination
           pmra_pmdec_corr:
             name: PMRA_PMDEC_CORR
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Correlation between proper motion in right ascension and
+              proper motion in declination
           astrometric_n_obs_al:
             name: ASTROMETRIC_N_OBS_AL
             type: int16
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Total number of observations AL
           astrometric_n_obs_ac:
             name: ASTROMETRIC_N_OBS_AC
             type: int16
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Total number of observations AC
           astrometric_n_good_obs_al:
             name: ASTROMETRIC_N_GOOD_OBS_AL
             type: int16
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Number of good observations AL
           astrometric_n_bad_obs_al:
             name: ASTROMETRIC_N_BAD_OBS_AL
             type: int16
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Number of bad observations AL
           astrometric_gof_al:
             name: ASTROMETRIC_GOF_AL
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Goodness of fit statistic of model wrt along-scan observations
           astrometric_chi2_al:
             name: ASTROMETRIC_CHI2_AL
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: AL chi-square value
           astrometric_excess_noise:
             name: ASTROMETRIC_EXCESS_NOISE
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mas
+            description: Excess noise of the source
           astrometric_excess_noise_sig:
             name: ASTROMETRIC_EXCESS_NOISE_SIG
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Significance of excess noise
           astrometric_params_solved:
             name: ASTROMETRIC_PARAMS_SOLVED
             type: int16
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Which parameters have been solved for
           astrometric_primary_flag:
             name: ASTROMETRIC_PRIMARY_FLAG
             type: bool
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Flag indicating if this source was used as a primary source
+              (true) or secondary source (false)
           astrometric_weight_al:
             name: ASTROMETRIC_WEIGHT_AL
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mas^-2
+            description: Mean astrometric weight of the source
           astrometric_pseudo_colour:
             name: ASTROMETRIC_PSEUDO_COLOUR
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: um^-1
+            description: Astrometrically determined pseudocolour of the source
           astrometric_pseudo_colour_error:
             name: ASTROMETRIC_PSEUDO_COLOUR_ERROR
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: um^-1
+            description: Standard error of the pseudocolour of the source
           mean_varpi_factor_al:
             name: MEAN_VARPI_FACTOR_AL
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Mean Parallax factor AL
           astrometric_matched_observations:
             name: ASTROMETRIC_MATCHED_OBSERVATIONS
             type: int16
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: number of FOV transits matched to this source
           visibility_periods_used:
             name: VISIBILITY_PERIODS_USED
             type: int16
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Number of visibility periods used in the astrometric solution
           astrometric_sigma5d_max:
             name: ASTROMETRIC_SIGMA5D_MAX
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mas
+            description: Longest semi-major axis of the 5-d error ellipsoid
           frame_rotator_object_type:
             name: FRAME_ROTATOR_OBJECT_TYPE
             type: int16
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Type of the source mainly used for frame rotation
           matched_observations:
             name: MATCHED_OBSERVATIONS
             type: int16
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Total number of FOV transits matched to this source
           duplicated_source:
             name: DUPLICATED_SOURCE
             type: bool
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Source with duplicate sources
           phot_g_n_obs:
             name: PHOT_G_N_OBS
             type: int16
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Number of observations contributing to G photometry
           phot_g_mean_flux:
             name: PHOT_G_MEAN_FLUX
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: e-/s
+            description: G-band mean flux
           phot_g_mean_flux_error:
             name: PHOT_G_MEAN_FLUX_ERROR
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: e-/s
+            description: Error on G-band mean flux
           phot_g_mean_flux_over_error:
             name: PHOT_G_MEAN_FLUX_OVER_ERROR
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: G-band mean flux divided by its error
           phot_g_mean_mag:
             name: PHOT_G_MEAN_MAG
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: G-band mean magnitude
           phot_bp_n_obs:
             name: PHOT_BP_N_OBS
             type: int16
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Number of observations contributing to BP photometry
           phot_bp_mean_flux:
             name: PHOT_BP_MEAN_FLUX
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: e-/s
+            description: Integrated BP mean flux
           phot_bp_mean_flux_error:
             name: PHOT_BP_MEAN_FLUX_ERROR
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: e-/s
+            description: Error on the integrated BP mean flux
           phot_bp_mean_flux_over_error:
             name: PHOT_BP_MEAN_FLUX_OVER_ERROR
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Integrated BP mean flux divided by its error
           phot_bp_mean_mag:
             name: PHOT_BP_MEAN_MAG
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: Integrated BP mean magnitude
           phot_rp_n_obs:
             name: PHOT_RP_N_OBS
             type: int16
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Number of observations contributing to RP photometry
           phot_rp_mean_flux:
             name: PHOT_RP_MEAN_FLUX
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: e-/s
+            description: Integrated RP mean flux
           phot_rp_mean_flux_error:
             name: PHOT_RP_MEAN_FLUX_ERROR
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: e-/s
+            description: Error on the integrated RP mean flux
           phot_rp_mean_flux_over_error:
             name: PHOT_RP_MEAN_FLUX_OVER_ERROR
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Integrated RP mean flux divided by its error
           phot_rp_mean_mag:
             name: PHOT_RP_MEAN_MAG
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: Integrated RP mean magnitude
           phot_bp_rp_excess_factor:
             name: PHOT_BP_RP_EXCESS_FACTOR
             type: float64
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: BP/RP excess factor
           phot_proc_mode:
             name: PHOT_PROC_MODE
             type: int16
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Photometry processing mode
           bp_rp:
             name: BP_RP
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: BP - RP color
           bp_g:
             name: BP_G
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: BP - G color
           g_rp:
             name: G_RP
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: G - RP color
           radial_velocity:
             name: RADIAL_VELOCITY
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: km/s
+            description: Radial velocity
           radial_velocity_error:
             name: RADIAL_VELOCITY_ERROR
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: km/s
+            description: Radial velocity error
           rv_nb_transits:
             name: RV_NB_TRANSITS
             type: int16
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Number of transits used to compute radial velocity
           rv_template_teff:
             name: RV_TEMPLATE_TEFF
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: K
+            description: Teff of the template used to compute radial velocity
           rv_template_logg:
             name: RV_TEMPLATE_LOGG
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: log cgs
+            description: logg of the template used to compute radial velocity
           rv_template_fe_h:
             name: RV_TEMPLATE_FE_H
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: dex
+            description: Fe/H of the template used to compute radial velocity
           phot_variable_flag:
             name: PHOT_VARIABLE_FLAG
             type: char[13]
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Photometric variability flag
           l:
             name: L
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: degrees
+            description: Galactic longitude
           b:
             name: B
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: degrees
+            description: Galactic latitude
           ecl_lon:
             name: ECL_LON
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: degrees
+            description: Ecliptic longitude
           ecl_lat:
             name: ECL_LAT
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: degrees
+            description: Ecliptic latitude
           priam_flags:
             name: PRIAM_FLAGS
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Flags for the Apsis-Priam results
           teff_val:
             name: TEFF_VAL
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: K
+            description: Stellar effective temperature
           teff_percentile_lower:
             name: TEFF_PERCENTILE_LOWER
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: K
+            description: Teff_val lower uncertainty
           teff_percentile_upper:
             name: TEFF_PERCENTILE_UPPER
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: K
+            description: Teff_val upper uncertainty
           a_g_val:
             name: A_G_VAL
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: Line-of-sight extinction in the G band
           a_g_percentile_lower:
             name: A_G_PERCENTILE_LOWER
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: A_g_val lower uncertainty
           a_g_percentile_upper:
             name: A_G_PERCENTILE_UPPER
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: A_g_val upper uncertainty
           e_bp_min_rp_val:
             name: E_BP_MIN_RP_VAL
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: Line-of-sight reddening E(BP-RP)
           e_bp_min_rp_percentile_lower:
             name: E_BP_MIN_RP_PERCENTILE_LOWER
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: e_bp_min_rp_val lower uncertainty
           e_bp_min_rp_percentile_upper:
             name: E_BP_MIN_RP_PERCENTILE_UPPER
             type: float32
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: mag
+            description: e_bp_min_rp_val upper uncertainty
           flame_flags:
             name: FLAME_FLAGS
             type: int32
             unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            description: Flags for the Apsis-FLAME results
           radius_val:
             name: RADIUS_VAL
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: Solar Radius
+            description: Stellar radius
           radius_percentile_lower:
             name: RADIUS_PERCENTILE_LOWER
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: Solar Radius
+            description: Radius_val lower uncertainty
           radius_percentile_upper:
             name: RADIUS_PERCENTILE_UPPER
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: Solar Radius
+            description: Radius_val upper uncertainty
           lum_val:
             name: LUM_VAL
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: Solar Luminosity
+            description: stellar luminosity
           lum_percentile_lower:
             name: LUM_PERCENTILE_LOWER
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: Solar Luminosity
+            description: lum_val lower uncertainty
           lum_percentile_upper:
             name: LUM_PERCENTILE_UPPER
             type: float64
-            unit: ''
-            description: TBD in minidb_docs (as of 04/05/2022)
+            unit: Solar Luminosity
+            description: lum_val upper uncertainty
