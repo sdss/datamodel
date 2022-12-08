@@ -16,10 +16,10 @@ MOS Target Table: sdss_apogeeallstarmerge_r13
 List of APOGEE DR16 stars for RV followup
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_target_sdss_apogeeallstarmerge_r13-[NUM].fits, where V_TARG=1.0.1 for WORK; and NUM = 1..1 to partition the file into parts
+$MOS_TARGET/[V_TARG]/mos_target_sdss_apogeeallstarmerge_r13-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
 
 ### Releases
-WORK
+DR18
 
 ### Enviroments
 MOS_TARGET
@@ -36,7 +36,7 @@ sdss5db> targetdb, operations database server
 ### Is a VAC
 False
 
-### HDUS List for release WORK
+### HDUS List for release DR18
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1: ](#hdu1-)
 
@@ -117,7 +117,7 @@ Name | Type | Unit | Description |
  | DIST | float32 | pc | Derived or given distance to the star |
  | DIST_ERR | float32 | pc | uncertainy of the distance |
  | DIST_SRC | char[9] |  | Source of the star's distance measurement (e.g. gaia=derived from gaia parallax) |
- | DIST_SRCLIST | char[93] |  | TBD in minidb_docs (as of 04/05/2022) |
+ | DIST_SRCLIST | char[93] |  | Source list of the star's distance measurement |
  | MSTAR | float32 |  | Derived or given stellar mass (Solar Mass) |
  | MSTAR_ERR | float32 | Solar Mass | Uncertainty of the Derived stellar mass |
  | RSTAR | float32 | Solar Radius | Derived stellar radius |
