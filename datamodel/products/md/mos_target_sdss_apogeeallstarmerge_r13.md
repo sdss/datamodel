@@ -16,10 +16,10 @@ MOS Target Table: sdss_apogeeallstarmerge_r13
 List of APOGEE DR16 stars for RV followup
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_target_sdss_apogeeallstarmerge_r13-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
+$MOS_TARGET/[V_TARG]/mos_target_sdss_apogeeallstarmerge_r13-[NUM].fits, where V_TARG=1.0.1 for WORK; and NUM = 1..1 to partition the file into parts
 
 ### Releases
-DR18
+WORK
 
 ### Enviroments
 MOS_TARGET
@@ -36,7 +36,7 @@ sdss5db> targetdb, operations database server
 ### Is a VAC
 False
 
-### HDUS List for release DR18
+### HDUS List for release WORK
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1: ](#hdu1-)
 
