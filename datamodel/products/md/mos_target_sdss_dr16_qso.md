@@ -16,10 +16,10 @@ MOS Target Table: sdss_dr16_qso
 SDSS Data Release 16 Quasar Catalog (Lyke et al. 2020). For complete details, please see the original paper: https://ui.adsabs.harvard.edu/abs/2020ApJS..250....8L/abstract
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_target_sdss_dr16_qso-[NUM].fits, where V_TARG=1.0.1 for WORK; and NUM = 1..1 to partition the file into parts
+$MOS_TARGET/[V_TARG]/mos_target_sdss_dr16_qso-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
 
 ### Releases
-WORK
+DR18
 
 ### Enviroments
 MOS_TARGET
@@ -36,7 +36,7 @@ sdss5db> targetdb, operations database server
 ### Is a VAC
 False
 
-### HDUS List for release WORK
+### HDUS List for release DR18
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1: ](#hdu1-)
 

@@ -16,10 +16,10 @@ MOS Target Table: best_brightest
 Catalog from Kevin Schlaufman for the selection of bright metal-poor stars from the method of Schlaufman and Casey (2014): https://ui.adsabs.harvard.edu/abs/2014ApJ...797...13S/abstract. WISE values from WHICH CATALOG, 2MASS values from 2MASS point source catalog.
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_target_best_brightest-[NUM].fits, where V_TARG=1.0.1 for WORK; and NUM = 1..1 to partition the file into parts
+$MOS_TARGET/[V_TARG]/mos_target_best_brightest-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
 
 ### Releases
-WORK
+DR18
 
 ### Enviroments
 MOS_TARGET
@@ -36,7 +36,7 @@ sdss5db> targetdb, operations database server
 ### Is a VAC
 False
 
-### HDUS List for release WORK
+### HDUS List for release DR18
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1: ](#hdu1-)
 

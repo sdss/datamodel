@@ -16,10 +16,10 @@ MOS Target Table: gaia_dr2_wd
 White dwarf catalog of high-probablity WDs from Gentile Fusillo (2019) based on Gaia DR2. Please see https://academic.oup.com/mnras/article/482/4/4570/5162857 for more information on the columns.
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_target_gaia_dr2_wd-[NUM].fits, where V_TARG=1.0.1 for WORK; and NUM = 1..1 to partition the file into parts
+$MOS_TARGET/[V_TARG]/mos_target_gaia_dr2_wd-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
 
 ### Releases
-WORK
+DR18
 
 ### Enviroments
 MOS_TARGET
@@ -36,7 +36,7 @@ sdss5db> targetdb, operations database server
 ### Is a VAC
 False
 
-### HDUS List for release WORK
+### HDUS List for release DR18
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1: ](#hdu1-)
 

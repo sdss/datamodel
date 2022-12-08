@@ -16,10 +16,10 @@ MOS Target Table: carton_to_target
 The table stores the targets assigned to a given carton along with information about the instrument that will observe that target, and offseting data.
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_target_carton_to_target-[NUM].fits, where V_TARG=1.0.1 for WORK; and NUM = 1..1 to partition the file into parts
+$MOS_TARGET/[V_TARG]/mos_target_carton_to_target-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
 
 ### Releases
-WORK
+DR18
 
 ### Enviroments
 MOS_TARGET
@@ -36,7 +36,7 @@ sdss5db> targetdb, operations database server
 ### Is a VAC
 False
 
-### HDUS List for release WORK
+### HDUS List for release DR18
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1: ](#hdu1-)
 

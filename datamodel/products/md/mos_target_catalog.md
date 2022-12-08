@@ -13,13 +13,13 @@ MOS Target Table: catalog
 ---
 
 ## Basic Information
-The table stores the results of the cross-match used for WORK targeting. All entries in this table are expected to be unique physical objects drawn from one or more parent catalogues. The mos_target_catalog_to_ tables provide the relationship between mos_target_catalog objects and their parent catalogue counterparts.
+The table stores the results of the cross-match used for DR18 targeting. All entries in this table are expected to be unique physical objects drawn from one or more parent catalogues. The mos_target_catalog_to_ tables provide the relationship between mos_target_catalog objects and their parent catalogue counterparts.
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_target_catalog-[NUM].fits, where V_TARG=1.0.1 for WORK; and NUM = 1..1 to partition the file into parts
+$MOS_TARGET/[V_TARG]/mos_target_catalog-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
 
 ### Releases
-WORK
+DR18
 
 ### Enviroments
 MOS_TARGET
@@ -36,7 +36,7 @@ sdss5db> targetdb, operations database server
 ### Is a VAC
 False
 
-### HDUS List for release WORK
+### HDUS List for release DR18
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1: ](#hdu1-)
 
