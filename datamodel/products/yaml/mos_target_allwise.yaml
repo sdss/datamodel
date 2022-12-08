@@ -12,11 +12,13 @@ general:
   surveys:
   - BHM
   - MWM
+  - SDSS
   naming_convention: $MOS_TARGET/[V_TARG]/mos_target_allwise-[NUM].fits, where V_TARG=1.0.1
     for WORK; and NUM = 1..1 to partition the file into parts
   generated_by: sdss5db> targetdb, operations database server
   design: false
   vac: false
+  recommended_science_product: false
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
@@ -30,7 +32,7 @@ releases:
     access:
       in_sdss_access: true
       path_name: mos_target_allwise
-      path_template: $MOS_TARGET/{v_targ}/mos_target_allwise-{num:0>2}
+      path_template: $MOS_TARGET/{v_targ}/mos_target_allwise-{num}
       path_kwargs:
       - num
       - v_targ
@@ -1655,4 +1657,5 @@ releases:
             type: int64
             unit: ''
             description: Level 20 HTM spatial index key
-notes: "w1fitr and w2fitr are from the CatWISE preliminary catalog. See https://iopscience.iop.org/article/10.3847/1538-4365/ab7f2a#apjsab7f2aapp1 for more details"
+notes: |-
+  w1fitr and w2fitr are from the CatWISE preliminary catalog. See https://iopscience.iop.org/article/10.3847/1538-4365/ab7f2a#apjsab7f2aapp1 for more details

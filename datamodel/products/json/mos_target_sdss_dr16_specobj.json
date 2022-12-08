@@ -2,7 +2,7 @@
   "general": {
     "name": "mos_target_sdss_dr16_specobj",
     "short": "MOS Target Table: sdss_dr16_specobj",
-    "description": "TBD in minidb_docs (as of 04/05/2022)",
+    "description": "This is a base table containing ALL the spectroscopic information, including a lot of duplicate and bad data. Use the SpecObj view instead, which has the data properly filtered for cleanliness. These tables contain both the BOSS and SDSS spectrograph data. NOTE: The RA and Dec in this table refer to the DR8 coordinates, which have errors in the region north of 41 deg in Dec. This change does not affect the matching to the photometric catalog.",
     "environments": [
       "MOS_TARGET"
     ],
@@ -54,13 +54,13 @@
     "filesize": "1 GB",
     "releases": [
       {
-        "name": "DR18",
+        "name": "WORK",
         "description": "SDSS unreleased data.  Represents any work-in-progress data.",
         "public": false,
         "release_date": "unreleased"
       }
     ],
-    "naming_convention": "$MOS_TARGET/[V_TARG]/mos_target_sdss_dr16_specobj-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts",
+    "naming_convention": "$MOS_TARGET/[V_TARG]/mos_target_sdss_dr16_specobj-[NUM].fits, where V_TARG=1.0.1 for WORK; and NUM = 1..1 to partition the file into parts",
     "generated_by": "sdss5db> targetdb, operations database server",
     "design": false,
     "vac": false
@@ -70,7 +70,7 @@
     "releases": {}
   },
   "releases": {
-    "DR18": {
+    "WORK": {
       "template": "$MOS_TARGET/[V_TARG]/mos_target_sdss_dr16_specobj.fits",
       "example": "1.0.1/mos_target_sdss_dr16_specobj.fits",
       "location": "{v_targ}/mos_target_sdss_dr16_specobj.fits",
@@ -124,1165 +124,1165 @@
           "columns": {
             "specobjid": {
               "name": "SPECOBJID",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Unique database ID based on PLATE, MJD, FIBERID, RUN2D",
               "type": "float32",
               "unit": ""
             },
             "bestobjid": {
               "name": "BESTOBJID",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Object ID of photoObj match (position-based)",
               "type": "int64",
               "unit": ""
             },
             "fluxobjid": {
               "name": "FLUXOBJID",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Object ID of photoObj match (flux-based)",
               "type": "int64",
               "unit": ""
             },
             "targetobjid": {
               "name": "TARGETOBJID",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Object ID of original target",
               "type": "int64",
               "unit": ""
             },
             "plateid": {
               "name": "PLATEID",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Database ID of Plate",
               "type": "float32",
               "unit": ""
             },
             "scienceprimary": {
               "name": "SCIENCEPRIMARY",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Best version of spectrum at this location (defines default view SpecObj)",
               "type": "int16",
               "unit": ""
             },
             "sdssprimary": {
               "name": "SDSSPRIMARY",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Best version of spectrum at this location among SDSS plates (defines default view SpecObj)",
               "type": "int16",
               "unit": ""
             },
             "legacyprimary": {
               "name": "LEGACYPRIMARY",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Best version of spectrum at this location, among Legacy plates",
               "type": "int16",
               "unit": ""
             },
             "segueprimary": {
               "name": "SEGUEPRIMARY",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Best version of spectrum at this location, among SEGUE plates",
               "type": "int16",
               "unit": ""
             },
             "segue1primary": {
               "name": "SEGUE1PRIMARY",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Best version of spectrum at this location, among SEGUE-1 plates",
               "type": "int16",
               "unit": ""
             },
             "segue2primary": {
               "name": "SEGUE2PRIMARY",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Best version of spectrum at this location, among SEGUE-2 plates",
               "type": "int16",
               "unit": ""
             },
             "bossprimary": {
               "name": "BOSSPRIMARY",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Best version of spectrum at this location, among BOSS plates",
               "type": "int16",
               "unit": ""
             },
             "bossspecobjid": {
               "name": "BOSSSPECOBJID",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Index of BOSS observation in spAll flat file",
               "type": "int32",
               "unit": ""
             },
             "firstrelease": {
               "name": "FIRSTRELEASE",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Name of first release this object was associated with",
               "type": "char[4]",
               "unit": ""
             },
             "survey": {
               "name": "SURVEY",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Survey name",
               "type": "char[6]",
               "unit": ""
             },
             "instrument": {
               "name": "INSTRUMENT",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Instrument used (SDSS or BOSS spectrograph)",
               "type": "char[4]",
               "unit": ""
             },
             "programname": {
               "name": "PROGRAMNAME",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Program name",
               "type": "char[27]",
               "unit": ""
             },
             "chunk": {
               "name": "CHUNK",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Chunk name",
               "type": "char[16]",
               "unit": ""
             },
             "platerun": {
               "name": "PLATERUN",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Plate drill run name",
               "type": "char[16]",
               "unit": ""
             },
             "mjd": {
               "name": "MJD",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "MJD of observation",
               "type": "int32",
               "unit": ""
             },
             "plate": {
               "name": "PLATE",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Plate number",
               "type": "int16",
               "unit": ""
             },
             "fiberid": {
               "name": "FIBERID",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Fiber ID",
               "type": "int16",
               "unit": ""
             },
             "run1d": {
               "name": "RUN1D",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "1D Reduction version of spectrum",
               "type": "char[7]",
               "unit": ""
             },
             "run2d": {
               "name": "RUN2D",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "2D Reduction version of spectrum",
               "type": "char[7]",
               "unit": ""
             },
             "tile": {
               "name": "TILE",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Tile number",
               "type": "int32",
               "unit": ""
             },
             "designid": {
               "name": "DESIGNID",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Design ID number",
               "type": "int32",
               "unit": ""
             },
             "legacy_target1": {
               "name": "LEGACY_TARGET1",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "for Legacy program, target selection information at plate design",
               "type": "int64",
               "unit": ""
             },
             "legacy_target2": {
               "name": "LEGACY_TARGET2",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "for Legacy program target selection information at plate design, secondary/qa/calibration",
               "type": "int64",
               "unit": ""
             },
             "special_target1": {
               "name": "SPECIAL_TARGET1",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "for Special program target selection information at plate design",
               "type": "int64",
               "unit": ""
             },
             "special_target2": {
               "name": "SPECIAL_TARGET2",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "for Special program target selection information at plate design, secondary/qa/calibration",
               "type": "int64",
               "unit": ""
             },
             "segue1_target1": {
               "name": "SEGUE1_TARGET1",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "SEGUE-1 target selection information at plate design, primary science selection",
               "type": "int64",
               "unit": ""
             },
             "segue1_target2": {
               "name": "SEGUE1_TARGET2",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "SEGUE-1 target selection information at plate design, secondary/qa/calib selection",
               "type": "int64",
               "unit": ""
             },
             "segue2_target1": {
               "name": "SEGUE2_TARGET1",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "SEGUE-2 target selection information at plate design, primary science selection",
               "type": "int64",
               "unit": ""
             },
             "segue2_target2": {
               "name": "SEGUE2_TARGET2",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "SEGUE-2 target selection information at plate design, secondary/qa/calib selection",
               "type": "int64",
               "unit": ""
             },
             "boss_target1": {
               "name": "BOSS_TARGET1",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "BOSS target selection information at plate",
               "type": "int64",
               "unit": ""
             },
             "eboss_target0": {
               "name": "EBOSS_TARGET0",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "EBOSS target selection information, for SEQUELS plates",
               "type": "int64",
               "unit": ""
             },
             "eboss_target1": {
               "name": "EBOSS_TARGET1",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "EBOSS target selection information, for eBOSS plates",
               "type": "int64",
               "unit": ""
             },
             "eboss_target2": {
               "name": "EBOSS_TARGET2",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "EBOSS target selection information, for TDSS, SPIDERS, ELG, etc. plates",
               "type": "int64",
               "unit": ""
             },
             "eboss_target_id": {
               "name": "EBOSS_TARGET_ID",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "EBOSS unique target identifier for every spectroscopic target,",
               "type": "int64",
               "unit": ""
             },
             "ancillary_target1": {
               "name": "ANCILLARY_TARGET1",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "BOSS ancillary science target selection information at plate design",
               "type": "int64",
               "unit": ""
             },
             "ancillary_target2": {
               "name": "ANCILLARY_TARGET2",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "BOSS ancillary target selection information at plate design",
               "type": "int64",
               "unit": ""
             },
             "thing_id_targeting": {
               "name": "THING_ID_TARGETING",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "thing_id value from the version of resolve from which the targeting was created",
               "type": "int64",
               "unit": ""
             },
             "thing_id": {
               "name": "THING_ID",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Unique identifier from global resolve",
               "type": "int32",
               "unit": ""
             },
             "primtarget": {
               "name": "PRIMTARGET",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "target selection information at plate design, primary science selection (for backwards compatibility)",
               "type": "int64",
               "unit": ""
             },
             "sectarget": {
               "name": "SECTARGET",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "target selection information at plate design, secondary/qa/calib selection (for backwards compatibility)",
               "type": "int64",
               "unit": ""
             },
             "spectrographid": {
               "name": "SPECTROGRAPHID",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "which spectrograph (1,2)",
               "type": "int16",
               "unit": ""
             },
             "sourcetype": {
               "name": "SOURCETYPE",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "For Legacy, SEGUE-2 and BOSS science targets, type of object targeted as (target bits contain full information and are recommended)",
               "type": "char[23]",
               "unit": ""
             },
             "targettype": {
               "name": "TARGETTYPE",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Nature of target: SCIENCE, STANDARD, or SKY",
               "type": "char[8]",
               "unit": ""
             },
             "ra": {
               "name": "RA",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "DR8 Right ascension of fiber, J2000",
               "type": "float64",
               "unit": ""
             },
             "dec": {
               "name": "DEC",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "DR8 Declination of fiber, J2000",
               "type": "float64",
               "unit": ""
             },
             "cx": {
               "name": "CX",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "x of Normal unit vector in J2000",
               "type": "float64",
               "unit": ""
             },
             "cy": {
               "name": "CY",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "y of Normal unit vector in J2000",
               "type": "float64",
               "unit": ""
             },
             "cz": {
               "name": "CZ",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "z of Normal unit vector in J2000",
               "type": "float64",
               "unit": ""
             },
             "xfocal": {
               "name": "XFOCAL",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "X focal plane position (+RA direction)",
               "type": "float32",
               "unit": ""
             },
             "yfocal": {
               "name": "YFOCAL",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Y focal plane position (+Dec direction)",
               "type": "float32",
               "unit": ""
             },
             "lambdaeff": {
               "name": "LAMBDAEFF",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Effective wavelength that hole was drilled for (accounting for atmopheric refraction)",
               "type": "float32",
               "unit": ""
             },
             "bluefiber": {
               "name": "BLUEFIBER",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Set to 1 if this hole was designated a \"blue fiber\", 0 if designated a \"red fiber\" (high redshift LRGs are preferentially in \"red fibers\")",
               "type": "int32",
               "unit": ""
             },
             "zoffset": {
               "name": "ZOFFSET",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Washer thickness used (for backstopping BOSS quasar targets, so they are closer to 4000 Angstrom focal plan)",
               "type": "float32",
               "unit": ""
             },
             "z": {
               "name": "Z",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Final Redshift",
               "type": "float32",
               "unit": ""
             },
             "zerr": {
               "name": "ZERR",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Redshift error",
               "type": "float32",
               "unit": ""
             },
             "zwarning": {
               "name": "ZWARNING",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Bitmask of warning values; 0 means all is well",
               "type": "int32",
               "unit": ""
             },
             "class": {
               "name": "CLASS",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Spectroscopic class (GALAXY, QSO, or STAR)",
               "type": "char[6]",
               "unit": ""
             },
             "subclass": {
               "name": "SUBCLASS",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Spectroscopic subclass",
               "type": "char[21]",
               "unit": ""
             },
             "rchi2": {
               "name": "RCHI2",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Reduced chi-squared of best fit",
               "type": "float32",
               "unit": ""
             },
             "dof": {
               "name": "DOF",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Degrees of freedom in best fit",
               "type": "float32",
               "unit": ""
             },
             "rchi2diff": {
               "name": "RCHI2DIFF",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Difference in reduced chi-squared between best and second best fit",
               "type": "float32",
               "unit": ""
             },
             "z_noqso": {
               "name": "Z_NOQSO",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Best redshift when excluding QSO fit in BOSS spectra (right redshift to use for galaxy targets)",
               "type": "float32",
               "unit": ""
             },
             "zerr_noqso": {
               "name": "ZERR_NOQSO",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Error in \"z_noqso\" redshift (BOSS spectra only)",
               "type": "float32",
               "unit": ""
             },
             "zwarning_noqso": {
               "name": "ZWARNING_NOQSO",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Warnings in \"z_noqso\" redshift (BOSS spectra only)",
               "type": "int32",
               "unit": ""
             },
             "class_noqso": {
               "name": "CLASS_NOQSO",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Classification in \"z_noqso\" redshift",
               "type": "char[6]",
               "unit": ""
             },
             "subclass_noqso": {
               "name": "SUBCLASS_NOQSO",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Sub-classification in \"z_noqso\" redshift",
               "type": "char[21]",
               "unit": ""
             },
             "rchi2diff_noqso": {
               "name": "RCHI2DIFF_NOQSO",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Reduced chi-squared difference from next best redshift, for \"z_noqso\" redshift",
               "type": "float32",
               "unit": ""
             },
             "z_person": {
               "name": "Z_PERSON",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Person-assigned redshift, if this object has been inspected",
               "type": "float32",
               "unit": ""
             },
             "class_person": {
               "name": "CLASS_PERSON",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Person-assigned classification, if this object has been inspected",
               "type": "char[1]",
               "unit": ""
             },
             "comments_person": {
               "name": "COMMENTS_PERSON",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Comments from person for inspected objects",
               "type": "char[4]",
               "unit": ""
             },
             "tfile": {
               "name": "TFILE",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "File name of best fit template source",
               "type": "char[24]",
               "unit": ""
             },
             "tcolumn_0": {
               "name": "TCOLUMN_0",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Which column of the template file corresponds to template #0",
               "type": "int16",
               "unit": ""
             },
             "tcolumn_1": {
               "name": "TCOLUMN_1",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Which column of the template file corresponds to template #1",
               "type": "int16",
               "unit": ""
             },
             "tcolumn_2": {
               "name": "TCOLUMN_2",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Which column of the template file corresponds to template #2",
               "type": "int16",
               "unit": ""
             },
             "tcolumn_3": {
               "name": "TCOLUMN_3",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Which column of the template file corresponds to template #3",
               "type": "int16",
               "unit": ""
             },
             "tcolumn_4": {
               "name": "TCOLUMN_4",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Which column of the template file corresponds to template #4",
               "type": "int16",
               "unit": ""
             },
             "tcolumn_5": {
               "name": "TCOLUMN_5",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Which column of the template file corresponds to template #5",
               "type": "int16",
               "unit": ""
             },
             "tcolumn_6": {
               "name": "TCOLUMN_6",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Which column of the template file corresponds to template #6",
               "type": "int16",
               "unit": ""
             },
             "tcolumn_7": {
               "name": "TCOLUMN_7",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Which column of the template file corresponds to template #7",
               "type": "int16",
               "unit": ""
             },
             "tcolumn_8": {
               "name": "TCOLUMN_8",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Which column of the template file corresponds to template #8",
               "type": "int16",
               "unit": ""
             },
             "tcolumn_9": {
               "name": "TCOLUMN_9",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Which column of the template file corresponds to template #9",
               "type": "int16",
               "unit": ""
             },
             "npoly": {
               "name": "NPOLY",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Number of polynomial terms used in the fit",
               "type": "float32",
               "unit": ""
             },
             "theta_0": {
               "name": "THETA_0",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Coefficient for template #0 of fit",
               "type": "float32",
               "unit": ""
             },
             "theta_1": {
               "name": "THETA_1",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Coefficient for template #1 of fit",
               "type": "float32",
               "unit": ""
             },
             "theta_2": {
               "name": "THETA_2",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Coefficient for template #2 of fit",
               "type": "float32",
               "unit": ""
             },
             "theta_3": {
               "name": "THETA_3",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Coefficient for template #3 of fit",
               "type": "float32",
               "unit": ""
             },
             "theta_4": {
               "name": "THETA_4",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Coefficient for template #4 of fit",
               "type": "float32",
               "unit": ""
             },
             "theta_5": {
               "name": "THETA_5",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Coefficient for template #5 of fit",
               "type": "float32",
               "unit": ""
             },
             "theta_6": {
               "name": "THETA_6",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Coefficient for template #6 of fit",
               "type": "float32",
               "unit": ""
             },
             "theta_7": {
               "name": "THETA_7",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Coefficient for template #7 of fit",
               "type": "float32",
               "unit": ""
             },
             "theta_8": {
               "name": "THETA_8",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Coefficient for template #8 of fit",
               "type": "float32",
               "unit": ""
             },
             "theta_9": {
               "name": "THETA_9",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Coefficient for template #9 of fit",
               "type": "float32",
               "unit": ""
             },
             "veldisp": {
               "name": "VELDISP",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Velocity dispersion",
               "type": "float32",
               "unit": ""
             },
             "veldisperr": {
               "name": "VELDISPERR",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Error in velocity dispersion",
               "type": "float32",
               "unit": ""
             },
             "veldispz": {
               "name": "VELDISPZ",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Redshift associated with best fit velocity dispersion",
               "type": "float32",
               "unit": ""
             },
             "veldispzerr": {
               "name": "VELDISPZERR",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Error in redshift associated with best fit velocity dispersion",
               "type": "float32",
               "unit": ""
             },
             "veldispchi2": {
               "name": "VELDISPCHI2",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Chi-squared associated with velocity dispersion fit",
               "type": "float32",
               "unit": ""
             },
             "veldispnpix": {
               "name": "VELDISPNPIX",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Number of pixels overlapping best template in velocity dispersion fit",
               "type": "int32",
               "unit": ""
             },
             "veldispdof": {
               "name": "VELDISPDOF",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Number of degrees of freedom in velocity dispersion fit",
               "type": "int32",
               "unit": ""
             },
             "wavemin": {
               "name": "WAVEMIN",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Minimum observed (vacuum) wavelength",
               "type": "float32",
               "unit": ""
             },
             "wavemax": {
               "name": "WAVEMAX",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Maximum observed (vacuum) wavelength",
               "type": "float32",
               "unit": ""
             },
             "wcoverage": {
               "name": "WCOVERAGE",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Coverage in wavelength, in units of log10 wavelength",
               "type": "float32",
               "unit": ""
             },
             "snmedian_u": {
               "name": "SNMEDIAN_U",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Median signal-to-noise over all good pixels in u-band",
               "type": "float32",
               "unit": ""
             },
             "snmedian_g": {
               "name": "SNMEDIAN_G",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Median signal-to-noise over all good pixels in g-band",
               "type": "float32",
               "unit": ""
             },
             "snmedian_r": {
               "name": "SNMEDIAN_R",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Median signal-to-noise over all good pixels in r-band",
               "type": "float32",
               "unit": ""
             },
             "snmedian_i": {
               "name": "SNMEDIAN_I",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Median signal-to-noise over all good pixels in i-band",
               "type": "float32",
               "unit": ""
             },
             "snmedian_z": {
               "name": "SNMEDIAN_Z",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Median signal-to-noise over all good pixels in z-band",
               "type": "float32",
               "unit": ""
             },
             "snmedian": {
               "name": "SNMEDIAN",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Median signal-to-noise over all good pixels",
               "type": "float32",
               "unit": ""
             },
             "chi68p": {
               "name": "CHI68P",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "68-th percentile value of abs(chi) of the best-fit synthetic spectrum to the actual spectrum (around 1.0 for a good fit)",
               "type": "float32",
               "unit": ""
             },
             "fracnsigma_1": {
               "name": "FRACNSIGMA_1",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Fraction of pixels deviant by more than 1 sigma relative to best-fit",
               "type": "float32",
               "unit": ""
             },
             "fracnsigma_2": {
               "name": "FRACNSIGMA_2",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Fraction of pixels deviant by more than 2 sigma relative to best-fit",
               "type": "float32",
               "unit": ""
             },
             "fracnsigma_3": {
               "name": "FRACNSIGMA_3",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Fraction of pixels deviant by more than 3 sigma relative to best-fit",
               "type": "float32",
               "unit": ""
             },
             "fracnsigma_4": {
               "name": "FRACNSIGMA_4",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Fraction of pixels deviant by more than 4 sigma relative to best-fit",
               "type": "float32",
               "unit": ""
             },
             "fracnsigma_5": {
               "name": "FRACNSIGMA_5",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Fraction of pixels deviant by more than 5 sigma relative to best-fit",
               "type": "float32",
               "unit": ""
             },
             "fracnsigma_6": {
               "name": "FRACNSIGMA_6",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Fraction of pixels deviant by more than 6 sigma relative to best-fit",
               "type": "float32",
               "unit": ""
             },
             "fracnsigma_7": {
               "name": "FRACNSIGMA_7",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Fraction of pixels deviant by more than 7 sigma relative to best-fit",
               "type": "float32",
               "unit": ""
             },
             "fracnsigma_8": {
               "name": "FRACNSIGMA_8",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Fraction of pixels deviant by more than 8 sigma relative to best-fit",
               "type": "float32",
               "unit": ""
             },
             "fracnsigma_9": {
               "name": "FRACNSIGMA_9",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Fraction of pixels deviant by more than 9 sigma relative to best-fit",
               "type": "float32",
               "unit": ""
             },
             "fracnsigma_10": {
               "name": "FRACNSIGMA_10",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Fraction of pixels deviant by more than 10 sigma relative to best-fit",
               "type": "float32",
               "unit": ""
             },
             "fracnsighi_1": {
               "name": "FRACNSIGHI_1",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Fraction of pixels high by more than 1 sigma relative to best-fit",
               "type": "float32",
               "unit": ""
             },
             "fracnsighi_2": {
               "name": "FRACNSIGHI_2",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Fraction of pixels high by more than 2 sigma relative to best-fit",
               "type": "float32",
               "unit": ""
             },
             "fracnsighi_3": {
               "name": "FRACNSIGHI_3",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Fraction of pixels high by more than 3 sigma relative to best-fit",
               "type": "float32",
               "unit": ""
             },
             "fracnsighi_4": {
               "name": "FRACNSIGHI_4",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Fraction of pixels high by more than 4 sigma relative to best-fit",
               "type": "float32",
               "unit": ""
             },
             "fracnsighi_5": {
               "name": "FRACNSIGHI_5",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Fraction of pixels high by more than 5 sigma relative to best-fit",
               "type": "float32",
               "unit": ""
             },
             "fracnsighi_6": {
               "name": "FRACNSIGHI_6",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Fraction of pixels high by more than 6 sigma relative to best-fit",
               "type": "float32",
               "unit": ""
             },
             "fracnsighi_7": {
               "name": "FRACNSIGHI_7",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Fraction of pixels high by more than 7 sigma relative to best-fit",
               "type": "float32",
               "unit": ""
             },
             "fracnsighi_8": {
               "name": "FRACNSIGHI_8",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Fraction of pixels high by more than 8 sigma relative to best-fit",
               "type": "float32",
               "unit": ""
             },
             "fracnsighi_9": {
               "name": "FRACNSIGHI_9",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Fraction of pixels high by more than 9 sigma relative to best-fit",
               "type": "float32",
               "unit": ""
             },
             "fracnsighi_10": {
               "name": "FRACNSIGHI_10",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Fraction of pixels high by more than 10 sigma relative to best-fit",
               "type": "float32",
               "unit": ""
             },
             "fracnsiglo_1": {
               "name": "FRACNSIGLO_1",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Fraction of pixels low by more than 1 sigma relative to best-fit",
               "type": "float32",
               "unit": ""
             },
             "fracnsiglo_2": {
               "name": "FRACNSIGLO_2",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Fraction of pixels low by more than 2 sigma relative to best-fit",
               "type": "float32",
               "unit": ""
             },
             "fracnsiglo_3": {
               "name": "FRACNSIGLO_3",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Fraction of pixels low by more than 3 sigma relative to best-fit",
               "type": "float32",
               "unit": ""
             },
             "fracnsiglo_4": {
               "name": "FRACNSIGLO_4",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Fraction of pixels low by more than 4 sigma relative to best-fit",
               "type": "float32",
               "unit": ""
             },
             "fracnsiglo_5": {
               "name": "FRACNSIGLO_5",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Fraction of pixels low by more than 5 sigma relative to best-fit",
               "type": "float32",
               "unit": ""
             },
             "fracnsiglo_6": {
               "name": "FRACNSIGLO_6",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Fraction of pixels low by more than 6 sigma relative to best-fit",
               "type": "float32",
               "unit": ""
             },
             "fracnsiglo_7": {
               "name": "FRACNSIGLO_7",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Fraction of pixels low by more than 7 sigma relative to best-fit",
               "type": "float32",
               "unit": ""
             },
             "fracnsiglo_8": {
               "name": "FRACNSIGLO_8",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Fraction of pixels low by more than 8 sigma relative to best-fit",
               "type": "float32",
               "unit": ""
             },
             "fracnsiglo_9": {
               "name": "FRACNSIGLO_9",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Fraction of pixels low by more than 9 sigma relative to best-fit",
               "type": "float32",
               "unit": ""
             },
             "fracnsiglo_10": {
               "name": "FRACNSIGLO_10",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Fraction of pixels low by more than 10 sigma relative to best-fit",
               "type": "float32",
               "unit": ""
             },
             "spectroflux_u": {
               "name": "SPECTROFLUX_U",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Spectrum projected onto u filter",
               "type": "float32",
               "unit": ""
             },
             "spectroflux_g": {
               "name": "SPECTROFLUX_G",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Spectrum projected onto g filter",
               "type": "float32",
               "unit": ""
             },
             "spectroflux_r": {
               "name": "SPECTROFLUX_R",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Spectrum projected onto r filter",
               "type": "float32",
               "unit": ""
             },
             "spectroflux_i": {
               "name": "SPECTROFLUX_I",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Spectrum projected onto i filter",
               "type": "float32",
               "unit": ""
             },
             "spectroflux_z": {
               "name": "SPECTROFLUX_Z",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Spectrum projected onto z filter",
               "type": "float32",
               "unit": ""
             },
             "spectrosynflux_u": {
               "name": "SPECTROSYNFLUX_U",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Best-fit template spectrum projected onto u filter",
               "type": "float32",
               "unit": ""
             },
             "spectrosynflux_g": {
               "name": "SPECTROSYNFLUX_G",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Best-fit template spectrum projected onto g filter",
               "type": "float32",
               "unit": ""
             },
             "spectrosynflux_r": {
               "name": "SPECTROSYNFLUX_R",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Best-fit template spectrum projected onto r filter",
               "type": "float32",
               "unit": ""
             },
             "spectrosynflux_i": {
               "name": "SPECTROSYNFLUX_I",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Best-fit template spectrum projected onto i filter",
               "type": "float32",
               "unit": ""
             },
             "spectrosynflux_z": {
               "name": "SPECTROSYNFLUX_Z",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Best-fit template spectrum projected onto z filter",
               "type": "float32",
               "unit": ""
             },
             "spectrofluxivar_u": {
               "name": "SPECTROFLUXIVAR_U",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Inverse variance of spectrum projected onto u filter",
               "type": "float32",
               "unit": ""
             },
             "spectrofluxivar_g": {
               "name": "SPECTROFLUXIVAR_G",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Inverse variance of spectrum projected onto g filter",
               "type": "float32",
               "unit": ""
             },
             "spectrofluxivar_r": {
               "name": "SPECTROFLUXIVAR_R",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Inverse variance of spectrum projected onto r filter",
               "type": "float32",
               "unit": ""
             },
             "spectrofluxivar_i": {
               "name": "SPECTROFLUXIVAR_I",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Inverse variance of spectrum projected onto i filter",
               "type": "float32",
               "unit": ""
             },
             "spectrofluxivar_z": {
               "name": "SPECTROFLUXIVAR_Z",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Inverse variance of spectrum projected onto z filter",
               "type": "float32",
               "unit": ""
             },
             "spectrosynfluxivar_u": {
               "name": "SPECTROSYNFLUXIVAR_U",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Inverse variance of best-fit template spectrum projected onto u filter",
               "type": "float32",
               "unit": ""
             },
             "spectrosynfluxivar_g": {
               "name": "SPECTROSYNFLUXIVAR_G",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Inverse variance of best-fit template spectrum projected onto g filter",
               "type": "float32",
               "unit": ""
             },
             "spectrosynfluxivar_r": {
               "name": "SPECTROSYNFLUXIVAR_R",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Inverse variance of best-fit template spectrum projected onto r filter",
               "type": "float32",
               "unit": ""
             },
             "spectrosynfluxivar_i": {
               "name": "SPECTROSYNFLUXIVAR_I",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Inverse variance of best-fit template spectrum projected onto i filter",
               "type": "float32",
               "unit": ""
             },
             "spectrosynfluxivar_z": {
               "name": "SPECTROSYNFLUXIVAR_Z",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Inverse variance of best-fit template spectrum projected onto z filter",
               "type": "float32",
               "unit": ""
             },
             "spectroskyflux_u": {
               "name": "SPECTROSKYFLUX_U",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Sky spectrum projected onto u filter",
               "type": "float32",
               "unit": ""
             },
             "spectroskyflux_g": {
               "name": "SPECTROSKYFLUX_G",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Sky spectrum projected onto g filter",
               "type": "float32",
               "unit": ""
             },
             "spectroskyflux_r": {
               "name": "SPECTROSKYFLUX_R",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Sky spectrum projected onto r filter",
               "type": "float32",
               "unit": ""
             },
             "spectroskyflux_i": {
               "name": "SPECTROSKYFLUX_I",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Sky spectrum projected onto i filter",
               "type": "float32",
               "unit": ""
             },
             "spectroskyflux_z": {
               "name": "SPECTROSKYFLUX_Z",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Sky spectrum projected onto z filter",
               "type": "float32",
               "unit": ""
             },
             "anyandmask": {
               "name": "ANYANDMASK",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "For each bit, records whether any pixel in the spectrum has that bit set in its ANDMASK",
               "type": "int32",
               "unit": ""
             },
             "anyormask": {
               "name": "ANYORMASK",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "For each bit, records whether any pixel in the spectrum has that bit set in its ORMASK",
               "type": "int32",
               "unit": ""
             },
             "platesn2": {
               "name": "PLATESN2",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Overall signal-to-noise-squared measure for plate (only set for SDSS spectrograph)",
               "type": "float32",
               "unit": ""
             },
             "deredsn2": {
               "name": "DEREDSN2",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Dereddened signal-to-noise-squared measure for plate (only set for BOSS spectrograph)",
               "type": "float32",
               "unit": ""
             },
             "snturnoff": {
               "name": "SNTURNOFF",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Signal to noise measure for MS turnoff stars on plate (-9999 if not appropriate)",
               "type": "float32",
               "unit": ""
             },
             "sn1_g": {
               "name": "SN1_G",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "(S/N)^2 at g=20.20 for spectrograph #1",
               "type": "float32",
               "unit": ""
             },
             "sn1_r": {
               "name": "SN1_R",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "(S/N)^2 at r=20.25 for spectrograph #1",
               "type": "float32",
               "unit": ""
             },
             "sn1_i": {
               "name": "SN1_I",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "(S/N)^2 at i=19.90 for spectrograph #1",
               "type": "float32",
               "unit": ""
             },
             "sn2_g": {
               "name": "SN2_G",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "(S/N)^2 at g=20.20 for spectrograph #2",
               "type": "float32",
               "unit": ""
             },
             "sn2_r": {
               "name": "SN2_R",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "(S/N)^2 at r=20.25 for spectrograph #2",
               "type": "float32",
               "unit": ""
             },
             "sn2_i": {
               "name": "SN2_I",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "(S/N)^2 at i=19.90 for spectrograph #2",
               "type": "float32",
               "unit": ""
             },
             "elodiefilename": {
               "name": "ELODIEFILENAME",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "File name for best-fit Elodie star",
               "type": "char[25]",
               "unit": ""
             },
             "elodieobject": {
               "name": "ELODIEOBJECT",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Star name (mostly Henry Draper names)",
               "type": "char[21]",
               "unit": ""
             },
             "elodiesptype": {
               "name": "ELODIESPTYPE",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Spectral type",
               "type": "char[10]",
               "unit": ""
             },
             "elodiebv": {
               "name": "ELODIEBV",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "(B-V) color",
               "type": "float32",
               "unit": ""
             },
             "elodieteff": {
               "name": "ELODIETEFF",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Effective temperature",
               "type": "float32",
               "unit": ""
             },
             "elodielogg": {
               "name": "ELODIELOGG",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "log10(gravity)",
               "type": "float32",
               "unit": ""
             },
             "elodiefeh": {
               "name": "ELODIEFEH",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Metallicity (",
               "type": "float32",
-              "unit": ""
+              "unit": "Fe/H"
             },
             "elodiez": {
               "name": "ELODIEZ",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Redshift",
               "type": "float32",
               "unit": ""
             },
             "elodiezerr": {
               "name": "ELODIEZERR",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Redshift error (negative for invalid fit)",
               "type": "float32",
               "unit": ""
             },
             "elodiezmodelerr": {
               "name": "ELODIEZMODELERR",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Standard deviation in redshift among the 12 best-fit stars",
               "type": "float32",
               "unit": ""
             },
             "elodierchi2": {
               "name": "ELODIERCHI2",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Reduced chi^2",
               "type": "float32",
               "unit": ""
             },
             "elodiedof": {
               "name": "ELODIEDOF",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Degrees of freedom for fit",
               "type": "float32",
               "unit": ""
             },
             "htmid": {
               "name": "HTMID",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "20 deep Hierarchical Triangular Mesh ID",
               "type": "int64",
               "unit": ""
             },
             "loadversion": {
               "name": "LOADVERSION",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Load Version",
               "type": "int32",
               "unit": ""
             }
@@ -1292,5 +1292,6 @@
       "par": null,
       "hdfs": null
     }
-  }
+  },
+  "notes": "None"
 }

@@ -2,7 +2,7 @@
   "general": {
     "name": "mos_target_sdss_dr13_photoobj_primary",
     "short": "MOS Target Table: sdss_dr13_photoobj_primary",
-    "description": "TBD in minidb_docs (as of 04/05/2022)",
+    "description": "Columns from the PhotoPrimary Table of SDSS DR13.",
     "environments": [
       "MOS_TARGET"
     ],
@@ -54,13 +54,13 @@
     "filesize": "45 MB",
     "releases": [
       {
-        "name": "DR18",
+        "name": "WORK",
         "description": "SDSS unreleased data.  Represents any work-in-progress data.",
         "public": false,
         "release_date": "unreleased"
       }
     ],
-    "naming_convention": "$MOS_TARGET/[V_TARG]/mos_target_sdss_dr13_photoobj_primary-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts",
+    "naming_convention": "$MOS_TARGET/[V_TARG]/mos_target_sdss_dr13_photoobj_primary-[NUM].fits, where V_TARG=1.0.1 for WORK; and NUM = 1..1 to partition the file into parts",
     "generated_by": "sdss5db> targetdb, operations database server",
     "design": false,
     "vac": false
@@ -70,7 +70,7 @@
     "releases": {}
   },
   "releases": {
-    "DR18": {
+    "WORK": {
       "template": "$MOS_TARGET/[V_TARG]/mos_target_sdss_dr13_photoobj_primary-[NUM].fits",
       "example": "1.0.1/mos_target_sdss_dr13_photoobj_primary-1.fits",
       "location": "{v_targ}/mos_target_sdss_dr13_photoobj_primary-{num}.fits",
@@ -81,8 +81,8 @@
         "path_name": "mos_target_sdss_dr13_photoobj_primary",
         "path_template": "$MOS_TARGET/{v_targ}/mos_target_sdss_dr13_photoobj_primary-{num}",
         "path_kwargs": [
-          "num",
-          "v_targ"
+          "v_targ",
+          "num"
         ],
         "access_string": "mos_target_sdss_dr13_photoobj_primary = $MOS_TARGET/{v_targ}/mos_target_sdss_dr13_photoobj_primary-{num}.fits"
       },
@@ -125,21 +125,21 @@
           "columns": {
             "objid": {
               "name": "OBJID",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Unique SDSS identifier composed from skyVersion,rerun,run,camcol,field,obj",
               "type": "int64",
               "unit": ""
             },
             "ra": {
               "name": "RA",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Right ascension",
               "type": "float64",
-              "unit": ""
+              "unit": "degrees"
             },
             "dec": {
               "name": "DEC",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Declination",
               "type": "float64",
-              "unit": ""
+              "unit": "degrees"
             }
           }
         }
@@ -147,5 +147,6 @@
       "par": null,
       "hdfs": null
     }
-  }
+  },
+  "notes": "None"
 }

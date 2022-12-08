@@ -2,7 +2,7 @@
   "general": {
     "name": "mos_target_allwise",
     "short": "MOS Target Table: allwise",
-    "description": "TBD in minidb_docs (as of 04/05/2022)",
+    "description": "ALLWISE catalog: https://wise2.ipac.caltech.edu/docs/release/allwise/. For detailed descriptions of the columns see: https://wise2.ipac.caltech.edu/docs/release/allwise/expsup/sec2_1a.html",
     "environments": [
       "MOS_TARGET"
     ],
@@ -54,13 +54,13 @@
     "filesize": "2 GB",
     "releases": [
       {
-        "name": "DR18",
+        "name": "WORK",
         "description": "SDSS unreleased data.  Represents any work-in-progress data.",
         "public": false,
         "release_date": "unreleased"
       }
     ],
-    "naming_convention": "$MOS_TARGET/[V_TARG]/mos_target_allwise-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts",
+    "naming_convention": "$MOS_TARGET/[V_TARG]/mos_target_allwise-[NUM].fits, where V_TARG=1.0.1 for WORK; and NUM = 1..1 to partition the file into parts",
     "generated_by": "sdss5db> targetdb, operations database server",
     "design": false,
     "vac": false
@@ -70,7 +70,7 @@
     "releases": {}
   },
   "releases": {
-    "DR18": {
+    "WORK": {
       "template": "$MOS_TARGET/[V_TARG]/mos_target_allwise-[NUM].fits",
       "example": "1.0.1/mos_target_allwise-01.fits",
       "location": "{v_targ}/mos_target_allwise-{num}.fits",
@@ -79,7 +79,7 @@
       "access": {
         "in_sdss_access": true,
         "path_name": "mos_target_allwise",
-        "path_template": "$MOS_TARGET/{v_targ}/mos_target_allwise-{num:0>2}",
+        "path_template": "$MOS_TARGET/{v_targ}/mos_target_allwise-{num}",
         "path_kwargs": [
           "num",
           "v_targ"
@@ -125,1789 +125,1789 @@
           "columns": {
             "designation": {
               "name": "DESIGNATION",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Sexagesimal, equatorial position-based source name",
               "type": "char[20]",
               "unit": ""
             },
             "ra": {
               "name": "RA",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "J2000 right ascension",
               "type": "float32",
-              "unit": ""
+              "unit": "degrees"
             },
             "dec": {
               "name": "DEC",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "J2000 declination",
               "type": "float32",
-              "unit": ""
+              "unit": "degrees"
             },
             "sigra": {
               "name": "SIGRA",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "One-sigma uncertainty in right ascension coordinate",
               "type": "float32",
-              "unit": ""
+              "unit": "arcsec"
             },
             "sigdec": {
               "name": "SIGDEC",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "One-sigma uncertainty in declination coordinate",
               "type": "float32",
-              "unit": ""
+              "unit": "arcsec"
             },
             "sigradec": {
               "name": "SIGRADEC",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "The co-sigma of the equatorial position uncertainties",
               "type": "float32",
-              "unit": ""
+              "unit": "arcsec"
             },
             "glon": {
               "name": "GLON",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Galactic longitude",
               "type": "float32",
-              "unit": ""
+              "unit": "degrees"
             },
             "glat": {
               "name": "GLAT",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Galactic latitude",
               "type": "float32",
-              "unit": ""
+              "unit": "degrees"
             },
             "elon": {
               "name": "ELON",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Ecliptic longitude",
               "type": "float32",
-              "unit": ""
+              "unit": "degrees"
             },
             "elat": {
               "name": "ELAT",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Ecliptic latitude",
               "type": "float32",
-              "unit": ""
+              "unit": "degrees"
             },
             "wx": {
               "name": "WX",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "The x-pixel coordinate of this source on the WISE Atlas Image",
               "type": "float32",
-              "unit": ""
+              "unit": "pixel"
             },
             "wy": {
               "name": "WY",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "The y-pixel coordinate of this source on the WISE Atlas Image",
               "type": "float32",
-              "unit": ""
+              "unit": "pixel"
             },
             "cntr": {
               "name": "CNTR",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Unique identification number for this object in the AllWISE Catalog/Reject Table",
               "type": "int64",
               "unit": ""
             },
             "source_id": {
               "name": "SOURCE_ID",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Unique source ID",
               "type": "char[28]",
               "unit": ""
             },
             "coadd_id": {
               "name": "COADD_ID",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "WISE Atlas Tile identifier from which source was extracted",
               "type": "char[20]",
               "unit": ""
             },
             "src": {
               "name": "SRC",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Sequential number of the source extraction in the WISE Atlas Tile from which this source detected and measured",
               "type": "int32",
               "unit": ""
             },
             "w1mpro": {
               "name": "W1MPRO",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W1 magnitude measured with profile-fitting photometry",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w1sigmpro": {
               "name": "W1SIGMPRO",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W1 profile-fit photometric measurement uncertainty",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w1snr": {
               "name": "W1SNR",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W1 profile-fit measurement signal-to-noise ratio",
               "type": "float32",
               "unit": ""
             },
             "w1rchi2": {
               "name": "W1RCHI2",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Reduced chi^2 of the W1 profile-fit photometry measurement",
               "type": "float32",
               "unit": ""
             },
             "w2mpro": {
               "name": "W2MPRO",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W2 magnitude measured with profile-fitting photometry",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w2sigmpro": {
               "name": "W2SIGMPRO",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W2 profile-fit photometric measurement uncertainty",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w2snr": {
               "name": "W2SNR",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W2 profile-fit measurement signal-to-noise ratio",
               "type": "float32",
               "unit": ""
             },
             "w2rchi2": {
               "name": "W2RCHI2",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Reduced chi^2 of the W2 profile-fit photometry measurement",
               "type": "float32",
               "unit": ""
             },
             "w3mpro": {
               "name": "W3MPRO",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W3 magnitude measured with profile-fitting photometry",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w3sigmpro": {
               "name": "W3SIGMPRO",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W3 profile-fit photometric measurement uncertainty",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w3snr": {
               "name": "W3SNR",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W3 profile-fit measurement signal-to-noise ratio",
               "type": "float32",
               "unit": ""
             },
             "w3rchi2": {
               "name": "W3RCHI2",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Reduced chi^2 of the W3 profile-fit photometry measurement",
               "type": "float32",
               "unit": ""
             },
             "w4mpro": {
               "name": "W4MPRO",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W4 magnitude measured with profile-fitting photometry",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w4sigmpro": {
               "name": "W4SIGMPRO",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W4 profile-fit photometric measurement uncertainty",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w4snr": {
               "name": "W4SNR",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W4 profile-fit measurement signal-to-noise ratio",
               "type": "float32",
               "unit": ""
             },
             "w4rchi2": {
               "name": "W4RCHI2",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Reduced chi^2 of the W4 profile-fit photometry measurement",
               "type": "float32",
               "unit": ""
             },
             "rchi2": {
               "name": "RCHI2",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Combined reduced chi^2 in all bands for the profile-fit photometry measurement",
               "type": "float32",
               "unit": ""
             },
             "nb": {
               "name": "NB",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Number of PSF components used simultaneously in the profile-fitting for this source",
               "type": "int32",
               "unit": ""
             },
             "na": {
               "name": "NA",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Active deblending flag",
               "type": "int32",
               "unit": ""
             },
             "w1sat": {
               "name": "W1SAT",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Fraction of all pixels within the profile-fitting area for W1 images that are flagged as saturated",
               "type": "float32",
               "unit": ""
             },
             "w2sat": {
               "name": "W2SAT",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Fraction of all pixels within the profile-fitting area for W2 images that are flagged as saturated",
               "type": "float32",
               "unit": ""
             },
             "w3sat": {
               "name": "W3SAT",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Fraction of all pixels within the profile-fitting area for W3 images that are flagged as saturated",
               "type": "float32",
               "unit": ""
             },
             "w4sat": {
               "name": "W4SAT",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Fraction of all pixels within the profile-fitting area for W4 images that are flagged as saturated",
               "type": "float32",
               "unit": ""
             },
             "satnum": {
               "name": "SATNUM",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Minimum sample at which saturation occurs in each band",
               "type": "char[4]",
               "unit": ""
             },
             "ra_pm": {
               "name": "RA_PM",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Right ascension at epoch MJD=55400.0 (2010.5589) from the profile-fitting measurement model that includes motion",
               "type": "float32",
-              "unit": ""
+              "unit": "degrees"
             },
             "dec_pm": {
               "name": "DEC_PM",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Declination at epoch MJD=55400.0 (2010.5589) from the profile-fitting measurement model that includes motion",
               "type": "float32",
-              "unit": ""
+              "unit": "degrees"
             },
             "sigra_pm": {
               "name": "SIGRA_PM",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "One-sigma uncertainty in right ascension from the profile-fitting measurement model that includes motion",
               "type": "float32",
-              "unit": ""
+              "unit": "arcsec"
             },
             "sigdec_pm": {
               "name": "SIGDEC_PM",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "One-sigma uncertainty in declination from the profile-fitting measurement model that includes motion",
               "type": "float32",
-              "unit": ""
+              "unit": "arcsec"
             },
             "sigradec_pm": {
               "name": "SIGRADEC_PM",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "The co-sigma of the equatorial position uncertainties from the profile-fitting measurement model that includes motion",
               "type": "float32",
-              "unit": ""
+              "unit": "arcsec"
             },
             "pmra": {
               "name": "PMRA",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Total apparent motion in right ascension estimated for this source",
               "type": "int32",
-              "unit": ""
+              "unit": "mas/yr"
             },
             "sigpmra": {
               "name": "SIGPMRA",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Uncertainty in the total right ascension motion estimation",
               "type": "int32",
-              "unit": ""
+              "unit": "mas/yr"
             },
             "pmdec": {
               "name": "PMDEC",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Total apparent motion in declination estimated for this source",
               "type": "int32",
-              "unit": ""
+              "unit": "mas/yr"
             },
             "sigpmdec": {
               "name": "SIGPMDEC",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Uncertainty in the total declination motion estimation",
               "type": "int32",
-              "unit": ""
+              "unit": "mas/yr"
             },
             "w1rchi2_pm": {
               "name": "W1RCHI2_PM",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Reduced chi^2 of the W1 profile-fit photometry measurement including motion estimation",
               "type": "float32",
               "unit": ""
             },
             "w2rchi2_pm": {
               "name": "W2RCHI2_PM",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Reduced chi^2 of the W2 profile-fit photometry measurement including motion estimation",
               "type": "float32",
               "unit": ""
             },
             "w3rchi2_pm": {
               "name": "W3RCHI2_PM",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Reduced chi^2 of the W3 profile-fit photometry measurement including motion estimation",
               "type": "float32",
               "unit": ""
             },
             "w4rchi2_pm": {
               "name": "W4RCHI2_PM",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Reduced chi^2 of the W4 profile-fit photometry measurement including motion estimation",
               "type": "float32",
               "unit": ""
             },
             "rchi2_pm": {
               "name": "RCHI2_PM",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Combined reduced chi^2 in all bands for the profile-fit photometry measurement including motion estimation",
               "type": "float32",
               "unit": ""
             },
             "pmcode": {
               "name": "PMCODE",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "string that encodes information about factors that impact the accuracy of the motion estimation",
               "type": "char[5]",
               "unit": ""
             },
             "cc_flags": {
               "name": "CC_FLAGS",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Contamination and confusion flag",
               "type": "char[4]",
               "unit": ""
             },
             "rel": {
               "name": "REL",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Small-separation, same-Tile detection flag",
               "type": "char[4]",
               "unit": ""
             },
             "ext_flg": {
               "name": "EXT_FLG",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Extended source flag",
               "type": "int32",
               "unit": ""
             },
             "var_flg": {
               "name": "VAR_FLG",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Variability flag",
               "type": "char[4]",
               "unit": ""
             },
             "ph_qual": {
               "name": "PH_QUAL",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Photometric quality flag",
               "type": "char[4]",
               "unit": ""
             },
             "det_bit": {
               "name": "DET_BIT",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Bit-encoded integer indicating bands in which a source has a w#snr>2 detection",
               "type": "int32",
               "unit": ""
             },
             "moon_lev": {
               "name": "MOON_LEV",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Scattered moonlight contamination flag",
               "type": "char[4]",
               "unit": ""
             },
             "w1nm": {
               "name": "W1NM",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "number of individual 7.7s exposures where this source was detected with SNR>3 in the W1 profile-fit measurement",
               "type": "int32",
               "unit": ""
             },
             "w1m": {
               "name": "W1M",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "number of individual 7.7s W1 exposures on which a profile-fit measurement of this source was possible",
               "type": "int32",
               "unit": ""
             },
             "w2nm": {
               "name": "W2NM",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "number of individual 7.7s exposures where this source was detected with SNR>3 in the W2 profile-fit measurement",
               "type": "int32",
               "unit": ""
             },
             "w2m": {
               "name": "W2M",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "number of individual 7.7s W2 exposures on which a profile-fit measurement of this source was possible",
               "type": "int32",
               "unit": ""
             },
             "w3nm": {
               "name": "W3NM",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "number of individual 7.7s exposures where this source was detected with SNR>3 in the W3 profile-fit measurement",
               "type": "int32",
               "unit": ""
             },
             "w3m": {
               "name": "W3M",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "number of individual 7.7s W3 exposures on which a profile-fit measurement of this source was possible",
               "type": "int32",
               "unit": ""
             },
             "w4nm": {
               "name": "W4NM",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "number of individual 7.7s exposures where this source was detected with SNR>3 in the W4 profile-fit measurement",
               "type": "int32",
               "unit": ""
             },
             "w4m": {
               "name": "W4M",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "number of individual 7.7s W4 exposures on which a profile-fit measurement of this source was possible",
               "type": "int32",
               "unit": ""
             },
             "w1cov": {
               "name": "W1COV",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Mean pixel coverage in W1",
               "type": "float32",
               "unit": ""
             },
             "w2cov": {
               "name": "W2COV",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Mean pixel coverage in W2",
               "type": "float32",
               "unit": ""
             },
             "w3cov": {
               "name": "W3COV",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Mean pixel coverage in W3",
               "type": "float32",
               "unit": ""
             },
             "w4cov": {
               "name": "W4COV",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Mean pixel coverage in W4",
               "type": "float32",
               "unit": ""
             },
             "w1cc_map": {
               "name": "W1CC_MAP",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Contamination and confusion map for this source in W1",
               "type": "int32",
               "unit": ""
             },
             "w1cc_map_str": {
               "name": "W1CC_MAP_STR",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Contamination and confusion string denoting all artifacts that may contaminate the W1 measurement of this source",
               "type": "char[9]",
               "unit": ""
             },
             "w2cc_map": {
               "name": "W2CC_MAP",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Contamination and confusion map for this source in W2",
               "type": "int32",
               "unit": ""
             },
             "w2cc_map_str": {
               "name": "W2CC_MAP_STR",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Contamination and confusion string denoting all artifacts that may contaminate the W2 measurement of this source",
               "type": "char[9]",
               "unit": ""
             },
             "w3cc_map": {
               "name": "W3CC_MAP",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Contamination and confusion map for this source in W3",
               "type": "int32",
               "unit": ""
             },
             "w3cc_map_str": {
               "name": "W3CC_MAP_STR",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Contamination and confusion string denoting all artifacts that may contaminate the W3 measurement of this source",
               "type": "char[9]",
               "unit": ""
             },
             "w4cc_map": {
               "name": "W4CC_MAP",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Contamination and confusion map for this source in W4",
               "type": "int32",
               "unit": ""
             },
             "w4cc_map_str": {
               "name": "W4CC_MAP_STR",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Contamination and confusion string denoting all artifacts that may contaminate the W4 measurement of this source",
               "type": "char[9]",
               "unit": ""
             },
             "best_use_cntr": {
               "name": "BEST_USE_CNTR",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Cntr identification value of the source extraction",
               "type": "int64",
               "unit": ""
             },
             "ngrp": {
               "name": "NGRP",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Excess number of positionally associated duplicate resolution groups that included this source",
               "type": "int16",
               "unit": ""
             },
             "w1flux": {
               "name": "W1FLUX",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "\"Raw\" W1 source flux measured in profile-fit photometry",
               "type": "float32",
-              "unit": ""
+              "unit": "dn"
             },
             "w1sigflux": {
               "name": "W1SIGFLUX",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Uncertainty in the \"raw\" W1 source flux measurement in profile-fit photometry",
               "type": "float32",
-              "unit": ""
+              "unit": "dn"
             },
             "w1sky": {
               "name": "W1SKY",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Average of the W1 sky background value",
               "type": "float32",
-              "unit": ""
+              "unit": "dn"
             },
             "w1sigsk": {
               "name": "W1SIGSK",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Uncertainty in the W1 sky background value",
               "type": "float32",
-              "unit": ""
+              "unit": "dn"
             },
             "w1conf": {
               "name": "W1CONF",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Estimated confusion noise in the W1 sky background annulus",
               "type": "float32",
-              "unit": ""
+              "unit": "dn"
             },
             "w2flux": {
               "name": "W2FLUX",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "\"Raw\" W2 source flux measured in profile-fit photometry",
               "type": "float32",
-              "unit": ""
+              "unit": "dn"
             },
             "w2sigflux": {
               "name": "W2SIGFLUX",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Uncertainty in the \"raw\" W2 source flux measurement in profile-fit photometry",
               "type": "float32",
-              "unit": ""
+              "unit": "dn"
             },
             "w2sky": {
               "name": "W2SKY",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Average of the W2 sky background value",
               "type": "float32",
-              "unit": ""
+              "unit": "dn"
             },
             "w2sigsk": {
               "name": "W2SIGSK",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Uncertainty in the W2 sky background value",
               "type": "float32",
-              "unit": ""
+              "unit": "dn"
             },
             "w2conf": {
               "name": "W2CONF",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Estimated confusion noise in the W2 sky background annulus",
               "type": "float32",
-              "unit": ""
+              "unit": "dn"
             },
             "w3flux": {
               "name": "W3FLUX",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "\"Raw\" W3 source flux measured in profile-fit photometry",
               "type": "float32",
-              "unit": ""
+              "unit": "dn"
             },
             "w3sigflux": {
               "name": "W3SIGFLUX",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Uncertainty in the \"raw\" W3 source flux measurement in profile-fit photometry",
               "type": "float32",
-              "unit": ""
+              "unit": "dn"
             },
             "w3sky": {
               "name": "W3SKY",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Average of the W3 sky background value",
               "type": "float32",
-              "unit": ""
+              "unit": "dn"
             },
             "w3sigsk": {
               "name": "W3SIGSK",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Uncertainty in the W3 sky background value",
               "type": "float32",
-              "unit": ""
+              "unit": "dn"
             },
             "w3conf": {
               "name": "W3CONF",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Estimated confusion noise in the W3 sky background annulus",
               "type": "float32",
-              "unit": ""
+              "unit": "dn"
             },
             "w4flux": {
               "name": "W4FLUX",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "\"Raw\" W4 source flux measured in profile-fit photometry",
               "type": "float32",
-              "unit": ""
+              "unit": "dn"
             },
             "w4sigflux": {
               "name": "W4SIGFLUX",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Uncertainty in the \"raw\" W4 source flux measurement in profile-fit photometry",
               "type": "float32",
-              "unit": ""
+              "unit": "dn"
             },
             "w4sky": {
               "name": "W4SKY",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Average of the W4 sky background value",
               "type": "float32",
-              "unit": ""
+              "unit": "dn"
             },
             "w4sigsk": {
               "name": "W4SIGSK",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Uncertainty in the W4 sky background value",
               "type": "float32",
-              "unit": ""
+              "unit": "dn"
             },
             "w4conf": {
               "name": "W4CONF",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Estimated confusion noise in the W4 sky background annulus",
               "type": "float32",
-              "unit": ""
+              "unit": "dn"
             },
             "w1mag": {
               "name": "W1MAG",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W1 \"standard\" aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w1sigm": {
               "name": "W1SIGM",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Uncertainty in the W1 \"standard\" aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w1flg": {
               "name": "W1FLG",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W1 \"standard\" aperture measurement quality flag",
               "type": "int32",
               "unit": ""
             },
             "w1mcor": {
               "name": "W1MCOR",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W1 aperture curve-of-growth correction",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w2mag": {
               "name": "W2MAG",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W2 \"standard\" aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w2sigm": {
               "name": "W2SIGM",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Uncertainty in the W2 \"standard\" aperture magnitude",
               "type": "float32",
               "unit": ""
             },
             "w2flg": {
               "name": "W2FLG",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W2 \"standard\" aperture measurement quality flag",
               "type": "int32",
               "unit": ""
             },
             "w2mcor": {
               "name": "W2MCOR",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W2 aperture curve-of-growth correction",
               "type": "float32",
               "unit": ""
             },
             "w3mag": {
               "name": "W3MAG",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W3 \"standard\" aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w3sigm": {
               "name": "W3SIGM",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Uncertainty in the W3 \"standard\" aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w3flg": {
               "name": "W3FLG",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W3 \"standard\" aperture measurement quality flag",
               "type": "int32",
               "unit": ""
             },
             "w3mcor": {
               "name": "W3MCOR",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W3 aperture curve-of-growth correction",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w4mag": {
               "name": "W4MAG",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W4 \"standard\" aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w4sigm": {
               "name": "W4SIGM",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Uncertainty in the W4 \"standard\" aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w4flg": {
               "name": "W4FLG",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W4 \"standard\" aperture measurement quality flag",
               "type": "int32",
               "unit": ""
             },
             "w4mcor": {
               "name": "W4MCOR",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W4 aperture curve-of-growth correction",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w1mag_1": {
               "name": "W1MAG_1",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W1 5.5\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w1sigm_1": {
               "name": "W1SIGM_1",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Uncertainty in the W1 5.5\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w1flg_1": {
               "name": "W1FLG_1",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W1 5.5\" radius aperture magnitude quality flag",
               "type": "int32",
               "unit": ""
             },
             "w2mag_1": {
               "name": "W2MAG_1",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W2 5.5\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w2sigm_1": {
               "name": "W2SIGM_1",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Uncertainty in the W2 5.5\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w2flg_1": {
               "name": "W2FLG_1",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W2 5.5\" radius aperture magnitude quality flag",
               "type": "int32",
               "unit": ""
             },
             "w3mag_1": {
               "name": "W3MAG_1",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W3 5.5\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w3sigm_1": {
               "name": "W3SIGM_1",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Uncertainty in the W3 5.5\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w3flg_1": {
               "name": "W3FLG_1",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W3 5.5\" radius aperture magnitude quality flag",
               "type": "int32",
               "unit": ""
             },
             "w4mag_1": {
               "name": "W4MAG_1",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W4 11.0\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w4sigm_1": {
               "name": "W4SIGM_1",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Uncertainty in the W4 11.0\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w4flg_1": {
               "name": "W4FLG_1",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W4 11.0\" radius aperture magnitude quality flag",
               "type": "int32",
               "unit": ""
             },
             "w1mag_2": {
               "name": "W1MAG_2",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W1 8.25\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w1sigm_2": {
               "name": "W1SIGM_2",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Uncertainty in the W1 8.25\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w1flg_2": {
               "name": "W1FLG_2",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W1 8.25\" radius aperture magnitude quality flag",
               "type": "int32",
               "unit": ""
             },
             "w2mag_2": {
               "name": "W2MAG_2",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W2 8.25\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w2sigm_2": {
               "name": "W2SIGM_2",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Uncertainty in the W2 8.25\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w2flg_2": {
               "name": "W2FLG_2",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W2 8.25\" radius aperture magnitude quality flag",
               "type": "int32",
               "unit": ""
             },
             "w3mag_2": {
               "name": "W3MAG_2",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W3 8.25\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w3sigm_2": {
               "name": "W3SIGM_2",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Uncertainty in the W3 8.25\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w3flg_2": {
               "name": "W3FLG_2",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W3 8.25\" radius aperture magnitude quality flag",
               "type": "int32",
               "unit": ""
             },
             "w4mag_2": {
               "name": "W4MAG_2",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W4 16.5\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w4sigm_2": {
               "name": "W4SIGM_2",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Uncertainty in the W4 16.5\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w4flg_2": {
               "name": "W4FLG_2",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W4 16.5\" radius aperture magnitude quality flag",
               "type": "int32",
               "unit": ""
             },
             "w1mag_3": {
               "name": "W1MAG_3",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W1 11.0\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w1sigm_3": {
               "name": "W1SIGM_3",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Uncertainty in the W1 11.0\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w1flg_3": {
               "name": "W1FLG_3",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W1 11.0\" radius aperture magnitude quality flag",
               "type": "int32",
               "unit": ""
             },
             "w2mag_3": {
               "name": "W2MAG_3",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W2 11.0\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w2sigm_3": {
               "name": "W2SIGM_3",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Uncertainty in the W2 11.0\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w2flg_3": {
               "name": "W2FLG_3",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W2 11.0\" radius aperture magnitude quality flag",
               "type": "int32",
               "unit": ""
             },
             "w3mag_3": {
               "name": "W3MAG_3",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W3 11.0\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w3sigm_3": {
               "name": "W3SIGM_3",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Uncertainty in the W3 11.0\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w3flg_3": {
               "name": "W3FLG_3",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W3 11.0\" radius aperture magnitude quality flag",
               "type": "int32",
               "unit": ""
             },
             "w4mag_3": {
               "name": "W4MAG_3",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W4 22.0\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w4sigm_3": {
               "name": "W4SIGM_3",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Uncertainty in the W4 22.0\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w4flg_3": {
               "name": "W4FLG_3",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W4 22.0\" radius aperture magnitude quality flag",
               "type": "int32",
               "unit": ""
             },
             "w1mag_4": {
               "name": "W1MAG_4",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W1 13.75\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w1sigm_4": {
               "name": "W1SIGM_4",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Uncertainty in the W1 13.75\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w1flg_4": {
               "name": "W1FLG_4",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W1 13.75\" radius aperture magnitude quality flag",
               "type": "int32",
               "unit": ""
             },
             "w2mag_4": {
               "name": "W2MAG_4",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W2 13.75\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w2sigm_4": {
               "name": "W2SIGM_4",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Uncertainty in the W2 13.75\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w2flg_4": {
               "name": "W2FLG_4",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W2 13.75\" radius aperture magnitude quality flag",
               "type": "int32",
               "unit": ""
             },
             "w3mag_4": {
               "name": "W3MAG_4",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W3 13.75\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w3sigm_4": {
               "name": "W3SIGM_4",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Uncertainty in the W3 13.75\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w3flg_4": {
               "name": "W3FLG_4",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W3 13.75\" radius aperture magnitude quality flag",
               "type": "int32",
               "unit": ""
             },
             "w4mag_4": {
               "name": "W4MAG_4",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W4 27.5\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w4sigm_4": {
               "name": "W4SIGM_4",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Uncertainty in the W4 27.5\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w4flg_4": {
               "name": "W4FLG_4",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W4 27.5\" radius aperture magnitude quality flag",
               "type": "int32",
               "unit": ""
             },
             "w1mag_5": {
               "name": "W1MAG_5",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W1 16.5\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w1sigm_5": {
               "name": "W1SIGM_5",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Uncertainty in the W1 16.5\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w1flg_5": {
               "name": "W1FLG_5",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W1 16.5\" radius aperture magnitude quality flag",
               "type": "int32",
               "unit": ""
             },
             "w2mag_5": {
               "name": "W2MAG_5",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W2 16.5\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w2sigm_5": {
               "name": "W2SIGM_5",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Uncertainty in the W2 16.5\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w2flg_5": {
               "name": "W2FLG_5",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W2 16.5\" radius aperture magnitude quality flag",
               "type": "int32",
               "unit": ""
             },
             "w3mag_5": {
               "name": "W3MAG_5",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W3 16.5\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w3sigm_5": {
               "name": "W3SIGM_5",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Uncertainty in the W3 16.5\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w3flg_5": {
               "name": "W3FLG_5",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W3 16.5\" radius aperture magnitude quality flag",
               "type": "int32",
               "unit": ""
             },
             "w4mag_5": {
               "name": "W4MAG_5",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W4 33.0\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w4sigm_5": {
               "name": "W4SIGM_5",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Uncertainty in the W4 33.0\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w4flg_5": {
               "name": "W4FLG_5",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W4 33.0\" radius aperture magnitude quality flag",
               "type": "int32",
               "unit": ""
             },
             "w1mag_6": {
               "name": "W1MAG_6",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W1 19.25\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w1sigm_6": {
               "name": "W1SIGM_6",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Uncertainty in the W1 19.25\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w1flg_6": {
               "name": "W1FLG_6",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W1 19.25\" radius aperture magnitude quality flag",
               "type": "int32",
               "unit": ""
             },
             "w2mag_6": {
               "name": "W2MAG_6",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W2 19.25\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w2sigm_6": {
               "name": "W2SIGM_6",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Uncertainty in the W2 19.25\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w2flg_6": {
               "name": "W2FLG_6",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W2 19.25\" radius aperture magnitude quality flag",
               "type": "int32",
               "unit": ""
             },
             "w3mag_6": {
               "name": "W3MAG_6",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W3 19.25\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w3sigm_6": {
               "name": "W3SIGM_6",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Uncertainty in the W3 19.25\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w3flg_6": {
               "name": "W3FLG_6",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W3 19.25\" radius aperture magnitude quality flag",
               "type": "int32",
               "unit": ""
             },
             "w4mag_6": {
               "name": "W4MAG_6",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W4 38.5\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w4sigm_6": {
               "name": "W4SIGM_6",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Uncertainty in the W4 38.5\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w4flg_6": {
               "name": "W4FLG_6",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W4 38.5\" radius aperture magnitude quality flag",
               "type": "int32",
               "unit": ""
             },
             "w1mag_7": {
               "name": "W1MAG_7",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W1 22.0\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w1sigm_7": {
               "name": "W1SIGM_7",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Uncertainty in the W1 22.0\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w1flg_7": {
               "name": "W1FLG_7",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W1 22.0\" radius aperture magnitude quality flag",
               "type": "int32",
               "unit": ""
             },
             "w2mag_7": {
               "name": "W2MAG_7",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W2 22.0\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w2sigm_7": {
               "name": "W2SIGM_7",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Uncertainty in the W2 22.0\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w2flg_7": {
               "name": "W2FLG_7",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W2 22.0\" radius aperture magnitude quality flag",
               "type": "int32",
               "unit": ""
             },
             "w3mag_7": {
               "name": "W3MAG_7",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W3 22.0\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w3sigm_7": {
               "name": "W3SIGM_7",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Uncertainty in the W3 22.0\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w3flg_7": {
               "name": "W3FLG_7",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W3 22.0\" radius aperture magnitude quality flag",
               "type": "int32",
               "unit": ""
             },
             "w4mag_7": {
               "name": "W4MAG_7",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W4 44.0\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w4sigm_7": {
               "name": "W4SIGM_7",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Uncertainty in the W4 44.0\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w4flg_7": {
               "name": "W4FLG_7",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W4 44.0\" radius aperture magnitude quality flag",
               "type": "int32",
               "unit": ""
             },
             "w1mag_8": {
               "name": "W1MAG_8",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W1 24.75\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w1sigm_8": {
               "name": "W1SIGM_8",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Uncertainty in the W1 24.75\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w1flg_8": {
               "name": "W1FLG_8",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W1 24.75\" radius aperture magnitude quality flag",
               "type": "int32",
               "unit": ""
             },
             "w2mag_8": {
               "name": "W2MAG_8",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W2 24.75\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w2sigm_8": {
               "name": "W2SIGM_8",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Uncertainty in the W2 24.75\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w2flg_8": {
               "name": "W2FLG_8",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W3 24.75\" radius aperture magnitude quality flag",
               "type": "int32",
               "unit": ""
             },
             "w3mag_8": {
               "name": "W3MAG_8",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W3 24.75\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w3sigm_8": {
               "name": "W3SIGM_8",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Uncertainty in the W3 24.75\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w3flg_8": {
               "name": "W3FLG_8",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W3 24.75\" radius aperture magnitude quality flag",
               "type": "int32",
               "unit": ""
             },
             "w4mag_8": {
               "name": "W4MAG_8",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W4 49.5\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w4sigm_8": {
               "name": "W4SIGM_8",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Uncertainty in the W4 49.5\" radius aperture magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w4flg_8": {
               "name": "W4FLG_8",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W4 49.5\" radius aperture magnitude quality flag",
               "type": "int32",
               "unit": ""
             },
             "w1magp": {
               "name": "W1MAGP",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Magnitude computed from the inverse-variance-weighted mean of the profile-fit flux measurements on the w1m W1 frames covering this source",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w1sigp1": {
               "name": "W1SIGP1",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Standard deviation of the population of W1 fluxes measured on the w1m individual frames covering this source",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w1sigp2": {
               "name": "W1SIGP2",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "w1sigp1/sqrt(w1m)",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w1k": {
               "name": "W1K",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Stetson K variability index computed using the W1 profile-fit fluxes measured on the single-exposure images",
               "type": "float32",
               "unit": ""
             },
             "w1ndf": {
               "name": "W1NDF",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Number of degrees of freedom in the flux variability chi-square, W1",
               "type": "int32",
               "unit": ""
             },
             "w1mlq": {
               "name": "W1MLQ",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Probability measure that the source is variable in W1 flux",
               "type": "float32",
               "unit": ""
             },
             "w1mjdmin": {
               "name": "W1MJDMIN",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "The earliest modified Julian Date (mJD) of the W1 single-exposures covering the source",
               "type": "float32",
               "unit": ""
             },
             "w1mjdmax": {
               "name": "W1MJDMAX",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "The latest modified Julian Date (mJD) of the W1 single-exposures covering the source",
               "type": "float32",
               "unit": ""
             },
             "w1mjdmean": {
               "name": "W1MJDMEAN",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "The average modified Julian Date (mJD) of the W1 single-exposures covering the source",
               "type": "float32",
               "unit": ""
             },
             "w2magp": {
               "name": "W2MAGP",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Magnitude computed from the inverse-variance-weighted mean of the profile-fit flux measurements on the w2m W2 frames covering this source",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w2sigp1": {
               "name": "W2SIGP1",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Standard deviation of the population of W2 fluxes measured on the w2m individual frames covering this source",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w2sigp2": {
               "name": "W2SIGP2",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "w2sigp1/sqrt(w2m)",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w2k": {
               "name": "W2K",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Stetson K variability index computed using the W2 profile-fit fluxes measured on the single-exposure images",
               "type": "float32",
               "unit": ""
             },
             "w2ndf": {
               "name": "W2NDF",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Number of degrees of freedom in the flux variability chi-square, W2",
               "type": "int32",
               "unit": ""
             },
             "w2mlq": {
               "name": "W2MLQ",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Probability measure that the source is variable in W2 flux",
               "type": "float32",
               "unit": ""
             },
             "w2mjdmin": {
               "name": "W2MJDMIN",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "The earliest modified Julian Date (mJD) of the W2 single-exposures covering the source",
               "type": "float32",
               "unit": ""
             },
             "w2mjdmax": {
               "name": "W2MJDMAX",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "The latest modified Julian Date (mJD) of the W2 single-exposures covering the source",
               "type": "float32",
               "unit": ""
             },
             "w2mjdmean": {
               "name": "W2MJDMEAN",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "The average modified Julian Date (mJD) of the W2 single-exposures covering the source",
               "type": "float32",
               "unit": ""
             },
             "w3magp": {
               "name": "W3MAGP",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Magnitude computed from the inverse-variance-weighted mean of the profile-fit flux measurements on the w3m W3 frames covering this source",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w3sigp1": {
               "name": "W3SIGP1",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Standard deviation of the population of W3 fluxes measured on the w3m individual frames covering this source",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w3sigp2": {
               "name": "W3SIGP2",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "w3sigp1/sqrt(w3m)",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w3k": {
               "name": "W3K",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Stetson K variability index computed using the W3 profile-fit fluxes measured on the single-exposure images",
               "type": "float32",
               "unit": ""
             },
             "w3ndf": {
               "name": "W3NDF",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Number of degrees of freedom in the flux variability chi-square, W3",
               "type": "int32",
               "unit": ""
             },
             "w3mlq": {
               "name": "W3MLQ",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Probability measure that the source is variable in W3 flux",
               "type": "float32",
               "unit": ""
             },
             "w3mjdmin": {
               "name": "W3MJDMIN",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "The earliest modified Julian Date (mJD) of the W3 single-exposures covering the source",
               "type": "float32",
               "unit": ""
             },
             "w3mjdmax": {
               "name": "W3MJDMAX",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "The latest modified Julian Date (mJD) of the W3 single-exposures covering the source",
               "type": "float32",
               "unit": ""
             },
             "w3mjdmean": {
               "name": "W3MJDMEAN",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "The average modified Julian Date (mJD) of the W3 single-exposures covering the source",
               "type": "float32",
               "unit": ""
             },
             "w4magp": {
               "name": "W4MAGP",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Magnitude computed from the inverse-variance-weighted mean of the profile-fit flux measurements on the w4m W4 frames covering this source",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w4sigp1": {
               "name": "W4SIGP1",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Standard deviation of the population of W4 fluxes measured on the w4m individual frames covering this source",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w4sigp2": {
               "name": "W4SIGP2",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "w4sigp1/sqrt(w4m)",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w4k": {
               "name": "W4K",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Stetson K variability index computed using the W4 profile-fit fluxes measured on the single-exposure images",
               "type": "float32",
               "unit": ""
             },
             "w4ndf": {
               "name": "W4NDF",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Number of degrees of freedom in the flux variability chi-square, W4",
               "type": "int32",
               "unit": ""
             },
             "w4mlq": {
               "name": "W4MLQ",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Probability measure that the source is variable in W4 flux",
               "type": "float32",
               "unit": ""
             },
             "w4mjdmin": {
               "name": "W4MJDMIN",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "The earliest modified Julian Date (mJD) of the W4 single-exposures covering the source",
               "type": "float32",
               "unit": ""
             },
             "w4mjdmax": {
               "name": "W4MJDMAX",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "The latest modified Julian Date (mJD) of the W4 single-exposures covering the source",
               "type": "float32",
               "unit": ""
             },
             "w4mjdmean": {
               "name": "W4MJDMEAN",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "The average modified Julian Date (mJD) of the W4 single-exposures covering the source",
               "type": "float32",
               "unit": ""
             },
             "rho12": {
               "name": "RHO12",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "The correlation coefficient between the W1 and W2 single-exposure flux measurements",
               "type": "int32",
-              "unit": ""
+              "unit": "percent"
             },
             "rho23": {
               "name": "RHO23",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "The correlation coefficient between the W2 and W3 single-exposure flux measurements",
               "type": "int32",
-              "unit": ""
+              "unit": "percent"
             },
             "rho34": {
               "name": "RHO34",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "The correlation coefficient between the W3 and W4 single-exposure flux measurements",
               "type": "int32",
-              "unit": ""
+              "unit": "percent"
             },
             "q12": {
               "name": "Q12",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Correlation significance between W1 and W2",
               "type": "int32",
               "unit": ""
             },
             "q23": {
               "name": "Q23",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Correlation significance between W2 and W3",
               "type": "int32",
               "unit": ""
             },
             "q34": {
               "name": "Q34",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Correlation significance between W3 and W4",
               "type": "int32",
               "unit": ""
             },
             "xscprox": {
               "name": "XSCPROX",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "distance between the WISE source position and the position of a nearby 2MASS XSC source",
               "type": "float32",
-              "unit": ""
+              "unit": "arcsec"
             },
             "w1rsemi": {
               "name": "W1RSEMI",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Semi-major axis of the elliptical aperture used to measure source in W1",
               "type": "float32",
-              "unit": ""
+              "unit": "arcsec"
             },
             "w1ba": {
               "name": "W1BA",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Axis ratio (b/a) of the elliptical aperture used to measure source in W1",
               "type": "float32",
               "unit": ""
             },
             "w1pa": {
               "name": "W1PA",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Position angle of the elliptical aperture major axis used to measure source in W1",
               "type": "float32",
-              "unit": ""
+              "unit": "degrees"
             },
             "w1gmag": {
               "name": "W1GMAG",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W1 magnitude of source measured in the elliptical aperture described by w1rsemi, w1ba, and w1pa",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w1gerr": {
               "name": "W1GERR",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Uncertainty in the W1 magnitude of source measured in elliptical aperture",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w1gflg": {
               "name": "W1GFLG",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W1 elliptical aperture measurement quality flag",
               "type": "int32",
               "unit": ""
             },
             "w2rsemi": {
               "name": "W2RSEMI",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Semi-major axis of the elliptical aperture used to measure source in W2",
               "type": "float32",
-              "unit": ""
+              "unit": "arcsec"
             },
             "w2ba": {
               "name": "W2BA",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Axis ratio (b/a) of the elliptical aperture used to measure source in W2",
               "type": "float32",
               "unit": ""
             },
             "w2pa": {
               "name": "W2PA",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Position angle of the elliptical aperture major axis used to measure source in W2",
               "type": "float32",
-              "unit": ""
+              "unit": "degrees"
             },
             "w2gmag": {
               "name": "W2GMAG",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W2 magnitude of source measured in the elliptical aperture described by w2rsemi, w2ba, and w2pa",
               "type": "float32",
               "unit": ""
             },
             "w2gerr": {
               "name": "W2GERR",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Uncertainty in the W2 magnitude of source measured in elliptical aperture",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w2gflg": {
               "name": "W2GFLG",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W2 elliptical aperture measurement quality flag",
               "type": "int32",
               "unit": ""
             },
             "w3rsemi": {
               "name": "W3RSEMI",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Semi-major axis of the elliptical aperture used to measure source in W3",
               "type": "float32",
-              "unit": ""
+              "unit": "arcsec"
             },
             "w3ba": {
               "name": "W3BA",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Axis ratio (b/a) of the elliptical aperture used to measure source in W3",
               "type": "float32",
               "unit": ""
             },
             "w3pa": {
               "name": "W3PA",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Position angle of the elliptical aperture major axis used to measure source in W3",
               "type": "float32",
-              "unit": ""
+              "unit": "degrees"
             },
             "w3gmag": {
               "name": "W3GMAG",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W3 magnitude of source measured in the elliptical aperture described by w3rsemi, w3ba, and w3pa",
               "type": "float32",
               "unit": ""
             },
             "w3gerr": {
               "name": "W3GERR",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Uncertainty in the W3 magnitude of source measured in elliptical aperture",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w3gflg": {
               "name": "W3GFLG",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W3 elliptical aperture measurement quality flag",
               "type": "int32",
               "unit": ""
             },
             "w4rsemi": {
               "name": "W4RSEMI",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Semi-major axis of the elliptical aperture used to measure source in W4",
               "type": "float32",
-              "unit": ""
+              "unit": "arcsec"
             },
             "w4ba": {
               "name": "W4BA",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Axis ratio (b/a) of the elliptical aperture used to measure source in W4",
               "type": "float32",
               "unit": ""
             },
             "w4pa": {
               "name": "W4PA",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Position angle of the elliptical aperture major axis used to measure source in W4",
               "type": "float32",
-              "unit": ""
+              "unit": "degrees"
             },
             "w4gmag": {
               "name": "W4GMAG",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W4 magnitude of source measured in the elliptical aperture described by w4rsemi, w4ba, and w4pa",
               "type": "float32",
               "unit": ""
             },
             "w4gerr": {
               "name": "W4GERR",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Uncertainty in the W4 magnitude of source measured in elliptical aperture",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "w4gflg": {
               "name": "W4GFLG",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "W4 elliptical aperture measurement quality flag",
               "type": "int32",
               "unit": ""
             },
             "tmass_key": {
               "name": "TMASS_KEY",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Unique identifier of the closest source in the 2MASS Point Source Catalog",
               "type": "int32",
               "unit": ""
             },
             "r_2mass": {
               "name": "R_2MASS",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Distance separating the positions of the WISE source and associated 2MASS PSC source within 3\"",
               "type": "float32",
-              "unit": ""
+              "unit": "arcsec"
             },
             "pa_2mass": {
               "name": "PA_2MASS",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Position angle of the vector from the WISE source to the associated 2MASS PSC source",
               "type": "float32",
-              "unit": ""
+              "unit": "degrees"
             },
             "n_2mass": {
               "name": "N_2MASS",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "The number of 2MASS PSC entries found within a 3\" radius of the WISE source position",
               "type": "int32",
               "unit": ""
             },
             "j_m_2mass": {
               "name": "J_M_2MASS",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "2MASS J-band magnitude or magnitude upper limit of the associated 2MASS PSC source",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "j_msig_2mass": {
               "name": "J_MSIG_2MASS",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "2MASS J-band corrected photometric uncertainty of the associated 2MASS PSC source",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "h_m_2mass": {
               "name": "H_M_2MASS",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "2MASS H-band magnitude or magnitude upper limit of the associated 2MASS PSC source",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "h_msig_2mass": {
               "name": "H_MSIG_2MASS",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "2MASS H-band corrected photometric uncertainty of the associated 2MASS PSC source",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "k_m_2mass": {
               "name": "K_M_2MASS",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "2MASS Ks-band magnitude or magnitude upper limit of the associated 2MASS PSC source",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "k_msig_2mass": {
               "name": "K_MSIG_2MASS",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "2MASS Ks-band corrected photometric uncertainty of the associated 2MASS PSC source",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "x": {
               "name": "X",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Unit sphere position x value",
               "type": "float32",
               "unit": ""
             },
             "y": {
               "name": "Y",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Unit sphere position y value",
               "type": "float32",
               "unit": ""
             },
             "z": {
               "name": "Z",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Unit sphere position z value",
               "type": "float32",
               "unit": ""
             },
             "spt_ind": {
               "name": "SPT_IND",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Level 7 HTM spatial index key",
               "type": "int32",
               "unit": ""
             },
             "htm20": {
               "name": "HTM20",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Level 20 HTM spatial index key",
               "type": "int64",
               "unit": ""
             }
@@ -1917,5 +1917,6 @@
       "par": null,
       "hdfs": null
     }
-  }
+  },
+  "notes": "w1fitr and w2fitr are from the CatWISE preliminary catalog. See https://iopscience.iop.org/article/10.3847/1538-4365/ab7f2a#apjsab7f2aapp1 for more details"
 }

@@ -2,7 +2,7 @@
   "general": {
     "name": "mos_target_catwise2020",
     "short": "MOS Target Table: catwise2020",
-    "description": "\"The CatWISE2020 Catalog contains positions and brightnesses for 1,890,715,640 sources selected from combined WISE and NEOWISE all-sky survey data collected from 2010 to 2018 at 3.4 and 4.6 microns (W1 and W2). The CatWISE Preliminary Catalog contains positions and brightnesses for 900,849,014 sources collected from 2010 to 2016.\"",
+    "description": "The CatWISE2020 Catalog (https://ui.adsabs.harvard.edu/abs/2021ApJS..253....8M/abstract) See https://irsa.ipac.caltech.edu/data/WISE/CatWISE/gator_docs/catwise_colDescriptions.html for more detailed column descriptions",
     "environments": [
       "MOS_TARGET"
     ],
@@ -54,13 +54,13 @@
     "filesize": "1 GB",
     "releases": [
       {
-        "name": "DR18",
+        "name": "WORK",
         "description": "SDSS unreleased data.  Represents any work-in-progress data.",
         "public": false,
         "release_date": "unreleased"
       }
     ],
-    "naming_convention": "$MOS_TARGET/[V_TARG]/mos_target_catwise2020-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts",
+    "naming_convention": "$MOS_TARGET/[V_TARG]/mos_target_catwise2020-[NUM].fits, where V_TARG=1.0.1 for WORK; and NUM = 1..1 to partition the file into parts",
     "generated_by": "sdss5db> targetdb, operations database server",
     "design": false,
     "vac": false
@@ -70,7 +70,7 @@
     "releases": {}
   },
   "releases": {
-    "DR18": {
+    "WORK": {
       "template": "$MOS_TARGET/[V_TARG]/mos_target_catwise2020-[NUM].fits",
       "example": "1.0.1/mos_target_catwise2020-01.fits",
       "location": "{v_targ}/mos_target_catwise2020-{num}.fits",
@@ -79,7 +79,7 @@
       "access": {
         "in_sdss_access": true,
         "path_name": "mos_target_catwise2020",
-        "path_template": "$MOS_TARGET/{v_targ}/mos_target_catwise2020-{num:0>2}",
+        "path_template": "$MOS_TARGET/{v_targ}/mos_target_catwise2020-{num}",
         "path_kwargs": [
           "num",
           "v_targ"
@@ -215,15 +215,15 @@
             },
             "w1fitr": {
               "name": "W1FITR",
-              "description": "not define in CatWISE Catalog Definition webpage",
+              "description": "fitting radius for W1; see note",
               "type": "float32",
-              "unit": ""
+              "unit": "arcsec"
             },
             "w2fitr": {
               "name": "W2FITR",
-              "description": "not define in CatWISE Catalog Definition webpage",
+              "description": "fitting radius for W2; see note",
               "type": "float32",
-              "unit": ""
+              "unit": "arcsec"
             },
             "w1snr": {
               "name": "W1SNR",
@@ -1251,5 +1251,6 @@
       "par": null,
       "hdfs": null
     }
-  }
+  },
+  "notes": "None"
 }

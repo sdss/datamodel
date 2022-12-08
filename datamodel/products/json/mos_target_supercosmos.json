@@ -2,7 +2,7 @@
   "general": {
     "name": "mos_target_supercosmos",
     "short": "MOS Target Table: supercosmos",
-    "description": "TBD in minidb_docs (as of 04/05/2022)",
+    "description": "Contains merged sources for every field in the SuperCOSMOS Science Archive (SSA).",
     "environments": [
       "MOS_TARGET"
     ],
@@ -54,13 +54,13 @@
     "filesize": "511 MB",
     "releases": [
       {
-        "name": "DR18",
+        "name": "WORK",
         "description": "SDSS unreleased data.  Represents any work-in-progress data.",
         "public": false,
         "release_date": "unreleased"
       }
     ],
-    "naming_convention": "$MOS_TARGET/[V_TARG]/mos_target_supercosmos-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts",
+    "naming_convention": "$MOS_TARGET/[V_TARG]/mos_target_supercosmos-[NUM].fits, where V_TARG=1.0.1 for WORK; and NUM = 1..1 to partition the file into parts",
     "generated_by": "sdss5db> targetdb, operations database server",
     "design": false,
     "vac": false
@@ -70,7 +70,7 @@
     "releases": {}
   },
   "releases": {
-    "DR18": {
+    "WORK": {
       "template": "$MOS_TARGET/[V_TARG]/mos_target_supercosmos-[NUM].fits",
       "example": "1.0.1/mos_target_supercosmos-01.fits",
       "location": "{v_targ}/mos_target_supercosmos-{num}.fits",
@@ -79,10 +79,10 @@
       "access": {
         "in_sdss_access": true,
         "path_name": "mos_target_supercosmos",
-        "path_template": "$MOS_TARGET/{v_targ}/mos_target_supercosmos-{num:0>2}",
+        "path_template": "$MOS_TARGET/{v_targ}/mos_target_supercosmos-{num}",
         "path_kwargs": [
-          "v_targ",
-          "num"
+          "num",
+          "v_targ"
         ],
         "access_string": "mos_target_supercosmos = $MOS_TARGET/{v_targ}/mos_target_supercosmos-{num}.fits"
       },
@@ -125,345 +125,345 @@
           "columns": {
             "objid": {
               "name": "OBJID",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Unique identifier of merged source",
               "type": "int64",
               "unit": ""
             },
             "objidb": {
               "name": "OBJIDB",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "objID for B band detection merged into this object",
               "type": "int64",
               "unit": ""
             },
             "objidr1": {
               "name": "OBJIDR1",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "objID for R1 band detection merged into this object",
               "type": "int64",
               "unit": ""
             },
             "objidr2": {
               "name": "OBJIDR2",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "objID for R2 band detection merged into this object",
               "type": "int64",
               "unit": ""
             },
             "objidi": {
               "name": "OBJIDI",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "objID for I band detection merged into this object",
               "type": "int64",
               "unit": ""
             },
             "htmid": {
               "name": "HTMID",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Hierarchical Triangular Mesh (20-deep) of centroid",
               "type": "int64",
               "unit": ""
             },
             "epoch": {
               "name": "EPOCH",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Epoch of position (variance weighted mean epoch of available measures)",
               "type": "float32",
-              "unit": ""
+              "unit": "yr"
             },
             "ra": {
               "name": "RA",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Mean RA, computed from detections merged in this catalogue",
               "type": "float64",
-              "unit": ""
+              "unit": "deg"
             },
             "dec": {
               "name": "DEC",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Mean Dec, computed from detections merged in this catalogue",
               "type": "float64",
-              "unit": ""
+              "unit": "deg"
             },
             "sigra": {
               "name": "SIGRA",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Uncertainty in RA (formal random error not inc. systematic errors)",
               "type": "float64",
-              "unit": ""
+              "unit": "deg"
             },
             "sigdec": {
               "name": "SIGDEC",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Uncertainty in Dec (formal random error not inc. systematic errors)",
               "type": "float64",
-              "unit": ""
+              "unit": "deg"
             },
             "cx": {
               "name": "CX",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Cartesian x of unit (ra,dec) vector on celestial sphere",
               "type": "float64",
               "unit": ""
             },
             "cy": {
               "name": "CY",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Cartesian y of unit (ra,dec) vector on celestial sphere",
               "type": "float64",
               "unit": ""
             },
             "cz": {
               "name": "CZ",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Cartesian z of unit (ra,dec) vector on celestial sphere",
               "type": "float64",
               "unit": ""
             },
             "muacosd": {
               "name": "MUACOSD",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Proper motion in RA direction",
               "type": "float32",
-              "unit": ""
+              "unit": "mas/yr"
             },
             "mud": {
               "name": "MUD",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Proper motion in Dec direction",
               "type": "float32",
-              "unit": ""
+              "unit": "mas/yr"
             },
             "sigmuacosd": {
               "name": "SIGMUACOSD",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Error on proper motion in RA direction",
               "type": "float32",
-              "unit": ""
+              "unit": "mas/yr"
             },
             "sigmud": {
               "name": "SIGMUD",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Error on proper motion in Dec direction",
               "type": "float32",
-              "unit": ""
+              "unit": "mas/yr"
             },
             "chi2": {
               "name": "CHI2",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Chi-squared value of proper motion solution",
               "type": "float32",
               "unit": ""
             },
             "nplates": {
               "name": "NPLATES",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "No. of plates used for this proper motion measurement",
               "type": "int16",
               "unit": ""
             },
             "classmagb": {
               "name": "CLASSMAGB",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "B band magnitude selected by B image class",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "classmagr1": {
               "name": "CLASSMAGR1",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "R1 band magnitude selected by R1 image class",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "classmagr2": {
               "name": "CLASSMAGR2",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "R2 band magnitude selected by R2 image class",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "classmagi": {
               "name": "CLASSMAGI",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "I band magnitude selected by I image class",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "gcormagb": {
               "name": "GCORMAGB",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "B band magnitude assuming object is galaxy",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "gcormagr1": {
               "name": "GCORMAGR1",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "R1 band magnitude assuming object is galaxy",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "gcormagr2": {
               "name": "GCORMAGR2",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "R2 band magnitude assuming object is galaxy",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "gcormagi": {
               "name": "GCORMAGI",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "I band magnitude assuming object is galaxy",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "scormagb": {
               "name": "SCORMAGB",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "B band magnitude assuming object is star",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "scormagr1": {
               "name": "SCORMAGR1",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "R1 band magnitude assuming object is star",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "scormagr2": {
               "name": "SCORMAGR2",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "R2 band magnitude assuming object is star",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "scormagi": {
               "name": "SCORMAGI",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "I band magnitude assuming object is star",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "meanclass": {
               "name": "MEANCLASS",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Estimate of image class based on unit-weighted mean of individual classes",
               "type": "int16",
               "unit": ""
             },
             "classb": {
               "name": "CLASSB",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Image classification from B band detection",
               "type": "int16",
               "unit": ""
             },
             "classr1": {
               "name": "CLASSR1",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Image classification from R1 band detection",
               "type": "int16",
               "unit": ""
             },
             "classr2": {
               "name": "CLASSR2",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Image classification from R2 band detection",
               "type": "int16",
               "unit": ""
             },
             "classi": {
               "name": "CLASSI",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Image classification from I band detection",
               "type": "int16",
               "unit": ""
             },
             "ellipb": {
               "name": "ELLIPB",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Ellipticity of B band detection",
               "type": "float32",
               "unit": ""
             },
             "ellipr1": {
               "name": "ELLIPR1",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Ellipticity of R1 band detection",
               "type": "float32",
               "unit": ""
             },
             "ellipr2": {
               "name": "ELLIPR2",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Ellipticity of R2 band detection",
               "type": "float32",
               "unit": ""
             },
             "ellipi": {
               "name": "ELLIPI",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Ellipticity of I band detection",
               "type": "float32",
               "unit": ""
             },
             "qualb": {
               "name": "QUALB",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Bitwise quality flag from B band detection",
               "type": "int32",
               "unit": ""
             },
             "qualr1": {
               "name": "QUALR1",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Bitwise quality flag from R1 band detection",
               "type": "int32",
               "unit": ""
             },
             "qualr2": {
               "name": "QUALR2",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Bitwise quality flag from R2 band detection",
               "type": "int32",
               "unit": ""
             },
             "quali": {
               "name": "QUALI",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Bitwise quality flag from I band detection",
               "type": "int32",
               "unit": ""
             },
             "blendb": {
               "name": "BLENDB",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Blend flag from B band detection",
               "type": "int32",
               "unit": ""
             },
             "blendr1": {
               "name": "BLENDR1",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Blend flag from R1 band detection",
               "type": "int32",
               "unit": ""
             },
             "blendr2": {
               "name": "BLENDR2",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Blend flag from R2 band detection",
               "type": "int32",
               "unit": ""
             },
             "blendi": {
               "name": "BLENDI",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Blend flag from I band detection",
               "type": "int32",
               "unit": ""
             },
             "prfstatb": {
               "name": "PRFSTATB",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Profile statistic from B band detection",
               "type": "float32",
               "unit": ""
             },
             "prfstatr1": {
               "name": "PRFSTATR1",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Profile statistic from R1 band detection",
               "type": "float32",
               "unit": ""
             },
             "prfstatr2": {
               "name": "PRFSTATR2",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Profile statistic from R2 band detection",
               "type": "float32",
               "unit": ""
             },
             "prfstati": {
               "name": "PRFSTATI",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Profile statistic from I band detection",
               "type": "float32",
               "unit": ""
             },
             "l": {
               "name": "L",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "The Galactic longitude of the source",
               "type": "float32",
-              "unit": ""
+              "unit": "deg"
             },
             "b": {
               "name": "B",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "The Galactic latitude of the source",
               "type": "float32",
-              "unit": ""
+              "unit": "deg"
             },
             "d": {
               "name": "D",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "The great-circle distance of the source from the Galactic centre",
               "type": "float32",
-              "unit": ""
+              "unit": "deg"
             },
             "ebmv": {
               "name": "EBMV",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "The estimated foreground reddening at this position from Schlegel et al. (1998)",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             }
           }
         }
@@ -471,5 +471,6 @@
       "par": null,
       "hdfs": null
     }
-  }
+  },
+  "notes": "None"
 }

@@ -2,7 +2,7 @@
   "general": {
     "name": "mos_target_gaia_dr2_ruwe",
     "short": "MOS Target Table: gaia_dr2_ruwe",
-    "description": "TBD in minidb_docs (as of 04/05/2022)",
+    "description": "Table from Gaia DR2 containing the Renormalised Unit Weight Error (RUWE) associated to each source in gaia_source. See https://gea.esac.esa.int/archive/documentation/GDR2/Gaia_archive/chap_datamodel/sec_dm_main_tables/ssec_dm_ruwe.html for more detailed descriptions of the columns",
     "environments": [
       "MOS_TARGET"
     ],
@@ -54,13 +54,13 @@
     "filesize": "22 MB",
     "releases": [
       {
-        "name": "DR18",
+        "name": "WORK",
         "description": "SDSS unreleased data.  Represents any work-in-progress data.",
         "public": false,
         "release_date": "unreleased"
       }
     ],
-    "naming_convention": "$MOS_TARGET/[V_TARG]/mos_target_gaia_dr2_ruwe-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts",
+    "naming_convention": "$MOS_TARGET/[V_TARG]/mos_target_gaia_dr2_ruwe-[NUM].fits, where V_TARG=1.0.1 for WORK; and NUM = 1..1 to partition the file into parts",
     "generated_by": "sdss5db> targetdb, operations database server",
     "design": false,
     "vac": false
@@ -70,7 +70,7 @@
     "releases": {}
   },
   "releases": {
-    "DR18": {
+    "WORK": {
       "template": "$MOS_TARGET/[V_TARG]/mos_target_gaia_dr2_ruwe-[NUM].fits",
       "example": "1.0.1/mos_target_gaia_dr2_ruwe-01.fits",
       "location": "{v_targ}/mos_target_gaia_dr2_ruwe-{num}.fits",
@@ -79,10 +79,10 @@
       "access": {
         "in_sdss_access": true,
         "path_name": "mos_target_gaia_dr2_ruwe",
-        "path_template": "$MOS_TARGET/{v_targ}/mos_target_gaia_dr2_ruwe-{num:0>2}",
+        "path_template": "$MOS_TARGET/{v_targ}/mos_target_gaia_dr2_ruwe-{num}",
         "path_kwargs": [
-          "v_targ",
-          "num"
+          "num",
+          "v_targ"
         ],
         "access_string": "mos_target_gaia_dr2_ruwe = $MOS_TARGET/{v_targ}/mos_target_gaia_dr2_ruwe-{num}.fits"
       },
@@ -125,13 +125,13 @@
           "columns": {
             "source_id": {
               "name": "SOURCE_ID",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Gaia DR2 unique source identifier",
               "type": "int64",
               "unit": ""
             },
             "ruwe": {
               "name": "RUWE",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "renormalised unit weight error",
               "type": "float32",
               "unit": ""
             }
@@ -141,5 +141,6 @@
       "par": null,
       "hdfs": null
     }
-  }
+  },
+  "notes": "None"
 }

@@ -2,7 +2,7 @@
   "general": {
     "name": "mos_target_geometric_distances_gaia_dr2",
     "short": "MOS Target Table: geometric_distances_gaia_dr2",
-    "description": "TBD in minidb_docs (as of 04/05/2022)",
+    "description": "Bayesian distances from Gaia DR2 parameters from Bailer-Jones et al. 2018. For complete details, see the original paper: https://iopscience.iop.org/article/10.3847/1538-3881/aacb21/pdf",
     "environments": [
       "MOS_TARGET"
     ],
@@ -54,13 +54,13 @@
     "filesize": "51 MB",
     "releases": [
       {
-        "name": "DR18",
+        "name": "WORK",
         "description": "SDSS unreleased data.  Represents any work-in-progress data.",
         "public": false,
         "release_date": "unreleased"
       }
     ],
-    "naming_convention": "$MOS_TARGET/[V_TARG]/mos_target_geometric_distances_gaia_dr2-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts",
+    "naming_convention": "$MOS_TARGET/[V_TARG]/mos_target_geometric_distances_gaia_dr2-[NUM].fits, where V_TARG=1.0.1 for WORK; and NUM = 1..1 to partition the file into parts",
     "generated_by": "sdss5db> targetdb, operations database server",
     "design": false,
     "vac": false
@@ -70,7 +70,7 @@
     "releases": {}
   },
   "releases": {
-    "DR18": {
+    "WORK": {
       "template": "$MOS_TARGET/[V_TARG]/mos_target_geometric_distances_gaia_dr2-[NUM].fits",
       "example": "1.0.1/mos_target_geometric_distances_gaia_dr2-01.fits",
       "location": "{v_targ}/mos_target_geometric_distances_gaia_dr2-{num}.fits",
@@ -79,10 +79,10 @@
       "access": {
         "in_sdss_access": true,
         "path_name": "mos_target_geometric_distances_gaia_dr2",
-        "path_template": "$MOS_TARGET/{v_targ}/mos_target_geometric_distances_gaia_dr2-{num:0>2}",
+        "path_template": "$MOS_TARGET/{v_targ}/mos_target_geometric_distances_gaia_dr2-{num}",
         "path_kwargs": [
-          "num",
-          "v_targ"
+          "v_targ",
+          "num"
         ],
         "access_string": "mos_target_geometric_distances_gaia_dr2 = $MOS_TARGET/{v_targ}/mos_target_geometric_distances_gaia_dr2-{num}.fits"
       },
@@ -125,43 +125,43 @@
           "columns": {
             "source_id": {
               "name": "SOURCE_ID",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Unique Gaia DR2 source identifier",
               "type": "int64",
               "unit": ""
             },
             "r_est": {
               "name": "R_EST",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Estimated distance",
               "type": "float32",
-              "unit": ""
+              "unit": "pc"
             },
             "r_lo": {
               "name": "R_LO",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Lower bound on the confidence interval of the estimated distance",
               "type": "float32",
-              "unit": ""
+              "unit": "pc"
             },
             "r_hi": {
               "name": "R_HI",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Upper bound on the confidence interval of the estimated distance",
               "type": "float32",
-              "unit": ""
+              "unit": "pc"
             },
             "r_len": {
               "name": "R_LEN",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Length scale used in the prior for the distance estimation",
               "type": "float32",
-              "unit": ""
+              "unit": "pc"
             },
             "result_flag": {
               "name": "RESULT_FLAG",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Result flag",
               "type": "char[1]",
               "unit": ""
             },
             "modality_flag": {
               "name": "MODALITY_FLAG",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Number of modes in the posterior",
               "type": "int16",
               "unit": ""
             }
@@ -171,5 +171,6 @@
       "par": null,
       "hdfs": null
     }
-  }
+  },
+  "notes": "None"
 }

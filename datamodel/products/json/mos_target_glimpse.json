@@ -2,7 +2,7 @@
   "general": {
     "name": "mos_target_glimpse",
     "short": "MOS Target Table: glimpse",
-    "description": "TBD in minidb_docs (as of 04/05/2022)",
+    "description": "GLIMPSE catalog (I, II and 3-D). See full documentation at https://irsa.ipac.caltech.edu/data/SPITZER/GLIMPSE/doc/glimpse1_dataprod_v2.0.pdf",
     "environments": [
       "MOS_TARGET"
     ],
@@ -54,13 +54,13 @@
     "filesize": "732 MB",
     "releases": [
       {
-        "name": "DR18",
+        "name": "WORK",
         "description": "SDSS unreleased data.  Represents any work-in-progress data.",
         "public": false,
         "release_date": "unreleased"
       }
     ],
-    "naming_convention": "$MOS_TARGET/[V_TARG]/mos_target_glimpse-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts",
+    "naming_convention": "$MOS_TARGET/[V_TARG]/mos_target_glimpse-[NUM].fits, where V_TARG=1.0.1 for WORK; and NUM = 1..1 to partition the file into parts",
     "generated_by": "sdss5db> targetdb, operations database server",
     "design": false,
     "vac": false
@@ -70,7 +70,7 @@
     "releases": {}
   },
   "releases": {
-    "DR18": {
+    "WORK": {
       "template": "$MOS_TARGET/[V_TARG]/mos_target_glimpse-[NUM].fits",
       "example": "1.0.1/mos_target_glimpse-1.fits",
       "location": "{v_targ}/mos_target_glimpse-{num}.fits",
@@ -81,8 +81,8 @@
         "path_name": "mos_target_glimpse",
         "path_template": "$MOS_TARGET/{v_targ}/mos_target_glimpse-{num}",
         "path_kwargs": [
-          "v_targ",
-          "num"
+          "num",
+          "v_targ"
         ],
         "access_string": "mos_target_glimpse = $MOS_TARGET/{v_targ}/mos_target_glimpse-{num}.fits"
       },
@@ -125,475 +125,475 @@
           "columns": {
             "designation": {
               "name": "DESIGNATION",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "position-based designation in Galactic coordinates",
               "type": "char[24]",
               "unit": ""
             },
             "tmass_designation": {
               "name": "TMASS_DESIGNATION",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "2MASS designation from PSC",
               "type": "char[16]",
               "unit": ""
             },
             "tmass_cntr": {
               "name": "TMASS_CNTR",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "2MASS counter",
               "type": "int32",
               "unit": ""
             },
             "l": {
               "name": "L",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Galactic longitude",
               "type": "float64",
-              "unit": ""
+              "unit": "degrees"
             },
             "b": {
               "name": "B",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Galactic latitude",
               "type": "float64",
-              "unit": ""
+              "unit": "degrees"
             },
             "dl": {
               "name": "DL",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "uncertaintiy in Galactic longitude",
               "type": "float64",
-              "unit": ""
+              "unit": "degrees"
             },
             "db": {
               "name": "DB",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "uncertainty in Galactic latitude",
               "type": "float64",
-              "unit": ""
+              "unit": "degrees"
             },
             "ra": {
               "name": "RA",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "right ascension",
               "type": "float64",
-              "unit": ""
+              "unit": "degrees"
             },
             "dec": {
               "name": "DEC",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "declination",
               "type": "float64",
-              "unit": ""
+              "unit": "degrees"
             },
             "dra": {
               "name": "DRA",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "uncertainity in RA",
               "type": "float64",
-              "unit": ""
+              "unit": "degrees"
             },
             "ddec": {
               "name": "DDEC",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "uncertainity in Dec",
               "type": "float64",
-              "unit": ""
+              "unit": "degrees"
             },
             "csf": {
               "name": "CSF",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "close source flag (see GLIMPSE documentation for details)",
               "type": "int32",
               "unit": ""
             },
             "mag_j": {
               "name": "MAG_J",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "2MASS J-band magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "dj_m": {
               "name": "DJ_M",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "uncertainity in 2MASS J-band magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "mag_h": {
               "name": "MAG_H",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "2MASS H-band magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "dh_m": {
               "name": "DH_M",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "uncertainity in 2MASS H-band magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "mag_ks": {
               "name": "MAG_KS",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "2MASS Ks-band magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "dks_m": {
               "name": "DKS_M",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "uncertainity in 2MASS Ks-band magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "mag3_6": {
               "name": "MAG3_6",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "IRAC 3.6-band magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "d3_6m": {
               "name": "D3_6M",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "uncertainty in IRAC 3.6-band magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "mag4_5": {
               "name": "MAG4_5",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "IRAC 4.5-band magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "d4_5m": {
               "name": "D4_5M",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "uncertainty in IRAC 4.5-band magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "mag5_8": {
               "name": "MAG5_8",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "IRAC 5.8-band magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "d5_8m": {
               "name": "D5_8M",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "uncertainty in IRAC 5.8-band magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "mag8_0": {
               "name": "MAG8_0",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "IRAC 8.0-band magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "d8_0m": {
               "name": "D8_0M",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "uncertainty in IRAC 8.0-band magnitude",
               "type": "float32",
-              "unit": ""
+              "unit": "mag"
             },
             "f_j": {
               "name": "F_J",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "2MASS J-band flux",
               "type": "float32",
-              "unit": ""
+              "unit": "mJy"
             },
             "df_j": {
               "name": "DF_J",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "uncertainity in 2MASS J-band flux",
               "type": "float32",
-              "unit": ""
+              "unit": "mJy"
             },
             "f_h": {
               "name": "F_H",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "2MASS H-band flux",
               "type": "float32",
-              "unit": ""
+              "unit": "mJy"
             },
             "df_h": {
               "name": "DF_H",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "uncertainty in 2MASS H-band flux",
               "type": "float32",
-              "unit": ""
+              "unit": "mJy"
             },
             "f_ks": {
               "name": "F_KS",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "2MASS Ks-band flux",
               "type": "float32",
-              "unit": ""
+              "unit": "mJy"
             },
             "df_ks": {
               "name": "DF_KS",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "uncertainity in 2MASS Ks-band flux",
               "type": "float32",
-              "unit": ""
+              "unit": "mJy"
             },
             "f3_6": {
               "name": "F3_6",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "IRAC 3.6-band flux",
               "type": "float32",
-              "unit": ""
+              "unit": "mJy"
             },
             "df3_6": {
               "name": "DF3_6",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "uncertainty in IRAC 3.6-band flux",
               "type": "float32",
-              "unit": ""
+              "unit": "mJy"
             },
             "f4_5": {
               "name": "F4_5",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "IRAC 4.5-band flux",
               "type": "float32",
-              "unit": ""
+              "unit": "mJy"
             },
             "df4_5": {
               "name": "DF4_5",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "uncertainty in IRAC 4.5-band flux",
               "type": "float32",
-              "unit": ""
+              "unit": "mJy"
             },
             "f5_8": {
               "name": "F5_8",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "IRAC 5.8-band flux",
               "type": "float32",
-              "unit": ""
+              "unit": "mJy"
             },
             "df5_8": {
               "name": "DF5_8",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "uncertainty in IRAC 5.8-band flux",
               "type": "float32",
-              "unit": ""
+              "unit": "mJy"
             },
             "f8_0": {
               "name": "F8_0",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "IRAC 8.0-band flux",
               "type": "float32",
-              "unit": ""
+              "unit": "mJy"
             },
             "df8_0": {
               "name": "DF8_0",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "uncertainty in IRAC 8.0-band flux",
               "type": "float32",
-              "unit": ""
+              "unit": "mJy"
             },
             "rms_f3_6": {
               "name": "RMS_F3_6",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "RMS deviation of the individual detections from final flux in IRAC 3.6-band",
               "type": "float32",
-              "unit": ""
+              "unit": "mJy"
             },
             "rms_f4_5": {
               "name": "RMS_F4_5",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "RMS deviation of the individual detections from final flux in IRAC 4.5-band",
               "type": "float32",
-              "unit": ""
+              "unit": "mJy"
             },
             "rms_f5_8": {
               "name": "RMS_F5_8",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "RMS deviation of the individual detections from final flux in IRAC 5.8-band",
               "type": "float32",
-              "unit": ""
+              "unit": "mJy"
             },
             "rms_f8_0": {
               "name": "RMS_F8_0",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "RMS deviation of the individual detections from final flux in IRAC 8.0-band",
               "type": "float32",
-              "unit": ""
+              "unit": "mJy"
             },
             "sky_3_6": {
               "name": "SKY_3_6",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "local background sky in IRAC 3.6-band",
               "type": "float32",
-              "unit": ""
+              "unit": "mJy/sr"
             },
             "sky_4_5": {
               "name": "SKY_4_5",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "local background sky in IRAC 4.5-band",
               "type": "float32",
-              "unit": ""
+              "unit": "mJy/sr"
             },
             "sky_5_8": {
               "name": "SKY_5_8",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "local background sky in IRAC 5.8-band",
               "type": "float32",
-              "unit": ""
+              "unit": "mJy/sr"
             },
             "sky_8_0": {
               "name": "SKY_8_0",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "local background sky in IRAC 8.0-band",
               "type": "float32",
-              "unit": ""
+              "unit": "mJy/sr"
             },
             "sn_j": {
               "name": "SN_J",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "j_snr in 2MASS J-band",
               "type": "float32",
               "unit": ""
             },
             "sn_h": {
               "name": "SN_H",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "h_snr from 2MASS catalog",
               "type": "float32",
               "unit": ""
             },
             "sn_ks": {
               "name": "SN_KS",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "ks_snr from 2MASS catalog",
               "type": "float32",
               "unit": ""
             },
             "sn_3_6": {
               "name": "SN_3_6",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "(flux)/(uncertainty in flux) in IRAC 3.5-band",
               "type": "float32",
               "unit": ""
             },
             "sn_4_5": {
               "name": "SN_4_5",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "(flux)/(uncertainty in flux) in IRAC 4.5-band",
               "type": "float32",
               "unit": ""
             },
             "sn_5_8": {
               "name": "SN_5_8",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "(flux)/(uncertainty in flux) in IRAC 5.8-band",
               "type": "float32",
               "unit": ""
             },
             "sn_8_0": {
               "name": "SN_8_0",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "(flux)/(uncertainty in flux) in IRAC 8.0-band",
               "type": "float32",
               "unit": ""
             },
             "dens_3_6": {
               "name": "DENS_3_6",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "local source density in IRAC 3.6-band",
               "type": "float32",
-              "unit": ""
+              "unit": "#/sqarcmin"
             },
             "dens_4_5": {
               "name": "DENS_4_5",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "local source density in IRAC 4.5-band",
               "type": "float32",
-              "unit": ""
+              "unit": "#/sqarcmin"
             },
             "dens_5_8": {
               "name": "DENS_5_8",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "local source density in IRAC 5.8-band",
               "type": "float32",
-              "unit": ""
+              "unit": "#/sqarcmin"
             },
             "dens_8_0": {
               "name": "DENS_8_0",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "local source density in IRAC 8.0-band",
               "type": "float32",
-              "unit": ""
+              "unit": "#/sqarcmin"
             },
             "m3_6": {
               "name": "M3_6",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "number of source detections in IRAC 3.6-band",
               "type": "int32",
               "unit": ""
             },
             "m4_5": {
               "name": "M4_5",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "number of source detections in IRAC 4.5-band",
               "type": "int32",
               "unit": ""
             },
             "m5_8": {
               "name": "M5_8",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "number of source detections in IRAC 5.8-band",
               "type": "int32",
               "unit": ""
             },
             "m8_0": {
               "name": "M8_0",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "number of source detections in IRAC 8.0-band",
               "type": "int32",
               "unit": ""
             },
             "n3_6": {
               "name": "N3_6",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "number of observations in IRAC 3.6-band",
               "type": "int32",
               "unit": ""
             },
             "n4_5": {
               "name": "N4_5",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "number of observations in IRAC 4.5-band",
               "type": "int32",
               "unit": ""
             },
             "n5_8": {
               "name": "N5_8",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "number of observations in IRAC 5.8-band",
               "type": "int32",
               "unit": ""
             },
             "n8_0": {
               "name": "N8_0",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "number of observations in IRAC 8.0-band",
               "type": "int32",
               "unit": ""
             },
             "sqf_j": {
               "name": "SQF_J",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "source quality flag for 2MASS J-band (see GLIMPSE documentation for details)",
               "type": "int32",
               "unit": ""
             },
             "sqf_h": {
               "name": "SQF_H",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "source quality flag for 2MASS H-band (see GLIMPSE documentation for details)",
               "type": "int32",
               "unit": ""
             },
             "sqf_ks": {
               "name": "SQF_KS",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "source quality flag for 2MASS Ks-band (see GLIMPSE documentation for details)",
               "type": "int32",
               "unit": ""
             },
             "sqf_3_6": {
               "name": "SQF_3_6",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "source quality flag for IRAC 3.6-band (see GLIMPSE documentation for details)",
               "type": "int32",
               "unit": ""
             },
             "sqf_4_5": {
               "name": "SQF_4_5",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "source quality flag for IRAC 4.5-band (see GLIMPSE documentation for details)",
               "type": "int32",
               "unit": ""
             },
             "sqf_5_8": {
               "name": "SQF_5_8",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "source quality flag for IRAC 5.8-band (see GLIMPSE documentation for details)",
               "type": "int32",
               "unit": ""
             },
             "sqf_8_0": {
               "name": "SQF_8_0",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "source quality flag for IRAC 8.0-band (see GLIMPSE documentation for details)",
               "type": "int32",
               "unit": ""
             },
             "mf3_6": {
               "name": "MF3_6",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "method flag for IRAC 3.6-band (see GLIMPSE documentation for details)",
               "type": "int32",
               "unit": ""
             },
             "mf4_5": {
               "name": "MF4_5",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "method flag for IRAC 4.5-band (see GLIMPSE documentation for details)",
               "type": "int32",
               "unit": ""
             },
             "mf5_8": {
               "name": "MF5_8",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "method flag for IRAC 5.8-band (see GLIMPSE documentation for details)",
               "type": "int32",
               "unit": ""
             },
             "mf8_0": {
               "name": "MF8_0",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "method flag for IRAC 8.0-band (see GLIMPSE documentation for details)",
               "type": "int32",
               "unit": ""
             },
             "pk": {
               "name": "PK",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "primary key",
               "type": "int64",
               "unit": ""
             }
@@ -603,5 +603,6 @@
       "par": null,
       "hdfs": null
     }
-  }
+  },
+  "notes": "None"
 }

@@ -2,7 +2,7 @@
   "general": {
     "name": "mos_target_gaiadr2_tmass_best_neighbour",
     "short": "MOS Target Table: gaiadr2_tmass_best_neighbour",
-    "description": "TBD in minidb_docs (as of 04/05/2022)",
+    "description": "The Gaia DR2 vs. 2MASS PSC crossmatch provided by the Gaia collaboration. Please see https://gea.esac.esa.int/archive/documentation/GDR2/Catalogue_consolidation/chap_cu9val_cu9val/ssec_cu9xma/sssec_cu9xma_extcat.html for complete details.",
     "environments": [
       "MOS_TARGET"
     ],
@@ -54,13 +54,13 @@
     "filesize": "116 MB",
     "releases": [
       {
-        "name": "DR18",
+        "name": "WORK",
         "description": "SDSS unreleased data.  Represents any work-in-progress data.",
         "public": false,
         "release_date": "unreleased"
       }
     ],
-    "naming_convention": "$MOS_TARGET/[V_TARG]/mos_target_gaiadr2_tmass_best_neighbour-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts",
+    "naming_convention": "$MOS_TARGET/[V_TARG]/mos_target_gaiadr2_tmass_best_neighbour-[NUM].fits, where V_TARG=1.0.1 for WORK; and NUM = 1..1 to partition the file into parts",
     "generated_by": "sdss5db> targetdb, operations database server",
     "design": false,
     "vac": false
@@ -70,7 +70,7 @@
     "releases": {}
   },
   "releases": {
-    "DR18": {
+    "WORK": {
       "template": "$MOS_TARGET/[V_TARG]/mos_target_gaiadr2_tmass_best_neighbour-[NUM].fits",
       "example": "1.0.1/mos_target_gaiadr2_tmass_best_neighbour-01.fits",
       "location": "{v_targ}/mos_target_gaiadr2_tmass_best_neighbour-{num}.fits",
@@ -79,10 +79,10 @@
       "access": {
         "in_sdss_access": true,
         "path_name": "mos_target_gaiadr2_tmass_best_neighbour",
-        "path_template": "$MOS_TARGET/{v_targ}/mos_target_gaiadr2_tmass_best_neighbour-{num:0>2}",
+        "path_template": "$MOS_TARGET/{v_targ}/mos_target_gaiadr2_tmass_best_neighbour-{num}",
         "path_kwargs": [
-          "v_targ",
-          "num"
+          "num",
+          "v_targ"
         ],
         "access_string": "mos_target_gaiadr2_tmass_best_neighbour = $MOS_TARGET/{v_targ}/mos_target_gaiadr2_tmass_best_neighbour-{num}.fits"
       },
@@ -125,55 +125,55 @@
           "columns": {
             "tmass_oid": {
               "name": "TMASS_OID",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Additional numeric unique source identifier of 2MASS, increasing with declination",
               "type": "int64",
               "unit": ""
             },
             "number_of_neighbours": {
               "name": "NUMBER_OF_NEIGHBOURS",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Number of sources in the 2MASS Catalogue which match the Gaia source within position errors",
               "type": "int32",
               "unit": ""
             },
             "number_of_mates": {
               "name": "NUMBER_OF_MATES",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Number of other Gaia sources that have as best-neighbour the same 2MASS source.",
               "type": "int32",
               "unit": ""
             },
             "best_neighbour_multiplicity": {
               "name": "BEST_NEIGHBOUR_MULTIPLICITY",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Number of neighbours with same probability as best neighbour",
               "type": "int32",
               "unit": ""
             },
             "source_id": {
               "name": "SOURCE_ID",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Unique Gaia DR2 source identifier",
               "type": "int64",
               "unit": ""
             },
             "original_ext_source_id": {
               "name": "ORIGINAL_EXT_SOURCE_ID",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "The unique source identifier in the original 2MASS catalogue",
               "type": "char[17]",
               "unit": ""
             },
             "angular_distance": {
               "name": "ANGULAR_DISTANCE",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Angular distance between the two sources",
               "type": "float64",
-              "unit": ""
+              "unit": "arcsec"
             },
             "gaia_astrometric_params": {
               "name": "GAIA_ASTROMETRIC_PARAMS",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Number of Gaia astrometric params used",
               "type": "int32",
               "unit": ""
             },
             "tmass_pts_key": {
               "name": "TMASS_PTS_KEY",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "key for crossmatch",
               "type": "int32",
               "unit": ""
             }
@@ -183,5 +183,6 @@
       "par": null,
       "hdfs": null
     }
-  }
+  },
+  "notes": "None"
 }

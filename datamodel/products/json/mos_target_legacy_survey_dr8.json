@@ -2,7 +2,7 @@
   "general": {
     "name": "mos_target_legacy_survey_dr8",
     "short": "MOS Target Table: legacy_survey_dr8",
-    "description": "TBD in minidb_docs (as of 04/05/2022)",
+    "description": "Legacy Survey DR8 catalogue derived from 'sweep' catalogues (See <a href=\"https://www.legacysurvey.org/dr8/\">https://www.legacysurvey.org/dr8/</a>).",
     "environments": [
       "MOS_TARGET"
     ],
@@ -54,13 +54,13 @@
     "filesize": "1 GB",
     "releases": [
       {
-        "name": "DR18",
+        "name": "WORK",
         "description": "SDSS unreleased data.  Represents any work-in-progress data.",
         "public": false,
         "release_date": "unreleased"
       }
     ],
-    "naming_convention": "$MOS_TARGET/[V_TARG]/mos_target_legacy_survey_dr8-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts",
+    "naming_convention": "$MOS_TARGET/[V_TARG]/mos_target_legacy_survey_dr8-[NUM].fits, where V_TARG=1.0.1 for WORK; and NUM = 1..1 to partition the file into parts",
     "generated_by": "sdss5db> targetdb, operations database server",
     "design": false,
     "vac": false
@@ -70,7 +70,7 @@
     "releases": {}
   },
   "releases": {
-    "DR18": {
+    "WORK": {
       "template": "$MOS_TARGET/[V_TARG]/mos_target_legacy_survey_dr8-[NUM].fits",
       "example": "1.0.1/mos_target_legacy_survey_dr8-1.fits",
       "location": "{v_targ}/mos_target_legacy_survey_dr8-{num}.fits",
@@ -131,9 +131,9 @@
             },
             "brickid": {
               "name": "BRICKID",
-              "description": "A unique Brick ID (in the range",
+              "description": "A unique Brick ID (in the range 1-662174)",
               "type": "int64",
-              "unit": "1, 662174]) ["
+              "unit": ""
             },
             "brickname": {
               "name": "BRICKNAME",
@@ -143,9 +143,9 @@
             },
             "objid": {
               "name": "OBJID",
-              "description": "Catalog object number within this brick; a unique identifier hash is RELEASE,BRICKID,OBJID; OBJID spans",
+              "description": "Catalog object number within this brick; a unique identifier hash is RELEASE,BRICKID,OBJID; OBJID spans 0 to N-1 and is contiguously enumerated within each blob",
               "type": "int64",
-              "unit": "0,N-1] and is contiguously enumerated within each blob ["
+              "unit": ""
             },
             "type": {
               "name": "TYPE",
@@ -179,31 +179,31 @@
             },
             "dchisq_psf": {
               "name": "DCHISQ_PSF",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Difference in chi2 between successively more-complex model fits: PSF. The difference is versus no source.",
               "type": "float32",
               "unit": ""
             },
             "dchisq_rex": {
               "name": "DCHISQ_REX",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Difference in chi2 between successively more-complex model fits: REX. The difference is versus no source.",
               "type": "float32",
               "unit": ""
             },
             "dchisq_dev": {
               "name": "DCHISQ_DEV",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Difference in chi2 between successively more-complex model fits: DEV. The difference is versus no source.",
               "type": "float32",
               "unit": ""
             },
             "dchisq_exp": {
               "name": "DCHISQ_EXP",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Difference in chi2 between successively more-complex model fits: EXP. The difference is versus no source.",
               "type": "float32",
               "unit": ""
             },
             "dchisq_comp": {
               "name": "DCHISQ_COMP",
-              "description": "TBD in minidb_docs (as of 04/05/2022)",
+              "description": "Difference in chi2 between successively more-complex model fits: COMP. The difference is versus no source.",
               "type": "float32",
               "unit": ""
             },
@@ -301,43 +301,43 @@
               "name": "MW_TRANSMISSION_G",
               "description": "Galactic transmission in g filter in linear units",
               "type": "float32",
-              "unit": "0,1"
+              "unit": ""
             },
             "mw_transmission_r": {
               "name": "MW_TRANSMISSION_R",
               "description": "Galactic transmission in r filter in linear units",
               "type": "float32",
-              "unit": "0,1"
+              "unit": ""
             },
             "mw_transmission_z": {
               "name": "MW_TRANSMISSION_Z",
               "description": "Galactic transmission in z filter in linear units",
               "type": "float32",
-              "unit": "0,1"
+              "unit": ""
             },
             "mw_transmission_w1": {
               "name": "MW_TRANSMISSION_W1",
               "description": "Galactic transmission in W1 filter in linear units",
               "type": "float32",
-              "unit": "0,1"
+              "unit": ""
             },
             "mw_transmission_w2": {
               "name": "MW_TRANSMISSION_W2",
               "description": "Galactic transmission in W2 filter in linear units",
               "type": "float32",
-              "unit": "0,1"
+              "unit": ""
             },
             "mw_transmission_w3": {
               "name": "MW_TRANSMISSION_W3",
               "description": "Galactic transmission in W3 filter in linear units",
               "type": "float32",
-              "unit": "0,1"
+              "unit": ""
             },
             "mw_transmission_w4": {
               "name": "MW_TRANSMISSION_W4",
               "description": "Galactic transmission in W4 filter in linear units",
               "type": "float32",
-              "unit": "0,1"
+              "unit": ""
             },
             "nobs_g": {
               "name": "NOBS_G",
@@ -383,105 +383,105 @@
             },
             "rchisq_g": {
               "name": "RCHISQ_G",
-              "description": "Profile-weighted χ² of model fit normalized by the number of pixels in g",
+              "description": "Profile-weighted chi2 of model fit normalized by the number of pixels in g",
               "type": "float32",
               "unit": ""
             },
             "rchisq_r": {
               "name": "RCHISQ_R",
-              "description": "Profile-weighted χ² of model fit normalized by the number of pixels in r",
+              "description": "Profile-weighted chi2 of model fit normalized by the number of pixels in r",
               "type": "float32",
               "unit": ""
             },
             "rchisq_z": {
               "name": "RCHISQ_Z",
-              "description": "Profile-weighted χ² of model fit normalized by the number of pixels in z",
+              "description": "Profile-weighted chi2 of model fit normalized by the number of pixels in z",
               "type": "float32",
               "unit": ""
             },
             "rchisq_w1": {
               "name": "RCHISQ_W1",
-              "description": "Profile-weighted χ² of model fit normalized by the number of pixels in W1",
+              "description": "Profile-weighted chi2 of model fit normalized by the number of pixels in W1",
               "type": "float32",
               "unit": ""
             },
             "rchisq_w2": {
               "name": "RCHISQ_W2",
-              "description": "Profile-weighted χ² of model fit normalized by the number of pixels in W2",
+              "description": "Profile-weighted chi2 of model fit normalized by the number of pixels in W2",
               "type": "float32",
               "unit": ""
             },
             "rchisq_w3": {
               "name": "RCHISQ_W3",
-              "description": "Profile-weighted χ² of model fit normalized by the number of pixels in W3",
+              "description": "Profile-weighted chi2 of model fit normalized by the number of pixels in W3",
               "type": "float32",
               "unit": ""
             },
             "rchisq_w4": {
               "name": "RCHISQ_W4",
-              "description": "Profile-weighted χ² of model fit normalized by the number of pixels in W4",
+              "description": "Profile-weighted chi2 of model fit normalized by the number of pixels in W4",
               "type": "float32",
               "unit": ""
             },
             "fracflux_g": {
               "name": "FRACFLUX_G",
-              "description": "Profile-weighted fraction of the flux from other sources divided by the total flux in g (typically",
+              "description": "Profile-weighted fraction of the flux from other sources divided by the total flux in g (typically in 0..1)",
               "type": "float32",
-              "unit": "0,1]) ["
+              "unit": ""
             },
             "fracflux_r": {
               "name": "FRACFLUX_R",
-              "description": "Profile-weighted fraction of the flux from other sources divided by the total flux in r (typically",
+              "description": "Profile-weighted fraction of the flux from other sources divided by the total flux in r (typically in 0..1)",
               "type": "float32",
-              "unit": "0,1]) ["
+              "unit": ""
             },
             "fracflux_z": {
               "name": "FRACFLUX_Z",
-              "description": "Profile-weighted fraction of the flux from other sources divided by the total flux in z (typically",
+              "description": "Profile-weighted fraction of the flux from other sources divided by the total flux in z (typically in 0..1)",
               "type": "float32",
-              "unit": "0,1]) ["
+              "unit": ""
             },
             "fracflux_w1": {
               "name": "FRACFLUX_W1",
-              "description": "Profile-weighted fraction of the flux from other sources divided by the total flux in W1 (typically",
+              "description": "Profile-weighted fraction of the flux from other sources divided by the total flux in W1 (typically in 0..1)",
               "type": "float32",
-              "unit": "0,1]) ["
+              "unit": ""
             },
             "fracflux_w2": {
               "name": "FRACFLUX_W2",
-              "description": "Profile-weighted fraction of the flux from other sources divided by the total flux in W2 (typically",
+              "description": "Profile-weighted fraction of the flux from other sources divided by the total flux in W2 (typically in 0..1)",
               "type": "float32",
-              "unit": "0,1]) ["
+              "unit": ""
             },
             "fracflux_w3": {
               "name": "FRACFLUX_W3",
-              "description": "Profile-weighted fraction of the flux from other sources divided by the total flux in W3 (typically",
+              "description": "Profile-weighted fraction of the flux from other sources divided by the total flux in W3 (typically in 0..1)",
               "type": "float32",
-              "unit": "0,1]) ["
+              "unit": ""
             },
             "fracflux_w4": {
               "name": "FRACFLUX_W4",
-              "description": "Profile-weighted fraction of the flux from other sources divided by the total flux in W4 (typically",
+              "description": "Profile-weighted fraction of the flux from other sources divided by the total flux in W4 (typically in 0..1)",
               "type": "float32",
-              "unit": "0,1]) ["
+              "unit": ""
             },
             "fracmasked_g": {
               "name": "FRACMASKED_G",
-              "description": "Profile-weighted fraction of pixels masked from all observations of this object in g, strictly between",
+              "description": "Profile-weighted fraction of pixels masked from all observations of this object in g, strictly between 0..1",
               "type": "float32",
-              "unit": "0,1] ["
+              "unit": ""
             },
             "fracmasked_r": {
               "name": "FRACMASKED_R",
-              "description": "Profile-weighted fraction of pixels masked from all observations of this object in r, strictly between",
+              "description": "Profile-weighted fraction of pixels masked from all observations of this object in r, strictly between 0..1",
               "type": "float32",
-              "unit": "0,1] ["
+              "unit": ""
             },
             "fracmasked_z": {
               "name": "FRACMASKED_Z",
-              "description": "Profile-weighted fraction of pixels masked from all observations of this object in z, strictly between",
+              "description": "Profile-weighted fraction of pixels masked from all observations of this object in z, strictly between 0..1",
               "type": "float32",
-              "unit": "0,1] ["
+              "unit": ""
             },
             "fracin_g": {
               "name": "FRACIN_G",
@@ -623,9 +623,9 @@
             },
             "fracdev": {
               "name": "FRACDEV",
-              "description": "Fraction of model in deVauc",
+              "description": "Fraction of model in deVauc (in range 0..1)",
               "type": "float32",
-              "unit": "0,1] ["
+              "unit": ""
             },
             "fracdev_ivar": {
               "name": "FRACDEV_IVAR",
@@ -761,7 +761,7 @@
             },
             "gaia_phot_g_mean_mag": {
               "name": "GAIA_PHOT_G_MEAN_MAG",
-              "description": "Gaia G band magnitude",
+              "description": "Gaia G band magnitude, Vega",
               "type": "float32",
               "unit": "mag"
             },
@@ -773,7 +773,7 @@
             },
             "gaia_phot_bp_mean_mag": {
               "name": "GAIA_PHOT_BP_MEAN_MAG",
-              "description": "Gaia BP band magnitude",
+              "description": "Gaia BP band magnitude, Vega",
               "type": "float32",
               "unit": "mag"
             },
@@ -785,7 +785,7 @@
             },
             "gaia_phot_rp_mean_mag": {
               "name": "GAIA_PHOT_RP_MEAN_MAG",
-              "description": "Gaia RP band magnitude",
+              "description": "Gaia RP band magnitude, Vega",
               "type": "float32",
               "unit": "mag"
             },
@@ -869,19 +869,19 @@
             },
             "ls_id": {
               "name": "LS_ID",
-              "description": "not defined on legacysurvey webpage",
+              "description": "Added by SDSS-V: Derived unique object identifier. Computed as follows: ls_id = objid + (brickid << 16) + (release << 40)",
               "type": "int64",
               "unit": ""
             },
             "tycho_ref": {
               "name": "TYCHO_REF",
-              "description": "not defined on legacysurvey webpage",
+              "description": "Added by SDSS-V: TychoII identifier (equal to ref_id when ref_cat = \"T2\")",
               "type": "int64",
               "unit": ""
             },
             "gaia_sourceid": {
               "name": "GAIA_SOURCEID",
-              "description": "not defined on legacysurvey webpage",
+              "description": "Added by SDSS-V: Gaia DR2 source_id identifier (equal to ref_id when ref_cat = \"G2\")",
               "type": "int64",
               "unit": ""
             }
@@ -891,5 +891,6 @@
       "par": null,
       "hdfs": null
     }
-  }
+  },
+  "notes": "None"
 }

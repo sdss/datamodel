@@ -13,11 +13,13 @@ general:
   surveys:
   - BHM
   - MWM
+  - SDSS
   naming_convention: $MOS_TARGET/[V_TARG]/mos_target_gaia_dr2_ruwe-[NUM].fits, where
     V_TARG=1.0.1 for WORK; and NUM = 1..1 to partition the file into parts
   generated_by: sdss5db> targetdb, operations database server
   design: false
   vac: false
+  recommended_science_product: false
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
@@ -31,10 +33,10 @@ releases:
     access:
       in_sdss_access: true
       path_name: mos_target_gaia_dr2_ruwe
-      path_template: $MOS_TARGET/{v_targ}/mos_target_gaia_dr2_ruwe-{num:0>2}
+      path_template: $MOS_TARGET/{v_targ}/mos_target_gaia_dr2_ruwe-{num}
       path_kwargs:
-      - v_targ
       - num
+      - v_targ
       access_string: mos_target_gaia_dr2_ruwe = $MOS_TARGET/{v_targ}/mos_target_gaia_dr2_ruwe-{num}.fits
     survey: SDSS
     hdus:
@@ -72,3 +74,5 @@ releases:
             type: float32
             unit: ''
             description: renormalised unit weight error
+notes: |-
+  None
