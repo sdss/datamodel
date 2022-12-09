@@ -3,7 +3,8 @@
 #
 import re
 from typing import List, Union, Dict
-from pydantic import BaseModel, validator
+from pydantic import validator, Field
+from ..base import CoreModel
 from ..validators import replace_me
 from .fits import Header
 
@@ -13,7 +14,7 @@ except ImportError:
     yanny = None
 
 
-class ChangeTable(BaseModel):
+class ChangeTable(CoreModel):
     """ Pydantic model representing a YAML changelog Yanny table section
 
     Represents a computed section of the changelog, for a specific Yanny table.
@@ -30,11 +31,11 @@ class ChangeTable(BaseModel):
         A list of any removed Yanny table columns
     """
     delta_nrows: int = None
-    added_cols: List[str] = None
-    removed_cols: List[str] = None
+    added_cols: List[str] = Field(None, repr=False)
+    removed_cols: List[str] = Field(None, repr=False)
 
 
-class ChangePar(BaseModel):
+class ChangePar(CoreModel):
     """ Pydantic model representing the Yanny par fields of the YAML changelog release section
 
     Represents a computed section of the changelog, for the specified
@@ -59,15 +60,15 @@ class ChangePar(BaseModel):
         A dictionary of table column and row changes
     """
     delta_nkeys: int = None
-    addead_header_keys: List[str] = None
-    removed_header_keys: List[str] = None
+    addead_header_keys: List[str] = Field(None, repr=False)
+    removed_header_keys: List[str] = Field(None, repr=False)
     delta_ntables: int = None
-    addead_tables: List[str] = None
-    removed_tables: List[str] = None
+    addead_tables: List[str] = Field(None, repr=False)
+    removed_tables: List[str] = Field(None, repr=False)
     tables: Dict[str, ChangeTable] = None
 
 
-class ParColumn(BaseModel):
+class ParColumn(CoreModel):
     """ Pydantic model representing a YAML par column section
 
     Represents a typedef column definition in a Yanny parameter file
@@ -93,10 +94,10 @@ class ParColumn(BaseModel):
     type: str
     description: str
     unit: str
-    is_array: bool
-    is_enum: bool
-    enum_values: list = None
-    example: Union[str, int, float, list]
+    is_array: bool = Field(..., repr=False)
+    is_enum: bool = Field(..., repr=False)
+    enum_values: list = Field(None, repr=False)
+    example: Union[str, int, float, list] = Field(..., repr=False)
 
     _check_replace_me = validator('unit', 'description', allow_reuse=True)(replace_me)
 
@@ -105,7 +106,7 @@ class ParColumn(BaseModel):
         match = re.match(r"(?P<type>\w+)(?P<size>\[\d+\])?", self.type).groupdict()
         return f"{match['type']} {self.name}{match['size'] or ''}"
 
-class ParTable(BaseModel):
+class ParTable(CoreModel):
     """ Pydantic model representing a YAML par table section
 
     Represents the structure of a single Yanny parameter table
@@ -124,7 +125,7 @@ class ParTable(BaseModel):
     name: str
     description: str
     n_rows: int
-    structure: List[ParColumn]
+    structure: List[ParColumn] = Field(..., repr=False)
 
     _check_replace_me = validator('description', allow_reuse=True)(replace_me)
 
@@ -160,7 +161,7 @@ class ParTable(BaseModel):
         return table
 
 
-class ParModel(BaseModel):
+class ParModel(CoreModel):
     """ Pydantic model representing a YAML par section
 
     Represents a Yanny parameter file
@@ -174,8 +175,8 @@ class ParModel(BaseModel):
     tables : dict
         A dictionary of tables in the parameter file
     """
-    comments: str = None
-    header: List[Header] = None
+    comments: str = Field(None, repr=False)
+    header: List[Header] = Field(None, repr=False)
     tables: Dict[str, ParTable]
 
     def convert_header(self) -> dict:

@@ -5,17 +5,17 @@
 from __future__ import print_function, division, absolute_import
 
 from collections import defaultdict
-from typing import List, Union, Optional
-from pydantic import BaseModel, validator
+from typing import List, Union
+from pydantic import validator, Field
 
 from ..io.loaders import read_yaml, get_yaml_files
-from .base import BaseList
+from .base import BaseList, CoreModel
 from .releases import Release, releases
 from .surveys import Survey, surveys
 
 
 
-class Version(BaseModel):
+class Version(CoreModel):
     """ Pydantic model representing an SDSS version
 
     Parameters
@@ -26,10 +26,10 @@ class Version(BaseModel):
         A description of the software key
     """
     name: str
-    description: str
+    description: str = Field(..., repr=False)
 
 
-class Tag(BaseModel, smart_union=True):
+class Tag(CoreModel, smart_union=True):
     """ Pydantic model representing an SDSS software tag
 
     Parameters
@@ -50,10 +50,10 @@ class Tag(BaseModel, smart_union=True):
     ValueError
         when the tag survey is not a valid SDSS Survey
     """
-    version: Version
+    version: Version = Field(..., repr_attr='name')
     tag: Union[str, list] = None
-    release: Union[str, Release, List[Release]]
-    survey: Union[str, Survey]
+    release: Union[str, Release, List[Release]] = Field(..., repr_attr='name')
+    survey: Union[str, Survey] = Field(..., repr=False)
 
     @validator('release')
     def get_release(cls, v):

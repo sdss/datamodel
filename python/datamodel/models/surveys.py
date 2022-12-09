@@ -14,13 +14,13 @@
 from __future__ import print_function, division, absolute_import
 
 from typing import List, Union
-from pydantic import BaseModel, validator
+from pydantic import validator, Field
 
 from ..io.loaders import read_yaml, get_yaml_files
-from .base import BaseList
+from .base import BaseList, CoreModel
 
 
-class Phase(BaseModel):
+class Phase(CoreModel):
     """ Pydantic model representing an SDSS phase
 
     Parameters
@@ -38,12 +38,12 @@ class Phase(BaseModel):
     """
     name: str
     id: int
-    start: int = None
-    end: int = None
+    start: int = Field(None, repr=False)
+    end: int = Field(None, repr=False)
     active: bool = False
 
 
-class Survey(BaseModel, smart_union=True):
+class Survey(CoreModel, smart_union=True):
     """ Pydantic model representing an SDSS survey
 
     Parameters
@@ -65,11 +65,11 @@ class Survey(BaseModel, smart_union=True):
         when the survey phase is not a valid SDSS Phase
     """
     name: str
-    long: str = None
-    description: str
-    phase: Union[int, Phase] = None
+    long: str = Field(None, repr=False)
+    description: str = Field(..., repr=False)
+    phase: Union[int, Phase] = Field(None, repr_attr='id')
     id : str = None
-    aliases: list = []
+    aliases: list = Field([], repr=False)
 
     @validator('phase')
     def get_phase(cls, v):

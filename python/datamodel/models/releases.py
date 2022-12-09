@@ -15,12 +15,12 @@ from __future__ import print_function, division, absolute_import
 
 from datetime import date
 from typing import List, Union
-from pydantic import BaseModel, validator
+from pydantic import validator, Field
 
 from ..io.loaders import read_yaml, get_yaml_files
-from .base import BaseList
+from .base import BaseList, CoreModel
 
-class Release(BaseModel):
+class Release(CoreModel):
     """ Pydantic model presenting an SDSS release
 
     Parameters
@@ -40,7 +40,7 @@ class Release(BaseModel):
         when the release name does not start with a valid SDSS release code
     """
     name: str
-    description: str
+    description: str = Field(..., repr=False)
     public: bool = False
     release_date: Union[str, date] = 'unreleased'
 
