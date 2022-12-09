@@ -121,14 +121,15 @@ class B(BaseModel):
     d: str = 'd'
 
 class A(CoreModel):
-     a : int = 1
-     b : str = 'b'
-     v : B = Field(..., repr_attr='name')
-     n : C
-     class Config:
-         fields={'b':{'repr':False}}
+    a : int = 1
+    b : str = 'b'
+    v : B = Field(..., repr_attr='name')
+    n : C
+    class Config:
+        fields={'b':{'repr':False}}
 
 def test_repr_reduce():
+    """ test reduced repr """
     aa = A(v=B(), n=C())
     ra = repr(aa)
     # A(a=1, v='B', n=C(name='C', e=2, f='this ia string'))
