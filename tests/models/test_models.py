@@ -2,7 +2,9 @@
 # -*- coding: utf-8 -*-
 #
 import pytest
+from pydantic import BaseModel, Field
 
+from datamodel.models.base import CoreModel
 from datamodel.models import releases, phases, surveys, tags, vacs
 from datamodel.models.releases import Releases, Release
 from datamodel.models.surveys import Survey, Phase
@@ -100,3 +102,37 @@ def test_vac():
     assert isinstance(vac, VAC)
     assert vac.name == 'MANGA_GEMA'
 
+def test_repr():
+    """ test reduced repr """
+    tt = tags['bhm_run2d_v6_0_9']
+    assert repr(tt) == "Tag(version='run2d', tag='v6_0_9', release='IPL1')"
+
+    assert "phase=5" in repr(surveys['BHM'])
+
+
+class C(BaseModel):
+    name: str = 'C'
+    e: int = 2
+    f: str = 'this ia string'
+
+class B(BaseModel):
+    name: str = "B"
+    c: int = 2
+    d: str = 'd'
+
+class A(CoreModel):
+    a : int = 1
+    b : str = 'b'
+    v : B = Field(..., repr_attr='name')
+    n : C
+    class Config:
+        fields={'b':{'repr':False}}
+
+def test_repr_reduce():
+    """ test reduced repr """
+    aa = A(v=B(), n=C())
+    ra = repr(aa)
+    # A(a=1, v='B', n=C(name='C', e=2, f='this ia string'))
+    assert "v='B'" in ra
+    assert "b='b'" not in ra
+    assert "C(name='C', e=2, f='this ia string')" in ra

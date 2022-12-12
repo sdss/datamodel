@@ -374,7 +374,7 @@ class DataProducts(FuzzyList):
 
     def list_products(self) -> list:
         """ List all data products """
-        return [item.name for item in self]
+        return sorted([item.name for item in self])
 
     def load_all(self):
         """ Load all data products """
@@ -428,7 +428,8 @@ class SDSSDataModel:
     def __repr__(self) -> str:
         return (f'<SDSS DataModel (n_releases={len(self.releases)}, '
                 f'n_products={len(self.products)}, n_surveys={len(self.surveys)}, '
-                f'n_phases={len(self.phases)}, n_tags={len(self.tags)})>')
+                f'n_phases={len(self.phases)}, n_tags={len(self.tags)}, '
+                f'n_vacs={len(self.vacs)})>')
 
 
 def rgetattr(obj: object, attr: str, *args):

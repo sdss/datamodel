@@ -5,7 +5,8 @@ import tempfile
 import numpy as np
 from enum import Enum
 from typing import List, Union, Dict, Optional
-from pydantic import BaseModel, validator, root_validator
+from pydantic import validator, root_validator, Field
+from ..base import CoreModel
 from ..validators import replace_me
 
 try:
@@ -15,7 +16,7 @@ except ImportError:
 
 
 
-class ChangeMember(BaseModel):
+class ChangeMember(CoreModel):
     """ Pydantic model representing a YAML changelog HDF5 member section
 
     Represents a computed section of the changelog, for a specific HDF member.
@@ -40,14 +41,14 @@ class ChangeMember(BaseModel):
     """
     delta_nmembers: int = None
     delta_nattrs: int = None
-    added_attrs: List[str] = None
-    removed_attrs: List[str] = None
+    added_attrs: List[str] = Field(None, repr=False)
+    removed_attrs: List[str] = Field(None, repr=False)
     delta_ndim: int = None
-    new_shape: tuple = None
+    new_shape: tuple = Field(None, repr=False)
     delta_size: int = None
 
 
-class ChangeHdf(BaseModel):
+class ChangeHdf(CoreModel):
     """ Pydantic model representing the HDF5 fields of the YAML changelog release section
 
     Represents a computed section of the changelog, for the specified
@@ -75,16 +76,16 @@ class ChangeHdf(BaseModel):
     """
     new_libver: tuple = None
     delta_nattrs: int = None
-    addead_attrs: List[str] = None
-    removed_attrs: List[str] = None
+    addead_attrs: List[str] = Field(None, repr=False)
+    removed_attrs: List[str] = Field(None, repr=False)
     delta_nmembers: int = None
-    addead_members: List[str] = None
-    removed_members: List[str] = None
+    addead_members: List[str] = Field(None, repr=False)
+    removed_members: List[str] = Field(None, repr=False)
     members: Dict[str, ChangeMember] = None
 
 
 
-class HdfAttr(BaseModel):
+class HdfAttr(CoreModel):
     """ Pydantic model representing a YAML hdfs attrs section
 
     Represents the Attributes of an HDF5 file.  Each group or dataset has a
@@ -107,10 +108,10 @@ class HdfAttr(BaseModel):
     """
     key: str
     value: Union[str, int, float, bool] = None
-    comment: str
-    dtype : str
-    is_empty: bool = None
-    shape: Optional[tuple] = ()
+    comment: str = Field(..., repr=False)
+    dtype : str = Field(..., repr=False)
+    is_empty: bool = Field(None, repr=False)
+    shape: Optional[tuple] = Field(default_factory=(), repr=False)
 
     _check_replace_me = validator('comment', allow_reuse=True)(replace_me)
 
@@ -129,7 +130,7 @@ class HdfEnum(str, Enum):
     dataset = 'dataset'
 
 
-class HdfBase(BaseModel):
+class HdfBase(CoreModel):
     """ Base Pydantic model representing a YAML hdfs section
 
     Represents  of an HDF5 file.  Each group or dataset has a
@@ -152,10 +153,10 @@ class HdfBase(BaseModel):
     """
     name: str
     parent: str
-    object: HdfEnum
+    object: HdfEnum = Field(..., repr=False)
     description: str
     pytables : bool = None
-    attrs: List[HdfAttr] = []
+    attrs: List[HdfAttr] = Field(default_factory=[], repr=False)
 
     _check_replace_me = validator('description', allow_reuse=True)(replace_me)
 
@@ -200,8 +201,8 @@ class HdfDataset(HdfBase):
     ndim: int
     dtype: str
     nbytes: int = None
-    is_virtual: bool = None
-    is_empty: bool = None
+    is_virtual: bool = Field(None, repr=False)
+    is_empty: bool = Field(None, repr=False)
 
 
 class HdfModel(HdfGroup, smart_union=True):
@@ -219,7 +220,7 @@ class HdfModel(HdfGroup, smart_union=True):
         All groups and datasets in the HDF5 file
     """
     libver: tuple = []
-    members: Dict[str, Union[HdfGroup, HdfDataset]] = {}
+    members: Dict[str, Union[HdfGroup, HdfDataset]] = Field(default_factory={}, repr=False)
 
     def _create_attrs(self, hdf, attrs):
         for attr in attrs:
