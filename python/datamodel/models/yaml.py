@@ -18,8 +18,9 @@ from typing import List, Dict, Union
 
 import orjson
 from astropy.io import fits
-from pydantic import BaseModel, validator
+from pydantic import validator, Field
 
+from .base import CoreModel
 from .releases import releases, Release
 from .surveys import surveys, Survey
 from .validators import replace_me, check_release
@@ -32,7 +33,7 @@ def orjson_dumps(v, *, default):
                         option=orjson.OPT_INDENT_2|
                         orjson.OPT_SERIALIZE_NUMPY).decode()
 
-class GeneralSection(BaseModel):
+class GeneralSection(CoreModel):
     """ Pydantic model representing the YAML general section
 
     Parameters
@@ -57,8 +58,10 @@ class GeneralSection(BaseModel):
         An identifiable piece of the code that generates the data product
     design : bool
         If True, the datamodel is in the design phase, before any file exists yet
-    vac: bool
+    vac : bool
         True if the datamodel is a VAC
+    recommended_science_product : bool
+        True if the product is recommended for science use
 
     Raises
     ------
@@ -67,16 +70,17 @@ class GeneralSection(BaseModel):
     """
     name: str
     short: str
-    description: str
+    description: str = Field(..., repr=False)
     environments: List[str] = None
-    surveys: List[Union[str, Survey]] = None
+    surveys: List[Union[str, Survey]] = Field(None, repr=False)
     datatype: str
     filesize: str
-    releases: List[Union[str, Release]] = None
-    naming_convention: str
-    generated_by: str
+    releases: List[Union[str, Release]] = Field(None, repr=False)
+    naming_convention: str = Field(..., repr=False)
+    generated_by: str = Field(..., repr=False)
     design: bool = None
     vac: bool = None
+    recommended_science_product: bool = None
 
     _check_replace_me = validator('short', 'description', 'naming_convention',
                                   'generated_by', allow_reuse=True)(replace_me)
@@ -102,7 +106,7 @@ class GeneralSection(BaseModel):
             raise ValueError(f'{value} is not a valid survey')
         return surveys[value]
 
-class ChangeBase(BaseModel):
+class ChangeBase(CoreModel):
     """ Base Pydantic model representing a YAML changelog release section"""
     from_: str
     note: str = None
@@ -167,7 +171,7 @@ class ChangeRelease(ChangeHdf, ChangePar, ChangeFits, ChangeBase):
         A dictionary of HDF5 group/dataset member changes
     """
 
-class ChangeLog(BaseModel):
+class ChangeLog(CoreModel):
     """ Pydantic model representing the YAML changelog section
 
     Parameters
@@ -178,7 +182,7 @@ class ChangeLog(BaseModel):
         A dictionary of the file changes between the given release and previous one
     """
     description: str
-    releases: Dict[str, ChangeRelease] = None
+    releases: Dict[str, ChangeRelease] = Field(None, repr=False)
 
     _check_releases = validator('releases', allow_reuse=True)(check_release)
 
@@ -198,7 +202,7 @@ class ChangeLog(BaseModel):
         kwargs.pop('exclude_none', None)
         return super().dict(exclude_none=True, **kwargs)
 
-class Access(BaseModel):
+class Access(CoreModel):
     """ Pydantic model representing the YAML releases access section
 
     Parameters
@@ -216,9 +220,9 @@ class Access(BaseModel):
     """
     in_sdss_access: bool
     path_name: str = None
-    path_template: str = None
-    path_kwargs: List[str] = None
-    access_string: str = None
+    path_template: str = Field(None, repr=False)
+    path_kwargs: List[str] = Field(None, repr=False)
+    access_string: str = Field(None, repr=False)
 
     @validator('path_name', 'path_template', 'access_string')
     def check_path_nulls(cls, value, values, field):
@@ -236,7 +240,7 @@ class Access(BaseModel):
             raise ValueError('path_kwargs cannot be None if path_template has {} kwargs')
         return value
 
-class ReleaseModel(BaseModel):
+class ReleaseModel(CoreModel):
     """ Pydantic model representing an item in the YAML releases section
 
     Contains any information on the data product that is specific to a given
@@ -258,14 +262,14 @@ class ReleaseModel(BaseModel):
         A dictionary of HDU content for the product for the given release
     """
     template: str
-    example: str
-    location: str
+    example: str = Field(..., repr=False)
+    location: str = Field(..., repr=False)
     environment: str
     survey: str = None
     access: Access
-    hdus: Dict[str, HDU] = None
-    par: ParModel = None
-    hdfs: HdfModel = None
+    hdus: Dict[str, HDU] = Field(None, repr=False)
+    par: ParModel = Field(None, repr=False)
+    hdfs: HdfModel = Field(None, repr=False)
 
     def convert_to_hdulist(self) -> fits.HDUList:
         """ Convert the hdus to a fits.HDUList """
@@ -273,7 +277,7 @@ class ReleaseModel(BaseModel):
         return fits.HDUList(hdus)
 
 
-class YamlModel(BaseModel):
+class YamlModel(CoreModel):
     """ Pydantic model representing a YAML file
 
     Parameters
@@ -289,9 +293,9 @@ class YamlModel(BaseModel):
 
     """
     general: GeneralSection
-    changelog: ChangeLog
-    releases: Dict[str, ReleaseModel]
-    notes: str = None
+    changelog: ChangeLog = Field(..., repr=False)
+    releases: Dict[str, ReleaseModel] = Field(..., repr=False)
+    notes: str = Field(None, repr=False)
 
     _check_releases = validator('releases', allow_reuse=True)(check_release)
 

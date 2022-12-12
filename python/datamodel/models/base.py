@@ -11,7 +11,48 @@
 # Modified By: Brian Cherinka
 
 from pydantic import BaseModel
-from typing import Iterator, Union, Callable
+from typing import Iterator, Union, Callable, Dict, Any, Type
+
+
+class CoreModel(BaseModel):
+    """ Custom BaseModel """
+    class Config:
+        """ base model config """
+        @staticmethod
+        def schema_extra(schema: Dict[str, Any], model: Type[BaseModel]) -> None:
+            """ Adds custom information into the schema """
+
+            # "repr" flag in Field not retained when dumping model schema
+            # this adds the "repr" boolean Field into the schema for each
+            # property on a model.  Use until this is fixed in the core Pydantic.
+            for key, mod in model.__fields__.items():
+                if mod.field_info.repr is False:
+                    schema['properties'][key].update({'repr': False})
+
+    def __repr_args__(self):
+        """ Custom repr args
+
+        By default, for model fields that are complex objects, pydantic
+        displays the entire object in the repr.  This allows specifying
+        an object attribute to be used for display in the repr instead,
+        using an extra "repr_attr" field, with the name of the attribute.
+        See models Survey and Phase for example.
+        """
+        rargs=[]
+        # loop over model's repr args
+        for i in super().__repr_args__():
+            # get the field_info "extra" and look for the "repr_attr" key
+            ext = self.__fields__[i[0]].field_info.extra
+            if 'repr_attr' in ext:
+                # use the object attribute specified as the repr arg
+                if isinstance(i[1], list):
+                    attr = [getattr(e, ext['repr_attr']) for e in i[1]]
+                else:
+                    attr = getattr(i[1], ext['repr_attr'])
+                rargs.append((i[0], attr))
+            else:
+                rargs.append(i)
+        return rargs
 
 
 class BaseList(BaseModel):

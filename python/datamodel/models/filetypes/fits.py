@@ -4,12 +4,13 @@
 import re
 
 from typing import List, Union, Dict, Optional
-from pydantic import BaseModel, validator
+from pydantic import validator, Field
 from astropy.io import fits
+from ..base import CoreModel
 from ..validators import replace_me
 
 
-class ChangeFits(BaseModel):
+class ChangeFits(CoreModel):
     """ Pydantic model representing the FITS hdu fields of the YAML changelog release section
 
     Represents a computed section of the changelog, for the specified
@@ -32,14 +33,13 @@ class ChangeFits(BaseModel):
         A list of any removed primary header keywords
     """
     delta_nhdus: int = None
-    added_hdus: List[str] = None
-    removed_hdus: List[str] = None
+    added_hdus: List[str] = Field(None, repr=False)
+    removed_hdus: List[str] = Field(None, repr=False)
     primary_delta_nkeys: int = None
-    added_primary_header_kwargs: List[str] = None
-    removed_primary_header_kwargs: List[str] = None
+    added_primary_header_kwargs: List[str] = Field(None, repr=False)
+    removed_primary_header_kwargs: List[str] = Field(None, repr=False)
 
-
-class Header(BaseModel):
+class Header(CoreModel):
     """ Pydantic model representing a YAML header section
 
     Represents an individual FITS Header Key
@@ -55,14 +55,14 @@ class Header(BaseModel):
     """
     key: str
     value: Optional[str] = ''
-    comment: str = ''
+    comment: str = Field(default='', repr=False)
 
     def to_tuple(self):
         """ Convert the header key to a tuple """
         return (self.key, int(self.value) if self.value.isdigit() else self.value, self.comment)
 
 
-class Column(BaseModel):
+class Column(CoreModel):
     """ Pydantic model representing a YAML column section
 
     Represents a FITS binary table column
@@ -79,7 +79,7 @@ class Column(BaseModel):
         The unit of the table column
     """
     name: str
-    description: str
+    description: str = Field(..., repr=False)
     type: str
     unit: str = ''
 
@@ -121,7 +121,7 @@ class Column(BaseModel):
                             'Check for a valid fits.Column format.')
 
 
-class HDU(BaseModel):
+class HDU(CoreModel):
     """ Pydantic model representing a YAML hdu section
 
     Represents a FITS HDU extension
@@ -143,10 +143,10 @@ class HDU(BaseModel):
     """
     name: str
     is_image: bool
-    description: str
+    description: str = Field(..., repr=False)
     size: str
-    header: List[Header] = None
-    columns: Dict[str, Column] = None
+    header: List[Header] = Field(default=None, repr=False)
+    columns: Dict[str, Column] = Field(default=None, repr=False)
 
     _check_replace_me = validator('description', allow_reuse=True)(replace_me)
 
