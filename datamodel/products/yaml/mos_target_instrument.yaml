@@ -1,0 +1,81 @@
+general:
+  name: mos_target_instrument
+  short: 'MOS Target Table: instrument'
+  description: This table stores the instruments used by SDSS-V.
+  datatype: FITS
+  filesize: 8 KB
+  releases:
+  - DR18
+  environments:
+  - MOS_TARGET
+  surveys:
+  - BHM
+  - MWM
+  - SDSS
+  naming_convention: $MOS_TARGET/[V_TARG]/mos_target_instrument-[NUM].fits, where
+    V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
+  generated_by: sdss5db> targetdb, operations database server
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR18:
+    template: $MOS_TARGET/[V_TARG]/mos_target_instrument.fits
+    example: 1.0.1/mos_target_instrument.fits
+    location: '{v_targ}/mos_target_instrument.fits'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_instrument
+      path_template: $MOS_TARGET/{v_targ}/mos_target_instrument
+      path_kwargs:
+      - v_targ
+      access_string: mos_target_instrument = $MOS_TARGET/{v_targ}/mos_target_instrument.fits
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Primary header
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: 'MOS Target Table: instrument'
+        is_image: false
+        size: 28 bytes
+        columns:
+          pk:
+            name: PK
+            type: int32
+            unit: ''
+            description: The primary key. A sequential identifier.
+          label:
+            name: LABEL
+            type: char[6]
+            unit: ''
+            description: The name of the instrument.
+          default_lambda_eff:
+            name: DEFAULT_LAMBDA_EFF
+            type: float32
+            unit: angstrom
+            description: The default wavelength for which fibre positioning will be
+              optimised
+notes: |-
+  None

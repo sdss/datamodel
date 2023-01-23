@@ -1,0 +1,1627 @@
+{
+  "general": {
+    "name": "mos_target_bhm_rm_v0_2",
+    "short": "MOS Target Table: bhm_rm_v0_2",
+    "description": "Parent sample for the RM project, used to select confirmed and candidate quasar targets for the BHM-RM Program in SDSS-V. For more details please see Yang and Shen, (2022, https://ui.adsabs.harvard.edu/abs/2022arXiv220608989Y/abstract).",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "BHM",
+        "long": "Black Hole Mapper",
+        "description": "An optical time-domain spectroscopic survey of quasars and X-ray sources",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "bhm",
+        "aliases": []
+      },
+      {
+        "name": "MWM",
+        "long": "Milky Way Mapper",
+        "description": "A time-domain, optical+IR spectroscopic survey of Milky Way stars of all types.",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "mwm",
+        "aliases": []
+      },
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "FITS",
+    "filesize": "130 MB",
+    "releases": [
+      {
+        "name": "DR18",
+        "description": "SDSS unreleased data.  Represents any work-in-progress data.",
+        "public": false,
+        "release_date": "unreleased"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/mos_target_bhm_rm_v0_2-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts",
+    "generated_by": "sdss5db> targetdb, operations database server",
+    "design": false,
+    "vac": false
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR18": {
+      "template": "$MOS_TARGET/[V_TARG]/mos_target_bhm_rm_v0_2.fits",
+      "example": "1.0.1/mos_target_bhm_rm_v0_2.fits",
+      "location": "{v_targ}/mos_target_bhm_rm_v0_2.fits",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_bhm_rm_v0_2",
+        "path_template": "$MOS_TARGET/{v_targ}/mos_target_bhm_rm_v0_2",
+        "path_kwargs": [
+          "v_targ"
+        ],
+        "access_string": "mos_target_bhm_rm_v0_2 = $MOS_TARGET/{v_targ}/mos_target_bhm_rm_v0_2.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Primary header",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "MOS Target Table: bhm_rm_v0_2",
+          "size": "130 MB",
+          "header": null,
+          "columns": {
+            "field_name": {
+              "name": "FIELD_NAME",
+              "description": "One of COSMOS, SDSS-RM, XMM-LSS, CDFS, S-CVZ, or ELAIS-S1",
+              "type": "char[8]",
+              "unit": ""
+            },
+            "ra": {
+              "name": "RA",
+              "description": "Fiducial Right Ascension (J2000)",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "dec": {
+              "name": "DEC",
+              "description": "Fiducial Declination (J2000)",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "distance": {
+              "name": "DISTANCE",
+              "description": "Angular distance from the field center",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "pos_ref": {
+              "name": "POS_REF",
+              "description": "Fiducial coordinates reference, priority: Gaia > DES > PS1 > NSC",
+              "type": "char[4]",
+              "unit": ""
+            },
+            "ebv": {
+              "name": "EBV",
+              "description": "Galactic E(B−V) reddening from Schlegel et al. (1998)",
+              "type": "float64",
+              "unit": ""
+            },
+            "des": {
+              "name": "DES",
+              "description": "A flag set to 1 if in DES photometric catalog",
+              "type": "int32",
+              "unit": ""
+            },
+            "coadd_object_id": {
+              "name": "COADD_OBJECT_ID",
+              "description": "DES coadd object ID",
+              "type": "int64",
+              "unit": ""
+            },
+            "ra_des": {
+              "name": "RA_DES",
+              "description": "DES Right Ascension (J2000)",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "dec_des": {
+              "name": "DEC_DES",
+              "description": "DES Declination (J2000)",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "extended_coadd": {
+              "name": "EXTENDED_COADD",
+              "description": "DES type classifier: 0 (high-confidence stars), 1 (likely stars), 2 (mostly galaxies), and 3 (high-confidence galaxies)",
+              "type": "int32",
+              "unit": ""
+            },
+            "separation_des": {
+              "name": "SEPARATION_DES",
+              "description": "Angular distance between DES position and the fiducial coordinates",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "ps1": {
+              "name": "PS1",
+              "description": "A flag set to 1 if in PS1 photometric catalog",
+              "type": "int32",
+              "unit": ""
+            },
+            "objid_ps1": {
+              "name": "OBJID_PS1",
+              "description": "PS1 unique object identifier",
+              "type": "int64",
+              "unit": ""
+            },
+            "ra_ps1": {
+              "name": "RA_PS1",
+              "description": "PS1 right ascension from i filter stack detection",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "dec_ps1": {
+              "name": "DEC_PS1",
+              "description": "PS1 declination from i filter stack detection",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "class_ps1": {
+              "name": "CLASS_PS1",
+              "description": "PS1 source classification = iPsfMag - iKronMag",
+              "type": "float64",
+              "unit": ""
+            },
+            "separation_ps1": {
+              "name": "SEPARATION_PS1",
+              "description": "Angular distance between PS1 position and the fiducial coordinates",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "nsc": {
+              "name": "NSC",
+              "description": "A flag set to 1 if in  photometric catalog",
+              "type": "int32",
+              "unit": ""
+            },
+            "id_nsc": {
+              "name": "ID_NSC",
+              "description": "NSC unique object identifier",
+              "type": "int64",
+              "unit": ""
+            },
+            "ra_nsc": {
+              "name": "RA_NSC",
+              "description": "Right Ascension (J2000)",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "dec_nsc": {
+              "name": "DEC_NSC",
+              "description": "Declination (J2000)",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "class_star": {
+              "name": "CLASS_STAR",
+              "description": "NSC Star/Galaxy classifier",
+              "type": "float64",
+              "unit": ""
+            },
+            "flags_nsc": {
+              "name": "FLAGS_NSC",
+              "description": "NSC SExtractor flag value",
+              "type": "int32",
+              "unit": ""
+            },
+            "separation_nsc": {
+              "name": "SEPARATION_NSC",
+              "description": "Angular distance between NSC position and the fiducial coordinates",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "sdss": {
+              "name": "SDSS",
+              "description": "A flag set to 1 if in SDSS photometric catalog",
+              "type": "int32",
+              "unit": ""
+            },
+            "objid_sdss": {
+              "name": "OBJID_SDSS",
+              "description": "Unique SDSS identifier",
+              "type": "int64",
+              "unit": ""
+            },
+            "ra_sdss": {
+              "name": "RA_SDSS",
+              "description": "Right Ascension (J2000)",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "dec_sdss": {
+              "name": "DEC_SDSS",
+              "description": "Declination (J2000)",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "type_sdss": {
+              "name": "TYPE_SDSS",
+              "description": "SDSS type classifier (star 6, galaxy 3, etc.)",
+              "type": "int32",
+              "unit": ""
+            },
+            "clean_sdss": {
+              "name": "CLEAN_SDSS",
+              "description": "SDSS clean photometry flag (1=clean, 0=unclean)",
+              "type": "int32",
+              "unit": ""
+            },
+            "separation_sdss": {
+              "name": "SEPARATION_SDSS",
+              "description": "Angular distance between SDSS position and the fiducial coordinates",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "gaia": {
+              "name": "GAIA",
+              "description": "A flag set to 1 if in Gaia DR2 photometric catalog",
+              "type": "int32",
+              "unit": ""
+            },
+            "source_id_gaia": {
+              "name": "SOURCE_ID_GAIA",
+              "description": "Gaia DR2 unique source identifier",
+              "type": "int64",
+              "unit": ""
+            },
+            "mg": {
+              "name": "MG",
+              "description": "Gaia g-band magnitude (phot_g_mean_mag in Gaia catalog, Vega)",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "parallax": {
+              "name": "PARALLAX",
+              "description": "Parallax, Angle,",
+              "type": "float64",
+              "unit": "mas"
+            },
+            "parallax_error": {
+              "name": "PARALLAX_ERROR",
+              "description": "Standard error of parallax, Angle,",
+              "type": "float64",
+              "unit": "mas"
+            },
+            "plxsig": {
+              "name": "PLXSIG",
+              "description": "Parallax significance defined as |PARALLAX/PARALLAX_ERROR|",
+              "type": "float64",
+              "unit": ""
+            },
+            "pmra": {
+              "name": "PMRA",
+              "description": "Proper motion in RA direction, Angular Velocity,",
+              "type": "float64",
+              "unit": "mas/year"
+            },
+            "pmra_error": {
+              "name": "PMRA_ERROR",
+              "description": "Standard error of proper motion in RA direction, Angular Velocity,",
+              "type": "float64",
+              "unit": "mas/year"
+            },
+            "pmdec": {
+              "name": "PMDEC",
+              "description": "Proper motion in DEC direction, Angular Velocity,",
+              "type": "float64",
+              "unit": "mas/year"
+            },
+            "pmdec_error": {
+              "name": "PMDEC_ERROR",
+              "description": "Standard error of proper motion in DEC direction, Angular Velocity,",
+              "type": "float64",
+              "unit": "mas/year"
+            },
+            "pmsig": {
+              "name": "PMSIG",
+              "description": "Proper motion significance defined as (pmra^2+pmdec^2)/sqrt(pmra^2*pmra_error^2 + pmdec^2*pmdec_error^2)",
+              "type": "float64",
+              "unit": ""
+            },
+            "unwise": {
+              "name": "UNWISE",
+              "description": "A flag set to 1 if in unWISE photometric catalog",
+              "type": "int32",
+              "unit": ""
+            },
+            "objid_unwise": {
+              "name": "OBJID_UNWISE",
+              "description": "unWISE unique object id",
+              "type": "char[16]",
+              "unit": ""
+            },
+            "ra_unwise": {
+              "name": "RA_UNWISE",
+              "description": "unWISE Right Ascension (J2000)",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "dec_unwise": {
+              "name": "DEC_UNWISE",
+              "description": "unWISE Declination (J2000)",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "separation_unwise": {
+              "name": "SEPARATION_UNWISE",
+              "description": "Angular distance between unWISE position and the fiducial coordinates",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "near_ir": {
+              "name": "NEAR_IR",
+              "description": "A flag set to 1 if in NIR photometric catalog",
+              "type": "int32",
+              "unit": ""
+            },
+            "survey_ir": {
+              "name": "SURVEY_IR",
+              "description": "Near-IR survey name: LAS, UHS, VHS, Viking, VMC, VIDEO",
+              "type": "char[6]",
+              "unit": ""
+            },
+            "sourceid_ir": {
+              "name": "SOURCEID_IR",
+              "description": "NIR source identifier",
+              "type": "int64",
+              "unit": ""
+            },
+            "ra_ir": {
+              "name": "RA_IR",
+              "description": "NIR Right Ascension (J2000)",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "dec_ir": {
+              "name": "DEC_IR",
+              "description": "NIR Declination (J2000)",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "separation_ir": {
+              "name": "SEPARATION_IR",
+              "description": "Angular distance between NIR position and the fiducial coordinates",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "optical_survey": {
+              "name": "OPTICAL_SURVEY",
+              "description": "Optical survey used in Skewt-QSO, e.g., DES, PS1, Gaia, NSC",
+              "type": "char[4]",
+              "unit": ""
+            },
+            "mi": {
+              "name": "MI",
+              "description": "i-band PSF magnitude (galactic extinction not corrected)",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "cal_skewt_qso": {
+              "name": "CAL_SKEWT_QSO",
+              "description": "A flag indicates whether Skewt-QSO is calculated.(Set to 1 when Nband_Optical_use > 2.)",
+              "type": "int32",
+              "unit": ""
+            },
+            "nband_optical_use": {
+              "name": "NBAND_OPTICAL_USE",
+              "description": "Number of optical bands used in Skewt-QSQ.",
+              "type": "int32",
+              "unit": ""
+            },
+            "use_unwise": {
+              "name": "USE_UNWISE",
+              "description": "Set to 1 when unWISE photometry is used in Skewt-QSO calculation.",
+              "type": "int32",
+              "unit": ""
+            },
+            "use_nir": {
+              "name": "USE_NIR",
+              "description": "Set to 1 when NIR photometry is usedin Skewt-QSO calculation.",
+              "type": "int32",
+              "unit": ""
+            },
+            "photo_combination": {
+              "name": "PHOTO_COMBINATION",
+              "description": "The photometric data combinations used in Skewt-QSO, for example, \"DECam-YJHK-unWISE\" - DECam/PS1 includes grizy bands; unWISE incldes unWISE W1 and W2 bands; and Gaia includes Gaia bp, g, and rp bands",
+              "type": "char[17]",
+              "unit": ""
+            },
+            "log_qso": {
+              "name": "LOG_QSO",
+              "description": "The (natural) logarithmic probability of a target fitting to QSO colors convolved with a QLF. Set to -323 if log_QSO<-323 (close to the lower limit of double-precision data).",
+              "type": "float64",
+              "unit": ""
+            },
+            "log_star": {
+              "name": "LOG_STAR",
+              "description": "The logarithmic probability of a target fitting to star colors multiplied by star number counts based on a stellar simulation. Set to -323 if log_Star<-323.",
+              "type": "float64",
+              "unit": ""
+            },
+            "log_galaxy": {
+              "name": "LOG_GALAXY",
+              "description": "The logarithmic probability of a target fitting to galaxy colors convolved with a GLF. Set to -323 if  log_Galaxy<-323.",
+              "type": "float64",
+              "unit": ""
+            },
+            "p_qso": {
+              "name": "P_QSO",
+              "description": "QSO probability from Skewt-QSO. P_QSO = exp(log_qso)/(exp(log_qso) + exp(log_star) + exp(log_galaxy))",
+              "type": "float64",
+              "unit": ""
+            },
+            "p_star": {
+              "name": "P_STAR",
+              "description": "Star probability from Skewt-QSO.",
+              "type": "float32",
+              "unit": ""
+            },
+            "p_galaxy": {
+              "name": "P_GALAXY",
+              "description": "Galaxy probability from Skewt-QSO.",
+              "type": "float64",
+              "unit": ""
+            },
+            "class_skewt_qso": {
+              "name": "CLASS_SKEWT_QSO",
+              "description": "Classification based on the highest probability from Skewt-QSO, QSO/Star/Galaxy",
+              "type": "char[6]",
+              "unit": ""
+            },
+            "skewt_qso": {
+              "name": "SKEWT_QSO",
+              "description": "flag indicating whether the object is a QSO (same as class_skewt_qso, except additionally requiring log_QSO>-10). (P_QSO>P_Star & P_QSO>P_galaxy & log_QSO>-10)",
+              "type": "int32",
+              "unit": ""
+            },
+            "p_qso_prior": {
+              "name": "P_QSO_PRIOR",
+              "description": "QSO probability with prior probabilities from additional info, such as separation (between optical survey and unWISE), morphology, variability, and/or proper motion.(Note: *_Prior are generally not populated in this version, except for the \"S-CVZ\" field, where we take into account the separation between optical surveys and unWISE.)",
+              "type": "float64",
+              "unit": ""
+            },
+            "p_star_prior": {
+              "name": "P_STAR_PRIOR",
+              "description": "Star probability with prior probabilities.",
+              "type": "float32",
+              "unit": ""
+            },
+            "p_galaxy_prior": {
+              "name": "P_GALAXY_PRIOR",
+              "description": "Galaxy probability with prior probabilities.",
+              "type": "float64",
+              "unit": ""
+            },
+            "class_skewt_qso_prior": {
+              "name": "CLASS_SKEWT_QSO_PRIOR",
+              "description": "Classification based on Skewt-QSO with prior probabilities described above.",
+              "type": "char[6]",
+              "unit": ""
+            },
+            "skewt_qso_prior": {
+              "name": "SKEWT_QSO_PRIOR",
+              "description": "flag indicating whether the object is QSO based on Skewt-QSO with prior probabilities described above.",
+              "type": "int32",
+              "unit": ""
+            },
+            "photoz_qso": {
+              "name": "PHOTOZ_QSO",
+              "description": "Photometric redshift of QSO from Skewt-QSO",
+              "type": "float64",
+              "unit": ""
+            },
+            "photoz_qso_lower": {
+              "name": "PHOTOZ_QSO_LOWER",
+              "description": "Lower limit of photoz_QSO",
+              "type": "float64",
+              "unit": ""
+            },
+            "photoz_qso_upper": {
+              "name": "PHOTOZ_QSO_UPPER",
+              "description": "Upper limit of photoz_QSO",
+              "type": "float64",
+              "unit": ""
+            },
+            "prob_photoz_qso": {
+              "name": "PROB_PHOTOZ_QSO",
+              "description": "The total probability of z located between photoz_QSO_lower and photoz_QSO_upper (assuming it is QSO).",
+              "type": "float64",
+              "unit": ""
+            },
+            "photoz_galaxy": {
+              "name": "PHOTOZ_GALAXY",
+              "description": "Photometric redshift of Galaxy from Skewt-QSO (fitting to galaxy colors).",
+              "type": "float64",
+              "unit": ""
+            },
+            "photoz_galaxy_lower": {
+              "name": "PHOTOZ_GALAXY_LOWER",
+              "description": "Lower limit of photoz_Galaxy.",
+              "type": "float64",
+              "unit": ""
+            },
+            "photoz_galaxy_upper": {
+              "name": "PHOTOZ_GALAXY_UPPER",
+              "description": "Upper limit of photoz_Galaxy.",
+              "type": "float64",
+              "unit": ""
+            },
+            "pqso_xdqso": {
+              "name": "PQSO_XDQSO",
+              "description": "QSO probability from the public XDQSO catalog",
+              "type": "float64",
+              "unit": ""
+            },
+            "photoz_xdqso": {
+              "name": "PHOTOZ_XDQSO",
+              "description": "Photometric redshift of QSO from the public XDQSO catalog",
+              "type": "float64",
+              "unit": ""
+            },
+            "prob_rf_gaia_unwise": {
+              "name": "PROB_RF_GAIA_UNWISE",
+              "description": "AGN probability from the Gaia-unWISE AGN catalog",
+              "type": "float64",
+              "unit": ""
+            },
+            "photoz_gaia_unwise": {
+              "name": "PHOTOZ_GAIA_UNWISE",
+              "description": "Photometric redshift from the Gaia-unWISE AGN catalog",
+              "type": "float64",
+              "unit": ""
+            },
+            "des_var_sn_max": {
+              "name": "DES_VAR_SN_MAX",
+              "description": "The signal-to-noise ratio of the measured intrinsic RMS in grizy bands (DES).",
+              "type": "float64",
+              "unit": ""
+            },
+            "ps1_var_sn_max": {
+              "name": "PS1_VAR_SN_MAX",
+              "description": "The maximum signal-to-noise ratio of the measured intrinsic RMS over 5 bands (PS1).",
+              "type": "float64",
+              "unit": ""
+            },
+            "spec_q": {
+              "name": "SPEC_Q",
+              "description": "flag indicating if the object was spectroscopically confirmed as QSO from earlier surveys.",
+              "type": "int32",
+              "unit": ""
+            },
+            "spec_strmask": {
+              "name": "SPEC_STRMASK",
+              "description": "string format of spec_bitmask, e.g., '000001'.",
+              "type": "char[6]",
+              "unit": ""
+            },
+            "spec_bitmask": {
+              "name": "SPEC_BITMASK",
+              "description": "bitmask - bit 0: SDSS-DR14Q, bit 1: SDSS-DR7Q, bit 2: OzDES-DR1Q, bit 3: SDSS-RM_Q, bit 4: COSMOS_Q, bit 5: Milliquas_QA. (Note: Milliquas_QA=1 are objects spectroscopically classified as broad-line QSO/AGN in the Million Quasars (MILLIQUAS) catalog.)",
+              "type": "int64",
+              "unit": ""
+            },
+            "specz": {
+              "name": "SPECZ",
+              "description": "spectroscopic redshift from multiple surveys. Priority: SDSS-RM_Q/COSMOS_Q > SDSS-DR14Q > SDSS-DR7Q > OzDES-DR1Q > Milliquas_QA",
+              "type": "float64",
+              "unit": ""
+            },
+            "specz_ref": {
+              "name": "SPECZ_REF",
+              "description": "Reference of specz.",
+              "type": "char[16]",
+              "unit": ""
+            },
+            "photo_q": {
+              "name": "PHOTO_Q",
+              "description": "flag indicating if the object was selected as QSO in public photometric quasar catalogs.",
+              "type": "int32",
+              "unit": ""
+            },
+            "photo_strmask": {
+              "name": "PHOTO_STRMASK",
+              "description": "string format of photo_bitmask",
+              "type": "char[3]",
+              "unit": ""
+            },
+            "photo_bitmask": {
+              "name": "PHOTO_BITMASK",
+              "description": "bit mask, bit 0: XDQSO catalog, bit 1: Gaia-unWISE AGN catalog; bit 2: Milliquas_photo: photometric quasar candidates in the Milliquas catalog",
+              "type": "int64",
+              "unit": ""
+            },
+            "photoz": {
+              "name": "PHOTOZ",
+              "description": "Photometric redshift from public photometric quasar catalogs. Priority: XDQSO > Gaia-unWISE > Milliquas_photo",
+              "type": "float64",
+              "unit": ""
+            },
+            "pqso_photo": {
+              "name": "PQSO_PHOTO",
+              "description": "QSO probability from public photometric quasar catalogs.",
+              "type": "float64",
+              "unit": ""
+            },
+            "photoz_ref": {
+              "name": "PHOTOZ_REF",
+              "description": "photoz reference.",
+              "type": "char[16]",
+              "unit": ""
+            },
+            "pk": {
+              "name": "PK",
+              "description": "primary key for the database table",
+              "type": "int64",
+              "unit": ""
+            },
+            "psfmag_des_g": {
+              "name": "PSFMAG_DES_G",
+              "description": "DES PSF photometry",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "psfmag_des_r": {
+              "name": "PSFMAG_DES_R",
+              "description": "DES PSF photometry",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "psfmag_des_i": {
+              "name": "PSFMAG_DES_I",
+              "description": "DES PSF photometry",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "psfmag_des_z": {
+              "name": "PSFMAG_DES_Z",
+              "description": "DES PSF photometry",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "psfmag_des_y": {
+              "name": "PSFMAG_DES_Y",
+              "description": "DES PSF photometry",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "psfmagerr_des_g": {
+              "name": "PSFMAGERR_DES_G",
+              "description": "DES PSF photometry error",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "psfmagerr_des_r": {
+              "name": "PSFMAGERR_DES_R",
+              "description": "DES PSF photometry error",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "psfmagerr_des_i": {
+              "name": "PSFMAGERR_DES_I",
+              "description": "DES PSF photometry error",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "psfmagerr_des_z": {
+              "name": "PSFMAGERR_DES_Z",
+              "description": "DES PSF photometry error",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "psfmagerr_des_y": {
+              "name": "PSFMAGERR_DES_Y",
+              "description": "DES PSF photometry error",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "mag_auto_des_g": {
+              "name": "MAG_AUTO_DES_G",
+              "description": "DES auto photometry",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "mag_auto_des_r": {
+              "name": "MAG_AUTO_DES_R",
+              "description": "DES auto photometry",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "mag_auto_des_i": {
+              "name": "MAG_AUTO_DES_I",
+              "description": "DES auto photometry",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "mag_auto_des_z": {
+              "name": "MAG_AUTO_DES_Z",
+              "description": "DES auto photometry",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "mag_auto_des_y": {
+              "name": "MAG_AUTO_DES_Y",
+              "description": "DES auto photometry",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "magerr_auto_des_g": {
+              "name": "MAGERR_AUTO_DES_G",
+              "description": "DES auto photometry error",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "magerr_auto_des_r": {
+              "name": "MAGERR_AUTO_DES_R",
+              "description": "DES auto photometry error",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "magerr_auto_des_i": {
+              "name": "MAGERR_AUTO_DES_I",
+              "description": "DES auto photometry error",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "magerr_auto_des_z": {
+              "name": "MAGERR_AUTO_DES_Z",
+              "description": "DES auto photometry error",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "magerr_auto_des_y": {
+              "name": "MAGERR_AUTO_DES_Y",
+              "description": "DES auto photometry error",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "imaflags_iso_g": {
+              "name": "IMAFLAGS_ISO_G",
+              "description": "DES flag identifying sources with missing/flagged pixels, considering all single epoch images",
+              "type": "int32",
+              "unit": ""
+            },
+            "imaflags_iso_r": {
+              "name": "IMAFLAGS_ISO_R",
+              "description": "DES flag identifying sources with missing/flagged pixels, considering all single epoch images",
+              "type": "int32",
+              "unit": ""
+            },
+            "imaflags_iso_i": {
+              "name": "IMAFLAGS_ISO_I",
+              "description": "DES flag identifying sources with missing/flagged pixels, considering all single epoch images",
+              "type": "int32",
+              "unit": ""
+            },
+            "imaflags_iso_z": {
+              "name": "IMAFLAGS_ISO_Z",
+              "description": "DES flag identifying sources with missing/flagged pixels, considering all single epoch images",
+              "type": "int32",
+              "unit": ""
+            },
+            "imaflags_iso_y": {
+              "name": "IMAFLAGS_ISO_Y",
+              "description": "DES flag identifying sources with missing/flagged pixels, considering all single epoch images",
+              "type": "int32",
+              "unit": ""
+            },
+            "psfmag_ps1_g": {
+              "name": "PSFMAG_PS1_G",
+              "description": "PS1 PSF magnitude",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "psfmag_ps1_r": {
+              "name": "PSFMAG_PS1_R",
+              "description": "PS1 PSF magnitude",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "psfmag_ps1_i": {
+              "name": "PSFMAG_PS1_I",
+              "description": "PS1 PSF magnitude",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "psfmag_ps1_z": {
+              "name": "PSFMAG_PS1_Z",
+              "description": "PS1 PSF magnitude",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "psfmag_ps1_y": {
+              "name": "PSFMAG_PS1_Y",
+              "description": "PS1 PSF magnitude",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "psfmagerr_ps1_g": {
+              "name": "PSFMAGERR_PS1_G",
+              "description": "PS1 PSF magnitude error",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "psfmagerr_ps1_r": {
+              "name": "PSFMAGERR_PS1_R",
+              "description": "PS1 PSF magnitude error",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "psfmagerr_ps1_i": {
+              "name": "PSFMAGERR_PS1_I",
+              "description": "PS1 PSF magnitude error",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "psfmagerr_ps1_z": {
+              "name": "PSFMAGERR_PS1_Z",
+              "description": "PS1 PSF magnitude error",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "psfmagerr_ps1_y": {
+              "name": "PSFMAGERR_PS1_Y",
+              "description": "PS1 PSF magnitude error",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "kronmag_ps1_g": {
+              "name": "KRONMAG_PS1_G",
+              "description": "PS1 Kron magnitude",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "kronmag_ps1_r": {
+              "name": "KRONMAG_PS1_R",
+              "description": "PS1 Kron magnitude",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "kronmag_ps1_i": {
+              "name": "KRONMAG_PS1_I",
+              "description": "PS1 Kron magnitude",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "kronmag_ps1_z": {
+              "name": "KRONMAG_PS1_Z",
+              "description": "PS1 Kron magnitude",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "kronmag_ps1_y": {
+              "name": "KRONMAG_PS1_Y",
+              "description": "PS1 Kron magnitude",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "kronmagerr_ps1_g": {
+              "name": "KRONMAGERR_PS1_G",
+              "description": "PS1 Kron magnitude error",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "kronmagerr_ps1_r": {
+              "name": "KRONMAGERR_PS1_R",
+              "description": "PS1 Kron magnitude error",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "kronmagerr_ps1_i": {
+              "name": "KRONMAGERR_PS1_I",
+              "description": "PS1 Kron magnitude error",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "kronmagerr_ps1_z": {
+              "name": "KRONMAGERR_PS1_Z",
+              "description": "PS1 Kron magnitude error",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "kronmagerr_ps1_y": {
+              "name": "KRONMAGERR_PS1_Y",
+              "description": "PS1 Kron magnitude error",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "infoflag2_g": {
+              "name": "INFOFLAG2_G",
+              "description": "PS1 flags, values listed in DetectionFlags2",
+              "type": "int32",
+              "unit": ""
+            },
+            "infoflag2_r": {
+              "name": "INFOFLAG2_R",
+              "description": "PS1 flags, values listed in DetectionFlags2",
+              "type": "int32",
+              "unit": ""
+            },
+            "infoflag2_i": {
+              "name": "INFOFLAG2_I",
+              "description": "PS1 flags, values listed in DetectionFlags2",
+              "type": "int32",
+              "unit": ""
+            },
+            "infoflag2_z": {
+              "name": "INFOFLAG2_Z",
+              "description": "PS1 flags, values listed in DetectionFlags2",
+              "type": "int32",
+              "unit": ""
+            },
+            "infoflag2_y": {
+              "name": "INFOFLAG2_Y",
+              "description": "PS1 flags, values listed in DetectionFlags2",
+              "type": "int32",
+              "unit": ""
+            },
+            "mag_nsc_g": {
+              "name": "MAG_NSC_G",
+              "description": "Weighted-average magnitude",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "mag_nsc_r": {
+              "name": "MAG_NSC_R",
+              "description": "Weighted-average magnitude",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "mag_nsc_i": {
+              "name": "MAG_NSC_I",
+              "description": "Weighted-average magnitude",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "mag_nsc_z": {
+              "name": "MAG_NSC_Z",
+              "description": "Weighted-average magnitude",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "mag_nsc_y": {
+              "name": "MAG_NSC_Y",
+              "description": "Weighted-average magnitude",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "magerr_nsc_g": {
+              "name": "MAGERR_NSC_G",
+              "description": "Weighted-average NSC magnitude",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "magerr_nsc_r": {
+              "name": "MAGERR_NSC_R",
+              "description": "Weighted-average NSC magnitude",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "magerr_nsc_i": {
+              "name": "MAGERR_NSC_I",
+              "description": "Weighted-average NSC magnitude",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "magerr_nsc_z": {
+              "name": "MAGERR_NSC_Z",
+              "description": "Weighted-average NSC magnitude",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "magerr_nsc_y": {
+              "name": "MAGERR_NSC_Y",
+              "description": "Weighted-average NSC magnitude",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "psfmag_sdss_u": {
+              "name": "PSFMAG_SDSS_U",
+              "description": "SDSS PSF magnitude",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "psfmag_sdss_g": {
+              "name": "PSFMAG_SDSS_G",
+              "description": "SDSS PSF magnitude",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "psfmag_sdss_r": {
+              "name": "PSFMAG_SDSS_R",
+              "description": "SDSS PSF magnitude",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "psfmag_sdss_i": {
+              "name": "PSFMAG_SDSS_I",
+              "description": "SDSS PSF magnitude",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "psfmag_sdss_z": {
+              "name": "PSFMAG_SDSS_Z",
+              "description": "SDSS PSF magnitude",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "psfmagerr_sdss_u": {
+              "name": "PSFMAGERR_SDSS_U",
+              "description": "SDSS PSF magnitude error",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "psfmagerr_sdss_g": {
+              "name": "PSFMAGERR_SDSS_G",
+              "description": "SDSS PSF magnitude error",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "psfmagerr_sdss_r": {
+              "name": "PSFMAGERR_SDSS_R",
+              "description": "SDSS PSF magnitude error",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "psfmagerr_sdss_i": {
+              "name": "PSFMAGERR_SDSS_I",
+              "description": "SDSS PSF magnitude error",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "psfmagerr_sdss_z": {
+              "name": "PSFMAGERR_SDSS_Z",
+              "description": "SDSS PSF magnitude error",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "modelmag_sdss_u": {
+              "name": "MODELMAG_SDSS_U",
+              "description": "SDSS Model magnitude",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "modelmag_sdss_g": {
+              "name": "MODELMAG_SDSS_G",
+              "description": "SDSS Model magnitude",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "modelmag_sdss_r": {
+              "name": "MODELMAG_SDSS_R",
+              "description": "SDSS Model magnitude",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "modelmag_sdss_i": {
+              "name": "MODELMAG_SDSS_I",
+              "description": "SDSS Model magnitude",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "modelmag_sdss_z": {
+              "name": "MODELMAG_SDSS_Z",
+              "description": "SDSS Model magnitude",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "modelmagerr_sdss_u": {
+              "name": "MODELMAGERR_SDSS_U",
+              "description": "SDSS Model magnitude error",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "modelmagerr_sdss_g": {
+              "name": "MODELMAGERR_SDSS_G",
+              "description": "SDSS Model magnitude error",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "modelmagerr_sdss_r": {
+              "name": "MODELMAGERR_SDSS_R",
+              "description": "SDSS Model magnitude error",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "modelmagerr_sdss_i": {
+              "name": "MODELMAGERR_SDSS_I",
+              "description": "SDSS Model magnitude error",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "modelmagerr_sdss_z": {
+              "name": "MODELMAGERR_SDSS_Z",
+              "description": "SDSS Model magnitude error",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "mag_gaia_g": {
+              "name": "MAG_GAIA_G",
+              "description": "Gaia DR2 G-band magnitude, Vega",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "mag_gaia_bp": {
+              "name": "MAG_GAIA_BP",
+              "description": "Gaia DR2 BP-band magnitude, Vega",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "mag_gaia_rp": {
+              "name": "MAG_GAIA_RP",
+              "description": "Gaia DR2 RP-band magnitude, Vega",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "magerr_gaia_g": {
+              "name": "MAGERR_GAIA_G",
+              "description": "Gaia DR2 G-band magnitude error, Vega",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "magerr_gaia_bp": {
+              "name": "MAGERR_GAIA_BP",
+              "description": "Gaia DR2 BP-band magnitude error, Vega",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "magerr_gaia_rp": {
+              "name": "MAGERR_GAIA_RP",
+              "description": "Gaia DR2 RP-band magnitude error, Vega",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "mag_unwise_w1": {
+              "name": "MAG_UNWISE_W1",
+              "description": "unWISE (Vega) magnitude,",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "mag_unwise_w2": {
+              "name": "MAG_UNWISE_W2",
+              "description": "unWISE (Vega) magnitude,",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "magerr_unwise_w1": {
+              "name": "MAGERR_UNWISE_W1",
+              "description": "unWISE (Vega) magnitude error,",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "magerr_unwise_w2": {
+              "name": "MAGERR_UNWISE_W2",
+              "description": "unWISE (Vega) magnitude error,",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "flags_unwise_w1": {
+              "name": "FLAGS_UNWISE_W1",
+              "description": "unWISE Coadd Flags",
+              "type": "int32",
+              "unit": ""
+            },
+            "flags_unwise_w2": {
+              "name": "FLAGS_UNWISE_W2",
+              "description": "unWISE Coadd Flags",
+              "type": "int32",
+              "unit": ""
+            },
+            "mag_ir_y": {
+              "name": "MAG_IR_Y",
+              "description": "(Vega) magnitude in near-IR,",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "mag_ir_j": {
+              "name": "MAG_IR_J",
+              "description": "(Vega) magnitude in near-IR,",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "mag_ir_h": {
+              "name": "MAG_IR_H",
+              "description": "(Vega) magnitude in near-IR,",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "mag_ir_k": {
+              "name": "MAG_IR_K",
+              "description": "(Vega) magnitude in near-IR,",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "magerr_ir_y": {
+              "name": "MAGERR_IR_Y",
+              "description": "magnitude error in near-IR",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "magerr_ir_j": {
+              "name": "MAGERR_IR_J",
+              "description": "magnitude error in near-IR",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "magerr_ir_h": {
+              "name": "MAGERR_IR_H",
+              "description": "magnitude error in near-IR",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "magerr_ir_k": {
+              "name": "MAGERR_IR_K",
+              "description": "magnitude error in near-IR",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "des_var_nepoch_g": {
+              "name": "DES_VAR_NEPOCH_G",
+              "description": "Number of DES single-epoch photometric datapoints per band",
+              "type": "int32",
+              "unit": ""
+            },
+            "des_var_nepoch_r": {
+              "name": "DES_VAR_NEPOCH_R",
+              "description": "Number of DES single-epoch photometric datapoints per band",
+              "type": "int32",
+              "unit": ""
+            },
+            "des_var_nepoch_i": {
+              "name": "DES_VAR_NEPOCH_I",
+              "description": "Number of DES single-epoch photometric datapoints per band",
+              "type": "int32",
+              "unit": ""
+            },
+            "des_var_nepoch_z": {
+              "name": "DES_VAR_NEPOCH_Z",
+              "description": "Number of DES single-epoch photometric datapoints per band",
+              "type": "int32",
+              "unit": ""
+            },
+            "des_var_nepoch_y": {
+              "name": "DES_VAR_NEPOCH_Y",
+              "description": "Number of DES single-epoch photometric datapoints per band",
+              "type": "int32",
+              "unit": ""
+            },
+            "des_var_status_g": {
+              "name": "DES_VAR_STATUS_G",
+              "description": "Status of intrinsic variability calculation from DES",
+              "type": "int32",
+              "unit": ""
+            },
+            "des_var_status_r": {
+              "name": "DES_VAR_STATUS_R",
+              "description": "Status of intrinsic variability calculation from DES",
+              "type": "int32",
+              "unit": ""
+            },
+            "des_var_status_i": {
+              "name": "DES_VAR_STATUS_I",
+              "description": "Status of intrinsic variability calculation from DES",
+              "type": "int32",
+              "unit": ""
+            },
+            "des_var_status_z": {
+              "name": "DES_VAR_STATUS_Z",
+              "description": "Status of intrinsic variability calculation from DES",
+              "type": "int32",
+              "unit": ""
+            },
+            "des_var_status_y": {
+              "name": "DES_VAR_STATUS_Y",
+              "description": "Status of intrinsic variability calculation from DES",
+              "type": "int32",
+              "unit": ""
+            },
+            "des_var_rms_g": {
+              "name": "DES_VAR_RMS_G",
+              "description": "Intrinsic RMS from DES",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "des_var_rms_r": {
+              "name": "DES_VAR_RMS_R",
+              "description": "Intrinsic RMS from DES",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "des_var_rms_i": {
+              "name": "DES_VAR_RMS_I",
+              "description": "Intrinsic RMS from DES",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "des_var_rms_z": {
+              "name": "DES_VAR_RMS_Z",
+              "description": "Intrinsic RMS from DES",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "des_var_rms_y": {
+              "name": "DES_VAR_RMS_Y",
+              "description": "Intrinsic RMS from DES",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "des_var_sigrms_g": {
+              "name": "DES_VAR_SIGRMS_G",
+              "description": "Error of intrinsic RMS from DES",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "des_var_sigrms_r": {
+              "name": "DES_VAR_SIGRMS_R",
+              "description": "Error of intrinsic RMS from DES",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "des_var_sigrms_i": {
+              "name": "DES_VAR_SIGRMS_I",
+              "description": "Error of intrinsic RMS from DES",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "des_var_sigrms_z": {
+              "name": "DES_VAR_SIGRMS_Z",
+              "description": "Error of intrinsic RMS from DES",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "des_var_sigrms_y": {
+              "name": "DES_VAR_SIGRMS_Y",
+              "description": "Error of intrinsic RMS from DES",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "des_var_sn_g": {
+              "name": "DES_VAR_SN_G",
+              "description": "The signal-to-noise ratio of the measured intrinsic RMS from DES",
+              "type": "float64",
+              "unit": ""
+            },
+            "des_var_sn_r": {
+              "name": "DES_VAR_SN_R",
+              "description": "The signal-to-noise ratio of the measured intrinsic RMS from DES",
+              "type": "float64",
+              "unit": ""
+            },
+            "des_var_sn_i": {
+              "name": "DES_VAR_SN_I",
+              "description": "The signal-to-noise ratio of the measured intrinsic RMS from DES",
+              "type": "float64",
+              "unit": ""
+            },
+            "des_var_sn_z": {
+              "name": "DES_VAR_SN_Z",
+              "description": "The signal-to-noise ratio of the measured intrinsic RMS from DES",
+              "type": "float64",
+              "unit": ""
+            },
+            "des_var_sn_y": {
+              "name": "DES_VAR_SN_Y",
+              "description": "The signal-to-noise ratio of the measured intrinsic RMS from DES",
+              "type": "float64",
+              "unit": ""
+            },
+            "ps1_var_nepoch_g": {
+              "name": "PS1_VAR_NEPOCH_G",
+              "description": "Number of PS1 single-epoch photometric data points",
+              "type": "int32",
+              "unit": ""
+            },
+            "ps1_var_nepoch_r": {
+              "name": "PS1_VAR_NEPOCH_R",
+              "description": "Number of PS1 single-epoch photometric data points",
+              "type": "int32",
+              "unit": ""
+            },
+            "ps1_var_nepoch_i": {
+              "name": "PS1_VAR_NEPOCH_I",
+              "description": "Number of PS1 single-epoch photometric data points",
+              "type": "int32",
+              "unit": ""
+            },
+            "ps1_var_nepoch_z": {
+              "name": "PS1_VAR_NEPOCH_Z",
+              "description": "Number of PS1 single-epoch photometric data points",
+              "type": "int32",
+              "unit": ""
+            },
+            "ps1_var_nepoch_y": {
+              "name": "PS1_VAR_NEPOCH_Y",
+              "description": "Number of PS1 single-epoch photometric data points",
+              "type": "int32",
+              "unit": ""
+            },
+            "ps1_var_status_g": {
+              "name": "PS1_VAR_STATUS_G",
+              "description": "Status of intrinsic variability calculation from PS1",
+              "type": "int32",
+              "unit": ""
+            },
+            "ps1_var_status_r": {
+              "name": "PS1_VAR_STATUS_R",
+              "description": "Status of intrinsic variability calculation from PS1",
+              "type": "int32",
+              "unit": ""
+            },
+            "ps1_var_status_i": {
+              "name": "PS1_VAR_STATUS_I",
+              "description": "Status of intrinsic variability calculation from PS1",
+              "type": "int32",
+              "unit": ""
+            },
+            "ps1_var_status_z": {
+              "name": "PS1_VAR_STATUS_Z",
+              "description": "Status of intrinsic variability calculation from PS1",
+              "type": "int32",
+              "unit": ""
+            },
+            "ps1_var_status_y": {
+              "name": "PS1_VAR_STATUS_Y",
+              "description": "Status of intrinsic variability calculation from PS1",
+              "type": "int32",
+              "unit": ""
+            },
+            "ps1_var_rms_g": {
+              "name": "PS1_VAR_RMS_G",
+              "description": "Intrinsic RMS from PS1",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "ps1_var_rms_r": {
+              "name": "PS1_VAR_RMS_R",
+              "description": "Intrinsic RMS from PS1",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "ps1_var_rms_i": {
+              "name": "PS1_VAR_RMS_I",
+              "description": "Intrinsic RMS from PS1",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "ps1_var_rms_z": {
+              "name": "PS1_VAR_RMS_Z",
+              "description": "Intrinsic RMS from PS1",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "ps1_var_rms_y": {
+              "name": "PS1_VAR_RMS_Y",
+              "description": "Intrinsic RMS from PS1",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "ps1_var_sigrms_g": {
+              "name": "PS1_VAR_SIGRMS_G",
+              "description": "Error of intrinsic RMS from PS1",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "ps1_var_sigrms_r": {
+              "name": "PS1_VAR_SIGRMS_R",
+              "description": "Error of intrinsic RMS from PS1",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "ps1_var_sigrms_i": {
+              "name": "PS1_VAR_SIGRMS_I",
+              "description": "Error of intrinsic RMS from PS1",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "ps1_var_sigrms_z": {
+              "name": "PS1_VAR_SIGRMS_Z",
+              "description": "Error of intrinsic RMS from PS1",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "ps1_var_sigrms_y": {
+              "name": "PS1_VAR_SIGRMS_Y",
+              "description": "Error of intrinsic RMS from PS1",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "ps1_var_sn_g": {
+              "name": "PS1_VAR_SN_G",
+              "description": "The signal-to-noise ratio of the measured intrinsic RMS from PS1",
+              "type": "float64",
+              "unit": ""
+            },
+            "ps1_var_sn_r": {
+              "name": "PS1_VAR_SN_R",
+              "description": "The signal-to-noise ratio of the measured intrinsic RMS from PS1",
+              "type": "float64",
+              "unit": ""
+            },
+            "ps1_var_sn_i": {
+              "name": "PS1_VAR_SN_I",
+              "description": "The signal-to-noise ratio of the measured intrinsic RMS from PS1",
+              "type": "float64",
+              "unit": ""
+            },
+            "ps1_var_sn_z": {
+              "name": "PS1_VAR_SN_Z",
+              "description": "The signal-to-noise ratio of the measured intrinsic RMS from PS1",
+              "type": "float64",
+              "unit": ""
+            },
+            "ps1_var_sn_y": {
+              "name": "PS1_VAR_SN_Y",
+              "description": "The signal-to-noise ratio of the measured intrinsic RMS from PS1",
+              "type": "float64",
+              "unit": ""
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null
+    }
+  },
+  "notes": "None"
+}

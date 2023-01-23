@@ -1,0 +1,176 @@
+{
+  "general": {
+    "name": "mos_target_geometric_distances_gaia_dr2",
+    "short": "MOS Target Table: geometric_distances_gaia_dr2",
+    "description": "Bayesian distances from Gaia DR2 parameters from Bailer-Jones et al. 2018. For complete details, see the original paper: https://iopscience.iop.org/article/10.3847/1538-3881/aacb21/pdf",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "BHM",
+        "long": "Black Hole Mapper",
+        "description": "An optical time-domain spectroscopic survey of quasars and X-ray sources",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "bhm",
+        "aliases": []
+      },
+      {
+        "name": "MWM",
+        "long": "Milky Way Mapper",
+        "description": "A time-domain, optical+IR spectroscopic survey of Milky Way stars of all types.",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "mwm",
+        "aliases": []
+      },
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "FITS",
+    "filesize": "51 MB",
+    "releases": [
+      {
+        "name": "DR18",
+        "description": "SDSS unreleased data.  Represents any work-in-progress data.",
+        "public": false,
+        "release_date": "unreleased"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/mos_target_geometric_distances_gaia_dr2-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts",
+    "generated_by": "sdss5db> targetdb, operations database server",
+    "design": false,
+    "vac": false
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR18": {
+      "template": "$MOS_TARGET/[V_TARG]/mos_target_geometric_distances_gaia_dr2-[NUM].fits",
+      "example": "1.0.1/mos_target_geometric_distances_gaia_dr2-01.fits",
+      "location": "{v_targ}/mos_target_geometric_distances_gaia_dr2-{num}.fits",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_geometric_distances_gaia_dr2",
+        "path_template": "$MOS_TARGET/{v_targ}/mos_target_geometric_distances_gaia_dr2-{num}",
+        "path_kwargs": [
+          "v_targ",
+          "num"
+        ],
+        "access_string": "mos_target_geometric_distances_gaia_dr2 = $MOS_TARGET/{v_targ}/mos_target_geometric_distances_gaia_dr2-{num}.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Primary header",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "MOS Target Table: geometric_distances_gaia_dr2",
+          "size": "51 MB",
+          "header": null,
+          "columns": {
+            "source_id": {
+              "name": "SOURCE_ID",
+              "description": "Unique Gaia DR2 source identifier",
+              "type": "int64",
+              "unit": ""
+            },
+            "r_est": {
+              "name": "R_EST",
+              "description": "Estimated distance",
+              "type": "float32",
+              "unit": "pc"
+            },
+            "r_lo": {
+              "name": "R_LO",
+              "description": "Lower bound on the confidence interval of the estimated distance",
+              "type": "float32",
+              "unit": "pc"
+            },
+            "r_hi": {
+              "name": "R_HI",
+              "description": "Upper bound on the confidence interval of the estimated distance",
+              "type": "float32",
+              "unit": "pc"
+            },
+            "r_len": {
+              "name": "R_LEN",
+              "description": "Length scale used in the prior for the distance estimation",
+              "type": "float32",
+              "unit": "pc"
+            },
+            "result_flag": {
+              "name": "RESULT_FLAG",
+              "description": "Result flag",
+              "type": "char[1]",
+              "unit": ""
+            },
+            "modality_flag": {
+              "name": "MODALITY_FLAG",
+              "description": "Number of modes in the posterior",
+              "type": "int16",
+              "unit": ""
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null
+    }
+  },
+  "notes": "None"
+}

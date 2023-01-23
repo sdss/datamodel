@@ -1,0 +1,113 @@
+general:
+  name: mos_target_target
+  short: 'MOS Target Table: target'
+  description: This table stores the targets associated with DR18 target selection
+    cartons. Note that the targets in this table are unique, but a target can be associated
+    with multiple cartons. That many-to-many relationship is encoded in the mos_target_carton_to_target
+    table.
+  datatype: FITS
+  filesize: 91 MB
+  releases:
+  - DR18
+  environments:
+  - MOS_TARGET
+  surveys:
+  - BHM
+  - MWM
+  - SDSS
+  naming_convention: $MOS_TARGET/[V_TARG]/mos_target_target-[NUM].fits, where V_TARG=1.0.1
+    for DR18; and NUM = 1..1 to partition the file into parts
+  generated_by: sdss5db> targetdb, operations database server
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR18:
+    template: $MOS_TARGET/[V_TARG]/mos_target_target-[NUM].fits
+    example: 1.0.1/mos_target_target-01.fits
+    location: '{v_targ}/mos_target_target-{num}.fits'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_target
+      path_template: $MOS_TARGET/{v_targ}/mos_target_target-{num}
+      path_kwargs:
+      - v_targ
+      - num
+      access_string: mos_target_target = $MOS_TARGET/{v_targ}/mos_target_target-{num}.fits
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Primary header
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: 'MOS Target Table: target'
+        is_image: false
+        size: 91 MB
+        columns:
+          target_pk:
+            name: TARGET_PK
+            type: int64
+            unit: ''
+            description: The primary key. A sequential identifier.
+          ra:
+            name: RA
+            type: float64
+            unit: degree
+            description: The right ascension of the target in ICRS coordinates at
+              epoch. From mos_target_catalog.
+          dec:
+            name: DEC
+            type: float64
+            unit: degree
+            description: The declination of the target in ICRS coordinates at epoch.
+              From mos_target_catalog.
+          pmra:
+            name: PMRA
+            type: float32
+            unit: mas/yr
+            description: The proper motion in right ascenscion of the target, as a
+              true angle. From mos_target_catalog.
+          pmdec:
+            name: PMDEC
+            type: float32
+            unit: mas/yr
+            description: The proper motion in declination of the target. From mos_target_catalog.
+          epoch:
+            name: EPOCH
+            type: float32
+            unit: years
+            description: The epoch of the coordinates, as a Julian epoch.
+          parallax:
+            name: PARALLAX
+            type: float32
+            unit: arcsec
+            description: The parallax of the target. From mos_target_catalog.
+          catalogid:
+            name: CATALOGID
+            type: int64
+            unit: ''
+            description: The catalogid of the entry in mos_target_catalog associated
+              with this target.
+notes: |-
+  None

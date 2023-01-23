@@ -1,0 +1,775 @@
+general:
+  name: mos_target_legacy_survey_dr8
+  short: 'MOS Target Table: legacy_survey_dr8'
+  description: Legacy Survey DR8 catalogue derived from 'sweep' catalogues (See <a
+    href="https://www.legacysurvey.org/dr8/">https://www.legacysurvey.org/dr8/</a>).
+  datatype: FITS
+  filesize: 1 GB
+  releases:
+  - DR18
+  environments:
+  - MOS_TARGET
+  surveys:
+  - BHM
+  - MWM
+  - SDSS
+  naming_convention: $MOS_TARGET/[V_TARG]/mos_target_legacy_survey_dr8-[NUM].fits,
+    where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
+  generated_by: sdss5db> targetdb, operations database server
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR18:
+    template: $MOS_TARGET/[V_TARG]/mos_target_legacy_survey_dr8-[NUM].fits
+    example: 1.0.1/mos_target_legacy_survey_dr8-1.fits
+    location: '{v_targ}/mos_target_legacy_survey_dr8-{num}.fits'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_legacy_survey_dr8
+      path_template: $MOS_TARGET/{v_targ}/mos_target_legacy_survey_dr8-{num}
+      path_kwargs:
+      - num
+      - v_targ
+      access_string: mos_target_legacy_survey_dr8 = $MOS_TARGET/{v_targ}/mos_target_legacy_survey_dr8-{num}.fits
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Primary header
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: 'MOS Target Table: legacy_survey_dr8'
+        is_image: false
+        size: 1 GB
+        columns:
+          release:
+            name: RELEASE
+            type: int32
+            unit: ''
+            description: 'Unique integer denoting the camera and filter set used (RELEASE
+              documentation: https://www.legacysurvey.org/release/)'
+          brickid:
+            name: BRICKID
+            type: int64
+            unit: ''
+            description: A unique Brick ID (in the range 1-662174)
+          brickname:
+            name: BRICKNAME
+            type: char[8]
+            unit: ''
+            description: Name of brick, encoding the brick sky position, eg "1126p222"
+              near RA=112.6, Dec=+22.2
+          objid:
+            name: OBJID
+            type: int64
+            unit: ''
+            description: Catalog object number within this brick; a unique identifier
+              hash is RELEASE,BRICKID,OBJID; OBJID spans 0 to N-1 and is contiguously
+              enumerated within each blob
+          type:
+            name: TYPE
+            type: char[4]
+            unit: ''
+            description: 'Morphological model: "PSF"=stellar, "REX"="round exponential
+              galaxy" = round EXP galaxy with a variable radius, "EXP"=exponential,
+              "DEV"=deVauc, "COMP"=composite, "DUP"==Gaia source fit by different
+              model. Note that in some FITS readers, a trailing space may be appended
+              for "PSF ", "EXP " and "DEV " since the column data type is a 4-character
+              string'
+          ra:
+            name: RA
+            type: float64
+            unit: deg
+            description: Right ascension at equinox J2000
+          dec:
+            name: DEC
+            type: float64
+            unit: deg
+            description: Declination at equinox J2000
+          ra_ivar:
+            name: RA_IVAR
+            type: float32
+            unit: 1/deg^2
+            description: Inverse variance of RA (no cosine term!), excluding astrometric
+              calibration errors
+          dec_ivar:
+            name: DEC_IVAR
+            type: float32
+            unit: 1/deg^2
+            description: Inverse variance of DEC, excluding astrometric calibration
+              errors
+          dchisq_psf:
+            name: DCHISQ_PSF
+            type: float32
+            unit: ''
+            description: 'Difference in chi2 between successively more-complex model
+              fits: PSF. The difference is versus no source.'
+          dchisq_rex:
+            name: DCHISQ_REX
+            type: float32
+            unit: ''
+            description: 'Difference in chi2 between successively more-complex model
+              fits: REX. The difference is versus no source.'
+          dchisq_dev:
+            name: DCHISQ_DEV
+            type: float32
+            unit: ''
+            description: 'Difference in chi2 between successively more-complex model
+              fits: DEV. The difference is versus no source.'
+          dchisq_exp:
+            name: DCHISQ_EXP
+            type: float32
+            unit: ''
+            description: 'Difference in chi2 between successively more-complex model
+              fits: EXP. The difference is versus no source.'
+          dchisq_comp:
+            name: DCHISQ_COMP
+            type: float32
+            unit: ''
+            description: 'Difference in chi2 between successively more-complex model
+              fits: COMP. The difference is versus no source.'
+          ebv:
+            name: EBV
+            type: float32
+            unit: mag
+            description: Galactic extinction E(B-V) reddening from SFD98, used to
+              compute MW_TRANSMISSION
+          flux_g:
+            name: FLUX_G
+            type: float32
+            unit: nanomaggies
+            description: model flux in g
+          flux_r:
+            name: FLUX_R
+            type: float32
+            unit: nanomaggies
+            description: model flux in r
+          flux_z:
+            name: FLUX_Z
+            type: float32
+            unit: nanomaggies
+            description: model flux in z
+          flux_w1:
+            name: FLUX_W1
+            type: float32
+            unit: nanomaggies
+            description: WISE model flux in W1 (AB system)
+          flux_w2:
+            name: FLUX_W2
+            type: float32
+            unit: nanomaggies
+            description: WISE model flux in W2 (AB system)
+          flux_w3:
+            name: FLUX_W3
+            type: float32
+            unit: nanomaggies
+            description: WISE model flux in W3 (AB system)
+          flux_w4:
+            name: FLUX_W4
+            type: float32
+            unit: nanomaggies
+            description: WISE model flux in W4 (AB system)
+          flux_ivar_g:
+            name: FLUX_IVAR_G
+            type: float32
+            unit: 1/nanomaggies^2
+            description: Inverse variance of FLUX_G
+          flux_ivar_r:
+            name: FLUX_IVAR_R
+            type: float32
+            unit: 1/nanomaggies^2
+            description: Inverse variance of FLUX_R
+          flux_ivar_z:
+            name: FLUX_IVAR_Z
+            type: float32
+            unit: 1/nanomaggies^2
+            description: Inverse variance of FLUX_Z
+          flux_ivar_w1:
+            name: FLUX_IVAR_W1
+            type: float32
+            unit: 1/nanomaggies^2
+            description: Inverse variance of FLUX_W1 (AB system)
+          flux_ivar_w2:
+            name: FLUX_IVAR_W2
+            type: float32
+            unit: 1/nanomaggies^2
+            description: Inverse variance of FLUX_W2 (AB system)
+          flux_ivar_w3:
+            name: FLUX_IVAR_W3
+            type: float32
+            unit: 1/nanomaggies^2
+            description: Inverse variance of FLUX_W3 (AB system)
+          flux_ivar_w4:
+            name: FLUX_IVAR_W4
+            type: float32
+            unit: 1/nanomaggies^2
+            description: Inverse variance of FLUX_W4 (AB system)
+          mw_transmission_g:
+            name: MW_TRANSMISSION_G
+            type: float32
+            unit: ''
+            description: Galactic transmission in g filter in linear units
+          mw_transmission_r:
+            name: MW_TRANSMISSION_R
+            type: float32
+            unit: ''
+            description: Galactic transmission in r filter in linear units
+          mw_transmission_z:
+            name: MW_TRANSMISSION_Z
+            type: float32
+            unit: ''
+            description: Galactic transmission in z filter in linear units
+          mw_transmission_w1:
+            name: MW_TRANSMISSION_W1
+            type: float32
+            unit: ''
+            description: Galactic transmission in W1 filter in linear units
+          mw_transmission_w2:
+            name: MW_TRANSMISSION_W2
+            type: float32
+            unit: ''
+            description: Galactic transmission in W2 filter in linear units
+          mw_transmission_w3:
+            name: MW_TRANSMISSION_W3
+            type: float32
+            unit: ''
+            description: Galactic transmission in W3 filter in linear units
+          mw_transmission_w4:
+            name: MW_TRANSMISSION_W4
+            type: float32
+            unit: ''
+            description: Galactic transmission in W4 filter in linear units
+          nobs_g:
+            name: NOBS_G
+            type: int32
+            unit: ''
+            description: 'Number of images that contribute to the central pixel in
+              g: filter for this object (not profile-weighted)'
+          nobs_r:
+            name: NOBS_R
+            type: int32
+            unit: ''
+            description: 'Number of images that contribute to the central pixel in
+              r: filter for this object (not profile-weighted)'
+          nobs_z:
+            name: NOBS_Z
+            type: int32
+            unit: ''
+            description: 'Number of images that contribute to the central pixel in
+              z: filter for this object (not profile-weighted)'
+          nobs_w1:
+            name: NOBS_W1
+            type: int32
+            unit: ''
+            description: 'Number of images that contribute to the central pixel in
+              W1: filter for this object (not profile-weighted)'
+          nobs_w2:
+            name: NOBS_W2
+            type: int32
+            unit: ''
+            description: 'Number of images that contribute to the central pixel in
+              W2: filter for this object (not profile-weighted)'
+          nobs_w3:
+            name: NOBS_W3
+            type: int32
+            unit: ''
+            description: 'Number of images that contribute to the central pixel in
+              W3: filter for this object (not profile-weighted)'
+          nobs_w4:
+            name: NOBS_W4
+            type: int32
+            unit: ''
+            description: 'Number of images that contribute to the central pixel in
+              W4: filter for this object (not profile-weighted)'
+          rchisq_g:
+            name: RCHISQ_G
+            type: float32
+            unit: ''
+            description: Profile-weighted chi2 of model fit normalized by the number
+              of pixels in g
+          rchisq_r:
+            name: RCHISQ_R
+            type: float32
+            unit: ''
+            description: Profile-weighted chi2 of model fit normalized by the number
+              of pixels in r
+          rchisq_z:
+            name: RCHISQ_Z
+            type: float32
+            unit: ''
+            description: Profile-weighted chi2 of model fit normalized by the number
+              of pixels in z
+          rchisq_w1:
+            name: RCHISQ_W1
+            type: float32
+            unit: ''
+            description: Profile-weighted chi2 of model fit normalized by the number
+              of pixels in W1
+          rchisq_w2:
+            name: RCHISQ_W2
+            type: float32
+            unit: ''
+            description: Profile-weighted chi2 of model fit normalized by the number
+              of pixels in W2
+          rchisq_w3:
+            name: RCHISQ_W3
+            type: float32
+            unit: ''
+            description: Profile-weighted chi2 of model fit normalized by the number
+              of pixels in W3
+          rchisq_w4:
+            name: RCHISQ_W4
+            type: float32
+            unit: ''
+            description: Profile-weighted chi2 of model fit normalized by the number
+              of pixels in W4
+          fracflux_g:
+            name: FRACFLUX_G
+            type: float32
+            unit: ''
+            description: Profile-weighted fraction of the flux from other sources
+              divided by the total flux in g (typically in 0..1)
+          fracflux_r:
+            name: FRACFLUX_R
+            type: float32
+            unit: ''
+            description: Profile-weighted fraction of the flux from other sources
+              divided by the total flux in r (typically in 0..1)
+          fracflux_z:
+            name: FRACFLUX_Z
+            type: float32
+            unit: ''
+            description: Profile-weighted fraction of the flux from other sources
+              divided by the total flux in z (typically in 0..1)
+          fracflux_w1:
+            name: FRACFLUX_W1
+            type: float32
+            unit: ''
+            description: Profile-weighted fraction of the flux from other sources
+              divided by the total flux in W1 (typically in 0..1)
+          fracflux_w2:
+            name: FRACFLUX_W2
+            type: float32
+            unit: ''
+            description: Profile-weighted fraction of the flux from other sources
+              divided by the total flux in W2 (typically in 0..1)
+          fracflux_w3:
+            name: FRACFLUX_W3
+            type: float32
+            unit: ''
+            description: Profile-weighted fraction of the flux from other sources
+              divided by the total flux in W3 (typically in 0..1)
+          fracflux_w4:
+            name: FRACFLUX_W4
+            type: float32
+            unit: ''
+            description: Profile-weighted fraction of the flux from other sources
+              divided by the total flux in W4 (typically in 0..1)
+          fracmasked_g:
+            name: FRACMASKED_G
+            type: float32
+            unit: ''
+            description: Profile-weighted fraction of pixels masked from all observations
+              of this object in g, strictly between 0..1
+          fracmasked_r:
+            name: FRACMASKED_R
+            type: float32
+            unit: ''
+            description: Profile-weighted fraction of pixels masked from all observations
+              of this object in r, strictly between 0..1
+          fracmasked_z:
+            name: FRACMASKED_Z
+            type: float32
+            unit: ''
+            description: Profile-weighted fraction of pixels masked from all observations
+              of this object in z, strictly between 0..1
+          fracin_g:
+            name: FRACIN_G
+            type: float32
+            unit: ''
+            description: Fraction of a source's flux within the blob in g, near unity
+              for real sources
+          fracin_r:
+            name: FRACIN_R
+            type: float32
+            unit: ''
+            description: Fraction of a source's flux within the blob in r, near unity
+              for real sources
+          fracin_z:
+            name: FRACIN_Z
+            type: float32
+            unit: ''
+            description: Fraction of a source's flux within the blob in z, near unity
+              for real sources
+          anymask_g:
+            name: ANYMASK_G
+            type: int32
+            unit: ''
+            description: Bitwise mask set if the central pixel from any image satisfies
+              each condition in g (see the DR8 bitmasks page)
+          anymask_r:
+            name: ANYMASK_R
+            type: int32
+            unit: ''
+            description: Bitwise mask set if the central pixel from any image satisfies
+              each condition in r (see the DR8 bitmasks page)
+          anymask_z:
+            name: ANYMASK_Z
+            type: int32
+            unit: ''
+            description: Bitwise mask set if the central pixel from any image satisfies
+              each condition in z (see the DR8 bitmasks page)
+          allmask_g:
+            name: ALLMASK_G
+            type: int32
+            unit: ''
+            description: Bitwise mask set if the central pixel from all images satisfy
+              each condition in g (see the DR8 bitmasks page)
+          allmask_r:
+            name: ALLMASK_R
+            type: int32
+            unit: ''
+            description: Bitwise mask set if the central pixel from all images satisfy
+              each condition in r (see the DR8 bitmasks page)
+          allmask_z:
+            name: ALLMASK_Z
+            type: int32
+            unit: ''
+            description: Bitwise mask set if the central pixel from all images satisfy
+              each condition in z (see the DR8 bitmasks page)
+          wisemask_w1:
+            name: WISEMASK_W1
+            type: int16
+            unit: ''
+            description: W1 bitmask as cataloged on the DR8 bitmasks page
+          wisemask_w2:
+            name: WISEMASK_W2
+            type: int16
+            unit: ''
+            description: W2 bitmask as cataloged on the DR8 bitmasks page
+          psfsize_g:
+            name: PSFSIZE_G
+            type: float32
+            unit: arcsec
+            description: Weighted average PSF FWHM in the g band
+          psfsize_r:
+            name: PSFSIZE_R
+            type: float32
+            unit: arcsec
+            description: Weighted average PSF FWHM in the r band
+          psfsize_z:
+            name: PSFSIZE_Z
+            type: float32
+            unit: arcsec
+            description: Weighted average PSF FWHM in the z band
+          psfdepth_g:
+            name: PSFDEPTH_G
+            type: float32
+            unit: 1/nanomaggies^2
+            description: "For a 5\u03C3 point source detection limit in g, 5/sqrt(PSFDEPTH_G)\
+              \ gives flux in nanomaggies and -2.5(log10(5/sqrt(PSFDEPTH_G))-9) give\
+              \ corresponding magnitude"
+          psfdepth_r:
+            name: PSFDEPTH_R
+            type: float32
+            unit: 1/nanomaggies^2
+            description: "For a 5\u03C3 point source detection limit in g, 5/sqrt(PSFDEPTH_R)\
+              \ gives flux in nanomaggies and -2.5(log10(5/sqrt(PSFDEPTH_R))-9) give\
+              \ corresponding magnitude"
+          psfdepth_z:
+            name: PSFDEPTH_Z
+            type: float32
+            unit: 1/nanomaggies^2
+            description: "For a 5\u03C3 point source detection limit in g, 5/sqrt(PSFDEPTH_Z)\
+              \ gives flux in nanomaggies and -2.5(log10(5/sqrt(PSFDEPTH_Z))-9) give\
+              \ corresponding magnitude"
+          galdepth_g:
+            name: GALDEPTH_G
+            type: float32
+            unit: 1/nanomaggies^2
+            description: As for PSFDEPTH_G but for a galaxy (0.45" exp, round) detection
+              sensitivity
+          galdepth_r:
+            name: GALDEPTH_R
+            type: float32
+            unit: 1/nanomaggies^2
+            description: As for PSFDEPTH_R but for a galaxy (0.45" exp, round) detection
+              sensitivity
+          galdepth_z:
+            name: GALDEPTH_Z
+            type: float32
+            unit: 1/nanomaggies^2
+            description: As for PSFDEPTH_Z but for a galaxy (0.45" exp, round) detection
+              sensitivity
+          psfdepth_w1:
+            name: PSFDEPTH_W1
+            type: float32
+            unit: 1/nanomaggies^2
+            description: As for PSFDEPTH_G (and also on the AB system) but for WISE
+              W1
+          psfdepth_w2:
+            name: PSFDEPTH_W2
+            type: float32
+            unit: 1/nanomaggies^2
+            description: As for PSFDEPTH_G (and also on the AB system) but for WISE
+              W2
+          wise_coadd_id:
+            name: WISE_COADD_ID
+            type: char[8]
+            unit: ''
+            description: unWISE coadd file name for the center of each object
+          fracdev:
+            name: FRACDEV
+            type: float32
+            unit: ''
+            description: Fraction of model in deVauc (in range 0..1)
+          fracdev_ivar:
+            name: FRACDEV_IVAR
+            type: float32
+            unit: ''
+            description: Inverse variance of FRACDEV
+          shapedev_r:
+            name: SHAPEDEV_R
+            type: float32
+            unit: arcsec
+            description: Half-light radius of deVaucouleurs model (>0)
+          shapedev_r_ivar:
+            name: SHAPEDEV_R_IVAR
+            type: float32
+            unit: 1/arcsec
+            description: Inverse variance of SHAPEDEV_R
+          shapedev_e1:
+            name: SHAPEDEV_E1
+            type: float32
+            unit: ''
+            description: Ellipticity component 1
+          shapedev_e1_ivar:
+            name: SHAPEDEV_E1_IVAR
+            type: float32
+            unit: ''
+            description: Inverse variance of SHAPEDEV_E1
+          shapedev_e2:
+            name: SHAPEDEV_E2
+            type: float32
+            unit: ''
+            description: Ellipticity component 2
+          shapedev_e2_ivar:
+            name: SHAPEDEV_E2_IVAR
+            type: float32
+            unit: ''
+            description: Inverse variance of SHAPEDEV_E2
+          shapeexp_r:
+            name: SHAPEEXP_R
+            type: float32
+            unit: acrsec
+            description: Half-light radius of exponential model (>0)
+          shapeexp_r_ivar:
+            name: SHAPEEXP_R_IVAR
+            type: float32
+            unit: 1/arcsec
+            description: Inverse variance of SHAPEEXP_R
+          shapeexp_e1:
+            name: SHAPEEXP_E1
+            type: float32
+            unit: ''
+            description: Ellipticity component 1
+          shapeexp_e1_ivar:
+            name: SHAPEEXP_E1_IVAR
+            type: float32
+            unit: ''
+            description: Inverse variance of SHAPEEXP_E1
+          shapeexp_e2:
+            name: SHAPEEXP_E2
+            type: float32
+            unit: ''
+            description: Ellipticity component 2
+          shapeexp_e2_ivar:
+            name: SHAPEEXP_E2_IVAR
+            type: float32
+            unit: ''
+            description: Inverse variance of SHAPEEXP_E2
+          fiberflux_g:
+            name: FIBERFLUX_G
+            type: float32
+            unit: nanomaggies
+            description: Predicted g-band flux within a fiber of diameter 1.5 arcsec
+              from this object in 1 arcsec Gaussian seeing
+          fiberflux_r:
+            name: FIBERFLUX_R
+            type: float32
+            unit: nanomaggies
+            description: Predicted r-band flux within a fiber of diameter 1.5 arcsec
+              from this object in 1 arcsec Gaussian seeing
+          fiberflux_z:
+            name: FIBERFLUX_Z
+            type: float32
+            unit: nanomaggies
+            description: Predicted z-band flux within a fiber of diameter 1.5 arcsec
+              from this object in 1 arcsec Gaussian seeing
+          fibertotflux_g:
+            name: FIBERTOTFLUX_G
+            type: float32
+            unit: nanomaggies
+            description: Predicted g-band flux within a fiber of diameter 1.5 arcsec
+              from all sources at this location in 1 arcsec Gaussian seeing
+          fibertotflux_r:
+            name: FIBERTOTFLUX_R
+            type: float32
+            unit: nanomaggies
+            description: Predicted r-band flux within a fiber of diameter 1.5 arcsec
+              from all sources at this location in 1 arcsec Gaussian seeing
+          fibertotflux_z:
+            name: FIBERTOTFLUX_Z
+            type: float32
+            unit: nanomaggies
+            description: Predicted z-band flux within a fiber of diameter 1.5 arcsec
+              from all sources at this location in 1 arcsec Gaussian seeing
+          ref_cat:
+            name: REF_CAT
+            type: char[2]
+            unit: ''
+            description: 'Reference catalog source for this star: "T2" for Tycho-2,
+              "G2" for Gaia DR2, "L2" for the SGA, empty otherwise'
+          ref_id:
+            name: REF_ID
+            type: int64
+            unit: ''
+            description: Reference catalog identifier for this star; Tyc1*1,000,000+Tyc2*10+Tyc3
+              for Tycho2; "sourceid" for Gaia-DR2 and SGA
+          ref_epoch:
+            name: REF_EPOCH
+            type: float32
+            unit: yr
+            description: Reference catalog reference epoch (eg, 2015.5 for Gaia DR2)
+          gaia_phot_g_mean_mag:
+            name: GAIA_PHOT_G_MEAN_MAG
+            type: float32
+            unit: mag
+            description: Gaia G band magnitude, Vega
+          gaia_phot_g_mean_flux_over_error:
+            name: GAIA_PHOT_G_MEAN_FLUX_OVER_ERROR
+            type: float32
+            unit: ''
+            description: Gaia G band magnitude signal-to-noise
+          gaia_phot_bp_mean_mag:
+            name: GAIA_PHOT_BP_MEAN_MAG
+            type: float32
+            unit: mag
+            description: Gaia BP band magnitude, Vega
+          gaia_phot_bp_mean_flux_over_error:
+            name: GAIA_PHOT_BP_MEAN_FLUX_OVER_ERROR
+            type: float32
+            unit: ''
+            description: Gaia BP band magnitude signal-to-noise
+          gaia_phot_rp_mean_mag:
+            name: GAIA_PHOT_RP_MEAN_MAG
+            type: float32
+            unit: mag
+            description: Gaia RP band magnitude, Vega
+          gaia_phot_rp_mean_flux_over_error:
+            name: GAIA_PHOT_RP_MEAN_FLUX_OVER_ERROR
+            type: float32
+            unit: ''
+            description: Gaia RP band magnitude signal-to-noise
+          gaia_astrometric_excess_noise:
+            name: GAIA_ASTROMETRIC_EXCESS_NOISE
+            type: float32
+            unit: ''
+            description: Gaia astrometric excess noise
+          gaia_duplicated_source:
+            name: GAIA_DUPLICATED_SOURCE
+            type: bool
+            unit: ''
+            description: Gaia duplicated source flag (1/0 for True/False)
+          gaia_phot_bp_rp_excess_factor:
+            name: GAIA_PHOT_BP_RP_EXCESS_FACTOR
+            type: float32
+            unit: ''
+            description: Gaia BP/RP excess factor
+          gaia_astrometric_sigma5d_max:
+            name: GAIA_ASTROMETRIC_SIGMA5D_MAX
+            type: float32
+            unit: mas
+            description: Gaia longest semi-major axis of the 5-d error ellipsoid
+          gaia_astrometric_params_solved:
+            name: GAIA_ASTROMETRIC_PARAMS_SOLVED
+            type: int16
+            unit: ''
+            description: Which astrometric parameters were estimated for a Gaia source
+          parallax:
+            name: PARALLAX
+            type: float32
+            unit: mas
+            description: Reference catalog parallax
+          parallax_ivar:
+            name: PARALLAX_IVAR
+            type: float32
+            unit: 1/mas^2
+            description: Reference catalog inverse-variance on parallax
+          pmra:
+            name: PMRA
+            type: float32
+            unit: mas/yr
+            description: Reference catalog proper motion in the RA direction
+          pmra_ivar:
+            name: PMRA_IVAR
+            type: float32
+            unit: 1/(mas/yr)^2
+            description: Reference catalog inverse-variance on pmra
+          pmdec:
+            name: PMDEC
+            type: float32
+            unit: mas/yr
+            description: Reference catalog proper motion in the Dec direction
+          pmdec_ivar:
+            name: PMDEC_IVAR
+            type: float32
+            unit: 1/(mas/yr)^2
+            description: Reference catalog inverse-variance on pmdec
+          maskbits:
+            name: MASKBITS
+            type: int32
+            unit: ''
+            description: Bitwise mask indicating that an object touches a pixel in
+              the coadd/*/*/*maskbits* maps (see the DR8 bitmasks page)
+          ls_id:
+            name: LS_ID
+            type: int64
+            unit: ''
+            description: 'Added by SDSS-V: Derived unique object identifier. Computed
+              as follows: ls_id = objid + (brickid << 16) + (release << 40)'
+          tycho_ref:
+            name: TYCHO_REF
+            type: int64
+            unit: ''
+            description: 'Added by SDSS-V: TychoII identifier (equal to ref_id when
+              ref_cat = "T2")'
+          gaia_sourceid:
+            name: GAIA_SOURCEID
+            type: int64
+            unit: ''
+            description: 'Added by SDSS-V: Gaia DR2 source_id identifier (equal to
+              ref_id when ref_cat = "G2")'
+notes: |-
+  None

@@ -1,0 +1,1357 @@
+{
+  "general": {
+    "name": "mos_target_sdss_dr16_qso",
+    "short": "MOS Target Table: sdss_dr16_qso",
+    "description": "SDSS Data Release 16 Quasar Catalog (Lyke et al. 2020). For complete details, please see the original paper: https://ui.adsabs.harvard.edu/abs/2020ApJS..250....8L/abstract",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "BHM",
+        "long": "Black Hole Mapper",
+        "description": "An optical time-domain spectroscopic survey of quasars and X-ray sources",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "bhm",
+        "aliases": []
+      },
+      {
+        "name": "MWM",
+        "long": "Milky Way Mapper",
+        "description": "A time-domain, optical+IR spectroscopic survey of Milky Way stars of all types.",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "mwm",
+        "aliases": []
+      },
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "FITS",
+    "filesize": "1 GB",
+    "releases": [
+      {
+        "name": "DR18",
+        "description": "SDSS unreleased data.  Represents any work-in-progress data.",
+        "public": false,
+        "release_date": "unreleased"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/mos_target_sdss_dr16_qso-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts",
+    "generated_by": "sdss5db> targetdb, operations database server",
+    "design": false,
+    "vac": false
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR18": {
+      "template": "$MOS_TARGET/[V_TARG]/mos_target_sdss_dr16_qso.fits",
+      "example": "1.0.1/mos_target_sdss_dr16_qso.fits",
+      "location": "{v_targ}/mos_target_sdss_dr16_qso.fits",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_sdss_dr16_qso",
+        "path_template": "$MOS_TARGET/{v_targ}/mos_target_sdss_dr16_qso",
+        "path_kwargs": [
+          "v_targ"
+        ],
+        "access_string": "mos_target_sdss_dr16_qso = $MOS_TARGET/{v_targ}/mos_target_sdss_dr16_qso.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Primary header",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "MOS Target Table: sdss_dr16_qso",
+          "size": "1 GB",
+          "header": null,
+          "columns": {
+            "sdss_name": {
+              "name": "SDSS_NAME",
+              "description": "SDSS-DR16 designation (hhmmss.ss+-ddmmss.s, J2000)",
+              "type": "char[18]",
+              "unit": ""
+            },
+            "ra": {
+              "name": "RA",
+              "description": "Right ascension in decimal degrees (J2000)",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "dec": {
+              "name": "DEC",
+              "description": "Declination in decimal degrees (J2000)",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "plate": {
+              "name": "PLATE",
+              "description": "Spectroscopic plate number",
+              "type": "int32",
+              "unit": ""
+            },
+            "mjd": {
+              "name": "MJD",
+              "description": "Modified Julian day of the spectroscopic observation",
+              "type": "int32",
+              "unit": "day"
+            },
+            "fiberid": {
+              "name": "FIBERID",
+              "description": "Fiber ID number",
+              "type": "int32",
+              "unit": ""
+            },
+            "autoclass_pqn": {
+              "name": "AUTOCLASS_PQN",
+              "description": "Object classification post-QuasarNET",
+              "type": "char[6]",
+              "unit": ""
+            },
+            "autoclass_dr14q": {
+              "name": "AUTOCLASS_DR14Q",
+              "description": "Object classification based only on the DR14Q algorithm",
+              "type": "char[6]",
+              "unit": ""
+            },
+            "is_qso_qn": {
+              "name": "IS_QSO_QN",
+              "description": "Binary flag for QuasarNET quasar identification",
+              "type": "int32",
+              "unit": ""
+            },
+            "z_qn": {
+              "name": "Z_QN",
+              "description": "Systemic redshift from QuasarNET",
+              "type": "float64",
+              "unit": ""
+            },
+            "random_select": {
+              "name": "RANDOM_SELECT",
+              "description": "Binary flag indicating objects selected for random visual inspection",
+              "type": "int32",
+              "unit": ""
+            },
+            "z_10k": {
+              "name": "Z_10K",
+              "description": "Redshift from visual inspection in random set",
+              "type": "float64",
+              "unit": ""
+            },
+            "z_conf_10k": {
+              "name": "Z_CONF_10K",
+              "description": "Confidence rating for visual inspection redshift in random set",
+              "type": "int32",
+              "unit": ""
+            },
+            "pipe_corr_10k": {
+              "name": "PIPE_CORR_10K",
+              "description": "Binary flag indicating if the automated pipeline classification and redshift were correct in the random set",
+              "type": "int32",
+              "unit": ""
+            },
+            "is_qso_10k": {
+              "name": "IS_QSO_10K",
+              "description": "Binary flag for random set quasar identification",
+              "type": "int32",
+              "unit": ""
+            },
+            "thing_id": {
+              "name": "THING_ID",
+              "description": "SDSS identifier",
+              "type": "int64",
+              "unit": ""
+            },
+            "z_vi": {
+              "name": "Z_VI",
+              "description": "Visual inspection redshift",
+              "type": "float64",
+              "unit": ""
+            },
+            "z_conf": {
+              "name": "Z_CONF",
+              "description": "Confidence rating for visual inspection redshift",
+              "type": "int32",
+              "unit": ""
+            },
+            "class_person": {
+              "name": "CLASS_PERSON",
+              "description": "Object classification from visual inspection",
+              "type": "int32",
+              "unit": ""
+            },
+            "z_dr12q": {
+              "name": "Z_DR12Q",
+              "description": "Redshift taken from DR12Q visual inspection",
+              "type": "float64",
+              "unit": ""
+            },
+            "is_qso_dr12q": {
+              "name": "IS_QSO_DR12Q",
+              "description": "Flag indicating if an object was a quasar in DR12Q",
+              "type": "int32",
+              "unit": ""
+            },
+            "z_dr7q_sch": {
+              "name": "Z_DR7Q_SCH",
+              "description": "Redshift taken from DR7Q Schneider et al (2010) catalog",
+              "type": "float64",
+              "unit": ""
+            },
+            "is_qso_dr7q": {
+              "name": "IS_QSO_DR7Q",
+              "description": "Flag indicating if an object was a quasar in DR7Q",
+              "type": "int32",
+              "unit": ""
+            },
+            "z_dr6q_hw": {
+              "name": "Z_DR6Q_HW",
+              "description": "Redshift taken from DR6-based Hewett and Wild (2010) catalog",
+              "type": "float64",
+              "unit": ""
+            },
+            "z_dr7q_hw": {
+              "name": "Z_DR7Q_HW",
+              "description": "Redshift using Hewett and Wild (2010) updates for DR7Q sources from the Shen et al. (2011) catalog",
+              "type": "float64",
+              "unit": ""
+            },
+            "is_qso_final": {
+              "name": "IS_QSO_FINAL",
+              "description": "Flag indicating quasars to be included in final catalog",
+              "type": "int32",
+              "unit": ""
+            },
+            "z": {
+              "name": "Z",
+              "description": "Best available redshift taken from Z_VI, Z_PIPE, Z_DR12Q, Z_DR7Q_SCH, Z_DR6Q_HW, and Z_10K",
+              "type": "float64",
+              "unit": ""
+            },
+            "source_z": {
+              "name": "SOURCE_Z",
+              "description": "Origin of the reported redshift in Z",
+              "type": "char[9]",
+              "unit": ""
+            },
+            "z_pipe": {
+              "name": "Z_PIPE",
+              "description": "SDSS automated pipeline redshift",
+              "type": "float64",
+              "unit": ""
+            },
+            "zwarning": {
+              "name": "ZWARNING",
+              "description": "Quality flag on the pipeline redshift estimate",
+              "type": "int32",
+              "unit": ""
+            },
+            "objid": {
+              "name": "OBJID",
+              "description": "SDSS object identification number",
+              "type": "char[19]",
+              "unit": ""
+            },
+            "z_pca": {
+              "name": "Z_PCA",
+              "description": "PCA-derived systemic redshift from redvsblue",
+              "type": "float64",
+              "unit": ""
+            },
+            "zwarn_pca": {
+              "name": "ZWARN_PCA",
+              "description": "Warning flag for redvsblue redshift",
+              "type": "int64",
+              "unit": ""
+            },
+            "deltachi2_pca": {
+              "name": "DELTACHI2_PCA",
+              "description": "Delta χ2 for PCA redshift vs. cubic continuum fit",
+              "type": "float64",
+              "unit": ""
+            },
+            "z_halpha": {
+              "name": "Z_HALPHA",
+              "description": "PCA line redshift for Halpha from redvsblue",
+              "type": "float64",
+              "unit": ""
+            },
+            "zwarn_halpha": {
+              "name": "ZWARN_HALPHA",
+              "description": "Warning flag for Halpha redshift",
+              "type": "int64",
+              "unit": ""
+            },
+            "deltachi2_halpha": {
+              "name": "DELTACHI2_HALPHA",
+              "description": "Delta χ2 for Halpha line redshift vs. cubic continuum fit",
+              "type": "float64",
+              "unit": ""
+            },
+            "z_hbeta": {
+              "name": "Z_HBETA",
+              "description": "PCA line redshift for Hbeta from redvsblue",
+              "type": "float64",
+              "unit": ""
+            },
+            "zwarn_hbeta": {
+              "name": "ZWARN_HBETA",
+              "description": "Warning flag for Hbeta redshift",
+              "type": "int64",
+              "unit": ""
+            },
+            "deltachi2_hbeta": {
+              "name": "DELTACHI2_HBETA",
+              "description": "Delta χ2 for Hbeta line redshift vs. cubic continuum fit",
+              "type": "float64",
+              "unit": ""
+            },
+            "z_mgii": {
+              "name": "Z_MGII",
+              "description": "PCA line redshift for Mg II 2799AA from redvsblue",
+              "type": "float64",
+              "unit": ""
+            },
+            "zwarn_mgii": {
+              "name": "ZWARN_MGII",
+              "description": "Warning flag for Mg II 2799AA redshift",
+              "type": "int64",
+              "unit": ""
+            },
+            "deltachi2_mgii": {
+              "name": "DELTACHI2_MGII",
+              "description": "Delta χ2 for Mg II 2799AA line redshift vs. cubic continuum fit",
+              "type": "float64",
+              "unit": ""
+            },
+            "z_ciii": {
+              "name": "Z_CIII",
+              "description": "PCA line redshift for C III] 1908AA from redvsblue",
+              "type": "float64",
+              "unit": ""
+            },
+            "zwarn_ciii": {
+              "name": "ZWARN_CIII",
+              "description": "Warning flag for C III] 1908AA redshift",
+              "type": "int64",
+              "unit": ""
+            },
+            "deltachi2_ciii": {
+              "name": "DELTACHI2_CIII",
+              "description": "Delta χ2 for C III] 1908AA line redshift vs. cubic continuum fit",
+              "type": "float64",
+              "unit": ""
+            },
+            "z_civ": {
+              "name": "Z_CIV",
+              "description": "PCA line redshift for C IV 1549AA from redvsblue",
+              "type": "float64",
+              "unit": ""
+            },
+            "zwarn_civ": {
+              "name": "ZWARN_CIV",
+              "description": "Warning flag for C IV 1549AA redshift",
+              "type": "int64",
+              "unit": ""
+            },
+            "deltachi2_civ": {
+              "name": "DELTACHI2_CIV",
+              "description": "Delta χ2 for C IV 1549AA line redshift vs. cubic continuum fit",
+              "type": "float64",
+              "unit": ""
+            },
+            "z_lya": {
+              "name": "Z_LYA",
+              "description": "PCA line redshift for Lyalpha from redvsblue",
+              "type": "float64",
+              "unit": ""
+            },
+            "zwarn_lya": {
+              "name": "ZWARN_LYA",
+              "description": "Warning flag for Lyalpha redshift",
+              "type": "int64",
+              "unit": ""
+            },
+            "deltachi2_lya": {
+              "name": "DELTACHI2_LYA",
+              "description": "Delta χ2 for Lyalpha line redshift vs. cubic continuum fit",
+              "type": "float64",
+              "unit": ""
+            },
+            "z_lyawg": {
+              "name": "Z_LYAWG",
+              "description": "PCA systemic redshift from redvsblue with a masked Lyalpha emission line and forest",
+              "type": "float32",
+              "unit": ""
+            },
+            "z_dla": {
+              "name": "Z_DLA",
+              "description": "Redshift for damped Lyalpha features",
+              "type": "char[91]",
+              "unit": ""
+            },
+            "nhi_dla": {
+              "name": "NHI_DLA",
+              "description": "Absorber column density for damped Lyalpha features",
+              "type": "char[94]",
+              "unit": "log(cm**-2)"
+            },
+            "conf_dla": {
+              "name": "CONF_DLA",
+              "description": "Confidence of detection for damped Lyalpha features",
+              "type": "char[43]",
+              "unit": ""
+            },
+            "bal_prob": {
+              "name": "BAL_PROB",
+              "description": "BAL probability",
+              "type": "float32",
+              "unit": ""
+            },
+            "bi_civ": {
+              "name": "BI_CIV",
+              "description": "BALnicity index for C IV 1549AA region",
+              "type": "float64",
+              "unit": "km/s"
+            },
+            "err_bi_civ": {
+              "name": "ERR_BI_CIV",
+              "description": "Uncertainty of BI for C IV 1549AA region",
+              "type": "float64",
+              "unit": "km/s"
+            },
+            "ai_civ": {
+              "name": "AI_CIV",
+              "description": "Absorption index for C IV 1549AA region",
+              "type": "float64",
+              "unit": "km/s"
+            },
+            "err_ai_civ": {
+              "name": "ERR_AI_CIV",
+              "description": "Uncertainty of absorption index for C IV 1549AA region",
+              "type": "float64",
+              "unit": "km/s"
+            },
+            "bi_siiv": {
+              "name": "BI_SIIV",
+              "description": "BALnicity index for Si IV 1396AA region",
+              "type": "float64",
+              "unit": "km/s"
+            },
+            "err_bi_siiv": {
+              "name": "ERR_BI_SIIV",
+              "description": "Uncertainty of BI for Si IV 1396AA region",
+              "type": "float64",
+              "unit": "km/s"
+            },
+            "ai_siiv": {
+              "name": "AI_SIIV",
+              "description": "Absorption index for Si IV 1396AA region",
+              "type": "float64",
+              "unit": "km/s"
+            },
+            "err_ai_siiv": {
+              "name": "ERR_AI_SIIV",
+              "description": "Uncertainty of absorption index for Si IV 1396AA region",
+              "type": "float64",
+              "unit": "km/s"
+            },
+            "boss_target1": {
+              "name": "BOSS_TARGET1",
+              "description": "BOSS target selection bitmask for main survey",
+              "type": "int64",
+              "unit": ""
+            },
+            "eboss_target0": {
+              "name": "EBOSS_TARGET0",
+              "description": "Target selection bitmask for the eBOSS pilot survey (SEQUELS)",
+              "type": "int64",
+              "unit": ""
+            },
+            "eboss_target1": {
+              "name": "EBOSS_TARGET1",
+              "description": "eBOSS target selection bitmask",
+              "type": "int64",
+              "unit": ""
+            },
+            "eboss_target2": {
+              "name": "EBOSS_TARGET2",
+              "description": "eBOSS target selection bitmask",
+              "type": "int64",
+              "unit": ""
+            },
+            "ancillary_target1": {
+              "name": "ANCILLARY_TARGET1",
+              "description": "BOSS target selection bitmask for ancillary programs",
+              "type": "int64",
+              "unit": ""
+            },
+            "ancillary_target2": {
+              "name": "ANCILLARY_TARGET2",
+              "description": "BOSS target selection bitmask for ancillary programs",
+              "type": "int64",
+              "unit": ""
+            },
+            "nspec_sdss": {
+              "name": "NSPEC_SDSS",
+              "description": "Number of additional observations from SDSS-I/II",
+              "type": "int32",
+              "unit": ""
+            },
+            "nspec_boss": {
+              "name": "NSPEC_BOSS",
+              "description": "Number of additional observations from BOSS/eBOSS",
+              "type": "int32",
+              "unit": ""
+            },
+            "nspec": {
+              "name": "NSPEC",
+              "description": "Total number of additional observations",
+              "type": "int32",
+              "unit": ""
+            },
+            "plate_duplicate": {
+              "name": "PLATE_DUPLICATE",
+              "description": "Spectroscopic plate number of duplicate spectroscopic observations",
+              "type": "char[364]",
+              "unit": ""
+            },
+            "mjd_duplicate": {
+              "name": "MJD_DUPLICATE",
+              "description": "Spectroscopic MJD of duplicate spectroscopic observations",
+              "type": "char[437]",
+              "unit": ""
+            },
+            "fiberid_duplicate": {
+              "name": "FIBERID_DUPLICATE",
+              "description": "Fiber ID number of duplicate spectrocscopic observations.",
+              "type": "char[297]",
+              "unit": ""
+            },
+            "spectro_duplicate": {
+              "name": "SPECTRO_DUPLICATE",
+              "description": "Spectroscopic instrument for each duplicate, 1=SDSS, 2=(e)BOSS",
+              "type": "char[145]",
+              "unit": ""
+            },
+            "skyversion": {
+              "name": "SKYVERSION",
+              "description": "SDSS photometric sky version number",
+              "type": "int32",
+              "unit": ""
+            },
+            "run_number": {
+              "name": "RUN_NUMBER",
+              "description": "SDSS photometric run number",
+              "type": "int32",
+              "unit": ""
+            },
+            "rerun_number": {
+              "name": "RERUN_NUMBER",
+              "description": "SDSS photometric rerun number",
+              "type": "char[4]",
+              "unit": ""
+            },
+            "camcol_number": {
+              "name": "CAMCOL_NUMBER",
+              "description": "SDSS photometric camera column",
+              "type": "int32",
+              "unit": ""
+            },
+            "field_number": {
+              "name": "FIELD_NUMBER",
+              "description": "SDSS photometric field number",
+              "type": "int32",
+              "unit": ""
+            },
+            "id_number": {
+              "name": "ID_NUMBER",
+              "description": "SDSS photometric ID number",
+              "type": "int32",
+              "unit": ""
+            },
+            "lambda_eff": {
+              "name": "LAMBDA_EFF",
+              "description": "Wavelength to optimize hold location for",
+              "type": "float64",
+              "unit": "Angstrom"
+            },
+            "zoffset": {
+              "name": "ZOFFSET",
+              "description": "Backstopping offset distance",
+              "type": "float64",
+              "unit": "um"
+            },
+            "xfocal": {
+              "name": "XFOCAL",
+              "description": "Hole x-axis position in focal plane",
+              "type": "float64",
+              "unit": "mm"
+            },
+            "yfocal": {
+              "name": "YFOCAL",
+              "description": "Hole y-axis position in focal plane",
+              "type": "float64",
+              "unit": "mm"
+            },
+            "chunk": {
+              "name": "CHUNK",
+              "description": "Name of tiling chunk (from platelist product)",
+              "type": "char[14]",
+              "unit": ""
+            },
+            "tile": {
+              "name": "TILE",
+              "description": "Tile number",
+              "type": "int32",
+              "unit": ""
+            },
+            "platesn2": {
+              "name": "PLATESN2",
+              "description": "Overall (S/N)^2 measure for plate, minimum of all 4 cameras",
+              "type": "float64",
+              "unit": ""
+            },
+            "psfflux_u": {
+              "name": "PSFFLUX_U",
+              "description": "PSF flux, u-band",
+              "type": "float32",
+              "unit": "nMgy"
+            },
+            "psfflux_g": {
+              "name": "PSFFLUX_G",
+              "description": "PSF flux, g-band",
+              "type": "float32",
+              "unit": "nMgy"
+            },
+            "psfflux_r": {
+              "name": "PSFFLUX_R",
+              "description": "PSF flux, r-band",
+              "type": "float32",
+              "unit": "nMgy"
+            },
+            "psfflux_i": {
+              "name": "PSFFLUX_I",
+              "description": "PSF flux, i-band",
+              "type": "float32",
+              "unit": "nMgy"
+            },
+            "psfflux_z": {
+              "name": "PSFFLUX_Z",
+              "description": "PSF flux, z-band",
+              "type": "float32",
+              "unit": "nMgy"
+            },
+            "psfflux_ivar_u": {
+              "name": "PSFFLUX_IVAR_U",
+              "description": "PSF flux inverse variance, u-band",
+              "type": "float32",
+              "unit": "nMgy^{-2}"
+            },
+            "psfflux_ivar_g": {
+              "name": "PSFFLUX_IVAR_G",
+              "description": "PSF flux inverse variance, g-band",
+              "type": "float32",
+              "unit": "nMgy^{-2}"
+            },
+            "psfflux_ivar_r": {
+              "name": "PSFFLUX_IVAR_R",
+              "description": "PSF flux inverse variance, r-band",
+              "type": "float32",
+              "unit": "nMgy^{-2}"
+            },
+            "psfflux_ivar_i": {
+              "name": "PSFFLUX_IVAR_I",
+              "description": "PSF flux inverse variance, r-band",
+              "type": "float32",
+              "unit": "nMgy^{-2}"
+            },
+            "psfflux_ivar_z": {
+              "name": "PSFFLUX_IVAR_Z",
+              "description": "PSF flux inverse variance, i-band",
+              "type": "float32",
+              "unit": "nMgy^{-2}"
+            },
+            "psfmag_u": {
+              "name": "PSFMAG_U",
+              "description": "SDSS PSF magnitude",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "psfmag_g": {
+              "name": "PSFMAG_G",
+              "description": "SDSS PSF magnitude",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "psfmag_r": {
+              "name": "PSFMAG_R",
+              "description": "SDSS PSF magnitude",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "psfmag_i": {
+              "name": "PSFMAG_I",
+              "description": "SDSS PSF magnitude",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "psfmag_z": {
+              "name": "PSFMAG_Z",
+              "description": "SDSS PSF magnitude",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "psfmagerr_sdss_u": {
+              "name": "PSFMAGERR_SDSS_U",
+              "description": "SDSS PSF magnitude error",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "psfmagerr_sdss_g": {
+              "name": "PSFMAGERR_SDSS_G",
+              "description": "SDSS PSF magnitude error",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "psfmagerr_sdss_r": {
+              "name": "PSFMAGERR_SDSS_R",
+              "description": "SDSS PSF magnitude error",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "psfmagerr_sdss_i": {
+              "name": "PSFMAGERR_SDSS_I",
+              "description": "SDSS PSF magnitude error",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "psfmagerr_sdss_z": {
+              "name": "PSFMAGERR_SDSS_Z",
+              "description": "SDSS PSF magnitude error",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "extinction_u": {
+              "name": "EXTINCTION_U",
+              "description": "Extinction in u-band",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "extinction_g": {
+              "name": "EXTINCTION_G",
+              "description": "Extinction in g-band",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "extinction_r": {
+              "name": "EXTINCTION_R",
+              "description": "Extinction in r-band",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "extinction_i": {
+              "name": "EXTINCTION_I",
+              "description": "Extinction in i-band",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "extinction_z": {
+              "name": "EXTINCTION_Z",
+              "description": "Extinction in z-band",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "m_i": {
+              "name": "M_I",
+              "description": "Absolute i-band magnitude. Assuming H0 = 67.6 km/s/Mpc, OmegaM=0.31, OmegaL=0.69, Omega_r=9.11e-5. K-corrections taken from Table 4 of Richards et al. (2006). Z_PCA used for redshifts",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "sn_median_all": {
+              "name": "SN_MEDIAN_ALL",
+              "description": "Median S/N value of all good spectroscopic pixels",
+              "type": "float64",
+              "unit": ""
+            },
+            "galex_matched": {
+              "name": "GALEX_MATCHED",
+              "description": "Matching flag for GALEX",
+              "type": "int32",
+              "unit": ""
+            },
+            "fuv": {
+              "name": "FUV",
+              "description": "FUV flux from GALEX",
+              "type": "float64",
+              "unit": "nMgy"
+            },
+            "fuv_ivar": {
+              "name": "FUV_IVAR",
+              "description": "Inverse variance of FUV flux from GALEX",
+              "type": "float64",
+              "unit": "nMgy**-2"
+            },
+            "nuv": {
+              "name": "NUV",
+              "description": "NUV flux from GALEX",
+              "type": "float64",
+              "unit": "nMgy"
+            },
+            "nuv_ivar": {
+              "name": "NUV_IVAR",
+              "description": "Inverse variance of NUV flux from GALEX",
+              "type": "float64",
+              "unit": "nMgy**-2"
+            },
+            "ukidss_matched": {
+              "name": "UKIDSS_MATCHED",
+              "description": "Matching flag for UKIDSS",
+              "type": "int32",
+              "unit": ""
+            },
+            "yflux": {
+              "name": "YFLUX",
+              "description": "Y-band flux density from UKIDSS",
+              "type": "float64",
+              "unit": "W m-2 Hz-1"
+            },
+            "yflux_err": {
+              "name": "YFLUX_ERR",
+              "description": "Error in Y-band flux density from UKIDSS",
+              "type": "float64",
+              "unit": "W m-2 Hz-1"
+            },
+            "jflux": {
+              "name": "JFLUX",
+              "description": "J-band flux density from UKIDSS",
+              "type": "float64",
+              "unit": "W m-2 Hz-1"
+            },
+            "jflux_err": {
+              "name": "JFLUX_ERR",
+              "description": "Error in J-band flux density from UKIDSS",
+              "type": "float64",
+              "unit": "W m-2 Hz-1"
+            },
+            "hflux": {
+              "name": "HFLUX",
+              "description": "H-band flux density from UKIDSS",
+              "type": "float64",
+              "unit": "W m-2 Hz-1"
+            },
+            "hflux_err": {
+              "name": "HFLUX_ERR",
+              "description": "Error in H-band flux density from UKIDSS",
+              "type": "float64",
+              "unit": "W m-2 Hz-1"
+            },
+            "kflux": {
+              "name": "KFLUX",
+              "description": "K-band flux density from UKIDSS",
+              "type": "float64",
+              "unit": "W m-2 Hz-1"
+            },
+            "kflux_err": {
+              "name": "KFLUX_ERR",
+              "description": "Error in K-band flux density from UKIDSS",
+              "type": "float64",
+              "unit": "W m-2 Hz-1"
+            },
+            "w1_flux": {
+              "name": "W1_FLUX",
+              "description": "WISE flux in W1-band (Vega)",
+              "type": "float32",
+              "unit": "nMgy"
+            },
+            "w1_flux_ivar": {
+              "name": "W1_FLUX_IVAR",
+              "description": "Inverse variance in W1-band (Vega)",
+              "type": "float32",
+              "unit": "nMgy**-2"
+            },
+            "w1_mag": {
+              "name": "W1_MAG",
+              "description": "W1-band magnitude (Vega)",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "w1_mag_err": {
+              "name": "W1_MAG_ERR",
+              "description": "W1-band uncertainty in magnitude (Vega)",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "w1_chi2": {
+              "name": "W1_CHI2",
+              "description": "Profile-weighed χ2",
+              "type": "float32",
+              "unit": ""
+            },
+            "w1_flux_snr": {
+              "name": "W1_FLUX_SNR",
+              "description": "S/N from flux and inverse variance",
+              "type": "float32",
+              "unit": ""
+            },
+            "w1_src_frac": {
+              "name": "W1_SRC_FRAC",
+              "description": "Profile-weighted number of exposures in coadd",
+              "type": "float32",
+              "unit": ""
+            },
+            "w1_ext_flux": {
+              "name": "W1_EXT_FLUX",
+              "description": "Profile-weighted flux from other sources",
+              "type": "float32",
+              "unit": "nMgy"
+            },
+            "w1_ext_frac": {
+              "name": "W1_EXT_FRAC",
+              "description": "Profile-weighted fraction of flux from other sources (blendedness measure)",
+              "type": "float32",
+              "unit": ""
+            },
+            "w1_npix": {
+              "name": "W1_NPIX",
+              "description": "Number of pixels in fit",
+              "type": "int32",
+              "unit": ""
+            },
+            "w2_flux": {
+              "name": "W2_FLUX",
+              "description": "WISE flux in W2-band (Vega)",
+              "type": "float32",
+              "unit": "nMgy"
+            },
+            "w2_flux_ivar": {
+              "name": "W2_FLUX_IVAR",
+              "description": "Inverse variance in W2-band (Vega)",
+              "type": "float32",
+              "unit": "nMgy**-2"
+            },
+            "w2_mag": {
+              "name": "W2_MAG",
+              "description": "W2-band magnitude (Vega)",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "w2_mag_err": {
+              "name": "W2_MAG_ERR",
+              "description": "W2-band uncertainty in magnitude (Vega)",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "w2_chi2": {
+              "name": "W2_CHI2",
+              "description": "Profile-weighed χ2",
+              "type": "float32",
+              "unit": ""
+            },
+            "w2_flux_snr": {
+              "name": "W2_FLUX_SNR",
+              "description": "S/N from flux and inverse variance",
+              "type": "float32",
+              "unit": ""
+            },
+            "w2_src_frac": {
+              "name": "W2_SRC_FRAC",
+              "description": "Profile-weighted number of exposures in coadd",
+              "type": "float32",
+              "unit": ""
+            },
+            "w2_ext_flux": {
+              "name": "W2_EXT_FLUX",
+              "description": "Profile-weighted flux from other sources",
+              "type": "float32",
+              "unit": "nMgy"
+            },
+            "w2_ext_frac": {
+              "name": "W2_EXT_FRAC",
+              "description": "Profile-weighted fraction of flux from other sources (blendedness measure)",
+              "type": "float32",
+              "unit": ""
+            },
+            "w2_npix": {
+              "name": "W2_NPIX",
+              "description": "Number of pixels in fit",
+              "type": "int32",
+              "unit": ""
+            },
+            "first_matched": {
+              "name": "FIRST_MATCHED",
+              "description": "Matching flag for FIRST",
+              "type": "int32",
+              "unit": ""
+            },
+            "first_flux": {
+              "name": "FIRST_FLUX",
+              "description": "FIRST peak flux density at 20 cm",
+              "type": "float64",
+              "unit": "mJy"
+            },
+            "first_snr": {
+              "name": "FIRST_SNR",
+              "description": "FIRST flux density S/N",
+              "type": "float64",
+              "unit": ""
+            },
+            "sdss2first_sep": {
+              "name": "SDSS2FIRST_SEP",
+              "description": "SDSS-FIRST separation in arcsec",
+              "type": "float64",
+              "unit": ""
+            },
+            "jmag": {
+              "name": "JMAG",
+              "description": "2MASS J-band magnitude (Vega)",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "jmag_err": {
+              "name": "JMAG_ERR",
+              "description": "2MASS Error in J-band magnitude",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "jsnr": {
+              "name": "JSNR",
+              "description": "2MASS J-band S/N",
+              "type": "float64",
+              "unit": ""
+            },
+            "jrdflag": {
+              "name": "JRDFLAG",
+              "description": "2MASS J-band photometry flag",
+              "type": "int32",
+              "unit": ""
+            },
+            "hmag": {
+              "name": "HMAG",
+              "description": "2MASS H-band magnitude (Vega)",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "hmag_err": {
+              "name": "HMAG_ERR",
+              "description": "2MASS Error in H-band magnitude",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "hsnr": {
+              "name": "HSNR",
+              "description": "2MASS H-band S/N",
+              "type": "float64",
+              "unit": ""
+            },
+            "hrdflag": {
+              "name": "HRDFLAG",
+              "description": "2MASS H-band photometry flag",
+              "type": "int32",
+              "unit": ""
+            },
+            "kmag": {
+              "name": "KMAG",
+              "description": "2MASS Ks-band magnitude (Vega)",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "kmag_err": {
+              "name": "KMAG_ERR",
+              "description": "2MASS Error in Ks-band magnitude",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "ksnr": {
+              "name": "KSNR",
+              "description": "2MASS Ks-band S/N",
+              "type": "float64",
+              "unit": ""
+            },
+            "krdflag": {
+              "name": "KRDFLAG",
+              "description": "2MASS Ks-band photometry flag",
+              "type": "int32",
+              "unit": ""
+            },
+            "sdss2mass_sep": {
+              "name": "SDSS2MASS_SEP",
+              "description": "SDSS-2MASS separation",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "rass2rxs_id": {
+              "name": "RASS2RXS_ID",
+              "description": "Second ROSAT All-Sky Survey Point Source Catalog (RASS2RXS) ID",
+              "type": "char[21]",
+              "unit": ""
+            },
+            "rass2rxs_ra": {
+              "name": "RASS2RXS_RA",
+              "description": "Right Ascension for RASS2RXS Source",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "rass2rxs_dec": {
+              "name": "RASS2RXS_DEC",
+              "description": "Declination for RASS2RXS Source",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "rass2rxs_src_flux": {
+              "name": "RASS2RXS_SRC_FLUX",
+              "description": "flux from RASS2RXS",
+              "type": "float32",
+              "unit": "erg/s/cm2"
+            },
+            "rass2rxs_src_flux_err": {
+              "name": "RASS2RXS_SRC_FLUX_ERR",
+              "description": "Error in flux from RASS2RXS",
+              "type": "float32",
+              "unit": "erg/s/cm2"
+            },
+            "sdss2rosat_sep": {
+              "name": "SDSS2ROSAT_SEP",
+              "description": "SDSS-ROSAT separation",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "xmm_src_id": {
+              "name": "XMM_SRC_ID",
+              "description": "XMM source ID",
+              "type": "int64",
+              "unit": ""
+            },
+            "xmm_ra": {
+              "name": "XMM_RA",
+              "description": "Right ascension for XMM source in decimal degrees (J2000)",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "xmm_dec": {
+              "name": "XMM_DEC",
+              "description": "Declination for XMM source in decimal degrees (J2000)",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "xmm_soft_flux": {
+              "name": "XMM_SOFT_FLUX",
+              "description": "Soft (0.2-2.0 keV) X-ray flux from XMM-Newton",
+              "type": "float32",
+              "unit": "erg/s/cm2"
+            },
+            "xmm_soft_flux_err": {
+              "name": "XMM_SOFT_FLUX_ERR",
+              "description": "Error on soft X-ray flux from XMM-Newton",
+              "type": "float32",
+              "unit": "erg/s/cm2"
+            },
+            "xmm_hard_flux": {
+              "name": "XMM_HARD_FLUX",
+              "description": "Hard (2.0-12.0 keV) X-ray flux from XMM-Newton",
+              "type": "float32",
+              "unit": "erg/s/cm2"
+            },
+            "xmm_hard_flux_err": {
+              "name": "XMM_HARD_FLUX_ERR",
+              "description": "Error on hard X-ray flux from XMM-Newton",
+              "type": "float32",
+              "unit": "erg/s/cm2"
+            },
+            "xmm_total_flux": {
+              "name": "XMM_TOTAL_FLUX",
+              "description": "Total (0.2-12.0 keV) X-ray flux from XMM-Newton",
+              "type": "float32",
+              "unit": "erg/s/cm2"
+            },
+            "xmm_total_flux_err": {
+              "name": "XMM_TOTAL_FLUX_ERR",
+              "description": "Error on total X-ray flux from XMM-Newton",
+              "type": "float32",
+              "unit": "erg/s/cm2"
+            },
+            "xmm_total_lum": {
+              "name": "XMM_TOTAL_LUM",
+              "description": "Total (0.2-12.0 keV) X-ray luminosity from XMM-Newton",
+              "type": "float32",
+              "unit": "erg/s"
+            },
+            "sdss2xmm_sep": {
+              "name": "SDSS2XMM_SEP",
+              "description": "SDSS-XMM-Newton separation",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "gaia_matched": {
+              "name": "GAIA_MATCHED",
+              "description": "Gaia matching flag",
+              "type": "int32",
+              "unit": ""
+            },
+            "gaia_designation": {
+              "name": "GAIA_DESIGNATION",
+              "description": "Gaia designation, includes data release and source ID in that release",
+              "type": "char[28]",
+              "unit": ""
+            },
+            "gaia_ra": {
+              "name": "GAIA_RA",
+              "description": "Gaia barycentric right ascension in decimal degrees (J2015.5)",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "gaia_dec": {
+              "name": "GAIA_DEC",
+              "description": "Gaia barycentric declination in decimal degrees (J2015.5)",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "gaia_parallax": {
+              "name": "GAIA_PARALLAX",
+              "description": "Absolute stellar parallax",
+              "type": "float64",
+              "unit": "mas"
+            },
+            "gaia_parallax_err": {
+              "name": "GAIA_PARALLAX_ERR",
+              "description": "Inverse variance of the stellar parallax",
+              "type": "float64",
+              "unit": "mas**-2"
+            },
+            "gaia_pm_ra": {
+              "name": "GAIA_PM_RA",
+              "description": "Proper motion in right ascension",
+              "type": "float64",
+              "unit": "mas/yr"
+            },
+            "gaia_pm_ra_err": {
+              "name": "GAIA_PM_RA_ERR",
+              "description": "Inverse variance of the proper motion in right ascension",
+              "type": "float64",
+              "unit": "(mas/yr)**-2"
+            },
+            "gaia_pm_dec": {
+              "name": "GAIA_PM_DEC",
+              "description": "Proper motion in declination",
+              "type": "float64",
+              "unit": "mas/yr"
+            },
+            "gaia_pm_dec_err": {
+              "name": "GAIA_PM_DEC_ERR",
+              "description": "Inverse variance of the proper motion in declination",
+              "type": "float64",
+              "unit": "(mas/yr)**-2"
+            },
+            "gaia_g_mag": {
+              "name": "GAIA_G_MAG",
+              "description": "Mean magnitude in G-band (Vega)",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "gaia_g_flux_snr": {
+              "name": "GAIA_G_FLUX_SNR",
+              "description": "Mean flux over standard deviation in G-band",
+              "type": "float64",
+              "unit": ""
+            },
+            "gaia_bp_mag": {
+              "name": "GAIA_BP_MAG",
+              "description": "Mean magnitude in BP-band (Vega)",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "gaia_bp_flux_snr": {
+              "name": "GAIA_BP_FLUX_SNR",
+              "description": "Mean flux over standard deviation in BP-band",
+              "type": "float64",
+              "unit": ""
+            },
+            "gaia_rp_mag": {
+              "name": "GAIA_RP_MAG",
+              "description": "Mean magnitude in RP-band (Vega)",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "gaia_rp_flux_snr": {
+              "name": "GAIA_RP_FLUX_SNR",
+              "description": "Mean flux over standard deviation in RP-band",
+              "type": "float64",
+              "unit": ""
+            },
+            "sdss2gaia_sep": {
+              "name": "SDSS2GAIA_SEP",
+              "description": "SDSS-Gaia separation",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "pk": {
+              "name": "PK",
+              "description": "Added for convenience - serial integer primary key",
+              "type": "int64",
+              "unit": ""
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null
+    }
+  },
+  "notes": "None"
+}

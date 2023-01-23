@@ -1,0 +1,241 @@
+{
+  "general": {
+    "name": "mos_target_yso_clustering",
+    "short": "MOS Target Table: yso_clustering",
+    "description": "YSO candidates from Kounkel et al. 2020. Please see details in the original paper: https://iopscience.iop.org/article/10.3847/1538-3881/abc0e6",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "BHM",
+        "long": "Black Hole Mapper",
+        "description": "An optical time-domain spectroscopic survey of quasars and X-ray sources",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "bhm",
+        "aliases": []
+      },
+      {
+        "name": "MWM",
+        "long": "Milky Way Mapper",
+        "description": "A time-domain, optical+IR spectroscopic survey of Milky Way stars of all types.",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "mwm",
+        "aliases": []
+      },
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "FITS",
+    "filesize": "100 MB",
+    "releases": [
+      {
+        "name": "DR18",
+        "description": "SDSS unreleased data.  Represents any work-in-progress data.",
+        "public": false,
+        "release_date": "unreleased"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/mos_target_yso_clustering-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts",
+    "generated_by": "sdss5db> targetdb, operations database server",
+    "design": false,
+    "vac": false
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR18": {
+      "template": "$MOS_TARGET/[V_TARG]/mos_target_yso_clustering.fits",
+      "example": "1.0.1/mos_target_yso_clustering.fits",
+      "location": "{v_targ}/mos_target_yso_clustering.fits",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_yso_clustering",
+        "path_template": "$MOS_TARGET/{v_targ}/mos_target_yso_clustering",
+        "path_kwargs": [
+          "v_targ"
+        ],
+        "access_string": "mos_target_yso_clustering = $MOS_TARGET/{v_targ}/mos_target_yso_clustering.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Primary header",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "MOS Target Table: yso_clustering",
+          "size": "100 MB",
+          "header": null,
+          "columns": {
+            "source_id": {
+              "name": "SOURCE_ID",
+              "description": "Gaia DR2 source id",
+              "type": "int64",
+              "unit": ""
+            },
+            "twomass": {
+              "name": "TWOMASS",
+              "description": "2MASS ID",
+              "type": "char[17]",
+              "unit": ""
+            },
+            "ra": {
+              "name": "RA",
+              "description": "Right ascention in J2000 reference frame",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "dec": {
+              "name": "DEC",
+              "description": "Declination in J2000 reference frame",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "parallax": {
+              "name": "PARALLAX",
+              "description": "Parallax from Gaia DR2",
+              "type": "float32",
+              "unit": "mas"
+            },
+            "id": {
+              "name": "ID",
+              "description": "Identification of a parent group from Kounkel et al. (2020)",
+              "type": "int32",
+              "unit": ""
+            },
+            "g": {
+              "name": "G",
+              "description": "Gaia (DR2) G band magnitude",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "bp": {
+              "name": "BP",
+              "description": "Gaia (DR2) BP band magnitude",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "rp": {
+              "name": "RP",
+              "description": "Gaia (DR2) RP band magnitude",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "j": {
+              "name": "J",
+              "description": "2MASS J band magnitude",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "h": {
+              "name": "H",
+              "description": "2MASS H band magnitude",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "k": {
+              "name": "K",
+              "description": "2MASS K band magnitude",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "age": {
+              "name": "AGE",
+              "description": "Estimate of the age of the parent group from Kounkel et al. (2020)",
+              "type": "float64",
+              "unit": "log yr"
+            },
+            "eage": {
+              "name": "EAGE",
+              "description": "Uncertainty in age",
+              "type": "float64",
+              "unit": "log yr"
+            },
+            "av": {
+              "name": "AV",
+              "description": "Estimate of extinction of the parent group from Kounkel et al. (2020)",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "eav": {
+              "name": "EAV",
+              "description": "Uncertainty in av",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "dist": {
+              "name": "DIST",
+              "description": "Estimate of distance of the parent group from Kounkel et al. (2020)",
+              "type": "float64",
+              "unit": "pc"
+            },
+            "edist": {
+              "name": "EDIST",
+              "description": "Uncertainty in dist",
+              "type": "float64",
+              "unit": "pc"
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null
+    }
+  },
+  "notes": "None"
+}

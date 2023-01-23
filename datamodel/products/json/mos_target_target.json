@@ -1,0 +1,182 @@
+{
+  "general": {
+    "name": "mos_target_target",
+    "short": "MOS Target Table: target",
+    "description": "This table stores the targets associated with DR18 target selection cartons. Note that the targets in this table are unique, but a target can be associated with multiple cartons. That many-to-many relationship is encoded in the mos_target_carton_to_target table.",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "BHM",
+        "long": "Black Hole Mapper",
+        "description": "An optical time-domain spectroscopic survey of quasars and X-ray sources",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "bhm",
+        "aliases": []
+      },
+      {
+        "name": "MWM",
+        "long": "Milky Way Mapper",
+        "description": "A time-domain, optical+IR spectroscopic survey of Milky Way stars of all types.",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "mwm",
+        "aliases": []
+      },
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "FITS",
+    "filesize": "91 MB",
+    "releases": [
+      {
+        "name": "DR18",
+        "description": "SDSS unreleased data.  Represents any work-in-progress data.",
+        "public": false,
+        "release_date": "unreleased"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/mos_target_target-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts",
+    "generated_by": "sdss5db> targetdb, operations database server",
+    "design": false,
+    "vac": false
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR18": {
+      "template": "$MOS_TARGET/[V_TARG]/mos_target_target-[NUM].fits",
+      "example": "1.0.1/mos_target_target-01.fits",
+      "location": "{v_targ}/mos_target_target-{num}.fits",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_target",
+        "path_template": "$MOS_TARGET/{v_targ}/mos_target_target-{num}",
+        "path_kwargs": [
+          "v_targ",
+          "num"
+        ],
+        "access_string": "mos_target_target = $MOS_TARGET/{v_targ}/mos_target_target-{num}.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Primary header",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "MOS Target Table: target",
+          "size": "91 MB",
+          "header": null,
+          "columns": {
+            "target_pk": {
+              "name": "TARGET_PK",
+              "description": "The primary key. A sequential identifier.",
+              "type": "int64",
+              "unit": ""
+            },
+            "ra": {
+              "name": "RA",
+              "description": "The right ascension of the target in ICRS coordinates at epoch. From mos_target_catalog.",
+              "type": "float64",
+              "unit": "degree"
+            },
+            "dec": {
+              "name": "DEC",
+              "description": "The declination of the target in ICRS coordinates at epoch. From mos_target_catalog.",
+              "type": "float64",
+              "unit": "degree"
+            },
+            "pmra": {
+              "name": "PMRA",
+              "description": "The proper motion in right ascenscion of the target, as a true angle. From mos_target_catalog.",
+              "type": "float32",
+              "unit": "mas/yr"
+            },
+            "pmdec": {
+              "name": "PMDEC",
+              "description": "The proper motion in declination of the target. From mos_target_catalog.",
+              "type": "float32",
+              "unit": "mas/yr"
+            },
+            "epoch": {
+              "name": "EPOCH",
+              "description": "The epoch of the coordinates, as a Julian epoch.",
+              "type": "float32",
+              "unit": "years"
+            },
+            "parallax": {
+              "name": "PARALLAX",
+              "description": "The parallax of the target. From mos_target_catalog.",
+              "type": "float32",
+              "unit": "arcsec"
+            },
+            "catalogid": {
+              "name": "CATALOGID",
+              "description": "The catalogid of the entry in mos_target_catalog associated with this target.",
+              "type": "int64",
+              "unit": ""
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null
+    }
+  },
+  "notes": "None"
+}

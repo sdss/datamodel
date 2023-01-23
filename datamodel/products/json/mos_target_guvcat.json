@@ -1,0 +1,704 @@
+{
+  "general": {
+    "name": "mos_target_guvcat",
+    "short": "MOS Target Table: guvcat",
+    "description": "GALEX unique source catalog from Bianchi et al. 2017 (https://iopscience.iop.org/article/10.3847/1538-4365/aa7053/pdf). For more details on the column descriptions see https://archive.stsci.edu/hlsp/guvcat/guvcat-column-description",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "BHM",
+        "long": "Black Hole Mapper",
+        "description": "An optical time-domain spectroscopic survey of quasars and X-ray sources",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "bhm",
+        "aliases": []
+      },
+      {
+        "name": "MWM",
+        "long": "Milky Way Mapper",
+        "description": "A time-domain, optical+IR spectroscopic survey of Milky Way stars of all types.",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "mwm",
+        "aliases": []
+      },
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "FITS",
+    "filesize": "1 GB",
+    "releases": [
+      {
+        "name": "DR18",
+        "description": "SDSS unreleased data.  Represents any work-in-progress data.",
+        "public": false,
+        "release_date": "unreleased"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/mos_target_guvcat-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts",
+    "generated_by": "sdss5db> targetdb, operations database server",
+    "design": false,
+    "vac": false
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR18": {
+      "template": "$MOS_TARGET/[V_TARG]/mos_target_guvcat-[NUM].fits",
+      "example": "1.0.1/mos_target_guvcat-1.fits",
+      "location": "{v_targ}/mos_target_guvcat-{num}.fits",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_guvcat",
+        "path_template": "$MOS_TARGET/{v_targ}/mos_target_guvcat-{num}",
+        "path_kwargs": [
+          "v_targ",
+          "num"
+        ],
+        "access_string": "mos_target_guvcat = $MOS_TARGET/{v_targ}/mos_target_guvcat-{num}.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Primary header",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "MOS Target Table: guvcat",
+          "size": "1 GB",
+          "header": null,
+          "columns": {
+            "objid": {
+              "name": "OBJID",
+              "description": "GALEX identifier for the source",
+              "type": "int64",
+              "unit": ""
+            },
+            "photoextractid": {
+              "name": "PHOTOEXTRACTID",
+              "description": "Pointer to GALEX photoExtract Table (identifier of original observation)",
+              "type": "int64",
+              "unit": ""
+            },
+            "mpstype": {
+              "name": "MPSTYPE",
+              "description": "Survey type (\"AIS\")",
+              "type": "char[3]",
+              "unit": ""
+            },
+            "avaspra": {
+              "name": "AVASPRA",
+              "description": "R.A. of center of field where object was measured",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "avaspdec": {
+              "name": "AVASPDEC",
+              "description": "Declination of center of field where object was measured",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "fexptime": {
+              "name": "FEXPTIME",
+              "description": "FUV exposure time",
+              "type": "float32",
+              "unit": "seconds"
+            },
+            "nexptime": {
+              "name": "NEXPTIME",
+              "description": "NUV exposure time",
+              "type": "float32",
+              "unit": "seconds"
+            },
+            "ra": {
+              "name": "RA",
+              "description": "Source's right ascension",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "dec": {
+              "name": "DEC",
+              "description": "Source's declination",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "glon": {
+              "name": "GLON",
+              "description": "Source's Galactic longitude",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "glat": {
+              "name": "GLAT",
+              "description": "Source's Galactic latitude",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "tilenum": {
+              "name": "TILENUM",
+              "description": "\"Tile\" number",
+              "type": "int32",
+              "unit": ""
+            },
+            "img": {
+              "name": "IMG",
+              "description": "Image number",
+              "type": "int32",
+              "unit": ""
+            },
+            "subvisit": {
+              "name": "SUBVISIT",
+              "description": "Number of subvisit if exposure was divided",
+              "type": "int32",
+              "unit": ""
+            },
+            "fov_radius": {
+              "name": "FOV_RADIUS",
+              "description": "Distance of source from center of the field in which it was measured",
+              "type": "float32",
+              "unit": ""
+            },
+            "type": {
+              "name": "TYPE",
+              "description": "Obs. type (0=single, 1=multi)",
+              "type": "int32",
+              "unit": ""
+            },
+            "band": {
+              "name": "BAND",
+              "description": "Band number (1=NUV, 2=FUV, 3=both)",
+              "type": "int32",
+              "unit": ""
+            },
+            "e_bv": {
+              "name": "E_BV",
+              "description": "E(B-V) Galactic reddening from Schlegel et al. 1998 maps)",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "istherespectrum": {
+              "name": "ISTHERESPECTRUM",
+              "description": "Does this object have a GALEX spectrum?",
+              "type": "int16",
+              "unit": ""
+            },
+            "chkobj_type": {
+              "name": "CHKOBJ_TYPE",
+              "description": "Astrometry check type",
+              "type": "int16",
+              "unit": ""
+            },
+            "fuv_mag": {
+              "name": "FUV_MAG",
+              "description": "FUV calibrated magnitude",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "fuv_magerr": {
+              "name": "FUV_MAGERR",
+              "description": "FUV calibrated magnitude error",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "nuv_mag": {
+              "name": "NUV_MAG",
+              "description": "NUV calibrated magnitude",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "nuv_magerr": {
+              "name": "NUV_MAGERR",
+              "description": "NUV calibrated magnitude error",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "fuv_mag_auto": {
+              "name": "FUV_MAG_AUTO",
+              "description": "FUV Kron-like elliptical aperture magnitude",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "fuv_magerr_auto": {
+              "name": "FUV_MAGERR_AUTO",
+              "description": "FUV rms error for AUTO magnitude",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "nuv_mag_auto": {
+              "name": "NUV_MAG_AUTO",
+              "description": "NUV Kron-like elliptical aperture magnitude",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "nuv_magerr_auto": {
+              "name": "NUV_MAGERR_AUTO",
+              "description": "NUV rms error for AUTO magnitude",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "fuv_mag_aper_4": {
+              "name": "FUV_MAG_APER_4",
+              "description": "FUV magnitude aperture (8 pixel)",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "fuv_magerr_aper_4": {
+              "name": "FUV_MAGERR_APER_4",
+              "description": "FUV magnitude error aperture (8 pixel)",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "nuv_mag_aper_4": {
+              "name": "NUV_MAG_APER_4",
+              "description": "NUV magnitude aperture (8 pixel)",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "nuv_magerr_aper_4": {
+              "name": "NUV_MAGERR_APER_4",
+              "description": "NUV magnitude error aperture (8 pixel)",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "fuv_mag_aper_6": {
+              "name": "FUV_MAG_APER_6",
+              "description": "FUV magnitude aperture (17 pixel)",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "fuv_magerr_aper_6": {
+              "name": "FUV_MAGERR_APER_6",
+              "description": "FUV magnitude error aperture (17 pixel)",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "nuv_mag_aper_6": {
+              "name": "NUV_MAG_APER_6",
+              "description": "NUV magnitude aperture (17 pixel)",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "nuv_magerr_aper_6": {
+              "name": "NUV_MAGERR_APER_6",
+              "description": "NUV magnitude error aperture (17 pixel)",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "fuv_artifact": {
+              "name": "FUV_ARTIFACT",
+              "description": "FUV artifact flag",
+              "type": "int16",
+              "unit": ""
+            },
+            "nuv_artifact": {
+              "name": "NUV_ARTIFACT",
+              "description": "NUV artifact flag",
+              "type": "int16",
+              "unit": ""
+            },
+            "fuv_flags": {
+              "name": "FUV_FLAGS",
+              "description": "FUV extraction flags",
+              "type": "int16",
+              "unit": ""
+            },
+            "nuv_flags": {
+              "name": "NUV_FLAGS",
+              "description": "NUV extraction flags",
+              "type": "int16",
+              "unit": ""
+            },
+            "fuv_flux": {
+              "name": "FUV_FLUX",
+              "description": "FUV calibrated flux",
+              "type": "float32",
+              "unit": "mJy"
+            },
+            "fuv_fluxerr": {
+              "name": "FUV_FLUXERR",
+              "description": "FUV calibrated flux error",
+              "type": "float32",
+              "unit": "mJy"
+            },
+            "nuv_flux": {
+              "name": "NUV_FLUX",
+              "description": "NUV calibrated flux",
+              "type": "float32",
+              "unit": "mJy"
+            },
+            "nuv_fluxerr": {
+              "name": "NUV_FLUXERR",
+              "description": "NUV calibrated flux error",
+              "type": "float32",
+              "unit": "mJy"
+            },
+            "fuv_x_image": {
+              "name": "FUV_X_IMAGE",
+              "description": "FUV object position along x",
+              "type": "float32",
+              "unit": ""
+            },
+            "fuv_y_image": {
+              "name": "FUV_Y_IMAGE",
+              "description": "FUV object position along y",
+              "type": "float32",
+              "unit": ""
+            },
+            "nuv_x_image": {
+              "name": "NUV_X_IMAGE",
+              "description": "NUV object position along x",
+              "type": "float32",
+              "unit": ""
+            },
+            "nuv_y_image": {
+              "name": "NUV_Y_IMAGE",
+              "description": "NUV object position along y",
+              "type": "float32",
+              "unit": ""
+            },
+            "fuv_fwhm_image": {
+              "name": "FUV_FWHM_IMAGE",
+              "description": "FUV FWHM assuming a Gaussian core",
+              "type": "float32",
+              "unit": ""
+            },
+            "nuv_fwhm_image": {
+              "name": "NUV_FWHM_IMAGE",
+              "description": "NUV FWHM assuming a Gaussian core",
+              "type": "float32",
+              "unit": ""
+            },
+            "fuv_fwhm_world": {
+              "name": "FUV_FWHM_WORLD",
+              "description": "FUV FWHM assuming a Gaussian core (WORLD units)",
+              "type": "float32",
+              "unit": ""
+            },
+            "nuv_fwhm_world": {
+              "name": "NUV_FWHM_WORLD",
+              "description": "NUV FWHM assuming a Gaussian core (WORLD units)",
+              "type": "float32",
+              "unit": ""
+            },
+            "nuv_class_star": {
+              "name": "NUV_CLASS_STAR",
+              "description": "NUV Star/Galaxy classifier",
+              "type": "float32",
+              "unit": ""
+            },
+            "fuv_class_star": {
+              "name": "FUV_CLASS_STAR",
+              "description": "FUV Star/Galaxy classifier",
+              "type": "float32",
+              "unit": ""
+            },
+            "nuv_ellipticity": {
+              "name": "NUV_ELLIPTICITY",
+              "description": "NUV (1. - B_IMAGE/A_IMAGE)",
+              "type": "float32",
+              "unit": ""
+            },
+            "fuv_ellipticity": {
+              "name": "FUV_ELLIPTICITY",
+              "description": "FUV (1. - B_IMAGE/A_IMAGE)",
+              "type": "float32",
+              "unit": ""
+            },
+            "nuv_theta_j2000": {
+              "name": "NUV_THETA_J2000",
+              "description": "NUV position angle (east of north) (J2000)",
+              "type": "float32",
+              "unit": "degrees"
+            },
+            "nuv_errtheta_j2000": {
+              "name": "NUV_ERRTHETA_J2000",
+              "description": "NUV position angle error (east of north) (J2000)",
+              "type": "float32",
+              "unit": "degrees"
+            },
+            "fuv_theta_j2000": {
+              "name": "FUV_THETA_J2000",
+              "description": "FUV position angle (east of north) (J2000)",
+              "type": "float32",
+              "unit": "degrees"
+            },
+            "fuv_errtheta_j2000": {
+              "name": "FUV_ERRTHETA_J2000",
+              "description": "FUV position angle error (east of north) (J2000)",
+              "type": "float32",
+              "unit": "degrees"
+            },
+            "fuv_ncat_fwhm_image": {
+              "name": "FUV_NCAT_FWHM_IMAGE",
+              "description": "FUV FWHM_IMAGE value from -fd-ncat.fits",
+              "type": "float32",
+              "unit": "pixels"
+            },
+            "fuv_ncat_flux_radius_3": {
+              "name": "FUV_NCAT_FLUX_RADIUS_3",
+              "description": "FUV FLUX_RADIUS using Aperture",
+              "type": "float32",
+              "unit": ""
+            },
+            "nuv_kron_radius": {
+              "name": "NUV_KRON_RADIUS",
+              "description": "NUV Kron apertures in units of A or B",
+              "type": "float32",
+              "unit": ""
+            },
+            "nuv_a_world": {
+              "name": "NUV_A_WORLD",
+              "description": "NUV profile rms along major axis (world units)",
+              "type": "float32",
+              "unit": ""
+            },
+            "nuv_b_world": {
+              "name": "NUV_B_WORLD",
+              "description": "NUV profile rms along minor axis (world units)",
+              "type": "float32",
+              "unit": ""
+            },
+            "fuv_kron_radius": {
+              "name": "FUV_KRON_RADIUS",
+              "description": "FUV Kron apertures in units of A or B",
+              "type": "float32",
+              "unit": ""
+            },
+            "fuv_a_world": {
+              "name": "FUV_A_WORLD",
+              "description": "FUV profile rms along major axis (world units)",
+              "type": "float32",
+              "unit": ""
+            },
+            "fuv_b_world": {
+              "name": "FUV_B_WORLD",
+              "description": "FUV profile rms along minor axis (world units)",
+              "type": "float32",
+              "unit": ""
+            },
+            "nuv_weight": {
+              "name": "NUV_WEIGHT",
+              "description": "NUV effective exposure (flat-field response value) at the source position",
+              "type": "float32",
+              "unit": "seconds"
+            },
+            "fuv_weight": {
+              "name": "FUV_WEIGHT",
+              "description": "FUV effective exposure (flat-field response value) at the source position",
+              "type": "float32",
+              "unit": "seconds"
+            },
+            "prob": {
+              "name": "PROB",
+              "description": "Probability of the FUV-NUV cross-match",
+              "type": "float32",
+              "unit": ""
+            },
+            "sep": {
+              "name": "SEP",
+              "description": "Separation between the FUV and NUV position of the source in the same observation",
+              "type": "float32",
+              "unit": ""
+            },
+            "nuv_poserr": {
+              "name": "NUV_POSERR",
+              "description": "Position error of the source in the NUV image",
+              "type": "float32",
+              "unit": "arcsec"
+            },
+            "fuv_poserr": {
+              "name": "FUV_POSERR",
+              "description": "Position error of the source in the FUV image",
+              "type": "float32",
+              "unit": "arcsec"
+            },
+            "ib_poserr": {
+              "name": "IB_POSERR",
+              "description": "Inter-band position error",
+              "type": "float32",
+              "unit": "arcsec"
+            },
+            "nuv_pperr": {
+              "name": "NUV_PPERR",
+              "description": "NUV Poisson position error",
+              "type": "float32",
+              "unit": ""
+            },
+            "fuv_pperr": {
+              "name": "FUV_PPERR",
+              "description": "FUV Poisson position error",
+              "type": "float32",
+              "unit": ""
+            },
+            "corv": {
+              "name": "CORV",
+              "description": "Whether the source comes from a coadd or visit",
+              "type": "char[1]",
+              "unit": ""
+            },
+            "grank": {
+              "name": "GRANK",
+              "description": "rank of source with 2.5 arcsec of primary",
+              "type": "int16",
+              "unit": ""
+            },
+            "ngrank": {
+              "name": "NGRANK",
+              "description": "If this is a primary, the number of sources within 2.5 arcsec",
+              "type": "int16",
+              "unit": ""
+            },
+            "primgid": {
+              "name": "PRIMGID",
+              "description": "OBJID of the primary",
+              "type": "int64",
+              "unit": ""
+            },
+            "groupgid": {
+              "name": "GROUPGID",
+              "description": "OBJID's of all AIS sources within 2.5 arcseconds concatenated by a \"+\"",
+              "type": "char[159]",
+              "unit": ""
+            },
+            "grankdist": {
+              "name": "GRANKDIST",
+              "description": "Same for GRANK, but based on distance criterion",
+              "type": "int16",
+              "unit": ""
+            },
+            "ngrankdist": {
+              "name": "NGRANKDIST",
+              "description": "Same for NGRANK, but based on distance criterion",
+              "type": "int64",
+              "unit": ""
+            },
+            "primgiddist": {
+              "name": "PRIMGIDDIST",
+              "description": "Same for PRIMGID, but based on distance criterion",
+              "type": "int64",
+              "unit": ""
+            },
+            "groupgiddist": {
+              "name": "GROUPGIDDIST",
+              "description": "Same for GROUPGID, but based on distance criterion",
+              "type": "char[159]",
+              "unit": ""
+            },
+            "groupgidtot": {
+              "name": "GROUPGIDTOT",
+              "description": "OBJID's of all sources within 2.5 arcseconds",
+              "type": "char[159]",
+              "unit": ""
+            },
+            "difffuv": {
+              "name": "DIFFFUV",
+              "description": "FUV magnitude difference between primary and secondary",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "diffnuv": {
+              "name": "DIFFNUV",
+              "description": "NUV magnitude difference between primary and secondary",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "difffuvdist": {
+              "name": "DIFFFUVDIST",
+              "description": "FUV magnitude difference between primary and secondary, but based on distance criterion",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "diffnuvdist": {
+              "name": "DIFFNUVDIST",
+              "description": "NUV magnitude difference between primary and secondary, but based on distance criterion",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "sepas": {
+              "name": "SEPAS",
+              "description": "Separation between primary and secondary",
+              "type": "float32",
+              "unit": "arcsec"
+            },
+            "sepasdist": {
+              "name": "SEPASDIST",
+              "description": "Separation between primary and secondary, but based on distance criterion",
+              "type": "float32",
+              "unit": "arcsec"
+            },
+            "inlargeobj": {
+              "name": "INLARGEOBJ",
+              "description": "Is source in the footprint of an extended object?",
+              "type": "char[26]",
+              "unit": ""
+            },
+            "largeobjsize": {
+              "name": "LARGEOBJSIZE",
+              "description": "Size of the extended object",
+              "type": "float32",
+              "unit": ""
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null
+    }
+  },
+  "notes": "None"
+}

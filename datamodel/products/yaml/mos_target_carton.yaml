@@ -1,0 +1,93 @@
+general:
+  name: mos_target_carton
+  short: 'MOS Target Table: carton'
+  description: The table contains the list of cartons along with the target selection
+    plan that generated them.
+  datatype: FITS
+  filesize: 14 KB
+  releases:
+  - DR18
+  environments:
+  - MOS_TARGET
+  surveys:
+  - BHM
+  - MWM
+  - SDSS
+  naming_convention: $MOS_TARGET/[V_TARG]/mos_target_carton-[NUM].fits, where V_TARG=1.0.1
+    for DR18; and NUM = 1..1 to partition the file into parts
+  generated_by: sdss5db> targetdb, operations database server
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR18:
+    template: $MOS_TARGET/[V_TARG]/mos_target_carton.fits
+    example: 1.0.1/mos_target_carton.fits
+    location: '{v_targ}/mos_target_carton.fits'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_carton
+      path_template: $MOS_TARGET/{v_targ}/mos_target_carton
+      path_kwargs:
+      - v_targ
+      access_string: mos_target_carton = $MOS_TARGET/{v_targ}/mos_target_carton.fits
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Primary header
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: 'MOS Target Table: carton'
+        is_image: false
+        size: 6 KB
+        columns:
+          carton:
+            name: CARTON
+            type: char[37]
+            unit: ''
+            description: The name of the carton.
+          carton_pk:
+            name: CARTON_PK
+            type: int32
+            unit: ''
+            description: The primary key. A sequential identifier.
+          mapper_pk:
+            name: MAPPER_PK
+            type: int16
+            unit: ''
+            description: The primary key of the mapper leading this carton. See mos_target_mapper.
+          category_pk:
+            name: CATEGORY_PK
+            type: int16
+            unit: ''
+            description: The primary key of the category in the mos_target_category
+              table.
+          target_selection_plan:
+            name: TARGET_SELECTION_PLAN
+            type: char[6]
+            unit: ''
+            description: The target selection plan version for which this carton was
+              run.
+notes: |-
+  None

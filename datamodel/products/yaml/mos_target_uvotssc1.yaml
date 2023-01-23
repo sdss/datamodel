@@ -1,0 +1,482 @@
+general:
+  name: mos_target_uvotssc1
+  short: 'MOS Target Table: uvotssc1'
+  description: Version 1.1 of the Swift UVOT Serendipitous Source Catalogue (UVOTSSC).
+    For full details, please see Page et al. (2015) at https://pos.sissa.it/233/037
+    and the online documentation at https://archive.stsci.edu/prepds/uvotssc/
+  datatype: FITS
+  filesize: 837 MB
+  releases:
+  - DR18
+  environments:
+  - MOS_TARGET
+  surveys:
+  - BHM
+  - MWM
+  - SDSS
+  naming_convention: $MOS_TARGET/[V_TARG]/mos_target_uvotssc1-[NUM].fits, where V_TARG=1.0.1
+    for DR18; and NUM = 1..1 to partition the file into parts
+  generated_by: sdss5db> targetdb, operations database server
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR18:
+    template: $MOS_TARGET/[V_TARG]/mos_target_uvotssc1.fits
+    example: 1.0.1/mos_target_uvotssc1.fits
+    location: '{v_targ}/mos_target_uvotssc1.fits'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_uvotssc1
+      path_template: $MOS_TARGET/{v_targ}/mos_target_uvotssc1
+      path_kwargs:
+      - v_targ
+      access_string: mos_target_uvotssc1 = $MOS_TARGET/{v_targ}/mos_target_uvotssc1.fits
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Primary header
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: 'MOS Target Table: uvotssc1'
+        is_image: false
+        size: 837 MB
+        columns:
+          name:
+            name: NAME
+            type: char[17]
+            unit: ''
+            description: UVOTSSC1 name (JHHMMSS.s+DDMMSSa)
+          oseq:
+            name: OSEQ
+            type: int64
+            unit: ''
+            description: Reference number in the observation table
+          obsid:
+            name: OBSID
+            type: int64
+            unit: ''
+            description: Unique Swift observation ID
+          nf:
+            name: NF
+            type: int64
+            unit: ''
+            description: Number of filters included in this observation
+          srcid:
+            name: SRCID
+            type: int64
+            unit: ''
+            description: Unique source number
+          radeg:
+            name: RADEG
+            type: float64
+            unit: degrees
+            description: Right ascension
+          dedeg:
+            name: DEDEG
+            type: float64
+            unit: degrees
+            description: Declination
+          e_radeg:
+            name: E_RADEG
+            type: float64
+            unit: arcsec
+            description: Right ascension error
+          e_dedeg:
+            name: E_DEDEG
+            type: float64
+            unit: arcsec
+            description: Declination error
+          ruvw2:
+            name: RUVW2
+            type: float32
+            unit: arcsec
+            description: Distance to closest UVW2 source
+          ruvm2:
+            name: RUVM2
+            type: float32
+            unit: arcsec
+            description: Distance to closest UVM2 source
+          ruvw1:
+            name: RUVW1
+            type: float32
+            unit: arcsec
+            description: Distance to closest UVW1 source
+          ru:
+            name: RU
+            type: float32
+            unit: arcsec
+            description: Distance to closest U source
+          rb:
+            name: RB
+            type: float32
+            unit: arcsec
+            description: Distance to closest B source
+          rv:
+            name: RV
+            type: float32
+            unit: arcsec
+            description: Distance to closest V source
+          nd:
+            name: ND
+            type: int64
+            unit: ''
+            description: Number of individual observations
+          suvw2:
+            name: SUVW2
+            type: float32
+            unit: ''
+            description: Significance (S/N) in UVW2
+          suvm2:
+            name: SUVM2
+            type: float32
+            unit: ''
+            description: Significance (S/N) in UVM2
+          suvw1:
+            name: SUVW1
+            type: float32
+            unit: ''
+            description: Significance (S/N) in UVW1
+          su:
+            name: SU
+            type: float32
+            unit: ''
+            description: Significance (S/N) in U
+          sb:
+            name: SB
+            type: float32
+            unit: ''
+            description: Significance (S/N) in B
+          sv:
+            name: SV
+            type: float32
+            unit: ''
+            description: Significance (S/N) in V
+          uvw2:
+            name: UVW2
+            type: float64
+            unit: mag
+            description: UVOT/UVW2 Vega magnitude
+          uvm2:
+            name: UVM2
+            type: float64
+            unit: mag
+            description: UVOT/UVM2 Vega magnitude
+          uvw1:
+            name: UVW1
+            type: float64
+            unit: mag
+            description: UVOT/UVW1 Vega magnitude
+          umag:
+            name: UMAG
+            type: float64
+            unit: mag
+            description: UVOT/U Vega magnitude
+          bmag:
+            name: BMAG
+            type: float64
+            unit: mag
+            description: UVOT/B Vega magnitude
+          vmag:
+            name: VMAG
+            type: float64
+            unit: mag
+            description: UVOT/V Vega magnitude
+          uvw2_ab:
+            name: UVW2_AB
+            type: float64
+            unit: mag
+            description: UVOT/UVW2 AB magnitude
+          uvm2_ab:
+            name: UVM2_AB
+            type: float64
+            unit: mag
+            description: UVOT/UVM2 AB magnitude
+          uvw1_ab:
+            name: UVW1_AB
+            type: float64
+            unit: mag
+            description: UVOT/UVW1 AB magnitude
+          u_ab:
+            name: U_AB
+            type: float64
+            unit: mag
+            description: UVOT/U AB magnitude
+          b_ab:
+            name: B_AB
+            type: float64
+            unit: mag
+            description: UVOT/B AB magnitude
+          v_ab:
+            name: V_AB
+            type: float64
+            unit: mag
+            description: UVOT/V AB magnitude
+          e_uvw2:
+            name: E_UVW2
+            type: float64
+            unit: mag
+            description: Error on UVW2 magnitude
+          e_uvm2:
+            name: E_UVM2
+            type: float64
+            unit: mag
+            description: Error on UVM2 magnitude
+          e_uvw1:
+            name: E_UVW1
+            type: float64
+            unit: mag
+            description: Error on UVW1 magnitude
+          e_umag:
+            name: E_UMAG
+            type: float64
+            unit: mag
+            description: Error on U magnitude
+          e_bmag:
+            name: E_BMAG
+            type: float64
+            unit: mag
+            description: Error on B magnitude
+          e_vmag:
+            name: E_VMAG
+            type: float64
+            unit: mag
+            description: Error on V magnitude
+          f_uvw2:
+            name: F_UVW2
+            type: float64
+            unit: cW/m2/nm
+            description: UVOT/UVW2 Flux
+          f_uvm2:
+            name: F_UVM2
+            type: float64
+            unit: cW/m2/nm
+            description: UVOT/UVM2 Flux
+          f_uvw1:
+            name: F_UVW1
+            type: float64
+            unit: cW/m2/nm
+            description: UVOT/UVW1 Flux
+          f_u:
+            name: F_U
+            type: float64
+            unit: cW/m2/nm
+            description: UVOT/U Flux
+          f_b:
+            name: F_B
+            type: float64
+            unit: cW/m2/nm
+            description: UVOT/B Flux
+          f_v:
+            name: F_V
+            type: float64
+            unit: cW/m2/nm
+            description: UVOT/V Flux
+          e_f_uvw2:
+            name: E_F_UVW2
+            type: float64
+            unit: cW/m2/nm
+            description: Error on F.UVW2
+          e_f_uvm2:
+            name: E_F_UVM2
+            type: float64
+            unit: cW/m2/nm
+            description: Error on F.UVM2
+          e_f_uvw1:
+            name: E_F_UVW1
+            type: float64
+            unit: cW/m2/nm
+            description: Error on F.UVW1
+          e_f_u:
+            name: E_F_U
+            type: float64
+            unit: cW/m2/nm
+            description: Error on F.U
+          e_f_b:
+            name: E_F_B
+            type: float64
+            unit: cW/m2/nm
+            description: Error on F.B
+          e_f_v:
+            name: E_F_V
+            type: float64
+            unit: cW/m2/nm
+            description: Error on F.V
+          auvw2:
+            name: AUVW2
+            type: float64
+            unit: arcsec
+            description: Major axis in UVW2
+          auvm2:
+            name: AUVM2
+            type: float64
+            unit: arcsec
+            description: Major axis in UVM2
+          auvw1:
+            name: AUVW1
+            type: float64
+            unit: arcsec
+            description: Major axis in UVW1
+          au:
+            name: AU
+            type: float64
+            unit: arcsec
+            description: Major axis in U
+          ab:
+            name: AB
+            type: float64
+            unit: arcsec
+            description: Major axis in B
+          av:
+            name: AV
+            type: float64
+            unit: arcsec
+            description: Major axis in V
+          buvw2:
+            name: BUVW2
+            type: float64
+            unit: arcsec
+            description: Minor axis in UVW2
+          buvm2:
+            name: BUVM2
+            type: float64
+            unit: arcsec
+            description: Minor axis in UVM2
+          buvw1:
+            name: BUVW1
+            type: float64
+            unit: arcsec
+            description: Minor axis in UVW1
+          bu:
+            name: BU
+            type: float64
+            unit: arcsec
+            description: Minor axis in U
+          bb:
+            name: BB
+            type: float64
+            unit: arcsec
+            description: Minor axis in B
+          bv:
+            name: BV
+            type: float64
+            unit: arcsec
+            description: Minor axis in V
+          pauvw2:
+            name: PAUVW2
+            type: float32
+            unit: degrees
+            description: Position angle of major axis in UVW2
+          pauvm2:
+            name: PAUVM2
+            type: float32
+            unit: degrees
+            description: Position angle of major axis in UVM2
+          pauvw1:
+            name: PAUVW1
+            type: float32
+            unit: degrees
+            description: Position angle of major axis in UVW1
+          pau:
+            name: PAU
+            type: float32
+            unit: degrees
+            description: Position angle of major axis in U
+          pab:
+            name: PAB
+            type: float32
+            unit: degrees
+            description: Position angle of major axis in B
+          pav:
+            name: PAV
+            type: float32
+            unit: degrees
+            description: Position angle of major axis in V
+          xuvw2:
+            name: XUVW2
+            type: int32
+            unit: ''
+            description: Extended flag in UVW2
+          xuvm2:
+            name: XUVM2
+            type: int32
+            unit: ''
+            description: Extended flag in UVM2
+          xuvw1:
+            name: XUVW1
+            type: int32
+            unit: ''
+            description: Extended flag in UVW1
+          xu:
+            name: XU
+            type: int32
+            unit: ''
+            description: Extended flag in U
+          xb:
+            name: XB
+            type: int32
+            unit: ''
+            description: Extended flag in B
+          xv:
+            name: XV
+            type: int32
+            unit: ''
+            description: Extended flag in V
+          fuvw2:
+            name: FUVW2
+            type: int32
+            unit: ''
+            description: Quality flags in UVW2
+          fuvm2:
+            name: FUVM2
+            type: int32
+            unit: ''
+            description: Quality flags in UVM2
+          fuvw1:
+            name: FUVW1
+            type: int32
+            unit: ''
+            description: Quality flags in UVW1
+          fu:
+            name: FU
+            type: int32
+            unit: ''
+            description: Quality flags in U
+          fb:
+            name: FB
+            type: int32
+            unit: ''
+            description: Quality flags in B
+          fv:
+            name: FV
+            type: int32
+            unit: ''
+            description: Quality flags in V
+          id:
+            name: ID
+            type: int64
+            unit: ''
+            description: Internal identifier
+notes: |-
+  None

@@ -1,0 +1,206 @@
+{
+  "general": {
+    "name": "eFEDS_SDSSV_spec_results",
+    "short": "SDSS-V/eFEDS catalogue of spectroscopic redshift and visual inspection information",
+    "description": "A catalogue of spectroscopic redshifts and classifications derived solely from the SDSS-V/eFEDS plate data set. The pipeline redshift/classification information for many spectra is supplemented by the results of an extensive visual inspection process. We include an entry for all spectra of science targets in the SDSS-V/eFEDS plates, regardless of whether they are deemed to be counterparts to eROSITA X-ray sources.",
+    "environments": [
+      "BHM_EFEDS_SPECCOMP"
+    ],
+    "surveys": [
+      {
+        "name": "BHM",
+        "long": "Black Hole Mapper",
+        "description": "An optical time-domain spectroscopic survey of quasars and X-ray sources",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "bhm",
+        "aliases": []
+      }
+    ],
+    "datatype": "FITS",
+    "filesize": "1 MB",
+    "releases": [
+      {
+        "name": "DR18",
+        "description": "SDSS unreleased data.  Represents any work-in-progress data.",
+        "public": false,
+        "release_date": "unreleased"
+      }
+    ],
+    "naming_convention": "$BHM_EFEDS_SPECCOMP/[V_SPECCOMP]/eFEDS_SDSSV_spec_results-[V_SPECCOMP].fits, where V_SPECCOMP=v1.4.3 for DR18. or eFEDS_SDSSV_spec_results-v1.4.3.fits but with regex pattern matches",
+    "generated_by": "https://gitlab.mpcdf.mpg.de/tdwelly/efeds_speccomp",
+    "design": false,
+    "vac": true
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR18": {
+      "template": "$BHM_EFEDS_SPECCOMP/[V_SPECCOMP]/eFEDS_SDSSV_spec_results-[V_SPECCOMP].fits",
+      "example": "v1.4.3/eFEDS_SDSSV_spec_results-v1.4.3.fits",
+      "location": "{v_speccomp}/eFEDS_SDSSV_spec_results-{v_speccomp}.fits",
+      "environment": "BHM_EFEDS_SPECCOMP",
+      "survey": "BHM",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "eFEDS_SDSSV_spec_results",
+        "path_template": "$BHM_EFEDS_SPECCOMP/{v_speccomp}/eFEDS_SDSSV_spec_results-{v_speccomp}.fits",
+        "path_kwargs": [
+          "v_speccomp"
+        ],
+        "access_string": "eFEDS_SDSSV_spec_results = $BHM_EFEDS_SPECCOMP/{v_speccomp}/eFEDS_SDSSV_spec_results-{v_speccomp}.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Empty",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "Standard FITS format"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "Character data"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "No image, just extensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": "There are standard extensions"
+            },
+            {
+              "key": "COMMENT",
+              "value": "Dummy header; see following table extension",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "Joined",
+          "is_image": false,
+          "description": "SDSS-V/eFEDS catalogue of spectroscopic redshift and visual inspection information",
+          "size": "1 MB",
+          "header": null,
+          "columns": {
+            "FIELD": {
+              "name": "FIELD",
+              "description": "SDSS field code identifier",
+              "type": "int16",
+              "unit": ""
+            },
+            "MJD": {
+              "name": "MJD",
+              "description": "SDSS MJD associated with this spectrum",
+              "type": "int32",
+              "unit": ""
+            },
+            "CATALOGID": {
+              "name": "CATALOGID",
+              "description": "SDSS-V CATALOGID (v0) associated with this target",
+              "type": "int64",
+              "unit": ""
+            },
+            "PLUG_RA": {
+              "name": "PLUG_RA",
+              "description": "Sky coordinate of spectroscopic fiber",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "PLUG_DEC": {
+              "name": "PLUG_DEC",
+              "description": "Sky coordinate of spectroscopic fiber",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "NVI": {
+              "name": "NVI",
+              "description": "Number of visual inspections collected for this spectrum",
+              "type": "int16",
+              "unit": ""
+            },
+            "SN_MEDIAN_ALL": {
+              "name": "SN_MEDIAN_ALL",
+              "description": "Median SNR/pix in spectrum (idlspec2d eFEDS v6_0_2 reductions)",
+              "type": "float64",
+              "unit": ""
+            },
+            "Z_PIPE": {
+              "name": "Z_PIPE",
+              "description": "Pipeline redshift in idlspec1d eFEDS v6_0_2 reductions",
+              "type": "float64",
+              "unit": ""
+            },
+            "Z_ERR_PIPE": {
+              "name": "Z_ERR_PIPE",
+              "description": "Pipeline redshift uncertainty in idlspec1d eFEDS v6_0_2 reductions",
+              "type": "float64",
+              "unit": ""
+            },
+            "ZWARNING_PIPE": {
+              "name": "ZWARNING_PIPE",
+              "description": "Pipeline redshift warning flags in idlspec1d eFEDS v6_0_2 reductions",
+              "type": "int16",
+              "unit": ""
+            },
+            "CLASS_PIPE": {
+              "name": "CLASS_PIPE",
+              "description": "Pipeline classification in idlspec1d eFEDS v6_0_2 reductions",
+              "type": "char[6]",
+              "unit": ""
+            },
+            "SUBCLASS_PIPE": {
+              "name": "SUBCLASS_PIPE",
+              "description": "Pipeline sub-classification in idlspec1d eFEDS v6_0_2 reductions",
+              "type": "char[21]",
+              "unit": ""
+            },
+            "Z_FINAL": {
+              "name": "Z_FINAL",
+              "description": "Final redshift derived from pipeline and visual inspections",
+              "type": "float64",
+              "unit": ""
+            },
+            "Z_CONF_FINAL": {
+              "name": "Z_CONF_FINAL",
+              "description": "Final redshift confidence from pipeline and visual inspections",
+              "type": "int16",
+              "unit": ""
+            },
+            "CLASS_FINAL": {
+              "name": "CLASS_FINAL",
+              "description": "Final classfication derived from pipeline and visual inspections",
+              "type": "char[15]",
+              "unit": ""
+            },
+            "BLAZAR_CANDIDATE": {
+              "name": "BLAZAR_CANDIDATE",
+              "description": "Was object flagged as a blazar candidate in visual inspections?",
+              "type": "bool",
+              "unit": ""
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null
+    }
+  },
+  "notes": "None"
+}

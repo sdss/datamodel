@@ -1,0 +1,159 @@
+general:
+  name: mos_target_yso_clustering
+  short: 'MOS Target Table: yso_clustering'
+  description: 'YSO candidates from Kounkel et al. 2020. Please see details in the
+    original paper: https://iopscience.iop.org/article/10.3847/1538-3881/abc0e6'
+  datatype: FITS
+  filesize: 100 MB
+  releases:
+  - DR18
+  environments:
+  - MOS_TARGET
+  surveys:
+  - BHM
+  - MWM
+  - SDSS
+  naming_convention: $MOS_TARGET/[V_TARG]/mos_target_yso_clustering-[NUM].fits, where
+    V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
+  generated_by: sdss5db> targetdb, operations database server
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR18:
+    template: $MOS_TARGET/[V_TARG]/mos_target_yso_clustering.fits
+    example: 1.0.1/mos_target_yso_clustering.fits
+    location: '{v_targ}/mos_target_yso_clustering.fits'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_yso_clustering
+      path_template: $MOS_TARGET/{v_targ}/mos_target_yso_clustering
+      path_kwargs:
+      - v_targ
+      access_string: mos_target_yso_clustering = $MOS_TARGET/{v_targ}/mos_target_yso_clustering.fits
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Primary header
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: 'MOS Target Table: yso_clustering'
+        is_image: false
+        size: 100 MB
+        columns:
+          source_id:
+            name: SOURCE_ID
+            type: int64
+            unit: ''
+            description: Gaia DR2 source id
+          twomass:
+            name: TWOMASS
+            type: char[17]
+            unit: ''
+            description: 2MASS ID
+          ra:
+            name: RA
+            type: float64
+            unit: degrees
+            description: Right ascention in J2000 reference frame
+          dec:
+            name: DEC
+            type: float64
+            unit: degrees
+            description: Declination in J2000 reference frame
+          parallax:
+            name: PARALLAX
+            type: float32
+            unit: mas
+            description: Parallax from Gaia DR2
+          id:
+            name: ID
+            type: int32
+            unit: ''
+            description: Identification of a parent group from Kounkel et al. (2020)
+          g:
+            name: G
+            type: float64
+            unit: mag
+            description: Gaia (DR2) G band magnitude
+          bp:
+            name: BP
+            type: float64
+            unit: mag
+            description: Gaia (DR2) BP band magnitude
+          rp:
+            name: RP
+            type: float64
+            unit: mag
+            description: Gaia (DR2) RP band magnitude
+          j:
+            name: J
+            type: float32
+            unit: mag
+            description: 2MASS J band magnitude
+          h:
+            name: H
+            type: float32
+            unit: mag
+            description: 2MASS H band magnitude
+          k:
+            name: K
+            type: float32
+            unit: mag
+            description: 2MASS K band magnitude
+          age:
+            name: AGE
+            type: float64
+            unit: log yr
+            description: Estimate of the age of the parent group from Kounkel et al.
+              (2020)
+          eage:
+            name: EAGE
+            type: float64
+            unit: log yr
+            description: Uncertainty in age
+          av:
+            name: AV
+            type: float64
+            unit: mag
+            description: Estimate of extinction of the parent group from Kounkel et
+              al. (2020)
+          eav:
+            name: EAV
+            type: float64
+            unit: mag
+            description: Uncertainty in av
+          dist:
+            name: DIST
+            type: float64
+            unit: pc
+            description: Estimate of distance of the parent group from Kounkel et
+              al. (2020)
+          edist:
+            name: EDIST
+            type: float64
+            unit: pc
+            description: Uncertainty in dist
+notes: |-
+  None

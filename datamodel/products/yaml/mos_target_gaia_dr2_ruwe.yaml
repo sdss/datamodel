@@ -1,0 +1,78 @@
+general:
+  name: mos_target_gaia_dr2_ruwe
+  short: 'MOS Target Table: gaia_dr2_ruwe'
+  description: Table from Gaia DR2 containing the Renormalised Unit Weight Error (RUWE)
+    associated to each source in gaia_source. See https://gea.esac.esa.int/archive/documentation/GDR2/Gaia_archive/chap_datamodel/sec_dm_main_tables/ssec_dm_ruwe.html
+    for more detailed descriptions of the columns
+  datatype: FITS
+  filesize: 22 MB
+  releases:
+  - DR18
+  environments:
+  - MOS_TARGET
+  surveys:
+  - BHM
+  - MWM
+  - SDSS
+  naming_convention: $MOS_TARGET/[V_TARG]/mos_target_gaia_dr2_ruwe-[NUM].fits, where
+    V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
+  generated_by: sdss5db> targetdb, operations database server
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR18:
+    template: $MOS_TARGET/[V_TARG]/mos_target_gaia_dr2_ruwe-[NUM].fits
+    example: 1.0.1/mos_target_gaia_dr2_ruwe-01.fits
+    location: '{v_targ}/mos_target_gaia_dr2_ruwe-{num}.fits'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_gaia_dr2_ruwe
+      path_template: $MOS_TARGET/{v_targ}/mos_target_gaia_dr2_ruwe-{num}
+      path_kwargs:
+      - num
+      - v_targ
+      access_string: mos_target_gaia_dr2_ruwe = $MOS_TARGET/{v_targ}/mos_target_gaia_dr2_ruwe-{num}.fits
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Primary header
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: 'MOS Target Table: gaia_dr2_ruwe'
+        is_image: false
+        size: 22 MB
+        columns:
+          source_id:
+            name: SOURCE_ID
+            type: int64
+            unit: ''
+            description: Gaia DR2 unique source identifier
+          ruwe:
+            name: RUWE
+            type: float32
+            unit: ''
+            description: renormalised unit weight error
+notes: |-
+  None

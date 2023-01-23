@@ -1,0 +1,698 @@
+{
+  "general": {
+    "name": "mos_target_gaia_dr2_source",
+    "short": "MOS Target Table: gaia_dr2_source",
+    "description": "Gaia DR2 Source Table. See https://gea.esac.esa.int/archive/documentation/GDR2/Gaia_archive/chap_datamodel/sec_dm_main_tables/ssec_dm_gaia_source.html for complete details.",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "BHM",
+        "long": "Black Hole Mapper",
+        "description": "An optical time-domain spectroscopic survey of quasars and X-ray sources",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "bhm",
+        "aliases": []
+      },
+      {
+        "name": "MWM",
+        "long": "Milky Way Mapper",
+        "description": "A time-domain, optical+IR spectroscopic survey of Milky Way stars of all types.",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "mwm",
+        "aliases": []
+      },
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "FITS",
+    "filesize": "999 MB",
+    "releases": [
+      {
+        "name": "DR18",
+        "description": "SDSS unreleased data.  Represents any work-in-progress data.",
+        "public": false,
+        "release_date": "unreleased"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/mos_target_gaia_dr2_source-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts",
+    "generated_by": "sdss5db> targetdb, operations database server",
+    "design": false,
+    "vac": false
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR18": {
+      "template": "$MOS_TARGET/[V_TARG]/mos_target_gaia_dr2_source-[NUM].fits",
+      "example": "1.0.1/mos_target_gaia_dr2_source-01.fits",
+      "location": "{v_targ}/mos_target_gaia_dr2_source-{num}.fits",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_gaia_dr2_source",
+        "path_template": "$MOS_TARGET/{v_targ}/mos_target_gaia_dr2_source-{num}",
+        "path_kwargs": [
+          "v_targ",
+          "num"
+        ],
+        "access_string": "mos_target_gaia_dr2_source = $MOS_TARGET/{v_targ}/mos_target_gaia_dr2_source-{num}.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Primary header",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "MOS Target Table: gaia_dr2_source",
+          "size": "999 MB",
+          "header": null,
+          "columns": {
+            "solution_id": {
+              "name": "SOLUTION_ID",
+              "description": "ID that identifies the version of all the subsystems that were used in the generation of the data as well as the input data used",
+              "type": "int64",
+              "unit": ""
+            },
+            "designation": {
+              "name": "DESIGNATION",
+              "description": "Unique source designation across all Gaia data releases",
+              "type": "char[27]",
+              "unit": ""
+            },
+            "source_id": {
+              "name": "SOURCE_ID",
+              "description": "Unique source identifier within a particular Gaia data release",
+              "type": "int64",
+              "unit": ""
+            },
+            "random_index": {
+              "name": "RANDOM_INDEX",
+              "description": "Random index which can be used to select smaller subsets of the data",
+              "type": "int64",
+              "unit": ""
+            },
+            "ref_epoch": {
+              "name": "REF_EPOCH",
+              "description": "Time",
+              "type": "float64",
+              "unit": "Julian Years"
+            },
+            "ra": {
+              "name": "RA",
+              "description": "Right Ascension",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "ra_error": {
+              "name": "RA_ERROR",
+              "description": "Standard error of the right ascension",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "dec": {
+              "name": "DEC",
+              "description": "Declination",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "dec_error": {
+              "name": "DEC_ERROR",
+              "description": "Standard error of the declination",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "parallax": {
+              "name": "PARALLAX",
+              "description": "Absolute stellar parallax of the source at the reference epoch",
+              "type": "float64",
+              "unit": "mas"
+            },
+            "parallax_error": {
+              "name": "PARALLAX_ERROR",
+              "description": "Standard error of parallax",
+              "type": "float64",
+              "unit": "mas"
+            },
+            "parallax_over_error": {
+              "name": "PARALLAX_OVER_ERROR",
+              "description": "Parallax divided by its error",
+              "type": "float32",
+              "unit": ""
+            },
+            "pmra": {
+              "name": "PMRA",
+              "description": "Proper motion in right ascension direction",
+              "type": "float64",
+              "unit": "mas/yr"
+            },
+            "pmra_error": {
+              "name": "PMRA_ERROR",
+              "description": "Standard error of proper motion in right ascension direction",
+              "type": "float64",
+              "unit": "mas/yr"
+            },
+            "pmdec": {
+              "name": "PMDEC",
+              "description": "Proper motion in declination direction",
+              "type": "float64",
+              "unit": "mas/yr"
+            },
+            "pmdec_error": {
+              "name": "PMDEC_ERROR",
+              "description": "Standard error of proper motion in declination direction",
+              "type": "float64",
+              "unit": "mas/yr"
+            },
+            "ra_dec_corr": {
+              "name": "RA_DEC_CORR",
+              "description": "Correlation between right ascension and declination",
+              "type": "float32",
+              "unit": ""
+            },
+            "ra_parallax_corr": {
+              "name": "RA_PARALLAX_CORR",
+              "description": "Correlation between right ascension and parallax",
+              "type": "float32",
+              "unit": ""
+            },
+            "ra_pmra_corr": {
+              "name": "RA_PMRA_CORR",
+              "description": "Correlation between right ascension and proper motion in right ascension",
+              "type": "float32",
+              "unit": ""
+            },
+            "ra_pmdec_corr": {
+              "name": "RA_PMDEC_CORR",
+              "description": "Correlation between right ascension and proper motion in declination",
+              "type": "float32",
+              "unit": ""
+            },
+            "dec_parallax_corr": {
+              "name": "DEC_PARALLAX_CORR",
+              "description": "Correlation between declination and parallax",
+              "type": "float32",
+              "unit": ""
+            },
+            "dec_pmra_corr": {
+              "name": "DEC_PMRA_CORR",
+              "description": "Correlation between declination and proper motion in right ascension",
+              "type": "float32",
+              "unit": ""
+            },
+            "dec_pmdec_corr": {
+              "name": "DEC_PMDEC_CORR",
+              "description": "Correlation between declination and proper motion in declination",
+              "type": "float32",
+              "unit": ""
+            },
+            "parallax_pmra_corr": {
+              "name": "PARALLAX_PMRA_CORR",
+              "description": "Correlation between parallax and proper motion in right ascension",
+              "type": "float32",
+              "unit": ""
+            },
+            "parallax_pmdec_corr": {
+              "name": "PARALLAX_PMDEC_CORR",
+              "description": "Correlation between parallax and proper motion in declination",
+              "type": "float32",
+              "unit": ""
+            },
+            "pmra_pmdec_corr": {
+              "name": "PMRA_PMDEC_CORR",
+              "description": "Correlation between proper motion in right ascension and proper motion in declination",
+              "type": "float32",
+              "unit": ""
+            },
+            "astrometric_n_obs_al": {
+              "name": "ASTROMETRIC_N_OBS_AL",
+              "description": "Total number of observations AL",
+              "type": "int32",
+              "unit": ""
+            },
+            "astrometric_n_obs_ac": {
+              "name": "ASTROMETRIC_N_OBS_AC",
+              "description": "Total number of observations AC",
+              "type": "int32",
+              "unit": ""
+            },
+            "astrometric_n_good_obs_al": {
+              "name": "ASTROMETRIC_N_GOOD_OBS_AL",
+              "description": "Number of good observations AL",
+              "type": "int32",
+              "unit": ""
+            },
+            "astrometric_n_bad_obs_al": {
+              "name": "ASTROMETRIC_N_BAD_OBS_AL",
+              "description": "Number of bad observations AL",
+              "type": "int32",
+              "unit": ""
+            },
+            "astrometric_gof_al": {
+              "name": "ASTROMETRIC_GOF_AL",
+              "description": "Goodness of fit statistic of model wrt along-scan observations",
+              "type": "float32",
+              "unit": ""
+            },
+            "astrometric_chi2_al": {
+              "name": "ASTROMETRIC_CHI2_AL",
+              "description": "AL chi-square value",
+              "type": "float32",
+              "unit": ""
+            },
+            "astrometric_excess_noise": {
+              "name": "ASTROMETRIC_EXCESS_NOISE",
+              "description": "Excess noise of the source",
+              "type": "float64",
+              "unit": "mas"
+            },
+            "astrometric_excess_noise_sig": {
+              "name": "ASTROMETRIC_EXCESS_NOISE_SIG",
+              "description": "Significance of excess noise",
+              "type": "float64",
+              "unit": ""
+            },
+            "astrometric_params_solved": {
+              "name": "ASTROMETRIC_PARAMS_SOLVED",
+              "description": "Which parameters have been solved for",
+              "type": "int32",
+              "unit": ""
+            },
+            "astrometric_primary_flag": {
+              "name": "ASTROMETRIC_PRIMARY_FLAG",
+              "description": "Flag indicating if this source was used as a primary source (true) or secondary source (false)",
+              "type": "bool",
+              "unit": ""
+            },
+            "astrometric_weight_al": {
+              "name": "ASTROMETRIC_WEIGHT_AL",
+              "description": "Mean astrometric weight of the source",
+              "type": "float32",
+              "unit": "mas^-2"
+            },
+            "astrometric_pseudo_colour": {
+              "name": "ASTROMETRIC_PSEUDO_COLOUR",
+              "description": "Astrometrically determined pseudocolour of the source",
+              "type": "float64",
+              "unit": "um^-1"
+            },
+            "astrometric_pseudo_colour_error": {
+              "name": "ASTROMETRIC_PSEUDO_COLOUR_ERROR",
+              "description": "Standard error of the pseudocolour of the source",
+              "type": "float64",
+              "unit": "um^-1"
+            },
+            "mean_varpi_factor_al": {
+              "name": "MEAN_VARPI_FACTOR_AL",
+              "description": "Mean Parallax factor AL",
+              "type": "float32",
+              "unit": ""
+            },
+            "astrometric_matched_observations": {
+              "name": "ASTROMETRIC_MATCHED_OBSERVATIONS",
+              "description": "number of FOV transits matched to this source",
+              "type": "int16",
+              "unit": ""
+            },
+            "visibility_periods_used": {
+              "name": "VISIBILITY_PERIODS_USED",
+              "description": "Number of visibility periods used in the astrometric solution",
+              "type": "int16",
+              "unit": ""
+            },
+            "astrometric_sigma5d_max": {
+              "name": "ASTROMETRIC_SIGMA5D_MAX",
+              "description": "Longest semi-major axis of the 5-d error ellipsoid",
+              "type": "float32",
+              "unit": "mas"
+            },
+            "frame_rotator_object_type": {
+              "name": "FRAME_ROTATOR_OBJECT_TYPE",
+              "description": "Type of the source mainly used for frame rotation",
+              "type": "int32",
+              "unit": ""
+            },
+            "matched_observations": {
+              "name": "MATCHED_OBSERVATIONS",
+              "description": "Total number of FOV transits matched to this source",
+              "type": "int16",
+              "unit": ""
+            },
+            "duplicated_source": {
+              "name": "DUPLICATED_SOURCE",
+              "description": "Source with duplicate sources",
+              "type": "bool",
+              "unit": ""
+            },
+            "phot_g_n_obs": {
+              "name": "PHOT_G_N_OBS",
+              "description": "Number of observations contributing to G photometry",
+              "type": "int32",
+              "unit": ""
+            },
+            "phot_g_mean_flux": {
+              "name": "PHOT_G_MEAN_FLUX",
+              "description": "G-band mean flux",
+              "type": "float64",
+              "unit": "e-/s"
+            },
+            "phot_g_mean_flux_error": {
+              "name": "PHOT_G_MEAN_FLUX_ERROR",
+              "description": "Error on G-band mean flux",
+              "type": "float64",
+              "unit": "e-/s"
+            },
+            "phot_g_mean_flux_over_error": {
+              "name": "PHOT_G_MEAN_FLUX_OVER_ERROR",
+              "description": "G-band mean flux divided by its error",
+              "type": "float32",
+              "unit": ""
+            },
+            "phot_g_mean_mag": {
+              "name": "PHOT_G_MEAN_MAG",
+              "description": "G-band mean magnitude",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "phot_bp_n_obs": {
+              "name": "PHOT_BP_N_OBS",
+              "description": "Number of observations contributing to BP photometry",
+              "type": "int32",
+              "unit": ""
+            },
+            "phot_bp_mean_flux": {
+              "name": "PHOT_BP_MEAN_FLUX",
+              "description": "Integrated BP mean flux",
+              "type": "float64",
+              "unit": "e-/s"
+            },
+            "phot_bp_mean_flux_error": {
+              "name": "PHOT_BP_MEAN_FLUX_ERROR",
+              "description": "Error on the integrated BP mean flux",
+              "type": "float64",
+              "unit": "e-/s"
+            },
+            "phot_bp_mean_flux_over_error": {
+              "name": "PHOT_BP_MEAN_FLUX_OVER_ERROR",
+              "description": "Integrated BP mean flux divided by its error",
+              "type": "float32",
+              "unit": ""
+            },
+            "phot_bp_mean_mag": {
+              "name": "PHOT_BP_MEAN_MAG",
+              "description": "Integrated BP mean magnitude",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "phot_rp_n_obs": {
+              "name": "PHOT_RP_N_OBS",
+              "description": "Number of observations contributing to RP photometry",
+              "type": "int32",
+              "unit": ""
+            },
+            "phot_rp_mean_flux": {
+              "name": "PHOT_RP_MEAN_FLUX",
+              "description": "Integrated RP mean flux",
+              "type": "float64",
+              "unit": "e-/s"
+            },
+            "phot_rp_mean_flux_error": {
+              "name": "PHOT_RP_MEAN_FLUX_ERROR",
+              "description": "Error on the integrated RP mean flux",
+              "type": "float64",
+              "unit": "e-/s"
+            },
+            "phot_rp_mean_flux_over_error": {
+              "name": "PHOT_RP_MEAN_FLUX_OVER_ERROR",
+              "description": "Integrated RP mean flux divided by its error",
+              "type": "float32",
+              "unit": ""
+            },
+            "phot_rp_mean_mag": {
+              "name": "PHOT_RP_MEAN_MAG",
+              "description": "Integrated RP mean magnitude",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "phot_bp_rp_excess_factor": {
+              "name": "PHOT_BP_RP_EXCESS_FACTOR",
+              "description": "BP/RP excess factor",
+              "type": "float32",
+              "unit": ""
+            },
+            "phot_proc_mode": {
+              "name": "PHOT_PROC_MODE",
+              "description": "Photometry processing mode",
+              "type": "int32",
+              "unit": ""
+            },
+            "bp_rp": {
+              "name": "BP_RP",
+              "description": "BP - RP color",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "bp_g": {
+              "name": "BP_G",
+              "description": "BP - G color",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "g_rp": {
+              "name": "G_RP",
+              "description": "G - RP color",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "radial_velocity": {
+              "name": "RADIAL_VELOCITY",
+              "description": "Radial velocity",
+              "type": "float64",
+              "unit": "km/s"
+            },
+            "radial_velocity_error": {
+              "name": "RADIAL_VELOCITY_ERROR",
+              "description": "Radial velocity error",
+              "type": "float64",
+              "unit": "km/s"
+            },
+            "rv_nb_transits": {
+              "name": "RV_NB_TRANSITS",
+              "description": "Number of transits used to compute radial velocity",
+              "type": "int32",
+              "unit": ""
+            },
+            "rv_template_teff": {
+              "name": "RV_TEMPLATE_TEFF",
+              "description": "Teff of the template used to compute radial velocity",
+              "type": "float32",
+              "unit": "K"
+            },
+            "rv_template_logg": {
+              "name": "RV_TEMPLATE_LOGG",
+              "description": "logg of the template used to compute radial velocity",
+              "type": "float32",
+              "unit": "log cgs"
+            },
+            "rv_template_fe_h": {
+              "name": "RV_TEMPLATE_FE_H",
+              "description": "Fe/H of the template used to compute radial velocity",
+              "type": "float32",
+              "unit": "dex"
+            },
+            "phot_variable_flag": {
+              "name": "PHOT_VARIABLE_FLAG",
+              "description": "Photometric variability flag",
+              "type": "char[13]",
+              "unit": ""
+            },
+            "l": {
+              "name": "L",
+              "description": "Galactic longitude",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "b": {
+              "name": "B",
+              "description": "Galactic latitude",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "ecl_lon": {
+              "name": "ECL_LON",
+              "description": "Ecliptic longitude",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "ecl_lat": {
+              "name": "ECL_LAT",
+              "description": "Ecliptic latitude",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "priam_flags": {
+              "name": "PRIAM_FLAGS",
+              "description": "Flags for the Apsis-Priam results",
+              "type": "int64",
+              "unit": ""
+            },
+            "teff_val": {
+              "name": "TEFF_VAL",
+              "description": "Stellar effective temperature",
+              "type": "float32",
+              "unit": "K"
+            },
+            "teff_percentile_lower": {
+              "name": "TEFF_PERCENTILE_LOWER",
+              "description": "Teff_val lower uncertainty",
+              "type": "float32",
+              "unit": "K"
+            },
+            "teff_percentile_upper": {
+              "name": "TEFF_PERCENTILE_UPPER",
+              "description": "Teff_val upper uncertainty",
+              "type": "float32",
+              "unit": "K"
+            },
+            "a_g_val": {
+              "name": "A_G_VAL",
+              "description": "Line-of-sight extinction in the G band",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "a_g_percentile_lower": {
+              "name": "A_G_PERCENTILE_LOWER",
+              "description": "A_g_val lower uncertainty",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "a_g_percentile_upper": {
+              "name": "A_G_PERCENTILE_UPPER",
+              "description": "A_g_val upper uncertainty",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "e_bp_min_rp_val": {
+              "name": "E_BP_MIN_RP_VAL",
+              "description": "Line-of-sight reddening E(BP-RP)",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "e_bp_min_rp_percentile_lower": {
+              "name": "E_BP_MIN_RP_PERCENTILE_LOWER",
+              "description": "e_bp_min_rp_val lower uncertainty",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "e_bp_min_rp_percentile_upper": {
+              "name": "E_BP_MIN_RP_PERCENTILE_UPPER",
+              "description": "e_bp_min_rp_val upper uncertainty",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "flame_flags": {
+              "name": "FLAME_FLAGS",
+              "description": "Flags for the Apsis-FLAME results",
+              "type": "int64",
+              "unit": ""
+            },
+            "radius_val": {
+              "name": "RADIUS_VAL",
+              "description": "Stellar radius",
+              "type": "float32",
+              "unit": "Solar Radius"
+            },
+            "radius_percentile_lower": {
+              "name": "RADIUS_PERCENTILE_LOWER",
+              "description": "Radius_val lower uncertainty",
+              "type": "float32",
+              "unit": "Solar Radius"
+            },
+            "radius_percentile_upper": {
+              "name": "RADIUS_PERCENTILE_UPPER",
+              "description": "Radius_val upper uncertainty",
+              "type": "float32",
+              "unit": "Solar Radius"
+            },
+            "lum_val": {
+              "name": "LUM_VAL",
+              "description": "stellar luminosity",
+              "type": "float32",
+              "unit": "Solar Luminosity"
+            },
+            "lum_percentile_lower": {
+              "name": "LUM_PERCENTILE_LOWER",
+              "description": "lum_val lower uncertainty",
+              "type": "float32",
+              "unit": "Solar Luminosity"
+            },
+            "lum_percentile_upper": {
+              "name": "LUM_PERCENTILE_UPPER",
+              "description": "lum_val upper uncertainty",
+              "type": "float32",
+              "unit": "Solar Luminosity"
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null
+    }
+  },
+  "notes": "None"
+}

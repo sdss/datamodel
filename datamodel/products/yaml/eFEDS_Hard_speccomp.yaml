@@ -1,0 +1,368 @@
+general:
+  name: eFEDS_Hard_speccomp
+  short: eROSITA/eFEDS Hard source catalogue counterparts with redshifts/classifications
+    updated with SDSS-V information
+  description: A catalogue of hard X-ray (2.3-5 keV) selected sources detected in
+    the eROSITA/eFEDS performance verification field (Brunner et al., 2022), with
+    optical/IR counterpart associations (Salvato et al., 2022). This catalogue (Merloni
+    et al., in prep) updates the spectroscopic redshift and classificaions (w.r.t.
+    Salvato et al. 2022), using a spectroscopic compilation, derived from several
+    facilities, but dominated by SDSS/BOSS spectroscopy. We include new information
+    derived from 37 dedicated SDSS-V plates, observed between Dec 2020-May 2021. We
+    combine automated redshift and classifications, provided by the standard SDSS
+    idlspec1d pipeline, with an extensive and targeted set of visual inspections,
+    which increase the reliability and completeness of the spectroscopic coverage.
+  datatype: FITS
+  filesize: 106 KB
+  releases:
+  - DR18
+  environments:
+  - BHM_EFEDS_SPECCOMP
+  surveys:
+  - BHM
+  naming_convention: $BHM_EFEDS_SPECCOMP/[V_SPECCOMP]/eFEDS_Hard_speccomp-[V_SPECCOMP].fits,
+    where V_SPECCOMP=v1.4.3 for DR18.
+  generated_by: https://gitlab.mpcdf.mpg.de/tdwelly/efeds_speccomp
+  design: false
+  vac: true
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR18:
+    template: $BHM_EFEDS_SPECCOMP/[V_SPECCOMP]/eFEDS_Hard_speccomp-[V_SPECCOMP].fits
+    example: v1.4.3/eFEDS_Hard_speccomp-v1.4.3.fits
+    location: '{v_speccomp}/eFEDS_Hard_speccomp-{v_speccomp}.fits'
+    environment: BHM_EFEDS_SPECCOMP
+    access:
+      in_sdss_access: true
+      path_name: eFEDS_Hard_speccomp
+      path_template: $BHM_EFEDS_SPECCOMP/{v_speccomp}/eFEDS_Hard_speccomp-{v_speccomp}.fits
+      path_kwargs:
+      - v_speccomp
+      access_string: eFEDS_Hard_speccomp = $BHM_EFEDS_SPECCOMP/{v_speccomp}/eFEDS_Hard_speccomp-{v_speccomp}.fits
+    survey: BHM
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Empty
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: Standard FITS format
+        - key: BITPIX
+          value: 8
+          comment: Character data
+        - key: NAXIS
+          value: 0
+          comment: No image, just extensions
+        - key: EXTEND
+          value: true
+          comment: There are standard extensions
+        - key: COMMENT
+          value: Dummy header; see following table extension
+          comment: ''
+      hdu1:
+        name: eFEDS_Hard_ctp_wspecz
+        description: eROSITA/eFEDS Hard source catalogue counterparts with redshifts/classifications
+          updated with SDSS-V information
+        is_image: false
+        size: 82 KB
+        columns:
+          ERO_Name:
+            name: ERO_NAME
+            type: char[22]
+            unit: ''
+            description: From Brunner+22, eROSITA official source Name
+          ERO_ID_SRC:
+            name: ERO_ID_SRC
+            type: int32
+            unit: ''
+            description: From Brunner+22, ID of eROSITA source in the Main Sample
+          ERO_RA_CORR:
+            name: ERO_RA_CORR
+            type: float32
+            unit: deg
+            description: From Brunner+22, J2000 Right Ascension of eROSITA source
+              (corrected)
+          ERO_DEC_CORR:
+            name: ERO_DEC_CORR
+            type: float32
+            unit: deg
+            description: From Brunner+22, J2000 Declination of eROSITA source (corrected)
+          ERO_RADEC_ERR_CORR:
+            name: ERO_RADEC_ERR_CORR
+            type: float32
+            unit: arcsec
+            description: From Brunner+22, eROSITA positional uncertainty (corrected)
+          ERO_ML_FLUX_3:
+            name: ERO_ML_FLUX_3
+            type: float32
+            unit: erg/cm^2/s
+            description: From Brunner+22, 2.3-5.0 keV source flux
+          ERO_ML_FLUX_ERR_3:
+            name: ERO_ML_FLUX_ERR_3
+            type: float32
+            unit: erg/cm^2/s
+            description: From Brunner+22, 2.3-5.0 keV source flux error (1 sigma)
+          ERO_DET_LIKE_3:
+            name: ERO_DET_LIKE_3
+            type: float32
+            unit: ''
+            description: From Brunner+22, 2.3-5.0 keV detection likelihood via PSF-fitting
+          CTP_LS8_UNIQUE_OBJID:
+            name: CTP_LS8_UNIQUE_OBJID
+            type: char[11]
+            unit: ''
+            description: From Salvato+22, LS8 unique id for ctp to the eROSITA source
+          CTP_LS8_RA:
+            name: CTP_LS8_RA
+            type: float32
+            unit: deg
+            description: From Salvato+22, Right Ascension of the LS8 counterpart
+          CTP_LS8_DEC:
+            name: CTP_LS8_DEC
+            type: float32
+            unit: deg
+            description: From Salvato+22, Declination of the best LS8 counterpart
+          Dist_CTP_LS8_ERO:
+            name: DIST_CTP_LS8_ERO
+            type: float32
+            unit: arcsec
+            description: From Salvato+22, Separation between ctp and eROSITA position
+          CTP_quality:
+            name: CTP_QUALITY
+            type: int16
+            unit: ''
+            description: 'From Salvato+22, ctp qual: 4=best,3=good,2=secondary,1/0=unreliable'
+          LS_ID:
+            name: LS_ID
+            type: int64
+            unit: ''
+            description: Unique ID of lsdr9 photometric object labelled with spec-z
+          LS_RA:
+            name: LS_RA
+            type: float64
+            unit: deg
+            description: Coordinate from lsdr9 at epoch LS9_EPOCH
+          LS_DEC:
+            name: LS_DEC
+            type: float64
+            unit: deg
+            description: Coordinate from lsdr9 at epoch LS9_EPOCH
+          LS_PMRA:
+            name: LS_PMRA
+            type: float32
+            unit: mas/yr
+            description: Proper motion from lsdr9
+          LS_PMDEC:
+            name: LS_PMDEC
+            type: float32
+            unit: mas/yr
+            description: Proper motion from lsdr9
+          LS_EPOCH:
+            name: LS_EPOCH
+            type: float32
+            unit: year
+            description: Coordinate epoch from lsdr9
+          LS_MAG_G:
+            name: LS_MAG_G
+            type: float32
+            unit: mag
+            description: DECam g-band model magnitude from lsdr9, AB
+          LS_MAG_R:
+            name: LS_MAG_R
+            type: float32
+            unit: mag
+            description: DECam r-band model magnitude from lsdr9, AB
+          LS_MAG_Z:
+            name: LS_MAG_Z
+            type: float32
+            unit: mag
+            description: DECam z-band model magnitude from lsdr9, AB
+          SPECZ_N:
+            name: SPECZ_N
+            type: int32
+            unit: ''
+            description: Total number of spec-z associated with this lsdr9 object
+          SPECZ_RAJ2000:
+            name: SPECZ_RAJ2000
+            type: float64
+            unit: deg
+            description: Coordinate of spec-z, propagated if necessary to epoch J2000
+          SPECZ_DEJ2000:
+            name: SPECZ_DEJ2000
+            type: float64
+            unit: deg
+            description: Coordinate of spec-z, propagated if necessary to epoch J2000
+          SPECZ_NSEL:
+            name: SPECZ_NSEL
+            type: int32
+            unit: ''
+            description: Number of spec-z selected to inform result for this object
+          SPECZ_REDSHIFT:
+            name: SPECZ_REDSHIFT
+            type: float32
+            unit: ''
+            description: Final redshift determined for this object
+          SPECZ_NORMQ:
+            name: SPECZ_NORMQ
+            type: int32
+            unit: ''
+            description: Final normalised redshift quality associated with this object
+          SPECZ_NORMC:
+            name: SPECZ_NORMC
+            type: char[8]
+            unit: ''
+            description: Final normlised classfication determined for this object
+          SPECZ_HASVI:
+            name: SPECZ_HASVI
+            type: bool
+            unit: ''
+            description: True if best spec-z for this object has a visual inspection
+          SPECZ_CATCODE:
+            name: SPECZ_CATCODE
+            type: char[12]
+            unit: ''
+            description: Catalogue code of best spec-z for this object
+          SPECZ_BITMASK:
+            name: SPECZ_BITMASK
+            type: int64
+            unit: ''
+            description: Bitmask encoding catalogues containing spec-z for this object
+          SPECZ_SEL_BITMASK:
+            name: SPECZ_SEL_BITMASK
+            type: int64
+            unit: ''
+            description: Bitmask encoding catalogues containing informative spec-z
+              for object
+          SPECZ_FLAGS:
+            name: SPECZ_FLAGS
+            type: int32
+            unit: ''
+            description: Bitmask encoding quality flags for this object
+          SPECZ_SEL_NORMQ_MAX:
+            name: SPECZ_SEL_NORMQ_MAX
+            type: int32
+            unit: ''
+            description: Highest NORMQ of informative spec-z for this object
+          SPECZ_SEL_NORMQ_MEAN:
+            name: SPECZ_SEL_NORMQ_MEAN
+            type: float32
+            unit: ''
+            description: Mean NORMQ of informative spec-z for this object
+          SPECZ_SEL_Z_MEAN:
+            name: SPECZ_SEL_Z_MEAN
+            type: float32
+            unit: ''
+            description: Mean REDSHIFT of informative spec-z for this object
+          SPECZ_SEL_Z_MEDIAN:
+            name: SPECZ_SEL_Z_MEDIAN
+            type: float32
+            unit: ''
+            description: Median REDSHIFT of informative spec-z for this object
+          SPECZ_SEL_Z_STDDEV:
+            name: SPECZ_SEL_Z_STDDEV
+            type: float32
+            unit: ''
+            description: Standard deviation of REDSHIFTs for informative spec-z for
+              object
+          SPECZ_ORIG_RA:
+            name: SPECZ_ORIG_RA
+            type: float64
+            unit: deg
+            description: Coordinate associated with individual spec-z measurement
+          SPECZ_ORIG_DEC:
+            name: SPECZ_ORIG_DEC
+            type: float64
+            unit: deg
+            description: Coordinate associated with individual spec-z measurement
+          SPECZ_ORIG_POS_EPOCH:
+            name: SPECZ_ORIG_POS_EPOCH
+            type: float32
+            unit: ''
+            description: Coordinate epoch associated with individual spec-z measurement
+          SPECZ_ORIG_LS_SEP:
+            name: SPECZ_ORIG_LS_SEP
+            type: float32
+            unit: arcsec
+            description: Distance from spec-z to lsdr9 photometric ctp (corrected
+              for pm)
+          SPECZ_ORIG_LS_GT1CTP:
+            name: SPECZ_ORIG_LS_GT1CTP
+            type: bool
+            unit: ''
+            description: Can spec-z be associated with >1 possible lsdr9 counterpart?
+          SPECZ_ORIG_LS_CTP_RANK:
+            name: SPECZ_ORIG_LS_CTP_RANK
+            type: int32
+            unit: ''
+            description: Rank of ctp out of all possibilities for this spec-z (1=closest)
+          SPECZ_ORIG_ID:
+            name: SPECZ_ORIG_ID
+            type: char[32]
+            unit: ''
+            description: Orig. value of ID of individual spec-z measurement (as a
+              string)
+          SPECZ_ORIG_REDSHIFT:
+            name: SPECZ_ORIG_REDSHIFT
+            type: float32
+            unit: ''
+            description: Orig. redshift value of individual spec-z measurement
+          SPECZ_ORIG_QUAL:
+            name: SPECZ_ORIG_QUAL
+            type: char[8]
+            unit: ''
+            description: Orig. redshift quality value of individual spec-z measurement
+          SPECZ_ORIG_NORMQ:
+            name: SPECZ_ORIG_NORMQ
+            type: int32
+            unit: ''
+            description: Orig. redshift quality of individual spec-z measurement -
+              normalised
+          SPECZ_ORIG_CLASS:
+            name: SPECZ_ORIG_CLASS
+            type: char[16]
+            unit: ''
+            description: Orig. classification label of individual spec-z measurement
+          SPECZ_ORIG_HASVI:
+            name: SPECZ_ORIG_HASVI
+            type: bool
+            unit: ''
+            description: True if individual spec-z has a visual inspection from our
+              team
+          SPECZ_ORIG_NORMC:
+            name: SPECZ_ORIG_NORMC
+            type: char[8]
+            unit: ''
+            description: Normalised classification code of individual spec-z measurement
+          SPECZ_RA_USED:
+            name: SPECZ_RA_USED
+            type: float64
+            unit: deg
+            description: Adopted coordinate of specz when matching to Salvato+22 counterpart
+          SPECZ_DEC_USED:
+            name: SPECZ_DEC_USED
+            type: float64
+            unit: deg
+            description: Adopted coordinate of specz when matching to Salvato+22 counterpart
+          Separation_SPECZ_CTP:
+            name: SEPARATION_SPECZ_CTP
+            type: float64
+            unit: arcsec
+            description: Distance from LS_RA,LS_DEC to SPECZ_RA_USED,SPECZ_DEC_USED
+          has_specz:
+            name: HAS_SPECZ
+            type: bool
+            unit: ''
+            description: Does this Salvato+22 counterpart have a spec-z?
+          has_informative_specz:
+            name: HAS_INFORMATIVE_SPECZ
+            type: bool
+            unit: ''
+            description: Does this Salvato+22 counterpart have an informative spec-z?
+notes: |-
+  None

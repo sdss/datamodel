@@ -1,0 +1,175 @@
+{
+  "general": {
+    "name": "mos_target_cadence",
+    "short": "MOS Target Table: cadence",
+    "description": "Cadences define the time between series of exposures (one \"epoch\") on a field, and the observing conditions, e.g., skybrightness, for each epoch.",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "BHM",
+        "long": "Black Hole Mapper",
+        "description": "An optical time-domain spectroscopic survey of quasars and X-ray sources",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "bhm",
+        "aliases": []
+      },
+      {
+        "name": "MWM",
+        "long": "Milky Way Mapper",
+        "description": "A time-domain, optical+IR spectroscopic survey of Milky Way stars of all types.",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "mwm",
+        "aliases": []
+      },
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "FITS",
+    "filesize": "36 KB",
+    "releases": [
+      {
+        "name": "DR18",
+        "description": "SDSS unreleased data.  Represents any work-in-progress data.",
+        "public": false,
+        "release_date": "unreleased"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/mos_target_cadence-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts",
+    "generated_by": "sdss5db> targetdb, operations database server",
+    "design": false,
+    "vac": false
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR18": {
+      "template": "$MOS_TARGET/[V_TARG]/mos_target_cadence.fits",
+      "example": "1.0.1/mos_target_cadence.fits",
+      "location": "{v_targ}/mos_target_cadence.fits",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_cadence",
+        "path_template": "$MOS_TARGET/{v_targ}/mos_target_cadence",
+        "path_kwargs": [
+          "v_targ"
+        ],
+        "access_string": "mos_target_cadence = $MOS_TARGET/{v_targ}/mos_target_cadence.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Primary header",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "MOS Target Table: cadence",
+          "size": "29 KB",
+          "header": null,
+          "columns": {
+            "label": {
+              "name": "LABEL",
+              "description": "Descriptive name for the cadence with a version",
+              "type": "char[21]",
+              "unit": ""
+            },
+            "nepochs": {
+              "name": "NEPOCHS",
+              "description": "Number of epochs in the cadence",
+              "type": "int32",
+              "unit": ""
+            },
+            "pk": {
+              "name": "PK",
+              "description": "Primary key",
+              "type": "int64",
+              "unit": ""
+            },
+            "label_root": {
+              "name": "LABEL_ROOT",
+              "description": "Descriptive name, typically {bright/dark}_{nepochs}x{nexps}",
+              "type": "char[18]",
+              "unit": ""
+            },
+            "label_version": {
+              "name": "LABEL_VERSION",
+              "description": "Version; cadences are added in versioned batches",
+              "type": "char[3]",
+              "unit": ""
+            },
+            "max_skybrightness": {
+              "name": "MAX_SKYBRIGHTNESS",
+              "description": "The maximum skybrightness for all epochs in this cadence",
+              "type": "float32",
+              "unit": ""
+            },
+            "nexp_total": {
+              "name": "NEXP_TOTAL",
+              "description": "The total number of exposures planned for this cadence",
+              "type": "int32",
+              "unit": ""
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null
+    }
+  },
+  "notes": "None"
+}

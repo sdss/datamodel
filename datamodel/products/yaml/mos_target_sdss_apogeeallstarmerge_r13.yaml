@@ -1,0 +1,328 @@
+general:
+  name: mos_target_sdss_apogeeallstarmerge_r13
+  short: 'MOS Target Table: sdss_apogeeallstarmerge_r13'
+  description: List of APOGEE DR16 stars for RV followup
+  datatype: FITS
+  filesize: 1 GB
+  releases:
+  - DR18
+  environments:
+  - MOS_TARGET
+  surveys:
+  - BHM
+  - MWM
+  - SDSS
+  naming_convention: $MOS_TARGET/[V_TARG]/mos_target_sdss_apogeeallstarmerge_r13-[NUM].fits,
+    where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
+  generated_by: sdss5db> targetdb, operations database server
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR18:
+    template: $MOS_TARGET/[V_TARG]/mos_target_sdss_apogeeallstarmerge_r13.fits
+    example: 1.0.1/mos_target_sdss_apogeeallstarmerge_r13.fits
+    location: '{v_targ}/mos_target_sdss_apogeeallstarmerge_r13.fits'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_sdss_apogeeallstarmerge_r13
+      path_template: $MOS_TARGET/{v_targ}/mos_target_sdss_apogeeallstarmerge_r13
+      path_kwargs:
+      - v_targ
+      access_string: mos_target_sdss_apogeeallstarmerge_r13 = $MOS_TARGET/{v_targ}/mos_target_sdss_apogeeallstarmerge_r13.fits
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Primary header
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: 'MOS Target Table: sdss_apogeeallstarmerge_r13'
+        is_image: false
+        size: 1 GB
+        columns:
+          apogee_id:
+            name: APOGEE_ID
+            type: char[18]
+            unit: ''
+            description: 2MASS style ID from APOGEE DR16
+          nvisits:
+            name: NVISITS
+            type: int16
+            unit: ''
+            description: Number of visits into combined spectra, accross all allStar
+              entries for the star
+          nentries:
+            name: NENTRIES
+            type: int32
+            unit: ''
+            description: Number of unique allStar entries for the star
+          ra:
+            name: RA
+            type: float64
+            unit: degrees
+            description: Right ascension (J2000)
+          dec:
+            name: DEC
+            type: float64
+            unit: degrees
+            description: Declination (J2000)
+          glon:
+            name: GLON
+            type: float64
+            unit: degrees
+            description: Galactic longitude
+          glat:
+            name: GLAT
+            type: float64
+            unit: degrees
+            description: Galactic latitude
+          pmra:
+            name: PMRA
+            type: float64
+            unit: mas/yr
+            description: proper motion in RA
+          pmdec:
+            name: PMDEC
+            type: float64
+            unit: mas/yr
+            description: proper motion in DEC
+          pm_src:
+            name: PM_SRC
+            type: char[4]
+            unit: ''
+            description: source of proper motion (e.g. gaia)
+          j:
+            name: J
+            type: float32
+            unit: bad=99] [mag
+            description: 2MASS J mag
+          j_err:
+            name: J_ERR
+            type: float32
+            unit: mag
+            description: Uncertainty in 2MASS J mag
+          h:
+            name: H
+            type: float32
+            unit: bad=99] [mag
+            description: 2MASS H mag
+          h_err:
+            name: H_ERR
+            type: float32
+            unit: mag
+            description: Uncertainty in 2MASS H mag
+          k:
+            name: K
+            type: float32
+            unit: bad=99] [mag
+            description: 2MASS Ks mag
+          k_err:
+            name: K_ERR
+            type: float32
+            unit: mag
+            description: Uncertainty in 2MASS Ks mag
+          ak:
+            name: AK
+            type: float32
+            unit: mag
+            description: K-band extinction adopted for targetting
+          vhelio_avg:
+            name: VHELIO_AVG
+            type: float32
+            unit: km/s
+            description: Average radial velocity, weighted by S/N, rederived to reflect
+              all entries
+          vhelio_err:
+            name: VHELIO_ERR
+            type: float32
+            unit: km/s
+            description: Uncertainty in VHELIO_AVG from the S/N-weighted individual
+              RVs, rederived to reflect all entries
+          vscatter:
+            name: VSCATTER
+            type: float32
+            unit: km/s
+            description: Scatter of individual visit RVs around average, rederived
+              to reflect all entries
+          sig_rvvar:
+            name: SIG_RVVAR
+            type: float32
+            unit: ''
+            description: Measure of the significance of the star's RV variability
+              (see Troup, et. al 2016)
+          baseline:
+            name: BASELINE
+            type: float32
+            unit: days
+            description: Temporal baseline of the observations (JD_last-JD-first)
+          mean_fiber:
+            name: MEAN_FIBER
+            type: float32
+            unit: ''
+            description: The mean fiberID of all of the star's visits
+          sig_fiber:
+            name: SIG_FIBER
+            type: float32
+            unit: ''
+            description: The standard deviation of the fiberID of all of the star's
+              visits
+          apstar_ids:
+            name: APSTAR_IDS
+            type: char[675]
+            unit: ''
+            description: List of APSTAR_ID from each of the star's allStar entries
+          visits:
+            name: VISITS
+            type: char[1379]
+            unit: ''
+            description: List of VISIT_ID from eeach of the star's allVisit entries
+          fields:
+            name: FIELDS
+            type: char[142]
+            unit: ''
+            description: List of FIELD flags from each of the star's allStar entries
+          surveys:
+            name: SURVEYS
+            type: char[181]
+            unit: ''
+            description: List of SURVEY flags from each of the star's allStar entries
+          telescopes:
+            name: TELESCOPES
+            type: char[90]
+            unit: ''
+            description: List of TELESCOPE flags from each of the star's allStar entries
+          targflags:
+            name: TARGFLAGS
+            type: char[236]
+            unit: ''
+            description: Verbose/text form of TARGFLAG combined from all entries
+          starflags:
+            name: STARFLAGS
+            type: char[165]
+            unit: ''
+            description: Verbose/text form of STARFLAG combined from all entries
+          aspcapflags:
+            name: ASPCAPFLAGS
+            type: char[108]
+            unit: ''
+            description: Verbose/text form of ASPCAPFLAG combined from all entries
+          teff:
+            name: TEFF
+            type: float32
+            unit: K
+            description: Teff from ASPCAP analysis of combined spectra (from PARAM)
+              averaged across entries
+          teff_err:
+            name: TEFF_ERR
+            type: float32
+            unit: K
+            description: Teff uncertainty (from PARAM_COV)
+          logg:
+            name: LOGG
+            type: float32
+            unit: dex
+            description: log g from ASPCAP analysis of combined spectrum (from PARAM)
+              averaged across entries
+          logg_err:
+            name: LOGG_ERR
+            type: float32
+            unit: dex
+            description: log g uncertainty (from PARAM_COV)
+          feh:
+            name: FEH
+            type: float32
+            unit: dex
+            description: metallicity from ASPCAP analysis of combined spectrum (from
+              PARAM) averaged across entries
+          feh_err:
+            name: FEH_ERR
+            type: float32
+            unit: dex
+            description: feh uncertainty (from PARAM_COV)
+          startype:
+            name: STARTYPE
+            type: char[3]
+            unit: ''
+            description: Best guess of star's evolutionary state based on stellar
+              parameters or external catalogs (RC=red clump, RG=red giant, SG = subgiant,
+              MS=dwarf, PMS=pre-main sequence)
+          vjitter:
+            name: VJITTER
+            type: float32
+            unit: km/s
+            description: Atmospheric RV jitter derived from log g using the relationship
+              derived in Hekker, et. al 2008.
+          dist:
+            name: DIST
+            type: float32
+            unit: pc
+            description: Derived or given distance to the star
+          dist_err:
+            name: DIST_ERR
+            type: float32
+            unit: pc
+            description: uncertainy of the distance
+          dist_src:
+            name: DIST_SRC
+            type: char[9]
+            unit: ''
+            description: Source of the star's distance measurement (e.g. gaia=derived
+              from gaia parallax)
+          dist_srclist:
+            name: DIST_SRCLIST
+            type: char[93]
+            unit: ''
+            description: Source list of the star's distance measurement
+          mstar:
+            name: MSTAR
+            type: float32
+            unit: ''
+            description: Derived or given stellar mass (Solar Mass)
+          mstar_err:
+            name: MSTAR_ERR
+            type: float32
+            unit: Solar Mass
+            description: Uncertainty of the Derived stellar mass
+          rstar:
+            name: RSTAR
+            type: float32
+            unit: Solar Radius
+            description: Derived stellar radius
+          rstar_err:
+            name: RSTAR_ERR
+            type: float32
+            unit: Solar Radius
+            description: Uncertainty of the Derived stellar radius
+          mstar_src:
+            name: MSTAR_SRC
+            type: char[8]
+            unit: ''
+            description: Source of the star's Mass (if not derived)
+          designation:
+            name: DESIGNATION
+            type: char[16]
+            unit: ''
+            description: identifier
+notes: |-
+  None

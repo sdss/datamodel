@@ -1,0 +1,1256 @@
+{
+  "general": {
+    "name": "mos_target_catwise2020",
+    "short": "MOS Target Table: catwise2020",
+    "description": "The CatWISE2020 Catalog (https://ui.adsabs.harvard.edu/abs/2021ApJS..253....8M/abstract) See https://irsa.ipac.caltech.edu/data/WISE/CatWISE/gator_docs/catwise_colDescriptions.html for more detailed column descriptions",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "BHM",
+        "long": "Black Hole Mapper",
+        "description": "An optical time-domain spectroscopic survey of quasars and X-ray sources",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "bhm",
+        "aliases": []
+      },
+      {
+        "name": "MWM",
+        "long": "Milky Way Mapper",
+        "description": "A time-domain, optical+IR spectroscopic survey of Milky Way stars of all types.",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "mwm",
+        "aliases": []
+      },
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "FITS",
+    "filesize": "1 GB",
+    "releases": [
+      {
+        "name": "DR18",
+        "description": "SDSS unreleased data.  Represents any work-in-progress data.",
+        "public": false,
+        "release_date": "unreleased"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/mos_target_catwise2020-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts",
+    "generated_by": "sdss5db> targetdb, operations database server",
+    "design": false,
+    "vac": false
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR18": {
+      "template": "$MOS_TARGET/[V_TARG]/mos_target_catwise2020-[NUM].fits",
+      "example": "1.0.1/mos_target_catwise2020-01.fits",
+      "location": "{v_targ}/mos_target_catwise2020-{num}.fits",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_catwise2020",
+        "path_template": "$MOS_TARGET/{v_targ}/mos_target_catwise2020-{num}",
+        "path_kwargs": [
+          "num",
+          "v_targ"
+        ],
+        "access_string": "mos_target_catwise2020 = $MOS_TARGET/{v_targ}/mos_target_catwise2020-{num}.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Primary header",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "MOS Target Table: catwise2020",
+          "size": "1 GB",
+          "header": null,
+          "columns": {
+            "source_name": {
+              "name": "SOURCE_NAME",
+              "description": "source hexagesimal designation",
+              "type": "char[21]",
+              "unit": ""
+            },
+            "source_id": {
+              "name": "SOURCE_ID",
+              "description": "tile name + processing code + wphot index",
+              "type": "char[25]",
+              "unit": ""
+            },
+            "ra": {
+              "name": "RA",
+              "description": "right ascension (J2000); (note uncorrected systematic in CatWISE2020)",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "dec": {
+              "name": "DEC",
+              "description": "declination (J2000); (note uncorrected systematic in CatWISE2020)",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "sigra": {
+              "name": "SIGRA",
+              "description": "uncertainty in RA",
+              "type": "float32",
+              "unit": "arcsec"
+            },
+            "sigdec": {
+              "name": "SIGDEC",
+              "description": "uncertainty in DEC",
+              "type": "float32",
+              "unit": "arcsec"
+            },
+            "sigradec": {
+              "name": "SIGRADEC",
+              "description": "cross-term of RA and Dec uncertainties",
+              "type": "float32",
+              "unit": "arcsec"
+            },
+            "wx": {
+              "name": "WX",
+              "description": "x pixel value",
+              "type": "float32",
+              "unit": "pix"
+            },
+            "wy": {
+              "name": "WY",
+              "description": "y pixel value",
+              "type": "float32",
+              "unit": "pix"
+            },
+            "w1sky": {
+              "name": "W1SKY",
+              "description": "frame sky background value, band 1",
+              "type": "float32",
+              "unit": "'dn'"
+            },
+            "w1sigsk": {
+              "name": "W1SIGSK",
+              "description": "frame sky background value uncertainty, band 1",
+              "type": "float32",
+              "unit": "'dn'"
+            },
+            "w1conf": {
+              "name": "W1CONF",
+              "description": "frame sky confusion based on the uncertainty images, band 1",
+              "type": "float32",
+              "unit": "'dn'"
+            },
+            "w2sky": {
+              "name": "W2SKY",
+              "description": "frame sky background value, band 2",
+              "type": "float32",
+              "unit": "'dn'"
+            },
+            "w2sigsk": {
+              "name": "W2SIGSK",
+              "description": "frame sky background value uncertainty, band 2",
+              "type": "float32",
+              "unit": "'dn'"
+            },
+            "w2conf": {
+              "name": "W2CONF",
+              "description": "frame sky confusion based on the uncertainty images, band 2",
+              "type": "float32",
+              "unit": "'dn'"
+            },
+            "w1fitr": {
+              "name": "W1FITR",
+              "description": "fitting radius for W1; see note",
+              "type": "float32",
+              "unit": "arcsec"
+            },
+            "w2fitr": {
+              "name": "W2FITR",
+              "description": "fitting radius for W2; see note",
+              "type": "float32",
+              "unit": "arcsec"
+            },
+            "w1snr": {
+              "name": "W1SNR",
+              "description": "instrumental profile-fit photometry S/N ratio, band 1",
+              "type": "float32",
+              "unit": ""
+            },
+            "w2snr": {
+              "name": "W2SNR",
+              "description": "instrumental profile-fit photometry S/N ratio, band 2",
+              "type": "float32",
+              "unit": ""
+            },
+            "w1flux": {
+              "name": "W1FLUX",
+              "description": "profile-fit photometry raw flux, band 1",
+              "type": "float32",
+              "unit": "'dn'"
+            },
+            "w1sigflux": {
+              "name": "W1SIGFLUX",
+              "description": "profile-fit photometry raw flux uncertainty, band 1",
+              "type": "float32",
+              "unit": "'dn'"
+            },
+            "w2flux": {
+              "name": "W2FLUX",
+              "description": "profile-fit photometry raw flux, band 2",
+              "type": "float32",
+              "unit": "'db'"
+            },
+            "w2sigflux": {
+              "name": "W2SIGFLUX",
+              "description": "profile-fit photometry raw flux uncertainty, band 2",
+              "type": "float32",
+              "unit": "'dn'"
+            },
+            "w1mpro": {
+              "name": "W1MPRO",
+              "description": "instrumental profile-fit photometry magnitude, band 1",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "w1sigmpro": {
+              "name": "W1SIGMPRO",
+              "description": "instrumental profile-fit photometry flux uncertainty in mag units, band 1",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "w1rchi2": {
+              "name": "W1RCHI2",
+              "description": "instrumental profile-fit photometry reduced chi^2, band 1",
+              "type": "float32",
+              "unit": ""
+            },
+            "w2mpro": {
+              "name": "W2MPRO",
+              "description": "instrumental profile-fit photometry magnitude, band 2",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "w2sigmpro": {
+              "name": "W2SIGMPRO",
+              "description": "instrumental profile-fit photometry flux uncertainty in mag units, band 2",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "w2rchi2": {
+              "name": "W2RCHI2",
+              "description": "instrumental profile-fit photometry reduced chi^2, band 2",
+              "type": "float32",
+              "unit": ""
+            },
+            "rchi2": {
+              "name": "RCHI2",
+              "description": "instrumental profile-fit photometry reduced chi squared, total",
+              "type": "float32",
+              "unit": ""
+            },
+            "nb": {
+              "name": "NB",
+              "description": "number of blend components used in each fit",
+              "type": "int32",
+              "unit": ""
+            },
+            "na": {
+              "name": "NA",
+              "description": "number of actively deblended components",
+              "type": "int32",
+              "unit": ""
+            },
+            "w1sat": {
+              "name": "W1SAT",
+              "description": "fraction of pixels affected by saturation, band 1",
+              "type": "float32",
+              "unit": ""
+            },
+            "w2sat": {
+              "name": "W2SAT",
+              "description": "fraction of pixels affected by saturation, band 2",
+              "type": "float32",
+              "unit": ""
+            },
+            "w1mag": {
+              "name": "W1MAG",
+              "description": "instrumental standard aperture (8.25\") mag w/ aperture correction applied, band 1",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "w1sigm": {
+              "name": "W1SIGM",
+              "description": "instrumental standard aperture mag uncertainty, band 1",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "w1flg": {
+              "name": "W1FLG",
+              "description": "instrumental standard aperture flag, band 1",
+              "type": "int32",
+              "unit": ""
+            },
+            "w1cov": {
+              "name": "W1COV",
+              "description": "mean coverage depth, band 1",
+              "type": "float32",
+              "unit": ""
+            },
+            "w2mag": {
+              "name": "W2MAG",
+              "description": "instrumental standard aperture (8.25\") mag w/ aperture correction applied, band 2",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "w2sigm": {
+              "name": "W2SIGM",
+              "description": "instrumental standard aperture mag uncertainty, band 2",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "w2flg": {
+              "name": "W2FLG",
+              "description": "instrumental standard aperture flag, band 2",
+              "type": "int32",
+              "unit": ""
+            },
+            "w2cov": {
+              "name": "W2COV",
+              "description": "mean coverage depth, band 2",
+              "type": "float32",
+              "unit": ""
+            },
+            "w1mag_1": {
+              "name": "W1MAG_1",
+              "description": "aperture 1 (5.50\") instrumental aperture mag, band 1",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "w1sigm_1": {
+              "name": "W1SIGM_1",
+              "description": "aperture 1 instrumental aperture mag uncertainty, band 1",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "w1flg_1": {
+              "name": "W1FLG_1",
+              "description": "aperture 1 instrumental aperture flag, band 1",
+              "type": "int32",
+              "unit": ""
+            },
+            "w2mag_1": {
+              "name": "W2MAG_1",
+              "description": "aperture 1 (5.50\") instrumental aperture mag, band 2",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "w2sigm_1": {
+              "name": "W2SIGM_1",
+              "description": "aperture 1 instrumental aperture mag uncertainty, band 2",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "w2flg_1": {
+              "name": "W2FLG_1",
+              "description": "aperture 1 instrumental aperture flag, band 2",
+              "type": "int32",
+              "unit": ""
+            },
+            "w1mag_2": {
+              "name": "W1MAG_2",
+              "description": "aperture 2 (8.25\") instrumental aperture mag, band 1",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "w1sigm_2": {
+              "name": "W1SIGM_2",
+              "description": "aperture 2 instrumental aperture mag uncertainty, band 1",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "w1flg_2": {
+              "name": "W1FLG_2",
+              "description": "aperture 2 instrumental aperture flag, band 1",
+              "type": "int32",
+              "unit": ""
+            },
+            "w2mag_2": {
+              "name": "W2MAG_2",
+              "description": "aperture 2 (8.25\") instrumental aperture mag, band 2",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "w2sigm_2": {
+              "name": "W2SIGM_2",
+              "description": "aperture 2 instrumental aperture mag uncertainty, band 2",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "w2flg_2": {
+              "name": "W2FLG_2",
+              "description": "aperture 2 instrumental aperture flag, band 2",
+              "type": "int32",
+              "unit": ""
+            },
+            "w1mag_3": {
+              "name": "W1MAG_3",
+              "description": "aperture 3 (11.00\") instrumental aperture mag, band 1",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "w1sigm_3": {
+              "name": "W1SIGM_3",
+              "description": "aperture 3 instrumental aperture mag uncertainty, band 1",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "w1flg_3": {
+              "name": "W1FLG_3",
+              "description": "aperture 3 instrumental aperture flag, band 1",
+              "type": "int32",
+              "unit": ""
+            },
+            "w2mag_3": {
+              "name": "W2MAG_3",
+              "description": "aperture 3 (11.00\") instrumental aperture mag, band 2",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "w2sigm_3": {
+              "name": "W2SIGM_3",
+              "description": "aperture 3 instrumental aperture mag uncertainty, band 2",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "w2flg_3": {
+              "name": "W2FLG_3",
+              "description": "aperture 3 instrumental aperture flag, band 2",
+              "type": "int32",
+              "unit": ""
+            },
+            "w1mag_4": {
+              "name": "W1MAG_4",
+              "description": "aperture 4 (13.75\") instrumental aperture mag, band 1",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "w1sigm_4": {
+              "name": "W1SIGM_4",
+              "description": "aperture 4 instrumental aperture mag uncertainty, band 1",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "w1flg_4": {
+              "name": "W1FLG_4",
+              "description": "aperture 4 instrumental aperture flag, band 1",
+              "type": "int32",
+              "unit": ""
+            },
+            "w2mag_4": {
+              "name": "W2MAG_4",
+              "description": "aperture 4 (13.75\") instrumental aperture mag, band 2",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "w2sigm_4": {
+              "name": "W2SIGM_4",
+              "description": "aperture 4 instrumental aperture mag uncertainty, band 2",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "w2flg_4": {
+              "name": "W2FLG_4",
+              "description": "aperture 4 instrumental aperture flag, band 2",
+              "type": "int32",
+              "unit": ""
+            },
+            "w1mag_5": {
+              "name": "W1MAG_5",
+              "description": "aperture 5 (16.50\") instrumental aperture mag, band 1",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "w1sigm_5": {
+              "name": "W1SIGM_5",
+              "description": "aperture 5 instrumental aperture mag uncertainty, band 1",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "w1flg_5": {
+              "name": "W1FLG_5",
+              "description": "aperture 5 instrumental aperture flag, band 1",
+              "type": "int32",
+              "unit": ""
+            },
+            "w2mag_5": {
+              "name": "W2MAG_5",
+              "description": "aperture 5 (16.50\") instrumental aperture mag, band 2",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "w2sigm_5": {
+              "name": "W2SIGM_5",
+              "description": "aperture 5 instrumental aperture mag uncertainty, band 2",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "w2flg_5": {
+              "name": "W2FLG_5",
+              "description": "aperture 5 instrumental aperture flag, band 2",
+              "type": "int32",
+              "unit": ""
+            },
+            "w1mag_6": {
+              "name": "W1MAG_6",
+              "description": "aperture 6 (19.25\") instrumental aperture mag, band 1",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "w1sigm_6": {
+              "name": "W1SIGM_6",
+              "description": "aperture 6 instrumental aperture mag uncertainty, band 1",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "w1flg_6": {
+              "name": "W1FLG_6",
+              "description": "aperture 6 instrumental aperture flag, band 1",
+              "type": "int32",
+              "unit": ""
+            },
+            "w2mag_6": {
+              "name": "W2MAG_6",
+              "description": "aperture 6 (19.25\") instrumental aperture mag, band 2",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "w2sigm_6": {
+              "name": "W2SIGM_6",
+              "description": "aperture 6 instrumental aperture mag uncertainty, band 2",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "w2flg_6": {
+              "name": "W2FLG_6",
+              "description": "aperture 6 instrumental aperture flag, band 2",
+              "type": "int32",
+              "unit": ""
+            },
+            "w1mag_7": {
+              "name": "W1MAG_7",
+              "description": "aperture 7 (22.00\") instrumental aperture mag, band 1",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "w1sigm_7": {
+              "name": "W1SIGM_7",
+              "description": "aperture 7 instrumental aperture mag uncertainty, band 1",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "w1flg_7": {
+              "name": "W1FLG_7",
+              "description": "aperture 7 instrumental aperture flag, band 1",
+              "type": "int32",
+              "unit": ""
+            },
+            "w2mag_7": {
+              "name": "W2MAG_7",
+              "description": "aperture 7 (22.00\") instrumental aperture mag, band 2",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "w2sigm_7": {
+              "name": "W2SIGM_7",
+              "description": "aperture 7 instrumental aperture mag uncertainty, band 2",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "w2flg_7": {
+              "name": "W2FLG_7",
+              "description": "aperture 7 instrumental aperture flag, band 2",
+              "type": "int32",
+              "unit": ""
+            },
+            "w1mag_8": {
+              "name": "W1MAG_8",
+              "description": "aperture 8 (24.75\") instrumental aperture mag, band 1",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "w1sigm_8": {
+              "name": "W1SIGM_8",
+              "description": "aperture 8 instrumental aperture mag uncertainty, band 1",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "w1flg_8": {
+              "name": "W1FLG_8",
+              "description": "aperture 8 instrumental aperture flag, band 1",
+              "type": "int32",
+              "unit": ""
+            },
+            "w2mag_8": {
+              "name": "W2MAG_8",
+              "description": "aperture 8 (24.75\") instrumental aperture mag, band 2",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "w2sigm_8": {
+              "name": "W2SIGM_8",
+              "description": "aperture 8 instrumental aperture mag uncertainty, band 2",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "w2flg_8": {
+              "name": "W2FLG_8",
+              "description": "aperture 8 instrumental aperture flag, band 2",
+              "type": "int32",
+              "unit": ""
+            },
+            "w1nm": {
+              "name": "W1NM",
+              "description": "number of profile-fit flux measurements for source with SNR >= 3, band 1",
+              "type": "int32",
+              "unit": ""
+            },
+            "w1m": {
+              "name": "W1M",
+              "description": "number of profile-fit flux measurements for source, band 1",
+              "type": "int32",
+              "unit": ""
+            },
+            "w1magp": {
+              "name": "W1MAGP",
+              "description": "profile-fit repeatability mag -- inverse-variance weighted mean mag, band 1",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "w1sigp1": {
+              "name": "W1SIGP1",
+              "description": "standard deviation of population of profile-fit repeatability mag, band 1",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "w1sigp2": {
+              "name": "W1SIGP2",
+              "description": "standard deviation of the mean of profile-fit repeatability mag, band 1",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "w1k": {
+              "name": "W1K",
+              "description": "Stetson K variability index, band 1",
+              "type": "float32",
+              "unit": ""
+            },
+            "w1ndf": {
+              "name": "W1NDF",
+              "description": "number degrees of freedom in variability chi^2, band 1",
+              "type": "int32",
+              "unit": ""
+            },
+            "w1mlq": {
+              "name": "W1MLQ",
+              "description": "-ln(Q), where Q = 1 - P(chi^2), band 1",
+              "type": "float32",
+              "unit": ""
+            },
+            "w1mjdmin": {
+              "name": "W1MJDMIN",
+              "description": "minimum modified Julian Date of frame extractions, band 1",
+              "type": "float64",
+              "unit": "d"
+            },
+            "w1mjdmax": {
+              "name": "W1MJDMAX",
+              "description": "maximum modified Julian Date of frame extractions, band 1",
+              "type": "float64",
+              "unit": "d"
+            },
+            "w1mjdmean": {
+              "name": "W1MJDMEAN",
+              "description": "mean modified Julian Date of frame extractions, band 1",
+              "type": "float64",
+              "unit": "d"
+            },
+            "w2nm": {
+              "name": "W2NM",
+              "description": "number of profile-fit flux measurements for source with SNR >= 3, band 2",
+              "type": "int32",
+              "unit": ""
+            },
+            "w2m": {
+              "name": "W2M",
+              "description": "number of profile-fit flux measurements for source, band 2",
+              "type": "int32",
+              "unit": ""
+            },
+            "w2magp": {
+              "name": "W2MAGP",
+              "description": "profile-fit repeatability mag -- inverse-variance weighted mean mag, band 2",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "w2sigp1": {
+              "name": "W2SIGP1",
+              "description": "standard deviation of population of profile-fit repeatability mag, band 2",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "w2sigp2": {
+              "name": "W2SIGP2",
+              "description": "standard deviation of the mean of profile-fit repeatability mag, band 2",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "w2k": {
+              "name": "W2K",
+              "description": "Stetson K variability index, band 2",
+              "type": "float32",
+              "unit": ""
+            },
+            "w2ndf": {
+              "name": "W2NDF",
+              "description": "number degrees of freedom in variability chi^2, band 2",
+              "type": "int32",
+              "unit": ""
+            },
+            "w2mlq": {
+              "name": "W2MLQ",
+              "description": "-ln(Q), where Q = 1 - P(chi^2), band 2",
+              "type": "float32",
+              "unit": ""
+            },
+            "w2mjdmin": {
+              "name": "W2MJDMIN",
+              "description": "minimum modified Julian Date of frame extractions, band 2",
+              "type": "float64",
+              "unit": "d"
+            },
+            "w2mjdmax": {
+              "name": "W2MJDMAX",
+              "description": "maximum modified Julian Date of frame extractions, band 2",
+              "type": "float64",
+              "unit": "d"
+            },
+            "w2mjdmean": {
+              "name": "W2MJDMEAN",
+              "description": "mean modified Julian Date of frame extractions, band 2",
+              "type": "float64",
+              "unit": "d"
+            },
+            "rho12": {
+              "name": "RHO12",
+              "description": "band 1 - band 2 correlation coefficient",
+              "type": "int32",
+              "unit": "%"
+            },
+            "q12": {
+              "name": "Q12",
+              "description": "-log10(1 - P(rho12)), given no real correlation",
+              "type": "int32",
+              "unit": "%"
+            },
+            "niters": {
+              "name": "NITERS",
+              "description": "number of chi-square minimization iterations",
+              "type": "int32",
+              "unit": ""
+            },
+            "nsteps": {
+              "name": "NSTEPS",
+              "description": "number of steps in all iterations",
+              "type": "int32",
+              "unit": ""
+            },
+            "mdetid": {
+              "name": "MDETID",
+              "description": "source ID in mdet list",
+              "type": "int32",
+              "unit": ""
+            },
+            "p1": {
+              "name": "P1",
+              "description": "distance in ra from the mdet position to the wphot template-fit position",
+              "type": "float32",
+              "unit": "arcsec"
+            },
+            "p2": {
+              "name": "P2",
+              "description": "distance in dec from the mdet position to the wphot template-fit position",
+              "type": "float32",
+              "unit": "arcsec"
+            },
+            "meanobsmjd": {
+              "name": "MEANOBSMJD",
+              "description": "mean observation epoch",
+              "type": "float64",
+              "unit": "d"
+            },
+            "ra_pm": {
+              "name": "RA_PM",
+              "description": "Right ascension from psf model incl. motion at epoch MJD=56700.0 (2014.118) for Preliminary Catalog and MJD=57170 (2015.405) for CatWISE2020",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "dec_pm": {
+              "name": "DEC_PM",
+              "description": "Declination from psf model incl. motion at epoch MJD=56700.0 (2014.118) for Preliminary Catalog and MJD=57170 (2015.405) for CatWISE2020",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "sigra_pm": {
+              "name": "SIGRA_PM",
+              "description": "One-sigma uncertainty in RA from psf model incl. motion",
+              "type": "float32",
+              "unit": "arcsec"
+            },
+            "sigdec_pm": {
+              "name": "SIGDEC_PM",
+              "description": "One-sigma uncertainty in DEC from psf model incl. motion",
+              "type": "float32",
+              "unit": "arcsec"
+            },
+            "sigradec_pm": {
+              "name": "SIGRADEC_PM",
+              "description": "The co-sigma of the equatorial position uncertainties from psf model incl motion",
+              "type": "float32",
+              "unit": "arcsec"
+            },
+            "pmra": {
+              "name": "PMRA",
+              "description": "Apparent motion in RA; (note uncorrected systematic in CatWISE2020)",
+              "type": "float32",
+              "unit": "arcsec/yr"
+            },
+            "pmdec": {
+              "name": "PMDEC",
+              "description": "Apparent motion in DEC; (note uncorrected systematic in CatWISE2020)",
+              "type": "float32",
+              "unit": "arcsec/yr"
+            },
+            "sigpmra": {
+              "name": "SIGPMRA",
+              "description": "Uncertainty in the RA motion estimate",
+              "type": "float32",
+              "unit": "arcsec/yr"
+            },
+            "sigpmdec": {
+              "name": "SIGPMDEC",
+              "description": "Uncertainty in the Dec motion estimate",
+              "type": "float32",
+              "unit": "arcsec/yr"
+            },
+            "w1snr_pm": {
+              "name": "W1SNR_PM",
+              "description": "S/N ratio of the W1 profile-fit photometry including motion",
+              "type": "float32",
+              "unit": ""
+            },
+            "w2snr_pm": {
+              "name": "W2SNR_PM",
+              "description": "S/N ratio of the W2 profile-fit photometry including motion",
+              "type": "float32",
+              "unit": ""
+            },
+            "w1flux_pm": {
+              "name": "W1FLUX_PM",
+              "description": "Raw flux W1 profile-fit photometry including motion",
+              "type": "float32",
+              "unit": "'dn'"
+            },
+            "w1sigflux_pm": {
+              "name": "W1SIGFLUX_PM",
+              "description": "Raw flux uncertainty W1 profile-fit photometry including motion",
+              "type": "float32",
+              "unit": "'dn'"
+            },
+            "w2flux_pm": {
+              "name": "W2FLUX_PM",
+              "description": "Raw flux W2 profile-fit photometry including motion",
+              "type": "float32",
+              "unit": "'dn'"
+            },
+            "w2sigflux_pm": {
+              "name": "W2SIGFLUX_PM",
+              "description": "Raw flux uncertainty W2 profile-fit photometry including motion",
+              "type": "float32",
+              "unit": "'dn'"
+            },
+            "w1mpro_pm": {
+              "name": "W1MPRO_PM",
+              "description": "W1 magnitude from profile-fit photometry including motion",
+              "type": "float32",
+              "unit": "nag"
+            },
+            "w1sigmpro_pm": {
+              "name": "W1SIGMPRO_PM",
+              "description": "W1 flux uncertainty in mag units from profile-fit photometry including motion",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "w1rchi2_pm": {
+              "name": "W1RCHI2_PM",
+              "description": "Reduced chi^2 of the W1 profile-fit photometry measurement including motion est",
+              "type": "float32",
+              "unit": ""
+            },
+            "w2mpro_pm": {
+              "name": "W2MPRO_PM",
+              "description": "W2 magnitude from profile-fit photometry including motion",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "w2sigmpro_pm": {
+              "name": "W2SIGMPRO_PM",
+              "description": "W2 flux uncertainty in mag units from profile-fit photometry including motion",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "w2rchi2_pm": {
+              "name": "W2RCHI2_PM",
+              "description": "Reduced chi^2 of the W2 profile-fit photometry measurement including motion est",
+              "type": "float32",
+              "unit": ""
+            },
+            "rchi2_pm": {
+              "name": "RCHI2_PM",
+              "description": "Combined Reduced chi^2 in all bands for the psf photometry includes src motion",
+              "type": "float32",
+              "unit": ""
+            },
+            "pmcode": {
+              "name": "PMCODE",
+              "description": "Motion estimate quality code: the format is ABCCC, where A is the number of components in the passive blend group (including the primary) before any are removed or added, B is \"Y\" or \"N\" to indicate \"Yes\" or \"No\" that a secondary blend component replaced the primary, and CCC is the distance in hundredths of an arcsec between the PM position solution for the mean observation epoch and the stationary solution",
+              "type": "char[7]",
+              "unit": ""
+            },
+            "niters_pm": {
+              "name": "NITERS_PM",
+              "description": "number of chi-square minimization iterations",
+              "type": "int32",
+              "unit": ""
+            },
+            "nsteps_pm": {
+              "name": "NSTEPS_PM",
+              "description": "number of steps in all iterations",
+              "type": "int32",
+              "unit": ""
+            },
+            "dist": {
+              "name": "DIST",
+              "description": "radial distance between source positions in ascending and descending scans",
+              "type": "float32",
+              "unit": "arcsec"
+            },
+            "dw1mag": {
+              "name": "DW1MAG",
+              "description": "difference in w1mpro between ascending and descending scans",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "rch2w1": {
+              "name": "RCH2W1",
+              "description": "chi-square for dw1mag (1 degree of freedom)",
+              "type": "float32",
+              "unit": ""
+            },
+            "dw2mag": {
+              "name": "DW2MAG",
+              "description": "difference in w2mpro between ascending and descending scans",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "rch2w2": {
+              "name": "RCH2W2",
+              "description": "chi-square for dw2mag (1 degree of freedom)",
+              "type": "float32",
+              "unit": ""
+            },
+            "elon_avg": {
+              "name": "ELON_AVG",
+              "description": "average ecliptic longitude",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "elonsig": {
+              "name": "ELONSIG",
+              "description": "uncertainty in elon_avg",
+              "type": "float32",
+              "unit": "arcsec"
+            },
+            "elat_avg": {
+              "name": "ELAT_AVG",
+              "description": "average ecliptic latitude",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "elatsig": {
+              "name": "ELATSIG",
+              "description": "uncertainty in elat_avg",
+              "type": "float32",
+              "unit": "arcsec"
+            },
+            "delon": {
+              "name": "DELON",
+              "description": "descending scan - ascending scan ecliptic longitude difference (notes)",
+              "type": "float32",
+              "unit": "arcsec"
+            },
+            "delonsig": {
+              "name": "DELONSIG",
+              "description": "one-sigma uncertainty in Delon",
+              "type": "float32",
+              "unit": "arcsec"
+            },
+            "delat": {
+              "name": "DELAT",
+              "description": "descending scan - ascending scan ecliptic longitude difference",
+              "type": "float32",
+              "unit": "arcsec"
+            },
+            "delatsig": {
+              "name": "DELATSIG",
+              "description": "one-sigma uncertainty in Delat",
+              "type": "float32",
+              "unit": "arcsec"
+            },
+            "delonsnr": {
+              "name": "DELONSNR",
+              "description": "abs(Delon)/DelonSig",
+              "type": "float32",
+              "unit": ""
+            },
+            "delatsnr": {
+              "name": "DELATSNR",
+              "description": "abs(Delat)/DelatSig",
+              "type": "float32",
+              "unit": ""
+            },
+            "chi2pmra": {
+              "name": "CHI2PMRA",
+              "description": "chi-square for PMRA difference (1 degree of freedom)",
+              "type": "float32",
+              "unit": ""
+            },
+            "chi2pmdec": {
+              "name": "CHI2PMDEC",
+              "description": "chi-square for PMDec difference (1 degree of freedom)",
+              "type": "float32",
+              "unit": ""
+            },
+            "ka": {
+              "name": "KA",
+              "description": "astrometry usage code: 0 neither the ascending nor the descending scan provided a solution; 1 only the ascending scan provided a solution; 2 only the descending scan provided a solutio; 3 both scans provided solutions which were combined in the relevant way",
+              "type": "int32",
+              "unit": ""
+            },
+            "k1": {
+              "name": "K1",
+              "description": "W1 photometry usage code: 0 neither the ascending nor the descending scan provided a solution; 1 only the ascending scan provided a solution; 2 only the descending scan provided a solutio; 3 both scans provided solutions which were combined in the relevant way",
+              "type": "int32",
+              "unit": ""
+            },
+            "k2": {
+              "name": "K2",
+              "description": "W2 photometry usage code: 0 neither the ascending nor the descending scan provided a solution; 1 only the ascending scan provided a solution; 2 only the descending scan provided a solutio; 3 both scans provided solutions which were combined in the relevant way",
+              "type": "int32",
+              "unit": ""
+            },
+            "km": {
+              "name": "KM",
+              "description": "proper motion usage code: 0 neither the ascending nor the descending scan provided a solution; 1 only the ascending scan provided a solution; 2 only the descending scan provided a solutio; 3 both scans provided solutions which were combined in the relevant way",
+              "type": "int32",
+              "unit": ""
+            },
+            "par_pm": {
+              "name": "PAR_PM",
+              "description": "parallax from PM desc-asce elon (notes)",
+              "type": "float32",
+              "unit": "arcsec"
+            },
+            "par_pmsig": {
+              "name": "PAR_PMSIG",
+              "description": "one-sigma uncertainty in par_pm",
+              "type": "float32",
+              "unit": "arcsec"
+            },
+            "par_stat": {
+              "name": "PAR_STAT",
+              "description": "parallax estimate from stationary solution (notes)",
+              "type": "float32",
+              "unit": "arcsec"
+            },
+            "par_sigma": {
+              "name": "PAR_SIGMA",
+              "description": "one-sigma uncertainty in par_stat",
+              "type": "float32",
+              "unit": "arcsec"
+            },
+            "dist_x": {
+              "name": "DIST_X",
+              "description": "distance between CatWISE and AllWISE source",
+              "type": "float32",
+              "unit": "arcsec"
+            },
+            "cc_flags": {
+              "name": "CC_FLAGS",
+              "description": "worst case 4 character cc_flag from AllWISE (See Table A1 in Eisenhardt et al. (2020))",
+              "type": "char[16]",
+              "unit": ""
+            },
+            "w1cc_map": {
+              "name": "W1CC_MAP",
+              "description": "worst case w1cc_map from AllWISE (See Table A1 in Eisenhardt et al. (2020))",
+              "type": "int32",
+              "unit": ""
+            },
+            "w1cc_map_str": {
+              "name": "W1CC_MAP_STR",
+              "description": "worst case w1cc_map_str from AllWISE (See Table A1 in Eisenhardt et al. (2020))",
+              "type": "char[20]",
+              "unit": ""
+            },
+            "w2cc_map": {
+              "name": "W2CC_MAP",
+              "description": "worst case w2cc_map from AllWISE (See Table A1 in Eisenhardt et al. (2020))",
+              "type": "int32",
+              "unit": ""
+            },
+            "w2cc_map_str": {
+              "name": "W2CC_MAP_STR",
+              "description": "worst case w2cc_map_str from AllWISE (See Table A1 in Eisenhardt et al. (2020))",
+              "type": "char[20]",
+              "unit": ""
+            },
+            "n_aw": {
+              "name": "N_AW",
+              "description": "number of sources within 2.75\" in AllWISE",
+              "type": "int32",
+              "unit": ""
+            },
+            "ab_flags": {
+              "name": "AB_FLAGS",
+              "description": "unWISE artifact bitmask contamination flags",
+              "type": "char[9]",
+              "unit": ""
+            },
+            "w1ab_map": {
+              "name": "W1AB_MAP",
+              "description": "unWISE artifact bitmask contamination map for W1",
+              "type": "int32",
+              "unit": ""
+            },
+            "w1ab_map_str": {
+              "name": "W1AB_MAP_STR",
+              "description": "unWISE artifact bitmask contamination string for W1",
+              "type": "char[13]",
+              "unit": ""
+            },
+            "w2ab_map": {
+              "name": "W2AB_MAP",
+              "description": "unWISE artifact bitmask contamination map for W2",
+              "type": "int32",
+              "unit": ""
+            },
+            "w2ab_map_str": {
+              "name": "W2AB_MAP_STR",
+              "description": "unWISE artifact bitmask contamination string for W1",
+              "type": "char[13]",
+              "unit": ""
+            },
+            "glon": {
+              "name": "GLON",
+              "description": "Galactic longitude (only present in CatWISE 2020)",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "glat": {
+              "name": "GLAT",
+              "description": "Galactic latitude (only present in CatWISE 2020)",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "elon": {
+              "name": "ELON",
+              "description": "Ecliptic longitude",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "elat": {
+              "name": "ELAT",
+              "description": "Ecliptic latitude",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "unwise_objid": {
+              "name": "UNWISE_OBJID",
+              "description": "UnWISE Object ID (only present in CatWISE 2020)",
+              "type": "char[20]",
+              "unit": ""
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null
+    }
+  },
+  "notes": "None"
+}

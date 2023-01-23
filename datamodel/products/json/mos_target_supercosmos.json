@@ -1,0 +1,476 @@
+{
+  "general": {
+    "name": "mos_target_supercosmos",
+    "short": "MOS Target Table: supercosmos",
+    "description": "Contains merged sources for every field in the SuperCOSMOS Science Archive (SSA).",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "BHM",
+        "long": "Black Hole Mapper",
+        "description": "An optical time-domain spectroscopic survey of quasars and X-ray sources",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "bhm",
+        "aliases": []
+      },
+      {
+        "name": "MWM",
+        "long": "Milky Way Mapper",
+        "description": "A time-domain, optical+IR spectroscopic survey of Milky Way stars of all types.",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "mwm",
+        "aliases": []
+      },
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "FITS",
+    "filesize": "511 MB",
+    "releases": [
+      {
+        "name": "DR18",
+        "description": "SDSS unreleased data.  Represents any work-in-progress data.",
+        "public": false,
+        "release_date": "unreleased"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/mos_target_supercosmos-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts",
+    "generated_by": "sdss5db> targetdb, operations database server",
+    "design": false,
+    "vac": false
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR18": {
+      "template": "$MOS_TARGET/[V_TARG]/mos_target_supercosmos-[NUM].fits",
+      "example": "1.0.1/mos_target_supercosmos-01.fits",
+      "location": "{v_targ}/mos_target_supercosmos-{num}.fits",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_supercosmos",
+        "path_template": "$MOS_TARGET/{v_targ}/mos_target_supercosmos-{num}",
+        "path_kwargs": [
+          "num",
+          "v_targ"
+        ],
+        "access_string": "mos_target_supercosmos = $MOS_TARGET/{v_targ}/mos_target_supercosmos-{num}.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Primary header",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "MOS Target Table: supercosmos",
+          "size": "511 MB",
+          "header": null,
+          "columns": {
+            "objid": {
+              "name": "OBJID",
+              "description": "Unique identifier of merged source",
+              "type": "int64",
+              "unit": ""
+            },
+            "objidb": {
+              "name": "OBJIDB",
+              "description": "objID for B band detection merged into this object",
+              "type": "int64",
+              "unit": ""
+            },
+            "objidr1": {
+              "name": "OBJIDR1",
+              "description": "objID for R1 band detection merged into this object",
+              "type": "int64",
+              "unit": ""
+            },
+            "objidr2": {
+              "name": "OBJIDR2",
+              "description": "objID for R2 band detection merged into this object",
+              "type": "int64",
+              "unit": ""
+            },
+            "objidi": {
+              "name": "OBJIDI",
+              "description": "objID for I band detection merged into this object",
+              "type": "int64",
+              "unit": ""
+            },
+            "htmid": {
+              "name": "HTMID",
+              "description": "Hierarchical Triangular Mesh (20-deep) of centroid",
+              "type": "int64",
+              "unit": ""
+            },
+            "epoch": {
+              "name": "EPOCH",
+              "description": "Epoch of position (variance weighted mean epoch of available measures)",
+              "type": "float32",
+              "unit": "yr"
+            },
+            "ra": {
+              "name": "RA",
+              "description": "Mean RA, computed from detections merged in this catalogue",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "dec": {
+              "name": "DEC",
+              "description": "Mean Dec, computed from detections merged in this catalogue",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "sigra": {
+              "name": "SIGRA",
+              "description": "Uncertainty in RA (formal random error not inc. systematic errors)",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "sigdec": {
+              "name": "SIGDEC",
+              "description": "Uncertainty in Dec (formal random error not inc. systematic errors)",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "cx": {
+              "name": "CX",
+              "description": "Cartesian x of unit (ra,dec) vector on celestial sphere",
+              "type": "float64",
+              "unit": ""
+            },
+            "cy": {
+              "name": "CY",
+              "description": "Cartesian y of unit (ra,dec) vector on celestial sphere",
+              "type": "float64",
+              "unit": ""
+            },
+            "cz": {
+              "name": "CZ",
+              "description": "Cartesian z of unit (ra,dec) vector on celestial sphere",
+              "type": "float64",
+              "unit": ""
+            },
+            "muacosd": {
+              "name": "MUACOSD",
+              "description": "Proper motion in RA direction",
+              "type": "float32",
+              "unit": "mas/yr"
+            },
+            "mud": {
+              "name": "MUD",
+              "description": "Proper motion in Dec direction",
+              "type": "float32",
+              "unit": "mas/yr"
+            },
+            "sigmuacosd": {
+              "name": "SIGMUACOSD",
+              "description": "Error on proper motion in RA direction",
+              "type": "float32",
+              "unit": "mas/yr"
+            },
+            "sigmud": {
+              "name": "SIGMUD",
+              "description": "Error on proper motion in Dec direction",
+              "type": "float32",
+              "unit": "mas/yr"
+            },
+            "chi2": {
+              "name": "CHI2",
+              "description": "Chi-squared value of proper motion solution",
+              "type": "float32",
+              "unit": ""
+            },
+            "nplates": {
+              "name": "NPLATES",
+              "description": "No. of plates used for this proper motion measurement",
+              "type": "int16",
+              "unit": ""
+            },
+            "classmagb": {
+              "name": "CLASSMAGB",
+              "description": "B band magnitude selected by B image class",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "classmagr1": {
+              "name": "CLASSMAGR1",
+              "description": "R1 band magnitude selected by R1 image class",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "classmagr2": {
+              "name": "CLASSMAGR2",
+              "description": "R2 band magnitude selected by R2 image class",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "classmagi": {
+              "name": "CLASSMAGI",
+              "description": "I band magnitude selected by I image class",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "gcormagb": {
+              "name": "GCORMAGB",
+              "description": "B band magnitude assuming object is galaxy",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "gcormagr1": {
+              "name": "GCORMAGR1",
+              "description": "R1 band magnitude assuming object is galaxy",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "gcormagr2": {
+              "name": "GCORMAGR2",
+              "description": "R2 band magnitude assuming object is galaxy",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "gcormagi": {
+              "name": "GCORMAGI",
+              "description": "I band magnitude assuming object is galaxy",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "scormagb": {
+              "name": "SCORMAGB",
+              "description": "B band magnitude assuming object is star",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "scormagr1": {
+              "name": "SCORMAGR1",
+              "description": "R1 band magnitude assuming object is star",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "scormagr2": {
+              "name": "SCORMAGR2",
+              "description": "R2 band magnitude assuming object is star",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "scormagi": {
+              "name": "SCORMAGI",
+              "description": "I band magnitude assuming object is star",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "meanclass": {
+              "name": "MEANCLASS",
+              "description": "Estimate of image class based on unit-weighted mean of individual classes",
+              "type": "int16",
+              "unit": ""
+            },
+            "classb": {
+              "name": "CLASSB",
+              "description": "Image classification from B band detection",
+              "type": "int16",
+              "unit": ""
+            },
+            "classr1": {
+              "name": "CLASSR1",
+              "description": "Image classification from R1 band detection",
+              "type": "int16",
+              "unit": ""
+            },
+            "classr2": {
+              "name": "CLASSR2",
+              "description": "Image classification from R2 band detection",
+              "type": "int16",
+              "unit": ""
+            },
+            "classi": {
+              "name": "CLASSI",
+              "description": "Image classification from I band detection",
+              "type": "int16",
+              "unit": ""
+            },
+            "ellipb": {
+              "name": "ELLIPB",
+              "description": "Ellipticity of B band detection",
+              "type": "float32",
+              "unit": ""
+            },
+            "ellipr1": {
+              "name": "ELLIPR1",
+              "description": "Ellipticity of R1 band detection",
+              "type": "float32",
+              "unit": ""
+            },
+            "ellipr2": {
+              "name": "ELLIPR2",
+              "description": "Ellipticity of R2 band detection",
+              "type": "float32",
+              "unit": ""
+            },
+            "ellipi": {
+              "name": "ELLIPI",
+              "description": "Ellipticity of I band detection",
+              "type": "float32",
+              "unit": ""
+            },
+            "qualb": {
+              "name": "QUALB",
+              "description": "Bitwise quality flag from B band detection",
+              "type": "int32",
+              "unit": ""
+            },
+            "qualr1": {
+              "name": "QUALR1",
+              "description": "Bitwise quality flag from R1 band detection",
+              "type": "int32",
+              "unit": ""
+            },
+            "qualr2": {
+              "name": "QUALR2",
+              "description": "Bitwise quality flag from R2 band detection",
+              "type": "int32",
+              "unit": ""
+            },
+            "quali": {
+              "name": "QUALI",
+              "description": "Bitwise quality flag from I band detection",
+              "type": "int32",
+              "unit": ""
+            },
+            "blendb": {
+              "name": "BLENDB",
+              "description": "Blend flag from B band detection",
+              "type": "int32",
+              "unit": ""
+            },
+            "blendr1": {
+              "name": "BLENDR1",
+              "description": "Blend flag from R1 band detection",
+              "type": "int32",
+              "unit": ""
+            },
+            "blendr2": {
+              "name": "BLENDR2",
+              "description": "Blend flag from R2 band detection",
+              "type": "int32",
+              "unit": ""
+            },
+            "blendi": {
+              "name": "BLENDI",
+              "description": "Blend flag from I band detection",
+              "type": "int32",
+              "unit": ""
+            },
+            "prfstatb": {
+              "name": "PRFSTATB",
+              "description": "Profile statistic from B band detection",
+              "type": "float32",
+              "unit": ""
+            },
+            "prfstatr1": {
+              "name": "PRFSTATR1",
+              "description": "Profile statistic from R1 band detection",
+              "type": "float32",
+              "unit": ""
+            },
+            "prfstatr2": {
+              "name": "PRFSTATR2",
+              "description": "Profile statistic from R2 band detection",
+              "type": "float32",
+              "unit": ""
+            },
+            "prfstati": {
+              "name": "PRFSTATI",
+              "description": "Profile statistic from I band detection",
+              "type": "float32",
+              "unit": ""
+            },
+            "l": {
+              "name": "L",
+              "description": "The Galactic longitude of the source",
+              "type": "float32",
+              "unit": "deg"
+            },
+            "b": {
+              "name": "B",
+              "description": "The Galactic latitude of the source",
+              "type": "float32",
+              "unit": "deg"
+            },
+            "d": {
+              "name": "D",
+              "description": "The great-circle distance of the source from the Galactic centre",
+              "type": "float32",
+              "unit": "deg"
+            },
+            "ebmv": {
+              "name": "EBMV",
+              "description": "The estimated foreground reddening at this position from Schlegel et al. (1998)",
+              "type": "float32",
+              "unit": "mag"
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null
+    }
+  },
+  "notes": "None"
+}

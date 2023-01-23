@@ -1,0 +1,494 @@
+{
+  "general": {
+    "name": "mos_target_twomass_psc",
+    "short": "MOS Target Table: twomass_psc",
+    "description": "2MASS point source catalog. For full details, please see https://www.ipac.caltech.edu/2mass/releases/allsky/doc/sec2_2a.html",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "BHM",
+        "long": "Black Hole Mapper",
+        "description": "An optical time-domain spectroscopic survey of quasars and X-ray sources",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "bhm",
+        "aliases": []
+      },
+      {
+        "name": "MWM",
+        "long": "Milky Way Mapper",
+        "description": "A time-domain, optical+IR spectroscopic survey of Milky Way stars of all types.",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "mwm",
+        "aliases": []
+      },
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "FITS",
+    "filesize": "459 MB",
+    "releases": [
+      {
+        "name": "DR18",
+        "description": "SDSS unreleased data.  Represents any work-in-progress data.",
+        "public": false,
+        "release_date": "unreleased"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/mos_target_twomass_psc-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts",
+    "generated_by": "sdss5db> targetdb, operations database server",
+    "design": false,
+    "vac": false
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR18": {
+      "template": "$MOS_TARGET/[V_TARG]/mos_target_twomass_psc-[NUM].fits",
+      "example": "1.0.1/mos_target_twomass_psc-01.fits",
+      "location": "{v_targ}/mos_target_twomass_psc-{num}.fits",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_twomass_psc",
+        "path_template": "$MOS_TARGET/{v_targ}/mos_target_twomass_psc-{num}",
+        "path_kwargs": [
+          "num",
+          "v_targ"
+        ],
+        "access_string": "mos_target_twomass_psc = $MOS_TARGET/{v_targ}/mos_target_twomass_psc-{num}.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Primary header",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "MOS Target Table: twomass_psc",
+          "size": "459 MB",
+          "header": null,
+          "columns": {
+            "ra": {
+              "name": "RA",
+              "description": "Right ascenscion",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "decl": {
+              "name": "DECL",
+              "description": "Declination",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "err_maj": {
+              "name": "ERR_MAJ",
+              "description": "Semi-major axis of position error ellipse",
+              "type": "float32",
+              "unit": "arcsec"
+            },
+            "err_min": {
+              "name": "ERR_MIN",
+              "description": "Semi-minor axis of position error ellipse",
+              "type": "float32",
+              "unit": "arcsec"
+            },
+            "err_ang": {
+              "name": "ERR_ANG",
+              "description": "Position angle of error ellipse major axis (E of N)",
+              "type": "int16",
+              "unit": "degrees"
+            },
+            "j_m": {
+              "name": "J_M",
+              "description": "2MASS J-band default magnitude",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "j_cmsig": {
+              "name": "J_CMSIG",
+              "description": "J-band default magnitude uncertainty",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "j_msigcom": {
+              "name": "J_MSIGCOM",
+              "description": "J-band total magnitude uncertainty",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "j_snr": {
+              "name": "J_SNR",
+              "description": "J-band signal-to-noise ratio",
+              "type": "float32",
+              "unit": ""
+            },
+            "h_m": {
+              "name": "H_M",
+              "description": "2MASS H-band default magnitude",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "h_cmsig": {
+              "name": "H_CMSIG",
+              "description": "H-band default magnitude uncertainty",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "h_msigcom": {
+              "name": "H_MSIGCOM",
+              "description": "H-band total magnitude uncertainty",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "h_snr": {
+              "name": "H_SNR",
+              "description": "H-band signal-to-noise ratio",
+              "type": "float32",
+              "unit": ""
+            },
+            "k_m": {
+              "name": "K_M",
+              "description": "2MASS K-band default magnitude",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "k_cmsig": {
+              "name": "K_CMSIG",
+              "description": "K-band default magnitude uncertainty",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "k_msigcom": {
+              "name": "K_MSIGCOM",
+              "description": "K-band total magnitude uncertainty",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "k_snr": {
+              "name": "K_SNR",
+              "description": "K-band signal-to-noise ratio",
+              "type": "float32",
+              "unit": ""
+            },
+            "ph_qual": {
+              "name": "PH_QUAL",
+              "description": "JHK photometric quality flag {}",
+              "type": "char[3]",
+              "unit": ""
+            },
+            "rd_flg": {
+              "name": "RD_FLG",
+              "description": "Source of JHK default mag",
+              "type": "char[3]",
+              "unit": ""
+            },
+            "bl_flg": {
+              "name": "BL_FLG",
+              "description": "JHK components fit to source",
+              "type": "char[3]",
+              "unit": ""
+            },
+            "cc_flg": {
+              "name": "CC_FLG",
+              "description": "Artifact contamination, confusion flag",
+              "type": "char[3]",
+              "unit": ""
+            },
+            "ndet": {
+              "name": "NDET",
+              "description": "Number of aperture measurements (jjhhkk)",
+              "type": "char[6]",
+              "unit": ""
+            },
+            "prox": {
+              "name": "PROX",
+              "description": "Distance between source and nearest neighbor",
+              "type": "float32",
+              "unit": "arcsec"
+            },
+            "pxpa": {
+              "name": "PXPA",
+              "description": "Position ange of vector from source to nearest neighbor (E of N)",
+              "type": "int16",
+              "unit": "degrees"
+            },
+            "pxcntr": {
+              "name": "PXCNTR",
+              "description": "Sequence number of nearest neighbor",
+              "type": "int32",
+              "unit": ""
+            },
+            "gal_contam": {
+              "name": "GAL_CONTAM",
+              "description": "Extended source contamination flag",
+              "type": "int16",
+              "unit": ""
+            },
+            "mp_flg": {
+              "name": "MP_FLG",
+              "description": "Association with asteroid or comet flag",
+              "type": "int16",
+              "unit": ""
+            },
+            "pts_key": {
+              "name": "PTS_KEY",
+              "description": "A unique identification number for the PSC source",
+              "type": "int32",
+              "unit": ""
+            },
+            "hemis": {
+              "name": "HEMIS",
+              "description": "Hemisphere code for the 2MASS Observatory from which this source was observed",
+              "type": "char[1]",
+              "unit": ""
+            },
+            "date": {
+              "name": "DATE",
+              "description": "The observation reference date for this source expressed in ISO standard format.",
+              "type": "char[10]",
+              "unit": "yyyy-mm-dd"
+            },
+            "scan": {
+              "name": "SCAN",
+              "description": "The nightly scan number in which the source was detected",
+              "type": "int16",
+              "unit": ""
+            },
+            "glon": {
+              "name": "GLON",
+              "description": "Galactic longitude",
+              "type": "float32",
+              "unit": "degrees"
+            },
+            "glat": {
+              "name": "GLAT",
+              "description": "Galactic latitude",
+              "type": "float32",
+              "unit": "degrees"
+            },
+            "x_scan": {
+              "name": "X_SCAN",
+              "description": "Mean cross-scan focal plane position of the source in the Universal scan (U-scan) coordinate system",
+              "type": "float32",
+              "unit": "arcsec"
+            },
+            "jdate": {
+              "name": "JDATE",
+              "description": "The Julian Date of the source measurement accurate to 30 seconds",
+              "type": "float64",
+              "unit": "days"
+            },
+            "j_psfchi": {
+              "name": "J_PSFCHI",
+              "description": "Reduced chi-squared goodness-of-fit value for the J-band profile-fit photometry",
+              "type": "float32",
+              "unit": ""
+            },
+            "h_psfchi": {
+              "name": "H_PSFCHI",
+              "description": "Reduced chi-squared goodness-of-fit value for the H-band profile-fit photometry",
+              "type": "float32",
+              "unit": ""
+            },
+            "k_psfchi": {
+              "name": "K_PSFCHI",
+              "description": "Reduced chi-squared goodness-of-fit value for the K-band profile-fit photometry",
+              "type": "float32",
+              "unit": ""
+            },
+            "j_m_stdap": {
+              "name": "J_M_STDAP",
+              "description": "J-band \"standard\" aperture magnitude",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "j_msig_stdap": {
+              "name": "J_MSIG_STDAP",
+              "description": "Uncertainty in the J-band standard aperture magnitude",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "h_m_stdap": {
+              "name": "H_M_STDAP",
+              "description": "H-band \"standard\" aperture magnitude",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "h_msig_stdap": {
+              "name": "H_MSIG_STDAP",
+              "description": "Uncertainty in the H-band standard aperture magnitude",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "k_m_stdap": {
+              "name": "K_M_STDAP",
+              "description": "K-band \"standard\" aperture magnitude",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "k_msig_stdap": {
+              "name": "K_MSIG_STDAP",
+              "description": "Uncertainty in the K-band standard aperture magnitude",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "dist_edge_ns": {
+              "name": "DIST_EDGE_NS",
+              "description": "Distance from the source to the nearest North or South scan edge",
+              "type": "int32",
+              "unit": "arcsec"
+            },
+            "dist_edge_ew": {
+              "name": "DIST_EDGE_EW",
+              "description": "Distance from the source to the nearest East or West scan edge",
+              "type": "int32",
+              "unit": "arcsec"
+            },
+            "dist_edge_flg": {
+              "name": "DIST_EDGE_FLG",
+              "description": "Flag that specifies to which scan edges a source lies closest and to which edges the dist_edge_ns and dist_edge_ew values refer",
+              "type": "char[2]",
+              "unit": ""
+            },
+            "dup_src": {
+              "name": "DUP_SRC",
+              "description": "Duplicate source flag",
+              "type": "int16",
+              "unit": ""
+            },
+            "use_src": {
+              "name": "USE_SRC",
+              "description": "Use source flag",
+              "type": "int16",
+              "unit": ""
+            },
+            "a": {
+              "name": "A",
+              "description": "Catalog identifier of an optical source from either the Tycho 2 or USNO-A2.0 catalog that falls within approximately 5 arcsec of the 2MASS source position",
+              "type": "char[1]",
+              "unit": ""
+            },
+            "dist_opt": {
+              "name": "DIST_OPT",
+              "description": "Distance separating 2MASS source position and associated optical source",
+              "type": "float32",
+              "unit": "arcsec"
+            },
+            "phi_opt": {
+              "name": "PHI_OPT",
+              "description": "Position angle on the sky of the vector from the the associated optical source to the 2MASS source position (East of North)",
+              "type": "int16",
+              "unit": "degrees"
+            },
+            "b_m_opt": {
+              "name": "B_M_OPT",
+              "description": "Blue magnitude of associated optical source",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "vr_m_opt": {
+              "name": "VR_M_OPT",
+              "description": "Visual or red magnitude of the associated optical source",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "nopt_mchs": {
+              "name": "NOPT_MCHS",
+              "description": "The number of USNO-A2.0 or Tycho 2 optical sources found within a radius of approximately 5 arcsec of the 2MASS position",
+              "type": "int16",
+              "unit": ""
+            },
+            "ext_key": {
+              "name": "EXT_KEY",
+              "description": "Unique identification number of the record in the XSC that corresponds to this point source",
+              "type": "int32",
+              "unit": ""
+            },
+            "scan_key": {
+              "name": "SCAN_KEY",
+              "description": "Unique identification number of the record in the Scan Information Table",
+              "type": "int32",
+              "unit": ""
+            },
+            "coadd_key": {
+              "name": "COADD_KEY",
+              "description": "Unique identification number of the record in the Atlas Image Information Table",
+              "type": "int32",
+              "unit": ""
+            },
+            "coadd": {
+              "name": "COADD",
+              "description": "Sequence number of the Atlas Image in which the position of this source falls",
+              "type": "int16",
+              "unit": ""
+            },
+            "designation": {
+              "name": "DESIGNATION",
+              "description": "Sexagesimal, equatorial position-based source",
+              "type": "char[17]",
+              "unit": ""
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null
+    }
+  },
+  "notes": "None"
+}

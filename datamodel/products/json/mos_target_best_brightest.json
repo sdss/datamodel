@@ -1,0 +1,349 @@
+{
+  "general": {
+    "name": "mos_target_best_brightest",
+    "short": "MOS Target Table: best_brightest",
+    "description": "Catalog from Kevin Schlaufman for the selection of bright metal-poor stars from the method of Schlaufman and Casey (2014): https://ui.adsabs.harvard.edu/abs/2014ApJ...797...13S/abstract. WISE values from WHICH CATALOG, 2MASS values from 2MASS point source catalog.",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "BHM",
+        "long": "Black Hole Mapper",
+        "description": "An optical time-domain spectroscopic survey of quasars and X-ray sources",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "bhm",
+        "aliases": []
+      },
+      {
+        "name": "MWM",
+        "long": "Milky Way Mapper",
+        "description": "A time-domain, optical+IR spectroscopic survey of Milky Way stars of all types.",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "mwm",
+        "aliases": []
+      },
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "FITS",
+    "filesize": "28 MB",
+    "releases": [
+      {
+        "name": "DR18",
+        "description": "SDSS unreleased data.  Represents any work-in-progress data.",
+        "public": false,
+        "release_date": "unreleased"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/mos_target_best_brightest-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts",
+    "generated_by": "sdss5db> targetdb, operations database server",
+    "design": false,
+    "vac": false
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR18": {
+      "template": "$MOS_TARGET/[V_TARG]/mos_target_best_brightest.fits",
+      "example": "1.0.1/mos_target_best_brightest.fits",
+      "location": "{v_targ}/mos_target_best_brightest.fits",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_best_brightest",
+        "path_template": "$MOS_TARGET/{v_targ}/mos_target_best_brightest",
+        "path_kwargs": [
+          "v_targ"
+        ],
+        "access_string": "mos_target_best_brightest = $MOS_TARGET/{v_targ}/mos_target_best_brightest.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Primary header",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "MOS Target Table: best_brightest",
+          "size": "28 MB",
+          "header": null,
+          "columns": {
+            "designation": {
+              "name": "DESIGNATION",
+              "description": "2MASS Designation",
+              "type": "char[19]",
+              "unit": ""
+            },
+            "ra_1": {
+              "name": "RA_1",
+              "description": "right ascension from the AllWISE catalog",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "dec_1": {
+              "name": "DEC_1",
+              "description": "declination from the AllWISE catalog",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "glon": {
+              "name": "GLON",
+              "description": "Galactic longitude from AllWISE catalog",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "glat": {
+              "name": "GLAT",
+              "description": "Galactic latitude from the AllWISE catalog",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "w1mpro": {
+              "name": "W1MPRO",
+              "description": "AllWISE W1-band magnitude measured with profile-fitting photometry",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "w2mpro": {
+              "name": "W2MPRO",
+              "description": "AllWISE W2-band magnitude measured with profile-fitting photometry",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "w3mpro": {
+              "name": "W3MPRO",
+              "description": "AllWISE W3-band magnitude measured with profile-fitting photometry",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "w4mpro": {
+              "name": "W4MPRO",
+              "description": "AllWISE W4-band magnitude measured with profile-fitting photometry",
+              "type": "char[6]",
+              "unit": "mag"
+            },
+            "pmra": {
+              "name": "PMRA",
+              "description": "Gaia DR2 proper motion",
+              "type": "int32",
+              "unit": "mas/yr"
+            },
+            "pmdec": {
+              "name": "PMDEC",
+              "description": "Gaia DR2 proper motion",
+              "type": "int32",
+              "unit": "mas/yr"
+            },
+            "j_m_2mass": {
+              "name": "J_M_2MASS",
+              "description": "2MASS J=band magnitude",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "h_m_2mass": {
+              "name": "H_M_2MASS",
+              "description": "2MASS magnitude",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "k_m_2mass": {
+              "name": "K_M_2MASS",
+              "description": "2MASS magnitude",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "ra_2": {
+              "name": "RA_2",
+              "description": "Right ascension from the 2MASS catalog",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "raerr": {
+              "name": "RAERR",
+              "description": "Uncertainty in right ascension from the 2MASS catalog",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "dec_2": {
+              "name": "DEC_2",
+              "description": "Declination from the 2MASS catalog",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "decerr": {
+              "name": "DECERR",
+              "description": "Uncertainty in declination from the 2MASS catalog",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "nobs": {
+              "name": "NOBS",
+              "description": "Number of observed nights from the APASS catalog",
+              "type": "int32",
+              "unit": ""
+            },
+            "mobs": {
+              "name": "MOBS",
+              "description": "Number of images for this field from the APASS catalog",
+              "type": "int32",
+              "unit": ""
+            },
+            "vjmag": {
+              "name": "VJMAG",
+              "description": "APASS V_J magnitude",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "bjmag": {
+              "name": "BJMAG",
+              "description": "APASS B_J magnitude",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "gmag": {
+              "name": "GMAG",
+              "description": "APASS Sloan g' magnitude",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "rmag": {
+              "name": "RMAG",
+              "description": "APASS Sloan r' magnitude",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "imag": {
+              "name": "IMAG",
+              "description": "APASS Sloan i' magnitude",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "evjmag": {
+              "name": "EVJMAG",
+              "description": "Uncertainty in APASS V_J  magnitude",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "ebjmag": {
+              "name": "EBJMAG",
+              "description": "Uncertainty in APASS B_J magnitude",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "egmag": {
+              "name": "EGMAG",
+              "description": "Uncertainty in APASS Sloan g' magnitude",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "ermag": {
+              "name": "ERMAG",
+              "description": "Uncertainty in APASS Sloan r' magnitude",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "eimag": {
+              "name": "EIMAG",
+              "description": "Uncertainty in APASS Sloan i' magnitude",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "name": {
+              "name": "NAME",
+              "description": "APASS field name",
+              "type": "int32",
+              "unit": ""
+            },
+            "separation": {
+              "name": "SEPARATION",
+              "description": "Separation between AllWISE object and APASS object",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "ebv": {
+              "name": "EBV",
+              "description": "SFD dustmap E(B-V)",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "version": {
+              "name": "VERSION",
+              "description": "version 2 is high priiority, version 1 is low priority (see Schlaufman + Casey 2014 for definitions)",
+              "type": "int32",
+              "unit": ""
+            },
+            "original_ext_source_id": {
+              "name": "ORIGINAL_EXT_SOURCE_ID",
+              "description": "2MASS designation removing the \".\" from the coordinates and getting rid of \"J\" at the front",
+              "type": "char[16]",
+              "unit": ""
+            },
+            "cntr": {
+              "name": "CNTR",
+              "description": "Internal Identifier",
+              "type": "int64",
+              "unit": ""
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null
+    }
+  },
+  "notes": "None"
+}

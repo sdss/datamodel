@@ -1,0 +1,475 @@
+{
+  "general": {
+    "name": "mos_target_gaia_dr2_wd",
+    "short": "MOS Target Table: gaia_dr2_wd",
+    "description": "White dwarf catalog of high-probablity WDs from Gentile Fusillo (2019) based on Gaia DR2. Please see https://academic.oup.com/mnras/article/482/4/4570/5162857 for more information on the columns.",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "BHM",
+        "long": "Black Hole Mapper",
+        "description": "An optical time-domain spectroscopic survey of quasars and X-ray sources",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "bhm",
+        "aliases": []
+      },
+      {
+        "name": "MWM",
+        "long": "Milky Way Mapper",
+        "description": "A time-domain, optical+IR spectroscopic survey of Milky Way stars of all types.",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "mwm",
+        "aliases": []
+      },
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "FITS",
+    "filesize": "75 MB",
+    "releases": [
+      {
+        "name": "DR18",
+        "description": "SDSS unreleased data.  Represents any work-in-progress data.",
+        "public": false,
+        "release_date": "unreleased"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/mos_target_gaia_dr2_wd-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts",
+    "generated_by": "sdss5db> targetdb, operations database server",
+    "design": false,
+    "vac": false
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR18": {
+      "template": "$MOS_TARGET/[V_TARG]/mos_target_gaia_dr2_wd.fits",
+      "example": "1.0.1/mos_target_gaia_dr2_wd.fits",
+      "location": "{v_targ}/mos_target_gaia_dr2_wd.fits",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_gaia_dr2_wd",
+        "path_template": "$MOS_TARGET/{v_targ}/mos_target_gaia_dr2_wd",
+        "path_kwargs": [
+          "v_targ"
+        ],
+        "access_string": "mos_target_gaia_dr2_wd = $MOS_TARGET/{v_targ}/mos_target_gaia_dr2_wd.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Primary header",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "MOS Target Table: gaia_dr2_wd",
+          "size": "75 MB",
+          "header": null,
+          "columns": {
+            "wd": {
+              "name": "WD",
+              "description": "WD names from this catalog -- WD J + J2000 ra (hh mm ss.ss) + dec (dd mm ss.s), equinox and epoch 2000",
+              "type": "char[23]",
+              "unit": ""
+            },
+            "dr2name": {
+              "name": "DR2NAME",
+              "description": "Unique Gaia source designation",
+              "type": "char[28]",
+              "unit": ""
+            },
+            "source_id": {
+              "name": "SOURCE_ID",
+              "description": "Unique Gaia DR2 source identifier",
+              "type": "int64",
+              "unit": ""
+            },
+            "source": {
+              "name": "SOURCE",
+              "description": "Internal identifier (do not use)",
+              "type": "int32",
+              "unit": ""
+            },
+            "ra": {
+              "name": "RA",
+              "description": "Right ascension",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "e_ra": {
+              "name": "E_RA",
+              "description": "Standard error of right ascenscion",
+              "type": "float64",
+              "unit": "mas"
+            },
+            "dec": {
+              "name": "DEC",
+              "description": "Declination",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "e_dec": {
+              "name": "E_DEC",
+              "description": "Standard error of declination",
+              "type": "float64",
+              "unit": "mas"
+            },
+            "plx": {
+              "name": "PLX",
+              "description": "Absolute stellar parallax of the source at J2015.5",
+              "type": "float32",
+              "unit": "mas"
+            },
+            "e_plx": {
+              "name": "E_PLX",
+              "description": "Standard error of parallax",
+              "type": "float32",
+              "unit": "mas"
+            },
+            "pmra": {
+              "name": "PMRA",
+              "description": "Proper motion in right ascension",
+              "type": "float64",
+              "unit": "mas/yr"
+            },
+            "e_pmra": {
+              "name": "E_PMRA",
+              "description": "Standard error of proper motion in right ascension",
+              "type": "float64",
+              "unit": "mas/yr"
+            },
+            "pmdec": {
+              "name": "PMDEC",
+              "description": "Proper motion in right declination",
+              "type": "float64",
+              "unit": "mas/yr"
+            },
+            "e_pmdec": {
+              "name": "E_PMDEC",
+              "description": "Standard error of proper motion in declination",
+              "type": "float64",
+              "unit": "mas/yr"
+            },
+            "epsi": {
+              "name": "EPSI",
+              "description": "Measure of the residuals in the astrometric solution",
+              "type": "float32",
+              "unit": "mas"
+            },
+            "amax": {
+              "name": "AMAX",
+              "description": "5-dimensional equivalent to the semimajor axis of the Gaia position error ellipse",
+              "type": "float32",
+              "unit": "mas"
+            },
+            "fg_gaia": {
+              "name": "FG_GAIA",
+              "description": "Gaia G-band mean flux",
+              "type": "float32",
+              "unit": "e-/s"
+            },
+            "e_fg_gaia": {
+              "name": "E_FG_GAIA",
+              "description": "Error on G-band mean flux",
+              "type": "float32",
+              "unit": "e-/s"
+            },
+            "g_gaia_mag": {
+              "name": "G_GAIA_MAG",
+              "description": "Gaia G-band mean magnitude",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "fbp": {
+              "name": "FBP",
+              "description": "Integrated G_BP mean flux",
+              "type": "float32",
+              "unit": "e-/s"
+            },
+            "e_fbp": {
+              "name": "E_FBP",
+              "description": "Error on integrated G_BP mean flux",
+              "type": "float32",
+              "unit": "e-/s"
+            },
+            "bpmag": {
+              "name": "BPMAG",
+              "description": "Integrated G_BP mean magnitude",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "frp": {
+              "name": "FRP",
+              "description": "Integrated G_RP mean flux",
+              "type": "float32",
+              "unit": "e-/s"
+            },
+            "e_frp": {
+              "name": "E_FRP",
+              "description": "Error on integrated G_RP mean flux",
+              "type": "float32",
+              "unit": "e-/s"
+            },
+            "rpmag": {
+              "name": "RPMAG",
+              "description": "Integrated G_RP mean magnitude",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "e_br_rp": {
+              "name": "E_BR_RP",
+              "description": "G_BP/G_RP execess factor",
+              "type": "float32",
+              "unit": ""
+            },
+            "glon": {
+              "name": "GLON",
+              "description": "Galactic longitude",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "glat": {
+              "name": "GLAT",
+              "description": "Galactic latitude",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "density": {
+              "name": "DENSITY",
+              "description": "Number of Gaia sources around this object",
+              "type": "float32",
+              "unit": "sq.deg^-1"
+            },
+            "ag": {
+              "name": "AG",
+              "description": "Extinction in the Gaia G band derived from E(B − V) values from Schlafly and  Finkbeiner",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "sdss": {
+              "name": "SDSS",
+              "description": "SDSS object name if available",
+              "type": "char[19]",
+              "unit": ""
+            },
+            "umag": {
+              "name": "UMAG",
+              "description": "SDSS u-band magnitude",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "e_umag": {
+              "name": "E_UMAG",
+              "description": "SDSS u-band magnitude uncertainty",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "gmag": {
+              "name": "GMAG",
+              "description": "SDSS g-band magnitude uncertainty",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "e_gmag": {
+              "name": "E_GMAG",
+              "description": "SDSS g-band magnitude",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "rmag": {
+              "name": "RMAG",
+              "description": "SDSS r-band magnitude uncertainty",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "e_rmag": {
+              "name": "E_RMAG",
+              "description": "SDSS r-band magnitude",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "imag": {
+              "name": "IMAG",
+              "description": "SDSS i-band magnitude uncertainty",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "e_imag": {
+              "name": "E_IMAG",
+              "description": "SDSS i-band magnitude",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "zmag": {
+              "name": "ZMAG",
+              "description": "SDSS z-band magnitude uncertainty",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "e_zmag": {
+              "name": "E_ZMAG",
+              "description": "SDSS z-band magnitude",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "pwd": {
+              "name": "PWD",
+              "description": "Probability of being a white dwarf",
+              "type": "float32",
+              "unit": ""
+            },
+            "f_pwd": {
+              "name": "F_PWD",
+              "description": "Flag on probability of being a white dwarf",
+              "type": "int32",
+              "unit": ""
+            },
+            "teffh": {
+              "name": "TEFFH",
+              "description": "Effective temperature from fitting the dereddened G, GBP, and GRP absolute fluxes with pure-H model atmospheres",
+              "type": "float32",
+              "unit": "K"
+            },
+            "e_teffh": {
+              "name": "E_TEFFH",
+              "description": "Uncertainty on Teff from pure-H model atmospheres",
+              "type": "float32",
+              "unit": "K"
+            },
+            "loggh": {
+              "name": "LOGGH",
+              "description": "Surface gravity from fitting the dereddened G, GBP, and GRP absolute fluxes with pure-H model atmospheres",
+              "type": "float32",
+              "unit": "dex cgs"
+            },
+            "e_loggh": {
+              "name": "E_LOGGH",
+              "description": "Uncertainty on log g from pure-H model atmospheres",
+              "type": "float32",
+              "unit": "dex cgs"
+            },
+            "massh": {
+              "name": "MASSH",
+              "description": "Stellar mass assuming pure-H model atmospheres",
+              "type": "float32",
+              "unit": "Solar masses"
+            },
+            "e_massh": {
+              "name": "E_MASSH",
+              "description": "Uncertainty on the mass assuming pure-H model atmospheres",
+              "type": "float32",
+              "unit": "Solar masses"
+            },
+            "chi2h": {
+              "name": "CHI2H",
+              "description": "Chi^2 value of the pure-H fit",
+              "type": "float32",
+              "unit": ""
+            },
+            "teffhe": {
+              "name": "TEFFHE",
+              "description": "Effective temperature from fitting the dereddened G, GBP, and GRP absolute fluxes with pure-He model atmospheres",
+              "type": "float32",
+              "unit": "K"
+            },
+            "e_teffhe": {
+              "name": "E_TEFFHE",
+              "description": "Uncertainty on Teff from pure-He model atmospheres",
+              "type": "float32",
+              "unit": "K"
+            },
+            "logghe": {
+              "name": "LOGGHE",
+              "description": "Surface gravity from fitting the dereddened G, GBP, and GRP absolute fluxes with pure-He model atmospheres",
+              "type": "float32",
+              "unit": "dex cgs"
+            },
+            "e_logghe": {
+              "name": "E_LOGGHE",
+              "description": "Uncertainty on log g from pure-He model atmospheres",
+              "type": "float32",
+              "unit": "dex cgs"
+            },
+            "masshe": {
+              "name": "MASSHE",
+              "description": "Stellar mass assuming pure-He model atmospheres",
+              "type": "float32",
+              "unit": "Solar masses"
+            },
+            "e_masshe": {
+              "name": "E_MASSHE",
+              "description": "Uncertainty on the mass assuming pure-H model atmospheres",
+              "type": "float32",
+              "unit": "Solar masses"
+            },
+            "chisqhe": {
+              "name": "CHISQHE",
+              "description": "Chi^2 value of the pure-H fit",
+              "type": "float32",
+              "unit": ""
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null
+    }
+  },
+  "notes": "None"
+}

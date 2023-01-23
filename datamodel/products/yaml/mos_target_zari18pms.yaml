@@ -1,0 +1,171 @@
+general:
+  name: mos_target_zari18pms
+  short: 'MOS Target Table: zari18pms'
+  description: Pre-main sequence (PMS) catalogue from Zari+2018.
+  datatype: FITS
+  filesize: 3 MB
+  releases:
+  - DR18
+  environments:
+  - MOS_TARGET
+  surveys:
+  - BHM
+  - MWM
+  - SDSS
+  naming_convention: $MOS_TARGET/[V_TARG]/mos_target_zari18pms-[NUM].fits, where V_TARG=1.0.1
+    for DR18; and NUM = 1..1 to partition the file into parts
+  generated_by: sdss5db> targetdb, operations database server
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR18:
+    template: $MOS_TARGET/[V_TARG]/mos_target_zari18pms.fits
+    example: 1.0.1/mos_target_zari18pms.fits
+    location: '{v_targ}/mos_target_zari18pms.fits'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_zari18pms
+      path_template: $MOS_TARGET/{v_targ}/mos_target_zari18pms
+      path_kwargs:
+      - v_targ
+      access_string: mos_target_zari18pms = $MOS_TARGET/{v_targ}/mos_target_zari18pms.fits
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Primary header
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: 'MOS Target Table: zari18pms'
+        is_image: false
+        size: 3 MB
+        columns:
+          source:
+            name: SOURCE
+            type: int64
+            unit: ''
+            description: Unique source identifier (Gaia DR2 source_id)
+          glon:
+            name: GLON
+            type: float64
+            unit: deg
+            description: Galactic longitude
+          glat:
+            name: GLAT
+            type: float64
+            unit: deg
+            description: Galactic latitude
+          plx:
+            name: PLX
+            type: float32
+            unit: mas
+            description: Parallax
+          e_plx:
+            name: E_PLX
+            type: float32
+            unit: mas
+            description: Standard error of parallax (parallax_error)
+          pmglon:
+            name: PMGLON
+            type: float32
+            unit: mas/yr
+            description: Proper motion in galactic longitude
+          e_pmglon:
+            name: E_PMGLON
+            type: float32
+            unit: mas/yr
+            description: Standard error of proper motion in galactic longitude
+          pmglat:
+            name: PMGLAT
+            type: float32
+            unit: mas/yr
+            description: Proper motion in galactic latitude
+          e_pmglat:
+            name: E_PMGLAT
+            type: float32
+            unit: mas/yr
+            description: Standard error of proper motion in galactic latitude
+          pmlbcorr:
+            name: PMLBCORR
+            type: float32
+            unit: ''
+            description: Correlation between proper motion in galactic longitude and
+              proper motion in galactic latitude
+          rv:
+            name: RV
+            type: float32
+            unit: km/s
+            description: radial velocity
+          e_rv:
+            name: E_RV
+            type: float32
+            unit: km/s
+            description: radial velocity error
+          gmag:
+            name: GMAG
+            type: float32
+            unit: mag
+            description: G-band mean magnitude (phot_g_mean_mag)
+          bpmag:
+            name: BPMAG
+            type: float32
+            unit: mag
+            description: BP-band mean magnitude (phot_bp_mean_mag)
+          rpmag:
+            name: RPMAG
+            type: float32
+            unit: mag
+            description: RP-band mean magnitude (phot_g_mean_mag)
+          bp_over_rp:
+            name: BP_OVER_RP
+            type: float32
+            unit: ''
+            description: BP/RP excess factor
+          chi2al:
+            name: CHI2AL
+            type: float32
+            unit: ''
+            description: AL chi-square value (astrometric_chi2_al)
+          ngal:
+            name: NGAL
+            type: int32
+            unit: ''
+            description: Number of good observation AL (astrometric_n_good_obs_al)
+          ag:
+            name: AG
+            type: float32
+            unit: mag
+            description: Extinction in G-band (A_G)
+          bp_rp:
+            name: BP_RP
+            type: float32
+            unit: mag
+            description: Colour excess in BP-RP
+          uwe:
+            name: UWE
+            type: float32
+            unit: ''
+            description: Unit Weight Error, as defined in Lindegren et al., 2018A&A...616A...2L
+notes: |-
+  None

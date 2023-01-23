@@ -1,0 +1,188 @@
+{
+  "general": {
+    "name": "mos_target_catalog",
+    "short": "MOS Target Table: catalog",
+    "description": "The table stores the results of the cross-match used for DR18 targeting. All entries in this table are expected to be unique physical objects drawn from one or more parent catalogues. The mos_target_catalog_to_ tables provide the relationship between mos_target_catalog objects and their parent catalogue counterparts.",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "BHM",
+        "long": "Black Hole Mapper",
+        "description": "An optical time-domain spectroscopic survey of quasars and X-ray sources",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "bhm",
+        "aliases": []
+      },
+      {
+        "name": "MWM",
+        "long": "Milky Way Mapper",
+        "description": "A time-domain, optical+IR spectroscopic survey of Milky Way stars of all types.",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "mwm",
+        "aliases": []
+      },
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "FITS",
+    "filesize": "95 MB",
+    "releases": [
+      {
+        "name": "DR18",
+        "description": "SDSS unreleased data.  Represents any work-in-progress data.",
+        "public": false,
+        "release_date": "unreleased"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/mos_target_catalog-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts",
+    "generated_by": "sdss5db> targetdb, operations database server",
+    "design": false,
+    "vac": false
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR18": {
+      "template": "$MOS_TARGET/[V_TARG]/mos_target_catalog-[NUM].fits",
+      "example": "1.0.1/mos_target_catalog-01.fits",
+      "location": "{v_targ}/mos_target_catalog-{num}.fits",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_catalog",
+        "path_template": "$MOS_TARGET/{v_targ}/mos_target_catalog-{num}",
+        "path_kwargs": [
+          "num",
+          "v_targ"
+        ],
+        "access_string": "mos_target_catalog = $MOS_TARGET/{v_targ}/mos_target_catalog-{num}.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Primary header",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "MOS Target Table: catalog",
+          "size": "95 MB",
+          "header": null,
+          "columns": {
+            "catalogid": {
+              "name": "CATALOGID",
+              "description": "The SDSS identifier for a unique object in this cross-match run.",
+              "type": "int64",
+              "unit": ""
+            },
+            "iauname": {
+              "name": "IAUNAME",
+              "description": "The IAU-style name. Not used.",
+              "type": "char[4]",
+              "unit": ""
+            },
+            "ra": {
+              "name": "RA",
+              "description": "The right ascension of the target in ICRS coordinates for J2015.5. Taken from the lead parent catalogue",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "dec": {
+              "name": "DEC",
+              "description": "The declination of the target in ICRS coordinates for J2015.5. Taken from the lead parent catalogue",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "pmra": {
+              "name": "PMRA",
+              "description": "The proper motion of the target in right ascension. Taken from the lead parent catalogue. This is a true angle (i.e., the cos(dec) factor has been applied)",
+              "type": "float32",
+              "unit": "mas/yr"
+            },
+            "pmdec": {
+              "name": "PMDEC",
+              "description": "The proper motion of the target in declination. Taken from the lead parent catalogue",
+              "type": "float32",
+              "unit": "mas/yr"
+            },
+            "parallax": {
+              "name": "PARALLAX",
+              "description": "The parallax of the target. Taken from the lead parent catalogue",
+              "type": "float32",
+              "unit": "arcsec"
+            },
+            "lead": {
+              "name": "LEAD",
+              "description": "The name of the parent catalogue from which this target was selected and whose data was used to determine its astrometric position.",
+              "type": "char[6]",
+              "unit": ""
+            },
+            "version_id": {
+              "name": "VERSION_ID",
+              "description": "The internal version for the cross-match.",
+              "type": "int32",
+              "unit": ""
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null
+    }
+  },
+  "notes": "None"
+}
