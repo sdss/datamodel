@@ -1,7 +1,12 @@
 general:
   name: silo_manga_stack_data
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: Datamodel for silo_manga_stack_data
+  description: This file provides row-stacked-spectra (RSS), foreground subracted
+    RSS (residuals), co-added residuals across exposures from the same fiber at the
+    same dither position (stack), signal-to-noise (SN) for each stack, and spaxel
+    CUBES constructed from each data type, in which sigma-clipping was applied to
+    the stacked data to reject transient signals (see <a href="https://ui.adsabs.harvard.edu/abs/2018MNRAS.477..195T/abstract">Talbot
+    et al. (2018)</a>, Talbot et al. in prep).
   datatype: FITS
   filesize: 1003 MB
   releases:
@@ -10,10 +15,9 @@ general:
   - MANGA_SPECTRO_LENSING
   surveys:
   - MaNGA
-  naming_convention: replace me - with $MANGA_SPECTRO_LENSING/silo/[DRPVER]/[SILOVER]/[PLATE]/manga_[PLATE]_[IFU]_stack_data.fits
-    or manga_8606_6102_stack_data.fits but with regex pattern matches
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  naming_convention: <code>manga_[PLATE]_[IFU]_stack_data\.fits, in which PLATE is
+    the MaNGA plate and IFU is the MaNGA integral-field-unit.</code>
+  generated_by: SILO
   design: false
   vac: true
   recommended_science_product: true
@@ -37,7 +41,7 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: Survey and MaNGA target information.
         is_image: true
         size: 0 bytes
         header:
@@ -88,7 +92,9 @@ releases:
           comment: Declination of IFU center
       hdu1:
         name: INDIVIDUAL_EXPOSURE_REDUCTION
-        description: replace me description
+        description: "This extension contains fiber position, spectroscopic redshift,\
+          \ spectra data, SILO foreground model, \t\t\tresiduals, and SN for each\
+          \ RSS with sufficent SN to model"
         is_image: false
         size: 48 MB
         header:
@@ -265,7 +271,9 @@ releases:
             description: OII Gaussian convolved SN of residual spectra
       hdu2:
         name: STACKED_REDUCTION
-        description: replace me description
+        description: This extension contains stack fibers information, stacked spectroscopic
+          redshift, stacked residuals, masks returned from co-addition, and SN for
+          each stack.
         is_image: false
         size: 13 MB
         header:
@@ -424,7 +432,7 @@ releases:
             description: OII Gauss convolved SN of stack
       hdu3:
         name: WAVE
-        description: replace me description
+        description: Wavelength vector.
         is_image: true
         size: 35 KB
         header:
@@ -451,7 +459,8 @@ releases:
           comment: extension name
       hdu4:
         name: SPECRES
-        description: replace me description
+        description: Median spectral resolution as a function of wavelength for the
+          fibers in this IFU.
         is_image: true
         size: 35 KB
         header:
@@ -478,7 +487,8 @@ releases:
           comment: extension name
       hdu5:
         name: SPECRESD
-        description: replace me description
+        description: Standard deviation of spectral resolution as a function of wavelength
+          for the fibers in this IFU.
         is_image: true
         size: 35 KB
         header:
@@ -505,7 +515,8 @@ releases:
           comment: extension name
       hdu6:
         name: PRESPECRES
-        description: replace me description
+        description: Median pre-pixel spectral resolution as a function of wavelength
+          for the fibers in this IFU
         is_image: true
         size: 35 KB
         header:
@@ -532,7 +543,8 @@ releases:
           comment: extension name
       hdu7:
         name: PRESPECRESD
-        description: replace me description
+        description: Standard deviation of pre-pixel spectral resolution as a function
+          of wavelength for the fibers in this IFU
         is_image: true
         size: 35 KB
         header:
@@ -559,7 +571,7 @@ releases:
           comment: extension name
       hdu8:
         name: CUBE_INDIVIDUAL_FLUX
-        description: replace me description
+        description: Spaxel CUBE construction of RSS FLUX
         is_image: true
         size: 94 MB
         header:
@@ -592,7 +604,7 @@ releases:
           comment: extension name
       hdu9:
         name: CUBE_INDIVIDUAL_MODEL
-        description: replace me description
+        description: Spaxel CUBE construction of SILO model fitted to RSS FLUX
         is_image: true
         size: 94 MB
         header:
@@ -625,7 +637,7 @@ releases:
           comment: extension name
       hdu10:
         name: CUBE_INDIVIDUAL_RESIDUALS
-        description: replace me description
+        description: Spaxel CUBE construction of residuals from RSS-model
         is_image: true
         size: 94 MB
         header:
@@ -658,7 +670,7 @@ releases:
           comment: extension name
       hdu11:
         name: CUBE_INDIVIDUAL_IVAR_RESCALED
-        description: replace me description
+        description: Spaxel CUBE construction of inverse-variance
         is_image: true
         size: 94 MB
         header:
@@ -691,7 +703,8 @@ releases:
           comment: extension name
       hdu12:
         name: CUBE_INDIVIDUAL_GAUSS_SN
-        description: replace me description
+        description: Spaxel CUBE construction of SN computed using Gaussian kernel
+          representing single emission-line
         is_image: true
         size: 94 MB
         header:
@@ -724,7 +737,8 @@ releases:
           comment: extension name
       hdu13:
         name: CUBE_INDIVIDUAL_GAUSS_O2SN
-        description: replace me description
+        description: Spaxel CUBE construction of SN computed using Gaussian kernel
+          representing OII(b, a) doublet
         is_image: true
         size: 94 MB
         header:
@@ -757,7 +771,7 @@ releases:
           comment: extension name
       hdu14:
         name: CUBE_STACKED_RESIDUALS
-        description: replace me description
+        description: Spaxel CUBE construction of stacked residuals
         is_image: true
         size: 94 MB
         header:
@@ -790,7 +804,7 @@ releases:
           comment: extension name
       hdu15:
         name: CUBE_IVAR_RESCALED_STACKED
-        description: replace me description
+        description: Spaxel CUBE construction of inverse variance of residuals
         is_image: true
         size: 94 MB
         header:
@@ -823,7 +837,8 @@ releases:
           comment: extension name
       hdu16:
         name: CUBE_STACKED_GAUSS_SN
-        description: replace me description
+        description: Spaxel CUBE construction of stacked SN computed using Gaussian
+          kernel representing single emission-line
         is_image: true
         size: 94 MB
         header:
@@ -856,7 +871,8 @@ releases:
           comment: extension name
       hdu17:
         name: CUBE_STACKED_GAUSS_O2SN
-        description: replace me description
+        description: Spaxel CUBE construction of stacked SN computed using Gaussian
+          kernel representing OII(b, a) doublet
         is_image: true
         size: 94 MB
         header:
@@ -887,5 +903,27 @@ releases:
         - key: EXTNAME
           value: CUBE_STACKED_GAUSS_O2SN
           comment: extension name
-notes: |-
-  None
+notes: "\nExamples\nHow to access the file for a specific target, plot flux, and create\
+  \ a SN narrowband image\n\nfrom astropy.io import fits\nimport numpy as np\nfrom\
+  \ matplotlib import pyplot as plt\n\t\t\n#Lets open the the file to Plate: 8606,\
+  \ IFU: 6102\nhdu = fits.open('manga_8606_6102_stack_data.fits')\n        \n#And\
+  \ look at the extensions\nhdu.info()\n        \n#If you followed the example from\
+  \ silo_manga_detections.html, you would have looked at a detection with this info\n\
+  fiber_position = '18N'\nwavelength_of_candidate_OII = 6674.212\n        \n#Lets\
+  \ plot the stacked residuals used to create the candidate emission-line cutout from\
+  \ the example from silo_manga_detections.html\nstack_index = hdu['STACKED_REDUCTION'].data['FIBER_POSITION']\
+  \ == fiber_position\nplt.plot(hdu['WAVE'].data, hdu['STACKED_REDUCTION'].data['SRESFLUX'][stack_index][0],\
+  \ 'r')\nplt.xlabel('Observed Wavelength (Angstroms)')\nplt.ylabel('Flux (10^-17\
+  \ ergs/s/cm^2/Ang)')\nplt.show()\n\t\t\n#This stack is rather boaring with the foreground\
+  \ galaxy flux removed. \n#However, you can observe the candidate OII(b,a) at 6674.212\
+  \ Ansgstroms!!\n#Mabey the SN narrowband will be a bit more interesting\nwave_index\
+  \ = np.abs(hdu['WAVE'].data-wavelength_of_candidate_OII).argmin()\nplt.imshow(hdu['CUBE_STACKED_GAUSS_O2SN'].data[wave_index,\
+  \ :, :])\nplt.title('OII SN Narrowband at Wavelength of Candidate OII')\nplt.show()\n\
+  \t\t\n#Either there are two or three background galaxies, or there is one galaxy\
+  \ at the outskirts of the IFU (which is visble in SDSS images)\n#and the 'donught'\
+  \ at the center may be a main and counter image. The 'donught' was examined by Smith\
+  \ et al. 2020 via Subaru FOCAS IFU, \n#which observations assures a main and counter\
+  \ image but a second background galaxy is likely present near the counter image.\
+  \ \n#Such features may not be easily confirmed in other targets since it is likely\
+  \ that the SN of the extended source features are \n#relatively faint to the center\
+  \ of the source.\n    "

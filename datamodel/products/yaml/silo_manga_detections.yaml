@@ -1,7 +1,17 @@
 general:
   name: silo_manga_detections
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: Datamodel for silo_manga_detections
+  description: This file contains information for strong galaxy-galaxy gravitational
+    lens candidates and background galaxy candidates found within MaNGA galaxies contained
+    within DR17 (see <a href="https://ui.adsabs.harvard.edu/abs/2018MNRAS.477..195T/abstract">Talbot
+    et al. (2018)</a>, Talbot et al. in prep). The candidates are spectroscopically
+    detected within co-added foreground subtracted row-stacked-spectra (RSS), in which
+    spectra are stacked across exposures from the same fiber located at the same dither
+    position so a sigma-clipping method can reject transient signals. The target and
+    candidate overview information, spectra information, and emission-line analysis
+    information are split into three extensions. Nearly all candidate background galaxies
+    are highly assured but only source grade A through C represent if a candidate
+    is suspected to be lensed.
   datatype: FITS
   filesize: 7 MB
   releases:
@@ -10,10 +20,9 @@ general:
   - MANGA_SPECTRO_LENSING
   surveys:
   - MaNGA
-  naming_convention: replace me - with $MANGA_SPECTRO_LENSING/silo/[DRPVER]/[SILOVER]/silo_manga_detections-[SILOVER].fits
-    or silo_manga_detections-1.0.4.fits but with regex pattern matches
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  naming_convention: <code>silo_manga_detections-[SILO_VER].fits, where SILO_VER is
+    the version of SILO used to scan the MaNGA galaxies.</code>
+  generated_by: SILO
   design: false
   vac: true
   recommended_science_product: true
@@ -37,7 +46,8 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: Empty except headers contain survey information and descriptions
+          of emission-lines searched
         is_image: true
         size: 0 bytes
         header:
@@ -118,7 +128,7 @@ releases:
           comment: Restframe wavelength of SIIa
       hdu1:
         name: CANDIDATE_OVERVIEW
-        description: replace me description
+        description: Target overview and source (or background) inspection information.
         is_image: false
         size: 1 MB
         header:
@@ -269,7 +279,7 @@ releases:
             description: Count of graded detections
       hdu2:
         name: DETECTIONS
-        description: replace me description
+        description: Detection data and spectra inspection information.
         is_image: false
         size: 3 MB
         header:
@@ -393,7 +403,9 @@ releases:
             description: Comment of assuring/non-assuring features
       hdu3:
         name: EMISSION_LINE_ANALYSIS
-        description: replace me description
+        description: Information on each candidate emission-line. Gaussian-fit information
+          on each candidate emission-line is conditional on if the fit is successful
+          and if the candidate emission-line has a signal-to-noise greater than three.
         is_image: false
         size: 3 MB
         header:
@@ -554,5 +566,4 @@ releases:
             type: int32[PJ(21]
             unit: ''
             description: Co-added OR_MASK of spectra sample
-notes: |-
-  None
+notes: None
