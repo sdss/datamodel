@@ -1,0 +1,1495 @@
+{
+  "general": {
+    "name": "silo_eboss_detections",
+    "short": "Datamodel for silo_eboss_detections",
+    "description": "This catalog contains the detection information, emission-line analysis, and inspection information of strong galaxy-galaxy gravitational lens candidates that are spectroscopically detected by the Spectroscopic Identification of Lensing Objects (SILO) program (Talbot et al., in prep, which method is based upon the <a href=\"https://arxiv.org/abs/astro-ph/0511453\">SLACS</a> and <a href=\"https://arxiv.org/abs/1112.3683\">BELLS</a> surveys) within the 2 million galaxy spectra from the BOSS and eBOSS surveys.<br/><br/>The data contained in this catalog is split into three sections:<br/>   1. General catalog information and the emission-lines searched.<br/>   2. Detection information, model of the foreground galaxy, foreground subtracted spectra, original and re-scaled inverse-variance of the spectra, Gaussian convolved signal-to-noise of the foreground subtracted spectra, sky information, and bitmask information from the BOSS or eBOSS survey.<br/>   3. Gaussian modeling information and data from section 2 for each candidate background emission-line with sufficient signal to model.<br/><br/>Each candidate is assigned a grade that reflects the clarity of signal displayed. Each grade can be assigned with a +/- to better indicate if the candidate signal demonstrates more or less than the assurance required by the criteria of each grade. The grading criteria is designed to reflect a level of assurance as listed here:<br/>   Grade-A:  The candidate is likely a background galaxy and lensed.<br/>   Grade-B:  The candidate is probably a background galaxy and lensed.<br/>   Grade-C:  The candidate is possibly a background galaxy and lensed.<br/><br/>Plots of the candidate emission-lines that passed our S/N threshold can be accessed from the images folder: images/[PLATE]/flux-[PLATE]-[MJD]-[FIBERID]-[CATALOG_ID].png.<br/><br/>This catalog also includes 5\" and 20\" cutouts of low-resolution images of the targets to enable ease of observation of any indications of lensing. These images are accessed through the DESI Legacy Survey Sky Viewer (<a href=\"“http://legacysurvey.org/”\">DESI Legacy Survey Sky Viewer</a>) from the SDSS Legacy Survey, DeCam Legacy Survey, and the combined images from the Mayall z-band Legacy Survey and Beijing-Arizona Sky Survey, which are presented in the images folder: images/[IMAGE_TYPE = (sdss_image, decals_image-dr7, mzls+bass_image-dr6)]-[PLATE]-[MJD]-[FIBERID]-[SIZE].png of the SDSS target.<br/>",
+    "environments": [
+      "EBOSS_SPECTRO_LENSING"
+    ],
+    "surveys": [
+      {
+        "name": "eBOSS",
+        "long": "Extended Baryon Oscillation Spectroscopic Survey",
+        "description": "A cosmological survey of quasars and galaxies to understand baryon acoustic oscillations",
+        "phase": {
+          "name": "Phase-IV",
+          "id": 4,
+          "start": 2014,
+          "end": 2020,
+          "active": false
+        },
+        "id": "eboss",
+        "aliases": [
+          "boss"
+        ]
+      }
+    ],
+    "datatype": "FITS",
+    "filesize": "308 MB",
+    "releases": [
+      {
+        "name": "DR16",
+        "description": "SDSS public data release 16",
+        "public": true,
+        "release_date": "2019-12-09"
+      },
+      {
+        "name": "DR17",
+        "description": "SDSS public data release 17",
+        "public": true,
+        "release_date": "2021-12-06"
+      }
+    ],
+    "naming_convention": "<code>silo_eboss_detections-[SILO_VER].fits</code>",
+    "generated_by": "SILO 1.0.1 <em></em>",
+    "design": false,
+    "vac": true,
+    "recommended_science_product": true
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {
+      "DR17": {
+        "from": "DR16",
+        "note": "No changes"
+      }
+    }
+  },
+  "releases": {
+    "DR16": {
+      "template": "$EBOSS_SPECTRO_LENSING/silo/[RUN2D]/[RUN1D]/[SILOVER]/silo_eboss_detections-[SILOVER].fits",
+      "example": "silo/v5_13_0/v5_13_0/1.0.1/silo_eboss_detections-1.0.1.fits",
+      "location": "silo/{run2d}/{run1d}/{silover}/silo_eboss_detections-{silover}.fits",
+      "environment": "EBOSS_SPECTRO_LENSING",
+      "survey": "eBOSS",
+      "access": {
+        "in_sdss_access": false,
+        "path_name": null,
+        "path_template": null,
+        "path_kwargs": null,
+        "access_string": "silo_eboss_detections = $EBOSS_SPECTRO_LENSING/silo/{run2d}/{run1d}/{silover}/silo_eboss_detections-{silover}.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Empty except for global header",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            },
+            {
+              "key": "PROJECT",
+              "value": "SILO",
+              "comment": "Lens search project"
+            },
+            {
+              "key": "AUTHORS",
+              "value": "M. Talbot, J. Brownstein",
+              "comment": "SILO project creators"
+            },
+            {
+              "key": "INSP",
+              "value": "Michael Talbot",
+              "comment": "Detection inspector"
+            },
+            {
+              "key": "SCANNED",
+              "value": "BOSS+eBOSS",
+              "comment": "SDSS surveys scanned by SILO"
+            },
+            {
+              "key": "SILO_VER",
+              "value": "1.0.1",
+              "comment": "Version of SILO project used"
+            },
+            {
+              "key": "RUN1D",
+              "value": "V5_13_0",
+              "comment": "BOSS/eBOSS 1D reduction version of spectra"
+            },
+            {
+              "key": "RUN2D",
+              "value": "V5_13_0",
+              "comment": "BOSS/eBOSS 2D reduction version of spectra"
+            },
+            {
+              "key": "RELEASE",
+              "value": "DR16",
+              "comment": "SDSS data release version"
+            },
+            {
+              "key": "SAMPLING",
+              "value": "LOG",
+              "comment": "Wavelength sampling of spectra"
+            },
+            {
+              "key": "SPECTYPE",
+              "value": "COADDED",
+              "comment": "Type of spectra searched"
+            },
+            {
+              "key": "OIIB",
+              "value": "3727.092",
+              "comment": "Restframe wavelength of OIIb"
+            },
+            {
+              "key": "OIIA",
+              "value": "3729.875",
+              "comment": "Restframe wavelength of OIIa"
+            },
+            {
+              "key": "HID",
+              "value": "4102.892",
+              "comment": "Restframe wavelength of HId"
+            },
+            {
+              "key": "HIC",
+              "value": "4341.684",
+              "comment": "Restframe wavelength of HIc"
+            },
+            {
+              "key": "HIB",
+              "value": "4862.683",
+              "comment": "Restframe wavelength of HIb"
+            },
+            {
+              "key": "OIIIB",
+              "value": "4960.295",
+              "comment": "Restframe wavelength of OIIIb"
+            },
+            {
+              "key": "OIIIA",
+              "value": "5008.239",
+              "comment": "Restframe wavelength of OIIIa"
+            },
+            {
+              "key": "NIIB",
+              "value": "6549.86",
+              "comment": "Restframe wavelength of NIIb"
+            },
+            {
+              "key": "HIA",
+              "value": "6564.614",
+              "comment": "Restframe wavelength of HIa"
+            },
+            {
+              "key": "NIIA",
+              "value": "6585.27",
+              "comment": "Restframe wavelength of NIIa"
+            },
+            {
+              "key": "SIIB",
+              "value": "6718.29",
+              "comment": "Restframe wavelength of SIIb"
+            },
+            {
+              "key": "SIIA",
+              "value": "6732.68",
+              "comment": "Restframe wavelength of SIIa"
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "DETECTIONS",
+          "is_image": false,
+          "description": "Columns of table contains target information, spectra data, foregound model, detection information, and inspection grade and comments.",
+          "size": "305 MB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "BINTABLE",
+              "comment": "binary table extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "3386",
+              "comment": "length of dimension 1"
+            },
+            {
+              "key": "NAXIS2",
+              "value": "1551",
+              "comment": "length of dimension 2"
+            },
+            {
+              "key": "PCOUNT",
+              "value": "314832276",
+              "comment": "number of group parameters"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "number of groups"
+            },
+            {
+              "key": "TFIELDS",
+              "value": "39",
+              "comment": "number of table fields"
+            },
+            {
+              "key": "TUNIT25",
+              "value": "Degree",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT26",
+              "value": "Degree",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT27",
+              "value": "hour:':''",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT28",
+              "value": "Degree:':''",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT29",
+              "value": "Angstroms",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT30",
+              "value": "10^-17 ergs/s/cm^2/Ang",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT34",
+              "value": "10^-17 ergs/s/cm^2/Ang",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT35",
+              "value": "pixel=dloglam",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT36",
+              "value": "10^-17 ergs/s/cm^2/Ang",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT38",
+              "value": "10^-17 ergs/s/cm^2/Ang",
+              "comment": ""
+            },
+            {
+              "key": "EXTNAME",
+              "value": "DETECTIONS",
+              "comment": "extension name"
+            }
+          ],
+          "columns": {
+            "CATALOG_ID": {
+              "name": "CATALOG_ID",
+              "description": "Detection identifier for this catalog",
+              "type": "int32",
+              "unit": ""
+            },
+            "EMLINE_SCAN_TYPE": {
+              "name": "EMLINE_SCAN_TYPE",
+              "description": "Single-line=OII(b, a), Multi-line=2+ lines",
+              "type": "char[10]",
+              "unit": ""
+            },
+            "DETECTION_Z": {
+              "name": "DETECTION_Z",
+              "description": "Redshift of background candidate",
+              "type": "float32",
+              "unit": ""
+            },
+            "N_EMLINES_SN_GE4": {
+              "name": "N_EMLINES_SN_GE4",
+              "description": "Number of emission-lines detected with SN>=4",
+              "type": "int32",
+              "unit": ""
+            },
+            "QUADATURE_SUM_SN_GE3": {
+              "name": "QUADATURE_SUM_SN_GE3",
+              "description": "Quadrature sum of emission-lines with SN>=3",
+              "type": "float32",
+              "unit": ""
+            },
+            "SPECTRA_GRADE": {
+              "name": "SPECTRA_GRADE",
+              "description": "Grade of spectra assurances of source candidate",
+              "type": "char[2]",
+              "unit": ""
+            },
+            "TOTAL_GRADE": {
+              "name": "TOTAL_GRADE",
+              "description": "Grade of spectra+image assurances of candidate",
+              "type": "char[2]",
+              "unit": ""
+            },
+            "COMMENT": {
+              "name": "COMMENT",
+              "description": "Comment of assuring/non-assuring features",
+              "type": "char[3000]",
+              "unit": ""
+            },
+            "FIRST_DETECTION_FROM": {
+              "name": "FIRST_DETECTION_FROM",
+              "description": "Identity of earlier discoverer",
+              "type": "char[30]",
+              "unit": ""
+            },
+            "FIRST_DETECTION_LG": {
+              "name": "FIRST_DETECTION_LG",
+              "description": "Strong lens grade from Masterlens database",
+              "type": "char[20]",
+              "unit": ""
+            },
+            "SDSS_TARGET_NAME": {
+              "name": "SDSS_TARGET_NAME",
+              "description": "SDSS RA+DEC name of target",
+              "type": "char[20]",
+              "unit": ""
+            },
+            "PLATE": {
+              "name": "PLATE",
+              "description": "Plate of BOSS/eBOSS observation of target",
+              "type": "int32",
+              "unit": ""
+            },
+            "MJD": {
+              "name": "MJD",
+              "description": "Modified Julian Date on observation of target",
+              "type": "int32",
+              "unit": ""
+            },
+            "FIBER_INDEX": {
+              "name": "FIBER_INDEX",
+              "description": "Fiber on plate used for observation",
+              "type": "int32",
+              "unit": ""
+            },
+            "SDSS_SURVEY": {
+              "name": "SDSS_SURVEY",
+              "description": "SDSS survey the spectra was obtained from",
+              "type": "char[10]",
+              "unit": ""
+            },
+            "BESTOBJID": {
+              "name": "BESTOBJID",
+              "description": "SDSS best object id for target",
+              "type": "char[30]",
+              "unit": ""
+            },
+            "SPECOBJID": {
+              "name": "SPECOBJID",
+              "description": "SDSS spectroscopic object id for target",
+              "type": "char[30]",
+              "unit": ""
+            },
+            "CLASS_NOQSO": {
+              "name": "CLASS_NOQSO",
+              "description": "SDSS non-quasar classification of target",
+              "type": "char[10]",
+              "unit": ""
+            },
+            "OBJCLASS": {
+              "name": "OBJCLASS",
+              "description": "SDSS classification of target",
+              "type": "char[15]",
+              "unit": ""
+            },
+            "TARGET_GALAXY_TYPE": {
+              "name": "TARGET_GALAXY_TYPE",
+              "description": "SDSS classification of type of target galaxy",
+              "type": "char[15]",
+              "unit": ""
+            },
+            "TARGETOBJID": {
+              "name": "TARGETOBJID",
+              "description": "SDSS target object id",
+              "type": "char[30]",
+              "unit": ""
+            },
+            "Z_NOQSO": {
+              "name": "Z_NOQSO",
+              "description": "SDSS no-quasar evaluation of target redshift",
+              "type": "float32",
+              "unit": ""
+            },
+            "ZERR_NOQSO": {
+              "name": "ZERR_NOQSO",
+              "description": "SDSS no-quasar error of redshift",
+              "type": "float32",
+              "unit": ""
+            },
+            "ZWARNING_NOQSO": {
+              "name": "ZWARNING_NOQSO",
+              "description": "SDSS redshift measurement warning",
+              "type": "int32",
+              "unit": ""
+            },
+            "RA": {
+              "name": "RA",
+              "description": "Target right ascension",
+              "type": "float32",
+              "unit": "Degree"
+            },
+            "DEC": {
+              "name": "DEC",
+              "description": "Target declination",
+              "type": "float32",
+              "unit": "Degree"
+            },
+            "RA_HMS": {
+              "name": "RA_HMS",
+              "description": "Target right ascension in hour:min:sec",
+              "type": "char[13]",
+              "unit": "hour:':''"
+            },
+            "DEC_DMS": {
+              "name": "DEC_DMS",
+              "description": "Target declination in degree:min:sec",
+              "type": "char[13]",
+              "unit": "Degree:':''"
+            },
+            "WAVE": {
+              "name": "WAVE",
+              "description": "Wavelength vector of spectra",
+              "type": "float32[PE(4646]",
+              "unit": "Angstroms"
+            },
+            "FLUX": {
+              "name": "FLUX",
+              "description": "Coadded flux",
+              "type": "float32[PE(4646]",
+              "unit": "10^-17 ergs/s/cm^2/Ang"
+            },
+            "IVAR": {
+              "name": "IVAR",
+              "description": "Inverse varience of spectra",
+              "type": "float32[PE(4646]",
+              "unit": ""
+            },
+            "AND_MASK": {
+              "name": "AND_MASK",
+              "description": "and_mask of coadded spectra",
+              "type": "int32[PJ(4646]",
+              "unit": ""
+            },
+            "OR_MASK": {
+              "name": "OR_MASK",
+              "description": "or_mask of coadded spectra",
+              "type": "int32[PJ(4646]",
+              "unit": ""
+            },
+            "SKY": {
+              "name": "SKY",
+              "description": "Coadded sky emissions",
+              "type": "float32[PE(4646]",
+              "unit": "10^-17 ergs/s/cm^2/Ang"
+            },
+            "WDISP": {
+              "name": "WDISP",
+              "description": "Wavelength dispersion",
+              "type": "float32[PE(4646]",
+              "unit": "pixel=dloglam"
+            },
+            "MODEL_SILO": {
+              "name": "MODEL_SILO",
+              "description": "Foreground model generated by SILO",
+              "type": "float32[PE(4646]",
+              "unit": "10^-17 ergs/s/cm^2/Ang"
+            },
+            "IVAR_RESCALED": {
+              "name": "IVAR_RESCALED",
+              "description": "Rescaled inverse varience",
+              "type": "float32[PE(4646]",
+              "unit": ""
+            },
+            "RESIDUAL_FLUX": {
+              "name": "RESIDUAL_FLUX",
+              "description": "Residual flux of FLUX-MODEL_SILO",
+              "type": "float32[PE(4646]",
+              "unit": "10^-17 ergs/s/cm^2/Ang"
+            },
+            "SN_SPECTRA_SG": {
+              "name": "SN_SPECTRA_SG",
+              "description": "Gaussian convolved signal-to-noise of spectra",
+              "type": "float32[PE(4646]",
+              "unit": ""
+            }
+          }
+        },
+        "hdu2": {
+          "name": "EMISSION_LINE_ANALYSIS",
+          "is_image": false,
+          "description": "This table contains information for each emission-line",
+          "size": "2 MB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "BINTABLE",
+              "comment": "binary table extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "159",
+              "comment": "length of dimension 1"
+            },
+            {
+              "key": "NAXIS2",
+              "value": "7637",
+              "comment": "length of dimension 2"
+            },
+            {
+              "key": "PCOUNT",
+              "value": "1795296",
+              "comment": "number of group parameters"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "number of groups"
+            },
+            {
+              "key": "TFIELDS",
+              "value": "21",
+              "comment": "number of table fields"
+            },
+            {
+              "key": "TUNIT4",
+              "value": "Angstroms",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT7",
+              "value": "Angstroms",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT8",
+              "value": "Angstroms",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT9",
+              "value": "Angstroms",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT10",
+              "value": "Angstroms",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT16",
+              "value": "Angstroms",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT17",
+              "value": "10^-17 ergs/s/cm^2/Ang",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT18",
+              "value": "10^-17 ergs/s/cm^2/Ang",
+              "comment": ""
+            },
+            {
+              "key": "EXTNAME",
+              "value": "EMISSION_LINE_ANALYSIS",
+              "comment": "extension name"
+            }
+          ],
+          "columns": {
+            "DETECTION_CATALOG_ID": {
+              "name": "DETECTION_CATALOG_ID",
+              "description": "Detection identifier for this catalog",
+              "type": "int32",
+              "unit": ""
+            },
+            "NAME": {
+              "name": "NAME",
+              "description": "Name of emission-line",
+              "type": "char[30]",
+              "unit": ""
+            },
+            "INDEX_IN_SPECTRA": {
+              "name": "INDEX_IN_SPECTRA",
+              "description": "Index emission-line is located in spectra",
+              "type": "int32",
+              "unit": ""
+            },
+            "EM_WAVE": {
+              "name": "EM_WAVE",
+              "description": "Observed-frame wavelength of emission-line",
+              "type": "float32",
+              "unit": "Angstroms"
+            },
+            "SN": {
+              "name": "SN",
+              "description": "Convolved signal-to-noise of emission-line",
+              "type": "float32",
+              "unit": ""
+            },
+            "GAUSS_FIT_REPORTED": {
+              "name": "GAUSS_FIT_REPORTED",
+              "description": "Gauss fit reported if SN>=3",
+              "type": "bool",
+              "unit": ""
+            },
+            "GAUSS_WAVE": {
+              "name": "GAUSS_WAVE",
+              "description": "Wavelength(s) center of model w. -/+97.5 Q.",
+              "type": "float32[PE(4]",
+              "unit": "Angstroms"
+            },
+            "GAUSS_BASE_HEIGHT": {
+              "name": "GAUSS_BASE_HEIGHT",
+              "description": "Gaussian model base height w. -/+97.5 Q.",
+              "type": "float32[3]",
+              "unit": "Angstroms"
+            },
+            "GAUSS_AMPLITUDE": {
+              "name": "GAUSS_AMPLITUDE",
+              "description": "Gaussian model amplitude w. -/+97.5 Q.",
+              "type": "float32[3]",
+              "unit": "Angstroms"
+            },
+            "GAUSS_SIGMA": {
+              "name": "GAUSS_SIGMA",
+              "description": "Gaussian model sigma w. -/+97.5 Q.",
+              "type": "float32[3]",
+              "unit": "Angstroms"
+            },
+            "RCHI2_SAMPLE": {
+              "name": "RCHI2_SAMPLE",
+              "description": "Reduced chi^2 of Gauss fit to sample",
+              "type": "float32",
+              "unit": ""
+            },
+            "NDOF_SAMPLE": {
+              "name": "NDOF_SAMPLE",
+              "description": "Degree of freedom of RCHI2_SAMPLE",
+              "type": "int32",
+              "unit": ""
+            },
+            "RCHI2_3SIG": {
+              "name": "RCHI2_3SIG",
+              "description": "Reduced chi^2 of Gauss fit within 3 sigma",
+              "type": "float32",
+              "unit": ""
+            },
+            "NDOF_3SIG": {
+              "name": "NDOF_3SIG",
+              "description": "Degree of freedom of RCHI2_3SIG",
+              "type": "int32",
+              "unit": ""
+            },
+            "SAMPLE_SIZE": {
+              "name": "SAMPLE_SIZE",
+              "description": "Sample size",
+              "type": "int32",
+              "unit": ""
+            },
+            "MODEL_WAVE_BASE": {
+              "name": "MODEL_WAVE_BASE",
+              "description": "Wavelength base of Gaussian model",
+              "type": "float32[PE(21]",
+              "unit": "Angstroms"
+            },
+            "GAUSS_MODEL": {
+              "name": "GAUSS_MODEL",
+              "description": "Gaussian model of residual flux",
+              "type": "float32[PE(21]",
+              "unit": "10^-17 ergs/s/cm^2/Ang"
+            },
+            "FITTED_RESIDUAL_FLUX": {
+              "name": "FITTED_RESIDUAL_FLUX",
+              "description": "Residual flux segment used in Gaussian fit",
+              "type": "float32[PE(21]",
+              "unit": "10^-17 ergs/s/cm^2/Ang"
+            },
+            "FITTED_IVAR_RESCALED": {
+              "name": "FITTED_IVAR_RESCALED",
+              "description": "Rescaled inverse varience used in Gauss fit",
+              "type": "float32[PE(21]",
+              "unit": ""
+            },
+            "AND_MASK": {
+              "name": "AND_MASK",
+              "description": "SDSS AND_MASK of spectra sample",
+              "type": "int32[PJ(21]",
+              "unit": ""
+            },
+            "OR_MASK": {
+              "name": "OR_MASK",
+              "description": "SDSS OR_MASK of spectra sample",
+              "type": "int32[PJ(21]",
+              "unit": ""
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null
+    },
+    "DR17": {
+      "template": "$EBOSS_SPECTRO_LENSING/silo/[RUN2D]/[RUN1D]/[SILOVER]/silo_eboss_detections-[SILOVER].fits",
+      "example": "silo/v5_13_0/v5_13_0/1.0.1/silo_eboss_detections-1.0.1.fits",
+      "location": "silo/{run2d}/{run1d}/{silover}/silo_eboss_detections-{silover}.fits",
+      "environment": "EBOSS_SPECTRO_LENSING",
+      "survey": "eBOSS",
+      "access": {
+        "in_sdss_access": false,
+        "path_name": null,
+        "path_template": null,
+        "path_kwargs": null,
+        "access_string": "silo_eboss_detections = $EBOSS_SPECTRO_LENSING/silo/{run2d}/{run1d}/{silover}/silo_eboss_detections-{silover}.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Empty except for global header",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            },
+            {
+              "key": "PROJECT",
+              "value": "SILO",
+              "comment": "Lens search project"
+            },
+            {
+              "key": "AUTHORS",
+              "value": "M. Talbot, J. Brownstein",
+              "comment": "SILO project creators"
+            },
+            {
+              "key": "INSP",
+              "value": "Michael Talbot",
+              "comment": "Detection inspector"
+            },
+            {
+              "key": "SCANNED",
+              "value": "BOSS+eBOSS",
+              "comment": "SDSS surveys scanned by SILO"
+            },
+            {
+              "key": "SILO_VER",
+              "value": "1.0.1",
+              "comment": "Version of SILO project used"
+            },
+            {
+              "key": "RUN1D",
+              "value": "V5_13_0",
+              "comment": "BOSS/eBOSS 1D reduction version of spectra"
+            },
+            {
+              "key": "RUN2D",
+              "value": "V5_13_0",
+              "comment": "BOSS/eBOSS 2D reduction version of spectra"
+            },
+            {
+              "key": "RELEASE",
+              "value": "DR16",
+              "comment": "SDSS data release version"
+            },
+            {
+              "key": "SAMPLING",
+              "value": "LOG",
+              "comment": "Wavelength sampling of spectra"
+            },
+            {
+              "key": "SPECTYPE",
+              "value": "COADDED",
+              "comment": "Type of spectra searched"
+            },
+            {
+              "key": "OIIB",
+              "value": "3727.092",
+              "comment": "Restframe wavelength of OIIb"
+            },
+            {
+              "key": "OIIA",
+              "value": "3729.875",
+              "comment": "Restframe wavelength of OIIa"
+            },
+            {
+              "key": "HID",
+              "value": "4102.892",
+              "comment": "Restframe wavelength of HId"
+            },
+            {
+              "key": "HIC",
+              "value": "4341.684",
+              "comment": "Restframe wavelength of HIc"
+            },
+            {
+              "key": "HIB",
+              "value": "4862.683",
+              "comment": "Restframe wavelength of HIb"
+            },
+            {
+              "key": "OIIIB",
+              "value": "4960.295",
+              "comment": "Restframe wavelength of OIIIb"
+            },
+            {
+              "key": "OIIIA",
+              "value": "5008.239",
+              "comment": "Restframe wavelength of OIIIa"
+            },
+            {
+              "key": "NIIB",
+              "value": "6549.86",
+              "comment": "Restframe wavelength of NIIb"
+            },
+            {
+              "key": "HIA",
+              "value": "6564.614",
+              "comment": "Restframe wavelength of HIa"
+            },
+            {
+              "key": "NIIA",
+              "value": "6585.27",
+              "comment": "Restframe wavelength of NIIa"
+            },
+            {
+              "key": "SIIB",
+              "value": "6718.29",
+              "comment": "Restframe wavelength of SIIb"
+            },
+            {
+              "key": "SIIA",
+              "value": "6732.68",
+              "comment": "Restframe wavelength of SIIa"
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "DETECTIONS",
+          "is_image": false,
+          "description": "Columns of table contains target information, spectra data, foregound model, detection information, and inspection grade and comments.",
+          "size": "305 MB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "BINTABLE",
+              "comment": "binary table extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "3386",
+              "comment": "length of dimension 1"
+            },
+            {
+              "key": "NAXIS2",
+              "value": "1551",
+              "comment": "length of dimension 2"
+            },
+            {
+              "key": "PCOUNT",
+              "value": "314832276",
+              "comment": "number of group parameters"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "number of groups"
+            },
+            {
+              "key": "TFIELDS",
+              "value": "39",
+              "comment": "number of table fields"
+            },
+            {
+              "key": "TUNIT25",
+              "value": "Degree",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT26",
+              "value": "Degree",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT27",
+              "value": "hour:':''",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT28",
+              "value": "Degree:':''",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT29",
+              "value": "Angstroms",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT30",
+              "value": "10^-17 ergs/s/cm^2/Ang",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT34",
+              "value": "10^-17 ergs/s/cm^2/Ang",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT35",
+              "value": "pixel=dloglam",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT36",
+              "value": "10^-17 ergs/s/cm^2/Ang",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT38",
+              "value": "10^-17 ergs/s/cm^2/Ang",
+              "comment": ""
+            },
+            {
+              "key": "EXTNAME",
+              "value": "DETECTIONS",
+              "comment": "extension name"
+            }
+          ],
+          "columns": {
+            "CATALOG_ID": {
+              "name": "CATALOG_ID",
+              "description": "Detection identifier for this catalog",
+              "type": "int32",
+              "unit": ""
+            },
+            "EMLINE_SCAN_TYPE": {
+              "name": "EMLINE_SCAN_TYPE",
+              "description": "Single-line=OII(b, a), Multi-line=2+ lines",
+              "type": "char[10]",
+              "unit": ""
+            },
+            "DETECTION_Z": {
+              "name": "DETECTION_Z",
+              "description": "Redshift of background candidate",
+              "type": "float32",
+              "unit": ""
+            },
+            "N_EMLINES_SN_GE4": {
+              "name": "N_EMLINES_SN_GE4",
+              "description": "Number of emission-lines detected with SN>=4",
+              "type": "int32",
+              "unit": ""
+            },
+            "QUADATURE_SUM_SN_GE3": {
+              "name": "QUADATURE_SUM_SN_GE3",
+              "description": "Quadrature sum of emission-lines with SN>=3",
+              "type": "float32",
+              "unit": ""
+            },
+            "SPECTRA_GRADE": {
+              "name": "SPECTRA_GRADE",
+              "description": "Grade of spectra assurances of source candidate",
+              "type": "char[2]",
+              "unit": ""
+            },
+            "TOTAL_GRADE": {
+              "name": "TOTAL_GRADE",
+              "description": "Grade of spectra+image assurances of candidate",
+              "type": "char[2]",
+              "unit": ""
+            },
+            "COMMENT": {
+              "name": "COMMENT",
+              "description": "Comment of assuring/non-assuring features",
+              "type": "char[3000]",
+              "unit": ""
+            },
+            "FIRST_DETECTION_FROM": {
+              "name": "FIRST_DETECTION_FROM",
+              "description": "Identity of earlier discoverer",
+              "type": "char[30]",
+              "unit": ""
+            },
+            "FIRST_DETECTION_LG": {
+              "name": "FIRST_DETECTION_LG",
+              "description": "Strong lens grade from Masterlens database",
+              "type": "char[20]",
+              "unit": ""
+            },
+            "SDSS_TARGET_NAME": {
+              "name": "SDSS_TARGET_NAME",
+              "description": "SDSS RA+DEC name of target",
+              "type": "char[20]",
+              "unit": ""
+            },
+            "PLATE": {
+              "name": "PLATE",
+              "description": "Plate of BOSS/eBOSS observation of target",
+              "type": "int32",
+              "unit": ""
+            },
+            "MJD": {
+              "name": "MJD",
+              "description": "Modified Julian Date on observation of target",
+              "type": "int32",
+              "unit": ""
+            },
+            "FIBER_INDEX": {
+              "name": "FIBER_INDEX",
+              "description": "Fiber on plate used for observation",
+              "type": "int32",
+              "unit": ""
+            },
+            "SDSS_SURVEY": {
+              "name": "SDSS_SURVEY",
+              "description": "SDSS survey the spectra was obtained from",
+              "type": "char[10]",
+              "unit": ""
+            },
+            "BESTOBJID": {
+              "name": "BESTOBJID",
+              "description": "SDSS best object id for target",
+              "type": "char[30]",
+              "unit": ""
+            },
+            "SPECOBJID": {
+              "name": "SPECOBJID",
+              "description": "SDSS spectroscopic object id for target",
+              "type": "char[30]",
+              "unit": ""
+            },
+            "CLASS_NOQSO": {
+              "name": "CLASS_NOQSO",
+              "description": "SDSS non-quasar classification of target",
+              "type": "char[10]",
+              "unit": ""
+            },
+            "OBJCLASS": {
+              "name": "OBJCLASS",
+              "description": "SDSS classification of target",
+              "type": "char[15]",
+              "unit": ""
+            },
+            "TARGET_GALAXY_TYPE": {
+              "name": "TARGET_GALAXY_TYPE",
+              "description": "SDSS classification of type of target galaxy",
+              "type": "char[15]",
+              "unit": ""
+            },
+            "TARGETOBJID": {
+              "name": "TARGETOBJID",
+              "description": "SDSS target object id",
+              "type": "char[30]",
+              "unit": ""
+            },
+            "Z_NOQSO": {
+              "name": "Z_NOQSO",
+              "description": "SDSS no-quasar evaluation of target redshift",
+              "type": "float32",
+              "unit": ""
+            },
+            "ZERR_NOQSO": {
+              "name": "ZERR_NOQSO",
+              "description": "SDSS no-quasar error of redshift",
+              "type": "float32",
+              "unit": ""
+            },
+            "ZWARNING_NOQSO": {
+              "name": "ZWARNING_NOQSO",
+              "description": "SDSS redshift measurement warning",
+              "type": "int32",
+              "unit": ""
+            },
+            "RA": {
+              "name": "RA",
+              "description": "Target right ascension",
+              "type": "float32",
+              "unit": "Degree"
+            },
+            "DEC": {
+              "name": "DEC",
+              "description": "Target declination",
+              "type": "float32",
+              "unit": "Degree"
+            },
+            "RA_HMS": {
+              "name": "RA_HMS",
+              "description": "Target right ascension in hour:min:sec",
+              "type": "char[13]",
+              "unit": "hour:':''"
+            },
+            "DEC_DMS": {
+              "name": "DEC_DMS",
+              "description": "Target declination in degree:min:sec",
+              "type": "char[13]",
+              "unit": "Degree:':''"
+            },
+            "WAVE": {
+              "name": "WAVE",
+              "description": "Wavelength vector of spectra",
+              "type": "float32[PE(4646]",
+              "unit": "Angstroms"
+            },
+            "FLUX": {
+              "name": "FLUX",
+              "description": "Coadded flux",
+              "type": "float32[PE(4646]",
+              "unit": "10^-17 ergs/s/cm^2/Ang"
+            },
+            "IVAR": {
+              "name": "IVAR",
+              "description": "Inverse varience of spectra",
+              "type": "float32[PE(4646]",
+              "unit": ""
+            },
+            "AND_MASK": {
+              "name": "AND_MASK",
+              "description": "and_mask of coadded spectra",
+              "type": "int32[PJ(4646]",
+              "unit": ""
+            },
+            "OR_MASK": {
+              "name": "OR_MASK",
+              "description": "or_mask of coadded spectra",
+              "type": "int32[PJ(4646]",
+              "unit": ""
+            },
+            "SKY": {
+              "name": "SKY",
+              "description": "Coadded sky emissions",
+              "type": "float32[PE(4646]",
+              "unit": "10^-17 ergs/s/cm^2/Ang"
+            },
+            "WDISP": {
+              "name": "WDISP",
+              "description": "Wavelength dispersion",
+              "type": "float32[PE(4646]",
+              "unit": "pixel=dloglam"
+            },
+            "MODEL_SILO": {
+              "name": "MODEL_SILO",
+              "description": "Foreground model generated by SILO",
+              "type": "float32[PE(4646]",
+              "unit": "10^-17 ergs/s/cm^2/Ang"
+            },
+            "IVAR_RESCALED": {
+              "name": "IVAR_RESCALED",
+              "description": "Rescaled inverse varience",
+              "type": "float32[PE(4646]",
+              "unit": ""
+            },
+            "RESIDUAL_FLUX": {
+              "name": "RESIDUAL_FLUX",
+              "description": "Residual flux of FLUX-MODEL_SILO",
+              "type": "float32[PE(4646]",
+              "unit": "10^-17 ergs/s/cm^2/Ang"
+            },
+            "SN_SPECTRA_SG": {
+              "name": "SN_SPECTRA_SG",
+              "description": "Gaussian convolved signal-to-noise of spectra",
+              "type": "float32[PE(4646]",
+              "unit": ""
+            }
+          }
+        },
+        "hdu2": {
+          "name": "EMISSION_LINE_ANALYSIS",
+          "is_image": false,
+          "description": "This table contains information for each emission-line",
+          "size": "2 MB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "BINTABLE",
+              "comment": "binary table extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "159",
+              "comment": "length of dimension 1"
+            },
+            {
+              "key": "NAXIS2",
+              "value": "7637",
+              "comment": "length of dimension 2"
+            },
+            {
+              "key": "PCOUNT",
+              "value": "1795296",
+              "comment": "number of group parameters"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "number of groups"
+            },
+            {
+              "key": "TFIELDS",
+              "value": "21",
+              "comment": "number of table fields"
+            },
+            {
+              "key": "TUNIT4",
+              "value": "Angstroms",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT7",
+              "value": "Angstroms",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT8",
+              "value": "Angstroms",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT9",
+              "value": "Angstroms",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT10",
+              "value": "Angstroms",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT16",
+              "value": "Angstroms",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT17",
+              "value": "10^-17 ergs/s/cm^2/Ang",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT18",
+              "value": "10^-17 ergs/s/cm^2/Ang",
+              "comment": ""
+            },
+            {
+              "key": "EXTNAME",
+              "value": "EMISSION_LINE_ANALYSIS",
+              "comment": "extension name"
+            }
+          ],
+          "columns": {
+            "DETECTION_CATALOG_ID": {
+              "name": "DETECTION_CATALOG_ID",
+              "description": "Detection identifier for this catalog",
+              "type": "int32",
+              "unit": ""
+            },
+            "NAME": {
+              "name": "NAME",
+              "description": "Name of emission-line",
+              "type": "char[30]",
+              "unit": ""
+            },
+            "INDEX_IN_SPECTRA": {
+              "name": "INDEX_IN_SPECTRA",
+              "description": "Index emission-line is located in spectra",
+              "type": "int32",
+              "unit": ""
+            },
+            "EM_WAVE": {
+              "name": "EM_WAVE",
+              "description": "Observed-frame wavelength of emission-line",
+              "type": "float32",
+              "unit": "Angstroms"
+            },
+            "SN": {
+              "name": "SN",
+              "description": "Convolved signal-to-noise of emission-line",
+              "type": "float32",
+              "unit": ""
+            },
+            "GAUSS_FIT_REPORTED": {
+              "name": "GAUSS_FIT_REPORTED",
+              "description": "Gauss fit reported if SN>=3",
+              "type": "bool",
+              "unit": ""
+            },
+            "GAUSS_WAVE": {
+              "name": "GAUSS_WAVE",
+              "description": "Wavelength(s) center of model w. -/+97.5 Q.",
+              "type": "float32[PE(4]",
+              "unit": "Angstroms"
+            },
+            "GAUSS_BASE_HEIGHT": {
+              "name": "GAUSS_BASE_HEIGHT",
+              "description": "Gaussian model base height w. -/+97.5 Q.",
+              "type": "float32[3]",
+              "unit": "Angstroms"
+            },
+            "GAUSS_AMPLITUDE": {
+              "name": "GAUSS_AMPLITUDE",
+              "description": "Gaussian model amplitude w. -/+97.5 Q.",
+              "type": "float32[3]",
+              "unit": "Angstroms"
+            },
+            "GAUSS_SIGMA": {
+              "name": "GAUSS_SIGMA",
+              "description": "Gaussian model sigma w. -/+97.5 Q.",
+              "type": "float32[3]",
+              "unit": "Angstroms"
+            },
+            "RCHI2_SAMPLE": {
+              "name": "RCHI2_SAMPLE",
+              "description": "Reduced chi^2 of Gauss fit to sample",
+              "type": "float32",
+              "unit": ""
+            },
+            "NDOF_SAMPLE": {
+              "name": "NDOF_SAMPLE",
+              "description": "Degree of freedom of RCHI2_SAMPLE",
+              "type": "int32",
+              "unit": ""
+            },
+            "RCHI2_3SIG": {
+              "name": "RCHI2_3SIG",
+              "description": "Reduced chi^2 of Gauss fit within 3 sigma",
+              "type": "float32",
+              "unit": ""
+            },
+            "NDOF_3SIG": {
+              "name": "NDOF_3SIG",
+              "description": "Degree of freedom of RCHI2_3SIG",
+              "type": "int32",
+              "unit": ""
+            },
+            "SAMPLE_SIZE": {
+              "name": "SAMPLE_SIZE",
+              "description": "Sample size",
+              "type": "int32",
+              "unit": ""
+            },
+            "MODEL_WAVE_BASE": {
+              "name": "MODEL_WAVE_BASE",
+              "description": "Wavelength base of Gaussian model",
+              "type": "float32[PE(21]",
+              "unit": "Angstroms"
+            },
+            "GAUSS_MODEL": {
+              "name": "GAUSS_MODEL",
+              "description": "Gaussian model of residual flux",
+              "type": "float32[PE(21]",
+              "unit": "10^-17 ergs/s/cm^2/Ang"
+            },
+            "FITTED_RESIDUAL_FLUX": {
+              "name": "FITTED_RESIDUAL_FLUX",
+              "description": "Residual flux segment used in Gaussian fit",
+              "type": "float32[PE(21]",
+              "unit": "10^-17 ergs/s/cm^2/Ang"
+            },
+            "FITTED_IVAR_RESCALED": {
+              "name": "FITTED_IVAR_RESCALED",
+              "description": "Rescaled inverse varience used in Gauss fit",
+              "type": "float32[PE(21]",
+              "unit": ""
+            },
+            "AND_MASK": {
+              "name": "AND_MASK",
+              "description": "SDSS AND_MASK of spectra sample",
+              "type": "int32[PJ(21]",
+              "unit": ""
+            },
+            "OR_MASK": {
+              "name": "OR_MASK",
+              "description": "SDSS OR_MASK of spectra sample",
+              "type": "int32[PJ(21]",
+              "unit": ""
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null
+    }
+  },
+  "notes": "\nExamples\nHow to use python to find and select data for a specific detection\n\n        import numpy as np\n        from astropy.io import fits\n        \n        #How about we exame a candidate that was confirmed by the BELLS survey\n        plate = 3861 #BOSS plate of the observation\n        mjd = 55274 #Modified julian day of observation\n        fiberid = 393 #Index of fiber on plate used to observe target\n        \n        hdu = fits.open('Your path to/v5_13_0/v5_13_0/1.0.1/silo_eboss_detections-1.0.1.fits')\n        index = np.where((hdu['DETECTIONS'].data['PLATE'] == plate)\n            & (hdu['DETECTIONS'].data['MJD'] == mjd)\n            & (hdu['DETECTIONS'].data['FIBER_INDEX'] == fiberid))[0][0]\n            \n        data_for_plate_mjd_fiberid = hdu['DETECTIONS'].data[index]\n        \n        #Now how about we get data for an emission line, such as the spectra for the OII(b,a) Doublet\n        index_for_plate_mjd_fiberid = \n\t\tnp.where((hdu['EMISSION_LINE_ANALYSIS'].data['DETECTION_CATALOG_ID'] == data_for_plate_mjd_fiberid['CATALOG_ID'])\n\t\t& (hdu['EMISSION_LINE_ANALYSIS'].data['NAME'] == 'OII(b, a) doublet'))[0][0]\n             \n        emline_for_plate_mjd_fiberid = hdu['EMISSION_LINE_ANALYSIS'].data[index_for_plate_mjd_fiberid]\n        \n        #What is the signal to noise measured for this emission-line\n        print('SN =',emline_for_plate_mjd_fiberid['SN'])\n        \n        # Lets pull out the detection redshift and the residual flux\n        z = data_for_plate_mjd_fiberid['DETECTION_Z']\n        wave_vector = data_for_plate_mjd_fiberid['WAVE']\n        residual_flux = data_for_plate_mjd_fiberid['RESIDUAL_FLUX']\n        \n        # Lets prepare to view the OII(b,a) doublet in pyplot\n        import matplotlib.pyplot as plt\n        \n        # How to find an index of an emission line in the spectra\n        observed_wavelength = np.sqrt(hdu[0].header['OIIB']*hdu[0].header['OIIA']) * (1+z)\n        window = 10\n        emline_index = np.abs(wave_vector - observed_wavelength).argmin()\n       \n        #OR !!!!\n        #emline_index = emline_for_plate_mjd_fiberid['INDEX_IN_SPECTRA']\n        \n        #Now lets plot the flux-model spectra at the position of the OII(b,a) doublet\n        plt.plot(wave_vector[emline_index-10:emline_index+10], residual_flux[emline_index-10:emline_index+10], 'k')\n        #OR if emline_for_plate_mjd_fiberid['GAUSS_FIT_REPORTED'] is True you can plot the flux-model with Gauss model\n\t#plt.plot(emline_for_plate_mjd_fiberid['MODEL_WAVE_BASE'], emline_for_plate_mjd_fiberid['FITTED_RESIDUAL_FLUX'],'k',\n\t    emline_for_plate_mjd_fiberid['MODEL_WAVE_BASE'], emline_for_plate_mjd_fiberid['GAUSS_MODEL'], 'g--') \n        plt.xlabel('Wavelength (Angstroms)')\n        plt.ylabel('Flux 10^-17 erg/s/cm^2/Ang')\n        plt.show(block=False)\n        \n        #You can look at the target image by browsing through the images folder for\n\t\t\t...image/[PLATE]/[IMAGE_TYPE]-[PLATE]-[MJD]-[FIBERID]-[SIZE].png\n            #where:\n            PLATE = data_for_plate_mjd_fiberid['PLATE']\n            MJD = data_for_plate_mjd_fiberid['MJD']    \n            FIBERID = data_for_plate_mjd_fiberid['FIBER_INDEX']\n            IMAGE_TYPE = (sdss, decals_image-dr7, mzls+bass_image-dr6)\n            SIZE = 20 #Options are: 5\", 20\"\n\n        #You can also look at plots of the candidate emission-lines with the\n\t\t\tgrade and comment included in the images folder for\n\t\t\t...image/[PLATE]/flux-[PLATE]-[MJD]-[FIBERID]-[CATALOG_ID].png\n            #where:\n            PLATE = data_for_plate_mjd_fiberid['PLATE']\n            MJD = data_for_plate_mjd_fiberid['MJD']\n            FIBERID = data_for_plate_mjd_fiberid['FIBER_INDEX']\n            CATALOG_ID = data_for_plate_mjd_fiberid['CATALOG_ID']\n        \n"
+}
