@@ -1,0 +1,1371 @@
+{
+  "general": {
+    "name": "silo_manga_stack_data",
+    "short": "Datamodel for silo_manga_stack_data",
+    "description": "This file provides row-stacked-spectra (RSS), foreground subracted RSS (residuals), co-added residuals across exposures from the same fiber at the same dither position (stack), signal-to-noise (SN) for each stack, and spaxel CUBES constructed from each data type, in which sigma-clipping was applied to the stacked data to reject transient signals (see <a href=\"https://ui.adsabs.harvard.edu/abs/2018MNRAS.477..195T/abstract\">Talbot et al. (2018)</a>, Talbot et al. in prep).",
+    "environments": [
+      "MANGA_SPECTRO_LENSING"
+    ],
+    "surveys": [
+      {
+        "name": "MaNGA",
+        "long": "Mapping Nearby Galaxies at Apache Point Observatory",
+        "description": "A wide-field optical spectroscopic IFU survey of extragalactic sources to study galaxy dynamics and kinematics",
+        "phase": {
+          "name": "Phase-IV",
+          "id": 4,
+          "start": 2014,
+          "end": 2020,
+          "active": false
+        },
+        "id": "manga",
+        "aliases": []
+      }
+    ],
+    "datatype": "FITS",
+    "filesize": "1003 MB",
+    "releases": [
+      {
+        "name": "DR17",
+        "description": "SDSS public data release 17",
+        "public": true,
+        "release_date": "2021-12-06"
+      }
+    ],
+    "naming_convention": "<code>manga_[PLATE]_[IFU]_stack_data\\.fits, in which PLATE is the MaNGA plate and IFU is the MaNGA integral-field-unit.</code>",
+    "generated_by": "SILO",
+    "design": false,
+    "vac": true,
+    "recommended_science_product": true
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR17": {
+      "template": "$MANGA_SPECTRO_LENSING/silo/[DRPVER]/[SILOVER]/[PLATE]/manga_[PLATE]_[IFU]_stack_data.fits",
+      "example": "silo/v3_1_1/1.0.4/8606/manga_8606_6102_stack_data.fits",
+      "location": "silo/{drpver}/{silover}/{plate}/manga_{plate}_{ifu}_stack_data.fits",
+      "environment": "MANGA_SPECTRO_LENSING",
+      "survey": "MaNGA",
+      "access": {
+        "in_sdss_access": false,
+        "path_name": null,
+        "path_template": null,
+        "path_kwargs": null,
+        "access_string": "silo_manga_stack_data = $MANGA_SPECTRO_LENSING/silo/{drpver}/{silover}/{plate}/manga_{plate}_{ifu}_stack_data.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Survey and MaNGA target information.",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            },
+            {
+              "key": "AUTHOR",
+              "value": "Michael Talbot",
+              "comment": "Creator of detection file"
+            },
+            {
+              "key": "INSP",
+              "value": "Michael Talbot",
+              "comment": "Detection inspector"
+            },
+            {
+              "key": "SOURCE",
+              "value": "SILO",
+              "comment": "SILO"
+            },
+            {
+              "key": "SILO_VER",
+              "value": "1.0.3",
+              "comment": "Version build of SILO"
+            },
+            {
+              "key": "DRPVER",
+              "value": "v3_1_1",
+              "comment": "Data reduction pipeline version of RSS spectra"
+            },
+            {
+              "key": "SAMPLING",
+              "value": "LOG",
+              "comment": "Wavelength sampling type"
+            },
+            {
+              "key": "SPECTRA",
+              "value": "SINGLE AND COADDED",
+              "comment": "Type of spectra used from MaNGA files"
+            },
+            {
+              "key": "OBJRA",
+              "value": "255.350049437",
+              "comment": "Object right ascension"
+            },
+            {
+              "key": "IFURA",
+              "value": "255.35005",
+              "comment": "Right ascension of IFU center"
+            },
+            {
+              "key": "OBJDEC",
+              "value": "37.3828022848",
+              "comment": "Object declination"
+            },
+            {
+              "key": "IFUDEC",
+              "value": "37.382802",
+              "comment": "Declination of IFU center"
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "INDIVIDUAL_EXPOSURE_REDUCTION",
+          "is_image": false,
+          "description": "This extension contains fiber position, spectroscopic redshift, spectra data, SILO foreground model, \t\t\tresiduals, and SN for each RSS with sufficent SN to model",
+          "size": "48 MB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "BINTABLE",
+              "comment": "binary table extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "129",
+              "comment": "length of dimension 1"
+            },
+            {
+              "key": "NAXIS2",
+              "value": "252",
+              "comment": "length of dimension 2"
+            },
+            {
+              "key": "PCOUNT",
+              "value": "50594544",
+              "comment": "number of group parameters"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "number of groups"
+            },
+            {
+              "key": "TFIELDS",
+              "value": "22",
+              "comment": "number of table fields"
+            },
+            {
+              "key": "TUNIT7",
+              "value": "Arcseconds",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT8",
+              "value": "Arcseconds",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT9",
+              "value": "Arcseconds",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT10",
+              "value": "Arcseconds",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT11",
+              "value": "Redshift",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT12",
+              "value": "10^-17 erg/s/cm^2/Ang",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT15",
+              "value": "Arcseconds",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT16",
+              "value": "Arcseconds",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT17",
+              "value": "Arcseconds",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT18",
+              "value": "10^-17 erg/s/cm^2/Ang",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT19",
+              "value": "10^-17 erg/s/cm^2/Ang",
+              "comment": ""
+            },
+            {
+              "key": "EXTNAME",
+              "value": "INDIVIDUAL_EXPOSURE_REDUCTION",
+              "comment": "extension name"
+            }
+          ],
+          "columns": {
+            "RSS_INDEX": {
+              "name": "RSS_INDEX",
+              "description": "Row-stacked spectra index",
+              "type": "int32",
+              "unit": ""
+            },
+            "DITHER_POSITION": {
+              "name": "DITHER_POSITION",
+              "description": "Fiber position in dither pattern",
+              "type": "char[1]",
+              "unit": ""
+            },
+            "FIBER_INDEX": {
+              "name": "FIBER_INDEX",
+              "description": "Fiber index within IFU",
+              "type": "int32",
+              "unit": ""
+            },
+            "FIBER_POSITION": {
+              "name": "FIBER_POSITION",
+              "description": "Fiber number in IFU and dither position",
+              "type": "char[4]",
+              "unit": ""
+            },
+            "EXPNUM": {
+              "name": "EXPNUM",
+              "description": "Exposure number",
+              "type": "int32",
+              "unit": ""
+            },
+            "SET": {
+              "name": "SET",
+              "description": "Iteration of dither pattern set",
+              "type": "int32",
+              "unit": ""
+            },
+            "SEEING": {
+              "name": "SEEING",
+              "description": "Seeing at time of exposure",
+              "type": "float32",
+              "unit": "Arcseconds"
+            },
+            "MEAN_X": {
+              "name": "MEAN_X",
+              "description": "Mean x position of fiber",
+              "type": "float32",
+              "unit": "Arcseconds"
+            },
+            "MEAN_Y": {
+              "name": "MEAN_Y",
+              "description": "Mean y position of fiber",
+              "type": "float32",
+              "unit": "Arcseconds"
+            },
+            "MEAN_R": {
+              "name": "MEAN_R",
+              "description": "Mean radius position of fiber",
+              "type": "float32",
+              "unit": "Arcseconds"
+            },
+            "SPECZ": {
+              "name": "SPECZ",
+              "description": "Best fit redshfit of spectra in fiber",
+              "type": "float32",
+              "unit": "Redshift"
+            },
+            "FLUX": {
+              "name": "FLUX",
+              "description": "Flux of spectra",
+              "type": "float32[PE(4563]",
+              "unit": "10^-17 erg/s/cm^2/Ang"
+            },
+            "IVAR": {
+              "name": "IVAR",
+              "description": "Inverse variance of spectra",
+              "type": "float32[PE(4563]",
+              "unit": ""
+            },
+            "MASK": {
+              "name": "MASK",
+              "description": "Bit mask of spectra",
+              "type": "int32[PJ(4563]",
+              "unit": ""
+            },
+            "XPOS": {
+              "name": "XPOS",
+              "description": "X position of wavelenth-dependent spectra",
+              "type": "float32[PE(4563]",
+              "unit": "Arcseconds"
+            },
+            "YPOS": {
+              "name": "YPOS",
+              "description": "Y position of wavelenth-dependent spectra",
+              "type": "float32[PE(4563]",
+              "unit": "Arcseconds"
+            },
+            "RPOS": {
+              "name": "RPOS",
+              "description": "Radius of wavelenth-dependent spectra",
+              "type": "float32[PE(4563]",
+              "unit": "Arcseconds"
+            },
+            "MODEL": {
+              "name": "MODEL",
+              "description": "SILO model of flux",
+              "type": "float32[PE(4563]",
+              "unit": "10^-17 erg/s/cm^2/Ang"
+            },
+            "RESFLUX": {
+              "name": "RESFLUX",
+              "description": "Residual spectra of flux-model",
+              "type": "float32[PE(4563]",
+              "unit": "10^-17 erg/s/cm^2/Ang"
+            },
+            "IVAR_RES": {
+              "name": "IVAR_RES",
+              "description": "Rescaled inverse variance of residual spectra",
+              "type": "float32[PE(4563]",
+              "unit": ""
+            },
+            "SN_SPEC": {
+              "name": "SN_SPEC",
+              "description": "Gaussian convolved SN of residual spectra",
+              "type": "float32[PE(4563]",
+              "unit": ""
+            },
+            "O2SN_SPEC": {
+              "name": "O2SN_SPEC",
+              "description": "OII Gaussian convolved SN of residual spectra",
+              "type": "float32[PE(4563]",
+              "unit": ""
+            }
+          }
+        },
+        "hdu2": {
+          "name": "STACKED_REDUCTION",
+          "is_image": false,
+          "description": "This extension contains stack fibers information, stacked spectroscopic redshift, stacked residuals, masks returned from co-addition, and SN for each stack.",
+          "size": "13 MB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "BINTABLE",
+              "comment": "binary table extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "128",
+              "comment": "length of dimension 1"
+            },
+            {
+              "key": "NAXIS2",
+              "value": "84",
+              "comment": "length of dimension 2"
+            },
+            {
+              "key": "PCOUNT",
+              "value": "13802544",
+              "comment": "number of group parameters"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "number of groups"
+            },
+            {
+              "key": "TFIELDS",
+              "value": "19",
+              "comment": "number of table fields"
+            },
+            {
+              "key": "TUNIT5",
+              "value": "Arcseconds",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT6",
+              "value": "Arcseconds",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT7",
+              "value": "Arcseconds",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT8",
+              "value": "Arcseconds",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT9",
+              "value": "Radians",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT10",
+              "value": "Redshift",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT11",
+              "value": "Arcseconds",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT12",
+              "value": "Arcseconds",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT13",
+              "value": "Arcseconds",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT16",
+              "value": "10^-17 erg/s/cm^2/Ang",
+              "comment": ""
+            },
+            {
+              "key": "EXTNAME",
+              "value": "STACKED_REDUCTION",
+              "comment": "extension name"
+            }
+          ],
+          "columns": {
+            "FIBER_POSITION": {
+              "name": "FIBER_POSITION",
+              "description": "Fiber number and dither position",
+              "type": "char[4]",
+              "unit": ""
+            },
+            "RSS_INDX": {
+              "name": "RSS_INDX",
+              "description": "Row-stacked index(s) of spectra in stack",
+              "type": "int32[PJ(3]",
+              "unit": ""
+            },
+            "EXPNUM": {
+              "name": "EXPNUM",
+              "description": "Stacked exposure numbers",
+              "type": "int32[PJ(3]",
+              "unit": ""
+            },
+            "SET": {
+              "name": "SET",
+              "description": "Stacked dither pattern iterations",
+              "type": "int32[PJ(3]",
+              "unit": ""
+            },
+            "SEEING": {
+              "name": "SEEING",
+              "description": "Seeing of stacked RSS",
+              "type": "float32[PE(3]",
+              "unit": "Arcseconds"
+            },
+            "MEAN_X": {
+              "name": "MEAN_X",
+              "description": "Stacked RSS mean x position",
+              "type": "float32",
+              "unit": "Arcseconds"
+            },
+            "MEAN_Y": {
+              "name": "MEAN_Y",
+              "description": "Stacked RSS mean y position",
+              "type": "float32",
+              "unit": "Arcseconds"
+            },
+            "MEAN_R": {
+              "name": "MEAN_R",
+              "description": "Stacked RSS mean r position",
+              "type": "float32",
+              "unit": "Arcseconds"
+            },
+            "MEAN_THETA": {
+              "name": "MEAN_THETA",
+              "description": "Stacked RSS mean angle from East",
+              "type": "float32",
+              "unit": "Radians"
+            },
+            "MEAN_SPECZ": {
+              "name": "MEAN_SPECZ",
+              "description": "Mean redshift of stacked RSS",
+              "type": "float32",
+              "unit": "Redshift"
+            },
+            "MEAN_XPOS": {
+              "name": "MEAN_XPOS",
+              "description": "Stacked mean wavelength-dependent x position",
+              "type": "float32[PE(4563]",
+              "unit": "Arcseconds"
+            },
+            "MEAN_YPOS": {
+              "name": "MEAN_YPOS",
+              "description": "Stacked mean wavelength-dependent y position",
+              "type": "float32[PE(4563]",
+              "unit": "Arcseconds"
+            },
+            "MEAN_RPOS": {
+              "name": "MEAN_RPOS",
+              "description": "Stacked mean wavelength-dependent radius",
+              "type": "float32[PE(4563]",
+              "unit": "Arcseconds"
+            },
+            "AND_MASK": {
+              "name": "AND_MASK",
+              "description": "Andmask of stacked spectra",
+              "type": "int32[PJ(4563]",
+              "unit": ""
+            },
+            "OR_MASK": {
+              "name": "OR_MASK",
+              "description": "Ormask of stacked spectra",
+              "type": "int32[PJ(4563]",
+              "unit": ""
+            },
+            "SRESFLUX": {
+              "name": "SRESFLUX",
+              "description": "Stacked residual spectra of flux-model",
+              "type": "float32[PE(4563]",
+              "unit": "10^-17 erg/s/cm^2/Ang"
+            },
+            "SIVAR": {
+              "name": "SIVAR",
+              "description": "Stacked rescaled inverse variance",
+              "type": "float32[PE(4563]",
+              "unit": ""
+            },
+            "SSN_SPEC": {
+              "name": "SSN_SPEC",
+              "description": "Gauss convolved SN of stack",
+              "type": "float32[PE(4563]",
+              "unit": ""
+            },
+            "SO2SN_SPEC": {
+              "name": "SO2SN_SPEC",
+              "description": "OII Gauss convolved SN of stack",
+              "type": "float32[PE(4563]",
+              "unit": ""
+            }
+          }
+        },
+        "hdu3": {
+          "name": "WAVE",
+          "is_image": true,
+          "description": "Wavelength vector.",
+          "size": "35 KB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "IMAGE",
+              "comment": "Image extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "-64",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "1",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "4563",
+              "comment": ""
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "number of parameters"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "number of groups"
+            },
+            {
+              "key": "EXTNAME",
+              "value": "WAVE",
+              "comment": "extension name"
+            }
+          ],
+          "columns": null
+        },
+        "hdu4": {
+          "name": "SPECRES",
+          "is_image": true,
+          "description": "Median spectral resolution as a function of wavelength for the fibers in this IFU.",
+          "size": "35 KB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "IMAGE",
+              "comment": "Image extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "-64",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "1",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "4563",
+              "comment": ""
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "number of parameters"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "number of groups"
+            },
+            {
+              "key": "EXTNAME",
+              "value": "SPECRES",
+              "comment": "extension name"
+            }
+          ],
+          "columns": null
+        },
+        "hdu5": {
+          "name": "SPECRESD",
+          "is_image": true,
+          "description": "Standard deviation of spectral resolution as a function of wavelength for the fibers in this IFU.",
+          "size": "35 KB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "IMAGE",
+              "comment": "Image extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "-64",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "1",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "4563",
+              "comment": ""
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "number of parameters"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "number of groups"
+            },
+            {
+              "key": "EXTNAME",
+              "value": "SPECRESD",
+              "comment": "extension name"
+            }
+          ],
+          "columns": null
+        },
+        "hdu6": {
+          "name": "PRESPECRES",
+          "is_image": true,
+          "description": "Median pre-pixel spectral resolution as a function of wavelength for the fibers in this IFU",
+          "size": "35 KB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "IMAGE",
+              "comment": "Image extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "-64",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "1",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "4563",
+              "comment": ""
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "number of parameters"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "number of groups"
+            },
+            {
+              "key": "EXTNAME",
+              "value": "PRESPECRES",
+              "comment": "extension name"
+            }
+          ],
+          "columns": null
+        },
+        "hdu7": {
+          "name": "PRESPECRESD",
+          "is_image": true,
+          "description": "Standard deviation of pre-pixel spectral resolution as a function of wavelength for the fibers in this IFU",
+          "size": "35 KB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "IMAGE",
+              "comment": "Image extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "-64",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "1",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "4563",
+              "comment": ""
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "number of parameters"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "number of groups"
+            },
+            {
+              "key": "EXTNAME",
+              "value": "PRESPECRESD",
+              "comment": "extension name"
+            }
+          ],
+          "columns": null
+        },
+        "hdu8": {
+          "name": "CUBE_INDIVIDUAL_FLUX",
+          "is_image": true,
+          "description": "Spaxel CUBE construction of RSS FLUX",
+          "size": "94 MB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "IMAGE",
+              "comment": "Image extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "-64",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "3",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "52",
+              "comment": ""
+            },
+            {
+              "key": "NAXIS2",
+              "value": "52",
+              "comment": ""
+            },
+            {
+              "key": "NAXIS3",
+              "value": "4563",
+              "comment": ""
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "number of parameters"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "number of groups"
+            },
+            {
+              "key": "EXTNAME",
+              "value": "CUBE_INDIVIDUAL_FLUX",
+              "comment": "extension name"
+            }
+          ],
+          "columns": null
+        },
+        "hdu9": {
+          "name": "CUBE_INDIVIDUAL_MODEL",
+          "is_image": true,
+          "description": "Spaxel CUBE construction of SILO model fitted to RSS FLUX",
+          "size": "94 MB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "IMAGE",
+              "comment": "Image extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "-64",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "3",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "52",
+              "comment": ""
+            },
+            {
+              "key": "NAXIS2",
+              "value": "52",
+              "comment": ""
+            },
+            {
+              "key": "NAXIS3",
+              "value": "4563",
+              "comment": ""
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "number of parameters"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "number of groups"
+            },
+            {
+              "key": "EXTNAME",
+              "value": "CUBE_INDIVIDUAL_MODEL",
+              "comment": "extension name"
+            }
+          ],
+          "columns": null
+        },
+        "hdu10": {
+          "name": "CUBE_INDIVIDUAL_RESIDUALS",
+          "is_image": true,
+          "description": "Spaxel CUBE construction of residuals from RSS-model",
+          "size": "94 MB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "IMAGE",
+              "comment": "Image extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "-64",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "3",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "52",
+              "comment": ""
+            },
+            {
+              "key": "NAXIS2",
+              "value": "52",
+              "comment": ""
+            },
+            {
+              "key": "NAXIS3",
+              "value": "4563",
+              "comment": ""
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "number of parameters"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "number of groups"
+            },
+            {
+              "key": "EXTNAME",
+              "value": "CUBE_INDIVIDUAL_RESIDUALS",
+              "comment": "extension name"
+            }
+          ],
+          "columns": null
+        },
+        "hdu11": {
+          "name": "CUBE_INDIVIDUAL_IVAR_RESCALED",
+          "is_image": true,
+          "description": "Spaxel CUBE construction of inverse-variance",
+          "size": "94 MB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "IMAGE",
+              "comment": "Image extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "-64",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "3",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "52",
+              "comment": ""
+            },
+            {
+              "key": "NAXIS2",
+              "value": "52",
+              "comment": ""
+            },
+            {
+              "key": "NAXIS3",
+              "value": "4563",
+              "comment": ""
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "number of parameters"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "number of groups"
+            },
+            {
+              "key": "EXTNAME",
+              "value": "CUBE_INDIVIDUAL_IVAR_RESCALED",
+              "comment": "extension name"
+            }
+          ],
+          "columns": null
+        },
+        "hdu12": {
+          "name": "CUBE_INDIVIDUAL_GAUSS_SN",
+          "is_image": true,
+          "description": "Spaxel CUBE construction of SN computed using Gaussian kernel representing single emission-line",
+          "size": "94 MB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "IMAGE",
+              "comment": "Image extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "-64",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "3",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "52",
+              "comment": ""
+            },
+            {
+              "key": "NAXIS2",
+              "value": "52",
+              "comment": ""
+            },
+            {
+              "key": "NAXIS3",
+              "value": "4563",
+              "comment": ""
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "number of parameters"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "number of groups"
+            },
+            {
+              "key": "EXTNAME",
+              "value": "CUBE_INDIVIDUAL_GAUSS_SN",
+              "comment": "extension name"
+            }
+          ],
+          "columns": null
+        },
+        "hdu13": {
+          "name": "CUBE_INDIVIDUAL_GAUSS_O2SN",
+          "is_image": true,
+          "description": "Spaxel CUBE construction of SN computed using Gaussian kernel representing OII(b, a) doublet",
+          "size": "94 MB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "IMAGE",
+              "comment": "Image extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "-64",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "3",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "52",
+              "comment": ""
+            },
+            {
+              "key": "NAXIS2",
+              "value": "52",
+              "comment": ""
+            },
+            {
+              "key": "NAXIS3",
+              "value": "4563",
+              "comment": ""
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "number of parameters"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "number of groups"
+            },
+            {
+              "key": "EXTNAME",
+              "value": "CUBE_INDIVIDUAL_GAUSS_O2SN",
+              "comment": "extension name"
+            }
+          ],
+          "columns": null
+        },
+        "hdu14": {
+          "name": "CUBE_STACKED_RESIDUALS",
+          "is_image": true,
+          "description": "Spaxel CUBE construction of stacked residuals",
+          "size": "94 MB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "IMAGE",
+              "comment": "Image extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "-64",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "3",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "52",
+              "comment": ""
+            },
+            {
+              "key": "NAXIS2",
+              "value": "52",
+              "comment": ""
+            },
+            {
+              "key": "NAXIS3",
+              "value": "4563",
+              "comment": ""
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "number of parameters"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "number of groups"
+            },
+            {
+              "key": "EXTNAME",
+              "value": "CUBE_STACKED_RESIDUALS",
+              "comment": "extension name"
+            }
+          ],
+          "columns": null
+        },
+        "hdu15": {
+          "name": "CUBE_IVAR_RESCALED_STACKED",
+          "is_image": true,
+          "description": "Spaxel CUBE construction of inverse variance of residuals",
+          "size": "94 MB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "IMAGE",
+              "comment": "Image extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "-64",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "3",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "52",
+              "comment": ""
+            },
+            {
+              "key": "NAXIS2",
+              "value": "52",
+              "comment": ""
+            },
+            {
+              "key": "NAXIS3",
+              "value": "4563",
+              "comment": ""
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "number of parameters"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "number of groups"
+            },
+            {
+              "key": "EXTNAME",
+              "value": "CUBE_IVAR_RESCALED_STACKED",
+              "comment": "extension name"
+            }
+          ],
+          "columns": null
+        },
+        "hdu16": {
+          "name": "CUBE_STACKED_GAUSS_SN",
+          "is_image": true,
+          "description": "Spaxel CUBE construction of stacked SN computed using Gaussian kernel representing single emission-line",
+          "size": "94 MB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "IMAGE",
+              "comment": "Image extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "-64",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "3",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "52",
+              "comment": ""
+            },
+            {
+              "key": "NAXIS2",
+              "value": "52",
+              "comment": ""
+            },
+            {
+              "key": "NAXIS3",
+              "value": "4563",
+              "comment": ""
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "number of parameters"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "number of groups"
+            },
+            {
+              "key": "EXTNAME",
+              "value": "CUBE_STACKED_GAUSS_SN",
+              "comment": "extension name"
+            }
+          ],
+          "columns": null
+        },
+        "hdu17": {
+          "name": "CUBE_STACKED_GAUSS_O2SN",
+          "is_image": true,
+          "description": "Spaxel CUBE construction of stacked SN computed using Gaussian kernel representing OII(b, a) doublet",
+          "size": "94 MB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "IMAGE",
+              "comment": "Image extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "-64",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "3",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "52",
+              "comment": ""
+            },
+            {
+              "key": "NAXIS2",
+              "value": "52",
+              "comment": ""
+            },
+            {
+              "key": "NAXIS3",
+              "value": "4563",
+              "comment": ""
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "number of parameters"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "number of groups"
+            },
+            {
+              "key": "EXTNAME",
+              "value": "CUBE_STACKED_GAUSS_O2SN",
+              "comment": "extension name"
+            }
+          ],
+          "columns": null
+        }
+      },
+      "par": null,
+      "hdfs": null
+    }
+  },
+  "notes": "\nExamples\nHow to access the file for a specific target, plot flux, and create a SN narrowband image\n\nfrom astropy.io import fits\nimport numpy as np\nfrom matplotlib import pyplot as plt\n\t\t\n#Lets open the the file to Plate: 8606, IFU: 6102\nhdu = fits.open('manga_8606_6102_stack_data.fits')\n        \n#And look at the extensions\nhdu.info()\n        \n#If you followed the example from silo_manga_detections.html, you would have looked at a detection with this info\nfiber_position = '18N'\nwavelength_of_candidate_OII = 6674.212\n        \n#Lets plot the stacked residuals used to create the candidate emission-line cutout from the example from silo_manga_detections.html\nstack_index = hdu['STACKED_REDUCTION'].data['FIBER_POSITION'] == fiber_position\nplt.plot(hdu['WAVE'].data, hdu['STACKED_REDUCTION'].data['SRESFLUX'][stack_index][0], 'r')\nplt.xlabel('Observed Wavelength (Angstroms)')\nplt.ylabel('Flux (10^-17 ergs/s/cm^2/Ang)')\nplt.show()\n\t\t\n#This stack is rather boaring with the foreground galaxy flux removed. \n#However, you can observe the candidate OII(b,a) at 6674.212 Ansgstroms!!\n#Mabey the SN narrowband will be a bit more interesting\nwave_index = np.abs(hdu['WAVE'].data-wavelength_of_candidate_OII).argmin()\nplt.imshow(hdu['CUBE_STACKED_GAUSS_O2SN'].data[wave_index, :, :])\nplt.title('OII SN Narrowband at Wavelength of Candidate OII')\nplt.show()\n\t\t\n#Either there are two or three background galaxies, or there is one galaxy at the outskirts of the IFU (which is visble in SDSS images)\n#and the 'donught' at the center may be a main and counter image. The 'donught' was examined by Smith et al. 2020 via Subaru FOCAS IFU, \n#which observations assures a main and counter image but a second background galaxy is likely present near the counter image. \n#Such features may not be easily confirmed in other targets since it is likely that the SN of the extended source features are \n#relatively faint to the center of the source.\n    "
+}

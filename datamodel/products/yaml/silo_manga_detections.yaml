@@ -1,0 +1,570 @@
+general:
+  name: silo_manga_detections
+  short: Datamodel for silo_manga_detections
+  description: This file contains information for strong galaxy-galaxy gravitational
+    lens candidates and background galaxy candidates found within MaNGA galaxies contained
+    within DR17 (see <a href="https://ui.adsabs.harvard.edu/abs/2018MNRAS.477..195T/abstract">Talbot
+    et al. (2018)</a>, Talbot et al. in prep). The candidates are spectroscopically
+    detected within co-added foreground subtracted row-stacked-spectra (RSS), in which
+    spectra are stacked across exposures from the same fiber located at the same dither
+    position so a sigma-clipping method can reject transient signals. The target and
+    candidate overview information, spectra information, and emission-line analysis
+    information are split into three extensions. Nearly all candidate background galaxies
+    are highly assured but only source grade A through C represent if a candidate
+    is suspected to be lensed.
+  datatype: FITS
+  filesize: 7 MB
+  releases:
+  - DR17
+  environments:
+  - MANGA_SPECTRO_LENSING
+  surveys:
+  - MaNGA
+  naming_convention: <code>silo_manga_detections-[SILO_VER].fits, where SILO_VER is
+    the version of SILO used to scan the MaNGA galaxies.</code>
+  generated_by: SILO
+  design: false
+  vac: true
+  recommended_science_product: true
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR17:
+    template: $MANGA_SPECTRO_LENSING/silo/[DRPVER]/[SILOVER]/silo_manga_detections-[SILOVER].fits
+    example: silo/v3_1_1/1.0.4/silo_manga_detections-1.0.4.fits
+    location: silo/{drpver}/{silover}/silo_manga_detections-{silover}.fits
+    environment: MANGA_SPECTRO_LENSING
+    access:
+      in_sdss_access: false
+      path_name: null
+      path_template: null
+      path_kwargs: null
+      access_string: silo_manga_detections = $MANGA_SPECTRO_LENSING/silo/{drpver}/{silover}/silo_manga_detections-{silover}.fits
+    survey: MaNGA
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Empty except headers contain survey information and descriptions
+          of emission-lines searched
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: PROJECT
+          value: SILO
+          comment: Lens search project
+        - key: AUTHORS
+          value: M. Talbot, J. Brownstein
+          comment: SILO project creators
+        - key: INSP
+          value: Michael Talbot
+          comment: Detection inspector
+        - key: SCANNED
+          value: MaNGA
+          comment: SDSS survey scanned by SILO
+        - key: DRPVER
+          value: v3_1_1
+          comment: Version of MaNGA data reduction pipeline
+        - key: SILO_VER
+          value: 1.0.4
+          comment: Version of SILO project used
+        - key: RELEASE
+          value: MPL-11
+          comment: SDSS data release version
+        - key: SAMPLING
+          value: LOG
+          comment: Wavelength sampling of spectra
+        - key: SPECTYPE
+          value: COADDED RESIDUALS
+          comment: Type of spectra searched
+        - key: OIIB
+          value: 3727.092
+          comment: Restframe wavelength of OIIb
+        - key: OIIA
+          value: 3729.875
+          comment: Restframe wavelength of OIIa
+        - key: HID
+          value: 4102.892
+          comment: Restframe wavelength of HId
+        - key: HIC
+          value: 4341.684
+          comment: Restframe wavelength of HIc
+        - key: HIB
+          value: 4862.683
+          comment: Restframe wavelength of HIb
+        - key: OIIIB
+          value: 4960.295
+          comment: Restframe wavelength of OIIIb
+        - key: OIIIA
+          value: 5008.239
+          comment: Restframe wavelength of OIIIa
+        - key: NIIB
+          value: 6549.86
+          comment: Restframe wavelength of NIIb
+        - key: HIA
+          value: 6564.614
+          comment: Restframe wavelength of HIa
+        - key: NIIA
+          value: 6585.27
+          comment: Restframe wavelength of NIIa
+        - key: SIIB
+          value: 6718.29
+          comment: Restframe wavelength of SIIb
+        - key: SIIA
+          value: 6732.68
+          comment: Restframe wavelength of SIIa
+      hdu1:
+        name: CANDIDATE_OVERVIEW
+        description: Target overview and source (or background) inspection information.
+        is_image: false
+        size: 1 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 3106
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 457
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 10968
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 18
+          comment: number of table fields
+        - key: TUNIT6
+          value: Redshift
+          comment: ''
+        - key: TUNIT7
+          value: Redshift
+          comment: ''
+        - key: TUNIT8
+          value: Redshift
+          comment: ''
+        - key: TUNIT9
+          value: Degree
+          comment: ''
+        - key: TUNIT10
+          value: Degree
+          comment: ''
+        - key: TUNIT11
+          value: Redshift
+          comment: ''
+        - key: TUNIT12
+          value: Redshift
+          comment: ''
+        - key: TUNIT16
+          value: Arcseconds
+          comment: ''
+        - key: TUNIT17
+          value: Arcseconds
+          comment: ''
+        - key: EXTNAME
+          value: CANDIDATE_OVERVIEW
+          comment: extension name
+        columns:
+          BACKGROUND_ID:
+            name: BACKGROUND_ID
+            type: int32
+            unit: ''
+            description: Assinged background id
+          SDSS_TARGET_NAME:
+            name: SDSS_TARGET_NAME
+            type: char[20]
+            unit: ''
+            description: SDSS RA+DEC name of target
+          MANGA_ID:
+            name: MANGA_ID
+            type: char[20]
+            unit: ''
+            description: MaNGA target identifier
+          PLATE:
+            name: PLATE
+            type: int32
+            unit: ''
+            description: MaNGA plate
+          IFU:
+            name: IFU
+            type: int32
+            unit: ''
+            description: MaNGA integral field unit
+          NSA_ZF:
+            name: NSA_ZF
+            type: float32
+            unit: Redshift
+            description: Target redshift from NSA
+          MEAN_ZF_INNER:
+            name: MEAN_ZF_INNER
+            type: float32
+            unit: Redshift
+            description: Mean inner z from Specz VAC
+          SIGMA_ZF_INNER:
+            name: SIGMA_ZF_INNER
+            type: float32
+            unit: Redshift
+            description: Sigma inner z from Specz VAC
+          RA_IFU:
+            name: RA_IFU
+            type: float32
+            unit: Degree
+            description: Right ascension of MaNGA IFU
+          DEC_IFU:
+            name: DEC_IFU
+            type: float32
+            unit: Degree
+            description: Declination of MaNGA IFU
+          MEAN_ZB:
+            name: MEAN_ZB
+            type: float32
+            unit: Redshift
+            description: Mean z of detections
+          SIGMA_ZB:
+            name: SIGMA_ZB
+            type: float32
+            unit: Redshift
+            description: Sigma z of detections
+          SOURCE_GRADE:
+            name: SOURCE_GRADE
+            type: char[2]
+            unit: ''
+            description: Inspection grade of candidate lens
+          SOURCE_COMMENT:
+            name: SOURCE_COMMENT
+            type: char[3000]
+            unit: ''
+            description: Inspection comment of candidate lens
+          NEAREST_RATIO:
+            name: NEAREST_RATIO
+            type: float32
+            unit: ''
+            description: Ratio of nearest source edge to upper limit ER
+          ER_FIREFLY:
+            name: ER_FIREFLY
+            type: float32[PE(3]
+            unit: Arcseconds
+            description: Lower, best, upper ER using FIRELY
+          ER_JAM:
+            name: ER_JAM
+            type: float32[PE(3]
+            unit: Arcseconds
+            description: Lower, best, upper ER using JAM
+          DETECTION_COUNT:
+            name: DETECTION_COUNT
+            type: int32
+            unit: ''
+            description: Count of graded detections
+      hdu2:
+        name: DETECTIONS
+        description: Detection data and spectra inspection information.
+        is_image: false
+        size: 3 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 3070
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 1065
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 15336
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 15
+          comment: number of table fields
+        - key: TUNIT4
+          value: Redshift
+          comment: ''
+        - key: TUNIT5
+          value: Redshift
+          comment: ''
+        - key: TUNIT8
+          value: Arcseconds
+          comment: ''
+        - key: TUNIT9
+          value: Arcseconds
+          comment: ''
+        - key: TUNIT10
+          value: Arcseconds
+          comment: ''
+        - key: EXTNAME
+          value: DETECTIONS
+          comment: extension name
+        columns:
+          BACKGROUND_ID:
+            name: BACKGROUND_ID
+            type: int32
+            unit: ''
+            description: Assinged background id
+          DETECTION_ID:
+            name: DETECTION_ID
+            type: int32
+            unit: ''
+            description: Detection identifier for MaNGA target
+          EMLINE_SCAN_TYPE:
+            name: EMLINE_SCAN_TYPE
+            type: char[10]
+            unit: ''
+            description: Single-line=OII(b, a), Multi-line=2+ lines
+          FOREGROUND_Z:
+            name: FOREGROUND_Z
+            type: float32
+            unit: Redshift
+            description: Mean redshift across stacked RSS
+          DETECTION_Z:
+            name: DETECTION_Z
+            type: float32
+            unit: Redshift
+            description: Redshift of background candidate
+          N_EMLINES_SN_GE4:
+            name: N_EMLINES_SN_GE4
+            type: int32
+            unit: ''
+            description: Number of emission-lines detected with SN>=4
+          QUADATURE_SUM_SN_GE3:
+            name: QUADATURE_SUM_SN_GE3
+            type: float32
+            unit: ''
+            description: Quadrature sum of emission-lines with SN>=3
+          MEAN_X:
+            name: MEAN_X
+            type: float32
+            unit: Arcseconds
+            description: Mean x of stacked fibers
+          MEAN_Y:
+            name: MEAN_Y
+            type: float32
+            unit: Arcseconds
+            description: Mean y of stacked fibers
+          MEAN_R:
+            name: MEAN_R
+            type: float32
+            unit: Arcseconds
+            description: Mean stacked radius from galaxy center
+          FIBER_POSITION:
+            name: FIBER_POSITION
+            type: char[10]
+            unit: ''
+            description: Fiber number in IFU and dither position
+          STACKED_COUNT:
+            name: STACKED_COUNT
+            type: int32
+            unit: ''
+            description: Count of stacked RSS residuals
+          STACKED_RSS:
+            name: STACKED_RSS
+            type: int32[PJ(12]
+            unit: ''
+            description: Row indexs of stacked RSS residuals
+          SPECTRA_GRADE:
+            name: SPECTRA_GRADE
+            type: char[2]
+            unit: ''
+            description: Grade of spectra assurances of source candidate
+          COMMENT:
+            name: COMMENT
+            type: char[3000]
+            unit: ''
+            description: Comment of assuring/non-assuring features
+      hdu3:
+        name: EMISSION_LINE_ANALYSIS
+        description: Information on each candidate emission-line. Gaussian-fit information
+          on each candidate emission-line is conditional on if the fit is successful
+          and if the candidate emission-line has a signal-to-noise greater than three.
+        is_image: false
+        size: 3 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 159
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 12217
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 1674240
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 21
+          comment: number of table fields
+        - key: TUNIT4
+          value: Angstroms
+          comment: ''
+        - key: TUNIT7
+          value: Angstroms
+          comment: ''
+        - key: TUNIT8
+          value: 10^-17 ergs/s/cm^2/Ang
+          comment: ''
+        - key: TUNIT9
+          value: 10^-17 ergs/s/cm^2/Ang
+          comment: ''
+        - key: TUNIT10
+          value: Angstroms
+          comment: ''
+        - key: TUNIT16
+          value: Angstroms
+          comment: ''
+        - key: TUNIT17
+          value: 10^-17 ergs/s/cm^2/Ang
+          comment: ''
+        - key: TUNIT18
+          value: 10^-17 ergs/s/cm^2/Ang
+          comment: ''
+        - key: EXTNAME
+          value: EMISSION_LINE_ANALYSIS
+          comment: extension name
+        columns:
+          DETECTION_ID:
+            name: DETECTION_ID
+            type: int32
+            unit: ''
+            description: Detection identifier for MaNGA target
+          NAME:
+            name: NAME
+            type: char[30]
+            unit: ''
+            description: Name of emission-line
+          INDEX_IN_SPECTRA:
+            name: INDEX_IN_SPECTRA
+            type: int32
+            unit: ''
+            description: Index emission-line is located in spectra
+          EM_WAVE:
+            name: EM_WAVE
+            type: float32
+            unit: Angstroms
+            description: Observed-frame wavelength of emission-line
+          SN:
+            name: SN
+            type: float32
+            unit: ''
+            description: Convolved signal-to-noise of emission-line
+          GAUSS_FIT_REPORTED:
+            name: GAUSS_FIT_REPORTED
+            type: bool
+            unit: ''
+            description: Gauss fit reported if SN>=3
+          GAUSS_WAVE:
+            name: GAUSS_WAVE
+            type: float32[PE(4]
+            unit: Angstroms
+            description: Wavelength(s) center of model w. -/+97.5 Q.
+          GAUSS_BASE_HEIGHT:
+            name: GAUSS_BASE_HEIGHT
+            type: float32[3]
+            unit: 10^-17 ergs/s/cm^2/Ang
+            description: Gaussian model base height w. -/+97.5 Q.
+          GAUSS_AMPLITUDE:
+            name: GAUSS_AMPLITUDE
+            type: float32[3]
+            unit: 10^-17 ergs/s/cm^2/Ang
+            description: Gaussian model amplitude w. -/+97.5 Q.
+          GAUSS_SIGMA:
+            name: GAUSS_SIGMA
+            type: float32[3]
+            unit: Angstroms
+            description: Gaussian model sigma w. -/+97.5 Q.
+          RCHI2_SAMPLE:
+            name: RCHI2_SAMPLE
+            type: float32
+            unit: ''
+            description: Reduced chi^2 of Gauss fit to sample
+          NDOF_SAMPLE:
+            name: NDOF_SAMPLE
+            type: int32
+            unit: ''
+            description: Degree of freedom of RCHI2_SAMPLE
+          RCHI2_3SIG:
+            name: RCHI2_3SIG
+            type: float32
+            unit: ''
+            description: Reduced chi^2 of Gauss fit within 3 sigma
+          NDOF_3SIG:
+            name: NDOF_3SIG
+            type: int32
+            unit: ''
+            description: Degree of freedom of RCHI2_3SIG
+          SAMPLE_SIZE:
+            name: SAMPLE_SIZE
+            type: int32
+            unit: ''
+            description: Sample size
+          MODEL_WAVE_BASE:
+            name: MODEL_WAVE_BASE
+            type: float32[PE(21]
+            unit: Angstroms
+            description: Wavelength base of Gaussian model
+          GAUSS_MODEL:
+            name: GAUSS_MODEL
+            type: float32[PE(21]
+            unit: 10^-17 ergs/s/cm^2/Ang
+            description: Gaussian model of residual flux
+          FITTED_RESIDUAL_FLUX:
+            name: FITTED_RESIDUAL_FLUX
+            type: float32[PE(21]
+            unit: 10^-17 ergs/s/cm^2/Ang
+            description: Residual flux segment used in Gaussian fit
+          FITTED_IVAR_RESCALED:
+            name: FITTED_IVAR_RESCALED
+            type: float32[PE(21]
+            unit: ''
+            description: Rescaled inverse varience used in Gauss fit
+          AND_MASK:
+            name: AND_MASK
+            type: int32[PJ(21]
+            unit: ''
+            description: Co-added AND_MASK of spectra sample
+          OR_MASK:
+            name: OR_MASK
+            type: int32[PJ(21]
+            unit: ''
+            description: Co-added OR_MASK of spectra sample
+notes: |-
+  None
