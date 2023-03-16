@@ -105,9 +105,12 @@ def test_vac():
 def test_repr():
     """ test reduced repr """
     tt = tags['bhm_run2d_v6_0_9']
-    assert repr(tt) == "Tag(version='run2d', tag='v6_0_9', release='IPL1')"
+    assert repr(tt) == "Tag(version='run2d', tag='v6_0_9', release='IPL2')"
 
     assert "phase=5" in repr(surveys['BHM'])
+
+    tt = tags['mwm_v_astra_0.2.6']
+    assert repr(tt) == "Tag(version='v_astra', tag='0.2.6', release='IPL1')"
 
 
 class C(BaseModel):
