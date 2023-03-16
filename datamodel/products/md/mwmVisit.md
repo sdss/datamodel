@@ -1,7 +1,7 @@
 # Data Model: mwmVisit
 
 
-individual spectra for a single star from APOGEE APO, APOGEE LCO, and BOSS
+BOSS and/or APOGEE spectra for each visit of a single star. These are the data produced before analysis by any of the astra pipelines.
 
 
 ## Contents
@@ -19,7 +19,7 @@ Individual spectra for a MWM source from BOSS, the APOGEE instrument at Apache P
 $MWM_ASTRA/[ASTRA_VERSION]/[RUN2D]-[APRED]/spectra/visit/[CATALOGID_GROUPS]/mwmVisit-[ASTRA_VERSION]-[CATALOGID].fits
 
 ### Releases
-WORK
+IPL2, WORK
 
 ### Enviroments
 MWM_ASTRA
@@ -47,6 +47,10 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - WORK
+   - from: IPL2
+   - primary_delta_nkeys: 3
+   - removed_primary_header_kwargs: ['CAT_ID05', 'V_XMATCH', 'CAT_ID10']
 
 ---
 ## Example HDUS List

@@ -1,7 +1,7 @@
 # Data Model: mwmStar
 
 
-stacked spectra for a single star from APOGEE APO, APOGEE LCO, and BOSS
+BOSS and/or APOGEE spectra for a single star. These are the data produced before analysis by any of the astra pipelines.
 
 
 ## Contents
@@ -19,7 +19,7 @@ mwmStar contains all stacked spectra for a MWM source. This includes a stacked o
 $MWM_ASTRA/[ASTRA_VERSION]/[RUN2D]-[APRED]/spectra/star/[CATALOGID_GROUPS]/mwmStar-[ASTRA_VERSION]-[CATALOGID].fits
 
 ### Releases
-WORK
+IPL2, WORK
 
 ### Enviroments
 MWM_ASTRA
@@ -47,6 +47,10 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - WORK
+   - from: IPL2
+   - primary_delta_nkeys: 3
+   - removed_primary_header_kwargs: ['V_XMATCH', 'CAT_ID05', 'CAT_ID10']
 
 ---
 ## Example HDUS List
