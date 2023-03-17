@@ -1,7 +1,7 @@
 # Data Model: astraStarPayne
 
 
-Results and best-fit models from the Payne astra pipeline for a single star
+Results and best-fit models from the astraStarPayne astra pipeline for a single star
 
 
 ## Contents
@@ -13,13 +13,13 @@ Results and best-fit models from the Payne astra pipeline for a single star
 ---
 
 ## Basic Information
-Results and best-fit models from the Payne astra pipeline for a single star
+Results and best-fit models from the astraStarPayne astra pipeline for a single star 
 
 ### Naming Convention
 $MWM_ASTRA/[ASTRA_VERSION]/[RUN2D]-[APRED]/results/star/[CATALOGID_GROUPS]/astraStar-Payne-[ASTRA_VERSION]-[CATALOGID]-[TASK_ID].fits
 
 ### Releases
-WORK
+IPL1, IPL2, WORK
 
 ### Enviroments
 MWM_ASTRA
@@ -47,6 +47,16 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - WORK
+   - from: IPL2
+   - primary_delta_nkeys: 1
+   - added_primary_header_kwargs: ['TASK_ID', 'IDP_URL', 'IDP_ID']
+   - removed_primary_header_kwargs: ['DP_URL', 'CAT_ID10', 'CAT_ID05', 'V_XMATCH']
+ - IPL2
+   - from: IPL1
+   - primary_delta_nkeys: 17
+   - added_primary_header_kwargs: ['DP_URL', 'CAT_ID10', 'CAT_ID05', 'V_XMATCH']
+   - removed_primary_header_kwargs: ['TASK_ID', 'IDP_URL', 'IDP_ID']
 
 ---
 ## Example HDUS List

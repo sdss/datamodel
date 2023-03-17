@@ -1,7 +1,7 @@
 # Data Model: astraAllStarAPOGEENet
 
 
-Results from the APOGEENet astra pipeline for each star
+Results from the astraAllStarAPOGEENet astra pipeline for each star
 
 
 ## Contents
@@ -13,13 +13,13 @@ Results from the APOGEENet astra pipeline for each star
 ---
 
 ## Basic Information
-Results from the APOGEENet astra pipeline for each star.
+Results from the astraAllStarAPOGEENet astra pipeline for each star. 
 
 ### Naming Convention
 $MWM_ASTRA/[ASTRA_VERSION]/[RUN2D]-[APRED]/results/summary/astraAllStar-APOGEENet-[ASTRA_VERSION]-[RUN2D]-[APRED].fits
 
 ### Releases
-WORK
+IPL1, IPL2, WORK
 
 ### Enviroments
 MWM_ASTRA
@@ -44,6 +44,14 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - WORK
+   - from: IPL2
+   - primary_delta_nkeys: 5
+   - added_primary_header_kwargs: ['V_ASTRA', 'RUN2D', 'APRED', 'CREATED', 'PIPELINE']
+ - IPL2
+   - from: IPL1
+   - primary_delta_nkeys: 9
+   - removed_primary_header_kwargs: ['V_ASTRA', 'RUN2D', 'APRED', 'CREATED', 'PIPELINE']
 
 ---
 ## Example HDUS List

@@ -19,7 +19,7 @@ Individual spectra for a MWM source from BOSS, the APOGEE instrument at Apache P
 $MWM_ASTRA/[ASTRA_VERSION]/[RUN2D]-[APRED]/spectra/visit/[CATALOGID_GROUPS]/mwmVisit-[ASTRA_VERSION]-[CATALOGID].fits
 
 ### Releases
-IPL2, WORK
+IPL1, IPL2, WORK
 
 ### Enviroments
 MWM_ASTRA
@@ -50,7 +50,11 @@ Describes changes to the datamodel product and/or file structure from one releas
  - WORK
    - from: IPL2
    - primary_delta_nkeys: 3
-   - removed_primary_header_kwargs: ['CAT_ID05', 'V_XMATCH', 'CAT_ID10']
+   - removed_primary_header_kwargs: ['CAT_ID10', 'CAT_ID05', 'V_XMATCH']
+ - IPL2
+   - from: IPL1
+   - primary_delta_nkeys: 11
+   - added_primary_header_kwargs: ['CAT_ID10', 'CAT_ID05', 'V_XMATCH']
 
 ---
 ## Example HDUS List

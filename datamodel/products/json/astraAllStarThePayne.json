@@ -1,8 +1,8 @@
 {
   "general": {
     "name": "astraAllStarThePayne",
-    "short": "Results from the ThePayne astra pipeline for each star",
-    "description": "Results from the ThePayne astra pipeline for each star.",
+    "short": "Results from the astraAllStarThePayne astra pipeline for each star",
+    "description": "Results from the astraAllStarThePayne astra pipeline for each star. ",
     "environments": [
       "MWM_ASTRA"
     ],
@@ -26,6 +26,18 @@
     "filesize": "99 MB",
     "releases": [
       {
+        "name": "IPL1",
+        "description": "SDSS internal product launch 1",
+        "public": false,
+        "release_date": "2022-10-25"
+      },
+      {
+        "name": "IPL2",
+        "description": "SDSS internal product launch 2",
+        "public": false,
+        "release_date": "2023-03-01"
+      },
+      {
         "name": "WORK",
         "description": "SDSS unreleased data.  Represents any work-in-progress data.",
         "public": false,
@@ -35,11 +47,35 @@
     "naming_convention": "$MWM_ASTRA/[ASTRA_VERSION]/[RUN2D]-[APRED]/results/summary/astraAllStar-ThePayne-[ASTRA_VERSION]-[RUN2D]-[APRED].fits",
     "generated_by": "astra",
     "design": false,
-    "vac": false
+    "vac": false,
+    "recommended_science_product": false
   },
   "changelog": {
     "description": "Describes changes to the datamodel product and/or file structure from one release to another",
-    "releases": {}
+    "releases": {
+      "WORK": {
+        "from": "IPL2",
+        "primary_delta_nkeys": 5,
+        "added_primary_header_kwargs": [
+          "APRED",
+          "V_ASTRA",
+          "CREATED",
+          "RUN2D",
+          "PIPELINE"
+        ]
+      },
+      "IPL2": {
+        "from": "IPL1",
+        "primary_delta_nkeys": 9,
+        "removed_primary_header_kwargs": [
+          "APRED",
+          "V_ASTRA",
+          "CREATED",
+          "RUN2D",
+          "PIPELINE"
+        ]
+      }
+    }
   },
   "releases": {
     "WORK": {
@@ -836,6 +872,1881 @@
               "name": "STAR_PK",
               "description": "Primary key in `apogee_drp.star` table",
               "type": "int32",
+              "unit": ""
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null
+    },
+    "IPL1": {
+      "template": "$MWM_ASTRA/[ASTRA_VERSION]/[RUN2D]-[APRED]/results/summary/astraAllStar-ThePayne-[ASTRA_VERSION]-[RUN2D]-[APRED].fits",
+      "example": "0.2.6/v6_0_9-1.0/results/summary/astraAllStar-ThePayne-0.2.6-v6_0_9-1.0.fits",
+      "location": "{astra_version}/{run2d}-{apred}/results/summary/astraAllStar-ThePayne-{astra_version}-{run2d}-{apred}.fits",
+      "environment": "MWM_ASTRA",
+      "survey": "MWM",
+      "access": {
+        "in_sdss_access": false,
+        "path_name": null,
+        "path_template": null,
+        "path_kwargs": null,
+        "access_string": "astraAllStarThePayne = $MWM_ASTRA/{astra_version}/{run2d}-{apred}/results/summary/astraAllStar-ThePayne-{astra_version}-{run2d}-{apred}.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Metadata",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            },
+            {
+              "key": "",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "",
+              "value": "METADATA",
+              "comment": ""
+            },
+            {
+              "key": "V_ASTRA",
+              "value": "0.2.6",
+              "comment": "Astra version"
+            },
+            {
+              "key": "RUN2D",
+              "value": "v6_0_9",
+              "comment": "Spectro-2D reduction name"
+            },
+            {
+              "key": "APRED",
+              "value": "1.0",
+              "comment": "APOGEE reduction tag"
+            },
+            {
+              "key": "PIPELINE",
+              "value": "ThePayne",
+              "comment": "Pipeline name that produced these results"
+            },
+            {
+              "key": "CREATED",
+              "value": "22-10-28 01:22:14",
+              "comment": "File creation time (UTC %y-%m-%d %H:%M:%S)"
+            },
+            {
+              "key": "",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "",
+              "value": "DATA INTEGRITY",
+              "comment": ""
+            },
+            {
+              "key": "CHECKSUM",
+              "value": "kh82kZ61kf61kZ61",
+              "comment": "HDU checksum updated 2022-10-27T19:22:15"
+            },
+            {
+              "key": "DATASUM",
+              "value": "0",
+              "comment": "data unit checksum updated 2022-10-27T19:22:15"
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "ThePayne results for each star",
+          "size": "99 MB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "BINTABLE",
+              "comment": "binary table extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "678",
+              "comment": "length of dimension 1"
+            },
+            {
+              "key": "NAXIS2",
+              "value": "153761",
+              "comment": "length of dimension 2"
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "number of group parameters"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "number of groups"
+            },
+            {
+              "key": "TFIELDS",
+              "value": "110",
+              "comment": "number of table fields"
+            },
+            {
+              "key": "",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "",
+              "value": "IDENTIFIERS",
+              "comment": ""
+            },
+            {
+              "key": "",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "",
+              "value": "SKY POSITION",
+              "comment": ""
+            },
+            {
+              "key": "",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "",
+              "value": "ASTROMETRY (GAIA DR2)",
+              "comment": ""
+            },
+            {
+              "key": "",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "",
+              "value": "PHOTOMETRY",
+              "comment": ""
+            },
+            {
+              "key": "",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "",
+              "value": "TARGETING",
+              "comment": ""
+            },
+            {
+              "key": "",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "",
+              "value": "RADIAL VELOCITIES (DOPPLER)",
+              "comment": ""
+            },
+            {
+              "key": "",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "",
+              "value": "STELLAR PARAMETERS (DOPPLER)",
+              "comment": ""
+            },
+            {
+              "key": "",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "",
+              "value": "INPUT DATA MODEL KEYWORDS",
+              "comment": ""
+            },
+            {
+              "key": "",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "",
+              "value": "STELLAR PARAMETERS (ThePayne)",
+              "comment": ""
+            },
+            {
+              "key": "",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "",
+              "value": "SUMMARY STATISTICS",
+              "comment": ""
+            },
+            {
+              "key": "",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "",
+              "value": "DATABASE IDENTIFIERS",
+              "comment": ""
+            },
+            {
+              "key": "",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "",
+              "value": "DATA INTEGRITY",
+              "comment": ""
+            },
+            {
+              "key": "CHECKSUM",
+              "value": "caRQcRPQcXPQcXPQ",
+              "comment": "HDU checksum updated 2022-10-27T19:22:16"
+            },
+            {
+              "key": "DATASUM",
+              "value": "1101227395",
+              "comment": "data unit checksum updated 2022-10-27T19:22:16"
+            }
+          ],
+          "columns": {
+            "GAIA_ID": {
+              "name": "GAIA_ID",
+              "description": "Gaia DR2 source identifier",
+              "type": "int64",
+              "unit": ""
+            },
+            "TIC_ID": {
+              "name": "TIC_ID",
+              "description": "TESS Input Catalog (v8) identifier",
+              "type": "int32",
+              "unit": ""
+            },
+            "APOGEE_ID": {
+              "name": "APOGEE_ID",
+              "description": "2MASS-style identifier",
+              "type": "char[18]",
+              "unit": ""
+            },
+            "RA": {
+              "name": "RA",
+              "description": "SDSS-V catalog right ascension (J2000) ",
+              "type": "float32",
+              "unit": "deg"
+            },
+            "DEC": {
+              "name": "DEC",
+              "description": "SDSS-V catalog declination (J2000) ",
+              "type": "float32",
+              "unit": "deg"
+            },
+            "HEALPIX": {
+              "name": "HEALPIX",
+              "description": "Healpix location (128 sides)",
+              "type": "int32",
+              "unit": ""
+            },
+            "RA_GAIA": {
+              "name": "RA_GAIA",
+              "description": "Gaia DR2 right ascension ",
+              "type": "float32",
+              "unit": "deg"
+            },
+            "DEC_GAIA": {
+              "name": "DEC_GAIA",
+              "description": "Gaia DR2 declination ",
+              "type": "float32",
+              "unit": "deg"
+            },
+            "PLX": {
+              "name": "PLX",
+              "description": "Gaia DR2 parallax ",
+              "type": "float32",
+              "unit": "mas"
+            },
+            "E_PLX": {
+              "name": "E_PLX",
+              "description": "Gaia DR2 parallax error ",
+              "type": "float32",
+              "unit": "mas"
+            },
+            "PMRA": {
+              "name": "PMRA",
+              "description": "Gaia DR2 proper motion in RA ",
+              "type": "float32",
+              "unit": "mas/yr"
+            },
+            "E_PMRA": {
+              "name": "E_PMRA",
+              "description": "Gaia DR2 proper motion in RA error ",
+              "type": "float32",
+              "unit": "mas/yr"
+            },
+            "PMDE": {
+              "name": "PMDE",
+              "description": "Gaia DR2 proper motion in DEC ",
+              "type": "float32",
+              "unit": "mas/yr"
+            },
+            "E_PMDE": {
+              "name": "E_PMDE",
+              "description": "Gaia DR2 proper motion in DEC error ",
+              "type": "float32",
+              "unit": "mas/yr"
+            },
+            "V_RAD_GAIA": {
+              "name": "V_RAD_GAIA",
+              "description": "Gaia DR2 radial velocity ",
+              "type": "float32",
+              "unit": "km/s"
+            },
+            "E_V_RAD_GAIA": {
+              "name": "E_V_RAD_GAIA",
+              "description": "Gaia DR2 radial velocity error ",
+              "type": "float32",
+              "unit": "km/s"
+            },
+            "G_MAG": {
+              "name": "G_MAG",
+              "description": "Gaia DR2 mean apparent G magnitude ",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "BP_MAG": {
+              "name": "BP_MAG",
+              "description": "Gaia DR2 mean apparent BP magnitude ",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "RP_MAG": {
+              "name": "RP_MAG",
+              "description": "Gaia DR2 mean apparent RP magnitude ",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "J_MAG": {
+              "name": "J_MAG",
+              "description": "2MASS mean apparent J magnitude ",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "H_MAG": {
+              "name": "H_MAG",
+              "description": "2MASS mean apparent H magnitude ",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "K_MAG": {
+              "name": "K_MAG",
+              "description": "2MASS mean apparent K magnitude ",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "CARTON_0": {
+              "name": "CARTON_0",
+              "description": "First carton for source (see documentation)",
+              "type": "char[30]",
+              "unit": ""
+            },
+            "PROGRAMS": {
+              "name": "PROGRAMS",
+              "description": "SDSS-V programs",
+              "type": "char[84]",
+              "unit": ""
+            },
+            "MAPPERS": {
+              "name": "MAPPERS",
+              "description": "SDSS-V mappers",
+              "type": "char[30]",
+              "unit": ""
+            },
+            "V_RAD": {
+              "name": "V_RAD",
+              "description": "Radial velocity in Solar barycentric rest frame",
+              "type": "float32",
+              "unit": ""
+            },
+            "E_V_RAD": {
+              "name": "E_V_RAD",
+              "description": "Error in radial velocity ",
+              "type": "float32",
+              "unit": "km/s"
+            },
+            "V_SCATTER": {
+              "name": "V_SCATTER",
+              "description": "Scatter in radial velocity measurements ",
+              "type": "float32",
+              "unit": "km/s"
+            },
+            "E_V_MED": {
+              "name": "E_V_MED",
+              "description": "Median of RV errors of individual visits ",
+              "type": "float32",
+              "unit": "km/s"
+            },
+            "CHISQ_RV": {
+              "name": "CHISQ_RV",
+              "description": "\\chi-squared of radial velocity fit",
+              "type": "float32",
+              "unit": ""
+            },
+            "CCPFWHM_D": {
+              "name": "CCPFWHM_D",
+              "description": "FWHM from Doppler",
+              "type": "float32",
+              "unit": ""
+            },
+            "AUTOFWHM_D": {
+              "name": "AUTOFWHM_D",
+              "description": "FWHM from Doppler",
+              "type": "float32",
+              "unit": ""
+            },
+            "N_RV_COMPONENTS": {
+              "name": "N_RV_COMPONENTS",
+              "description": "Number of detected RV components",
+              "type": "int32",
+              "unit": ""
+            },
+            "NVISITS_APSTAR": {
+              "name": "NVISITS_APSTAR",
+              "description": "Number of visits included in the apStar file",
+              "type": "int32",
+              "unit": ""
+            },
+            "NGOODVISITS": {
+              "name": "NGOODVISITS",
+              "description": "Number of visits with good spectra",
+              "type": "int32",
+              "unit": ""
+            },
+            "NGOODRVS": {
+              "name": "NGOODRVS",
+              "description": "Number of good radial velocity measurements",
+              "type": "int32",
+              "unit": ""
+            },
+            "STARFLAG": {
+              "name": "STARFLAG",
+              "description": "APOGEE DRP quality bit mask",
+              "type": "int32",
+              "unit": ""
+            },
+            "STARFLAGS": {
+              "name": "STARFLAGS",
+              "description": "APOGEE DRP quality bit masks",
+              "type": "char[82]",
+              "unit": ""
+            },
+            "MEANFIB": {
+              "name": "MEANFIB",
+              "description": "Mean S/N-weighted fiber number of all observati",
+              "type": "float32",
+              "unit": ""
+            },
+            "SIGFIB": {
+              "name": "SIGFIB",
+              "description": "Standard deviation of S/N-weighter fiber number",
+              "type": "float32",
+              "unit": ""
+            },
+            "TEFF_D": {
+              "name": "TEFF_D",
+              "description": "Effective temperature from DOPPLER ",
+              "type": "float32",
+              "unit": "K"
+            },
+            "E_TEFF_D": {
+              "name": "E_TEFF_D",
+              "description": "Error in effective temperature from DOPPLER ",
+              "type": "float32",
+              "unit": "K"
+            },
+            "LOGG_D": {
+              "name": "LOGG_D",
+              "description": "Surface gravity from DOPPLER",
+              "type": "float32",
+              "unit": ""
+            },
+            "E_LOGG_D": {
+              "name": "E_LOGG_D",
+              "description": "Error in surface gravity from DOPPLER",
+              "type": "float32",
+              "unit": ""
+            },
+            "FEH_D": {
+              "name": "FEH_D",
+              "description": "Metallicity from DOPPLER",
+              "type": "float32",
+              "unit": ""
+            },
+            "E_FEH_D": {
+              "name": "E_FEH_D",
+              "description": "Error in metallicity from DOPPLER",
+              "type": "float32",
+              "unit": ""
+            },
+            "RELEASE": {
+              "name": "RELEASE",
+              "description": "SDSS data release name",
+              "type": "char[5]",
+              "unit": ""
+            },
+            "FILETYPE": {
+              "name": "FILETYPE",
+              "description": "SDSS data model filetype",
+              "type": "char[7]",
+              "unit": ""
+            },
+            "V_ASTRA": {
+              "name": "V_ASTRA",
+              "description": "Astra version",
+              "type": "char[5]",
+              "unit": ""
+            },
+            "RUN2D": {
+              "name": "RUN2D",
+              "description": "Spectro-2D reduction name",
+              "type": "char[6]",
+              "unit": ""
+            },
+            "APRED": {
+              "name": "APRED",
+              "description": "APOGEE reduction tag",
+              "type": "char[3]",
+              "unit": ""
+            },
+            "CAT_ID": {
+              "name": "CAT_ID",
+              "description": "SDSS-V catalog identifier",
+              "type": "int64",
+              "unit": ""
+            },
+            "TEFF": {
+              "name": "TEFF",
+              "description": "Stellar effective temperature ",
+              "type": "float32",
+              "unit": "K"
+            },
+            "LOGG": {
+              "name": "LOGG",
+              "description": "Surface gravity ",
+              "type": "float32",
+              "unit": "log10(cm/s^2)"
+            },
+            "V_TURB": {
+              "name": "V_TURB",
+              "description": "Microturbulent velocity ",
+              "type": "float32",
+              "unit": "km/s"
+            },
+            "C_H": {
+              "name": "C_H",
+              "description": "Carbon abundance as [C/H] ",
+              "type": "float32",
+              "unit": "dex"
+            },
+            "N_H": {
+              "name": "N_H",
+              "description": "Nitrogen abundance as [N/H] ",
+              "type": "float32",
+              "unit": "dex"
+            },
+            "O_H": {
+              "name": "O_H",
+              "description": "Oxygen abundance as [O/H] ",
+              "type": "float32",
+              "unit": "dex"
+            },
+            "NA_H": {
+              "name": "NA_H",
+              "description": "Sodium abundance as [Na/H] ",
+              "type": "float32",
+              "unit": "dex"
+            },
+            "MG_H": {
+              "name": "MG_H",
+              "description": "Magnesium abundance as [Mg/H] ",
+              "type": "float32",
+              "unit": "dex"
+            },
+            "AL_H": {
+              "name": "AL_H",
+              "description": "Aluminium abundance as [Al/H] ",
+              "type": "float32",
+              "unit": "dex"
+            },
+            "SI_H": {
+              "name": "SI_H",
+              "description": "Silicon abundance as [Si/H] ",
+              "type": "float32",
+              "unit": "dex"
+            },
+            "P_H": {
+              "name": "P_H",
+              "description": "Phosphorus abundance as [P/H] ",
+              "type": "float32",
+              "unit": "dex"
+            },
+            "S_H": {
+              "name": "S_H",
+              "description": "Sulfur abundance as [S/H] ",
+              "type": "float32",
+              "unit": "dex"
+            },
+            "K_H": {
+              "name": "K_H",
+              "description": "Potassium abundance as [K/H] ",
+              "type": "float32",
+              "unit": "dex"
+            },
+            "CA_H": {
+              "name": "CA_H",
+              "description": "Calcium abundance as [Ca/H] ",
+              "type": "float32",
+              "unit": "dex"
+            },
+            "TI_H": {
+              "name": "TI_H",
+              "description": "Titanium abundance as [Ti/H] ",
+              "type": "float32",
+              "unit": "dex"
+            },
+            "V_H": {
+              "name": "V_H",
+              "description": "Vanadium abundance as [V/H] ",
+              "type": "float32",
+              "unit": "dex"
+            },
+            "CR_H": {
+              "name": "CR_H",
+              "description": "Chromium abundance as [Cr/H] ",
+              "type": "float32",
+              "unit": "dex"
+            },
+            "MN_H": {
+              "name": "MN_H",
+              "description": "Manganese abundance as [Mn/H] ",
+              "type": "float32",
+              "unit": "dex"
+            },
+            "FE_H": {
+              "name": "FE_H",
+              "description": "Iron abundance as [Fe/H] ",
+              "type": "float32",
+              "unit": "dex"
+            },
+            "CO_H": {
+              "name": "CO_H",
+              "description": "Cobalt abundance as [Co/H] ",
+              "type": "float32",
+              "unit": "dex"
+            },
+            "NI_H": {
+              "name": "NI_H",
+              "description": "Nickel abundance as [Ni/H] ",
+              "type": "float32",
+              "unit": "dex"
+            },
+            "CU_H": {
+              "name": "CU_H",
+              "description": "Copper abundance as [Cu/H] ",
+              "type": "float32",
+              "unit": "dex"
+            },
+            "GE_H": {
+              "name": "GE_H",
+              "description": "Germanium abundance as [Ge/H] ",
+              "type": "float32",
+              "unit": "dex"
+            },
+            "C12_C13": {
+              "name": "C12_C13",
+              "description": "Carbon isotopic ratio as 12C/13C",
+              "type": "float32",
+              "unit": ""
+            },
+            "V_MACRO": {
+              "name": "V_MACRO",
+              "description": "Macro-turbulent velocity ",
+              "type": "float32",
+              "unit": "km/s"
+            },
+            "E_TEFF": {
+              "name": "E_TEFF",
+              "description": "Error in stellar effective temperature ",
+              "type": "float32",
+              "unit": "K"
+            },
+            "E_LOGG": {
+              "name": "E_LOGG",
+              "description": "Error in surface gravity ",
+              "type": "float32",
+              "unit": "log10(cm/s^2)"
+            },
+            "E_V_TURB": {
+              "name": "E_V_TURB",
+              "description": "Error in microturbulent velocity ",
+              "type": "float32",
+              "unit": "km/s"
+            },
+            "E_C_H": {
+              "name": "E_C_H",
+              "description": "Error in carbon abundance as [C/H] ",
+              "type": "float32",
+              "unit": "dex"
+            },
+            "E_N_H": {
+              "name": "E_N_H",
+              "description": "Error in nitrogen abundance as [N/H] ",
+              "type": "float32",
+              "unit": "dex"
+            },
+            "E_O_H": {
+              "name": "E_O_H",
+              "description": "Error in oxygen abundance as [O/H] ",
+              "type": "float32",
+              "unit": "dex"
+            },
+            "E_NA_H": {
+              "name": "E_NA_H",
+              "description": "Error in sodium abundance as [Na/H] ",
+              "type": "float32",
+              "unit": "dex"
+            },
+            "E_MG_H": {
+              "name": "E_MG_H",
+              "description": "Error in magnesium abundance as [Mg/H] ",
+              "type": "float32",
+              "unit": "dex"
+            },
+            "E_AL_H": {
+              "name": "E_AL_H",
+              "description": "Error in aluminium abundance as [Al/H] ",
+              "type": "float32",
+              "unit": "dex"
+            },
+            "E_SI_H": {
+              "name": "E_SI_H",
+              "description": "Error in silicon abundance as [Si/H] ",
+              "type": "float32",
+              "unit": "dex"
+            },
+            "E_P_H": {
+              "name": "E_P_H",
+              "description": "Error in phosphorus abundance as [P/H] ",
+              "type": "float32",
+              "unit": "dex"
+            },
+            "E_S_H": {
+              "name": "E_S_H",
+              "description": "Error in sulfur abundance as [S/H] ",
+              "type": "float32",
+              "unit": "dex"
+            },
+            "E_K_H": {
+              "name": "E_K_H",
+              "description": "Error in potassium abundance as [K/H] ",
+              "type": "float32",
+              "unit": "dex"
+            },
+            "E_CA_H": {
+              "name": "E_CA_H",
+              "description": "Error in calcium abundance as [Ca/H] ",
+              "type": "float32",
+              "unit": "dex"
+            },
+            "E_TI_H": {
+              "name": "E_TI_H",
+              "description": "Error in titanium abundance as [Ti/H] ",
+              "type": "float32",
+              "unit": "dex"
+            },
+            "E_V_H": {
+              "name": "E_V_H",
+              "description": "Error in vanadium abundance as [V/H] ",
+              "type": "float32",
+              "unit": "dex"
+            },
+            "E_CR_H": {
+              "name": "E_CR_H",
+              "description": "Error in chromium abundance as [Cr/H] ",
+              "type": "float32",
+              "unit": "dex"
+            },
+            "E_MN_H": {
+              "name": "E_MN_H",
+              "description": "Error in manganese abundance as [Mn/H] ",
+              "type": "float32",
+              "unit": "dex"
+            },
+            "E_FE_H": {
+              "name": "E_FE_H",
+              "description": "Error in metallicity ",
+              "type": "float32",
+              "unit": "dex"
+            },
+            "E_CO_H": {
+              "name": "E_CO_H",
+              "description": "Error in cobalt abundance as [Co/H] ",
+              "type": "float32",
+              "unit": "dex"
+            },
+            "E_NI_H": {
+              "name": "E_NI_H",
+              "description": "Error in nickel abundance as [Ni/H] ",
+              "type": "float32",
+              "unit": "dex"
+            },
+            "E_CU_H": {
+              "name": "E_CU_H",
+              "description": "Error in gopper abundance as [Cu/H] ",
+              "type": "float32",
+              "unit": "dex"
+            },
+            "E_GE_H": {
+              "name": "E_GE_H",
+              "description": "Error in germanium abundance as [Ge/H] ",
+              "type": "float32",
+              "unit": "dex"
+            },
+            "E_C12_C13": {
+              "name": "E_C12_C13",
+              "description": "Error in carbon isotopic ratio as 12C/13C",
+              "type": "float32",
+              "unit": ""
+            },
+            "E_V_MACRO": {
+              "name": "E_V_MACRO",
+              "description": "Error in macro-turbulent velocity ",
+              "type": "float32",
+              "unit": "km/s"
+            },
+            "BITMASK_FLAG": {
+              "name": "BITMASK_FLAG",
+              "description": "Results bitmask flag (see documentation)",
+              "type": "int32",
+              "unit": ""
+            },
+            "SNR": {
+              "name": "SNR",
+              "description": "Mean signal-to-noise ratio",
+              "type": "float32",
+              "unit": ""
+            },
+            "CHI_SQ": {
+              "name": "CHI_SQ",
+              "description": "\\chi-squared of model fit",
+              "type": "float32",
+              "unit": ""
+            },
+            "REDUCED_CHI_SQ": {
+              "name": "REDUCED_CHI_SQ",
+              "description": "Reduced \\chi-squared of model fit",
+              "type": "float32",
+              "unit": ""
+            },
+            "TASK_ID": {
+              "name": "TASK_ID",
+              "description": "Astra unique task identifier",
+              "type": "int32",
+              "unit": ""
+            },
+            "OUTPUT_ID": {
+              "name": "OUTPUT_ID",
+              "description": "Astra unique output identifier",
+              "type": "int32",
+              "unit": ""
+            },
+            "DATA_PRODUCT_ID": {
+              "name": "DATA_PRODUCT_ID",
+              "description": "Astra data product identifier",
+              "type": "int32",
+              "unit": ""
+            },
+            "STAR_PK": {
+              "name": "STAR_PK",
+              "description": "Primary key in `apogee_drp.star` table",
+              "type": "int32",
+              "unit": ""
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null
+    },
+    "IPL2": {
+      "template": "$MWM_ASTRA/[ASTRA_VERSION]/[RUN2D]-[APRED]/summary/allStar-ThePayne-[ASTRA_VERSION]-[RUN2D]-[APRED].fits",
+      "example": "0.3.0/v6_0_9-1.0/summary/allStar-ThePayne-0.3.0-v6_0_9-1.0.fits",
+      "location": "{astra_version}/{run2d}-{apred}/summary/allStar-ThePayne-{astra_version}-{run2d}-{apred}.fits",
+      "environment": "MWM_ASTRA",
+      "survey": "MWM",
+      "access": {
+        "in_sdss_access": false,
+        "path_name": null,
+        "path_template": null,
+        "path_kwargs": null,
+        "access_string": "astraAllStarThePayne = $MWM_ASTRA/{astra_version}/{run2d}-{apred}/summary/allStar-ThePayne-{astra_version}-{run2d}-{apred}.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Metadata",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            },
+            {
+              "key": "CHECKSUM",
+              "value": "dY6aeV6WdV6adV6U",
+              "comment": "HDU checksum updated 2023-03-14T10:10:46"
+            },
+            {
+              "key": "DATASUM",
+              "value": "0",
+              "comment": "data unit checksum updated 2023-03-14T10:10:46"
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "astraAllStarThePayne results for each star",
+          "size": "375 MB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "BINTABLE",
+              "comment": "binary table extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "640",
+              "comment": "length of dimension 1"
+            },
+            {
+              "key": "NAXIS2",
+              "value": "615293",
+              "comment": "length of dimension 2"
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "number of group parameters"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "number of groups"
+            },
+            {
+              "key": "TFIELDS",
+              "value": "136",
+              "comment": "number of table fields"
+            },
+            {
+              "key": "CHECKSUM",
+              "value": "lfNgoeKeleKeleKe",
+              "comment": "HDU checksum updated 2023-03-14T10:10:51"
+            },
+            {
+              "key": "DATASUM",
+              "value": "2945618733",
+              "comment": "data unit checksum updated 2023-03-14T10:10:51"
+            }
+          ],
+          "columns": {
+            "CAT_ID": {
+              "name": "CAT_ID",
+              "description": "SDSS-V catalog identifier",
+              "type": "int64",
+              "unit": ""
+            },
+            "CAT_ID05": {
+              "name": "CAT_ID05",
+              "description": "SDSS-V catalog identifier (v0.5)",
+              "type": "int64",
+              "unit": ""
+            },
+            "CAT_ID10": {
+              "name": "CAT_ID10",
+              "description": "SDSS-V catalog identifier (v1.0)",
+              "type": "int64",
+              "unit": ""
+            },
+            "TIC_ID": {
+              "name": "TIC_ID",
+              "description": "TESS Input Catalog (v8) identifier",
+              "type": "int64",
+              "unit": ""
+            },
+            "GAIA_SOURCE_ID": {
+              "name": "GAIA_SOURCE_ID",
+              "description": "Gaia source identifier",
+              "type": "int64",
+              "unit": ""
+            },
+            "GAIA_DATA_RELEASE": {
+              "name": "GAIA_DATA_RELEASE",
+              "description": "Gaia data release used",
+              "type": "char[3]",
+              "unit": ""
+            },
+            "HEALPIX": {
+              "name": "HEALPIX",
+              "description": "Healpix location (128 sides)",
+              "type": "int32",
+              "unit": ""
+            },
+            "RA": {
+              "name": "RA",
+              "description": "SDSS-V catalog right ascension (J2000) ",
+              "type": "float32",
+              "unit": ""
+            },
+            "DEC": {
+              "name": "DEC",
+              "description": "SDSS-V catalog declination (J2000) ",
+              "type": "float32",
+              "unit": ""
+            },
+            "GAIA_RA": {
+              "name": "GAIA_RA",
+              "description": "Gaia right ascension ",
+              "type": "float32",
+              "unit": ""
+            },
+            "GAIA_DEC": {
+              "name": "GAIA_DEC",
+              "description": "Gaia declination ",
+              "type": "float32",
+              "unit": ""
+            },
+            "PLX": {
+              "name": "PLX",
+              "description": "Gaia parallax ",
+              "type": "float32",
+              "unit": ""
+            },
+            "PMRA": {
+              "name": "PMRA",
+              "description": "Gaia proper motion in RA ",
+              "type": "float32",
+              "unit": ""
+            },
+            "PMDE": {
+              "name": "PMDE",
+              "description": "Gaia proper motion in DEC ",
+              "type": "float32",
+              "unit": ""
+            },
+            "E_PMRA": {
+              "name": "E_PMRA",
+              "description": "Gaia proper motion in RA error ",
+              "type": "float32",
+              "unit": ""
+            },
+            "E_PMDE": {
+              "name": "E_PMDE",
+              "description": "Gaia proper motion in DEC error ",
+              "type": "float32",
+              "unit": ""
+            },
+            "GAIA_V_RAD": {
+              "name": "GAIA_V_RAD",
+              "description": "Gaia radial velocity ",
+              "type": "float32",
+              "unit": ""
+            },
+            "GAIA_E_V_RAD": {
+              "name": "GAIA_E_V_RAD",
+              "description": "Gaia radial velocity error ",
+              "type": "float32",
+              "unit": ""
+            },
+            "G_MAG": {
+              "name": "G_MAG",
+              "description": "Gaia mean apparent G magnitude ",
+              "type": "float32",
+              "unit": ""
+            },
+            "BP_MAG": {
+              "name": "BP_MAG",
+              "description": "Gaia mean apparent BP magnitude ",
+              "type": "float32",
+              "unit": ""
+            },
+            "RP_MAG": {
+              "name": "RP_MAG",
+              "description": "Gaia mean apparent RP magnitude ",
+              "type": "float32",
+              "unit": ""
+            },
+            "J_MAG": {
+              "name": "J_MAG",
+              "description": "2MASS mean apparent J magnitude ",
+              "type": "float32",
+              "unit": ""
+            },
+            "H_MAG": {
+              "name": "H_MAG",
+              "description": "2MASS mean apparent H magnitude ",
+              "type": "float32",
+              "unit": ""
+            },
+            "K_MAG": {
+              "name": "K_MAG",
+              "description": "2MASS mean apparent K magnitude ",
+              "type": "float32",
+              "unit": ""
+            },
+            "E_J_MAG": {
+              "name": "E_J_MAG",
+              "description": "2MASS mean apparent J magnitude error ",
+              "type": "float32",
+              "unit": ""
+            },
+            "E_H_MAG": {
+              "name": "E_H_MAG",
+              "description": "2MASS mean apparent H magnitude error ",
+              "type": "float32",
+              "unit": ""
+            },
+            "E_K_MAG": {
+              "name": "E_K_MAG",
+              "description": "2MASS mean apparent K magnitude error ",
+              "type": "float32",
+              "unit": ""
+            },
+            "CARTON_0": {
+              "name": "CARTON_0",
+              "description": "First carton for source (see documentation)",
+              "type": "char[30]",
+              "unit": ""
+            },
+            "V_XMATCH": {
+              "name": "V_XMATCH",
+              "description": "Cross-match version used for auxillary data",
+              "type": "char[2]",
+              "unit": ""
+            },
+            "DOPPLER_TEFF": {
+              "name": "DOPPLER_TEFF",
+              "description": "Effective temperature from DOPPLER ",
+              "type": "float32",
+              "unit": ""
+            },
+            "DOPPLER_E_TEFF": {
+              "name": "DOPPLER_E_TEFF",
+              "description": "Error in effective temperature from DOPPLER ",
+              "type": "float32",
+              "unit": ""
+            },
+            "DOPPLER_LOGG": {
+              "name": "DOPPLER_LOGG",
+              "description": "Surface gravity from DOPPLER",
+              "type": "float32",
+              "unit": ""
+            },
+            "DOPPLER_E_LOGG": {
+              "name": "DOPPLER_E_LOGG",
+              "description": "Error in surface gravity from DOPPLER",
+              "type": "float32",
+              "unit": ""
+            },
+            "DOPPLER_FE_H": {
+              "name": "DOPPLER_FE_H",
+              "description": "Metallicity from DOPPLER",
+              "type": "float32",
+              "unit": ""
+            },
+            "DOPPLER_E_FE_H": {
+              "name": "DOPPLER_E_FE_H",
+              "description": "Error in metallicity from DOPPLER",
+              "type": "float32",
+              "unit": ""
+            },
+            "DOPPLER_FLAG": {
+              "name": "DOPPLER_FLAG",
+              "description": "Flag for DOPPLER results as bit array",
+              "type": "int32",
+              "unit": ""
+            },
+            "DOPPLER_VERSION": {
+              "name": "DOPPLER_VERSION",
+              "description": "DOPPLER version used for fit",
+              "type": "char[7]",
+              "unit": ""
+            },
+            "DOPPLER_V_RAD": {
+              "name": "DOPPLER_V_RAD",
+              "description": "Radial velocity from DOPPLER ",
+              "type": "float32",
+              "unit": ""
+            },
+            "XCSAO_TEFF": {
+              "name": "XCSAO_TEFF",
+              "description": "Effective temperature from XCSAO ",
+              "type": "float32",
+              "unit": ""
+            },
+            "XCSAO_E_TEFF": {
+              "name": "XCSAO_E_TEFF",
+              "description": "Error in effective temperature from XCSAO ",
+              "type": "float32",
+              "unit": ""
+            },
+            "XCSAO_LOGG": {
+              "name": "XCSAO_LOGG",
+              "description": "Surface gravity from XCSAO",
+              "type": "float32",
+              "unit": ""
+            },
+            "XCSAO_E_LOGG": {
+              "name": "XCSAO_E_LOGG",
+              "description": "Error in surface gravity from XCSAO",
+              "type": "float32",
+              "unit": ""
+            },
+            "XCSAO_FE_H": {
+              "name": "XCSAO_FE_H",
+              "description": "Metallicity from XCSAO",
+              "type": "float32",
+              "unit": ""
+            },
+            "XCSAO_E_FE_H": {
+              "name": "XCSAO_E_FE_H",
+              "description": "Error in metallicity from XCSAO",
+              "type": "float32",
+              "unit": ""
+            },
+            "XCSAO_RXC": {
+              "name": "XCSAO_RXC",
+              "description": "Cross-correlation R-value (1979AJ.....84.1511T)",
+              "type": "float32",
+              "unit": ""
+            },
+            "XCSAO_V_RAD": {
+              "name": "XCSAO_V_RAD",
+              "description": "Radial velocity from XCSAO ",
+              "type": "float32",
+              "unit": ""
+            },
+            "XCSAO_E_V_RAD": {
+              "name": "XCSAO_E_V_RAD",
+              "description": "Error in radial velocity from XCSAO ",
+              "type": "float32",
+              "unit": ""
+            },
+            "ASTRA_VERSION_MAJOR": {
+              "name": "ASTRA_VERSION_MAJOR",
+              "description": "Astra version major number",
+              "type": "int32",
+              "unit": ""
+            },
+            "ASTRA_VERSION_MINOR": {
+              "name": "ASTRA_VERSION_MINOR",
+              "description": "Astra version minor number",
+              "type": "int32",
+              "unit": ""
+            },
+            "ASTRA_VERSION_PATCH": {
+              "name": "ASTRA_VERSION_PATCH",
+              "description": "Astra version patch number",
+              "type": "int32",
+              "unit": ""
+            },
+            "CREATED": {
+              "name": "CREATED",
+              "description": "File creation time (UTC %y-%m-%d %H:%M:%S)",
+              "type": "char[19]",
+              "unit": ""
+            },
+            "COMPLETED": {
+              "name": "COMPLETED",
+              "description": "Task completed",
+              "type": "char[19]",
+              "unit": ""
+            },
+            "TIME_ELAPSED": {
+              "name": "TIME_ELAPSED",
+              "description": "Time elapsed for task ",
+              "type": "float32",
+              "unit": ""
+            },
+            "TASK": {
+              "name": "TASK",
+              "description": "Task identifier",
+              "type": "int64",
+              "unit": ""
+            },
+            "DATA_PRODUCT": {
+              "name": "DATA_PRODUCT",
+              "description": "Data product identifier",
+              "type": "int64",
+              "unit": ""
+            },
+            "SOURCE": {
+              "name": "SOURCE",
+              "description": "Source identifier",
+              "type": "int64",
+              "unit": ""
+            },
+            "OUTPUT_DATA_PRODUCT": {
+              "name": "OUTPUT_DATA_PRODUCT",
+              "description": "Output data product identifier",
+              "type": "int64",
+              "unit": ""
+            },
+            "TELESCOPE": {
+              "name": "TELESCOPE",
+              "description": "Telescope name",
+              "type": "char[6]",
+              "unit": ""
+            },
+            "INSTRUMENT": {
+              "name": "INSTRUMENT",
+              "description": "Instrument",
+              "type": "char[6]",
+              "unit": ""
+            },
+            "SNR": {
+              "name": "SNR",
+              "description": "Mean signal-to-noise ratio",
+              "type": "float32",
+              "unit": ""
+            },
+            "TEFF": {
+              "name": "TEFF",
+              "description": "Stellar effective temperature ",
+              "type": "float32",
+              "unit": ""
+            },
+            "E_TEFF": {
+              "name": "E_TEFF",
+              "description": "Error in stellar effective temperature ",
+              "type": "float32",
+              "unit": ""
+            },
+            "LOGG": {
+              "name": "LOGG",
+              "description": "Surface gravity ",
+              "type": "float32",
+              "unit": ""
+            },
+            "E_LOGG": {
+              "name": "E_LOGG",
+              "description": "Error in surface gravity ",
+              "type": "float32",
+              "unit": ""
+            },
+            "V_TURB": {
+              "name": "V_TURB",
+              "description": "Microturbulent velocity ",
+              "type": "float32",
+              "unit": ""
+            },
+            "E_V_TURB": {
+              "name": "E_V_TURB",
+              "description": "Error in microturbulent velocity ",
+              "type": "float32",
+              "unit": ""
+            },
+            "C_H": {
+              "name": "C_H",
+              "description": "Carbon abundance as [C/H] ",
+              "type": "float32",
+              "unit": ""
+            },
+            "E_C_H": {
+              "name": "E_C_H",
+              "description": "Error in carbon abundance as [C/H] ",
+              "type": "float32",
+              "unit": ""
+            },
+            "N_H": {
+              "name": "N_H",
+              "description": "Nitrogen abundance as [N/H] ",
+              "type": "float32",
+              "unit": ""
+            },
+            "E_N_H": {
+              "name": "E_N_H",
+              "description": "Error in nitrogen abundance as [N/H] ",
+              "type": "float32",
+              "unit": ""
+            },
+            "O_H": {
+              "name": "O_H",
+              "description": "Oxygen abundance as [O/H] ",
+              "type": "float32",
+              "unit": ""
+            },
+            "E_O_H": {
+              "name": "E_O_H",
+              "description": "Error in oxygen abundance as [O/H] ",
+              "type": "float32",
+              "unit": ""
+            },
+            "NA_H": {
+              "name": "NA_H",
+              "description": "Sodium abundance as [Na/H] ",
+              "type": "float32",
+              "unit": ""
+            },
+            "E_NA_H": {
+              "name": "E_NA_H",
+              "description": "Error in sodium abundance as [Na/H] ",
+              "type": "float32",
+              "unit": ""
+            },
+            "MG_H": {
+              "name": "MG_H",
+              "description": "Magnesium abundance as [Mg/H] ",
+              "type": "float32",
+              "unit": ""
+            },
+            "E_MG_H": {
+              "name": "E_MG_H",
+              "description": "Error in magnesium abundance as [Mg/H] ",
+              "type": "float32",
+              "unit": ""
+            },
+            "AL_H": {
+              "name": "AL_H",
+              "description": "Aluminium abundance as [Al/H] ",
+              "type": "float32",
+              "unit": ""
+            },
+            "E_AL_H": {
+              "name": "E_AL_H",
+              "description": "Error in aluminium abundance as [Al/H] ",
+              "type": "float32",
+              "unit": ""
+            },
+            "SI_H": {
+              "name": "SI_H",
+              "description": "Silicon abundance as [Si/H] ",
+              "type": "float32",
+              "unit": ""
+            },
+            "E_SI_H": {
+              "name": "E_SI_H",
+              "description": "Error in silicon abundance as [Si/H] ",
+              "type": "float32",
+              "unit": ""
+            },
+            "P_H": {
+              "name": "P_H",
+              "description": "Phosphorus abundance as [P/H] ",
+              "type": "float32",
+              "unit": ""
+            },
+            "E_P_H": {
+              "name": "E_P_H",
+              "description": "Error in phosphorus abundance as [P/H] ",
+              "type": "float32",
+              "unit": ""
+            },
+            "S_H": {
+              "name": "S_H",
+              "description": "Sulfur abundance as [S/H] ",
+              "type": "float32",
+              "unit": ""
+            },
+            "E_S_H": {
+              "name": "E_S_H",
+              "description": "Error in sulfur abundance as [S/H] ",
+              "type": "float32",
+              "unit": ""
+            },
+            "K_H": {
+              "name": "K_H",
+              "description": "Potassium abundance as [K/H] ",
+              "type": "float32",
+              "unit": ""
+            },
+            "E_K_H": {
+              "name": "E_K_H",
+              "description": "Error in potassium abundance as [K/H] ",
+              "type": "float32",
+              "unit": ""
+            },
+            "CA_H": {
+              "name": "CA_H",
+              "description": "Calcium abundance as [Ca/H] ",
+              "type": "float32",
+              "unit": ""
+            },
+            "E_CA_H": {
+              "name": "E_CA_H",
+              "description": "Error in calcium abundance as [Ca/H] ",
+              "type": "float32",
+              "unit": ""
+            },
+            "TI_H": {
+              "name": "TI_H",
+              "description": "Titanium abundance as [Ti/H] ",
+              "type": "float32",
+              "unit": ""
+            },
+            "E_TI_H": {
+              "name": "E_TI_H",
+              "description": "Error in titanium abundance as [Ti/H] ",
+              "type": "float32",
+              "unit": ""
+            },
+            "V_H": {
+              "name": "V_H",
+              "description": "Vanadium abundance as [V/H] ",
+              "type": "float32",
+              "unit": ""
+            },
+            "E_V_H": {
+              "name": "E_V_H",
+              "description": "Error in vanadium abundance as [V/H] ",
+              "type": "float32",
+              "unit": ""
+            },
+            "CR_H": {
+              "name": "CR_H",
+              "description": "Chromium abundance as [Cr/H] ",
+              "type": "float32",
+              "unit": ""
+            },
+            "E_CR_H": {
+              "name": "E_CR_H",
+              "description": "Error in chromium abundance as [Cr/H] ",
+              "type": "float32",
+              "unit": ""
+            },
+            "MN_H": {
+              "name": "MN_H",
+              "description": "Manganese abundance as [Mn/H] ",
+              "type": "float32",
+              "unit": ""
+            },
+            "E_MN_H": {
+              "name": "E_MN_H",
+              "description": "Error in manganese abundance as [Mn/H] ",
+              "type": "float32",
+              "unit": ""
+            },
+            "FE_H": {
+              "name": "FE_H",
+              "description": "Iron abundance as [Fe/H] ",
+              "type": "float32",
+              "unit": ""
+            },
+            "E_FE_H": {
+              "name": "E_FE_H",
+              "description": "Error in metallicity ",
+              "type": "float32",
+              "unit": ""
+            },
+            "CO_H": {
+              "name": "CO_H",
+              "description": "Cobalt abundance as [Co/H] ",
+              "type": "float32",
+              "unit": ""
+            },
+            "E_CO_H": {
+              "name": "E_CO_H",
+              "description": "Error in cobalt abundance as [Co/H] ",
+              "type": "float32",
+              "unit": ""
+            },
+            "NI_H": {
+              "name": "NI_H",
+              "description": "Nickel abundance as [Ni/H] ",
+              "type": "float32",
+              "unit": ""
+            },
+            "E_NI_H": {
+              "name": "E_NI_H",
+              "description": "Error in nickel abundance as [Ni/H] ",
+              "type": "float32",
+              "unit": ""
+            },
+            "CU_H": {
+              "name": "CU_H",
+              "description": "Copper abundance as [Cu/H] ",
+              "type": "float32",
+              "unit": ""
+            },
+            "E_CU_H": {
+              "name": "E_CU_H",
+              "description": "Error in gopper abundance as [Cu/H] ",
+              "type": "float32",
+              "unit": ""
+            },
+            "GE_H": {
+              "name": "GE_H",
+              "description": "Germanium abundance as [Ge/H] ",
+              "type": "float32",
+              "unit": ""
+            },
+            "E_GE_H": {
+              "name": "E_GE_H",
+              "description": "Error in germanium abundance as [Ge/H] ",
+              "type": "float32",
+              "unit": ""
+            },
+            "C12_C13": {
+              "name": "C12_C13",
+              "description": "Carbon isotopic ratio as 12C/13C",
+              "type": "float32",
+              "unit": ""
+            },
+            "V_MACRO": {
+              "name": "V_MACRO",
+              "description": "Macro-turbulent velocity ",
+              "type": "float32",
+              "unit": ""
+            },
+            "FLAG": {
+              "name": "FLAG",
+              "description": "Flag for results as a bit array",
+              "type": "int32",
+              "unit": ""
+            },
+            "FLAG_TEFF": {
+              "name": "FLAG_TEFF",
+              "description": "Flag for TEFF as bit array",
+              "type": "int32",
+              "unit": ""
+            },
+            "FLAG_LOGG": {
+              "name": "FLAG_LOGG",
+              "description": "Flag for LOGG as bit array",
+              "type": "int32",
+              "unit": ""
+            },
+            "FLAG_V_TURB": {
+              "name": "FLAG_V_TURB",
+              "description": "Flag for V_TURB as bit array",
+              "type": "int32",
+              "unit": ""
+            },
+            "FLAG_C_H": {
+              "name": "FLAG_C_H",
+              "description": "Flag for C_H as bit array",
+              "type": "int32",
+              "unit": ""
+            },
+            "FLAG_N_H": {
+              "name": "FLAG_N_H",
+              "description": "Flag for N_H as bit array",
+              "type": "int32",
+              "unit": ""
+            },
+            "FLAG_O_H": {
+              "name": "FLAG_O_H",
+              "description": "Flag for O_H as bit array",
+              "type": "int32",
+              "unit": ""
+            },
+            "FLAG_NA_H": {
+              "name": "FLAG_NA_H",
+              "description": "Flag for NA_H as bit array",
+              "type": "int32",
+              "unit": ""
+            },
+            "FLAG_MG_H": {
+              "name": "FLAG_MG_H",
+              "description": "Flag for MG_H as bit array",
+              "type": "int32",
+              "unit": ""
+            },
+            "FLAG_AL_H": {
+              "name": "FLAG_AL_H",
+              "description": "Flag for AL_H as bit array",
+              "type": "int32",
+              "unit": ""
+            },
+            "FLAG_SI_H": {
+              "name": "FLAG_SI_H",
+              "description": "Flag for SI_H as bit array",
+              "type": "int32",
+              "unit": ""
+            },
+            "FLAG_P_H": {
+              "name": "FLAG_P_H",
+              "description": "Flag for P_H as bit array",
+              "type": "int32",
+              "unit": ""
+            },
+            "FLAG_S_H": {
+              "name": "FLAG_S_H",
+              "description": "Flag for S_H as bit array",
+              "type": "int32",
+              "unit": ""
+            },
+            "FLAG_K_H": {
+              "name": "FLAG_K_H",
+              "description": "Flag for K_H as bit array",
+              "type": "int32",
+              "unit": ""
+            },
+            "FLAG_CA_H": {
+              "name": "FLAG_CA_H",
+              "description": "Flag for CA_H as bit array",
+              "type": "int32",
+              "unit": ""
+            },
+            "FLAG_TI_H": {
+              "name": "FLAG_TI_H",
+              "description": "Flag for TI_H as bit array",
+              "type": "int32",
+              "unit": ""
+            },
+            "FLAG_V_H": {
+              "name": "FLAG_V_H",
+              "description": "Flag for V_H as bit array",
+              "type": "int32",
+              "unit": ""
+            },
+            "FLAG_CR_H": {
+              "name": "FLAG_CR_H",
+              "description": "Flag for CR_H as bit array",
+              "type": "int32",
+              "unit": ""
+            },
+            "FLAG_MN_H": {
+              "name": "FLAG_MN_H",
+              "description": "Flag for MN_H as bit array",
+              "type": "int32",
+              "unit": ""
+            },
+            "FLAG_FE_H": {
+              "name": "FLAG_FE_H",
+              "description": "Flag for FE_H as bit array",
+              "type": "int32",
+              "unit": ""
+            },
+            "FLAG_CO_H": {
+              "name": "FLAG_CO_H",
+              "description": "Flag for CO_H as bit array",
+              "type": "int32",
+              "unit": ""
+            },
+            "FLAG_NI_H": {
+              "name": "FLAG_NI_H",
+              "description": "Flag for NI_H as bit array",
+              "type": "int32",
+              "unit": ""
+            },
+            "FLAG_CU_H": {
+              "name": "FLAG_CU_H",
+              "description": "Flag for CU_H as bit array",
+              "type": "int32",
+              "unit": ""
+            },
+            "FLAG_GE_H": {
+              "name": "FLAG_GE_H",
+              "description": "Flag for GE_H as bit array",
+              "type": "int32",
+              "unit": ""
+            },
+            "FLAG_C12_C13": {
+              "name": "FLAG_C12_C13",
+              "description": "Flag for C12_C13 as bit array",
+              "type": "int32",
+              "unit": ""
+            },
+            "FLAG_V_MACRO": {
+              "name": "FLAG_V_MACRO",
+              "description": "Flag for V_MACRO as bit array",
+              "type": "int32",
+              "unit": ""
+            },
+            "REDUCED_CHI_SQ": {
+              "name": "REDUCED_CHI_SQ",
+              "description": "Reduced \\chi-squared of model fit",
+              "type": "float32",
+              "unit": ""
+            },
+            "CHI_SQ": {
+              "name": "CHI_SQ",
+              "description": "\\chi-squared of model fit",
+              "type": "float32",
               "unit": ""
             }
           }
