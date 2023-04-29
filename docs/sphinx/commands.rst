@@ -59,6 +59,12 @@ Commands
    :prog: update
    :nested: full
 
+.. _usage-dmrem:
+
+.. click:: datamodel.cli:remove
+   :prog: remove
+   :nested: full
+
 .. _cli-diff:
 
 Cli Differences
