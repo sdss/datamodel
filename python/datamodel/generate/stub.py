@@ -117,10 +117,10 @@ class BaseStub(abc.ABC):
         if self.output and os.path.exists(self.output):
             os.remove(self.output)
 
-    def render_content(self, force: bool = None) -> None:
+    def render_content(self, force: bool = None, force_release: str = None) -> None:
         """ Populate the yaml template with generated content """
         if not self._cache or force:
-            self._get_cache(force=force)
+            self._get_cache(force=force, force_release=force_release)
 
         if self.format != 'yaml' and not self.validate_cache():
             log.info('yaml cache is not validated!')
@@ -132,7 +132,8 @@ class BaseStub(abc.ABC):
     def _get_content(self):
         pass
 
-    def write(self, force: bool = None, use_cache_release: str = None, full_cache: bool = None) -> None:
+    def write(self, force: bool = None, use_cache_release: str = None,
+              full_cache: bool = None, **kwargs) -> None:
 
         self.use_cache_release = use_cache_release
         self.full_cache = full_cache
@@ -142,7 +143,8 @@ class BaseStub(abc.ABC):
             raise AttributeError('No output filepath set')
 
         # always re-render the content
-        self.render_content(force=force)
+        force_release = kwargs.get("force_release", None)
+        self.render_content(force=force, force_release=force_release)
 
         if not self.content:
             log.info('No cache content to write out!')
@@ -212,11 +214,16 @@ class BaseStub(abc.ABC):
             content = yaml.load(file, Loader=yaml.FullLoader)
             return self._check_release_in_cache(content)
 
-    def _get_cache(self, force: bool = None) -> None:
+    def _get_cache(self, force: bool = None, force_release: str = None) -> None:
+
+        # check force and "access/md" format
+        if force and self.format in ('access', 'md'):
+            force = None
+
         # only cache-able format is yaml - load that content
         cached_file = self.output.replace(self.format, 'yaml')
 
-        if os.path.exists(cached_file) and not force:
+        if os.path.exists(cached_file) and (not force or (force and force_release)):
             # read existing cache
             content = self._read_cache(cached_file)
         else:
@@ -496,7 +503,8 @@ class MdStub(BaseStub):
         self._get_content(release=release, group=group)
 
     def write(self, force: bool = None, release: str = None, group: str = 'WORK',
-              html: bool = None, use_cache_release: str = None, full_cache: bool = None) -> None:
+              html: bool = None, use_cache_release: str = None,
+              full_cache: bool = None, **kwargs) -> None:
 
         if not self.output:
             raise AttributeError('No output filepath set')
