@@ -132,7 +132,8 @@ class BaseStub(abc.ABC):
     def _get_content(self):
         pass
 
-    def write(self, force: bool = None, use_cache_release: str = None, full_cache: bool = None) -> None:
+    def write(self, force: bool = None, use_cache_release: str = None,
+              full_cache: bool = None, **kwargs) -> None:
 
         self.use_cache_release = use_cache_release
         self.full_cache = full_cache

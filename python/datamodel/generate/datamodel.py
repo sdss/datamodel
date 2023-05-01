@@ -593,7 +593,7 @@ class DataModel(object):
         return stub[0](self) if stub else None
 
     def write_stubs(self, format: str = None, force: bool = None, use_cache_release: str = None,
-                    full_cache: bool = None) -> None:
+                    full_cache: bool = None, group: str = 'WORK') -> None:
         """ Write out the stub files
 
         Write out all stubs or a stub of a given format.
@@ -616,7 +616,7 @@ class DataModel(object):
             ss = stub(self)
             if self.verbose:
                 log.info(f'Creating stub: {ss}')
-            ss.write(force=force, use_cache_release=use_cache_release, full_cache=full_cache)
+            ss.write(force=force, use_cache_release=use_cache_release, full_cache=full_cache, group=group)
 
     def remove_stubs(self, format: str = None, git: bool = None) -> None:
         """ Remove the stub files
