@@ -56,7 +56,8 @@ stb_grp = OptionGroup("Stub Options", help='options for writing out datamodel st
 @option_group('Stub Options', 'options for writing out datamodel stubs.',
     option('-F', '--force', help='force override of a stub cache', is_flag=True, default=False),
     option("-c", "--use-cache", help="specify an existing cached release to use", default=None),
-    option('-h', "--hdus-only", help="set to True to only use the user descriptions/comments from the specified cached release", is_flag=True, default=False)
+    option('-h', "--hdus-only", help="set to True to only use the user descriptions/comments from the specified cached release", is_flag=True, default=False),
+    option('-m', '--md-group', type=click.Choice(['WORK', 'IPL', 'DR']), help='the release group to use when writing out the example markdown file', default='WORK')
     )
 @click.option('-v', '--verbose', help='turn on verbosity', is_flag=True, default=False)
 @click.option("-w", "--with-git", help="set to use the auto git commit process", is_flag=True, default=False)
@@ -66,7 +67,8 @@ stb_grp = OptionGroup("Stub Options", help='options for writing out datamodel st
 @cloup.constraint(RequireExactly(1), ['filename', 'file_species'])
 @cloup.constraint(If('file_species', then=RequireExactly(1)), ['path', 'location'])
 def generate(filename, file_species, path, location, env_label, keywords, tree_ver, release,
-             force, use_cache, hdus_only, verbose, with_git, access_path_name, science_product):
+             force, use_cache, hdus_only, verbose, with_git, access_path_name, science_product,
+             md_group):
     """ Generate a datamodel file for a SDSS data product """
 
     # create a datamodel object
@@ -79,7 +81,7 @@ def generate(filename, file_species, path, location, env_label, keywords, tree_v
 
     # write out all the datamodel stubs
     dm.write_stubs(force=force, use_cache_release=use_cache,
-                full_cache=not hdus_only)
+                full_cache=not hdus_only, group=md_group)
 
     # only run if we using the git commit option
     if with_git:
