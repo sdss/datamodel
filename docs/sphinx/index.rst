@@ -55,6 +55,7 @@ datamodels for SDSS data products.
   Generating Datamodels <generate>
   Navigating Datamodels <navigate>
   Designing Datamodels <design>
+  Manipulating Datamodels <manipulate>
 
 .. toctree::
   :maxdepth: 2

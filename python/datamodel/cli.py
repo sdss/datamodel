@@ -295,6 +295,34 @@ def update(file_species: str, release: str, verbose: bool):
                 log.error(f'DM update failed. Could not write stubs for {file.stem}. Error: {e}')
 
 
+@cli.command(short_help='Remove a release from a datamodel')
+@click.option('-f', '--file_species', help='unique name of the product file species', required=True)
+@click.option('-r', '--release', help='the SDSS data release', required=True)
+@click.option('-v', '--verbose', help='turn on verbosity', is_flag=True, default=False)
+def remove(file_species: str, release: str, verbose: bool):
+
+    dm = DataModel.from_yaml(file_species, release=release, verbose=verbose)
+
+    log.info(f"Removing release {release} from datamodel {file_species}.")
+    s = dm.get_stub()
+    s.remove_release(release)
+    s.write()
+
+    # get another release from the datamodel
+    rels = s._cache.get("general", {}).get("releases", [])
+
+    if not rels:
+        log.warning('No other releases in yaml cache.  Cannot update json and access files.')
+        return
+
+    # rewrite the JSON and md stubs
+    dm = DataModel.from_yaml(file_species, release=rels[0], verbose=verbose)
+    dm.write_stubs()
+
+cli.add_command(remove)
+
+
+
 
 if __name__ == '__main__':
     cli()

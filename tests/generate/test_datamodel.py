@@ -275,4 +275,23 @@ def test_valid_notes(validmodel):
     assert ss._cache['notes'] == 'here are some notes\nand more notes'
 
 
+def test_remove_release(makefile, validmodel):
+    validmodel('fits')
+    dr15 = makefile(env='dr15')
+    dr16 = makefile(env='dr16')
+
+    dm = DataModel(file_spec='test', keywords=['ver=v1', 'id=a'], path='TEST_REDUX/{ver}/testfile_{id}.fits', verbose=True, release='DR15')
+    dm.write_stubs(use_cache_release='WORK', full_cache=True)
+
+    ss = dm.get_stub()
+    ss.update_cache()
+    assert "DR15" in ss._cache['general']['releases']
+
+    ss.remove_release("DR15")
+    ss.write()
+
+    dm = DataModel(file_spec='test', keywords=['ver=v1', 'id=a'], path='TEST_REDUX/{ver}/testfile_{id}.fits', verbose=True, release='DR16')
+    ss = dm.get_stub()
+    ss.update_cache()
+    assert "DR15" not in ss._cache['general']['releases']
 
