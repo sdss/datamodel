@@ -101,3 +101,10 @@ def test_cli_dm_update(validmodel):
     result = runner.invoke(cli, ['update', '-f', 'test', '-v'])
     assert result.exit_code == 0
 
+def test_cli_dm_remove(validmodel):
+    """ test that cli can run an datamodel remove """
+    validmodel('fits')
+    runner = CliRunner()
+    result = runner.invoke(cli, ['remove', '-f', 'test', '-r', 'WORK', '-v'])
+    assert result.exit_code == 0
+
