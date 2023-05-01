@@ -426,6 +426,84 @@ the `sdss5.cfg` ``tree`` configuration, you can specify the ``--tree_ver``, ``-t
 
         dm = DataModel(file_spec=file_species, path=path, keywords=keys, tree_ver='sdss5')
 
+Forcing a cache refresh
+^^^^^^^^^^^^^^^^^^^^^^^
+
+The datamodel product will always re-use a cache if it finds a valid one to use.  You can force the
+datamodel product to generate the cache from scratch using the ``-F``, `--force`` command-line
+arguments, or by specifying the ``force`` keyword in Python.  This flag will regenerate the
+entire YAML file from scratch.
+
+.. note::
+
+  Forcing a cache refresh will remove all human-supplied content in the YAML file.  You will
+  need to reenter all descriptions, comments, notes, etc.
+
+.. tab:: CLI
+
+    Generates a fresh YAML file from scratch with a blank DR16 release entry
+
+    .. code-block:: console
+
+        $ datamodel generate -f mangaRss \
+        -p MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}RSS.fits.gz \
+        -k plate=8485 -k ifu=1901 -k drpver=v3_0_1 -k wave=LOG -r DR16 -F
+
+.. tab:: Python
+
+    Use the ``force`` keyword in the datamodel ``write_stubs`` method.
+
+    .. code-block:: python
+
+        from datamodel.generate import DataModel
+
+        # define the inputs
+        file_species = "mangaRss"
+        path = "MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}RSS.fits.gz"
+        keys = ['plate=8485', 'ifu=1901', 'drpver=v2_4_3', 'wave=LOG']
+
+        # generate a datamodel for Data Release 16 (DR16)
+        dm = DataModel(file_spec=file_species, path=path, keywords=keys, release='DR16')
+
+        # force a branch new YAML cache to be generated
+        dm.write_stubs(force=True)
+
+To force a cache refresh for only a specific data release, use the ``-Fr``, ``--force-release``
+command-line argument, or the Python ``force_release`` keyword, to specify a data release.  This
+will regenerate a blank cache for just that release, but leave the rest of the YAML content in place.
+When using the ``force_release`` argument, you must also set the ``force`` argument to True.
+
+.. tab:: CLI
+
+    Generates a fresh DR16 YAML content with an existing YAML
+
+    .. code-block:: console
+
+        $ datamodel generate -f mangaRss \
+        -p MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}RSS.fits.gz \
+        -k plate=8485 -k ifu=1901 -k drpver=v3_0_1 -k wave=LOG -r DR16 -F -Fr DR16
+
+
+.. tab:: Python
+
+    Use the ``force_release`` keyword in the datamodel ``write_stubs`` method.
+
+    .. code-block:: python
+
+        from datamodel.generate import DataModel
+
+        # define the inputs
+        file_species = "mangaRss"
+        path = "MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}RSS.fits.gz"
+        keys = ['plate=8485', 'ifu=1901', 'drpver=v2_4_3', 'wave=LOG']
+
+        # generate a datamodel for Data Release 16 (DR16)
+        dm = DataModel(file_spec=file_species, path=path, keywords=keys, release='DR16')
+
+        # only regenerate the DR16 entry, but keep the remaining YAML cache content
+        dm.write_stubs(force=True, force_release='DR16')
+
+
 Recommended Science Product
 ---------------------------
 
