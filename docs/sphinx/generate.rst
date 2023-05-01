@@ -533,6 +533,28 @@ web application accessible at https://data.sdss5.org/dsi using the standard SDSS
 do not need to do anything extra to have your datamodel appear on the DSI, only ensure that a
 valid JSON representation has been created.
 
+.. _mdrelease:
+
+Changing the Markdown Release Example
+-------------------------------------
+
+The generated markdown file only displays example HDU content for a single release, by default the
+"WORK" release.  To change which release is used in the example, you can specify a new "release group",
+e.g. ``"DR"`` for public data releases, or ``"IPL"`` for internal product launches.  The code will use the
+most recent release it can find within that "release group".  For example, to use the latest IPL release
+in the markdown file, when generating a new datamodel for IPL-2, specify the ``-m IPL`` keyword
+argument:
+
+.. tab:: CLI
+
+    From the command-line, specify the ``-m`` or ``--md-group`` flag to "IPL".
+
+    .. code-block:: console
+
+        $ datamodel generate -f astraAllStarAPOGEENet \
+        -p MWM_ASTRA/{astra_version}/{run2d}-{apred}/summary/allStar-APOGEENet-{astra_version}-{run2d}-{apred}.fits \
+        -k astra_version=0.3.0 -k run2d=v6_0_9 -k apred=1.0 -r IPL2 -m IPL
+
 .. _yanny:
 
 Yanny Parameter files
