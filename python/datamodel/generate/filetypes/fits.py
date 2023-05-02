@@ -17,6 +17,10 @@ class FitsFile(BaseFile):
     aliases = ['FIT']
     cache_key = 'hdus'
 
+    def __len__(self):
+        with fits.open(self.filename) as hdulist:
+            return len(hdulist)
+
     def _update_partial_cache(self, cached_hdus: dict, old_hdus: dict) -> dict:
         """ Partially updates an existing cache
 
@@ -35,8 +39,10 @@ class FitsFile(BaseFile):
         dict
             The cache dictionary
         """
+        # get the old release's cache hdu extensions
         old_names = [v['name'] for v in old_hdus.values()]
 
+        # loop over existing hdus in cache
         for k, v in cached_hdus.items():
             # skip extensions that aren't in the old HDU
             if v['name'] not in old_names:
@@ -62,14 +68,34 @@ class FitsFile(BaseFile):
             if v['is_image'] is True:
                 continue
 
-            for kk, vv in v['columns'].items():
+            # handle table extensions
+            for kk in list(v['columns']):
+                vv = v['columns'][kk]
+
                 # if a new column is not in the old cache of columns, add it
                 if kk not in old_hdus[oldkey]['columns']:
+                    # extract column info from the extension
                     column, desc, unit = self._extract_hdu_column(current_idx, kk)
+
+                    # if cached column is not in actual file, remove it
+                    if not column:
+                        log.warning(f'Cached column {kk} is not HDU ext {current_idx} in the'
+                                    ' FITS file for release {self.release}. Removing it from the cache.')
+                        v['columns'].pop(kk)
+                        continue
+
+                    # generate dict entry for new column
                     v['columns'][kk] = self._generate_column_dict(column, desc=desc, unit=unit)
                     continue
                 vv['unit'] = old_hdus[oldkey]['columns'][kk]['unit']
                 vv['description'] = old_hdus[oldkey]['columns'][kk]['description']
+
+        # check for any new extensions in hdu
+        if len(self) > len(cached_hdus):
+            log.info("New extensions found in file compared to cache.  Adding them.")
+            idx = max(cached_hdus)
+            new = {k: v for k, v in self._generate_new_cache().items() if k > idx}
+            cached_hdus.update(new)
 
         return cached_hdus
 
@@ -141,6 +167,11 @@ class FitsFile(BaseFile):
         Extracts and returns the column, column description and unit
         """
         with fits.open(self.filename) as hdulist:
+            # return nothing if column name is not in existing FITS file
+            if key not in hdulist[ext].data.columns.names:
+                return None, None, None
+
+            # get the column, description, and unit information
             column = hdulist[ext].data.columns[key]
             desc = self._get_table_column_desc(column, hdulist[ext])
             unit = self._get_table_column_unit(column, hdulist[ext])
