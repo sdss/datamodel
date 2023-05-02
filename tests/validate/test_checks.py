@@ -57,7 +57,7 @@ def test_validate_models_fail(validyaml):
     with pytest.raises(ValueError, match='The following YAMLs do not yet have validated JSON datamodels'):
         validate_models()
 
-def test_revalidate(validyaml):
+def test_revalidate(testfits, validyaml):
     """ test revalidate """
     path = validyaml('fits')
     jpath = path.as_posix().replace('yaml', 'json')
