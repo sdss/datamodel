@@ -19,8 +19,10 @@ class FitsFile(BaseFile):
 
     def __init__(self, *args, **kwargs):
         super(FitsFile, self).__init__(*args, **kwargs)
-        # read in the FITS file
-        self.hdulist = fits.open(self.filename)
+
+        # read in the FITS file if not designing one
+        if not self._datamodel.design:
+            self.hdulist = fits.open(self.filename)
 
     def __len__(self):
         # compute len of FITS file
