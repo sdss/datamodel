@@ -488,7 +488,9 @@ class MdStub(BaseStub):
                 raise KeyError(f'group {group} is not a valid release group')
             elif group not in rs.keys():
                 if altgroup not in rs.keys():
-                    raise KeyError(f'group(s) {group}/{altgroup} not yet a cached release')
+                    log.warning(f'group(s) {group}/{altgroup} not yet a cached release')
+                    group = next(iter(rs.keys()))
+                    log.warning(f'Falling back to group: {group}')
                 else:
                     group = altgroup
             return rs[group][-1]
