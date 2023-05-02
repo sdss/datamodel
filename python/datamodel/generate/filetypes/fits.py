@@ -17,9 +17,18 @@ class FitsFile(BaseFile):
     aliases = ['FIT']
     cache_key = 'hdus'
 
+    def __init__(self, *args, **kwargs):
+        super(FitsFile, self).__init__(*args, **kwargs)
+        # read in the FITS file
+        self.hdulist = fits.open(self.filename)
+
     def __len__(self):
-        with fits.open(self.filename) as hdulist:
-            return len(hdulist)
+        # compute len of FITS file
+        return len(self.hdulist)
+
+    def __del__(self):
+        # ensure FITS file closes on cleanup
+        self.hdulist.close()
 
     def _update_partial_cache(self, cached_hdus: dict, old_hdus: dict) -> dict:
         """ Partially updates an existing cache
@@ -80,7 +89,7 @@ class FitsFile(BaseFile):
                     # if cached column is not in actual file, remove it
                     if not column:
                         log.warning(f'Cached column {kk} is not HDU ext {current_idx} in the'
-                                    ' FITS file for release {self.release}. Removing it from the cache.')
+                                    f' FITS file for release {self.release}. Removing it from the cache.')
                         v['columns'].pop(kk)
                         continue
 
@@ -112,21 +121,20 @@ class FitsFile(BaseFile):
         """
         hdus = {}
 
-        with fits.open(self.filename) as hdulist:
-            for hdu_number, hdu in enumerate(hdulist):
+        for hdu_number, hdu in enumerate(self.hdulist):
 
-                # issue a warning if the extension has no name
-                if not hdu.name:
-                    log.warning(f'HDU ext {hdu_number} in {self.file_species} has no '
-                                'proper FITS extension name.  This breaks SDSS name formatting.  '
-                                'Please correct the FITS file.')
+            # issue a warning if the extension has no name
+            if not hdu.name:
+                log.warning(f'HDU ext {hdu_number} in {self.file_species} has no '
+                            'proper FITS extension name.  This breaks SDSS name formatting.  '
+                            'Please correct the FITS file.')
 
-                # convert an HDU to a dictionary
-                row = self._convert_hdu_to_dict(hdu)
+            # convert an HDU to a dictionary
+            row = self._convert_hdu_to_dict(hdu)
 
-                # generate HDU extension number
-                extno = f'hdu{hdu_number}'
-                hdus[extno] = row
+            # generate HDU extension number
+            extno = f'hdu{hdu_number}'
+            hdus[extno] = row
         return hdus
 
     def _convert_hdu_to_dict(self, hdu: fits.hdu.base._BaseHDU, description: str = None) -> dict:
@@ -166,16 +174,15 @@ class FitsFile(BaseFile):
 
         Extracts and returns the column, column description and unit
         """
-        with fits.open(self.filename) as hdulist:
-            # return nothing if column name is not in existing FITS file
-            if key not in hdulist[ext].data.columns.names:
-                return None, None, None
+        # return nothing if column name is not in existing FITS file
+        if key not in self.hdulist[ext].data.columns.names:
+            return None, None, None
 
-            # get the column, description, and unit information
-            column = hdulist[ext].data.columns[key]
-            desc = self._get_table_column_desc(column, hdulist[ext])
-            unit = self._get_table_column_unit(column, hdulist[ext])
-            return column, desc, unit
+        # get the column, description, and unit information
+        column = self.hdulist[ext].data.columns[key]
+        desc = self._get_table_column_desc(column, self.hdulist[ext])
+        unit = self._get_table_column_unit(column, self.hdulist[ext])
+        return column, desc, unit
 
     def _generate_column_dict(self, column: fits.Column, hdu: fits.TableHDU = None,
                               desc: str = None, unit: str = None) -> dict:
