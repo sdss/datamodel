@@ -12,6 +12,11 @@ Change Log
 0.5.3 (06-16-2023)
 ------------------
 - Last tag for use with tree < 4.0
+- Adds new releases and tags for IPL-2, with new datamodels
+- Adds new cli ``datamodel remove`` to remove a release from a datamodel
+- Add cli option to ``datamodel generate`` to force refresh a specific release
+- Add cli option to ``datamodel generate`` to change which release is used in markdown file
+- Fixes bugs with cache updates when file is different than cache
 
 0.5.2 (11-30-2022)
 ------------------
