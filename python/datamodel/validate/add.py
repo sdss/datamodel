@@ -68,7 +68,7 @@ def make_branch(repo: Repo, branch: str = 'dm_update_tree') -> Repo:
     """
     # set to master and fetch/pull
     log.info('Setting up tree repo.')
-    repo.git.checkout('master')
+    repo.git.checkout('main')
     repo.remotes.origin.fetch()
     repo.remotes.origin.pull()
 
@@ -238,7 +238,7 @@ def update_tree(release: str = None, work_ver: str = None, branch: str = 'dm_upd
             pull_and_push(repo)
         except GitCommandError:
             log.error('Failed to push changes to origin. Cleaning up and removing local branch.')
-            repo.checkout('master')
+            repo.checkout('main')
             repo.delete_head(repo.heads[branch])
 
 

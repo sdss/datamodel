@@ -143,13 +143,12 @@ def check_invalid(product: str, data: dict, release: str, verbose: bool = None) 
     Union[tuple, None]
         Either None for a valid path or a tuple of the invalid path info
     """
-    # for WORK release check against both sdss5 and sdsswork
+    # for WORK release check against sdsswork (now just sdss5)
     if release == 'WORK':
-        path5 = check_path(product, data, Tree('sdss5'), verbose=verbose)
         pathwork = check_path(product, data, Tree('sdsswork'), verbose=verbose)
         # if both are invalid then the product path is really invalid
-        if all([path5, pathwork]):
-            return path5[0], f'{path5[1]}; {pathwork[1]}'
+        if pathwork:
+            return pathwork[0], f'{pathwork[1]}'
     else:
         # check for all other releases
         path = check_path(product, data, Tree(release.lower()), verbose=verbose)
