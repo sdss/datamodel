@@ -4,6 +4,10 @@
 Change Log
 ==========
 
+1.0.0 (unreleased)
+------------------
+- Updated to tree >= 4.0
+
 0.5.3 (06-16-2023)
 ------------------
 - Last tag for use with tree < 4.0
