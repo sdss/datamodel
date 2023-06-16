@@ -101,6 +101,12 @@ See :ref:`yaml` and :ref:`validate` below for the next steps.
 A Note on Releases
 ------------------
 
+.. note::
+
+  As of datamodel >= 1.0, the datamodel uses the new tree, which removes all MaNGA MPL configs, and
+  replaces the "sdss5" config as the new "sdsswork".  "sdsswork" config now refers to all work paths
+  for SDSS-V.  For older versions of the datamodel code, SDSS-V paths must still use the "sdss5" config.
+
 The ``release`` keyword argument is used to specify which internal (IPL) or public data release (DR) to use
 for the product datamodel generation.  The allowed values are any release specified in the
 **Releases** :ref:`metadata`. For a complete list of current releases, see the
@@ -108,21 +114,13 @@ for the product datamodel generation.  The allowed values are any release specif
 
 For products in development, there is an available ``WORK`` release.  A ``WORK`` release should be used for any
 products that have not yet been released in a DR or IPL, i.e. any products defined in the
-``sdsswork`` or ``sdss5`` tree configurations.  A datamodel for a ``WORK`` release product represents the latest
+``sdsswork`` tree configurations.  A datamodel for a ``WORK`` release product represents the latest
 version of that data product and should be considered an in-flux datamodel.  As the product itself changes, a new
 ``WORK`` datamodel should be regenerated to reflect the updated changes.
 
-By default, a ``WORK`` release will use the SDSS-V tree configuration, ``sdss5.cfg``.  To generate ``WORK``
-datamodels for any legacy products that exist in the SDSS-IV tree configuration, ``sdsswork.cfg``, you
-should explicitly set the ``tree_ver`` keyword argument, rather than ``release``, e.g.
-::
-
-  file_species = "mangacube"
-  path = "MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}CUBE.fits.gz"
-  keys = ['plate=8485', 'ifu=1901', 'drpver=v2_4_3', 'wave=LOG']
-
-  dm = DataModel(file_spec=file_species, path=path, keywords=keys, tree_ver='sdsswork')
-
+By default, a ``WORK`` release will use the SDSS-V tree configuration, ``sdsswork.cfg``.  Using the legacy
+``sdss5.cfg`` syntax will default back to ``sdsswork.cfg``.  Legacy work paths to SDSS-IV products no
+longer exist, but need `datamodel < 1.0` and `tree < 4.0` to build them.
 
 .. _yaml:
 
@@ -249,7 +247,7 @@ can be added to the existing datamodel file by rerunning the ``datamodel_generat
 proper new inputs.  Valid releases are any new public data releases (e.g. DR15, DR16), internal
 data releases (e.g. MPL4, IPL1), or a "WORK" release.  Datamodels can now be generated for any data
 product that is private or as-yet-unreleased in a data release, i.e. any path or entry normally defined
-in ``tree`` ``sdsswork.cfg`` or ``sdss5.cfg``.  These unreleased products are captured in a
+in ``tree`` ``sdsswork.cfg``.  These unreleased products are captured in a
 single "WORK" release.  There can only be one "WORK" release at a time per data product, and
 represents the most recent updated file one is currently working on.
 
