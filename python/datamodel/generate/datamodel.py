@@ -383,7 +383,7 @@ class DataModel(object):
 
         # set the default WORK release to Tree sdss5.cfg for SDSS-V
         if self.tree_ver == 'work':
-            self.tree_ver = 'sdss5'
+            self.tree_ver = 'sdsswork'
 
         # add the tree and config_name
         self.tree = Tree(config=self.tree_ver)

@@ -100,14 +100,15 @@ def test_move_multiple_files(make_files, makefile):
 
 
 def test_construct_new_path():
-    old_path = 'MANGA_SANDBOX/galaxyzoo3d/{ver}/gz3d_metadata.fits'
-    new_path = 'MANGA_MORPHOLOGY/galaxyzoo3d/{ver}/gz3d_metadata.fits'
 
-    before = os.path.expandvars(f'${old_path}')
-    assert 'mangawork/manga/sandbox' in before
-    exp = construct_new_path(old_path=old_path, new_path=new_path,
-                             release='DR17', kwargs={'ver':'v4_0_0'})
-    assert 'dr17/manga/morphology' in str(exp)
+    work_path = 'BOSS_SPECTRO_DATA_N/{mjd}/sdR-{br}{id}-{frame}.fit'
+    dr_path = 'BOSS_SPECTRO_DATA/{mjd}/sdR-{br}{id}-{frame}.fit'
+
+    before = os.path.expandvars(f'${work_path}')
+    assert 'sdsswork/data/boss' in before
+    exp = construct_new_path(old_path=work_path, new_path=dr_path,
+                             release='DR17', kwargs={'br':'b', 'id':1, 'mjd':58001, 'frame': 1234})
+    assert 'dr17/eboss/spectro/data' in str(exp)
 
 
 def test_construct_new_path_by_file(make_files):

@@ -4,8 +4,13 @@
 Change Log
 ==========
 
-0.5.3 (unreleased)
+1.0.0 (unreleased)
 ------------------
+- Updated to tree >= 4.0
+
+0.5.3 (06-16-2023)
+------------------
+- Last tag for use with tree < 4.0
 
 0.5.2 (11-30-2022)
 ------------------
