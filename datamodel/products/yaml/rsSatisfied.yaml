@@ -1,9 +1,7 @@
 general:
   name: rsSatisfied
   short: Whether each target is satisfied
-  description: For all targets in a robostrategy run, gives whether it is satisfied.
-    The list of targets is parallel to the list in rsTargets. The file is created
-    by the robostrategy script rs_satisfied.
+  description: For all targets in a robostrategy run, gives whether it is satisfied. The list of targets is parallel to the list in rsTargets. The file is created by the robostrategy script rs_satisfied.
   datatype: FITS
   filesize: 6 GB
   releases:
@@ -13,9 +11,6 @@ general:
   naming_convention: $ROBOSTRATEGY_DATA/allocations/[PLAN]/rsSatisfied-[PLAN]-[OBSERVATORY].fits
   generated_by: robostrategy
   design: false
-  surveys:
-  - SDSS
-  - APOGEE-2
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
@@ -23,16 +18,14 @@ changelog:
 releases:
   WORK:
     template: $ROBOSTRATEGY_DATA/allocations/[PLAN]/rsSatisfied-[PLAN]-[OBSERVATORY].fits
-    example: allocations/epsilon/rsSatisfied-epsilon-5-core-2-apo.fits
+    example: allocations/epsilon-5-core-2/rsSatisfied-epsilon-5-core-2-apo.fits
     location: allocations/{plan}/rsSatisfied-{plan}-{observatory}.fits
     environment: ROBOSTRATEGY_DATA
     access:
-      in_sdss_access: true
-      path_name: rsSatisfied
-      path_template: $ROBOSTRATEGY_DATA/allocations/{plan}/rsSatisfied-{plan}-{observatory}.fits
-      path_kwargs:
-      - observatory
-      - plan
+      in_sdss_access: false
+      path_name: null
+      path_template: null
+      path_kwargs: null
       access_string: rsSatisfied = $ROBOSTRATEGY_DATA/allocations/{plan}/rsSatisfied-{plan}-{observatory}.fits
     hdus:
       hdu0:
@@ -132,4 +125,3 @@ releases:
             description: Total number of epochs in which a robotID is assigned which
               corresponds to the requirements of this RSID; i.e. same CATALOGID, LAMBDA_EFF,
               DELTA_RA, DELTA_DEC, and FIBERTYPE.
-    survey: SDSS

@@ -1,9 +1,7 @@
 general:
   name: rsFieldTargets
   short: Targets for a particular field
-  description: Targets in the area around a particular field. Produced by robostrategy's
-    rs_field_targets, using the tofits() method of the Field class. No cadence set
-    or assignments performed.
+  description: Targets in the area around a particular field. Produced by the robostrategy script rs_field_targets, using the tofits() method of the Field class. No cadence set or assignments performed.
   datatype: FITS
   filesize: 5 MB
   releases:
@@ -13,9 +11,6 @@ general:
   naming_convention: $ROBOSTRATEGY_DATA/allocations/[PLAN]/targets/rsFieldTargets-[PLAN]-[OBSERVATORY]-[FIELDID].fits
   generated_by: robostrategy
   design: false
-  surveys:
-  - APOGEE-2
-  - SDSS
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
@@ -23,7 +18,7 @@ changelog:
 releases:
   WORK:
     template: $ROBOSTRATEGY_DATA/allocations/[PLAN]/targets/rsFieldTargets-[PLAN]-[OBSERVATORY]-[FIELDID].fits
-    example: allocations/epsilon/targets/rsFieldTargets-epsilon-5-core-2-apo-1.fits
+    example: allocations/epsilon-5-core-2/targets/rsFieldTargets-epsilon-5-core-2-apo-1.fits
     location: allocations/{plan}/targets/rsFieldTargets-{plan}-{observatory}-{fieldid}.fits
     environment: ROBOSTRATEGY_DATA
     access:
@@ -118,7 +113,7 @@ releases:
           value: ''
           comment: number required per exposure
       hdu1:
-        name: TARGETS
+        name: TARGET
         description: Targets in field
         is_image: false
         size: 10 MB
@@ -365,4 +360,3 @@ releases:
             type: float64
             unit: mag
             description: maximum difference in H mag for targets neighboring on slit
-    survey: SDSS
