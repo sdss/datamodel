@@ -1,7 +1,7 @@
 # datamodel
 
 ![Versions](https://img.shields.io/badge/python->3.7-blue)
-[![Documentation Status](https://readthedocs.org/projects/sdss-datamodel/badge/?version=latest)](https://sdss-datamodel.readthedocs.io/en/latest/?badge=latest)
+[![Documentation Status](https://internal.sdss.org/docs/datamodel/latest/)
 [![Build and Test](https://github.com/sdss/datamodel/actions/workflows/build.yml/badge.svg)](https://github.com/sdss/datamodel/actions/workflows/build.yml)
 [![Build Sphinx Docs](https://github.com/sdss/datamodel/actions/workflows/sphinx.yml/badge.svg)](https://github.com/sdss/datamodel/actions/workflows/sphinx.yml)
 [![codecov](https://codecov.io/gh/sdss/datamodel/branch/main/graph/badge.svg)](https://codecov.io/gh/sdss/datamodel)
