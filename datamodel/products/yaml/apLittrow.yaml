@@ -1,0 +1,88 @@
+general:
+  name: apLittrow
+  short: replace me - with a short one sentence summary of file
+  description: replace me - with a longer description of the data product
+  datatype: FITS
+  filesize: 8 MB
+  releases:
+  - WORK
+  environments:
+  - APOGEE_REDUX
+  surveys:
+  - MWM
+  naming_convention: replace me - with $APOGEE_REDUX/[APRED]/cal/[INSTRUMENT]/littrow/apLittrow-[CHIP]-[NUM8].fits
+    or apLittrow-b-06670109.fits but with regex pattern matches
+  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
+    this product.
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  WORK:
+    template: $APOGEE_REDUX/[APRED]/cal/[INSTRUMENT]/littrow/apLittrow-[CHIP]-[NUM8].fits
+    example: daily/cal/apogee-n/littrow/apLittrow-b-06670109.fits
+    location: '{apred}/cal/{instrument}/littrow/apLittrow-{chip}-{num:0>8}.fits'
+    environment: APOGEE_REDUX
+    access:
+      in_sdss_access: true
+      path_name: apLittrow
+      path_template: $APOGEE_REDUX/{apred}/cal/{instrument}/littrow/@apgprefix|Littrow-{chip}-{num:0>8}.fits
+      path_kwargs:
+      - num
+      - instrument
+      - apred
+      - chip
+      access_string: apLittrow = $APOGEE_REDUX/{apred}/cal/{instrument}/littrow/apLittrow-{chip}-{num:0>8}.fits
+    survey: MWM
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: replace me description
+        is_image: true
+        size: 8 MB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: 'Written by IDL:  Fri Feb 15 15:25:02 2019'
+        - key: BITPIX
+          value: 16
+          comment: Number of bits per data pixel
+        - key: NAXIS
+          value: 2
+          comment: Number of data axes
+        - key: NAXIS1
+          value: 2048
+          comment: ''
+        - key: NAXIS2
+          value: 2048
+          comment: ''
+        - key: EXTEND
+          value: true
+          comment: Extensions may be present
+        - key: DATE
+          value: '2019-02-15'
+          comment: Creation UTC (CCCC-MM-DD) date of FITS header
+        - key: COMMENT
+          value: FITS (Flexible Image Transport System) format is defined in 'Astronomy
+          comment: ''
+        - key: COMMENT
+          value: and Astrophysics', volume 376, page 359; bibcode 2001A&A...376..359H
+          comment: ''
+        - key: HISTORY
+          value: 'APMKLITTROW: Fri Feb 15 15:25:02 2019'
+          comment: ''
+        - key: HISTORY
+          value: 'APMKLITTROW: apogee on kp115'
+          comment: ''
+        - key: HISTORY
+          value: 'APMKLITTROW: IDL 8.5.1 linux x86_64'
+          comment: ''
+        - key: HISTORY
+          value: 'APMKLITTROW:  APOGEE Reduction Pipeline Version: 0.12.0'
+          comment: ''
+notes: |-
+  None
