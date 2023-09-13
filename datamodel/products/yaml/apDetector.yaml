@@ -1,7 +1,18 @@
 general:
   name: apDetector
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: ''
+  description: 'apDetector contains calibration information about each detector, specifically:
+    gain, readout noise, and linearity. These are organized as follows:
+
+    HDU0: master header
+
+    HDU1: gain image (2048x2048)
+
+    HDU2: readout noise image (2048x2048)
+
+    HDU3: linearity correction coefficients (2048x2048x3): quadratic coefficients
+
+    '
   datatype: FITS
   filesize: 19 KB
   releases:
@@ -10,10 +21,8 @@ general:
   - APOGEE_REDUX
   surveys:
   - MWM
-  naming_convention: replace me - with $APOGEE_REDUX/[APRED]/cal/[INSTRUMENT]/detector/apDetector-[CHIP]-[NUM8].fits
-    or apDetector-a-11870003.fits but with regex pattern matches
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  naming_convention: $APOGEE_REDUX/[APRED]/cal/[INSTRUMENT]/detector/apDetector-[CHIP]-[NUM8].fits
+  generated_by: apogee_drp
   design: false
   vac: false
   recommended_science_product: false
@@ -34,14 +43,14 @@ releases:
       path_kwargs:
       - num
       - instrument
-      - apred
       - chip
+      - apred
       access_string: apDetector = $APOGEE_REDUX/{apred}/cal/{instrument}/detector/apDetector-{chip}-{num:0>8}.fits
     survey: MWM
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: ''
         is_image: true
         size: 0 bytes
         header:
@@ -68,7 +77,7 @@ releases:
           comment: ''
       hdu1:
         name: ''
-        description: replace me description
+        description: ''
         is_image: true
         size: 16 bytes
         header:
@@ -92,7 +101,7 @@ releases:
           comment: ''
       hdu2:
         name: ''
-        description: replace me description
+        description: ''
         is_image: true
         size: 16 bytes
         header:
@@ -116,7 +125,7 @@ releases:
           comment: ''
       hdu3:
         name: ''
-        description: replace me description
+        description: ''
         is_image: true
         size: 48 bytes
         header:

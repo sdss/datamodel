@@ -1,7 +1,20 @@
 general:
   name: apFlat
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: ''
+  description: 'apFlat files contain calibration data about the relative response
+    of the different pixels in each detector. They are constructed from multiple frames
+    of a continuum lamp, taken at different collimator dither positions. The multiextension
+    FITS file contains:
+
+    HDU0: master header
+
+    HDU1: flat field image (ADU) [FLOAT]: 2048x2048
+
+    HDU2: flag mask [INT*2]
+
+    HDU3: smoothed flat image [FLOAT]
+
+    '
   datatype: FITS
   filesize: 36 MB
   releases:
@@ -10,10 +23,8 @@ general:
   - APOGEE_REDUX
   surveys:
   - MWM
-  naming_convention: replace me - with $APOGEE_REDUX/[APRED]/cal/[INSTRUMENT]/flatcorr/apFlat-[CHIP]-[NUM8].fits
-    or apFlat-a-04750009.fits but with regex pattern matches
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  naming_convention: $APOGEE_REDUX/[APRED]/cal/[INSTRUMENT]/flatcorr/apFlat-[CHIP]-[NUM8].fits
+  generated_by: apogee_drp
   design: false
   vac: false
   recommended_science_product: false
@@ -34,14 +45,14 @@ releases:
       path_kwargs:
       - num
       - instrument
-      - apred
       - chip
+      - apred
       access_string: apFlat = $APOGEE_REDUX/{apred}/cal/{instrument}/flatcorr/apFlat-{chip}-{num:0>8}.fits
     survey: MWM
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: ''
         is_image: true
         size: 0 bytes
         header:
@@ -470,7 +481,7 @@ releases:
           comment: ''
       hdu1:
         name: ''
-        description: replace me description
+        description: ''
         is_image: true
         size: 16 MB
         header:
@@ -497,7 +508,7 @@ releases:
           comment: ''
       hdu2:
         name: ''
-        description: replace me description
+        description: ''
         is_image: true
         size: 16 MB
         header:
@@ -524,7 +535,7 @@ releases:
           comment: ''
       hdu3:
         name: ''
-        description: replace me description
+        description: ''
         is_image: true
         size: 4 MB
         header:

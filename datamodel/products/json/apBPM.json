@@ -1,0 +1,110 @@
+{
+  "general": {
+    "name": "apBPM",
+    "short": "",
+    "description": "apBPM contains calibration data with bad pixel maps for each detector.",
+    "environments": [
+      "APOGEE_REDUX"
+    ],
+    "surveys": [
+      {
+        "name": "MWM",
+        "long": "Milky Way Mapper",
+        "description": "A time-domain, optical+IR spectroscopic survey of Milky Way stars of all types.",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "mwm",
+        "aliases": []
+      }
+    ],
+    "datatype": "FITS",
+    "filesize": "8 MB",
+    "releases": [
+      {
+        "name": "WORK",
+        "description": "SDSS unreleased data.  Represents any work-in-progress data.",
+        "public": false,
+        "release_date": "unreleased"
+      }
+    ],
+    "naming_convention": "$APOGEE_REDUX/[APRED]/cal/[INSTRUMENT]/bpm/apBPM-[CHIP]-[NUM8].fits",
+    "generated_by": "apogee_drp",
+    "design": false,
+    "vac": false,
+    "recommended_science_product": false
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "WORK": {
+      "template": "$APOGEE_REDUX/[APRED]/cal/[INSTRUMENT]/bpm/apBPM-[CHIP]-[NUM8].fits",
+      "example": "daily/cal/apogee-n/bpm/apBPM-a-12910009.fits",
+      "location": "{apred}/cal/{instrument}/bpm/apBPM-{chip}-{num:0>8}.fits",
+      "environment": "APOGEE_REDUX",
+      "survey": "MWM",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "apBPM",
+        "path_template": "$APOGEE_REDUX/{apred}/cal/{instrument}/bpm/@apgprefix|BPM-{chip}-{num:0>8}.fits",
+        "path_kwargs": [
+          "num",
+          "instrument",
+          "chip",
+          "apred"
+        ],
+        "access_string": "apBPM = $APOGEE_REDUX/{apred}/cal/{instrument}/bpm/apBPM-{chip}-{num:0>8}.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "",
+          "size": "8 MB",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "Primary Header created by MWRFITS v1.13"
+            },
+            {
+              "key": "BITPIX",
+              "value": "16",
+              "comment": ""
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": ""
+            },
+            {
+              "key": "NAXIS1",
+              "value": "2048",
+              "comment": ""
+            },
+            {
+              "key": "NAXIS2",
+              "value": "2048",
+              "comment": ""
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": "Extensions may be present"
+            }
+          ],
+          "columns": null
+        }
+      },
+      "par": null,
+      "hdfs": null
+    }
+  },
+  "notes": "None"
+}

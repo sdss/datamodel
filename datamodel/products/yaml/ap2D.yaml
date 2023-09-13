@@ -1,7 +1,9 @@
 general:
   name: ap2D
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: ''
+  description: ap2D files contain 2D data derived from the up-the-ramp data cubes.
+    Cosmic rays are flagged and CR repair is attempted. Saturated pixels are flagged.
+    Dark current is subtracted, and the final 2D image is flat-fielded.
   datatype: FITS
   filesize: 40 MB
   releases:
@@ -10,10 +12,8 @@ general:
   - APOGEE_REDUX
   surveys:
   - MWM
-  naming_convention: replace me - with $APOGEE_REDUX/[APRED]/exposures/[INSTRUMENT]/[MJD]/ap2D-[CHIP]-[NUM8].fits
-    or ap2D-a-37000004.fits but with regex pattern matches
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  naming_convention: $APOGEE_REDUX/[APRED]/exposures/[INSTRUMENT]/[MJD]/ap2D-[CHIP]-[NUM8].fits
+  generated_by: apogee_drp
   design: false
   vac: false
   recommended_science_product: false
@@ -32,17 +32,17 @@ releases:
       path_name: ap2D
       path_template: $APOGEE_REDUX/{apred}/exposures/{instrument}/{mjd}/@apgprefix|2D-{chip}-{num:0>8}.fits
       path_kwargs:
-      - apred
       - num
       - instrument
-      - chip
+      - apred
       - mjd
+      - chip
       access_string: ap2D = $APOGEE_REDUX/{apred}/exposures/{instrument}/{mjd}/ap2D-{chip}-{num:0>8}.fits
     survey: MWM
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: ''
         is_image: true
         size: 0 bytes
         header:
@@ -489,7 +489,7 @@ releases:
           comment: JD at midpoint of exposure
       hdu1:
         name: ''
-        description: replace me description
+        description: ''
         is_image: true
         size: 16 MB
         header:
@@ -525,7 +525,7 @@ releases:
           comment: ''
       hdu2:
         name: ''
-        description: replace me description
+        description: ''
         is_image: true
         size: 16 MB
         header:
@@ -561,7 +561,7 @@ releases:
           comment: ''
       hdu3:
         name: ''
-        description: replace me description
+        description: ''
         is_image: true
         size: 8 MB
         header:
