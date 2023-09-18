@@ -1,0 +1,237 @@
+{
+  "general": {
+    "name": "apDetector",
+    "short": "",
+    "description": "apDetector contains calibration information about each detector, specifically: gain, readout noise, and linearity. These are organized as follows:\nHDU0: master header\nHDU1: gain image (2048x2048)\nHDU2: readout noise image (2048x2048)\nHDU3: linearity correction coefficients (2048x2048x3): quadratic coefficients\n",
+    "environments": [
+      "APOGEE_REDUX"
+    ],
+    "surveys": [
+      {
+        "name": "MWM",
+        "long": "Milky Way Mapper",
+        "description": "A time-domain, optical+IR spectroscopic survey of Milky Way stars of all types.",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "mwm",
+        "aliases": []
+      }
+    ],
+    "datatype": "FITS",
+    "filesize": "19 KB",
+    "releases": [
+      {
+        "name": "WORK",
+        "description": "SDSS unreleased data.  Represents any work-in-progress data.",
+        "public": false,
+        "release_date": "unreleased"
+      }
+    ],
+    "naming_convention": "$APOGEE_REDUX/[APRED]/cal/[INSTRUMENT]/detector/apDetector-[CHIP]-[NUM8].fits",
+    "generated_by": "apogee_drp",
+    "design": false,
+    "vac": false,
+    "recommended_science_product": false
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "WORK": {
+      "template": "$APOGEE_REDUX/[APRED]/cal/[INSTRUMENT]/detector/apDetector-[CHIP]-[NUM8].fits",
+      "example": "daily/cal/apogee-n/detector/apDetector-a-11870003.fits",
+      "location": "{apred}/cal/{instrument}/detector/apDetector-{chip}-{num:0>8}.fits",
+      "environment": "APOGEE_REDUX",
+      "survey": "MWM",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "apDetector",
+        "path_template": "$APOGEE_REDUX/{apred}/cal/{instrument}/detector/@apgprefix|Detector-{chip}-{num:0>8}.fits",
+        "path_kwargs": [
+          "num",
+          "instrument",
+          "chip",
+          "apred"
+        ],
+        "access_string": "apDetector = $APOGEE_REDUX/{apred}/cal/{instrument}/detector/apDetector-{chip}-{num:0>8}.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "Written by IDL:  Sat Jan 23 20:05:28 2021"
+            },
+            {
+              "key": "BITPIX",
+              "value": "16",
+              "comment": "Number of bits per data pixel"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "Number of data axes"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": "FITS data may contain extensions"
+            },
+            {
+              "key": "DATE",
+              "value": "2021-01-24",
+              "comment": "Creation UTC (CCCC-MM-DD) date of FITS header"
+            },
+            {
+              "key": "COMMENT",
+              "value": "FITS (Flexible Image Transport System) format is defined in 'Astronomy",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "and Astrophysics', volume 376, page 359; bibcode 2001A&A...376..359H",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": true,
+          "description": "",
+          "size": "16 bytes",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "IMAGE",
+              "comment": "Image Extension created by MWRFITS v1.13"
+            },
+            {
+              "key": "BITPIX",
+              "value": "-32",
+              "comment": ""
+            },
+            {
+              "key": "NAXIS",
+              "value": "1",
+              "comment": ""
+            },
+            {
+              "key": "NAXIS1",
+              "value": "4",
+              "comment": ""
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": ""
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu2": {
+          "name": "",
+          "is_image": true,
+          "description": "",
+          "size": "16 bytes",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "IMAGE",
+              "comment": "Image Extension created by MWRFITS v1.13"
+            },
+            {
+              "key": "BITPIX",
+              "value": "-32",
+              "comment": ""
+            },
+            {
+              "key": "NAXIS",
+              "value": "1",
+              "comment": ""
+            },
+            {
+              "key": "NAXIS1",
+              "value": "4",
+              "comment": ""
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": ""
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu3": {
+          "name": "",
+          "is_image": true,
+          "description": "",
+          "size": "48 bytes",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "IMAGE",
+              "comment": "Image Extension created by MWRFITS v1.13"
+            },
+            {
+              "key": "BITPIX",
+              "value": "-32",
+              "comment": ""
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": ""
+            },
+            {
+              "key": "NAXIS1",
+              "value": "4",
+              "comment": ""
+            },
+            {
+              "key": "NAXIS2",
+              "value": "3",
+              "comment": ""
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": ""
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        }
+      },
+      "par": null,
+      "hdfs": null
+    }
+  },
+  "notes": "None"
+}

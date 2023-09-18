@@ -1,0 +1,564 @@
+general:
+  name: apFlat
+  short: ''
+  description: 'apFlat files contain calibration data about the relative response
+    of the different pixels in each detector. They are constructed from multiple frames
+    of a continuum lamp, taken at different collimator dither positions. The multiextension
+    FITS file contains:
+
+    HDU0: master header
+
+    HDU1: flat field image (ADU) [FLOAT]: 2048x2048
+
+    HDU2: flag mask [INT*2]
+
+    HDU3: smoothed flat image [FLOAT]
+
+    '
+  datatype: FITS
+  filesize: 36 MB
+  releases:
+  - WORK
+  environments:
+  - APOGEE_REDUX
+  surveys:
+  - MWM
+  naming_convention: $APOGEE_REDUX/[APRED]/cal/[INSTRUMENT]/flatcorr/apFlat-[CHIP]-[NUM8].fits
+  generated_by: apogee_drp
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  WORK:
+    template: $APOGEE_REDUX/[APRED]/cal/[INSTRUMENT]/flatcorr/apFlat-[CHIP]-[NUM8].fits
+    example: daily/cal/apogee-n/flatcorr/apFlat-a-04750009.fits
+    location: '{apred}/cal/{instrument}/flatcorr/apFlat-{chip}-{num:0>8}.fits'
+    environment: APOGEE_REDUX
+    access:
+      in_sdss_access: true
+      path_name: apFlat
+      path_template: $APOGEE_REDUX/{apred}/cal/{instrument}/flatcorr/@apgprefix|Flat-{chip}-{num:0>8}.fits
+      path_kwargs:
+      - num
+      - instrument
+      - chip
+      - apred
+      access_string: apFlat = $APOGEE_REDUX/{apred}/cal/{instrument}/flatcorr/apFlat-{chip}-{num:0>8}.fits
+    survey: MWM
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: ''
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: image conforms to FITS standard
+        - key: BITPIX
+          value: 16
+          comment: bits per data value
+        - key: NAXIS
+          value: 0
+          comment: number of axes
+        - key: EXTEND
+          value: true
+          comment: file may contain extensions
+        - key: INTDELAY
+          value: 0.1
+          comment: Integration Delay(S)
+        - key: DATE-OBS
+          value: '2012-04-20T02:52:19.107'
+          comment: Date at start of integration
+        - key: TIMESYS
+          value: UTC
+          comment: Time Zone of Date
+        - key: NFRAMES
+          value: 60
+          comment: Num of SUTR/Fow reads
+        - key: INTOFF
+          value: 10647
+          comment: Single read duration in mSec
+        - key: EXPTIME
+          value: 638.9200000000001
+          comment: Actual Integration Time
+        - key: FILENAME
+          value: /data-ql/data/56037/apRaw-04750009-001.fits
+          comment: Fits file name root
+        - key: IMAGETYP
+          value: InternalFlat
+          comment: Object type for EXP
+        - key: FULLX
+          value: 8192
+          comment: Camera Full Frame X DIM
+        - key: FULLY
+          value: 2048
+          comment: Camera Full Frame X DIM
+        - key: BEGX
+          value: 1
+          comment: IRAF 1-indexed Value
+        - key: BEGY
+          value: 1
+          comment: IRAF 1-indexed Value
+        - key: BINX
+          value: 1
+          comment: in pixels
+        - key: BINY
+          value: 1
+          comment: in pixels
+        - key: ACAMREV
+          value: UVA-Astrocam v1.2r55
+          comment: Camera Software revision
+        - key: OBSCMNT
+          value: None
+          comment: Observer comment
+        - key: LKSHPWR
+          value: 0.0
+          comment: LS-PWR1-%
+        - key: TDETTOP
+          value: 74.136
+          comment: T_DETPOLE_TOP in Degrees K
+        - key: TDETBASE
+          value: 74.832
+          comment: T_DETPOLE_BASE in Degrees K
+        - key: COLPITCH
+          value: 5.817
+          comment: Collimator Pitch(pix)
+        - key: TTENTTOP
+          value: 82.856
+          comment: T_TENT_TOP in Degrees K
+        - key: COLLM3
+          value: 2377.976
+          comment: Collimator M3(um)
+        - key: TCLDPMID
+          value: 77.632
+          comment: T_CP_MIDDLE in Degrees K
+        - key: COLLM2
+          value: 2354.858
+          comment: Collimator M2(um)
+        - key: COLLM1
+          value: 2494.161
+          comment: Collimator M1(um)
+        - key: TGETTER
+          value: 76.239
+          comment: T_GETTER in Degrees K
+        - key: TTLMBRD
+          value: 300.685
+          comment: T_TempBrd in Degrees K
+        - key: TLSOUTH
+          value: 76.113
+          comment: T_L_SOUTH in Degrees K
+        - key: TLNORTH
+          value: 76.744
+          comment: T_L_NORTH in Degrees K
+        - key: TLSCAM2
+          value: 79.008
+          comment: T_LS-Camera2 in Degrees K
+        - key: TLSCAM1
+          value: 78.996
+          comment: T_LS-Camera1 in Degrees K
+        - key: TLSDETC
+          value: 74.775
+          comment: T_LS-DetectorC in Degrees K
+        - key: TLSDETB
+          value: 73.813
+          comment: T_LS-DetectorB in Degrees K
+        - key: TPGVAC
+          value: 5.4e-07
+          comment: Pfeiffer-Vacuum in Torr
+        - key: LN2CNTRL
+          value: 0.0
+          comment: LN2(%)
+        - key: TCAMAFT
+          value: 77.817
+          comment: T_CAM_AFT in Degrees K
+        - key: TCAMMID
+          value: 78.67
+          comment: T_CAM_MIDDLE in Degrees K
+        - key: COLLYAW
+          value: 17.413
+          comment: Collimator Yaw(pix)
+        - key: TCAMFWD
+          value: 78.396
+          comment: T_CAM_FWD in Degrees K
+        - key: TEMPVPH
+          value: 78.256
+          comment: T_VPH in Degrees K
+        - key: TRADSHLD
+          value: 87.4
+          comment: T_RADSHIELD_E in Degrees K
+        - key: TCOLLIM
+          value: 78.534
+          comment: T_COLLIMATOR in Degrees K
+        - key: TCPCORN
+          value: 79.662
+          comment: T_CP_CORNER in Degrees K
+        - key: TCLDPHNG
+          value: 79.508
+          comment: T_CP_HANGERS in Degrees K
+        - key: COLLPIST
+          value: 2401.243
+          comment: Collimator Piston(um)
+        - key: DITHPIX
+          value: 12.994
+          comment: Dither Position(pix)
+        - key: RELHUM
+          value: 11.117
+          comment: RH_T(%)
+        - key: LN2LEVEL
+          value: 92.905
+          comment: LN2_T(%)
+        - key: MKSVAC
+          value: 5.63e-07
+          comment: MKS-Vacuum in Torr
+        - key: OBJECT
+          value: ObjName
+          comment: ''
+        - key: FILTER1
+          value: FILTER
+          comment: ''
+        - key: ICSREV
+          value: APOGEE ICS2.0r033
+          comment: ''
+        - key: DSPFILE
+          value: UNKNOWN
+          comment: ''
+        - key: TELESCOP
+          value: SDSS 2-5m
+          comment: ''
+        - key: EXPTYPE
+          value: INTERNALFLAT
+          comment: ''
+        - key: LAMPQRTZ
+          value: 0
+          comment: CalBox Quartz Lamp Status
+        - key: LAMPUNE
+          value: 0
+          comment: CalBox UNe Lamp Status
+        - key: LAMPTHAR
+          value: 0
+          comment: CalBox ThArNe Lamp Status
+        - key: LAMPSHTR
+          value: 0
+          comment: CalBox Shutter Lamp Status
+        - key: LAMPCNTL
+          value: 1
+          comment: CalBox Controller Status
+        - key: SEEING
+          value: 1.40127
+          comment: RMS seeing from guide fibers
+        - key: FF
+          value: 0 0 0 0
+          comment: FF lamps 1:on 0:0ff
+        - key: NE
+          value: 0 0 0 0
+          comment: NE lamps 1:on 0:0ff
+        - key: HGCD
+          value: 0 0 0 0
+          comment: HGCD lamps 1:on 0:0ff
+        - key: FFS
+          value: 1 1 1 1 1 1 1 1
+          comment: Flatfield Screen 1:closed 0:open
+        - key: OBJSYS
+          value: Mount
+          comment: The TCC objSys
+        - key: RA
+          value: NaN
+          comment: Telescope is not tracking the sky
+        - key: DEC
+          value: NaN
+          comment: Telescope is not tracking the sky
+        - key: RADEG
+          value: NaN
+          comment: Telescope is not tracking the sky
+        - key: DECDEG
+          value: NaN
+          comment: Telescope is not tracking the sky
+        - key: ROTPOS
+          value: 0.0
+          comment: Rotator request position (deg)
+        - key: BOREOFFX
+          value: 0.0
+          comment: TCC Boresight offset, deg
+        - key: BOREOFFY
+          value: 0.0
+          comment: TCC Boresight offset, deg
+        - key: ARCOFFX
+          value: 0.0
+          comment: TCC ObjArcOff, deg
+        - key: ARCOFFY
+          value: 0.0
+          comment: TCC ObjArcOff, deg
+        - key: OBJOFFX
+          value: 0.0
+          comment: TCC ObjOff, deg
+        - key: OBJOFFY
+          value: 0.0
+          comment: TCC ObjOff, deg
+        - key: CALOFFX
+          value: 0.0
+          comment: TCC CalibOff, deg
+        - key: CALOFFY
+          value: 0.0
+          comment: TCC CalibOff, deg
+        - key: CALOFFR
+          value: 0.0
+          comment: TCC CalibOff, deg
+        - key: GUIDOFFX
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: GUIDOFFY
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: GUIDOFFR
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: AZ
+          value: 121.0
+          comment: Azimuth axis pos. (approx, deg)
+        - key: ALT
+          value: 30.0
+          comment: Altitude axis pos. (approx, deg)
+        - key: IPA
+          value: 0.0
+          comment: Rotator axis pos. (approx, deg)
+        - key: FOCUS
+          value: 0.0
+          comment: User-specified focus offset (um)
+        - key: M2PISTON
+          value: 1256.97
+          comment: TCC SecOrient
+        - key: M2XTILT
+          value: 12.89
+          comment: TCC SecOrient
+        - key: M2YTILT
+          value: 8.04
+          comment: TCC SecOrient
+        - key: M2XTRAN
+          value: -60.36
+          comment: TCC SecOrient
+        - key: M2YTRAN
+          value: 174.76
+          comment: TCC SecOrient
+        - key: M1PISTON
+          value: 0.0
+          comment: TCC PrimOrient
+        - key: M1XTILT
+          value: 0.0
+          comment: TCC PrimOrient
+        - key: M1YTILT
+          value: 0.0
+          comment: TCC PrimOrient
+        - key: M1XTRAN
+          value: 612.43
+          comment: TCC PrimOrient
+        - key: M1YTRAN
+          value: 1325.18
+          comment: TCC PrimOrient
+        - key: SCALE
+          value: 1.0
+          comment: User-specified scale factor
+        - key: NAME
+          value: 5847-56036-01
+          comment: The name of the currently loaded plate
+        - key: PLATEID
+          value: 5847
+          comment: The currently loaded plate
+        - key: CARTID
+          value: 12
+          comment: The currently loaded cartridge
+        - key: MAPID
+          value: 1
+          comment: The mapping version of the loaded plate
+        - key: POINTING
+          value: A
+          comment: The currently specified pointing
+        - key: COMMENT
+          value: failed to make SPA card from None
+          comment: ''
+        - key: CHIP
+          value: c
+          comment: ''
+        - key: NREAD
+          value: 60
+          comment: ''
+        - key: V_APRED
+          value: 0.17.14
+          comment: ''
+        - key: HISTORY
+          value: 'AP3D: Sat Jan 23 10:14:47 2021'
+          comment: ''
+        - key: HISTORY
+          value: 'AP3D: u0914351 on kp121'
+          comment: ''
+        - key: HISTORY
+          value: 'AP3D: IDL 8.4 linux x86_64'
+          comment: ''
+        - key: HISTORY
+          value: 'AP3D:  APOGEE Reduction Pipeline Version: 0.17.14'
+          comment: ''
+        - key: HISTORY
+          value: 'AP3D: Output File:'
+          comment: ''
+        - key: HISTORY
+          value: 'AP3D:  HDU1 - image (ADU)'
+          comment: ''
+        - key: HISTORY
+          value: 'AP3D:  HDU2 - error (ADU)'
+          comment: ''
+        - key: HISTORY
+          value: 'AP3D:  HDU3 - flag mask'
+          comment: ''
+        - key: HISTORY
+          value: 'AP3D:         1 - bad pixels'
+          comment: ''
+        - key: HISTORY
+          value: 'AP3D:         2 - cosmic ray'
+          comment: ''
+        - key: HISTORY
+          value: 'AP3D:         4 - saturated'
+          comment: ''
+        - key: HISTORY
+          value: 'AP3D:         8 - unfixable'
+          comment: ''
+        - key: HISTORY
+          value: 'AP3D: Global fractional variability = 0.000'
+          comment: ''
+        - key: HISTORY
+          value: 'AP3D: DETECTOR file="/uufs/chpc.utah.edu/common/home/sdss/apogeework/apo'
+          comment: ''
+        - key: HISTORY
+          value: 'AP3D: gee/spectro/redux/dr17/cal/detector/apDetector-c-11870003.fits"'
+          comment: ''
+        - key: HISTORY
+          value: 'AP3D: Dark Current Correction file="/uufs/chpc.utah.edu/common/home/sdss'
+          comment: ''
+        - key: HISTORY
+          value: 'AP3D: /apogeework/apogee/spectro/redux/dr17/cal/darkcorr/apDark-c-129100'
+          comment: ''
+        - key: HISTORY
+          value: 'AP3D: 32709 pixels are bad'
+          comment: ''
+        - key: HISTORY
+          value: 'AP3D: 0 pixels have cosmic rays'
+          comment: ''
+        - key: HISTORY
+          value: 'AP3D: Cosmic Rays FIXED'
+          comment: ''
+        - key: HISTORY
+          value: 'AP3D: 2235 pixels are saturated'
+          comment: ''
+        - key: HISTORY
+          value: 'AP3D: 202 saturated pixels FIXED'
+          comment: ''
+        - key: HISTORY
+          value: 'AP3D: 2033 pixels are unfixable'
+          comment: ''
+        - key: HISTORY
+          value: 'AP3D: Fowler Sampling, Nfowler=1'
+          comment: ''
+        - key: UT-MID
+          value: '2012-04-20T02:57:38.6'
+          comment: Date at midpoint of exposure
+        - key: JD-MID
+          value: 2456037.62336
+          comment: JD at midpoint of exposure
+        - key: HISTORY
+          value: 'APMKFLAT: Sat Jan 23 10:35:49 2021'
+          comment: ''
+        - key: HISTORY
+          value: 'APMKFLAT: u0914351 on kp121'
+          comment: ''
+        - key: HISTORY
+          value: 'APMKFLAT: IDL 8.4 linux x86_64'
+          comment: ''
+        - key: HISTORY
+          value: 'APMKFLAT:  APOGEE Reduction Pipeline Version: 0.17.14'
+          comment: ''
+      hdu1:
+        name: ''
+        description: ''
+        is_image: true
+        size: 16 MB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image Extension created by MWRFITS v1.13
+        - key: BITPIX
+          value: -32
+          comment: ''
+        - key: NAXIS
+          value: 2
+          comment: ''
+        - key: NAXIS1
+          value: 2048
+          comment: ''
+        - key: NAXIS2
+          value: 2048
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: ''
+        - key: GCOUNT
+          value: 1
+          comment: ''
+      hdu2:
+        name: ''
+        description: ''
+        is_image: true
+        size: 16 MB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image Extension created by MWRFITS v1.13
+        - key: BITPIX
+          value: -32
+          comment: ''
+        - key: NAXIS
+          value: 2
+          comment: ''
+        - key: NAXIS1
+          value: 2048
+          comment: ''
+        - key: NAXIS2
+          value: 2048
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: ''
+        - key: GCOUNT
+          value: 1
+          comment: ''
+      hdu3:
+        name: ''
+        description: ''
+        is_image: true
+        size: 4 MB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image Extension created by MWRFITS v1.13
+        - key: BITPIX
+          value: 8
+          comment: ''
+        - key: NAXIS
+          value: 2
+          comment: ''
+        - key: NAXIS1
+          value: 2048
+          comment: ''
+        - key: NAXIS2
+          value: 2048
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: ''
+        - key: GCOUNT
+          value: 1
+          comment: ''
+notes: |-
+  None

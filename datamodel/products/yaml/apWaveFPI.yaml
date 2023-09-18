@@ -1,0 +1,315 @@
+general:
+  name: apWaveFPI
+  short: ''
+  description: ''
+  datatype: FITS
+  filesize: 9 MB
+  releases:
+  - WORK
+  environments:
+  - APOGEE_REDUX
+  surveys:
+  - MWM
+  naming_convention: $APOGEE_REDUX/[APRED]/cal/[INSTRUMENT]/wave/apWaveFPI-[CHIP]-[MJD]-[NUM8].fits
+  generated_by: apogee_drp
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  WORK:
+    template: $APOGEE_REDUX/[APRED]/cal/[INSTRUMENT]/wave/apWaveFPI-[CHIP]-[MJD]-[NUM8].fits
+    example: daily/cal/apogee-n/wave/apWaveFPI-a-60057-44950009.fits
+    location: '{apred}/cal/{instrument}/wave/apWaveFPI-{chip}-{mjd}-{num:0>8}.fits'
+    environment: APOGEE_REDUX
+    access:
+      in_sdss_access: true
+      path_name: apWaveFPI
+      path_template: $APOGEE_REDUX/{apred}/cal/{instrument}/wave/@apgprefix|WaveFPI-{chip}-{mjd}-{num:0>8}.fits
+      path_kwargs:
+      - num
+      - instrument
+      - apred
+      - mjd
+      - chip
+      access_string: apWaveFPI = $APOGEE_REDUX/{apred}/cal/{instrument}/wave/apWaveFPI-{chip}-{mjd}-{num:0>8}.fits
+    survey: MWM
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: ''
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: FRAME
+          value: 44950009
+          comment: ''
+        - key: NPOLY
+          value: 5
+          comment: ''
+        - key: COMMENT
+          value: 'HDU#1 : wavelength calibration parameters [5,300]'
+          comment: ''
+        - key: COMMENT
+          value: 'HDU#2 : wavelength calibration array [300,2048]'
+          comment: ''
+        - key: COMMENT
+          value: 'HDU#3 : table of unique FPI lines and wavelengths'
+          comment: ''
+        - key: COMMENT
+          value: 'HDU#4 : table of full-frame FPI lines measurements'
+          comment: ''
+      hdu1:
+        name: ''
+        description: ''
+        is_image: true
+        size: 11 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image extension
+        - key: BITPIX
+          value: -64
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 300
+          comment: ''
+        - key: NAXIS2
+          value: 5
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: number of parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+      hdu2:
+        name: ''
+        description: ''
+        is_image: true
+        size: 4 MB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image extension
+        - key: BITPIX
+          value: -64
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 2048
+          comment: ''
+        - key: NAXIS2
+          value: 300
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: number of parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+      hdu3:
+        name: ''
+        description: ''
+        is_image: false
+        size: 8 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 66
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 136
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 8
+          comment: number of table fields
+        columns:
+          id:
+            name: ID
+            type: int64
+            unit: ''
+            description: ''
+          chip:
+            name: CHIP
+            type: char[10]
+            unit: ''
+            description: ''
+          x:
+            name: X
+            type: float64
+            unit: ''
+            description: ''
+          height:
+            name: HEIGHT
+            type: float64
+            unit: ''
+            description: ''
+          flux:
+            name: FLUX
+            type: float64
+            unit: ''
+            description: ''
+          wave:
+            name: WAVE
+            type: float64
+            unit: ''
+            description: ''
+          wsig:
+            name: WSIG
+            type: float64
+            unit: ''
+            description: ''
+          nfiber:
+            name: NFIBER
+            type: int64
+            unit: ''
+            description: ''
+      hdu4:
+        name: ''
+        description: ''
+        is_image: false
+        size: 4 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 130
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 37985
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 12
+          comment: number of table fields
+        - key: TNULL1
+          value: 999999
+          comment: ''
+        - key: TNULL2
+          value: 999999
+          comment: ''
+        - key: TDIM3
+          value: (4)
+          comment: ''
+        - key: TDIM4
+          value: (4)
+          comment: ''
+        - key: TNULL7
+          value: 999999
+          comment: ''
+        - key: TNULL9
+          value: 999999
+          comment: ''
+        - key: TNULL12
+          value: 999999
+          comment: ''
+        columns:
+          num:
+            name: NUM
+            type: int64
+            unit: ''
+            description: ''
+          pix0:
+            name: PIX0
+            type: int64
+            unit: ''
+            description: ''
+          pars:
+            name: PARS
+            type: float64[4]
+            unit: ''
+            description: ''
+          perr:
+            name: PERR
+            type: float64[4]
+            unit: ''
+            description: ''
+          sumflux:
+            name: SUMFLUX
+            type: float64
+            unit: ''
+            description: ''
+          success:
+            name: SUCCESS
+            type: bool
+            unit: ''
+            description: ''
+          row:
+            name: ROW
+            type: int64
+            unit: ''
+            description: ''
+          chip:
+            name: CHIP
+            type: char[1]
+            unit: ''
+            description: ''
+          expnum:
+            name: EXPNUM
+            type: int64
+            unit: ''
+            description: ''
+          wave:
+            name: WAVE
+            type: float64
+            unit: ''
+            description: ''
+          linewave:
+            name: LINEWAVE
+            type: float64
+            unit: ''
+            description: ''
+          lineid:
+            name: LINEID
+            type: int64
+            unit: ''
+            description: ''
+notes: |-
+  None

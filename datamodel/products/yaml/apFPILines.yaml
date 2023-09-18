@@ -1,0 +1,140 @@
+general:
+  name: apFPILines
+  short: ''
+  description: ''
+  datatype: FITS
+  filesize: 15 MB
+  releases:
+  - WORK
+  environments:
+  - APOGEE_REDUX
+  surveys:
+  - MWM
+  naming_convention: $APOGEE_REDUX/[APRED]/cal/[INSTRUMENT]/fpi/apFPILines-[NUM8].fits
+  generated_by: apogee_drp
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  WORK:
+    template: $APOGEE_REDUX/[APRED]/cal/[INSTRUMENT]/fpi/apFPILines-[NUM8].fits
+    example: daily/cal/apogee-n/fpi/apFPILines-40730009.fits
+    location: '{apred}/cal/{instrument}/fpi/apFPILines-{num:0>8}.fits'
+    environment: APOGEE_REDUX
+    access:
+      in_sdss_access: true
+      path_name: apFPILines
+      path_template: $APOGEE_REDUX/{apred}/cal/{instrument}/fpi/@apgprefix|FPILines-{num:0>8}.fits
+      path_kwargs:
+      - num
+      - instrument
+      - apred
+      access_string: apFPILines = $APOGEE_REDUX/{apred}/cal/{instrument}/fpi/apFPILines-{num:0>8}.fits
+    survey: MWM
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: ''
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: ''
+        is_image: false
+        size: 15 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 106
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 150164
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 9
+          comment: number of table fields
+        - key: TDIM3
+          value: (4)
+          comment: ''
+        - key: TDIM4
+          value: (4)
+          comment: ''
+        columns:
+          num:
+            name: NUM
+            type: int64
+            unit: ''
+            description: ''
+          pix0:
+            name: PIX0
+            type: int64
+            unit: ''
+            description: ''
+          pars:
+            name: PARS
+            type: float64[4]
+            unit: ''
+            description: ''
+          perr:
+            name: PERR
+            type: float64[4]
+            unit: ''
+            description: ''
+          sumflux:
+            name: SUMFLUX
+            type: float64
+            unit: ''
+            description: ''
+          success:
+            name: SUCCESS
+            type: bool
+            unit: ''
+            description: ''
+          row:
+            name: ROW
+            type: int64
+            unit: ''
+            description: ''
+          chip:
+            name: CHIP
+            type: char[1]
+            unit: ''
+            description: ''
+          expnum:
+            name: EXPNUM
+            type: int64
+            unit: ''
+            description: ''
+notes: |-
+  None
