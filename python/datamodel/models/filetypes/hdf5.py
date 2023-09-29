@@ -15,7 +15,6 @@ except ImportError:
     h5py = None
 
 
-
 class ChangeMember(CoreModel):
     """ Pydantic model representing a YAML changelog HDF5 member section
 
@@ -84,7 +83,6 @@ class ChangeHdf(CoreModel):
     members: Dict[str, ChangeMember] = None
 
 
-
 class HdfAttr(CoreModel):
     """ Pydantic model representing a YAML hdfs attrs section
 
@@ -109,7 +107,7 @@ class HdfAttr(CoreModel):
     key: str
     value: Union[str, int, float, bool] = None
     comment: str = Field(..., repr=False)
-    dtype : str = Field(..., repr=False)
+    dtype: str = Field(..., repr=False)
     is_empty: bool = Field(None, repr=False)
     shape: Optional[tuple] = Field(default_factory=(), repr=False)
 
@@ -155,7 +153,7 @@ class HdfBase(CoreModel):
     parent: str
     object: HdfEnum = Field(..., repr=False)
     description: str
-    pytables : bool = None
+    pytables: bool = None
     attrs: List[HdfAttr] = Field(default_factory=[], repr=False)
 
     _check_replace_me = validator('description', allow_reuse=True)(replace_me)

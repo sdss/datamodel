@@ -6,13 +6,12 @@ from __future__ import print_function, division, absolute_import
 
 from collections import defaultdict
 from typing import List, Union
-from pydantic import validator, Field
+from pydantic import field_validator, Field, RootModel
 
 from ..io.loaders import read_yaml, get_yaml_files
 from .base import BaseList, CoreModel
 from .releases import Release, releases
 from .surveys import Survey, surveys
-
 
 
 class Version(CoreModel):
@@ -55,7 +54,8 @@ class Tag(CoreModel, smart_union=True):
     release: Union[str, Release, List[Release]] = Field(..., repr_attr='name')
     survey: Union[str, Survey] = Field(..., repr=False)
 
-    @validator('release')
+    @field_validator('release')
+    @classmethod
     def get_release(cls, v):
         """ check the release is a valid SDSS release """
         if isinstance(v, Release):
@@ -68,7 +68,7 @@ class Tag(CoreModel, smart_union=True):
         # check release
         if isinstance(v, str):
             # check string release name
-            opt = [p for p in releases if p.name==v]
+            opt = [p for p in releases if p.name == v]
         elif isinstance(v, list):
             # check list of release names
             vv = [i.name for i in v]
@@ -77,13 +77,14 @@ class Tag(CoreModel, smart_union=True):
             raise ValueError(f'Tag release {v} is not a valid SDSS Release.')
         return opt[0]
 
-    @validator('survey')
+    @field_validator('survey')
+    @classmethod
     def get_survey(cls, v):
         """ check the survey is a valid SDSS survey """
         if isinstance(v, Survey):
             return v
 
-        opt = [p for p in surveys if p.id==v]
+        opt = [p for p in surveys if p.id == v]
         if not opt:
             raise ValueError(f'Tag survey {v} is not a valid SDSS Survey.')
         return opt[0]
@@ -94,9 +95,9 @@ class Tag(CoreModel, smart_union=True):
         return f"{self.survey.id}_{self.version.name}_{self.tag}"
 
 
-class Tags(BaseList):
+class Tags(BaseList, RootModel[List[Tag]]):
     """ Pydantic model representing a list of Tags """
-    __root__: List[Tag]
+    #__root__: List[Tag]
 
     def group_by(self, order_by: str = 'release') -> dict:
         """ Group tags by SDSS release or survey

@@ -88,7 +88,7 @@ class Product:
         """
         try:
             self._model = ProductModel.parse_file(self.path)
-        except ValidationError as e:
+        except ValidationError:
             log.warning(f'{self.name} product not validated.  Cannot load.')
             self.releases = []
             return
@@ -346,6 +346,7 @@ class Product:
             return access.get(release, {})
         return access
 
+
 class DataProducts(FuzzyList):
     """ Class of a fuzzy list of SDSS data products
 
@@ -410,6 +411,7 @@ class DataProducts(FuzzyList):
              "DR16": ....}
         """
         return grouper(field, self)
+
 
 class SDSSDataModel:
     """ Class for the SDSS DataModel
@@ -483,7 +485,7 @@ def grouper(field: str, products: list) -> dict:
 
     # sort the data ahead of groupby, using the field as key
     # if item is a pydantic model, sort by the model's name; otherwise sort by the tuple item
-    sort_fxn = lambda x:x[1].name if isinstance(x[1], BaseModel) else x[1]
+    sort_fxn = lambda x: x[1].name if isinstance(x[1], BaseModel) else x[1]
     data = sorted(r, key=sort_fxn)
 
     # group items by field, drop into dict, and return

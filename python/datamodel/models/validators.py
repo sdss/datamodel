@@ -3,6 +3,7 @@
 #
 from .releases import releases
 
+
 def replace_me(value: str) -> str:
     """ Validator for datamodel text fields
 

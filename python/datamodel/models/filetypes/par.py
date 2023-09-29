@@ -106,6 +106,7 @@ class ParColumn(CoreModel):
         match = re.match(r"(?P<type>\w+)(?P<size>\[\d+\])?", self.type).groupdict()
         return f"{match['type']} {self.name}{match['size'] or ''}"
 
+
 class ParTable(CoreModel):
     """ Pydantic model representing a YAML par table section
 
@@ -154,9 +155,9 @@ class ParTable(CoreModel):
     def convert_table(self):
         """ Create a dictionary to prepare a Yanny table """
         table = {'symbols': {'enum': self.create_enum(),
-                            'struct': self.create_typedef(),
-                            self.name: [c.name for c in self.structure]}
-                }
+                             'struct': self.create_typedef(),
+                             self.name: [c.name for c in self.structure]}
+                 }
         table[self.name] = {c.name: [c.example] for c in self.structure}
         return table
 

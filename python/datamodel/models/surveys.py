@@ -14,7 +14,7 @@
 from __future__ import print_function, division, absolute_import
 
 from typing import List, Union
-from pydantic import validator, Field
+from pydantic import field_validator, Field, RootModel
 
 from ..io.loaders import read_yaml, get_yaml_files
 from .base import BaseList, CoreModel
@@ -43,7 +43,7 @@ class Phase(CoreModel):
     active: bool = False
 
 
-class Survey(CoreModel, smart_union=True):
+class Survey(CoreModel):
     """ Pydantic model representing an SDSS survey
 
     Parameters
@@ -68,29 +68,31 @@ class Survey(CoreModel, smart_union=True):
     long: str = Field(None, repr=False)
     description: str = Field(..., repr=False)
     phase: Union[int, Phase] = Field(None, repr_attr='id')
-    id : str = None
+    id: str = None
     aliases: list = Field([], repr=False)
 
-    @validator('phase')
+    @field_validator('phase')
+    @classmethod
     def get_phase(cls, v):
         """ check the phase is a valid SDSS phase """
         if isinstance(v, Phase):
             return v
 
         pid = v if isinstance(v, int) else v['id'] if isinstance(v, dict) else None
-        opt = [p for p in phases if p.id==pid]
+        opt = [p for p in phases if p.id == pid]
         if not opt:
             raise ValueError(f'Survey phase {v} is not a valid SDSS Phase!')
         return opt[0]
 
-class Surveys(BaseList):
+
+class Surveys(BaseList, RootModel[List[Survey]]):
     """ Pydantic model representing a list of Surveys """
-    __root__: List[Survey]
+    #__root__: List[Survey]
 
 
-class Phases(BaseList):
+class Phases(BaseList, RootModel[List[Phase]]):
     """ Pydantic model representing a list of Phases """
-    __root__: List[Phase]
+    #__root__: List[Phase]
 
 
 # construct the SDSS releases

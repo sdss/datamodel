@@ -15,10 +15,11 @@ from __future__ import print_function, division, absolute_import
 
 from datetime import date
 from typing import List, Union
-from pydantic import validator, Field
+from pydantic import field_validator, Field, RootModel
 
 from ..io.loaders import read_yaml, get_yaml_files
 from .base import BaseList, CoreModel
+
 
 class Release(CoreModel):
     """ Pydantic model presenting an SDSS release
@@ -44,15 +45,17 @@ class Release(CoreModel):
     public: bool = False
     release_date: Union[str, date] = 'unreleased'
 
-    @validator('name')
-    def name_check(cls, value): # pylint: disable=no-self-argument
+    @field_validator('name')
+    @classmethod
+    def name_check(cls, value):  # pylint: disable=no-self-argument
         if not value.startswith(('WORK', 'DR', 'MPL', 'IPL', 'EDR')):
             raise ValueError('release name must start with WORK, DR, MPL, or IPL.')
         return value
 
-class Releases(BaseList):
+
+class Releases(BaseList, RootModel[List[Release]]):
     """ Pydantic model representing a list of Releases """
-    __root__: List[Release]
+    #__root__: List[Release]
 
 
 # construct the SDSS releases

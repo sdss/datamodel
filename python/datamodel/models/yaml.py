@@ -15,10 +15,13 @@ from __future__ import print_function, division, absolute_import, annotations
 
 import re
 from typing import List, Dict, Union
+from typing_extensions import Annotated
 
 import orjson
 from astropy.io import fits
-from pydantic import validator, Field
+from pydantic import field_validator, ConfigDict, validator, Field, ValidationInfo, model_serializer
+from pydantic.functional_validators import AfterValidator
+from pydantic_core import SchemaSerializer
 
 from .base import CoreModel
 from .releases import releases, Release
@@ -27,11 +30,40 @@ from .validators import replace_me, check_release
 from .filetypes import HDU, ParModel, HdfModel, ChangeFits, ChangePar, ChangeHdf
 
 
-def orjson_dumps(v, *, default):
-    # orjson.dumps returns bytes, to match standard json.dumps we need to decode
-    return orjson.dumps(v, default=default,
-                        option=orjson.OPT_INDENT_2|
-                        orjson.OPT_SERIALIZE_NUMPY).decode()
+class OrJsonSerializer(SchemaSerializer):
+
+    def to_json(self, *args, **kwargs):
+        return orjson.dumps(self, option=orjson.OPT_INDENT_2 |
+                            orjson.OPT_SERIALIZE_NUMPY).decode()
+
+    def to_python(self, *args, **kwargs):
+        return orjson.loads(*args, **kwargs)
+
+
+# def orjson_dumps(v, *, default):
+#     # orjson.dumps returns bytes, to match standard json.dumps we need to decode
+#     return orjson.dumps(v, default=default,
+#                         option=orjson.OPT_INDENT_2 |
+#                         orjson.OPT_SERIALIZE_NUMPY).decode()
+
+
+def check_gen_release(value: str) -> str:
+    """ Validator to check release against list of releases """
+    if value not in releases:
+        raise ValueError(f'{value} is not a valid release')
+    return releases[value]
+
+
+def check_survey(value: str) -> str:
+    """ Validator to check survey against list of surveys """
+    if value not in surveys:
+        raise ValueError(f'{value} is not a valid survey')
+    return surveys[value]
+
+
+AnnoRelease = Annotated[Union[str, Release], AfterValidator(check_gen_release)]
+AnnoSurvey = Annotated[Union[str, Survey], AfterValidator(check_survey)]
+
 
 class GeneralSection(CoreModel):
     """ Pydantic model representing the YAML general section
@@ -72,10 +104,10 @@ class GeneralSection(CoreModel):
     short: str
     description: str = Field(..., repr=False)
     environments: List[str] = None
-    surveys: List[Union[str, Survey]] = Field(None, repr=False)
+    surveys: List[AnnoSurvey] = Field(None, repr=False)
     datatype: str
     filesize: str
-    releases: List[Union[str, Release]] = Field(None, repr=False)
+    releases: List[AnnoRelease] = Field(None, repr=False)
     naming_convention: str = Field(..., repr=False)
     generated_by: str = Field(..., repr=False)
     design: bool = None
@@ -85,36 +117,44 @@ class GeneralSection(CoreModel):
     _check_replace_me = validator('short', 'description', 'naming_convention',
                                   'generated_by', allow_reuse=True)(replace_me)
 
-    @validator('releases', each_item=True)
-    def check_release(cls, value: str) -> str:
-        """ Validator to check release against list of releases """
-        if value not in releases:
-            raise ValueError(f'{value} is not a valid release')
-        return releases[value]
+    # TODO[pydantic]: We couldn't refactor the `validator`, please replace it by `field_validator` manually.
+    # Check https://docs.pydantic.dev/dev-v2/migration/#changes-to-validators for more information.
 
-    @validator('design')
+    # @validator('releases', each_item=True)
+    # def check_release(cls, value: str) -> str:
+    #     """ Validator to check release against list of releases """
+    #     if value not in releases:
+    #         raise ValueError(f'{value} is not a valid release')
+    #     return releases[value]
+
+    @field_validator('design')
+    @classmethod
     def no_design(cls, value: bool):
         """ Validator to check if the design flag is set to True """
         if value:
             raise ValueError('Design is set to True. YAML will not validate until out of design phase.')
         return value
 
-    @validator('surveys', each_item=True)
-    def check_survey(cls, value: str):
-        """ Validator to check survey against list of surveys """
-        if value not in surveys:
-            raise ValueError(f'{value} is not a valid survey')
-        return surveys[value]
+    # TODO[pydantic]: We couldn't refactor the `validator`, please replace it by `field_validator` manually.
+    # Check https://docs.pydantic.dev/dev-v2/migration/#changes-to-validators for more information.
+    # @validator('surveys', each_item=True)
+    # def check_survey(cls, value: str):
+    #     """ Validator to check survey against list of surveys """
+    #     if value not in surveys:
+    #         raise ValueError(f'{value} is not a valid survey')
+    #     return surveys[value]
+
 
 class ChangeBase(CoreModel):
     """ Base Pydantic model representing a YAML changelog release section"""
     from_: str
     note: str = None
-    class Config:
-        """ Pydantic model configuration """
-        fields = {
-            'from_': 'from'
-        }
+    # TODO[pydantic]: The following keys were removed: `fields`.
+    # Check https://docs.pydantic.dev/dev-v2/migration/#changes-to-config for more information.
+    model_config = ConfigDict(fields={
+        'from_': 'from'
+    })
+
 
 class ChangeRelease(ChangeHdf, ChangePar, ChangeFits, ChangeBase):
     """ Pydantic model representing a YAML changelog release section
@@ -171,6 +211,7 @@ class ChangeRelease(ChangeHdf, ChangePar, ChangeFits, ChangeBase):
         A dictionary of HDF5 group/dataset member changes
     """
 
+
 class ChangeLog(CoreModel):
     """ Pydantic model representing the YAML changelog section
 
@@ -202,6 +243,7 @@ class ChangeLog(CoreModel):
         kwargs.pop('exclude_none', None)
         return super().dict(exclude_none=True, **kwargs)
 
+
 class Access(CoreModel):
     """ Pydantic model representing the YAML releases access section
 
@@ -224,21 +266,36 @@ class Access(CoreModel):
     path_kwargs: List[str] = Field(None, repr=False)
     access_string: str = Field(None, repr=False)
 
-    @validator('path_name', 'path_template', 'access_string')
-    def check_path_nulls(cls, value, values, field):
-        in_access = values.get('in_sdss_access')
+    # TODO[pydantic]: We couldn't refactor the `validator`, please replace it by `field_validator` manually.
+    # Check https://docs.pydantic.dev/dev-v2/migration/#changes-to-validators for more information.
+    # @field_validator('path_name', 'path_template', 'access_string')
+    # @classmethod
+    # def check_path_nulls(cls, value, values, field):
+    #     in_access = values.get('in_sdss_access')
+    #     if in_access and not value:
+    #         raise ValueError(f'{field.name} cannot be None if in_sdss_access is True')
+    #     return value
+
+    @field_validator('path_name', 'path_template', 'access_string')
+    @classmethod
+    def check_path_nulls(cls, value: str, info: ValidationInfo):
+        in_access = info.data.get('in_sdss_access')
         if in_access and not value:
-            raise ValueError(f'{field.name} cannot be None if in_sdss_access is True')
+            raise ValueError(f'{info.field_name} cannot be None if in_sdss_access is True')
         return value
 
-    @validator('path_kwargs')
-    def check_path_kwargs(cls, value, values):
-        in_access = values.get('in_sdss_access')
-        path = values.get('path_template')
+    # TODO[pydantic]: We couldn't refactor the `validator`, please replace it by `field_validator` manually.
+    # Check https://docs.pydantic.dev/dev-v2/migration/#changes-to-validators for more information.
+    @field_validator('path_kwargs')
+    @classmethod
+    def check_path_kwargs(cls, value: str, info: ValidationInfo):
+        in_access = info.data.get('in_sdss_access')
+        path = info.data.get('path_template')
         needskwargs = re.findall("{(.*?)}", path) if path else None
         if in_access and needskwargs and not value:
             raise ValueError('path_kwargs cannot be None if path_template has {} kwargs')
         return value
+
 
 class ReleaseModel(CoreModel):
     """ Pydantic model representing an item in the YAML releases section
@@ -292,17 +349,16 @@ class YamlModel(CoreModel):
         A string or multi-line text blob of additional information
 
     """
+    __pydantic_serializer__ = OrJsonSerializer
     general: GeneralSection
     changelog: ChangeLog = Field(..., repr=False)
     releases: Dict[str, ReleaseModel] = Field(..., repr=False)
     notes: str = Field(None, repr=False)
 
     _check_releases = validator('releases', allow_reuse=True)(check_release)
-
-    class Config:
-        """ Pydantic custom config """
-        json_loads = orjson.loads
-        json_dumps = orjson_dumps
+    # TODO[pydantic]: The following keys were removed: `json_loads`, `json_dumps`.
+    # Check https://docs.pydantic.dev/dev-v2/migration/#changes-to-config for more information.
+    #model_config = ConfigDict(json_loads=orjson.loads, json_dumps=orjson_dumps)
 
 
 class ProductModel(YamlModel):
@@ -317,8 +373,7 @@ class ProductModel(YamlModel):
     releases : Dict[str, `.ReleaseModel`]
         A dictionary of information specific to that release
     """
-    class Config:
-        """ Pydantic custom config """
-        json_loads = orjson.loads
-        json_dumps = orjson_dumps
+    # TODO[pydantic]: The following keys were removed: `json_loads`, `json_dumps`.
+    # Check https://docs.pydantic.dev/dev-v2/migration/#changes-to-config for more information.
+    model_config = ConfigDict(json_loads=orjson.loads, json_dumps=orjson_dumps)
 

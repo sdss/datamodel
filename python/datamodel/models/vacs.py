@@ -5,7 +5,7 @@
 from __future__ import print_function, division, absolute_import
 
 from typing import List
-from pydantic import BaseModel
+from pydantic import BaseModel, RootModel
 
 from ..io.loaders import read_yaml, get_yaml_files
 from .base import BaseList
@@ -27,9 +27,9 @@ class VAC(BaseModel):
     name: str
 
 
-class VACS(BaseList):
+class VACS(BaseList, RootModel[List[VAC]]):
     """ Pydantic model representing a list of VACs """
-    __root__: List[VAC]
+    #__root__: List[VAC]
 
 
 # construct the SDSS releases

@@ -10,24 +10,37 @@
 # Last Modified: Monday, June 28 2021 4:08:00 pm
 # Modified By: Brian Cherinka
 
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 from typing import Iterator, Union, Callable, Dict, Any, Type
+
+
+def add_repr(schema: Dict[str, Any], model: Type[BaseModel]) -> None:
+    """ Adds custom  information into the schema """
+    # "repr" flag in Field not retained when dumping model schema
+    # this adds the "repr" boolean Field into the schema for each
+    # property on a model.  Use until this is fixed in the core Pydantic.
+    for key, mod in model.__fields__.items():
+        if mod.field_info.repr is False:
+            schema['properties'][key].update({'repr': False})
 
 
 class CoreModel(BaseModel):
     """ Custom BaseModel """
-    class Config:
-        """ base model config """
-        @staticmethod
-        def schema_extra(schema: Dict[str, Any], model: Type[BaseModel]) -> None:
-            """ Adds custom information into the schema """
+    # TODO[pydantic]: We couldn't refactor this class, please create the `model_config` manually.
+    # Check https://docs.pydantic.dev/dev-v2/migration/#changes-to-config for more information.
+    # class Config:
+    #     """ base model config """
+    #     @staticmethod
+    #     def schema_extra(schema: Dict[str, Any], model: Type[BaseModel]) -> None:
+    #         """ Adds custom information into the schema """
 
-            # "repr" flag in Field not retained when dumping model schema
-            # this adds the "repr" boolean Field into the schema for each
-            # property on a model.  Use until this is fixed in the core Pydantic.
-            for key, mod in model.__fields__.items():
-                if mod.field_info.repr is False:
-                    schema['properties'][key].update({'repr': False})
+    #         # "repr" flag in Field not retained when dumping model schema
+    #         # this adds the "repr" boolean Field into the schema for each
+    #         # property on a model.  Use until this is fixed in the core Pydantic.
+    #         for key, mod in model.__fields__.items():
+    #             if mod.field_info.repr is False:
+    #                 schema['properties'][key].update({'repr': False})
+    model_config = ConfigDict(json_schema_extra=add_repr)
 
     def __repr_args__(self):
         """ Custom repr args
@@ -38,7 +51,7 @@ class CoreModel(BaseModel):
         using an extra "repr_attr" field, with the name of the attribute.
         See models Survey and Phase for example.
         """
-        rargs=[]
+        rargs = []
         # loop over model's repr args
         for i in super().__repr_args__():
             # get the field_info "extra" and look for the "repr_attr" key
