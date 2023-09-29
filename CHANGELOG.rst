@@ -4,9 +4,10 @@
 Change Log
 ==========
 
-1.0.0 (unreleased)
+0.6.0 (unreleased)
 ------------------
 - Updated to tree >= 4.0
+- Add support for multiple compressions, gz, fz, bz2
 
 0.5.3 (06-16-2023)
 ------------------
