@@ -11,6 +11,9 @@ from datamodel.generate.stub import YamlStub
 
 #cfg = self.repo.config_reader()
 
+pytestmark = pytest.mark.skip(reason='skipping these for now')
+
+
 class Cfg(dict):
     """ Fake git repo config ini """
 

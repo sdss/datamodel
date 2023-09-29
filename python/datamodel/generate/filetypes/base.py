@@ -52,8 +52,11 @@ def get_filetype(file) -> str:
     str
         File type in upper case.
     """
+    # set of compressions to check for
+    compressions = {'.gz', '.bz2', '.fz', '.zip'}
+
     filename, file_extension = os.path.splitext(file)
-    if "gz" in file_extension:
+    if file_extension in compressions:
         filename, file_extension = os.path.splitext(filename)
     return file_extension[1:].upper()
 
