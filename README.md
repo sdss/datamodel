@@ -8,6 +8,7 @@
 
 SDSS-V Datamodel Project
 
+For complete documentation, see the [Datamodel Docs](https://internal.sdss.org/docs/datamodel/latest/index.html)
 
 To clone and install the product locally:
 
