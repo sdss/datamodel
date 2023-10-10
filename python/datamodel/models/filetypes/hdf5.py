@@ -114,13 +114,12 @@ class HdfAttr(CoreModel):
     _check_replace_me = validator('comment')(replace_me)
 
     @model_validator(mode='after')
-    @classmethod
-    def check_value(cls, values):
-        is_empty, shape, value = values.get('is_empty'), values.get('shape'), values.get('value')
+    def check_value(self):
+        is_empty, shape, value = self.is_empty, self.shape, self.value
         if not is_empty and (value is None or shape is None):
             errfield = 'value' if value is None else 'shape'
             raise ValueError(f'attrs field "{errfield}" cannot be none')
-        return values
+        return self
 
 
 class HdfEnum(str, Enum):
