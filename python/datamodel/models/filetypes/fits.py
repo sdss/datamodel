@@ -3,11 +3,14 @@
 #
 import re
 
-from typing import List, Union, Dict, Optional
-from pydantic import validator, Field
+from typing import List, Union, Dict, Optional, Annotated
+from pydantic import validator, Field, BeforeValidator
 from astropy.io import fits
 from ..base import CoreModel
 from ..validators import replace_me
+
+
+LaxStr = Annotated[str, BeforeValidator(lambda x: str(x))]
 
 
 class ChangeFits(CoreModel):
@@ -39,6 +42,7 @@ class ChangeFits(CoreModel):
     added_primary_header_kwargs: List[str] = Field(None, repr=False)
     removed_primary_header_kwargs: List[str] = Field(None, repr=False)
 
+
 class Header(CoreModel):
     """ Pydantic model representing a YAML header section
 
@@ -54,7 +58,7 @@ class Header(CoreModel):
         A comment for the header keyword, if any
     """
     key: str
-    value: Optional[str] = ''
+    value: Optional[LaxStr] = ''
     comment: str = Field(default='', repr=False)
 
     def to_tuple(self):
@@ -146,7 +150,7 @@ class HDU(CoreModel):
     description: str = Field(..., repr=False)
     size: str
     header: List[Header] = Field(default=None, repr=False)
-    columns: Dict[str, Column] = Field(default=None, repr=False)
+    columns: Optional[Dict[str, Column]] = Field(default=None, repr=False)
 
     _check_replace_me = validator('description', allow_reuse=True)(replace_me)
 

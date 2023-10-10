@@ -242,7 +242,7 @@ class BaseFile(abc.ABC):
 
         This method is used to create a data object from a designed YAML cache content.  It should return
         a new designed object.  Ideally the object should be created through the Pydantic model's
-        parse_obj to ensure proper validation and field type coercion.  This method is called
+        model_validate to ensure proper validation and field type coercion.  This method is called
         by create_from_cache which sets the object as the self._designed_object attribute.
 
         Parameters

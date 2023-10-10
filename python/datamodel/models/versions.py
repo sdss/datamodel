@@ -5,13 +5,16 @@
 from __future__ import print_function, division, absolute_import
 
 from collections import defaultdict
-from typing import List, Union
-from pydantic import field_validator, Field, RootModel
+from typing import List, Union, Annotated
+from pydantic import field_validator, Field, RootModel, BeforeValidator
 
 from ..io.loaders import read_yaml, get_yaml_files
 from .base import BaseList, CoreModel
 from .releases import Release, releases
 from .surveys import Survey, surveys
+
+
+LaxStr = Annotated[str, BeforeValidator(lambda x: str(x))]
 
 
 class Version(CoreModel):
@@ -28,7 +31,7 @@ class Version(CoreModel):
     description: str = Field(..., repr=False)
 
 
-class Tag(CoreModel, smart_union=True):
+class Tag(CoreModel):
     """ Pydantic model representing an SDSS software tag
 
     Parameters
@@ -50,7 +53,7 @@ class Tag(CoreModel, smart_union=True):
         when the tag survey is not a valid SDSS Survey
     """
     version: Version = Field(..., repr_attr='name')
-    tag: Union[str, list] = None
+    tag: Union[LaxStr, list] = None
     release: Union[str, Release, List[Release]] = Field(..., repr_attr='name')
     survey: Union[str, Survey] = Field(..., repr=False)
 

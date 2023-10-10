@@ -343,7 +343,7 @@ class BaseStub(abc.ABC):
 
         # validate the yaml cache
         try:
-            self._validated_yaml = YamlModel.parse_obj(self._cache)
+            self._validated_yaml = YamlModel.model_validate(self._cache)
         except ValidationError as err:
             log.error(err)
             return False
@@ -414,6 +414,7 @@ class YamlStub(BaseStub):
 
     def _get_content(self) -> None:
         self.content = yaml.dump(self._cache, sort_keys=False)
+
 
 class MdStub(BaseStub):
     format: str = 'md'
@@ -493,6 +494,7 @@ class MdStub(BaseStub):
         with open(self.output, 'w') as f:
             f.write(self.content)
 
+
 class JsonStub(BaseStub):
     format: str = 'json'
     has_template: bool = False
@@ -500,7 +502,8 @@ class JsonStub(BaseStub):
     def _get_content(self) -> None:
         # uses orjson to dump; see orjson_dumps method in models/yaml.py
         # orjson options; indent=2, sort_keys = False (default)
-        self.content = self._validated_yaml.json(by_alias=True) if self._validated_yaml else {}
+        self.content = self._validated_yaml.model_dump_json(by_alias=True, indent=2) if self._validated_yaml else {}
+
 
 class AccessStub(BaseStub):
     format: str = 'access'

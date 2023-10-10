@@ -5,7 +5,7 @@ import tempfile
 import numpy as np
 from enum import Enum
 from typing import List, Union, Dict, Optional
-from pydantic import validator, root_validator, Field
+from pydantic import validator, model_validator, Field
 from ..base import CoreModel
 from ..validators import replace_me
 
@@ -113,7 +113,8 @@ class HdfAttr(CoreModel):
 
     _check_replace_me = validator('comment', allow_reuse=True)(replace_me)
 
-    @root_validator
+    @model_validator(mode='after')
+    @classmethod
     def check_value(cls, values):
         is_empty, shape, value = values.get('is_empty'), values.get('shape'), values.get('value')
         if not is_empty and (value is None or shape is None):
@@ -203,7 +204,7 @@ class HdfDataset(HdfBase):
     is_empty: bool = Field(None, repr=False)
 
 
-class HdfModel(HdfGroup, smart_union=True):
+class HdfModel(HdfGroup):
     """ Pydantic model representing a YAML hfds section
 
     Represents a base HDF5 file, which is also an HDF5 Group.

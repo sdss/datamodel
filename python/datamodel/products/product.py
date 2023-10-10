@@ -87,7 +87,8 @@ class Product:
         ``_extract`` list of attributes.
         """
         try:
-            self._model = ProductModel.parse_file(self.path)
+            with open(self.path) as f:
+                self._model = ProductModel.model_validate_json(f.read())
         except ValidationError:
             log.warning(f'{self.name} product not validated.  Cannot load.')
             self.releases = []

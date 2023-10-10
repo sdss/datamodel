@@ -14,14 +14,14 @@
 from __future__ import print_function, division, absolute_import, annotations
 
 import re
-from typing import List, Dict, Union
+from typing import List, Dict, Union, Optional
 from typing_extensions import Annotated
 
 import orjson
 from astropy.io import fits
 from pydantic import field_validator, ConfigDict, validator, Field, ValidationInfo, model_serializer
 from pydantic.functional_validators import AfterValidator
-from pydantic_core import SchemaSerializer
+#from pydantic_core import SchemaSerializer
 
 from .base import CoreModel
 from .releases import releases, Release
@@ -30,21 +30,21 @@ from .validators import replace_me, check_release
 from .filetypes import HDU, ParModel, HdfModel, ChangeFits, ChangePar, ChangeHdf
 
 
-class OrJsonSerializer(SchemaSerializer):
+# class OrJsonSerializer(SchemaSerializer):
 
-    def to_json(self, *args, **kwargs):
-        return orjson.dumps(self, option=orjson.OPT_INDENT_2 |
-                            orjson.OPT_SERIALIZE_NUMPY).decode()
+#     def to_json(self, *args, **kwargs):
+#         return orjson.dumps(self, option=orjson.OPT_INDENT_2 |
+#                             orjson.OPT_SERIALIZE_NUMPY).decode()
 
-    def to_python(self, *args, **kwargs):
-        return orjson.loads(*args, **kwargs)
+#     def to_python(self, *args, **kwargs):
+#         return orjson.loads(*args, **kwargs)
 
 
-# def orjson_dumps(v, *, default):
-#     # orjson.dumps returns bytes, to match standard json.dumps we need to decode
-#     return orjson.dumps(v, default=default,
-#                         option=orjson.OPT_INDENT_2 |
-#                         orjson.OPT_SERIALIZE_NUMPY).decode()
+def orjson_dumps(v, *, default):
+    # orjson.dumps returns bytes, to match standard json.dumps we need to decode
+    return orjson.dumps(v, default=default,
+                        option=orjson.OPT_INDENT_2 |
+                        orjson.OPT_SERIALIZE_NUMPY).decode()
 
 
 def check_gen_release(value: str) -> str:
@@ -147,13 +147,13 @@ class GeneralSection(CoreModel):
 
 class ChangeBase(CoreModel):
     """ Base Pydantic model representing a YAML changelog release section"""
-    from_: str
+    from_: str = Field(..., alias='from')
     note: str = None
     # TODO[pydantic]: The following keys were removed: `fields`.
     # Check https://docs.pydantic.dev/dev-v2/migration/#changes-to-config for more information.
-    model_config = ConfigDict(fields={
-        'from_': 'from'
-    })
+    # model_config = ConfigDict(fields={
+    #     'from_': 'from'
+    # })
 
 
 class ChangeRelease(ChangeHdf, ChangePar, ChangeFits, ChangeBase):
@@ -227,10 +227,10 @@ class ChangeLog(CoreModel):
 
     _check_releases = validator('releases', allow_reuse=True)(check_release)
 
-    def json(self, **kwargs):
+    def model_dump_json(self, **kwargs):
         """ override json method to exclude none fields by default """
         kwargs.pop('exclude_none', None)
-        return super().json(exclude_none=True, **kwargs)
+        return super().model_dump_json(exclude_none=True, **kwargs)
 
     def dict(self, **kwargs):
         """ override dict method to exclude none fields by default
@@ -324,13 +324,13 @@ class ReleaseModel(CoreModel):
     environment: str
     survey: str = None
     access: Access
-    hdus: Dict[str, HDU] = Field(None, repr=False)
-    par: ParModel = Field(None, repr=False)
-    hdfs: HdfModel = Field(None, repr=False)
+    hdus: Optional[Dict[str, HDU]] = Field(None, repr=False)
+    par: Optional[ParModel] = Field(None, repr=False)
+    hdfs: Optional[HdfModel] = Field(None, repr=False)
 
     def convert_to_hdulist(self) -> fits.HDUList:
         """ Convert the hdus to a fits.HDUList """
-        hdus = [HDU.parse_obj(v).convert_hdu() for v in self.hdus.values()]
+        hdus = [HDU.model_validate(v).convert_hdu() for v in self.hdus.values()]
         return fits.HDUList(hdus)
 
 
@@ -349,7 +349,7 @@ class YamlModel(CoreModel):
         A string or multi-line text blob of additional information
 
     """
-    __pydantic_serializer__ = OrJsonSerializer
+    #__pydantic_serializer__ = OrJsonSerializer
     general: GeneralSection
     changelog: ChangeLog = Field(..., repr=False)
     releases: Dict[str, ReleaseModel] = Field(..., repr=False)
@@ -359,6 +359,10 @@ class YamlModel(CoreModel):
     # TODO[pydantic]: The following keys were removed: `json_loads`, `json_dumps`.
     # Check https://docs.pydantic.dev/dev-v2/migration/#changes-to-config for more information.
     #model_config = ConfigDict(json_loads=orjson.loads, json_dumps=orjson_dumps)
+
+    # @model_serializer
+    # def ser_model(self) -> Dict[str, Any]:
+    #     return {'x': f'serialized {self.x}'}
 
 
 class ProductModel(YamlModel):
@@ -375,5 +379,5 @@ class ProductModel(YamlModel):
     """
     # TODO[pydantic]: The following keys were removed: `json_loads`, `json_dumps`.
     # Check https://docs.pydantic.dev/dev-v2/migration/#changes-to-config for more information.
-    model_config = ConfigDict(json_loads=orjson.loads, json_dumps=orjson_dumps)
+    #model_config = ConfigDict(json_loads=orjson.loads, json_dumps=orjson_dumps)
 
