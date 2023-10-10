@@ -111,7 +111,7 @@ class HdfAttr(CoreModel):
     is_empty: bool = Field(None, repr=False)
     shape: Optional[tuple] = Field(default_factory=(), repr=False)
 
-    _check_replace_me = validator('comment', allow_reuse=True)(replace_me)
+    _check_replace_me = validator('comment')(replace_me)
 
     @model_validator(mode='after')
     @classmethod
@@ -157,7 +157,7 @@ class HdfBase(CoreModel):
     pytables: bool = None
     attrs: List[HdfAttr] = Field(default_factory=[], repr=False)
 
-    _check_replace_me = validator('description', allow_reuse=True)(replace_me)
+    _check_replace_me = validator('description')(replace_me)
 
 
 class HdfGroup(HdfBase):

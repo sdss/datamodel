@@ -115,7 +115,7 @@ class GeneralSection(CoreModel):
     recommended_science_product: bool = None
 
     _check_replace_me = validator('short', 'description', 'naming_convention',
-                                  'generated_by', allow_reuse=True)(replace_me)
+                                  'generated_by')(replace_me)
 
     # TODO[pydantic]: We couldn't refactor the `validator`, please replace it by `field_validator` manually.
     # Check https://docs.pydantic.dev/dev-v2/migration/#changes-to-validators for more information.
@@ -225,7 +225,7 @@ class ChangeLog(CoreModel):
     description: str
     releases: Dict[str, ChangeRelease] = Field(None, repr=False)
 
-    _check_releases = validator('releases', allow_reuse=True)(check_release)
+    _check_releases = validator('releases')(check_release)
 
     def model_dump_json(self, **kwargs):
         """ override json method to exclude none fields by default """
@@ -355,7 +355,7 @@ class YamlModel(CoreModel):
     releases: Dict[str, ReleaseModel] = Field(..., repr=False)
     notes: str = Field(None, repr=False)
 
-    _check_releases = validator('releases', allow_reuse=True)(check_release)
+    _check_releases = validator('releases')(check_release)
     # TODO[pydantic]: The following keys were removed: `json_loads`, `json_dumps`.
     # Check https://docs.pydantic.dev/dev-v2/migration/#changes-to-config for more information.
     #model_config = ConfigDict(json_loads=orjson.loads, json_dumps=orjson_dumps)
