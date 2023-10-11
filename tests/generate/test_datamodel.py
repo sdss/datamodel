@@ -188,7 +188,7 @@ def test_datamodel_table_header(validmodel):
     ss.update_cache()
     hdu2 = ss._cache['releases']['WORK']['hdus']['hdu2']
     assert 'header' in hdu2
-    assert hdu2['header'][0] == {"key": "TTYPE1", "value": "OBJECT", "comment": "an object name"}
+    assert hdu2['header'][2] == {"key": "TTYPE1", "value": "OBJECT", "comment": "an object name"}
 
 
 def test_default_work_release_sdss5(caplog):

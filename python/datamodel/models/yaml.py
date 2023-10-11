@@ -261,10 +261,10 @@ class Access(CoreModel):
         The full sdss_access entry, "path_name=path_template"
     """
     in_sdss_access: bool
-    path_name: str = None
-    path_template: str = Field(None, repr=False)
-    path_kwargs: List[str] = Field(None, repr=False)
-    access_string: str = Field(None, repr=False)
+    path_name: Optional[str] = None
+    path_template: Optional[str] = Field(None, repr=False)
+    path_kwargs: Optional[List[str]] = Field(None, repr=False)
+    access_string: Optional[str] = Field(None, repr=False)
 
     # TODO[pydantic]: We couldn't refactor the `validator`, please replace it by `field_validator` manually.
     # Check https://docs.pydantic.dev/dev-v2/migration/#changes-to-validators for more information.
