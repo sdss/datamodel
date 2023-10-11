@@ -13,7 +13,7 @@
 
 from __future__ import print_function, division, absolute_import
 
-from typing import List, Union
+from typing import List, Union, Optional
 from pydantic import field_validator, Field, RootModel
 
 from ..io.loaders import read_yaml, get_yaml_files
@@ -38,8 +38,8 @@ class Phase(CoreModel):
     """
     name: str
     id: int
-    start: int = Field(None, repr=False)
-    end: int = Field(None, repr=False)
+    start: Optional[int] = Field(None, repr=False)
+    end: Optional[int] = Field(None, repr=False)
     active: bool = False
 
 
@@ -96,5 +96,5 @@ class Phases(BaseList, RootModel[List[Phase]]):
 
 
 # construct the SDSS releases
-phases = Phases.parse_obj(read_yaml(get_yaml_files('phases'))['phases'])
-surveys = Surveys.parse_obj(read_yaml(get_yaml_files('surveys'))['surveys'])
+phases = Phases.model_validate(read_yaml(get_yaml_files('phases'))['phases'])
+surveys = Surveys.model_validate(read_yaml(get_yaml_files('surveys'))['surveys'])
