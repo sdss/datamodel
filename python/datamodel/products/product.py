@@ -151,7 +151,7 @@ class Product:
         dict
             The JSON datamodel content
         """
-        return self._model.dict(*args, **kwargs)
+        return self._model.model_dump(*args, **kwargs)
 
     def get_schema(self, *args, **kwargs) -> dict:
         """ Returns the Pydantic schema datamodel definition
@@ -161,7 +161,7 @@ class Product:
         dict
             The datamodel schema
         """
-        return self._model.schema(*args, **kwargs)
+        return self._model.model_json_schema(*args, **kwargs)
 
     @classmethod
     def from_file(cls: Type[PType], value: Union[str, pathlib.Path], load: bool = None) -> PType:
@@ -337,7 +337,7 @@ class Product:
         if not hasattr(self, 'releases'):
             raise AttributeError("Product is not loaded.  Try running the load() method.")
 
-        access = {k: v.access.dict() for k,v in self._model.releases.items()}
+        access = {k: v.access.model_dump() for k,v in self._model.releases.items()}
 
         # check if the release is valid for this product
         if release and release not in self.releases:

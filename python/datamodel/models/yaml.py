@@ -241,7 +241,7 @@ class ChangeLog(CoreModel):
 
         """
         kwargs.pop('exclude_none', None)
-        return super().dict(exclude_none=True, **kwargs)
+        return super().model_dump(exclude_none=True, **kwargs)
 
 
 class Access(CoreModel):
