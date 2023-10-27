@@ -150,4 +150,4 @@ class Tags(BaseList, RootModel[List[Tag]]):
 
 
 # construct the SDSS tags
-tags = Tags.parse_obj(read_yaml(get_yaml_files('versions'))['tags'])
+tags = Tags.model_validate(read_yaml(get_yaml_files('versions'))['tags'])

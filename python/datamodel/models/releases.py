@@ -59,4 +59,4 @@ class Releases(BaseList, RootModel[List[Release]]):
 
 
 # construct the SDSS releases
-releases = Releases.parse_obj(read_yaml(get_yaml_files('releases'))['releases'])
+releases = Releases.model_validate(read_yaml(get_yaml_files('releases'))['releases'])

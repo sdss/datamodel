@@ -3,7 +3,7 @@
 #
 import re
 from typing import List, Union, Dict
-from pydantic import validator, Field
+from pydantic import Field, field_validator
 from ..base import CoreModel
 from ..validators import replace_me
 from .fits import Header
@@ -99,7 +99,7 @@ class ParColumn(CoreModel):
     enum_values: list = Field(None, repr=False)
     example: Union[str, int, float, list] = Field(..., repr=False)
 
-    _check_replace_me = validator('unit', 'description')(replace_me)
+    _check_replace_me = field_validator('unit', 'description')(replace_me)
 
     def parse_type(self):
         """ Parse the yanny YAML column type """
@@ -128,7 +128,7 @@ class ParTable(CoreModel):
     n_rows: int
     structure: List[ParColumn] = Field(..., repr=False)
 
-    _check_replace_me = validator('description')(replace_me)
+    _check_replace_me = field_validator('description')(replace_me)
 
     def create_typedef(self):
         """ Create a Yanny typedef struct string """

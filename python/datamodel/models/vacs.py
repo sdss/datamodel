@@ -33,4 +33,4 @@ class VACS(BaseList, RootModel[List[VAC]]):
 
 
 # construct the SDSS releases
-vacs = VACS.parse_obj(read_yaml(get_yaml_files('vacs'))['vacs'])
+vacs = VACS.model_validate(read_yaml(get_yaml_files('vacs'))['vacs'])

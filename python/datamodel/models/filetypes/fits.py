@@ -4,7 +4,7 @@
 import re
 
 from typing import List, Union, Dict, Optional, Annotated
-from pydantic import validator, Field, BeforeValidator
+from pydantic import Field, BeforeValidator, field_validator
 from astropy.io import fits
 from ..base import CoreModel
 from ..validators import replace_me
@@ -87,7 +87,7 @@ class Column(CoreModel):
     type: str
     unit: str = ''
 
-    _check_replace_me = validator('unit', 'description')(replace_me)
+    _check_replace_me = field_validator('unit', 'description')(replace_me)
 
     def to_fitscolumn(self) -> fits.Column:
         """ Convert the column to a fits.Column
@@ -152,7 +152,7 @@ class HDU(CoreModel):
     header: List[Header] = Field(default=None, repr=False)
     columns: Optional[Dict[str, Column]] = Field(default=None, repr=False)
 
-    _check_replace_me = validator('description')(replace_me)
+    _check_replace_me = field_validator('description')(replace_me)
 
     def convert_header(self) -> fits.Header:
         """ Convert the list of header keys into a fits.Header """

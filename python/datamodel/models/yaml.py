@@ -19,7 +19,7 @@ from typing_extensions import Annotated
 
 import orjson
 from astropy.io import fits
-from pydantic import field_validator, ConfigDict, validator, Field, ValidationInfo, model_serializer
+from pydantic import field_validator, ConfigDict, Field, ValidationInfo, model_serializer
 from pydantic.functional_validators import AfterValidator
 #from pydantic_core import SchemaSerializer
 
@@ -114,7 +114,7 @@ class GeneralSection(CoreModel):
     vac: bool = None
     recommended_science_product: bool = None
 
-    _check_replace_me = validator('short', 'description', 'naming_convention',
+    _check_replace_me = field_validator('short', 'description', 'naming_convention',
                                   'generated_by')(replace_me)
 
     # TODO[pydantic]: We couldn't refactor the `validator`, please replace it by `field_validator` manually.
@@ -225,7 +225,7 @@ class ChangeLog(CoreModel):
     description: str
     releases: Dict[str, ChangeRelease] = Field(None, repr=False)
 
-    _check_releases = validator('releases')(check_release)
+    _check_releases = field_validator('releases')(check_release)
 
     def model_dump_json(self, **kwargs):
         """ override json method to exclude none fields by default """
@@ -355,7 +355,7 @@ class YamlModel(CoreModel):
     releases: Dict[str, ReleaseModel] = Field(..., repr=False)
     notes: str = Field(None, repr=False)
 
-    _check_releases = validator('releases')(check_release)
+    _check_releases = field_validator('releases')(check_release)
     # TODO[pydantic]: The following keys were removed: `json_loads`, `json_dumps`.
     # Check https://docs.pydantic.dev/dev-v2/migration/#changes-to-config for more information.
     #model_config = ConfigDict(json_loads=orjson.loads, json_dumps=orjson_dumps)

@@ -5,7 +5,7 @@ import tempfile
 import numpy as np
 from enum import Enum
 from typing import List, Union, Dict, Optional
-from pydantic import validator, model_validator, Field
+from pydantic import model_validator, Field, field_validator
 from ..base import CoreModel
 from ..validators import replace_me
 
@@ -111,7 +111,7 @@ class HdfAttr(CoreModel):
     is_empty: bool = Field(None, repr=False)
     shape: Optional[tuple] = Field(default_factory=(), repr=False)
 
-    _check_replace_me = validator('comment')(replace_me)
+    _check_replace_me = field_validator('comment')(replace_me)
 
     @model_validator(mode='after')
     def check_value(self):
@@ -156,7 +156,7 @@ class HdfBase(CoreModel):
     pytables: bool = None
     attrs: List[HdfAttr] = Field(default_factory=[], repr=False)
 
-    _check_replace_me = validator('description')(replace_me)
+    _check_replace_me = field_validator('description')(replace_me)
 
 
 class HdfGroup(HdfBase):
