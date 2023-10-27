@@ -126,7 +126,7 @@ class B(BaseModel):
 class A(CoreModel):
     a : int = 1
     b : str = Field('b', repr=False)
-    v : B = Field(..., repr_attr='name')
+    v : B = Field(..., json_schema_extra={'repr_attr':'name'})
     n : C
 
 def test_repr_reduce():

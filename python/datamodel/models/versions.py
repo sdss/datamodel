@@ -52,9 +52,9 @@ class Tag(CoreModel):
     ValueError
         when the tag survey is not a valid SDSS Survey
     """
-    version: Version = Field(..., repr_attr='name')
+    version: Version = Field(..., json_schema_extra={'repr_attr':'name'})
     tag: Union[LaxStr, list] = None
-    release: Union[str, Release, List[Release]] = Field(..., repr_attr='name')
+    release: Union[str, Release, List[Release]] = Field(..., json_schema_extra={'repr_attr':'name'})
     survey: Union[str, Survey] = Field(..., repr=False)
 
     @field_validator('release')

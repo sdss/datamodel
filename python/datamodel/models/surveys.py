@@ -67,7 +67,7 @@ class Survey(CoreModel):
     name: str
     long: str = Field(None, repr=False)
     description: str = Field(..., repr=False)
-    phase: Union[int, Phase] = Field(None, repr_attr='id')
+    phase: Union[int, Phase] = Field(None, json_schema_extra={'repr_attr':'id'})
     id: str = None
     aliases: list = Field([], repr=False)
 
