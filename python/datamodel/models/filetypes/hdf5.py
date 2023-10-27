@@ -38,13 +38,13 @@ class ChangeMember(CoreModel):
     delta_size : int
         The difference in dataset size between HDF5 members
     """
-    delta_nmembers: int = None
-    delta_nattrs: int = None
-    added_attrs: List[str] = Field(None, repr=False)
-    removed_attrs: List[str] = Field(None, repr=False)
-    delta_ndim: int = None
-    new_shape: tuple = Field(None, repr=False)
-    delta_size: int = None
+    delta_nmembers: Optional[int] = None
+    delta_nattrs: Optional[int] = None
+    added_attrs: Optional[List[str]] = Field(None, repr=False)
+    removed_attrs: Optional[List[str]] = Field(None, repr=False)
+    delta_ndim: Optional[int] = None
+    new_shape: Optional[tuple] = Field(None, repr=False)
+    delta_size: Optional[int] = None
 
 
 class ChangeHdf(CoreModel):
@@ -73,14 +73,14 @@ class ChangeHdf(CoreModel):
     members : Dict[str, ChangeMember]
         A dictionary of HDF5 group/dataset member changes
     """
-    new_libver: tuple = None
-    delta_nattrs: int = None
-    addead_attrs: List[str] = Field(None, repr=False)
-    removed_attrs: List[str] = Field(None, repr=False)
-    delta_nmembers: int = None
-    addead_members: List[str] = Field(None, repr=False)
-    removed_members: List[str] = Field(None, repr=False)
-    members: Dict[str, ChangeMember] = None
+    new_libver: Optional[tuple] = None
+    delta_nattrs: Optional[int] = None
+    addead_attrs: Optional[List[str]] = Field(None, repr=False)
+    removed_attrs: Optional[List[str]] = Field(None, repr=False)
+    delta_nmembers: Optional[int] = None
+    addead_members: Optional[List[str]] = Field(None, repr=False)
+    removed_members: Optional[List[str]] = Field(None, repr=False)
+    members: Optional[Dict[str, ChangeMember]] = None
 
 
 class HdfAttr(CoreModel):

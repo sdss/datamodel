@@ -148,7 +148,7 @@ class GeneralSection(CoreModel):
 class ChangeBase(CoreModel):
     """ Base Pydantic model representing a YAML changelog release section"""
     from_: str = Field(..., alias='from')
-    note: str = None
+    note: Optional[str] = None
     # TODO[pydantic]: The following keys were removed: `fields`.
     # Check https://docs.pydantic.dev/dev-v2/migration/#changes-to-config for more information.
     # model_config = ConfigDict(fields={

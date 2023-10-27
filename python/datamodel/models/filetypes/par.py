@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 #
 import re
-from typing import List, Union, Dict
+from typing import List, Union, Dict, Optional
 from pydantic import Field, field_validator
 from ..base import CoreModel
 from ..validators import replace_me
@@ -30,9 +30,9 @@ class ChangeTable(CoreModel):
     removed_cols : List[str]
         A list of any removed Yanny table columns
     """
-    delta_nrows: int = None
-    added_cols: List[str] = Field(None, repr=False)
-    removed_cols: List[str] = Field(None, repr=False)
+    delta_nrows: Optional[int] = None
+    added_cols: Optional[List[str]] = Field(None, repr=False)
+    removed_cols: Optional[List[str]] = Field(None, repr=False)
 
 
 class ChangePar(CoreModel):
@@ -59,13 +59,13 @@ class ChangePar(CoreModel):
     tables : Dict[str, ChangeTable]
         A dictionary of table column and row changes
     """
-    delta_nkeys: int = None
-    addead_header_keys: List[str] = Field(None, repr=False)
-    removed_header_keys: List[str] = Field(None, repr=False)
-    delta_ntables: int = None
-    addead_tables: List[str] = Field(None, repr=False)
-    removed_tables: List[str] = Field(None, repr=False)
-    tables: Dict[str, ChangeTable] = None
+    delta_nkeys: Optional[int] = None
+    addead_header_keys: Optional[List[str]] = Field(None, repr=False)
+    removed_header_keys: Optional[List[str]] = Field(None, repr=False)
+    delta_ntables: Optional[int] = None
+    addead_tables: Optional[List[str]] = Field(None, repr=False)
+    removed_tables: Optional[List[str]] = Field(None, repr=False)
+    tables: Optional[Dict[str, ChangeTable]] = None
 
 
 class ParColumn(CoreModel):

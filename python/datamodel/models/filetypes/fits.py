@@ -35,12 +35,12 @@ class ChangeFits(CoreModel):
     removed_primary_header_kwargs : List[str]
         A list of any removed primary header keywords
     """
-    delta_nhdus: int = None
-    added_hdus: List[str] = Field(None, repr=False)
-    removed_hdus: List[str] = Field(None, repr=False)
-    primary_delta_nkeys: int = None
-    added_primary_header_kwargs: List[str] = Field(None, repr=False)
-    removed_primary_header_kwargs: List[str] = Field(None, repr=False)
+    delta_nhdus: Optional[int] = None
+    added_hdus: Optional[List[str]] = Field(None, repr=False)
+    removed_hdus: Optional[List[str]] = Field(None, repr=False)
+    primary_delta_nkeys: Optional[int] = None
+    added_primary_header_kwargs: Optional[List[str]] = Field(None, repr=False)
+    removed_primary_header_kwargs: Optional[List[str]] = Field(None, repr=False)
 
 
 class Header(CoreModel):
