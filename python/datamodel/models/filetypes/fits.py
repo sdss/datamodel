@@ -3,11 +3,14 @@
 #
 import re
 
-from typing import List, Union, Dict, Optional
-from pydantic import validator, Field
+from typing import List, Union, Dict, Optional, Annotated
+from pydantic import Field, BeforeValidator, field_validator
 from astropy.io import fits
 from ..base import CoreModel
 from ..validators import replace_me
+
+
+LaxStr = Annotated[str, BeforeValidator(lambda x: str(x))]
 
 
 class ChangeFits(CoreModel):
@@ -32,12 +35,13 @@ class ChangeFits(CoreModel):
     removed_primary_header_kwargs : List[str]
         A list of any removed primary header keywords
     """
-    delta_nhdus: int = None
-    added_hdus: List[str] = Field(None, repr=False)
-    removed_hdus: List[str] = Field(None, repr=False)
-    primary_delta_nkeys: int = None
-    added_primary_header_kwargs: List[str] = Field(None, repr=False)
-    removed_primary_header_kwargs: List[str] = Field(None, repr=False)
+    delta_nhdus: Optional[int] = None
+    added_hdus: Optional[List[str]] = Field(None, repr=False)
+    removed_hdus: Optional[List[str]] = Field(None, repr=False)
+    primary_delta_nkeys: Optional[int] = None
+    added_primary_header_kwargs: Optional[List[str]] = Field(None, repr=False)
+    removed_primary_header_kwargs: Optional[List[str]] = Field(None, repr=False)
+
 
 class Header(CoreModel):
     """ Pydantic model representing a YAML header section
@@ -54,7 +58,7 @@ class Header(CoreModel):
         A comment for the header keyword, if any
     """
     key: str
-    value: Optional[str] = ''
+    value: Optional[LaxStr] = ''
     comment: str = Field(default='', repr=False)
 
     def to_tuple(self):
@@ -83,7 +87,7 @@ class Column(CoreModel):
     type: str
     unit: str = ''
 
-    _check_replace_me = validator('unit', 'description', allow_reuse=True)(replace_me)
+    _check_replace_me = field_validator('unit', 'description')(replace_me)
 
     def to_fitscolumn(self) -> fits.Column:
         """ Convert the column to a fits.Column
@@ -146,9 +150,9 @@ class HDU(CoreModel):
     description: str = Field(..., repr=False)
     size: str
     header: List[Header] = Field(default=None, repr=False)
-    columns: Dict[str, Column] = Field(default=None, repr=False)
+    columns: Optional[Dict[str, Column]] = Field(default=None, repr=False)
 
-    _check_replace_me = validator('description', allow_reuse=True)(replace_me)
+    _check_replace_me = field_validator('description')(replace_me)
 
     def convert_header(self) -> fits.Header:
         """ Convert the list of header keys into a fits.Header """

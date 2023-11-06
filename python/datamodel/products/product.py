@@ -87,8 +87,9 @@ class Product:
         ``_extract`` list of attributes.
         """
         try:
-            self._model = ProductModel.parse_file(self.path)
-        except ValidationError as e:
+            with open(self.path) as f:
+                self._model = ProductModel.model_validate_json(f.read())
+        except ValidationError:
             log.warning(f'{self.name} product not validated.  Cannot load.')
             self.releases = []
             return
@@ -150,7 +151,7 @@ class Product:
         dict
             The JSON datamodel content
         """
-        return self._model.dict(*args, **kwargs)
+        return self._model.model_dump(*args, **kwargs)
 
     def get_schema(self, *args, **kwargs) -> dict:
         """ Returns the Pydantic schema datamodel definition
@@ -160,7 +161,7 @@ class Product:
         dict
             The datamodel schema
         """
-        return self._model.schema(*args, **kwargs)
+        return self._model.model_json_schema(*args, **kwargs)
 
     @classmethod
     def from_file(cls: Type[PType], value: Union[str, pathlib.Path], load: bool = None) -> PType:
@@ -336,7 +337,7 @@ class Product:
         if not hasattr(self, 'releases'):
             raise AttributeError("Product is not loaded.  Try running the load() method.")
 
-        access = {k: v.access.dict() for k,v in self._model.releases.items()}
+        access = {k: v.access.model_dump() for k,v in self._model.releases.items()}
 
         # check if the release is valid for this product
         if release and release not in self.releases:
@@ -345,6 +346,7 @@ class Product:
         if release:
             return access.get(release, {})
         return access
+
 
 class DataProducts(FuzzyList):
     """ Class of a fuzzy list of SDSS data products
@@ -410,6 +412,7 @@ class DataProducts(FuzzyList):
              "DR16": ....}
         """
         return grouper(field, self)
+
 
 class SDSSDataModel:
     """ Class for the SDSS DataModel
@@ -483,7 +486,7 @@ def grouper(field: str, products: list) -> dict:
 
     # sort the data ahead of groupby, using the field as key
     # if item is a pydantic model, sort by the model's name; otherwise sort by the tuple item
-    sort_fxn = lambda x:x[1].name if isinstance(x[1], BaseModel) else x[1]
+    sort_fxn = lambda x: x[1].name if isinstance(x[1], BaseModel) else x[1]
     data = sorted(r, key=sort_fxn)
 
     # group items by field, drop into dict, and return

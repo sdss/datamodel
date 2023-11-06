@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 #
 import re
-from typing import List, Union, Dict
-from pydantic import validator, Field
+from typing import List, Union, Dict, Optional
+from pydantic import Field, field_validator
 from ..base import CoreModel
 from ..validators import replace_me
 from .fits import Header
@@ -30,9 +30,9 @@ class ChangeTable(CoreModel):
     removed_cols : List[str]
         A list of any removed Yanny table columns
     """
-    delta_nrows: int = None
-    added_cols: List[str] = Field(None, repr=False)
-    removed_cols: List[str] = Field(None, repr=False)
+    delta_nrows: Optional[int] = None
+    added_cols: Optional[List[str]] = Field(None, repr=False)
+    removed_cols: Optional[List[str]] = Field(None, repr=False)
 
 
 class ChangePar(CoreModel):
@@ -59,13 +59,13 @@ class ChangePar(CoreModel):
     tables : Dict[str, ChangeTable]
         A dictionary of table column and row changes
     """
-    delta_nkeys: int = None
-    addead_header_keys: List[str] = Field(None, repr=False)
-    removed_header_keys: List[str] = Field(None, repr=False)
-    delta_ntables: int = None
-    addead_tables: List[str] = Field(None, repr=False)
-    removed_tables: List[str] = Field(None, repr=False)
-    tables: Dict[str, ChangeTable] = None
+    delta_nkeys: Optional[int] = None
+    addead_header_keys: Optional[List[str]] = Field(None, repr=False)
+    removed_header_keys: Optional[List[str]] = Field(None, repr=False)
+    delta_ntables: Optional[int] = None
+    addead_tables: Optional[List[str]] = Field(None, repr=False)
+    removed_tables: Optional[List[str]] = Field(None, repr=False)
+    tables: Optional[Dict[str, ChangeTable]] = None
 
 
 class ParColumn(CoreModel):
@@ -99,12 +99,13 @@ class ParColumn(CoreModel):
     enum_values: list = Field(None, repr=False)
     example: Union[str, int, float, list] = Field(..., repr=False)
 
-    _check_replace_me = validator('unit', 'description', allow_reuse=True)(replace_me)
+    _check_replace_me = field_validator('unit', 'description')(replace_me)
 
     def parse_type(self):
         """ Parse the yanny YAML column type """
         match = re.match(r"(?P<type>\w+)(?P<size>\[\d+\])?", self.type).groupdict()
         return f"{match['type']} {self.name}{match['size'] or ''}"
+
 
 class ParTable(CoreModel):
     """ Pydantic model representing a YAML par table section
@@ -127,7 +128,7 @@ class ParTable(CoreModel):
     n_rows: int
     structure: List[ParColumn] = Field(..., repr=False)
 
-    _check_replace_me = validator('description', allow_reuse=True)(replace_me)
+    _check_replace_me = field_validator('description')(replace_me)
 
     def create_typedef(self):
         """ Create a Yanny typedef struct string """
@@ -154,9 +155,9 @@ class ParTable(CoreModel):
     def convert_table(self):
         """ Create a dictionary to prepare a Yanny table """
         table = {'symbols': {'enum': self.create_enum(),
-                            'struct': self.create_typedef(),
-                            self.name: [c.name for c in self.structure]}
-                }
+                             'struct': self.create_typedef(),
+                             self.name: [c.name for c in self.structure]}
+                 }
         table[self.name] = {c.name: [c.example] for c in self.structure}
         return table
 

@@ -5,7 +5,7 @@ import tempfile
 import numpy as np
 from enum import Enum
 from typing import List, Union, Dict, Optional
-from pydantic import validator, root_validator, Field
+from pydantic import model_validator, Field, field_validator
 from ..base import CoreModel
 from ..validators import replace_me
 
@@ -13,7 +13,6 @@ try:
     import h5py
 except ImportError:
     h5py = None
-
 
 
 class ChangeMember(CoreModel):
@@ -39,13 +38,13 @@ class ChangeMember(CoreModel):
     delta_size : int
         The difference in dataset size between HDF5 members
     """
-    delta_nmembers: int = None
-    delta_nattrs: int = None
-    added_attrs: List[str] = Field(None, repr=False)
-    removed_attrs: List[str] = Field(None, repr=False)
-    delta_ndim: int = None
-    new_shape: tuple = Field(None, repr=False)
-    delta_size: int = None
+    delta_nmembers: Optional[int] = None
+    delta_nattrs: Optional[int] = None
+    added_attrs: Optional[List[str]] = Field(None, repr=False)
+    removed_attrs: Optional[List[str]] = Field(None, repr=False)
+    delta_ndim: Optional[int] = None
+    new_shape: Optional[tuple] = Field(None, repr=False)
+    delta_size: Optional[int] = None
 
 
 class ChangeHdf(CoreModel):
@@ -74,15 +73,14 @@ class ChangeHdf(CoreModel):
     members : Dict[str, ChangeMember]
         A dictionary of HDF5 group/dataset member changes
     """
-    new_libver: tuple = None
-    delta_nattrs: int = None
-    addead_attrs: List[str] = Field(None, repr=False)
-    removed_attrs: List[str] = Field(None, repr=False)
-    delta_nmembers: int = None
-    addead_members: List[str] = Field(None, repr=False)
-    removed_members: List[str] = Field(None, repr=False)
-    members: Dict[str, ChangeMember] = None
-
+    new_libver: Optional[tuple] = None
+    delta_nattrs: Optional[int] = None
+    addead_attrs: Optional[List[str]] = Field(None, repr=False)
+    removed_attrs: Optional[List[str]] = Field(None, repr=False)
+    delta_nmembers: Optional[int] = None
+    addead_members: Optional[List[str]] = Field(None, repr=False)
+    removed_members: Optional[List[str]] = Field(None, repr=False)
+    members: Optional[Dict[str, ChangeMember]] = None
 
 
 class HdfAttr(CoreModel):
@@ -109,19 +107,19 @@ class HdfAttr(CoreModel):
     key: str
     value: Union[str, int, float, bool] = None
     comment: str = Field(..., repr=False)
-    dtype : str = Field(..., repr=False)
+    dtype: str = Field(..., repr=False)
     is_empty: bool = Field(None, repr=False)
     shape: Optional[tuple] = Field(default_factory=(), repr=False)
 
-    _check_replace_me = validator('comment', allow_reuse=True)(replace_me)
+    _check_replace_me = field_validator('comment')(replace_me)
 
-    @root_validator
-    def check_value(cls, values):
-        is_empty, shape, value = values.get('is_empty'), values.get('shape'), values.get('value')
+    @model_validator(mode='after')
+    def check_value(self):
+        is_empty, shape, value = self.is_empty, self.shape, self.value
         if not is_empty and (value is None or shape is None):
             errfield = 'value' if value is None else 'shape'
             raise ValueError(f'attrs field "{errfield}" cannot be none')
-        return values
+        return self
 
 
 class HdfEnum(str, Enum):
@@ -155,10 +153,10 @@ class HdfBase(CoreModel):
     parent: str
     object: HdfEnum = Field(..., repr=False)
     description: str
-    pytables : bool = None
+    pytables: bool = None
     attrs: List[HdfAttr] = Field(default_factory=[], repr=False)
 
-    _check_replace_me = validator('description', allow_reuse=True)(replace_me)
+    _check_replace_me = field_validator('description')(replace_me)
 
 
 class HdfGroup(HdfBase):
@@ -205,7 +203,7 @@ class HdfDataset(HdfBase):
     is_empty: bool = Field(None, repr=False)
 
 
-class HdfModel(HdfGroup, smart_union=True):
+class HdfModel(HdfGroup):
     """ Pydantic model representing a YAML hfds section
 
     Represents a base HDF5 file, which is also an HDF5 Group.
