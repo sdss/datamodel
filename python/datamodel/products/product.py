@@ -121,7 +121,7 @@ class Product:
 
         Returns the Pydantic yaml.Release model for a given SDSS release.  All JSON keys
         are accessible as instance attributes.  The model can be dumped into a dictionary
-        with the ``dict()`` method.
+        with the ``model_dump()`` method.
 
         Parameters
         ----------
