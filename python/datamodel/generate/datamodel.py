@@ -198,7 +198,8 @@ class DataModel(object):
             raise ValueError('Either a path or an env_label + location must be specified.')
 
         # check if keywords are expected
-        if re.search(r'{(.*?)}', self.path) and not self.keywords and not self.design:
+        path = self.path or self.location
+        if re.search(r'{(.*?)}', path) and not self.keywords and not self.design:
             raise ValueError('A set of keywords must be provided along with a either a '
                              'path or location.')
         self._construct_path()
