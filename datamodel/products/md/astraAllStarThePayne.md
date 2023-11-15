@@ -13,13 +13,13 @@ Results from the ThePayne astra pipeline for each star
 ---
 
 ## Basic Information
-Results from the ThePayne astra pipeline for each star.
+Results from the ThePayne astra pipeline for each star. 
 
 ### Naming Convention
 $MWM_ASTRA/[ASTRA_VERSION]/[RUN2D]-[APRED]/results/summary/astraAllStar-ThePayne-[ASTRA_VERSION]-[RUN2D]-[APRED].fits
 
 ### Releases
-WORK
+IPL3, WORK
 
 ### Enviroments
 MWM_ASTRA
@@ -44,6 +44,11 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - WORK
+   - from: IPL3
+   - primary_delta_nkeys: 1
+   - added_primary_header_kwargs: ['RUN2D', 'APRED', 'DATASUM', 'CHECKSUM']
+   - removed_primary_header_kwargs: ['COMMENT']
 
 ---
 ## Example HDUS List

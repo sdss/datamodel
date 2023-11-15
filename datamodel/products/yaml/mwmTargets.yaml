@@ -1,0 +1,787 @@
+general:
+  name: mwmTargets
+  short: Targeting information for each MWM target
+  description: Targeting information for each MWM target
+  datatype: FITS
+  filesize: 460 MB
+  releases:
+  - IPL3
+  environments:
+  - MWM_ASTRA
+  surveys:
+  - MWM
+  naming_convention: $MWM_ASTRA/0.5.0/summary/mwmTargets-0.5.0.fits.gz
+  generated_by: astra
+  design: false
+  vac: false
+  recommended_science_product: true
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  IPL3:
+    template: $MWM_ASTRA/0.5.0/summary/mwmTargets-0.5.0.fits.gz
+    example: 0.5.0/summary/mwmTargets-0.5.0.fits.gz
+    location: 0.5.0/summary/mwmTargets-0.5.0.fits.gz
+    environment: MWM_ASTRA
+    access:
+      in_sdss_access: true
+      path_name: mwmTargets
+      path_template: $MWM_ASTRA/{v_astra}/summary/mwmTargets-{v_astra}.fits
+      path_kwargs:
+      - v_astra
+      access_string: mwmTargets = $MWM_ASTRA/0.5.0/summary/mwmTargets-0.5.0.fits.gz
+    survey: MWM
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Metadata
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: V_ASTRA
+          value: 0.5.0
+          comment: Astra version
+        - key: CREATED
+          value: 23-11-15 05:31:09
+          comment: File creation time (UTC %y-%m-%d %H:%M:%S)
+      hdu1:
+        name: ''
+        description: Targeting information for each MWM target
+        is_image: false
+        size: 890 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 653
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 1429956
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 134
+          comment: number of table fields
+        - key: V_ASTRA
+          value: 0.5.0
+          comment: Astra version
+        - key: CREATED
+          value: 23-11-15 05:31:09
+          comment: File creation time (UTC %y-%m-%d %H:%M:%S)
+        - key: TDIM16
+          value: (57)
+          comment: ''
+        - key: COMMENT
+          value: See https://www.ipac.caltech.edu/2mass/releases/allsky/doc/sec2_2a.html
+          comment: ''
+        - key: COMMENT
+          value: See https://catalog.unwise.me/catalogs.html
+          comment: ''
+        - key: COMMENT
+          value: See https://irsa.ipac.caltech.edu/data/SPITZER/GLIMPSE/gator_docs/
+          comment: ''
+        - key: CHECKSUM
+          value: NGV5P9S3NES3N9S3
+          comment: HDU checksum updated 2023-11-14T22:35:03
+        - key: DATASUM
+          value: '1936883091'
+          comment: data unit checksum updated 2023-11-14T22:35:03
+        columns:
+          sdss_id:
+            name: SDSS_ID
+            type: int64
+            unit: ''
+            description: SDSS-5 unique identifier
+          sdss4_apogee_id:
+            name: SDSS4_APOGEE_ID
+            type: char[19]
+            unit: ''
+            description: SDSS-4 DR17 APOGEE identifier
+          gaia_dr2_source_id:
+            name: GAIA_DR2_SOURCE_ID
+            type: int64
+            unit: ''
+            description: Gaia DR2 source identifier
+          gaia_dr3_source_id:
+            name: GAIA_DR3_SOURCE_ID
+            type: int64
+            unit: ''
+            description: Gaia DR3 source identifier
+          tic_v8_id:
+            name: TIC_V8_ID
+            type: int64
+            unit: ''
+            description: TESS Input Catalog (v8) identifier
+          healpix:
+            name: HEALPIX
+            type: int32
+            unit: ''
+            description: HEALPix (128 side)
+          carton_0:
+            name: CARTON_0
+            type: char[1]
+            unit: ''
+            description: Highest priority carton name
+          lead:
+            name: LEAD
+            type: char[26]
+            unit: ''
+            description: Lead catalog used for cross-match
+          version_id:
+            name: VERSION_ID
+            type: int32
+            unit: ''
+            description: SDSS catalog version for targeting
+          catalogid:
+            name: CATALOGID
+            type: int64
+            unit: ''
+            description: Catalog identifier used to target the source
+          catalogid21:
+            name: CATALOGID21
+            type: int64
+            unit: ''
+            description: Catalog identifier (v21; v0.0)
+          catalogid25:
+            name: CATALOGID25
+            type: int64
+            unit: ''
+            description: Catalog identifier (v25; v0.5)
+          catalogid31:
+            name: CATALOGID31
+            type: int64
+            unit: ''
+            description: Catalog identifier (v31; v1.0)
+          n_associated:
+            name: N_ASSOCIATED
+            type: int32
+            unit: ''
+            description: SDSS_IDs associated with this CATALOGID
+          n_neighborhood:
+            name: N_NEIGHBORHOOD
+            type: int32
+            unit: ''
+            description: Sources within 3" and G_MAG < G_MAG_source + 5
+          sdss5_target_flags:
+            name: SDSS5_TARGET_FLAGS
+            type: bool[57]
+            unit: ''
+            description: SDSS-5 targeting flags
+          sdss4_apogee_target1_flags:
+            name: SDSS4_APOGEE_TARGET1_FLAGS
+            type: int32
+            unit: ''
+            description: SDSS4 APOGEE1 targeting flags (1/2)
+          sdss4_apogee_target2_flags:
+            name: SDSS4_APOGEE_TARGET2_FLAGS
+            type: int32
+            unit: ''
+            description: SDSS4 APOGEE1 targeting flags (2/2)
+          sdss4_apogee2_target1_flags:
+            name: SDSS4_APOGEE2_TARGET1_FLAGS
+            type: int32
+            unit: ''
+            description: SDSS4 APOGEE2 targeting flags (1/3)
+          sdss4_apogee2_target2_flags:
+            name: SDSS4_APOGEE2_TARGET2_FLAGS
+            type: int32
+            unit: ''
+            description: SDSS4 APOGEE2 targeting flags (2/3)
+          sdss4_apogee2_target3_flags:
+            name: SDSS4_APOGEE2_TARGET3_FLAGS
+            type: int32
+            unit: ''
+            description: SDSS4 APOGEE2 targeting flags (3/3)
+          sdss4_apogee_member_flags:
+            name: SDSS4_APOGEE_MEMBER_FLAGS
+            type: int32
+            unit: ''
+            description: SDSS4 likely cluster/galaxy member flags
+          sdss4_apogee_extra_target_flags:
+            name: SDSS4_APOGEE_EXTRA_TARGET_FLAGS
+            type: int32
+            unit: ''
+            description: SDSS4 target info (aka EXTRATARG)
+          ra:
+            name: RA
+            type: float32
+            unit: deg
+            description: 'Right ascension '
+          dec:
+            name: DEC
+            type: float32
+            unit: deg
+            description: 'Declination '
+          l:
+            name: L
+            type: float32
+            unit: deg
+            description: 'Galactic longitude '
+          b:
+            name: B
+            type: float32
+            unit: deg
+            description: 'Galactic latitude '
+          plx:
+            name: PLX
+            type: float32
+            unit: mas
+            description: 'Parallax '
+          e_plx:
+            name: E_PLX
+            type: float32
+            unit: mas
+            description: 'Error on parallax '
+          pmra:
+            name: PMRA
+            type: float32
+            unit: mas/yr
+            description: 'Proper motion in RA '
+          e_pmra:
+            name: E_PMRA
+            type: float32
+            unit: mas/yr
+            description: 'Error on proper motion in RA '
+          pmde:
+            name: PMDE
+            type: float32
+            unit: mas/yr
+            description: 'Proper motion in DEC '
+          e_pmde:
+            name: E_PMDE
+            type: float32
+            unit: mas/yr
+            description: 'Error on proper motion in DEC '
+          gaia_v_rad:
+            name: GAIA_V_RAD
+            type: float32
+            unit: km/s
+            description: 'Gaia radial velocity '
+          gaia_e_v_rad:
+            name: GAIA_E_V_RAD
+            type: float32
+            unit: km/s
+            description: 'Error on Gaia radial velocity '
+          g_mag:
+            name: G_MAG
+            type: float32
+            unit: mag
+            description: 'Gaia DR3 mean G band magnitude '
+          bp_mag:
+            name: BP_MAG
+            type: float32
+            unit: mag
+            description: 'Gaia DR3 mean BP band magnitude '
+          rp_mag:
+            name: RP_MAG
+            type: float32
+            unit: mag
+            description: 'Gaia DR3 mean RP band magnitude '
+          j_mag:
+            name: J_MAG
+            type: float32
+            unit: mag
+            description: '2MASS J band magnitude '
+          e_j_mag:
+            name: E_J_MAG
+            type: float32
+            unit: mag
+            description: 'Error on 2MASS J band magnitude '
+          h_mag:
+            name: H_MAG
+            type: float32
+            unit: mag
+            description: '2MASS H band magnitude '
+          e_h_mag:
+            name: E_H_MAG
+            type: float32
+            unit: mag
+            description: 'Error on 2MASS H band magnitude '
+          k_mag:
+            name: K_MAG
+            type: float32
+            unit: mag
+            description: '2MASS K band magnitude '
+          e_k_mag:
+            name: E_K_MAG
+            type: float32
+            unit: mag
+            description: 'Error on 2MASS K band magnitude '
+          ph_qual:
+            name: PH_QUAL
+            type: char[3]
+            unit: ''
+            description: 2MASS photometric quality flag
+          bl_flg:
+            name: BL_FLG
+            type: char[3]
+            unit: ''
+            description: Number of components fit per band (JHK)
+          cc_flg:
+            name: CC_FLG
+            type: char[3]
+            unit: ''
+            description: Contamination and confusion flag
+          w1_mag:
+            name: W1_MAG
+            type: float32
+            unit: ''
+            description: W1 magnitude
+          e_w1_mag:
+            name: E_W1_MAG
+            type: float32
+            unit: ''
+            description: Error on W1 magnitude
+          w1_flux:
+            name: W1_FLUX
+            type: float32
+            unit: Vega nMgy
+            description: 'W1 flux '
+          w1_dflux:
+            name: W1_DFLUX
+            type: float32
+            unit: Vega nMgy
+            description: 'Error on W1 flux '
+          w1_frac:
+            name: W1_FRAC
+            type: float32
+            unit: ''
+            description: Fraction of W1 flux from this object
+          w2_mag:
+            name: W2_MAG
+            type: float32
+            unit: Vega
+            description: 'W2 magnitude '
+          e_w2_mag:
+            name: E_W2_MAG
+            type: float32
+            unit: ''
+            description: Error on W2 magnitude
+          w2_flux:
+            name: W2_FLUX
+            type: float32
+            unit: Vega nMgy
+            description: 'W2 flux '
+          w2_dflux:
+            name: W2_DFLUX
+            type: float32
+            unit: Vega nMgy
+            description: 'Error on W2 flux '
+          w2_frac:
+            name: W2_FRAC
+            type: float32
+            unit: ''
+            description: Fraction of W2 flux from this object
+          w1uflags:
+            name: W1UFLAGS
+            type: int32
+            unit: ''
+            description: unWISE flags for W1
+          w2uflags:
+            name: W2UFLAGS
+            type: int32
+            unit: ''
+            description: unWISE flags for W2
+          w1aflags:
+            name: W1AFLAGS
+            type: int32
+            unit: ''
+            description: Additional flags for W1
+          w2aflags:
+            name: W2AFLAGS
+            type: int32
+            unit: ''
+            description: Additional flags for W2
+          mag4_5:
+            name: MAG4_5
+            type: float32
+            unit: mag
+            description: 'IRAC band 4.5 micron magnitude '
+          d4_5m:
+            name: D4_5M
+            type: float32
+            unit: mag
+            description: 'Error on IRAC band 4.5 micron magnitude '
+          rms_f4_5:
+            name: RMS_F4_5
+            type: float32
+            unit: mJy
+            description: 'RMS deviations from final flux '
+          sqf_4_5:
+            name: SQF_4_5
+            type: int32
+            unit: ''
+            description: Source quality flag for IRAC band 4.5 micron
+          mf4_5:
+            name: MF4_5
+            type: int32
+            unit: ''
+            description: Flux calculation method flag
+          csf:
+            name: CSF
+            type: int32
+            unit: ''
+            description: Close source flag
+          zgr_teff:
+            name: ZGR_TEFF
+            type: float32
+            unit: K
+            description: 'Stellar effective temperature '
+          zgr_e_teff:
+            name: ZGR_E_TEFF
+            type: float32
+            unit: K
+            description: 'Error on stellar effective temperature '
+          zgr_logg:
+            name: ZGR_LOGG
+            type: float32
+            unit: log10(cm/s^2)
+            description: 'Surface gravity '
+          zgr_e_logg:
+            name: ZGR_E_LOGG
+            type: float32
+            unit: log10(cm/s^2)
+            description: 'Error on surface gravity '
+          zgr_fe_h:
+            name: ZGR_FE_H
+            type: float32
+            unit: dex
+            description: '[Fe/H] '
+          zgr_e_fe_h:
+            name: ZGR_E_FE_H
+            type: float32
+            unit: dex
+            description: 'Error on [Fe/H] '
+          zgr_e:
+            name: ZGR_E
+            type: float32
+            unit: mag
+            description: 'Extinction '
+          zgr_e_e:
+            name: ZGR_E_E
+            type: float32
+            unit: mag
+            description: 'Error on extinction '
+          zgr_plx:
+            name: ZGR_PLX
+            type: float32
+            unit: ''
+            description: Parallax [mas] (Gaia DR3)
+          zgr_e_plx:
+            name: ZGR_E_PLX
+            type: float32
+            unit: ''
+            description: Error on parallax [mas] (Gaia DR3)
+          zgr_teff_confidence:
+            name: ZGR_TEFF_CONFIDENCE
+            type: float32
+            unit: ''
+            description: Confidence estimate in TEFF
+          zgr_logg_confidence:
+            name: ZGR_LOGG_CONFIDENCE
+            type: float32
+            unit: ''
+            description: Confidence estimate in LOGG
+          zgr_fe_h_confidence:
+            name: ZGR_FE_H_CONFIDENCE
+            type: float32
+            unit: ''
+            description: Confidence estimate in FE_H
+          zgr_ln_prior:
+            name: ZGR_LN_PRIOR
+            type: float32
+            unit: ''
+            description: Log prior probability
+          zgr_chi2:
+            name: ZGR_CHI2
+            type: float32
+            unit: ''
+            description: Chi-square value
+          zgr_quality_flags:
+            name: ZGR_QUALITY_FLAGS
+            type: int32
+            unit: ''
+            description: Quality flags
+          r_med_geo:
+            name: R_MED_GEO
+            type: float32
+            unit: pc
+            description: 'Median geometric distance '
+          r_lo_geo:
+            name: R_LO_GEO
+            type: float32
+            unit: pc
+            description: '16th percentile of geometric distance '
+          r_hi_geo:
+            name: R_HI_GEO
+            type: float32
+            unit: pc
+            description: '84th percentile of geometric distance '
+          r_med_photogeo:
+            name: R_MED_PHOTOGEO
+            type: float32
+            unit: pc
+            description: '50th percentile of photogeometric distance '
+          r_lo_photogeo:
+            name: R_LO_PHOTOGEO
+            type: float32
+            unit: pc
+            description: '16th percentile of photogeometric distance '
+          r_hi_photogeo:
+            name: R_HI_PHOTOGEO
+            type: float32
+            unit: pc
+            description: '84th percentile of photogeometric distance '
+          bailer_jones_flags:
+            name: BAILER_JONES_FLAGS
+            type: char[5]
+            unit: ''
+            description: Bailer-Jones quality flags
+          ebv:
+            name: EBV
+            type: float32
+            unit: mag
+            description: 'E(B-V) '
+          e_ebv:
+            name: E_EBV
+            type: float32
+            unit: mag
+            description: 'Error on E(B-V) '
+          ebv_flags:
+            name: EBV_FLAGS
+            type: int32
+            unit: ''
+            description: Flags indicating the source of E(B-V)
+          ebv_zhang_2023:
+            name: EBV_ZHANG_2023
+            type: float32
+            unit: mag
+            description: 'E(B-V) from Zhang et al. (2023) '
+          e_ebv_zhang_2023:
+            name: E_EBV_ZHANG_2023
+            type: float32
+            unit: mag
+            description: 'Error on E(B-V) from Zhang et al. (2023) '
+          ebv_sfd:
+            name: EBV_SFD
+            type: float32
+            unit: mag
+            description: 'E(B-V) from SFD '
+          e_ebv_sfd:
+            name: E_EBV_SFD
+            type: float32
+            unit: mag
+            description: 'Error on E(B-V) from SFD '
+          ebv_rjce_glimpse:
+            name: EBV_RJCE_GLIMPSE
+            type: float32
+            unit: mag
+            description: 'E(B-V) from RJCE GLIMPSE '
+          e_ebv_rjce_glimpse:
+            name: E_EBV_RJCE_GLIMPSE
+            type: float32
+            unit: mag
+            description: 'Error on RJCE GLIMPSE E(B-V) '
+          ebv_rjce_allwise:
+            name: EBV_RJCE_ALLWISE
+            type: float32
+            unit: mag
+            description: 'E(B-V) from RJCE AllWISE '
+          e_ebv_rjce_allwise:
+            name: E_EBV_RJCE_ALLWISE
+            type: float32
+            unit: mag
+            description: Error on RJCE AllWISE E(B-V)
+          ebv_bayestar_2019:
+            name: EBV_BAYESTAR_2019
+            type: float32
+            unit: mag
+            description: 'E(B-V) from Bayestar 2019 '
+          e_ebv_bayestar_2019:
+            name: E_EBV_BAYESTAR_2019
+            type: float32
+            unit: mag
+            description: 'Error on Bayestar 2019 E(B-V) '
+          ebv_edenhofer_2023:
+            name: EBV_EDENHOFER_2023
+            type: float32
+            unit: mag
+            description: 'E(B-V) from Edenhofer et al. (2023) '
+          e_ebv_edenhofer_2023:
+            name: E_EBV_EDENHOFER_2023
+            type: float32
+            unit: mag
+            description: 'Error on Edenhofer et al. (2023) E(B-V) '
+          c_star:
+            name: C_STAR
+            type: float32
+            unit: ''
+            description: Quality parameter (see Riello et al. 2021)
+          u_jkc_mag:
+            name: U_JKC_MAG
+            type: float32
+            unit: mag
+            description: 'Gaia XP synthetic U-band (JKC) '
+          u_jkc_mag_flag:
+            name: U_JKC_MAG_FLAG
+            type: int32
+            unit: ''
+            description: U-band (JKC) is within valid range
+          b_jkc_mag:
+            name: B_JKC_MAG
+            type: float32
+            unit: mag
+            description: 'Gaia XP synthetic B-band (JKC) '
+          b_jkc_mag_flag:
+            name: B_JKC_MAG_FLAG
+            type: int32
+            unit: ''
+            description: B-band (JKC) is within valid range
+          v_jkc_mag:
+            name: V_JKC_MAG
+            type: float32
+            unit: mag
+            description: 'Gaia XP synthetic V-band (JKC) '
+          v_jkc_mag_flag:
+            name: V_JKC_MAG_FLAG
+            type: int32
+            unit: ''
+            description: V-band (JKC) is within valid range
+          r_jkc_mag:
+            name: R_JKC_MAG
+            type: float32
+            unit: mag
+            description: 'Gaia XP synthetic R-band (JKC) '
+          r_jkc_mag_flag:
+            name: R_JKC_MAG_FLAG
+            type: int32
+            unit: ''
+            description: R-band (JKC) is within valid range
+          i_jkc_mag:
+            name: I_JKC_MAG
+            type: float32
+            unit: mag
+            description: 'Gaia XP synthetic I-band (JKC) '
+          i_jkc_mag_flag:
+            name: I_JKC_MAG_FLAG
+            type: int32
+            unit: ''
+            description: I-band (JKC) is within valid range
+          u_sdss_mag:
+            name: U_SDSS_MAG
+            type: float32
+            unit: mag
+            description: 'Gaia XP synthetic u-band (SDSS) '
+          u_sdss_mag_flag:
+            name: U_SDSS_MAG_FLAG
+            type: int32
+            unit: ''
+            description: u-band (SDSS) is within valid range
+          g_sdss_mag:
+            name: G_SDSS_MAG
+            type: float32
+            unit: mag
+            description: 'Gaia XP synthetic g-band (SDSS) '
+          g_sdss_mag_flag:
+            name: G_SDSS_MAG_FLAG
+            type: int32
+            unit: ''
+            description: g-band (SDSS) is within valid range
+          r_sdss_mag:
+            name: R_SDSS_MAG
+            type: float32
+            unit: mag
+            description: 'Gaia XP synthetic r-band (SDSS) '
+          r_sdss_mag_flag:
+            name: R_SDSS_MAG_FLAG
+            type: int32
+            unit: ''
+            description: r-band (SDSS) is within valid range
+          i_sdss_mag:
+            name: I_SDSS_MAG
+            type: float32
+            unit: mag
+            description: 'Gaia XP synthetic i-band (SDSS) '
+          i_sdss_mag_flag:
+            name: I_SDSS_MAG_FLAG
+            type: int32
+            unit: ''
+            description: i-band (SDSS) is within valid range
+          z_sdss_mag:
+            name: Z_SDSS_MAG
+            type: float32
+            unit: mag
+            description: 'Gaia XP synthetic z-band (SDSS) '
+          z_sdss_mag_flag:
+            name: Z_SDSS_MAG_FLAG
+            type: int32
+            unit: ''
+            description: z-band (SDSS) is within valid range
+          y_ps1_mag:
+            name: Y_PS1_MAG
+            type: float32
+            unit: mag
+            description: 'Gaia XP synthetic Y-band (PS1) '
+          y_ps1_mag_flag:
+            name: Y_PS1_MAG_FLAG
+            type: int32
+            unit: ''
+            description: Y-band (PS1) is within valid range
+          n_boss_visits:
+            name: N_BOSS_VISITS
+            type: int32
+            unit: ''
+            description: Number of BOSS visits
+          boss_min_mjd:
+            name: BOSS_MIN_MJD
+            type: int32
+            unit: ''
+            description: Minimum MJD of BOSS visits
+          boss_max_mjd:
+            name: BOSS_MAX_MJD
+            type: int32
+            unit: ''
+            description: Maximum MJD of BOSS visits
+          n_apogee_visits:
+            name: N_APOGEE_VISITS
+            type: int32
+            unit: ''
+            description: Number of APOGEE visits
+          apogee_min_mjd:
+            name: APOGEE_MIN_MJD
+            type: int32
+            unit: ''
+            description: Minimum MJD of APOGEE visits
+          apogee_max_mjd:
+            name: APOGEE_MAX_MJD
+            type: int32
+            unit: ''
+            description: Maximum MJD of APOGEE visits
+notes: |-
+  None
