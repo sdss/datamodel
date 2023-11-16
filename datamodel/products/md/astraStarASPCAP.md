@@ -13,13 +13,13 @@ Results and best-fit models from the ASPCAP astra pipeline for a single star
 ---
 
 ## Basic Information
-Results and best-fit models from the ASPCAP astra pipeline for a single star. The ASPCAP flag bitmaps are documented at https://www.sdss.org/dr17/irspec/apogee-bitmasks#ParamBitMask, and the weights used when computing each abundance are documented at https://data.sdss5.org/sas/sdsswork/mwm/spectro/astra/component_data/aspcap/masks/
+Results and best-fit models from the ASPCAP astra pipeline for a single star The ASPCAP flag bitmaps are documented at https://www.sdss.org/dr17/irspec/apogee-bitmasks#ParamBitMask, and the weights used when computing each abundance are documented at https://data.sdss5.org/sas/sdssrelease, work/mwm/spectro/astra/component_data/aspcap/masks/
 
 ### Naming Convention
 $MWM_ASTRA/[ASTRA_VERSION]/[RUN2D]-[APRED]/results/star/[CATALOGID_GROUPS]/astraStar-ASPCAP-[ASTRA_VERSION]-[CATALOGID]-[TASK_ID].fits
 
 ### Releases
-WORK
+IPL3, WORK
 
 ### Enviroments
 MWM_ASTRA
@@ -47,6 +47,11 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - WORK
+   - from: IPL3
+   - primary_delta_nkeys: 30
+   - added_primary_header_kwargs: ['RELEASE', 'APRED', 'FILETYPE', 'MAPPERS', 'CARTONS', 'RUN2D', 'GAIA_DEC', 'IDP_ID', 'GAIA_RA', 'IDP_URL', 'PROGRAMS', 'GAIA_ID', 'TASK_ID']
+   - removed_primary_header_kwargs: ['PH_QUAL', 'W2_FLUX', 'W2_MAG', 'CAT_ID21', 'CC_FLG', 'RMS_F4_5', 'W1_DFLUX', 'W2_DFLUX', 'D4_5M', 'CAT_ID25', 'N_APOGEE', 'A_MINMJD', 'W1UFLAGS', 'A_MAXMJD', 'B', 'W2AFLAGS', 'APOGEEID', 'VER_ID', 'MF4_5', 'W1_MAG', 'W1_FLUX', 'SQF_4_5', 'W1AFLAGS', 'CSF', 'SDSS_ID', 'GAIA3_ID', 'E_W1_MAG', 'N_NEIGH', 'LEAD', 'BL_FLG', 'E_W2_MAG', 'L', 'GAIA2_ID', 'MAG4_5', 'W2UFLAGS', 'W1_FRAC', 'W2_FRAC', 'N_MAXMJD', 'B_MINMJD', 'CAT_ID31', 'N_BOSS', 'N_ASSOC']
 
 ---
 ## Example HDUS List
