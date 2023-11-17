@@ -131,8 +131,8 @@ def design(file_species, path, location, env_label, verbose, create, keywords):
     dm = DataModel(file_spec=file_species, path=path, env_label=env_label, location=location,
                    verbose=verbose, release='WORK', design=True)
 
-    # write out all the datamodel stubs
-    dm.write_stubs()
+    # write out the YAML the datamodel stubs
+    dm.write_stubs('yaml')
 
     # sort out any keywords
     if keywords:
@@ -141,6 +141,7 @@ def design(file_species, path, location, env_label, verbose, create, keywords):
     # create a designed file if requested
     if create:
         dm.generate_designed_file(**kwargs)
+        #dm.write_stubs()
 
 
 cli.add_command(design)

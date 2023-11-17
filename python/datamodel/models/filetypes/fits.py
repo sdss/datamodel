@@ -148,7 +148,7 @@ class HDU(CoreModel):
     name: str
     is_image: bool
     description: str = Field(..., repr=False)
-    size: str
+    size: str = None
     header: List[Header] = Field(default=None, repr=False)
     columns: Optional[Dict[str, Column]] = Field(default=None, repr=False)
 

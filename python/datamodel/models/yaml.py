@@ -105,8 +105,8 @@ class GeneralSection(CoreModel):
     description: str = Field(..., repr=False)
     environments: List[str] = None
     surveys: List[AnnoSurvey] = Field(None, repr=False)
-    datatype: str
-    filesize: str
+    datatype: Optional[str]
+    filesize: Optional[str]
     releases: List[AnnoRelease] = Field(None, repr=False)
     naming_convention: str = Field(..., repr=False)
     generated_by: str = Field(..., repr=False)
@@ -319,7 +319,7 @@ class ReleaseModel(CoreModel):
         A dictionary of HDU content for the product for the given release
     """
     template: str
-    example: str = Field(..., repr=False)
+    example: Optional[str] = Field(..., repr=False)
     location: str = Field(..., repr=False)
     environment: str
     survey: str = None
