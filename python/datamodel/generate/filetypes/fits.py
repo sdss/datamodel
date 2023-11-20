@@ -330,7 +330,7 @@ class FitsFile(BaseFile):
         fits.HDUList
             A valid astropy fits.HDUList object
         """
-        return fits.HDUList([HDU.parse_obj(v).convert_hdu() for v in data.values()])
+        return fits.HDUList([HDU.model_validate(v).convert_hdu() for v in data.values()])
 
     def write_design(self, file: str, overwrite: bool = True) -> None:
         """ Write out the designed file

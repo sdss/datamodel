@@ -272,7 +272,7 @@ For example, the method for FITS conversion look like:
     @staticmethod
     def _get_designed_object(data: dict):
         """ Return a valid fits HDUList """
-        return fits.HDUList([HDU.parse_obj(v).convert_hdu() for v in data.values()])
+        return fits.HDUList([HDU.model_validate(v).convert_hdu() for v in data.values()])
 
 with the `~datamodel.models.filetypes.fits.HDU.convert_hdu` method:
 ::

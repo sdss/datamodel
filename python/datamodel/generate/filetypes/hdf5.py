@@ -280,7 +280,7 @@ class HdfFile(BaseFile):
         h5py.File
             A valid h5py.File object
         """
-        return HdfModel.parse_obj(data).convert_hdf()
+        return HdfModel.model_validate(data).convert_hdf()
 
     def write_design(self, file: str, overwrite: bool = None) -> None:
         """ Write out the designed file

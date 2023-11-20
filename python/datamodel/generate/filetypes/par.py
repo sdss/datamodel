@@ -307,7 +307,7 @@ class ParFile(BaseFile):
         yanny
             A valid yanny object
         """
-        return ParModel.parse_obj(data).convert_par()
+        return ParModel.model_validate(data).convert_par()
 
     def write_design(self, file: str, overwrite: bool = True) -> None:
         """ Write out the designed file
