@@ -593,7 +593,7 @@ class DataModel(object):
         return stub[0](self) if stub else None
 
     def write_stubs(self, format: str = None, force: bool = None, use_cache_release: str = None,
-                    full_cache: bool = None) -> None:
+                    full_cache: bool = None, group: str = 'WORK', force_release: str = None) -> None:
         """ Write out the stub files
 
         Write out all stubs or a stub of a given format.
@@ -603,11 +603,16 @@ class DataModel(object):
         format : str, optional
             A stub format to write out, by default None
         force : bool, optional
-            If True, forces a rewrite of the cached stub content
+            If True, forces a rewrite of the entire cached stub content
+        force_release: str, optional
+            A specific release to force a rewrite in the cache
         use_cache_release: str, optional
             Specify a cached release to use to copy over custom user content
         full_cache: bool, optional, by default None
             If True, use the entire cached YAML release, rather than only the HDUs
+        group: str, optional
+            The release group to use when writing the markdown file, by default "WORK".
+            Can be "DR", or "IPL".
         """
         if self.verbose:
             log.info(f'Preparing datamodel: {self}.')
@@ -616,7 +621,8 @@ class DataModel(object):
             ss = stub(self)
             if self.verbose:
                 log.info(f'Creating stub: {ss}')
-            ss.write(force=force, use_cache_release=use_cache_release, full_cache=full_cache)
+            ss.write(force=force, use_cache_release=use_cache_release, full_cache=full_cache,
+                     group=group, force_release=force_release)
 
     def remove_stubs(self, format: str = None, git: bool = None) -> None:
         """ Remove the stub files
