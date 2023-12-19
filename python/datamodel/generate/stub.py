@@ -95,7 +95,7 @@ class BaseStub(abc.ABC):
             raise IOError(f"No datamodel directory found at {self.datamodel_dir}")
 
     def _set_output(self) -> None:
-
+        """ set the yaml file output directory """
         if not self.datamodel:
             raise AttributeError('Cannot set an output directory without a valid datamodel')
 
@@ -113,10 +113,12 @@ class BaseStub(abc.ABC):
         self.output = os.path.join(directory, f'{self.datamodel.file_species}.{self.format}')
 
     def remove_output(self) -> None:
+        """ Delete the yaml file on disk """
         if self.output and os.path.exists(self.output):
             os.remove(self.output)
 
     def render_content(self, force: bool = None) -> None:
+        """ Populate the yaml template with generated content """
         if not self._cache or force:
             self._get_cache(force=force)
 
@@ -387,6 +389,22 @@ class BaseStub(abc.ABC):
         if os.path.exists(self.output):
             self.git.rm(self.output)
             self.git.commit(message=f"removing file {self.datamodel.file_species}.{self.format}")
+
+    def remove_release(self, release: str):
+        """ Remove a release from the datamodel stub """
+        if not self._cache:
+            self.update_cache()
+
+        # remove the release from the general section attribute
+        if release in self._cache["general"]["releases"]:
+            self._cache["general"]["releases"].remove(release)
+
+        # remove the release from the releases section
+        if release in self._cache["releases"]:
+            self._cache["releases"].pop(release)
+
+        # update the changelog
+        self._update_cache_changelog()
 
 
     # def workflow(self):
