@@ -14,6 +14,8 @@ general:
   design: false
   surveys:
   - SDSS
+  vac: false
+  recommended_science_product: false
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
@@ -21,7 +23,7 @@ changelog:
 releases:
   WORK:
     template: $ROBOSTRATEGY_DATA/allocations/[PLAN]/rsAllocation-[PLAN]-[OBSERVATORY].fits
-    example: allocations/epsilon/rsAllocation-epsilon-5-core-2-apo.fits
+    example: allocations/theta-0-updatealloc-1/rsAllocation-theta-0-updatealloc-1-apo.fits
     location: allocations/{plan}/rsAllocation-{plan}-{observatory}.fits
     environment: ROBOSTRATEGY_DATA
     access:
@@ -58,7 +60,7 @@ releases:
           value: '  and Astrophysics'', volume 376, page 359; bibcode: 2001A&A...376..359H'
           comment: ''
       hdu1:
-        name: ''
+        name: ALLOCATE
         description: Allocation of cadence to each field
         is_image: false
         size: 2 MB
@@ -83,16 +85,55 @@ releases:
             type: char[30]
             unit: ''
             description: Cadence name allocated
-          nfilled:
-            name: nfilled
+          nallocated:
+            name: nallocated
             type: int32
             unit: ''
-            description: Number of exposures filled
+            description: Number of designs allocated for future
+          nallocated_sb:
+            name: nallocated_sb
+            type: int32[2]
+            unit: ''
+            description: Number of designs allocated for future in each sky brightness
+          nallocated_full:
+            name: nallocated_full
+            type: int32
+            unit: ''
+            description: Number of designs allocated over full survey
+          nallocated_full_sb:
+            name: nallocated_full_sb
+            type: int32[2]
+            unit: ''
+            description: Number of designs allocated over full survey in each sky
+              brightness
           needed:
             name: needed
             type: int32
             unit: ''
-            description: Number of exposured needed
+            description: Number of designs needed over full survey for allocated cadence
+          needed_sb:
+            name: needed_sb
+            type: int32[2]
+            unit: ''
+            description: Number of designs already observed for allocated cadence
+              in each sky brightness
+          filled:
+            name: filled
+            type: int32
+            unit: ''
+            description: Number of designs already observed for allocated cadence
+          allocated_exposures_done:
+            name: allocated_exposures_done
+            type: int32[100]
+            unit: ''
+            description: Indices of designs in allocated cadence that were completed
+              already
+          original_exposures_done:
+            name: original_exposures_done
+            type: int32[100]
+            unit: ''
+            description: Indices of designs in original cadence that were completed
+              already
           xfactor:
             name: xfactor
             type: float32[24, 2]
@@ -109,7 +150,7 @@ releases:
             unit: hours
             description: Time allocated to each sky brightness / LST slot
       hdu2:
-        name: ''
+        name: SLOTS
         description: Binary image of hours per LST and sky brightness slot (from rsSlots
           file)
         is_image: true
@@ -171,7 +212,7 @@ releases:
           value: 1.0
           comment: edge 2 of sky brightness bins
       hdu3:
-        name: ''
+        name: FIELDS
         description: Binary table of fields (from rsFieldsRotated)
         is_image: false
         size: 297 KB
@@ -214,7 +255,7 @@ releases:
             description: proposed position angle using algorithm 2 (bearing to furthest
               neighboring field)
       hdu4:
-        name: ''
+        name: FSLOTS
         description: Field slots information, with which slots can be used for a given
           field-cadence combination (from rsFieldSlots file)
         is_image: false
@@ -258,7 +299,7 @@ releases:
             description: 0 or 1 for whether the LST and skybrightness slot can be
               used for this field-cadence, based on sky brightness and airmass requirements.
       hdu5:
-        name: ''
+        name: OPTIONS
         description: Field-cadence options, and the value associated with each (from
           rsOptions file)
         is_image: false
@@ -344,7 +385,7 @@ releases:
             description: Total value of targets gotten for each target carton (see
               HDU6)
       hdu6:
-        name: ''
+        name: CARTONS
         description: List of cartons for arrays in HDU5
         is_image: false
         size: 4 KB
@@ -355,7 +396,7 @@ releases:
             unit: ''
             description: Carton names
       hdu7:
-        name: ''
+        name: CADENCES
         description: List of cadences for arrays in HDU5
         is_image: false
         size: 1 KB
@@ -366,3 +407,5 @@ releases:
             unit: ''
             description: Cadence name
     survey: SDSS
+notes: |-
+  None

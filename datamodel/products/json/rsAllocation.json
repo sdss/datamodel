@@ -34,7 +34,9 @@
     ],
     "naming_convention": "$ROBOSTRATEGY_DATA/allocations/[PLAN]/rsAllocation-[PLAN]-[OBSERVATORY].fits",
     "generated_by": "robostrategy",
-    "design": false
+    "design": false,
+    "vac": false,
+    "recommended_science_product": false
   },
   "changelog": {
     "description": "Describes changes to the datamodel product and/or file structure from one release to another",
@@ -43,7 +45,7 @@
   "releases": {
     "WORK": {
       "template": "$ROBOSTRATEGY_DATA/allocations/[PLAN]/rsAllocation-[PLAN]-[OBSERVATORY].fits",
-      "example": "allocations/epsilon/rsAllocation-epsilon-5-core-2-apo.fits",
+      "example": "allocations/theta-0-updatealloc-1/rsAllocation-theta-0-updatealloc-1-apo.fits",
       "location": "allocations/{plan}/rsAllocation-{plan}-{observatory}.fits",
       "environment": "ROBOSTRATEGY_DATA",
       "survey": "SDSS",
@@ -98,7 +100,7 @@
           "columns": null
         },
         "hdu1": {
-          "name": "",
+          "name": "ALLOCATE",
           "is_image": false,
           "description": "Allocation of cadence to each field",
           "size": "2 MB",
@@ -128,16 +130,58 @@
               "type": "char[30]",
               "unit": ""
             },
-            "nfilled": {
-              "name": "nfilled",
-              "description": "Number of exposures filled",
+            "nallocated": {
+              "name": "nallocated",
+              "description": "Number of designs allocated for future",
               "type": "int32",
+              "unit": ""
+            },
+            "nallocated_sb": {
+              "name": "nallocated_sb",
+              "description": "Number of designs allocated for future in each sky brightness",
+              "type": "int32[2]",
+              "unit": ""
+            },
+            "nallocated_full": {
+              "name": "nallocated_full",
+              "description": "Number of designs allocated over full survey",
+              "type": "int32",
+              "unit": ""
+            },
+            "nallocated_full_sb": {
+              "name": "nallocated_full_sb",
+              "description": "Number of designs allocated over full survey in each sky brightness",
+              "type": "int32[2]",
               "unit": ""
             },
             "needed": {
               "name": "needed",
-              "description": "Number of exposured needed",
+              "description": "Number of designs needed over full survey for allocated cadence",
               "type": "int32",
+              "unit": ""
+            },
+            "needed_sb": {
+              "name": "needed_sb",
+              "description": "Number of designs already observed for allocated cadence in each sky brightness",
+              "type": "int32[2]",
+              "unit": ""
+            },
+            "filled": {
+              "name": "filled",
+              "description": "Number of designs already observed for allocated cadence",
+              "type": "int32",
+              "unit": ""
+            },
+            "allocated_exposures_done": {
+              "name": "allocated_exposures_done",
+              "description": "Indices of designs in allocated cadence that were completed already",
+              "type": "int32[100]",
+              "unit": ""
+            },
+            "original_exposures_done": {
+              "name": "original_exposures_done",
+              "description": "Indices of designs in original cadence that were completed already",
+              "type": "int32[100]",
               "unit": ""
             },
             "xfactor": {
@@ -161,7 +205,7 @@
           }
         },
         "hdu2": {
-          "name": "",
+          "name": "SLOTS",
           "is_image": true,
           "description": "Binary image of hours per LST and sky brightness slot (from rsSlots file)",
           "size": "192 bytes",
@@ -260,7 +304,7 @@
           "columns": null
         },
         "hdu3": {
-          "name": "",
+          "name": "FIELDS",
           "is_image": false,
           "description": "Binary table of fields (from rsFieldsRotated)",
           "size": "297 KB",
@@ -311,7 +355,7 @@
           }
         },
         "hdu4": {
-          "name": "",
+          "name": "FSLOTS",
           "is_image": false,
           "description": "Field slots information, with which slots can be used for a given field-cadence combination (from rsFieldSlots file)",
           "size": "221 MB",
@@ -362,7 +406,7 @@
           }
         },
         "hdu5": {
-          "name": "",
+          "name": "OPTIONS",
           "is_image": false,
           "description": "Field-cadence options, and the value associated with each (from rsOptions file)",
           "size": "1 GB",
@@ -461,7 +505,7 @@
           }
         },
         "hdu6": {
-          "name": "",
+          "name": "CARTONS",
           "is_image": false,
           "description": "List of cartons for arrays in HDU5",
           "size": "4 KB",
@@ -476,7 +520,7 @@
           }
         },
         "hdu7": {
-          "name": "",
+          "name": "CADENCES",
           "is_image": false,
           "description": "List of cadences for arrays in HDU5",
           "size": "1 KB",
@@ -494,5 +538,6 @@
       "par": null,
       "hdfs": null
     }
-  }
+  },
+  "notes": "None"
 }
