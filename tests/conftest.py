@@ -68,7 +68,9 @@ def create_fits(name, version, extra_cols):
     imdata = fits.ImageHDU(name='FLUX', data=np.ones([5,5]))
     cols = [fits.Column(name='object', format='20A', array=['a', 'b', 'c']),
             fits.Column(name='param', format='E', array=np.random.rand(3), unit='m'),
-            fits.Column(name='flag', format='I', array=np.arange(3))]
+            fits.Column(name='flag', format='I', array=np.arange(3)),
+            fits.Column(name='mixCase', format='E', array=np.random.rand(3)),
+            fits.Column(name='UPPER', format='E', array=np.random.rand(3))]
     if extra_cols:
         cols.extend([fits.Column(name='field', format='J', array=np.arange(3)),
                      fits.Column(name='mjd', format='I', array=np.arange(3))])

@@ -177,7 +177,7 @@ def test_release_partial_cache(makefile, validyaml):
     assert 'field' in hdu2b['columns']
     assert hdu2b['columns']['param']['unit'] == 'm'
     assert hdu2b['columns']['field']['unit'] == ''
-    assert hdu2b['columns']['field']['name'] == 'FIELD'
+    assert hdu2b['columns']['field']['name'] == 'field'
     assert 'mjd' in hdu2b['columns']
 
 
@@ -293,4 +293,30 @@ def test_remove_release(makefile, validmodel):
     ss = dm.get_stub()
     ss.update_cache()
     assert "DR15" not in ss._cache['general']['releases']
+
+@pytest.fixture()
+def validstub(validmodel):
+    validmodel('fits')
+    dm = DataModel.from_yaml('test', release='WORK')
+    dm.write_stubs()
+    ss = dm.get_stub('yaml')
+    ss.update_cache()
+    yield ss
+    dm = None
+    ss = None
+
+def test_table_mixcase(validstub):
+    """ test we retain the original case of the table column name"""
+    hdu = validstub._cache['releases']['WORK']['hdus']['hdu2']
+
+    assert 'param' in hdu['columns']
+    assert 'PARAM' not in hdu['columns']
+    assert 'UPPER' in hdu['columns']
+    assert 'mixCase' in hdu['columns']
+    assert 'MIXCASE' not in hdu['columns']
+    assert 'mixcase' not in hdu['columns']
+    assert hdu['columns']['mixCase']['name'] == 'mixCase'
+    assert hdu['columns']['param']['name'] == 'param'
+    assert hdu['columns']['UPPER']['name'] == 'UPPER'
+
 

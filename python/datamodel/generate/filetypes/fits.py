@@ -30,7 +30,8 @@ class FitsFile(BaseFile):
 
     def __del__(self):
         # ensure FITS file closes on cleanup
-        self.hdulist.close()
+        if hasattr(self, 'hdulist') and self.hdulist:
+            self.hdulist.close()
 
     def _update_partial_cache(self, cached_hdus: dict, old_hdus: dict) -> dict:
         """ Partially updates an existing cache
@@ -189,7 +190,7 @@ class FitsFile(BaseFile):
     def _generate_column_dict(self, column: fits.Column, hdu: fits.TableHDU = None,
                               desc: str = None, unit: str = None) -> dict:
         """ Generates a dictionary entry for an Astropy table column """
-        return {'name': column.name.upper(),
+        return {'name': column.name,
                 'type': self._format_type(column.format),
                 #'unit': self._nonempty_string(column.unit),
                 # use unit and desc directly if we are adding new from partial cache without hdu obj

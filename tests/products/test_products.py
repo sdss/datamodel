@@ -175,3 +175,17 @@ def test_sdss_datamodel():
     assert 'WORK' in dm.releases
     assert 'MaNGA' in dm.surveys
     assert 'Phase-II' in dm.phases
+
+
+def test_product_mixcase(product):
+    """ test the product retains the original case of the table column name """
+    cols = product.get_release('WORK').hdus['hdu2'].columns
+    assert 'param' in cols
+    assert 'PARAM' not in cols
+    assert 'UPPER' in cols
+    assert 'mixCase' in cols
+    assert 'MIXCASE' not in cols
+    assert 'mixcase' not in cols
+    assert cols['mixCase'].name == 'mixCase'
+    assert cols['param'].name == 'param'
+    assert cols['UPPER'].name == 'UPPER'
