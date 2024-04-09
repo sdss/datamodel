@@ -83,11 +83,11 @@ def create_par():
     """ create a test yanny par """
     par = yanny()
     par._symbols['enum'] = []
-    par._symbols['struct'] = ["typedef struct {\n\t\tint a; \n\t\tchar b; \n\t\tfloat[5] c;\n} TABLE;"]
-    par._symbols["TABLE"] = ["a", "b", "c"]
+    par._symbols['struct'] = ["typedef struct {\n\t\tint a; \n\t\tchar b; \n\t\tfloat[5] c; \n\t\tchar[3][2] e;\n} TABLE;"]
+    par._symbols["TABLE"] = ["a", "b", "c", "e"]
     par['ma1'] = 1
     par['ma2'] = 2
-    par["TABLE"] = {"a": [1], "b": ['ab'], "c": [[1,2,3,4,5]]}
+    par["TABLE"] = {"a": [1], "b": ['ab'], "c": [[1,2,3,4,5]], "e": [[b"11", b"##", b"aa"]]}
     return par
 
 def create_hdf5(path):
