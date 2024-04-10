@@ -87,7 +87,8 @@ def create_par():
     par._symbols["TABLE"] = ["a", "b", "c", "e"]
     par['ma1'] = 1
     par['ma2'] = 2
-    par["TABLE"] = {"a": [1], "b": ['ab'], "c": [[1,2,3,4,5]], "e": [[b"11", b"##", b"aa"]]}
+    arr = np.array([b"11", b"##", b"aa"])
+    par["TABLE"] = {"a": [1], "b": ['ab'], "c": [[1,2,3,4,5]], "e": [arr]}
     return par
 
 def create_hdf5(path):
