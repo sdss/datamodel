@@ -319,4 +319,12 @@ def test_table_mixcase(validstub):
     assert hdu['columns']['param']['name'] == 'param'
     assert hdu['columns']['UPPER']['name'] == 'UPPER'
 
-
+def test_par(datamodel):
+    """ test the par example is written and read correctly """
+    dm = datamodel('par')
+    ss = dm.get_stub('yaml')
+    ss.update_cache()
+    table = ss._cache['releases']["WORK"]['par']['tables']["TABLE"]
+    item = table['structure'][-1]
+    assert item['type'] == "char[3][2]"
+    assert item['example'] == ['11', '##', 'aa']
