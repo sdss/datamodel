@@ -6,15 +6,14 @@ general:
     and the weights used when computing each abundance are documented at https://data.sdss5.org/sas/sdssrelease,
     work/mwm/spectro/astra/component_data/aspcap/masks/
   datatype: FITS
-  filesize: 139 MB
+  filesize: 1 GB
   releases:
   - IPL3
-  - WORK
   environments:
   - MWM_ASTRA
   surveys:
   - MWM
-  naming_convention: $MWM_ASTRA/[ASTRA_VERSION]/[RUN2D]-[APRED]/results/summary/astraAllStar-ASPCAP-[ASTRA_VERSION]-[RUN2D]-[APRED].fits
+  naming_convention: $MWM_ASTRA/0.5.0/summary/astraAllStarASPCAP-0.5.0.fits.gz
   generated_by: astra
   design: false
   vac: false
@@ -22,1037 +21,8 @@ general:
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
-  releases:
-    WORK:
-      from: IPL3
-      primary_delta_nkeys: 1
-      added_primary_header_kwargs:
-      - DATASUM
-      - APRED
-      - CHECKSUM
-      - RUN2D
-      removed_primary_header_kwargs:
-      - COMMENT
+  releases: {}
 releases:
-  WORK:
-    template: $MWM_ASTRA/[ASTRA_VERSION]/[RUN2D]-[APRED]/results/summary/astraAllStar-ASPCAP-[ASTRA_VERSION]-[RUN2D]-[APRED].fits
-    example: 0.2.6/v6_0_9-1.0/results/summary/astraAllStar-ASPCAP-0.2.6-v6_0_9-1.0.fits
-    location: '{astra_version}/{run2d}-{apred}/results/summary/astraAllStar-ASPCAP-{astra_version}-{run2d}-{apred}.fits'
-    environment: MWM_ASTRA
-    access:
-      in_sdss_access: false
-      path_name: null
-      path_template: null
-      path_kwargs: null
-      access_string: astraAllStarASPCAP = $MWM_ASTRA/{astra_version}/{run2d}-{apred}/results/summary/astraAllStar-ASPCAP-{astra_version}-{run2d}-{apred}.fits
-    survey: MWM
-    hdus:
-      hdu0:
-        name: PRIMARY
-        description: Metadata
-        is_image: true
-        size: 0 bytes
-        header:
-        - key: SIMPLE
-          value: true
-          comment: conforms to FITS standard
-        - key: BITPIX
-          value: 8
-          comment: array data type
-        - key: NAXIS
-          value: 0
-          comment: number of array dimensions
-        - key: EXTEND
-          value: true
-          comment: ''
-        - key: V_ASTRA
-          value: 0.2.6
-          comment: Astra version
-        - key: RUN2D
-          value: v6_0_9
-          comment: Spectro-2D reduction name
-        - key: APRED
-          value: '1.0'
-          comment: APOGEE reduction tag
-        - key: PIPELINE
-          value: ASPCAP
-          comment: Pipeline name that produced these results
-        - key: CREATED
-          value: 22-10-28 01:17:45
-          comment: File creation time (UTC %y-%m-%d %H:%M:%S)
-        - key: CHECKSUM
-          value: 5qNF8nME5nME5nME
-          comment: HDU checksum updated 2022-10-27T19:17:46
-        - key: DATASUM
-          value: '0'
-          comment: data unit checksum updated 2022-10-27T19:17:46
-      hdu1:
-        name: ''
-        description: ASPCAP results for each star
-        is_image: false
-        size: 139 MB
-        header:
-        - key: XTENSION
-          value: BINTABLE
-          comment: binary table extension
-        - key: BITPIX
-          value: 8
-          comment: array data type
-        - key: NAXIS
-          value: 2
-          comment: number of array dimensions
-        - key: NAXIS1
-          value: 982
-          comment: length of dimension 1
-        - key: NAXIS2
-          value: 148844
-          comment: length of dimension 2
-        - key: PCOUNT
-          value: 0
-          comment: number of group parameters
-        - key: GCOUNT
-          value: 1
-          comment: number of groups
-        - key: TFIELDS
-          value: 186
-          comment: number of table fields
-        - key: CHECKSUM
-          value: 9CiLBCfI9CfIACfI
-          comment: HDU checksum updated 2022-10-27T19:17:48
-        - key: DATASUM
-          value: '3738102123'
-          comment: data unit checksum updated 2022-10-27T19:17:48
-        columns:
-          GAIA_ID:
-            name: GAIA_ID
-            type: int64
-            unit: ''
-            description: Gaia DR2 source identifier
-          TIC_ID:
-            name: TIC_ID
-            type: int32
-            unit: ''
-            description: TESS Input Catalog (v8) identifier
-          APOGEE_ID:
-            name: APOGEE_ID
-            type: char[18]
-            unit: ''
-            description: 2MASS-style identifier
-          RA:
-            name: RA
-            type: float32
-            unit: ''
-            description: 'SDSS-V catalog right ascension (J2000) '
-          DEC:
-            name: DEC
-            type: float32
-            unit: ''
-            description: 'SDSS-V catalog declination (J2000) '
-          HEALPIX:
-            name: HEALPIX
-            type: int32
-            unit: ''
-            description: Healpix location (128 sides)
-          RA_GAIA:
-            name: RA_GAIA
-            type: float32
-            unit: ''
-            description: 'Gaia DR2 right ascension '
-          DEC_GAIA:
-            name: DEC_GAIA
-            type: float32
-            unit: ''
-            description: 'Gaia DR2 declination '
-          PLX:
-            name: PLX
-            type: float32
-            unit: ''
-            description: 'Gaia DR2 parallax '
-          E_PLX:
-            name: E_PLX
-            type: float32
-            unit: ''
-            description: 'Gaia DR2 parallax error '
-          PMRA:
-            name: PMRA
-            type: float32
-            unit: ''
-            description: 'Gaia DR2 proper motion in RA '
-          E_PMRA:
-            name: E_PMRA
-            type: float32
-            unit: ''
-            description: 'Gaia DR2 proper motion in RA error '
-          PMDE:
-            name: PMDE
-            type: float32
-            unit: ''
-            description: 'Gaia DR2 proper motion in DEC '
-          E_PMDE:
-            name: E_PMDE
-            type: float32
-            unit: ''
-            description: 'Gaia DR2 proper motion in DEC error '
-          V_RAD_GAIA:
-            name: V_RAD_GAIA
-            type: float32
-            unit: ''
-            description: 'Gaia DR2 radial velocity '
-          E_V_RAD_GAIA:
-            name: E_V_RAD_GAIA
-            type: float32
-            unit: ''
-            description: 'Gaia DR2 radial velocity error '
-          G_MAG:
-            name: G_MAG
-            type: float32
-            unit: ''
-            description: 'Gaia DR2 mean apparent G magnitude '
-          BP_MAG:
-            name: BP_MAG
-            type: float32
-            unit: ''
-            description: 'Gaia DR2 mean apparent BP magnitude '
-          RP_MAG:
-            name: RP_MAG
-            type: float32
-            unit: ''
-            description: 'Gaia DR2 mean apparent RP magnitude '
-          J_MAG:
-            name: J_MAG
-            type: float32
-            unit: ''
-            description: '2MASS mean apparent J magnitude '
-          H_MAG:
-            name: H_MAG
-            type: float32
-            unit: ''
-            description: '2MASS mean apparent H magnitude '
-          K_MAG:
-            name: K_MAG
-            type: float32
-            unit: ''
-            description: '2MASS mean apparent K magnitude '
-          CARTON_0:
-            name: CARTON_0
-            type: char[30]
-            unit: ''
-            description: First carton for source (see documentation)
-          PROGRAMS:
-            name: PROGRAMS
-            type: char[84]
-            unit: ''
-            description: SDSS-V programs
-          MAPPERS:
-            name: MAPPERS
-            type: char[30]
-            unit: ''
-            description: SDSS-V mappers
-          V_RAD:
-            name: V_RAD
-            type: float32
-            unit: ''
-            description: Radial velocity in Solar barycentric rest frame
-          E_V_RAD:
-            name: E_V_RAD
-            type: float32
-            unit: ''
-            description: 'Error in radial velocity '
-          V_SCATTER:
-            name: V_SCATTER
-            type: float32
-            unit: ''
-            description: 'Scatter in radial velocity measurements '
-          E_V_MED:
-            name: E_V_MED
-            type: float32
-            unit: ''
-            description: 'Median of RV errors of individual visits '
-          CHISQ_RV:
-            name: CHISQ_RV
-            type: float32
-            unit: ''
-            description: \chi-squared of radial velocity fit
-          CCPFWHM_D:
-            name: CCPFWHM_D
-            type: float32
-            unit: ''
-            description: FWHM from Doppler
-          AUTOFWHM_D:
-            name: AUTOFWHM_D
-            type: float32
-            unit: ''
-            description: FWHM from Doppler
-          N_RV_COMPONENTS:
-            name: N_RV_COMPONENTS
-            type: int32
-            unit: ''
-            description: Number of detected RV components
-          NVISITS_APSTAR:
-            name: NVISITS_APSTAR
-            type: int32
-            unit: ''
-            description: Number of visits included in the apStar file
-          NGOODVISITS:
-            name: NGOODVISITS
-            type: int32
-            unit: ''
-            description: Number of visits with good spectra
-          NGOODRVS:
-            name: NGOODRVS
-            type: int32
-            unit: ''
-            description: Number of good radial velocity measurements
-          STARFLAG:
-            name: STARFLAG
-            type: int32
-            unit: ''
-            description: APOGEE DRP quality bit mask
-          STARFLAGS:
-            name: STARFLAGS
-            type: char[82]
-            unit: ''
-            description: APOGEE DRP quality bit masks
-          MEANFIB:
-            name: MEANFIB
-            type: float32
-            unit: ''
-            description: Mean S/N-weighted fiber number of all observati
-          SIGFIB:
-            name: SIGFIB
-            type: float32
-            unit: ''
-            description: Standard deviation of S/N-weighter fiber number
-          TEFF_D:
-            name: TEFF_D
-            type: float32
-            unit: ''
-            description: 'Effective temperature from DOPPLER '
-          E_TEFF_D:
-            name: E_TEFF_D
-            type: float32
-            unit: ''
-            description: 'Error in effective temperature from DOPPLER '
-          LOGG_D:
-            name: LOGG_D
-            type: float32
-            unit: ''
-            description: Surface gravity from DOPPLER
-          E_LOGG_D:
-            name: E_LOGG_D
-            type: float32
-            unit: ''
-            description: Error in surface gravity from DOPPLER
-          FEH_D:
-            name: FEH_D
-            type: float32
-            unit: ''
-            description: Metallicity from DOPPLER
-          E_FEH_D:
-            name: E_FEH_D
-            type: float32
-            unit: ''
-            description: Error in metallicity from DOPPLER
-          RELEASE:
-            name: RELEASE
-            type: char[5]
-            unit: ''
-            description: SDSS data release name
-          FILETYPE:
-            name: FILETYPE
-            type: char[7]
-            unit: ''
-            description: SDSS data model filetype
-          V_ASTRA:
-            name: V_ASTRA
-            type: char[5]
-            unit: ''
-            description: Astra version
-          RUN2D:
-            name: RUN2D
-            type: char[6]
-            unit: ''
-            description: Spectro-2D reduction name
-          APRED:
-            name: APRED
-            type: char[3]
-            unit: ''
-            description: APOGEE reduction tag
-          CAT_ID:
-            name: CAT_ID
-            type: int64
-            unit: ''
-            description: SDSS-V catalog identifier
-          TEFF:
-            name: TEFF
-            type: float32
-            unit: ''
-            description: 'Stellar effective temperature '
-          E_TEFF:
-            name: E_TEFF
-            type: float32
-            unit: ''
-            description: 'Error in stellar effective temperature '
-          LOGG:
-            name: LOGG
-            type: float32
-            unit: ''
-            description: 'Surface gravity '
-          E_LOGG:
-            name: E_LOGG
-            type: float32
-            unit: ''
-            description: 'Error in surface gravity '
-          METALS:
-            name: METALS
-            type: float32
-            unit: ''
-            description: 'Metallicity '
-          E_METALS:
-            name: E_METALS
-            type: float32
-            unit: ''
-            description: 'Error in metallicity '
-          LOG10VDOP:
-            name: LOG10VDOP
-            type: float32
-            unit: ''
-            description: 'Log10 of the doppler broadening '
-          E_LOG10VDOP:
-            name: E_LOG10VDOP
-            type: float32
-            unit: ''
-            description: 'Error in the log10 doppler broadening '
-          O_MG_SI_S_CA_TI:
-            name: O_MG_SI_S_CA_TI
-            type: float32
-            unit: ''
-            description: '[alpha/Fe] abundance ratio '
-          E_O_MG_SI_S_CA_TI:
-            name: E_O_MG_SI_S_CA_TI
-            type: float32
-            unit: ''
-            description: 'Error in [alpha/Fe] abundance ratio '
-          LGVSINI:
-            name: LGVSINI
-            type: float32
-            unit: ''
-            description: 'Log of the projected rotational velocity '
-          C_H_PHOTOSPHERE:
-            name: C_H_PHOTOSPHERE
-            type: float32
-            unit: ''
-            description: 'Photosphere carbon abundance '
-          E_C_H_PHOTOSPHERE:
-            name: E_C_H_PHOTOSPHERE
-            type: float32
-            unit: ''
-            description: 'Error on photosphere carbon abundance '
-          N_H_PHOTOSPHERE:
-            name: N_H_PHOTOSPHERE
-            type: float32
-            unit: ''
-            description: 'Photosphere nitrogen abundance '
-          E_N_H_PHOTOSPHERE:
-            name: E_N_H_PHOTOSPHERE
-            type: float32
-            unit: ''
-            description: ''
-          CN_H:
-            name: CN_H
-            type: float32
-            unit: ''
-            description: ''
-          E_CN_H:
-            name: E_CN_H
-            type: float32
-            unit: ''
-            description: ''
-          AL_H:
-            name: AL_H
-            type: float32
-            unit: ''
-            description: 'Aluminium abundance as [Al/H] '
-          E_AL_H:
-            name: E_AL_H
-            type: float32
-            unit: ''
-            description: 'Error in aluminium abundance as [Al/H] '
-          CI_H:
-            name: CI_H
-            type: float32
-            unit: ''
-            description: 'Carbon abundance as [C I/H] '
-          E_CI_H:
-            name: E_CI_H
-            type: float32
-            unit: ''
-            description: 'Error on carbon abundance as [C I/H] '
-          CA_H:
-            name: CA_H
-            type: float32
-            unit: ''
-            description: 'Calcium abundance as [Ca/H] '
-          E_CA_H:
-            name: E_CA_H
-            type: float32
-            unit: ''
-            description: 'Error in calcium abundance as [Ca/H] '
-          CE_H:
-            name: CE_H
-            type: float32
-            unit: ''
-            description: 'Cerium abundance as [Ce/H] '
-          E_CE_H:
-            name: E_CE_H
-            type: float32
-            unit: ''
-            description: 'Error on cerium abundance as [Ce/H] '
-          C_H:
-            name: C_H
-            type: float32
-            unit: ''
-            description: 'Carbon abundance as [C/H] '
-          E_C_H:
-            name: E_C_H
-            type: float32
-            unit: ''
-            description: 'Error in carbon abundance as [C/H] '
-          CO_H:
-            name: CO_H
-            type: float32
-            unit: ''
-            description: 'Cobalt abundance as [Co/H] '
-          E_CO_H:
-            name: E_CO_H
-            type: float32
-            unit: ''
-            description: 'Error in cobalt abundance as [Co/H] '
-          CR_H:
-            name: CR_H
-            type: float32
-            unit: ''
-            description: 'Chromium abundance as [Cr/H] '
-          E_CR_H:
-            name: E_CR_H
-            type: float32
-            unit: ''
-            description: 'Error in chromium abundance as [Cr/H] '
-          CU_H:
-            name: CU_H
-            type: float32
-            unit: ''
-            description: 'Copper abundance as [Cu/H] '
-          E_CU_H:
-            name: E_CU_H
-            type: float32
-            unit: ''
-            description: 'Error in gopper abundance as [Cu/H] '
-          FE_H:
-            name: FE_H
-            type: float32
-            unit: ''
-            description: 'Iron abundance as [Fe/H] '
-          E_FE_H:
-            name: E_FE_H
-            type: float32
-            unit: ''
-            description: 'Error in metallicity '
-          GE_H:
-            name: GE_H
-            type: float32
-            unit: ''
-            description: 'Germanium abundance as [Ge/H] '
-          E_GE_H:
-            name: E_GE_H
-            type: float32
-            unit: ''
-            description: 'Error in germanium abundance as [Ge/H] '
-          K_H:
-            name: K_H
-            type: float32
-            unit: ''
-            description: 'Potassium abundance as [K/H] '
-          E_K_H:
-            name: E_K_H
-            type: float32
-            unit: ''
-            description: 'Error in potassium abundance as [K/H] '
-          MG_H:
-            name: MG_H
-            type: float32
-            unit: ''
-            description: 'Magnesium abundance as [Mg/H] '
-          E_MG_H:
-            name: E_MG_H
-            type: float32
-            unit: ''
-            description: 'Error in magnesium abundance as [Mg/H] '
-          MN_H:
-            name: MN_H
-            type: float32
-            unit: ''
-            description: 'Manganese abundance as [Mn/H] '
-          E_MN_H:
-            name: E_MN_H
-            type: float32
-            unit: ''
-            description: 'Error in manganese abundance as [Mn/H] '
-          NA_H:
-            name: NA_H
-            type: float32
-            unit: ''
-            description: 'Sodium abundance as [Na/H] '
-          E_NA_H:
-            name: E_NA_H
-            type: float32
-            unit: ''
-            description: 'Error in sodium abundance as [Na/H] '
-          ND_H:
-            name: ND_H
-            type: float32
-            unit: ''
-            description: 'Neodymium abundance as [Nd/H] '
-          E_ND_H:
-            name: E_ND_H
-            type: float32
-            unit: ''
-            description: 'Error on neodymium abundance as [Nd/H] '
-          NI_H:
-            name: NI_H
-            type: float32
-            unit: ''
-            description: 'Nickel abundance as [Ni/H] '
-          E_NI_H:
-            name: E_NI_H
-            type: float32
-            unit: ''
-            description: 'Error in nickel abundance as [Ni/H] '
-          N_H:
-            name: N_H
-            type: float32
-            unit: ''
-            description: 'Nitrogen abundance as [N/H] '
-          E_N_H:
-            name: E_N_H
-            type: float32
-            unit: ''
-            description: 'Error in nitrogen abundance as [N/H] '
-          O_H:
-            name: O_H
-            type: float32
-            unit: ''
-            description: 'Oxygen abundance as [O/H] '
-          E_O_H:
-            name: E_O_H
-            type: float32
-            unit: ''
-            description: 'Error in oxygen abundance as [O/H] '
-          P_H:
-            name: P_H
-            type: float32
-            unit: ''
-            description: 'Phosphorus abundance as [P/H] '
-          E_P_H:
-            name: E_P_H
-            type: float32
-            unit: ''
-            description: 'Error in phosphorus abundance as [P/H] '
-          RB_H:
-            name: RB_H
-            type: float32
-            unit: ''
-            description: 'Rubidium abundance as [Rb/H] '
-          E_RB_H:
-            name: E_RB_H
-            type: float32
-            unit: ''
-            description: 'Error on rubidium abundance as [Rb/H] '
-          SI_H:
-            name: SI_H
-            type: float32
-            unit: ''
-            description: 'Silicon abundance as [Si/H] '
-          E_SI_H:
-            name: E_SI_H
-            type: float32
-            unit: ''
-            description: 'Error in silicon abundance as [Si/H] '
-          S_H:
-            name: S_H
-            type: float32
-            unit: ''
-            description: 'Sulfur abundance as [S/H] '
-          E_S_H:
-            name: E_S_H
-            type: float32
-            unit: ''
-            description: 'Error in sulfur abundance as [S/H] '
-          TI_H:
-            name: TI_H
-            type: float32
-            unit: ''
-            description: 'Titanium abundance as [Ti/H] '
-          E_TI_H:
-            name: E_TI_H
-            type: float32
-            unit: ''
-            description: 'Error in titanium abundance as [Ti/H] '
-          V_H:
-            name: V_H
-            type: float32
-            unit: ''
-            description: 'Vanadium abundance as [V/H] '
-          E_V_H:
-            name: E_V_H
-            type: float32
-            unit: ''
-            description: 'Error in vanadium abundance as [V/H] '
-          YB_H:
-            name: YB_H
-            type: float32
-            unit: ''
-            description: 'Ytterbium abundance as [Yb/H] '
-          E_YB_H:
-            name: E_YB_H
-            type: float32
-            unit: ''
-            description: 'Error in ytterbium abundance as [Yb/H] '
-          BITMASK_TEFF:
-            name: BITMASK_TEFF
-            type: int32
-            unit: ''
-            description: Bitmask flag for TEFF
-          BITMASK_LOGG:
-            name: BITMASK_LOGG
-            type: int32
-            unit: ''
-            description: Bitmask flag for LOGG
-          BITMASK_METALS:
-            name: BITMASK_METALS
-            type: int32
-            unit: ''
-            description: Bitmask flag for METALS
-          BITMASK_LOG10VDOP:
-            name: BITMASK_LOG10VDOP
-            type: int32
-            unit: ''
-            description: Bitmask flag for LOG10VDOP
-          BITMASK_O_MG_SI_S_CA_TI:
-            name: BITMASK_O_MG_SI_S_CA_TI
-            type: int32
-            unit: ''
-            description: Bitmask flag for O_MG_SI_S_CA_TI
-          BITMASK_LGVSINI:
-            name: BITMASK_LGVSINI
-            type: int32
-            unit: ''
-            description: Bitmask flag for LGVSINI
-          BITMASK_C_H_PHOTOSPHERE:
-            name: BITMASK_C_H_PHOTOSPHERE
-            type: int32
-            unit: ''
-            description: Bitmask flag for C_H_PHOTOSPHERE
-          BITMASK_N_H_PHOTOSPHERE:
-            name: BITMASK_N_H_PHOTOSPHERE
-            type: int32
-            unit: ''
-            description: Bitmask flag for N_H_PHOTOSPHERE
-          BITMASK_CN_H:
-            name: BITMASK_CN_H
-            type: int32
-            unit: ''
-            description: ''
-          BITMASK_AL_H:
-            name: BITMASK_AL_H
-            type: int32
-            unit: ''
-            description: Bitmask flag for AL_H
-          BITMASK_CI_H:
-            name: BITMASK_CI_H
-            type: int32
-            unit: ''
-            description: Bitmask flag for CI_H
-          BITMASK_CA_H:
-            name: BITMASK_CA_H
-            type: int32
-            unit: ''
-            description: Bitmask flag for CA_H
-          BITMASK_CE_H:
-            name: BITMASK_CE_H
-            type: int32
-            unit: ''
-            description: Bitmask flag for CE_H
-          BITMASK_C_H:
-            name: BITMASK_C_H
-            type: int32
-            unit: ''
-            description: Bitmask flag for C_H
-          BITMASK_CO_H:
-            name: BITMASK_CO_H
-            type: int32
-            unit: ''
-            description: Bitmask flag for CO_H
-          BITMASK_CR_H:
-            name: BITMASK_CR_H
-            type: int32
-            unit: ''
-            description: Bitmask flag for CR_H
-          BITMASK_CU_H:
-            name: BITMASK_CU_H
-            type: int32
-            unit: ''
-            description: Bitmask flag for CU_H
-          BITMASK_FE_H:
-            name: BITMASK_FE_H
-            type: int32
-            unit: ''
-            description: Bitmask flag for FE_H
-          BITMASK_GE_H:
-            name: BITMASK_GE_H
-            type: int32
-            unit: ''
-            description: Bitmask flag for GE_H
-          BITMASK_K_H:
-            name: BITMASK_K_H
-            type: int32
-            unit: ''
-            description: Bitmask flag for K_H
-          BITMASK_MG_H:
-            name: BITMASK_MG_H
-            type: int32
-            unit: ''
-            description: Bitmask flag for MG_H
-          BITMASK_MN_H:
-            name: BITMASK_MN_H
-            type: int32
-            unit: ''
-            description: Bitmask flag for MN_H
-          BITMASK_NA_H:
-            name: BITMASK_NA_H
-            type: int32
-            unit: ''
-            description: Bitmask flag for NA_H
-          BITMASK_ND_H:
-            name: BITMASK_ND_H
-            type: int32
-            unit: ''
-            description: Bitmask flag for ND_H
-          BITMASK_NI_H:
-            name: BITMASK_NI_H
-            type: int32
-            unit: ''
-            description: Bitmask flag for NI_H
-          BITMASK_N_H:
-            name: BITMASK_N_H
-            type: int32
-            unit: ''
-            description: Bitmask flag for N_H
-          BITMASK_O_H:
-            name: BITMASK_O_H
-            type: int32
-            unit: ''
-            description: Bitmask flag for O_H
-          BITMASK_P_H:
-            name: BITMASK_P_H
-            type: int32
-            unit: ''
-            description: Bitmask flag for P_H
-          BITMASK_RB_H:
-            name: BITMASK_RB_H
-            type: int32
-            unit: ''
-            description: Bitmask flag for RB_H
-          BITMASK_SI_H:
-            name: BITMASK_SI_H
-            type: int32
-            unit: ''
-            description: Bitmask flag for SI_H
-          BITMASK_S_H:
-            name: BITMASK_S_H
-            type: int32
-            unit: ''
-            description: Bitmask flag for S_H
-          BITMASK_TI_H:
-            name: BITMASK_TI_H
-            type: int32
-            unit: ''
-            description: Bitmask flag for TI_H
-          BITMASK_V_H:
-            name: BITMASK_V_H
-            type: int32
-            unit: ''
-            description: Bitmask flag for V_H
-          BITMASK_YB_H:
-            name: BITMASK_YB_H
-            type: int32
-            unit: ''
-            description: Bitmask flag for YB_H
-          SNR:
-            name: SNR
-            type: float32
-            unit: ''
-            description: Mean signal-to-noise ratio
-          LOG_CHISQ_FIT:
-            name: LOG_CHISQ_FIT
-            type: float32
-            unit: ''
-            description: Log \chi^2 of CN_H fit
-          LOG_CHISQ_FIT_CN_H:
-            name: LOG_CHISQ_FIT_CN_H
-            type: float32
-            unit: ''
-            description: ''
-          LOG_CHISQ_FIT_AL_H:
-            name: LOG_CHISQ_FIT_AL_H
-            type: float32
-            unit: ''
-            description: Log \chi^2 of AL_H fit
-          LOG_CHISQ_FIT_CI_H:
-            name: LOG_CHISQ_FIT_CI_H
-            type: float32
-            unit: ''
-            description: Log \chi^2 of CI_H fit
-          LOG_CHISQ_FIT_CA_H:
-            name: LOG_CHISQ_FIT_CA_H
-            type: float32
-            unit: ''
-            description: Log \chi^2 of CA_H fit
-          LOG_CHISQ_FIT_CE_H:
-            name: LOG_CHISQ_FIT_CE_H
-            type: float32
-            unit: ''
-            description: Log \chi^2 of CE_H fit
-          LOG_CHISQ_FIT_C_H:
-            name: LOG_CHISQ_FIT_C_H
-            type: float32
-            unit: ''
-            description: Log \chi^2 of C_H fit
-          LOG_CHISQ_FIT_CO_H:
-            name: LOG_CHISQ_FIT_CO_H
-            type: float32
-            unit: ''
-            description: Log \chi^2 of CO_H fit
-          LOG_CHISQ_FIT_CR_H:
-            name: LOG_CHISQ_FIT_CR_H
-            type: float32
-            unit: ''
-            description: Log \chi^2 of CR_H fit
-          LOG_CHISQ_FIT_CU_H:
-            name: LOG_CHISQ_FIT_CU_H
-            type: float32
-            unit: ''
-            description: Log \chi^2 of CU_H fit
-          LOG_CHISQ_FIT_FE_H:
-            name: LOG_CHISQ_FIT_FE_H
-            type: float32
-            unit: ''
-            description: Log \chi^2 of FE_H fit
-          LOG_CHISQ_FIT_GE_H:
-            name: LOG_CHISQ_FIT_GE_H
-            type: float32
-            unit: ''
-            description: Log \chi^2 of GE_H fit
-          LOG_CHISQ_FIT_K_H:
-            name: LOG_CHISQ_FIT_K_H
-            type: float32
-            unit: ''
-            description: Log \chi^2 of K_H fit
-          LOG_CHISQ_FIT_MG_H:
-            name: LOG_CHISQ_FIT_MG_H
-            type: float32
-            unit: ''
-            description: Log \chi^2 of MG_H fit
-          LOG_CHISQ_FIT_MN_H:
-            name: LOG_CHISQ_FIT_MN_H
-            type: float32
-            unit: ''
-            description: Log \chi^2 of MN_H fit
-          LOG_CHISQ_FIT_NA_H:
-            name: LOG_CHISQ_FIT_NA_H
-            type: float32
-            unit: ''
-            description: Log \chi^2 of NA_H fit
-          LOG_CHISQ_FIT_ND_H:
-            name: LOG_CHISQ_FIT_ND_H
-            type: float32
-            unit: ''
-            description: Log \chi^2 of ND_H fit
-          LOG_CHISQ_FIT_NI_H:
-            name: LOG_CHISQ_FIT_NI_H
-            type: float32
-            unit: ''
-            description: Log \chi^2 of NI_H fit
-          LOG_CHISQ_FIT_N_H:
-            name: LOG_CHISQ_FIT_N_H
-            type: float32
-            unit: ''
-            description: Log \chi^2 of N_H fit
-          LOG_CHISQ_FIT_O_H:
-            name: LOG_CHISQ_FIT_O_H
-            type: float32
-            unit: ''
-            description: Log \chi^2 of O_H fit
-          LOG_CHISQ_FIT_P_H:
-            name: LOG_CHISQ_FIT_P_H
-            type: float32
-            unit: ''
-            description: Log \chi^2 of P_H fit
-          LOG_CHISQ_FIT_RB_H:
-            name: LOG_CHISQ_FIT_RB_H
-            type: float32
-            unit: ''
-            description: Log \chi^2 of RB_H fit
-          LOG_CHISQ_FIT_SI_H:
-            name: LOG_CHISQ_FIT_SI_H
-            type: float32
-            unit: ''
-            description: Log \chi^2 of SI_H fit
-          LOG_CHISQ_FIT_S_H:
-            name: LOG_CHISQ_FIT_S_H
-            type: float32
-            unit: ''
-            description: Log \chi^2 of S_H fit
-          LOG_CHISQ_FIT_TI_H:
-            name: LOG_CHISQ_FIT_TI_H
-            type: float32
-            unit: ''
-            description: Log \chi^2 of TI_H fit
-          LOG_CHISQ_FIT_TIII_H:
-            name: LOG_CHISQ_FIT_TIII_H
-            type: float32
-            unit: ''
-            description: Log \chi^2 of TIII_H fit
-          LOG_CHISQ_FIT_V_H:
-            name: LOG_CHISQ_FIT_V_H
-            type: float32
-            unit: ''
-            description: Log \chi^2 of V_H fit
-          LOG_CHISQ_FIT_YB_H:
-            name: LOG_CHISQ_FIT_YB_H
-            type: float32
-            unit: ''
-            description: Log \chi^2 of YB_H fit
-          TASK_ID:
-            name: TASK_ID
-            type: int32
-            unit: ''
-            description: Astra unique task identifier
-          OUTPUT_ID:
-            name: OUTPUT_ID
-            type: int32
-            unit: ''
-            description: Astra unique output identifier
-          DATA_PRODUCT_ID:
-            name: DATA_PRODUCT_ID
-            type: int32
-            unit: ''
-            description: Astra data product identifier
-          STAR_PK:
-            name: STAR_PK
-            type: int32
-            unit: ''
-            description: Primary key in `apogee_drp.star` table
   IPL3:
     template: $MWM_ASTRA/0.5.0/summary/astraAllStarASPCAP-0.5.0.fits.gz
     example: 0.5.0/summary/astraAllStarASPCAP-0.5.0.fits.gz
@@ -1171,1929 +141,1929 @@ releases:
           comment: data unit checksum updated 2023-11-15T23:21:59
         columns:
           sdss_id:
-            name: SDSS_ID
+            name: sdss_id
             type: int64
             unit: ''
             description: SDSS-5 unique identifier
           sdss4_apogee_id:
-            name: SDSS4_APOGEE_ID
+            name: sdss4_apogee_id
             type: char[1]
             unit: ''
             description: SDSS-4 DR17 APOGEE identifier
           gaia_dr2_source_id:
-            name: GAIA_DR2_SOURCE_ID
+            name: gaia_dr2_source_id
             type: int64
             unit: ''
             description: Gaia DR2 source identifier
           gaia_dr3_source_id:
-            name: GAIA_DR3_SOURCE_ID
+            name: gaia_dr3_source_id
             type: int64
             unit: ''
             description: Gaia DR3 source identifier
           tic_v8_id:
-            name: TIC_V8_ID
+            name: tic_v8_id
             type: int64
             unit: ''
             description: TESS Input Catalog (v8) identifier
           healpix:
-            name: HEALPIX
+            name: healpix
             type: int32
             unit: ''
             description: HEALPix (128 side)
           carton_0:
-            name: CARTON_0
+            name: carton_0
             type: char[1]
             unit: ''
             description: Highest priority carton name
           lead:
-            name: LEAD
+            name: lead
             type: char[1]
             unit: ''
             description: Lead catalog used for cross-match
           version_id:
-            name: VERSION_ID
+            name: version_id
             type: int32
             unit: ''
             description: SDSS catalog version for targeting
           catalogid:
-            name: CATALOGID
+            name: catalogid
             type: int64
             unit: ''
             description: Catalog identifier used to target the source
           catalogid21:
-            name: CATALOGID21
+            name: catalogid21
             type: int64
             unit: ''
             description: Catalog identifier (v21; v0.0)
           catalogid25:
-            name: CATALOGID25
+            name: catalogid25
             type: int64
             unit: ''
             description: Catalog identifier (v25; v0.5)
           catalogid31:
-            name: CATALOGID31
+            name: catalogid31
             type: int64
             unit: ''
             description: Catalog identifier (v31; v1.0)
           n_associated:
-            name: N_ASSOCIATED
+            name: n_associated
             type: int32
             unit: ''
             description: SDSS_IDs associated with this CATALOGID
           n_neighborhood:
-            name: N_NEIGHBORHOOD
+            name: n_neighborhood
             type: int32
             unit: ''
             description: Sources within 3" and G_MAG < G_MAG_source + 5
           sdss5_target_flags:
-            name: SDSS5_TARGET_FLAGS
+            name: sdss5_target_flags
             type: bool[1]
             unit: ''
             description: SDSS-5 targeting flags
           sdss4_apogee_target1_flags:
-            name: SDSS4_APOGEE_TARGET1_FLAGS
+            name: sdss4_apogee_target1_flags
             type: int32
             unit: ''
             description: SDSS4 APOGEE1 targeting flags (1/2)
           sdss4_apogee_target2_flags:
-            name: SDSS4_APOGEE_TARGET2_FLAGS
+            name: sdss4_apogee_target2_flags
             type: int32
             unit: ''
             description: SDSS4 APOGEE1 targeting flags (2/2)
           sdss4_apogee2_target1_flags:
-            name: SDSS4_APOGEE2_TARGET1_FLAGS
+            name: sdss4_apogee2_target1_flags
             type: int32
             unit: ''
             description: SDSS4 APOGEE2 targeting flags (1/3)
           sdss4_apogee2_target2_flags:
-            name: SDSS4_APOGEE2_TARGET2_FLAGS
+            name: sdss4_apogee2_target2_flags
             type: int32
             unit: ''
             description: SDSS4 APOGEE2 targeting flags (2/3)
           sdss4_apogee2_target3_flags:
-            name: SDSS4_APOGEE2_TARGET3_FLAGS
+            name: sdss4_apogee2_target3_flags
             type: int32
             unit: ''
             description: SDSS4 APOGEE2 targeting flags (3/3)
           sdss4_apogee_member_flags:
-            name: SDSS4_APOGEE_MEMBER_FLAGS
+            name: sdss4_apogee_member_flags
             type: int32
             unit: ''
             description: SDSS4 likely cluster/galaxy member flags
           sdss4_apogee_extra_target_flags:
-            name: SDSS4_APOGEE_EXTRA_TARGET_FLAGS
+            name: sdss4_apogee_extra_target_flags
             type: int32
             unit: ''
             description: SDSS4 target info (aka EXTRATARG)
           ra:
-            name: RA
+            name: ra
             type: float32
-            unit: deg
+            unit: ''
             description: 'Right ascension '
           dec:
-            name: DEC
+            name: dec
             type: float32
-            unit: deg
+            unit: ''
             description: 'Declination '
           l:
-            name: L
+            name: l
             type: float32
-            unit: deg
+            unit: ''
             description: 'Galactic longitude '
           b:
-            name: B
+            name: b
             type: float32
-            unit: deg
+            unit: ''
             description: 'Galactic latitude '
           plx:
-            name: PLX
+            name: plx
             type: float32
-            unit: mas
+            unit: ''
             description: 'Parallax '
           e_plx:
-            name: E_PLX
+            name: e_plx
             type: float32
-            unit: mas
+            unit: ''
             description: 'Error on parallax '
           pmra:
-            name: PMRA
+            name: pmra
             type: float32
-            unit: mas/yr
+            unit: ''
             description: 'Proper motion in RA '
           e_pmra:
-            name: E_PMRA
+            name: e_pmra
             type: float32
-            unit: mas/yr
+            unit: ''
             description: 'Error on proper motion in RA '
           pmde:
-            name: PMDE
+            name: pmde
             type: float32
-            unit: mas/yr
+            unit: ''
             description: 'Proper motion in DEC '
           e_pmde:
-            name: E_PMDE
+            name: e_pmde
             type: float32
-            unit: mas/yr
+            unit: ''
             description: 'Error on proper motion in DEC '
           gaia_v_rad:
-            name: GAIA_V_RAD
+            name: gaia_v_rad
             type: float32
-            unit: km/s
+            unit: ''
             description: 'Gaia radial velocity '
           gaia_e_v_rad:
-            name: GAIA_E_V_RAD
+            name: gaia_e_v_rad
             type: float32
-            unit: km/s
+            unit: ''
             description: 'Error on Gaia radial velocity '
           g_mag:
-            name: G_MAG
+            name: g_mag
             type: float32
-            unit: mag
+            unit: ''
             description: 'Gaia DR3 mean G band magnitude '
           bp_mag:
-            name: BP_MAG
+            name: bp_mag
             type: float32
-            unit: mag
+            unit: ''
             description: 'Gaia DR3 mean BP band magnitude '
           rp_mag:
-            name: RP_MAG
+            name: rp_mag
             type: float32
-            unit: mag
+            unit: ''
             description: 'Gaia DR3 mean RP band magnitude '
           j_mag:
-            name: J_MAG
+            name: j_mag
             type: float32
-            unit: mag
+            unit: ''
             description: '2MASS J band magnitude '
           e_j_mag:
-            name: E_J_MAG
+            name: e_j_mag
             type: float32
-            unit: mag
+            unit: ''
             description: 'Error on 2MASS J band magnitude '
           h_mag:
-            name: H_MAG
+            name: h_mag
             type: float32
-            unit: mag
+            unit: ''
             description: '2MASS H band magnitude '
           e_h_mag:
-            name: E_H_MAG
+            name: e_h_mag
             type: float32
-            unit: mag
+            unit: ''
             description: 'Error on 2MASS H band magnitude '
           k_mag:
-            name: K_MAG
+            name: k_mag
             type: float32
-            unit: mag
+            unit: ''
             description: '2MASS K band magnitude '
           e_k_mag:
-            name: E_K_MAG
+            name: e_k_mag
             type: float32
-            unit: mag
+            unit: ''
             description: 'Error on 2MASS K band magnitude '
           ph_qual:
-            name: PH_QUAL
+            name: ph_qual
             type: char[1]
             unit: ''
             description: 2MASS photometric quality flag
           bl_flg:
-            name: BL_FLG
+            name: bl_flg
             type: char[1]
             unit: ''
             description: Number of components fit per band (JHK)
           cc_flg:
-            name: CC_FLG
+            name: cc_flg
             type: char[1]
             unit: ''
             description: Contamination and confusion flag
           w1_mag:
-            name: W1_MAG
+            name: w1_mag
             type: float32
             unit: ''
             description: W1 magnitude
           e_w1_mag:
-            name: E_W1_MAG
+            name: e_w1_mag
             type: float32
             unit: ''
             description: Error on W1 magnitude
           w1_flux:
-            name: W1_FLUX
+            name: w1_flux
             type: float32
-            unit: Vega nMgy
+            unit: ''
             description: 'W1 flux '
           w1_dflux:
-            name: W1_DFLUX
+            name: w1_dflux
             type: float32
-            unit: Vega nMgy
+            unit: ''
             description: 'Error on W1 flux '
           w1_frac:
-            name: W1_FRAC
+            name: w1_frac
             type: float32
             unit: ''
             description: Fraction of W1 flux from this object
           w2_mag:
-            name: W2_MAG
+            name: w2_mag
             type: float32
-            unit: Vega
+            unit: ''
             description: 'W2 magnitude '
           e_w2_mag:
-            name: E_W2_MAG
+            name: e_w2_mag
             type: float32
             unit: ''
             description: Error on W2 magnitude
           w2_flux:
-            name: W2_FLUX
+            name: w2_flux
             type: float32
-            unit: Vega nMgy
+            unit: ''
             description: 'W2 flux '
           w2_dflux:
-            name: W2_DFLUX
+            name: w2_dflux
             type: float32
-            unit: Vega nMgy
+            unit: ''
             description: 'Error on W2 flux '
           w2_frac:
-            name: W2_FRAC
+            name: w2_frac
             type: float32
             unit: ''
             description: Fraction of W2 flux from this object
           w1uflags:
-            name: W1UFLAGS
+            name: w1uflags
             type: int32
             unit: ''
             description: unWISE flags for W1
           w2uflags:
-            name: W2UFLAGS
+            name: w2uflags
             type: int32
             unit: ''
             description: unWISE flags for W2
           w1aflags:
-            name: W1AFLAGS
+            name: w1aflags
             type: int32
             unit: ''
             description: Additional flags for W1
           w2aflags:
-            name: W2AFLAGS
+            name: w2aflags
             type: int32
             unit: ''
             description: Additional flags for W2
           mag4_5:
-            name: MAG4_5
+            name: mag4_5
             type: float32
-            unit: mag
+            unit: ''
             description: 'IRAC band 4.5 micron magnitude '
           d4_5m:
-            name: D4_5M
+            name: d4_5m
             type: float32
-            unit: mag
+            unit: ''
             description: 'Error on IRAC band 4.5 micron magnitude '
           rms_f4_5:
-            name: RMS_F4_5
+            name: rms_f4_5
             type: float32
-            unit: mJy
+            unit: ''
             description: 'RMS deviations from final flux '
           sqf_4_5:
-            name: SQF_4_5
+            name: sqf_4_5
             type: int32
             unit: ''
             description: Source quality flag for IRAC band 4.5 micron
           mf4_5:
-            name: MF4_5
+            name: mf4_5
             type: int32
             unit: ''
             description: Flux calculation method flag
           csf:
-            name: CSF
+            name: csf
             type: int32
             unit: ''
             description: Close source flag
           zgr_teff:
-            name: ZGR_TEFF
+            name: zgr_teff
             type: float32
-            unit: K
+            unit: ''
             description: 'Stellar effective temperature '
           zgr_e_teff:
-            name: ZGR_E_TEFF
+            name: zgr_e_teff
             type: float32
-            unit: K
+            unit: ''
             description: 'Error on stellar effective temperature '
           zgr_logg:
-            name: ZGR_LOGG
+            name: zgr_logg
             type: float32
-            unit: log10(cm/s^2)
+            unit: ''
             description: 'Surface gravity '
           zgr_e_logg:
-            name: ZGR_E_LOGG
+            name: zgr_e_logg
             type: float32
-            unit: log10(cm/s^2)
+            unit: ''
             description: 'Error on surface gravity '
           zgr_fe_h:
-            name: ZGR_FE_H
+            name: zgr_fe_h
             type: float32
-            unit: dex
+            unit: ''
             description: '[Fe/H] '
           zgr_e_fe_h:
-            name: ZGR_E_FE_H
+            name: zgr_e_fe_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Error on [Fe/H] '
           zgr_e:
-            name: ZGR_E
+            name: zgr_e
             type: float32
-            unit: mag
+            unit: ''
             description: 'Extinction '
           zgr_e_e:
-            name: ZGR_E_E
+            name: zgr_e_e
             type: float32
-            unit: mag
+            unit: ''
             description: 'Error on extinction '
           zgr_plx:
-            name: ZGR_PLX
+            name: zgr_plx
             type: float32
             unit: ''
             description: Parallax [mas] (Gaia DR3)
           zgr_e_plx:
-            name: ZGR_E_PLX
+            name: zgr_e_plx
             type: float32
             unit: ''
             description: Error on parallax [mas] (Gaia DR3)
           zgr_teff_confidence:
-            name: ZGR_TEFF_CONFIDENCE
+            name: zgr_teff_confidence
             type: float32
             unit: ''
             description: Confidence estimate in TEFF
           zgr_logg_confidence:
-            name: ZGR_LOGG_CONFIDENCE
+            name: zgr_logg_confidence
             type: float32
             unit: ''
             description: Confidence estimate in LOGG
           zgr_fe_h_confidence:
-            name: ZGR_FE_H_CONFIDENCE
+            name: zgr_fe_h_confidence
             type: float32
             unit: ''
             description: Confidence estimate in FE_H
           zgr_ln_prior:
-            name: ZGR_LN_PRIOR
+            name: zgr_ln_prior
             type: float32
             unit: ''
             description: Log prior probability
           zgr_chi2:
-            name: ZGR_CHI2
+            name: zgr_chi2
             type: float32
             unit: ''
             description: Chi-square value
           zgr_quality_flags:
-            name: ZGR_QUALITY_FLAGS
+            name: zgr_quality_flags
             type: int32
             unit: ''
             description: Quality flags
           r_med_geo:
-            name: R_MED_GEO
+            name: r_med_geo
             type: float32
-            unit: pc
+            unit: ''
             description: 'Median geometric distance '
           r_lo_geo:
-            name: R_LO_GEO
+            name: r_lo_geo
             type: float32
-            unit: pc
+            unit: ''
             description: '16th percentile of geometric distance '
           r_hi_geo:
-            name: R_HI_GEO
+            name: r_hi_geo
             type: float32
-            unit: pc
+            unit: ''
             description: '84th percentile of geometric distance '
           r_med_photogeo:
-            name: R_MED_PHOTOGEO
+            name: r_med_photogeo
             type: float32
-            unit: pc
+            unit: ''
             description: '50th percentile of photogeometric distance '
           r_lo_photogeo:
-            name: R_LO_PHOTOGEO
+            name: r_lo_photogeo
             type: float32
-            unit: pc
+            unit: ''
             description: '16th percentile of photogeometric distance '
           r_hi_photogeo:
-            name: R_HI_PHOTOGEO
+            name: r_hi_photogeo
             type: float32
-            unit: pc
+            unit: ''
             description: '84th percentile of photogeometric distance '
           bailer_jones_flags:
-            name: BAILER_JONES_FLAGS
+            name: bailer_jones_flags
             type: char[1]
             unit: ''
             description: Bailer-Jones quality flags
           ebv:
-            name: EBV
+            name: ebv
             type: float32
-            unit: mag
+            unit: ''
             description: 'E(B-V) '
           e_ebv:
-            name: E_EBV
+            name: e_ebv
             type: float32
-            unit: mag
+            unit: ''
             description: 'Error on E(B-V) '
           ebv_flags:
-            name: EBV_FLAGS
+            name: ebv_flags
             type: int32
             unit: ''
             description: Flags indicating the source of E(B-V)
           ebv_zhang_2023:
-            name: EBV_ZHANG_2023
+            name: ebv_zhang_2023
             type: float32
-            unit: mag
+            unit: ''
             description: 'E(B-V) from Zhang et al. (2023) '
           e_ebv_zhang_2023:
-            name: E_EBV_ZHANG_2023
+            name: e_ebv_zhang_2023
             type: float32
-            unit: mag
+            unit: ''
             description: 'Error on E(B-V) from Zhang et al. (2023) '
           ebv_sfd:
-            name: EBV_SFD
+            name: ebv_sfd
             type: float32
-            unit: mag
+            unit: ''
             description: 'E(B-V) from SFD '
           e_ebv_sfd:
-            name: E_EBV_SFD
+            name: e_ebv_sfd
             type: float32
-            unit: mag
+            unit: ''
             description: 'Error on E(B-V) from SFD '
           ebv_rjce_glimpse:
-            name: EBV_RJCE_GLIMPSE
+            name: ebv_rjce_glimpse
             type: float32
-            unit: mag
+            unit: ''
             description: 'E(B-V) from RJCE GLIMPSE '
           e_ebv_rjce_glimpse:
-            name: E_EBV_RJCE_GLIMPSE
+            name: e_ebv_rjce_glimpse
             type: float32
-            unit: mag
+            unit: ''
             description: 'Error on RJCE GLIMPSE E(B-V) '
           ebv_rjce_allwise:
-            name: EBV_RJCE_ALLWISE
+            name: ebv_rjce_allwise
             type: float32
-            unit: mag
+            unit: ''
             description: 'E(B-V) from RJCE AllWISE '
           e_ebv_rjce_allwise:
-            name: E_EBV_RJCE_ALLWISE
+            name: e_ebv_rjce_allwise
             type: float32
-            unit: mag
+            unit: ''
             description: Error on RJCE AllWISE E(B-V)
           ebv_bayestar_2019:
-            name: EBV_BAYESTAR_2019
+            name: ebv_bayestar_2019
             type: float32
-            unit: mag
+            unit: ''
             description: 'E(B-V) from Bayestar 2019 '
           e_ebv_bayestar_2019:
-            name: E_EBV_BAYESTAR_2019
+            name: e_ebv_bayestar_2019
             type: float32
-            unit: mag
+            unit: ''
             description: 'Error on Bayestar 2019 E(B-V) '
           ebv_edenhofer_2023:
-            name: EBV_EDENHOFER_2023
+            name: ebv_edenhofer_2023
             type: float32
-            unit: mag
+            unit: ''
             description: 'E(B-V) from Edenhofer et al. (2023) '
           e_ebv_edenhofer_2023:
-            name: E_EBV_EDENHOFER_2023
+            name: e_ebv_edenhofer_2023
             type: float32
-            unit: mag
+            unit: ''
             description: 'Error on Edenhofer et al. (2023) E(B-V) '
           c_star:
-            name: C_STAR
+            name: c_star
             type: float32
             unit: ''
             description: Quality parameter (see Riello et al. 2021)
           u_jkc_mag:
-            name: U_JKC_MAG
+            name: u_jkc_mag
             type: float32
-            unit: mag
+            unit: ''
             description: 'Gaia XP synthetic U-band (JKC) '
           u_jkc_mag_flag:
-            name: U_JKC_MAG_FLAG
+            name: u_jkc_mag_flag
             type: int32
             unit: ''
             description: U-band (JKC) is within valid range
           b_jkc_mag:
-            name: B_JKC_MAG
+            name: b_jkc_mag
             type: float32
-            unit: mag
+            unit: ''
             description: 'Gaia XP synthetic B-band (JKC) '
           b_jkc_mag_flag:
-            name: B_JKC_MAG_FLAG
+            name: b_jkc_mag_flag
             type: int32
             unit: ''
             description: B-band (JKC) is within valid range
           v_jkc_mag:
-            name: V_JKC_MAG
+            name: v_jkc_mag
             type: float32
-            unit: mag
+            unit: ''
             description: 'Gaia XP synthetic V-band (JKC) '
           v_jkc_mag_flag:
-            name: V_JKC_MAG_FLAG
+            name: v_jkc_mag_flag
             type: int32
             unit: ''
             description: V-band (JKC) is within valid range
           r_jkc_mag:
-            name: R_JKC_MAG
+            name: r_jkc_mag
             type: float32
-            unit: mag
+            unit: ''
             description: 'Gaia XP synthetic R-band (JKC) '
           r_jkc_mag_flag:
-            name: R_JKC_MAG_FLAG
+            name: r_jkc_mag_flag
             type: int32
             unit: ''
             description: R-band (JKC) is within valid range
           i_jkc_mag:
-            name: I_JKC_MAG
+            name: i_jkc_mag
             type: float32
-            unit: mag
+            unit: ''
             description: 'Gaia XP synthetic I-band (JKC) '
           i_jkc_mag_flag:
-            name: I_JKC_MAG_FLAG
+            name: i_jkc_mag_flag
             type: int32
             unit: ''
             description: I-band (JKC) is within valid range
           u_sdss_mag:
-            name: U_SDSS_MAG
+            name: u_sdss_mag
             type: float32
-            unit: mag
+            unit: ''
             description: 'Gaia XP synthetic u-band (SDSS) '
           u_sdss_mag_flag:
-            name: U_SDSS_MAG_FLAG
+            name: u_sdss_mag_flag
             type: int32
             unit: ''
             description: u-band (SDSS) is within valid range
           g_sdss_mag:
-            name: G_SDSS_MAG
+            name: g_sdss_mag
             type: float32
-            unit: mag
+            unit: ''
             description: 'Gaia XP synthetic g-band (SDSS) '
           g_sdss_mag_flag:
-            name: G_SDSS_MAG_FLAG
+            name: g_sdss_mag_flag
             type: int32
             unit: ''
             description: g-band (SDSS) is within valid range
           r_sdss_mag:
-            name: R_SDSS_MAG
+            name: r_sdss_mag
             type: float32
-            unit: mag
+            unit: ''
             description: 'Gaia XP synthetic r-band (SDSS) '
           r_sdss_mag_flag:
-            name: R_SDSS_MAG_FLAG
+            name: r_sdss_mag_flag
             type: int32
             unit: ''
             description: r-band (SDSS) is within valid range
           i_sdss_mag:
-            name: I_SDSS_MAG
+            name: i_sdss_mag
             type: float32
-            unit: mag
+            unit: ''
             description: 'Gaia XP synthetic i-band (SDSS) '
           i_sdss_mag_flag:
-            name: I_SDSS_MAG_FLAG
+            name: i_sdss_mag_flag
             type: int32
             unit: ''
             description: i-band (SDSS) is within valid range
           z_sdss_mag:
-            name: Z_SDSS_MAG
+            name: z_sdss_mag
             type: float32
-            unit: mag
+            unit: ''
             description: 'Gaia XP synthetic z-band (SDSS) '
           z_sdss_mag_flag:
-            name: Z_SDSS_MAG_FLAG
+            name: z_sdss_mag_flag
             type: int32
             unit: ''
             description: z-band (SDSS) is within valid range
           y_ps1_mag:
-            name: Y_PS1_MAG
+            name: y_ps1_mag
             type: float32
-            unit: mag
+            unit: ''
             description: 'Gaia XP synthetic Y-band (PS1) '
           y_ps1_mag_flag:
-            name: Y_PS1_MAG_FLAG
+            name: y_ps1_mag_flag
             type: int32
             unit: ''
             description: Y-band (PS1) is within valid range
           n_boss_visits:
-            name: N_BOSS_VISITS
+            name: n_boss_visits
             type: int32
             unit: ''
             description: Number of BOSS visits
           boss_min_mjd:
-            name: BOSS_MIN_MJD
+            name: boss_min_mjd
             type: int32
             unit: ''
             description: Minimum MJD of BOSS visits
           boss_max_mjd:
-            name: BOSS_MAX_MJD
+            name: boss_max_mjd
             type: int32
             unit: ''
             description: Maximum MJD of BOSS visits
           n_apogee_visits:
-            name: N_APOGEE_VISITS
+            name: n_apogee_visits
             type: int32
             unit: ''
             description: Number of APOGEE visits
           apogee_min_mjd:
-            name: APOGEE_MIN_MJD
+            name: apogee_min_mjd
             type: int32
             unit: ''
             description: Minimum MJD of APOGEE visits
           apogee_max_mjd:
-            name: APOGEE_MAX_MJD
+            name: apogee_max_mjd
             type: int32
             unit: ''
             description: Maximum MJD of APOGEE visits
           spectrum_pk:
-            name: SPECTRUM_PK
+            name: spectrum_pk
             type: int64
             unit: ''
             description: Unique spectrum primary key
           source:
-            name: SOURCE
+            name: source
             type: int64
             unit: ''
             description: Unique source primary key
           release:
-            name: RELEASE
+            name: release
             type: char[1]
             unit: ''
             description: SDSS release
           filetype:
-            name: FILETYPE
+            name: filetype
             type: char[1]
             unit: ''
             description: SDSS file type that stores this spectrum
           v_astra:
-            name: V_ASTRA
+            name: v_astra
             type: char[1]
             unit: ''
             description: Astra version
           run2d:
-            name: RUN2D
+            name: run2d
             type: char[1]
             unit: ''
             description: BOSS data reduction pipeline version
           telescope:
-            name: TELESCOPE
+            name: telescope
             type: char[1]
             unit: ''
             description: Short telescope name
           min_mjd:
-            name: MIN_MJD
+            name: min_mjd
             type: int32
             unit: ''
             description: Minimum MJD of visits
           max_mjd:
-            name: MAX_MJD
+            name: max_mjd
             type: int32
             unit: ''
             description: Maximum MJD of visits
           n_visits:
-            name: N_VISITS
+            name: n_visits
             type: int32
             unit: ''
             description: Number of BOSS visits
           n_good_visits:
-            name: N_GOOD_VISITS
+            name: n_good_visits
             type: int32
             unit: ''
             description: Number of 'good' BOSS visits
           n_good_rvs:
-            name: N_GOOD_RVS
+            name: n_good_rvs
             type: int32
             unit: ''
             description: Number of 'good' BOSS radial velocities
           v_rad:
-            name: V_RAD
+            name: v_rad
             type: float32
-            unit: km/s
+            unit: ''
             description: 'Barycentric rest frame radial velocity '
           e_v_rad:
-            name: E_V_RAD
+            name: e_v_rad
             type: float32
-            unit: km/s
+            unit: ''
             description: 'Error on radial velocity '
           std_v_rad:
-            name: STD_V_RAD
+            name: std_v_rad
             type: float32
-            unit: km/s
+            unit: ''
             description: 'Standard deviation of visit V_RAD '
           median_e_v_rad:
-            name: MEDIAN_E_V_RAD
+            name: median_e_v_rad
             type: float32
-            unit: km/s
+            unit: ''
             description: 'Median error in radial velocity '
           xcsao_teff:
-            name: XCSAO_TEFF
+            name: xcsao_teff
             type: float32
-            unit: K
+            unit: ''
             description: 'Stellar effective temperature '
           xcsao_e_teff:
-            name: XCSAO_E_TEFF
+            name: xcsao_e_teff
             type: float32
-            unit: K
+            unit: ''
             description: 'Error on stellar effective temperature '
           xcsao_logg:
-            name: XCSAO_LOGG
+            name: xcsao_logg
             type: float32
-            unit: log10(cm/s^2)
+            unit: ''
             description: 'Surface gravity '
           xcsao_e_logg:
-            name: XCSAO_E_LOGG
+            name: xcsao_e_logg
             type: float32
-            unit: log10(cm/s^2)
+            unit: ''
             description: 'Error on surface gravity '
           xcsao_fe_h:
-            name: XCSAO_FE_H
+            name: xcsao_fe_h
             type: float32
-            unit: dex
+            unit: ''
             description: '[Fe/H] '
           xcsao_e_fe_h:
-            name: XCSAO_E_FE_H
+            name: xcsao_e_fe_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Error on [Fe/H] '
           xcsao_meanrxc:
-            name: XCSAO_MEANRXC
+            name: xcsao_meanrxc
             type: float32
             unit: ''
             description: Cross-correlation R-value (1979AJ.....84.1511T)
           snr:
-            name: SNR
+            name: snr
             type: float32
             unit: ''
             description: Signal-to-noise ratio
           gri_gaia_transform_flags:
-            name: GRI_GAIA_TRANSFORM_FLAGS
+            name: gri_gaia_transform_flags
             type: int32
             unit: ''
             description: Flags for provenance of ugriz photometry
           zwarning_flags:
-            name: ZWARNING_FLAGS
+            name: zwarning_flags
             type: int32
             unit: ''
             description: BOSS DRP warning flags
           nmf_rchi2:
-            name: NMF_RCHI2
+            name: nmf_rchi2
             type: float32
             unit: ''
             description: Reduced chi-square value of NMF continuum fit
           nmf_flags:
-            name: NMF_FLAGS
+            name: nmf_flags
             type: int32
             unit: ''
             description: NMF Continuum method flags
           task_pk:
-            name: TASK_PK
+            name: task_pk
             type: int64
             unit: ''
             description: Task model primary key
           source_pk:
-            name: SOURCE_PK
+            name: source_pk
             type: int64
             unit: ''
             description: ''
           created:
-            name: CREATED
+            name: created
             type: char[26]
             unit: ''
             description: Datetime when task record was created
           t_elapsed:
-            name: T_ELAPSED
+            name: t_elapsed
             type: float32
-            unit: s
+            unit: ''
             description: 'Core-time elapsed on this analysis '
           t_overhead:
-            name: T_OVERHEAD
+            name: t_overhead
             type: float32
-            unit: s
+            unit: ''
             description: 'Estimated core-time spent in overhads '
           tag:
-            name: TAG
+            name: tag
             type: char[1]
             unit: ''
             description: Experiment tag for this result
           irfm_teff:
-            name: IRFM_TEFF
+            name: irfm_teff
             type: float32
-            unit: K
+            unit: ''
             description: 'Stellar effective temperature '
           irfm_teff_flags:
-            name: IRFM_TEFF_FLAGS
+            name: irfm_teff_flags
             type: int32
             unit: ''
             description: IRFM temperature flags
           teff:
-            name: TEFF
+            name: teff
             type: float32
-            unit: K
+            unit: ''
             description: 'Stellar effective temperature '
           e_teff:
-            name: E_TEFF
+            name: e_teff
             type: float32
-            unit: K
+            unit: ''
             description: 'Error on stellar effective temperature '
           logg:
-            name: LOGG
+            name: logg
             type: float32
-            unit: log10(cm/s^2)
+            unit: ''
             description: 'Surface gravity '
           e_logg:
-            name: E_LOGG
+            name: e_logg
             type: float32
-            unit: log10(cm/s^2)
+            unit: ''
             description: 'Error on surface gravity '
           v_micro:
-            name: V_MICRO
+            name: v_micro
             type: float32
-            unit: km/s
+            unit: ''
             description: 'Microturbulence '
           e_v_micro:
-            name: E_V_MICRO
+            name: e_v_micro
             type: float32
-            unit: km/s
+            unit: ''
             description: 'Error on microturbulence '
           v_sini:
-            name: V_SINI
+            name: v_sini
             type: float32
-            unit: km/s
+            unit: ''
             description: 'Projected rotational velocity '
           e_v_sini:
-            name: E_V_SINI
+            name: e_v_sini
             type: float32
-            unit: km/s
+            unit: ''
             description: 'Error on projected rotational velocity '
           m_h_atm:
-            name: M_H_ATM
+            name: m_h_atm
             type: float32
-            unit: dex
+            unit: ''
             description: 'Metallicity '
           e_m_h_atm:
-            name: E_M_H_ATM
+            name: e_m_h_atm
             type: float32
-            unit: dex
+            unit: ''
             description: 'Error on metallicity '
           alpha_m_atm:
-            name: ALPHA_M_ATM
+            name: alpha_m_atm
             type: float32
-            unit: dex
+            unit: ''
             description: '[alpha/M] abundance ratio '
           e_alpha_m_atm:
-            name: E_ALPHA_M_ATM
+            name: e_alpha_m_atm
             type: float32
-            unit: dex
+            unit: ''
             description: 'Error on [alpha/M] abundance ratio '
           c_m_atm:
-            name: C_M_ATM
+            name: c_m_atm
             type: float32
-            unit: dex
+            unit: ''
             description: 'Atmospheric carbon abundance '
           e_c_m_atm:
-            name: E_C_M_ATM
+            name: e_c_m_atm
             type: float32
-            unit: dex
+            unit: ''
             description: 'Error on atmospheric carbon abundance '
           n_m_atm:
-            name: N_M_ATM
+            name: n_m_atm
             type: float32
-            unit: dex
+            unit: ''
             description: 'Atmospheric nitrogen abundance '
           e_n_m_atm:
-            name: E_N_M_ATM
+            name: e_n_m_atm
             type: float32
-            unit: dex
+            unit: ''
             description: 'Error on atmospheric nitrogen abundance '
           al_h:
-            name: AL_H
+            name: al_h
             type: float32
-            unit: dex
+            unit: ''
             description: '[Al/H] '
           e_al_h:
-            name: E_AL_H
+            name: e_al_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Error on [Al/H] '
           al_h_flags:
-            name: AL_H_FLAGS
+            name: al_h_flags
             type: int32
-            unit: dex
+            unit: ''
             description: 'Flags for [Al/H] '
           al_h_rchi2:
-            name: AL_H_RCHI2
+            name: al_h_rchi2
             type: float32
-            unit: dex
+            unit: ''
             description: 'Reduced chi-square value for [Al/H] '
           c_12_13:
-            name: C_12_13
+            name: c_12_13
             type: float32
             unit: ''
             description: C12/C13 ratio
           e_c_12_13:
-            name: E_C_12_13
+            name: e_c_12_13
             type: float32
             unit: ''
             description: Error on c12/C13 ratio
           c_12_13_flags:
-            name: C_12_13_FLAGS
+            name: c_12_13_flags
             type: int32
             unit: ''
             description: Flags for c12/C13 ratio
           c_12_13_rchi2:
-            name: C_12_13_RCHI2
+            name: c_12_13_rchi2
             type: float32
             unit: ''
             description: Reduced chi-square value for c12/C13 ratio
           ca_h:
-            name: CA_H
+            name: ca_h
             type: float32
-            unit: dex
+            unit: ''
             description: '[Ca/H] '
           e_ca_h:
-            name: E_CA_H
+            name: e_ca_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Error on [Ca/H] '
           ca_h_flags:
-            name: CA_H_FLAGS
+            name: ca_h_flags
             type: int32
-            unit: dex
+            unit: ''
             description: 'Flags for [Ca/H] '
           ca_h_rchi2:
-            name: CA_H_RCHI2
+            name: ca_h_rchi2
             type: float32
-            unit: dex
+            unit: ''
             description: 'Reduced chi-square value for [Ca/H] '
           ce_h:
-            name: CE_H
+            name: ce_h
             type: float32
-            unit: dex
+            unit: ''
             description: '[Ce/H] '
           e_ce_h:
-            name: E_CE_H
+            name: e_ce_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Error on [Ce/H] '
           ce_h_flags:
-            name: CE_H_FLAGS
+            name: ce_h_flags
             type: int32
-            unit: dex
+            unit: ''
             description: 'Flags for [Ce/H] '
           ce_h_rchi2:
-            name: CE_H_RCHI2
+            name: ce_h_rchi2
             type: float32
-            unit: dex
+            unit: ''
             description: 'Reduced chi-square value for [Ce/H] '
           c_1_h:
-            name: C_1_H
+            name: c_1_h
             type: float32
-            unit: dex
+            unit: ''
             description: '[C/H] from neutral C lines '
           e_c_1_h:
-            name: E_C_1_H
+            name: e_c_1_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Error on [C/H] from neutral C lines '
           c_1_h_flags:
-            name: C_1_H_FLAGS
+            name: c_1_h_flags
             type: int32
-            unit: dex
+            unit: ''
             description: 'Flags for [C/H] from neutral C lines '
           c_1_h_rchi2:
-            name: C_1_H_RCHI2
+            name: c_1_h_rchi2
             type: float32
             unit: ''
             description: Reduced chi-square value for [C/H] from neutral
           c_h:
-            name: C_H
+            name: c_h
             type: float32
-            unit: dex
+            unit: ''
             description: '[C/H] '
           e_c_h:
-            name: E_C_H
+            name: e_c_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Error on [C/H] '
           c_h_flags:
-            name: C_H_FLAGS
+            name: c_h_flags
             type: int32
-            unit: dex
+            unit: ''
             description: 'Flags for [C/H] '
           c_h_rchi2:
-            name: C_H_RCHI2
+            name: c_h_rchi2
             type: float32
-            unit: dex
+            unit: ''
             description: 'Reduced chi-square value for [C/H] '
           co_h:
-            name: CO_H
+            name: co_h
             type: float32
-            unit: dex
+            unit: ''
             description: '[Co/H] '
           e_co_h:
-            name: E_CO_H
+            name: e_co_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Error on [Co/H] '
           co_h_flags:
-            name: CO_H_FLAGS
+            name: co_h_flags
             type: int32
-            unit: dex
+            unit: ''
             description: 'Flags for [Co/H] '
           co_h_rchi2:
-            name: CO_H_RCHI2
+            name: co_h_rchi2
             type: float32
-            unit: dex
+            unit: ''
             description: 'Reduced chi-square value for [Co/H] '
           cr_h:
-            name: CR_H
+            name: cr_h
             type: float32
-            unit: dex
+            unit: ''
             description: '[Cr/H] '
           e_cr_h:
-            name: E_CR_H
+            name: e_cr_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Error on [Cr/H] '
           cr_h_flags:
-            name: CR_H_FLAGS
+            name: cr_h_flags
             type: int32
-            unit: dex
+            unit: ''
             description: 'Flags for [Cr/H] '
           cr_h_rchi2:
-            name: CR_H_RCHI2
+            name: cr_h_rchi2
             type: float32
-            unit: dex
+            unit: ''
             description: 'Reduced chi-square value for [Cr/H] '
           cu_h:
-            name: CU_H
+            name: cu_h
             type: float32
-            unit: dex
+            unit: ''
             description: '[Cu/H] '
           e_cu_h:
-            name: E_CU_H
+            name: e_cu_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Error on [Cu/H] '
           cu_h_flags:
-            name: CU_H_FLAGS
+            name: cu_h_flags
             type: int32
-            unit: dex
+            unit: ''
             description: 'Flags for [Cu/H] '
           cu_h_rchi2:
-            name: CU_H_RCHI2
+            name: cu_h_rchi2
             type: float32
-            unit: dex
+            unit: ''
             description: 'Reduced chi-square value for [Cu/H] '
           fe_h:
-            name: FE_H
+            name: fe_h
             type: float32
-            unit: dex
+            unit: ''
             description: '[Fe/H] '
           e_fe_h:
-            name: E_FE_H
+            name: e_fe_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Error on [Fe/H] '
           fe_h_flags:
-            name: FE_H_FLAGS
+            name: fe_h_flags
             type: int32
-            unit: dex
+            unit: ''
             description: 'Flags for [Fe/H] '
           fe_h_rchi2:
-            name: FE_H_RCHI2
+            name: fe_h_rchi2
             type: float32
-            unit: dex
+            unit: ''
             description: 'Reduced chi-square value for [Fe/H] '
           k_h:
-            name: K_H
+            name: k_h
             type: float32
-            unit: dex
+            unit: ''
             description: '[K/H] '
           e_k_h:
-            name: E_K_H
+            name: e_k_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Error on [K/H] '
           k_h_flags:
-            name: K_H_FLAGS
+            name: k_h_flags
             type: int32
-            unit: dex
+            unit: ''
             description: 'Flags for [K/H] '
           k_h_rchi2:
-            name: K_H_RCHI2
+            name: k_h_rchi2
             type: float32
-            unit: dex
+            unit: ''
             description: 'Reduced chi-square value for [K/H] '
           mg_h:
-            name: MG_H
+            name: mg_h
             type: float32
-            unit: dex
+            unit: ''
             description: '[Mg/H] '
           e_mg_h:
-            name: E_MG_H
+            name: e_mg_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Error on [Mg/H] '
           mg_h_flags:
-            name: MG_H_FLAGS
+            name: mg_h_flags
             type: int32
-            unit: dex
+            unit: ''
             description: 'Flags for [Mg/H] '
           mg_h_rchi2:
-            name: MG_H_RCHI2
+            name: mg_h_rchi2
             type: float32
-            unit: dex
+            unit: ''
             description: 'Reduced chi-square value for [Mg/H] '
           mn_h:
-            name: MN_H
+            name: mn_h
             type: float32
-            unit: dex
+            unit: ''
             description: '[Mn/H] '
           e_mn_h:
-            name: E_MN_H
+            name: e_mn_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Error on [Mn/H] '
           mn_h_flags:
-            name: MN_H_FLAGS
+            name: mn_h_flags
             type: int32
-            unit: dex
+            unit: ''
             description: 'Flags for [Mn/H] '
           mn_h_rchi2:
-            name: MN_H_RCHI2
+            name: mn_h_rchi2
             type: float32
-            unit: dex
+            unit: ''
             description: 'Reduced chi-square value for [Mn/H] '
           na_h:
-            name: NA_H
+            name: na_h
             type: float32
-            unit: dex
+            unit: ''
             description: '[Na/H] '
           e_na_h:
-            name: E_NA_H
+            name: e_na_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Error on [Na/H] '
           na_h_flags:
-            name: NA_H_FLAGS
+            name: na_h_flags
             type: int32
-            unit: dex
+            unit: ''
             description: 'Flags for [Na/H] '
           na_h_rchi2:
-            name: NA_H_RCHI2
+            name: na_h_rchi2
             type: float32
-            unit: dex
+            unit: ''
             description: 'Reduced chi-square value for [Na/H] '
           nd_h:
-            name: ND_H
+            name: nd_h
             type: float32
-            unit: dex
+            unit: ''
             description: '[Nd/H] '
           e_nd_h:
-            name: E_ND_H
+            name: e_nd_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Error on [Nd/H] '
           nd_h_flags:
-            name: ND_H_FLAGS
+            name: nd_h_flags
             type: int32
-            unit: dex
+            unit: ''
             description: 'Flags for [Nd/H] '
           nd_h_rchi2:
-            name: ND_H_RCHI2
+            name: nd_h_rchi2
             type: float32
-            unit: dex
+            unit: ''
             description: 'Reduced chi-square value for [Nd/H] '
           ni_h:
-            name: NI_H
+            name: ni_h
             type: float32
-            unit: dex
+            unit: ''
             description: '[Ni/H] '
           e_ni_h:
-            name: E_NI_H
+            name: e_ni_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Error on [Ni/H] '
           ni_h_flags:
-            name: NI_H_FLAGS
+            name: ni_h_flags
             type: int32
-            unit: dex
+            unit: ''
             description: 'Flags for [Ni/H] '
           ni_h_rchi2:
-            name: NI_H_RCHI2
+            name: ni_h_rchi2
             type: float32
-            unit: dex
+            unit: ''
             description: 'Reduced chi-square value for [Ni/H] '
           n_h:
-            name: N_H
+            name: n_h
             type: float32
-            unit: dex
+            unit: ''
             description: '[N/H] '
           e_n_h:
-            name: E_N_H
+            name: e_n_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Error on [N/H] '
           n_h_flags:
-            name: N_H_FLAGS
+            name: n_h_flags
             type: int32
-            unit: dex
+            unit: ''
             description: 'Flags for [N/H] '
           n_h_rchi2:
-            name: N_H_RCHI2
+            name: n_h_rchi2
             type: float32
-            unit: dex
+            unit: ''
             description: 'Reduced chi-square value for [N/H] '
           o_h:
-            name: O_H
+            name: o_h
             type: float32
-            unit: dex
+            unit: ''
             description: '[O/H] '
           e_o_h:
-            name: E_O_H
+            name: e_o_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Error on [O/H] '
           o_h_flags:
-            name: O_H_FLAGS
+            name: o_h_flags
             type: int32
-            unit: dex
+            unit: ''
             description: 'Flags for [O/H] '
           o_h_rchi2:
-            name: O_H_RCHI2
+            name: o_h_rchi2
             type: float32
-            unit: dex
+            unit: ''
             description: 'Reduced chi-square value for [O/H] '
           p_h:
-            name: P_H
+            name: p_h
             type: float32
-            unit: dex
+            unit: ''
             description: '[P/H] '
           e_p_h:
-            name: E_P_H
+            name: e_p_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Error on [P/H] '
           p_h_flags:
-            name: P_H_FLAGS
+            name: p_h_flags
             type: int32
-            unit: dex
+            unit: ''
             description: 'Flags for [P/H] '
           p_h_rchi2:
-            name: P_H_RCHI2
+            name: p_h_rchi2
             type: float32
-            unit: dex
+            unit: ''
             description: 'Reduced chi-square value for [P/H] '
           si_h:
-            name: SI_H
+            name: si_h
             type: float32
-            unit: dex
+            unit: ''
             description: '[Si/H] '
           e_si_h:
-            name: E_SI_H
+            name: e_si_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Error on [Si/H] '
           si_h_flags:
-            name: SI_H_FLAGS
+            name: si_h_flags
             type: int32
-            unit: dex
+            unit: ''
             description: 'Flags for [Si/H] '
           si_h_rchi2:
-            name: SI_H_RCHI2
+            name: si_h_rchi2
             type: float32
-            unit: dex
+            unit: ''
             description: 'Reduced chi-square value for [Si/H] '
           s_h:
-            name: S_H
+            name: s_h
             type: float32
-            unit: dex
+            unit: ''
             description: '[S/H] '
           e_s_h:
-            name: E_S_H
+            name: e_s_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Error on [S/H] '
           s_h_flags:
-            name: S_H_FLAGS
+            name: s_h_flags
             type: int32
-            unit: dex
+            unit: ''
             description: 'Flags for [S/H] '
           s_h_rchi2:
-            name: S_H_RCHI2
+            name: s_h_rchi2
             type: float32
-            unit: dex
+            unit: ''
             description: 'Reduced chi-square value for [S/H] '
           ti_h:
-            name: TI_H
+            name: ti_h
             type: float32
-            unit: dex
+            unit: ''
             description: '[Ti/H] '
           e_ti_h:
-            name: E_TI_H
+            name: e_ti_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Error on [Ti/H] '
           ti_h_flags:
-            name: TI_H_FLAGS
+            name: ti_h_flags
             type: int32
-            unit: dex
+            unit: ''
             description: 'Flags for [Ti/H] '
           ti_h_rchi2:
-            name: TI_H_RCHI2
+            name: ti_h_rchi2
             type: float32
-            unit: dex
+            unit: ''
             description: 'Reduced chi-square value for [Ti/H] '
           ti_2_h:
-            name: TI_2_H
+            name: ti_2_h
             type: float32
-            unit: dex
+            unit: ''
             description: '[Ti/H] from singly ionized Ti lines '
           e_ti_2_h:
-            name: E_TI_2_H
+            name: e_ti_2_h
             type: float32
             unit: ''
             description: Error on [Ti/H] from singly ionized Ti lines [d
           ti_2_h_flags:
-            name: TI_2_H_FLAGS
+            name: ti_2_h_flags
             type: int32
             unit: ''
             description: Flags for [Ti/H] from singly ionized Ti lines [
           ti_2_h_rchi2:
-            name: TI_2_H_RCHI2
+            name: ti_2_h_rchi2
             type: float32
             unit: ''
             description: Reduced chi-square value for [Ti/H] from singly
           v_h:
-            name: V_H
+            name: v_h
             type: float32
-            unit: dex
+            unit: ''
             description: '[V/H] '
           e_v_h:
-            name: E_V_H
+            name: e_v_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Error on [V/H] '
           v_h_flags:
-            name: V_H_FLAGS
+            name: v_h_flags
             type: int32
-            unit: dex
+            unit: ''
             description: 'Flags for [V/H] '
           v_h_rchi2:
-            name: V_H_RCHI2
+            name: v_h_rchi2
             type: float32
-            unit: dex
+            unit: ''
             description: 'Reduced chi-square value for [V/H] '
           short_grid_name:
-            name: SHORT_GRID_NAME
+            name: short_grid_name
             type: char[1]
             unit: ''
             description: Short name describing the FERRE grid used
           continuum_order:
-            name: CONTINUUM_ORDER
+            name: continuum_order
             type: int32
             unit: ''
             description: Continuum order used in FERRE
           continuum_reject:
-            name: CONTINUUM_REJECT
+            name: continuum_reject
             type: float32
             unit: ''
             description: Tolerance for FERRE to reject continuum points
           interpolation_order:
-            name: INTERPOLATION_ORDER
+            name: interpolation_order
             type: int32
             unit: ''
             description: Interpolation order used by FERRE
           initial_flags:
-            name: INITIAL_FLAGS
+            name: initial_flags
             type: int32
             unit: ''
             description: Flags indicating source of initial guess
           rchi2:
-            name: RCHI2
+            name: rchi2
             type: float32
             unit: ''
             description: Reduced chi-square value
           ferre_log_snr_sq:
-            name: FERRE_LOG_SNR_SQ
+            name: ferre_log_snr_sq
             type: float32
             unit: ''
             description: FERRE-reported log10(snr**2)
           ferre_time_elapsed:
-            name: FERRE_TIME_ELAPSED
+            name: ferre_time_elapsed
             type: float32
-            unit: s
+            unit: ''
             description: 'Total core-second use reported by FERRE '
           result_flags:
-            name: RESULT_FLAGS
+            name: result_flags
             type: int32
             unit: ''
             description: Flags indicating FERRE issues
           flag_warn:
-            name: FLAG_WARN
+            name: flag_warn
             type: bool
             unit: ''
             description: Warning flag for results
           flag_bad:
-            name: FLAG_BAD
+            name: flag_bad
             type: bool
             unit: ''
             description: Bad flag for results
           stellar_parameters_task_pk:
-            name: STELLAR_PARAMETERS_TASK_PK
+            name: stellar_parameters_task_pk
             type: int64
             unit: ''
             description: Task primary key for stellar parameters
           al_h_task_pk:
-            name: AL_H_TASK_PK
+            name: al_h_task_pk
             type: int64
             unit: ''
             description: Task primary key for [Al/H]
           c_12_13_task_pk:
-            name: C_12_13_TASK_PK
+            name: c_12_13_task_pk
             type: int64
             unit: ''
             description: Task primary key for C12/C13
           ca_h_task_pk:
-            name: CA_H_TASK_PK
+            name: ca_h_task_pk
             type: int64
             unit: ''
             description: Task primary key for [Ca/H]
           ce_h_task_pk:
-            name: CE_H_TASK_PK
+            name: ce_h_task_pk
             type: int64
             unit: ''
             description: Task primary key for [Ce/H]
           c_1_h_task_pk:
-            name: C_1_H_TASK_PK
+            name: c_1_h_task_pk
             type: int64
             unit: ''
             description: Task primary key for [C 1/H]
           c_h_task_pk:
-            name: C_H_TASK_PK
+            name: c_h_task_pk
             type: int64
             unit: ''
             description: Task primary key for [C/H]
           co_h_task_pk:
-            name: CO_H_TASK_PK
+            name: co_h_task_pk
             type: int64
             unit: ''
             description: Task primary key for [Co/H]
           cr_h_task_pk:
-            name: CR_H_TASK_PK
+            name: cr_h_task_pk
             type: int64
             unit: ''
             description: Task primary key for [Cr/H]
           cu_h_task_pk:
-            name: CU_H_TASK_PK
+            name: cu_h_task_pk
             type: int64
             unit: ''
             description: Task primary key for [Cu/H]
           fe_h_task_pk:
-            name: FE_H_TASK_PK
+            name: fe_h_task_pk
             type: int64
             unit: ''
             description: Task primary key for [Fe/H]
           k_h_task_pk:
-            name: K_H_TASK_PK
+            name: k_h_task_pk
             type: int64
             unit: ''
             description: Task primary key for [K/H]
           mg_h_task_pk:
-            name: MG_H_TASK_PK
+            name: mg_h_task_pk
             type: int64
             unit: ''
             description: Task primary key for [Mg/H]
           mn_h_task_pk:
-            name: MN_H_TASK_PK
+            name: mn_h_task_pk
             type: int64
             unit: ''
             description: Task primary key for [Mn/H]
           na_h_task_pk:
-            name: NA_H_TASK_PK
+            name: na_h_task_pk
             type: int64
             unit: ''
             description: Task primary key for [Na/H]
           nd_h_task_pk:
-            name: ND_H_TASK_PK
+            name: nd_h_task_pk
             type: int64
             unit: ''
             description: Task primary key for [Nd/H]
           ni_h_task_pk:
-            name: NI_H_TASK_PK
+            name: ni_h_task_pk
             type: int64
             unit: ''
             description: Task primary key for [Ni/H]
           n_h_task_pk:
-            name: N_H_TASK_PK
+            name: n_h_task_pk
             type: int64
             unit: ''
             description: Task primary key for [N/H]
           o_h_task_pk:
-            name: O_H_TASK_PK
+            name: o_h_task_pk
             type: int64
             unit: ''
             description: Task primary key for [O/H]
           p_h_task_pk:
-            name: P_H_TASK_PK
+            name: p_h_task_pk
             type: int64
             unit: ''
             description: Task primary key for [P/H]
           si_h_task_pk:
-            name: SI_H_TASK_PK
+            name: si_h_task_pk
             type: int64
             unit: ''
             description: Task primary key for [Si/H]
           s_h_task_pk:
-            name: S_H_TASK_PK
+            name: s_h_task_pk
             type: int64
             unit: ''
             description: Task primary key for [S/H]
           ti_h_task_pk:
-            name: TI_H_TASK_PK
+            name: ti_h_task_pk
             type: int64
             unit: ''
             description: Task primary key for [Ti/H]
           ti_2_h_task_pk:
-            name: TI_2_H_TASK_PK
+            name: ti_2_h_task_pk
             type: int64
             unit: ''
             description: Task primary key for [Ti 2/H]
           v_h_task_pk:
-            name: V_H_TASK_PK
+            name: v_h_task_pk
             type: int64
             unit: ''
             description: Task primary key for [V/H]
           calibrated_flags:
-            name: CALIBRATED_FLAGS
+            name: calibrated_flags
             type: int32
             unit: ''
             description: Calibration flags
           mass:
-            name: MASS
+            name: mass
             type: float32
-            unit: M_sun
+            unit: ''
             description: 'Mass inferred from isochrones '
           radius:
-            name: RADIUS
+            name: radius
             type: float32
-            unit: R_sun
+            unit: ''
             description: 'Radius inferred from isochrones '
           raw_teff:
-            name: RAW_TEFF
+            name: raw_teff
             type: float32
-            unit: K
+            unit: ''
             description: 'Raw stellar effective temperature '
           raw_e_teff:
-            name: RAW_E_TEFF
+            name: raw_e_teff
             type: float32
-            unit: K
+            unit: ''
             description: 'Raw error on stellar effective temperature '
           raw_logg:
-            name: RAW_LOGG
+            name: raw_logg
             type: float32
-            unit: log10(cm/s^2)
+            unit: ''
             description: 'Raw surface gravity '
           raw_e_logg:
-            name: RAW_E_LOGG
+            name: raw_e_logg
             type: float32
-            unit: log10(cm/s^2)
+            unit: ''
             description: 'Raw error on surface gravity '
           raw_v_micro:
-            name: RAW_V_MICRO
+            name: raw_v_micro
             type: float32
-            unit: km/s
+            unit: ''
             description: 'Raw microturbulence '
           raw_e_v_micro:
-            name: RAW_E_V_MICRO
+            name: raw_e_v_micro
             type: float32
-            unit: km/s
+            unit: ''
             description: 'Raw error on microturbulence '
           raw_v_sini:
-            name: RAW_V_SINI
+            name: raw_v_sini
             type: float32
-            unit: km/s
+            unit: ''
             description: 'Raw projected rotational velocity '
           raw_e_v_sini:
-            name: RAW_E_V_SINI
+            name: raw_e_v_sini
             type: float32
             unit: ''
             description: Raw error on projected rotational velocity [km/
           raw_m_h_atm:
-            name: RAW_M_H_ATM
+            name: raw_m_h_atm
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw metallicity '
           raw_e_m_h_atm:
-            name: RAW_E_M_H_ATM
+            name: raw_e_m_h_atm
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw error on metallicity '
           raw_alpha_m_atm:
-            name: RAW_ALPHA_M_ATM
+            name: raw_alpha_m_atm
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw [alpha/M] abundance ratio '
           raw_e_alpha_m_atm:
-            name: RAW_E_ALPHA_M_ATM
+            name: raw_e_alpha_m_atm
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw error on [alpha/M] abundance ratio '
           raw_c_m_atm:
-            name: RAW_C_M_ATM
+            name: raw_c_m_atm
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw atmospheric carbon abundance '
           raw_e_c_m_atm:
-            name: RAW_E_C_M_ATM
+            name: raw_e_c_m_atm
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw error on atmospheric carbon abundance '
           raw_n_m_atm:
-            name: RAW_N_M_ATM
+            name: raw_n_m_atm
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw atmospheric nitrogen abundance '
           raw_e_n_m_atm:
-            name: RAW_E_N_M_ATM
+            name: raw_e_n_m_atm
             type: float32
             unit: ''
             description: Raw error on atmospheric nitrogen abundance [de
           raw_al_h:
-            name: RAW_AL_H
+            name: raw_al_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw [Al/H] '
           raw_e_al_h:
-            name: RAW_E_AL_H
+            name: raw_e_al_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw error on [Al/H] '
           raw_c_12_13:
-            name: RAW_C_12_13
+            name: raw_c_12_13
             type: float32
             unit: ''
             description: Raw c12/C13 ratio
           raw_e_c_12_13:
-            name: RAW_E_C_12_13
+            name: raw_e_c_12_13
             type: float32
             unit: ''
             description: Raw error on c12/C13 ratio
           raw_ca_h:
-            name: RAW_CA_H
+            name: raw_ca_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw [Ca/H] '
           raw_e_ca_h:
-            name: RAW_E_CA_H
+            name: raw_e_ca_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw error on [Ca/H] '
           raw_ce_h:
-            name: RAW_CE_H
+            name: raw_ce_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw [Ce/H] '
           raw_e_ce_h:
-            name: RAW_E_CE_H
+            name: raw_e_ce_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw error on [Ce/H] '
           raw_c_1_h:
-            name: RAW_C_1_H
+            name: raw_c_1_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw [C/H] from neutral C lines '
           raw_e_c_1_h:
-            name: RAW_E_C_1_H
+            name: raw_e_c_1_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw error on [C/H] from neutral C lines '
           raw_c_h:
-            name: RAW_C_H
+            name: raw_c_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw [C/H] '
           raw_e_c_h:
-            name: RAW_E_C_H
+            name: raw_e_c_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw error on [C/H] '
           raw_co_h:
-            name: RAW_CO_H
+            name: raw_co_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw [Co/H] '
           raw_e_co_h:
-            name: RAW_E_CO_H
+            name: raw_e_co_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw error on [Co/H] '
           raw_cr_h:
-            name: RAW_CR_H
+            name: raw_cr_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw [Cr/H] '
           raw_e_cr_h:
-            name: RAW_E_CR_H
+            name: raw_e_cr_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw error on [Cr/H] '
           raw_cu_h:
-            name: RAW_CU_H
+            name: raw_cu_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw [Cu/H] '
           raw_e_cu_h:
-            name: RAW_E_CU_H
+            name: raw_e_cu_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw error on [Cu/H] '
           raw_fe_h:
-            name: RAW_FE_H
+            name: raw_fe_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw [Fe/H] '
           raw_e_fe_h:
-            name: RAW_E_FE_H
+            name: raw_e_fe_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw error on [Fe/H] '
           raw_k_h:
-            name: RAW_K_H
+            name: raw_k_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw [K/H] '
           raw_e_k_h:
-            name: RAW_E_K_H
+            name: raw_e_k_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw error on [K/H] '
           raw_mg_h:
-            name: RAW_MG_H
+            name: raw_mg_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw [Mg/H] '
           raw_e_mg_h:
-            name: RAW_E_MG_H
+            name: raw_e_mg_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw error on [Mg/H] '
           raw_mn_h:
-            name: RAW_MN_H
+            name: raw_mn_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw [Mn/H] '
           raw_e_mn_h:
-            name: RAW_E_MN_H
+            name: raw_e_mn_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw error on [Mn/H] '
           raw_na_h:
-            name: RAW_NA_H
+            name: raw_na_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw [Na/H] '
           raw_e_na_h:
-            name: RAW_E_NA_H
+            name: raw_e_na_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw error on [Na/H] '
           raw_nd_h:
-            name: RAW_ND_H
+            name: raw_nd_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw [Nd/H] '
           raw_e_nd_h:
-            name: RAW_E_ND_H
+            name: raw_e_nd_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw error on [Nd/H] '
           raw_ni_h:
-            name: RAW_NI_H
+            name: raw_ni_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw [Ni/H] '
           raw_e_ni_h:
-            name: RAW_E_NI_H
+            name: raw_e_ni_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw error on [Ni/H] '
           raw_n_h:
-            name: RAW_N_H
+            name: raw_n_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw [N/H] '
           raw_e_n_h:
-            name: RAW_E_N_H
+            name: raw_e_n_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw error on [N/H] '
           raw_o_h:
-            name: RAW_O_H
+            name: raw_o_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw [O/H] '
           raw_e_o_h:
-            name: RAW_E_O_H
+            name: raw_e_o_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw error on [O/H] '
           raw_p_h:
-            name: RAW_P_H
+            name: raw_p_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw [P/H] '
           raw_e_p_h:
-            name: RAW_E_P_H
+            name: raw_e_p_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw error on [P/H] '
           raw_si_h:
-            name: RAW_SI_H
+            name: raw_si_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw [Si/H] '
           raw_e_si_h:
-            name: RAW_E_SI_H
+            name: raw_e_si_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw error on [Si/H] '
           raw_s_h:
-            name: RAW_S_H
+            name: raw_s_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw [S/H] '
           raw_e_s_h:
-            name: RAW_E_S_H
+            name: raw_e_s_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw error on [S/H] '
           raw_ti_h:
-            name: RAW_TI_H
+            name: raw_ti_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw [Ti/H] '
           raw_e_ti_h:
-            name: RAW_E_TI_H
+            name: raw_e_ti_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw error on [Ti/H] '
           raw_ti_2_h:
-            name: RAW_TI_2_H
+            name: raw_ti_2_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw [Ti/H] from singly ionized Ti lines '
           raw_e_ti_2_h:
-            name: RAW_E_TI_2_H
+            name: raw_e_ti_2_h
             type: float32
             unit: ''
             description: Raw error on [Ti/H] from singly ionized Ti line
           raw_v_h:
-            name: RAW_V_H
+            name: raw_v_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw [V/H] '
           raw_e_v_h:
-            name: RAW_E_V_H
+            name: raw_e_v_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw error on [V/H] '
       hdu2:
         name: ''
@@ -3157,1989 +2127,1989 @@ releases:
           comment: data unit checksum updated 2023-11-15T23:29:45
         columns:
           sdss_id:
-            name: SDSS_ID
+            name: sdss_id
             type: int64
             unit: ''
             description: SDSS-5 unique identifier
           sdss4_apogee_id:
-            name: SDSS4_APOGEE_ID
+            name: sdss4_apogee_id
             type: char[19]
             unit: ''
             description: SDSS-4 DR17 APOGEE identifier
           gaia_dr2_source_id:
-            name: GAIA_DR2_SOURCE_ID
+            name: gaia_dr2_source_id
             type: int64
             unit: ''
             description: Gaia DR2 source identifier
           gaia_dr3_source_id:
-            name: GAIA_DR3_SOURCE_ID
+            name: gaia_dr3_source_id
             type: int64
             unit: ''
             description: Gaia DR3 source identifier
           tic_v8_id:
-            name: TIC_V8_ID
+            name: tic_v8_id
             type: int64
             unit: ''
             description: TESS Input Catalog (v8) identifier
           healpix:
-            name: HEALPIX
+            name: healpix
             type: int32
             unit: ''
             description: HEALPix (128 side)
           carton_0:
-            name: CARTON_0
+            name: carton_0
             type: char[1]
             unit: ''
             description: Highest priority carton name
           lead:
-            name: LEAD
+            name: lead
             type: char[25]
             unit: ''
             description: Lead catalog used for cross-match
           version_id:
-            name: VERSION_ID
+            name: version_id
             type: int32
             unit: ''
             description: SDSS catalog version for targeting
           catalogid:
-            name: CATALOGID
+            name: catalogid
             type: int64
             unit: ''
             description: Catalog identifier used to target the source
           catalogid21:
-            name: CATALOGID21
+            name: catalogid21
             type: int64
             unit: ''
             description: Catalog identifier (v21; v0.0)
           catalogid25:
-            name: CATALOGID25
+            name: catalogid25
             type: int64
             unit: ''
             description: Catalog identifier (v25; v0.5)
           catalogid31:
-            name: CATALOGID31
+            name: catalogid31
             type: int64
             unit: ''
             description: Catalog identifier (v31; v1.0)
           n_associated:
-            name: N_ASSOCIATED
+            name: n_associated
             type: int32
             unit: ''
             description: SDSS_IDs associated with this CATALOGID
           n_neighborhood:
-            name: N_NEIGHBORHOOD
+            name: n_neighborhood
             type: int32
             unit: ''
             description: Sources within 3" and G_MAG < G_MAG_source + 5
           sdss5_target_flags:
-            name: SDSS5_TARGET_FLAGS
+            name: sdss5_target_flags
             type: bool[57]
             unit: ''
             description: SDSS-5 targeting flags
           sdss4_apogee_target1_flags:
-            name: SDSS4_APOGEE_TARGET1_FLAGS
+            name: sdss4_apogee_target1_flags
             type: int32
             unit: ''
             description: SDSS4 APOGEE1 targeting flags (1/2)
           sdss4_apogee_target2_flags:
-            name: SDSS4_APOGEE_TARGET2_FLAGS
+            name: sdss4_apogee_target2_flags
             type: int32
             unit: ''
             description: SDSS4 APOGEE1 targeting flags (2/2)
           sdss4_apogee2_target1_flags:
-            name: SDSS4_APOGEE2_TARGET1_FLAGS
+            name: sdss4_apogee2_target1_flags
             type: int32
             unit: ''
             description: SDSS4 APOGEE2 targeting flags (1/3)
           sdss4_apogee2_target2_flags:
-            name: SDSS4_APOGEE2_TARGET2_FLAGS
+            name: sdss4_apogee2_target2_flags
             type: int32
             unit: ''
             description: SDSS4 APOGEE2 targeting flags (2/3)
           sdss4_apogee2_target3_flags:
-            name: SDSS4_APOGEE2_TARGET3_FLAGS
+            name: sdss4_apogee2_target3_flags
             type: int32
             unit: ''
             description: SDSS4 APOGEE2 targeting flags (3/3)
           sdss4_apogee_member_flags:
-            name: SDSS4_APOGEE_MEMBER_FLAGS
+            name: sdss4_apogee_member_flags
             type: int32
             unit: ''
             description: SDSS4 likely cluster/galaxy member flags
           sdss4_apogee_extra_target_flags:
-            name: SDSS4_APOGEE_EXTRA_TARGET_FLAGS
+            name: sdss4_apogee_extra_target_flags
             type: int32
             unit: ''
             description: SDSS4 target info (aka EXTRATARG)
           ra:
-            name: RA
+            name: ra
             type: float32
-            unit: deg
+            unit: ''
             description: 'Right ascension '
           dec:
-            name: DEC
+            name: dec
             type: float32
-            unit: deg
+            unit: ''
             description: 'Declination '
           l:
-            name: L
+            name: l
             type: float32
-            unit: deg
+            unit: ''
             description: 'Galactic longitude '
           b:
-            name: B
+            name: b
             type: float32
-            unit: deg
+            unit: ''
             description: 'Galactic latitude '
           plx:
-            name: PLX
+            name: plx
             type: float32
-            unit: mas
+            unit: ''
             description: 'Parallax '
           e_plx:
-            name: E_PLX
+            name: e_plx
             type: float32
-            unit: mas
+            unit: ''
             description: 'Error on parallax '
           pmra:
-            name: PMRA
+            name: pmra
             type: float32
-            unit: mas/yr
+            unit: ''
             description: 'Proper motion in RA '
           e_pmra:
-            name: E_PMRA
+            name: e_pmra
             type: float32
-            unit: mas/yr
+            unit: ''
             description: 'Error on proper motion in RA '
           pmde:
-            name: PMDE
+            name: pmde
             type: float32
-            unit: mas/yr
+            unit: ''
             description: 'Proper motion in DEC '
           e_pmde:
-            name: E_PMDE
+            name: e_pmde
             type: float32
-            unit: mas/yr
+            unit: ''
             description: 'Error on proper motion in DEC '
           gaia_v_rad:
-            name: GAIA_V_RAD
+            name: gaia_v_rad
             type: float32
-            unit: km/s
+            unit: ''
             description: 'Gaia radial velocity '
           gaia_e_v_rad:
-            name: GAIA_E_V_RAD
+            name: gaia_e_v_rad
             type: float32
-            unit: km/s
+            unit: ''
             description: 'Error on Gaia radial velocity '
           g_mag:
-            name: G_MAG
+            name: g_mag
             type: float32
-            unit: mag
+            unit: ''
             description: 'Gaia DR3 mean G band magnitude '
           bp_mag:
-            name: BP_MAG
+            name: bp_mag
             type: float32
-            unit: mag
+            unit: ''
             description: 'Gaia DR3 mean BP band magnitude '
           rp_mag:
-            name: RP_MAG
+            name: rp_mag
             type: float32
-            unit: mag
+            unit: ''
             description: 'Gaia DR3 mean RP band magnitude '
           j_mag:
-            name: J_MAG
+            name: j_mag
             type: float32
-            unit: mag
+            unit: ''
             description: '2MASS J band magnitude '
           e_j_mag:
-            name: E_J_MAG
+            name: e_j_mag
             type: float32
-            unit: mag
+            unit: ''
             description: 'Error on 2MASS J band magnitude '
           h_mag:
-            name: H_MAG
+            name: h_mag
             type: float32
-            unit: mag
+            unit: ''
             description: '2MASS H band magnitude '
           e_h_mag:
-            name: E_H_MAG
+            name: e_h_mag
             type: float32
-            unit: mag
+            unit: ''
             description: 'Error on 2MASS H band magnitude '
           k_mag:
-            name: K_MAG
+            name: k_mag
             type: float32
-            unit: mag
+            unit: ''
             description: '2MASS K band magnitude '
           e_k_mag:
-            name: E_K_MAG
+            name: e_k_mag
             type: float32
-            unit: mag
+            unit: ''
             description: 'Error on 2MASS K band magnitude '
           ph_qual:
-            name: PH_QUAL
+            name: ph_qual
             type: char[3]
             unit: ''
             description: 2MASS photometric quality flag
           bl_flg:
-            name: BL_FLG
+            name: bl_flg
             type: char[3]
             unit: ''
             description: Number of components fit per band (JHK)
           cc_flg:
-            name: CC_FLG
+            name: cc_flg
             type: char[3]
             unit: ''
             description: Contamination and confusion flag
           w1_mag:
-            name: W1_MAG
+            name: w1_mag
             type: float32
             unit: ''
             description: W1 magnitude
           e_w1_mag:
-            name: E_W1_MAG
+            name: e_w1_mag
             type: float32
             unit: ''
             description: Error on W1 magnitude
           w1_flux:
-            name: W1_FLUX
+            name: w1_flux
             type: float32
-            unit: Vega nMgy
+            unit: ''
             description: 'W1 flux '
           w1_dflux:
-            name: W1_DFLUX
+            name: w1_dflux
             type: float32
-            unit: Vega nMgy
+            unit: ''
             description: 'Error on W1 flux '
           w1_frac:
-            name: W1_FRAC
+            name: w1_frac
             type: float32
             unit: ''
             description: Fraction of W1 flux from this object
           w2_mag:
-            name: W2_MAG
+            name: w2_mag
             type: float32
-            unit: Vega
+            unit: ''
             description: 'W2 magnitude '
           e_w2_mag:
-            name: E_W2_MAG
+            name: e_w2_mag
             type: float32
             unit: ''
             description: Error on W2 magnitude
           w2_flux:
-            name: W2_FLUX
+            name: w2_flux
             type: float32
-            unit: Vega nMgy
+            unit: ''
             description: 'W2 flux '
           w2_dflux:
-            name: W2_DFLUX
+            name: w2_dflux
             type: float32
-            unit: Vega nMgy
+            unit: ''
             description: 'Error on W2 flux '
           w2_frac:
-            name: W2_FRAC
+            name: w2_frac
             type: float32
             unit: ''
             description: Fraction of W2 flux from this object
           w1uflags:
-            name: W1UFLAGS
+            name: w1uflags
             type: int32
             unit: ''
             description: unWISE flags for W1
           w2uflags:
-            name: W2UFLAGS
+            name: w2uflags
             type: int32
             unit: ''
             description: unWISE flags for W2
           w1aflags:
-            name: W1AFLAGS
+            name: w1aflags
             type: int32
             unit: ''
             description: Additional flags for W1
           w2aflags:
-            name: W2AFLAGS
+            name: w2aflags
             type: int32
             unit: ''
             description: Additional flags for W2
           mag4_5:
-            name: MAG4_5
+            name: mag4_5
             type: float32
-            unit: mag
+            unit: ''
             description: 'IRAC band 4.5 micron magnitude '
           d4_5m:
-            name: D4_5M
+            name: d4_5m
             type: float32
-            unit: mag
+            unit: ''
             description: 'Error on IRAC band 4.5 micron magnitude '
           rms_f4_5:
-            name: RMS_F4_5
+            name: rms_f4_5
             type: float32
-            unit: mJy
+            unit: ''
             description: 'RMS deviations from final flux '
           sqf_4_5:
-            name: SQF_4_5
+            name: sqf_4_5
             type: int32
             unit: ''
             description: Source quality flag for IRAC band 4.5 micron
           mf4_5:
-            name: MF4_5
+            name: mf4_5
             type: int32
             unit: ''
             description: Flux calculation method flag
           csf:
-            name: CSF
+            name: csf
             type: int32
             unit: ''
             description: Close source flag
           zgr_teff:
-            name: ZGR_TEFF
+            name: zgr_teff
             type: float32
-            unit: K
+            unit: ''
             description: 'Stellar effective temperature '
           zgr_e_teff:
-            name: ZGR_E_TEFF
+            name: zgr_e_teff
             type: float32
-            unit: K
+            unit: ''
             description: 'Error on stellar effective temperature '
           zgr_logg:
-            name: ZGR_LOGG
+            name: zgr_logg
             type: float32
-            unit: log10(cm/s^2)
+            unit: ''
             description: 'Surface gravity '
           zgr_e_logg:
-            name: ZGR_E_LOGG
+            name: zgr_e_logg
             type: float32
-            unit: log10(cm/s^2)
+            unit: ''
             description: 'Error on surface gravity '
           zgr_fe_h:
-            name: ZGR_FE_H
+            name: zgr_fe_h
             type: float32
-            unit: dex
+            unit: ''
             description: '[Fe/H] '
           zgr_e_fe_h:
-            name: ZGR_E_FE_H
+            name: zgr_e_fe_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Error on [Fe/H] '
           zgr_e:
-            name: ZGR_E
+            name: zgr_e
             type: float32
-            unit: mag
+            unit: ''
             description: 'Extinction '
           zgr_e_e:
-            name: ZGR_E_E
+            name: zgr_e_e
             type: float32
-            unit: mag
+            unit: ''
             description: 'Error on extinction '
           zgr_plx:
-            name: ZGR_PLX
+            name: zgr_plx
             type: float32
             unit: ''
             description: Parallax [mas] (Gaia DR3)
           zgr_e_plx:
-            name: ZGR_E_PLX
+            name: zgr_e_plx
             type: float32
             unit: ''
             description: Error on parallax [mas] (Gaia DR3)
           zgr_teff_confidence:
-            name: ZGR_TEFF_CONFIDENCE
+            name: zgr_teff_confidence
             type: float32
             unit: ''
             description: Confidence estimate in TEFF
           zgr_logg_confidence:
-            name: ZGR_LOGG_CONFIDENCE
+            name: zgr_logg_confidence
             type: float32
             unit: ''
             description: Confidence estimate in LOGG
           zgr_fe_h_confidence:
-            name: ZGR_FE_H_CONFIDENCE
+            name: zgr_fe_h_confidence
             type: float32
             unit: ''
             description: Confidence estimate in FE_H
           zgr_ln_prior:
-            name: ZGR_LN_PRIOR
+            name: zgr_ln_prior
             type: float32
             unit: ''
             description: Log prior probability
           zgr_chi2:
-            name: ZGR_CHI2
+            name: zgr_chi2
             type: float32
             unit: ''
             description: Chi-square value
           zgr_quality_flags:
-            name: ZGR_QUALITY_FLAGS
+            name: zgr_quality_flags
             type: int32
             unit: ''
             description: Quality flags
           r_med_geo:
-            name: R_MED_GEO
+            name: r_med_geo
             type: float32
-            unit: pc
+            unit: ''
             description: 'Median geometric distance '
           r_lo_geo:
-            name: R_LO_GEO
+            name: r_lo_geo
             type: float32
-            unit: pc
+            unit: ''
             description: '16th percentile of geometric distance '
           r_hi_geo:
-            name: R_HI_GEO
+            name: r_hi_geo
             type: float32
-            unit: pc
+            unit: ''
             description: '84th percentile of geometric distance '
           r_med_photogeo:
-            name: R_MED_PHOTOGEO
+            name: r_med_photogeo
             type: float32
-            unit: pc
+            unit: ''
             description: '50th percentile of photogeometric distance '
           r_lo_photogeo:
-            name: R_LO_PHOTOGEO
+            name: r_lo_photogeo
             type: float32
-            unit: pc
+            unit: ''
             description: '16th percentile of photogeometric distance '
           r_hi_photogeo:
-            name: R_HI_PHOTOGEO
+            name: r_hi_photogeo
             type: float32
-            unit: pc
+            unit: ''
             description: '84th percentile of photogeometric distance '
           bailer_jones_flags:
-            name: BAILER_JONES_FLAGS
+            name: bailer_jones_flags
             type: char[5]
             unit: ''
             description: Bailer-Jones quality flags
           ebv:
-            name: EBV
+            name: ebv
             type: float32
-            unit: mag
+            unit: ''
             description: 'E(B-V) '
           e_ebv:
-            name: E_EBV
+            name: e_ebv
             type: float32
-            unit: mag
+            unit: ''
             description: 'Error on E(B-V) '
           ebv_flags:
-            name: EBV_FLAGS
+            name: ebv_flags
             type: int32
             unit: ''
             description: Flags indicating the source of E(B-V)
           ebv_zhang_2023:
-            name: EBV_ZHANG_2023
+            name: ebv_zhang_2023
             type: float32
-            unit: mag
+            unit: ''
             description: 'E(B-V) from Zhang et al. (2023) '
           e_ebv_zhang_2023:
-            name: E_EBV_ZHANG_2023
+            name: e_ebv_zhang_2023
             type: float32
-            unit: mag
+            unit: ''
             description: 'Error on E(B-V) from Zhang et al. (2023) '
           ebv_sfd:
-            name: EBV_SFD
+            name: ebv_sfd
             type: float32
-            unit: mag
+            unit: ''
             description: 'E(B-V) from SFD '
           e_ebv_sfd:
-            name: E_EBV_SFD
+            name: e_ebv_sfd
             type: float32
-            unit: mag
+            unit: ''
             description: 'Error on E(B-V) from SFD '
           ebv_rjce_glimpse:
-            name: EBV_RJCE_GLIMPSE
+            name: ebv_rjce_glimpse
             type: float32
-            unit: mag
+            unit: ''
             description: 'E(B-V) from RJCE GLIMPSE '
           e_ebv_rjce_glimpse:
-            name: E_EBV_RJCE_GLIMPSE
+            name: e_ebv_rjce_glimpse
             type: float32
-            unit: mag
+            unit: ''
             description: 'Error on RJCE GLIMPSE E(B-V) '
           ebv_rjce_allwise:
-            name: EBV_RJCE_ALLWISE
+            name: ebv_rjce_allwise
             type: float32
-            unit: mag
+            unit: ''
             description: 'E(B-V) from RJCE AllWISE '
           e_ebv_rjce_allwise:
-            name: E_EBV_RJCE_ALLWISE
+            name: e_ebv_rjce_allwise
             type: float32
-            unit: mag
+            unit: ''
             description: Error on RJCE AllWISE E(B-V)
           ebv_bayestar_2019:
-            name: EBV_BAYESTAR_2019
+            name: ebv_bayestar_2019
             type: float32
-            unit: mag
+            unit: ''
             description: 'E(B-V) from Bayestar 2019 '
           e_ebv_bayestar_2019:
-            name: E_EBV_BAYESTAR_2019
+            name: e_ebv_bayestar_2019
             type: float32
-            unit: mag
+            unit: ''
             description: 'Error on Bayestar 2019 E(B-V) '
           ebv_edenhofer_2023:
-            name: EBV_EDENHOFER_2023
+            name: ebv_edenhofer_2023
             type: float32
-            unit: mag
+            unit: ''
             description: 'E(B-V) from Edenhofer et al. (2023) '
           e_ebv_edenhofer_2023:
-            name: E_EBV_EDENHOFER_2023
+            name: e_ebv_edenhofer_2023
             type: float32
-            unit: mag
+            unit: ''
             description: 'Error on Edenhofer et al. (2023) E(B-V) '
           c_star:
-            name: C_STAR
+            name: c_star
             type: float32
             unit: ''
             description: Quality parameter (see Riello et al. 2021)
           u_jkc_mag:
-            name: U_JKC_MAG
+            name: u_jkc_mag
             type: float32
-            unit: mag
+            unit: ''
             description: 'Gaia XP synthetic U-band (JKC) '
           u_jkc_mag_flag:
-            name: U_JKC_MAG_FLAG
+            name: u_jkc_mag_flag
             type: int32
             unit: ''
             description: U-band (JKC) is within valid range
           b_jkc_mag:
-            name: B_JKC_MAG
+            name: b_jkc_mag
             type: float32
-            unit: mag
+            unit: ''
             description: 'Gaia XP synthetic B-band (JKC) '
           b_jkc_mag_flag:
-            name: B_JKC_MAG_FLAG
+            name: b_jkc_mag_flag
             type: int32
             unit: ''
             description: B-band (JKC) is within valid range
           v_jkc_mag:
-            name: V_JKC_MAG
+            name: v_jkc_mag
             type: float32
-            unit: mag
+            unit: ''
             description: 'Gaia XP synthetic V-band (JKC) '
           v_jkc_mag_flag:
-            name: V_JKC_MAG_FLAG
+            name: v_jkc_mag_flag
             type: int32
             unit: ''
             description: V-band (JKC) is within valid range
           r_jkc_mag:
-            name: R_JKC_MAG
+            name: r_jkc_mag
             type: float32
-            unit: mag
+            unit: ''
             description: 'Gaia XP synthetic R-band (JKC) '
           r_jkc_mag_flag:
-            name: R_JKC_MAG_FLAG
+            name: r_jkc_mag_flag
             type: int32
             unit: ''
             description: R-band (JKC) is within valid range
           i_jkc_mag:
-            name: I_JKC_MAG
+            name: i_jkc_mag
             type: float32
-            unit: mag
+            unit: ''
             description: 'Gaia XP synthetic I-band (JKC) '
           i_jkc_mag_flag:
-            name: I_JKC_MAG_FLAG
+            name: i_jkc_mag_flag
             type: int32
             unit: ''
             description: I-band (JKC) is within valid range
           u_sdss_mag:
-            name: U_SDSS_MAG
+            name: u_sdss_mag
             type: float32
-            unit: mag
+            unit: ''
             description: 'Gaia XP synthetic u-band (SDSS) '
           u_sdss_mag_flag:
-            name: U_SDSS_MAG_FLAG
+            name: u_sdss_mag_flag
             type: int32
             unit: ''
             description: u-band (SDSS) is within valid range
           g_sdss_mag:
-            name: G_SDSS_MAG
+            name: g_sdss_mag
             type: float32
-            unit: mag
+            unit: ''
             description: 'Gaia XP synthetic g-band (SDSS) '
           g_sdss_mag_flag:
-            name: G_SDSS_MAG_FLAG
+            name: g_sdss_mag_flag
             type: int32
             unit: ''
             description: g-band (SDSS) is within valid range
           r_sdss_mag:
-            name: R_SDSS_MAG
+            name: r_sdss_mag
             type: float32
-            unit: mag
+            unit: ''
             description: 'Gaia XP synthetic r-band (SDSS) '
           r_sdss_mag_flag:
-            name: R_SDSS_MAG_FLAG
+            name: r_sdss_mag_flag
             type: int32
             unit: ''
             description: r-band (SDSS) is within valid range
           i_sdss_mag:
-            name: I_SDSS_MAG
+            name: i_sdss_mag
             type: float32
-            unit: mag
+            unit: ''
             description: 'Gaia XP synthetic i-band (SDSS) '
           i_sdss_mag_flag:
-            name: I_SDSS_MAG_FLAG
+            name: i_sdss_mag_flag
             type: int32
             unit: ''
             description: i-band (SDSS) is within valid range
           z_sdss_mag:
-            name: Z_SDSS_MAG
+            name: z_sdss_mag
             type: float32
-            unit: mag
+            unit: ''
             description: 'Gaia XP synthetic z-band (SDSS) '
           z_sdss_mag_flag:
-            name: Z_SDSS_MAG_FLAG
+            name: z_sdss_mag_flag
             type: int32
             unit: ''
             description: z-band (SDSS) is within valid range
           y_ps1_mag:
-            name: Y_PS1_MAG
+            name: y_ps1_mag
             type: float32
-            unit: mag
+            unit: ''
             description: 'Gaia XP synthetic Y-band (PS1) '
           y_ps1_mag_flag:
-            name: Y_PS1_MAG_FLAG
+            name: y_ps1_mag_flag
             type: int32
             unit: ''
             description: Y-band (PS1) is within valid range
           n_boss_visits:
-            name: N_BOSS_VISITS
+            name: n_boss_visits
             type: int32
             unit: ''
             description: Number of BOSS visits
           boss_min_mjd:
-            name: BOSS_MIN_MJD
+            name: boss_min_mjd
             type: int32
             unit: ''
             description: Minimum MJD of BOSS visits
           boss_max_mjd:
-            name: BOSS_MAX_MJD
+            name: boss_max_mjd
             type: int32
             unit: ''
             description: Maximum MJD of BOSS visits
           n_apogee_visits:
-            name: N_APOGEE_VISITS
+            name: n_apogee_visits
             type: int32
             unit: ''
             description: Number of APOGEE visits
           apogee_min_mjd:
-            name: APOGEE_MIN_MJD
+            name: apogee_min_mjd
             type: int32
             unit: ''
             description: Minimum MJD of APOGEE visits
           apogee_max_mjd:
-            name: APOGEE_MAX_MJD
+            name: apogee_max_mjd
             type: int32
             unit: ''
             description: Maximum MJD of APOGEE visits
           source:
-            name: SOURCE
+            name: source
             type: int64
             unit: ''
             description: Unique source primary key
           star_pk:
-            name: STAR_PK
+            name: star_pk
             type: int64
             unit: ''
             description: APOGEE DRP `star` primary key
           spectrum_pk:
-            name: SPECTRUM_PK
+            name: spectrum_pk
             type: int64
             unit: ''
             description: Unique spectrum primary key
           release:
-            name: RELEASE
+            name: release
             type: char[5]
             unit: ''
             description: SDSS release
           filetype:
-            name: FILETYPE
+            name: filetype
             type: char[6]
             unit: ''
             description: SDSS file type that stores this spectrum
           apred:
-            name: APRED
+            name: apred
             type: char[4]
             unit: ''
             description: APOGEE reduction pipeline
           apstar:
-            name: APSTAR
+            name: apstar
             type: char[5]
             unit: ''
             description: 'Unused DR17 apStar keyword (default: stars)'
           obj:
-            name: OBJ
+            name: obj
             type: char[19]
             unit: ''
             description: Object name
           telescope:
-            name: TELESCOPE
+            name: telescope
             type: char[6]
             unit: ''
             description: Short telescope name
           field:
-            name: FIELD
+            name: field
             type: char[19]
             unit: ''
             description: Field identifier
           prefix:
-            name: PREFIX
+            name: prefix
             type: char[2]
             unit: ''
             description: Prefix used to separate SDSS 4 north/south
           min_mjd:
-            name: MIN_MJD
+            name: min_mjd
             type: int32
             unit: ''
             description: Minimum MJD of visits
           max_mjd:
-            name: MAX_MJD
+            name: max_mjd
             type: int32
             unit: ''
             description: Maximum MJD of visits
           n_entries:
-            name: N_ENTRIES
+            name: n_entries
             type: int32
             unit: ''
             description: apStar entries for this SDSS4_APOGEE_ID
           n_visits:
-            name: N_VISITS
+            name: n_visits
             type: int32
             unit: ''
             description: Number of APOGEE visits
           n_good_visits:
-            name: N_GOOD_VISITS
+            name: n_good_visits
             type: int32
             unit: ''
             description: Number of 'good' APOGEE visits
           n_good_rvs:
-            name: N_GOOD_RVS
+            name: n_good_rvs
             type: int32
             unit: ''
             description: Number of 'good' APOGEE radial velocities
           snr:
-            name: SNR
+            name: snr
             type: float32
             unit: ''
             description: Signal-to-noise ratio
           mean_fiber:
-            name: MEAN_FIBER
+            name: mean_fiber
             type: float32
             unit: ''
             description: S/N-weighted mean visit fiber number
           std_fiber:
-            name: STD_FIBER
+            name: std_fiber
             type: float32
             unit: ''
             description: Standard deviation of visit fiber numbers
           spectrum_flags:
-            name: SPECTRUM_FLAGS
+            name: spectrum_flags
             type: int32
             unit: ''
             description: Data reduction pipeline flags for this spectrum
           v_rad:
-            name: V_RAD
+            name: v_rad
             type: float32
-            unit: km/s
+            unit: ''
             description: 'Barycentric rest frame radial velocity '
           e_v_rad:
-            name: E_V_RAD
+            name: e_v_rad
             type: float32
-            unit: km/s
+            unit: ''
             description: 'Error on radial velocity '
           std_v_rad:
-            name: STD_V_RAD
+            name: std_v_rad
             type: float32
-            unit: km/s
+            unit: ''
             description: 'Standard deviation of visit V_RAD '
           median_e_v_rad:
-            name: MEDIAN_E_V_RAD
+            name: median_e_v_rad
             type: float32
-            unit: km/s
+            unit: ''
             description: 'Median error in radial velocity '
           doppler_teff:
-            name: DOPPLER_TEFF
+            name: doppler_teff
             type: float32
-            unit: K
+            unit: ''
             description: 'Stellar effective temperature '
           doppler_e_teff:
-            name: DOPPLER_E_TEFF
+            name: doppler_e_teff
             type: float32
-            unit: K
+            unit: ''
             description: 'Error on stellar effective temperature '
           doppler_logg:
-            name: DOPPLER_LOGG
+            name: doppler_logg
             type: float32
-            unit: log10(cm/s^2)
+            unit: ''
             description: 'Surface gravity '
           doppler_e_logg:
-            name: DOPPLER_E_LOGG
+            name: doppler_e_logg
             type: float32
-            unit: log10(cm/s^2)
+            unit: ''
             description: 'Error on surface gravity '
           doppler_fe_h:
-            name: DOPPLER_FE_H
+            name: doppler_fe_h
             type: float32
-            unit: dex
+            unit: ''
             description: '[Fe/H] '
           doppler_e_fe_h:
-            name: DOPPLER_E_FE_H
+            name: doppler_e_fe_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Error on [Fe/H] '
           doppler_rchi2:
-            name: DOPPLER_RCHI2
+            name: doppler_rchi2
             type: float32
             unit: ''
             description: Reduced chi-square value of DOPPLER fit
           doppler_flags:
-            name: DOPPLER_FLAGS
+            name: doppler_flags
             type: int32
             unit: ''
             description: DOPPLER flags
           xcorr_v_rad:
-            name: XCORR_V_RAD
+            name: xcorr_v_rad
             type: float32
-            unit: km/s
+            unit: ''
             description: 'Barycentric rest frame radial velocity '
           xcorr_v_rel:
-            name: XCORR_V_REL
+            name: xcorr_v_rel
             type: float32
-            unit: km/s
+            unit: ''
             description: 'Relative velocity '
           xcorr_e_v_rel:
-            name: XCORR_E_V_REL
+            name: xcorr_e_v_rel
             type: float32
-            unit: km/s
+            unit: ''
             description: 'Error on relative velocity '
           ccfwhm:
-            name: CCFWHM
+            name: ccfwhm
             type: float32
             unit: ''
             description: Cross-correlation function FWHM
           autofwhm:
-            name: AUTOFWHM
+            name: autofwhm
             type: float32
             unit: ''
             description: Auto-correlation function FWHM
           n_components:
-            name: N_COMPONENTS
+            name: n_components
             type: int32
             unit: ''
             description: Number of components in CCF
           task_pk:
-            name: TASK_PK
+            name: task_pk
             type: int64
             unit: ''
             description: Task model primary key
           source_pk:
-            name: SOURCE_PK
+            name: source_pk
             type: int64
             unit: ''
             description: ''
           v_astra:
-            name: V_ASTRA
+            name: v_astra
             type: char[5]
             unit: ''
             description: Astra version
           created:
-            name: CREATED
+            name: created
             type: char[26]
             unit: ''
             description: Datetime when task record was created
           t_elapsed:
-            name: T_ELAPSED
+            name: t_elapsed
             type: float32
-            unit: s
+            unit: ''
             description: 'Core-time elapsed on this analysis '
           t_overhead:
-            name: T_OVERHEAD
+            name: t_overhead
             type: float32
-            unit: s
+            unit: ''
             description: 'Estimated core-time spent in overhads '
           tag:
-            name: TAG
+            name: tag
             type: char[1]
             unit: ''
             description: Experiment tag for this result
           irfm_teff:
-            name: IRFM_TEFF
+            name: irfm_teff
             type: float32
-            unit: K
+            unit: ''
             description: 'Stellar effective temperature '
           irfm_teff_flags:
-            name: IRFM_TEFF_FLAGS
+            name: irfm_teff_flags
             type: int32
             unit: ''
             description: IRFM temperature flags
           teff:
-            name: TEFF
+            name: teff
             type: float32
-            unit: K
+            unit: ''
             description: 'Stellar effective temperature '
           e_teff:
-            name: E_TEFF
+            name: e_teff
             type: float32
-            unit: K
+            unit: ''
             description: 'Error on stellar effective temperature '
           logg:
-            name: LOGG
+            name: logg
             type: float32
-            unit: log10(cm/s^2)
+            unit: ''
             description: 'Surface gravity '
           e_logg:
-            name: E_LOGG
+            name: e_logg
             type: float32
-            unit: log10(cm/s^2)
+            unit: ''
             description: 'Error on surface gravity '
           v_micro:
-            name: V_MICRO
+            name: v_micro
             type: float32
-            unit: km/s
+            unit: ''
             description: 'Microturbulence '
           e_v_micro:
-            name: E_V_MICRO
+            name: e_v_micro
             type: float32
-            unit: km/s
+            unit: ''
             description: 'Error on microturbulence '
           v_sini:
-            name: V_SINI
+            name: v_sini
             type: float32
-            unit: km/s
+            unit: ''
             description: 'Projected rotational velocity '
           e_v_sini:
-            name: E_V_SINI
+            name: e_v_sini
             type: float32
-            unit: km/s
+            unit: ''
             description: 'Error on projected rotational velocity '
           m_h_atm:
-            name: M_H_ATM
+            name: m_h_atm
             type: float32
-            unit: dex
+            unit: ''
             description: 'Metallicity '
           e_m_h_atm:
-            name: E_M_H_ATM
+            name: e_m_h_atm
             type: float32
-            unit: dex
+            unit: ''
             description: 'Error on metallicity '
           alpha_m_atm:
-            name: ALPHA_M_ATM
+            name: alpha_m_atm
             type: float32
-            unit: dex
+            unit: ''
             description: '[alpha/M] abundance ratio '
           e_alpha_m_atm:
-            name: E_ALPHA_M_ATM
+            name: e_alpha_m_atm
             type: float32
-            unit: dex
+            unit: ''
             description: 'Error on [alpha/M] abundance ratio '
           c_m_atm:
-            name: C_M_ATM
+            name: c_m_atm
             type: float32
-            unit: dex
+            unit: ''
             description: 'Atmospheric carbon abundance '
           e_c_m_atm:
-            name: E_C_M_ATM
+            name: e_c_m_atm
             type: float32
-            unit: dex
+            unit: ''
             description: 'Error on atmospheric carbon abundance '
           n_m_atm:
-            name: N_M_ATM
+            name: n_m_atm
             type: float32
-            unit: dex
+            unit: ''
             description: 'Atmospheric nitrogen abundance '
           e_n_m_atm:
-            name: E_N_M_ATM
+            name: e_n_m_atm
             type: float32
-            unit: dex
+            unit: ''
             description: 'Error on atmospheric nitrogen abundance '
           al_h:
-            name: AL_H
+            name: al_h
             type: float32
-            unit: dex
+            unit: ''
             description: '[Al/H] '
           e_al_h:
-            name: E_AL_H
+            name: e_al_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Error on [Al/H] '
           al_h_flags:
-            name: AL_H_FLAGS
+            name: al_h_flags
             type: int32
-            unit: dex
+            unit: ''
             description: 'Flags for [Al/H] '
           al_h_rchi2:
-            name: AL_H_RCHI2
+            name: al_h_rchi2
             type: float32
-            unit: dex
+            unit: ''
             description: 'Reduced chi-square value for [Al/H] '
           c_12_13:
-            name: C_12_13
+            name: c_12_13
             type: float32
             unit: ''
             description: C12/C13 ratio
           e_c_12_13:
-            name: E_C_12_13
+            name: e_c_12_13
             type: float32
             unit: ''
             description: Error on c12/C13 ratio
           c_12_13_flags:
-            name: C_12_13_FLAGS
+            name: c_12_13_flags
             type: int32
             unit: ''
             description: Flags for c12/C13 ratio
           c_12_13_rchi2:
-            name: C_12_13_RCHI2
+            name: c_12_13_rchi2
             type: float32
             unit: ''
             description: Reduced chi-square value for c12/C13 ratio
           ca_h:
-            name: CA_H
+            name: ca_h
             type: float32
-            unit: dex
+            unit: ''
             description: '[Ca/H] '
           e_ca_h:
-            name: E_CA_H
+            name: e_ca_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Error on [Ca/H] '
           ca_h_flags:
-            name: CA_H_FLAGS
+            name: ca_h_flags
             type: int32
-            unit: dex
+            unit: ''
             description: 'Flags for [Ca/H] '
           ca_h_rchi2:
-            name: CA_H_RCHI2
+            name: ca_h_rchi2
             type: float32
-            unit: dex
+            unit: ''
             description: 'Reduced chi-square value for [Ca/H] '
           ce_h:
-            name: CE_H
+            name: ce_h
             type: float32
-            unit: dex
+            unit: ''
             description: '[Ce/H] '
           e_ce_h:
-            name: E_CE_H
+            name: e_ce_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Error on [Ce/H] '
           ce_h_flags:
-            name: CE_H_FLAGS
+            name: ce_h_flags
             type: int32
-            unit: dex
+            unit: ''
             description: 'Flags for [Ce/H] '
           ce_h_rchi2:
-            name: CE_H_RCHI2
+            name: ce_h_rchi2
             type: float32
-            unit: dex
+            unit: ''
             description: 'Reduced chi-square value for [Ce/H] '
           c_1_h:
-            name: C_1_H
+            name: c_1_h
             type: float32
-            unit: dex
+            unit: ''
             description: '[C/H] from neutral C lines '
           e_c_1_h:
-            name: E_C_1_H
+            name: e_c_1_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Error on [C/H] from neutral C lines '
           c_1_h_flags:
-            name: C_1_H_FLAGS
+            name: c_1_h_flags
             type: int32
-            unit: dex
+            unit: ''
             description: 'Flags for [C/H] from neutral C lines '
           c_1_h_rchi2:
-            name: C_1_H_RCHI2
+            name: c_1_h_rchi2
             type: float32
             unit: ''
             description: Reduced chi-square value for [C/H] from neutral
           c_h:
-            name: C_H
+            name: c_h
             type: float32
-            unit: dex
+            unit: ''
             description: '[C/H] '
           e_c_h:
-            name: E_C_H
+            name: e_c_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Error on [C/H] '
           c_h_flags:
-            name: C_H_FLAGS
+            name: c_h_flags
             type: int32
-            unit: dex
+            unit: ''
             description: 'Flags for [C/H] '
           c_h_rchi2:
-            name: C_H_RCHI2
+            name: c_h_rchi2
             type: float32
-            unit: dex
+            unit: ''
             description: 'Reduced chi-square value for [C/H] '
           co_h:
-            name: CO_H
+            name: co_h
             type: float32
-            unit: dex
+            unit: ''
             description: '[Co/H] '
           e_co_h:
-            name: E_CO_H
+            name: e_co_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Error on [Co/H] '
           co_h_flags:
-            name: CO_H_FLAGS
+            name: co_h_flags
             type: int32
-            unit: dex
+            unit: ''
             description: 'Flags for [Co/H] '
           co_h_rchi2:
-            name: CO_H_RCHI2
+            name: co_h_rchi2
             type: float32
-            unit: dex
+            unit: ''
             description: 'Reduced chi-square value for [Co/H] '
           cr_h:
-            name: CR_H
+            name: cr_h
             type: float32
-            unit: dex
+            unit: ''
             description: '[Cr/H] '
           e_cr_h:
-            name: E_CR_H
+            name: e_cr_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Error on [Cr/H] '
           cr_h_flags:
-            name: CR_H_FLAGS
+            name: cr_h_flags
             type: int32
-            unit: dex
+            unit: ''
             description: 'Flags for [Cr/H] '
           cr_h_rchi2:
-            name: CR_H_RCHI2
+            name: cr_h_rchi2
             type: float32
-            unit: dex
+            unit: ''
             description: 'Reduced chi-square value for [Cr/H] '
           cu_h:
-            name: CU_H
+            name: cu_h
             type: float32
-            unit: dex
+            unit: ''
             description: '[Cu/H] '
           e_cu_h:
-            name: E_CU_H
+            name: e_cu_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Error on [Cu/H] '
           cu_h_flags:
-            name: CU_H_FLAGS
+            name: cu_h_flags
             type: int32
-            unit: dex
+            unit: ''
             description: 'Flags for [Cu/H] '
           cu_h_rchi2:
-            name: CU_H_RCHI2
+            name: cu_h_rchi2
             type: float32
-            unit: dex
+            unit: ''
             description: 'Reduced chi-square value for [Cu/H] '
           fe_h:
-            name: FE_H
+            name: fe_h
             type: float32
-            unit: dex
+            unit: ''
             description: '[Fe/H] '
           e_fe_h:
-            name: E_FE_H
+            name: e_fe_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Error on [Fe/H] '
           fe_h_flags:
-            name: FE_H_FLAGS
+            name: fe_h_flags
             type: int32
-            unit: dex
+            unit: ''
             description: 'Flags for [Fe/H] '
           fe_h_rchi2:
-            name: FE_H_RCHI2
+            name: fe_h_rchi2
             type: float32
-            unit: dex
+            unit: ''
             description: 'Reduced chi-square value for [Fe/H] '
           k_h:
-            name: K_H
+            name: k_h
             type: float32
-            unit: dex
+            unit: ''
             description: '[K/H] '
           e_k_h:
-            name: E_K_H
+            name: e_k_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Error on [K/H] '
           k_h_flags:
-            name: K_H_FLAGS
+            name: k_h_flags
             type: int32
-            unit: dex
+            unit: ''
             description: 'Flags for [K/H] '
           k_h_rchi2:
-            name: K_H_RCHI2
+            name: k_h_rchi2
             type: float32
-            unit: dex
+            unit: ''
             description: 'Reduced chi-square value for [K/H] '
           mg_h:
-            name: MG_H
+            name: mg_h
             type: float32
-            unit: dex
+            unit: ''
             description: '[Mg/H] '
           e_mg_h:
-            name: E_MG_H
+            name: e_mg_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Error on [Mg/H] '
           mg_h_flags:
-            name: MG_H_FLAGS
+            name: mg_h_flags
             type: int32
-            unit: dex
+            unit: ''
             description: 'Flags for [Mg/H] '
           mg_h_rchi2:
-            name: MG_H_RCHI2
+            name: mg_h_rchi2
             type: float32
-            unit: dex
+            unit: ''
             description: 'Reduced chi-square value for [Mg/H] '
           mn_h:
-            name: MN_H
+            name: mn_h
             type: float32
-            unit: dex
+            unit: ''
             description: '[Mn/H] '
           e_mn_h:
-            name: E_MN_H
+            name: e_mn_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Error on [Mn/H] '
           mn_h_flags:
-            name: MN_H_FLAGS
+            name: mn_h_flags
             type: int32
-            unit: dex
+            unit: ''
             description: 'Flags for [Mn/H] '
           mn_h_rchi2:
-            name: MN_H_RCHI2
+            name: mn_h_rchi2
             type: float32
-            unit: dex
+            unit: ''
             description: 'Reduced chi-square value for [Mn/H] '
           na_h:
-            name: NA_H
+            name: na_h
             type: float32
-            unit: dex
+            unit: ''
             description: '[Na/H] '
           e_na_h:
-            name: E_NA_H
+            name: e_na_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Error on [Na/H] '
           na_h_flags:
-            name: NA_H_FLAGS
+            name: na_h_flags
             type: int32
-            unit: dex
+            unit: ''
             description: 'Flags for [Na/H] '
           na_h_rchi2:
-            name: NA_H_RCHI2
+            name: na_h_rchi2
             type: float32
-            unit: dex
+            unit: ''
             description: 'Reduced chi-square value for [Na/H] '
           nd_h:
-            name: ND_H
+            name: nd_h
             type: float32
-            unit: dex
+            unit: ''
             description: '[Nd/H] '
           e_nd_h:
-            name: E_ND_H
+            name: e_nd_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Error on [Nd/H] '
           nd_h_flags:
-            name: ND_H_FLAGS
+            name: nd_h_flags
             type: int32
-            unit: dex
+            unit: ''
             description: 'Flags for [Nd/H] '
           nd_h_rchi2:
-            name: ND_H_RCHI2
+            name: nd_h_rchi2
             type: float32
-            unit: dex
+            unit: ''
             description: 'Reduced chi-square value for [Nd/H] '
           ni_h:
-            name: NI_H
+            name: ni_h
             type: float32
-            unit: dex
+            unit: ''
             description: '[Ni/H] '
           e_ni_h:
-            name: E_NI_H
+            name: e_ni_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Error on [Ni/H] '
           ni_h_flags:
-            name: NI_H_FLAGS
+            name: ni_h_flags
             type: int32
-            unit: dex
+            unit: ''
             description: 'Flags for [Ni/H] '
           ni_h_rchi2:
-            name: NI_H_RCHI2
+            name: ni_h_rchi2
             type: float32
-            unit: dex
+            unit: ''
             description: 'Reduced chi-square value for [Ni/H] '
           n_h:
-            name: N_H
+            name: n_h
             type: float32
-            unit: dex
+            unit: ''
             description: '[N/H] '
           e_n_h:
-            name: E_N_H
+            name: e_n_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Error on [N/H] '
           n_h_flags:
-            name: N_H_FLAGS
+            name: n_h_flags
             type: int32
-            unit: dex
+            unit: ''
             description: 'Flags for [N/H] '
           n_h_rchi2:
-            name: N_H_RCHI2
+            name: n_h_rchi2
             type: float32
-            unit: dex
+            unit: ''
             description: 'Reduced chi-square value for [N/H] '
           o_h:
-            name: O_H
+            name: o_h
             type: float32
-            unit: dex
+            unit: ''
             description: '[O/H] '
           e_o_h:
-            name: E_O_H
+            name: e_o_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Error on [O/H] '
           o_h_flags:
-            name: O_H_FLAGS
+            name: o_h_flags
             type: int32
-            unit: dex
+            unit: ''
             description: 'Flags for [O/H] '
           o_h_rchi2:
-            name: O_H_RCHI2
+            name: o_h_rchi2
             type: float32
-            unit: dex
+            unit: ''
             description: 'Reduced chi-square value for [O/H] '
           p_h:
-            name: P_H
+            name: p_h
             type: float32
-            unit: dex
+            unit: ''
             description: '[P/H] '
           e_p_h:
-            name: E_P_H
+            name: e_p_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Error on [P/H] '
           p_h_flags:
-            name: P_H_FLAGS
+            name: p_h_flags
             type: int32
-            unit: dex
+            unit: ''
             description: 'Flags for [P/H] '
           p_h_rchi2:
-            name: P_H_RCHI2
+            name: p_h_rchi2
             type: float32
-            unit: dex
+            unit: ''
             description: 'Reduced chi-square value for [P/H] '
           si_h:
-            name: SI_H
+            name: si_h
             type: float32
-            unit: dex
+            unit: ''
             description: '[Si/H] '
           e_si_h:
-            name: E_SI_H
+            name: e_si_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Error on [Si/H] '
           si_h_flags:
-            name: SI_H_FLAGS
+            name: si_h_flags
             type: int32
-            unit: dex
+            unit: ''
             description: 'Flags for [Si/H] '
           si_h_rchi2:
-            name: SI_H_RCHI2
+            name: si_h_rchi2
             type: float32
-            unit: dex
+            unit: ''
             description: 'Reduced chi-square value for [Si/H] '
           s_h:
-            name: S_H
+            name: s_h
             type: float32
-            unit: dex
+            unit: ''
             description: '[S/H] '
           e_s_h:
-            name: E_S_H
+            name: e_s_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Error on [S/H] '
           s_h_flags:
-            name: S_H_FLAGS
+            name: s_h_flags
             type: int32
-            unit: dex
+            unit: ''
             description: 'Flags for [S/H] '
           s_h_rchi2:
-            name: S_H_RCHI2
+            name: s_h_rchi2
             type: float32
-            unit: dex
+            unit: ''
             description: 'Reduced chi-square value for [S/H] '
           ti_h:
-            name: TI_H
+            name: ti_h
             type: float32
-            unit: dex
+            unit: ''
             description: '[Ti/H] '
           e_ti_h:
-            name: E_TI_H
+            name: e_ti_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Error on [Ti/H] '
           ti_h_flags:
-            name: TI_H_FLAGS
+            name: ti_h_flags
             type: int32
-            unit: dex
+            unit: ''
             description: 'Flags for [Ti/H] '
           ti_h_rchi2:
-            name: TI_H_RCHI2
+            name: ti_h_rchi2
             type: float32
-            unit: dex
+            unit: ''
             description: 'Reduced chi-square value for [Ti/H] '
           ti_2_h:
-            name: TI_2_H
+            name: ti_2_h
             type: float32
-            unit: dex
+            unit: ''
             description: '[Ti/H] from singly ionized Ti lines '
           e_ti_2_h:
-            name: E_TI_2_H
+            name: e_ti_2_h
             type: float32
             unit: ''
             description: Error on [Ti/H] from singly ionized Ti lines [d
           ti_2_h_flags:
-            name: TI_2_H_FLAGS
+            name: ti_2_h_flags
             type: int32
             unit: ''
             description: Flags for [Ti/H] from singly ionized Ti lines [
           ti_2_h_rchi2:
-            name: TI_2_H_RCHI2
+            name: ti_2_h_rchi2
             type: float32
             unit: ''
             description: Reduced chi-square value for [Ti/H] from singly
           v_h:
-            name: V_H
+            name: v_h
             type: float32
-            unit: dex
+            unit: ''
             description: '[V/H] '
           e_v_h:
-            name: E_V_H
+            name: e_v_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Error on [V/H] '
           v_h_flags:
-            name: V_H_FLAGS
+            name: v_h_flags
             type: int32
-            unit: dex
+            unit: ''
             description: 'Flags for [V/H] '
           v_h_rchi2:
-            name: V_H_RCHI2
+            name: v_h_rchi2
             type: float32
-            unit: dex
+            unit: ''
             description: 'Reduced chi-square value for [V/H] '
           short_grid_name:
-            name: SHORT_GRID_NAME
+            name: short_grid_name
             type: char[16]
             unit: ''
             description: Short name describing the FERRE grid used
           continuum_order:
-            name: CONTINUUM_ORDER
+            name: continuum_order
             type: int32
             unit: ''
             description: Continuum order used in FERRE
           continuum_reject:
-            name: CONTINUUM_REJECT
+            name: continuum_reject
             type: float32
             unit: ''
             description: Tolerance for FERRE to reject continuum points
           interpolation_order:
-            name: INTERPOLATION_ORDER
+            name: interpolation_order
             type: int32
             unit: ''
             description: Interpolation order used by FERRE
           initial_flags:
-            name: INITIAL_FLAGS
+            name: initial_flags
             type: int32
             unit: ''
             description: Flags indicating source of initial guess
           rchi2:
-            name: RCHI2
+            name: rchi2
             type: float32
             unit: ''
             description: Reduced chi-square value
           ferre_log_snr_sq:
-            name: FERRE_LOG_SNR_SQ
+            name: ferre_log_snr_sq
             type: float32
             unit: ''
             description: FERRE-reported log10(snr**2)
           ferre_time_elapsed:
-            name: FERRE_TIME_ELAPSED
+            name: ferre_time_elapsed
             type: float32
-            unit: s
+            unit: ''
             description: 'Total core-second use reported by FERRE '
           result_flags:
-            name: RESULT_FLAGS
+            name: result_flags
             type: int32
             unit: ''
             description: Flags indicating FERRE issues
           flag_warn:
-            name: FLAG_WARN
+            name: flag_warn
             type: bool
             unit: ''
             description: Warning flag for results
           flag_bad:
-            name: FLAG_BAD
+            name: flag_bad
             type: bool
             unit: ''
             description: Bad flag for results
           stellar_parameters_task_pk:
-            name: STELLAR_PARAMETERS_TASK_PK
+            name: stellar_parameters_task_pk
             type: int64
             unit: ''
             description: Task primary key for stellar parameters
           al_h_task_pk:
-            name: AL_H_TASK_PK
+            name: al_h_task_pk
             type: int64
             unit: ''
             description: Task primary key for [Al/H]
           c_12_13_task_pk:
-            name: C_12_13_TASK_PK
+            name: c_12_13_task_pk
             type: int64
             unit: ''
             description: Task primary key for C12/C13
           ca_h_task_pk:
-            name: CA_H_TASK_PK
+            name: ca_h_task_pk
             type: int64
             unit: ''
             description: Task primary key for [Ca/H]
           ce_h_task_pk:
-            name: CE_H_TASK_PK
+            name: ce_h_task_pk
             type: int64
             unit: ''
             description: Task primary key for [Ce/H]
           c_1_h_task_pk:
-            name: C_1_H_TASK_PK
+            name: c_1_h_task_pk
             type: int64
             unit: ''
             description: Task primary key for [C 1/H]
           c_h_task_pk:
-            name: C_H_TASK_PK
+            name: c_h_task_pk
             type: int64
             unit: ''
             description: Task primary key for [C/H]
           co_h_task_pk:
-            name: CO_H_TASK_PK
+            name: co_h_task_pk
             type: int64
             unit: ''
             description: Task primary key for [Co/H]
           cr_h_task_pk:
-            name: CR_H_TASK_PK
+            name: cr_h_task_pk
             type: int64
             unit: ''
             description: Task primary key for [Cr/H]
           cu_h_task_pk:
-            name: CU_H_TASK_PK
+            name: cu_h_task_pk
             type: int64
             unit: ''
             description: Task primary key for [Cu/H]
           fe_h_task_pk:
-            name: FE_H_TASK_PK
+            name: fe_h_task_pk
             type: int64
             unit: ''
             description: Task primary key for [Fe/H]
           k_h_task_pk:
-            name: K_H_TASK_PK
+            name: k_h_task_pk
             type: int64
             unit: ''
             description: Task primary key for [K/H]
           mg_h_task_pk:
-            name: MG_H_TASK_PK
+            name: mg_h_task_pk
             type: int64
             unit: ''
             description: Task primary key for [Mg/H]
           mn_h_task_pk:
-            name: MN_H_TASK_PK
+            name: mn_h_task_pk
             type: int64
             unit: ''
             description: Task primary key for [Mn/H]
           na_h_task_pk:
-            name: NA_H_TASK_PK
+            name: na_h_task_pk
             type: int64
             unit: ''
             description: Task primary key for [Na/H]
           nd_h_task_pk:
-            name: ND_H_TASK_PK
+            name: nd_h_task_pk
             type: int64
             unit: ''
             description: Task primary key for [Nd/H]
           ni_h_task_pk:
-            name: NI_H_TASK_PK
+            name: ni_h_task_pk
             type: int64
             unit: ''
             description: Task primary key for [Ni/H]
           n_h_task_pk:
-            name: N_H_TASK_PK
+            name: n_h_task_pk
             type: int64
             unit: ''
             description: Task primary key for [N/H]
           o_h_task_pk:
-            name: O_H_TASK_PK
+            name: o_h_task_pk
             type: int64
             unit: ''
             description: Task primary key for [O/H]
           p_h_task_pk:
-            name: P_H_TASK_PK
+            name: p_h_task_pk
             type: int64
             unit: ''
             description: Task primary key for [P/H]
           si_h_task_pk:
-            name: SI_H_TASK_PK
+            name: si_h_task_pk
             type: int64
             unit: ''
             description: Task primary key for [Si/H]
           s_h_task_pk:
-            name: S_H_TASK_PK
+            name: s_h_task_pk
             type: int64
             unit: ''
             description: Task primary key for [S/H]
           ti_h_task_pk:
-            name: TI_H_TASK_PK
+            name: ti_h_task_pk
             type: int64
             unit: ''
             description: Task primary key for [Ti/H]
           ti_2_h_task_pk:
-            name: TI_2_H_TASK_PK
+            name: ti_2_h_task_pk
             type: int64
             unit: ''
             description: Task primary key for [Ti 2/H]
           v_h_task_pk:
-            name: V_H_TASK_PK
+            name: v_h_task_pk
             type: int64
             unit: ''
             description: Task primary key for [V/H]
           calibrated_flags:
-            name: CALIBRATED_FLAGS
+            name: calibrated_flags
             type: int32
             unit: ''
             description: Calibration flags
           mass:
-            name: MASS
+            name: mass
             type: float32
-            unit: M_sun
+            unit: ''
             description: 'Mass inferred from isochrones '
           radius:
-            name: RADIUS
+            name: radius
             type: float32
-            unit: R_sun
+            unit: ''
             description: 'Radius inferred from isochrones '
           raw_teff:
-            name: RAW_TEFF
+            name: raw_teff
             type: float32
-            unit: K
+            unit: ''
             description: 'Raw stellar effective temperature '
           raw_e_teff:
-            name: RAW_E_TEFF
+            name: raw_e_teff
             type: float32
-            unit: K
+            unit: ''
             description: 'Raw error on stellar effective temperature '
           raw_logg:
-            name: RAW_LOGG
+            name: raw_logg
             type: float32
-            unit: log10(cm/s^2)
+            unit: ''
             description: 'Raw surface gravity '
           raw_e_logg:
-            name: RAW_E_LOGG
+            name: raw_e_logg
             type: float32
-            unit: log10(cm/s^2)
+            unit: ''
             description: 'Raw error on surface gravity '
           raw_v_micro:
-            name: RAW_V_MICRO
+            name: raw_v_micro
             type: float32
-            unit: km/s
+            unit: ''
             description: 'Raw microturbulence '
           raw_e_v_micro:
-            name: RAW_E_V_MICRO
+            name: raw_e_v_micro
             type: float32
-            unit: km/s
+            unit: ''
             description: 'Raw error on microturbulence '
           raw_v_sini:
-            name: RAW_V_SINI
+            name: raw_v_sini
             type: float32
-            unit: km/s
+            unit: ''
             description: 'Raw projected rotational velocity '
           raw_e_v_sini:
-            name: RAW_E_V_SINI
+            name: raw_e_v_sini
             type: float32
             unit: ''
             description: Raw error on projected rotational velocity [km/
           raw_m_h_atm:
-            name: RAW_M_H_ATM
+            name: raw_m_h_atm
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw metallicity '
           raw_e_m_h_atm:
-            name: RAW_E_M_H_ATM
+            name: raw_e_m_h_atm
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw error on metallicity '
           raw_alpha_m_atm:
-            name: RAW_ALPHA_M_ATM
+            name: raw_alpha_m_atm
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw [alpha/M] abundance ratio '
           raw_e_alpha_m_atm:
-            name: RAW_E_ALPHA_M_ATM
+            name: raw_e_alpha_m_atm
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw error on [alpha/M] abundance ratio '
           raw_c_m_atm:
-            name: RAW_C_M_ATM
+            name: raw_c_m_atm
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw atmospheric carbon abundance '
           raw_e_c_m_atm:
-            name: RAW_E_C_M_ATM
+            name: raw_e_c_m_atm
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw error on atmospheric carbon abundance '
           raw_n_m_atm:
-            name: RAW_N_M_ATM
+            name: raw_n_m_atm
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw atmospheric nitrogen abundance '
           raw_e_n_m_atm:
-            name: RAW_E_N_M_ATM
+            name: raw_e_n_m_atm
             type: float32
             unit: ''
             description: Raw error on atmospheric nitrogen abundance [de
           raw_al_h:
-            name: RAW_AL_H
+            name: raw_al_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw [Al/H] '
           raw_e_al_h:
-            name: RAW_E_AL_H
+            name: raw_e_al_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw error on [Al/H] '
           raw_c_12_13:
-            name: RAW_C_12_13
+            name: raw_c_12_13
             type: float32
             unit: ''
             description: Raw c12/C13 ratio
           raw_e_c_12_13:
-            name: RAW_E_C_12_13
+            name: raw_e_c_12_13
             type: float32
             unit: ''
             description: Raw error on c12/C13 ratio
           raw_ca_h:
-            name: RAW_CA_H
+            name: raw_ca_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw [Ca/H] '
           raw_e_ca_h:
-            name: RAW_E_CA_H
+            name: raw_e_ca_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw error on [Ca/H] '
           raw_ce_h:
-            name: RAW_CE_H
+            name: raw_ce_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw [Ce/H] '
           raw_e_ce_h:
-            name: RAW_E_CE_H
+            name: raw_e_ce_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw error on [Ce/H] '
           raw_c_1_h:
-            name: RAW_C_1_H
+            name: raw_c_1_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw [C/H] from neutral C lines '
           raw_e_c_1_h:
-            name: RAW_E_C_1_H
+            name: raw_e_c_1_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw error on [C/H] from neutral C lines '
           raw_c_h:
-            name: RAW_C_H
+            name: raw_c_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw [C/H] '
           raw_e_c_h:
-            name: RAW_E_C_H
+            name: raw_e_c_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw error on [C/H] '
           raw_co_h:
-            name: RAW_CO_H
+            name: raw_co_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw [Co/H] '
           raw_e_co_h:
-            name: RAW_E_CO_H
+            name: raw_e_co_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw error on [Co/H] '
           raw_cr_h:
-            name: RAW_CR_H
+            name: raw_cr_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw [Cr/H] '
           raw_e_cr_h:
-            name: RAW_E_CR_H
+            name: raw_e_cr_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw error on [Cr/H] '
           raw_cu_h:
-            name: RAW_CU_H
+            name: raw_cu_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw [Cu/H] '
           raw_e_cu_h:
-            name: RAW_E_CU_H
+            name: raw_e_cu_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw error on [Cu/H] '
           raw_fe_h:
-            name: RAW_FE_H
+            name: raw_fe_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw [Fe/H] '
           raw_e_fe_h:
-            name: RAW_E_FE_H
+            name: raw_e_fe_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw error on [Fe/H] '
           raw_k_h:
-            name: RAW_K_H
+            name: raw_k_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw [K/H] '
           raw_e_k_h:
-            name: RAW_E_K_H
+            name: raw_e_k_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw error on [K/H] '
           raw_mg_h:
-            name: RAW_MG_H
+            name: raw_mg_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw [Mg/H] '
           raw_e_mg_h:
-            name: RAW_E_MG_H
+            name: raw_e_mg_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw error on [Mg/H] '
           raw_mn_h:
-            name: RAW_MN_H
+            name: raw_mn_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw [Mn/H] '
           raw_e_mn_h:
-            name: RAW_E_MN_H
+            name: raw_e_mn_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw error on [Mn/H] '
           raw_na_h:
-            name: RAW_NA_H
+            name: raw_na_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw [Na/H] '
           raw_e_na_h:
-            name: RAW_E_NA_H
+            name: raw_e_na_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw error on [Na/H] '
           raw_nd_h:
-            name: RAW_ND_H
+            name: raw_nd_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw [Nd/H] '
           raw_e_nd_h:
-            name: RAW_E_ND_H
+            name: raw_e_nd_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw error on [Nd/H] '
           raw_ni_h:
-            name: RAW_NI_H
+            name: raw_ni_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw [Ni/H] '
           raw_e_ni_h:
-            name: RAW_E_NI_H
+            name: raw_e_ni_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw error on [Ni/H] '
           raw_n_h:
-            name: RAW_N_H
+            name: raw_n_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw [N/H] '
           raw_e_n_h:
-            name: RAW_E_N_H
+            name: raw_e_n_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw error on [N/H] '
           raw_o_h:
-            name: RAW_O_H
+            name: raw_o_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw [O/H] '
           raw_e_o_h:
-            name: RAW_E_O_H
+            name: raw_e_o_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw error on [O/H] '
           raw_p_h:
-            name: RAW_P_H
+            name: raw_p_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw [P/H] '
           raw_e_p_h:
-            name: RAW_E_P_H
+            name: raw_e_p_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw error on [P/H] '
           raw_si_h:
-            name: RAW_SI_H
+            name: raw_si_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw [Si/H] '
           raw_e_si_h:
-            name: RAW_E_SI_H
+            name: raw_e_si_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw error on [Si/H] '
           raw_s_h:
-            name: RAW_S_H
+            name: raw_s_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw [S/H] '
           raw_e_s_h:
-            name: RAW_E_S_H
+            name: raw_e_s_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw error on [S/H] '
           raw_ti_h:
-            name: RAW_TI_H
+            name: raw_ti_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw [Ti/H] '
           raw_e_ti_h:
-            name: RAW_E_TI_H
+            name: raw_e_ti_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw error on [Ti/H] '
           raw_ti_2_h:
-            name: RAW_TI_2_H
+            name: raw_ti_2_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw [Ti/H] from singly ionized Ti lines '
           raw_e_ti_2_h:
-            name: RAW_E_TI_2_H
+            name: raw_e_ti_2_h
             type: float32
             unit: ''
             description: Raw error on [Ti/H] from singly ionized Ti line
           raw_v_h:
-            name: RAW_V_H
+            name: raw_v_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw [V/H] '
           raw_e_v_h:
-            name: RAW_E_V_H
+            name: raw_e_v_h
             type: float32
-            unit: dex
+            unit: ''
             description: 'Raw error on [V/H] '
 notes: |-
   None
