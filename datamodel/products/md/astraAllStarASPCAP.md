@@ -16,16 +16,16 @@ Results from the ASPCAP astra pipeline for each star
 Results from the ASPCAP astra pipeline for each star. The ASPCAP flag bitmaps are documented at https://www.sdss.org/dr17/irspec/apogee-bitmasks#ParamBitMask, and the weights used when computing each abundance are documented at https://data.sdss5.org/sas/sdssrelease, work/mwm/spectro/astra/component_data/aspcap/masks/
 
 ### Naming Convention
-$MWM_ASTRA/[ASTRA_VERSION]/[RUN2D]-[APRED]/results/summary/astraAllStar-ASPCAP-[ASTRA_VERSION]-[RUN2D]-[APRED].fits
+$MWM_ASTRA/0.5.0/summary/astraAllStarASPCAP-0.5.0.fits.gz
 
 ### Releases
-IPL3, WORK
+IPL3
 
 ### Enviroments
 MWM_ASTRA
 
 ### Approximate Size
-139 MB
+1 GB
 
 ### File Type
 FITS
@@ -36,19 +36,15 @@ astra
 ### Is a VAC
 False
 
-### HDUS List for release WORK
+### HDUS List for release IPL3
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1: ](#hdu1-)
+  - [HDU2: ](#hdu2-)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
- - WORK
-   - from: IPL3
-   - primary_delta_nkeys: 1
-   - added_primary_header_kwargs: ['DATASUM', 'APRED', 'CHECKSUM', 'RUN2D']
-   - removed_primary_header_kwargs: ['COMMENT']
 
 ---
 ## Example HDUS List
@@ -66,21 +62,22 @@ Key | Value | Comment | |
 | BITPIX | 8 | array data type |
 | NAXIS | 0 | number of array dimensions |
 | EXTEND | True |  |
-| V_ASTRA | 0.2.6 | Astra version |
-| RUN2D | v6_0_9 | Spectro-2D reduction name |
-| APRED | 1.0 | APOGEE reduction tag |
-| PIPELINE | ASPCAP | Pipeline name that produced these results |
-| CREATED | 22-10-28 01:17:45 | File creation time (UTC %y-%m-%d %H:%M:%S) |
-| CHECKSUM | 5qNF8nME5nME5nME | HDU checksum updated 2022-10-27T19:17:46 |
-| DATASUM | 0 | data unit checksum updated 2022-10-27T19:17:46 |
+| PIPELINE | ASPCAP | Pipeline name |
+| V_ASTRA | 0.5.0 | Astra version |
+| CREATED | 23-11-16 06:21:58 | File creation time (UTC %y-%m-%d %H:%M:%S) |
+| COMMENT | HDU 0: Summary information only |  |
+| COMMENT | HDU 1: BOSS spectra taken at Apache Point Observatory |  |
+| COMMENT | HDU 2: BOSS spectra taken at Las Campanas Observatory |  |
+| COMMENT | HDU 3: APOGEE spectra taken at Apache Point Observatory |  |
+| COMMENT | HDU 4: APOGEE spectra taken at Las Campanas Observatory |  |
 
 
 
 ### HDU1: 
-ASPCAP results for each star
+ASPCAP results for each star from BOSS
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  139 MB
+#### HDU Size:  0 bytes
 
 ##### Header Table Caption for HDU1
 Key | Value | Comment | |
@@ -88,203 +85,841 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | binary table extension |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
-| NAXIS1 | 982 | length of dimension 1 |
-| NAXIS2 | 148844 | length of dimension 2 |
+| NAXIS1 | 1659 | length of dimension 1 |
+| NAXIS2 | 0 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
-| TFIELDS | 186 | number of table fields |
-| CHECKSUM | 9CiLBCfI9CfIACfI | HDU checksum updated 2022-10-27T19:17:48 |
-| DATASUM | 3738102123 | data unit checksum updated 2022-10-27T19:17:48 |
+| TFIELDS | 385 | number of table fields |
+| INSTRMNT | BOSS | Instrument |
+| PIPELINE | ASPCAP | Pipeline name |
+| V_ASTRA | 0.5.0 | Astra version |
+| CREATED | 23-11-16 06:21:58 | File creation time (UTC %y-%m-%d %H:%M:%S) |
+| TDIM16 | (1) |  |
+| COMMENT | See https://www.ipac.caltech.edu/2mass/releases/allsky/doc/sec2_2a.html |  |
+| COMMENT | See https://catalog.unwise.me/catalogs.html |  |
+| COMMENT | See https://irsa.ipac.caltech.edu/data/SPITZER/GLIMPSE/gator_docs/ |  |
+| CHECKSUM | JCJUKBJUJBJUJBJU | HDU checksum updated 2023-11-15T23:21:59 |
+| DATASUM | 0 | data unit checksum updated 2023-11-15T23:21:59 |
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | GAIA_ID | int64 |  | Gaia DR2 source identifier |
- | TIC_ID | int32 |  | TESS Input Catalog (v8) identifier |
- | APOGEE_ID | char[18] |  | 2MASS-style identifier |
- | RA | float32 |  | SDSS-V catalog right ascension (J2000)  |
- | DEC | float32 |  | SDSS-V catalog declination (J2000)  |
- | HEALPIX | int32 |  | Healpix location (128 sides) |
- | RA_GAIA | float32 |  | Gaia DR2 right ascension  |
- | DEC_GAIA | float32 |  | Gaia DR2 declination  |
- | PLX | float32 |  | Gaia DR2 parallax  |
- | E_PLX | float32 |  | Gaia DR2 parallax error  |
- | PMRA | float32 |  | Gaia DR2 proper motion in RA  |
- | E_PMRA | float32 |  | Gaia DR2 proper motion in RA error  |
- | PMDE | float32 |  | Gaia DR2 proper motion in DEC  |
- | E_PMDE | float32 |  | Gaia DR2 proper motion in DEC error  |
- | V_RAD_GAIA | float32 |  | Gaia DR2 radial velocity  |
- | E_V_RAD_GAIA | float32 |  | Gaia DR2 radial velocity error  |
- | G_MAG | float32 |  | Gaia DR2 mean apparent G magnitude  |
- | BP_MAG | float32 |  | Gaia DR2 mean apparent BP magnitude  |
- | RP_MAG | float32 |  | Gaia DR2 mean apparent RP magnitude  |
- | J_MAG | float32 |  | 2MASS mean apparent J magnitude  |
- | H_MAG | float32 |  | 2MASS mean apparent H magnitude  |
- | K_MAG | float32 |  | 2MASS mean apparent K magnitude  |
- | CARTON_0 | char[30] |  | First carton for source (see documentation) |
- | PROGRAMS | char[84] |  | SDSS-V programs |
- | MAPPERS | char[30] |  | SDSS-V mappers |
- | V_RAD | float32 |  | Radial velocity in Solar barycentric rest frame |
- | E_V_RAD | float32 |  | Error in radial velocity  |
- | V_SCATTER | float32 |  | Scatter in radial velocity measurements  |
- | E_V_MED | float32 |  | Median of RV errors of individual visits  |
- | CHISQ_RV | float32 |  | \chi-squared of radial velocity fit |
- | CCPFWHM_D | float32 |  | FWHM from Doppler |
- | AUTOFWHM_D | float32 |  | FWHM from Doppler |
- | N_RV_COMPONENTS | int32 |  | Number of detected RV components |
- | NVISITS_APSTAR | int32 |  | Number of visits included in the apStar file |
- | NGOODVISITS | int32 |  | Number of visits with good spectra |
- | NGOODRVS | int32 |  | Number of good radial velocity measurements |
- | STARFLAG | int32 |  | APOGEE DRP quality bit mask |
- | STARFLAGS | char[82] |  | APOGEE DRP quality bit masks |
- | MEANFIB | float32 |  | Mean S/N-weighted fiber number of all observati |
- | SIGFIB | float32 |  | Standard deviation of S/N-weighter fiber number |
- | TEFF_D | float32 |  | Effective temperature from DOPPLER  |
- | E_TEFF_D | float32 |  | Error in effective temperature from DOPPLER  |
- | LOGG_D | float32 |  | Surface gravity from DOPPLER |
- | E_LOGG_D | float32 |  | Error in surface gravity from DOPPLER |
- | FEH_D | float32 |  | Metallicity from DOPPLER |
- | E_FEH_D | float32 |  | Error in metallicity from DOPPLER |
- | RELEASE | char[5] |  | SDSS data release name |
- | FILETYPE | char[7] |  | SDSS data model filetype |
- | V_ASTRA | char[5] |  | Astra version |
- | RUN2D | char[6] |  | Spectro-2D reduction name |
- | APRED | char[3] |  | APOGEE reduction tag |
- | CAT_ID | int64 |  | SDSS-V catalog identifier |
- | TEFF | float32 |  | Stellar effective temperature  |
- | E_TEFF | float32 |  | Error in stellar effective temperature  |
- | LOGG | float32 |  | Surface gravity  |
- | E_LOGG | float32 |  | Error in surface gravity  |
- | METALS | float32 |  | Metallicity  |
- | E_METALS | float32 |  | Error in metallicity  |
- | LOG10VDOP | float32 |  | Log10 of the doppler broadening  |
- | E_LOG10VDOP | float32 |  | Error in the log10 doppler broadening  |
- | O_MG_SI_S_CA_TI | float32 |  | [alpha/Fe] abundance ratio  |
- | E_O_MG_SI_S_CA_TI | float32 |  | Error in [alpha/Fe] abundance ratio  |
- | LGVSINI | float32 |  | Log of the projected rotational velocity  |
- | C_H_PHOTOSPHERE | float32 |  | Photosphere carbon abundance  |
- | E_C_H_PHOTOSPHERE | float32 |  | Error on photosphere carbon abundance  |
- | N_H_PHOTOSPHERE | float32 |  | Photosphere nitrogen abundance  |
- | E_N_H_PHOTOSPHERE | float32 |  |  |
- | CN_H | float32 |  |  |
- | E_CN_H | float32 |  |  |
- | AL_H | float32 |  | Aluminium abundance as [Al/H]  |
- | E_AL_H | float32 |  | Error in aluminium abundance as [Al/H]  |
- | CI_H | float32 |  | Carbon abundance as [C I/H]  |
- | E_CI_H | float32 |  | Error on carbon abundance as [C I/H]  |
- | CA_H | float32 |  | Calcium abundance as [Ca/H]  |
- | E_CA_H | float32 |  | Error in calcium abundance as [Ca/H]  |
- | CE_H | float32 |  | Cerium abundance as [Ce/H]  |
- | E_CE_H | float32 |  | Error on cerium abundance as [Ce/H]  |
- | C_H | float32 |  | Carbon abundance as [C/H]  |
- | E_C_H | float32 |  | Error in carbon abundance as [C/H]  |
- | CO_H | float32 |  | Cobalt abundance as [Co/H]  |
- | E_CO_H | float32 |  | Error in cobalt abundance as [Co/H]  |
- | CR_H | float32 |  | Chromium abundance as [Cr/H]  |
- | E_CR_H | float32 |  | Error in chromium abundance as [Cr/H]  |
- | CU_H | float32 |  | Copper abundance as [Cu/H]  |
- | E_CU_H | float32 |  | Error in gopper abundance as [Cu/H]  |
- | FE_H | float32 |  | Iron abundance as [Fe/H]  |
- | E_FE_H | float32 |  | Error in metallicity  |
- | GE_H | float32 |  | Germanium abundance as [Ge/H]  |
- | E_GE_H | float32 |  | Error in germanium abundance as [Ge/H]  |
- | K_H | float32 |  | Potassium abundance as [K/H]  |
- | E_K_H | float32 |  | Error in potassium abundance as [K/H]  |
- | MG_H | float32 |  | Magnesium abundance as [Mg/H]  |
- | E_MG_H | float32 |  | Error in magnesium abundance as [Mg/H]  |
- | MN_H | float32 |  | Manganese abundance as [Mn/H]  |
- | E_MN_H | float32 |  | Error in manganese abundance as [Mn/H]  |
- | NA_H | float32 |  | Sodium abundance as [Na/H]  |
- | E_NA_H | float32 |  | Error in sodium abundance as [Na/H]  |
- | ND_H | float32 |  | Neodymium abundance as [Nd/H]  |
- | E_ND_H | float32 |  | Error on neodymium abundance as [Nd/H]  |
- | NI_H | float32 |  | Nickel abundance as [Ni/H]  |
- | E_NI_H | float32 |  | Error in nickel abundance as [Ni/H]  |
- | N_H | float32 |  | Nitrogen abundance as [N/H]  |
- | E_N_H | float32 |  | Error in nitrogen abundance as [N/H]  |
- | O_H | float32 |  | Oxygen abundance as [O/H]  |
- | E_O_H | float32 |  | Error in oxygen abundance as [O/H]  |
- | P_H | float32 |  | Phosphorus abundance as [P/H]  |
- | E_P_H | float32 |  | Error in phosphorus abundance as [P/H]  |
- | RB_H | float32 |  | Rubidium abundance as [Rb/H]  |
- | E_RB_H | float32 |  | Error on rubidium abundance as [Rb/H]  |
- | SI_H | float32 |  | Silicon abundance as [Si/H]  |
- | E_SI_H | float32 |  | Error in silicon abundance as [Si/H]  |
- | S_H | float32 |  | Sulfur abundance as [S/H]  |
- | E_S_H | float32 |  | Error in sulfur abundance as [S/H]  |
- | TI_H | float32 |  | Titanium abundance as [Ti/H]  |
- | E_TI_H | float32 |  | Error in titanium abundance as [Ti/H]  |
- | V_H | float32 |  | Vanadium abundance as [V/H]  |
- | E_V_H | float32 |  | Error in vanadium abundance as [V/H]  |
- | YB_H | float32 |  | Ytterbium abundance as [Yb/H]  |
- | E_YB_H | float32 |  | Error in ytterbium abundance as [Yb/H]  |
- | BITMASK_TEFF | int32 |  | Bitmask flag for TEFF |
- | BITMASK_LOGG | int32 |  | Bitmask flag for LOGG |
- | BITMASK_METALS | int32 |  | Bitmask flag for METALS |
- | BITMASK_LOG10VDOP | int32 |  | Bitmask flag for LOG10VDOP |
- | BITMASK_O_MG_SI_S_CA_TI | int32 |  | Bitmask flag for O_MG_SI_S_CA_TI |
- | BITMASK_LGVSINI | int32 |  | Bitmask flag for LGVSINI |
- | BITMASK_C_H_PHOTOSPHERE | int32 |  | Bitmask flag for C_H_PHOTOSPHERE |
- | BITMASK_N_H_PHOTOSPHERE | int32 |  | Bitmask flag for N_H_PHOTOSPHERE |
- | BITMASK_CN_H | int32 |  |  |
- | BITMASK_AL_H | int32 |  | Bitmask flag for AL_H |
- | BITMASK_CI_H | int32 |  | Bitmask flag for CI_H |
- | BITMASK_CA_H | int32 |  | Bitmask flag for CA_H |
- | BITMASK_CE_H | int32 |  | Bitmask flag for CE_H |
- | BITMASK_C_H | int32 |  | Bitmask flag for C_H |
- | BITMASK_CO_H | int32 |  | Bitmask flag for CO_H |
- | BITMASK_CR_H | int32 |  | Bitmask flag for CR_H |
- | BITMASK_CU_H | int32 |  | Bitmask flag for CU_H |
- | BITMASK_FE_H | int32 |  | Bitmask flag for FE_H |
- | BITMASK_GE_H | int32 |  | Bitmask flag for GE_H |
- | BITMASK_K_H | int32 |  | Bitmask flag for K_H |
- | BITMASK_MG_H | int32 |  | Bitmask flag for MG_H |
- | BITMASK_MN_H | int32 |  | Bitmask flag for MN_H |
- | BITMASK_NA_H | int32 |  | Bitmask flag for NA_H |
- | BITMASK_ND_H | int32 |  | Bitmask flag for ND_H |
- | BITMASK_NI_H | int32 |  | Bitmask flag for NI_H |
- | BITMASK_N_H | int32 |  | Bitmask flag for N_H |
- | BITMASK_O_H | int32 |  | Bitmask flag for O_H |
- | BITMASK_P_H | int32 |  | Bitmask flag for P_H |
- | BITMASK_RB_H | int32 |  | Bitmask flag for RB_H |
- | BITMASK_SI_H | int32 |  | Bitmask flag for SI_H |
- | BITMASK_S_H | int32 |  | Bitmask flag for S_H |
- | BITMASK_TI_H | int32 |  | Bitmask flag for TI_H |
- | BITMASK_V_H | int32 |  | Bitmask flag for V_H |
- | BITMASK_YB_H | int32 |  | Bitmask flag for YB_H |
- | SNR | float32 |  | Mean signal-to-noise ratio |
- | LOG_CHISQ_FIT | float32 |  | Log \chi^2 of CN_H fit |
- | LOG_CHISQ_FIT_CN_H | float32 |  |  |
- | LOG_CHISQ_FIT_AL_H | float32 |  | Log \chi^2 of AL_H fit |
- | LOG_CHISQ_FIT_CI_H | float32 |  | Log \chi^2 of CI_H fit |
- | LOG_CHISQ_FIT_CA_H | float32 |  | Log \chi^2 of CA_H fit |
- | LOG_CHISQ_FIT_CE_H | float32 |  | Log \chi^2 of CE_H fit |
- | LOG_CHISQ_FIT_C_H | float32 |  | Log \chi^2 of C_H fit |
- | LOG_CHISQ_FIT_CO_H | float32 |  | Log \chi^2 of CO_H fit |
- | LOG_CHISQ_FIT_CR_H | float32 |  | Log \chi^2 of CR_H fit |
- | LOG_CHISQ_FIT_CU_H | float32 |  | Log \chi^2 of CU_H fit |
- | LOG_CHISQ_FIT_FE_H | float32 |  | Log \chi^2 of FE_H fit |
- | LOG_CHISQ_FIT_GE_H | float32 |  | Log \chi^2 of GE_H fit |
- | LOG_CHISQ_FIT_K_H | float32 |  | Log \chi^2 of K_H fit |
- | LOG_CHISQ_FIT_MG_H | float32 |  | Log \chi^2 of MG_H fit |
- | LOG_CHISQ_FIT_MN_H | float32 |  | Log \chi^2 of MN_H fit |
- | LOG_CHISQ_FIT_NA_H | float32 |  | Log \chi^2 of NA_H fit |
- | LOG_CHISQ_FIT_ND_H | float32 |  | Log \chi^2 of ND_H fit |
- | LOG_CHISQ_FIT_NI_H | float32 |  | Log \chi^2 of NI_H fit |
- | LOG_CHISQ_FIT_N_H | float32 |  | Log \chi^2 of N_H fit |
- | LOG_CHISQ_FIT_O_H | float32 |  | Log \chi^2 of O_H fit |
- | LOG_CHISQ_FIT_P_H | float32 |  | Log \chi^2 of P_H fit |
- | LOG_CHISQ_FIT_RB_H | float32 |  | Log \chi^2 of RB_H fit |
- | LOG_CHISQ_FIT_SI_H | float32 |  | Log \chi^2 of SI_H fit |
- | LOG_CHISQ_FIT_S_H | float32 |  | Log \chi^2 of S_H fit |
- | LOG_CHISQ_FIT_TI_H | float32 |  | Log \chi^2 of TI_H fit |
- | LOG_CHISQ_FIT_TIII_H | float32 |  | Log \chi^2 of TIII_H fit |
- | LOG_CHISQ_FIT_V_H | float32 |  | Log \chi^2 of V_H fit |
- | LOG_CHISQ_FIT_YB_H | float32 |  | Log \chi^2 of YB_H fit |
- | TASK_ID | int32 |  | Astra unique task identifier |
- | OUTPUT_ID | int32 |  | Astra unique output identifier |
- | DATA_PRODUCT_ID | int32 |  | Astra data product identifier |
- | STAR_PK | int32 |  | Primary key in `apogee_drp.star` table |
+ | sdss_id | int64 |  | SDSS-5 unique identifier |
+ | sdss4_apogee_id | char[1] |  | SDSS-4 DR17 APOGEE identifier |
+ | gaia_dr2_source_id | int64 |  | Gaia DR2 source identifier |
+ | gaia_dr3_source_id | int64 |  | Gaia DR3 source identifier |
+ | tic_v8_id | int64 |  | TESS Input Catalog (v8) identifier |
+ | healpix | int32 |  | HEALPix (128 side) |
+ | carton_0 | char[1] |  | Highest priority carton name |
+ | lead | char[1] |  | Lead catalog used for cross-match |
+ | version_id | int32 |  | SDSS catalog version for targeting |
+ | catalogid | int64 |  | Catalog identifier used to target the source |
+ | catalogid21 | int64 |  | Catalog identifier (v21; v0.0) |
+ | catalogid25 | int64 |  | Catalog identifier (v25; v0.5) |
+ | catalogid31 | int64 |  | Catalog identifier (v31; v1.0) |
+ | n_associated | int32 |  | SDSS_IDs associated with this CATALOGID |
+ | n_neighborhood | int32 |  | Sources within 3" and G_MAG < G_MAG_source + 5 |
+ | sdss5_target_flags | bool[1] |  | SDSS-5 targeting flags |
+ | sdss4_apogee_target1_flags | int32 |  | SDSS4 APOGEE1 targeting flags (1/2) |
+ | sdss4_apogee_target2_flags | int32 |  | SDSS4 APOGEE1 targeting flags (2/2) |
+ | sdss4_apogee2_target1_flags | int32 |  | SDSS4 APOGEE2 targeting flags (1/3) |
+ | sdss4_apogee2_target2_flags | int32 |  | SDSS4 APOGEE2 targeting flags (2/3) |
+ | sdss4_apogee2_target3_flags | int32 |  | SDSS4 APOGEE2 targeting flags (3/3) |
+ | sdss4_apogee_member_flags | int32 |  | SDSS4 likely cluster/galaxy member flags |
+ | sdss4_apogee_extra_target_flags | int32 |  | SDSS4 target info (aka EXTRATARG) |
+ | ra | float32 |  | Right ascension  |
+ | dec | float32 |  | Declination  |
+ | l | float32 |  | Galactic longitude  |
+ | b | float32 |  | Galactic latitude  |
+ | plx | float32 |  | Parallax  |
+ | e_plx | float32 |  | Error on parallax  |
+ | pmra | float32 |  | Proper motion in RA  |
+ | e_pmra | float32 |  | Error on proper motion in RA  |
+ | pmde | float32 |  | Proper motion in DEC  |
+ | e_pmde | float32 |  | Error on proper motion in DEC  |
+ | gaia_v_rad | float32 |  | Gaia radial velocity  |
+ | gaia_e_v_rad | float32 |  | Error on Gaia radial velocity  |
+ | g_mag | float32 |  | Gaia DR3 mean G band magnitude  |
+ | bp_mag | float32 |  | Gaia DR3 mean BP band magnitude  |
+ | rp_mag | float32 |  | Gaia DR3 mean RP band magnitude  |
+ | j_mag | float32 |  | 2MASS J band magnitude  |
+ | e_j_mag | float32 |  | Error on 2MASS J band magnitude  |
+ | h_mag | float32 |  | 2MASS H band magnitude  |
+ | e_h_mag | float32 |  | Error on 2MASS H band magnitude  |
+ | k_mag | float32 |  | 2MASS K band magnitude  |
+ | e_k_mag | float32 |  | Error on 2MASS K band magnitude  |
+ | ph_qual | char[1] |  | 2MASS photometric quality flag |
+ | bl_flg | char[1] |  | Number of components fit per band (JHK) |
+ | cc_flg | char[1] |  | Contamination and confusion flag |
+ | w1_mag | float32 |  | W1 magnitude |
+ | e_w1_mag | float32 |  | Error on W1 magnitude |
+ | w1_flux | float32 |  | W1 flux  |
+ | w1_dflux | float32 |  | Error on W1 flux  |
+ | w1_frac | float32 |  | Fraction of W1 flux from this object |
+ | w2_mag | float32 |  | W2 magnitude  |
+ | e_w2_mag | float32 |  | Error on W2 magnitude |
+ | w2_flux | float32 |  | W2 flux  |
+ | w2_dflux | float32 |  | Error on W2 flux  |
+ | w2_frac | float32 |  | Fraction of W2 flux from this object |
+ | w1uflags | int32 |  | unWISE flags for W1 |
+ | w2uflags | int32 |  | unWISE flags for W2 |
+ | w1aflags | int32 |  | Additional flags for W1 |
+ | w2aflags | int32 |  | Additional flags for W2 |
+ | mag4_5 | float32 |  | IRAC band 4.5 micron magnitude  |
+ | d4_5m | float32 |  | Error on IRAC band 4.5 micron magnitude  |
+ | rms_f4_5 | float32 |  | RMS deviations from final flux  |
+ | sqf_4_5 | int32 |  | Source quality flag for IRAC band 4.5 micron |
+ | mf4_5 | int32 |  | Flux calculation method flag |
+ | csf | int32 |  | Close source flag |
+ | zgr_teff | float32 |  | Stellar effective temperature  |
+ | zgr_e_teff | float32 |  | Error on stellar effective temperature  |
+ | zgr_logg | float32 |  | Surface gravity  |
+ | zgr_e_logg | float32 |  | Error on surface gravity  |
+ | zgr_fe_h | float32 |  | [Fe/H]  |
+ | zgr_e_fe_h | float32 |  | Error on [Fe/H]  |
+ | zgr_e | float32 |  | Extinction  |
+ | zgr_e_e | float32 |  | Error on extinction  |
+ | zgr_plx | float32 |  | Parallax [mas] (Gaia DR3) |
+ | zgr_e_plx | float32 |  | Error on parallax [mas] (Gaia DR3) |
+ | zgr_teff_confidence | float32 |  | Confidence estimate in TEFF |
+ | zgr_logg_confidence | float32 |  | Confidence estimate in LOGG |
+ | zgr_fe_h_confidence | float32 |  | Confidence estimate in FE_H |
+ | zgr_ln_prior | float32 |  | Log prior probability |
+ | zgr_chi2 | float32 |  | Chi-square value |
+ | zgr_quality_flags | int32 |  | Quality flags |
+ | r_med_geo | float32 |  | Median geometric distance  |
+ | r_lo_geo | float32 |  | 16th percentile of geometric distance  |
+ | r_hi_geo | float32 |  | 84th percentile of geometric distance  |
+ | r_med_photogeo | float32 |  | 50th percentile of photogeometric distance  |
+ | r_lo_photogeo | float32 |  | 16th percentile of photogeometric distance  |
+ | r_hi_photogeo | float32 |  | 84th percentile of photogeometric distance  |
+ | bailer_jones_flags | char[1] |  | Bailer-Jones quality flags |
+ | ebv | float32 |  | E(B-V)  |
+ | e_ebv | float32 |  | Error on E(B-V)  |
+ | ebv_flags | int32 |  | Flags indicating the source of E(B-V) |
+ | ebv_zhang_2023 | float32 |  | E(B-V) from Zhang et al. (2023)  |
+ | e_ebv_zhang_2023 | float32 |  | Error on E(B-V) from Zhang et al. (2023)  |
+ | ebv_sfd | float32 |  | E(B-V) from SFD  |
+ | e_ebv_sfd | float32 |  | Error on E(B-V) from SFD  |
+ | ebv_rjce_glimpse | float32 |  | E(B-V) from RJCE GLIMPSE  |
+ | e_ebv_rjce_glimpse | float32 |  | Error on RJCE GLIMPSE E(B-V)  |
+ | ebv_rjce_allwise | float32 |  | E(B-V) from RJCE AllWISE  |
+ | e_ebv_rjce_allwise | float32 |  | Error on RJCE AllWISE E(B-V) |
+ | ebv_bayestar_2019 | float32 |  | E(B-V) from Bayestar 2019  |
+ | e_ebv_bayestar_2019 | float32 |  | Error on Bayestar 2019 E(B-V)  |
+ | ebv_edenhofer_2023 | float32 |  | E(B-V) from Edenhofer et al. (2023)  |
+ | e_ebv_edenhofer_2023 | float32 |  | Error on Edenhofer et al. (2023) E(B-V)  |
+ | c_star | float32 |  | Quality parameter (see Riello et al. 2021) |
+ | u_jkc_mag | float32 |  | Gaia XP synthetic U-band (JKC)  |
+ | u_jkc_mag_flag | int32 |  | U-band (JKC) is within valid range |
+ | b_jkc_mag | float32 |  | Gaia XP synthetic B-band (JKC)  |
+ | b_jkc_mag_flag | int32 |  | B-band (JKC) is within valid range |
+ | v_jkc_mag | float32 |  | Gaia XP synthetic V-band (JKC)  |
+ | v_jkc_mag_flag | int32 |  | V-band (JKC) is within valid range |
+ | r_jkc_mag | float32 |  | Gaia XP synthetic R-band (JKC)  |
+ | r_jkc_mag_flag | int32 |  | R-band (JKC) is within valid range |
+ | i_jkc_mag | float32 |  | Gaia XP synthetic I-band (JKC)  |
+ | i_jkc_mag_flag | int32 |  | I-band (JKC) is within valid range |
+ | u_sdss_mag | float32 |  | Gaia XP synthetic u-band (SDSS)  |
+ | u_sdss_mag_flag | int32 |  | u-band (SDSS) is within valid range |
+ | g_sdss_mag | float32 |  | Gaia XP synthetic g-band (SDSS)  |
+ | g_sdss_mag_flag | int32 |  | g-band (SDSS) is within valid range |
+ | r_sdss_mag | float32 |  | Gaia XP synthetic r-band (SDSS)  |
+ | r_sdss_mag_flag | int32 |  | r-band (SDSS) is within valid range |
+ | i_sdss_mag | float32 |  | Gaia XP synthetic i-band (SDSS)  |
+ | i_sdss_mag_flag | int32 |  | i-band (SDSS) is within valid range |
+ | z_sdss_mag | float32 |  | Gaia XP synthetic z-band (SDSS)  |
+ | z_sdss_mag_flag | int32 |  | z-band (SDSS) is within valid range |
+ | y_ps1_mag | float32 |  | Gaia XP synthetic Y-band (PS1)  |
+ | y_ps1_mag_flag | int32 |  | Y-band (PS1) is within valid range |
+ | n_boss_visits | int32 |  | Number of BOSS visits |
+ | boss_min_mjd | int32 |  | Minimum MJD of BOSS visits |
+ | boss_max_mjd | int32 |  | Maximum MJD of BOSS visits |
+ | n_apogee_visits | int32 |  | Number of APOGEE visits |
+ | apogee_min_mjd | int32 |  | Minimum MJD of APOGEE visits |
+ | apogee_max_mjd | int32 |  | Maximum MJD of APOGEE visits |
+ | spectrum_pk | int64 |  | Unique spectrum primary key |
+ | source | int64 |  | Unique source primary key |
+ | release | char[1] |  | SDSS release |
+ | filetype | char[1] |  | SDSS file type that stores this spectrum |
+ | v_astra | char[1] |  | Astra version |
+ | run2d | char[1] |  | BOSS data reduction pipeline version |
+ | telescope | char[1] |  | Short telescope name |
+ | min_mjd | int32 |  | Minimum MJD of visits |
+ | max_mjd | int32 |  | Maximum MJD of visits |
+ | n_visits | int32 |  | Number of BOSS visits |
+ | n_good_visits | int32 |  | Number of 'good' BOSS visits |
+ | n_good_rvs | int32 |  | Number of 'good' BOSS radial velocities |
+ | v_rad | float32 |  | Barycentric rest frame radial velocity  |
+ | e_v_rad | float32 |  | Error on radial velocity  |
+ | std_v_rad | float32 |  | Standard deviation of visit V_RAD  |
+ | median_e_v_rad | float32 |  | Median error in radial velocity  |
+ | xcsao_teff | float32 |  | Stellar effective temperature  |
+ | xcsao_e_teff | float32 |  | Error on stellar effective temperature  |
+ | xcsao_logg | float32 |  | Surface gravity  |
+ | xcsao_e_logg | float32 |  | Error on surface gravity  |
+ | xcsao_fe_h | float32 |  | [Fe/H]  |
+ | xcsao_e_fe_h | float32 |  | Error on [Fe/H]  |
+ | xcsao_meanrxc | float32 |  | Cross-correlation R-value (1979AJ.....84.1511T) |
+ | snr | float32 |  | Signal-to-noise ratio |
+ | gri_gaia_transform_flags | int32 |  | Flags for provenance of ugriz photometry |
+ | zwarning_flags | int32 |  | BOSS DRP warning flags |
+ | nmf_rchi2 | float32 |  | Reduced chi-square value of NMF continuum fit |
+ | nmf_flags | int32 |  | NMF Continuum method flags |
+ | task_pk | int64 |  | Task model primary key |
+ | source_pk | int64 |  |  |
+ | created | char[26] |  | Datetime when task record was created |
+ | t_elapsed | float32 |  | Core-time elapsed on this analysis  |
+ | t_overhead | float32 |  | Estimated core-time spent in overhads  |
+ | tag | char[1] |  | Experiment tag for this result |
+ | irfm_teff | float32 |  | Stellar effective temperature  |
+ | irfm_teff_flags | int32 |  | IRFM temperature flags |
+ | teff | float32 |  | Stellar effective temperature  |
+ | e_teff | float32 |  | Error on stellar effective temperature  |
+ | logg | float32 |  | Surface gravity  |
+ | e_logg | float32 |  | Error on surface gravity  |
+ | v_micro | float32 |  | Microturbulence  |
+ | e_v_micro | float32 |  | Error on microturbulence  |
+ | v_sini | float32 |  | Projected rotational velocity  |
+ | e_v_sini | float32 |  | Error on projected rotational velocity  |
+ | m_h_atm | float32 |  | Metallicity  |
+ | e_m_h_atm | float32 |  | Error on metallicity  |
+ | alpha_m_atm | float32 |  | [alpha/M] abundance ratio  |
+ | e_alpha_m_atm | float32 |  | Error on [alpha/M] abundance ratio  |
+ | c_m_atm | float32 |  | Atmospheric carbon abundance  |
+ | e_c_m_atm | float32 |  | Error on atmospheric carbon abundance  |
+ | n_m_atm | float32 |  | Atmospheric nitrogen abundance  |
+ | e_n_m_atm | float32 |  | Error on atmospheric nitrogen abundance  |
+ | al_h | float32 |  | [Al/H]  |
+ | e_al_h | float32 |  | Error on [Al/H]  |
+ | al_h_flags | int32 |  | Flags for [Al/H]  |
+ | al_h_rchi2 | float32 |  | Reduced chi-square value for [Al/H]  |
+ | c_12_13 | float32 |  | C12/C13 ratio |
+ | e_c_12_13 | float32 |  | Error on c12/C13 ratio |
+ | c_12_13_flags | int32 |  | Flags for c12/C13 ratio |
+ | c_12_13_rchi2 | float32 |  | Reduced chi-square value for c12/C13 ratio |
+ | ca_h | float32 |  | [Ca/H]  |
+ | e_ca_h | float32 |  | Error on [Ca/H]  |
+ | ca_h_flags | int32 |  | Flags for [Ca/H]  |
+ | ca_h_rchi2 | float32 |  | Reduced chi-square value for [Ca/H]  |
+ | ce_h | float32 |  | [Ce/H]  |
+ | e_ce_h | float32 |  | Error on [Ce/H]  |
+ | ce_h_flags | int32 |  | Flags for [Ce/H]  |
+ | ce_h_rchi2 | float32 |  | Reduced chi-square value for [Ce/H]  |
+ | c_1_h | float32 |  | [C/H] from neutral C lines  |
+ | e_c_1_h | float32 |  | Error on [C/H] from neutral C lines  |
+ | c_1_h_flags | int32 |  | Flags for [C/H] from neutral C lines  |
+ | c_1_h_rchi2 | float32 |  | Reduced chi-square value for [C/H] from neutral |
+ | c_h | float32 |  | [C/H]  |
+ | e_c_h | float32 |  | Error on [C/H]  |
+ | c_h_flags | int32 |  | Flags for [C/H]  |
+ | c_h_rchi2 | float32 |  | Reduced chi-square value for [C/H]  |
+ | co_h | float32 |  | [Co/H]  |
+ | e_co_h | float32 |  | Error on [Co/H]  |
+ | co_h_flags | int32 |  | Flags for [Co/H]  |
+ | co_h_rchi2 | float32 |  | Reduced chi-square value for [Co/H]  |
+ | cr_h | float32 |  | [Cr/H]  |
+ | e_cr_h | float32 |  | Error on [Cr/H]  |
+ | cr_h_flags | int32 |  | Flags for [Cr/H]  |
+ | cr_h_rchi2 | float32 |  | Reduced chi-square value for [Cr/H]  |
+ | cu_h | float32 |  | [Cu/H]  |
+ | e_cu_h | float32 |  | Error on [Cu/H]  |
+ | cu_h_flags | int32 |  | Flags for [Cu/H]  |
+ | cu_h_rchi2 | float32 |  | Reduced chi-square value for [Cu/H]  |
+ | fe_h | float32 |  | [Fe/H]  |
+ | e_fe_h | float32 |  | Error on [Fe/H]  |
+ | fe_h_flags | int32 |  | Flags for [Fe/H]  |
+ | fe_h_rchi2 | float32 |  | Reduced chi-square value for [Fe/H]  |
+ | k_h | float32 |  | [K/H]  |
+ | e_k_h | float32 |  | Error on [K/H]  |
+ | k_h_flags | int32 |  | Flags for [K/H]  |
+ | k_h_rchi2 | float32 |  | Reduced chi-square value for [K/H]  |
+ | mg_h | float32 |  | [Mg/H]  |
+ | e_mg_h | float32 |  | Error on [Mg/H]  |
+ | mg_h_flags | int32 |  | Flags for [Mg/H]  |
+ | mg_h_rchi2 | float32 |  | Reduced chi-square value for [Mg/H]  |
+ | mn_h | float32 |  | [Mn/H]  |
+ | e_mn_h | float32 |  | Error on [Mn/H]  |
+ | mn_h_flags | int32 |  | Flags for [Mn/H]  |
+ | mn_h_rchi2 | float32 |  | Reduced chi-square value for [Mn/H]  |
+ | na_h | float32 |  | [Na/H]  |
+ | e_na_h | float32 |  | Error on [Na/H]  |
+ | na_h_flags | int32 |  | Flags for [Na/H]  |
+ | na_h_rchi2 | float32 |  | Reduced chi-square value for [Na/H]  |
+ | nd_h | float32 |  | [Nd/H]  |
+ | e_nd_h | float32 |  | Error on [Nd/H]  |
+ | nd_h_flags | int32 |  | Flags for [Nd/H]  |
+ | nd_h_rchi2 | float32 |  | Reduced chi-square value for [Nd/H]  |
+ | ni_h | float32 |  | [Ni/H]  |
+ | e_ni_h | float32 |  | Error on [Ni/H]  |
+ | ni_h_flags | int32 |  | Flags for [Ni/H]  |
+ | ni_h_rchi2 | float32 |  | Reduced chi-square value for [Ni/H]  |
+ | n_h | float32 |  | [N/H]  |
+ | e_n_h | float32 |  | Error on [N/H]  |
+ | n_h_flags | int32 |  | Flags for [N/H]  |
+ | n_h_rchi2 | float32 |  | Reduced chi-square value for [N/H]  |
+ | o_h | float32 |  | [O/H]  |
+ | e_o_h | float32 |  | Error on [O/H]  |
+ | o_h_flags | int32 |  | Flags for [O/H]  |
+ | o_h_rchi2 | float32 |  | Reduced chi-square value for [O/H]  |
+ | p_h | float32 |  | [P/H]  |
+ | e_p_h | float32 |  | Error on [P/H]  |
+ | p_h_flags | int32 |  | Flags for [P/H]  |
+ | p_h_rchi2 | float32 |  | Reduced chi-square value for [P/H]  |
+ | si_h | float32 |  | [Si/H]  |
+ | e_si_h | float32 |  | Error on [Si/H]  |
+ | si_h_flags | int32 |  | Flags for [Si/H]  |
+ | si_h_rchi2 | float32 |  | Reduced chi-square value for [Si/H]  |
+ | s_h | float32 |  | [S/H]  |
+ | e_s_h | float32 |  | Error on [S/H]  |
+ | s_h_flags | int32 |  | Flags for [S/H]  |
+ | s_h_rchi2 | float32 |  | Reduced chi-square value for [S/H]  |
+ | ti_h | float32 |  | [Ti/H]  |
+ | e_ti_h | float32 |  | Error on [Ti/H]  |
+ | ti_h_flags | int32 |  | Flags for [Ti/H]  |
+ | ti_h_rchi2 | float32 |  | Reduced chi-square value for [Ti/H]  |
+ | ti_2_h | float32 |  | [Ti/H] from singly ionized Ti lines  |
+ | e_ti_2_h | float32 |  | Error on [Ti/H] from singly ionized Ti lines [d |
+ | ti_2_h_flags | int32 |  | Flags for [Ti/H] from singly ionized Ti lines [ |
+ | ti_2_h_rchi2 | float32 |  | Reduced chi-square value for [Ti/H] from singly |
+ | v_h | float32 |  | [V/H]  |
+ | e_v_h | float32 |  | Error on [V/H]  |
+ | v_h_flags | int32 |  | Flags for [V/H]  |
+ | v_h_rchi2 | float32 |  | Reduced chi-square value for [V/H]  |
+ | short_grid_name | char[1] |  | Short name describing the FERRE grid used |
+ | continuum_order | int32 |  | Continuum order used in FERRE |
+ | continuum_reject | float32 |  | Tolerance for FERRE to reject continuum points |
+ | interpolation_order | int32 |  | Interpolation order used by FERRE |
+ | initial_flags | int32 |  | Flags indicating source of initial guess |
+ | rchi2 | float32 |  | Reduced chi-square value |
+ | ferre_log_snr_sq | float32 |  | FERRE-reported log10(snr**2) |
+ | ferre_time_elapsed | float32 |  | Total core-second use reported by FERRE  |
+ | result_flags | int32 |  | Flags indicating FERRE issues |
+ | flag_warn | bool |  | Warning flag for results |
+ | flag_bad | bool |  | Bad flag for results |
+ | stellar_parameters_task_pk | int64 |  | Task primary key for stellar parameters |
+ | al_h_task_pk | int64 |  | Task primary key for [Al/H] |
+ | c_12_13_task_pk | int64 |  | Task primary key for C12/C13 |
+ | ca_h_task_pk | int64 |  | Task primary key for [Ca/H] |
+ | ce_h_task_pk | int64 |  | Task primary key for [Ce/H] |
+ | c_1_h_task_pk | int64 |  | Task primary key for [C 1/H] |
+ | c_h_task_pk | int64 |  | Task primary key for [C/H] |
+ | co_h_task_pk | int64 |  | Task primary key for [Co/H] |
+ | cr_h_task_pk | int64 |  | Task primary key for [Cr/H] |
+ | cu_h_task_pk | int64 |  | Task primary key for [Cu/H] |
+ | fe_h_task_pk | int64 |  | Task primary key for [Fe/H] |
+ | k_h_task_pk | int64 |  | Task primary key for [K/H] |
+ | mg_h_task_pk | int64 |  | Task primary key for [Mg/H] |
+ | mn_h_task_pk | int64 |  | Task primary key for [Mn/H] |
+ | na_h_task_pk | int64 |  | Task primary key for [Na/H] |
+ | nd_h_task_pk | int64 |  | Task primary key for [Nd/H] |
+ | ni_h_task_pk | int64 |  | Task primary key for [Ni/H] |
+ | n_h_task_pk | int64 |  | Task primary key for [N/H] |
+ | o_h_task_pk | int64 |  | Task primary key for [O/H] |
+ | p_h_task_pk | int64 |  | Task primary key for [P/H] |
+ | si_h_task_pk | int64 |  | Task primary key for [Si/H] |
+ | s_h_task_pk | int64 |  | Task primary key for [S/H] |
+ | ti_h_task_pk | int64 |  | Task primary key for [Ti/H] |
+ | ti_2_h_task_pk | int64 |  | Task primary key for [Ti 2/H] |
+ | v_h_task_pk | int64 |  | Task primary key for [V/H] |
+ | calibrated_flags | int32 |  | Calibration flags |
+ | mass | float32 |  | Mass inferred from isochrones  |
+ | radius | float32 |  | Radius inferred from isochrones  |
+ | raw_teff | float32 |  | Raw stellar effective temperature  |
+ | raw_e_teff | float32 |  | Raw error on stellar effective temperature  |
+ | raw_logg | float32 |  | Raw surface gravity  |
+ | raw_e_logg | float32 |  | Raw error on surface gravity  |
+ | raw_v_micro | float32 |  | Raw microturbulence  |
+ | raw_e_v_micro | float32 |  | Raw error on microturbulence  |
+ | raw_v_sini | float32 |  | Raw projected rotational velocity  |
+ | raw_e_v_sini | float32 |  | Raw error on projected rotational velocity [km/ |
+ | raw_m_h_atm | float32 |  | Raw metallicity  |
+ | raw_e_m_h_atm | float32 |  | Raw error on metallicity  |
+ | raw_alpha_m_atm | float32 |  | Raw [alpha/M] abundance ratio  |
+ | raw_e_alpha_m_atm | float32 |  | Raw error on [alpha/M] abundance ratio  |
+ | raw_c_m_atm | float32 |  | Raw atmospheric carbon abundance  |
+ | raw_e_c_m_atm | float32 |  | Raw error on atmospheric carbon abundance  |
+ | raw_n_m_atm | float32 |  | Raw atmospheric nitrogen abundance  |
+ | raw_e_n_m_atm | float32 |  | Raw error on atmospheric nitrogen abundance [de |
+ | raw_al_h | float32 |  | Raw [Al/H]  |
+ | raw_e_al_h | float32 |  | Raw error on [Al/H]  |
+ | raw_c_12_13 | float32 |  | Raw c12/C13 ratio |
+ | raw_e_c_12_13 | float32 |  | Raw error on c12/C13 ratio |
+ | raw_ca_h | float32 |  | Raw [Ca/H]  |
+ | raw_e_ca_h | float32 |  | Raw error on [Ca/H]  |
+ | raw_ce_h | float32 |  | Raw [Ce/H]  |
+ | raw_e_ce_h | float32 |  | Raw error on [Ce/H]  |
+ | raw_c_1_h | float32 |  | Raw [C/H] from neutral C lines  |
+ | raw_e_c_1_h | float32 |  | Raw error on [C/H] from neutral C lines  |
+ | raw_c_h | float32 |  | Raw [C/H]  |
+ | raw_e_c_h | float32 |  | Raw error on [C/H]  |
+ | raw_co_h | float32 |  | Raw [Co/H]  |
+ | raw_e_co_h | float32 |  | Raw error on [Co/H]  |
+ | raw_cr_h | float32 |  | Raw [Cr/H]  |
+ | raw_e_cr_h | float32 |  | Raw error on [Cr/H]  |
+ | raw_cu_h | float32 |  | Raw [Cu/H]  |
+ | raw_e_cu_h | float32 |  | Raw error on [Cu/H]  |
+ | raw_fe_h | float32 |  | Raw [Fe/H]  |
+ | raw_e_fe_h | float32 |  | Raw error on [Fe/H]  |
+ | raw_k_h | float32 |  | Raw [K/H]  |
+ | raw_e_k_h | float32 |  | Raw error on [K/H]  |
+ | raw_mg_h | float32 |  | Raw [Mg/H]  |
+ | raw_e_mg_h | float32 |  | Raw error on [Mg/H]  |
+ | raw_mn_h | float32 |  | Raw [Mn/H]  |
+ | raw_e_mn_h | float32 |  | Raw error on [Mn/H]  |
+ | raw_na_h | float32 |  | Raw [Na/H]  |
+ | raw_e_na_h | float32 |  | Raw error on [Na/H]  |
+ | raw_nd_h | float32 |  | Raw [Nd/H]  |
+ | raw_e_nd_h | float32 |  | Raw error on [Nd/H]  |
+ | raw_ni_h | float32 |  | Raw [Ni/H]  |
+ | raw_e_ni_h | float32 |  | Raw error on [Ni/H]  |
+ | raw_n_h | float32 |  | Raw [N/H]  |
+ | raw_e_n_h | float32 |  | Raw error on [N/H]  |
+ | raw_o_h | float32 |  | Raw [O/H]  |
+ | raw_e_o_h | float32 |  | Raw error on [O/H]  |
+ | raw_p_h | float32 |  | Raw [P/H]  |
+ | raw_e_p_h | float32 |  | Raw error on [P/H]  |
+ | raw_si_h | float32 |  | Raw [Si/H]  |
+ | raw_e_si_h | float32 |  | Raw error on [Si/H]  |
+ | raw_s_h | float32 |  | Raw [S/H]  |
+ | raw_e_s_h | float32 |  | Raw error on [S/H]  |
+ | raw_ti_h | float32 |  | Raw [Ti/H]  |
+ | raw_e_ti_h | float32 |  | Raw error on [Ti/H]  |
+ | raw_ti_2_h | float32 |  | Raw [Ti/H] from singly ionized Ti lines  |
+ | raw_e_ti_2_h | float32 |  | Raw error on [Ti/H] from singly ionized Ti line |
+ | raw_v_h | float32 |  | Raw [V/H]  |
+ | raw_e_v_h | float32 |  | Raw error on [V/H]  |
+
+
+
+### HDU2: 
+ASPCAP results for each star from APOGEE
+
+#### HDU Type: BINARY TABLE
+#### HDU Size:  1 GB
+
+##### Header Table Caption for HDU2
+Key | Value | Comment | |
+| --- | --- | --- | --- |
+| XTENSION | BINTABLE | binary table extension |
+| BITPIX | 8 | array data type |
+| NAXIS | 2 | number of array dimensions |
+| NAXIS1 | 1884 | length of dimension 1 |
+| NAXIS2 | 1059521 | length of dimension 2 |
+| PCOUNT | 0 | number of group parameters |
+| GCOUNT | 1 | number of groups |
+| TFIELDS | 397 | number of table fields |
+| INSTRMNT | APOGEE | Instrument |
+| PIPELINE | ASPCAP | Pipeline name |
+| V_ASTRA | 0.5.0 | Astra version |
+| CREATED | 23-11-16 06:21:59 | File creation time (UTC %y-%m-%d %H:%M:%S) |
+| TDIM16 | (57) |  |
+| COMMENT | See https://www.ipac.caltech.edu/2mass/releases/allsky/doc/sec2_2a.html |  |
+| COMMENT | See https://catalog.unwise.me/catalogs.html |  |
+| COMMENT | See https://irsa.ipac.caltech.edu/data/SPITZER/GLIMPSE/gator_docs/ |  |
+| CHECKSUM | WQHmaPEjYPEjaPEj | HDU checksum updated 2023-11-15T23:29:45 |
+| DATASUM | 621181077 | data unit checksum updated 2023-11-15T23:29:45 |
+
+##### Binary Table Caption for HDU2
+Name | Type | Unit | Description |
+| --- | --- | --- | --- |
+ | sdss_id | int64 |  | SDSS-5 unique identifier |
+ | sdss4_apogee_id | char[19] |  | SDSS-4 DR17 APOGEE identifier |
+ | gaia_dr2_source_id | int64 |  | Gaia DR2 source identifier |
+ | gaia_dr3_source_id | int64 |  | Gaia DR3 source identifier |
+ | tic_v8_id | int64 |  | TESS Input Catalog (v8) identifier |
+ | healpix | int32 |  | HEALPix (128 side) |
+ | carton_0 | char[1] |  | Highest priority carton name |
+ | lead | char[25] |  | Lead catalog used for cross-match |
+ | version_id | int32 |  | SDSS catalog version for targeting |
+ | catalogid | int64 |  | Catalog identifier used to target the source |
+ | catalogid21 | int64 |  | Catalog identifier (v21; v0.0) |
+ | catalogid25 | int64 |  | Catalog identifier (v25; v0.5) |
+ | catalogid31 | int64 |  | Catalog identifier (v31; v1.0) |
+ | n_associated | int32 |  | SDSS_IDs associated with this CATALOGID |
+ | n_neighborhood | int32 |  | Sources within 3" and G_MAG < G_MAG_source + 5 |
+ | sdss5_target_flags | bool[57] |  | SDSS-5 targeting flags |
+ | sdss4_apogee_target1_flags | int32 |  | SDSS4 APOGEE1 targeting flags (1/2) |
+ | sdss4_apogee_target2_flags | int32 |  | SDSS4 APOGEE1 targeting flags (2/2) |
+ | sdss4_apogee2_target1_flags | int32 |  | SDSS4 APOGEE2 targeting flags (1/3) |
+ | sdss4_apogee2_target2_flags | int32 |  | SDSS4 APOGEE2 targeting flags (2/3) |
+ | sdss4_apogee2_target3_flags | int32 |  | SDSS4 APOGEE2 targeting flags (3/3) |
+ | sdss4_apogee_member_flags | int32 |  | SDSS4 likely cluster/galaxy member flags |
+ | sdss4_apogee_extra_target_flags | int32 |  | SDSS4 target info (aka EXTRATARG) |
+ | ra | float32 |  | Right ascension  |
+ | dec | float32 |  | Declination  |
+ | l | float32 |  | Galactic longitude  |
+ | b | float32 |  | Galactic latitude  |
+ | plx | float32 |  | Parallax  |
+ | e_plx | float32 |  | Error on parallax  |
+ | pmra | float32 |  | Proper motion in RA  |
+ | e_pmra | float32 |  | Error on proper motion in RA  |
+ | pmde | float32 |  | Proper motion in DEC  |
+ | e_pmde | float32 |  | Error on proper motion in DEC  |
+ | gaia_v_rad | float32 |  | Gaia radial velocity  |
+ | gaia_e_v_rad | float32 |  | Error on Gaia radial velocity  |
+ | g_mag | float32 |  | Gaia DR3 mean G band magnitude  |
+ | bp_mag | float32 |  | Gaia DR3 mean BP band magnitude  |
+ | rp_mag | float32 |  | Gaia DR3 mean RP band magnitude  |
+ | j_mag | float32 |  | 2MASS J band magnitude  |
+ | e_j_mag | float32 |  | Error on 2MASS J band magnitude  |
+ | h_mag | float32 |  | 2MASS H band magnitude  |
+ | e_h_mag | float32 |  | Error on 2MASS H band magnitude  |
+ | k_mag | float32 |  | 2MASS K band magnitude  |
+ | e_k_mag | float32 |  | Error on 2MASS K band magnitude  |
+ | ph_qual | char[3] |  | 2MASS photometric quality flag |
+ | bl_flg | char[3] |  | Number of components fit per band (JHK) |
+ | cc_flg | char[3] |  | Contamination and confusion flag |
+ | w1_mag | float32 |  | W1 magnitude |
+ | e_w1_mag | float32 |  | Error on W1 magnitude |
+ | w1_flux | float32 |  | W1 flux  |
+ | w1_dflux | float32 |  | Error on W1 flux  |
+ | w1_frac | float32 |  | Fraction of W1 flux from this object |
+ | w2_mag | float32 |  | W2 magnitude  |
+ | e_w2_mag | float32 |  | Error on W2 magnitude |
+ | w2_flux | float32 |  | W2 flux  |
+ | w2_dflux | float32 |  | Error on W2 flux  |
+ | w2_frac | float32 |  | Fraction of W2 flux from this object |
+ | w1uflags | int32 |  | unWISE flags for W1 |
+ | w2uflags | int32 |  | unWISE flags for W2 |
+ | w1aflags | int32 |  | Additional flags for W1 |
+ | w2aflags | int32 |  | Additional flags for W2 |
+ | mag4_5 | float32 |  | IRAC band 4.5 micron magnitude  |
+ | d4_5m | float32 |  | Error on IRAC band 4.5 micron magnitude  |
+ | rms_f4_5 | float32 |  | RMS deviations from final flux  |
+ | sqf_4_5 | int32 |  | Source quality flag for IRAC band 4.5 micron |
+ | mf4_5 | int32 |  | Flux calculation method flag |
+ | csf | int32 |  | Close source flag |
+ | zgr_teff | float32 |  | Stellar effective temperature  |
+ | zgr_e_teff | float32 |  | Error on stellar effective temperature  |
+ | zgr_logg | float32 |  | Surface gravity  |
+ | zgr_e_logg | float32 |  | Error on surface gravity  |
+ | zgr_fe_h | float32 |  | [Fe/H]  |
+ | zgr_e_fe_h | float32 |  | Error on [Fe/H]  |
+ | zgr_e | float32 |  | Extinction  |
+ | zgr_e_e | float32 |  | Error on extinction  |
+ | zgr_plx | float32 |  | Parallax [mas] (Gaia DR3) |
+ | zgr_e_plx | float32 |  | Error on parallax [mas] (Gaia DR3) |
+ | zgr_teff_confidence | float32 |  | Confidence estimate in TEFF |
+ | zgr_logg_confidence | float32 |  | Confidence estimate in LOGG |
+ | zgr_fe_h_confidence | float32 |  | Confidence estimate in FE_H |
+ | zgr_ln_prior | float32 |  | Log prior probability |
+ | zgr_chi2 | float32 |  | Chi-square value |
+ | zgr_quality_flags | int32 |  | Quality flags |
+ | r_med_geo | float32 |  | Median geometric distance  |
+ | r_lo_geo | float32 |  | 16th percentile of geometric distance  |
+ | r_hi_geo | float32 |  | 84th percentile of geometric distance  |
+ | r_med_photogeo | float32 |  | 50th percentile of photogeometric distance  |
+ | r_lo_photogeo | float32 |  | 16th percentile of photogeometric distance  |
+ | r_hi_photogeo | float32 |  | 84th percentile of photogeometric distance  |
+ | bailer_jones_flags | char[5] |  | Bailer-Jones quality flags |
+ | ebv | float32 |  | E(B-V)  |
+ | e_ebv | float32 |  | Error on E(B-V)  |
+ | ebv_flags | int32 |  | Flags indicating the source of E(B-V) |
+ | ebv_zhang_2023 | float32 |  | E(B-V) from Zhang et al. (2023)  |
+ | e_ebv_zhang_2023 | float32 |  | Error on E(B-V) from Zhang et al. (2023)  |
+ | ebv_sfd | float32 |  | E(B-V) from SFD  |
+ | e_ebv_sfd | float32 |  | Error on E(B-V) from SFD  |
+ | ebv_rjce_glimpse | float32 |  | E(B-V) from RJCE GLIMPSE  |
+ | e_ebv_rjce_glimpse | float32 |  | Error on RJCE GLIMPSE E(B-V)  |
+ | ebv_rjce_allwise | float32 |  | E(B-V) from RJCE AllWISE  |
+ | e_ebv_rjce_allwise | float32 |  | Error on RJCE AllWISE E(B-V) |
+ | ebv_bayestar_2019 | float32 |  | E(B-V) from Bayestar 2019  |
+ | e_ebv_bayestar_2019 | float32 |  | Error on Bayestar 2019 E(B-V)  |
+ | ebv_edenhofer_2023 | float32 |  | E(B-V) from Edenhofer et al. (2023)  |
+ | e_ebv_edenhofer_2023 | float32 |  | Error on Edenhofer et al. (2023) E(B-V)  |
+ | c_star | float32 |  | Quality parameter (see Riello et al. 2021) |
+ | u_jkc_mag | float32 |  | Gaia XP synthetic U-band (JKC)  |
+ | u_jkc_mag_flag | int32 |  | U-band (JKC) is within valid range |
+ | b_jkc_mag | float32 |  | Gaia XP synthetic B-band (JKC)  |
+ | b_jkc_mag_flag | int32 |  | B-band (JKC) is within valid range |
+ | v_jkc_mag | float32 |  | Gaia XP synthetic V-band (JKC)  |
+ | v_jkc_mag_flag | int32 |  | V-band (JKC) is within valid range |
+ | r_jkc_mag | float32 |  | Gaia XP synthetic R-band (JKC)  |
+ | r_jkc_mag_flag | int32 |  | R-band (JKC) is within valid range |
+ | i_jkc_mag | float32 |  | Gaia XP synthetic I-band (JKC)  |
+ | i_jkc_mag_flag | int32 |  | I-band (JKC) is within valid range |
+ | u_sdss_mag | float32 |  | Gaia XP synthetic u-band (SDSS)  |
+ | u_sdss_mag_flag | int32 |  | u-band (SDSS) is within valid range |
+ | g_sdss_mag | float32 |  | Gaia XP synthetic g-band (SDSS)  |
+ | g_sdss_mag_flag | int32 |  | g-band (SDSS) is within valid range |
+ | r_sdss_mag | float32 |  | Gaia XP synthetic r-band (SDSS)  |
+ | r_sdss_mag_flag | int32 |  | r-band (SDSS) is within valid range |
+ | i_sdss_mag | float32 |  | Gaia XP synthetic i-band (SDSS)  |
+ | i_sdss_mag_flag | int32 |  | i-band (SDSS) is within valid range |
+ | z_sdss_mag | float32 |  | Gaia XP synthetic z-band (SDSS)  |
+ | z_sdss_mag_flag | int32 |  | z-band (SDSS) is within valid range |
+ | y_ps1_mag | float32 |  | Gaia XP synthetic Y-band (PS1)  |
+ | y_ps1_mag_flag | int32 |  | Y-band (PS1) is within valid range |
+ | n_boss_visits | int32 |  | Number of BOSS visits |
+ | boss_min_mjd | int32 |  | Minimum MJD of BOSS visits |
+ | boss_max_mjd | int32 |  | Maximum MJD of BOSS visits |
+ | n_apogee_visits | int32 |  | Number of APOGEE visits |
+ | apogee_min_mjd | int32 |  | Minimum MJD of APOGEE visits |
+ | apogee_max_mjd | int32 |  | Maximum MJD of APOGEE visits |
+ | source | int64 |  | Unique source primary key |
+ | star_pk | int64 |  | APOGEE DRP `star` primary key |
+ | spectrum_pk | int64 |  | Unique spectrum primary key |
+ | release | char[5] |  | SDSS release |
+ | filetype | char[6] |  | SDSS file type that stores this spectrum |
+ | apred | char[4] |  | APOGEE reduction pipeline |
+ | apstar | char[5] |  | Unused DR17 apStar keyword (default: stars) |
+ | obj | char[19] |  | Object name |
+ | telescope | char[6] |  | Short telescope name |
+ | field | char[19] |  | Field identifier |
+ | prefix | char[2] |  | Prefix used to separate SDSS 4 north/south |
+ | min_mjd | int32 |  | Minimum MJD of visits |
+ | max_mjd | int32 |  | Maximum MJD of visits |
+ | n_entries | int32 |  | apStar entries for this SDSS4_APOGEE_ID |
+ | n_visits | int32 |  | Number of APOGEE visits |
+ | n_good_visits | int32 |  | Number of 'good' APOGEE visits |
+ | n_good_rvs | int32 |  | Number of 'good' APOGEE radial velocities |
+ | snr | float32 |  | Signal-to-noise ratio |
+ | mean_fiber | float32 |  | S/N-weighted mean visit fiber number |
+ | std_fiber | float32 |  | Standard deviation of visit fiber numbers |
+ | spectrum_flags | int32 |  | Data reduction pipeline flags for this spectrum |
+ | v_rad | float32 |  | Barycentric rest frame radial velocity  |
+ | e_v_rad | float32 |  | Error on radial velocity  |
+ | std_v_rad | float32 |  | Standard deviation of visit V_RAD  |
+ | median_e_v_rad | float32 |  | Median error in radial velocity  |
+ | doppler_teff | float32 |  | Stellar effective temperature  |
+ | doppler_e_teff | float32 |  | Error on stellar effective temperature  |
+ | doppler_logg | float32 |  | Surface gravity  |
+ | doppler_e_logg | float32 |  | Error on surface gravity  |
+ | doppler_fe_h | float32 |  | [Fe/H]  |
+ | doppler_e_fe_h | float32 |  | Error on [Fe/H]  |
+ | doppler_rchi2 | float32 |  | Reduced chi-square value of DOPPLER fit |
+ | doppler_flags | int32 |  | DOPPLER flags |
+ | xcorr_v_rad | float32 |  | Barycentric rest frame radial velocity  |
+ | xcorr_v_rel | float32 |  | Relative velocity  |
+ | xcorr_e_v_rel | float32 |  | Error on relative velocity  |
+ | ccfwhm | float32 |  | Cross-correlation function FWHM |
+ | autofwhm | float32 |  | Auto-correlation function FWHM |
+ | n_components | int32 |  | Number of components in CCF |
+ | task_pk | int64 |  | Task model primary key |
+ | source_pk | int64 |  |  |
+ | v_astra | char[5] |  | Astra version |
+ | created | char[26] |  | Datetime when task record was created |
+ | t_elapsed | float32 |  | Core-time elapsed on this analysis  |
+ | t_overhead | float32 |  | Estimated core-time spent in overhads  |
+ | tag | char[1] |  | Experiment tag for this result |
+ | irfm_teff | float32 |  | Stellar effective temperature  |
+ | irfm_teff_flags | int32 |  | IRFM temperature flags |
+ | teff | float32 |  | Stellar effective temperature  |
+ | e_teff | float32 |  | Error on stellar effective temperature  |
+ | logg | float32 |  | Surface gravity  |
+ | e_logg | float32 |  | Error on surface gravity  |
+ | v_micro | float32 |  | Microturbulence  |
+ | e_v_micro | float32 |  | Error on microturbulence  |
+ | v_sini | float32 |  | Projected rotational velocity  |
+ | e_v_sini | float32 |  | Error on projected rotational velocity  |
+ | m_h_atm | float32 |  | Metallicity  |
+ | e_m_h_atm | float32 |  | Error on metallicity  |
+ | alpha_m_atm | float32 |  | [alpha/M] abundance ratio  |
+ | e_alpha_m_atm | float32 |  | Error on [alpha/M] abundance ratio  |
+ | c_m_atm | float32 |  | Atmospheric carbon abundance  |
+ | e_c_m_atm | float32 |  | Error on atmospheric carbon abundance  |
+ | n_m_atm | float32 |  | Atmospheric nitrogen abundance  |
+ | e_n_m_atm | float32 |  | Error on atmospheric nitrogen abundance  |
+ | al_h | float32 |  | [Al/H]  |
+ | e_al_h | float32 |  | Error on [Al/H]  |
+ | al_h_flags | int32 |  | Flags for [Al/H]  |
+ | al_h_rchi2 | float32 |  | Reduced chi-square value for [Al/H]  |
+ | c_12_13 | float32 |  | C12/C13 ratio |
+ | e_c_12_13 | float32 |  | Error on c12/C13 ratio |
+ | c_12_13_flags | int32 |  | Flags for c12/C13 ratio |
+ | c_12_13_rchi2 | float32 |  | Reduced chi-square value for c12/C13 ratio |
+ | ca_h | float32 |  | [Ca/H]  |
+ | e_ca_h | float32 |  | Error on [Ca/H]  |
+ | ca_h_flags | int32 |  | Flags for [Ca/H]  |
+ | ca_h_rchi2 | float32 |  | Reduced chi-square value for [Ca/H]  |
+ | ce_h | float32 |  | [Ce/H]  |
+ | e_ce_h | float32 |  | Error on [Ce/H]  |
+ | ce_h_flags | int32 |  | Flags for [Ce/H]  |
+ | ce_h_rchi2 | float32 |  | Reduced chi-square value for [Ce/H]  |
+ | c_1_h | float32 |  | [C/H] from neutral C lines  |
+ | e_c_1_h | float32 |  | Error on [C/H] from neutral C lines  |
+ | c_1_h_flags | int32 |  | Flags for [C/H] from neutral C lines  |
+ | c_1_h_rchi2 | float32 |  | Reduced chi-square value for [C/H] from neutral |
+ | c_h | float32 |  | [C/H]  |
+ | e_c_h | float32 |  | Error on [C/H]  |
+ | c_h_flags | int32 |  | Flags for [C/H]  |
+ | c_h_rchi2 | float32 |  | Reduced chi-square value for [C/H]  |
+ | co_h | float32 |  | [Co/H]  |
+ | e_co_h | float32 |  | Error on [Co/H]  |
+ | co_h_flags | int32 |  | Flags for [Co/H]  |
+ | co_h_rchi2 | float32 |  | Reduced chi-square value for [Co/H]  |
+ | cr_h | float32 |  | [Cr/H]  |
+ | e_cr_h | float32 |  | Error on [Cr/H]  |
+ | cr_h_flags | int32 |  | Flags for [Cr/H]  |
+ | cr_h_rchi2 | float32 |  | Reduced chi-square value for [Cr/H]  |
+ | cu_h | float32 |  | [Cu/H]  |
+ | e_cu_h | float32 |  | Error on [Cu/H]  |
+ | cu_h_flags | int32 |  | Flags for [Cu/H]  |
+ | cu_h_rchi2 | float32 |  | Reduced chi-square value for [Cu/H]  |
+ | fe_h | float32 |  | [Fe/H]  |
+ | e_fe_h | float32 |  | Error on [Fe/H]  |
+ | fe_h_flags | int32 |  | Flags for [Fe/H]  |
+ | fe_h_rchi2 | float32 |  | Reduced chi-square value for [Fe/H]  |
+ | k_h | float32 |  | [K/H]  |
+ | e_k_h | float32 |  | Error on [K/H]  |
+ | k_h_flags | int32 |  | Flags for [K/H]  |
+ | k_h_rchi2 | float32 |  | Reduced chi-square value for [K/H]  |
+ | mg_h | float32 |  | [Mg/H]  |
+ | e_mg_h | float32 |  | Error on [Mg/H]  |
+ | mg_h_flags | int32 |  | Flags for [Mg/H]  |
+ | mg_h_rchi2 | float32 |  | Reduced chi-square value for [Mg/H]  |
+ | mn_h | float32 |  | [Mn/H]  |
+ | e_mn_h | float32 |  | Error on [Mn/H]  |
+ | mn_h_flags | int32 |  | Flags for [Mn/H]  |
+ | mn_h_rchi2 | float32 |  | Reduced chi-square value for [Mn/H]  |
+ | na_h | float32 |  | [Na/H]  |
+ | e_na_h | float32 |  | Error on [Na/H]  |
+ | na_h_flags | int32 |  | Flags for [Na/H]  |
+ | na_h_rchi2 | float32 |  | Reduced chi-square value for [Na/H]  |
+ | nd_h | float32 |  | [Nd/H]  |
+ | e_nd_h | float32 |  | Error on [Nd/H]  |
+ | nd_h_flags | int32 |  | Flags for [Nd/H]  |
+ | nd_h_rchi2 | float32 |  | Reduced chi-square value for [Nd/H]  |
+ | ni_h | float32 |  | [Ni/H]  |
+ | e_ni_h | float32 |  | Error on [Ni/H]  |
+ | ni_h_flags | int32 |  | Flags for [Ni/H]  |
+ | ni_h_rchi2 | float32 |  | Reduced chi-square value for [Ni/H]  |
+ | n_h | float32 |  | [N/H]  |
+ | e_n_h | float32 |  | Error on [N/H]  |
+ | n_h_flags | int32 |  | Flags for [N/H]  |
+ | n_h_rchi2 | float32 |  | Reduced chi-square value for [N/H]  |
+ | o_h | float32 |  | [O/H]  |
+ | e_o_h | float32 |  | Error on [O/H]  |
+ | o_h_flags | int32 |  | Flags for [O/H]  |
+ | o_h_rchi2 | float32 |  | Reduced chi-square value for [O/H]  |
+ | p_h | float32 |  | [P/H]  |
+ | e_p_h | float32 |  | Error on [P/H]  |
+ | p_h_flags | int32 |  | Flags for [P/H]  |
+ | p_h_rchi2 | float32 |  | Reduced chi-square value for [P/H]  |
+ | si_h | float32 |  | [Si/H]  |
+ | e_si_h | float32 |  | Error on [Si/H]  |
+ | si_h_flags | int32 |  | Flags for [Si/H]  |
+ | si_h_rchi2 | float32 |  | Reduced chi-square value for [Si/H]  |
+ | s_h | float32 |  | [S/H]  |
+ | e_s_h | float32 |  | Error on [S/H]  |
+ | s_h_flags | int32 |  | Flags for [S/H]  |
+ | s_h_rchi2 | float32 |  | Reduced chi-square value for [S/H]  |
+ | ti_h | float32 |  | [Ti/H]  |
+ | e_ti_h | float32 |  | Error on [Ti/H]  |
+ | ti_h_flags | int32 |  | Flags for [Ti/H]  |
+ | ti_h_rchi2 | float32 |  | Reduced chi-square value for [Ti/H]  |
+ | ti_2_h | float32 |  | [Ti/H] from singly ionized Ti lines  |
+ | e_ti_2_h | float32 |  | Error on [Ti/H] from singly ionized Ti lines [d |
+ | ti_2_h_flags | int32 |  | Flags for [Ti/H] from singly ionized Ti lines [ |
+ | ti_2_h_rchi2 | float32 |  | Reduced chi-square value for [Ti/H] from singly |
+ | v_h | float32 |  | [V/H]  |
+ | e_v_h | float32 |  | Error on [V/H]  |
+ | v_h_flags | int32 |  | Flags for [V/H]  |
+ | v_h_rchi2 | float32 |  | Reduced chi-square value for [V/H]  |
+ | short_grid_name | char[16] |  | Short name describing the FERRE grid used |
+ | continuum_order | int32 |  | Continuum order used in FERRE |
+ | continuum_reject | float32 |  | Tolerance for FERRE to reject continuum points |
+ | interpolation_order | int32 |  | Interpolation order used by FERRE |
+ | initial_flags | int32 |  | Flags indicating source of initial guess |
+ | rchi2 | float32 |  | Reduced chi-square value |
+ | ferre_log_snr_sq | float32 |  | FERRE-reported log10(snr**2) |
+ | ferre_time_elapsed | float32 |  | Total core-second use reported by FERRE  |
+ | result_flags | int32 |  | Flags indicating FERRE issues |
+ | flag_warn | bool |  | Warning flag for results |
+ | flag_bad | bool |  | Bad flag for results |
+ | stellar_parameters_task_pk | int64 |  | Task primary key for stellar parameters |
+ | al_h_task_pk | int64 |  | Task primary key for [Al/H] |
+ | c_12_13_task_pk | int64 |  | Task primary key for C12/C13 |
+ | ca_h_task_pk | int64 |  | Task primary key for [Ca/H] |
+ | ce_h_task_pk | int64 |  | Task primary key for [Ce/H] |
+ | c_1_h_task_pk | int64 |  | Task primary key for [C 1/H] |
+ | c_h_task_pk | int64 |  | Task primary key for [C/H] |
+ | co_h_task_pk | int64 |  | Task primary key for [Co/H] |
+ | cr_h_task_pk | int64 |  | Task primary key for [Cr/H] |
+ | cu_h_task_pk | int64 |  | Task primary key for [Cu/H] |
+ | fe_h_task_pk | int64 |  | Task primary key for [Fe/H] |
+ | k_h_task_pk | int64 |  | Task primary key for [K/H] |
+ | mg_h_task_pk | int64 |  | Task primary key for [Mg/H] |
+ | mn_h_task_pk | int64 |  | Task primary key for [Mn/H] |
+ | na_h_task_pk | int64 |  | Task primary key for [Na/H] |
+ | nd_h_task_pk | int64 |  | Task primary key for [Nd/H] |
+ | ni_h_task_pk | int64 |  | Task primary key for [Ni/H] |
+ | n_h_task_pk | int64 |  | Task primary key for [N/H] |
+ | o_h_task_pk | int64 |  | Task primary key for [O/H] |
+ | p_h_task_pk | int64 |  | Task primary key for [P/H] |
+ | si_h_task_pk | int64 |  | Task primary key for [Si/H] |
+ | s_h_task_pk | int64 |  | Task primary key for [S/H] |
+ | ti_h_task_pk | int64 |  | Task primary key for [Ti/H] |
+ | ti_2_h_task_pk | int64 |  | Task primary key for [Ti 2/H] |
+ | v_h_task_pk | int64 |  | Task primary key for [V/H] |
+ | calibrated_flags | int32 |  | Calibration flags |
+ | mass | float32 |  | Mass inferred from isochrones  |
+ | radius | float32 |  | Radius inferred from isochrones  |
+ | raw_teff | float32 |  | Raw stellar effective temperature  |
+ | raw_e_teff | float32 |  | Raw error on stellar effective temperature  |
+ | raw_logg | float32 |  | Raw surface gravity  |
+ | raw_e_logg | float32 |  | Raw error on surface gravity  |
+ | raw_v_micro | float32 |  | Raw microturbulence  |
+ | raw_e_v_micro | float32 |  | Raw error on microturbulence  |
+ | raw_v_sini | float32 |  | Raw projected rotational velocity  |
+ | raw_e_v_sini | float32 |  | Raw error on projected rotational velocity [km/ |
+ | raw_m_h_atm | float32 |  | Raw metallicity  |
+ | raw_e_m_h_atm | float32 |  | Raw error on metallicity  |
+ | raw_alpha_m_atm | float32 |  | Raw [alpha/M] abundance ratio  |
+ | raw_e_alpha_m_atm | float32 |  | Raw error on [alpha/M] abundance ratio  |
+ | raw_c_m_atm | float32 |  | Raw atmospheric carbon abundance  |
+ | raw_e_c_m_atm | float32 |  | Raw error on atmospheric carbon abundance  |
+ | raw_n_m_atm | float32 |  | Raw atmospheric nitrogen abundance  |
+ | raw_e_n_m_atm | float32 |  | Raw error on atmospheric nitrogen abundance [de |
+ | raw_al_h | float32 |  | Raw [Al/H]  |
+ | raw_e_al_h | float32 |  | Raw error on [Al/H]  |
+ | raw_c_12_13 | float32 |  | Raw c12/C13 ratio |
+ | raw_e_c_12_13 | float32 |  | Raw error on c12/C13 ratio |
+ | raw_ca_h | float32 |  | Raw [Ca/H]  |
+ | raw_e_ca_h | float32 |  | Raw error on [Ca/H]  |
+ | raw_ce_h | float32 |  | Raw [Ce/H]  |
+ | raw_e_ce_h | float32 |  | Raw error on [Ce/H]  |
+ | raw_c_1_h | float32 |  | Raw [C/H] from neutral C lines  |
+ | raw_e_c_1_h | float32 |  | Raw error on [C/H] from neutral C lines  |
+ | raw_c_h | float32 |  | Raw [C/H]  |
+ | raw_e_c_h | float32 |  | Raw error on [C/H]  |
+ | raw_co_h | float32 |  | Raw [Co/H]  |
+ | raw_e_co_h | float32 |  | Raw error on [Co/H]  |
+ | raw_cr_h | float32 |  | Raw [Cr/H]  |
+ | raw_e_cr_h | float32 |  | Raw error on [Cr/H]  |
+ | raw_cu_h | float32 |  | Raw [Cu/H]  |
+ | raw_e_cu_h | float32 |  | Raw error on [Cu/H]  |
+ | raw_fe_h | float32 |  | Raw [Fe/H]  |
+ | raw_e_fe_h | float32 |  | Raw error on [Fe/H]  |
+ | raw_k_h | float32 |  | Raw [K/H]  |
+ | raw_e_k_h | float32 |  | Raw error on [K/H]  |
+ | raw_mg_h | float32 |  | Raw [Mg/H]  |
+ | raw_e_mg_h | float32 |  | Raw error on [Mg/H]  |
+ | raw_mn_h | float32 |  | Raw [Mn/H]  |
+ | raw_e_mn_h | float32 |  | Raw error on [Mn/H]  |
+ | raw_na_h | float32 |  | Raw [Na/H]  |
+ | raw_e_na_h | float32 |  | Raw error on [Na/H]  |
+ | raw_nd_h | float32 |  | Raw [Nd/H]  |
+ | raw_e_nd_h | float32 |  | Raw error on [Nd/H]  |
+ | raw_ni_h | float32 |  | Raw [Ni/H]  |
+ | raw_e_ni_h | float32 |  | Raw error on [Ni/H]  |
+ | raw_n_h | float32 |  | Raw [N/H]  |
+ | raw_e_n_h | float32 |  | Raw error on [N/H]  |
+ | raw_o_h | float32 |  | Raw [O/H]  |
+ | raw_e_o_h | float32 |  | Raw error on [O/H]  |
+ | raw_p_h | float32 |  | Raw [P/H]  |
+ | raw_e_p_h | float32 |  | Raw error on [P/H]  |
+ | raw_si_h | float32 |  | Raw [Si/H]  |
+ | raw_e_si_h | float32 |  | Raw error on [Si/H]  |
+ | raw_s_h | float32 |  | Raw [S/H]  |
+ | raw_e_s_h | float32 |  | Raw error on [S/H]  |
+ | raw_ti_h | float32 |  | Raw [Ti/H]  |
+ | raw_e_ti_h | float32 |  | Raw error on [Ti/H]  |
+ | raw_ti_2_h | float32 |  | Raw [Ti/H] from singly ionized Ti lines  |
+ | raw_e_ti_2_h | float32 |  | Raw error on [Ti/H] from singly ionized Ti line |
+ | raw_v_h | float32 |  | Raw [V/H]  |
+ | raw_e_v_h | float32 |  | Raw error on [V/H]  |
 
 
 

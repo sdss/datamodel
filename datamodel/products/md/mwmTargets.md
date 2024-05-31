@@ -62,7 +62,7 @@ Key | Value | Comment | |
 | NAXIS | 0 | number of array dimensions |
 | EXTEND | True |  |
 | V_ASTRA | 0.5.0 | Astra version |
-| CREATED | 23-11-15 05:31:09 | File creation time (UTC %y-%m-%d %H:%M:%S) |
+| CREATED | 23-11-16 00:00:06 | File creation time (UTC %y-%m-%d %H:%M:%S) |
 
 
 
@@ -84,151 +84,151 @@ Key | Value | Comment | |
 | GCOUNT | 1 | number of groups |
 | TFIELDS | 134 | number of table fields |
 | V_ASTRA | 0.5.0 | Astra version |
-| CREATED | 23-11-15 05:31:09 | File creation time (UTC %y-%m-%d %H:%M:%S) |
+| CREATED | 23-11-16 00:00:06 | File creation time (UTC %y-%m-%d %H:%M:%S) |
 | TDIM16 | (57) |  |
 | COMMENT | See https://www.ipac.caltech.edu/2mass/releases/allsky/doc/sec2_2a.html |  |
 | COMMENT | See https://catalog.unwise.me/catalogs.html |  |
 | COMMENT | See https://irsa.ipac.caltech.edu/data/SPITZER/GLIMPSE/gator_docs/ |  |
-| CHECKSUM | NGV5P9S3NES3N9S3 | HDU checksum updated 2023-11-14T22:35:03 |
-| DATASUM | 1936883091 | data unit checksum updated 2023-11-14T22:35:03 |
+| CHECKSUM | mgGAogF4mgFAmgF3 | HDU checksum updated 2023-11-15T17:03:46 |
+| DATASUM | 3684916251 | data unit checksum updated 2023-11-15T17:03:46 |
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | SDSS_ID | int64 |  | SDSS-5 unique identifier |
- | SDSS4_APOGEE_ID | char[19] |  | SDSS-4 DR17 APOGEE identifier |
- | GAIA_DR2_SOURCE_ID | int64 |  | Gaia DR2 source identifier |
- | GAIA_DR3_SOURCE_ID | int64 |  | Gaia DR3 source identifier |
- | TIC_V8_ID | int64 |  | TESS Input Catalog (v8) identifier |
- | HEALPIX | int32 |  | HEALPix (128 side) |
- | CARTON_0 | char[1] |  | Highest priority carton name |
- | LEAD | char[26] |  | Lead catalog used for cross-match |
- | VERSION_ID | int32 |  | SDSS catalog version for targeting |
- | CATALOGID | int64 |  | Catalog identifier used to target the source |
- | CATALOGID21 | int64 |  | Catalog identifier (v21; v0.0) |
- | CATALOGID25 | int64 |  | Catalog identifier (v25; v0.5) |
- | CATALOGID31 | int64 |  | Catalog identifier (v31; v1.0) |
- | N_ASSOCIATED | int32 |  | SDSS_IDs associated with this CATALOGID |
- | N_NEIGHBORHOOD | int32 |  | Sources within 3" and G_MAG < G_MAG_source + 5 |
- | SDSS5_TARGET_FLAGS | bool[57] |  | SDSS-5 targeting flags |
- | SDSS4_APOGEE_TARGET1_FLAGS | int32 |  | SDSS4 APOGEE1 targeting flags (1/2) |
- | SDSS4_APOGEE_TARGET2_FLAGS | int32 |  | SDSS4 APOGEE1 targeting flags (2/2) |
- | SDSS4_APOGEE2_TARGET1_FLAGS | int32 |  | SDSS4 APOGEE2 targeting flags (1/3) |
- | SDSS4_APOGEE2_TARGET2_FLAGS | int32 |  | SDSS4 APOGEE2 targeting flags (2/3) |
- | SDSS4_APOGEE2_TARGET3_FLAGS | int32 |  | SDSS4 APOGEE2 targeting flags (3/3) |
- | SDSS4_APOGEE_MEMBER_FLAGS | int32 |  | SDSS4 likely cluster/galaxy member flags |
- | SDSS4_APOGEE_EXTRA_TARGET_FLAGS | int32 |  | SDSS4 target info (aka EXTRATARG) |
- | RA | float32 | deg | Right ascension  |
- | DEC | float32 | deg | Declination  |
- | L | float32 | deg | Galactic longitude  |
- | B | float32 | deg | Galactic latitude  |
- | PLX | float32 | mas | Parallax  |
- | E_PLX | float32 | mas | Error on parallax  |
- | PMRA | float32 | mas/yr | Proper motion in RA  |
- | E_PMRA | float32 | mas/yr | Error on proper motion in RA  |
- | PMDE | float32 | mas/yr | Proper motion in DEC  |
- | E_PMDE | float32 | mas/yr | Error on proper motion in DEC  |
- | GAIA_V_RAD | float32 | km/s | Gaia radial velocity  |
- | GAIA_E_V_RAD | float32 | km/s | Error on Gaia radial velocity  |
- | G_MAG | float32 | mag | Gaia DR3 mean G band magnitude  |
- | BP_MAG | float32 | mag | Gaia DR3 mean BP band magnitude  |
- | RP_MAG | float32 | mag | Gaia DR3 mean RP band magnitude  |
- | J_MAG | float32 | mag | 2MASS J band magnitude  |
- | E_J_MAG | float32 | mag | Error on 2MASS J band magnitude  |
- | H_MAG | float32 | mag | 2MASS H band magnitude  |
- | E_H_MAG | float32 | mag | Error on 2MASS H band magnitude  |
- | K_MAG | float32 | mag | 2MASS K band magnitude  |
- | E_K_MAG | float32 | mag | Error on 2MASS K band magnitude  |
- | PH_QUAL | char[3] |  | 2MASS photometric quality flag |
- | BL_FLG | char[3] |  | Number of components fit per band (JHK) |
- | CC_FLG | char[3] |  | Contamination and confusion flag |
- | W1_MAG | float32 |  | W1 magnitude |
- | E_W1_MAG | float32 |  | Error on W1 magnitude |
- | W1_FLUX | float32 | Vega nMgy | W1 flux  |
- | W1_DFLUX | float32 | Vega nMgy | Error on W1 flux  |
- | W1_FRAC | float32 |  | Fraction of W1 flux from this object |
- | W2_MAG | float32 | Vega | W2 magnitude  |
- | E_W2_MAG | float32 |  | Error on W2 magnitude |
- | W2_FLUX | float32 | Vega nMgy | W2 flux  |
- | W2_DFLUX | float32 | Vega nMgy | Error on W2 flux  |
- | W2_FRAC | float32 |  | Fraction of W2 flux from this object |
- | W1UFLAGS | int32 |  | unWISE flags for W1 |
- | W2UFLAGS | int32 |  | unWISE flags for W2 |
- | W1AFLAGS | int32 |  | Additional flags for W1 |
- | W2AFLAGS | int32 |  | Additional flags for W2 |
- | MAG4_5 | float32 | mag | IRAC band 4.5 micron magnitude  |
- | D4_5M | float32 | mag | Error on IRAC band 4.5 micron magnitude  |
- | RMS_F4_5 | float32 | mJy | RMS deviations from final flux  |
- | SQF_4_5 | int32 |  | Source quality flag for IRAC band 4.5 micron |
- | MF4_5 | int32 |  | Flux calculation method flag |
- | CSF | int32 |  | Close source flag |
- | ZGR_TEFF | float32 | K | Stellar effective temperature  |
- | ZGR_E_TEFF | float32 | K | Error on stellar effective temperature  |
- | ZGR_LOGG | float32 | log10(cm/s^2) | Surface gravity  |
- | ZGR_E_LOGG | float32 | log10(cm/s^2) | Error on surface gravity  |
- | ZGR_FE_H | float32 | dex | [Fe/H]  |
- | ZGR_E_FE_H | float32 | dex | Error on [Fe/H]  |
- | ZGR_E | float32 | mag | Extinction  |
- | ZGR_E_E | float32 | mag | Error on extinction  |
- | ZGR_PLX | float32 |  | Parallax [mas] (Gaia DR3) |
- | ZGR_E_PLX | float32 |  | Error on parallax [mas] (Gaia DR3) |
- | ZGR_TEFF_CONFIDENCE | float32 |  | Confidence estimate in TEFF |
- | ZGR_LOGG_CONFIDENCE | float32 |  | Confidence estimate in LOGG |
- | ZGR_FE_H_CONFIDENCE | float32 |  | Confidence estimate in FE_H |
- | ZGR_LN_PRIOR | float32 |  | Log prior probability |
- | ZGR_CHI2 | float32 |  | Chi-square value |
- | ZGR_QUALITY_FLAGS | int32 |  | Quality flags |
- | R_MED_GEO | float32 | pc | Median geometric distance  |
- | R_LO_GEO | float32 | pc | 16th percentile of geometric distance  |
- | R_HI_GEO | float32 | pc | 84th percentile of geometric distance  |
- | R_MED_PHOTOGEO | float32 | pc | 50th percentile of photogeometric distance  |
- | R_LO_PHOTOGEO | float32 | pc | 16th percentile of photogeometric distance  |
- | R_HI_PHOTOGEO | float32 | pc | 84th percentile of photogeometric distance  |
- | BAILER_JONES_FLAGS | char[5] |  | Bailer-Jones quality flags |
- | EBV | float32 | mag | E(B-V)  |
- | E_EBV | float32 | mag | Error on E(B-V)  |
- | EBV_FLAGS | int32 |  | Flags indicating the source of E(B-V) |
- | EBV_ZHANG_2023 | float32 | mag | E(B-V) from Zhang et al. (2023)  |
- | E_EBV_ZHANG_2023 | float32 | mag | Error on E(B-V) from Zhang et al. (2023)  |
- | EBV_SFD | float32 | mag | E(B-V) from SFD  |
- | E_EBV_SFD | float32 | mag | Error on E(B-V) from SFD  |
- | EBV_RJCE_GLIMPSE | float32 | mag | E(B-V) from RJCE GLIMPSE  |
- | E_EBV_RJCE_GLIMPSE | float32 | mag | Error on RJCE GLIMPSE E(B-V)  |
- | EBV_RJCE_ALLWISE | float32 | mag | E(B-V) from RJCE AllWISE  |
- | E_EBV_RJCE_ALLWISE | float32 | mag | Error on RJCE AllWISE E(B-V) |
- | EBV_BAYESTAR_2019 | float32 | mag | E(B-V) from Bayestar 2019  |
- | E_EBV_BAYESTAR_2019 | float32 | mag | Error on Bayestar 2019 E(B-V)  |
- | EBV_EDENHOFER_2023 | float32 | mag | E(B-V) from Edenhofer et al. (2023)  |
- | E_EBV_EDENHOFER_2023 | float32 | mag | Error on Edenhofer et al. (2023) E(B-V)  |
- | C_STAR | float32 |  | Quality parameter (see Riello et al. 2021) |
- | U_JKC_MAG | float32 | mag | Gaia XP synthetic U-band (JKC)  |
- | U_JKC_MAG_FLAG | int32 |  | U-band (JKC) is within valid range |
- | B_JKC_MAG | float32 | mag | Gaia XP synthetic B-band (JKC)  |
- | B_JKC_MAG_FLAG | int32 |  | B-band (JKC) is within valid range |
- | V_JKC_MAG | float32 | mag | Gaia XP synthetic V-band (JKC)  |
- | V_JKC_MAG_FLAG | int32 |  | V-band (JKC) is within valid range |
- | R_JKC_MAG | float32 | mag | Gaia XP synthetic R-band (JKC)  |
- | R_JKC_MAG_FLAG | int32 |  | R-band (JKC) is within valid range |
- | I_JKC_MAG | float32 | mag | Gaia XP synthetic I-band (JKC)  |
- | I_JKC_MAG_FLAG | int32 |  | I-band (JKC) is within valid range |
- | U_SDSS_MAG | float32 | mag | Gaia XP synthetic u-band (SDSS)  |
- | U_SDSS_MAG_FLAG | int32 |  | u-band (SDSS) is within valid range |
- | G_SDSS_MAG | float32 | mag | Gaia XP synthetic g-band (SDSS)  |
- | G_SDSS_MAG_FLAG | int32 |  | g-band (SDSS) is within valid range |
- | R_SDSS_MAG | float32 | mag | Gaia XP synthetic r-band (SDSS)  |
- | R_SDSS_MAG_FLAG | int32 |  | r-band (SDSS) is within valid range |
- | I_SDSS_MAG | float32 | mag | Gaia XP synthetic i-band (SDSS)  |
- | I_SDSS_MAG_FLAG | int32 |  | i-band (SDSS) is within valid range |
- | Z_SDSS_MAG | float32 | mag | Gaia XP synthetic z-band (SDSS)  |
- | Z_SDSS_MAG_FLAG | int32 |  | z-band (SDSS) is within valid range |
- | Y_PS1_MAG | float32 | mag | Gaia XP synthetic Y-band (PS1)  |
- | Y_PS1_MAG_FLAG | int32 |  | Y-band (PS1) is within valid range |
- | N_BOSS_VISITS | int32 |  | Number of BOSS visits |
- | BOSS_MIN_MJD | int32 |  | Minimum MJD of BOSS visits |
- | BOSS_MAX_MJD | int32 |  | Maximum MJD of BOSS visits |
- | N_APOGEE_VISITS | int32 |  | Number of APOGEE visits |
- | APOGEE_MIN_MJD | int32 |  | Minimum MJD of APOGEE visits |
- | APOGEE_MAX_MJD | int32 |  | Maximum MJD of APOGEE visits |
+ | sdss_id | int64 |  | SDSS-5 unique identifier |
+ | sdss4_apogee_id | char[19] |  | SDSS-4 DR17 APOGEE identifier |
+ | gaia_dr2_source_id | int64 |  | Gaia DR2 source identifier |
+ | gaia_dr3_source_id | int64 |  | Gaia DR3 source identifier |
+ | tic_v8_id | int64 |  | TESS Input Catalog (v8) identifier |
+ | healpix | int32 |  | HEALPix (128 side) |
+ | carton_0 | char[1] |  | Highest priority carton name |
+ | lead | char[26] |  | Lead catalog used for cross-match |
+ | version_id | int32 |  | SDSS catalog version for targeting |
+ | catalogid | int64 |  | Catalog identifier used to target the source |
+ | catalogid21 | int64 |  | Catalog identifier (v21; v0.0) |
+ | catalogid25 | int64 |  | Catalog identifier (v25; v0.5) |
+ | catalogid31 | int64 |  | Catalog identifier (v31; v1.0) |
+ | n_associated | int32 |  | SDSS_IDs associated with this CATALOGID |
+ | n_neighborhood | int32 |  | Sources within 3" and G_MAG < G_MAG_source + 5 |
+ | sdss5_target_flags | bool[57] |  | SDSS-5 targeting flags |
+ | sdss4_apogee_target1_flags | int32 |  | SDSS4 APOGEE1 targeting flags (1/2) |
+ | sdss4_apogee_target2_flags | int32 |  | SDSS4 APOGEE1 targeting flags (2/2) |
+ | sdss4_apogee2_target1_flags | int32 |  | SDSS4 APOGEE2 targeting flags (1/3) |
+ | sdss4_apogee2_target2_flags | int32 |  | SDSS4 APOGEE2 targeting flags (2/3) |
+ | sdss4_apogee2_target3_flags | int32 |  | SDSS4 APOGEE2 targeting flags (3/3) |
+ | sdss4_apogee_member_flags | int32 |  | SDSS4 likely cluster/galaxy member flags |
+ | sdss4_apogee_extra_target_flags | int32 |  | SDSS4 target info (aka EXTRATARG) |
+ | ra | float32 |  | Right ascension  |
+ | dec | float32 |  | Declination  |
+ | l | float32 |  | Galactic longitude  |
+ | b | float32 |  | Galactic latitude  |
+ | plx | float32 |  | Parallax  |
+ | e_plx | float32 |  | Error on parallax  |
+ | pmra | float32 |  | Proper motion in RA  |
+ | e_pmra | float32 |  | Error on proper motion in RA  |
+ | pmde | float32 |  | Proper motion in DEC  |
+ | e_pmde | float32 |  | Error on proper motion in DEC  |
+ | gaia_v_rad | float32 |  | Gaia radial velocity  |
+ | gaia_e_v_rad | float32 |  | Error on Gaia radial velocity  |
+ | g_mag | float32 |  | Gaia DR3 mean G band magnitude  |
+ | bp_mag | float32 |  | Gaia DR3 mean BP band magnitude  |
+ | rp_mag | float32 |  | Gaia DR3 mean RP band magnitude  |
+ | j_mag | float32 |  | 2MASS J band magnitude  |
+ | e_j_mag | float32 |  | Error on 2MASS J band magnitude  |
+ | h_mag | float32 |  | 2MASS H band magnitude  |
+ | e_h_mag | float32 |  | Error on 2MASS H band magnitude  |
+ | k_mag | float32 |  | 2MASS K band magnitude  |
+ | e_k_mag | float32 |  | Error on 2MASS K band magnitude  |
+ | ph_qual | char[3] |  | 2MASS photometric quality flag |
+ | bl_flg | char[3] |  | Number of components fit per band (JHK) |
+ | cc_flg | char[3] |  | Contamination and confusion flag |
+ | w1_mag | float32 |  | W1 magnitude |
+ | e_w1_mag | float32 |  | Error on W1 magnitude |
+ | w1_flux | float32 |  | W1 flux  |
+ | w1_dflux | float32 |  | Error on W1 flux  |
+ | w1_frac | float32 |  | Fraction of W1 flux from this object |
+ | w2_mag | float32 |  | W2 magnitude  |
+ | e_w2_mag | float32 |  | Error on W2 magnitude |
+ | w2_flux | float32 |  | W2 flux  |
+ | w2_dflux | float32 |  | Error on W2 flux  |
+ | w2_frac | float32 |  | Fraction of W2 flux from this object |
+ | w1uflags | int32 |  | unWISE flags for W1 |
+ | w2uflags | int32 |  | unWISE flags for W2 |
+ | w1aflags | int32 |  | Additional flags for W1 |
+ | w2aflags | int32 |  | Additional flags for W2 |
+ | mag4_5 | float32 |  | IRAC band 4.5 micron magnitude  |
+ | d4_5m | float32 |  | Error on IRAC band 4.5 micron magnitude  |
+ | rms_f4_5 | float32 |  | RMS deviations from final flux  |
+ | sqf_4_5 | int32 |  | Source quality flag for IRAC band 4.5 micron |
+ | mf4_5 | int32 |  | Flux calculation method flag |
+ | csf | int32 |  | Close source flag |
+ | zgr_teff | float32 |  | Stellar effective temperature  |
+ | zgr_e_teff | float32 |  | Error on stellar effective temperature  |
+ | zgr_logg | float32 |  | Surface gravity  |
+ | zgr_e_logg | float32 |  | Error on surface gravity  |
+ | zgr_fe_h | float32 |  | [Fe/H]  |
+ | zgr_e_fe_h | float32 |  | Error on [Fe/H]  |
+ | zgr_e | float32 |  | Extinction  |
+ | zgr_e_e | float32 |  | Error on extinction  |
+ | zgr_plx | float32 |  | Parallax [mas] (Gaia DR3) |
+ | zgr_e_plx | float32 |  | Error on parallax [mas] (Gaia DR3) |
+ | zgr_teff_confidence | float32 |  | Confidence estimate in TEFF |
+ | zgr_logg_confidence | float32 |  | Confidence estimate in LOGG |
+ | zgr_fe_h_confidence | float32 |  | Confidence estimate in FE_H |
+ | zgr_ln_prior | float32 |  | Log prior probability |
+ | zgr_chi2 | float32 |  | Chi-square value |
+ | zgr_quality_flags | int32 |  | Quality flags |
+ | r_med_geo | float32 |  | Median geometric distance  |
+ | r_lo_geo | float32 |  | 16th percentile of geometric distance  |
+ | r_hi_geo | float32 |  | 84th percentile of geometric distance  |
+ | r_med_photogeo | float32 |  | 50th percentile of photogeometric distance  |
+ | r_lo_photogeo | float32 |  | 16th percentile of photogeometric distance  |
+ | r_hi_photogeo | float32 |  | 84th percentile of photogeometric distance  |
+ | bailer_jones_flags | char[5] |  | Bailer-Jones quality flags |
+ | ebv | float32 |  | E(B-V)  |
+ | e_ebv | float32 |  | Error on E(B-V)  |
+ | ebv_flags | int32 |  | Flags indicating the source of E(B-V) |
+ | ebv_zhang_2023 | float32 |  | E(B-V) from Zhang et al. (2023)  |
+ | e_ebv_zhang_2023 | float32 |  | Error on E(B-V) from Zhang et al. (2023)  |
+ | ebv_sfd | float32 |  | E(B-V) from SFD  |
+ | e_ebv_sfd | float32 |  | Error on E(B-V) from SFD  |
+ | ebv_rjce_glimpse | float32 |  | E(B-V) from RJCE GLIMPSE  |
+ | e_ebv_rjce_glimpse | float32 |  | Error on RJCE GLIMPSE E(B-V)  |
+ | ebv_rjce_allwise | float32 |  | E(B-V) from RJCE AllWISE  |
+ | e_ebv_rjce_allwise | float32 |  | Error on RJCE AllWISE E(B-V) |
+ | ebv_bayestar_2019 | float32 |  | E(B-V) from Bayestar 2019  |
+ | e_ebv_bayestar_2019 | float32 |  | Error on Bayestar 2019 E(B-V)  |
+ | ebv_edenhofer_2023 | float32 |  | E(B-V) from Edenhofer et al. (2023)  |
+ | e_ebv_edenhofer_2023 | float32 |  | Error on Edenhofer et al. (2023) E(B-V)  |
+ | c_star | float32 |  | Quality parameter (see Riello et al. 2021) |
+ | u_jkc_mag | float32 |  | Gaia XP synthetic U-band (JKC)  |
+ | u_jkc_mag_flag | int32 |  | U-band (JKC) is within valid range |
+ | b_jkc_mag | float32 |  | Gaia XP synthetic B-band (JKC)  |
+ | b_jkc_mag_flag | int32 |  | B-band (JKC) is within valid range |
+ | v_jkc_mag | float32 |  | Gaia XP synthetic V-band (JKC)  |
+ | v_jkc_mag_flag | int32 |  | V-band (JKC) is within valid range |
+ | r_jkc_mag | float32 |  | Gaia XP synthetic R-band (JKC)  |
+ | r_jkc_mag_flag | int32 |  | R-band (JKC) is within valid range |
+ | i_jkc_mag | float32 |  | Gaia XP synthetic I-band (JKC)  |
+ | i_jkc_mag_flag | int32 |  | I-band (JKC) is within valid range |
+ | u_sdss_mag | float32 |  | Gaia XP synthetic u-band (SDSS)  |
+ | u_sdss_mag_flag | int32 |  | u-band (SDSS) is within valid range |
+ | g_sdss_mag | float32 |  | Gaia XP synthetic g-band (SDSS)  |
+ | g_sdss_mag_flag | int32 |  | g-band (SDSS) is within valid range |
+ | r_sdss_mag | float32 |  | Gaia XP synthetic r-band (SDSS)  |
+ | r_sdss_mag_flag | int32 |  | r-band (SDSS) is within valid range |
+ | i_sdss_mag | float32 |  | Gaia XP synthetic i-band (SDSS)  |
+ | i_sdss_mag_flag | int32 |  | i-band (SDSS) is within valid range |
+ | z_sdss_mag | float32 |  | Gaia XP synthetic z-band (SDSS)  |
+ | z_sdss_mag_flag | int32 |  | z-band (SDSS) is within valid range |
+ | y_ps1_mag | float32 |  | Gaia XP synthetic Y-band (PS1)  |
+ | y_ps1_mag_flag | int32 |  | Y-band (PS1) is within valid range |
+ | n_boss_visits | int32 |  | Number of BOSS visits |
+ | boss_min_mjd | int32 |  | Minimum MJD of BOSS visits |
+ | boss_max_mjd | int32 |  | Maximum MJD of BOSS visits |
+ | n_apogee_visits | int32 |  | Number of APOGEE visits |
+ | apogee_min_mjd | int32 |  | Minimum MJD of APOGEE visits |
+ | apogee_max_mjd | int32 |  | Maximum MJD of APOGEE visits |
 
 
 

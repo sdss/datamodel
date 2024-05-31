@@ -53,7 +53,7 @@ class Tag(CoreModel):
         when the tag survey is not a valid SDSS Survey
     """
     version: Version = Field(..., json_schema_extra={'repr_attr':'name'})
-    tag: Union[LaxStr, list] = None
+    tag: Union[list[LaxStr], LaxStr] = None
     release: Union[str, Release, List[Release]] = Field(..., json_schema_extra={'repr_attr':'name'})
     survey: Union[str, Survey] = Field(..., repr=False)
 

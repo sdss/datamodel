@@ -122,7 +122,26 @@ class ParFile(BaseFile):
         row = self._par.row(table, 0)
         cols = self._par.columns(table)
         dd = dict(zip(cols, row))
-        return {k: self._par.convert(table, k, v.decode("utf-8") if isinstance(v, np.bytes_) else v) for k, v in dd.items()}
+        tmp = {}
+        # handle numpy types
+        for k, v in dd.items():
+            if isinstance(v, np.bytes_):
+                # convert bytes to str
+                tmp[k] = self._par.convert(table, k, v.decode("utf-8"))
+            elif isinstance(v, np.ndarray):
+                # convert arrays to list
+                if v.dtype.kind == 'S':
+                    v = v.astype(str)
+                tmp[k] = self._par.convert(table, k, v.tolist())
+            elif isinstance(v, (np.int32, np.int64)):
+                # convert np ints to int
+                tmp[k] = self._par.convert(table, k, int(v))
+            elif isinstance(v, (np.float32, np.float64)):
+                 # convert np floats to float
+                 tmp[k] = self._par.convert(table, k, float(v))
+            else:
+                tmp[k] = v
+        return tmp
 
     def _generate_table_structure(self, table: str) -> list:
         """ Generate a new Yanny par table structure section
