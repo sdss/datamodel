@@ -16,10 +16,8 @@ general:
   - LVM_SPECTRO_REDUX
   surveys:
   - LVM
-  naming_convention: update me - with $LVM_SPECTRO_REDUX/[DRPVER]/[TILEGRP]/[TILEID]/[MJD]/lvmSFrame-[EXPNUM].fits
-    or lvmSFrame-00007337.fits but with regex pattern matches
-  generated_by: update me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  naming_convention: $LVM_SPECTRO_REDUX/[DRPVER]/[TILEGRP]/[TILEID]/[MJD]/lvmSFrame-[EXPNUM].fits
+  generated_by: lvmdrp
   design: false
   vac: false
   recommended_science_product: false
@@ -47,7 +45,7 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: update me description
+        description: primary header metadata
         is_image: true
         size: 0 bytes
         header:
@@ -1394,7 +1392,7 @@ releases:
           comment: ''
       hdu1:
         name: FLUX
-        description: update me description
+        description: sky-subtracted flux in units of 10(-17) erg/s/cm2/Ang/fiber
         is_image: true
         size: 91 MB
         header:
@@ -1466,7 +1464,7 @@ releases:
           comment: ''
       hdu2:
         name: IVAR
-        description: update me description
+        description: inverse variance (1/sigma^2) of sky-subtracted flux
         is_image: true
         size: 91 MB
         header:
@@ -1529,7 +1527,7 @@ releases:
           comment: ''
       hdu3:
         name: MASK
-        description: update me description
+        description: the quality binary for each pixel
         is_image: true
         size: 22 MB
         header:
@@ -1592,7 +1590,7 @@ releases:
           comment: ''
       hdu4:
         name: WAVE
-        description: update me description
+        description: air wavelength solution in angstroms
         is_image: true
         size: 96 KB
         header:
@@ -1652,7 +1650,7 @@ releases:
           comment: ''
       hdu5:
         name: LSF
-        description: update me description
+        description: LSF (FWHM) solution in angstroms
         is_image: true
         size: 91 MB
         header:
@@ -1715,7 +1713,7 @@ releases:
           comment: ''
       hdu6:
         name: SKY
-        description: update me description
+        description: sky in flux-calibrated units (10(-17) erg/s/cm2/Ang/fiber)
         is_image: true
         size: 91 MB
         header:
@@ -1778,7 +1776,7 @@ releases:
           comment: ''
       hdu7:
         name: SKY_IVAR
-        description: update me description
+        description: sky inverse variance (1/sigma^2) in flux-calibrated units (10(-17) erg/s/cm2/Ang/fiber)
         is_image: true
         size: 91 MB
         header:
@@ -1845,7 +1843,7 @@ releases:
           comment: ''
       hdu8:
         name: SLITMAP
-        description: update me description
+        description: slitmap table describing fiber positions for this exposure
         is_image: false
         size: 309 KB
         header:
@@ -1880,107 +1878,108 @@ releases:
           fiberid:
             name: fiberid
             type: int64
-            unit: update me - with content
-            description: update me - with content
+            unit: null
+            description: number of the fiber along the slithead
           spectrographid:
             name: spectrographid
             type: int64
-            unit: update me - with content
-            description: update me - with content
+            unit: null
+            description: the spectrograph id number, either 1, 2 or 3
           blockid:
             name: blockid
             type: char[3]
-            unit: update me - with content
-            description: update me - with content
+            unit: null
+            description: the ID label of the block along the slit
           finblock:
             name: finblock
             type: int64
-            unit: update me - with content
-            description: update me - with content
+            unit: null
+            description: the fiber number within the v-groove block
           targettype:
             name: targettype
             type: char[8]
-            unit: update me - with content
-            description: update me - with content
+            unit: null
+            description: the type of fiber, either science, standard or sky
           ifulabel:
             name: ifulabel
             type: char[5]
-            unit: update me - with content
-            description: update me - with content
+            unit: null
+            description: an ID label for the telescope + sector
           finifu:
             name: finifu
             type: int64
-            unit: update me - with content
-            description: update me - with content
+            unit: null
+            description: a running fiber number within the IFU from 1 to N
           telescope:
             name: telescope
             type: char[4]
-            unit: update me - with content
-            description: update me - with content
+            unit: null
+            description: the name of the telescope; Sci, Spec, SkyE/W for science, standards, or skies
           xpmm:
             name: xpmm
             type: float64
-            unit: update me - with content
-            description: update me - with content
+            unit: mm
+            description: the x coordinate in mm of the fiber relative to the centroid
           ypmm:
             name: ypmm
             type: float64
-            unit: update me - with content
-            description: update me - with content
+            unit: mm
+            description: the y coordinate in mm of the fiber relative to the centroid
           ringnum:
             name: ringnum
             type: float64
-            unit: update me - with content
-            description: update me - with content
+            unit: null
+            description: the number of the IFU ring the fiber belongs to
           orig_ifulabel:
             name: orig_ifulabel
             type: char[6]
-            unit: update me - with content
-            description: update me - with content
+            unit: null
+            description: the original IFU label from the Excel document. WRONG! DO NOT USE!
           orig_slitlabel:
             name: orig_slitlabel
             type: char[8]
-            unit: update me - with content
-            description: update me - with content
+            unit: null
+            description: the original slitblock label from the Excel document. WRONG! DO NOT USE!
           finsector:
             name: finsector
             type: int64
-            unit: update me - with content
-            description: update me - with content
+            unit: null
+            description: the original fiber number within the IFU sector
           fmap:
             name: fmap
             type: char[17]
-            unit: update me - with content
-            description: update me - with content
+            unit: null
+            description: the current fiber flow FROM:TO from the IFU position to the SLIT position
           ypix_b:
             name: ypix_b
             type: int64
-            unit: update me - with content
-            description: update me - with content
+            unit: pixel
+            description: the y coordinate in pixels of the fiber at column 2000 for channel b
           ypix_r:
             name: ypix_r
             type: int64
-            unit: update me - with content
-            description: update me - with content
+            unit: pixel
+            description: the y coordinate in pixels of the fiber at column 2000 for channel r
           ypix_z:
             name: ypix_z
             type: int64
-            unit: update me - with content
-            description: update me - with content
+            unit: pixel
+            description: the y coordinate in pixels of the fiber at column 2000 for channel z
           fibstatus:
             name: fibstatus
             type: int64
-            unit: update me - with content
-            description: update me - with content
+            unit: null
+            description: the status of the fiber, 0=good, 1=dead, 2=low, 3=repair, 4=short
           ra:
             name: ra
             type: float64
-            unit: update me - with content
-            description: update me - with content
+            unit: deg
+            description: the right ascension of the fiber in J2000
           dec:
             name: dec
             type: float64
-            unit: update me - with content
-            description: update me - with content
+            unit: deg
+            description: the declination of the fiber in J2000
 notes: |-
   None
+
