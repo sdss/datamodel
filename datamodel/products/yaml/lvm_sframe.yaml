@@ -36,10 +36,10 @@ releases:
       path_name: lvm_sframe
       path_template: $LVM_SPECTRO_REDUX/{drpver}/@tilegrp|/{tileid}/{mjd}/lvmSFrame-{expnum:0>8}.fits
       path_kwargs:
-      - tileid
       - expnum
       - drpver
       - mjd
+      - tileid
       access_string: lvm_sframe = $LVM_SPECTRO_REDUX/{drpver}/{tilegrp}/{tileid}/{mjd}/lvmSFrame-{expnum}.fits
     survey: LVM
     hdus:
@@ -1776,7 +1776,8 @@ releases:
           comment: ''
       hdu7:
         name: SKY_IVAR
-        description: sky inverse variance (1/sigma^2) in flux-calibrated units (10(-17) erg/s/cm2/Ang/fiber)
+        description: sky inverse variance (1/sigma^2) in flux-calibrated units (10(-17)
+          erg/s/cm2/Ang/fiber)
         is_image: true
         size: 91 MB
         header:
@@ -1878,43 +1879,44 @@ releases:
           fiberid:
             name: fiberid
             type: int64
-            unit: null
+            unit: ''
             description: number of the fiber along the slithead
           spectrographid:
             name: spectrographid
             type: int64
-            unit: null
+            unit: ''
             description: the spectrograph id number, either 1, 2 or 3
           blockid:
             name: blockid
             type: char[3]
-            unit: null
+            unit: ''
             description: the ID label of the block along the slit
           finblock:
             name: finblock
             type: int64
-            unit: null
+            unit: ''
             description: the fiber number within the v-groove block
           targettype:
             name: targettype
             type: char[8]
-            unit: null
+            unit: ''
             description: the type of fiber, either science, standard or sky
           ifulabel:
             name: ifulabel
             type: char[5]
-            unit: null
+            unit: ''
             description: an ID label for the telescope + sector
           finifu:
             name: finifu
             type: int64
-            unit: null
+            unit: ''
             description: a running fiber number within the IFU from 1 to N
           telescope:
             name: telescope
             type: char[4]
-            unit: null
-            description: the name of the telescope; Sci, Spec, SkyE/W for science, standards, or skies
+            unit: ''
+            description: the name of the telescope; Sci, Spec, SkyE/W for science,
+              standards, or skies
           xpmm:
             name: xpmm
             type: float64
@@ -1928,48 +1930,55 @@ releases:
           ringnum:
             name: ringnum
             type: float64
-            unit: null
+            unit: ''
             description: the number of the IFU ring the fiber belongs to
           orig_ifulabel:
             name: orig_ifulabel
             type: char[6]
-            unit: null
-            description: the original IFU label from the Excel document. WRONG! DO NOT USE!
+            unit: ''
+            description: the original IFU label from the Excel document. WRONG! DO
+              NOT USE!
           orig_slitlabel:
             name: orig_slitlabel
             type: char[8]
-            unit: null
-            description: the original slitblock label from the Excel document. WRONG! DO NOT USE!
+            unit: ''
+            description: the original slitblock label from the Excel document. WRONG!
+              DO NOT USE!
           finsector:
             name: finsector
             type: int64
-            unit: null
+            unit: ''
             description: the original fiber number within the IFU sector
           fmap:
             name: fmap
             type: char[17]
-            unit: null
-            description: the current fiber flow FROM:TO from the IFU position to the SLIT position
+            unit: ''
+            description: the current fiber flow FROM:TO from the IFU position to the
+              SLIT position
           ypix_b:
             name: ypix_b
             type: int64
             unit: pixel
-            description: the y coordinate in pixels of the fiber at column 2000 for channel b
+            description: the y coordinate in pixels of the fiber at column 2000 for
+              channel b
           ypix_r:
             name: ypix_r
             type: int64
             unit: pixel
-            description: the y coordinate in pixels of the fiber at column 2000 for channel r
+            description: the y coordinate in pixels of the fiber at column 2000 for
+              channel r
           ypix_z:
             name: ypix_z
             type: int64
             unit: pixel
-            description: the y coordinate in pixels of the fiber at column 2000 for channel z
+            description: the y coordinate in pixels of the fiber at column 2000 for
+              channel z
           fibstatus:
             name: fibstatus
             type: int64
-            unit: null
-            description: the status of the fiber, 0=good, 1=dead, 2=low, 3=repair, 4=short
+            unit: ''
+            description: the status of the fiber, 0=good, 1=dead, 2=low, 3=repair,
+              4=short
           ra:
             name: ra
             type: float64
@@ -1982,4 +1991,3 @@ releases:
             description: the declination of the fiber in J2000
 notes: |-
   None
-
