@@ -133,7 +133,7 @@ class ParFile(BaseFile):
                 if v.dtype.kind == 'S':
                     v = v.astype(str)
                 tmp[k] = self._par.convert(table, k, v.tolist())
-            elif isinstance(v, (np.int32, np.int64)):
+            elif isinstance(v, (np.int16, np.int32, np.int64, np.uint16, np.uint32, np.uint64)):
                 # convert np ints to int
                 tmp[k] = self._par.convert(table, k, int(v))
             elif isinstance(v, (np.float32, np.float64)):
