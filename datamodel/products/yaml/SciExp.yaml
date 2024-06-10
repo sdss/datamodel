@@ -1,0 +1,185 @@
+general:
+  name: SciExp
+  short: Metadata of all Science Exposure for Field/Plate
+  description: Metadata of all Science Exposure for Field/Plate used for building
+    the spPlancombepoch files
+  datatype: PAR
+  filesize: 110 KB
+  releases:
+  - WORK
+  environments:
+  - BOSS_SPECTRO_REDUX
+  surveys:
+  - BHM
+  naming_convention: $BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/SciExp-[FIELD].par
+  generated_by: idlspec2d - spplan_epoch.py
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  WORK:
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/SciExp-[FIELD].par
+    example: v6_1_3/112360/SciExp-112360.par
+    location: '{run2d}/{field}/SciExp-{field}.par'
+    environment: BOSS_SPECTRO_REDUX
+    access:
+      in_sdss_access: false
+      path_name: null
+      path_template: null
+      path_kwargs: null
+      access_string: SciExp = $BOSS_SPECTRO_REDUX/{run2d}/{field}/SciExp-{field}.par
+    survey: BHM
+    par:
+      comments: |-
+        #%yanny
+        # Table
+      header: []
+      tables:
+        SPEXP:
+          name: SPEXP
+          description: Exposures
+          n_rows: 580
+          structure:
+          - name: confid
+            type: char[5]
+            description: FPS Configuration ID of exposure
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: '4145'
+          - name: fieldid
+            type: char[6]
+            description: FieldID (or PlateID) of exposure
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: '112360'
+          - name: mjd
+            type: int
+            description: MJD of exposure
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: 59663
+          - name: mapname
+            type: char[5]
+            description: Plate Map Name or FPS configuration ID
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: '4145'
+          - name: flavor
+            type: char[7]
+            description: Flavor of Exposure (flat, arc, science)
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: science
+          - name: exptime
+            type: float
+            description: Exposure Length of exposure
+            unit: s
+            is_array: false
+            is_enum: false
+            example: 900.0999755859375
+          - name: planfile2d
+            type: char[27]
+            description: plan2d file for the spec2d reduction of this exposure
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: '''spPlan2d-112360-59663.par'''
+          - name: obs
+            type: char[3]
+            description: Exposure Length of exposure
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: APO
+          - name: design
+            type: char[21]
+            description: Observatory of the Exposure
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: '108362'
+          - name: rs_plan
+            type: char[6]
+            description: Robostrategy Version for this exposure (or 'plates')
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: zeta-0
+          - name: field_pk
+            type: long
+            description: Field Primary Key (for sdssdb; -999 for plates)
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: 18502
+          - name: field_cadence
+            type: char[13]
+            description: Field Cadence Name
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: dark_174x8_v1
+          - name: expid
+            type: long
+            description: Exposure ID
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: 339340
+          - name: manual
+            type: long
+            description: 'The design completion was manually set (1: True, 0: False)'
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: 1
+          - name: Status
+            type: long
+            description: 'Status of associated Design completion (1: not started,
+              2: started, 3:done)'
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: 3
+          - name: epoch_combine
+            type: long
+            description: Completed Plan Epoch ID (or MJD of incomplete epoch or daily
+              coadd)
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: 0
+          - name: epoch_length
+            type: double
+            description: Length of the associated Epoch
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: 2.5
+          - name: start_mjd
+            type: double
+            description: MJD at start of the exposure
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: 59663.1760995
+          - name: name
+            type: char[2][30]
+            description: Name of spFrame Exposure Files
+            unit: ''
+            is_array: true
+            is_enum: false
+            example:
+            - spFrame-b1-00339340.fits
+            - spFrame-r1-00339340.fits
+notes: |-
+  None

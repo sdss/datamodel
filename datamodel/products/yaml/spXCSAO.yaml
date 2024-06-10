@@ -1,9 +1,9 @@
 general:
   name: spXCSAO
   short: pyXCSAO output
-  description: Contains the output of the pyXCSAO package, a python replication of
+  description: Contains the output of the pyXCSAO package, a Python replication of
     IRAF XCSAO (https://github.com/mkounkel/pyxcsao). It contains the radial velocity
-    measurements detemined cross-correlating a spectrum with a grid of PHOENIX stellar
+    measurements determined cross-correlating a spectrum with a grid of PHOENIX stellar
     models. The measurements are only valid for stars despite being produced for all
     fibers.
   datatype: FITS
@@ -17,22 +17,29 @@ general:
   design: false
   surveys:
   - eBOSS
+  - BHM
+  vac: false
+  recommended_science_product: false
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
   releases: {}
 releases:
   WORK:
-    template: $BOSS_SPECTRO_REDUX/[RUN2D]/[FIELDID][ISPLATE]/[RUN1D]/spXCSAO-[FIELDID]-[MJD].fits
-    example: v6_0_4/15000p/v6_0_4/spXCSAO-1-59146.fits
-    location: '{run2d}/{fieldid}{isplate}/{run1d}/spXCSAO-{fieldid}-{mjd}.fits'
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/[RUN1D]/spXCSAO-[FIELD]-[MJD].fits
+    example: v6_1_3/112360/v6_1_3/spXCSAO-112360-60000.fits
+    location: '{run2d}/{field}/{run1d}/spXCSAO-{field}-{mjd}.fits'
     environment: BOSS_SPECTRO_REDUX
     access:
-      in_sdss_access: false
-      path_name: null
-      path_template: null
-      path_kwargs: null
-      access_string: spXCSAO = $BOSS_SPECTRO_REDUX/{run2d}/{fieldid}{isplate}/{run1d}/spXCSAO-{fieldid}-{mjd}.fits
+      in_sdss_access: true
+      path_name: spXCSAO
+      path_template: $BOSS_SPECTRO_REDUX/{run2d}/@pad_fieldid|@isplate|/{run1d}/spXCSAO-@pad_fieldid|-{mjd}.fits
+      path_kwargs:
+      - fieldid
+      - mjd
+      - run1d
+      - run2d
+      access_string: spXCSAO = $BOSS_SPECTRO_REDUX/{run2d}/{field}/{run1d}/spXCSAO-{field}-{mjd}.fits
     hdus:
       hdu0:
         name: PRIMARY
@@ -259,4 +266,6 @@ releases:
             type: float64
             unit: '[Sun]'
             description: Uncertainty in alpha
-    survey: eBOSS
+    survey: BHM
+notes: |-
+  None

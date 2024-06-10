@@ -1,0 +1,307 @@
+general:
+  name: spXCSAO_coadd
+  short: pyXCSAO output for Custom coadd
+  description: Contains the output of the pyXCSAO package, a Python replication of
+    IRAF XCSAO (https://github.com/mkounkel/pyxcsao, for the custom coadd. It contains
+    the radial velocity measurements determined cross-correlating a spectrum with
+    a grid of PHOENIX stellar models. The measurements are only valid for stars despite
+    being produced for all fibers.
+  datatype: FITS
+  filesize: 180 KB
+  releases:
+  - WORK
+  environments:
+  - BOSS_SPECTRO_REDUX
+  surveys:
+  - BHM
+  naming_convention: $BOSS_SPECTRO_REDUX/[RUN2D]/[COADD]/[RUN1D]/spXCSAO-[COADD]-[MJD].fits
+  generated_by: idlspec2d - run_pyXCSAO.py
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  WORK:
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/[COADD]/[RUN1D]/spXCSAO-[COADD]-[MJD].fits
+    example: v6_1_3/allepoch/v6_1_3/spXCSAO-allepoch-60000.fits
+    location: '{run2d}/{coadd}/{run1d}/spXCSAO-{coadd}-{mjd}.fits'
+    environment: BOSS_SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: spXCSAO_coadd
+      path_template: $BOSS_SPECTRO_REDUX/{run2d}/{coadd}/{run1d}/spXCSAO-{coadd}-{mjd}.fits
+      path_kwargs:
+      - run1d
+      - mjd
+      - coadd
+      - run2d
+      access_string: spXCSAO_coadd = $BOSS_SPECTRO_REDUX/{run2d}/{coadd}/{run1d}/spXCSAO-{coadd}-{mjd}.fits
+    survey: BHM
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Primary Header
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: Object Metadata and pyXCSAO output
+        is_image: false
+        size: 166 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 413
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 413
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 43
+          comment: number of table fields
+        - key: TNULL9
+          value: 999999
+          comment: ''
+        - key: TNULL10
+          value: 999999
+          comment: ''
+        - key: TNULL13
+          value: 999999
+          comment: ''
+        - key: TNULL14
+          value: 999999
+          comment: ''
+        columns:
+          ra:
+            name: RA
+            type: float64
+            unit: deg
+            description: RA (J2000)
+          dec:
+            name: DEC
+            type: float64
+            unit: deg
+            description: DEC (J2000)
+          objid:
+            name: OBJID
+            type: char[10]
+            unit: N/A
+            description: Name of an object
+          program:
+            name: PROGRAM
+            type: char[2]
+            unit: N/A
+            description: SDSS-V program that requested the source
+          objtype:
+            name: OBJTYPE
+            type: char[16]
+            unit: N/A
+            description: Identified object type, inherited from the standard BOSS
+              pipeline
+          SOURCETYPE:
+            name: SOURCETYPE
+            type: char[3]
+            unit: N/A
+            description: Targeting type (science star, standard star, etc)
+          plate:
+            name: PLATE
+            type: int64
+            unit: N/A
+            description: Plate ID of the field
+          mjd:
+            name: MJD
+            type: int64
+            unit: N/A
+            description: Date of observations
+          fiber:
+            name: FIBER
+            type: int64
+            unit: N/A
+            description: Fiber number of the observation
+          snr:
+            name: SNR
+            type: float64
+            unit: N/A
+            description: Average signal to noise ratio of the spectrum
+          firstcarton:
+            name: FIRSTCARTON
+            type: char[18]
+            unit: N/A
+            description: The name of the first carton requesting the object in SDSS-V
+              survey
+          parallax:
+            name: PARALLAX
+            type: float64
+            unit: mas
+            description: Gaia parallax
+          pmra:
+            name: PMRA
+            type: float64
+            unit: mas/yr
+            description: Gaia proper motions in RA
+          pmdec:
+            name: PMDEC
+            type: float64
+            unit: mas/yr
+            description: Gaia proper motions in Dec
+          SFD_EBV:
+            name: wi
+            type: float64
+            unit: Mag
+            description: SRD reddening
+          u:
+            name: U
+            type: float64
+            unit: Mag
+            description: Sloan u band photometry
+          g:
+            name: G
+            type: float64
+            unit: Mag
+            description: Sloan g band photometry
+          r:
+            name: R
+            type: float64
+            unit: N/A
+            description: Cross correlation strength, as defined in Tonry+79
+          i:
+            name: I
+            type: float64
+            unit: Mag
+            description: Sloan i band photometry
+          z:
+            name: Z
+            type: float64
+            unit: Mag
+            description: Sloan z band photometry
+          gaia_G:
+            name: GAIA_G
+            type: float64
+            unit: Mag
+            description: Gaia G band photmetry
+          BP:
+            name: BP
+            type: float64
+            unit: Mag
+            description: Gaia BP band photmetry
+          RP:
+            name: RP
+            type: float64
+            unit: Mag
+            description: Gaia RP band photmetry
+          J:
+            name: J
+            type: float64
+            unit: Mag
+            description: Gaia J band photmetry
+          H:
+            name: H
+            type: float64
+            unit: Mag
+            description: Gaia H band photmetry
+          K:
+            name: K
+            type: float64
+            unit: Mag
+            description: Gaia K band photmetry
+          rv:
+            name: RV
+            type: float64
+            unit: km/s
+            description: Radial velocity measured with XCSAO
+          erv:
+            name: ERV
+            type: float64
+            unit: km/s
+            description: Uncertainty in rv
+          grid:
+            name: GRID
+            type: char[7]
+            unit: N/A
+            description: Name of the model grid with which cross-correlation is performed
+          st_lambda:
+            name: ST_LAMBDA
+            type: float64
+            unit: Angstrom
+            description: Minimum wavelength used in cross-correlation
+          end_lambda:
+            name: END_LAMBDA
+            type: float64
+            unit: Angstrom
+            description: Maximum wavelength used in cross-correlation
+          teff:
+            name: TEFF
+            type: float64
+            unit: K
+            description: Interpolated temperature of the best matched cross-correlation
+              template
+          eteff:
+            name: ETEFF
+            type: float64
+            unit: K
+            description: Uncertainty in Teff
+          logg:
+            name: LOGG
+            type: float64
+            unit: '[cm/s2]'
+            description: Interpolated surface gravity of the best matched cross-correlation
+              template
+          elogg:
+            name: ELOGG
+            type: float64
+            unit: '[cm/s2]'
+            description: Uncertainty in log g
+          feh:
+            name: FEH
+            type: float64
+            unit: '[Sun]'
+            description: Interpolated metallicity of the best matched cross-correlation
+              template
+          efeh:
+            name: EFEH
+            type: float64
+            unit: '[Sun]'
+            description: Uncertainty in Fe/H
+          alpha:
+            name: ALPHA
+            type: float64
+            unit: '[Sun]'
+            description: Interpolated [alpha/H] abundance of the best matched cross-correlation
+              template
+          ealpha:
+            name: EALPHA
+            type: float64
+            unit: '[Sun]'
+            description: Uncertainty in alpha
+notes: |-
+  None
