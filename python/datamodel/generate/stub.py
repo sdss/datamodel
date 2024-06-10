@@ -279,6 +279,11 @@ class BaseStub(abc.ABC):
             self._cache['notes'] = None
         self._cache['notes'] = literal(self._cache['notes'])
 
+        # literal-ize any cache regrets (see notes on literal in filetypes/par.py)
+        if 'regrets' not in self._cache:
+            self._cache['regrets'] = None
+        self._cache['regrets'] = literal(self._cache['regrets'])
+
     def _check_release_in_cache(self, content: dict) -> dict:
         """ updates the yaml.general.releases list with new releases """
         # sort the sdss release list
@@ -549,4 +554,3 @@ def stub_iterator(format: str = None) -> Iterator[BaseStub]:
         if format and format != stub.format:
             continue
         yield stub
-

@@ -9,7 +9,7 @@
 - [Changelog](#changelog)
 - [Example {{cache_key|upper}} List](#example-{{cache_key|lower}}-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
@@ -59,3 +59,7 @@
 ---
 ## Notes
 {{ content.notes }}
+
+---
+## Regrets
+{{ content.regrets }}
