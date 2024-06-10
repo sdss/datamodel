@@ -356,7 +356,7 @@ class YamlModel(CoreModel):
     changelog: ChangeLog = Field(..., repr=False)
     releases: Dict[str, ReleaseModel] = Field(..., repr=False)
     notes: str = Field(None, repr=False)
-    regrets: str = Field(None, repr=False)
+    regrets: str = Field("I have no regrets!", repr=False)
 
     _check_releases = field_validator('releases')(check_release)
     # TODO[pydantic]: The following keys were removed: `json_loads`, `json_dumps`.

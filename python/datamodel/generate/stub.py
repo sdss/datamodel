@@ -281,7 +281,7 @@ class BaseStub(abc.ABC):
 
         # literal-ize any cache regrets (see notes on literal in filetypes/par.py)
         if 'regrets' not in self._cache:
-            self._cache['regrets'] = None
+            self._cache['regrets'] = "I have no regrets!"
         self._cache['regrets'] = literal(self._cache['regrets'])
 
     def _check_release_in_cache(self, content: dict) -> dict:
