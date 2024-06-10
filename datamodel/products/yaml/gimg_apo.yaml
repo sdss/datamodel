@@ -1,0 +1,383 @@
+general:
+  name: gimg_apo
+  short: Raw guider frame from the APO 2.5m telescope
+  description: The raw guider frame from the APO 2.5m telescope, acquired using one
+    of the six Guide Focus and Acquisition (GFA) MicroLine ML4240 cameras located
+    in the periphery of the focal plane. The header of the frame includes some environmental
+    and telescope information. See the `proc-gimg` datamodel for the processed version
+    of this file with source extraction and astrometric and guiding information.
+  datatype: FITS
+  filesize: 4 MB
+  releases:
+  - WORK
+  environments:
+  - GCAM_DATA_N
+  surveys:
+  - SDSS
+  naming_convention: '`$GCAM_DATA_N/[MJD]/gimg-gfa[CAMNUM]n-[EXPNUM].fits` where `[MJD]`
+    is the SDSS-flavoured modified Julian date of the observation, `[CAMNUM]` is the
+    camera number, and `[EXPNUM]` is the exposure number. The `n` following the camera
+    number indicates that this is one of the cameras in the APO (North) focal plane.'
+  generated_by: '[cherno](https://github.com/sdss/cherno)'
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  WORK:
+    template: $GCAM_DATA_N/[MJD]/gimg-gfa[CAMNUM]n-[EXPNUM].fits
+    example: 60471/gimg-gfa2n-0129.fits
+    location: '{mjd}/gimg-gfa{camnum}n-{expnum}.fits'
+    environment: GCAM_DATA_N
+    access:
+      in_sdss_access: true
+      path_name: gimg_apo
+      path_template: $GCAM_DATA_N/{mjd}/gimg-gfa{camnum:d}n-{expnum:0>4}.fits
+      path_kwargs:
+      - expnum
+      - mjd
+      - camnum
+      access_string: gimg_apo = $GCAM_DATA_N/{mjd}/gimg-gfa{camnum}n-{expnum}.fits
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Empty extension
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: CHECKSUM
+          value: E5bEF4b9E4bEE4b9
+          comment: HDU checksum updated 2024-06-10T04:42:13
+        - key: DATASUM
+          value: '0'
+          comment: data unit checksum updated 2024-06-10T04:42:13
+      hdu1:
+        name: RAW
+        description: Gzipped extension with the guider raw image
+        is_image: true
+        size: 4 MB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image extension
+        - key: BITPIX
+          value: 16
+          comment: data type of original image
+        - key: NAXIS
+          value: 2
+          comment: dimension of original image
+        - key: NAXIS1
+          value: 2048
+          comment: length of original image axis
+        - key: NAXIS2
+          value: 2048
+          comment: length of original image axis
+        - key: PCOUNT
+          value: 0
+          comment: number of parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: EXTNAME
+          value: RAW
+          comment: extension name
+        - key: CAMNAME
+          value: gfa2n
+          comment: Camera name
+        - key: VCAM
+          value: 0.6.1a0
+          comment: Version of the camera library
+        - key: IMAGETYP
+          value: object
+          comment: The image type of the file
+        - key: EXPTIME
+          value: 15.0
+          comment: Exposure time of single integration [s]
+        - key: EXPTIMEN
+          value: 15.0
+          comment: Total exposure time [s]
+        - key: STACK
+          value: 1
+          comment: Number of stacked frames
+        - key: STACKFUN
+          value: median
+          comment: Function used for stacking
+        - key: TIMESYS
+          value: TAI
+          comment: Time reference system
+        - key: SJD
+          value: 60471
+          comment: SDSS custom Julian Day
+        - key: DATE-OBS
+          value: '2024-06-10 04:42:31.003436'
+          comment: Time of the start of the exposure [TAI]
+        - key: CCDTEMP
+          value: -20.0
+          comment: Degrees C
+        - key: BEGX
+          value: 0
+          comment: Window start pixel in X
+        - key: BEGY
+          value: 0
+          comment: Window start pixel in Y
+        - key: ENDX
+          value: 2048
+          comment: Window end pixel in X
+        - key: EDNY
+          value: 2048
+          comment: Window end pixel in Y
+        - key: BINX
+          value: 1
+          comment: Binning in X
+        - key: BINY
+          value: 1
+          comment: Binning in Y
+        - key: GAIN
+          value: 1.48
+          comment: The CCD gain [e-/ADUs]
+        - key: READNOIS
+          value: 15.2
+          comment: The CCD read noise [ADUs]
+        - key: PIXELSC
+          value: 0.2214
+          comment: Scale of unbinned pixel on sky [arcsec/pix]
+        - key: WCSAXES
+          value: 2
+          comment: Number of coordinate axes
+        - key: CRPIX1
+          value: 0.0
+          comment: Pixel coordinate of reference point
+        - key: CRPIX2
+          value: 0.0
+          comment: Pixel coordinate of reference point
+        - key: CDELT1
+          value: 1.0
+          comment: Coordinate increment at reference point
+        - key: CDELT2
+          value: 1.0
+          comment: Coordinate increment at reference point
+        - key: CRVAL1
+          value: 0.0
+          comment: Coordinate value at reference point
+        - key: CRVAL2
+          value: 0.0
+          comment: Coordinate value at reference point
+        - key: LATPOLE
+          value: 90.0
+          comment: '[deg] Native latitude of celestial pole'
+        - key: MJDREF
+          value: 0.0
+          comment: '[d] MJD of fiducial time'
+        - key: OBSERVAT
+          value: APO
+          comment: Observatory
+        - key: OBJSYS
+          value: ICRS
+          comment: The TCC objSys
+        - key: RA
+          value: 213.689877
+          comment: RA of telescope boresight (deg)
+        - key: DEC
+          value: 53.083651
+          comment: Dec of telescope boresight (deg)
+        - key: RADEG
+          value: 213.704167
+          comment: RA of telescope pointing (deg)
+        - key: DECDEG
+          value: 53.075
+          comment: Dec of telescope pointing (deg)
+        - key: SPA
+          value: -131.4230817221813
+          comment: TCC SpiderInstAng
+        - key: ROTPOS
+          value: 25.5
+          comment: Rotator request type
+        - key: BOREOFFX
+          value: 0.0
+          comment: TCC Boresight offset, deg
+        - key: BOREOFFY
+          value: 0.0
+          comment: TCC Boresight offset, deg
+        - key: ARCOFFX
+          value: -0.008583
+          comment: TCC ObjArcOff, deg
+        - key: ARCOFFY
+          value: 0.008652
+          comment: TCC ObjArcOff, deg
+        - key: CALOFFX
+          value: 0.0
+          comment: TCC CalibOff, deg
+        - key: CALOFFY
+          value: 0.0
+          comment: TCC CalibOff, deg
+        - key: CALOFFR
+          value: 0.0
+          comment: TCC CalibOff, deg
+        - key: GUIDOFFX
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: GUIDOFFY
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: GUIDOFFR
+          value: -0.092131
+          comment: TCC GuideOff, deg
+        - key: AZ
+          value: 196.358824
+          comment: Azimuth axis pos. (approx, deg)
+        - key: ALT
+          value: 68.644783
+          comment: Altitude axis pos. (approx, deg)
+        - key: IPA
+          value: 48.54694
+          comment: Rotator axis pos. (approx, deg)
+        - key: FOCUS
+          value: -167.49
+          comment: User-specified focus offset (um)
+        - key: M1PISTON
+          value: 0.0
+          comment: TCC PrimOrient
+        - key: M1XTILT
+          value: -18.23
+          comment: TCC PrimOrient
+        - key: M1YTILT
+          value: -7.9
+          comment: TCC PrimOrient
+        - key: M1XTRAN
+          value: -427.17
+          comment: TCC PrimOrient
+        - key: M1YTRAN
+          value: -999.0
+          comment: TCC PrimOrient
+        - key: M1ZROT
+          value: 0.0
+          comment: TCC PrimOrient
+        - key: M2PISTON
+          value: 4366.07
+          comment: SecOrient
+        - key: M2XTILT
+          value: -24.5
+          comment: SecOrient
+        - key: M2YTILT
+          value: -17.57
+          comment: SecOrient
+        - key: M2XTRAN
+          value: 18.19
+          comment: SecOrient
+        - key: M2YTRAN
+          value: -99.96
+          comment: SecOrient
+        - key: M2ZROT
+          value: -30.02
+          comment: SecOrient
+        - key: SCALE
+          value: 1.0
+          comment: User-specified scale factor
+        - key: FF
+          value: 0 0 0 0
+          comment: FF lamps 1:on 0:0ff
+        - key: NE
+          value: 0 0 0 0
+          comment: NE lamps 1:on 0:0ff
+        - key: HGCD
+          value: 0 0 0 0
+          comment: HGCD lamps 1:on 0:0ff
+        - key: FFS
+          value: 0 0 0 0 0 0 0 0
+          comment: Flatfield Screen 1:closed 0:open
+        - key: V_APO
+          value: 4.0.1a0
+          comment: Version of the current apoActor
+        - key: PRESSURE
+          value: 21.606
+          comment: ''
+        - key: WINDD
+          value: 56.1
+          comment: ''
+        - key: WINDS
+          value: 13.6
+          comment: ''
+        - key: GUSTD
+          value: 54.0
+          comment: ''
+        - key: GUSTS
+          value: 13.5
+          comment: ''
+        - key: AIRTEMP
+          value: 0.0
+          comment: ''
+        - key: DEWPOINT
+          value: 0.0
+          comment: ''
+        - key: TRUSTEMP
+          value: 12.04
+          comment: ''
+        - key: HUMIDITY
+          value: 39.2
+          comment: ''
+        - key: DUSTA
+          value: 77700.0
+          comment: ''
+        - key: DUSTB
+          value: 2919.0
+          comment: ''
+        - key: WINDD25M
+          value: -999.0
+          comment: ''
+        - key: WINDS25M
+          value: -999.0
+          comment: ''
+        - key: CARTID
+          value: FPS-N
+          comment: Cart ID
+        - key: CONFIGID
+          value: 14808
+          comment: Configuration ID
+        - key: DESIGNID
+          value: 403332
+          comment: Design ID associated with CONFIGID
+        - key: FIELDID
+          value: 112359
+          comment: Field ID associated with CONFIGID
+        - key: RAFIELD
+          value: 213.7041666
+          comment: Field right ascension
+        - key: DECFIELD
+          value: 53.075
+          comment: Field declination
+        - key: FIELDPA
+          value: 25.5
+          comment: Field position angle
+        - key: BIASFILE
+          value: ''
+          comment: Bias file associated with this image
+        - key: CHECKSUM
+          value: 9RfIJPZG9PfGGPZG
+          comment: HDU checksum updated 2024-06-10T04:42:13
+        - key: DATASUM
+          value: '977497123'
+          comment: data unit checksum updated 2024-06-10T04:42:13
+        - key: BSCALE
+          value: 1
+          comment: ''
+        - key: BZERO
+          value: 32768
+          comment: ''
+notes: |-
+  None
