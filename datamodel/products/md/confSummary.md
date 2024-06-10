@@ -1,4 +1,4 @@
-# Data Model: confSummary_test
+# Data Model: confSummary
 
 
 File describing the targeting and parameters used to generate a configuration.
@@ -52,11 +52,11 @@ Describes changes to the datamodel product and/or file structure from one releas
 ```
 #%yanny
 #
-# confSummary-14800.par
+# confSummary-14802.par
 #
 # Created by pydl.pydlutils.yanny.yanny
 #
-# 2024-06-07 23:03:44 UTC
+# 2024-06-09 07:30:22 UTC
 #
 ```
 
@@ -64,24 +64,24 @@ Describes changes to the datamodel product and/or file structure from one releas
 
 Key | Value | Comment | |
 | --- | --- | --- | --- |
-| configuration_id | 14800 | The configuration ID. Matches the file ID. |
+| configuration_id | 14802 | The configuration ID. Matches the file ID. |
 | robostrategy_run | eta-8 | Run of Robostrategy that generated this design, or "manual" for a manual design. |
 | fps_calibrations_version | 2024.04.01+91998f8 | Version of FPS calibrations used. |
 | jaeger_version | 1.7.4 | Version of the jaeger product that generated this file. |
 | coordio_version | 1.11.2 | Version of the coordio product used for coordinate transformations. |
 | kaiju_version | 1.4.0 | Version of Kaiju used to generate positioner trajectory paths. |
-| design_id | -999 | The design ID associated with this configuration. |
-| field_id | -999 | The field ID that defines the pointing. |
-| focal_scale | 1.0 | Focal scale factor used to generate this configuration. |
+| design_id | 593775 | The design ID associated with this configuration. |
+| field_id | 100959 | The field ID that defines the pointing. |
+| focal_scale | 0.999934239346888 | Focal scale factor used to generate this configuration. |
 | instruments | BOSS APOGEE | Instruments used (always APOGEE and BOSS). |
-| epoch | 2460469.460922406 | JD at which the configuration was generated. |
-| obstime | Fri Jun 07 23:03:44 2024 | TAI date of the observation (matches epoch). |
-| MJD | 60469 | MJD of the observation in the SDSS style. |
+| epoch | 2460470.812954886 | JD at which the configuration was generated. |
+| obstime | Sun Jun 09 07:34:11 2024 | TAI date of the observation (matches epoch). |
+| MJD | 60470 | MJD of the observation in the SDSS style. |
 | observatory | APO | Observatory where this configuration was generated. |
 | temperature | 19.6 | Temperature at the time of the observation. |
-| raCen | -999.0 | Field centre right ascension. |
-| decCen | -999.0 | Field centre declination. |
-| pa | -999.0 | Field position angle. |
+| raCen | 298.170965870627 | Field centre right ascension. |
+| decCen | 19.1448520536868 | Field centre declination. |
+| pa | 21.119003 | Field position angle. |
 | is_dithered | 0 | Whether this is a dithered configuration from a base configuration. |
 | parent_configuration | -999 | If is_dithered=1 the parent configuration used to generate the dither. |
 | dither_radius | -999.0 | If is_dithered=1 the radius, in mm, for the uniform distribution around the original position. |
