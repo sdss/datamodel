@@ -1,0 +1,1972 @@
+{
+  "general": {
+    "name": "procGimgApo",
+    "short": "Processed image from the APO guider camera",
+    "description": "The processed guider frame from the APO 2.5m telescope, acquired using one of the six Guide Focus and Acquisition (GFA) MicroLine ML4240 cameras located in the periphery of the focal plane. This data product is similar to the <code>gimgApogee</code> file but it includes photometric and astrometric information, as well as the measured position of the telescope boresight and the guider corrections applied.",
+    "environments": [
+      "GCAM_DATA_N"
+    ],
+    "surveys": [
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "FITS",
+    "filesize": "3 MB",
+    "releases": [
+      {
+        "name": "WORK",
+        "description": "SDSS unreleased data.  Represents any work-in-progress data.",
+        "public": false,
+        "release_date": "unreleased"
+      }
+    ],
+    "naming_convention": "`$GCAM_DATA_N/[MJD]/proc-gimg-gfa[CAMNUM]n-[EXPNUM].fits` where `[MJD]` is the SDSS-flavoured modified Julian date of the observation, `[CAMNUM]` is the camera number, and `[EXPNUM]` is the exposure number. The `n` following the camera number indicates that this is one of the cameras in the APO (North) focal plane.",
+    "generated_by": "[cherno](https://github.com/sdss/cherno)",
+    "design": false,
+    "vac": false,
+    "recommended_science_product": false
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "WORK": {
+      "template": "$GCAM_DATA_N/[MJD]/proc-gimg-gfa[CAMNUM]n-[EXPNUM].fits",
+      "example": "60471/proc-gimg-gfa2n-0129.fits",
+      "location": "{mjd}/proc-gimg-gfa{camnum}n-{expnum}.fits",
+      "environment": "GCAM_DATA_N",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "proc_gimg_apo",
+        "path_template": "$GCAM_DATA_N/{mjd}/proc-gimg-gfa{camnum:d}n-{expnum:0>4}.fits",
+        "path_kwargs": [
+          "camnum",
+          "mjd",
+          "expnum"
+        ],
+        "access_string": "proc_gimg_apo = $GCAM_DATA_N/{mjd}/proc-gimg-gfa{camnum}n-{expnum}.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Empty extension",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            },
+            {
+              "key": "CHECKSUM",
+              "value": "E5bEF4b9E4bEE4b9",
+              "comment": "HDU checksum updated 2024-06-10T04:42:13"
+            },
+            {
+              "key": "DATASUM",
+              "value": "0",
+              "comment": "data unit checksum updated 2024-06-10T04:42:13"
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "RAW",
+          "is_image": true,
+          "description": "Gzipped extension with the guider raw image data and astrometric solution",
+          "size": "3 MB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "IMAGE",
+              "comment": "Image extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "-64",
+              "comment": "data type of original image"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "dimension of original image"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "2048",
+              "comment": "length of original image axis"
+            },
+            {
+              "key": "NAXIS2",
+              "value": "2048",
+              "comment": "length of original image axis"
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "number of parameters"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "number of groups"
+            },
+            {
+              "key": "EXTNAME",
+              "value": "RAW",
+              "comment": "extension name"
+            },
+            {
+              "key": "CAMNAME",
+              "value": "gfa2n",
+              "comment": "Camera name"
+            },
+            {
+              "key": "VCAM",
+              "value": "0.6.1a0",
+              "comment": "Version of the camera library"
+            },
+            {
+              "key": "IMAGETYP",
+              "value": "object",
+              "comment": "The image type of the file"
+            },
+            {
+              "key": "EXPTIME",
+              "value": "15.0",
+              "comment": "Exposure time of single integration [s]"
+            },
+            {
+              "key": "EXPTIMEN",
+              "value": "15.0",
+              "comment": "Total exposure time [s]"
+            },
+            {
+              "key": "STACK",
+              "value": "1",
+              "comment": "Number of stacked frames"
+            },
+            {
+              "key": "STACKFUN",
+              "value": "median",
+              "comment": "Function used for stacking"
+            },
+            {
+              "key": "TIMESYS",
+              "value": "TAI",
+              "comment": "Time reference system"
+            },
+            {
+              "key": "SJD",
+              "value": "60471",
+              "comment": "SDSS custom Julian Day"
+            },
+            {
+              "key": "DATE-OBS",
+              "value": "2024-06-10 04:42:31.003436",
+              "comment": "Time of the start of the exposure [TAI]"
+            },
+            {
+              "key": "CCDTEMP",
+              "value": "-20.0",
+              "comment": "Degrees C"
+            },
+            {
+              "key": "BEGX",
+              "value": "0",
+              "comment": "Window start pixel in X"
+            },
+            {
+              "key": "BEGY",
+              "value": "0",
+              "comment": "Window start pixel in Y"
+            },
+            {
+              "key": "ENDX",
+              "value": "2048",
+              "comment": "Window end pixel in X"
+            },
+            {
+              "key": "EDNY",
+              "value": "2048",
+              "comment": "Window end pixel in Y"
+            },
+            {
+              "key": "BINX",
+              "value": "1",
+              "comment": "Binning in X"
+            },
+            {
+              "key": "BINY",
+              "value": "1",
+              "comment": "Binning in Y"
+            },
+            {
+              "key": "GAIN",
+              "value": "1.48",
+              "comment": "The CCD gain [e-/ADUss]"
+            },
+            {
+              "key": "READNOIS",
+              "value": "15.2",
+              "comment": "The CCD read noise [ADUss]"
+            },
+            {
+              "key": "PIXELSC",
+              "value": "0.2214",
+              "comment": "Scale of unbinned pixel on sky [arcsec/pix]"
+            },
+            {
+              "key": "WCSAXES",
+              "value": "2",
+              "comment": "Number of coordinate axes"
+            },
+            {
+              "key": "CRPIX1",
+              "value": "1183.7073574473",
+              "comment": "Pixel coordinate of reference point"
+            },
+            {
+              "key": "CRPIX2",
+              "value": "1035.5350120073",
+              "comment": "Pixel coordinate of reference point"
+            },
+            {
+              "key": "CDELT1",
+              "value": "1.0",
+              "comment": "[deg] Coordinate increment at reference point"
+            },
+            {
+              "key": "CDELT2",
+              "value": "1.0",
+              "comment": "[deg] Coordinate increment at reference point"
+            },
+            {
+              "key": "CRVAL1",
+              "value": "214.8168793778",
+              "comment": "[deg] Coordinate value at reference point"
+            },
+            {
+              "key": "CRVAL2",
+              "value": "54.396204211465",
+              "comment": "[deg] Coordinate value at reference point"
+            },
+            {
+              "key": "LATPOLE",
+              "value": "54.396204211465",
+              "comment": "[deg] Native latitude of celestial pole"
+            },
+            {
+              "key": "MJDREF",
+              "value": "0.0",
+              "comment": "[d] MJD of fiducial time"
+            },
+            {
+              "key": "OBSERVAT",
+              "value": "APO",
+              "comment": "Observatory"
+            },
+            {
+              "key": "OBJSYS",
+              "value": "ICRS",
+              "comment": "The TCC objSys"
+            },
+            {
+              "key": "RA",
+              "value": "213.689877",
+              "comment": "RA of telescope boresight (deg)"
+            },
+            {
+              "key": "DEC",
+              "value": "53.083651",
+              "comment": "Dec of telescope boresight (deg)"
+            },
+            {
+              "key": "RADEG",
+              "value": "213.704167",
+              "comment": "RA of telescope pointing (deg)"
+            },
+            {
+              "key": "DECDEG",
+              "value": "53.075",
+              "comment": "Dec of telescope pointing (deg)"
+            },
+            {
+              "key": "SPA",
+              "value": "-131.4230817221813",
+              "comment": "TCC SpiderInstAng"
+            },
+            {
+              "key": "ROTPOS",
+              "value": "25.5",
+              "comment": "Rotator request type"
+            },
+            {
+              "key": "BOREOFFX",
+              "value": "0.0",
+              "comment": "TCC Boresight offset, deg"
+            },
+            {
+              "key": "BOREOFFY",
+              "value": "0.0",
+              "comment": "TCC Boresight offset, deg"
+            },
+            {
+              "key": "ARCOFFX",
+              "value": "-0.008583",
+              "comment": "TCC ObjArcOff, deg"
+            },
+            {
+              "key": "ARCOFFY",
+              "value": "0.008652",
+              "comment": "TCC ObjArcOff, deg"
+            },
+            {
+              "key": "CALOFFX",
+              "value": "0.0",
+              "comment": "TCC CalibOff, deg"
+            },
+            {
+              "key": "CALOFFY",
+              "value": "0.0",
+              "comment": "TCC CalibOff, deg"
+            },
+            {
+              "key": "CALOFFR",
+              "value": "0.0",
+              "comment": "TCC CalibOff, deg"
+            },
+            {
+              "key": "GUIDOFFX",
+              "value": "0.0",
+              "comment": "TCC GuideOff, deg"
+            },
+            {
+              "key": "GUIDOFFY",
+              "value": "0.0",
+              "comment": "TCC GuideOff, deg"
+            },
+            {
+              "key": "GUIDOFFR",
+              "value": "-0.092131",
+              "comment": "TCC GuideOff, deg"
+            },
+            {
+              "key": "AZ",
+              "value": "196.358824",
+              "comment": "Azimuth axis pos. (approx, deg)"
+            },
+            {
+              "key": "ALT",
+              "value": "68.644783",
+              "comment": "Altitude axis pos. (approx, deg)"
+            },
+            {
+              "key": "IPA",
+              "value": "48.54694",
+              "comment": "Rotator axis pos. (approx, deg)"
+            },
+            {
+              "key": "FOCUS",
+              "value": "-167.49",
+              "comment": "User-specified focus offset (um)"
+            },
+            {
+              "key": "M1PISTON",
+              "value": "0.0",
+              "comment": "TCC PrimOrient"
+            },
+            {
+              "key": "M1XTILT",
+              "value": "-18.23",
+              "comment": "TCC PrimOrient"
+            },
+            {
+              "key": "M1YTILT",
+              "value": "-7.9",
+              "comment": "TCC PrimOrient"
+            },
+            {
+              "key": "M1XTRAN",
+              "value": "-427.17",
+              "comment": "TCC PrimOrient"
+            },
+            {
+              "key": "M1YTRAN",
+              "value": "-999.0",
+              "comment": "TCC PrimOrient"
+            },
+            {
+              "key": "M1ZROT",
+              "value": "0.0",
+              "comment": "TCC PrimOrient"
+            },
+            {
+              "key": "M2PISTON",
+              "value": "4366.07",
+              "comment": "SecOrient"
+            },
+            {
+              "key": "M2XTILT",
+              "value": "-24.5",
+              "comment": "SecOrient"
+            },
+            {
+              "key": "M2YTILT",
+              "value": "-17.57",
+              "comment": "SecOrient"
+            },
+            {
+              "key": "M2XTRAN",
+              "value": "18.19",
+              "comment": "SecOrient"
+            },
+            {
+              "key": "M2YTRAN",
+              "value": "-99.96",
+              "comment": "SecOrient"
+            },
+            {
+              "key": "M2ZROT",
+              "value": "-30.02",
+              "comment": "SecOrient"
+            },
+            {
+              "key": "SCALE",
+              "value": "1.0",
+              "comment": "User-specified scale factor"
+            },
+            {
+              "key": "FF",
+              "value": "0 0 0 0",
+              "comment": "FF lamps 1:on 0:0ff"
+            },
+            {
+              "key": "NE",
+              "value": "0 0 0 0",
+              "comment": "NE lamps 1:on 0:0ff"
+            },
+            {
+              "key": "HGCD",
+              "value": "0 0 0 0",
+              "comment": "HGCD lamps 1:on 0:0ff"
+            },
+            {
+              "key": "FFS",
+              "value": "0 0 0 0 0 0 0 0",
+              "comment": "Flatfield Screen 1:closed 0:open"
+            },
+            {
+              "key": "V_APO",
+              "value": "4.0.1a0",
+              "comment": "Version of the current apoActor"
+            },
+            {
+              "key": "PRESSURE",
+              "value": "21.606",
+              "comment": ""
+            },
+            {
+              "key": "WINDD",
+              "value": "56.1",
+              "comment": ""
+            },
+            {
+              "key": "WINDS",
+              "value": "13.6",
+              "comment": ""
+            },
+            {
+              "key": "GUSTD",
+              "value": "54.0",
+              "comment": ""
+            },
+            {
+              "key": "GUSTS",
+              "value": "13.5",
+              "comment": ""
+            },
+            {
+              "key": "AIRTEMP",
+              "value": "0.0",
+              "comment": ""
+            },
+            {
+              "key": "DEWPOINT",
+              "value": "0.0",
+              "comment": ""
+            },
+            {
+              "key": "TRUSTEMP",
+              "value": "12.04",
+              "comment": ""
+            },
+            {
+              "key": "HUMIDITY",
+              "value": "39.2",
+              "comment": ""
+            },
+            {
+              "key": "DUSTA",
+              "value": "77700.0",
+              "comment": ""
+            },
+            {
+              "key": "DUSTB",
+              "value": "2919.0",
+              "comment": ""
+            },
+            {
+              "key": "WINDD25M",
+              "value": "-999.0",
+              "comment": ""
+            },
+            {
+              "key": "WINDS25M",
+              "value": "-999.0",
+              "comment": ""
+            },
+            {
+              "key": "CARTID",
+              "value": "FPS-N",
+              "comment": "Cart ID"
+            },
+            {
+              "key": "CONFIGID",
+              "value": "14808",
+              "comment": "Configuration ID"
+            },
+            {
+              "key": "DESIGNID",
+              "value": "403332",
+              "comment": "Design ID associated with CONFIGID"
+            },
+            {
+              "key": "FIELDID",
+              "value": "112359",
+              "comment": "Field ID associated with CONFIGID"
+            },
+            {
+              "key": "RAFIELD",
+              "value": "213.7041666",
+              "comment": "Field right ascension"
+            },
+            {
+              "key": "DECFIELD",
+              "value": "53.075",
+              "comment": "Field declination"
+            },
+            {
+              "key": "FIELDPA",
+              "value": "25.5",
+              "comment": "Field position angle"
+            },
+            {
+              "key": "BIASFILE",
+              "value": "/data/gcam/calib/60404/superstack_bias_apo_median_gfa2n.fits",
+              "comment": "Bias"
+            },
+            {
+              "key": "CHECKSUM",
+              "value": "9RfIJPZG9PfGGPZG",
+              "comment": "HDU checksum updated 2024-06-10T04:42:13"
+            },
+            {
+              "key": "DATASUM",
+              "value": "977497123",
+              "comment": "data unit checksum updated 2024-06-10T04:42:13"
+            },
+            {
+              "key": "BKG_ADUs",
+              "value": "45.39665325206323",
+              "comment": "background (median) counts in calibrated frame"
+            },
+            {
+              "key": "FLATFILE",
+              "value": "/data/gcam/calib/60404/superstack_skyflat_apo_median_gfa2n.fits",
+              "comment": ""
+            },
+            {
+              "key": "DARKFILE",
+              "value": "/data/gcam/calib/60404/superstack_dark_apo_median_gfa2n.fits",
+              "comment": ""
+            },
+            {
+              "key": "PC1_1",
+              "value": "5.4427004954466e-05",
+              "comment": "Coordinate transformation matrix element"
+            },
+            {
+              "key": "PC1_2",
+              "value": "2.6217826190387e-05",
+              "comment": "Coordinate transformation matrix element"
+            },
+            {
+              "key": "PC2_1",
+              "value": "-2.6891831892122e-05",
+              "comment": "Coordinate transformation matrix element"
+            },
+            {
+              "key": "PC2_2",
+              "value": "5.3017329109693e-05",
+              "comment": "Coordinate transformation matrix element"
+            },
+            {
+              "key": "CUNIT1",
+              "value": "deg",
+              "comment": "Units of coordinate increment and value"
+            },
+            {
+              "key": "CUNIT2",
+              "value": "deg",
+              "comment": "Units of coordinate increment and value"
+            },
+            {
+              "key": "CTYPE1",
+              "value": "RA---TAN",
+              "comment": "Right ascension, gnomonic projection"
+            },
+            {
+              "key": "CTYPE2",
+              "value": "DEC--TAN",
+              "comment": "Declination, gnomonic projection"
+            },
+            {
+              "key": "LONPOLE",
+              "value": "180.0",
+              "comment": "[deg] Native longitude of celestial pole"
+            },
+            {
+              "key": "RADESYS",
+              "value": "ICRS",
+              "comment": "Equatorial coordinate system"
+            },
+            {
+              "key": "SOLVED",
+              "value": "True",
+              "comment": "field was solved"
+            },
+            {
+              "key": "SOLVMODE",
+              "value": "coordio-fast",
+              "comment": "Method used to solve the field"
+            },
+            {
+              "key": "SOLVTIME",
+              "value": "-999.0",
+              "comment": "Time to solve the field or fail"
+            },
+            {
+              "key": "OFFRA",
+              "value": "0.0",
+              "comment": "Relative offset in RA [arcsec]"
+            },
+            {
+              "key": "OFFDEC",
+              "value": "0.0",
+              "comment": "Relative offset in Dec [arcsec]"
+            },
+            {
+              "key": "OFFPA",
+              "value": "0.0",
+              "comment": "Relative offset in PA [arcsec]"
+            },
+            {
+              "key": "AOFFRA",
+              "value": "0.0",
+              "comment": "Absolute offset in RA [arcsec]"
+            },
+            {
+              "key": "AOFFDEC",
+              "value": "0.0",
+              "comment": "Absolute offset in Dec [arcsec]"
+            },
+            {
+              "key": "AOFFPA",
+              "value": "-420.0",
+              "comment": "Absolute offset in PA [arcsec]"
+            },
+            {
+              "key": "EXTMETH",
+              "value": "marginal",
+              "comment": "Algorithm for star finding"
+            },
+            {
+              "key": "RAK",
+              "value": "0.9",
+              "comment": "PID K term for RA"
+            },
+            {
+              "key": "RATD",
+              "value": "0.0",
+              "comment": "PID Td term for RA"
+            },
+            {
+              "key": "RATI",
+              "value": "0.005",
+              "comment": "PID Ti term for RA"
+            },
+            {
+              "key": "DECK",
+              "value": "0.9",
+              "comment": "PID K term for Dec"
+            },
+            {
+              "key": "DECTD",
+              "value": "0.0",
+              "comment": "PID Td term for Dec"
+            },
+            {
+              "key": "DECTI",
+              "value": "0.005",
+              "comment": "PID Ti term for Dec"
+            },
+            {
+              "key": "ROTK",
+              "value": "0.7",
+              "comment": "PID K term for Rot."
+            },
+            {
+              "key": "ROTTD",
+              "value": "0.0",
+              "comment": "PID Td term for Rot."
+            },
+            {
+              "key": "ROTTI",
+              "value": "0.0",
+              "comment": "PID Ti term for Rot."
+            },
+            {
+              "key": "SCLK",
+              "value": "0.0",
+              "comment": "PID K term for Scale"
+            },
+            {
+              "key": "SCLTD",
+              "value": "0.0",
+              "comment": "PID Td term for Scale"
+            },
+            {
+              "key": "SCLTI",
+              "value": "0.0",
+              "comment": "PID Ti term for Scale"
+            },
+            {
+              "key": "FOCUSK",
+              "value": "0.3",
+              "comment": "PID K term for Focus"
+            },
+            {
+              "key": "FOCUSTD",
+              "value": "0.0",
+              "comment": "PID Td term for Focus"
+            },
+            {
+              "key": "FOCUSTI",
+              "value": "0.0",
+              "comment": "PID Ti term for Focus"
+            },
+            {
+              "key": "FWHM",
+              "value": "1.983",
+              "comment": "Mesured FWHM [arcsec]"
+            },
+            {
+              "key": "FWHMFIT",
+              "value": "2.008",
+              "comment": "Fitted FWHM [arcsec]"
+            },
+            {
+              "key": "RMS",
+              "value": "0.269",
+              "comment": "Guide RMS [arcsec]"
+            },
+            {
+              "key": "FITMODE",
+              "value": "full",
+              "comment": "Fit mode (full or RA/Dec)"
+            },
+            {
+              "key": "E_RA",
+              "value": "True",
+              "comment": "RA corrections enabled?"
+            },
+            {
+              "key": "E_DEC",
+              "value": "True",
+              "comment": "Dec corrections enabled?"
+            },
+            {
+              "key": "E_ROT",
+              "value": "True",
+              "comment": "Rotator corrections enabled?"
+            },
+            {
+              "key": "E_FOCUS",
+              "value": "True",
+              "comment": "Focus corrections enabled?"
+            },
+            {
+              "key": "E_SCL",
+              "value": "False",
+              "comment": "Scale corrections enabled?"
+            },
+            {
+              "key": "DELTARA",
+              "value": "0.07681704024845698",
+              "comment": "RA measured delta [arcsec]"
+            },
+            {
+              "key": "DELTADEC",
+              "value": "-0.03346196167512971",
+              "comment": "Dec measured delta [arcsec]"
+            },
+            {
+              "key": "DELTAROT",
+              "value": "0.8729514343642109",
+              "comment": "Rotator measured delta [arcsec]"
+            },
+            {
+              "key": "DELTASCL",
+              "value": "0.9999321553557425",
+              "comment": "Scale measured factor"
+            },
+            {
+              "key": "DELTAFOC",
+              "value": "-26.4",
+              "comment": "Focus delta [microns]"
+            },
+            {
+              "key": "CORR_RA",
+              "value": "-0.084",
+              "comment": "RA applied correction [arcsec]"
+            },
+            {
+              "key": "CORR_DEC",
+              "value": "0.039",
+              "comment": "Dec applied correction [arcsec]"
+            },
+            {
+              "key": "CORR_ROT",
+              "value": "-0.611",
+              "comment": "Rotator applied correction [arcsec]"
+            },
+            {
+              "key": "CORR_SCL",
+              "value": "0.0",
+              "comment": "Scale applied correction"
+            },
+            {
+              "key": "CORR_FOC",
+              "value": "0.0",
+              "comment": "Focus applied correction [microns]"
+            },
+            {
+              "key": "SOL_RA",
+              "value": "213.70420211790906",
+              "comment": "solved RA of pointing (deg) [This and the following entries became availabe in <code>cherno</code> version 1.0.0]"
+            },
+            {
+              "key": "SOL_DEC",
+              "value": "53.07499070501065",
+              "comment": "solved Dec of pointing (deg)"
+            },
+            {
+              "key": "SOL_PA",
+              "value": "25.616909153176213",
+              "comment": "solved PA of pointing (deg)"
+            },
+            {
+              "key": "SOL_SCL",
+              "value": "0.9999321553557425",
+              "comment": "solved scale factor"
+            },
+            {
+              "key": "SOL_ALT",
+              "value": "69.72982893990509",
+              "comment": "solved alt of pointing (deg)"
+            },
+            {
+              "key": "SOL_AZ",
+              "value": "4.27040070676377",
+              "comment": "solved az of pointing (deg)"
+            },
+            {
+              "key": "SOL_GRMS",
+              "value": "0.005392270376631969",
+              "comment": "guide rms between reference and solved (mm)"
+            },
+            {
+              "key": "SOL_FRMS",
+              "value": "0.015382946980651672",
+              "comment": "rms of fit (mm)"
+            },
+            {
+              "key": "REF_RA",
+              "value": "213.7041666",
+              "comment": "reference RA (deg)"
+            },
+            {
+              "key": "REF_DEC",
+              "value": "53.075",
+              "comment": "reference Dec (deg)"
+            },
+            {
+              "key": "REF_PA",
+              "value": "25.616666666666667",
+              "comment": "reference PA (deg)"
+            },
+            {
+              "key": "REF_SCL",
+              "value": "0.99982",
+              "comment": "reference scale factor"
+            },
+            {
+              "key": "TAI_MID",
+              "value": "5224711358.503436",
+              "comment": "tai seconds at middle of exposure"
+            },
+            {
+              "key": "N_STARS",
+              "value": "76",
+              "comment": "number of stars used in fit"
+            },
+            {
+              "key": "N_GFAS",
+              "value": "6",
+              "comment": "number of GFAs used in fit"
+            },
+            {
+              "key": "NITR_WCS",
+              "value": "0",
+              "comment": "number of iterations for wcs solve"
+            },
+            {
+              "key": "NITR_ALL",
+              "value": "2",
+              "comment": "number of iterations for full solve"
+            },
+            {
+              "key": "R_ZPT",
+              "value": "25.500925354890335",
+              "comment": "median measured zeropoint of gaia sources"
+            },
+            {
+              "key": "SPEXPNG",
+              "value": "True",
+              "comment": "BOSS spectrograph exposing"
+            },
+            {
+              "key": "SPIMGNO",
+              "value": "370018",
+              "comment": "BOSS spectrograph current exposure number"
+            }
+          ],
+          "columns": null
+        },
+        "hdu2": {
+          "name": "CENTROIDS",
+          "is_image": false,
+          "description": "Binary table with the centroids of the stars in the image. The majority of the columns are generated by <a href=\"https://sep.readthedocs.io/en/stable/api/sep.extract.html\">sep.extract</a>",
+          "size": "6 KB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "BINTABLE",
+              "comment": "binary table extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "384",
+              "comment": "length of dimension 1"
+            },
+            {
+              "key": "NAXIS2",
+              "value": "16",
+              "comment": "length of dimension 2"
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "number of group parameters"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "number of groups"
+            },
+            {
+              "key": "TFIELDS",
+              "value": "48",
+              "comment": "number of table fields"
+            },
+            {
+              "key": "EXTNAME",
+              "value": "CENTROIDS",
+              "comment": "extension name"
+            }
+          ],
+          "columns": {
+            "thresh": {
+              "name": "thresh",
+              "description": "Threshold at object location.",
+              "type": "float64",
+              "unit": "ADUs"
+            },
+            "npix": {
+              "name": "npix",
+              "description": "Number of pixels belonging to the object.",
+              "type": "int64",
+              "unit": "pixels"
+            },
+            "tnpix": {
+              "name": "tnpix",
+              "description": "Number of pixels above threshold (unconvolved data).",
+              "type": "int64",
+              "unit": "pixels"
+            },
+            "xmin": {
+              "name": "xmin",
+              "description": "Minimum x coordinates of pixels.",
+              "type": "int64",
+              "unit": "pixels"
+            },
+            "xmax": {
+              "name": "xmax",
+              "description": "Maximum x coordinates of pixels.",
+              "type": "int64",
+              "unit": "pixels"
+            },
+            "ymin": {
+              "name": "ymin",
+              "description": "Minimum y coordinates of pixels.",
+              "type": "int64",
+              "unit": "pixels"
+            },
+            "ymax": {
+              "name": "ymax",
+              "description": "Maximum y coordinates of pixels.",
+              "type": "int64",
+              "unit": "pixels"
+            },
+            "x": {
+              "name": "x",
+              "description": "Object barycenter (first moments).",
+              "type": "float64",
+              "unit": "pixels"
+            },
+            "y": {
+              "name": "y",
+              "description": "Object barycenter (first moments).",
+              "type": "float64",
+              "unit": "pixels"
+            },
+            "x2": {
+              "name": "x2",
+              "description": "Second moments.",
+              "type": "float64",
+              "unit": "pixels"
+            },
+            "y2": {
+              "name": "y2",
+              "description": "Second moments.",
+              "type": "float64",
+              "unit": "pixels"
+            },
+            "xy": {
+              "name": "xy",
+              "description": "Second moments.",
+              "type": "float64",
+              "unit": "pixels"
+            },
+            "errx2": {
+              "name": "errx2",
+              "description": "Second moment errors. Note that these will be zero if error is not given.",
+              "type": "float64",
+              "unit": "pixels"
+            },
+            "erry2": {
+              "name": "erry2",
+              "description": "Second moment errors. Note that these will be zero if error is not given.",
+              "type": "float64",
+              "unit": "pixels"
+            },
+            "errxy": {
+              "name": "errxy",
+              "description": "Second moment errors. Note that these will be zero if error is not given.",
+              "type": "float64",
+              "unit": "pixels"
+            },
+            "a": {
+              "name": "a",
+              "description": "Ellipse parameters, scaled as described by Section 8.4.2 in \"The Source Extractor Guide\" or Section 10.1.5-6 of v2.13 of SExtractor User Manual.",
+              "type": "float64",
+              "unit": "pixels"
+            },
+            "b": {
+              "name": "b",
+              "description": "Ellipse parameters, scaled as described by Section 8.4.2 in \"The Source Extractor Guide\" or Section 10.1.5-6 of v2.13 of SExtractor User Manual.",
+              "type": "float64",
+              "unit": "pixels"
+            },
+            "theta": {
+              "name": "theta",
+              "description": "Ellipse parameters, scaled as described by Section 8.4.2 in \"The Source Extractor Guide\" or Section 10.1.5-6 of v2.13 of SExtractor User Manual.",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "cxx": {
+              "name": "cxx",
+              "description": "Alternative ellipse parameters.",
+              "type": "float64",
+              "unit": "pixels"
+            },
+            "cyy": {
+              "name": "cyy",
+              "description": "Alternative ellipse parameters.",
+              "type": "float64",
+              "unit": "pixels"
+            },
+            "cxy": {
+              "name": "cxy",
+              "description": "Alternative ellipse parameters.",
+              "type": "float64",
+              "unit": "pixels"
+            },
+            "cflux": {
+              "name": "cflux",
+              "description": "Sum of member pixels in convolved data.",
+              "type": "float64",
+              "unit": "ADUs"
+            },
+            "flux": {
+              "name": "flux",
+              "description": "Sum of member pixels in unconvolved data.",
+              "type": "float64",
+              "unit": "ADUs"
+            },
+            "cpeak": {
+              "name": "cpeak",
+              "description": "Peak value in convolved data.",
+              "type": "float64",
+              "unit": "ADUs"
+            },
+            "peak": {
+              "name": "peak",
+              "description": "Peak value in unconvolved data.",
+              "type": "float64",
+              "unit": "ADUs"
+            },
+            "xcpeak": {
+              "name": "xcpeak",
+              "description": "Coordinate of convolved peak pixel.",
+              "type": "int64",
+              "unit": "pixel"
+            },
+            "ycpeak": {
+              "name": "ycpeak",
+              "description": "Coordinate of convolved peak pixel.",
+              "type": "int64",
+              "unit": "pixel"
+            },
+            "xpeak": {
+              "name": "xpeak",
+              "description": "Coordinate of unconvolved peak pixel.",
+              "type": "int64",
+              "unit": "pixel"
+            },
+            "ypeak": {
+              "name": "ypeak",
+              "description": "Coordinate of unconvolved peak pixel.",
+              "type": "int64",
+              "unit": "pixel"
+            },
+            "flag": {
+              "name": "flag",
+              "description": "Extraction flags.",
+              "type": "int64",
+              "unit": "N/A"
+            },
+            "ecc": {
+              "name": "ecc",
+              "description": "Eccentricity of the ellipse region.",
+              "type": "float64",
+              "unit": "pixels"
+            },
+            "x1": {
+              "name": "x1",
+              "description": "Centre of the Gaussian profile fit to the marginal distribution of the object along the x-axis.",
+              "type": "float64",
+              "unit": "pixels"
+            },
+            "xstd": {
+              "name": "xstd",
+              "description": "Sigma of the Gaussian profile fit to the marginal distribution of the object along the x-axis.",
+              "type": "float64",
+              "unit": "pixels"
+            },
+            "xrms": {
+              "name": "xrms",
+              "description": "RMS of the residuals of the Gaussian profile fit to the marginal distribution of the object along the x-axis.",
+              "type": "float64",
+              "unit": "pixels"
+            },
+            "xfitvalid": {
+              "name": "xfitvalid",
+              "description": "Whether the x-axis Gaussian profile fit is valid.",
+              "type": "float64",
+              "unit": "N/A"
+            },
+            "y1": {
+              "name": "y1",
+              "description": "Centre of the Gaussian profile fit to the marginal distribution of the object along the y-axis.",
+              "type": "float64",
+              "unit": "pixels"
+            },
+            "ystd": {
+              "name": "ystd",
+              "description": "Sigma of the Gaussian profile fit to the marginal distribution of the object along the y-axis.",
+              "type": "float64",
+              "unit": "pixels"
+            },
+            "yrms": {
+              "name": "yrms",
+              "description": "RMS of the residuals of the Gaussian profile fit to the marginal distribution of the object along the y-axis.",
+              "type": "float64",
+              "unit": "pixels"
+            },
+            "yfitvalid": {
+              "name": "yfitvalid",
+              "description": "Whether the y-axis Gaussian profile fit is valid.",
+              "type": "float64",
+              "unit": "N/A"
+            },
+            "aperflux": {
+              "name": "aperflux",
+              "description": "Aperture photometry flux for this object.",
+              "type": "float64",
+              "unit": "ADUs"
+            },
+            "aperfluxerr": {
+              "name": "aperfluxerr",
+              "description": "Aperture photometry flux error for this object.",
+              "type": "float64",
+              "unit": "ADUs"
+            },
+            "aperrad": {
+              "name": "aperrad",
+              "description": "Radius used for aperture photometry.",
+              "type": "float64",
+              "unit": "pixels"
+            },
+            "valid": {
+              "name": "valid",
+              "description": "Whether this object is deemed valid. Usually this means that <code>xvalid</code> and <code>yvalid</code> are both true.",
+              "type": "int64",
+              "unit": "N/A"
+            },
+            "fwhm": {
+              "name": "fwhm",
+              "description": "Full width at half maximum of the extracted source, from the marginal distribution fit.",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "mjd": {
+              "name": "mjd",
+              "description": "Modified Julian Date of the exposure.",
+              "type": "int64",
+              "unit": "N/A"
+            },
+            "exposure": {
+              "name": "exposure",
+              "description": "Guide camera exposure number.",
+              "type": "int64",
+              "unit": "N/A"
+            },
+            "camera": {
+              "name": "camera",
+              "description": "Guide camera number.",
+              "type": "int64",
+              "unit": "N/A"
+            },
+            "fwhm_valid": {
+              "name": "fwhm_valid",
+              "description": "Whether the FWHM is deemed valid.",
+              "type": "int64",
+              "unit": "N/A"
+            }
+          }
+        },
+        "hdu3": {
+          "name": "GFACOORD",
+          "is_image": false,
+          "description": "Metrology data for the GFAs, read from <a href=\"https://github.com/sdss/coordio/\"></a>.",
+          "size": "786 bytes",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "BINTABLE",
+              "comment": "binary table extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "131",
+              "comment": "length of dimension 1"
+            },
+            {
+              "key": "NAXIS2",
+              "value": "6",
+              "comment": "length of dimension 2"
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "number of group parameters"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "number of groups"
+            },
+            {
+              "key": "TFIELDS",
+              "value": "17",
+              "comment": "number of table fields"
+            },
+            {
+              "key": "EXTNAME",
+              "value": "GFACOORD",
+              "comment": "extension name"
+            }
+          ],
+          "columns": {
+            "site": {
+              "name": "site",
+              "description": "Site, APO or LCO.",
+              "type": "char[3]",
+              "unit": ""
+            },
+            "id": {
+              "name": "id",
+              "description": "Camera number",
+              "type": "int64",
+              "unit": ""
+            },
+            "xWok": {
+              "name": "xWok",
+              "description": "",
+              "type": "float64",
+              "unit": ""
+            },
+            "yWok": {
+              "name": "yWok",
+              "description": "",
+              "type": "float64",
+              "unit": ""
+            },
+            "zWok": {
+              "name": "zWok",
+              "description": "",
+              "type": "int64",
+              "unit": ""
+            },
+            "ix": {
+              "name": "ix",
+              "description": "",
+              "type": "float64",
+              "unit": ""
+            },
+            "iy": {
+              "name": "iy",
+              "description": "",
+              "type": "float64",
+              "unit": ""
+            },
+            "iz": {
+              "name": "iz",
+              "description": "",
+              "type": "int64",
+              "unit": ""
+            },
+            "jx": {
+              "name": "jx",
+              "description": "",
+              "type": "float64",
+              "unit": ""
+            },
+            "jy": {
+              "name": "jy",
+              "description": "",
+              "type": "float64",
+              "unit": ""
+            },
+            "jz": {
+              "name": "jz",
+              "description": "",
+              "type": "int64",
+              "unit": ""
+            },
+            "kx": {
+              "name": "kx",
+              "description": "",
+              "type": "int64",
+              "unit": ""
+            },
+            "ky": {
+              "name": "ky",
+              "description": "",
+              "type": "int64",
+              "unit": ""
+            },
+            "kz": {
+              "name": "kz",
+              "description": "",
+              "type": "int64",
+              "unit": ""
+            },
+            "y_0": {
+              "name": "y_0",
+              "description": "",
+              "type": "float64",
+              "unit": ""
+            },
+            "y_1": {
+              "name": "y_1",
+              "description": "",
+              "type": "float64",
+              "unit": ""
+            },
+            "x_0": {
+              "name": "x_0",
+              "description": "",
+              "type": "int64",
+              "unit": ""
+            }
+          }
+        },
+        "hdu4": {
+          "name": "GAIAMATCH",
+          "is_image": false,
+          "description": "Table with the Gaia matches for the extracted sources in the image.",
+          "size": "40 KB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "BINTABLE",
+              "comment": "binary table extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "552",
+              "comment": "length of dimension 1"
+            },
+            {
+              "key": "NAXIS2",
+              "value": "76",
+              "comment": "length of dimension 2"
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "number of group parameters"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "number of groups"
+            },
+            {
+              "key": "TFIELDS",
+              "value": "69",
+              "comment": "number of table fields"
+            },
+            {
+              "key": "EXTNAME",
+              "value": "GAIAMATCH",
+              "comment": "extension name"
+            }
+          ],
+          "columns": {
+            "thresh": {
+              "name": "thresh",
+              "description": "Threshold at object location.",
+              "type": "float64",
+              "unit": "ADUs"
+            },
+            "npix": {
+              "name": "npix",
+              "description": "Number of pixels belonging to the object.",
+              "type": "int64",
+              "unit": "pixels"
+            },
+            "tnpix": {
+              "name": "tnpix",
+              "description": "Number of pixels above threshold (unconvolved data).",
+              "type": "int64",
+              "unit": "pixels"
+            },
+            "xmin": {
+              "name": "xmin",
+              "description": "Minimum x coordinates of pixels.",
+              "type": "int64",
+              "unit": "pixels"
+            },
+            "xmax": {
+              "name": "xmax",
+              "description": "Maximum x coordinates of pixels.",
+              "type": "int64",
+              "unit": "pixels"
+            },
+            "ymin": {
+              "name": "ymin",
+              "description": "Minimum y coordinates of pixels.",
+              "type": "int64",
+              "unit": "pixels"
+            },
+            "ymax": {
+              "name": "ymax",
+              "description": "Maximum y coordinates of pixels.",
+              "type": "int64",
+              "unit": "pixels"
+            },
+            "x": {
+              "name": "x",
+              "description": "Object barycenter (first moments).",
+              "type": "float64",
+              "unit": "pixels"
+            },
+            "y": {
+              "name": "y",
+              "description": "Object barycenter (first moments).",
+              "type": "float64",
+              "unit": "pixels"
+            },
+            "x2": {
+              "name": "x2",
+              "description": "Second moments.",
+              "type": "float64",
+              "unit": "pixels"
+            },
+            "y2": {
+              "name": "y2",
+              "description": "Second moments.",
+              "type": "float64",
+              "unit": "pixels"
+            },
+            "xy": {
+              "name": "xy",
+              "description": "Second moments.",
+              "type": "float64",
+              "unit": "pixels"
+            },
+            "errx2": {
+              "name": "errx2",
+              "description": "Second moment errors. Note that these will be zero if error is not given.",
+              "type": "float64",
+              "unit": "pixels"
+            },
+            "erry2": {
+              "name": "erry2",
+              "description": "Second moment errors. Note that these will be zero if error is not given.",
+              "type": "float64",
+              "unit": "pixels"
+            },
+            "errxy": {
+              "name": "errxy",
+              "description": "Second moment errors. Note that these will be zero if error is not given.",
+              "type": "float64",
+              "unit": "pixels"
+            },
+            "a": {
+              "name": "a",
+              "description": "Ellipse parameters, scaled as described by Section 8.4.2 in \"The Source Extractor Guide\" or Section 10.1.5-6 of v2.13 of SExtractor User Manual.",
+              "type": "float64",
+              "unit": "pixels"
+            },
+            "b": {
+              "name": "b",
+              "description": "Ellipse parameters, scaled as described by Section 8.4.2 in \"The Source Extractor Guide\" or Section 10.1.5-6 of v2.13 of SExtractor User Manual.",
+              "type": "float64",
+              "unit": "pixels"
+            },
+            "theta": {
+              "name": "theta",
+              "description": "Ellipse parameters, scaled as described by Section 8.4.2 in \"The Source Extractor Guide\" or Section 10.1.5-6 of v2.13 of SExtractor User Manual.",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "cxx": {
+              "name": "cxx",
+              "description": "Alternative ellipse parameters.",
+              "type": "float64",
+              "unit": "pixels"
+            },
+            "cyy": {
+              "name": "cyy",
+              "description": "Alternative ellipse parameters.",
+              "type": "float64",
+              "unit": "pixels"
+            },
+            "cxy": {
+              "name": "cxy",
+              "description": "Alternative ellipse parameters.",
+              "type": "float64",
+              "unit": "pixels"
+            },
+            "cflux": {
+              "name": "cflux",
+              "description": "Sum of member pixels in convolved data.",
+              "type": "float64",
+              "unit": "ADUs"
+            },
+            "flux": {
+              "name": "flux",
+              "description": "Sum of member pixels in unconvolved data.",
+              "type": "float64",
+              "unit": "ADUs"
+            },
+            "cpeak": {
+              "name": "cpeak",
+              "description": "Peak value in convolved data.",
+              "type": "float64",
+              "unit": "ADUs"
+            },
+            "peak": {
+              "name": "peak",
+              "description": "Peak value in unconvolved data.",
+              "type": "float64",
+              "unit": "ADUs"
+            },
+            "xcpeak": {
+              "name": "xcpeak",
+              "description": "Coordinate of convolved peak pixel.",
+              "type": "int64",
+              "unit": "pixel"
+            },
+            "ycpeak": {
+              "name": "ycpeak",
+              "description": "Coordinate of convolved peak pixel.",
+              "type": "int64",
+              "unit": "pixel"
+            },
+            "xpeak": {
+              "name": "xpeak",
+              "description": "Coordinate of unconvolved peak pixel.",
+              "type": "int64",
+              "unit": "pixel"
+            },
+            "ypeak": {
+              "name": "ypeak",
+              "description": "Coordinate of unconvolved peak pixel.",
+              "type": "int64",
+              "unit": "pixel"
+            },
+            "flag": {
+              "name": "flag",
+              "description": "Extraction flags.",
+              "type": "int64",
+              "unit": "N/A"
+            },
+            "ecc": {
+              "name": "ecc",
+              "description": "Eccentricity of the ellipse region.",
+              "type": "float64",
+              "unit": "pixels"
+            },
+            "x1": {
+              "name": "x1",
+              "description": "Centre of the Gaussian profile fit to the marginal distribution of the object along the x-axis.",
+              "type": "float64",
+              "unit": "pixels"
+            },
+            "xstd": {
+              "name": "xstd",
+              "description": "Sigma of the Gaussian profile fit to the marginal distribution of the object along the x-axis.",
+              "type": "float64",
+              "unit": "pixels"
+            },
+            "xrms": {
+              "name": "xrms",
+              "description": "RMS of the residuals of the Gaussian profile fit to the marginal distribution of the object along the x-axis.",
+              "type": "float64",
+              "unit": "pixels"
+            },
+            "xfitvalid": {
+              "name": "xfitvalid",
+              "description": "Whether the x-axis Gaussian profile fit is valid.",
+              "type": "float64",
+              "unit": "N/A"
+            },
+            "y1": {
+              "name": "y1",
+              "description": "Centre of the Gaussian profile fit to the marginal distribution of the object along the y-axis.",
+              "type": "float64",
+              "unit": "pixels"
+            },
+            "ystd": {
+              "name": "ystd",
+              "description": "Sigma of the Gaussian profile fit to the marginal distribution of the object along the y-axis.",
+              "type": "float64",
+              "unit": "pixels"
+            },
+            "yrms": {
+              "name": "yrms",
+              "description": "RMS of the residuals of the Gaussian profile fit to the marginal distribution of the object along the y-axis.",
+              "type": "float64",
+              "unit": "pixels"
+            },
+            "yfitvalid": {
+              "name": "yfitvalid",
+              "description": "Whether the y-axis Gaussian profile fit is valid.",
+              "type": "float64",
+              "unit": "N/A"
+            },
+            "aperflux": {
+              "name": "aperflux",
+              "description": "Aperture photometry flux for this object.",
+              "type": "float64",
+              "unit": "ADUs"
+            },
+            "aperfluxerr": {
+              "name": "aperfluxerr",
+              "description": "Aperture photometry flux error for this object.",
+              "type": "float64",
+              "unit": "ADUs"
+            },
+            "aperrad": {
+              "name": "aperrad",
+              "description": "Radius used for aperture photometry.",
+              "type": "float64",
+              "unit": "pixels"
+            },
+            "valid": {
+              "name": "valid",
+              "description": "Whether this object is deemed valid. Usually this means that <code>xvalid</code> and <code>yvalid</code> are both true.",
+              "type": "int64",
+              "unit": "N/A"
+            },
+            "fwhm": {
+              "name": "fwhm",
+              "description": "Full width at half maximum of the extracted source, from the marginal distribution fit.",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "mjd": {
+              "name": "mjd",
+              "description": "Modified Julian Date of the exposure.",
+              "type": "int64",
+              "unit": "N/A"
+            },
+            "exposure": {
+              "name": "exposure",
+              "description": "Guide camera exposure number.",
+              "type": "int64",
+              "unit": "N/A"
+            },
+            "camera": {
+              "name": "camera",
+              "description": "Guide camera number.",
+              "type": "int64",
+              "unit": "N/A"
+            },
+            "fwhm_valid": {
+              "name": "fwhm_valid",
+              "description": "Whether the FWHM is deemed valid.",
+              "type": "int64",
+              "unit": "N/A"
+            },
+            "gfaNum": {
+              "name": "gfaNum",
+              "description": "GFA camera number",
+              "type": "int64",
+              "unit": ""
+            },
+            "gain": {
+              "name": "gain",
+              "description": "Camera gain",
+              "type": "float64",
+              "unit": "ADU/e-"
+            },
+            "xWokMeas": {
+              "name": "xWokMeas",
+              "description": "",
+              "type": "float64",
+              "unit": ""
+            },
+            "yWokMeas": {
+              "name": "yWokMeas",
+              "description": "",
+              "type": "float64",
+              "unit": ""
+            },
+            "source_id": {
+              "name": "source_id",
+              "description": "Source ID of the matched star in the Gaia DR3 catalogue.",
+              "type": "int64",
+              "unit": ""
+            },
+            "ra": {
+              "name": "ra",
+              "description": "Right ascension of the matched star in the Gaia DR3 catalogue.",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "dec": {
+              "name": "dec",
+              "description": "Declination of the matched star in the Gaia DR3 catalogue.",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "pmra": {
+              "name": "pmra",
+              "description": "Proper motion in right ascension of the matched star in the Gaia DR3 catalogue.",
+              "type": "float64",
+              "unit": "mas/yr"
+            },
+            "pmdec": {
+              "name": "pmdec",
+              "description": "Proper motion in declination of the matched star in the Gaia DR3 catalogue.",
+              "type": "float64",
+              "unit": "mas/yr"
+            },
+            "parallax": {
+              "name": "parallax",
+              "description": "Parallax of the matched star in the Gaia DR3 catalogue.",
+              "type": "float64",
+              "unit": "mas"
+            },
+            "phot_g_mean_mag": {
+              "name": "phot_g_mean_mag",
+              "description": "Gaia G-band magnitude of the matched star in the Gaia DR3 catalogue.",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "bp_rp": {
+              "name": "bp_rp",
+              "description": "Gaia BP-RP colour of the matched star in the Gaia DR3 catalogue.",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "xWokPred": {
+              "name": "xWokPred",
+              "description": "",
+              "type": "float64",
+              "unit": ""
+            },
+            "yWokPred": {
+              "name": "yWokPred",
+              "description": "",
+              "type": "float64",
+              "unit": ""
+            },
+            "dx": {
+              "name": "dx",
+              "description": "",
+              "type": "float64",
+              "unit": ""
+            },
+            "dy": {
+              "name": "dy",
+              "description": "",
+              "type": "float64",
+              "unit": ""
+            },
+            "dr": {
+              "name": "dr",
+              "description": "",
+              "type": "float64",
+              "unit": ""
+            },
+            "xWokPredRef": {
+              "name": "xWokPredRef",
+              "description": "",
+              "type": "float64",
+              "unit": ""
+            },
+            "yWokPredRef": {
+              "name": "yWokPredRef",
+              "description": "",
+              "type": "float64",
+              "unit": ""
+            },
+            "sdss_r": {
+              "name": "sdss_r",
+              "description": "SDSS r-band magnitude",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "zp": {
+              "name": "zp",
+              "description": "Zero-point instrumental magnitude",
+              "type": "float64",
+              "unit": "mag"
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null
+    }
+  },
+  "notes": "None"
+}
