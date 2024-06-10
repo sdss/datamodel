@@ -1,4 +1,4 @@
-# Data Model: gimg_apo
+# Data Model: gimgApo
 
 
 Raw guider frame from the APO 2.5m telescope
