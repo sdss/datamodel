@@ -34,9 +34,9 @@ robostrategy
 
 ### HDUS List for release WORK
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: ](#hdu1-)
-  - [HDU2: ](#hdu2-)
-  - [HDU3: ](#hdu3-)
+  - [HDU1: ](#hdu1)
+  - [HDU2: ](#hdu2)
+  - [HDU3: ](#hdu3)
 
 ---
 
@@ -64,7 +64,7 @@ Key | Value | Comment | |
 
 
 
-### HDU1: 
+### HDU1:
 Results for each cadence for each field
 
 #### HDU Type: BINARY TABLE
@@ -91,7 +91,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU2: 
+### HDU2:
 List of cadences that arrays in HDU1 refer to
 
 #### HDU Type: BINARY TABLE
@@ -104,7 +104,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU3: 
+### HDU3:
 List of cartons that arrays in HDU1 refer to
 
 #### HDU Type: BINARY TABLE
@@ -114,5 +114,3 @@ List of cartons that arrays in HDU1 refer to
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
  | CARTON | char[30] |  | Carton name |
-
-

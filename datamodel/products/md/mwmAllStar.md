@@ -38,8 +38,8 @@ False
 
 ### HDUS List for release IPL3
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: ](#hdu1-)
-  - [HDU2: ](#hdu2-)
+  - [HDU1: ](#hdu1)
+  - [HDU2: ](#hdu2)
 
 ---
 
@@ -72,7 +72,7 @@ Key | Value | Comment | |
 
 
 
-### HDU1: 
+### HDU1:
 MWM data for each star from BOSS
 
 #### HDU Type: BINARY TABLE
@@ -267,7 +267,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU2: 
+### HDU2:
 MWM data for each star from APOGEE
 
 #### HDU Type: BINARY TABLE

@@ -34,7 +34,7 @@ robostrategy
 
 ### HDUS List for release WORK
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: ](#hdu1-)
+  - [HDU1: ](#hdu1)
 
 ---
 
@@ -62,7 +62,7 @@ Key | Value | Comment | |
 
 
 
-### HDU1: 
+### HDU1:
 List of numbers of spares per field
 
 #### HDU Type: BINARY TABLE
@@ -76,5 +76,3 @@ Name | Type | Unit | Description |
  | DECCEN | float64 | deg | Dec Center (J2000) |
  | NBOSS_SPARE | int32 |  | Number of spare BOSS fibers |
  | NAPOGEE_SPARE | int32 |  | Number of spare APOGEE fibers |
-
-

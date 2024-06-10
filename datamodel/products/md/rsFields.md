@@ -34,7 +34,7 @@ robostrategy
 
 ### HDUS List for release WORK
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: ](#hdu1-)
+  - [HDU1: ](#hdu1)
 
 ---
 
@@ -62,7 +62,7 @@ Key | Value | Comment | |
 
 
 
-### HDU1: 
+### HDU1:
 Binary table of fields
 
 #### HDU Type: BINARY TABLE
@@ -76,5 +76,3 @@ Name | Type | Unit | Description |
  | DECCEN | float64 | deg | Dec Center (J2000) |
  | RADIUS | float32 | deg | Radius over which to output targets |
  | TYPE | char[30] | N/A | Type of field (used for setting cadence and allocation choices) |
-
-

@@ -38,7 +38,7 @@ False
 
 ### HDUS List for release IPL3
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: ](#hdu1-)
+  - [HDU1: ](#hdu1)
 
 ---
 
@@ -66,7 +66,7 @@ Key | Value | Comment | |
 
 
 
-### HDU1: 
+### HDU1:
 Targeting information for each MWM target
 
 #### HDU Type: BINARY TABLE
