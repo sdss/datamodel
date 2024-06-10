@@ -34,7 +34,7 @@ roboscheduler
 
 ### HDUS List for release WORK
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: ](#hdu1-)
+  - [HDU1: ](#hdu1)
 
 ---
 
@@ -62,7 +62,7 @@ Key | Value | Comment | |
 
 
 
-### HDU1: 
+### HDU1:
 Cadence specifications
 
 #### HDU Type: BINARY TABLE
@@ -86,5 +86,3 @@ Name | Type | Unit | Description |
  | MAX_AIRMASS | float32[174] |  | maximum airmass allowed |
  | LABEL_ROOT | char[40] |  | root of cadence label (ie. without version) |
  | LABEL_VERSION | char[40] |  | version part of cadence label (e.g. '_v1') |
-
-

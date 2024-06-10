@@ -35,10 +35,10 @@ spCalib.pro
 
 ### HDUS List for release WORK
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: ](#hdu1-)
-  - [HDU2: ](#hdu2-)
-  - [HDU3: ](#hdu3-)
-  - [HDU4: ](#hdu4-)
+  - [HDU1: ](#hdu1)
+  - [HDU2: ](#hdu2)
+  - [HDU3: ](#hdu3)
+  - [HDU4: ](#hdu4)
 
 ---
 
@@ -217,7 +217,7 @@ Key | Value | Comment | |
 
 
 
-### HDU1: 
+### HDU1:
 The HDU 1 data is a binary table whose fields are used to calculate the X-centers, for all fibers in the flat-field calibration frames. The Y-pixel positions on the CCD, which is the independent variable and the corresponding X-centers, which is the dependent variable are fitted to a functional form  and the resulting coefficients are stored in the binary table.
 
 #### HDU Type: BINARY TABLE
@@ -233,7 +233,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU2: 
+### HDU2:
 The HDU 2 data stores the fibermask. These are fiber status bits and are set to non-zero to indicate bad status. The status bits used for masking are documented in $IDLUTILS/v5_4_12/data/sdss/sdssMaskbits.par.
 
 #### HDU Type: IMAGE
@@ -251,7 +251,7 @@ Key | Value | Comment | |
 
 
 
-### HDU3: 
+### HDU3:
 The data attribute of HDU 3 gives the first-order corrected profile width for each fiber bundle. This Gaussian sigma is in units of pixels. The X-positions on the CCD and their corresponding profile width are fitted to a functional form and the resulting coefficients are stored in a binary table. The X-position is the independent variable and the width is the dependent variable for the fitting function.
 
 #### HDU Type: BINARY TABLE
@@ -267,7 +267,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU4: 
+### HDU4:
 The data attribute of HDU 4 contains superflat which is constructed from extracted flat-field image and is stored in a bspline set structure form. A superflat is a bspline average across all fibers of the flat spectrum in raw counts as a function of wavelength. The various column name are explained in the b-spline routine in $IDLUTILS/pro/bspline.
 
 #### HDU Type: BINARY TABLE
@@ -281,5 +281,3 @@ Name | Type | Unit | Description |
  | NORD | int32 |  | Polynomial norder of 2d fit |
  | COEFF | float32[1802] |  | Bspline fitting coefficients |
  | ICOEFF | float32[1802] |  | Bspline fitting coefficients |
-
-

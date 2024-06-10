@@ -38,7 +38,7 @@ False
 
 ### HDUS List for release DR18
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: ](#hdu1-)
+  - [HDU1: ](#hdu1)
 
 ---
 
@@ -64,7 +64,7 @@ Key | Value | Comment | |
 
 
 
-### HDU1: 
+### HDU1:
 MOS Target Table: best_brightest
 
 #### HDU Type: BINARY TABLE

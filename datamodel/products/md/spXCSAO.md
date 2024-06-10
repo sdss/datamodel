@@ -34,7 +34,7 @@ idlspec2d - run_pyXCSAO.py
 
 ### HDUS List for release WORK
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: ](#hdu1-)
+  - [HDU1: ](#hdu1)
 
 ---
 
@@ -60,7 +60,7 @@ Key | Value | Comment | |
 
 
 
-### HDU1: 
+### HDU1:
 Object Metadata and pyXCSAO output
 
 #### HDU Type: BINARY TABLE
@@ -108,5 +108,3 @@ Name | Type | Unit | Description |
  | EFEH | float64 | [Sun] | Uncertainty in Fe/H |
  | ALPHA | float64 | [Sun] | Interpolated [alpha/H] abundance of the best matched cross-correlation template |
  | EALPHA | float64 | [Sun] | Uncertainty in alpha |
-
-

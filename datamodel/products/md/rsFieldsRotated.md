@@ -34,7 +34,7 @@ robostrategy
 
 ### HDUS List for release WORK
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: ](#hdu1-)
+  - [HDU1: ](#hdu1)
 
 ---
 
@@ -62,7 +62,7 @@ Key | Value | Comment | |
 
 
 
-### HDU1: 
+### HDU1:
 Binary table of fields
 
 #### HDU Type: BINARY TABLE
@@ -78,5 +78,3 @@ Name | Type | Unit | Description |
  | TYPE | char[30] | N/A | Type of field (used for setting cadence and allocation choices) |
  | PA1 | float32 | deg | proposed position angle using algorithm 1 (mean bearing to neighboring fields) |
  | PA2 | float32 | deg | proposed position angle using algorithm 2 (bearing to furthest neighboring field) |
-
-
