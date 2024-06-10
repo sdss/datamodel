@@ -16,7 +16,7 @@ Processed image from the APO guider camera
 The processed guider frame from the APO 2.5m telescope, acquired using one of the six Guide Focus and Acquisition (GFA) MicroLine ML4240 cameras located in the periphery of the focal plane. This data product is similar to the <code>gimgApogee</code> file but it includes photometric and astrometric information, as well as the measured position of the telescope boresight and the guider corrections applied.
 
 ### Naming Convention
-`$GCAM_DATA_N/[MJD]/proc-gimg-gfa[CAMNUM]n-[EXPNUM].fits` where `[MJD]` is the SDSS-flavoured modified Julian date of the observation, `[CAMNUM]` is the camera number, and `[EXPNUM]` is the exposure number. The `n` following the camera number indicates that this is one of the cameras in the APO (North) focal plane.
+<code>$GCAM_DATA_N/[MJD]/proc-gimg-gfa[CAMNUM]n-[EXPNUM].fits</code> where <code>[MJD]</code> is the SDSS-flavoured modified Julian date of the observation, <code>[CAMNUM]</code> is the camera number, and <code>[EXPNUM]</code> is the exposure number. The <code>n</code> following the camera number indicates that this is one of the cameras in the APO (North) focal plane.
 
 ### Releases
 WORK
