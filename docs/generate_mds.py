@@ -5,7 +5,8 @@ def generate_markdown_list():
     mdpath = root / 'datamodel/products/md'
     md_files = sorted(mdpath.rglob('*.md'))
 
-    with open('product_files.md', 'w') as f:
+    out = pathlib.Path(__file__).parent / 'product_files.md'
+    with open(out, 'w') as f:
         f.write("# Product Files\n\n")
         for md_file in md_files:
             f.write(f"- [{md_file.stem}](../datamodel/products/md/{md_file.name})\n")
