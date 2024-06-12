@@ -9,7 +9,7 @@ def generate_markdown_list():
     with open(out, 'w') as f:
         f.write("# Product Files\n\n")
         for md_file in md_files:
-            f.write(f"- [{md_file.stem}](../datamodel/products/md/{md_file.name})\n")
+            f.write(f"- [{md_file.stem}](datamodel/products/md/{md_file.name})\n")
 
 if __name__ == "__main__":
     generate_markdown_list()

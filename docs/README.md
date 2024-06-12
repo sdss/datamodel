@@ -2,5 +2,5 @@
 
 This is the main page for the project documentation.
 
-- [Sphinx Documentation](sphinx/)
+- [Sphinx Documentation](sphinx/index.html)
 - [Product Files](product_files.md)
