@@ -51,6 +51,10 @@ jobs:
           path: artifact/docs
 
   deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
     needs: build
     runs-on: ubuntu-latest
 
@@ -67,10 +71,11 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: github-pages
-          path: artifact/docs
+          path: artifact
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
+        id: deployment
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           artifact_name: github-pages
