@@ -37,18 +37,18 @@ jobs:
 
       - name: Package artifacts
         run: |
-          mkdir -p artifact/docs/sphinx
+          mkdir -p artifact/sphinx
           mkdir -p artifact/datamodel/products/md
-          cp -r docs/sphinx/_build/html/* artifact/docs/sphinx/
-          cp docs/product_files.md artifact/docs/
-          cp docs/README.md artifact/docs/
-          cp -r datamodel/products/md artifact/datamodel/products/md
+          cp -r docs/sphinx/_build/html/* artifact/sphinx/
+          cp docs/product_files.md artifact/
+          cp docs/README.md artifact/
+          cp -r datamodel/products/md/* artifact/datamodel/products/md
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           name: github-pages
-          path: artifact/docs
+          path: artifact
 
   deploy:
     environment:
