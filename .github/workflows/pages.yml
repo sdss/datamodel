@@ -43,13 +43,19 @@ jobs:
           cp -r docs/sphinx/_build/html/* artifact/sphinx/
           cp docs/product_files.md artifact/
           cp docs/README.md artifact/
+          cp docs/_config.yml artifact/
           cp -r datamodel/products/md/* artifact/datamodel/products/md
-          echo "<html><body><h1>Welcome to the Documentation</h1><p><a href='README.md'>Read Me</a></p><p><a href='sphinx/index.html'>Sphinx</a></p></body></html>" > artifact/index.html
+
+      - name: Build Jekyll pages
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./artifact
+          destination: ./output
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./artifact
+          path: ./output
 
   deploy:
     environment:
