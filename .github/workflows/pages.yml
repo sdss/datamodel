@@ -38,9 +38,7 @@ jobs:
 
       - name: Package artifacts
         run: |
-          mkdir -p artifact/sphinx
           mkdir -p artifact/datamodel/products/md
-          cp -r docs/sphinx/_build/html/* artifact/sphinx/
           cp docs/product_files.md artifact/
           cp docs/README.md artifact/
           cp docs/_config.yml artifact/
@@ -51,6 +49,11 @@ jobs:
         with:
           source: ./artifact
           destination: ./output
+
+      - name: Copy Sphinx pages
+        run: |
+          mkdir -p output/sphinx
+          cp -r docs/sphinx/_build/html/* output/sphinx/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
