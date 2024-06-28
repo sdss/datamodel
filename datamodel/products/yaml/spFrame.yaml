@@ -31,11 +31,11 @@ releases:
       path_name: spFrame
       path_template: $BOSS_SPECTRO_REDUX/{run2d}/@pad_fieldid|@isplate|/spFrame-{br}{id}-{frame:0>8}.fits.gz
       path_kwargs:
-      - br
       - id
-      - frame
-      - fieldid
       - run2d
+      - frame
+      - br
+      - fieldid
       access_string: spFrame = $BOSS_SPECTRO_REDUX/{run2d}/{field}/spFrame-{br}{id}-{frame}.fits.gz
     survey: BHM
     hdus:
@@ -1098,6 +1098,7 @@ releases:
             description: Plate Fiber throughput (0-65535, 0=no light)
           SCI_EXPTIME:
             name: SCI_EXPTIME
+            unit: s
             type: float64
             description: Rescaled Science Exposure Time for offset plate
           BLUEFIBER:
@@ -1116,26 +1117,32 @@ releases:
             description: The beta angles of the positioner arms.
           XWOK:
             name: XWOK
+            unit: mm
             type: float64
             description: The X value in the FPS WOK coordinates
           YWOK:
             name: YWOK
+            unit: mm
             type: float64
             description: The Y value in the FPS WOK coordinates
           ZWOK:
             name: ZWOK
+            unit: mm
             type: float64
             description: The X value in the FPS WOK coordinates
           XFOCAL:
             name: XFOCAL
+            unit: mm
             type: float64
             description: Hole x-axis position in focal plane per exposure
           YFOCAL:
             name: YFOCAL
+            unit: mm
             type: float64
             description: Hole y-axis position in focal plane per exposure
           ZOFFSET:
             name: ZOFFSET
+            unit: micron
             type: float64
             description: backstopping offset distance (from washers)
           RACAT:
@@ -1275,10 +1282,12 @@ releases:
             description: provenance of photometry in SDSS-V plate design
           CALIBFLUX:
             name: CALIBFLUX
+            unit: nanomaggy
             type: float64[5]
             description: SDSS band [u,g,r,i,z] target calibration flux
           CALIBFLUX_IVAR:
             name: CALIBFLUX_IVAR
+            unit: nanomaggy
             type: float64[5]
             description: target calibration flux inverse variance
           CALIB_STATUS:

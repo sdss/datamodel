@@ -223,8 +223,8 @@ Name | Type | Unit | Description |
  | THROUGHPUT | int64 |  | Plate Fiber throughput (0-65535, 0=no light) |
  | SCI_EXPTIME | float64 | s | Rescaled Science Exposure Time for offset plate |
  | BLUEFIBER | int64 |  | BOSS to assign this target a 'blue' fiber |
- | XFOCAL | float64 |  | The X value in focal plane coordinates. |
- | YFOCAL | float64 |  | The Y value in focal plane coordinates. |
+ | XFOCAL | float64 | mm | The X value in focal plane coordinates. |
+ | YFOCAL | float64 | mm | The Y value in focal plane coordinates. |
  | ZOFFSET | float64 | micron | backstopping offset distance (from washers) |
  | RACAT | float64 | deg | Catalog RA in ICRS coordinates at coord_epoch |
  | DECCAT | float64 | deg | Catalog Dec in ICRS coordinates at coord_epoch |
@@ -257,8 +257,8 @@ Name | Type | Unit | Description |
  | EBV_3D | float64 |  | Merged 3D dust extinction |
  | EBV_3DSRC | char[14] |  | Source of Merged 3D dust extinction |
  | GRI_GAIA_TRANSFORM | int64 |  | provenance of photometry in SDSS-V plate design |
- | CALIBFLUX | float64[5] |  | SDSS band [u,g,r,i,z] target calibration flux |
- | CALIBFLUX_IVAR | float64[5] |  | target calibration flux inverse variance |
+ | CALIBFLUX | float64[5] | nanomaggy | SDSS band [u,g,r,i,z] target calibration flux |
+ | CALIBFLUX_IVAR | float64[5] | nanomaggy | target calibration flux inverse variance |
  | CALIB_STATUS | int64[5] |  | target calibration status flag |
  | CATEGORY | char[13] |  | Category for 'firstcarton' |
  | OBJTYPE | char[16] |  | Why object was targetted (QSO = Science Target) |
@@ -305,13 +305,13 @@ Name | Type | Unit | Description |
  | TARGET_INDEX | int16 |  | Index of target on combined spField |
  | NEXP | int16 |  | Number of Included Exposures |
  | MJD_FINAL | float64 |  | Mean MJD of the Coadded Spectra |
- | MOON_DIST | char[47] |  | Mean Moon-target separation of Coadded Spectra |
+ | MOON_DIST | char[47] | deg | Mean Moon-target separation of Coadded Spectra |
  | MOON_PHASE | char[39] |  | Mean Moon phase of the Coadded Spectra |
  | FIBERID_LIST | char[31] |  | List of FiberIDs contributing to Stack |
- | RA_LIST | char[87] |  | List of measured RA per exposure |
- | DEC_LIST | char[71] |  | List of measured DEC per exposure |
- | DELTA_RA_LIST | char[31] |  | List of designed RA offsets per exposure |
- | DELTA_DEC_LIST | char[31] |  | List of designed DEC offsets per exposure |
+ | RA_LIST | char[87] | deg | List of measured RA per exposure |
+ | DEC_LIST | char[71] | deg | List of measured DEC per exposure |
+ | DELTA_RA_LIST | char[31] | arcsec | List of designed RA offsets per exposure |
+ | DELTA_DEC_LIST | char[31] | arcsec | List of designed DEC offsets per exposure |
  | EXPTIME | int16 | s | Total Exposure time of Coadded Spectra |
  | FIRSTCARTON_LIST | char[17] |  | List of Primary SDSS Carton for target per exposure |
  | CARTON_TO_TARGET_PK_LIST | char[9] |  | List of SDSS-V Carton_to_Target primary key for SDSSDB per exposure |
@@ -320,9 +320,9 @@ Name | Type | Unit | Description |
  | VALID_LIST | char[15] |  | alpha and beta angles are valid per exposure |
  | DECOLLIDED_LIST | char[15] |  | this positioner had to be moved to decollide it per exposure |
  | EXP_DISP_MED | float64 |  | Dispersion of Median Exposure Flux |
- | XFOCAL_LIST | char[71] |  | Hole/robot x-axis position in focal plane per exposure |
- | YFOCAL_LIST | char[71] |  | Hole/robot y-axis position in focal plane per exposure |
- | TAI_LIST | char[87] |  | List Tai for each exposure (at midpoint) |
+ | XFOCAL_LIST | char[71] | mm | Hole/robot x-axis position in focal plane per exposure |
+ | YFOCAL_LIST | char[71] | mm | Hole/robot y-axis position in focal plane per exposure |
+ | TAI_LIST | char[87] | s | List Tai for each exposure (at midpoint) |
  | FIELDSNR2G_LIST | char[39] |  | Overall Field (S/N)^2 in g per exposure |
  | FIELDSNR2R_LIST | char[39] |  | Overall Field (S/N)^2 in r per exposure |
  | FIELDSNR2I_LIST | char[39] |  | Overall Field (S/N)^2 in i per exposure |
@@ -332,17 +332,17 @@ Name | Type | Unit | Description |
  | AIRMASS | float64 |  | Airmass at time of observation |
  | AIRMASS_LIST | char[79] |  | Airmass at time of observation per exposure |
  | SEEING20 | float64 | arcsec | Mean 20% seeing during exposures (arcsec) |
- | SEEING20_LIST | char[80] |  | 20% seeing during exposures (arcsec) per exposure |
+ | SEEING20_LIST | char[80] | arcsec | 20% seeing during exposures (arcsec) per exposure |
  | SEEING50 | float64 | arcsec | Mean 50% seeing during exposures (arcsec) |
- | SEEING50_LIST | char[79] |  | 50% seeing during exposures (arcsec) per exposure |
+ | SEEING50_LIST | char[79] | arcsec | 50% seeing during exposures (arcsec) per exposure |
  | SEEING80 | float64 | arcsec | Mean 80% seeing during exposures (arcsec) |
- | SEEING80_LIST | char[79] |  | 80% seeing during exposures (arcsec) per exposure |
+ | SEEING80_LIST | char[79] | arcsec | 80% seeing during exposures (arcsec) per exposure |
  | RMSOFF20 | float64 | arcsec | mean 20% of RMS offset of guide fibers |
- | RMSOFF20_LIST | char[94] |  | 20% of RMS offset of guide fibers per exposure |
+ | RMSOFF20_LIST | char[94] | arcsec | 20% of RMS offset of guide fibers per exposure |
  | RMSOFF50 | float64 | arcsec | mean 50% of RMS offset of guide fibers |
- | RMSOFF50_LIST | char[91] |  | 50% of RMS offset of guide fibers per exposure |
+ | RMSOFF50_LIST | char[91] | arcsec | 50% of RMS offset of guide fibers per exposure |
  | RMSOFF80 | float64 | arcsec | mean 80% of RMS offset of guide fibers |
- | RMSOFF80_LIST | char[87] |  | 28% of RMS offset of guide fibers per exposure |
+ | RMSOFF80_LIST | char[87] | arcsec | 28% of RMS offset of guide fibers per exposure |
  | FIBER_RA | float64 | deg | Fiber RA [J2000 for plate; at exp for FPS] |
  | FIBER_DEC | float64 | deg | Fiber DEC [J2000 for plate; at exp for FPS] |
  | OBS | char[8] |  | Observatory of Exposure |

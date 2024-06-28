@@ -32,9 +32,9 @@ releases:
       path_name: spAllLineField_epoch
       path_template: $BOSS_SPECTRO_REDUX/{run2d}/epoch/spectra/full/@pad_fieldid|@isplate|/{mjd}/spAllLine-@pad_fieldid|-{mjd}.fits
       path_kwargs:
-      - fieldid
-      - mjd
       - run2d
+      - mjd
+      - fieldid
       access_string: spAllLineField_epoch = $BOSS_SPECTRO_REDUX/{run2d}/epoch/spectra/full/{field}/{mjd}/spAllLine-{field}-{mjd}.fits.gz
     survey: BHM
     hdus:
@@ -138,7 +138,7 @@ releases:
           FIELD:
             name: FIELD
             type: int64
-            description: FieldID
+            description: SDSS FieldID (plateID for plate era data)
           MJD:
             name: MJD
             type: int64
@@ -154,7 +154,7 @@ releases:
           SDSS_ID:
             name: SDSS_ID
             type: int64
-            description: Unified SDSS Target Indentifier
+            description: Unified SDSS Target Identifier
           LINENAME:
             name: LINENAME
             type: char[13]
@@ -162,6 +162,7 @@ releases:
           LINEWAVE:
             name: LINEWAVE
             type: float64
+            unit: AA
             description: Catalog wavelength of line in vacuum Angstroms
           LINEZ:
             name: LINEZ
@@ -182,10 +183,12 @@ releases:
           LINEAREA:
             name: LINEAREA
             type: float32
+            unit: nanomaggy*AA
             description: Area in gaussian fit [(flux-units) * Ang]
           LINEAREA_ERR:
             name: LINEAREA_ERR
             type: float32
+            unit: nanomaggy*AA
             description: Flux error (negative for invalid fit)
           LINEEW:
             name: LINEEW

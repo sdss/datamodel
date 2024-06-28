@@ -30,10 +30,10 @@ releases:
       path_name: spZline
       path_template: $BOSS_SPECTRO_REDUX/{run2d}/@pad_fieldid|@isplate|/{run1d}/spZline-@pad_fieldid|-{mjd}.fits
       path_kwargs:
-      - fieldid
-      - mjd
       - run1d
       - run2d
+      - fieldid
+      - mjd
       access_string: spZline = $BOSS_SPECTRO_REDUX/{run2d}/{field}/{run1d}/spZline-{field}-{mjd}.fits
     survey: BHM
     hdus:
@@ -1221,7 +1221,7 @@ releases:
           SDSS_ID:
             name: SDSS_ID
             type: int64
-            description: Unified SDSS Target Indentifier
+            description: Unified SDSS Target Identifier
           LINENAME:
             name: LINENAME
             type: char[13]
@@ -1251,9 +1251,11 @@ releases:
           LINEAREA:
             name: LINEAREA
             type: float32
+            unit: nanomaggy*AA
             description: Area in gaussian fit [(flux-units) * Ang]
           LINEAREA_ERR:
             name: LINEAREA_ERR
+            unit: nanomaggy*AA
             type: float32
             description: Flux error (negative for invalid fit)
           LINEEW:

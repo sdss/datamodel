@@ -693,7 +693,7 @@ Name | Type | Unit | Description |
  | SCI_EXPTIME | float32 | s | Rescaled Science Exposure Time for offset plate |
  | SOURCETYPE | char[3] |  | indicate the nature of the source, one of STAR, QSO, GALAXY, or NA |
  | LAMBDA_EFF | float32 | AA | Wavelength used for coordinate transformations |
- | ZOFFSET | float32 |  | backstopping offset distance (from washers) |
+ | ZOFFSET | float32 | micron | backstopping offset distance (from washers) |
  | BLUEFIBER | int32 |  | BOSS to assign this target a 'blue' fiber |
  | BOSS_TARGET1 | int64 |  | Targeting bitmask for SDSS-III BOSS |
  | BOSS_TARGET2 | int64 |  | Targeting bitmask for SDSS-III BOSS |
@@ -733,9 +733,9 @@ Name | Type | Unit | Description |
  | TARGET_INDEX | int16 |  | Index of target on combined spField |
  | NEXP | int16 |  | Number of Included Exposures |
  | MJD_FINAL | float64 |  | Mean MJD of the Coadded Spectra |
- | MOON_DIST | char[109] |  | Mean Moon-target separation of Coadded Spectra |
+ | MOON_DIST | char[109] | deg | Mean Moon-target separation of Coadded Spectra |
  | MOON_PHASE | char[120] |  | Mean Moon phase of the Coadded Spectra |
- | TAI_LIST | char[131] |  | List Tai for each exposure (at midpoint) |
+ | TAI_LIST | char[131] | s | List Tai for each exposure (at midpoint) |
  | PLATESNR2G_LIST | char[87] |  | Overall Plate (S/N)^2 in g per exposure |
  | PLATESNR2R_LIST | char[87] |  | Overall Plate (S/N)^2 in r per exposure |
  | PLATESNR2I_LIST | char[87] |  | Overall Plate (S/N)^2 in i per exposure |

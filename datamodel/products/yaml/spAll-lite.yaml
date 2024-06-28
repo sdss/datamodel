@@ -261,7 +261,11 @@ releases:
           OBJTYPE:
             name: OBJTYPE
             type: char[16]
-            description: Why this object was targetted. QSO=SCIENCE
+            description: Why this object was targeted.  Note that if this field says
+              QSO, it could be the case that this object would have been targetted
+              as a GALAXY or any number of other categories as well. The PRIMTARGET
+              and SECTARGET flags in the plug-map structure (in the spField file)
+              gives this full information.
           CATALOGID:
             name: CATALOGID
             type: int64
@@ -277,17 +281,19 @@ releases:
           SDSS_ID:
             name: SDSS_ID
             type: int64
-            description: Unified SDSS Target Indentifier
+            description: Unified SDSS Target Identifier
           SPECOBJID:
             name: SPECOBJID
             type: int64
             description: Unique ID based on Field, MJD, FIBERID, RUN2D
           CALIBFLUX:
             name: CALIBFLUX
+            unit: nanomaggy
             type: float32[5]
             description: Broad-band flux in SDSS-{ugriz} from PSFmag
           CALIBFLUX_IVAR:
             name: CALIBFLUX_IVAR
+            unit: nanomaggy
             type: float32[5]
             description: Inverse var flux SDSS-{ugriz} from PSFmag
           OPTICAL_PROV:
@@ -352,26 +358,32 @@ releases:
             description: Source of dust extinction
           FIBER_RA:
             name: FIBER_RA
+            unit: degrees
             type: float64
             description: Fiber RA [J2000 for plate; at exp for FPS]
           FIBER_DEC:
             name: FIBER_DEC
+            unit: degrees
             type: float64
             description: Fiber DEC [J2000 for plate; at exp for FPS]
           PLUG_RA:
             name: PLUG_RA
+            unit: degrees
             type: float64
             description: Object RA (drilled fiber position) [J2000]
           PLUG_DEC:
             name: PLUG_DEC
+            unit: degrees
             type: float64
             description: Object DEC (drilled fiber position) [J2000]
           RACAT:
             name: RACAT
+            unit: degrees
             type: float64
             description: Catalog RA in ICRS coordinates at coord_epoch
           DECCAT:
             name: DECCAT
+            unit: degrees
             type: float64
             description: Catalog DEC in ICRS coordinates at coord_epoch
           COORD_EPOCH:
@@ -380,22 +392,27 @@ releases:
             description: Epoch of the RACAT/DECCAT Catalog coordinates.
           PMRA:
             name: PMRA
+            unit: mas/yr
             type: float32
             description: Proper motion in RA (pmra is a true angle)
           PMDEC:
             name: PMDEC
+            unit: mas/yr
             type: float32
             description: Proper motion in Dec
           PARALLAX:
             name: PARALLAX
+            unit: mas
             type: float32
             description: Parallax
           DELTA_RA:
             name: DELTA_RA
+            unit: arcsec
             type: float32
             description: The maximum fiber offset in any exposure
           DELTA_DEC:
             name: DELTA_DEC
+            unit: arcsec
             type: float32
             description: The maximum fiber offset in any exposure
           FIBER_OFFSET:
@@ -404,12 +421,14 @@ releases:
             description: Flag identifying the fiber was offset by design
           LAMBDA_EFF:
             name: LAMBDA_EFF
+            unit: AA
             type: float32
             description: Wavelength to optimize hole location for
           HEALPIX:
             name: HEALPIX
             type: int64
-            description: healpix pixel number nside=128
+            description: healpix pixel number of the RACAT and DECCAT coordinates,
+              computed with healpix nside=128
           HEALPIXGRP:
             name: HEALPIXGRP
             type: int64
@@ -429,27 +448,33 @@ releases:
           SPEC1_G:
             name: SPEC1_G
             type: float32
-            description: Fit (S/N)^2 at g=20.20 for spectrograph 1
+            description: Fit (S/N)^2 at g=20.20 for spectrograph 1 (same value for
+              500 fibers)
           SPEC1_R:
             name: SPEC1_R
             type: float32
-            description: Fit (S/N)^2 at r=20.25 for spectrograph 1
+            description: Fit (S/N)^2 at r=20.25 for spectrograph 1 (same value for
+              500 fibers)
           SPEC1_I:
             name: SPEC1_I
             type: float32
-            description: Fit (S/N)^2 at i=19.90 for spectrograph 1
+            description: Fit (S/N)^2 at i=19.90 for spectrograph 1 (same value for
+              500 fibers)
           SPEC2_G:
             name: SPEC2_G
             type: float32
-            description: Fit (S/N)^2 at g=20.20 for spectrograph 2
+            description: Fit (S/N)^2 at g=20.20 for spectrograph 2 (same value for
+              500 fibers)
           SPEC2_R:
             name: SPEC2_R
             type: float32
-            description: Fit (S/N)^2 at r=20.25 for spectrograph 2
+            description: Fit (S/N)^2 at r=20.25 for spectrograph 2 (same value for
+              500 fibers)
           SPEC2_I:
             name: SPEC2_I
             type: float32
-            description: Fit (S/N)^2 at i=19.90 for spectrograph 2
+            description: Fit (S/N)^2 at i=19.90 for spectrograph 2 (same value for
+              500 fibers)
           SN_MEDIAN:
             name: SN_MEDIAN
             type: float32[5]
@@ -464,18 +489,22 @@ releases:
             description: Airmass at time of observation
           SEEING20:
             name: SEEING20
+            unit: arcsecs
             type: float32
             description: Mean 20% seeing during exposures (arcsec)
           SEEING50:
             name: SEEING50
+            unit: arcsecs
             type: float32
             description: Mean 50% seeing during exposures (arcsec)
           SEEING80:
             name: SEEING80
+            unit: arcsecs
             type: float32
             description: Mean 80% seeing during exposures (arcsec)
           MOON_DIST:
             name: MOON_DIST
+            unit: degrees
             type: float32
             description: Mean Moon-target separation of Coadded Spectra
           MOON_PHASE:
@@ -501,15 +530,19 @@ releases:
           ANYANDMASK:
             name: ANYANDMASK
             type: int64
-            description: For each bit, any pixel has bit set in ANDMASK
+            description: For each bit, records whether any pixel in the spectrum has
+              that bit set in its ANDMASK
           ANYORMASK:
             name: ANYORMASK
             type: int64
-            description: For each bit, any pixel has bit set in ORMASK
+            description: For each bit, records whether any pixel in the spectrum has
+              that bit set in its ORMASK
           SPECPRIMARY:
             name: SPECPRIMARY
             type: int64
-            description: Best version of spectrum at this location
+            description: Objects observed multiple times will have this set to 1 for
+              one observation only. This is usually the 'best' observation, as defined
+              by critera listed in fieldmerge.py.
           SPECBOSS:
             name: SPECBOSS
             type: int64
@@ -524,34 +557,42 @@ releases:
             description: Number of spectral observations
           SPECTROFLUX:
             name: SPECTROFLUX
+            unit: nanomaggy
             type: float32[5]
             description: Spectrum projected onto SDSS-{ugriz} filter
           SPECTROFLUX_IVAR:
             name: SPECTROFLUX_IVAR
+            unit: nanomaggy
             type: float32[5]
-            description: Inverse variance of SPECTROFLUX
+            description: Inverse variance of SPECTROFLUX_{ugriz}
           SPECTROSYNFLUX:
             name: SPECTROSYNFLUX
+            unit: nanomaggy
             type: float32[5]
             description: Best-fit template projected onto SDSS-{ugriz}
           SPECTROSYNFLUX_IVAR:
             name: SPECTROSYNFLUX_IVAR
+            unit: nanomaggy
             type: float32[5]
-            description: Inverse variance of SPECTROSYNFLUX
+            description: Inverse variance of SPECTROSYNFLUX_{ugriz}
           SPECTROSKYFLUX:
             name: SPECTROSKYFLUX
+            unit: nanomaggy
             type: float32[5]
             description: Sky spectrum projected onto SDSS-{ugriz} filter
           WAVEMIN:
             name: WAVEMIN
+            unit: AA
             type: float32
             description: Minimum observed (vacuum) wavelength for target
           WAVEMAX:
             name: WAVEMAX
+            unit: AA
             type: float32
             description: Maximum observed (vacuum) wavelength for target
           WCOVERAGE:
             name: WCOVERAGE
+            unit: log10(AA)
             type: float32
             description: Amount of wavelength coverage in log-10(Angs)
           CLASS:
@@ -592,10 +633,12 @@ releases:
             description: Template file in $IDLSPEC2D_DIR/templates
           VDISP:
             name: VDISP
+            unit: km/s
             type: float32
             description: Velocity dispersion, only computed for galaxies
           VDISP_ERR:
             name: VDISP_ERR
+            unit: km/s
             type: float32
             description: Error in VDISP; negative for invalid fit
           VDISPZ:
@@ -652,10 +695,12 @@ releases:
             description: Reduced chi^2 diff to next-best non-QSO model
           XCSAO_RV:
             name: XCSAO_RV
+            unit: km/s
             type: float32
             description: Radial velocity measured with pyXCSAO
           XCSAO_ERV:
             name: XCSAO_ERV
+            unit: km/s
             type: float32
             description: Uncertainty in Radial velocity
           XCSAO_RXC:
@@ -664,26 +709,32 @@ releases:
             description: Cross correlation strength from pyXCSAO
           XCSAO_TEFF:
             name: XCSAO_TEFF
+            unit: K
             type: float32
             description: Interpolated temperature from pyXCSAO
           XCSAO_ETEFF:
             name: XCSAO_ETEFF
+            unit: K
             type: float32
             description: Uncertainty in Interpolated temperature
           XCSAO_LOGG:
             name: XCSAO_LOGG
+            unit: cm/s^2
             type: float32
             description: Interpolated surface gravity from pyXCSAO
           XCSAO_ELOGG:
             name: XCSAO_ELOGG
+            unit: cm/s^2
             type: float32
             description: Uncertainty in Interpolated surface gravity
           XCSAO_FEH:
             name: XCSAO_FEH
+            unit: soloar
             type: float32
             description: Interpolated metallicity from pyXCSAO
           XCSAO_EFEH:
             name: XCSAO_EFEH
+            unit: soloar
             type: float32
             description: Uncertainty in interpolated metallicity
 notes: |-

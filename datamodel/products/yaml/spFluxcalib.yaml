@@ -30,11 +30,11 @@ releases:
       path_name: spFluxcalib
       path_template: $BOSS_SPECTRO_REDUX/{run2d}/@pad_fieldid|@isplate|/spFluxcalib-{br}{id}-{frame:0>8}.fits.gz
       path_kwargs:
-      - br
       - id
-      - frame
-      - fieldid
       - run2d
+      - frame
+      - br
+      - fieldid
       access_string: spFluxcalib = $BOSS_SPECTRO_REDUX/{run2d}/{field}/spFluxcalib-{br}{id}-{frame}.fits.gz
     survey: BHM
     hdus:
@@ -228,14 +228,17 @@ releases:
             description: Model Name
           G:
             name: G
+            unit: cm/s^2
             type: float32
             description: surface gravity
           TEFF:
             name: TEFF
+            unit: K
             type: float32
             description: Effective Temperature
           FEH:
             name: FEH
+            unit: solar
             type: float32
             description: metallicity
           IMODEL:
@@ -278,9 +281,11 @@ releases:
           OBJFLUX:
             name: OBJFLUX
             type: float32[4128]
+            unit: nanomaggy
             description: Flux of object
           MODELFLUX:
             name: MODELFLUX
+            unit: nanomaggy
             type: float32[4128]
             description: Flux of model fit
           MRATIO:

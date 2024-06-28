@@ -32,10 +32,10 @@ releases:
       path_name: spSpec
       path_template: $BOSS_SPECTRO_REDUX/{run2d}/@pad_fieldid|@isplate|/coadd/{mjd}/spSpec-@pad_fieldid|-{mjd}-{catalogid}.fits
       path_kwargs:
-      - fieldid
       - catalogid
-      - mjd
       - run2d
+      - mjd
+      - fieldid
       access_string: spSpec = $BOSS_SPECTRO_REDUX/{run2d}/{field}/coadd/{mjd}/spSpec-{field}-{mjd}-{catalogid}.fits
     survey: BHM
     hdus:
@@ -1404,10 +1404,12 @@ releases:
             description: BOSS to assign this target a 'blue' fiber
           XFOCAL:
             name: XFOCAL
+            unit: mm
             type: float64
             description: The X value in focal plane coordinates.
           YFOCAL:
             name: YFOCAL
+            unit: mm
             type: float64
             description: The Y value in focal plane coordinates.
           ZOFFSET:
@@ -1552,10 +1554,12 @@ releases:
             description: provenance of photometry in SDSS-V plate design
           CALIBFLUX:
             name: CALIBFLUX
+            unit: nanomaggy
             type: float64[5]
             description: SDSS band [u,g,r,i,z] target calibration flux
           CALIBFLUX_IVAR:
             name: CALIBFLUX_IVAR
+            unit: nanomaggy
             type: float64[5]
             description: target calibration flux inverse variance
           CALIB_STATUS:
@@ -1747,6 +1751,7 @@ releases:
             description: Mean MJD of the Coadded Spectra
           MOON_DIST:
             name: MOON_DIST
+            unit: deg
             type: char[47]
             description: Mean Moon-target separation of Coadded Spectra
           MOON_PHASE:
@@ -1759,18 +1764,22 @@ releases:
             description: List of FiberIDs contributing to Stack
           RA_LIST:
             name: RA_LIST
+            unit: deg
             type: char[87]
             description: List of measured RA per exposure
           DEC_LIST:
             name: DEC_LIST
+            unit: deg
             type: char[71]
             description: List of measured DEC per exposure
           DELTA_RA_LIST:
             name: DELTA_RA_LIST
+            unit: arcsec
             type: char[31]
             description: List of designed RA offsets per exposure
           DELTA_DEC_LIST:
             name: DELTA_DEC_LIST
+            unit: arcsec
             type: char[31]
             description: List of designed DEC offsets per exposure
           EXPTIME:
@@ -1809,14 +1818,17 @@ releases:
             description: Dispersion of Median Exposure Flux
           XFOCAL_LIST:
             name: XFOCAL_LIST
+            unit: mm
             type: char[71]
             description: Hole/robot x-axis position in focal plane per exposure
           YFOCAL_LIST:
             name: YFOCAL_LIST
+            unit: mm
             type: char[71]
             description: Hole/robot y-axis position in focal plane per exposure
           TAI_LIST:
             name: TAI_LIST
+            unit: s
             type: char[87]
             description: List Tai for each exposure (at midpoint)
           FIELDSNR2G_LIST:
@@ -1859,6 +1871,7 @@ releases:
           SEEING20_LIST:
             name: SEEING20_LIST
             type: char[80]
+            unit: arcsec
             description: 20% seeing during exposures (arcsec) per exposure
           SEEING50:
             name: SEEING50
@@ -1867,6 +1880,7 @@ releases:
             description: Mean 50% seeing during exposures (arcsec)
           SEEING50_LIST:
             name: SEEING50_LIST
+            unit: arcsec
             type: char[79]
             description: 50% seeing during exposures (arcsec) per exposure
           SEEING80:
@@ -1876,6 +1890,7 @@ releases:
             description: Mean 80% seeing during exposures (arcsec)
           SEEING80_LIST:
             name: SEEING80_LIST
+            unit: arcsec
             type: char[79]
             description: 80% seeing during exposures (arcsec) per exposure
           RMSOFF20:
@@ -1886,6 +1901,7 @@ releases:
           RMSOFF20_LIST:
             name: RMSOFF20_LIST
             type: char[94]
+            unit: arcsec
             description: 20% of RMS offset of guide fibers per exposure
           RMSOFF50:
             name: RMSOFF50
@@ -1894,6 +1910,7 @@ releases:
             description: mean 50% of RMS offset of guide fibers
           RMSOFF50_LIST:
             name: RMSOFF50_LIST
+            unit: arcsec
             type: char[91]
             description: 50% of RMS offset of guide fibers per exposure
           RMSOFF80:
@@ -1903,6 +1920,7 @@ releases:
             description: mean 80% of RMS offset of guide fibers
           RMSOFF80_LIST:
             name: RMSOFF80_LIST
+            unit: arcsec
             type: char[87]
             description: 28% of RMS offset of guide fibers per exposure
           FIBER_RA:

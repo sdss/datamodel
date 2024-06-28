@@ -138,14 +138,14 @@ Name | Type | Unit | Description |
  | CADENCE | char[19] |  | Requested Target Cadence |
  | FIRSTCARTON | char[48] |  | Primary SDSS Carton for target |
  | SDSS5_TARGET_FLAGS | bool[57] |  | Targeting Flags for SSDSV Targeting |
- | OBJTYPE | char[16] |  | Why this object was targetted. QSO=SCIENCE |
+ | OBJTYPE | char[16] |  | Why this object was targeted.  Note that if this field says QSO, it could be the case that this object would have been targetted as a GALAXY or any number of other categories as well. The PRIMTARGET and SECTARGET flags in the plug-map structure (in the spField file) gives this full information. |
  | CATALOGID | int64 |  | SDSS-V CatalogID used in naming |
  | CATALOGID_V0 | int64 |  | SDSS-V CatalogID from Catalog v0 |
  | CATALOGID_V0P5 | int64 |  | SDSS-V CatalogID from Catalog v0.5 |
  | SDSS_ID | int64 |  | Unified SDSS Target Identifier |
  | SPECOBJID | int64 |  | Unique ID based on Field, MJD, FIBERID, RUN2D |
- | CALIBFLUX | float32[5] |  | Broad-band flux in SDSS-{ugriz} from PSFmag |
- | CALIBFLUX_IVAR | float32[5] |  | Inverse var flux SDSS-{ugriz} from PSFmag |
+ | CALIBFLUX | float32[5] | nanomaggy | Broad-band flux in SDSS-{ugriz} from PSFmag |
+ | CALIBFLUX_IVAR | float32[5] | nanomaggy | Inverse var flux SDSS-{ugriz} from PSFmag |
  | OPTICAL_PROV | char[26] |  | The source of the optical CATDB_MAG magnitudes |
  | MAG | float32[5] |  | [u, g, r, i, z] optical magnitudes |
  | PSFMAG | float32[5] |  | [u, g, r, i, z] optical PSF magnitudes |
@@ -155,63 +155,63 @@ Name | Type | Unit | Description |
  | GRI_GAIA_TRANSFORM | int64 |  | provenance of photometry in SDSS-V plate design |
  | BP_MAG | float32 |  | Gaia BP magnitude |
  | RP_MAG | float32 |  | Gaia RP magnitude |
- | GAIA_ID | int64 |  | Gaia DR3 SourceID |
+ | GAIA_ID | int64 |  | Gaia DR2 SourceID |
  | WISE_MAG | float32[4] |  | WISE [W1, W2, W3, W4] band magnitudes |
  | TWOMASS_MAG | float32[3] |  | 2MASS [J, H, Ks] band magnitudes |
  | GUVCAT_MAG | float32[2] |  | GALEX [FUV, NUV] band magnitudes |
  | EBV | float32 |  | dust extinction |
  | EBV_TYPE | char[14] |  | Source of dust extinction |
- | FIBER_RA | float64 |  | Fiber RA [J2000 for plate; at exp for FPS] |
- | FIBER_DEC | float64 |  | Fiber DEC [J2000 for plate; at exp for FPS] |
- | PLUG_RA | float64 |  | Object RA (drilled fiber position) [J2000] |
- | PLUG_DEC | float64 |  | Object DEC (drilled fiber position) [J2000] |
- | RACAT | float64 |  | Catalog RA in ICRS coordinates at coord_epoch |
- | DECCAT | float64 |  | Catalog DEC in ICRS coordinates at coord_epoch |
+ | FIBER_RA | float64 | degrees | Fiber RA [J2000 for plate; at exp for FPS] |
+ | FIBER_DEC | float64 | degrees | Fiber DEC [J2000 for plate; at exp for FPS] |
+ | PLUG_RA | float64 | degrees | Object RA (drilled fiber position) [J2000] |
+ | PLUG_DEC | float64 | degrees | Object DEC (drilled fiber position) [J2000] |
+ | RACAT | float64 | degrees | Catalog RA in ICRS coordinates at coord_epoch |
+ | DECCAT | float64 | degrees | Catalog DEC in ICRS coordinates at coord_epoch |
  | COORD_EPOCH | float32 |  | Epoch of the RACAT/DECCAT Catalog coordinates. |
- | PMRA | float32 |  | Proper motion in RA (pmra is a true angle) |
- | PMDEC | float32 |  | Proper motion in Dec |
- | PARALLAX | float32 |  | Parallax |
- | DELTA_RA | float32 |  | The maximum fiber offset in any exposure |
- | DELTA_DEC | float32 |  | The maximum fiber offset in any exposure |
+ | PMRA | float32 | mas/yr | Proper motion in RA (pmra is a true angle) |
+ | PMDEC | float32 | mas/yr | Proper motion in Dec |
+ | PARALLAX | float32 | mas | Parallax |
+ | DELTA_RA | float32 | arcsec | The maximum fiber offset in any exposure |
+ | DELTA_DEC | float32 | arcsec | The maximum fiber offset in any exposure |
  | FIBER_OFFSET | int64 |  | Flag identifying the fiber was offset by design |
- | LAMBDA_EFF | float32 |  | Wavelength to optimize hole location for |
- | HEALPIX | int64 |  | healpix pixel number nside=128 |
+ | LAMBDA_EFF | float32 | AA | Wavelength to optimize hole location for |
+ | HEALPIX | int64 |  | healpix pixel number of the RACAT and DECCAT coordinates, computed with healpix nside=128 |
  | HEALPIXGRP | int64 |  | Rounded-down integer value of healpix / 1000 |
  | FIELDQUALITY | char[4] |  | Characterization of field quality |
  | EXP_DISP_MED | float64 |  | Dispersion of Median Exposure Flux |
  | FIELDSN2 | float32 |  | Overall (S/N)^2 for field; min of cameras |
- | SPEC1_G | float32 |  | Fit (S/N)^2 at g=20.20 for spectrograph 1 |
- | SPEC1_R | float32 |  | Fit (S/N)^2 at r=20.25 for spectrograph 1 |
- | SPEC1_I | float32 |  | Fit (S/N)^2 at i=19.90 for spectrograph 1 |
- | SPEC2_G | float32 |  | Fit (S/N)^2 at g=20.20 for spectrograph 2 |
- | SPEC2_R | float32 |  | Fit (S/N)^2 at r=20.25 for spectrograph 2 |
- | SPEC2_I | float32 |  | Fit (S/N)^2 at i=19.90 for spectrograph 2 |
+ | SPEC1_G | float32 |  | Fit (S/N)^2 at g=20.20 for spectrograph 1 (same value for 500 fibers) |
+ | SPEC1_R | float32 |  | Fit (S/N)^2 at r=20.25 for spectrograph 1 (same value for 500 fibers) |
+ | SPEC1_I | float32 |  | Fit (S/N)^2 at i=19.90 for spectrograph 1 (same value for 500 fibers) |
+ | SPEC2_G | float32 |  | Fit (S/N)^2 at g=20.20 for spectrograph 2 (same value for 500 fibers) |
+ | SPEC2_R | float32 |  | Fit (S/N)^2 at r=20.25 for spectrograph 2 (same value for 500 fibers) |
+ | SPEC2_I | float32 |  | Fit (S/N)^2 at i=19.90 for spectrograph 2 (same value for 500 fibers) |
  | SN_MEDIAN | float32[5] |  | Median S/N for all good pixels in SDSS-{ugriz} |
  | SN_MEDIAN_ALL | float32 |  | Median S/N for all good pixels in all filters |
  | AIRMASS | float32 |  | Airmass at time of observation |
- | SEEING20 | float32 |  | Mean 20% seeing during exposures (arcsec) |
- | SEEING50 | float32 |  | Mean 50% seeing during exposures (arcsec) |
- | SEEING80 | float32 |  | Mean 80% seeing during exposures (arcsec) |
- | MOON_DIST | float32 |  | Mean Moon-target separation of Coadded Spectra |
+ | SEEING20 | float32 | arcsecs | Mean 20% seeing during exposures (arcsec) |
+ | SEEING50 | float32 | arcsecs | Mean 50% seeing during exposures (arcsec) |
+ | SEEING80 | float32 | arcsecs | Mean 80% seeing during exposures (arcsec) |
+ | MOON_DIST | float32 | degrees | Mean Moon-target separation of Coadded Spectra |
  | MOON_PHASE | float32 |  | Mean Moon phase of the Coadded Spectra |
  | ASSIGNED | int64 |  | Whether this fibre was assigned to a target |
  | ON_TARGET | int64 |  | Whether this fibre is on target |
  | VALID | int64 |  | alpha and beta angles are valid |
  | DECOLLIDED | int64 |  | this positioner had to be moved to decollide it |
- | ANYANDMASK | int64 |  | For each bit, any pixel has bit set in ANDMASK |
- | ANYORMASK | int64 |  | For each bit, any pixel has bit set in ORMASK |
- | SPECPRIMARY | int64 |  | Best version of spectrum at this location |
+ | ANYANDMASK | int64 |  | For each bit, records whether any pixel in the spectrum has that bit set in its ANDMASK |
+ | ANYORMASK | int64 |  | For each bit, records whether any pixel in the spectrum has that bit set in its ORMASK |
+ | SPECPRIMARY | int64 |  | Objects observed multiple times will have this set to 1 for one observation only. This is usually the 'best' observation, as defined by critera listed in fieldmerge.py. |
  | SPECBOSS | int64 |  | Best version of spectrum at this location |
  | BOSS_SPECOBJ_ID | int64 |  | Same as SPECPRIMARY |
  | NSPECOBS | int64 |  | Number of spectral observations |
- | SPECTROFLUX | float32[5] |  | Spectrum projected onto SDSS-{ugriz} filter |
- | SPECTROFLUX_IVAR | float32[5] |  | Inverse variance of SPECTROFLUX |
- | SPECTROSYNFLUX | float32[5] |  | Best-fit template projected onto SDSS-{ugriz} |
- | SPECTROSYNFLUX_IVAR | float32[5] |  | Inverse variance of SPECTROSYNFLUX |
- | SPECTROSKYFLUX | float32[5] |  | Sky spectrum projected onto SDSS-{ugriz} filter |
- | WAVEMIN | float32 |  | Minimum observed (vacuum) wavelength for target |
- | WAVEMAX | float32 |  | Maximum observed (vacuum) wavelength for target |
- | WCOVERAGE | float32 |  | Amount of wavelength coverage in log-10(Angs) |
+ | SPECTROFLUX | float32[5] | nanomaggy | Spectrum projected onto SDSS-{ugriz} filter |
+ | SPECTROFLUX_IVAR | float32[5] | nanomaggy | Inverse variance of SPECTROFLUX_{ugriz} |
+ | SPECTROSYNFLUX | float32[5] | nanomaggy | Best-fit template projected onto SDSS-{ugriz} |
+ | SPECTROSYNFLUX_IVAR | float32[5] | nanomaggy | Inverse variance of SPECTROSYNFLUX_{ugriz} |
+ | SPECTROSKYFLUX | float32[5] | nanomaggy | Sky spectrum projected onto SDSS-{ugriz} filter |
+ | WAVEMIN | float32 | AA | Minimum observed (vacuum) wavelength for target |
+ | WAVEMAX | float32 | AA | Maximum observed (vacuum) wavelength for target |
+ | WCOVERAGE | float32 | log10(AA) | Amount of wavelength coverage in log-10(Angs) |
  | CLASS | char[6] |  | Spectro classification: GALAXY, QSO, STAR |
  | SUBCLASS | char[21] |  | Spectro sub-classification |
  | Z | float32 |  | Redshift; incorrect for nonzero ZWARNING flag |
@@ -221,8 +221,8 @@ Name | Type | Unit | Description |
  | DOF | int64 |  | Degrees of freedom for best fit |
  | RCHI2DIFF | float32 |  | Diff in reduced chi^2 of 2 best solutions |
  | TFILE | char[24] |  | Template file in $IDLSPEC2D_DIR/templates |
- | VDISP | float32 |  | Velocity dispersion, only computed for galaxies |
- | VDISP_ERR | float32 |  | Error in VDISP; negative for invalid fit |
+ | VDISP | float32 | km/s | Velocity dispersion, only computed for galaxies |
+ | VDISP_ERR | float32 | km/s | Error in VDISP; negative for invalid fit |
  | VDISPZ | float32 |  | Redshift for best-fit velocity dispersion |
  | VDISPZ_ERR | float32 |  | Error in VDISPZ |
  | VDISPCHI2 | float32 |  | Chi^2 for best-fit velocity dispersion |
@@ -236,15 +236,15 @@ Name | Type | Unit | Description |
  | CLASS_NOQSO | char[6] |  | Spectro class of best-fit non-QSO model |
  | SUBCLASS_NOQSO | char[21] |  | Spectro sub-class of best-fit non-QSO model |
  | RCHI2DIFF_NOQSO | float32 |  | Reduced chi^2 diff to next-best non-QSO model |
- | XCSAO_RV | float32 |  | Radial velocity measured with pyXCSAO |
- | XCSAO_ERV | float32 |  | Uncertainty in Radial velocity |
+ | XCSAO_RV | float32 | km/s | Radial velocity measured with pyXCSAO |
+ | XCSAO_ERV | float32 | km/s | Uncertainty in Radial velocity |
  | XCSAO_RXC | float32 |  | Cross correlation strength from pyXCSAO |
- | XCSAO_TEFF | float32 |  | Interpolated temperature from pyXCSAO |
- | XCSAO_ETEFF | float32 |  | Uncertainty in Interpolated temperature |
- | XCSAO_LOGG | float32 |  | Interpolated surface gravity from pyXCSAO |
- | XCSAO_ELOGG | float32 |  | Uncertainty in Interpolated surface gravity |
- | XCSAO_FEH | float32 |  | Interpolated metallicity from pyXCSAO |
- | XCSAO_EFEH | float32 |  | Uncertainty in interpolated metallicity |
+ | XCSAO_TEFF | float32 | K | Interpolated temperature from pyXCSAO |
+ | XCSAO_ETEFF | float32 | K | Uncertainty in Interpolated temperature |
+ | XCSAO_LOGG | float32 | cm/s^2 | Interpolated surface gravity from pyXCSAO |
+ | XCSAO_ELOGG | float32 | cm/s^2 | Uncertainty in Interpolated surface gravity |
+ | XCSAO_FEH | float32 | soloar | Interpolated metallicity from pyXCSAO |
+ | XCSAO_EFEH | float32 | soloar | Uncertainty in interpolated metallicity |
 
 
 

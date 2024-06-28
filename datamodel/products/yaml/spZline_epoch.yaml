@@ -33,9 +33,9 @@ releases:
       path_template: $BOSS_SPECTRO_REDUX/{run2d}/@pad_fieldid|@isplate|/epoch/{run1d}/spZline-@pad_fieldid|-{mjd}.fits
       path_kwargs:
       - run1d
+      - run2d
       - fieldid
       - mjd
-      - run2d
       access_string: spZline_epoch = $BOSS_SPECTRO_REDUX/{run2d}/{field}/epoch/{run1d}/spZline-{field}-{mjd}.fits
     survey: BHM
     hdus:
@@ -1513,7 +1513,7 @@ releases:
           FIELD:
             name: FIELD
             type: int64
-            description: SDSS FieldID (plateID for plate era data)
+            description: FieldID
           MJD:
             name: MJD
             type: int64
@@ -1529,7 +1529,7 @@ releases:
           SDSS_ID:
             name: SDSS_ID
             type: int64
-            description: Unified SDSS Target Indentifier
+            description: Unified SDSS Target Identifier
           LINENAME:
             name: LINENAME
             type: char[13]
@@ -1537,6 +1537,7 @@ releases:
           LINEWAVE:
             name: LINEWAVE
             type: float64
+            unit: AA
             description: Catalog wavelength of line in vacuum Angstroms
           LINEZ:
             name: LINEZ
@@ -1549,6 +1550,7 @@ releases:
           LINESIGMA:
             name: LINESIGMA
             type: float32
+            unit: km/s
             description: Gaussian width in km/sec
           LINESIGMA_ERR:
             name: LINESIGMA_ERR
@@ -1557,18 +1559,22 @@ releases:
           LINEAREA:
             name: LINEAREA
             type: float32
+            unit: nanomaggy*AA
             description: Area in gaussian fit [(flux-units) * Ang]
           LINEAREA_ERR:
             name: LINEAREA_ERR
+            unit: nanomaggy*AA
             type: float32
             description: Flux error (negative for invalid fit)
           LINEEW:
             name: LINEEW
             type: float32
+            unit: AA
             description: equivalent width
           LINEEW_ERR:
             name: LINEEW_ERR
             type: float32
+            unit: AA
             description: Equivalent width error (<0 for invalid fit)
           LINECONTLEVEL:
             name: LINECONTLEVEL

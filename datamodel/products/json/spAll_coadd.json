@@ -450,7 +450,7 @@
             },
             "OBJTYPE": {
               "name": "OBJTYPE",
-              "description": "Why this object was targetted. QSO=SCIENCE",
+              "description": "Why this object was targeted.  Note that if this field says QSO, it could be the case that this object would have been targetted as a GALAXY or any number of other categories as well. The PRIMTARGET and SECTARGET flags in the plug-map structure (in the spField file) gives this full information.",
               "type": "char[16]",
               "unit": ""
             },
@@ -488,13 +488,13 @@
               "name": "CALIBFLUX",
               "description": "Broad-band flux in SDSS-{ugriz} from PSFmag",
               "type": "float32[5]",
-              "unit": ""
+              "unit": "nanomaggy"
             },
             "CALIBFLUX_IVAR": {
               "name": "CALIBFLUX_IVAR",
               "description": "Inverse var flux SDSS-{ugriz} from PSFmag",
               "type": "float32[5]",
-              "unit": ""
+              "unit": "nanomaggy"
             },
             "OPTICAL_PROV": {
               "name": "OPTICAL_PROV",
@@ -552,7 +552,7 @@
             },
             "GAIA_ID": {
               "name": "GAIA_ID",
-              "description": "Gaia DR3 SourceID",
+              "description": "Gaia DR2 SourceID",
               "type": "int64",
               "unit": ""
             },
@@ -590,37 +590,37 @@
               "name": "FIBER_RA",
               "description": "Fiber RA [J2000 for plate; at exp for FPS]",
               "type": "float64",
-              "unit": ""
+              "unit": "degrees"
             },
             "FIBER_DEC": {
               "name": "FIBER_DEC",
               "description": "Fiber DEC [J2000 for plate; at exp for FPS]",
               "type": "float64",
-              "unit": ""
+              "unit": "degrees"
             },
             "PLUG_RA": {
               "name": "PLUG_RA",
               "description": "Object RA (drilled fiber position) [J2000]",
               "type": "float64",
-              "unit": ""
+              "unit": "degrees"
             },
             "PLUG_DEC": {
               "name": "PLUG_DEC",
               "description": "Object DEC (drilled fiber position) [J2000]",
               "type": "float64",
-              "unit": ""
+              "unit": "degrees"
             },
             "RACAT": {
               "name": "RACAT",
               "description": "Catalog RA in ICRS coordinates at coord_epoch",
               "type": "float64",
-              "unit": ""
+              "unit": "degrees"
             },
             "DECCAT": {
               "name": "DECCAT",
               "description": "Catalog DEC in ICRS coordinates at coord_epoch",
               "type": "float64",
-              "unit": ""
+              "unit": "degrees"
             },
             "COORD_EPOCH": {
               "name": "COORD_EPOCH",
@@ -632,43 +632,43 @@
               "name": "PMRA",
               "description": "Proper motion in RA (pmra is a true angle)",
               "type": "float32",
-              "unit": ""
+              "unit": "mas/year"
             },
             "PMDEC": {
               "name": "PMDEC",
               "description": "Proper motion in Dec",
               "type": "float32",
-              "unit": ""
+              "unit": "mas/year"
             },
             "PARALLAX": {
               "name": "PARALLAX",
               "description": "Parallax",
               "type": "float32",
-              "unit": ""
+              "unit": "mas"
             },
             "RA_LIST": {
               "name": "RA_LIST",
               "description": "List of measured RA per exposure",
               "type": "char[318]",
-              "unit": ""
+              "unit": "degrees"
             },
             "DEC_LIST": {
               "name": "DEC_LIST",
               "description": "List of measured DEC per exposure",
               "type": "char[289]",
-              "unit": ""
+              "unit": "degrees"
             },
             "DELTA_RA_LIST": {
               "name": "DELTA_RA_LIST",
               "description": "List of designed RA offsets per exposure",
               "type": "char[115]",
-              "unit": ""
+              "unit": "arcsec"
             },
             "DELTA_DEC_LIST": {
               "name": "DELTA_DEC_LIST",
               "description": "List of designed DEC offsets per exposure",
               "type": "char[115]",
-              "unit": ""
+              "unit": "arcsec"
             },
             "FIBER_OFFSET": {
               "name": "FIBER_OFFSET",
@@ -680,25 +680,25 @@
               "name": "XFOCAL",
               "description": "Hole/robot x-axis position in focal plane",
               "type": "char[260]",
-              "unit": ""
+              "unit": "mm"
             },
             "YFOCAL": {
               "name": "YFOCAL",
               "description": "Hole/robot y-axis position in focal plane",
               "type": "char[260]",
-              "unit": ""
+              "unit": "mm"
             },
             "ZOFFSET": {
               "name": "ZOFFSET",
               "description": "Backstopping offset distance",
               "type": "float32",
-              "unit": ""
+              "unit": "microns"
             },
             "LAMBDA_EFF": {
               "name": "LAMBDA_EFF",
               "description": "Wavelength to optimize hole location for",
               "type": "float32",
-              "unit": ""
+              "unit": "AA"
             },
             "BLUEFIBER": {
               "name": "BLUEFIBER",
@@ -708,7 +708,7 @@
             },
             "HEALPIX": {
               "name": "HEALPIX",
-              "description": "healpix pixel number nside=128",
+              "description": "healpix pixel number of the RACAT and DECCAT coordinates, computed with healpix nside=128",
               "type": "int64",
               "unit": ""
             },
@@ -762,37 +762,37 @@
             },
             "SPEC1_G": {
               "name": "SPEC1_G",
-              "description": "Fit (S/N)^2 at g=20.20 for spectrograph 1",
+              "description": "Fit (S/N)^2 at g=20.20 for spectrograph 1 (same value for 500 fibers)",
               "type": "float32",
               "unit": ""
             },
             "SPEC1_R": {
               "name": "SPEC1_R",
-              "description": "Fit (S/N)^2 at r=20.25 for spectrograph 1",
+              "description": "Fit (S/N)^2 at r=20.25 for spectrograph 1 (same value for 500 fibers)",
               "type": "float32",
               "unit": ""
             },
             "SPEC1_I": {
               "name": "SPEC1_I",
-              "description": "Fit (S/N)^2 at i=19.90 for spectrograph 1",
+              "description": "Fit (S/N)^2 at i=19.90 for spectrograph 1 (same value for 500 fibers)",
               "type": "float32",
               "unit": ""
             },
             "SPEC2_G": {
               "name": "SPEC2_G",
-              "description": "Fit (S/N)^2 at g=20.20 for spectrograph 2",
+              "description": "Fit (S/N)^2 at g=20.20 for spectrograph 2 (same value for 500 fibers)",
               "type": "float32",
               "unit": ""
             },
             "SPEC2_R": {
               "name": "SPEC2_R",
-              "description": "Fit (S/N)^2 at r=20.25 for spectrograph 2",
+              "description": "Fit (S/N)^2 at r=20.25 for spectrograph 2 (same value for 500 fibers)",
               "type": "float32",
               "unit": ""
             },
             "SPEC2_I": {
               "name": "SPEC2_I",
-              "description": "Fit (S/N)^2 at i=19.90 for spectrograph 2",
+              "description": "Fit (S/N)^2 at i=19.90 for spectrograph 2 (same value for 500 fibers)",
               "type": "float32",
               "unit": ""
             },
@@ -824,19 +824,19 @@
               "name": "SEEING50",
               "description": "Mean 50% seeing during exposures (arcsec)",
               "type": "float32",
-              "unit": ""
+              "unit": "arcsecs"
             },
             "SEEING80": {
               "name": "SEEING80",
               "description": "Mean 80% seeing during exposures (arcsec)",
               "type": "float32",
-              "unit": ""
+              "unit": "arcsecs"
             },
             "MOON_DIST": {
               "name": "MOON_DIST",
               "description": "Mean Moon-target separation of Coadded Spectra",
               "type": "char[144]",
-              "unit": ""
+              "unit": "degrees"
             },
             "MOON_PHASE": {
               "name": "MOON_PHASE",
@@ -870,19 +870,19 @@
             },
             "ANYANDMASK": {
               "name": "ANYANDMASK",
-              "description": "For each bit, any pixel has bit set in ANDMASK",
+              "description": "For each bit, records whether any pixel in the spectrum has that bit set in its ANDMASK",
               "type": "int64",
               "unit": ""
             },
             "ANYORMASK": {
               "name": "ANYORMASK",
-              "description": "For each bit, any pixel has bit set in ORMASK",
+              "description": "For each bit, records whether any pixel in the spectrum has that bit set in its ORMASK",
               "type": "int64",
               "unit": ""
             },
             "SPECPRIMARY": {
               "name": "SPECPRIMARY",
-              "description": "Best version of spectrum at this location",
+              "description": "Objects observed multiple times will have this set to 1 for one observation only. This is usually the 'best' observation, as defined by critera listed in fieldmerge.py.",
               "type": "int64",
               "unit": ""
             },
@@ -912,7 +912,7 @@
             },
             "SPECTROFLUX_IVAR": {
               "name": "SPECTROFLUX_IVAR",
-              "description": "Inverse variance of SPECTROFLUX",
+              "description": "Inverse variance of SPECTROFLUX_{ugriz}",
               "type": "float32[5]",
               "unit": ""
             },
@@ -924,7 +924,7 @@
             },
             "SPECTROSYNFLUX_IVAR": {
               "name": "SPECTROSYNFLUX_IVAR",
-              "description": "Inverse variance of SPECTROSYNFLUX",
+              "description": "Inverse variance of SPECTROSYNFLUX_{ugriz}",
               "type": "float32[5]",
               "unit": ""
             },
@@ -938,19 +938,19 @@
               "name": "WAVEMIN",
               "description": "Minimum observed (vacuum) wavelength for target",
               "type": "float32",
-              "unit": ""
+              "unit": "AA"
             },
             "WAVEMAX": {
               "name": "WAVEMAX",
               "description": "Maximum observed (vacuum) wavelength for target",
               "type": "float32",
-              "unit": ""
+              "unit": "AA"
             },
             "WCOVERAGE": {
               "name": "WCOVERAGE",
               "description": "Amount of wavelength coverage in log-10(Angs)",
               "type": "float32",
-              "unit": ""
+              "unit": "log10(AA)"
             },
             "CLASS": {
               "name": "CLASS",
@@ -1028,13 +1028,13 @@
               "name": "VDISP",
               "description": "Velocity dispersion, only computed for galaxies",
               "type": "float32",
-              "unit": ""
+              "unit": "km/s"
             },
             "VDISP_ERR": {
               "name": "VDISP_ERR",
               "description": "Error in VDISP; negative for invalid fit",
               "type": "float32",
-              "unit": ""
+              "unit": "km/s"
             },
             "VDISPZ": {
               "name": "VDISPZ",
@@ -1136,13 +1136,13 @@
               "name": "XCSAO_RV",
               "description": "Radial velocity measured with pyXCSAO",
               "type": "float32",
-              "unit": ""
+              "unit": "km/s"
             },
             "XCSAO_ERV": {
               "name": "XCSAO_ERV",
               "description": "Uncertainty in Radial velocity",
               "type": "float32",
-              "unit": ""
+              "unit": "km/s"
             },
             "XCSAO_RXC": {
               "name": "XCSAO_RXC",
@@ -1154,37 +1154,37 @@
               "name": "XCSAO_TEFF",
               "description": "Interpolated temperature from pyXCSAO",
               "type": "float32",
-              "unit": ""
+              "unit": "K"
             },
             "XCSAO_ETEFF": {
               "name": "XCSAO_ETEFF",
               "description": "Uncertainty in Interpolated temperature",
               "type": "float32",
-              "unit": ""
+              "unit": "K"
             },
             "XCSAO_LOGG": {
               "name": "XCSAO_LOGG",
               "description": "Interpolated surface gravity from pyXCSAO",
               "type": "float32",
-              "unit": ""
+              "unit": "cm/s^2"
             },
             "XCSAO_ELOGG": {
               "name": "XCSAO_ELOGG",
               "description": "Uncertainty in Interpolated surface gravity",
               "type": "float32",
-              "unit": ""
+              "unit": "cm/s^2"
             },
             "XCSAO_FEH": {
               "name": "XCSAO_FEH",
               "description": "Interpolated metallicity from pyXCSAO",
               "type": "float32",
-              "unit": ""
+              "unit": "solar"
             },
             "XCSAO_EFEH": {
               "name": "XCSAO_EFEH",
               "description": "Uncertainty in interpolated metallicity",
               "type": "float32",
-              "unit": ""
+              "unit": "solar"
             }
           }
         }

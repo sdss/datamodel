@@ -560,21 +560,21 @@ Key | Value | Comment | |
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | FIELD | int64 |  | SDSS FieldID (plateID for plate era data) |
+ | FIELD | int64 |  | FieldID |
  | MJD | int64 |  | Modified Julian date of observation |
  | TARGET_INDEX | int64 |  | Target Index (1 to number of targets) |
  | CATALOGID | int64 |  | SDSS-V CatalogID used in naming |
- | SDSS_ID | int64 |  | Unified SDSS Target Indentifier |
+ | SDSS_ID | int64 |  | Unified SDSS Target Identifier |
  | LINENAME | char[13] |  | Line name |
- | LINEWAVE | float64 |  | Catalog wavelength of line in vacuum Angstroms |
+ | LINEWAVE | float64 | AA | Catalog wavelength of line in vacuum Angstroms |
  | LINEZ | float32 |  | Redshift |
  | LINEZ_ERR | float32 |  | Redshift error (negative for invalid fit) |
- | LINESIGMA | float32 |  | Gaussian width in km/sec |
+ | LINESIGMA | float32 | km/s | Gaussian width in km/sec |
  | LINESIGMA_ERR | float32 |  | Gaussian width error (<0 for invalid fit) |
- | LINEAREA | float32 |  | Area in gaussian fit [(flux-units) * Ang] |
- | LINEAREA_ERR | float32 |  | Flux error (negative for invalid fit) |
- | LINEEW | float32 |  | equivalent width |
- | LINEEW_ERR | float32 |  | Equivalent width error (<0 for invalid fit) |
+ | LINEAREA | float32 | nanomaggy*AA | Area in gaussian fit [(flux-units) * Ang] |
+ | LINEAREA_ERR | float32 | nanomaggy*AA | Flux error (negative for invalid fit) |
+ | LINEEW | float32 | AA | equivalent width |
+ | LINEEW_ERR | float32 | AA | Equivalent width error (<0 for invalid fit) |
  | LINECONTLEVEL | float32 |  | Continuum level at line center |
  | LINECONTLEVEL_ERR | float32 |  | Error in continuum level at line center |
  | LINENPIXLEFT | int32 |  | Npixels to -3 sigma with INVVAR > 0 |

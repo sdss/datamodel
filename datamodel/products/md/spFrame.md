@@ -470,16 +470,16 @@ Name | Type | Unit | Description |
  | FIBERMASK | int64 |  | Fiber level bitmasks (maps to SPPIXMASK) |
  | BADSTDMASK | int64 |  | Standard rejected by magnitude range of design |
  | THROUGHPUT | int64 |  | Plate Fiber throughput (0-65535, 0=no light) |
- | SCI_EXPTIME | float64 |  | Rescaled Science Exposure Time for offset plate |
+ | SCI_EXPTIME | float64 | s | Rescaled Science Exposure Time for offset plate |
  | BLUEFIBER | int64 |  | BOSS to assign this target a 'blue' fiber |
  | ALPHA | float64 | deg | The alpha angles of the positioner arms. |
  | BETA | float64 | deg | The beta angles of the positioner arms. |
- | XWOK | float64 |  | The X value in the FPS WOK coordinates |
- | YWOK | float64 |  | The Y value in the FPS WOK coordinates |
- | ZWOK | float64 |  | The X value in the FPS WOK coordinates |
- | XFOCAL | float64 |  | Hole x-axis position in focal plane per exposure |
- | YFOCAL | float64 |  | Hole y-axis position in focal plane per exposure |
- | ZOFFSET | float64 |  | backstopping offset distance (from washers) |
+ | XWOK | float64 | mm | The X value in the FPS WOK coordinates |
+ | YWOK | float64 | mm | The Y value in the FPS WOK coordinates |
+ | ZWOK | float64 | mm | The X value in the FPS WOK coordinates |
+ | XFOCAL | float64 | mm | Hole x-axis position in focal plane per exposure |
+ | YFOCAL | float64 | mm | Hole y-axis position in focal plane per exposure |
+ | ZOFFSET | float64 | micron | backstopping offset distance (from washers) |
  | RACAT | float64 | deg | Catalog RA in ICRS coordinates at coord_epoch |
  | DECCAT | float64 | deg | Catalog Dec in ICRS coordinates at coord_epoch |
  | COORD_EPOCH | float64 |  | Epoch of the catalogue coordinates. |
@@ -511,8 +511,8 @@ Name | Type | Unit | Description |
  | EBV_3D | float64 |  | Merged 3D dust extinction |
  | EBV_3DSRC | char[14] |  | Source of Merged 3D dust extinction |
  | GRI_GAIA_TRANSFORM | int64 |  | provenance of photometry in SDSS-V plate design |
- | CALIBFLUX | float64[5] |  | SDSS band [u,g,r,i,z] target calibration flux |
- | CALIBFLUX_IVAR | float64[5] |  | target calibration flux inverse variance |
+ | CALIBFLUX | float64[5] | nanomaggy | SDSS band [u,g,r,i,z] target calibration flux |
+ | CALIBFLUX_IVAR | float64[5] | nanomaggy | target calibration flux inverse variance |
  | CALIB_STATUS | int64[5] |  | target calibration status flag |
  | CATEGORY | char[13] |  | Category for 'firstcarton' |
  | OBJTYPE | char[16] |  | Why object was targetted (QSO = Science Target) |

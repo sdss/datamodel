@@ -424,8 +424,8 @@ Name | Type | Unit | Description |
  | CONFFIBERID | int64 |  | Raw Slithead FiberIDs |
  | FIBERTYPE | char[4] |  | Type of fibre (APOGEE, BOSS, or Metrology) |
  | HOLETYPE | char |  | Hole ID in which the positioner is sitting |
- | ASSIGNED | int64 |  | Whether this fibre was assigned to a target |
- | ON_TARGET | int64 |  | Whether this fibre is on target |
+ | ASSIGNED | int64 |  | Whether this fiber was assigned to a target |
+ | ON_TARGET | int64 |  | Whether this fiber is on target |
  | VALID | int64 |  | alpha and beta angles are valid |
  | DECOLLIDED | int64 |  | this positioner had to be moved to decollide it |
  | FIBERMASK | int64 |  | Fiber level bitmasks (maps to SPPIXMASK) |
@@ -435,12 +435,12 @@ Name | Type | Unit | Description |
  | BLUEFIBER | int64 |  | BOSS to assign this target a 'blue' fiber |
  | ALPHA | float64 | deg | The alpha angles of the positioner arms. |
  | BETA | float64 | deg | The beta angles of the positioner arms. |
- | XWOK | float64 |  | The X value in the FPS WOK coordinates |
- | YWOK | float64 |  | The Y value in the FPS WOK coordinates |
- | ZWOK | float64 |  | The X value in the FPS WOK coordinates |
- | XFOCAL | float64 |  | Hole x-axis position in focal plane per exposure |
- | YFOCAL | float64 |  | Hole y-axis position in focal plane per exposure |
- | ZOFFSET | float32 |  | backstopping offset distance (from washers) |
+ | XWOK | float64 | mm | The X value in the FPS WOK coordinates |
+ | YWOK | float64 | mm | The Y value in the FPS WOK coordinates |
+ | ZWOK | float64 | mm | The X value in the FPS WOK coordinates |
+ | XFOCAL | float64 | mm | Hole x-axis position in focal plane per exposure |
+ | YFOCAL | float64 | mm | Hole y-axis position in focal plane per exposure |
+ | ZOFFSET | float32 | micron | backstopping offset distance (from washers) |
  | RACAT | float64 | deg | Catalog RA in ICRS coordinates at coord_epoch |
  | DECCAT | float64 | deg | Catalog Dec in ICRS coordinates at coord_epoch |
  | COORD_EPOCH | float64 |  | Epoch of the catalogue coordinates. |
@@ -472,8 +472,8 @@ Name | Type | Unit | Description |
  | EBV_3D | float64 |  | Merged 3D dust extinction |
  | EBV_3DSRC | char[14] |  | Source of Merged 3D dust extinction |
  | GRI_GAIA_TRANSFORM | int64 |  | provenance of photometry in SDSS-V plate design |
- | CALIBFLUX | float64[5] |  | SDSS band [u,g,r,i,z] target calibration flux |
- | CALIBFLUX_IVAR | float64[5] |  | target calibration flux inverse variance |
+ | CALIBFLUX | float64[5] | nanomaggy | SDSS band [u,g,r,i,z] target calibration flux |
+ | CALIBFLUX_IVAR | float64[5] | nanomaggy | target calibration flux inverse variance |
  | CALIB_STATUS | int64[5] |  | target calibration status flag |
  | CATEGORY | char[13] |  | Category for 'firstcarton' |
  | OBJTYPE | char[16] |  | Why object was targetted (QSO = Science Target) |

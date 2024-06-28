@@ -470,7 +470,7 @@ Name | Type | Unit | Description |
  | MJD | int32 |  | Modified Julian date of combined Spectra |
  | TARGET_INDEX | int32 |  | Index of target on combined spField |
  | CATALOGID | int64 |  | SDSS-V CatalogID used in naming |
- | SDSS_ID | int64 |  | Unified SDSS Target Indentifier |
+ | SDSS_ID | int64 |  | Unified SDSS Target Identifier |
  | FIBERID_LIST | char[31] |  | List of FiberIDs contributing to Stack |
  | RUN2D | char[6] |  | Spectro-2D reduction name |
  | RUN1D | char[6] |  | Spectro-1D reduction name |
@@ -508,11 +508,11 @@ Name | Type | Unit | Description |
  | FRACNSIGMA | float32[10] |  | Fraction of pixels deviant by >{1-10} sigma |
  | FRACNSIGHI | float32[10] |  | Fraction of pixels high by >{1-10} sigma |
  | FRACNSIGLO | float32[10] |  | Fraction of pixels low by >{1-10} sigma |
- | SPECTROFLUX | float32[5] |  | Spectrum projected onto SDSS-{ugriz} filter |
- | SPECTROFLUX_IVAR | float32[5] |  | Inverse variance of SPECTROFLUX |
- | SPECTROSYNFLUX | float32[5] |  | Best-fit template projected onto SDSS-{ugriz} |
- | SPECTROSYNFLUX_IVAR | float32[5] |  | Inverse variance of SPECTROSYNFLUX |
- | SPECTROSKYFLUX | float32[5] |  | Sky spectrum projected onto SDSS-{ugriz} filter |
+ | SPECTROFLUX | float32[5] | nanomaggy | Spectrum projected onto SDSS-{ugriz} filter |
+ | SPECTROFLUX_IVAR | float32[5] | nanomaggy | Inverse variance of SPECTROFLUX |
+ | SPECTROSYNFLUX | float32[5] | nanomaggy | Best-fit template projected onto SDSS-{ugriz} |
+ | SPECTROSYNFLUX_IVAR | float32[5] | nanomaggy | Inverse variance of SPECTROSYNFLUX |
+ | SPECTROSKYFLUX | float32[5] | nanomaggy | Sky spectrum projected onto SDSS-{ugriz} filter |
  | ANYANDMASK | int32 |  | For each bit, any pixel has bit set in ANDMASK |
  | ANYORMASK | int32 |  | For each bit, any pixel has bit set in ORMASK |
  | SPEC1_G | float32 |  | Fit (S/N)^2 at g=20.20 for spectrograph 1 |
@@ -525,9 +525,9 @@ Name | Type | Unit | Description |
  | ELODIE_OBJECT | char[8] |  | Star name (mostly Henry Draper names) |
  | ELODIE_SPTYPE | char[12] |  | Spectral type |
  | ELODIE_BV | float32 |  | (B-V) color |
- | ELODIE_TEFF | float32 |  | Effective temperature |
- | ELODIE_LOGG | float32 |  | Log10(gravity) |
- | ELODIE_FEH | float32 |  | [Fe/H] |
+ | ELODIE_TEFF | float32 | K | Effective temperature |
+ | ELODIE_LOGG | float32 | cm/s^2 | Log10(gravity) |
+ | ELODIE_FEH | float32 | solar | [Fe/H] |
  | ELODIE_Z | float32 |  | Redshift |
  | ELODIE_Z_ERR | float32 |  | Redshift error; negative for invalid fit |
  | ELODIE_Z_MODELERR | float32 |  | The standard deviation in redshift amongst the 12 best-fit stars |

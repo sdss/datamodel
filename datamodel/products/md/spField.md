@@ -53,8 +53,8 @@ Describes changes to the datamodel product and/or file structure from one releas
  - WORK
    - from: DR18
    - primary_delta_nkeys: 20
-   - added_primary_header_kwargs: ['SN2_2G06', 'CCD', 'SNC12G04', 'OFFPA', 'SNC12R07', 'VCOORDIO', 'SNC12G07', 'SNC12G00', 'SN2_2G03', 'SNC02G01', 'CONFIGS', 'SNC02I07', 'SNC02I00', 'SN2EXT2R', 'FSN2EX2R', 'FSPEC2_I', 'NEXP_B2', 'SN2EXT2I', 'SNC02G', 'SN2_2G01', 'SNC02R03', 'OBSERVAT', 'SN2_2G07', 'SNC12G05', 'SNC02I02', 'SN2EXT2G', 'SNC12I00', 'FSN2EX1I', 'SNC12R06', 'SNC02I', 'SPEC2_R', 'SNC12I07', 'SNC12I04', 'ARCHBACK', 'SNC02R02', 'SPEC', 'SNC02G03', 'SN2_2R03', 'SNC12I03', 'SPEC2_I', 'CCDTYPE', 'SNC12R', 'SN2_2G02', 'OFFRA', 'SN2_2I05', 'STDBS0', 'OFFDEC', 'FSPEC1_G', 'SN2_2R02', 'SIGBS0', 'SNC12R00', 'EXPT_R2', 'BOSSVER', 'NEXP_R2', 'AVGAS0', 'SN2_2R04', 'FSPEC2_G', 'CCDID', 'SNC12R01', 'FIELDCAD', 'SN2_2R07', 'SNC02R07', 'FSPEC1_R', 'SNC02G07', 'SNC12R02', 'FSPEC2_R', 'SN2_2I02', 'SNC02R', 'ARCHBVER', 'SNC12G', 'SNC12I01', 'SNC12G06', 'FSN2EX1R', 'AVGBS0', 'SNC12R04', 'STDAS0', 'SN2_2R05', 'SNC02G02', 'SNC02G04', 'SNC02I03', 'SN2_2I04', 'SN2_2G05', 'SNC02G06', 'SNC02R06', 'SN2_2R00', 'VJAEGER', 'SN2_2I03', 'SNC02R05', 'MOONFRAC', 'SNC02I06', 'CENBS0', 'FSN2EX2G', 'OBSMODE', 'SNC12G02', 'EXPT_B2', 'SNC02R00', 'FSN2EX2I', 'SN2_2R01', 'SN2_2I01', 'SN2_2I00', 'SNC12G03', 'SNC02R01', 'SNC02R04', 'SNC12G01', 'VCALIBS', 'SNC12R05', 'SN2_2I07', 'VKAIJU', 'FSPEC1_I', 'SNC02G05', 'SNC02G00', 'SN2_2R06', 'SLITID', 'FSN2EX1G', 'SNC02I01', 'SN2_2G04', 'SNC12I02', 'SNC12I', 'SNC12R03', 'DAQVER', 'TAI', 'SN2_2I06', 'DESIGNS', 'SPEC2_G', 'SNC12I05', 'SNC02I04', 'SNC12I06', 'SN2_2G00', 'V_ARCHON', 'SNC02I05']
-   - removed_primary_header_kwargs: ['STDBSH0', 'CCDTEMP', 'EXPID21', 'SN2_1I08', 'BOREOFFY', 'ROTPOS', 'EXPID17', 'GUIDERN', 'GUIDER1', 'SNC11G08', 'SNC01I09', 'GUIDOFFR', 'CALOFFR', 'LN2TEMP', 'DIDFLUSH', 'TAILIST', 'SHOPETIM', 'SN2ILIST', 'MC1HUMCO', 'HARTMANN', 'SN2_1R10', 'SLINES', 'SYNCERR', 'SNC01G10', 'M2YTRAN', 'EXPID18', 'SNC01G08', 'M1PISTON', 'SLITID1', 'SNC01I10', 'SCALE', 'M1ZROT', 'EXPID20', 'SN2_1R09', 'BOREOFFX', 'SUBFRAME', 'COLLC', 'PRESSURE', 'SN2RLIST', 'SNC11I09', 'MC1TEMDN', 'MGDPOS', 'EXPID22', 'CALOFFX', 'MGDDEC', 'SN2_1I10', 'M2XTRAN', 'GUSTD', 'M2XTILT', 'TWOPHASE', 'PFERR', 'AUTHOR', 'WINDD', 'WINDS25M', 'GUSTS', 'HELIO_RV', 'M2ZROT', 'DUSTA', 'MC1TRCT', 'SHCLOTIM', 'STDASH0', 'M2PISTON', 'GUIDOFFX', 'MC1THT', 'CENBSH0', 'M2YTILT', 'PLINES', 'TILEID', 'SN2_1G10', 'M1XTRAN', 'SNC01R09', 'PLUGFILE', 'MC1TBCT', 'WINDD25M', 'ERRCNT', 'FOCUS', 'GUIDOFFY', 'SN2GLIST', 'COLLB', 'SNC01R10', 'AZ', 'SN2_1I09', 'ARCOFFY', 'AVGASH0', 'SNC11I08', 'TRUSTEMP', 'ARCOFFX', 'SNC01R08', 'SNC01I08', 'SNC01G09', 'DUSTB', 'SNC11R09', 'SNC11I10', 'IONPUMP', 'MC1TRCB', 'EXPID19', 'ALT', 'MC1HUMHT', 'CALOFFY', 'SN2_1G08', 'M1XTILT', 'COLLA', 'WINDS', 'M1YTILT', 'XCHI2', 'SN2_1G09', 'HUMIDITY', 'DATE-OBS', 'MC1TBCB', 'SNC11R10', 'AVGBSH0', 'SNC11R08', 'AIRTEMP', 'FLAVOR', 'SIGBSH0', 'OBJSYS', 'MGDRA', 'PIXERR', 'M1YTRAN', 'SN2_1R08', 'RDNOISE0', 'SNC11G09', 'DEWPOINT', 'SNC11G10']
+   - added_primary_header_kwargs: ['SN2EXT2R', 'VCALIBS', 'EXPT_B2', 'SNC12R', 'FSPEC1_R', 'SN2_2R02', 'SNC02I01', 'SPEC2_G', 'SNC02I02', 'SNC12R07', 'SN2_2R03', 'STDBS0', 'SN2_2I02', 'SN2_2I03', 'SNC12I01', 'SNC02G07', 'SNC12I06', 'SN2_2G05', 'SNC02G04', 'SN2EXT2I', 'SNC02G06', 'SNC02G00', 'SIGBS0', 'OFFPA', 'FSPEC2_R', 'FSPEC1_I', 'SN2_2G06', 'SN2_2G03', 'CCDID', 'FSN2EX1G', 'SN2_2I01', 'SNC02I05', 'SN2_2I05', 'SNC02R01', 'SNC12R03', 'SN2EXT2G', 'SNC12G', 'SN2_2G02', 'FSN2EX2I', 'SN2_2R07', 'SNC12I', 'FSN2EX1R', 'FSPEC1_G', 'SNC12R04', 'SNC02R03', 'VKAIJU', 'FSN2EX2G', 'SPEC2_I', 'SNC02R04', 'AVGAS0', 'SNC12R01', 'VCOORDIO', 'OBSERVAT', 'SNC02G', 'SNC02I00', 'SNC02I06', 'SNC02I', 'SNC02I07', 'SNC12I03', 'SNC02I04', 'AVGBS0', 'SNC02R05', 'SN2_2R04', 'SNC12G00', 'OFFDEC', 'STDAS0', 'SNC12G04', 'SNC02R02', 'FSN2EX2R', 'SNC12R05', 'CCD', 'FSPEC2_I', 'SN2_2R06', 'SN2_2I06', 'SNC12R06', 'SN2_2G07', 'MOONFRAC', 'TAI', 'SNC02R07', 'NEXP_R2', 'SNC12G05', 'SPEC', 'SN2_2R01', 'SLITID', 'CENBS0', 'V_ARCHON', 'SNC12I07', 'NEXP_B2', 'ARCHBVER', 'SNC02G05', 'SNC02G03', 'EXPT_R2', 'SNC12G06', 'FSN2EX1I', 'SNC02G02', 'SNC12G02', 'SNC02G01', 'SNC12I05', 'FSPEC2_G', 'SPEC2_R', 'SN2_2I04', 'SN2_2G04', 'SNC12G01', 'DESIGNS', 'SN2_2R05', 'SN2_2R00', 'SNC02I03', 'SN2_2I00', 'SN2_2I07', 'OFFRA', 'SNC12R00', 'SNC12R02', 'BOSSVER', 'SNC02R00', 'ARCHBACK', 'SNC12G03', 'SNC12I00', 'SNC12I04', 'SNC12I02', 'SN2_2G01', 'SNC12G07', 'SNC02R06', 'CONFIGS', 'DAQVER', 'CCDTYPE', 'FIELDCAD', 'OBSMODE', 'VJAEGER', 'SN2_2G00', 'SNC02R']
+   - removed_primary_header_kwargs: ['EXPID19', 'SNC01G09', 'DIDFLUSH', 'M2PISTON', 'HELIO_RV', 'GUIDERN', 'SNC01I09', 'PFERR', 'SNC01R09', 'COLLB', 'MC1HUMCO', 'MC1TRCB', 'GUIDOFFY', 'M1PISTON', 'PLINES', 'M1YTILT', 'SNC11G10', 'TWOPHASE', 'AUTHOR', 'SN2_1G09', 'AZ', 'XCHI2', 'SN2_1I10', 'AVGBSH0', 'TRUSTEMP', 'EXPID18', 'SYNCERR', 'PLUGFILE', 'SN2_1R10', 'SHOPETIM', 'MC1TBCT', 'SNC01G08', 'SNC11I08', 'SNC11R10', 'CCDTEMP', 'LN2TEMP', 'OBJSYS', 'SLITID1', 'TAILIST', 'CALOFFY', 'DATE-OBS', 'SIGBSH0', 'EXPID21', 'GUSTD', 'GUSTS', 'SNC11G09', 'MC1TRCT', 'SNC11R08', 'M2XTRAN', 'SNC11I09', 'MGDRA', 'FLAVOR', 'WINDD25M', 'WINDS25M', 'ROTPOS', 'EXPID22', 'COLLA', 'SN2_1G08', 'HUMIDITY', 'SN2_1I08', 'STDASH0', 'SN2_1G10', 'SNC01R08', 'SNC01R10', 'SNC01I08', 'M1XTRAN', 'SNC11R09', 'ERRCNT', 'M2YTILT', 'M1ZROT', 'SNC11I10', 'SLINES', 'PIXERR', 'SN2ILIST', 'DUSTB', 'SUBFRAME', 'COLLC', 'IONPUMP', 'PRESSURE', 'ALT', 'MC1TBCB', 'GUIDOFFR', 'RDNOISE0', 'M2ZROT', 'WINDD', 'HARTMANN', 'ARCOFFY', 'SN2_1R09', 'BOREOFFY', 'SN2GLIST', 'STDBSH0', 'ARCOFFX', 'AIRTEMP', 'CALOFFR', 'BOREOFFX', 'SNC01I10', 'DUSTA', 'WINDS', 'GUIDOFFX', 'TILEID', 'SCALE', 'AVGASH0', 'M1YTRAN', 'FOCUS', 'CALOFFX', 'GUIDER1', 'EXPID20', 'MGDPOS', 'SNC11G08', 'MC1TEMDN', 'SN2_1R08', 'EXPID17', 'SHCLOTIM', 'MC1HUMHT', 'SN2RLIST', 'MC1THT', 'SNC01G10', 'CENBSH0', 'DEWPOINT', 'M2YTRAN', 'M2XTILT', 'SN2_1I09', 'M1XTILT', 'MGDDEC']
 
 ---
 ## Example HDUS List
@@ -586,8 +586,8 @@ Name | Type | Unit | Description |
  | THROUGHPUT | int64 |  | Plate Fiber throughput (0-65535, 0=no light) |
  | SCI_EXPTIME | float64 | s | Rescaled Science Exposure Time for offset plate |
  | BLUEFIBER | int64 |  | BOSS to assign this target a 'blue' fiber |
- | XFOCAL | float64 |  | The X value in focal plane coordinates. |
- | YFOCAL | float64 |  | The Y value in focal plane coordinates. |
+ | XFOCAL | float64 | mm | The X value in focal plane coordinates. |
+ | YFOCAL | float64 | mm | The Y value in focal plane coordinates. |
  | ZOFFSET | float64 | micron | backstopping offset distance (from washers) |
  | RACAT | float64 | deg | Catalog RA in ICRS coordinates at coord_epoch |
  | DECCAT | float64 | deg | Catalog Dec in ICRS coordinates at coord_epoch |
@@ -668,13 +668,13 @@ Name | Type | Unit | Description |
  | TARGET_INDEX | int16 |  | Index of target on combined spField |
  | NEXP | int16 |  | Number of Included Exposures |
  | MJD_FINAL | float64 |  | Mean MJD of the Coadded Spectra |
- | MOON_DIST | char[47] |  | Mean Moon-target separation of Coadded Spectra |
+ | MOON_DIST | char[47] | deg | Mean Moon-target separation of Coadded Spectra |
  | MOON_PHASE | char[39] |  | Mean Moon phase of the Coadded Spectra |
  | FIBERID_LIST | char[31] |  | List of FiberIDs contributing to Stack |
- | RA_LIST | char[87] |  | List of measured RA per exposure |
- | DEC_LIST | char[71] |  | List of measured DEC per exposure |
- | DELTA_RA_LIST | char[31] |  | List of designed RA offsets per exposure |
- | DELTA_DEC_LIST | char[31] |  | List of designed DEC offsets per exposure |
+ | RA_LIST | char[87] | deg | List of measured RA per exposure |
+ | DEC_LIST | char[71] | deg | List of measured DEC per exposure |
+ | DELTA_RA_LIST | char[31] | arcsec | List of designed RA offsets per exposure |
+ | DELTA_DEC_LIST | char[31] | arcsec | List of designed DEC offsets per exposure |
  | EXPTIME | int16 | s | Total Exposure time of Coadded Spectra |
  | FIRSTCARTON_LIST | char[17] |  | List of Primary SDSS Carton for target per exposure |
  | CARTON_TO_TARGET_PK_LIST | char[9] |  | List of SDSS-V Carton_to_Target primary key for SDSSDB per exposure |
@@ -685,7 +685,7 @@ Name | Type | Unit | Description |
  | EXP_DISP_MED | float64 |  | Dispersion of Median Exposure Flux |
  | XFOCAL_LIST | char[71] |  | Hole/robot x-axis position in focal plane per exposure |
  | YFOCAL_LIST | char[71] |  | Hole/robot y-axis position in focal plane per exposure |
- | TAI_LIST | char[87] |  | List Tai for each exposure (at midpoint) |
+ | TAI_LIST | char[87] | s | List Tai for each exposure (at midpoint) |
  | FIELDSNR2G_LIST | char[39] |  | Overall Field (S/N)^2 in g per exposure |
  | FIELDSNR2R_LIST | char[39] |  | Overall Field (S/N)^2 in r per exposure |
  | FIELDSNR2I_LIST | char[39] |  | Overall Field (S/N)^2 in i per exposure |

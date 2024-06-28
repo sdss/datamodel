@@ -32,9 +32,9 @@ releases:
       path_name: spFullsky
       path_template: $BOSS_SPECTRO_REDUX/{run2d}/{coadd}/spFullsky-{coadd}-{mjd}.fits
       path_kwargs:
-      - mjd
       - coadd
       - run2d
+      - mjd
       access_string: spFullsky = $BOSS_SPECTRO_REDUX/{run2d}/{coadd}/spFullsky-{coadd}-{mjd}.fits
     survey: BHM
     hdus:
@@ -468,10 +468,12 @@ releases:
             description: BOSS to assign this target a 'blue' fiber
           XFOCAL:
             name: XFOCAL
+            unit: mm
             type: float64
             description: The X value in focal plane coordinates.
           YFOCAL:
             name: YFOCAL
+            unit: mm
             type: float64
             description: The Y value in focal plane coordinates.
           ZOFFSET:
@@ -616,10 +618,12 @@ releases:
             description: provenance of photometry in SDSS-V plate design
           CALIBFLUX:
             name: CALIBFLUX
+            unit: nanomaggy
             type: float64[5]
             description: SDSS band [u,g,r,i,z] target calibration flux
           CALIBFLUX_IVAR:
             name: CALIBFLUX_IVAR
+            unit: nanomaggy
             type: float64[5]
             description: target calibration flux inverse variance
           CALIB_STATUS:
@@ -811,6 +815,7 @@ releases:
             description: Mean MJD of the Coadded Spectra
           MOON_DIST:
             name: MOON_DIST
+            unit: deg
             type: char[47]
             description: Mean Moon-target separation of Coadded Spectra
           MOON_PHASE:
@@ -823,18 +828,22 @@ releases:
             description: List of FiberIDs contributing to Stack
           RA_LIST:
             name: RA_LIST
+            unit: deg
             type: char[87]
             description: List of measured RA per exposure
           DEC_LIST:
             name: DEC_LIST
+            unit: deg
             type: char[71]
             description: List of measured DEC per exposure
           DELTA_RA_LIST:
             name: DELTA_RA_LIST
+            unit: arcsec
             type: char[31]
             description: List of designed RA offsets per exposure
           DELTA_DEC_LIST:
             name: DELTA_DEC_LIST
+            unit: arcsec
             type: char[31]
             description: List of designed DEC offsets per exposure
           EXPTIME:
@@ -873,14 +882,17 @@ releases:
             description: Dispersion of Median Exposure Flux
           XFOCAL_LIST:
             name: XFOCAL_LIST
+            unit: mm
             type: char[71]
             description: Hole/robot x-axis position in focal plane per exposure
           YFOCAL_LIST:
             name: YFOCAL_LIST
+            unit: mm
             type: char[71]
             description: Hole/robot y-axis position in focal plane per exposure
           TAI_LIST:
             name: TAI_LIST
+            unit: s
             type: char[87]
             description: List Tai for each exposure (at midpoint)
           FIELDSNR2G_LIST:

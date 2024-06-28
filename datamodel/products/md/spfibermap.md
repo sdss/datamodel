@@ -115,7 +115,7 @@ Name | Type | Unit | Description |
  | INSTRUMENTS | char[11] |  | Instruments used (always APOGEE and BOSS) |
  | EPOCH | char[18] |  | JD at which the configuration was generated |
  | OBSMODE | char[7] |  | SDSS-V Observation Mode |
- | OBSTIME | char[24] |  | TAI date of the observation (matches epoch) |
+ | OBSTIME | char[24] | s | TAI date of the observation (matches epoch) |
  | MJD | char[5] |  | MJD of the observation in the SDSS style |
  | OBSERVATORY | char[3] |  | Observatory for this configuration |
  | TEMPERATURE | char[17] | deg | Temperature at the time of the FPS observation |
@@ -139,8 +139,8 @@ Name | Type | Unit | Description |
  | MAG_QUALITY | char[10] |  | Plate Input Magnitude Quality Flag |
  | PLATEID | char[10] |  | SDSS plate ID number |
  | HA | char[10] | deg | hour angle for design (- = rising, + = setting) |
- | HA_OBSERVABLE_MIN | char[10] |  | min HA for no hole offsets from refraction |
- | HA_OBSERVABLE_MAX | char[10] |  | max HA for no hole offsets from refraction |
+ | HA_OBSERVABLE_MIN | char[10] | deg | min HA for no hole offsets from refraction |
+ | HA_OBSERVABLE_MAX | char[10] | deg | max HA for no hole offsets from refraction |
  | PROGRAMNAME | char[10] |  | Program Name associated with the Plate |
  | TEMP | char[10] | deg | Temperature of plate design (deg C) |
  | DESIGN_PLATESCALE_ALT | char[10] | mm/deg | effective plate scale of design in altitude |
@@ -158,11 +158,11 @@ Name | Type | Unit | Description |
  | NGUIDEMAX | char[10] |  | maximum number of possible plate guide stars to track, otherwise tracks 10s of thousands at low b (default: infinite) |
  | FERRULESIZEBOSS_SHARED | char[10] |  | diameter of plate ferrule in mm for BOSS |
  | BUFFERSIZEBOSS_SHARED | char[10] | mm | buffer to include outside boss ferrule for checking for conflicts |
- | FERRULESIZEAPOGEE_SHARED | char[10] |  | diameter of plate ferrule in mm for apoggee |
- | BUFFERSIZEAPOGEE_SHARED | char[10] |  | buffer to include outside apogeeferrule for checking for conflict |
- | FERRULESIZEGUIDE | char[10] |  | diameter of plate ferrule in mm for guide fiber |
- | BUFFERSIZEGUIDE | char[10] |  | buffer to include outside guide fiber ferrule for checking for conflict |
- | PLATEDESIGNSTANDARDS | char[10] |  | specify what instruments we want plate design to find standards fo |
+ | FERRULESIZEAPOGEE_SHARED | char[10] | mm | diameter of plate ferrule in mm for apoggee |
+ | BUFFERSIZEAPOGEE_SHARED | char[10] | mm | buffer to include outside apogeeferrule for checking for conflict |
+ | FERRULESIZEGUIDE | char[10] | mm | diameter of plate ferrule in mm for guide fiber |
+ | BUFFERSIZEGUIDE | char[10] | mm | buffer to include outside guide fiber ferrule for checking for conflict |
+ | PLATEDESIGNSTANDARDS | char[10] |  | specify what instruments we want plate design to find standards for |
  | STANDARDTYPE | char[10] |  | for each plate pointing, type of standard to find (can be "SDSS" or "2MASS", or "None" --- in fact, any value other than SDSS or 2MASS is equivalent to "None") |
  | PLATEDESIGNSKIES | char[10] |  | specify what instruments we want plate design to find skies for, if any |
  | SKYTYPE | char[10] |  | for each pointing, type of skies to find (can be "SDSS" or "2MASS") |
@@ -188,8 +188,8 @@ Name | Type | Unit | Description |
  | THETA | char[10] |  | position angle of plate design (0 in practice) |
  | PLATERUN | char[10] |  | name of platerun this file was part of |
  | PLATEDESIGN_VERSION | char[10] |  | version of platedesign used to produce design |
- | HAMIN | char[10] |  | min design hour angle |
- | HAMAX | char[10] |  | max design hour angle |
+ | HAMIN | char[10] | deg | min design hour angle |
+ | HAMAX | char[10] | deg | max design hour angle |
  | FSCANVERSION | char[10] |  | version of plate scan software |
  | PLUGGERS | char[10] |  | who plugged the plate |
  | PLATEID_1 | char[10] |  | plate ID number |
@@ -288,15 +288,15 @@ Name | Type | Unit | Description |
  | FIBERMASK | int64 |  | Fiber level bitmasks (maps to SPPIXMASK) |
  | BADSTDMASK | int64 |  | Standard rejected by magnitude range of design |
  | THROUGHPUT | int64 |  | Plate Fiber throughput (0-65535, 0=no light) |
- | SCI_EXPTIME | float64 | rs | Rescaled Science Exposure Time for offset plate |
+ | SCI_EXPTIME | float64 | s | Rescaled Science Exposure Time for offset plate |
  | BLUEFIBER | int64 |  | BOSS to assign this target a 'blue' fiber |
  | ALPHA | float64 | deg | The alpha angles of the positioner arms. |
  | BETA | float64 | deg | The beta angles of the positioner arms. |
- | XWOK | float64 |  | The X value in the FPS WOK coordinates |
- | YWOK | float64 |  | The Y value in the FPS WOK coordinates |
- | ZWOK | float64 |  | The X value in the FPS WOK coordinates |
- | XFOCAL | float64 |  | The X value in focal plane coordinates. |
- | YFOCAL | float64 |  | The Y value in focal plane coordinates. |
+ | XWOK | float64 | mm | The X value in the FPS WOK coordinates |
+ | YWOK | float64 | mm | The Y value in the FPS WOK coordinates |
+ | ZWOK | float64 | mm | The X value in the FPS WOK coordinates |
+ | XFOCAL | float64 | mm | The X value in focal plane coordinates. |
+ | YFOCAL | float64 | mm | The Y value in focal plane coordinates. |
  | ZOFFSET | float64 | micron | backstopping offset distance (from washers) |
  | RACAT | float64 | deg | Catalog RA in ICRS coordinates at coord_epoch |
  | DECCAT | float64 | deg | Catalog Dec in ICRS coordinates at coord_epoch |
@@ -309,7 +309,7 @@ Name | Type | Unit | Description |
  | DELTA_RA | float64 | arcsec | The amount in RA this fiber has been offset |
  | DELTA_DEC | float64 | arcsec | The amount in Dec this fiber has been offset |
  | FIBER_OFFSET | int64 |  | Flag identifying the fiber was offset by design |
- | LAMBDA_EFF | float64 | Ang | Wavelength used for coordinate transformations |
+ | LAMBDA_EFF | float64 | AA | Wavelength used for coordinate transformations |
  | SPECTROGRAPHID | int64 |  | Spectrograph to which the fibre is assigned. |
  | OPTICAL_PROV | char[11] |  | The source of the CATDB_MAG optical magnitudes |
  | MAG | float64[5] |  | [u, g, r, i, z] optical magnitudes |
@@ -332,8 +332,8 @@ Name | Type | Unit | Description |
  | EBV_3D | float64 |  | Merged 3D dust extinction |
  | EBV_3DSRC | char[14] |  | Source of Merged 3D dust extinction |
  | GRI_GAIA_TRANSFORM | int64 |  | provenance of photometry in SDSS-V plate design |
- | CALIBFLUX | float64[5] |  | SDSS band [u,g,r,i,z] target calibration flux |
- | CALIBFLUX_IVAR | float64[5] |  | target calibration flux inverse variance |
+ | CALIBFLUX | float64[5] | nanomaggy | SDSS band [u,g,r,i,z] target calibration flux |
+ | CALIBFLUX_IVAR | float64[5] | nanomaggy | target calibration flux inverse variance |
  | CALIB_STATUS | int64[5] |  | target calibration status flag |
  | CATEGORY | char[13] |  | Category for 'firstcarton' |
  | OBJTYPE | char[16] |  | Why object was targetted (QSO = Science Target) |
@@ -455,15 +455,15 @@ Name | Type | Unit | Description |
  | FIBERMASK | int64 |  | Fiber level bitmasks (maps to SPPIXMASK) |
  | BADSTDMASK | int64 |  | Standard rejected by magnitude range of design |
  | THROUGHPUT | int64 |  | Plate Fiber throughput (0-65535, 0=no light) |
- | SCI_EXPTIME | float64 | rs | Rescaled Science Exposure Time for offset plate |
+ | SCI_EXPTIME | float64 | s | Rescaled Science Exposure Time for offset plate |
  | BLUEFIBER | int64 |  | BOSS to assign this target a 'blue' fiber |
  | ALPHA | float64 | deg | The alpha angles of the positioner arms. |
  | BETA | float64 | deg | The beta angles of the positioner arms. |
- | XWOK | float64 |  | The X value in the FPS WOK coordinates |
- | YWOK | float64 |  | The Y value in the FPS WOK coordinates |
- | ZWOK | float64 |  | The X value in the FPS WOK coordinates |
- | XFOCAL | float64 |  | The X value in focal plane coordinates. |
- | YFOCAL | float64 |  | The Y value in focal plane coordinates. |
+ | XWOK | float64 | mm | The X value in the FPS WOK coordinates |
+ | YWOK | float64 | mm | The Y value in the FPS WOK coordinates |
+ | ZWOK | float64 | mm | The X value in the FPS WOK coordinates |
+ | XFOCAL | float64 | mm | The X value in focal plane coordinates. |
+ | YFOCAL | float64 | mm | The Y value in focal plane coordinates. |
  | ZOFFSET | float64 | micron | backstopping offset distance (from washers) |
  | RACAT | float64 | deg | Catalog RA in ICRS coordinates at coord_epoch |
  | DECCAT | float64 | deg | Catalog Dec in ICRS coordinates at coord_epoch |
@@ -476,7 +476,7 @@ Name | Type | Unit | Description |
  | DELTA_RA | float64 | arcsec | The amount in RA this fiber has been offset |
  | DELTA_DEC | float64 | arcsec | The amount in Dec this fiber has been offset |
  | FIBER_OFFSET | int64 |  | Flag identifying the fiber was offset by design |
- | LAMBDA_EFF | float64 | Ang | Wavelength used for coordinate transformations |
+ | LAMBDA_EFF | float64 | AA | Wavelength used for coordinate transformations |
  | SPECTROGRAPHID | int64 |  | Spectrograph to which the fibre is assigned. |
  | OPTICAL_PROV | char[11] |  | The source of the CATDB_MAG optical magnitudes |
  | MAG | float64[5] |  | [u, g, r, i, z] optical magnitudes |
@@ -499,8 +499,8 @@ Name | Type | Unit | Description |
  | EBV_3D | float64 |  | Merged 3D dust extinction |
  | EBV_3DSRC | char[14] |  | Source of Merged 3D dust extinction |
  | GRI_GAIA_TRANSFORM | int64 |  | provenance of photometry in SDSS-V plate design |
- | CALIBFLUX | float64[5] |  | SDSS band [u,g,r,i,z] target calibration flux |
- | CALIBFLUX_IVAR | float64[5] |  | target calibration flux inverse variance |
+ | CALIBFLUX | float64[5] | nanomaggy | SDSS band [u,g,r,i,z] target calibration flux |
+ | CALIBFLUX_IVAR | float64[5] | nanomaggy | target calibration flux inverse variance |
  | CALIB_STATUS | int64[5] |  | target calibration status flag |
  | CATEGORY | char[13] |  | Category for 'firstcarton' |
  | OBJTYPE | char[16] |  | Why object was targetted (QSO = Science Target) |
@@ -622,15 +622,15 @@ Name | Type | Unit | Description |
  | FIBERMASK | int64 |  | Fiber level bitmasks (maps to SPPIXMASK) |
  | BADSTDMASK | int64 |  | Standard rejected by magnitude range of design |
  | THROUGHPUT | int64 |  | Plate Fiber throughput (0-65535, 0=no light) |
- | SCI_EXPTIME | float64 | rs | Rescaled Science Exposure Time for offset plate |
+ | SCI_EXPTIME | float64 | s | Rescaled Science Exposure Time for offset plate |
  | BLUEFIBER | int64 |  | BOSS to assign this target a 'blue' fiber |
  | ALPHA | float64 | deg | The alpha angles of the positioner arms. |
  | BETA | float64 | deg | The beta angles of the positioner arms. |
- | XWOK | float64 |  | The X value in the FPS WOK coordinates |
- | YWOK | float64 |  | The Y value in the FPS WOK coordinates |
- | ZWOK | float64 |  | The X value in the FPS WOK coordinates |
- | XFOCAL | float64 |  | The X value in focal plane coordinates. |
- | YFOCAL | float64 |  | The Y value in focal plane coordinates. |
+ | XWOK | float64 | mm | The X value in the FPS WOK coordinates |
+ | YWOK | float64 | mm | The Y value in the FPS WOK coordinates |
+ | ZWOK | float64 | mm | The X value in the FPS WOK coordinates |
+ | XFOCAL | float64 | mm | The X value in focal plane coordinates. |
+ | YFOCAL | float64 | mm | The Y value in focal plane coordinates. |
  | ZOFFSET | float64 | micron | backstopping offset distance (from washers) |
  | RACAT | float64 | deg | Catalog RA in ICRS coordinates at coord_epoch |
  | DECCAT | float64 | deg | Catalog Dec in ICRS coordinates at coord_epoch |
@@ -666,8 +666,8 @@ Name | Type | Unit | Description |
  | EBV_3D | float64 |  | Merged 3D dust extinction |
  | EBV_3DSRC | char[14] |  | Source of Merged 3D dust extinction |
  | GRI_GAIA_TRANSFORM | int64 |  | provenance of photometry in SDSS-V plate design |
- | CALIBFLUX | float64[5] |  | SDSS band [u,g,r,i,z] target calibration flux |
- | CALIBFLUX_IVAR | float64[5] |  | target calibration flux inverse variance |
+ | CALIBFLUX | float64[5] | nanomaggy | SDSS band [u,g,r,i,z] target calibration flux |
+ | CALIBFLUX_IVAR | float64[5] | nanomaggy | target calibration flux inverse variance |
  | CALIB_STATUS | int64[5] |  | target calibration status flag |
  | CATEGORY | char[13] |  | Category for 'firstcarton' |
  | OBJTYPE | char[16] |  | Why object was targetted (QSO = Science Target) |
@@ -789,15 +789,15 @@ Name | Type | Unit | Description |
  | FIBERMASK | int64 |  | Fiber level bitmasks (maps to SPPIXMASK) |
  | BADSTDMASK | int64 |  | Standard rejected by magnitude range of design |
  | THROUGHPUT | int64 |  | Plate Fiber throughput (0-65535, 0=no light) |
- | SCI_EXPTIME | float64 | rs | Rescaled Science Exposure Time for offset plate |
+ | SCI_EXPTIME | float64 | s | Rescaled Science Exposure Time for offset plate |
  | BLUEFIBER | int64 |  | BOSS to assign this target a 'blue' fiber |
  | ALPHA | float64 | deg | The alpha angles of the positioner arms. |
  | BETA | float64 | deg | The beta angles of the positioner arms. |
- | XWOK | float64 |  | The X value in the FPS WOK coordinates |
- | YWOK | float64 |  | The Y value in the FPS WOK coordinates |
- | ZWOK | float64 |  | The X value in the FPS WOK coordinates |
- | XFOCAL | float64 |  | The X value in focal plane coordinates. |
- | YFOCAL | float64 |  | The Y value in focal plane coordinates. |
+ | XWOK | float64 | mm | The X value in the FPS WOK coordinates |
+ | YWOK | float64 | mm | The Y value in the FPS WOK coordinates |
+ | ZWOK | float64 | mm | The X value in the FPS WOK coordinates |
+ | XFOCAL | float64 | mm | The X value in focal plane coordinates. |
+ | YFOCAL | float64 | mm | The Y value in focal plane coordinates. |
  | ZOFFSET | float64 | micron | backstopping offset distance (from washers) |
  | RACAT | float64 | deg | Catalog RA in ICRS coordinates at coord_epoch |
  | DECCAT | float64 | deg | Catalog Dec in ICRS coordinates at coord_epoch |
@@ -833,8 +833,8 @@ Name | Type | Unit | Description |
  | EBV_3D | float64 |  | Merged 3D dust extinction |
  | EBV_3DSRC | char[14] |  | Source of Merged 3D dust extinction |
  | GRI_GAIA_TRANSFORM | int64 |  | provenance of photometry in SDSS-V plate design |
- | CALIBFLUX | float64[5] |  | SDSS band [u,g,r,i,z] target calibration flux |
- | CALIBFLUX_IVAR | float64[5] |  | target calibration flux inverse variance |
+ | CALIBFLUX | float64[5] | nanomaggy | SDSS band [u,g,r,i,z] target calibration flux |
+ | CALIBFLUX_IVAR | float64[5] | nanomaggy | target calibration flux inverse variance |
  | CALIB_STATUS | int64[5] |  | target calibration status flag |
  | CATEGORY | char[13] |  | Category for 'firstcarton' |
  | OBJTYPE | char[16] |  | Why object was targetted (QSO = Science Target) |

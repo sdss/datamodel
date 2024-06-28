@@ -34,11 +34,11 @@ releases:
       path_name: spCFrame
       path_template: $BOSS_SPECTRO_REDUX/{run2d}/@pad_fieldid|@isplate|/spFrame-{br}{id}-{frame:0>8}.fits.gz
       path_kwargs:
-      - br
       - id
-      - frame
-      - fieldid
       - run2d
+      - frame
+      - br
+      - fieldid
       access_string: spCFrame = $BOSS_SPECTRO_REDUX/{run2d}/{field}/spCFrame-{br}{id}-{frame}.fits
     survey: BHM
     hdus:
@@ -978,11 +978,11 @@ releases:
           ASSIGNED:
             name: ASSIGNED
             type: int64
-            description: Whether this fibre was assigned to a target
+            description: Whether this fiber was assigned to a target
           ON_TARGET:
             name: ON_TARGET
             type: int64
-            description: Whether this fibre is on target
+            description: Whether this fiber is on target
           VALID:
             name: VALID
             type: int64
@@ -1024,27 +1024,33 @@ releases:
             description: The beta angles of the positioner arms.
           XWOK:
             name: XWOK
+            unit: mm
             type: float64
             description: The X value in the FPS WOK coordinates
           YWOK:
             name: YWOK
+            unit: mm
             type: float64
             description: The Y value in the FPS WOK coordinates
           ZWOK:
             name: ZWOK
+            unit: mm
             type: float64
             description: The X value in the FPS WOK coordinates
           XFOCAL:
             name: XFOCAL
+            unit: mm
             type: float64
             description: Hole x-axis position in focal plane per exposure
           YFOCAL:
             name: YFOCAL
+            unit: mm
             type: float64
             description: Hole y-axis position in focal plane per exposure
           ZOFFSET:
             name: ZOFFSET
             type: float32
+            unit: micron
             description: backstopping offset distance (from washers)
           RACAT:
             name: RACAT
@@ -1183,10 +1189,12 @@ releases:
             description: provenance of photometry in SDSS-V plate design
           CALIBFLUX:
             name: CALIBFLUX
+            unit: nanomaggy
             type: float64[5]
             description: SDSS band [u,g,r,i,z] target calibration flux
           CALIBFLUX_IVAR:
             name: CALIBFLUX_IVAR
+            unit: nanomaggy
             type: float64[5]
             description: target calibration flux inverse variance
           CALIB_STATUS:
