@@ -7,6 +7,7 @@ general:
   datatype: FITS
   filesize: 348 KB
   releases:
+  - IPL3
   - WORK
   environments:
   - BOSS_SPECTRO_REDUX
@@ -20,7 +21,10 @@ general:
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
-  releases: {}
+  releases:
+    WORK:
+      from: IPL3
+      note: No changes
 releases:
   WORK:
     template: $BOSS_SPECTRO_REDUX/[RUN2D]/spectra/full/[COADD]/[MJD]/spAllLine-[COADD]-[MJD].fits.gz
@@ -138,26 +142,32 @@ releases:
           FIELD:
             name: FIELD
             type: int64
+            unit: ''
             description: SDSS FieldID (plateID for plate era data)
           MJD:
             name: MJD
             type: int64
+            unit: ''
             description: Modified Julian date of observation
           TARGET_INDEX:
             name: TARGET_INDEX
             type: int64
+            unit: ''
             description: Target Index (1 to number of targets)
           CATALOGID:
             name: CATALOGID
             type: int64
+            unit: ''
             description: SDSS-V CatalogID used in naming
           SDSS_ID:
             name: SDSS_ID
             type: int64
+            unit: ''
             description: Unified SDSS Target Identifier
           LINENAME:
             name: LINENAME
             type: char[13]
+            unit: ''
             description: Line name
           LINEWAVE:
             name: LINEWAVE
@@ -167,18 +177,22 @@ releases:
           LINEZ:
             name: LINEZ
             type: float32
+            unit: ''
             description: Redshift
           LINEZ_ERR:
             name: LINEZ_ERR
             type: float32
+            unit: ''
             description: Redshift error (negative for invalid fit)
           LINESIGMA:
             name: LINESIGMA
             type: float32
+            unit: ''
             description: Gaussian width in km/sec
           LINESIGMA_ERR:
             name: LINESIGMA_ERR
             type: float32
+            unit: ''
             description: Gaussian width error (<0 for invalid fit)
           LINEAREA:
             name: LINEAREA
@@ -193,34 +207,260 @@ releases:
           LINEEW:
             name: LINEEW
             type: float32
+            unit: ''
             description: equivalent width
           LINEEW_ERR:
             name: LINEEW_ERR
             type: float32
+            unit: ''
             description: Equivalent width error (<0 for invalid fit)
           LINECONTLEVEL:
             name: LINECONTLEVEL
             type: float32
+            unit: ''
             description: Continuum level at line center
           LINECONTLEVEL_ERR:
             name: LINECONTLEVEL_ERR
             type: float32
+            unit: ''
             description: Error in continuum level at line center
           LINENPIXLEFT:
             name: LINENPIXLEFT
             type: int32
+            unit: ''
             description: Npixels to -3 sigma with INVVAR > 0
           LINENPIXRIGHT:
             name: LINENPIXRIGHT
             type: int32
+            unit: ''
             description: Npixels to +3 sigma with INVVAR > 0
           LINEDOF:
             name: LINEDOF
             type: float32
+            unit: ''
             description: DOF in fit
           LINECHI2:
             name: LINECHI2
             type: float32
+            unit: ''
+            description: chi2 for all points in 3 sigma of line center
+  IPL3:
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/spectra/full/[COADD]/[MJD]/spAllLine-[COADD]-[MJD].fits.gz
+    example: v6_1_3/spectra/full/allepoch/60000/spAllLine-allepoch-60000.fits.gz
+    location: '{run2d}/spectra/full/{coadd}/{mjd}/spAllLine-{coadd}-{mjd}.fits.gz'
+    environment: BOSS_SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: spAllLineField_coadd
+      path_template: $BOSS_SPECTRO_REDUX/{run2d}/spectra/full/{coadd}/{mjd}/spAllLine-{coadd}-{mjd}.fits
+      path_kwargs:
+      - mjd
+      - run2d
+      - coadd
+      access_string: spAllLineField_coadd = $BOSS_SPECTRO_REDUX/{run2d}/spectra/full/{coadd}/{mjd}/spAllLine-{coadd}-{mjd}.fits.gz
+    survey: BHM
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: ''
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: RUN2D
+          value: v6_1_3
+          comment: IDLSPEC2D RUN2D
+        - key: DATE
+          value: Tue Apr  9 01:13:08 2024
+          comment: Date Created
+        - key: DIMS0
+          value: ''
+          comment: Number of emission lines
+        - key: DIMS1
+          value: ''
+          comment: Number of objects
+        - key: CHECKSUM
+          value: GiB1Gi91GiA1Gi91
+          comment: HDU checksum updated 2024-04-09T01:13:08
+        - key: DATASUM
+          value: '0'
+          comment: data unit checksum updated 2024-04-09T01:13:08
+      hdu1:
+        name: SPLINE
+        description: contains a summary of the Spectro-1D spZline output for all spectra.
+        is_image: false
+        size: 1 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 117
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 13216
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 21
+          comment: number of table fields
+        - key: TNULL1
+          value: 0
+          comment: ''
+        - key: TNULL2
+          value: 0
+          comment: ''
+        - key: TNULL3
+          value: -1
+          comment: ''
+        - key: TNULL4
+          value: -999
+          comment: ''
+        - key: TNULL5
+          value: -999
+          comment: ''
+        - key: TNULL18
+          value: -1
+          comment: ''
+        - key: TNULL19
+          value: -1
+          comment: ''
+        - key: EXTNAME
+          value: SPLINE
+          comment: extension name
+        - key: CHECKSUM
+          value: FRJCFPI9FPICFPI9
+          comment: HDU checksum updated 2024-04-09T01:13:08
+        - key: DATASUM
+          value: '1602977003'
+          comment: data unit checksum updated 2024-04-09T01:13:08
+        columns:
+          FIELD:
+            name: FIELD
+            type: int64
+            unit: ''
+            description: SDSS FieldID (plateID for plate era data)
+          MJD:
+            name: MJD
+            type: int64
+            unit: ''
+            description: Modified Julian date of observation
+          TARGET_INDEX:
+            name: TARGET_INDEX
+            type: int64
+            unit: ''
+            description: Target Index (1 to number of targets)
+          CATALOGID:
+            name: CATALOGID
+            type: int64
+            unit: ''
+            description: SDSS-V CatalogID used in naming
+          SDSS_ID:
+            name: SDSS_ID
+            type: int64
+            unit: ''
+            description: Unified SDSS Target Identifier
+          LINENAME:
+            name: LINENAME
+            type: char[13]
+            unit: ''
+            description: Line name
+          LINEWAVE:
+            name: LINEWAVE
+            type: float64
+            unit: AA
+            description: Catalog wavelength of line in vacuum Angstroms
+          LINEZ:
+            name: LINEZ
+            type: float32
+            unit: ''
+            description: Redshift
+          LINEZ_ERR:
+            name: LINEZ_ERR
+            type: float32
+            unit: ''
+            description: Redshift error (negative for invalid fit)
+          LINESIGMA:
+            name: LINESIGMA
+            type: float32
+            unit: ''
+            description: Gaussian width in km/sec
+          LINESIGMA_ERR:
+            name: LINESIGMA_ERR
+            type: float32
+            unit: ''
+            description: Gaussian width error (<0 for invalid fit)
+          LINEAREA:
+            name: LINEAREA
+            type: float32
+            unit: nanomaggy*AA
+            description: Area in gaussian fit [(flux-units) * Ang]
+          LINEAREA_ERR:
+            name: LINEAREA_ERR
+            type: float32
+            unit: nanomaggy*AA
+            description: Flux error (negative for invalid fit)
+          LINEEW:
+            name: LINEEW
+            type: float32
+            unit: ''
+            description: equivalent width
+          LINEEW_ERR:
+            name: LINEEW_ERR
+            type: float32
+            unit: ''
+            description: Equivalent width error (<0 for invalid fit)
+          LINECONTLEVEL:
+            name: LINECONTLEVEL
+            type: float32
+            unit: ''
+            description: Continuum level at line center
+          LINECONTLEVEL_ERR:
+            name: LINECONTLEVEL_ERR
+            type: float32
+            unit: ''
+            description: Error in continuum level at line center
+          LINENPIXLEFT:
+            name: LINENPIXLEFT
+            type: int32
+            unit: ''
+            description: Npixels to -3 sigma with INVVAR > 0
+          LINENPIXRIGHT:
+            name: LINENPIXRIGHT
+            type: int32
+            unit: ''
+            description: Npixels to +3 sigma with INVVAR > 0
+          LINEDOF:
+            name: LINEDOF
+            type: float32
+            unit: ''
+            description: DOF in fit
+          LINECHI2:
+            name: LINECHI2
+            type: float32
+            unit: ''
             description: chi2 for all points in 3 sigma of line center
 notes: |-
   None

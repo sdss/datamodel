@@ -19,7 +19,7 @@ The spField epoch files contain the epoch combined spectra for all exposures of 
 $BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/epoch/spField-[FIELD]-[MJD].fits
 
 ### Releases
-WORK
+IPL3, WORK
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -50,6 +50,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - WORK
+   - from: IPL3
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -671,30 +674,73 @@ Key | Value | Comment | |
 ##### Binary Table Caption for HDU5
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | OBJID | int32[5] |  | Unique object id from SDSS imaging (run,rerun,camCol,field,id) |
- | HOLETYPE | char[6] |  | Hole ID in which the positioner is sitting |
- | RA | float64 | deg | RA of Fiber |
- | DEC | float64 | deg | Dec of Fiber |
- | MAG | float32[5] |  | [u, g, r, i, z] optical magnitudes |
- | STARL | float32 |  | likelihood object is star (0-1, Plate OBJECT holes only) |
- | EXPL | float32 |  | likelihood object is exponential disk (0-1, Plate OBJECT holes only) |
- | DEVAUCL | float32 |  | likelihood object is deVaucouleurs profile (0-1, Plate OBJECT holes only) |
- | OBJTYPE | char[16] |  | Why object was targetted (QSO = Science Target) |
+ | CONFFIBERID | int64 |  | Raw Slithead FiberIDs |
+ | FIBERTYPE | char[4] |  | Type of fibre (APOGEE, BOSS, or Metrology) |
+ | HOLETYPE | char |  | Hole ID in which the positioner is sitting |
+ | ASSIGNED | int64 |  | Whether this fibre was assigned to a target |
+ | ON_TARGET | int64 |  | Whether this fibre is on target |
+ | VALID | int64 |  | alpha and beta angles are valid |
+ | DECOLLIDED | int64 |  | this positioner had to be moved to decollide it |
+ | FIBERMASK | int64 |  | Fiber level bitmasks (maps to SPPIXMASK) |
+ | BADSTDMASK | int64 |  | Standard rejected by magnitude range of design |
+ | THROUGHPUT | int64 |  | Plate Fiber throughput (0-65535, 0=no light) |
+ | SCI_EXPTIME | float64 | s | Rescaled Science Exposure Time for offset plate |
+ | BLUEFIBER | int64 |  | BOSS to assign this target a 'blue' fiber |
  | XFOCAL | float64 |  | Hole x-axis position in focal plane per exposure |
  | YFOCAL | float64 |  | Hole y-axis position in focal plane per exposure |
- | SPECTROGRAPHID | int32 |  | Spectrograph to which the fibre is assigned. (SDSS-V: 1 = BOSS, 2 = APOGEE) or (SDSS-IV: 1=BOSS SP1, 2=BOSS SP2) |
- | FIBERID | int32 |  | Fiber ID of target |
- | THROUGHPUT | int32 |  | Plate Fiber throughput (0-65535, 0=no light) |
- | PRIMTARGET | int64 |  | Plate Primary target flags |
- | SECTARGET | int64 |  | Plate Secondary target flags |
- | BADSTDMASK | int64 |  | Standard rejected by magnitude range of design |
- | PROGRAM | char[6] |  | Program for 'firstcarton' |
- | OFFSETID | int32 |  | plate offset associated; 0 = primary pointing |
- | SCI_EXPTIME | float32 | s | Rescaled Science Exposure Time for offset plate |
- | SOURCETYPE | char[3] |  | indicate the nature of the source, one of STAR, QSO, GALAXY, or NA |
- | LAMBDA_EFF | float32 | AA | Wavelength used for coordinate transformations |
- | ZOFFSET | float32 | micron | backstopping offset distance (from washers) |
- | BLUEFIBER | int32 |  | BOSS to assign this target a 'blue' fiber |
+ | ZOFFSET | float64 | micron | backstopping offset distance (from washers) |
+ | RACAT | float64 | deg | Catalog RA in ICRS coordinates at coord_epoch |
+ | DECCAT | float64 | deg | Catalog Dec in ICRS coordinates at coord_epoch |
+ | COORD_EPOCH | float64 |  | Epoch of the catalogue coordinates. |
+ | PMRA | float64 | mas | Proper motion in RA (pmra is a true angle) |
+ | PMDEC | float64 | mas | Proper motion in Dec |
+ | PARALLAX | float64 | mas | Parallax |
+ | RA | float64 | deg | Calculated on sky fiber RA including delta_RA |
+ | DEC | float64 | deg | Calculated on sky fiber Dec including delta_DEC |
+ | DELTA_RA | float64 | arcsec | The amount in RA this fiber has been offset |
+ | DELTA_DEC | float64 | arcsec | The amount in Dec this fiber has been offset |
+ | FIBER_OFFSET | int64 |  | Flag identifying the fiber was offset by design |
+ | LAMBDA_EFF | float64 | AA | Wavelength used for coordinate transformations |
+ | SPECTROGRAPHID | int64 |  | Spectrograph to which the fibre is assigned. (SDSS-V: 1 = BOSS, 2 = APOGEE) or (SDSS-IV: 1=BOSS SP1, 2=BOSS SP2) |
+ | OPTICAL_PROV | char[11] |  | The source of the CATDB_MAG optical magnitudes |
+ | MAG | float64[5] |  | [u, g, r, i, z] optical magnitudes |
+ | PSFMAG | float64[5] |  | [u, g, r, i, z] optical psf magnitudes |
+ | FIBER2MAG | float64[5] |  | [u, g, r, i, z] optical Fiber2 magnitudes |
+ | CATDB_MAG | float64[5] |  | [u, g, r, i, z] Raw TargetDB magnitudes |
+ | V05_REV_MAG | int64 |  | 1: revised with RevisedMagnitude Table, 0: raw |
+ | GAIA_G_MAG | float64 |  | Gaia G magnitude |
+ | BP_MAG | float64 |  | Gaia BP magnitude |
+ | RP_MAG | float64 |  | Gaia RP magnitude |
+ | GAIA_ID | int64 |  | Gaia-DR2 ID |
+ | H_MAG | float64 |  | 2MASS H magnitude |
+ | WISE_MAG | float64[4] |  | WISE [W1, W2, W3, W4] band magnitudes |
+ | TWOMASS_MAG | float64[3] |  | 2MASS [J, H, Ks] band magnitudes |
+ | GUVCAT_MAG | float64[2] |  | GALEX [FUV, NUV] band magnitudes |
+ | EBV_SIMPLEDUST2023 | float64 |  | SimpleDust2023 3D dust extinction |
+ | EBV_3D | float64 |  | Merged 3D dust extinction |
+ | EBV_3DSRC | char[14] |  | Source of Merged 3D dust extinction |
+ | GRI_GAIA_TRANSFORM | int64 |  | provenance of photometry in SDSS-V plate design |
+ | CALIBFLUX | float64[5] |  | SDSS band [u,g,r,i,z] target calibration flux |
+ | CALIBFLUX_IVAR | float64[5] |  | target calibration flux inverse variance |
+ | CALIB_STATUS | int64[5] |  | target calibration status flag |
+ | CATEGORY | char[13] |  | Category for 'firstcarton' |
+ | OBJTYPE | char[16] |  | Why object was targetted (QSO = Science Target) |
+ | SOURCETYPE | char |  | indicate the nature of the source, one of STAR, QSO, GALAXY, or NA |
+ | OFFSETID | int64 |  | plate offset associated; 0 = primary pointing |
+ | OBJID | int64[5] |  | Unique object id from SDSS imaging (run,rerun,camCol,field,id) |
+ | CATALOGID | char[18] |  | CatalogID or uHHMMSS.S+DDMMSS.S for unassigned |
+ | ICATALOGID | int64 |  | Raw SDSS-V CatalogID |
+ | SDSS_ID | int64 |  | SDSS_ID of Target |
+ | CATVERSION | char[5] |  | Catalog Version of SDSS-V CatalogID |
+ | CARTON_TO_TARGET_PK | int64 |  | SDSS-V Carton_to_Target primary key for SDSSDB |
+ | FIRSTCARTON | char[17] |  | Primary SDSS Carton for target |
+ | CARTONNAME | char[17] |  | Main carton from which this carton was drawn |
+ | PROGRAM | char[7] |  | Program for 'firstcarton' |
+ | MAPPER | char[3] |  | SDSS-V Mapper for target |
+ | SURVEY | char[3] |  | SDSS Survey for target |
+ | SDSSC2BV | char |  | SDSS5_TARGET_FLAG Carton to Bit Version |
+ | SDSSV_BOSS_TARGET0 | int64 |  | Targeting bitmask for SDSSV-BOSS |
+ | SDSSV_APOGEE_TARGET0 | int64 |  | Targeting bitmask for SDSSV-APOGEE |
  | BOSS_TARGET1 | int64 |  | Targeting bitmask for SDSS-III BOSS |
  | BOSS_TARGET2 | int64 |  | Targeting bitmask for SDSS-III BOSS |
  | ANCILLARY_TARGET1 | int64 |  | Targeting bitmask for SDSS-III BOSS Ancillary |
@@ -704,41 +750,64 @@ Name | Type | Unit | Description |
  | EBOSS_TARGET2 | int64 |  | Targeting bitmask for SDSS-IV eBOSS |
  | EBOSS_TARGET_ID | int64 |  | Targeting bitmask for SDSS-IV eBOSS |
  | THING_ID_TARGETING | int64 |  | thing_id from targeting version |
+ | PRIMTARGET | int64 |  | Plate Primary target flags |
+ | SECTARGET | int64 |  | Plate Secondary target flags |
+ | STARL | float64 |  | likelihood object is star (0-1, Plate OBJECT holes only) |
+ | EXPL | float64 |  | likelihood object is exponential disk (0-1, Plate OBJECT holes only) |
+ | DEVAUCL | float64 |  | likelihood object is deVaucouleurs profile (0-1, Plate OBJECT holes only) |
  | RUN | int64 |  | SDSS imaging run, for SDSS imaging targets |
  | RERUN | char |  | SDSS imaging rerun, for SDSS imaging targets |
  | CAMCOL | int64 |  | SDSS imaging camcol, for SDSS imaging targets |
  | FIELD | int64 |  | SDSS imaging field, for SDSS imaging targets |
  | ID | int64 |  | SDSS imaging id, for SDSS imaging targets |
- | CATALOGID | int64 |  | CatalogID |
- | GAIA_BP | float32 |  | Gaia BP magnitude |
- | GAIA_RP | float32 |  | Gaia RP magnitude |
- | GAIA_G | float32 |  | Gaia G magnitude |
- | SDSSV_BOSS_TARGET0 | int64 |  | Targeting bitmask for SDSSV-BOSS |
- | FIRSTCARTON | char[48] |  | Primary SDSS Carton for target |
- | SDSSV_APOGEE_TARGET0 | int32 |  | Targeting bitmask for SDSSV-APOGEE |
- | GRI_GAIA_TRANSFORM | int32 |  | provenance of photometry in SDSS-V plate design |
- | HEALPIX | int64 |  | healpix pixel number nside=128 |
- | HEALPIXGRP | int64 |  | Rounded-down integer value of healpix / 1000 |
- | HEALPIX_DIR | char |  | Path to spec fits file in SAS healpix structure |
- | CALIBFLUX | float64[5] |  | SDSS band [u,g,r,i,z] target calibration flux |
- | CALIBFLUX_IVAR | float64[5] |  | target calibration flux inverse variance |
- | CALIB_STATUS | int64[5] |  | target calibration status flag |
- | SFD_EBV | float32 |  | SFD Dust Extinction |
- | WISE_MAG | float32[4] |  | WISE [W1, W2, W3, W4] band magnitudes |
- | TWOMASS_MAG | float32[3] |  | 2MASS [J, H, Ks] band magnitudes |
- | GUVCAT_MAG | float32[2] |  | GALEX [FUV, NUV] band magnitudes |
- | GAIA_PARALLAX | float32 | mas | Parallax |
- | GAIA_PMRA | float32 | max | Proper motion in RA from Gaia |
- | GAIA_PMDEC | float32 | mas | Proper motion in Dec from Gaia |
+ | FIELDCADENCE | char[13] |  | SDSS-V FPS Field Cadence |
+ | CADENCE | char[10] |  | rSDSS-V FPS target Cadence |
+ | EBV | float32 |  | dust extinction |
+ | EBV_TYPE | char[3] |  | dust extinction source |
+ | SDSS5_TARGET_FLAGS | bool[29] |  | Targeting Flags for SSDSV Targeting |
  | TARGET_INDEX | int16 |  | Index of target on combined spField |
  | NEXP | int16 |  | Number of Included Exposures |
  | MJD_FINAL | float64 |  | Mean MJD of the Coadded Spectra |
- | MOON_DIST | char[109] | deg | Mean Moon-target separation of Coadded Spectra |
- | MOON_PHASE | char[120] |  | Mean Moon phase of the Coadded Spectra |
- | TAI_LIST | char[131] | s | List Tai for each exposure (at midpoint) |
- | PLATESNR2G_LIST | char[87] |  | Overall Plate (S/N)^2 in g per exposure |
- | PLATESNR2R_LIST | char[87] |  | Overall Plate (S/N)^2 in r per exposure |
- | PLATESNR2I_LIST | char[87] |  | Overall Plate (S/N)^2 in i per exposure |
+ | MOON_DIST | char[77] | deg | Mean Moon-target separation of Coadded Spectra |
+ | MOON_PHASE | char[64] |  | Mean Moon phase of the Coadded Spectra |
+ | FIBERID_LIST | char[51] |  | List of FiberIDs contributing to Stack |
+ | RA_LIST | char[142] |  | List of measured RA per exposure |
+ | DEC_LIST | char[116] |  | List of measured DEC per exposure |
+ | DELTA_RA_LIST | char[51] |  | List of designed RA offsets per exposure |
+ | DELTA_DEC_LIST | char[51] |  | List of designed DEC offsets per exposure |
+ | EXPTIME | int16 | s | Total Exposure time of Coadded Spectra |
+ | FIRSTCARTON_LIST | char[17] |  | List of Primary SDSS Carton for target per exposure |
+ | CARTON_TO_TARGET_PK_LIST | char[9] |  | List of SDSS-V Carton_to_Target primary key for SDSSDB per exposure |
+ | ASSIGNED_LIST | char[25] |  | Whether this fibre was assigned to a target per exposure |
+ | ON_TARGET_LIST | char[25] |  | Whether this fibre is on target per exposure |
+ | VALID_LIST | char[25] |  | alpha and beta angles are valid per exposure |
+ | DECOLLIDED_LIST | char[25] |  | this positioner had to be moved to decollide it per exposure |
+ | EXP_DISP_MED | float64 |  | Dispersion of Median Exposure Flux |
+ | XFOCAL_LIST | char[116] |  | Hole/robot x-axis position in focal plane per exposure |
+ | YFOCAL_LIST | char[116] |  | Hole/robot y-axis position in focal plane per exposure |
+ | TAI_LIST | char[142] | s | List Tai for each exposure (at midpoint) |
+ | FIELDSNR2G_LIST | char[64] |  | Overall Field (S/N)^2 in g per exposure |
+ | FIELDSNR2R_LIST | char[64] |  | Overall Field (S/N)^2 in r per exposure |
+ | FIELDSNR2I_LIST | char[64] |  | Overall Field (S/N)^2 in i per exposure |
+ | MJDLIST | char[77] |  | List of MJD of each included exposures |
+ | DESIGNS | char[90] |  | List of Included Designs |
+ | CONFIGS | char[64] |  | List of Included Configurations |
+ | AIRMASS | float64 |  | Airmass at time of observation |
+ | AIRMASS_LIST | char[129] |  | Airmass at time of observation per exposure |
+ | SEEING20 | float64 | arcsecs | Mean 20% seeing during exposures (arcsec) |
+ | SEEING20_LIST | char[130] | arcsecs | 20% seeing during exposures (arcsec) per exposure |
+ | SEEING50 | float64 | arcsecs | Mean 50% seeing during exposures (arcsec) |
+ | SEEING50_LIST | char[129] | arcsecs | 50% seeing during exposures (arcsec) per exposure |
+ | SEEING80 | float64 | arcsecs | Mean 80% seeing during exposures (arcsec) |
+ | SEEING80_LIST | char[129] | arcsecs | 80% seeing during exposures (arcsec) per exposure |
+ | RMSOFF20 | float64 | arcsecs | mean 20% of RMS offset of guide fibers |
+ | RMSOFF20_LIST | char[153] | arcsecs | 20% of RMS offset of guide fibers per exposure |
+ | RMSOFF50 | float64 | arcsecs | mean 50% of RMS offset of guide fibers |
+ | RMSOFF50_LIST | char[147] | arcsecs | 50% of RMS offset of guide fibers per exposure |
+ | RMSOFF80 | float64 | arcesecs | mean 80% of RMS offset of guide fibers |
+ | RMSOFF80_LIST | char[142] | arcsecs | 80% of RMS offset of guide fibers per exposure |
+ | FIBER_RA | float64 | deg | Fiber RA [J2000 for plate; at exp for FPS] |
+ | FIBER_DEC | float64 | deg | Fiber DEC [J2000 for plate; at exp for FPS] |
 
 
 

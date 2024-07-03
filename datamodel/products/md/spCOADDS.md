@@ -19,7 +19,7 @@ Contains the Schema used to defined the Custom target level Coadding schema
 $BOSS_SPECTRO_REDUX/[RUN2D]/[PHASE]_[SURVEY]_COADDS.par
 
 ### Releases
-WORK
+IPL3, WORK
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -43,6 +43,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - WORK
+   - from: IPL3
+   - note: No changes
 
 ---
 ## Example PAR List

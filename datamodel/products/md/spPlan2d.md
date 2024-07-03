@@ -19,7 +19,7 @@ Processing plan to control the Spectro-2D pipeline reduction of a Field/plate's 
 $BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/spPlan2d-[FIELD]-[MJD].par
 
 ### Releases
-WORK
+IPL3, WORK
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -43,6 +43,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - WORK
+   - from: IPL3
+   - note: No changes
 
 ---
 ## Example PAR List

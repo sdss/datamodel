@@ -26,6 +26,12 @@
     "filesize": "394 KB",
     "releases": [
       {
+        "name": "IPL3",
+        "description": "SDSS internal product launch 3",
+        "public": false,
+        "release_date": "2023-11-01"
+      },
+      {
         "name": "WORK",
         "description": "SDSS unreleased data.  Represents any work-in-progress data.",
         "public": false,
@@ -40,7 +46,33 @@
   },
   "changelog": {
     "description": "Describes changes to the datamodel product and/or file structure from one release to another",
-    "releases": {}
+    "releases": {
+      "WORK": {
+        "from": "IPL3",
+        "note": "No changes",
+        "delta_nhdus": null,
+        "added_hdus": null,
+        "removed_hdus": null,
+        "primary_delta_nkeys": null,
+        "added_primary_header_kwargs": null,
+        "removed_primary_header_kwargs": null,
+        "delta_nkeys": null,
+        "addead_header_keys": null,
+        "removed_header_keys": null,
+        "delta_ntables": null,
+        "addead_tables": null,
+        "removed_tables": null,
+        "tables": null,
+        "new_libver": null,
+        "delta_nattrs": null,
+        "addead_attrs": null,
+        "removed_attrs": null,
+        "delta_nmembers": null,
+        "addead_members": null,
+        "removed_members": null,
+        "members": null
+      }
+    }
   },
   "releases": {
     "WORK": {
@@ -57,6 +89,313 @@
           "run2d",
           "mjd",
           "fieldid"
+        ],
+        "access_string": "spAllLineField_epoch = $BOSS_SPECTRO_REDUX/{run2d}/epoch/spectra/full/{field}/{mjd}/spAllLine-{field}-{mjd}.fits.gz"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            },
+            {
+              "key": "RUN2D",
+              "value": "v6_1_3",
+              "comment": "IDLSPEC2D RUN2D"
+            },
+            {
+              "key": "DATE",
+              "value": "Fri Apr 12 22:34:42 2024",
+              "comment": "Date Created"
+            },
+            {
+              "key": "DIMS0",
+              "value": "",
+              "comment": "Number of emission lines"
+            },
+            {
+              "key": "DIMS1",
+              "value": "",
+              "comment": "Number of objects"
+            },
+            {
+              "key": "CHECKSUM",
+              "value": "FkB3Fk90FkA0Fk90",
+              "comment": "HDU checksum updated 2024-04-12T22:34:42"
+            },
+            {
+              "key": "DATASUM",
+              "value": "0",
+              "comment": "data unit checksum updated 2024-04-12T22:34:42"
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "SPLINE",
+          "is_image": false,
+          "description": "contains a summary of the Spectro-1D spZline output for all spectra.",
+          "size": "1 MB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "BINTABLE",
+              "comment": "binary table extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "117",
+              "comment": "length of dimension 1"
+            },
+            {
+              "key": "NAXIS2",
+              "value": "16288",
+              "comment": "length of dimension 2"
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "number of group parameters"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "number of groups"
+            },
+            {
+              "key": "TFIELDS",
+              "value": "21",
+              "comment": "number of table fields"
+            },
+            {
+              "key": "TNULL1",
+              "value": "0",
+              "comment": ""
+            },
+            {
+              "key": "TNULL2",
+              "value": "0",
+              "comment": ""
+            },
+            {
+              "key": "TNULL3",
+              "value": "-1",
+              "comment": ""
+            },
+            {
+              "key": "TNULL4",
+              "value": "-999",
+              "comment": ""
+            },
+            {
+              "key": "TNULL5",
+              "value": "-999",
+              "comment": ""
+            },
+            {
+              "key": "TNULL18",
+              "value": "-1",
+              "comment": ""
+            },
+            {
+              "key": "TNULL19",
+              "value": "-1",
+              "comment": ""
+            },
+            {
+              "key": "EXTNAME",
+              "value": "SPLINE",
+              "comment": "extension name"
+            },
+            {
+              "key": "CHECKSUM",
+              "value": "9mHe9mEd9mEd9mEd",
+              "comment": "HDU checksum updated 2024-04-12T22:34:42"
+            },
+            {
+              "key": "DATASUM",
+              "value": "4137015580",
+              "comment": "data unit checksum updated 2024-04-12T22:34:42"
+            }
+          ],
+          "columns": {
+            "FIELD": {
+              "name": "FIELD",
+              "description": "SDSS FieldID (plateID for plate era data)",
+              "type": "int64",
+              "unit": ""
+            },
+            "MJD": {
+              "name": "MJD",
+              "description": "Modified Julian date of observation",
+              "type": "int64",
+              "unit": ""
+            },
+            "TARGET_INDEX": {
+              "name": "TARGET_INDEX",
+              "description": "Target Index (1 to number of targets)",
+              "type": "int64",
+              "unit": ""
+            },
+            "CATALOGID": {
+              "name": "CATALOGID",
+              "description": "SDSS-V CatalogID used in naming",
+              "type": "int64",
+              "unit": ""
+            },
+            "SDSS_ID": {
+              "name": "SDSS_ID",
+              "description": "Unified SDSS Target Identifier",
+              "type": "int64",
+              "unit": ""
+            },
+            "LINENAME": {
+              "name": "LINENAME",
+              "description": "Line name",
+              "type": "char[13]",
+              "unit": ""
+            },
+            "LINEWAVE": {
+              "name": "LINEWAVE",
+              "description": "Catalog wavelength of line in vacuum Angstroms",
+              "type": "float64",
+              "unit": "AA"
+            },
+            "LINEZ": {
+              "name": "LINEZ",
+              "description": "Redshift",
+              "type": "float32",
+              "unit": ""
+            },
+            "LINEZ_ERR": {
+              "name": "LINEZ_ERR",
+              "description": "Redshift error (negative for invalid fit)",
+              "type": "float32",
+              "unit": ""
+            },
+            "LINESIGMA": {
+              "name": "LINESIGMA",
+              "description": "Gaussian width in km/sec",
+              "type": "float32",
+              "unit": ""
+            },
+            "LINESIGMA_ERR": {
+              "name": "LINESIGMA_ERR",
+              "description": "Gaussian width error (<0 for invalid fit)",
+              "type": "float32",
+              "unit": ""
+            },
+            "LINEAREA": {
+              "name": "LINEAREA",
+              "description": "Area in gaussian fit [(flux-units) * Ang]",
+              "type": "float32",
+              "unit": "nanomaggy*AA"
+            },
+            "LINEAREA_ERR": {
+              "name": "LINEAREA_ERR",
+              "description": "Flux error (negative for invalid fit)",
+              "type": "float32",
+              "unit": "nanomaggy*AA"
+            },
+            "LINEEW": {
+              "name": "LINEEW",
+              "description": "equivalent width",
+              "type": "float32",
+              "unit": ""
+            },
+            "LINEEW_ERR": {
+              "name": "LINEEW_ERR",
+              "description": "Equivalent width error (<0 for invalid fit)",
+              "type": "float32",
+              "unit": ""
+            },
+            "LINECONTLEVEL": {
+              "name": "LINECONTLEVEL",
+              "description": "Continuum level at line center",
+              "type": "float32",
+              "unit": ""
+            },
+            "LINECONTLEVEL_ERR": {
+              "name": "LINECONTLEVEL_ERR",
+              "description": "Error in continuum level at line center",
+              "type": "float32",
+              "unit": ""
+            },
+            "LINENPIXLEFT": {
+              "name": "LINENPIXLEFT",
+              "description": "Npixels to -3 sigma with INVVAR > 0",
+              "type": "int32",
+              "unit": ""
+            },
+            "LINENPIXRIGHT": {
+              "name": "LINENPIXRIGHT",
+              "description": "Npixels to +3 sigma with INVVAR > 0",
+              "type": "int32",
+              "unit": ""
+            },
+            "LINEDOF": {
+              "name": "LINEDOF",
+              "description": "DOF in fit",
+              "type": "float32",
+              "unit": ""
+            },
+            "LINECHI2": {
+              "name": "LINECHI2",
+              "description": "chi2 for all points in 3 sigma of line center",
+              "type": "float32",
+              "unit": ""
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null
+    },
+    "IPL3": {
+      "template": "$BOSS_SPECTRO_REDUX/[RUN2D]/epoch/spectra/full/[FIELD]/[MJD]/spAllLine-[FIELD]-[MJD].fits.gz",
+      "example": "v6_1_3/epoch/spectra/full/112360/60000/spAllLine-112360-60000.fits.gz",
+      "location": "{run2d}/epoch/spectra/full/{field}/{mjd}/spAllLine-{field}-{mjd}.fits.gz",
+      "environment": "BOSS_SPECTRO_REDUX",
+      "survey": "BHM",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "spAllLineField_epoch",
+        "path_template": "$BOSS_SPECTRO_REDUX/{run2d}/epoch/spectra/full/@pad_fieldid|@isplate|/{mjd}/spAllLine-@pad_fieldid|-{mjd}.fits",
+        "path_kwargs": [
+          "run2d",
+          "fieldid",
+          "mjd"
         ],
         "access_string": "spAllLineField_epoch = $BOSS_SPECTRO_REDUX/{run2d}/epoch/spectra/full/{field}/{mjd}/spAllLine-{field}-{mjd}.fits.gz"
       },

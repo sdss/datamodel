@@ -1,7 +1,7 @@
 # Data Model: spField
 
 
-The combined spectra for all exposures of a given field
+The combined spectra for all exposures of a given field mjd coadd
 
 
 ## Contents
@@ -13,19 +13,19 @@ The combined spectra for all exposures of a given field
 ---
 
 ## Basic Information
-The spField files contain the combined spectra for all exposures of a given field (for an MJD or range of MJDs). This is the updated SDSSV version of the spPlate files
+The spField files contain the single mjd combined spectra for all exposures of a given field mjd. This is the updated SDSSV version of the spPlate files and analogous to the spField files
 
 ### Naming Convention
-$BOSS_SPECTRO_REDUX/[RUN2D]/[FIELDID]/spField-[FIELDID]-[MJD].fits
+$BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/spField-[FIELD]-[MJD].fits
 
 ### Releases
-DR18, WORK
+IPL3, WORK
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
 
 ### Approximate Size
-62 MB
+63 MB
 
 ### File Type
 FITS
@@ -51,10 +51,8 @@ False
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
  - WORK
-   - from: DR18
-   - primary_delta_nkeys: 20
-   - added_primary_header_kwargs: ['SN2EXT2R', 'VCALIBS', 'EXPT_B2', 'SNC12R', 'FSPEC1_R', 'SN2_2R02', 'SNC02I01', 'SPEC2_G', 'SNC02I02', 'SNC12R07', 'SN2_2R03', 'STDBS0', 'SN2_2I02', 'SN2_2I03', 'SNC12I01', 'SNC02G07', 'SNC12I06', 'SN2_2G05', 'SNC02G04', 'SN2EXT2I', 'SNC02G06', 'SNC02G00', 'SIGBS0', 'OFFPA', 'FSPEC2_R', 'FSPEC1_I', 'SN2_2G06', 'SN2_2G03', 'CCDID', 'FSN2EX1G', 'SN2_2I01', 'SNC02I05', 'SN2_2I05', 'SNC02R01', 'SNC12R03', 'SN2EXT2G', 'SNC12G', 'SN2_2G02', 'FSN2EX2I', 'SN2_2R07', 'SNC12I', 'FSN2EX1R', 'FSPEC1_G', 'SNC12R04', 'SNC02R03', 'VKAIJU', 'FSN2EX2G', 'SPEC2_I', 'SNC02R04', 'AVGAS0', 'SNC12R01', 'VCOORDIO', 'OBSERVAT', 'SNC02G', 'SNC02I00', 'SNC02I06', 'SNC02I', 'SNC02I07', 'SNC12I03', 'SNC02I04', 'AVGBS0', 'SNC02R05', 'SN2_2R04', 'SNC12G00', 'OFFDEC', 'STDAS0', 'SNC12G04', 'SNC02R02', 'FSN2EX2R', 'SNC12R05', 'CCD', 'FSPEC2_I', 'SN2_2R06', 'SN2_2I06', 'SNC12R06', 'SN2_2G07', 'MOONFRAC', 'TAI', 'SNC02R07', 'NEXP_R2', 'SNC12G05', 'SPEC', 'SN2_2R01', 'SLITID', 'CENBS0', 'V_ARCHON', 'SNC12I07', 'NEXP_B2', 'ARCHBVER', 'SNC02G05', 'SNC02G03', 'EXPT_R2', 'SNC12G06', 'FSN2EX1I', 'SNC02G02', 'SNC12G02', 'SNC02G01', 'SNC12I05', 'FSPEC2_G', 'SPEC2_R', 'SN2_2I04', 'SN2_2G04', 'SNC12G01', 'DESIGNS', 'SN2_2R05', 'SN2_2R00', 'SNC02I03', 'SN2_2I00', 'SN2_2I07', 'OFFRA', 'SNC12R00', 'SNC12R02', 'BOSSVER', 'SNC02R00', 'ARCHBACK', 'SNC12G03', 'SNC12I00', 'SNC12I04', 'SNC12I02', 'SN2_2G01', 'SNC12G07', 'SNC02R06', 'CONFIGS', 'DAQVER', 'CCDTYPE', 'FIELDCAD', 'OBSMODE', 'VJAEGER', 'SN2_2G00', 'SNC02R']
-   - removed_primary_header_kwargs: ['EXPID19', 'SNC01G09', 'DIDFLUSH', 'M2PISTON', 'HELIO_RV', 'GUIDERN', 'SNC01I09', 'PFERR', 'SNC01R09', 'COLLB', 'MC1HUMCO', 'MC1TRCB', 'GUIDOFFY', 'M1PISTON', 'PLINES', 'M1YTILT', 'SNC11G10', 'TWOPHASE', 'AUTHOR', 'SN2_1G09', 'AZ', 'XCHI2', 'SN2_1I10', 'AVGBSH0', 'TRUSTEMP', 'EXPID18', 'SYNCERR', 'PLUGFILE', 'SN2_1R10', 'SHOPETIM', 'MC1TBCT', 'SNC01G08', 'SNC11I08', 'SNC11R10', 'CCDTEMP', 'LN2TEMP', 'OBJSYS', 'SLITID1', 'TAILIST', 'CALOFFY', 'DATE-OBS', 'SIGBSH0', 'EXPID21', 'GUSTD', 'GUSTS', 'SNC11G09', 'MC1TRCT', 'SNC11R08', 'M2XTRAN', 'SNC11I09', 'MGDRA', 'FLAVOR', 'WINDD25M', 'WINDS25M', 'ROTPOS', 'EXPID22', 'COLLA', 'SN2_1G08', 'HUMIDITY', 'SN2_1I08', 'STDASH0', 'SN2_1G10', 'SNC01R08', 'SNC01R10', 'SNC01I08', 'M1XTRAN', 'SNC11R09', 'ERRCNT', 'M2YTILT', 'M1ZROT', 'SNC11I10', 'SLINES', 'PIXERR', 'SN2ILIST', 'DUSTB', 'SUBFRAME', 'COLLC', 'IONPUMP', 'PRESSURE', 'ALT', 'MC1TBCB', 'GUIDOFFR', 'RDNOISE0', 'M2ZROT', 'WINDD', 'HARTMANN', 'ARCOFFY', 'SN2_1R09', 'BOREOFFY', 'SN2GLIST', 'STDBSH0', 'ARCOFFX', 'AIRTEMP', 'CALOFFR', 'BOREOFFX', 'SNC01I10', 'DUSTA', 'WINDS', 'GUIDOFFX', 'TILEID', 'SCALE', 'AVGASH0', 'M1YTRAN', 'FOCUS', 'CALOFFX', 'GUIDER1', 'EXPID20', 'MGDPOS', 'SNC11G08', 'MC1TEMDN', 'SN2_1R08', 'EXPID17', 'SHCLOTIM', 'MC1HUMHT', 'SN2RLIST', 'MC1THT', 'SNC01G10', 'CENBSH0', 'DEWPOINT', 'M2YTRAN', 'M2XTILT', 'SN2_1I09', 'M1XTILT', 'MGDDEC']
+   - from: IPL3
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -462,7 +460,7 @@ Key | Value | Comment | |
 
 
 ### HDU2: ANDMASK
-AND mask
+AND Mask
 
 #### HDU Type: IMAGE
 #### HDU Size:  8 MB
@@ -586,8 +584,8 @@ Name | Type | Unit | Description |
  | THROUGHPUT | int64 |  | Plate Fiber throughput (0-65535, 0=no light) |
  | SCI_EXPTIME | float64 | s | Rescaled Science Exposure Time for offset plate |
  | BLUEFIBER | int64 |  | BOSS to assign this target a 'blue' fiber |
- | XFOCAL | float64 | mm | The X value in focal plane coordinates. |
- | YFOCAL | float64 | mm | The Y value in focal plane coordinates. |
+ | XFOCAL | float64 |  | Hole x-axis position in focal plane per exposure |
+ | YFOCAL | float64 |  | Hole y-axis position in focal plane per exposure |
  | ZOFFSET | float64 | micron | backstopping offset distance (from washers) |
  | RACAT | float64 | deg | Catalog RA in ICRS coordinates at coord_epoch |
  | DECCAT | float64 | deg | Catalog Dec in ICRS coordinates at coord_epoch |
@@ -604,7 +602,7 @@ Name | Type | Unit | Description |
  | SPECTROGRAPHID | int64 |  | Spectrograph to which the fibre is assigned. (SDSS-V: 1 = BOSS, 2 = APOGEE) or (SDSS-IV: 1=BOSS SP1, 2=BOSS SP2) |
  | OPTICAL_PROV | char[11] |  | The source of the CATDB_MAG optical magnitudes |
  | MAG | float64[5] |  | [u, g, r, i, z] optical magnitudes |
- | PSFMAG | float64[5] |  | [u, g, r, i, z] optical PSF magnitudes |
+ | PSFMAG | float64[5] |  | [u, g, r, i, z] optical psf magnitudes |
  | FIBER2MAG | float64[5] |  | [u, g, r, i, z] optical Fiber2 magnitudes |
  | CATDB_MAG | float64[5] |  | [u, g, r, i, z] Raw TargetDB magnitudes |
  | V05_REV_MAG | int64 |  | 1: revised with RevisedMagnitude Table, 0: raw |
@@ -633,7 +631,7 @@ Name | Type | Unit | Description |
  | SDSS_ID | int64 |  | SDSS_ID of Target |
  | CATVERSION | char[5] |  | Catalog Version of SDSS-V CatalogID |
  | CARTON_TO_TARGET_PK | int64 |  | SDSS-V Carton_to_Target primary key for SDSSDB |
- | FIRSTCARTON | char[17] |  | Main carton from which this carton was drawn |
+ | FIRSTCARTON | char[17] |  | Primary SDSS Carton for target |
  | CARTONNAME | char[17] |  | Main carton from which this carton was drawn |
  | PROGRAM | char[7] |  | Program for 'firstcarton' |
  | MAPPER | char[3] |  | SDSS-V Mapper for target |
@@ -661,7 +659,7 @@ Name | Type | Unit | Description |
  | FIELD | int64 |  | SDSS imaging field, for SDSS imaging targets |
  | ID | int64 |  | SDSS imaging id, for SDSS imaging targets |
  | FIELDCADENCE | char[13] |  | SDSS-V FPS Field Cadence |
- | CADENCE | char[10] |  | SDSS-V FPS target Cadence |
+ | CADENCE | char[10] |  | rSDSS-V FPS target Cadence |
  | EBV | float32 |  | dust extinction |
  | EBV_TYPE | char[3] |  | dust extinction source |
  | SDSS5_TARGET_FLAGS | bool[29] |  | Targeting Flags for SSDSV Targeting |
@@ -671,10 +669,10 @@ Name | Type | Unit | Description |
  | MOON_DIST | char[47] | deg | Mean Moon-target separation of Coadded Spectra |
  | MOON_PHASE | char[39] |  | Mean Moon phase of the Coadded Spectra |
  | FIBERID_LIST | char[31] |  | List of FiberIDs contributing to Stack |
- | RA_LIST | char[87] | deg | List of measured RA per exposure |
- | DEC_LIST | char[71] | deg | List of measured DEC per exposure |
- | DELTA_RA_LIST | char[31] | arcsec | List of designed RA offsets per exposure |
- | DELTA_DEC_LIST | char[31] | arcsec | List of designed DEC offsets per exposure |
+ | RA_LIST | char[87] |  | List of measured RA per exposure |
+ | DEC_LIST | char[71] |  | List of measured DEC per exposure |
+ | DELTA_RA_LIST | char[31] |  | List of designed RA offsets per exposure |
+ | DELTA_DEC_LIST | char[31] |  | List of designed DEC offsets per exposure |
  | EXPTIME | int16 | s | Total Exposure time of Coadded Spectra |
  | FIRSTCARTON_LIST | char[17] |  | List of Primary SDSS Carton for target per exposure |
  | CARTON_TO_TARGET_PK_LIST | char[9] |  | List of SDSS-V Carton_to_Target primary key for SDSSDB per exposure |
@@ -694,18 +692,18 @@ Name | Type | Unit | Description |
  | CONFIGS | char[39] |  | List of Included Configurations |
  | AIRMASS | float64 |  | Airmass at time of observation |
  | AIRMASS_LIST | char[79] |  | Airmass at time of observation per exposure |
- | SEEING20 | float64 | arcsec | Mean 20% seeing during exposures (arcsec) |
- | SEEING20_LIST | char[80] |  | 20% seeing during exposures (arcsec) per exposure |
- | SEEING50 | float64 | arcsec | Mean 50% seeing during exposures (arcsec) |
- | SEEING50_LIST | char[79] |  | 50% seeing during exposures (arcsec) per exposure |
- | SEEING80 | float64 | arcsec | Mean 80% seeing during exposures (arcsec) |
- | SEEING80_LIST | char[79] |  | 80% seeing during exposures (arcsec) per exposure |
- | RMSOFF20 | float64 | arcsec | mean 20% of RMS offset of guide fibers |
- | RMSOFF20_LIST | char[94] |  | 20% of RMS offset of guide fibers per exposure |
- | RMSOFF50 | float64 | arcsec | mean 50% of RMS offset of guide fibers |
- | RMSOFF50_LIST | char[91] |  | 50% of RMS offset of guide fibers per exposure |
- | RMSOFF80 | float64 | arcsec | mean 80% of RMS offset of guide fibers |
- | RMSOFF80_LIST | char[87] |  | 28% of RMS offset of guide fibers per exposure |
+ | SEEING20 | float64 | arcsecs | Mean 20% seeing during exposures (arcsec) |
+ | SEEING20_LIST | char[80] | arcsecs | 20% seeing during exposures (arcsec) per exposure |
+ | SEEING50 | float64 | arcsecs | Mean 50% seeing during exposures (arcsec) |
+ | SEEING50_LIST | char[79] | arcsecs | 50% seeing during exposures (arcsec) per exposure |
+ | SEEING80 | float64 | arcsecs | Mean 80% seeing during exposures (arcsec) |
+ | SEEING80_LIST | char[79] | arcsecs | 80% seeing during exposures (arcsec) per exposure |
+ | RMSOFF20 | float64 | arcsecs | mean 20% of RMS offset of guide fibers |
+ | RMSOFF20_LIST | char[94] | arcsecs | 20% of RMS offset of guide fibers per exposure |
+ | RMSOFF50 | float64 | arcsecs | mean 50% of RMS offset of guide fibers |
+ | RMSOFF50_LIST | char[91] | arcsecs | 50% of RMS offset of guide fibers per exposure |
+ | RMSOFF80 | float64 | arcesecs | mean 80% of RMS offset of guide fibers |
+ | RMSOFF80_LIST | char[87] | arcsecs | 80% of RMS offset of guide fibers per exposure |
  | FIBER_RA | float64 | deg | Fiber RA [J2000 for plate; at exp for FPS] |
  | FIBER_DEC | float64 | deg | Fiber DEC [J2000 for plate; at exp for FPS] |
 

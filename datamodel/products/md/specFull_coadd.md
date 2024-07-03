@@ -19,7 +19,7 @@ The spectral data for a given custom coadd, mjd, and catalogid including the coa
 $BOSS_SPECTRO_REDUX/[RUN2D]/spectra/full/[COADD]/[MJD]/spec-[COADD]-[MJD]-[CATALOGID].fits
 
 ### Releases
-WORK
+IPL3, WORK
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -56,6 +56,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - WORK
+   - from: IPL3
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -2830,7 +2833,7 @@ Name | Type | Unit | Description |
  | OR_MASK | int32 |  | OR mask |
  | WDISP | float32 |  | Wavelength dispersion in number of pixel |
  | SKY | float32 |  | subtracted sky flux |
- | WRESL | float32 |  | spectral resolution in A units |
+ | WRESL | float32 | AA | spectral resolution in A units |
 
 
 

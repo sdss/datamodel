@@ -19,7 +19,7 @@ Contains the output of the pyXCSAO package, a Python replication of IRAF XCSAO (
 $BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/epoch/[RUN1D]/spXCSAO-[FIELD]-[MJD].fits
 
 ### Releases
-WORK
+IPL3, WORK
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -44,6 +44,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - WORK
+   - from: IPL3
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -68,7 +71,7 @@ Key | Value | Comment | |
 Object Metadata and pyXCSAO output
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  206 KB
+#### HDU Size:  166 KB
 
 ##### Header Table Caption for HDU1
 Key | Value | Comment | |
@@ -76,8 +79,8 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | binary table extension |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
-| NAXIS1 | 415 | length of dimension 1 |
-| NAXIS2 | 509 | length of dimension 2 |
+| NAXIS1 | 413 | length of dimension 1 |
+| NAXIS2 | 413 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
 | TFIELDS | 43 | number of table fields |
@@ -89,45 +92,49 @@ Key | Value | Comment | |
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | RA | float64 | deg | RA (J2000) |
- | DEC | float64 | deg | DEC (J2000) |
- | OBJID | char[10] | N/A | Name of an object |
- | PROGRAM | char[2] | N/A | SDSS-V program that requested the source |
- | OBJTYPE | char[16] | N/A | Identified object type, inherited from the standard BOSS pipeline |
- | SOURCETYPE | char[3] | N/A | Targeting type (science star, standard star, etc) |
- | PLATE | int64 | N/A | Plate ID of the field |
- | MJD | int64 | N/A | Date of observations |
- | FIBER | int64 | N/A | Fiber number of the observation |
- | SNR | float64 | N/A | Average signal to noise ratio of the spectrum |
- | FIRSTCARTON | char[18] | N/A | The name of the first carton requesting the object in SDSS-V survey |
- | PARALLAX | float64 | mas | Gaia parallax |
- | PMRA | float64 | mas/yr | Gaia proper motions in RA |
- | PMDEC | float64 | mas/yr | Gaia proper motions in Dec |
- | wi | float64 | Mag | SRD reddening |
- | U | float64 | Mag | Sloan u band photometry |
- | G | float64 | Mag | Sloan g band photometry |
- | R | float64 | N/A | Cross correlation strength, as defined in Tonry+79 |
- | I | float64 | Mag | Sloan i band photometry |
- | Z | float64 | Mag | Sloan z band photometry |
- | GAIA_G | float64 | Mag | Gaia G band photmetry |
+ | ra | float64 | deg | RA (J2000) |
+ | dec | float64 | deg | DEC (J2000) |
+ | coord_epoch | float64 |  | Epoch of the RACAT/DECCAT Catalog coordinates. |
+ | objid | char[22] |  | Name of an object |
+ | program | char[11] |  | SDSS-V program that requested the source |
+ | objtype | char[7] |  | Identified object type, inherited from the standard BOSS pipeline |
+ | SOURCETYPE | char[7] |  | Targeting type (science star, standard star, etc) |
+ | FIELDID | char[1] |  | SDSS FieldID (plateID for plate era data) |
+ | mjd | int64 |  | Date of observations |
+ | TARGET_INDEX | int64 |  | Index of target on combined spField |
+ | FIBERID_LIST | char[51] |  | List of FiberIDs contributing to Stack |
+ | firstcarton | char[27] |  | The name of the first carton requesting the object in SDSS-V survey |
+ | SDSS_ID | int64 |  | Unified SDSS Target Identifier |
+ | CATALOGID | int64 |  | SDSS-V CatalogID used in naming |
+ | parallax | float64 | mas | Gaia parallax |
+ | pmra | float64 | mas/yr | Gaia proper motions in RA |
+ | pmdec | float64 | mas/yr | Gaia proper motions in Dec |
+ | EBV | float64 |  | dust extinction |
+ | sdss_u | float64 |  | SDSS u-band magnitude |
+ | sdss_g | float64 |  | SDSS g-band magnitude |
+ | sdss_r | float64 |  | SDSS r-band magnitude |
+ | sdss_i | float64 |  | SDSS i-band magnitude |
+ | sdss_z | float64 |  | SDSS z-band magnitude |
+ | gaia_G | float64 | Mag | Gaia G band photmetry |
  | BP | float64 | Mag | Gaia BP band photmetry |
  | RP | float64 | Mag | Gaia RP band photmetry |
  | J | float64 | Mag | Gaia J band photmetry |
  | H | float64 | Mag | Gaia H band photmetry |
  | K | float64 | Mag | Gaia K band photmetry |
- | RV | float64 | km/s | Radial velocity measured with XCSAO |
- | ERV | float64 | km/s | Uncertainty in rv |
- | GRID | char[7] | N/A | Name of the model grid with which cross-correlation is performed |
- | ST_LAMBDA | float64 | Angstrom | Minimum wavelength used in cross-correlation |
- | END_LAMBDA | float64 | Angstrom | Maximum wavelength used in cross-correlation |
- | TEFF | float64 | K | Interpolated temperature of the best matched cross-correlation template |
- | ETEFF | float64 | K | Uncertainty in Teff |
- | LOGG | float64 | [cm/s2] | Interpolated surface gravity of the best matched cross-correlation template |
- | ELOGG | float64 | [cm/s2] | Uncertainty in log g |
- | FEH | float64 | [Sun] | Interpolated metallicity of the best matched cross-correlation template |
- | EFEH | float64 | [Sun] | Uncertainty in Fe/H |
- | ALPHA | float64 | [Sun] | Interpolated [alpha/H] abundance of the best matched cross-correlation template |
- | EALPHA | float64 | [Sun] | Uncertainty in alpha |
+ | r | float64 |  | Cross correlation strength, as defined in Tonry+79 |
+ | rv | float64 | km/s | Radial velocity measured with XCSAO |
+ | erv | float64 | km/s | Uncertainty in rv |
+ | grid | char[7] |  | Name of the model grid with which cross-correlation is performed |
+ | st_lambda | float64 | Angstrom | Minimum wavelength used in cross-correlation |
+ | end_lambda | float64 | Angstrom | Maximum wavelength used in cross-correlation |
+ | teff | float64 | K | Interpolated temperature of the best matched cross-correlation template |
+ | eteff | float64 | K | Uncertainty in Teff |
+ | logg | float64 | [cm/s2] | Interpolated surface gravity of the best matched cross-correlation template |
+ | elogg | float64 | [cm/s2] | Uncertainty in log g |
+ | feh | float64 | [Sun] | Interpolated metallicity of the best matched cross-correlation template |
+ | efeh | float64 | [Sun] | Uncertainty in Fe/H |
+ | alpha | float64 | [Sun] | Interpolated [alpha/H] abundance of the best matched cross-correlation template |
+ | ealpha | float64 | [Sun] | Uncertainty in alpha |
 
 
 

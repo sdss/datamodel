@@ -26,6 +26,12 @@
     "filesize": "230 KB",
     "releases": [
       {
+        "name": "IPL3",
+        "description": "SDSS internal product launch 3",
+        "public": false,
+        "release_date": "2023-11-01"
+      },
+      {
         "name": "WORK",
         "description": "SDSS unreleased data.  Represents any work-in-progress data.",
         "public": false,
@@ -40,7 +46,33 @@
   },
   "changelog": {
     "description": "Describes changes to the datamodel product and/or file structure from one release to another",
-    "releases": {}
+    "releases": {
+      "WORK": {
+        "from": "IPL3",
+        "note": "No changes",
+        "delta_nhdus": null,
+        "added_hdus": null,
+        "removed_hdus": null,
+        "primary_delta_nkeys": null,
+        "added_primary_header_kwargs": null,
+        "removed_primary_header_kwargs": null,
+        "delta_nkeys": null,
+        "addead_header_keys": null,
+        "removed_header_keys": null,
+        "delta_ntables": null,
+        "addead_tables": null,
+        "removed_tables": null,
+        "tables": null,
+        "new_libver": null,
+        "delta_nattrs": null,
+        "addead_attrs": null,
+        "removed_attrs": null,
+        "delta_nmembers": null,
+        "addead_members": null,
+        "removed_members": null,
+        "members": null
+      }
+    }
   },
   "releases": {
     "WORK": {
@@ -489,13 +521,13 @@
               "name": "CALIBFLUX",
               "description": "Broad-band flux in SDSS-{ugriz} from PSFmag",
               "type": "float32[5]",
-              "unit": "nanomaggy"
+              "unit": ""
             },
             "CALIBFLUX_IVAR": {
               "name": "CALIBFLUX_IVAR",
               "description": "Inverse var flux SDSS-{ugriz} from PSFmag",
               "type": "float32[5]",
-              "unit": "nanomaggy"
+              "unit": ""
             },
             "OPTICAL_PROV": {
               "name": "OPTICAL_PROV",
@@ -819,7 +851,7 @@
               "name": "SEEING20",
               "description": "Mean 20% seeing during exposures (arcsec)",
               "type": "float32",
-              "unit": ""
+              "unit": "arcsecs"
             },
             "SEEING50": {
               "name": "SEEING50",
@@ -867,6 +899,1156 @@
               "name": "DECOLLIDED",
               "description": "this positioner had to be moved to decollide it",
               "type": "char[15]",
+              "unit": ""
+            },
+            "ANYANDMASK": {
+              "name": "ANYANDMASK",
+              "description": "For each bit, records whether any pixel in the spectrum has that bit set in its ANDMASK",
+              "type": "int64",
+              "unit": ""
+            },
+            "ANYORMASK": {
+              "name": "ANYORMASK",
+              "description": "For each bit, records whether any pixel in the spectrum has that bit set in its ORMASK",
+              "type": "int64",
+              "unit": ""
+            },
+            "SPECPRIMARY": {
+              "name": "SPECPRIMARY",
+              "description": "Objects observed multiple times will have this set to 1 for one observation only. This is usually the 'best' observation, as defined by critera listed in fieldmerge.py.",
+              "type": "int64",
+              "unit": ""
+            },
+            "SPECBOSS": {
+              "name": "SPECBOSS",
+              "description": "Best version of spectrum at this location",
+              "type": "int64",
+              "unit": ""
+            },
+            "BOSS_SPECOBJ_ID": {
+              "name": "BOSS_SPECOBJ_ID",
+              "description": "ID of spectrum location on sky",
+              "type": "int64",
+              "unit": ""
+            },
+            "NSPECOBS": {
+              "name": "NSPECOBS",
+              "description": "Number of spectral observations",
+              "type": "int64",
+              "unit": ""
+            },
+            "SPECTROFLUX": {
+              "name": "SPECTROFLUX",
+              "description": "Spectrum projected onto SDSS-{ugriz} filter",
+              "type": "float32[5]",
+              "unit": ""
+            },
+            "SPECTROFLUX_IVAR": {
+              "name": "SPECTROFLUX_IVAR",
+              "description": "Inverse variance of SPECTROFLUX_{ugriz}",
+              "type": "float32[5]",
+              "unit": ""
+            },
+            "SPECTROSYNFLUX": {
+              "name": "SPECTROSYNFLUX",
+              "description": "Best-fit template projected onto SDSS-{ugriz}",
+              "type": "float32[5]",
+              "unit": ""
+            },
+            "SPECTROSYNFLUX_IVAR": {
+              "name": "SPECTROSYNFLUX_IVAR",
+              "description": "Inverse variance of SPECTROSYNFLUX_{ugriz}",
+              "type": "float32[5]",
+              "unit": ""
+            },
+            "SPECTROSKYFLUX": {
+              "name": "SPECTROSKYFLUX",
+              "description": "Sky spectrum projected onto SDSS-{ugriz} filter",
+              "type": "float32[5]",
+              "unit": ""
+            },
+            "WAVEMIN": {
+              "name": "WAVEMIN",
+              "description": "Minimum observed (vacuum) wavelength for target",
+              "type": "float32",
+              "unit": "AA"
+            },
+            "WAVEMAX": {
+              "name": "WAVEMAX",
+              "description": "Maximum observed (vacuum) wavelength for target",
+              "type": "float32",
+              "unit": "AA"
+            },
+            "WCOVERAGE": {
+              "name": "WCOVERAGE",
+              "description": "Amount of wavelength coverage in log-10(Angs)",
+              "type": "float32",
+              "unit": "log10(AA)"
+            },
+            "CLASS": {
+              "name": "CLASS",
+              "description": "Spectro classification: GALAXY, QSO, STAR",
+              "type": "char[6]",
+              "unit": ""
+            },
+            "SUBCLASS": {
+              "name": "SUBCLASS",
+              "description": "Spectro sub-classification",
+              "type": "char[21]",
+              "unit": ""
+            },
+            "Z": {
+              "name": "Z",
+              "description": "Redshift; incorrect for nonzero ZWARNING flag",
+              "type": "float32",
+              "unit": ""
+            },
+            "Z_ERR": {
+              "name": "Z_ERR",
+              "description": "z error from chi^2 min; negative is invalid fit",
+              "type": "float32",
+              "unit": ""
+            },
+            "ZWARNING": {
+              "name": "ZWARNING",
+              "description": "A flag for bad z fits in place of CLASS=UNKNOWN",
+              "type": "int64",
+              "unit": ""
+            },
+            "RCHI2": {
+              "name": "RCHI2",
+              "description": "Reduced chi^2 for best fit",
+              "type": "float32",
+              "unit": ""
+            },
+            "DOF": {
+              "name": "DOF",
+              "description": "Degrees of freedom for best fit",
+              "type": "int64",
+              "unit": ""
+            },
+            "RCHI2DIFF": {
+              "name": "RCHI2DIFF",
+              "description": "Diff in reduced chi^2 of 2 best solutions",
+              "type": "float32",
+              "unit": ""
+            },
+            "TFILE": {
+              "name": "TFILE",
+              "description": "Template file in $IDLSPEC2D_DIR/templates",
+              "type": "char[24]",
+              "unit": ""
+            },
+            "TCOLUMN": {
+              "name": "TCOLUMN",
+              "description": "Column to use in template file (0-indexed)",
+              "type": "int64[10]",
+              "unit": ""
+            },
+            "NPOLY": {
+              "name": "NPOLY",
+              "description": "# of polynomial terms with TFILE",
+              "type": "int64",
+              "unit": ""
+            },
+            "THETA": {
+              "name": "THETA",
+              "description": "Eigenvalue coeff for template file + polynomial",
+              "type": "float32[10]",
+              "unit": ""
+            },
+            "VDISP": {
+              "name": "VDISP",
+              "description": "Velocity dispersion, only computed for galaxies",
+              "type": "float32",
+              "unit": "km/s"
+            },
+            "VDISP_ERR": {
+              "name": "VDISP_ERR",
+              "description": "Error in VDISP; negative for invalid fit",
+              "type": "float32",
+              "unit": "km/s"
+            },
+            "VDISPZ": {
+              "name": "VDISPZ",
+              "description": "Redshift for best-fit velocity dispersion",
+              "type": "float32",
+              "unit": ""
+            },
+            "VDISPZ_ERR": {
+              "name": "VDISPZ_ERR",
+              "description": "Error in VDISPZ",
+              "type": "float32",
+              "unit": ""
+            },
+            "VDISPCHI2": {
+              "name": "VDISPCHI2",
+              "description": "Chi^2 for best-fit velocity dispersion",
+              "type": "float32",
+              "unit": ""
+            },
+            "VDISPNPIX": {
+              "name": "VDISPNPIX",
+              "description": "Num of pixels overlapping VDISP fit templates",
+              "type": "float32",
+              "unit": ""
+            },
+            "VDISPDOF": {
+              "name": "VDISPDOF",
+              "description": "DOF for best-fit velocity dispersion",
+              "type": "int64",
+              "unit": ""
+            },
+            "CHI68P": {
+              "name": "CHI68P",
+              "description": "68% of abs(chi) of synthetic to actual spectrum",
+              "type": "float32",
+              "unit": ""
+            },
+            "FRACNSIGMA": {
+              "name": "FRACNSIGMA",
+              "description": "Fraction of pixels deviant by >{1-10} sigma",
+              "type": "float32[10]",
+              "unit": ""
+            },
+            "FRACNSIGHI": {
+              "name": "FRACNSIGHI",
+              "description": "Fraction of pixels high by >{1-10} sigma",
+              "type": "float32[10]",
+              "unit": ""
+            },
+            "FRACNSIGLO": {
+              "name": "FRACNSIGLO",
+              "description": "Fraction of pixels low by >{1-10} sigma",
+              "type": "float32[10]",
+              "unit": ""
+            },
+            "Z_NOQSO": {
+              "name": "Z_NOQSO",
+              "description": "Redshift of the best-fit non-QSO model",
+              "type": "float32",
+              "unit": ""
+            },
+            "Z_ERR_NOQSO": {
+              "name": "Z_ERR_NOQSO",
+              "description": "Formal one-sigma error on Z_NOQSO",
+              "type": "float32",
+              "unit": ""
+            },
+            "ZNUM_NOQSO": {
+              "name": "ZNUM_NOQSO",
+              "description": "Best fit z/class index excluding QSO; 1-indexed",
+              "type": "int64",
+              "unit": ""
+            },
+            "ZWARNING_NOQSO": {
+              "name": "ZWARNING_NOQSO",
+              "description": "Redshift warning flag for Z_NOQSO",
+              "type": "int64",
+              "unit": ""
+            },
+            "CLASS_NOQSO": {
+              "name": "CLASS_NOQSO",
+              "description": "Spectro class of best-fit non-QSO model",
+              "type": "char[6]",
+              "unit": ""
+            },
+            "SUBCLASS_NOQSO": {
+              "name": "SUBCLASS_NOQSO",
+              "description": "Spectro sub-class of best-fit non-QSO model",
+              "type": "char[21]",
+              "unit": ""
+            },
+            "RCHI2DIFF_NOQSO": {
+              "name": "RCHI2DIFF_NOQSO",
+              "description": "Reduced chi^2 diff to next-best non-QSO model",
+              "type": "float32",
+              "unit": ""
+            },
+            "XCSAO_RV": {
+              "name": "XCSAO_RV",
+              "description": "Radial velocity measured with pyXCSAO",
+              "type": "float32",
+              "unit": "km/s"
+            },
+            "XCSAO_ERV": {
+              "name": "XCSAO_ERV",
+              "description": "Uncertainty in Radial velocity",
+              "type": "float32",
+              "unit": "km/s"
+            },
+            "XCSAO_RXC": {
+              "name": "XCSAO_RXC",
+              "description": "Cross correlation strength from pyXCSAO",
+              "type": "float32",
+              "unit": ""
+            },
+            "XCSAO_TEFF": {
+              "name": "XCSAO_TEFF",
+              "description": "Interpolated temperature from pyXCSAO",
+              "type": "float32",
+              "unit": "K"
+            },
+            "XCSAO_ETEFF": {
+              "name": "XCSAO_ETEFF",
+              "description": "Uncertainty in Interpolated temperature",
+              "type": "float32",
+              "unit": "K"
+            },
+            "XCSAO_LOGG": {
+              "name": "XCSAO_LOGG",
+              "description": "Interpolated surface gravity from pyXCSAO",
+              "type": "float32",
+              "unit": "cm/s^2"
+            },
+            "XCSAO_ELOGG": {
+              "name": "XCSAO_ELOGG",
+              "description": "Uncertainty in Interpolated surface gravity",
+              "type": "float32",
+              "unit": "cm/s^2"
+            },
+            "XCSAO_FEH": {
+              "name": "XCSAO_FEH",
+              "description": "Interpolated metallicity from pyXCSAO",
+              "type": "float32",
+              "unit": "solar"
+            },
+            "XCSAO_EFEH": {
+              "name": "XCSAO_EFEH",
+              "description": "Uncertainty in interpolated metallicity",
+              "type": "float32",
+              "unit": "solar"
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null
+    },
+    "IPL3": {
+      "template": "$BOSS_SPECTRO_REDUX/[RUN2D]/spectra/full/[COADD]/[MJD]/spAll-[COADD]-[MJD].fits.gz",
+      "example": "v6_1_3/spectra/full/allepoch/60000/spAll-allepoch-60000.fits.gz",
+      "location": "{run2d}/spectra/full/{coadd}/{mjd}/spAll-{coadd}-{mjd}.fits.gz",
+      "environment": "BOSS_SPECTRO_REDUX",
+      "survey": "BHM",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "spAllField_coadd",
+        "path_template": "$BOSS_SPECTRO_REDUX/{run2d}/spectra/full/{coadd}/{mjd}/spAll-{coadd}-{mjd}.fits",
+        "path_kwargs": [
+          "mjd",
+          "run2d",
+          "coadd"
+        ],
+        "access_string": "spAllField_coadd = $BOSS_SPECTRO_REDUX/{run2d}/spectra/full/{coadd}/{mjd}/spAll-{coadd}-{mjd}.fits.gz"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            },
+            {
+              "key": "RUN2D",
+              "value": "v6_1_3",
+              "comment": "IDLSPEC2D RUN2D"
+            },
+            {
+              "key": "DATE",
+              "value": "Tue Apr  9 01:13:07 2024",
+              "comment": "Date Created"
+            },
+            {
+              "key": "SDSSC2BV",
+              "value": "1",
+              "comment": "SDSS5_TARGET_FLAG Carton to Bit Version"
+            },
+            {
+              "key": "CHECKSUM",
+              "value": "a5abb2Sba2Yba2Yb",
+              "comment": "HDU checksum updated 2024-04-09T01:13:08"
+            },
+            {
+              "key": "DATASUM",
+              "value": "0",
+              "comment": "data unit checksum updated 2024-04-09T01:13:08"
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "SPALL",
+          "is_image": false,
+          "description": "Spectral Summary Table",
+          "size": "1 MB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "BINTABLE",
+              "comment": "binary table extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "2806",
+              "comment": "length of dimension 1"
+            },
+            {
+              "key": "NAXIS2",
+              "value": "413",
+              "comment": "length of dimension 2"
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "number of group parameters"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "number of groups"
+            },
+            {
+              "key": "TFIELDS",
+              "value": "144",
+              "comment": "number of table fields"
+            },
+            {
+              "key": "TNULL1",
+              "value": "0",
+              "comment": ""
+            },
+            {
+              "key": "TNULL2",
+              "value": "0",
+              "comment": ""
+            },
+            {
+              "key": "TNULL11",
+              "value": "0",
+              "comment": ""
+            },
+            {
+              "key": "TNULL13",
+              "value": "-1",
+              "comment": ""
+            },
+            {
+              "key": "TDIM21",
+              "value": "(32)",
+              "comment": ""
+            },
+            {
+              "key": "TNULL23",
+              "value": "-999",
+              "comment": ""
+            },
+            {
+              "key": "TNULL24",
+              "value": "-999",
+              "comment": ""
+            },
+            {
+              "key": "TNULL25",
+              "value": "-999",
+              "comment": ""
+            },
+            {
+              "key": "TNULL26",
+              "value": "-999",
+              "comment": ""
+            },
+            {
+              "key": "TNULL27",
+              "value": "-1",
+              "comment": ""
+            },
+            {
+              "key": "TNULL36",
+              "value": "0",
+              "comment": ""
+            },
+            {
+              "key": "TNULL39",
+              "value": "0",
+              "comment": ""
+            },
+            {
+              "key": "TNULL59",
+              "value": "-999",
+              "comment": ""
+            },
+            {
+              "key": "TNULL64",
+              "value": "-999",
+              "comment": ""
+            },
+            {
+              "key": "TNULL65",
+              "value": "-999",
+              "comment": ""
+            },
+            {
+              "key": "TNULL66",
+              "value": "-999",
+              "comment": ""
+            },
+            {
+              "key": "TNULL92",
+              "value": "0",
+              "comment": ""
+            },
+            {
+              "key": "TNULL93",
+              "value": "0",
+              "comment": ""
+            },
+            {
+              "key": "TNULL94",
+              "value": "0",
+              "comment": ""
+            },
+            {
+              "key": "TNULL95",
+              "value": "0",
+              "comment": ""
+            },
+            {
+              "key": "TNULL96",
+              "value": "0",
+              "comment": ""
+            },
+            {
+              "key": "TNULL97",
+              "value": "0",
+              "comment": ""
+            },
+            {
+              "key": "TNULL110",
+              "value": "-999",
+              "comment": ""
+            },
+            {
+              "key": "TNULL112",
+              "value": "-999",
+              "comment": ""
+            },
+            {
+              "key": "TNULL115",
+              "value": "-1",
+              "comment": ""
+            },
+            {
+              "key": "TNULL116",
+              "value": "-1",
+              "comment": ""
+            },
+            {
+              "key": "TNULL124",
+              "value": "-1",
+              "comment": ""
+            },
+            {
+              "key": "TNULL131",
+              "value": "0",
+              "comment": ""
+            },
+            {
+              "key": "TNULL132",
+              "value": "0",
+              "comment": ""
+            },
+            {
+              "key": "EXTNAME",
+              "value": "SPALL",
+              "comment": "extension name"
+            },
+            {
+              "key": "CHECKSUM",
+              "value": "cUmedUjdcUjdcUjd",
+              "comment": "HDU checksum updated 2024-04-09T01:13:08"
+            },
+            {
+              "key": "DATASUM",
+              "value": "1934285360",
+              "comment": "data unit checksum updated 2024-04-09T01:13:08"
+            }
+          ],
+          "columns": {
+            "FIELD": {
+              "name": "FIELD",
+              "description": "SDSS FieldID (plateID for plate era data)",
+              "type": "int64",
+              "unit": ""
+            },
+            "MJD": {
+              "name": "MJD",
+              "description": "Modified Julian date of combined Spectra",
+              "type": "int64",
+              "unit": ""
+            },
+            "OBS": {
+              "name": "OBS",
+              "description": "Observatory of Observation",
+              "type": "char[8]",
+              "unit": ""
+            },
+            "MJD_FINAL": {
+              "name": "MJD_FINAL",
+              "description": "Mean MJD of the Coadded Spectra",
+              "type": "float64",
+              "unit": ""
+            },
+            "MJD_LIST": {
+              "name": "MJD_LIST",
+              "description": "List of MJD of each included exposures",
+              "type": "char[77]",
+              "unit": ""
+            },
+            "TAI_LIST": {
+              "name": "TAI_LIST",
+              "description": "List Tai for each exposure (at midpoint)",
+              "type": "char[142]",
+              "unit": ""
+            },
+            "RUN2D": {
+              "name": "RUN2D",
+              "description": "Spectro-2D reduction name",
+              "type": "char[6]",
+              "unit": ""
+            },
+            "RUN1D": {
+              "name": "RUN1D",
+              "description": "Spectro-1D reduction name",
+              "type": "char[6]",
+              "unit": ""
+            },
+            "DESIGNS": {
+              "name": "DESIGNS",
+              "description": "List of Included Designs",
+              "type": "char[90]",
+              "unit": ""
+            },
+            "CONFIGS": {
+              "name": "CONFIGS",
+              "description": "List of Included Configurations",
+              "type": "char[64]",
+              "unit": ""
+            },
+            "NEXP": {
+              "name": "NEXP",
+              "description": "Number of Included Exposures",
+              "type": "int16",
+              "unit": ""
+            },
+            "EXPTIME": {
+              "name": "EXPTIME",
+              "description": "Total Exposure time of Coadded Spectra",
+              "type": "float32",
+              "unit": "s"
+            },
+            "TARGET_INDEX": {
+              "name": "TARGET_INDEX",
+              "description": "Index of target on combined spField",
+              "type": "int64",
+              "unit": ""
+            },
+            "FIBERID_LIST": {
+              "name": "FIBERID_LIST",
+              "description": "List of FiberIDs contributing to Stack",
+              "type": "char[51]",
+              "unit": ""
+            },
+            "SPEC_FILE": {
+              "name": "SPEC_FILE",
+              "description": "Name of spec file (in SAS)",
+              "type": "char[42]",
+              "unit": ""
+            },
+            "PROGRAMNAME": {
+              "name": "PROGRAMNAME",
+              "description": "Program name within a given survey",
+              "type": "char[11]",
+              "unit": ""
+            },
+            "SURVEY": {
+              "name": "SURVEY",
+              "description": "Survey that field is part of",
+              "type": "char[10]",
+              "unit": ""
+            },
+            "CADENCE": {
+              "name": "CADENCE",
+              "description": "Requested Target Cadence",
+              "type": "char[10]",
+              "unit": ""
+            },
+            "FIRSTCARTON": {
+              "name": "FIRSTCARTON",
+              "description": "Primary SDSS Carton for target",
+              "type": "char[30]",
+              "unit": ""
+            },
+            "CARTON_TO_TARGET_PK": {
+              "name": "CARTON_TO_TARGET_PK",
+              "description": "SDSS-V CartonToTarget DB Table Primary Key",
+              "type": "char[19]",
+              "unit": ""
+            },
+            "SDSS5_TARGET_FLAGS": {
+              "name": "SDSS5_TARGET_FLAGS",
+              "description": "Targeting Flags for SSDSV Targeting",
+              "type": "bool[32]",
+              "unit": ""
+            },
+            "OBJTYPE": {
+              "name": "OBJTYPE",
+              "description": "Why this object was targeted.  Note that if this field says QSO, it could be the case that this object would have been targetted as a GALAXY or any number of other categories as well. The PRIMTARGET and SECTARGET flags in the plug-map structure (in the spField file) gives this full information.",
+              "type": "char[16]",
+              "unit": ""
+            },
+            "CATALOGID": {
+              "name": "CATALOGID",
+              "description": "SDSS-V CatalogID used in naming",
+              "type": "int64",
+              "unit": ""
+            },
+            "CATALOGID_V0": {
+              "name": "CATALOGID_V0",
+              "description": "SDSS-V CatalogID from Catalog v0",
+              "type": "int64",
+              "unit": ""
+            },
+            "CATALOGID_V0P5": {
+              "name": "CATALOGID_V0P5",
+              "description": "SDSS-V CatalogID from Catalog v0.5",
+              "type": "int64",
+              "unit": ""
+            },
+            "SDSS_ID": {
+              "name": "SDSS_ID",
+              "description": "Unified SDSS Target Identifier",
+              "type": "int64",
+              "unit": ""
+            },
+            "SPECOBJID": {
+              "name": "SPECOBJID",
+              "description": "Unique ID based on Field, MJD, FIBERID, RUN2D",
+              "type": "int64",
+              "unit": ""
+            },
+            "CALIBFLUX": {
+              "name": "CALIBFLUX",
+              "description": "Broad-band flux in SDSS-{ugriz} from PSFmag",
+              "type": "float32[5]",
+              "unit": ""
+            },
+            "CALIBFLUX_IVAR": {
+              "name": "CALIBFLUX_IVAR",
+              "description": "Inverse var flux SDSS-{ugriz} from PSFmag",
+              "type": "float32[5]",
+              "unit": ""
+            },
+            "OPTICAL_PROV": {
+              "name": "OPTICAL_PROV",
+              "description": "The source of the optical CATDB_MAG magnitudes",
+              "type": "char[26]",
+              "unit": ""
+            },
+            "MAG": {
+              "name": "MAG",
+              "description": "[u, g, r, i, z] optical magnitudes",
+              "type": "float32[5]",
+              "unit": ""
+            },
+            "PSFMAG": {
+              "name": "PSFMAG",
+              "description": "[u, g, r, i, z] optical PSF magnitudes",
+              "type": "float32[5]",
+              "unit": ""
+            },
+            "FIBER2MAG": {
+              "name": "FIBER2MAG",
+              "description": "[u, g, r, i, z] optical Fiber2 magnitudes",
+              "type": "float32[5]",
+              "unit": ""
+            },
+            "CATDB_MAG": {
+              "name": "CATDB_MAG",
+              "description": "[u, g, r, i, z] Raw TargetDB magnitudes",
+              "type": "float32[5]",
+              "unit": ""
+            },
+            "GAIA_G_MAG": {
+              "name": "GAIA_G_MAG",
+              "description": "Gaia G magnitude",
+              "type": "float32",
+              "unit": ""
+            },
+            "GRI_GAIA_TRANSFORM": {
+              "name": "GRI_GAIA_TRANSFORM",
+              "description": "provenance of photometry in SDSS-V plate design",
+              "type": "int64",
+              "unit": ""
+            },
+            "BP_MAG": {
+              "name": "BP_MAG",
+              "description": "Gaia BP magnitude",
+              "type": "float32",
+              "unit": ""
+            },
+            "RP_MAG": {
+              "name": "RP_MAG",
+              "description": "Gaia RP magnitude",
+              "type": "float32",
+              "unit": ""
+            },
+            "GAIA_ID": {
+              "name": "GAIA_ID",
+              "description": "Gaia DR2 SourceID",
+              "type": "int64",
+              "unit": ""
+            },
+            "WISE_MAG": {
+              "name": "WISE_MAG",
+              "description": "WISE [W1, W2, W3, W4] band magnitudes",
+              "type": "float32[4]",
+              "unit": ""
+            },
+            "TWOMASS_MAG": {
+              "name": "TWOMASS_MAG",
+              "description": "2MASS [J, H, Ks] band magnitudes",
+              "type": "float32[3]",
+              "unit": ""
+            },
+            "GUVCAT_MAG": {
+              "name": "GUVCAT_MAG",
+              "description": "GALEX [FUV, NUV] band magnitudes",
+              "type": "float32[2]",
+              "unit": ""
+            },
+            "EBV": {
+              "name": "EBV",
+              "description": "dust extinction",
+              "type": "float32",
+              "unit": ""
+            },
+            "EBV_TYPE": {
+              "name": "EBV_TYPE",
+              "description": "Source of dust extinction",
+              "type": "char[14]",
+              "unit": ""
+            },
+            "FIBER_RA": {
+              "name": "FIBER_RA",
+              "description": "Fiber RA [J2000 for plate; at exp for FPS]",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "FIBER_DEC": {
+              "name": "FIBER_DEC",
+              "description": "Fiber DEC [J2000 for plate; at exp for FPS]",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "PLUG_RA": {
+              "name": "PLUG_RA",
+              "description": "Object RA (drilled fiber position) [J2000]",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "PLUG_DEC": {
+              "name": "PLUG_DEC",
+              "description": "Object DEC (drilled fiber position) [J2000]",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "RACAT": {
+              "name": "RACAT",
+              "description": "Catalog RA in ICRS coordinates at coord_epoch",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "DECCAT": {
+              "name": "DECCAT",
+              "description": "Catalog DEC in ICRS coordinates at coord_epoch",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "COORD_EPOCH": {
+              "name": "COORD_EPOCH",
+              "description": "Epoch of the RACAT/DECCAT Catalog coordinates.",
+              "type": "float32",
+              "unit": ""
+            },
+            "PMRA": {
+              "name": "PMRA",
+              "description": "Proper motion in RA (pmra is a true angle)",
+              "type": "float32",
+              "unit": "mas/year"
+            },
+            "PMDEC": {
+              "name": "PMDEC",
+              "description": "Proper motion in Dec",
+              "type": "float32",
+              "unit": "mas/year"
+            },
+            "PARALLAX": {
+              "name": "PARALLAX",
+              "description": "Parallax",
+              "type": "float32",
+              "unit": "mas"
+            },
+            "RA_LIST": {
+              "name": "RA_LIST",
+              "description": "List of measured RA per exposure",
+              "type": "char[142]",
+              "unit": "degrees"
+            },
+            "DEC_LIST": {
+              "name": "DEC_LIST",
+              "description": "List of measured DEC per exposure",
+              "type": "char[116]",
+              "unit": "degrees"
+            },
+            "DELTA_RA_LIST": {
+              "name": "DELTA_RA_LIST",
+              "description": "List of designed RA offsets per exposure",
+              "type": "char[51]",
+              "unit": "arcsec"
+            },
+            "DELTA_DEC_LIST": {
+              "name": "DELTA_DEC_LIST",
+              "description": "List of designed DEC offsets per exposure",
+              "type": "char[51]",
+              "unit": "arcsec"
+            },
+            "FIBER_OFFSET": {
+              "name": "FIBER_OFFSET",
+              "description": "Flag identifying the fiber was offset by design",
+              "type": "int64",
+              "unit": ""
+            },
+            "XFOCAL": {
+              "name": "XFOCAL",
+              "description": "Hole/robot x-axis position in focal plane",
+              "type": "char[116]",
+              "unit": "mm"
+            },
+            "YFOCAL": {
+              "name": "YFOCAL",
+              "description": "Hole/robot y-axis position in focal plane",
+              "type": "char[116]",
+              "unit": "mm"
+            },
+            "ZOFFSET": {
+              "name": "ZOFFSET",
+              "description": "Backstopping offset distance",
+              "type": "float32",
+              "unit": "microns"
+            },
+            "LAMBDA_EFF": {
+              "name": "LAMBDA_EFF",
+              "description": "Wavelength to optimize hole location for",
+              "type": "float32",
+              "unit": "AA"
+            },
+            "BLUEFIBER": {
+              "name": "BLUEFIBER",
+              "description": "1 if assigned target a blue fiber; 0 otherwise",
+              "type": "int64",
+              "unit": ""
+            },
+            "HEALPIX": {
+              "name": "HEALPIX",
+              "description": "healpix pixel number of the RACAT and DECCAT coordinates, computed with healpix nside=128",
+              "type": "int64",
+              "unit": ""
+            },
+            "HEALPIXGRP": {
+              "name": "HEALPIXGRP",
+              "description": "Rounded-down integer value of healpix / 1000",
+              "type": "int64",
+              "unit": ""
+            },
+            "HEALPIX_PATH": {
+              "name": "HEALPIX_PATH",
+              "description": "Path to spec fits file in SAS healpix structure",
+              "type": "char[69]",
+              "unit": ""
+            },
+            "FIELDQUALITY": {
+              "name": "FIELDQUALITY",
+              "description": "Characterization of field quality",
+              "type": "char[4]",
+              "unit": ""
+            },
+            "EXP_DISP_MED": {
+              "name": "EXP_DISP_MED",
+              "description": "Dispersion of Median Exposure Flux",
+              "type": "float64",
+              "unit": ""
+            },
+            "FIELDSN2": {
+              "name": "FIELDSN2",
+              "description": "Overall (S/N)^2 for field; min of cameras",
+              "type": "float32",
+              "unit": ""
+            },
+            "FIELDSNR2G_LIST": {
+              "name": "FIELDSNR2G_LIST",
+              "description": "Overall Field (S/N)^2 in g per exposure",
+              "type": "char[64]",
+              "unit": ""
+            },
+            "FIELDSNR2R_LIST": {
+              "name": "FIELDSNR2R_LIST",
+              "description": "Overall Field (S/N)^2 in r per exposure",
+              "type": "char[64]",
+              "unit": ""
+            },
+            "FIELDSNR2I_LIST": {
+              "name": "FIELDSNR2I_LIST",
+              "description": "Overall Field (S/N)^2 in i per exposure",
+              "type": "char[64]",
+              "unit": ""
+            },
+            "SPEC1_G": {
+              "name": "SPEC1_G",
+              "description": "Fit (S/N)^2 at g=20.20 for spectrograph 1 (same value for 500 fibers)",
+              "type": "float32",
+              "unit": ""
+            },
+            "SPEC1_R": {
+              "name": "SPEC1_R",
+              "description": "Fit (S/N)^2 at r=20.25 for spectrograph 1 (same value for 500 fibers)",
+              "type": "float32",
+              "unit": ""
+            },
+            "SPEC1_I": {
+              "name": "SPEC1_I",
+              "description": "Fit (S/N)^2 at i=19.90 for spectrograph 1 (same value for 500 fibers)",
+              "type": "float32",
+              "unit": ""
+            },
+            "SPEC2_G": {
+              "name": "SPEC2_G",
+              "description": "Fit (S/N)^2 at g=20.20 for spectrograph 2 (same value for 500 fibers)",
+              "type": "float32",
+              "unit": ""
+            },
+            "SPEC2_R": {
+              "name": "SPEC2_R",
+              "description": "Fit (S/N)^2 at r=20.25 for spectrograph 2 (same value for 500 fibers)",
+              "type": "float32",
+              "unit": ""
+            },
+            "SPEC2_I": {
+              "name": "SPEC2_I",
+              "description": "Fit (S/N)^2 at i=19.90 for spectrograph 2 (same value for 500 fibers)",
+              "type": "float32",
+              "unit": ""
+            },
+            "SN_MEDIAN": {
+              "name": "SN_MEDIAN",
+              "description": "Median S/N for all good pixels in SDSS-{ugriz}",
+              "type": "float32[5]",
+              "unit": ""
+            },
+            "SN_MEDIAN_ALL": {
+              "name": "SN_MEDIAN_ALL",
+              "description": "Median S/N for all good pixels in all filters",
+              "type": "float32",
+              "unit": ""
+            },
+            "AIRMASS": {
+              "name": "AIRMASS",
+              "description": "Airmass at time of observation",
+              "type": "float32",
+              "unit": ""
+            },
+            "SEEING20": {
+              "name": "SEEING20",
+              "description": "Mean 20% seeing during exposures (arcsec)",
+              "type": "float32",
+              "unit": "arcsecs"
+            },
+            "SEEING50": {
+              "name": "SEEING50",
+              "description": "Mean 50% seeing during exposures (arcsec)",
+              "type": "float32",
+              "unit": "arcsecs"
+            },
+            "SEEING80": {
+              "name": "SEEING80",
+              "description": "Mean 80% seeing during exposures (arcsec)",
+              "type": "float32",
+              "unit": "arcsecs"
+            },
+            "MOON_DIST": {
+              "name": "MOON_DIST",
+              "description": "Mean Moon-target separation of Coadded Spectra",
+              "type": "char[67]",
+              "unit": "degrees"
+            },
+            "MOON_PHASE": {
+              "name": "MOON_PHASE",
+              "description": "Mean Moon phase of the Coadded Spectra",
+              "type": "char[64]",
+              "unit": ""
+            },
+            "ASSIGNED": {
+              "name": "ASSIGNED",
+              "description": "Whether this fibre was assigned to a target",
+              "type": "char[25]",
+              "unit": ""
+            },
+            "ON_TARGET": {
+              "name": "ON_TARGET",
+              "description": "Whether this fibre is on target",
+              "type": "char[25]",
+              "unit": ""
+            },
+            "VALID": {
+              "name": "VALID",
+              "description": "alpha and beta angles are valid",
+              "type": "char[25]",
+              "unit": ""
+            },
+            "DECOLLIDED": {
+              "name": "DECOLLIDED",
+              "description": "this positioner had to be moved to decollide it",
+              "type": "char[25]",
               "unit": ""
             },
             "ANYANDMASK": {

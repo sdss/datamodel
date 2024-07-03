@@ -19,7 +19,7 @@ Processing plan to combine all spectroscopic reductions for an epoch of field/pl
 $BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/epoch/spPlancombepoch-[FIELD]-[MJD].par
 
 ### Releases
-WORK
+IPL3, WORK
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -43,6 +43,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - WORK
+   - from: IPL3
+   - note: No changes
 
 ---
 ## Example PAR List

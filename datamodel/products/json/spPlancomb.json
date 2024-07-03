@@ -26,6 +26,12 @@
     "filesize": "1 KB",
     "releases": [
       {
+        "name": "IPL3",
+        "description": "SDSS internal product launch 3",
+        "public": false,
+        "release_date": "2023-11-01"
+      },
+      {
         "name": "WORK",
         "description": "SDSS unreleased data.  Represents any work-in-progress data.",
         "public": false,
@@ -40,7 +46,33 @@
   },
   "changelog": {
     "description": "Describes changes to the datamodel product and/or file structure from one release to another",
-    "releases": {}
+    "releases": {
+      "WORK": {
+        "from": "IPL3",
+        "note": "No changes",
+        "delta_nhdus": null,
+        "added_hdus": null,
+        "removed_hdus": null,
+        "primary_delta_nkeys": null,
+        "added_primary_header_kwargs": null,
+        "removed_primary_header_kwargs": null,
+        "delta_nkeys": null,
+        "addead_header_keys": null,
+        "removed_header_keys": null,
+        "delta_ntables": null,
+        "addead_tables": null,
+        "removed_tables": null,
+        "tables": null,
+        "new_libver": null,
+        "delta_nattrs": null,
+        "addead_attrs": null,
+        "removed_attrs": null,
+        "delta_nmembers": null,
+        "addead_members": null,
+        "removed_members": null,
+        "members": null
+      }
+    }
   },
   "releases": {
     "WORK": {
@@ -123,6 +155,189 @@
           {
             "key": "SDSS_access_Ver",
             "value": "3.0.4",
+            "comment": "sdss_access Version when building plan"
+          },
+          {
+            "key": "manual",
+            "value": "F",
+            "comment": "Manually edited plan file (T: True, F: False)"
+          }
+        ],
+        "tables": {
+          "SPEXP": {
+            "name": "SPEXP",
+            "description": "Exposures included",
+            "n_rows": 8,
+            "structure": [
+              {
+                "name": "confid",
+                "type": "char[4]",
+                "description": "FPS Configuration ID of exposure",
+                "unit": "",
+                "is_array": false,
+                "is_enum": false,
+                "enum_values": null,
+                "example": "8872"
+              },
+              {
+                "name": "fieldid",
+                "type": "char[6]",
+                "description": "FieldID (or PlateID) of exposure",
+                "unit": "",
+                "is_array": false,
+                "is_enum": false,
+                "enum_values": null,
+                "example": "112360"
+              },
+              {
+                "name": "mjd",
+                "type": "int",
+                "description": "MJD of exposure",
+                "unit": "",
+                "is_array": false,
+                "is_enum": false,
+                "enum_values": null,
+                "example": 60000
+              },
+              {
+                "name": "mapname",
+                "type": "char[4]",
+                "description": "Plate Map Name or FPS configuration ID",
+                "unit": "",
+                "is_array": false,
+                "is_enum": false,
+                "enum_values": null,
+                "example": "8872"
+              },
+              {
+                "name": "flavor",
+                "type": "char[7]",
+                "description": "Flavor of Exposure (flat, arc, science)",
+                "unit": "",
+                "is_array": false,
+                "is_enum": false,
+                "enum_values": null,
+                "example": "science"
+              },
+              {
+                "name": "exptime",
+                "type": "float",
+                "description": "Exposure Length of exposure",
+                "unit": "s",
+                "is_array": false,
+                "is_enum": false,
+                "enum_values": null,
+                "example": 900.0900268554688
+              },
+              {
+                "name": "name",
+                "type": "char[2][24]",
+                "description": "Name of spFrame Exposure Files",
+                "unit": "",
+                "is_array": true,
+                "is_enum": false,
+                "enum_values": null,
+                "example": [
+                  "spFrame-b1-00353048.fits",
+                  "spFrame-r1-00353048.fits"
+                ]
+              },
+              {
+                "name": "epoch_combine",
+                "type": "int",
+                "description": "Epoch MJD for coadd (last MJD in coadd)",
+                "unit": "",
+                "is_array": false,
+                "is_enum": false,
+                "enum_values": null,
+                "example": 60000
+              }
+            ]
+          }
+        }
+      },
+      "hdfs": null
+    },
+    "IPL3": {
+      "template": "$BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/spPlancomb-[FIELD]-[MJD].par",
+      "example": "v6_1_3/112360/spPlancomb-112360-60000.par",
+      "location": "{run2d}/{field}/spPlancomb-{field}-{mjd}.par",
+      "environment": "BOSS_SPECTRO_REDUX",
+      "survey": "BHM",
+      "access": {
+        "in_sdss_access": false,
+        "path_name": null,
+        "path_template": null,
+        "path_kwargs": null,
+        "access_string": "spPlancomb = $BOSS_SPECTRO_REDUX/{run2d}/{field}/spPlancomb-{field}-{mjd}.par"
+      },
+      "hdus": null,
+      "par": {
+        "comments": "#%yanny\n# Table",
+        "header": [
+          {
+            "key": "fieldid",
+            "value": "112360",
+            "comment": "FieldID (or PlateID)"
+          },
+          {
+            "key": "MJD",
+            "value": "60000",
+            "comment": "Modified Julian Date of plan"
+          },
+          {
+            "key": "OBS",
+            "value": "APO",
+            "comment": "Associated Observatory"
+          },
+          {
+            "key": "RUN2D",
+            "value": "v6_1_3",
+            "comment": "2D reduction name"
+          },
+          {
+            "key": "DITHER",
+            "value": "F",
+            "comment": "Is the Field Dithered (T: True, F: False)"
+          },
+          {
+            "key": "planfile2d",
+            "value": "'spPlan2d-112360-60000.par'",
+            "comment": "Plan file for 2D spectral reductions"
+          },
+          {
+            "key": "planfilecomb",
+            "value": "'spPlancomb-112360-60000.par'",
+            "comment": "Plan file for coadding (this file)"
+          },
+          {
+            "key": "idlspec2dVersion",
+            "value": "'v6_1_3'",
+            "comment": "idlspec2d Version when building plan"
+          },
+          {
+            "key": "idlutilsVersion",
+            "value": "'6.0.0dev'",
+            "comment": "idlutils Version when building plan"
+          },
+          {
+            "key": "pydlVersion",
+            "value": "'0.7.0'",
+            "comment": "Version of pydl when building plan"
+          },
+          {
+            "key": "speclogVersion",
+            "value": "'trunk 27531'",
+            "comment": "speclog Version when building plan"
+          },
+          {
+            "key": "SDSSCOREVersion",
+            "value": "'test'",
+            "comment": "SDSSCORE Version when building plan"
+          },
+          {
+            "key": "SDSS_access_Ver",
+            "value": "'3.0.4'",
             "comment": "sdss_access Version when building plan"
           },
           {

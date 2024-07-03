@@ -19,7 +19,7 @@ This file contains the list of reduced BOSS plates and FPS Fields, with associat
 $BOSS_SPECTRO_REDUX/[RUN2D]/epoch/fieldlist-[RUN2D].fits
 
 ### Releases
-WORK
+IPL3, WORK
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -44,6 +44,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - WORK
+   - from: IPL3
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -117,13 +120,13 @@ Name | Type | Unit | Description |
  | OBSERVATORY | char[3] |  | Observatory of Observation |
  | RUN2D | char[6] |  | Spectro-2D reduction name |
  | RUN1D | char[6] |  | Spectro-1D reduction name |
- | RACEN | float32 |  | RA of the telescope pointing |
- | DECCEN | float32 |  | DEC of the telescope pointing |
+ | RACEN | float32 | deg | RA of the telescope pointing |
+ | DECCEN | float32 | deg | DEC of the telescope pointing |
  | EPOCH | float32 |  | Epoch of the RACEN/DECCEN |
  | CARTID | char[5] |  | The currently loaded cartridge/instrument |
- | TAI | float32 |  | Mean MJD(TAI) seconds of integration |
- | TAI_BEG | float32 |  | MJD(TAI) seconds at start of integration |
- | TAI_END | float32 |  | MJD(TAI) seconds at end of integration |
+ | TAI | float32 | s | Mean MJD(TAI) seconds of integration |
+ | TAI_BEG | float32 | s | MJD(TAI) seconds at start of integration |
+ | TAI_END | float32 | s | MJD(TAI) seconds at end of integration |
  | AIRMASS | float32 |  | Mean Airmass |
  | EXPTIME | float32 | s | Total Exposure time |
  | MAPNAME | char[14] |  | ID of plate mapping file |

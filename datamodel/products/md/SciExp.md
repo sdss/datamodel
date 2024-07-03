@@ -19,7 +19,7 @@ Metadata of all Science Exposure for Field/Plate used for building the spPlancom
 $BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/SciExp-[FIELD].par
 
 ### Releases
-WORK
+IPL3, WORK
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -43,6 +43,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - WORK
+   - from: IPL3
+   - tables: {'SPEXP': {'delta_nrows': 245}}
 
 ---
 ## Example PAR List

@@ -19,7 +19,7 @@ The spZall files contain the spectroscopic classifications and redshifts for all
 $BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/epoch/[RUN1D]/spZall-[FIELD]-[MJD].fits
 
 ### Releases
-WORK
+IPL3, WORK
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -44,6 +44,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - WORK
+   - from: IPL3
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -571,7 +574,7 @@ Name | Type | Unit | Description |
  | FIBERID_LIST | char[31] |  | List of FiberIDs contributing to Stack |
  | RUN2D | char[6] |  | Spectro-2D reduction name |
  | RUN1D | char[6] |  | Spectro-1D reduction name |
- | OBJTYPE | char[16] |  | Why this object was targetted. QSO=SCIENCE |
+ | OBJTYPE | char[16] |  | Why this object was targeted. QSO=SCIENCE |
  | FIBER_RA | float64 | deg | Fiber RA [J2000 for plate; at exp for FPS] |
  | FIBER_DEC | float64 | deg | Fiber DEC [J2000 for plate; at exp for FPS] |
  | PLUG_RA | float64 | deg | Object RA (drilled fiber position) [J2000] |

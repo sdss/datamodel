@@ -19,7 +19,7 @@ The spectral data for a given field, mjd, and catalogid including the coadded sp
 $BOSS_SPECTRO_REDUX/[RUN2D]/spectra/full/[FIELD]/[MJD]/spec-[FIELD]-[MJD]-[CATALOGID].fits
 
 ### Releases
-WORK
+IPL3, WORK
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -55,6 +55,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - WORK
+   - from: IPL3
+   - note: No changes
 
 ---
 ## Example HDUS List

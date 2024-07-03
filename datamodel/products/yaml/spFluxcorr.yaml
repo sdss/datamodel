@@ -6,6 +6,7 @@ general:
   datatype: FITS
   filesize: 16 KB
   releases:
+  - IPL3
   - WORK
   environments:
   - BOSS_SPECTRO_REDUX
@@ -19,7 +20,10 @@ general:
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
-  releases: {}
+  releases:
+    WORK:
+      from: IPL3
+      note: No changes
 releases:
   WORK:
     template: $BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/spFluxcorr-[BR][ID]-[FRAME].fits.gz
@@ -36,6 +40,75 @@ releases:
       - frame
       - br
       - fieldid
+      access_string: spFluxcorr = $BOSS_SPECTRO_REDUX/{run2d}/{field}/spFluxcorr-{br}{id}-{frame}.fits.gz
+    survey: BHM
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: multiplicative flux-correction factor
+        is_image: true
+        size: 7 MB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: Primary Header created by MWRFITS v1.13
+        - key: BITPIX
+          value: -32
+          comment: ''
+        - key: NAXIS
+          value: 2
+          comment: ''
+        - key: NAXIS1
+          value: 4128
+          comment: ''
+        - key: NAXIS2
+          value: 500
+          comment: ''
+        - key: EXTEND
+          value: true
+          comment: Extensions may be present
+      hdu1:
+        name: ''
+        description: additive flux-correction factor
+        is_image: true
+        size: 7 MB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image Extension created by MWRFITS v1.13
+        - key: BITPIX
+          value: -32
+          comment: ''
+        - key: NAXIS
+          value: 2
+          comment: ''
+        - key: NAXIS1
+          value: 4128
+          comment: ''
+        - key: NAXIS2
+          value: 500
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: ''
+        - key: GCOUNT
+          value: 1
+          comment: ''
+  IPL3:
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/spFluxcorr-[BR][ID]-[FRAME].fits.gz
+    example: v6_1_3/112360/spFluxcorr-b1-00353048.fits.gz
+    location: '{run2d}/{field}/spFluxcorr-{br}{id}-{frame}.fits.gz'
+    environment: BOSS_SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: spFluxcorr
+      path_template: $BOSS_SPECTRO_REDUX/{run2d}/@pad_fieldid|@isplate|/spFrame-{br}{id}-{frame:0>8}.fits.gz
+      path_kwargs:
+      - br
+      - fieldid
+      - id
+      - frame
+      - run2d
       access_string: spFluxcorr = $BOSS_SPECTRO_REDUX/{run2d}/{field}/spFluxcorr-{br}{id}-{frame}.fits.gz
     survey: BHM
     hdus:

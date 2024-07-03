@@ -5,6 +5,7 @@ general:
   datatype: FITS
   filesize: 16 MB
   releases:
+  - IPL3
   - WORK
   environments:
   - BOSS_SPECTRO_REDUX
@@ -18,7 +19,10 @@ general:
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
-  releases: {}
+  releases:
+    WORK:
+      from: IPL3
+      note: No changes
 releases:
   WORK:
     template: $BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/spFluxcalib-[BR][ID]-[FRAME].fits.gz
@@ -130,22 +134,27 @@ releases:
           FULLBKPT:
             name: FULLBKPT
             type: float32[234]
+            unit: ''
             description: Breakpoint vector
           BKMASK:
             name: BKMASK
             type: int16[234]
+            unit: ''
             description: mask of the breakpoint vector
           NORD:
             name: NORD
             type: int32
+            unit: ''
             description: Number of orders for Bspline fit
           COEFF:
             name: COEFF
             type: float32[231]
+            unit: ''
             description: The bspline coeffients
           ICOEFF:
             name: ICOEFF
             type: float32[231]
+            unit: ''
             description: inversion bspline coeffients
       hdu2:
         name: ''
@@ -209,22 +218,27 @@ releases:
           PLATE:
             name: PLATE
             type: int32
+            unit: ''
             description: SDSS PlateID
           MJD:
             name: MJD
             type: int32
+            unit: ''
             description: MJD of observation
           FIBERID:
             name: FIBERID
             type: int32
+            unit: ''
             description: Fiber of observation
           QGOOD:
             name: QGOOD
             type: int16
+            unit: ''
             description: quality flag
           MODEL:
             name: MODEL
             type: char[3]
+            unit: ''
             description: Model Name
           G:
             name: G
@@ -244,34 +258,42 @@ releases:
           IMODEL:
             name: IMODEL
             type: int32
+            unit: ''
             description: index of model
           Z:
             name: Z
             type: float64
+            unit: ''
             description: Redshift of fit
           SN_MEDIAN:
             name: SN_MEDIAN
             type: float32
+            unit: ''
             description: S/N of spectra
           CHI2:
             name: CHI2
             type: float32
+            unit: ''
             description: Chi-square of model fit
           DOF:
             name: DOF
             type: float32
+            unit: ''
             description: degrees of freedom
           LINESN_MEDIAN:
             name: LINESN_MEDIAN
             type: float32
+            unit: ''
             description: S/N near absorption lines
           LINECHI2:
             name: LINECHI2
             type: float64
+            unit: ''
             description: CHi-square of fit near absorption lines
           LINEDOF:
             name: LINEDOF
             type: float32
+            unit: ''
             description: degrees of freedom of fit near absorption lines
           LOGLAM:
             name: LOGLAM
@@ -291,11 +313,13 @@ releases:
           MRATIO:
             name: MRATIO
             type: float32[4128]
+            unit: ''
             description: MRATIO vectors are the "raw" flux-calib vectors for each
               expos+CCD
           MRATIVAR:
             name: MRATIVAR
             type: float32[4128]
+            unit: ''
             description: Ivar of MRATIO
       hdu3:
         name: ''
@@ -359,23 +383,28 @@ releases:
           FULLBKPT:
             name: FULLBKPT
             type: float32[234]
+            unit: ''
             description: Breakpoint vector
           BKMASK:
             name: BKMASK
             type: int16[234]
+            unit: ''
             description: mask of the breakpoint vector
           NORD:
             name: NORD
             type: int32
+            unit: ''
             description: Number of orders for Bspline fit
           COEFF:
             name: COEFF
             type: float32[231]
-            description: The bspline coeffients
+            unit: ''
+            description: The bspline coefficients
           ICOEFF:
             name: ICOEFF
             type: float32[231]
-            description: inversion bspline coeffients
+            unit: ''
+            description: inversion bspline coefficients
       hdu4:
         name: ''
         description: Output structure
@@ -469,33 +498,550 @@ releases:
           THISMRATIO:
             name: THISMRATIO
             type: float32[280704]
+            unit: ''
             description: MRATIO vectors are the "raw" flux-calib vectors for this
               expos+CCD
           THISMRATIVAR:
             name: THISMRATIVAR
             type: float32[280704]
+            unit: ''
             description: Ivar of THISMRATIVAR
           THISFLATARR:
             name: THISFLATARR
             type: float32[280704]
+            unit: ''
             description: polynomial fit of the object with respect to the model
           FRAC_SCAT:
             name: FRAC_SCAT
             type: float64
+            unit: ''
             description: percental dispersion of the fluxing vectors used wrt the
               truth
           TMPLOGLAM:
             name: TMPLOGLAM
             type: float64[2492]
+            unit: ''
             description: output grid
           THISFLATARR_ALL:
             name: THISFLATARR_ALL
             type: float32[1246000]
+            unit: ''
             description: rpolynomial fit of the object with respect to the model for
               all star
           THISFLATARR_NEW:
             name: THISFLATARR_NEW
             type: float32[169456]
+            unit: ''
+            description: polynomial fit of the object with respect to the model for
+              all the std and all obj
+  IPL3:
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/spFluxcalib-[BR][ID]-[FRAME].fits.gz
+    example: v6_1_3/112360/spFluxcalib-b1-00353048.fits.gz
+    location: '{run2d}/{field}/spFluxcalib-{br}{id}-{frame}.fits.gz'
+    environment: BOSS_SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: spFluxcalib
+      path_template: $BOSS_SPECTRO_REDUX/{run2d}/@pad_fieldid|@isplate|/spFluxcalib-{br}{id}-{frame:0>8}.fits.gz
+      path_kwargs:
+      - br
+      - fieldid
+      - id
+      - frame
+      - run2d
+      access_string: spFluxcalib = $BOSS_SPECTRO_REDUX/{run2d}/{field}/spFluxcalib-{br}{id}-{frame}.fits.gz
+    survey: BHM
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Image with the flux calibration vector for each fiber.
+        is_image: true
+        size: 7 MB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: Primary Header created by MWRFITS v1.13
+        - key: BITPIX
+          value: -32
+          comment: ''
+        - key: NAXIS
+          value: 2
+          comment: ''
+        - key: NAXIS1
+          value: 4112
+          comment: ''
+        - key: NAXIS2
+          value: 500
+          comment: ''
+        - key: EXTEND
+          value: true
+          comment: Extensions may be present
+        - key: WAVEMIN
+          value: 3559.19
+          comment: ''
+        - key: WAVEMAX
+          value: 6317.02
+          comment: ''
+      hdu1:
+        name: ''
+        description: Binary table with traceset structure of b-spline fits for calibration
+          vectors. This is a compact version of the information in the primary HDU.
+        is_image: false
+        size: 3 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: Binary table written by MWRFITS v1.13
+        - key: BITPIX
+          value: 8
+          comment: Required value
+        - key: NAXIS
+          value: 2
+          comment: Required value
+        - key: NAXIS1
+          value: 3256
+          comment: Number of bytes per row
+        - key: NAXIS2
+          value: 1
+          comment: Number of rows
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: Required value
+        - key: TFIELDS
+          value: 5
+          comment: Number of columns in table
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** End of mandatory fields ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column formats ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column names ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        columns:
+          FULLBKPT:
+            name: FULLBKPT
+            type: float32[234]
+            unit: ''
+            description: Breakpoint vector
+          BKMASK:
+            name: BKMASK
+            type: int16[234]
+            unit: ''
+            description: mask of the breakpoint vector
+          NORD:
+            name: NORD
+            type: int32
+            unit: ''
+            description: Number of orders for Bspline fit
+          COEFF:
+            name: COEFF
+            type: float32[231]
+            unit: ''
+            description: The bspline coeffients
+          ICOEFF:
+            name: ICOEFF
+            type: float32[231]
+            unit: ''
+            description: inversion bspline coeffients
+      hdu2:
+        name: ''
+        description: Binary table with information about the standard stars used to
+          construct the calibration vector.
+        is_image: false
+        size: 5 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: Binary table written by MWRFITS v1.13
+        - key: BITPIX
+          value: 8
+          comment: Required value
+        - key: NAXIS
+          value: 2
+          comment: Required value
+        - key: NAXIS1
+          value: 82629
+          comment: Number of bytes per row
+        - key: NAXIS2
+          value: 70
+          comment: Number of rows
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: Required value
+        - key: TFIELDS
+          value: 21
+          comment: Number of columns in table
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** End of mandatory fields ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column formats ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column names ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        columns:
+          PLATE:
+            name: PLATE
+            type: int32
+            unit: ''
+            description: SDSS PlateID
+          MJD:
+            name: MJD
+            type: int32
+            unit: ''
+            description: MJD of observation
+          FIBERID:
+            name: FIBERID
+            type: int32
+            unit: ''
+            description: Fiber of observation
+          QGOOD:
+            name: QGOOD
+            type: int16
+            unit: ''
+            description: quality flag
+          MODEL:
+            name: MODEL
+            type: char[3]
+            unit: ''
+            description: Model Name
+          G:
+            name: G
+            type: float32
+            unit: cm/s^2
+            description: surface gravity
+          TEFF:
+            name: TEFF
+            type: float32
+            unit: K
+            description: Effective Temperature
+          FEH:
+            name: FEH
+            type: float32
+            unit: solar
+            description: metallicity
+          IMODEL:
+            name: IMODEL
+            type: int32
+            unit: ''
+            description: index of model
+          Z:
+            name: Z
+            type: float64
+            unit: ''
+            description: Redshift of fit
+          SN_MEDIAN:
+            name: SN_MEDIAN
+            type: float32
+            unit: ''
+            description: S/N of spectra
+          CHI2:
+            name: CHI2
+            type: float32
+            unit: ''
+            description: Chi-square of model fit
+          DOF:
+            name: DOF
+            type: float32
+            unit: ''
+            description: degrees of freedom
+          LINESN_MEDIAN:
+            name: LINESN_MEDIAN
+            type: float32
+            unit: ''
+            description: S/N near absorption lines
+          LINECHI2:
+            name: LINECHI2
+            type: float64
+            unit: ''
+            description: CHi-square of fit near absorption lines
+          LINEDOF:
+            name: LINEDOF
+            type: float32
+            unit: ''
+            description: degrees of freedom of fit near absorption lines
+          LOGLAM:
+            name: LOGLAM
+            type: float32[4128]
+            unit: log10(AA)
+            description: Log Lambda
+          OBJFLUX:
+            name: OBJFLUX
+            type: float32[4128]
+            unit: nanomaggy
+            description: Flux of object
+          MODELFLUX:
+            name: MODELFLUX
+            type: float32[4128]
+            unit: nanomaggy
+            description: Flux of model fit
+          MRATIO:
+            name: MRATIO
+            type: float32[4128]
+            unit: ''
+            description: MRATIO vectors are the "raw" flux-calib vectors for each
+              expos+CCD
+          MRATIVAR:
+            name: MRATIVAR
+            type: float32[4128]
+            unit: ''
+            description: Ivar of MRATIO
+      hdu3:
+        name: ''
+        description: Binary table with traceset structure of b-spline fits for calibration
+          vectors of all standards.
+        is_image: false
+        size: 3 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: Binary table written by MWRFITS v1.13
+        - key: BITPIX
+          value: 8
+          comment: Required value
+        - key: NAXIS
+          value: 2
+          comment: Required value
+        - key: NAXIS1
+          value: 3256
+          comment: Number of bytes per row
+        - key: NAXIS2
+          value: 1
+          comment: Number of rows
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: Required value
+        - key: TFIELDS
+          value: 5
+          comment: Number of columns in table
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** End of mandatory fields ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column formats ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column names ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        columns:
+          FULLBKPT:
+            name: FULLBKPT
+            type: float32[234]
+            unit: ''
+            description: Breakpoint vector
+          BKMASK:
+            name: BKMASK
+            type: int16[234]
+            unit: ''
+            description: mask of the breakpoint vector
+          NORD:
+            name: NORD
+            type: int32
+            unit: ''
+            description: Number of orders for Bspline fit
+          COEFF:
+            name: COEFF
+            type: float32[231]
+            unit: ''
+            description: The bspline coefficients
+          ICOEFF:
+            name: ICOEFF
+            type: float32[231]
+            unit: ''
+            description: inversion bspline coefficients
+      hdu4:
+        name: ''
+        description: Output structure
+        is_image: false
+        size: 9 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: Binary table written by MWRFITS v1.13
+        - key: BITPIX
+          value: 8
+          comment: Required value
+        - key: NAXIS
+          value: 2
+          comment: Required value
+        - key: NAXIS1
+          value: 10173032
+          comment: Number of bytes per row
+        - key: NAXIS2
+          value: 1
+          comment: Number of rows
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: Required value
+        - key: TFIELDS
+          value: 8
+          comment: Number of columns in table
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** End of mandatory fields ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column formats ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column dimensions (2 D or greater) ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: TDIM1
+          value: ( 4128, 1, 68)
+          comment: ''
+        - key: TDIM2
+          value: ( 4128, 1, 68)
+          comment: ''
+        - key: TDIM3
+          value: ( 4128, 1, 68)
+          comment: ''
+        - key: TDIM4
+          value: ( 4128, 1, 68)
+          comment: ''
+        - key: TDIM7
+          value: ( 2492, 500)
+          comment: ''
+        - key: TDIM8
+          value: ( 2492, 68)
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column names ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        columns:
+          THISLOGLAM:
+            name: THISLOGLAM
+            type: float32[280704]
+            unit: log10(AA)
+            description: log lambda
+          THISMRATIO:
+            name: THISMRATIO
+            type: float32[280704]
+            unit: ''
+            description: MRATIO vectors are the "raw" flux-calib vectors for this
+              expos+CCD
+          THISMRATIVAR:
+            name: THISMRATIVAR
+            type: float32[280704]
+            unit: ''
+            description: Ivar of THISMRATIVAR
+          THISFLATARR:
+            name: THISFLATARR
+            type: float32[280704]
+            unit: ''
+            description: polynomial fit of the object with respect to the model
+          FRAC_SCAT:
+            name: FRAC_SCAT
+            type: float64
+            unit: ''
+            description: percental dispersion of the fluxing vectors used wrt the
+              truth
+          TMPLOGLAM:
+            name: TMPLOGLAM
+            type: float64[2492]
+            unit: ''
+            description: output grid
+          THISFLATARR_ALL:
+            name: THISFLATARR_ALL
+            type: float32[1246000]
+            unit: ''
+            description: rpolynomial fit of the object with respect to the model for
+              all star
+          THISFLATARR_NEW:
+            name: THISFLATARR_NEW
+            type: float32[169456]
+            unit: ''
             description: polynomial fit of the object with respect to the model for
               all the std and all obj
 notes: |-

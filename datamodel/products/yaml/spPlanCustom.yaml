@@ -5,6 +5,7 @@ general:
   datatype: PAR
   filesize: 53 MB
   releases:
+  - IPL3
   - WORK
   environments:
   - BOSS_SPECTRO_REDUX
@@ -18,9 +19,307 @@ general:
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
-  releases: {}
+  releases:
+    WORK:
+      from: IPL3
+      note: No changes
 releases:
   WORK:
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/[COADD]/spPlanCustom-[COADD]-[MJD].par
+    example: v6_1_3/allepoch/spPlanCustom-allepoch-60407.par
+    location: '{run2d}/{coadd}/spPlanCustom-{coadd}-{mjd}.par'
+    environment: BOSS_SPECTRO_REDUX
+    access:
+      in_sdss_access: false
+      path_name: null
+      path_template: null
+      path_kwargs: null
+      access_string: spPlanCustom = $BOSS_SPECTRO_REDUX/{run2d}/{coadd}/spPlanCustom-{coadd}-{mjd}.par
+    survey: BHM
+    par:
+      comments: |-
+        #%yanny
+        # Table
+      header:
+      - key: NAME
+        value: allepoch
+        comment: Name of the custom coadd schema
+      - key: RUN2D
+        value: v6_1_3
+        comment: run2d version
+      - key: RUN1D
+        value: v6_1_3
+        comment: run1d version
+      - key: idlspec2dVersion
+        value: v6_1_3
+        comment: Version of idlspec2d when building plan file
+      - key: idlutilsVersion
+        value: 6.0.0dev
+        comment: Version of idlutils when building plan file
+      - key: Rerun_RUN1D
+        value: '1'
+        comment: 1D analysis of Custom Coadd (1:True, 2:False)
+      - key: Date
+        value: 04/07/2024-00:31
+        comment: Date of creation
+      - key: CreateMJD
+        value: '60407'
+        comment: MJD of creation
+      - key: MJD_range
+        value: 59146-60130
+        comment: Range of MJDs available to coadd
+      - key: TARGID
+        value: CATALOGID
+        comment: TARGID column maps to CATALOGID or SDSSID
+      - key: MJD
+        value: '60407'
+        comment: MJD of Coadd
+      tables:
+        COADDPLAN:
+          name: COADDPLAN
+          description: Target to Field-mjd mapping for custom coadds
+          n_rows: 83120
+          structure:
+          - name: TARGID
+            type: long
+            description: Target ID (SDSSID or CatalogID as noted by header key)
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: 4215377264
+          - name: FMJD_LIST
+            type: char[64][12]
+            description: List of Field-MJDs that where the target was observed
+            unit: ''
+            is_array: true
+            is_enum: false
+            example:
+            - 015371-59367
+            - 015371-59387
+            - 015371-59392
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+          - name: FIELDS_LIST
+            type: long[64]
+            description: List of Field IDs where the target was observed (matches
+              to Field-MJD) with -1 for null
+            unit: ''
+            is_array: true
+            is_enum: false
+            example:
+            - 15371
+            - 15371
+            - 15371
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+          - name: MJD_LIST
+            type: long[64]
+            description: List of MJDs where the target was observed (matches to Field-MJD)
+              with -1 for null
+            unit: ''
+            is_array: true
+            is_enum: false
+            example:
+            - 59367
+            - 59387
+            - 59392
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+          - name: CATALOGID_LIST
+            type: long[1]
+            description: Unique CatalogIDs that match to the targetID
+            unit: ''
+            is_array: true
+            is_enum: false
+            example:
+            - 4215377264
+          - name: EPOCH_COMBINE
+            type: long
+            description: The MJD of the epoch that the Target is grouped into (typically
+              the last MJD the target was observed, but can be slightly later if only
+              a few targets have the same MJD)
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: 59392
+  IPL3:
     template: $BOSS_SPECTRO_REDUX/[RUN2D]/[COADD]/spPlanCustom-[COADD]-[MJD].par
     example: v6_1_3/allepoch/spPlanCustom-allepoch-60407.par
     location: '{run2d}/{coadd}/spPlanCustom-{coadd}-{mjd}.par'

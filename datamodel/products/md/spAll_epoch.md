@@ -19,7 +19,7 @@ This file contains a summary of the BOSS idlspec2d and spectro-1d pipeline outpu
 $BOSS_SPECTRO_REDUX/[RUN2D]/epoch/spAll-[RUN2D].fits.gz
 
 ### Releases
-WORK
+IPL3, WORK
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -44,6 +44,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - WORK
+   - from: IPL3
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -204,7 +207,7 @@ Name | Type | Unit | Description |
  | SN_MEDIAN | float32[5] |  | Median S/N for all good pixels in SDSS-{ugriz} |
  | SN_MEDIAN_ALL | float32 |  | Median S/N for all good pixels in all filters |
  | AIRMASS | float32 |  | Airmass at time of observation |
- | SEEING20 | float32 |  | Mean 20% seeing during exposures (arcsec) |
+ | SEEING20 | float32 | arcsecs | Mean 20% seeing during exposures (arcsec) |
  | SEEING50 | float32 | arcsecs | Mean 50% seeing during exposures (arcsec) |
  | SEEING80 | float32 | arcsecs | Mean 80% seeing during exposures (arcsec) |
  | MOON_DIST | char[144] | degrees | Mean Moon-target separation of Coadded Spectra |

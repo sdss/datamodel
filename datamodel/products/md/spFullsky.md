@@ -19,7 +19,7 @@ The spFullsky files contain the combined spectra for all exposures of a given cu
 $BOSS_SPECTRO_REDUX/[RUN2D]/[COADD]/spFullsky-[COADD]-[MJD].fits
 
 ### Releases
-WORK
+IPL3, WORK
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -50,6 +50,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - WORK
+   - from: IPL3
+   - note: No changes
 
 ---
 ## Example HDUS List

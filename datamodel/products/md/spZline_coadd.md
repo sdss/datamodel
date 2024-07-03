@@ -19,7 +19,7 @@ Contains a summary of the Spectro-1D spZline output for custom coadded spectra w
 $BOSS_SPECTRO_REDUX/[RUN2D]/[COADD]/[RUN1D]/spZline-[COADD]-[MJD].fits
 
 ### Releases
-WORK
+IPL3, WORK
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -45,6 +45,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - WORK
+   - from: IPL3
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -137,7 +140,7 @@ Name | Type | Unit | Description |
  | CATALOGID | int64 |  | SDSS-V CatalogID used in naming |
  | SDSS_ID | int64 |  | Unified SDSS Target Identifier |
  | LINENAME | char[13] |  | Line name |
- | LINEWAVE | float64 | AA | Catalog wavelength of line in vacuum Angstroms |
+ | LINEWAVE | float64 |  | Catalog wavelength of line in vacuum Angstroms |
  | LINEZ | float32 |  | Redshift |
  | LINEZ_ERR | float32 |  | Redshift error (negative for invalid fit) |
  | LINESIGMA | float32 | km/s | Gaussian width in km/sec |

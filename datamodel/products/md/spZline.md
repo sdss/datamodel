@@ -19,7 +19,7 @@ This file contains the emission-line fits from Spectro-1D.
 $BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/[RUN1D]/spZline-[FIELD]-[MJD].fits
 
 ### Releases
-WORK
+IPL3, WORK
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -45,6 +45,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - WORK
+   - from: IPL3
+   - note: No changes
 
 ---
 ## Example HDUS List

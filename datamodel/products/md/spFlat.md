@@ -19,7 +19,7 @@ This file contains information about fiberflats, X-centers of fibers, fibermask,
 $BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/spFlat-[BR][ID]-[FRAME].fits.gz
 
 ### Releases
-WORK
+IPL3, WORK
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -48,6 +48,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - WORK
+   - from: IPL3
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -303,7 +306,7 @@ Name | Type | Unit | Description |
  | FUNC | char[8] |  | function used to fit the Y-pixel positions on the CCD and corresponding X-centers are fitted to a functional form. Polynomial, Chebyshev, Legendre or Chebyshev_split functions are used. Default value is taken as Legendre function |
  | XMIN | float64 |  | minimum value of the independent variable which is used along with the fitting coefficients, in the fitting function to get the value of dependent variable, which is the X-center of fibers. |
  | XMAX | float64 |  | maximum value of the independent variable used by fitting function. |
- | COEFF | float64[3500] |  | fit coefficents |
+ | COEFF | float64[3500] |  | fit coefficients |
 
 
 
@@ -391,7 +394,7 @@ Name | Type | Unit | Description |
  | FUNC | char[8] |  | function used to fit the X-positions on CCD and the correspoding profile widths to a functional form. Polynomial, Chebyshev, Legendre or Chebyshev_split functions are used. Default value is taken as Legendre function. |
  | XMIN | float64 |  | minimum value of the independent variable which is used along with the fitting coefficients, in the fitting function to get the value of dependent variable, which is the profile width of fibers. |
  | XMAX | float64 |  | maximum value of the independent variable used by fitting function. |
- | COEFF | float64[1500] |  | fit coefficentst |
+ | COEFF | float64[1500] |  | fit coefficients |
 
 
 
@@ -454,8 +457,8 @@ Name | Type | Unit | Description |
  | FULLBKPT | float32[1816] |  | Breakpoint vector |
  | BKMASK | int16[1816] |  | mask of the breakpoint vector |
  | NORD | int32 |  | Number of orders for Bspline fit |
- | COEFF | float32[1812] |  | The bspline coeffients |
- | ICOEFF | float32[1812] |  | inversion bspline coeffients |
+ | COEFF | float32[1812] |  | The bspline coefficients |
+ | ICOEFF | float32[1812] |  | inversion bspline coefficients |
 
 
 

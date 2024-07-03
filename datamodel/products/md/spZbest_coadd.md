@@ -19,7 +19,7 @@ The spZbest files contain the spectroscopic classifications and redshifts from t
 $BOSS_SPECTRO_REDUX/[RUN2D]/[COADD]/[RUN1D]/spZbest-[COADD]-[MJD].fits
 
 ### Releases
-WORK
+IPL3, WORK
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -46,6 +46,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - WORK
+   - from: IPL3
+   - note: No changes
 
 ---
 ## Example HDUS List

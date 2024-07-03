@@ -26,6 +26,12 @@
     "filesize": "66 MB",
     "releases": [
       {
+        "name": "IPL3",
+        "description": "SDSS internal product launch 3",
+        "public": false,
+        "release_date": "2023-11-01"
+      },
+      {
         "name": "WORK",
         "description": "SDSS unreleased data.  Represents any work-in-progress data.",
         "public": false,
@@ -40,7 +46,33 @@
   },
   "changelog": {
     "description": "Describes changes to the datamodel product and/or file structure from one release to another",
-    "releases": {}
+    "releases": {
+      "WORK": {
+        "from": "IPL3",
+        "note": "No changes",
+        "delta_nhdus": null,
+        "added_hdus": null,
+        "removed_hdus": null,
+        "primary_delta_nkeys": null,
+        "added_primary_header_kwargs": null,
+        "removed_primary_header_kwargs": null,
+        "delta_nkeys": null,
+        "addead_header_keys": null,
+        "removed_header_keys": null,
+        "delta_ntables": null,
+        "addead_tables": null,
+        "removed_tables": null,
+        "tables": null,
+        "new_libver": null,
+        "delta_nattrs": null,
+        "addead_attrs": null,
+        "removed_attrs": null,
+        "delta_nmembers": null,
+        "addead_members": null,
+        "removed_members": null,
+        "members": null
+      }
+    }
   },
   "releases": {
     "WORK": {
@@ -2580,7 +2612,2830 @@
             },
             "OBJTYPE": {
               "name": "OBJTYPE",
-              "description": "Why this object was targetted. QSO=SCIENCE",
+              "description": "Why this object was targeted. QSO=SCIENCE",
+              "type": "char[16]",
+              "unit": ""
+            },
+            "FIBER_RA": {
+              "name": "FIBER_RA",
+              "description": "Fiber RA [J2000 for plate; at exp for FPS]",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "FIBER_DEC": {
+              "name": "FIBER_DEC",
+              "description": "Fiber DEC [J2000 for plate; at exp for FPS]",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "PLUG_RA": {
+              "name": "PLUG_RA",
+              "description": "Object RA (drilled fiber position) [J2000]",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "PLUG_DEC": {
+              "name": "PLUG_DEC",
+              "description": "Object DEC (drilled fiber position) [J2000]",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "CLASS": {
+              "name": "CLASS",
+              "description": "Spectro classification: GALAXY, QSO, STAR",
+              "type": "char[6]",
+              "unit": ""
+            },
+            "SUBCLASS": {
+              "name": "SUBCLASS",
+              "description": "Spectro sub-classification",
+              "type": "char[21]",
+              "unit": ""
+            },
+            "Z": {
+              "name": "Z",
+              "description": "Redshift; incorrect for nonzero ZWARNING flag",
+              "type": "float32",
+              "unit": ""
+            },
+            "Z_ERR": {
+              "name": "Z_ERR",
+              "description": "z error from chi^2 min; negative is invalid fit",
+              "type": "float32",
+              "unit": ""
+            },
+            "RCHI2": {
+              "name": "RCHI2",
+              "description": "Reduced chi^2 for best fit",
+              "type": "float32",
+              "unit": ""
+            },
+            "DOF": {
+              "name": "DOF",
+              "description": "Degrees of freedom for best fit",
+              "type": "int32",
+              "unit": ""
+            },
+            "RCHI2DIFF": {
+              "name": "RCHI2DIFF",
+              "description": "Diff in reduced chi^2 of 2 best solutions",
+              "type": "float32",
+              "unit": ""
+            },
+            "TFILE": {
+              "name": "TFILE",
+              "description": "Template file in $IDLSPEC2D_DIR/templates",
+              "type": "char[24]",
+              "unit": ""
+            },
+            "TCOLUMN": {
+              "name": "TCOLUMN",
+              "description": "Column to use in template file (0-indexed)",
+              "type": "int32[10]",
+              "unit": ""
+            },
+            "NPOLY": {
+              "name": "NPOLY",
+              "description": "# of polynomial terms with TFILE",
+              "type": "int32",
+              "unit": ""
+            },
+            "THETA": {
+              "name": "THETA",
+              "description": "Eigenvalue coeff for template file + polynomial",
+              "type": "float32[10]",
+              "unit": ""
+            },
+            "THETA_COVAR": {
+              "name": "THETA_COVAR",
+              "description": "Covariance matrix for THETA",
+              "type": "float32[100]",
+              "unit": ""
+            },
+            "VDISP": {
+              "name": "VDISP",
+              "description": "Velocity dispersion, only computed for galaxies",
+              "type": "float32",
+              "unit": "km/s"
+            },
+            "VDISP_ERR": {
+              "name": "VDISP_ERR",
+              "description": "Error in VDISP; negative for invalid fit",
+              "type": "float32",
+              "unit": "km/s"
+            },
+            "VDISPZ": {
+              "name": "VDISPZ",
+              "description": "Redshift for best-fit velocity dispersion",
+              "type": "float32",
+              "unit": ""
+            },
+            "VDISPZ_ERR": {
+              "name": "VDISPZ_ERR",
+              "description": "Error in VDISPZ",
+              "type": "float32",
+              "unit": ""
+            },
+            "VDISPCHI2": {
+              "name": "VDISPCHI2",
+              "description": "Chi^2 for best-fit velocity dispersion",
+              "type": "float32",
+              "unit": ""
+            },
+            "VDISPNPIX": {
+              "name": "VDISPNPIX",
+              "description": "Num of pixels overlapping VDISP fit templates",
+              "type": "float32",
+              "unit": ""
+            },
+            "VDISPDOF": {
+              "name": "VDISPDOF",
+              "description": "DOF for best-fit velocity dispersion",
+              "type": "int32",
+              "unit": ""
+            },
+            "WAVEMIN": {
+              "name": "WAVEMIN",
+              "description": "Minimum observed (vacuum) wavelength for target",
+              "type": "float32",
+              "unit": "AA"
+            },
+            "WAVEMAX": {
+              "name": "WAVEMAX",
+              "description": "Maximum observed (vacuum) wavelength for target",
+              "type": "float32",
+              "unit": "AA"
+            },
+            "WCOVERAGE": {
+              "name": "WCOVERAGE",
+              "description": "Amount of wavelength coverage in log-10(Angs)",
+              "type": "float32",
+              "unit": "log10(AA)"
+            },
+            "ZWARNING": {
+              "name": "ZWARNING",
+              "description": "A flag for bad z fits in place of CLASS=UNKNOWN",
+              "type": "int32",
+              "unit": ""
+            },
+            "SN_MEDIAN": {
+              "name": "SN_MEDIAN",
+              "description": "Median S/N for all good pixels in SDSS-{ugriz}",
+              "type": "float32[5]",
+              "unit": ""
+            },
+            "SN_MEDIAN_ALL": {
+              "name": "SN_MEDIAN_ALL",
+              "description": "Median S/N for all good pixels in all filters",
+              "type": "float32",
+              "unit": ""
+            },
+            "CHI68P": {
+              "name": "CHI68P",
+              "description": "68% of abs(chi) of synthetic to actual spectrum",
+              "type": "float32",
+              "unit": ""
+            },
+            "FRACNSIGMA": {
+              "name": "FRACNSIGMA",
+              "description": "Fraction of pixels deviant by >{1-10} sigma",
+              "type": "float32[10]",
+              "unit": ""
+            },
+            "FRACNSIGHI": {
+              "name": "FRACNSIGHI",
+              "description": "Fraction of pixels high by >{1-10} sigma",
+              "type": "float32[10]",
+              "unit": ""
+            },
+            "FRACNSIGLO": {
+              "name": "FRACNSIGLO",
+              "description": "Fraction of pixels low by >{1-10} sigma",
+              "type": "float32[10]",
+              "unit": ""
+            },
+            "SPECTROFLUX": {
+              "name": "SPECTROFLUX",
+              "description": "Spectrum projected onto SDSS-{ugriz} filter",
+              "type": "float32[5]",
+              "unit": "nanomaggy"
+            },
+            "SPECTROFLUX_IVAR": {
+              "name": "SPECTROFLUX_IVAR",
+              "description": "Inverse variance of SPECTROFLUX",
+              "type": "float32[5]",
+              "unit": "nanomaggy"
+            },
+            "SPECTROSYNFLUX": {
+              "name": "SPECTROSYNFLUX",
+              "description": "Best-fit template projected onto SDSS-{ugriz}",
+              "type": "float32[5]",
+              "unit": "nanomaggy"
+            },
+            "SPECTROSYNFLUX_IVAR": {
+              "name": "SPECTROSYNFLUX_IVAR",
+              "description": "Inverse variance of SPECTROSYNFLUX",
+              "type": "float32[5]",
+              "unit": "nanomaggy"
+            },
+            "SPECTROSKYFLUX": {
+              "name": "SPECTROSKYFLUX",
+              "description": "Sky spectrum projected onto SDSS-{ugriz} filter",
+              "type": "float32[5]",
+              "unit": "nanomaggy"
+            },
+            "ANYANDMASK": {
+              "name": "ANYANDMASK",
+              "description": "For each bit, any pixel has bit set in ANDMASK",
+              "type": "int32",
+              "unit": ""
+            },
+            "ANYORMASK": {
+              "name": "ANYORMASK",
+              "description": "For each bit, any pixel has bit set in ORMASK",
+              "type": "int32",
+              "unit": ""
+            },
+            "SPEC1_G": {
+              "name": "SPEC1_G",
+              "description": "Fit (S/N)^2 at g=20.20 for spectrograph 1",
+              "type": "float32",
+              "unit": ""
+            },
+            "SPEC1_R": {
+              "name": "SPEC1_R",
+              "description": "Fit (S/N)^2 at r=20.25 for spectrograph 1",
+              "type": "float32",
+              "unit": ""
+            },
+            "SPEC1_I": {
+              "name": "SPEC1_I",
+              "description": "Fit (S/N)^2 at i=19.90 for spectrograph 1",
+              "type": "float32",
+              "unit": ""
+            },
+            "SPEC2_G": {
+              "name": "SPEC2_G",
+              "description": "Fit (S/N)^2 at g=20.20 for spectrograph 2",
+              "type": "float32",
+              "unit": ""
+            },
+            "SPEC2_R": {
+              "name": "SPEC2_R",
+              "description": "Fit (S/N)^2 at r=20.25 for spectrograph 2",
+              "type": "float32",
+              "unit": ""
+            },
+            "SPEC2_I": {
+              "name": "SPEC2_I",
+              "description": "Fit (S/N)^2 at i=19.90 for spectrograph 2",
+              "type": "float32",
+              "unit": ""
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null
+    },
+    "IPL3": {
+      "template": "$BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/epoch/[RUN1D]/spZall-[FIELD]-[MJD].fits",
+      "example": "v6_1_3/112360/epoch/v6_1_3/spZall-112360-60000.fits",
+      "location": "{run2d}/{field}/epoch/{run1d}/spZall-{field}-{mjd}.fits",
+      "environment": "BOSS_SPECTRO_REDUX",
+      "survey": "BHM",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "spZall_epoch",
+        "path_template": "$BOSS_SPECTRO_REDUX/{run2d}/@pad_fieldid|@isplate|/epoch/{run1d}/spZall-@pad_fieldid|-{mjd}.fits",
+        "path_kwargs": [
+          "mjd",
+          "run2d",
+          "fieldid",
+          "run1d"
+        ],
+        "access_string": "spZall_epoch = $BOSS_SPECTRO_REDUX/{run2d}/{field}/epoch/{run1d}/spZall-{field}-{mjd}.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "Written by IDL:  Wed Apr  3 03:57:47 2024"
+            },
+            {
+              "key": "BITPIX",
+              "value": "16",
+              "comment": "Number of bits per data pixel"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "Number of data axes"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            },
+            {
+              "key": "",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "",
+              "value": "INSTRUMENT INFO",
+              "comment": ""
+            },
+            {
+              "key": "TELESCOP",
+              "value": "SDSS 2.5-M",
+              "comment": "Telescope"
+            },
+            {
+              "key": "OBSERVAT",
+              "value": "APO",
+              "comment": "Observatory"
+            },
+            {
+              "key": "SPEC",
+              "value": "",
+              "comment": "Spectrograph name"
+            },
+            {
+              "key": "CCD",
+              "value": "",
+              "comment": "CCD name"
+            },
+            {
+              "key": "CCDID",
+              "value": "",
+              "comment": "Unique identifier of the CCD"
+            },
+            {
+              "key": "CCDTYPE",
+              "value": "",
+              "comment": "CCD type"
+            },
+            {
+              "key": "",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "",
+              "value": "EXPOSURE INFO",
+              "comment": ""
+            },
+            {
+              "key": "NEXP",
+              "value": "13",
+              "comment": "Number of Coadded Exposures"
+            },
+            {
+              "key": "BESTEXP",
+              "value": "353050",
+              "comment": ""
+            },
+            {
+              "key": "EXPID01",
+              "value": "b1-00352994-00352990-00352993",
+              "comment": "ID string for exposure 1"
+            },
+            {
+              "key": "EXPID02",
+              "value": "b1-00352995-00352990-00352993",
+              "comment": "ID string for exposure 2"
+            },
+            {
+              "key": "EXPID03",
+              "value": "b1-00352996-00352990-00352993",
+              "comment": "ID string for exposure 3"
+            },
+            {
+              "key": "EXPID04",
+              "value": "b1-00352997-00352990-00352993",
+              "comment": "ID string for exposure 4"
+            },
+            {
+              "key": "EXPID05",
+              "value": "b1-00352998-00352990-00352993",
+              "comment": "ID string for exposure 5"
+            },
+            {
+              "key": "EXPID06",
+              "value": "b1-00353048-00353044-00353047",
+              "comment": "ID string for exposure 6"
+            },
+            {
+              "key": "EXPID07",
+              "value": "b1-00353049-00353044-00353047",
+              "comment": "ID string for exposure 7"
+            },
+            {
+              "key": "EXPID08",
+              "value": "b1-00353050-00353044-00353047",
+              "comment": "ID string for exposure 8"
+            },
+            {
+              "key": "EXPID09",
+              "value": "b1-00353051-00353044-00353047",
+              "comment": "ID string for exposure 9"
+            },
+            {
+              "key": "EXPID10",
+              "value": "b1-00353052-00353044-00353047",
+              "comment": "ID string for exposure 10"
+            },
+            {
+              "key": "EXPID11",
+              "value": "b1-00353053-00353044-00353047",
+              "comment": "ID string for exposure 11"
+            },
+            {
+              "key": "EXPID12",
+              "value": "b1-00353054-00353044-00353047",
+              "comment": "ID string for exposure 12"
+            },
+            {
+              "key": "EXPID13",
+              "value": "b1-00353055-00353044-00353047",
+              "comment": "ID string for exposure 13"
+            },
+            {
+              "key": "EXPID14",
+              "value": "r1-00352994-00352990-00352993",
+              "comment": "ID string for exposure 14"
+            },
+            {
+              "key": "EXPID15",
+              "value": "r1-00352995-00352990-00352993",
+              "comment": "ID string for exposure 15"
+            },
+            {
+              "key": "EXPID16",
+              "value": "r1-00352996-00352990-00352993",
+              "comment": "ID string for exposure 16"
+            },
+            {
+              "key": "EXPID17",
+              "value": "r1-00352997-00352990-00352993",
+              "comment": "ID string for exposure 17"
+            },
+            {
+              "key": "EXPID18",
+              "value": "r1-00352998-00352990-00352993",
+              "comment": "ID string for exposure 18"
+            },
+            {
+              "key": "EXPID19",
+              "value": "r1-00353048-00353044-00353047",
+              "comment": "ID string for exposure 19"
+            },
+            {
+              "key": "EXPID20",
+              "value": "r1-00353049-00353044-00353047",
+              "comment": "ID string for exposure 20"
+            },
+            {
+              "key": "EXPID21",
+              "value": "r1-00353050-00353044-00353047",
+              "comment": "ID string for exposure 21"
+            },
+            {
+              "key": "EXPID22",
+              "value": "r1-00353051-00353044-00353047",
+              "comment": "ID string for exposure 22"
+            },
+            {
+              "key": "EXPID23",
+              "value": "r1-00353052-00353044-00353047",
+              "comment": "ID string for exposure 23"
+            },
+            {
+              "key": "EXPID24",
+              "value": "r1-00353053-00353044-00353047",
+              "comment": "ID string for exposure 24"
+            },
+            {
+              "key": "EXPID25",
+              "value": "r1-00353054-00353044-00353047",
+              "comment": "ID string for exposure 25"
+            },
+            {
+              "key": "EXPID26",
+              "value": "r1-00353055-00353044-00353047",
+              "comment": "ID string for exposure 26"
+            },
+            {
+              "key": "NEXP_B1",
+              "value": "13",
+              "comment": "B1 camera number of exposures"
+            },
+            {
+              "key": "NEXP_R1",
+              "value": "13",
+              "comment": "R1 camera number of exposures"
+            },
+            {
+              "key": "NEXP_B2",
+              "value": "0",
+              "comment": "B2 camera number of exposures"
+            },
+            {
+              "key": "NEXP_R2",
+              "value": "0",
+              "comment": "R2 camera number of exposures"
+            },
+            {
+              "key": "EXPT_B1",
+              "value": "11701.1",
+              "comment": "B1 camera exposure time (seconds)"
+            },
+            {
+              "key": "EXPT_R1",
+              "value": "11701.1",
+              "comment": "R1 camera exposure time (seconds)"
+            },
+            {
+              "key": "EXPT_B2",
+              "value": "0.0",
+              "comment": "B2 camera exposure time (seconds)"
+            },
+            {
+              "key": "EXPT_R2",
+              "value": "0.0",
+              "comment": "R2 camera exposure time (seconds)"
+            },
+            {
+              "key": "EXPTIME",
+              "value": "11701.0701782",
+              "comment": "Total Exposure time in seconds of integration"
+            },
+            {
+              "key": "MOONFRAC",
+              "value": "0.258947511804",
+              "comment": "Moon Phase"
+            },
+            {
+              "key": "MJDLIST",
+              "value": "59999 60000",
+              "comment": "List of MJDs included"
+            },
+            {
+              "key": "DESIGNS",
+              "value": "108450 108451 108452 108453 108454 108455",
+              "comment": "List of DESIGNS included"
+            },
+            {
+              "key": "SEEING20",
+              "value": "1.19876923172",
+              "comment": "20% seeing during exposure (arcsec)"
+            },
+            {
+              "key": "SEEING50",
+              "value": "1.34646",
+              "comment": "50% seeing during exposure (arcsec)"
+            },
+            {
+              "key": "SEEING80",
+              "value": "1.61569",
+              "comment": "80% seeing during exposure (arcsec)"
+            },
+            {
+              "key": "RMSOFF20",
+              "value": "0.0696695846154",
+              "comment": "20% RMS offset of guide fibers (arcsec)"
+            },
+            {
+              "key": "RMSOFF50",
+              "value": "0.119696130769",
+              "comment": "50% RMS offset of guide fibers (arcsec)"
+            },
+            {
+              "key": "RMSOFF80",
+              "value": "0.202339538462",
+              "comment": "80% RMS offset of guide fibers (arcsec)"
+            },
+            {
+              "key": "CONFIGS",
+              "value": "8860 8861 8862 8872 8873 8874 8875",
+              "comment": "List of configurations included"
+            },
+            {
+              "key": "TAI",
+              "value": "5183989551.69",
+              "comment": "Mean MJD(TAI) seconds of integrations"
+            },
+            {
+              "key": "TAI-BEG",
+              "value": "5183933265.0",
+              "comment": "MJD(TAI) seconds at start of integrations"
+            },
+            {
+              "key": "TAI-END",
+              "value": "5184028003.08",
+              "comment": "MJD(TAI) seconds at End of integrations"
+            },
+            {
+              "key": "SPCOADD",
+              "value": "Fri Apr 12 21:14:13 2024",
+              "comment": "SPCOADD finished"
+            },
+            {
+              "key": "",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "",
+              "value": "FIELD/PLATE INFO",
+              "comment": ""
+            },
+            {
+              "key": "NAME",
+              "value": "",
+              "comment": "The name of the currently loaded plate"
+            },
+            {
+              "key": "PLATEID",
+              "value": "",
+              "comment": "The currently loaded plate"
+            },
+            {
+              "key": "CARTID",
+              "value": "FPS-N",
+              "comment": "Cartridge used in this plugging"
+            },
+            {
+              "key": "MAPID",
+              "value": "",
+              "comment": "The mapping version of the loaded plate"
+            },
+            {
+              "key": "POINTING",
+              "value": "",
+              "comment": "The currently specified pointing"
+            },
+            {
+              "key": "PLATETYP",
+              "value": "BHM&MWM",
+              "comment": "Type of plate (e.g. BOSS, MANGA, APOGEE, APOGEE)"
+            },
+            {
+              "key": "SRVYMODE",
+              "value": "",
+              "comment": "Survey leading this observation and its mode"
+            },
+            {
+              "key": "FIELDID",
+              "value": "112360",
+              "comment": "FPS field"
+            },
+            {
+              "key": "MJD",
+              "value": "60000",
+              "comment": ""
+            },
+            {
+              "key": "NGUIDE",
+              "value": "309.0",
+              "comment": "Number of guider frames during integration"
+            },
+            {
+              "key": "FIELDCAD",
+              "value": "dark_174x8_v1",
+              "comment": ""
+            },
+            {
+              "key": "SLITID",
+              "value": "0",
+              "comment": "spectrograph Normalized slithead ID."
+            },
+            {
+              "key": "",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "",
+              "value": "TELESCOPE INFO",
+              "comment": ""
+            },
+            {
+              "key": "RA",
+              "value": "150.013401",
+              "comment": "RA of telescope boresight (deg)"
+            },
+            {
+              "key": "DEC",
+              "value": "2.181684",
+              "comment": "Dec of telescope boresight (deg)"
+            },
+            {
+              "key": "RADEG",
+              "value": "150.01675",
+              "comment": "RA of telescope pointing(deg)"
+            },
+            {
+              "key": "DECDEG",
+              "value": "2.18325",
+              "comment": "Dec of telescope pointing (deg)"
+            },
+            {
+              "key": "EQUINOX",
+              "value": "2000.0",
+              "comment": "Equinox of celestial coordinate system"
+            },
+            {
+              "key": "RADECSYS",
+              "value": "FK5",
+              "comment": ""
+            },
+            {
+              "key": "OFFRA",
+              "value": "0.0",
+              "comment": "Absolute guider offset in RA"
+            },
+            {
+              "key": "OFFDEC",
+              "value": "-0.1",
+              "comment": "Absolute guider offset in DEC"
+            },
+            {
+              "key": "OFFPA",
+              "value": "-432.0",
+              "comment": "Absolute guider offset in PA"
+            },
+            {
+              "key": "",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "",
+              "value": "VERSIONS",
+              "comment": ""
+            },
+            {
+              "key": "VJAEGER",
+              "value": "1.3.4a0",
+              "comment": "Version of Jaeger"
+            },
+            {
+              "key": "VKAIJU",
+              "value": "1.2.4-alpha.0",
+              "comment": "Version of Kaiju"
+            },
+            {
+              "key": "VCOORDIO",
+              "value": "1.6.2a0",
+              "comment": "Version of coordIO"
+            },
+            {
+              "key": "VCALIBS",
+              "value": "2023.01.05",
+              "comment": "Version of FPS calibrations"
+            },
+            {
+              "key": "V_APO",
+              "value": "3.0.1",
+              "comment": "Version of the current apoActor"
+            },
+            {
+              "key": "V_BOSS",
+              "value": "6.0.2-alpha.0",
+              "comment": "Active version of the BOSS ICC"
+            },
+            {
+              "key": "V_ARCHON",
+              "value": "",
+              "comment": "Active version of the BOSS ARCHON Controller"
+            },
+            {
+              "key": "ARCHBACK",
+              "value": "",
+              "comment": "Archon backplane ID"
+            },
+            {
+              "key": "ARCHBVER",
+              "value": "",
+              "comment": "Archon backplane version"
+            },
+            {
+              "key": "V_GUIDER",
+              "value": "",
+              "comment": "version of the current guiderActor"
+            },
+            {
+              "key": "V_SOP",
+              "value": "",
+              "comment": "version of the current sopActor"
+            },
+            {
+              "key": "DAQVER",
+              "value": "",
+              "comment": "BOSS Data Acquisition Version"
+            },
+            {
+              "key": "CAMDAQ",
+              "value": "1.5.0:37",
+              "comment": "Camera Data Acquisition Version"
+            },
+            {
+              "key": "BOSSVER",
+              "value": "",
+              "comment": "ICC version"
+            },
+            {
+              "key": "VERSIDL",
+              "value": "8.8.0",
+              "comment": "Version of IDL"
+            },
+            {
+              "key": "VERSUTIL",
+              "value": "6.0.0dev",
+              "comment": "Version of idlutils"
+            },
+            {
+              "key": "VERSREAD",
+              "value": "v6_1_3",
+              "comment": "Version of idlspec2d for pre-processing raw data"
+            },
+            {
+              "key": "VERSLOG",
+              "value": "trunk 27531",
+              "comment": "Version of SPECLOG product"
+            },
+            {
+              "key": "VERSFLAT",
+              "value": "v1_35",
+              "comment": "SPECFLAT version"
+            },
+            {
+              "key": "VERS2D",
+              "value": "v6_1_3",
+              "comment": "Version of idlspec2d for 2D reduction"
+            },
+            {
+              "key": "VERSCOMB",
+              "value": "v6_1_3",
+              "comment": "Version of idlspec2d for combining multiple spe"
+            },
+            {
+              "key": "",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "",
+              "value": "REDUCTION",
+              "comment": ""
+            },
+            {
+              "key": "BADPIXEL",
+              "value": "badpixels-59747-b1.fits.gz",
+              "comment": "Name of Badpixel mask used"
+            },
+            {
+              "key": "",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "",
+              "value": "PIPELINE OUTPUTS",
+              "comment": ""
+            },
+            {
+              "key": "RUN2D",
+              "value": "v6_1_3",
+              "comment": "Spectro-2D reduction name"
+            },
+            {
+              "key": "RUN1D",
+              "value": "v6_1_3",
+              "comment": "Spectro-1D reduction name"
+            },
+            {
+              "key": "VERS1D",
+              "value": "v6_1_3",
+              "comment": "Version of idlspec2d for 1D reduction"
+            },
+            {
+              "key": "REDDEN01",
+              "value": "0.0",
+              "comment": "Median extinction in u-band"
+            },
+            {
+              "key": "REDDEN02",
+              "value": "0.0",
+              "comment": "Median extinction in g-band"
+            },
+            {
+              "key": "REDDEN03",
+              "value": "0.0",
+              "comment": "Median extinction in r-band"
+            },
+            {
+              "key": "REDDEN04",
+              "value": "0.0",
+              "comment": "Median extinction in i-band"
+            },
+            {
+              "key": "REDDEN05",
+              "value": "0.0",
+              "comment": "Median extinction in z-band"
+            },
+            {
+              "key": "WDISPR",
+              "value": "3.10556",
+              "comment": ""
+            },
+            {
+              "key": "LAMPLIST",
+              "value": "lamphgcdne.dat",
+              "comment": ""
+            },
+            {
+              "key": "SKYLIST",
+              "value": "skylines.dat",
+              "comment": ""
+            },
+            {
+              "key": "OBSMODE",
+              "value": "dark_rm",
+              "comment": ""
+            },
+            {
+              "key": "SIGBS0",
+              "value": "0.048",
+              "comment": "5577.3 line gaussian fit sigma position before"
+            },
+            {
+              "key": "CENBS0",
+              "value": "-0.224",
+              "comment": "5577.3 line gaussian fit center position before"
+            },
+            {
+              "key": "AVGBS0",
+              "value": "-0.232",
+              "comment": "5577.3 line average position before shift (pixe"
+            },
+            {
+              "key": "STDBS0",
+              "value": "0.046",
+              "comment": "5577.3 line std position before shift (pixels)"
+            },
+            {
+              "key": "SIGAS0",
+              "value": "0.025",
+              "comment": "5577.3 line gaussian fit sigma position after s"
+            },
+            {
+              "key": "CENAS0",
+              "value": "0.003",
+              "comment": "5577.3 line gaussian fit center position after"
+            },
+            {
+              "key": "AVGAS0",
+              "value": "0.004",
+              "comment": "5577.3 line average position after shift (pixel"
+            },
+            {
+              "key": "STDAS0",
+              "value": "0.020",
+              "comment": "5577.3 line std position after shift (pixels)"
+            },
+            {
+              "key": "VACUUM",
+              "value": "True",
+              "comment": "Wavelengths are in vacuum"
+            },
+            {
+              "key": "SFLATTEN",
+              "value": "True",
+              "comment": "Superflat has been applied"
+            },
+            {
+              "key": "PSFSKY",
+              "value": "3",
+              "comment": "Order of PSF skysubtraction"
+            },
+            {
+              "key": "PREJECT",
+              "value": "0.2",
+              "comment": "Profile area rejection threshold"
+            },
+            {
+              "key": "SPEC1_G",
+              "value": "21.1374130845",
+              "comment": "(S/N)^2 for spec  1 at mag 21.20"
+            },
+            {
+              "key": "FSPEC1_G",
+              "value": "19.9482",
+              "comment": "Fit (S/N)^2 for spec  1 at mag 21.20"
+            },
+            {
+              "key": "SN2EXT1G",
+              "value": "21.1374130845",
+              "comment": "Extinction corrected (S/N)^2"
+            },
+            {
+              "key": "FSN2EX1G",
+              "value": "19.9482",
+              "comment": "Extinction corrected Fit (S/N)^2"
+            },
+            {
+              "key": "SPEC1_R",
+              "value": "74.7339222431",
+              "comment": "(S/N)^2 for spec  1 at mag 20.20"
+            },
+            {
+              "key": "FSPEC1_R",
+              "value": "72.6865",
+              "comment": "Fit (S/N)^2 for spec  1 at mag 20.20"
+            },
+            {
+              "key": "SN2EXT1R",
+              "value": "74.7339222431",
+              "comment": "Extinction corrected (S/N)^2"
+            },
+            {
+              "key": "FSN2EX1R",
+              "value": "72.6865",
+              "comment": "Extinction corrected Fit (S/N)^2"
+            },
+            {
+              "key": "SPEC1_I",
+              "value": "64.1479740143",
+              "comment": "(S/N)^2 for spec  1 at mag 20.20"
+            },
+            {
+              "key": "FSPEC1_I",
+              "value": "64.3646",
+              "comment": "Fit (S/N)^2 for spec  1 at mag 20.20"
+            },
+            {
+              "key": "SN2EXT1I",
+              "value": "64.1479740143",
+              "comment": "Extinction corrected (S/N)^2"
+            },
+            {
+              "key": "FSN2EX1I",
+              "value": "64.3646",
+              "comment": "Extinction corrected Fit (S/N)^2"
+            },
+            {
+              "key": "NSTD",
+              "value": "70",
+              "comment": "Number of (good) std stars"
+            },
+            {
+              "key": "GOFFSTD",
+              "value": "-0.0446708068848",
+              "comment": "Spectrophoto offset for std stars in G-band"
+            },
+            {
+              "key": "GRMSSTD",
+              "value": "0.0681647935742",
+              "comment": "Spectrophoto RMS for std stars in G-band"
+            },
+            {
+              "key": "ROFFSTD",
+              "value": "-0.0277010345459",
+              "comment": "Spectrophoto offset for std stars in R-band"
+            },
+            {
+              "key": "RRMSSTD",
+              "value": "0.0771244624768",
+              "comment": "Spectrophoto RMS for std stars in R-band"
+            },
+            {
+              "key": "IOFFSTD",
+              "value": "-0.0163473968506",
+              "comment": "Spectrophoto offset for std stars in I-band"
+            },
+            {
+              "key": "IRMSSTD",
+              "value": "0.0939281880399",
+              "comment": "Spectrophoto RMS for std stars in I-band"
+            },
+            {
+              "key": "GROFFSTD",
+              "value": "-0.00294980621338",
+              "comment": "Spectrophoto offset for std stars in (GR)"
+            },
+            {
+              "key": "GRRMSSTD",
+              "value": "0.0844571575977",
+              "comment": "Spectrophoto RMS for std stars in (GR)"
+            },
+            {
+              "key": "RIOFFSTD",
+              "value": "-0.0200244445801",
+              "comment": "Spectrophoto offset for std stars in (RI)"
+            },
+            {
+              "key": "RIRMSSTD",
+              "value": "0.0394228870735",
+              "comment": "Spectrophoto RMS for std stars in (RI)"
+            },
+            {
+              "key": "NGAL",
+              "value": "430",
+              "comment": "Number of (good) main galaxies"
+            },
+            {
+              "key": "GOFFGAL",
+              "value": "0.0923559799194",
+              "comment": "Spectrophoto offset for main galaxies in G-band"
+            },
+            {
+              "key": "GRMSGAL",
+              "value": "0.34255253212",
+              "comment": "Spectrophoto RMS for main galaxies in G-band"
+            },
+            {
+              "key": "ROFFGAL",
+              "value": "0.0240796661377",
+              "comment": "Spectrophoto offset for main galaxies in R-band"
+            },
+            {
+              "key": "RRMSGAL",
+              "value": "0.271340699103",
+              "comment": "Spectrophoto RMS for main galaxies in R-band"
+            },
+            {
+              "key": "IOFFGAL",
+              "value": "0.0406880493164",
+              "comment": "Spectrophoto offset for main galaxies in I-band"
+            },
+            {
+              "key": "IRMSGAL",
+              "value": "0.257888709429",
+              "comment": "Spectrophoto RMS for main galaxies in I-band"
+            },
+            {
+              "key": "GROFFGAL",
+              "value": "0.0387496032715",
+              "comment": "Spectrophoto offset for main galaxies in (GR)"
+            },
+            {
+              "key": "GRRMSGAL",
+              "value": "0.162223615726",
+              "comment": "Spectrophoto RMS for main galaxies in (GR)"
+            },
+            {
+              "key": "RIOFFGAL",
+              "value": "-0.017344619751",
+              "comment": "Spectrophoto offset for main galaxies in (RI)"
+            },
+            {
+              "key": "RIRMSGAL",
+              "value": "0.157059112249",
+              "comment": "Spectrophoto RMS for main galaxies in (RI)"
+            },
+            {
+              "key": "SNC01G00",
+              "value": "1.48455",
+              "comment": "SN fit coeff for spec 1, exp 00 at G-band"
+            },
+            {
+              "key": "SNC11G00",
+              "value": "8.72113",
+              "comment": "SN fit coeff for spec 1, exp 00 at G-band"
+            },
+            {
+              "key": "SN2_1G00",
+              "value": "2.00834",
+              "comment": "(S/N)^2 for spec  1, exp 00 at mag 21.20 at G-b"
+            },
+            {
+              "key": "SNC01R00",
+              "value": "1.49167",
+              "comment": "SN fit coeff for spec 1, exp 00 at R-band"
+            },
+            {
+              "key": "SNC11R00",
+              "value": "11.9366",
+              "comment": "SN fit coeff for spec 1, exp 00 at R-band"
+            },
+            {
+              "key": "SN2_1R00",
+              "value": "7.60031",
+              "comment": "(S/N)^2 for spec  1, exp 00 at mag 20.20 at R-b"
+            },
+            {
+              "key": "SNC01I00",
+              "value": "1.43877",
+              "comment": "SN fit coeff for spec 1, exp 00 at I-band"
+            },
+            {
+              "key": "SNC11I00",
+              "value": "14.0264",
+              "comment": "SN fit coeff for spec 1, exp 00 at I-band"
+            },
+            {
+              "key": "SN2_1I00",
+              "value": "6.40943",
+              "comment": "(S/N)^2 for spec  1, exp 00 at mag 20.20 at I-b"
+            },
+            {
+              "key": "SNC02G00",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 00 at G-band"
+            },
+            {
+              "key": "SNC12G00",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 00 at G-band"
+            },
+            {
+              "key": "SN2_2G00",
+              "value": "0.0",
+              "comment": "(S/N)^2 for spec  2, exp 00 at mag 21.20 at G-b"
+            },
+            {
+              "key": "SNC02R00",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 00 at R-band"
+            },
+            {
+              "key": "SNC12R00",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 00 at R-band"
+            },
+            {
+              "key": "SN2_2R00",
+              "value": "0.0",
+              "comment": "(S/N)^2 for spec  2, exp 00 at mag 20.20 at R-b"
+            },
+            {
+              "key": "SNC02I00",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 00 at I-band"
+            },
+            {
+              "key": "SNC12I00",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 00 at I-band"
+            },
+            {
+              "key": "SN2_2I00",
+              "value": "0.0",
+              "comment": "(S/N)^2 for spec  2, exp 00 at mag 20.20 at I-b"
+            },
+            {
+              "key": "SNC01G01",
+              "value": "1.45073",
+              "comment": "SN fit coeff for spec 1, exp 01 at G-band"
+            },
+            {
+              "key": "SNC11G01",
+              "value": "10.1233",
+              "comment": "SN fit coeff for spec 1, exp 01 at G-band"
+            },
+            {
+              "key": "SN2_1G01",
+              "value": "1.71771",
+              "comment": "(S/N)^2 for spec  1, exp 01 at mag 21.20 at G-b"
+            },
+            {
+              "key": "SNC01R01",
+              "value": "1.45622",
+              "comment": "SN fit coeff for spec 1, exp 01 at R-band"
+            },
+            {
+              "key": "SNC11R01",
+              "value": "13.8718",
+              "comment": "SN fit coeff for spec 1, exp 01 at R-band"
+            },
+            {
+              "key": "SN2_1R01",
+              "value": "6.61164",
+              "comment": "(S/N)^2 for spec  1, exp 01 at mag 20.20 at R-b"
+            },
+            {
+              "key": "SNC01I01",
+              "value": "1.40989",
+              "comment": "SN fit coeff for spec 1, exp 01 at I-band"
+            },
+            {
+              "key": "SNC11I01",
+              "value": "15.949",
+              "comment": "SN fit coeff for spec 1, exp 01 at I-band"
+            },
+            {
+              "key": "SN2_1I01",
+              "value": "5.66705",
+              "comment": "(S/N)^2 for spec  1, exp 01 at mag 20.20 at I-b"
+            },
+            {
+              "key": "SNC02G01",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 01 at G-band"
+            },
+            {
+              "key": "SNC12G01",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 01 at G-band"
+            },
+            {
+              "key": "SN2_2G01",
+              "value": "0.0",
+              "comment": "(S/N)^2 for spec  2, exp 01 at mag 21.20 at G-b"
+            },
+            {
+              "key": "SNC02R01",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 01 at R-band"
+            },
+            {
+              "key": "SNC12R01",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 01 at R-band"
+            },
+            {
+              "key": "SN2_2R01",
+              "value": "0.0",
+              "comment": "(S/N)^2 for spec  2, exp 01 at mag 20.20 at R-b"
+            },
+            {
+              "key": "SNC02I01",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 01 at I-band"
+            },
+            {
+              "key": "SNC12I01",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 01 at I-band"
+            },
+            {
+              "key": "SN2_2I01",
+              "value": "0.0",
+              "comment": "(S/N)^2 for spec  2, exp 01 at mag 20.20 at I-b"
+            },
+            {
+              "key": "SNC01G02",
+              "value": "1.47984",
+              "comment": "SN fit coeff for spec 1, exp 02 at G-band"
+            },
+            {
+              "key": "SNC11G02",
+              "value": "10.3253",
+              "comment": "SN fit coeff for spec 1, exp 02 at G-band"
+            },
+            {
+              "key": "SN2_1G02",
+              "value": "1.76085",
+              "comment": "(S/N)^2 for spec  1, exp 02 at mag 21.20 at G-b"
+            },
+            {
+              "key": "SNC01R02",
+              "value": "1.45903",
+              "comment": "SN fit coeff for spec 1, exp 02 at R-band"
+            },
+            {
+              "key": "SNC11R02",
+              "value": "15.0038",
+              "comment": "SN fit coeff for spec 1, exp 02 at R-band"
+            },
+            {
+              "key": "SN2_1R02",
+              "value": "6.31497",
+              "comment": "(S/N)^2 for spec  1, exp 02 at mag 20.20 at R-b"
+            },
+            {
+              "key": "SNC01I02",
+              "value": "1.4043",
+              "comment": "SN fit coeff for spec 1, exp 02 at I-band"
+            },
+            {
+              "key": "SNC11I02",
+              "value": "17.112",
+              "comment": "SN fit coeff for spec 1, exp 02 at I-band"
+            },
+            {
+              "key": "SN2_1I02",
+              "value": "5.36512",
+              "comment": "(S/N)^2 for spec  1, exp 02 at mag 20.20 at I-b"
+            },
+            {
+              "key": "SNC02G02",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 02 at G-band"
+            },
+            {
+              "key": "SNC12G02",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 02 at G-band"
+            },
+            {
+              "key": "SN2_2G02",
+              "value": "0.0",
+              "comment": "(S/N)^2 for spec  2, exp 02 at mag 21.20 at G-b"
+            },
+            {
+              "key": "SNC02R02",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 02 at R-band"
+            },
+            {
+              "key": "SNC12R02",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 02 at R-band"
+            },
+            {
+              "key": "SN2_2R02",
+              "value": "0.0",
+              "comment": "(S/N)^2 for spec  2, exp 02 at mag 20.20 at R-b"
+            },
+            {
+              "key": "SNC02I02",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 02 at I-band"
+            },
+            {
+              "key": "SNC12I02",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 02 at I-band"
+            },
+            {
+              "key": "SN2_2I02",
+              "value": "0.0",
+              "comment": "(S/N)^2 for spec  2, exp 02 at mag 20.20 at I-b"
+            },
+            {
+              "key": "SNC01G03",
+              "value": "1.47427",
+              "comment": "SN fit coeff for spec 1, exp 03 at G-band"
+            },
+            {
+              "key": "SNC11G03",
+              "value": "8.97963",
+              "comment": "SN fit coeff for spec 1, exp 03 at G-band"
+            },
+            {
+              "key": "SN2_1G03",
+              "value": "1.93895",
+              "comment": "(S/N)^2 for spec  1, exp 03 at mag 21.20 at G-b"
+            },
+            {
+              "key": "SNC01R03",
+              "value": "1.48238",
+              "comment": "SN fit coeff for spec 1, exp 03 at R-band"
+            },
+            {
+              "key": "SNC11R03",
+              "value": "12.5552",
+              "comment": "SN fit coeff for spec 1, exp 03 at R-band"
+            },
+            {
+              "key": "SN2_1R03",
+              "value": "7.28348",
+              "comment": "(S/N)^2 for spec  1, exp 03 at mag 20.20 at R-b"
+            },
+            {
+              "key": "SNC01I03",
+              "value": "1.4406",
+              "comment": "SN fit coeff for spec 1, exp 03 at I-band"
+            },
+            {
+              "key": "SNC11I03",
+              "value": "13.6583",
+              "comment": "SN fit coeff for spec 1, exp 03 at I-band"
+            },
+            {
+              "key": "SN2_1I03",
+              "value": "6.53342",
+              "comment": "(S/N)^2 for spec  1, exp 03 at mag 20.20 at I-b"
+            },
+            {
+              "key": "SNC02G03",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 03 at G-band"
+            },
+            {
+              "key": "SNC12G03",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 03 at G-band"
+            },
+            {
+              "key": "SN2_2G03",
+              "value": "0.0",
+              "comment": "(S/N)^2 for spec  2, exp 03 at mag 21.20 at G-b"
+            },
+            {
+              "key": "SNC02R03",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 03 at R-band"
+            },
+            {
+              "key": "SNC12R03",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 03 at R-band"
+            },
+            {
+              "key": "SN2_2R03",
+              "value": "0.0",
+              "comment": "(S/N)^2 for spec  2, exp 03 at mag 20.20 at R-b"
+            },
+            {
+              "key": "SNC02I03",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 03 at I-band"
+            },
+            {
+              "key": "SNC12I03",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 03 at I-band"
+            },
+            {
+              "key": "SN2_2I03",
+              "value": "0.0",
+              "comment": "(S/N)^2 for spec  2, exp 03 at mag 20.20 at I-b"
+            },
+            {
+              "key": "SNC01G04",
+              "value": "1.46584",
+              "comment": "SN fit coeff for spec 1, exp 04 at G-band"
+            },
+            {
+              "key": "SNC11G04",
+              "value": "12.5047",
+              "comment": "SN fit coeff for spec 1, exp 04 at G-band"
+            },
+            {
+              "key": "SN2_1G04",
+              "value": "1.48962",
+              "comment": "(S/N)^2 for spec  1, exp 04 at mag 21.20 at G-b"
+            },
+            {
+              "key": "SNC01R04",
+              "value": "1.40058",
+              "comment": "SN fit coeff for spec 1, exp 04 at R-band"
+            },
+            {
+              "key": "SNC11R04",
+              "value": "16.0349",
+              "comment": "SN fit coeff for spec 1, exp 04 at R-band"
+            },
+            {
+              "key": "SN2_1R04",
+              "value": "5.57278",
+              "comment": "(S/N)^2 for spec  1, exp 04 at mag 20.20 at R-b"
+            },
+            {
+              "key": "SNC01I04",
+              "value": "1.33492",
+              "comment": "SN fit coeff for spec 1, exp 04 at I-band"
+            },
+            {
+              "key": "SNC11I04",
+              "value": "16.6499",
+              "comment": "SN fit coeff for spec 1, exp 04 at I-band"
+            },
+            {
+              "key": "SN2_1I04",
+              "value": "4.93784",
+              "comment": "(S/N)^2 for spec  1, exp 04 at mag 20.20 at I-b"
+            },
+            {
+              "key": "SNC02G04",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 04 at G-band"
+            },
+            {
+              "key": "SNC12G04",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 04 at G-band"
+            },
+            {
+              "key": "SN2_2G04",
+              "value": "0.0",
+              "comment": "(S/N)^2 for spec  2, exp 04 at mag 21.20 at G-b"
+            },
+            {
+              "key": "SNC02R04",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 04 at R-band"
+            },
+            {
+              "key": "SNC12R04",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 04 at R-band"
+            },
+            {
+              "key": "SN2_2R04",
+              "value": "0.0",
+              "comment": "(S/N)^2 for spec  2, exp 04 at mag 20.20 at R-b"
+            },
+            {
+              "key": "SNC02I04",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 04 at I-band"
+            },
+            {
+              "key": "SNC12I04",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 04 at I-band"
+            },
+            {
+              "key": "SN2_2I04",
+              "value": "0.0",
+              "comment": "(S/N)^2 for spec  2, exp 04 at mag 20.20 at I-b"
+            },
+            {
+              "key": "SNC01G05",
+              "value": "1.36618",
+              "comment": "SN fit coeff for spec 1, exp 05 at G-band"
+            },
+            {
+              "key": "SNC11G05",
+              "value": "17.8636",
+              "comment": "SN fit coeff for spec 1, exp 05 at G-band"
+            },
+            {
+              "key": "SN2_1G05",
+              "value": "0.966487",
+              "comment": "(S/N)^2 for spec  1, exp 05 at mag 21.20 at G-b"
+            },
+            {
+              "key": "SNC01R05",
+              "value": "1.34374",
+              "comment": "SN fit coeff for spec 1, exp 05 at R-band"
+            },
+            {
+              "key": "SNC11R05",
+              "value": "28.5096",
+              "comment": "SN fit coeff for spec 1, exp 05 at R-band"
+            },
+            {
+              "key": "SN2_1R05",
+              "value": "3.39203",
+              "comment": "(S/N)^2 for spec  1, exp 05 at mag 20.20 at R-b"
+            },
+            {
+              "key": "SNC01I05",
+              "value": "1.2843",
+              "comment": "SN fit coeff for spec 1, exp 05 at I-band"
+            },
+            {
+              "key": "SNC11I05",
+              "value": "33.4881",
+              "comment": "SN fit coeff for spec 1, exp 05 at I-band"
+            },
+            {
+              "key": "SN2_1I05",
+              "value": "2.72959",
+              "comment": "(S/N)^2 for spec  1, exp 05 at mag 20.20 at I-b"
+            },
+            {
+              "key": "SNC02G05",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 05 at G-band"
+            },
+            {
+              "key": "SNC12G05",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 05 at G-band"
+            },
+            {
+              "key": "SN2_2G05",
+              "value": "0.0",
+              "comment": "(S/N)^2 for spec  2, exp 05 at mag 21.20 at G-b"
+            },
+            {
+              "key": "SNC02R05",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 05 at R-band"
+            },
+            {
+              "key": "SNC12R05",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 05 at R-band"
+            },
+            {
+              "key": "SN2_2R05",
+              "value": "0.0",
+              "comment": "(S/N)^2 for spec  2, exp 05 at mag 20.20 at R-b"
+            },
+            {
+              "key": "SNC02I05",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 05 at I-band"
+            },
+            {
+              "key": "SNC12I05",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 05 at I-band"
+            },
+            {
+              "key": "SN2_2I05",
+              "value": "0.0",
+              "comment": "(S/N)^2 for spec  2, exp 05 at mag 20.20 at I-b"
+            },
+            {
+              "key": "SNC01G06",
+              "value": "1.51207",
+              "comment": "SN fit coeff for spec 1, exp 06 at G-band"
+            },
+            {
+              "key": "SNC11G06",
+              "value": "10.15",
+              "comment": "SN fit coeff for spec 1, exp 06 at G-band"
+            },
+            {
+              "key": "SN2_1G06",
+              "value": "1.86234",
+              "comment": "(S/N)^2 for spec  1, exp 06 at mag 21.20 at G-b"
+            },
+            {
+              "key": "SNC01R06",
+              "value": "1.488",
+              "comment": "SN fit coeff for spec 1, exp 06 at R-band"
+            },
+            {
+              "key": "SNC11R06",
+              "value": "15.4916",
+              "comment": "SN fit coeff for spec 1, exp 06 at R-band"
+            },
+            {
+              "key": "SN2_1R06",
+              "value": "6.43367",
+              "comment": "(S/N)^2 for spec  1, exp 06 at mag 20.20 at R-b"
+            },
+            {
+              "key": "SNC01I06",
+              "value": "1.42076",
+              "comment": "SN fit coeff for spec 1, exp 06 at I-band"
+            },
+            {
+              "key": "SNC11I06",
+              "value": "18.2216",
+              "comment": "SN fit coeff for spec 1, exp 06 at I-band"
+            },
+            {
+              "key": "SN2_1I06",
+              "value": "5.26198",
+              "comment": "(S/N)^2 for spec  1, exp 06 at mag 20.20 at I-b"
+            },
+            {
+              "key": "SNC02G06",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 06 at G-band"
+            },
+            {
+              "key": "SNC12G06",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 06 at G-band"
+            },
+            {
+              "key": "SN2_2G06",
+              "value": "0.0",
+              "comment": "(S/N)^2 for spec  2, exp 06 at mag 21.20 at G-b"
+            },
+            {
+              "key": "SNC02R06",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 06 at R-band"
+            },
+            {
+              "key": "SNC12R06",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 06 at R-band"
+            },
+            {
+              "key": "SN2_2R06",
+              "value": "0.0",
+              "comment": "(S/N)^2 for spec  2, exp 06 at mag 20.20 at R-b"
+            },
+            {
+              "key": "SNC02I06",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 06 at I-band"
+            },
+            {
+              "key": "SNC12I06",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 06 at I-band"
+            },
+            {
+              "key": "SN2_2I06",
+              "value": "0.0",
+              "comment": "(S/N)^2 for spec  2, exp 06 at mag 20.20 at I-b"
+            },
+            {
+              "key": "SNC01G07",
+              "value": "1.58317",
+              "comment": "SN fit coeff for spec 1, exp 07 at G-band"
+            },
+            {
+              "key": "SNC11G07",
+              "value": "7.28166",
+              "comment": "SN fit coeff for spec 1, exp 07 at G-band"
+            },
+            {
+              "key": "SN2_1G07",
+              "value": "2.5944",
+              "comment": "(S/N)^2 for spec  1, exp 07 at mag 21.20 at G-b"
+            },
+            {
+              "key": "SNC01R07",
+              "value": "1.56459",
+              "comment": "SN fit coeff for spec 1, exp 07 at R-band"
+            },
+            {
+              "key": "SNC11R07",
+              "value": "10.8008",
+              "comment": "SN fit coeff for spec 1, exp 07 at R-band"
+            },
+            {
+              "key": "SN2_1R07",
+              "value": "8.85833",
+              "comment": "(S/N)^2 for spec  1, exp 07 at mag 20.20 at R-b"
+            },
+            {
+              "key": "SNC01I07",
+              "value": "1.49496",
+              "comment": "SN fit coeff for spec 1, exp 07 at I-band"
+            },
+            {
+              "key": "SNC11I07",
+              "value": "12.0777",
+              "comment": "SN fit coeff for spec 1, exp 07 at I-band"
+            },
+            {
+              "key": "SN2_1I07",
+              "value": "7.58106",
+              "comment": "(S/N)^2 for spec  1, exp 07 at mag 20.20 at I-b"
+            },
+            {
+              "key": "SNC02G07",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 07 at G-band"
+            },
+            {
+              "key": "SNC12G07",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 07 at G-band"
+            },
+            {
+              "key": "SN2_2G07",
+              "value": "0.0",
+              "comment": "(S/N)^2 for spec  2, exp 07 at mag 21.20 at G-b"
+            },
+            {
+              "key": "SNC02R07",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 07 at R-band"
+            },
+            {
+              "key": "SNC12R07",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 07 at R-band"
+            },
+            {
+              "key": "SN2_2R07",
+              "value": "0.0",
+              "comment": "(S/N)^2 for spec  2, exp 07 at mag 20.20 at R-b"
+            },
+            {
+              "key": "SNC02I07",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 07 at I-band"
+            },
+            {
+              "key": "SNC12I07",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 07 at I-band"
+            },
+            {
+              "key": "SN2_2I07",
+              "value": "0.0",
+              "comment": "(S/N)^2 for spec  2, exp 07 at mag 20.20 at I-b"
+            },
+            {
+              "key": "SNC01G08",
+              "value": "1.51658",
+              "comment": "SN fit coeff for spec 1, exp 08 at G-band"
+            },
+            {
+              "key": "SNC11G08",
+              "value": "9.17908",
+              "comment": "SN fit coeff for spec 1, exp 08 at G-band"
+            },
+            {
+              "key": "SN2_1G08",
+              "value": "2.01908",
+              "comment": "(S/N)^2 for spec  1, exp 08 at mag 21.20 at G-b"
+            },
+            {
+              "key": "SNC01R08",
+              "value": "1.49993",
+              "comment": "SN fit coeff for spec 1, exp 08 at R-band"
+            },
+            {
+              "key": "SNC11R08",
+              "value": "13.548",
+              "comment": "SN fit coeff for spec 1, exp 08 at R-band"
+            },
+            {
+              "key": "SN2_1R08",
+              "value": "7.11832",
+              "comment": "(S/N)^2 for spec  1, exp 08 at mag 20.20 at R-b"
+            },
+            {
+              "key": "SNC01I08",
+              "value": "1.44129",
+              "comment": "SN fit coeff for spec 1, exp 08 at I-band"
+            },
+            {
+              "key": "SNC11I08",
+              "value": "14.633",
+              "comment": "SN fit coeff for spec 1, exp 08 at I-band"
+            },
+            {
+              "key": "SN2_1I08",
+              "value": "6.26192",
+              "comment": "(S/N)^2 for spec  1, exp 08 at mag 20.20 at I-b"
+            },
+            {
+              "key": "SNC02G08",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 08 at G-band"
+            },
+            {
+              "key": "SNC12G08",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 08 at G-band"
+            },
+            {
+              "key": "SN2_2G08",
+              "value": "0.0",
+              "comment": "(S/N)^2 for spec  2, exp 08 at mag 21.20 at G-b"
+            },
+            {
+              "key": "SNC02R08",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 08 at R-band"
+            },
+            {
+              "key": "SNC12R08",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 08 at R-band"
+            },
+            {
+              "key": "SN2_2R08",
+              "value": "0.0",
+              "comment": "(S/N)^2 for spec  2, exp 08 at mag 20.20 at R-b"
+            },
+            {
+              "key": "SNC02I08",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 08 at I-band"
+            },
+            {
+              "key": "SNC12I08",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 08 at I-band"
+            },
+            {
+              "key": "SN2_2I08",
+              "value": "0.0",
+              "comment": "(S/N)^2 for spec  2, exp 08 at mag 20.20 at I-b"
+            },
+            {
+              "key": "SNC01G09",
+              "value": "1.3552",
+              "comment": "SN fit coeff for spec 1, exp 09 at G-band"
+            },
+            {
+              "key": "SNC11G09",
+              "value": "17.3612",
+              "comment": "SN fit coeff for spec 1, exp 09 at G-band"
+            },
+            {
+              "key": "SN2_1G09",
+              "value": "0.974117",
+              "comment": "(S/N)^2 for spec  1, exp 09 at mag 21.20 at G-b"
+            },
+            {
+              "key": "SNC01R09",
+              "value": "1.27939",
+              "comment": "SN fit coeff for spec 1, exp 09 at R-band"
+            },
+            {
+              "key": "SNC11R09",
+              "value": "25.1488",
+              "comment": "SN fit coeff for spec 1, exp 09 at R-band"
+            },
+            {
+              "key": "SN2_1R09",
+              "value": "3.38374",
+              "comment": "(S/N)^2 for spec  1, exp 09 at mag 20.20 at R-b"
+            },
+            {
+              "key": "SNC01I09",
+              "value": "1.21711",
+              "comment": "SN fit coeff for spec 1, exp 09 at I-band"
+            },
+            {
+              "key": "SNC11I09",
+              "value": "24.7165",
+              "comment": "SN fit coeff for spec 1, exp 09 at I-band"
+            },
+            {
+              "key": "SN2_1I09",
+              "value": "3.10237",
+              "comment": "(S/N)^2 for spec  1, exp 09 at mag 20.20 at I-b"
+            },
+            {
+              "key": "SNC02G09",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 09 at G-band"
+            },
+            {
+              "key": "SNC12G09",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 09 at G-band"
+            },
+            {
+              "key": "SN2_2G09",
+              "value": "0.0",
+              "comment": "(S/N)^2 for spec  2, exp 09 at mag 21.20 at G-b"
+            },
+            {
+              "key": "SNC02R09",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 09 at R-band"
+            },
+            {
+              "key": "SNC12R09",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 09 at R-band"
+            },
+            {
+              "key": "SN2_2R09",
+              "value": "0.0",
+              "comment": "(S/N)^2 for spec  2, exp 09 at mag 20.20 at R-b"
+            },
+            {
+              "key": "SNC02I09",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 09 at I-band"
+            },
+            {
+              "key": "SNC12I09",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 09 at I-band"
+            },
+            {
+              "key": "SN2_2I09",
+              "value": "0.0",
+              "comment": "(S/N)^2 for spec  2, exp 09 at mag 20.20 at I-b"
+            },
+            {
+              "key": "SNC01G10",
+              "value": "1.32026",
+              "comment": "SN fit coeff for spec 1, exp 10 at G-band"
+            },
+            {
+              "key": "SNC11G10",
+              "value": "19.2875",
+              "comment": "SN fit coeff for spec 1, exp 10 at G-band"
+            },
+            {
+              "key": "SN2_1G10",
+              "value": "0.845728",
+              "comment": "(S/N)^2 for spec  1, exp 10 at mag 21.20 at G-b"
+            },
+            {
+              "key": "SNC01R10",
+              "value": "1.23183",
+              "comment": "SN fit coeff for spec 1, exp 10 at R-band"
+            },
+            {
+              "key": "SNC11R10",
+              "value": "29.0726",
+              "comment": "SN fit coeff for spec 1, exp 10 at R-band"
+            },
+            {
+              "key": "SN2_1R10",
+              "value": "2.80763",
+              "comment": "(S/N)^2 for spec  1, exp 10 at mag 20.20 at R-b"
+            },
+            {
+              "key": "SNC01I10",
+              "value": "1.16085",
+              "comment": "SN fit coeff for spec 1, exp 10 at I-band"
+            },
+            {
+              "key": "SNC11I10",
+              "value": "29.1367",
+              "comment": "SN fit coeff for spec 1, exp 10 at I-band"
+            },
+            {
+              "key": "SN2_1I10",
+              "value": "2.48916",
+              "comment": "(S/N)^2 for spec  1, exp 10 at mag 20.20 at I-b"
+            },
+            {
+              "key": "SNC02G10",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 10 at G-band"
+            },
+            {
+              "key": "SNC12G10",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 10 at G-band"
+            },
+            {
+              "key": "SN2_2G10",
+              "value": "0.0",
+              "comment": "(S/N)^2 for spec  2, exp 10 at mag 21.20 at G-b"
+            },
+            {
+              "key": "SNC02R10",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 10 at R-band"
+            },
+            {
+              "key": "SNC12R10",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 10 at R-band"
+            },
+            {
+              "key": "SN2_2R10",
+              "value": "0.0",
+              "comment": "(S/N)^2 for spec  2, exp 10 at mag 20.20 at R-b"
+            },
+            {
+              "key": "SNC02I10",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 10 at I-band"
+            },
+            {
+              "key": "SNC12I10",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 10 at I-band"
+            },
+            {
+              "key": "SN2_2I10",
+              "value": "0.0",
+              "comment": "(S/N)^2 for spec  2, exp 10 at mag 20.20 at I-b"
+            },
+            {
+              "key": "SNC01G11",
+              "value": "1.42431",
+              "comment": "SN fit coeff for spec 1, exp 11 at G-band"
+            },
+            {
+              "key": "SNC11G11",
+              "value": "14.7921",
+              "comment": "SN fit coeff for spec 1, exp 11 at G-band"
+            },
+            {
+              "key": "SN2_1G11",
+              "value": "1.22871",
+              "comment": "(S/N)^2 for spec  1, exp 11 at mag 21.20 at G-b"
+            },
+            {
+              "key": "SNC01R11",
+              "value": "1.32235",
+              "comment": "SN fit coeff for spec 1, exp 11 at R-band"
+            },
+            {
+              "key": "SNC11R11",
+              "value": "22.1714",
+              "comment": "SN fit coeff for spec 1, exp 11 at R-band"
+            },
+            {
+              "key": "SN2_1R11",
+              "value": "3.96781",
+              "comment": "(S/N)^2 for spec  1, exp 11 at mag 20.20 at R-b"
+            },
+            {
+              "key": "SNC01I11",
+              "value": "1.23542",
+              "comment": "SN fit coeff for spec 1, exp 11 at I-band"
+            },
+            {
+              "key": "SNC11I11",
+              "value": "23.013",
+              "comment": "SN fit coeff for spec 1, exp 11 at I-band"
+            },
+            {
+              "key": "SN2_1I11",
+              "value": "3.37024",
+              "comment": "(S/N)^2 for spec  1, exp 11 at mag 20.20 at I-b"
+            },
+            {
+              "key": "SNC02G11",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 11 at G-band"
+            },
+            {
+              "key": "SNC12G11",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 11 at G-band"
+            },
+            {
+              "key": "SN2_2G11",
+              "value": "0.0",
+              "comment": "(S/N)^2 for spec  2, exp 11 at mag 21.20 at G-b"
+            },
+            {
+              "key": "SNC02R11",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 11 at R-band"
+            },
+            {
+              "key": "SNC12R11",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 11 at R-band"
+            },
+            {
+              "key": "SN2_2R11",
+              "value": "0.0",
+              "comment": "(S/N)^2 for spec  2, exp 11 at mag 20.20 at R-b"
+            },
+            {
+              "key": "SNC02I11",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 11 at I-band"
+            },
+            {
+              "key": "SNC12I11",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 11 at I-band"
+            },
+            {
+              "key": "SN2_2I11",
+              "value": "0.0",
+              "comment": "(S/N)^2 for spec  2, exp 11 at mag 20.20 at I-b"
+            },
+            {
+              "key": "SNC01G12",
+              "value": "1.51613",
+              "comment": "SN fit coeff for spec 1, exp 12 at G-band"
+            },
+            {
+              "key": "SNC11G12",
+              "value": "11.2484",
+              "comment": "SN fit coeff for spec 1, exp 12 at G-band"
+            },
+            {
+              "key": "SN2_1G12",
+              "value": "1.73108",
+              "comment": "(S/N)^2 for spec  1, exp 12 at mag 21.20 at G-b"
+            },
+            {
+              "key": "SNC01R12",
+              "value": "1.40697",
+              "comment": "SN fit coeff for spec 1, exp 12 at R-band"
+            },
+            {
+              "key": "SNC11R12",
+              "value": "17.0948",
+              "comment": "SN fit coeff for spec 1, exp 12 at R-band"
+            },
+            {
+              "key": "SN2_1R12",
+              "value": "5.38921",
+              "comment": "(S/N)^2 for spec  1, exp 12 at mag 20.20 at R-b"
+            },
+            {
+              "key": "SNC01I12",
+              "value": "1.30475",
+              "comment": "SN fit coeff for spec 1, exp 12 at I-band"
+            },
+            {
+              "key": "SNC11I12",
+              "value": "18.2156",
+              "comment": "SN fit coeff for spec 1, exp 12 at I-band"
+            },
+            {
+              "key": "SN2_1I12",
+              "value": "4.43878",
+              "comment": "(S/N)^2 for spec  1, exp 12 at mag 20.20 at I-b"
+            },
+            {
+              "key": "SNC02G12",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 12 at G-band"
+            },
+            {
+              "key": "SNC12G12",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 12 at G-band"
+            },
+            {
+              "key": "SN2_2G12",
+              "value": "0.0",
+              "comment": "(S/N)^2 for spec  2, exp 12 at mag 21.20 at G-b"
+            },
+            {
+              "key": "SNC02R12",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 12 at R-band"
+            },
+            {
+              "key": "SNC12R12",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 12 at R-band"
+            },
+            {
+              "key": "SN2_2R12",
+              "value": "0.0",
+              "comment": "(S/N)^2 for spec  2, exp 12 at mag 20.20 at R-b"
+            },
+            {
+              "key": "SNC02I12",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 12 at I-band"
+            },
+            {
+              "key": "SNC12I12",
+              "value": "0.0",
+              "comment": "SN fit coeff for spec 2, exp 12 at I-band"
+            },
+            {
+              "key": "SN2_2I12",
+              "value": "0.0",
+              "comment": "(S/N)^2 for spec  2, exp 12 at mag 20.20 at I-b"
+            },
+            {
+              "key": "SNC01G",
+              "value": "5.21954",
+              "comment": "Total SN fit coeff for spec 1 at G-band"
+            },
+            {
+              "key": "SNC11G",
+              "value": "11.6634",
+              "comment": "Total SN fit coeff for spec 1 at G-band"
+            },
+            {
+              "key": "SNC01R",
+              "value": "5.07178",
+              "comment": "Total SN fit coeff for spec 1 at R-band"
+            },
+            {
+              "key": "SNC11R",
+              "value": "16.1655",
+              "comment": "Total SN fit coeff for spec 1 at R-band"
+            },
+            {
+              "key": "SNC01I",
+              "value": "4.82403",
+              "comment": "Total SN fit coeff for spec 1 at I-band"
+            },
+            {
+              "key": "SNC11I",
+              "value": "16.6958",
+              "comment": "Total SN fit coeff for spec 1 at I-band"
+            },
+            {
+              "key": "SNC02G",
+              "value": "0.0",
+              "comment": "Total SN fit coeff for spec 2 at G-band"
+            },
+            {
+              "key": "SNC12G",
+              "value": "0.0",
+              "comment": "Total SN fit coeff for spec 2 at G-band"
+            },
+            {
+              "key": "SNC02R",
+              "value": "0.0",
+              "comment": "Total SN fit coeff for spec 2 at R-band"
+            },
+            {
+              "key": "SNC12R",
+              "value": "0.0",
+              "comment": "Total SN fit coeff for spec 2 at R-band"
+            },
+            {
+              "key": "SNC02I",
+              "value": "0.0",
+              "comment": "Total SN fit coeff for spec 2 at I-band"
+            },
+            {
+              "key": "SNC12I",
+              "value": "0.0",
+              "comment": "Total SN fit coeff for spec 2 at I-band"
+            },
+            {
+              "key": "LOWREJ",
+              "value": "4",
+              "comment": "Extraction: low rejection"
+            },
+            {
+              "key": "HIGHREJ",
+              "value": "50",
+              "comment": "Extraction: high rejection"
+            },
+            {
+              "key": "SCATPOLY",
+              "value": "0",
+              "comment": "Extraction: Order of scattered light polynomial"
+            },
+            {
+              "key": "PROFTYPE",
+              "value": "1",
+              "comment": "Extraction profile: 1=Gaussian"
+            },
+            {
+              "key": "NFITPOLY",
+              "value": "1",
+              "comment": "Extraction: Number of parameters in each profil"
+            },
+            {
+              "key": "SPEC2_G",
+              "value": "0.0",
+              "comment": "(S/N)^2 for spec  2 at mag 21.20"
+            },
+            {
+              "key": "FSPEC2_G",
+              "value": "0",
+              "comment": "Fit (S/N)^2 for spec  2 at mag 21.20"
+            },
+            {
+              "key": "SN2EXT2G",
+              "value": "0.0",
+              "comment": "Extinction corrected (S/N)^2"
+            },
+            {
+              "key": "FSN2EX2G",
+              "value": "0",
+              "comment": "Extinction corrected Fit (S/N)^2"
+            },
+            {
+              "key": "SPEC2_R",
+              "value": "0.0",
+              "comment": "(S/N)^2 for spec  2 at mag 20.20"
+            },
+            {
+              "key": "FSPEC2_R",
+              "value": "0",
+              "comment": "Fit (S/N)^2 for spec  2 at mag 20.20"
+            },
+            {
+              "key": "SN2EXT2R",
+              "value": "0.0",
+              "comment": "Extinction corrected (S/N)^2"
+            },
+            {
+              "key": "FSN2EX2R",
+              "value": "0",
+              "comment": "Extinction corrected Fit (S/N)^2"
+            },
+            {
+              "key": "SPEC2_I",
+              "value": "0.0",
+              "comment": "(S/N)^2 for spec  2 at mag 20.20"
+            },
+            {
+              "key": "FSPEC2_I",
+              "value": "0",
+              "comment": "Fit (S/N)^2 for spec  2 at mag 20.20"
+            },
+            {
+              "key": "SN2EXT2I",
+              "value": "0.0",
+              "comment": "Extinction corrected (S/N)^2"
+            },
+            {
+              "key": "FSN2EX2I",
+              "value": "0",
+              "comment": "Extinction corrected Fit (S/N)^2"
+            },
+            {
+              "key": "NWORDER",
+              "value": "2",
+              "comment": "Linear-log10 coefficients"
+            },
+            {
+              "key": "COEFF0",
+              "value": "3.5523",
+              "comment": "Central wavelength (log10) of first pixel"
+            },
+            {
+              "key": "COEFF1",
+              "value": "0.0001",
+              "comment": "Log10 dispersion per pixel"
+            },
+            {
+              "key": "UNAME",
+              "value": "notch278",
+              "comment": ""
+            },
+            {
+              "key": "FBADPIX",
+              "value": "0.0128813",
+              "comment": "Fraction of bad pixels"
+            },
+            {
+              "key": "FBADPIX1",
+              "value": "0.0128813",
+              "comment": "Fraction of bad pixels on spectro-1"
+            },
+            {
+              "key": "FBADPIX2",
+              "value": "0",
+              "comment": "Fraction of bad pixels on spectro-2"
+            },
+            {
+              "key": "WAT0_001",
+              "value": "system=linear",
+              "comment": ""
+            },
+            {
+              "key": "WAT1_001",
+              "value": "wtype=linear label=Wavelength units=Angstroms",
+              "comment": ""
+            },
+            {
+              "key": "CRVAL1",
+              "value": "3.5523",
+              "comment": "Central wavelength (log10) of first pixel"
+            },
+            {
+              "key": "CD1_1",
+              "value": "0.0001",
+              "comment": "Log10 dispersion per pixel"
+            },
+            {
+              "key": "CRPIX1",
+              "value": "1",
+              "comment": "Starting pixel (1-indexed)"
+            },
+            {
+              "key": "CTYPE1",
+              "value": "LINEAR",
+              "comment": ""
+            },
+            {
+              "key": "DC-FLAG",
+              "value": "1",
+              "comment": "Log-linear flag"
+            },
+            {
+              "key": "SKYCHI2",
+              "value": "0.878436417899",
+              "comment": "Mean chi^2 of sky-subtraction"
+            },
+            {
+              "key": "SCHI2MIN",
+              "value": "0.812225947065",
+              "comment": "Minimim chi^2 of sky-subtraction"
+            },
+            {
+              "key": "SCHI2MAX",
+              "value": "0.98859987497",
+              "comment": "Maximim chi^2 of sky-subtraction"
+            },
+            {
+              "key": "WSIGMA",
+              "value": "1.08953",
+              "comment": ""
+            },
+            {
+              "key": "WSIGMIN",
+              "value": "1.08909",
+              "comment": ""
+            },
+            {
+              "key": "WSIGMAX",
+              "value": "1.13388",
+              "comment": ""
+            },
+            {
+              "key": "XSIGMA",
+              "value": "1.06906",
+              "comment": ""
+            },
+            {
+              "key": "XSIGMIN",
+              "value": "1.06889",
+              "comment": ""
+            },
+            {
+              "key": "XSIGMAX",
+              "value": "1.10187",
+              "comment": ""
+            },
+            {
+              "key": "AIRMASS",
+              "value": "1.18228",
+              "comment": "Mean airmass"
+            },
+            {
+              "key": "BUNIT",
+              "value": "1E-17 erg/cm^2/s/Ang",
+              "comment": ""
+            },
+            {
+              "key": "CHOP_MIN",
+              "value": "3600.0",
+              "comment": ""
+            },
+            {
+              "key": "CHOP_MAX",
+              "value": "10400.0",
+              "comment": ""
+            },
+            {
+              "key": "DIMS0",
+              "value": "134",
+              "comment": "Number of fits per objects"
+            },
+            {
+              "key": "DIMS1",
+              "value": "509",
+              "comment": "Number of objects"
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "Object classifications and redshifts",
+          "size": "66 MB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "BINTABLE",
+              "comment": "Binary table written by MWRFITS v1.13"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "Required value"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "Required value"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "1022",
+              "comment": "Number of bytes per row"
+            },
+            {
+              "key": "NAXIS2",
+              "value": "68206",
+              "comment": "Number of rows"
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "Normally 0 (no varying arrays)"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "Required value"
+            },
+            {
+              "key": "TFIELDS",
+              "value": "56",
+              "comment": "Number of columns in table"
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": " *** End of mandatory fields ***",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": " *** Column formats ***",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": " *** Column dimensions (2 D or greater) ***",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "TDIM26",
+              "value": "( 10, 10)",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": " *** Column names ***",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            }
+          ],
+          "columns": {
+            "FIELD": {
+              "name": "FIELD",
+              "description": "SDSS FieldID (plateID for plate era data)",
+              "type": "int32",
+              "unit": ""
+            },
+            "TILE": {
+              "name": "TILE",
+              "description": "Tile ID for SDSS BOSS plates (-1 for SDSS)",
+              "type": "int32",
+              "unit": ""
+            },
+            "MJD": {
+              "name": "MJD",
+              "description": "Modified Julian date of combined Spectra",
+              "type": "int32",
+              "unit": ""
+            },
+            "TARGET_INDEX": {
+              "name": "TARGET_INDEX",
+              "description": "Index of target on combined spField",
+              "type": "int32",
+              "unit": ""
+            },
+            "CATALOGID": {
+              "name": "CATALOGID",
+              "description": "SDSS-V CatalogID used in naming",
+              "type": "int64",
+              "unit": ""
+            },
+            "SDSS_ID": {
+              "name": "SDSS_ID",
+              "description": "Unified SDSS Target Identifier",
+              "type": "int64",
+              "unit": ""
+            },
+            "FIBERID_LIST": {
+              "name": "FIBERID_LIST",
+              "description": "List of FiberIDs contributing to Stack",
+              "type": "char[51]",
+              "unit": ""
+            },
+            "RUN2D": {
+              "name": "RUN2D",
+              "description": "Spectro-2D reduction name",
+              "type": "char[6]",
+              "unit": ""
+            },
+            "RUN1D": {
+              "name": "RUN1D",
+              "description": "Spectro-1D reduction name",
+              "type": "char[6]",
+              "unit": ""
+            },
+            "OBJTYPE": {
+              "name": "OBJTYPE",
+              "description": "Why this object was targeted. QSO=SCIENCE",
               "type": "char[16]",
               "unit": ""
             },

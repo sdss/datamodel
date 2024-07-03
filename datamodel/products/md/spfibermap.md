@@ -19,7 +19,7 @@ This file contains a consolidated form of the fiber-to-target mapping from eithe
 $BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/spfibermap-[FIELD]-[MJD].fits or spfibermap-112360-60000.fits but with regex pattern matches
 
 ### Releases
-WORK
+IPL3, WORK
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -48,6 +48,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - WORK
+   - from: IPL3
+   - note: No changes
 
 ---
 ## Example HDUS List

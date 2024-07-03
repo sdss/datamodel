@@ -19,7 +19,7 @@ Contains a summary of the Spectro-1D spZline output for all spectra in a field-m
 $BOSS_SPECTRO_REDUX/[RUN2D]/spectra/full/[FIELD]/[MJD]/spAllLine-[FIELD]-[MJD].fits.gz
 
 ### Releases
-WORK
+IPL3, WORK
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -44,6 +44,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - WORK
+   - from: IPL3
+   - note: No changes
 
 ---
 ## Example HDUS List

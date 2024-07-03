@@ -19,7 +19,7 @@ This file contains a summary of the BOSS idlspec2d and spectro-1d pipeline outpu
 $BOSS_SPECTRO_REDUX/[RUN2D]/spectra/full/[COADD]/[MJD]/spAll-[COADD]-[MJD].fits.gz
 
 ### Releases
-WORK
+IPL3, WORK
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -44,6 +44,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - WORK
+   - from: IPL3
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -149,8 +152,8 @@ Name | Type | Unit | Description |
  | CATALOGID_V0P5 | int64 |  | SDSS-V CatalogID from Catalog v0.5 |
  | SDSS_ID | int64 |  | Unified SDSS Target Identifier |
  | SPECOBJID | int64 |  | Unique ID based on Field, MJD, FIBERID, RUN2D |
- | CALIBFLUX | float32[5] | nanomaggy | Broad-band flux in SDSS-{ugriz} from PSFmag |
- | CALIBFLUX_IVAR | float32[5] | nanomaggy | Inverse var flux SDSS-{ugriz} from PSFmag |
+ | CALIBFLUX | float32[5] |  | Broad-band flux in SDSS-{ugriz} from PSFmag |
+ | CALIBFLUX_IVAR | float32[5] |  | Inverse var flux SDSS-{ugriz} from PSFmag |
  | OPTICAL_PROV | char[11] |  | The source of the optical CATDB_MAG magnitudes |
  | MAG | float32[5] |  | [u, g, r, i, z] optical magnitudes |
  | PSFMAG | float32[5] |  | [u, g, r, i, z] optical PSF magnitudes |
@@ -204,7 +207,7 @@ Name | Type | Unit | Description |
  | SN_MEDIAN | float32[5] |  | Median S/N for all good pixels in SDSS-{ugriz} |
  | SN_MEDIAN_ALL | float32 |  | Median S/N for all good pixels in all filters |
  | AIRMASS | float32 |  | Airmass at time of observation |
- | SEEING20 | float32 |  | Mean 20% seeing during exposures (arcsec) |
+ | SEEING20 | float32 | arcsecs | Mean 20% seeing during exposures (arcsec) |
  | SEEING50 | float32 | arcsecs | Mean 50% seeing during exposures (arcsec) |
  | SEEING80 | float32 | arcsecs | Mean 80% seeing during exposures (arcsec) |
  | MOON_DIST | char[47] | degrees | Mean Moon-target separation of Coadded Spectra |

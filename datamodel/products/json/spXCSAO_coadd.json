@@ -26,6 +26,12 @@
     "filesize": "180 KB",
     "releases": [
       {
+        "name": "IPL3",
+        "description": "SDSS internal product launch 3",
+        "public": false,
+        "release_date": "2023-11-01"
+      },
+      {
         "name": "WORK",
         "description": "SDSS unreleased data.  Represents any work-in-progress data.",
         "public": false,
@@ -40,7 +46,33 @@
   },
   "changelog": {
     "description": "Describes changes to the datamodel product and/or file structure from one release to another",
-    "releases": {}
+    "releases": {
+      "WORK": {
+        "from": "IPL3",
+        "note": "No changes",
+        "delta_nhdus": null,
+        "added_hdus": null,
+        "removed_hdus": null,
+        "primary_delta_nkeys": null,
+        "added_primary_header_kwargs": null,
+        "removed_primary_header_kwargs": null,
+        "delta_nkeys": null,
+        "addead_header_keys": null,
+        "removed_header_keys": null,
+        "delta_ntables": null,
+        "addead_tables": null,
+        "removed_tables": null,
+        "tables": null,
+        "new_libver": null,
+        "delta_nattrs": null,
+        "addead_attrs": null,
+        "removed_attrs": null,
+        "delta_nmembers": null,
+        "addead_members": null,
+        "removed_members": null,
+        "members": null
+      }
+    }
   },
   "releases": {
     "WORK": {
@@ -160,127 +192,145 @@
           ],
           "columns": {
             "ra": {
-              "name": "RA",
+              "name": "ra",
               "description": "RA (J2000)",
               "type": "float64",
               "unit": "deg"
             },
             "dec": {
-              "name": "DEC",
+              "name": "dec",
               "description": "DEC (J2000)",
               "type": "float64",
               "unit": "deg"
             },
+            "coord_epoch": {
+              "name": "coord_epoch",
+              "description": "Epoch of the RACAT/DECCAT Catalog coordinates.",
+              "type": "float64",
+              "unit": ""
+            },
             "objid": {
-              "name": "OBJID",
+              "name": "objid",
               "description": "Name of an object",
-              "type": "char[10]",
-              "unit": "N/A"
+              "type": "char[22]",
+              "unit": ""
             },
             "program": {
-              "name": "PROGRAM",
+              "name": "program",
               "description": "SDSS-V program that requested the source",
-              "type": "char[2]",
-              "unit": "N/A"
+              "type": "char[11]",
+              "unit": ""
             },
             "objtype": {
-              "name": "OBJTYPE",
+              "name": "objtype",
               "description": "Identified object type, inherited from the standard BOSS pipeline",
-              "type": "char[16]",
-              "unit": "N/A"
+              "type": "char[7]",
+              "unit": ""
             },
             "SOURCETYPE": {
               "name": "SOURCETYPE",
               "description": "Targeting type (science star, standard star, etc)",
-              "type": "char[3]",
-              "unit": "N/A"
+              "type": "char[7]",
+              "unit": ""
             },
-            "plate": {
-              "name": "PLATE",
-              "description": "Plate ID of the field",
-              "type": "int64",
-              "unit": "N/A"
+            "FIELDID": {
+              "name": "FIELDID",
+              "description": "SDSS FieldID (plateID for plate era data)",
+              "type": "char[1]",
+              "unit": ""
             },
             "mjd": {
-              "name": "MJD",
+              "name": "mjd",
               "description": "Date of observations",
               "type": "int64",
-              "unit": "N/A"
+              "unit": ""
             },
-            "fiber": {
-              "name": "FIBER",
-              "description": "Fiber number of the observation",
+            "TARGET_INDEX": {
+              "name": "TARGET_INDEX",
+              "description": "Index of target on combined spField",
               "type": "int64",
-              "unit": "N/A"
+              "unit": ""
             },
-            "snr": {
-              "name": "SNR",
-              "description": "Average signal to noise ratio of the spectrum",
-              "type": "float64",
-              "unit": "N/A"
+            "FIBERID_LIST": {
+              "name": "FIBERID_LIST",
+              "description": "List of FiberIDs contributing to Stack",
+              "type": "char[51]",
+              "unit": ""
             },
             "firstcarton": {
-              "name": "FIRSTCARTON",
+              "name": "firstcarton",
               "description": "The name of the first carton requesting the object in SDSS-V survey",
-              "type": "char[18]",
-              "unit": "N/A"
+              "type": "char[27]",
+              "unit": ""
+            },
+            "SDSS_ID": {
+              "name": "SDSS_ID",
+              "description": "Unified SDSS Target Identifier",
+              "type": "int64",
+              "unit": ""
+            },
+            "CATALOGID": {
+              "name": "CATALOGID",
+              "description": "SDSS-V CatalogID used in naming",
+              "type": "int64",
+              "unit": ""
             },
             "parallax": {
-              "name": "PARALLAX",
+              "name": "parallax",
               "description": "Gaia parallax",
               "type": "float64",
               "unit": "mas"
             },
             "pmra": {
-              "name": "PMRA",
+              "name": "pmra",
               "description": "Gaia proper motions in RA",
               "type": "float64",
               "unit": "mas/yr"
             },
             "pmdec": {
-              "name": "PMDEC",
+              "name": "pmdec",
               "description": "Gaia proper motions in Dec",
               "type": "float64",
               "unit": "mas/yr"
             },
-            "SFD_EBV": {
-              "name": "wi",
-              "description": "SRD reddening",
+            "EBV": {
+              "name": "EBV",
+              "description": "dust extinction",
               "type": "float64",
-              "unit": "Mag"
+              "unit": ""
             },
-            "u": {
-              "name": "U",
-              "description": "Sloan u band photometry",
+            "sdss_u": {
+              "name": "sdss_u",
+              "description": "SDSS u-band magnitude",
               "type": "float64",
-              "unit": "Mag"
+              "unit": ""
             },
-            "g": {
-              "name": "G",
-              "description": "Sloan g band photometry",
+            "sdss_g": {
+              "name": "sdss_g",
+              "description": "SDSS g-band magnitude",
               "type": "float64",
-              "unit": "Mag"
+              "unit": ""
             },
-            "r": {
-              "name": "R",
-              "description": "Cross correlation strength, as defined in Tonry+79",
+            "sdss_r": {
+              "name": "sdss_r",
+              "description": "SDSS r-band magnitude",
               "type": "float64",
-              "unit": "N/A"
+              "unit": ""
             },
-            "i": {
-              "name": "I",
-              "description": "Sloan i band photometry",
+            "sdss_i": {
+              "name": "sdss_i",
+              "description": "SDSS i-band magnitude",
               "type": "float64",
-              "unit": "Mag"
+              "unit": ""
             },
-            "z": {
-              "name": "Z",
-              "description": "Sloan z band photometry",
+            "sdss_z": {
+              "name": "sdss_z",
+              "description": "SDSS z-band magnitude",
               "type": "float64",
-              "unit": "Mag"
+              "unit": ""
             },
             "gaia_G": {
-              "name": "GAIA_G",
+              "name": "gaia_G",
               "description": "Gaia G band photmetry",
               "type": "float64",
               "unit": "Mag"
@@ -315,80 +365,466 @@
               "type": "float64",
               "unit": "Mag"
             },
+            "r": {
+              "name": "r",
+              "description": "Cross correlation strength, as defined in Tonry+79",
+              "type": "float64",
+              "unit": ""
+            },
             "rv": {
-              "name": "RV",
+              "name": "rv",
               "description": "Radial velocity measured with XCSAO",
               "type": "float64",
               "unit": "km/s"
             },
             "erv": {
-              "name": "ERV",
+              "name": "erv",
               "description": "Uncertainty in rv",
               "type": "float64",
               "unit": "km/s"
             },
             "grid": {
-              "name": "GRID",
+              "name": "grid",
               "description": "Name of the model grid with which cross-correlation is performed",
               "type": "char[7]",
-              "unit": "N/A"
+              "unit": ""
             },
             "st_lambda": {
-              "name": "ST_LAMBDA",
+              "name": "st_lambda",
               "description": "Minimum wavelength used in cross-correlation",
               "type": "float64",
               "unit": "Angstrom"
             },
             "end_lambda": {
-              "name": "END_LAMBDA",
+              "name": "end_lambda",
               "description": "Maximum wavelength used in cross-correlation",
               "type": "float64",
               "unit": "Angstrom"
             },
             "teff": {
-              "name": "TEFF",
+              "name": "teff",
               "description": "Interpolated temperature of the best matched cross-correlation template",
               "type": "float64",
               "unit": "K"
             },
             "eteff": {
-              "name": "ETEFF",
+              "name": "eteff",
               "description": "Uncertainty in Teff",
               "type": "float64",
               "unit": "K"
             },
             "logg": {
-              "name": "LOGG",
+              "name": "logg",
               "description": "Interpolated surface gravity of the best matched cross-correlation template",
               "type": "float64",
               "unit": "[cm/s2]"
             },
             "elogg": {
-              "name": "ELOGG",
+              "name": "elogg",
               "description": "Uncertainty in log g",
               "type": "float64",
               "unit": "[cm/s2]"
             },
             "feh": {
-              "name": "FEH",
+              "name": "feh",
               "description": "Interpolated metallicity of the best matched cross-correlation template",
               "type": "float64",
               "unit": "[Sun]"
             },
             "efeh": {
-              "name": "EFEH",
+              "name": "efeh",
               "description": "Uncertainty in Fe/H",
               "type": "float64",
               "unit": "[Sun]"
             },
             "alpha": {
-              "name": "ALPHA",
+              "name": "alpha",
               "description": "Interpolated [alpha/H] abundance of the best matched cross-correlation template",
               "type": "float64",
               "unit": "[Sun]"
             },
             "ealpha": {
-              "name": "EALPHA",
+              "name": "ealpha",
+              "description": "Uncertainty in alpha",
+              "type": "float64",
+              "unit": "[Sun]"
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null
+    },
+    "IPL3": {
+      "template": "$BOSS_SPECTRO_REDUX/[RUN2D]/[COADD]/[RUN1D]/spXCSAO-[COADD]-[MJD].fits",
+      "example": "v6_1_3/allepoch/v6_1_3/spXCSAO-allepoch-60000.fits",
+      "location": "{run2d}/{coadd}/{run1d}/spXCSAO-{coadd}-{mjd}.fits",
+      "environment": "BOSS_SPECTRO_REDUX",
+      "survey": "BHM",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "spXCSAO_coadd",
+        "path_template": "$BOSS_SPECTRO_REDUX/{run2d}/{coadd}/{run1d}/spXCSAO-{coadd}-{mjd}.fits",
+        "path_kwargs": [
+          "mjd",
+          "run2d",
+          "coadd",
+          "run1d"
+        ],
+        "access_string": "spXCSAO_coadd = $BOSS_SPECTRO_REDUX/{run2d}/{coadd}/{run1d}/spXCSAO-{coadd}-{mjd}.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Primary Header",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "Object Metadata and pyXCSAO output",
+          "size": "166 KB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "BINTABLE",
+              "comment": "binary table extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "413",
+              "comment": "length of dimension 1"
+            },
+            {
+              "key": "NAXIS2",
+              "value": "413",
+              "comment": "length of dimension 2"
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "number of group parameters"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "number of groups"
+            },
+            {
+              "key": "TFIELDS",
+              "value": "43",
+              "comment": "number of table fields"
+            },
+            {
+              "key": "TNULL9",
+              "value": "999999",
+              "comment": ""
+            },
+            {
+              "key": "TNULL10",
+              "value": "999999",
+              "comment": ""
+            },
+            {
+              "key": "TNULL13",
+              "value": "999999",
+              "comment": ""
+            },
+            {
+              "key": "TNULL14",
+              "value": "999999",
+              "comment": ""
+            }
+          ],
+          "columns": {
+            "ra": {
+              "name": "ra",
+              "description": "RA (J2000)",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "dec": {
+              "name": "dec",
+              "description": "DEC (J2000)",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "coord_epoch": {
+              "name": "coord_epoch",
+              "description": "Epoch of the RACAT/DECCAT Catalog coordinates.",
+              "type": "float64",
+              "unit": ""
+            },
+            "objid": {
+              "name": "objid",
+              "description": "Name of an object",
+              "type": "char[22]",
+              "unit": ""
+            },
+            "program": {
+              "name": "program",
+              "description": "SDSS-V program that requested the source",
+              "type": "char[11]",
+              "unit": ""
+            },
+            "objtype": {
+              "name": "objtype",
+              "description": "Identified object type, inherited from the standard BOSS pipeline",
+              "type": "char[7]",
+              "unit": ""
+            },
+            "SOURCETYPE": {
+              "name": "SOURCETYPE",
+              "description": "Targeting type (science star, standard star, etc)",
+              "type": "char[7]",
+              "unit": ""
+            },
+            "FIELDID": {
+              "name": "FIELDID",
+              "description": "SDSS FieldID (plateID for plate era data)",
+              "type": "char[1]",
+              "unit": ""
+            },
+            "mjd": {
+              "name": "mjd",
+              "description": "Date of observations",
+              "type": "int64",
+              "unit": ""
+            },
+            "TARGET_INDEX": {
+              "name": "TARGET_INDEX",
+              "description": "Index of target on combined spField",
+              "type": "int64",
+              "unit": ""
+            },
+            "FIBERID_LIST": {
+              "name": "FIBERID_LIST",
+              "description": "List of FiberIDs contributing to Stack",
+              "type": "char[51]",
+              "unit": ""
+            },
+            "firstcarton": {
+              "name": "firstcarton",
+              "description": "The name of the first carton requesting the object in SDSS-V survey",
+              "type": "char[27]",
+              "unit": ""
+            },
+            "SDSS_ID": {
+              "name": "SDSS_ID",
+              "description": "Unified SDSS Target Identifier",
+              "type": "int64",
+              "unit": ""
+            },
+            "CATALOGID": {
+              "name": "CATALOGID",
+              "description": "SDSS-V CatalogID used in naming",
+              "type": "int64",
+              "unit": ""
+            },
+            "parallax": {
+              "name": "parallax",
+              "description": "Gaia parallax",
+              "type": "float64",
+              "unit": "mas"
+            },
+            "pmra": {
+              "name": "pmra",
+              "description": "Gaia proper motions in RA",
+              "type": "float64",
+              "unit": "mas/yr"
+            },
+            "pmdec": {
+              "name": "pmdec",
+              "description": "Gaia proper motions in Dec",
+              "type": "float64",
+              "unit": "mas/yr"
+            },
+            "EBV": {
+              "name": "EBV",
+              "description": "dust extinction",
+              "type": "float64",
+              "unit": ""
+            },
+            "sdss_u": {
+              "name": "sdss_u",
+              "description": "SDSS u-band magnitude",
+              "type": "float64",
+              "unit": ""
+            },
+            "sdss_g": {
+              "name": "sdss_g",
+              "description": "SDSS g-band magnitude",
+              "type": "float64",
+              "unit": ""
+            },
+            "sdss_r": {
+              "name": "sdss_r",
+              "description": "SDSS r-band magnitude",
+              "type": "float64",
+              "unit": ""
+            },
+            "sdss_i": {
+              "name": "sdss_i",
+              "description": "SDSS i-band magnitude",
+              "type": "float64",
+              "unit": ""
+            },
+            "sdss_z": {
+              "name": "sdss_z",
+              "description": "SDSS z-band magnitude",
+              "type": "float64",
+              "unit": ""
+            },
+            "gaia_G": {
+              "name": "gaia_G",
+              "description": "Gaia G band photmetry",
+              "type": "float64",
+              "unit": "Mag"
+            },
+            "BP": {
+              "name": "BP",
+              "description": "Gaia BP band photmetry",
+              "type": "float64",
+              "unit": "Mag"
+            },
+            "RP": {
+              "name": "RP",
+              "description": "Gaia RP band photmetry",
+              "type": "float64",
+              "unit": "Mag"
+            },
+            "J": {
+              "name": "J",
+              "description": "Gaia J band photmetry",
+              "type": "float64",
+              "unit": "Mag"
+            },
+            "H": {
+              "name": "H",
+              "description": "Gaia H band photmetry",
+              "type": "float64",
+              "unit": "Mag"
+            },
+            "K": {
+              "name": "K",
+              "description": "Gaia K band photmetry",
+              "type": "float64",
+              "unit": "Mag"
+            },
+            "r": {
+              "name": "r",
+              "description": "Cross correlation strength, as defined in Tonry+79",
+              "type": "float64",
+              "unit": ""
+            },
+            "rv": {
+              "name": "rv",
+              "description": "Radial velocity measured with XCSAO",
+              "type": "float64",
+              "unit": "km/s"
+            },
+            "erv": {
+              "name": "erv",
+              "description": "Uncertainty in rv",
+              "type": "float64",
+              "unit": "km/s"
+            },
+            "grid": {
+              "name": "grid",
+              "description": "Name of the model grid with which cross-correlation is performed",
+              "type": "char[7]",
+              "unit": ""
+            },
+            "st_lambda": {
+              "name": "st_lambda",
+              "description": "Minimum wavelength used in cross-correlation",
+              "type": "float64",
+              "unit": "Angstrom"
+            },
+            "end_lambda": {
+              "name": "end_lambda",
+              "description": "Maximum wavelength used in cross-correlation",
+              "type": "float64",
+              "unit": "Angstrom"
+            },
+            "teff": {
+              "name": "teff",
+              "description": "Interpolated temperature of the best matched cross-correlation template",
+              "type": "float64",
+              "unit": "K"
+            },
+            "eteff": {
+              "name": "eteff",
+              "description": "Uncertainty in Teff",
+              "type": "float64",
+              "unit": "K"
+            },
+            "logg": {
+              "name": "logg",
+              "description": "Interpolated surface gravity of the best matched cross-correlation template",
+              "type": "float64",
+              "unit": "[cm/s2]"
+            },
+            "elogg": {
+              "name": "elogg",
+              "description": "Uncertainty in log g",
+              "type": "float64",
+              "unit": "[cm/s2]"
+            },
+            "feh": {
+              "name": "feh",
+              "description": "Interpolated metallicity of the best matched cross-correlation template",
+              "type": "float64",
+              "unit": "[Sun]"
+            },
+            "efeh": {
+              "name": "efeh",
+              "description": "Uncertainty in Fe/H",
+              "type": "float64",
+              "unit": "[Sun]"
+            },
+            "alpha": {
+              "name": "alpha",
+              "description": "Interpolated [alpha/H] abundance of the best matched cross-correlation template",
+              "type": "float64",
+              "unit": "[Sun]"
+            },
+            "ealpha": {
+              "name": "ealpha",
               "description": "Uncertainty in alpha",
               "type": "float64",
               "unit": "[Sun]"

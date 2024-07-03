@@ -7,6 +7,7 @@ general:
   datatype: FITS
   filesize: 907 MB
   releases:
+  - IPL3
   - WORK
   environments:
   - BOSS_SPECTRO_REDUX
@@ -20,7 +21,10 @@ general:
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
-  releases: {}
+  releases:
+    WORK:
+      from: IPL3
+      note: No changes
 releases:
   WORK:
     template: $BOSS_SPECTRO_REDUX/[RUN2D]/epoch/spAll-lite-[RUN2D].fits.gz
@@ -201,30 +205,37 @@ releases:
           FIELD:
             name: FIELD
             type: int64
+            unit: ''
             description: SDSS FieldID (plateID for plate era data)
           MJD:
             name: MJD
             type: int64
+            unit: ''
             description: Modified Julian date of combined Spectra
           MJD_FINAL:
             name: MJD_FINAL
             type: float64
+            unit: ''
             description: Mean MJD of the Coadded Spectra
           OBS:
             name: OBS
             type: char[3]
+            unit: ''
             description: Observatory of Observation
           RUN2D:
             name: RUN2D
             type: char[6]
+            unit: ''
             description: Spectro-2D reduction name
           RUN1D:
             name: RUN1D
             type: char[6]
+            unit: ''
             description: Spectro-1D reduction name
           NEXP:
             name: NEXP
             type: int64
+            unit: ''
             description: Number of Included Exposures
           EXPTIME:
             name: EXPTIME
@@ -234,34 +245,42 @@ releases:
           TARGET_INDEX:
             name: TARGET_INDEX
             type: int64
+            unit: ''
             description: Index of target on combined spField
           SPEC_FILE:
             name: SPEC_FILE
             type: char[42]
+            unit: ''
             description: Name of spec file (in SAS)
           PROGRAMNAME:
             name: PROGRAMNAME
             type: char[14]
+            unit: ''
             description: Program name within a given survey
           SURVEY:
             name: SURVEY
             type: char[13]
+            unit: ''
             description: Survey that field is part of
           CADENCE:
             name: CADENCE
             type: char[19]
+            unit: ''
             description: Requested Target Cadence
           FIRSTCARTON:
             name: FIRSTCARTON
             type: char[48]
+            unit: ''
             description: Primary SDSS Carton for target
           SDSS5_TARGET_FLAGS:
             name: SDSS5_TARGET_FLAGS
             type: bool[57]
+            unit: ''
             description: Targeting Flags for SSDSV Targeting
           OBJTYPE:
             name: OBJTYPE
             type: char[16]
+            unit: ''
             description: Why this object was targeted.  Note that if this field says
               QSO, it could be the case that this object would have been targetted
               as a GALAXY or any number of other categories as well. The PRIMTARGET
@@ -270,22 +289,27 @@ releases:
           CATALOGID:
             name: CATALOGID
             type: int64
+            unit: ''
             description: SDSS-V CatalogID used in naming
           CATALOGID_V0:
             name: CATALOGID_V0
             type: int64
+            unit: ''
             description: SDSS-V CatalogID from Catalog v0
           CATALOGID_V0P5:
             name: CATALOGID_V0P5
             type: int64
+            unit: ''
             description: SDSS-V CatalogID from Catalog v0.5
           SDSS_ID:
             name: SDSS_ID
             type: int64
+            unit: ''
             description: Unified SDSS Target Identifier
           SPECOBJID:
             name: SPECOBJID
             type: int64
+            unit: ''
             description: Unique ID based on Field, MJD, FIBERID, RUN2D
           CALIBFLUX:
             name: CALIBFLUX
@@ -300,62 +324,77 @@ releases:
           OPTICAL_PROV:
             name: OPTICAL_PROV
             type: char[26]
+            unit: ''
             description: The source of the optical CATDB_MAG magnitudes
           MAG:
             name: MAG
             type: float32[5]
+            unit: ''
             description: '[u, g, r, i, z] optical magnitudes'
           PSFMAG:
             name: PSFMAG
             type: float32[5]
+            unit: ''
             description: '[u, g, r, i, z] optical PSF magnitudes'
           FIBER2MAG:
             name: FIBER2MAG
             type: float32[5]
+            unit: ''
             description: '[u, g, r, i, z] optical Fiber2 magnitudes'
           CATDB_MAG:
             name: CATDB_MAG
             type: float32[5]
+            unit: ''
             description: '[u, g, r, i, z] Raw TargetDB magnitudes'
           GAIA_G_MAG:
             name: GAIA_G_MAG
             type: float32
+            unit: ''
             description: Gaia G magnitude
           GRI_GAIA_TRANSFORM:
             name: GRI_GAIA_TRANSFORM
             type: int64
+            unit: ''
             description: provenance of photometry in SDSS-V plate design
           BP_MAG:
             name: BP_MAG
             type: float32
+            unit: ''
             description: Gaia BP magnitude
           RP_MAG:
             name: RP_MAG
             type: float32
+            unit: ''
             description: Gaia RP magnitude
           GAIA_ID:
             name: GAIA_ID
             type: int64
+            unit: ''
             description: Gaia DR2 SourceID
           WISE_MAG:
             name: WISE_MAG
             type: float32[4]
+            unit: ''
             description: WISE [W1, W2, W3, W4] band magnitudes
           TWOMASS_MAG:
             name: TWOMASS_MAG
             type: float32[3]
+            unit: ''
             description: 2MASS [J, H, Ks] band magnitudes
           GUVCAT_MAG:
             name: GUVCAT_MAG
             type: float32[2]
+            unit: ''
             description: GALEX [FUV, NUV] band magnitudes
           EBV:
             name: EBV
             type: float32
+            unit: ''
             description: dust extinction
           EBV_TYPE:
             name: EBV_TYPE
             type: char[14]
+            unit: ''
             description: Source of dust extinction
           FIBER_RA:
             name: FIBER_RA
@@ -390,6 +429,7 @@ releases:
           COORD_EPOCH:
             name: COORD_EPOCH
             type: float32
+            unit: ''
             description: Epoch of the RACAT/DECCAT Catalog coordinates.
           PMRA:
             name: PMRA
@@ -419,6 +459,7 @@ releases:
           FIBER_OFFSET:
             name: FIBER_OFFSET
             type: int64
+            unit: ''
             description: Flag identifying the fiber was offset by design
           LAMBDA_EFF:
             name: LAMBDA_EFF
@@ -428,65 +469,79 @@ releases:
           HEALPIX:
             name: HEALPIX
             type: int64
+            unit: ''
             description: healpix pixel number of the RACAT and DECCAT coordinates,
               computed with healpix nside=128
           HEALPIXGRP:
             name: HEALPIXGRP
             type: int64
+            unit: ''
             description: Rounded-down integer value of healpix / 1000
           FIELDQUALITY:
             name: FIELDQUALITY
             type: char[4]
+            unit: ''
             description: Characterization of field quality
           EXP_DISP_MED:
             name: EXP_DISP_MED
             type: float64
+            unit: ''
             description: Dispersion of Median Exposure Flux
           FIELDSN2:
             name: FIELDSN2
             type: float32
+            unit: ''
             description: Overall (S/N)^2 for field; min of cameras
           SPEC1_G:
             name: SPEC1_G
             type: float32
+            unit: ''
             description: Fit (S/N)^2 at g=20.20 for spectrograph 1 (same value for
               500 fibers)
           SPEC1_R:
             name: SPEC1_R
             type: float32
+            unit: ''
             description: Fit (S/N)^2 at r=20.25 for spectrograph 1 (same value for
               500 fibers)
           SPEC1_I:
             name: SPEC1_I
             type: float32
+            unit: ''
             description: Fit (S/N)^2 at i=19.90 for spectrograph 1 (same value for
               500 fibers)
           SPEC2_G:
             name: SPEC2_G
             type: float32
+            unit: ''
             description: Fit (S/N)^2 at g=20.20 for spectrograph 2 (same value for
               500 fibers)
           SPEC2_R:
             name: SPEC2_R
             type: float32
+            unit: ''
             description: Fit (S/N)^2 at r=20.25 for spectrograph 2 (same value for
               500 fibers)
           SPEC2_I:
             name: SPEC2_I
             type: float32
+            unit: ''
             description: Fit (S/N)^2 at i=19.90 for spectrograph 2 (same value for
               500 fibers)
           SN_MEDIAN:
             name: SN_MEDIAN
             type: float32[5]
+            unit: ''
             description: Median S/N for all good pixels in SDSS-{ugriz}
           SN_MEDIAN_ALL:
             name: SN_MEDIAN_ALL
             type: float32
+            unit: ''
             description: Median S/N for all good pixels in all filters
           AIRMASS:
             name: AIRMASS
             type: float32
+            unit: ''
             description: Airmass at time of observation
           SEEING20:
             name: SEEING20
@@ -511,50 +566,61 @@ releases:
           MOON_PHASE:
             name: MOON_PHASE
             type: float32
+            unit: ''
             description: Mean Moon phase of the Coadded Spectra
           ASSIGNED:
             name: ASSIGNED
             type: int64
+            unit: ''
             description: Whether this fibre was assigned to a target
           ON_TARGET:
             name: ON_TARGET
             type: int64
+            unit: ''
             description: Whether this fibre is on target
           VALID:
             name: VALID
             type: int64
+            unit: ''
             description: alpha and beta angles are valid
           DECOLLIDED:
             name: DECOLLIDED
             type: int64
+            unit: ''
             description: this positioner had to be moved to decollide it
           ANYANDMASK:
             name: ANYANDMASK
             type: int64
+            unit: ''
             description: For each bit, records whether any pixel in the spectrum has
               that bit set in its ANDMASK
           ANYORMASK:
             name: ANYORMASK
             type: int64
+            unit: ''
             description: For each bit, records whether any pixel in the spectrum has
               that bit set in its ORMASK
           SPECPRIMARY:
             name: SPECPRIMARY
             type: int64
+            unit: ''
             description: Objects observed multiple times will have this set to 1 for
               one observation only. This is usually the 'best' observation, as defined
               by critera listed in fieldmerge.py.
           SPECBOSS:
             name: SPECBOSS
             type: int64
+            unit: ''
             description: Best version of spectrum at this location
           BOSS_SPECOBJ_ID:
             name: BOSS_SPECOBJ_ID
             type: int64
+            unit: ''
             description: Same as SPECPRIMARY
           NSPECOBS:
             name: NSPECOBS
             type: int64
+            unit: ''
             description: Number of spectral observations
           SPECTROFLUX:
             name: SPECTROFLUX
@@ -599,38 +665,47 @@ releases:
           CLASS:
             name: CLASS
             type: char[6]
+            unit: ''
             description: 'Spectro classification: GALAXY, QSO, STAR'
           SUBCLASS:
             name: SUBCLASS
             type: char[21]
+            unit: ''
             description: Spectro sub-classification
           Z:
             name: Z
             type: float32
+            unit: ''
             description: Redshift; incorrect for nonzero ZWARNING flag
           Z_ERR:
             name: Z_ERR
             type: float32
+            unit: ''
             description: z error from chi^2 min; negative is invalid fit
           ZWARNING:
             name: ZWARNING
             type: int64
+            unit: ''
             description: A flag for bad z fits in place of CLASS=UNKNOWN
           RCHI2:
             name: RCHI2
             type: float32
+            unit: ''
             description: Reduced chi^2 for best fit
           DOF:
             name: DOF
             type: int64
+            unit: ''
             description: Degrees of freedom for best fit
           RCHI2DIFF:
             name: RCHI2DIFF
             type: float32
+            unit: ''
             description: Diff in reduced chi^2 of 2 best solutions
           TFILE:
             name: TFILE
             type: char[24]
+            unit: ''
             description: Template file in $IDLSPEC2D_DIR/templates
           VDISP:
             name: VDISP
@@ -645,54 +720,67 @@ releases:
           VDISPZ:
             name: VDISPZ
             type: float32
+            unit: ''
             description: Redshift for best-fit velocity dispersion
           VDISPZ_ERR:
             name: VDISPZ_ERR
             type: float32
+            unit: ''
             description: Error in VDISPZ
           VDISPCHI2:
             name: VDISPCHI2
             type: float32
+            unit: ''
             description: Chi^2 for best-fit velocity dispersion
           VDISPNPIX:
             name: VDISPNPIX
             type: float32
+            unit: ''
             description: Num of pixels overlapping VDISP fit templates
           VDISPDOF:
             name: VDISPDOF
             type: int64
+            unit: ''
             description: DOF for best-fit velocity dispersion
           CHI68P:
             name: CHI68P
             type: float32
+            unit: ''
             description: 68% of abs(chi) of synthetic to actual spectrum
           Z_NOQSO:
             name: Z_NOQSO
             type: float32
+            unit: ''
             description: Redshift of the best-fit non-QSO model
           Z_ERR_NOQSO:
             name: Z_ERR_NOQSO
             type: float32
+            unit: ''
             description: Formal one-sigma error on Z_NOQSO
           ZNUM_NOQSO:
             name: ZNUM_NOQSO
             type: int64
+            unit: ''
             description: Best fit z/class index excluding QSO; 1-indexed
           ZWARNING_NOQSO:
             name: ZWARNING_NOQSO
             type: int64
+            unit: ''
             description: Redshift warning flag for Z_NOQSO
           CLASS_NOQSO:
             name: CLASS_NOQSO
             type: char[6]
+            unit: ''
             description: Spectro class of best-fit non-QSO model
           SUBCLASS_NOQSO:
             name: SUBCLASS_NOQSO
             type: char[21]
+            unit: ''
             description: Spectro sub-class of best-fit non-QSO model
           RCHI2DIFF_NOQSO:
             name: RCHI2DIFF_NOQSO
             type: float32
+            unit: ''
             description: Reduced chi^2 diff to next-best non-QSO model
           XCSAO_RV:
             name: XCSAO_RV
@@ -707,6 +795,7 @@ releases:
           XCSAO_RXC:
             name: XCSAO_RXC
             type: float32
+            unit: ''
             description: Cross correlation strength from pyXCSAO
           XCSAO_TEFF:
             name: XCSAO_TEFF
@@ -737,6 +826,807 @@ releases:
             name: XCSAO_EFEH
             unit: soloar
             type: float32
+            description: Uncertainty in interpolated metallicity
+  IPL3:
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/epoch/spAll-lite-[RUN2D].fits.gz
+    example: v6_1_3/epoch/spAll-lite-v6_1_3.fits.gz
+    location: '{run2d}/epoch/spAll-lite-{run2d}.fits.gz'
+    environment: BOSS_SPECTRO_REDUX
+    access:
+      in_sdss_access: false
+      path_name: null
+      path_template: null
+      path_kwargs: null
+      access_string: spAll-lite_epoch = $BOSS_SPECTRO_REDUX/{run2d}/epoch/spAll-lite-{run2d}.fits.gz
+    survey: BHM
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: ''
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: RUN2D
+          value: v6_1_3
+          comment: IDLSPEC2D RUN2D
+        - key: DATE
+          value: Tue Apr 16 18:10:00 2024
+          comment: Date Created
+        - key: SDSSC2BV
+          value: '1'
+          comment: SDSS5_TARGET_FLAG Carton to Bit Version
+        - key: CHECKSUM
+          value: W5ada3YbY3aba3Wb
+          comment: HDU checksum updated 2024-04-16T18:10:00
+        - key: DATASUM
+          value: '0'
+          comment: data unit checksum updated 2024-04-16T18:10:00
+      hdu1:
+        name: SPALL
+        description: Spectral Summary Table
+        is_image: false
+        size: 1 GB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 1094
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 1916375
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 122
+          comment: number of table fields
+        - key: TNULL1
+          value: 0
+          comment: ''
+        - key: TNULL2
+          value: 0
+          comment: ''
+        - key: TNULL7
+          value: 0
+          comment: ''
+        - key: TNULL9
+          value: -1
+          comment: ''
+        - key: TDIM15
+          value: (32)
+          comment: ''
+        - key: TNULL17
+          value: -999
+          comment: ''
+        - key: TNULL18
+          value: -999
+          comment: ''
+        - key: TNULL19
+          value: -999
+          comment: ''
+        - key: TNULL20
+          value: -999
+          comment: ''
+        - key: TNULL21
+          value: -1
+          comment: ''
+        - key: TNULL30
+          value: -999
+          comment: ''
+        - key: TNULL33
+          value: 0
+          comment: ''
+        - key: TNULL51
+          value: -999
+          comment: ''
+        - key: TNULL53
+          value: -999
+          comment: ''
+        - key: TNULL54
+          value: -999
+          comment: ''
+        - key: TNULL72
+          value: -999
+          comment: ''
+        - key: TNULL73
+          value: -999
+          comment: ''
+        - key: TNULL74
+          value: -999
+          comment: ''
+        - key: TNULL75
+          value: -999
+          comment: ''
+        - key: TNULL76
+          value: -999
+          comment: ''
+        - key: TNULL77
+          value: -999
+          comment: ''
+        - key: TNULL78
+          value: -999
+          comment: ''
+        - key: TNULL79
+          value: -999
+          comment: ''
+        - key: TNULL80
+          value: -999
+          comment: ''
+        - key: TNULL81
+          value: 0
+          comment: ''
+        - key: TNULL94
+          value: -999
+          comment: ''
+        - key: TNULL96
+          value: -999
+          comment: ''
+        - key: TNULL105
+          value: -1
+          comment: ''
+        - key: TNULL109
+          value: 0
+          comment: ''
+        - key: TNULL110
+          value: -999
+          comment: ''
+        - key: EXTNAME
+          value: SPALL
+          comment: extension name
+        - key: CHECKSUM
+          value: MaajOWTjMaZjMWZj
+          comment: HDU checksum updated 2024-04-16T18:10:47
+        - key: DATASUM
+          value: '2627325107'
+          comment: data unit checksum updated 2024-04-16T18:10:47
+        columns:
+          FIELD:
+            name: FIELD
+            type: int64
+            unit: ''
+            description: SDSS FieldID (plateID for plate era data)
+          MJD:
+            name: MJD
+            type: int64
+            unit: ''
+            description: Modified Julian date of combined Spectra
+          MJD_FINAL:
+            name: MJD_FINAL
+            type: float64
+            unit: ''
+            description: Mean MJD of the Coadded Spectra
+          OBS:
+            name: OBS
+            type: char[3]
+            unit: ''
+            description: Observatory of Observation
+          RUN2D:
+            name: RUN2D
+            type: char[6]
+            unit: ''
+            description: Spectro-2D reduction name
+          RUN1D:
+            name: RUN1D
+            type: char[6]
+            unit: ''
+            description: Spectro-1D reduction name
+          NEXP:
+            name: NEXP
+            type: int64
+            unit: ''
+            description: Number of Included Exposures
+          EXPTIME:
+            name: EXPTIME
+            type: float32
+            unit: s
+            description: Total Exposure time of Coadded Spectra
+          TARGET_INDEX:
+            name: TARGET_INDEX
+            type: int64
+            unit: ''
+            description: Index of target on combined spField
+          SPEC_FILE:
+            name: SPEC_FILE
+            type: char[42]
+            unit: ''
+            description: Name of spec file (in SAS)
+          PROGRAMNAME:
+            name: PROGRAMNAME
+            type: char[13]
+            unit: ''
+            description: Program name within a given survey
+          SURVEY:
+            name: SURVEY
+            type: char[13]
+            unit: ''
+            description: Survey that field is part of
+          CADENCE:
+            name: CADENCE
+            type: char[13]
+            unit: ''
+            description: Requested Target Cadence
+          FIRSTCARTON:
+            name: FIRSTCARTON
+            type: char[48]
+            unit: ''
+            description: Primary SDSS Carton for target
+          SDSS5_TARGET_FLAGS:
+            name: SDSS5_TARGET_FLAGS
+            type: bool[32]
+            unit: ''
+            description: Targeting Flags for SSDSV Targeting
+          OBJTYPE:
+            name: OBJTYPE
+            type: char[16]
+            unit: ''
+            description: Why this object was targeted.  Note that if this field says
+              QSO, it could be the case that this object would have been targetted
+              as a GALAXY or any number of other categories as well. The PRIMTARGET
+              and SECTARGET flags in the plug-map structure (in the spField file)
+              gives this full information.
+          CATALOGID:
+            name: CATALOGID
+            type: int64
+            unit: ''
+            description: SDSS-V CatalogID used in naming
+          CATALOGID_V0:
+            name: CATALOGID_V0
+            type: int64
+            unit: ''
+            description: SDSS-V CatalogID from Catalog v0
+          CATALOGID_V0P5:
+            name: CATALOGID_V0P5
+            type: int64
+            unit: ''
+            description: SDSS-V CatalogID from Catalog v0.5
+          SDSS_ID:
+            name: SDSS_ID
+            type: int64
+            unit: ''
+            description: Unified SDSS Target Identifier
+          SPECOBJID:
+            name: SPECOBJID
+            type: int64
+            unit: ''
+            description: Unique ID based on Field, MJD, FIBERID, RUN2D
+          CALIBFLUX:
+            name: CALIBFLUX
+            type: float32[5]
+            unit: nanomaggy
+            description: Broad-band flux in SDSS-{ugriz} from PSFmag
+          CALIBFLUX_IVAR:
+            name: CALIBFLUX_IVAR
+            type: float32[5]
+            unit: nanomaggy
+            description: Inverse var flux SDSS-{ugriz} from PSFmag
+          OPTICAL_PROV:
+            name: OPTICAL_PROV
+            type: char[26]
+            unit: ''
+            description: The source of the optical CATDB_MAG magnitudes
+          MAG:
+            name: MAG
+            type: float32[5]
+            unit: ''
+            description: '[u, g, r, i, z] optical magnitudes'
+          PSFMAG:
+            name: PSFMAG
+            type: float32[5]
+            unit: ''
+            description: '[u, g, r, i, z] optical PSF magnitudes'
+          FIBER2MAG:
+            name: FIBER2MAG
+            type: float32[5]
+            unit: ''
+            description: '[u, g, r, i, z] optical Fiber2 magnitudes'
+          CATDB_MAG:
+            name: CATDB_MAG
+            type: float32[5]
+            unit: ''
+            description: '[u, g, r, i, z] Raw TargetDB magnitudes'
+          GAIA_G_MAG:
+            name: GAIA_G_MAG
+            type: float32
+            unit: ''
+            description: Gaia G magnitude
+          GRI_GAIA_TRANSFORM:
+            name: GRI_GAIA_TRANSFORM
+            type: int64
+            unit: ''
+            description: provenance of photometry in SDSS-V plate design
+          BP_MAG:
+            name: BP_MAG
+            type: float32
+            unit: ''
+            description: Gaia BP magnitude
+          RP_MAG:
+            name: RP_MAG
+            type: float32
+            unit: ''
+            description: Gaia RP magnitude
+          GAIA_ID:
+            name: GAIA_ID
+            type: int64
+            unit: ''
+            description: Gaia DR2 SourceID
+          WISE_MAG:
+            name: WISE_MAG
+            type: float32[4]
+            unit: ''
+            description: WISE [W1, W2, W3, W4] band magnitudes
+          TWOMASS_MAG:
+            name: TWOMASS_MAG
+            type: float32[3]
+            unit: ''
+            description: 2MASS [J, H, Ks] band magnitudes
+          GUVCAT_MAG:
+            name: GUVCAT_MAG
+            type: float32[2]
+            unit: ''
+            description: GALEX [FUV, NUV] band magnitudes
+          EBV:
+            name: EBV
+            type: float32
+            unit: ''
+            description: dust extinction
+          EBV_TYPE:
+            name: EBV_TYPE
+            type: char[14]
+            unit: ''
+            description: Source of dust extinction
+          FIBER_RA:
+            name: FIBER_RA
+            type: float64
+            unit: degrees
+            description: Fiber RA [J2000 for plate; at exp for FPS]
+          FIBER_DEC:
+            name: FIBER_DEC
+            type: float64
+            unit: degrees
+            description: Fiber DEC [J2000 for plate; at exp for FPS]
+          PLUG_RA:
+            name: PLUG_RA
+            type: float64
+            unit: degrees
+            description: Object RA (drilled fiber position) [J2000]
+          PLUG_DEC:
+            name: PLUG_DEC
+            type: float64
+            unit: degrees
+            description: Object DEC (drilled fiber position) [J2000]
+          RACAT:
+            name: RACAT
+            type: float64
+            unit: degrees
+            description: Catalog RA in ICRS coordinates at coord_epoch
+          DECCAT:
+            name: DECCAT
+            type: float64
+            unit: degrees
+            description: Catalog DEC in ICRS coordinates at coord_epoch
+          COORD_EPOCH:
+            name: COORD_EPOCH
+            type: float32
+            unit: ''
+            description: Epoch of the RACAT/DECCAT Catalog coordinates.
+          PMRA:
+            name: PMRA
+            type: float32
+            unit: mas/yr
+            description: Proper motion in RA (pmra is a true angle)
+          PMDEC:
+            name: PMDEC
+            type: float32
+            unit: mas/yr
+            description: Proper motion in Dec
+          PARALLAX:
+            name: PARALLAX
+            type: float32
+            unit: mas
+            description: Parallax
+          DELTA_RA:
+            name: DELTA_RA
+            type: float32
+            unit: arcsec
+            description: The maximum fiber offset in any exposure
+          DELTA_DEC:
+            name: DELTA_DEC
+            type: float32
+            unit: arcsec
+            description: The maximum fiber offset in any exposure
+          FIBER_OFFSET:
+            name: FIBER_OFFSET
+            type: int64
+            unit: ''
+            description: Flag identifying the fiber was offset by design
+          LAMBDA_EFF:
+            name: LAMBDA_EFF
+            type: float32
+            unit: AA
+            description: Wavelength to optimize hole location for
+          HEALPIX:
+            name: HEALPIX
+            type: int64
+            unit: ''
+            description: healpix pixel number of the RACAT and DECCAT coordinates,
+              computed with healpix nside=128
+          HEALPIXGRP:
+            name: HEALPIXGRP
+            type: int64
+            unit: ''
+            description: Rounded-down integer value of healpix / 1000
+          FIELDQUALITY:
+            name: FIELDQUALITY
+            type: char[4]
+            unit: ''
+            description: Characterization of field quality
+          EXP_DISP_MED:
+            name: EXP_DISP_MED
+            type: float64
+            unit: ''
+            description: Dispersion of Median Exposure Flux
+          FIELDSN2:
+            name: FIELDSN2
+            type: float32
+            unit: ''
+            description: Overall (S/N)^2 for field; min of cameras
+          SPEC1_G:
+            name: SPEC1_G
+            type: float32
+            unit: ''
+            description: Fit (S/N)^2 at g=20.20 for spectrograph 1 (same value for
+              500 fibers)
+          SPEC1_R:
+            name: SPEC1_R
+            type: float32
+            unit: ''
+            description: Fit (S/N)^2 at r=20.25 for spectrograph 1 (same value for
+              500 fibers)
+          SPEC1_I:
+            name: SPEC1_I
+            type: float32
+            unit: ''
+            description: Fit (S/N)^2 at i=19.90 for spectrograph 1 (same value for
+              500 fibers)
+          SPEC2_G:
+            name: SPEC2_G
+            type: float32
+            unit: ''
+            description: Fit (S/N)^2 at g=20.20 for spectrograph 2 (same value for
+              500 fibers)
+          SPEC2_R:
+            name: SPEC2_R
+            type: float32
+            unit: ''
+            description: Fit (S/N)^2 at r=20.25 for spectrograph 2 (same value for
+              500 fibers)
+          SPEC2_I:
+            name: SPEC2_I
+            type: float32
+            unit: ''
+            description: Fit (S/N)^2 at i=19.90 for spectrograph 2 (same value for
+              500 fibers)
+          SN_MEDIAN:
+            name: SN_MEDIAN
+            type: float32[5]
+            unit: ''
+            description: Median S/N for all good pixels in SDSS-{ugriz}
+          SN_MEDIAN_ALL:
+            name: SN_MEDIAN_ALL
+            type: float32
+            unit: ''
+            description: Median S/N for all good pixels in all filters
+          AIRMASS:
+            name: AIRMASS
+            type: float32
+            unit: ''
+            description: Airmass at time of observation
+          SEEING20:
+            name: SEEING20
+            type: float32
+            unit: arcsecs
+            description: Mean 20% seeing during exposures (arcsec)
+          SEEING50:
+            name: SEEING50
+            type: float32
+            unit: arcsecs
+            description: Mean 50% seeing during exposures (arcsec)
+          SEEING80:
+            name: SEEING80
+            type: float32
+            unit: arcsecs
+            description: Mean 80% seeing during exposures (arcsec)
+          MOON_DIST:
+            name: MOON_DIST
+            type: float32
+            unit: degrees
+            description: Mean Moon-target separation of Coadded Spectra
+          MOON_PHASE:
+            name: MOON_PHASE
+            type: float32
+            unit: ''
+            description: Mean Moon phase of the Coadded Spectra
+          ASSIGNED:
+            name: ASSIGNED
+            type: int64
+            unit: ''
+            description: Whether this fibre was assigned to a target
+          ON_TARGET:
+            name: ON_TARGET
+            type: int64
+            unit: ''
+            description: Whether this fibre is on target
+          VALID:
+            name: VALID
+            type: int64
+            unit: ''
+            description: alpha and beta angles are valid
+          DECOLLIDED:
+            name: DECOLLIDED
+            type: int64
+            unit: ''
+            description: this positioner had to be moved to decollide it
+          ANYANDMASK:
+            name: ANYANDMASK
+            type: int64
+            unit: ''
+            description: For each bit, records whether any pixel in the spectrum has
+              that bit set in its ANDMASK
+          ANYORMASK:
+            name: ANYORMASK
+            type: int64
+            unit: ''
+            description: For each bit, records whether any pixel in the spectrum has
+              that bit set in its ORMASK
+          SPECPRIMARY:
+            name: SPECPRIMARY
+            type: int64
+            unit: ''
+            description: Objects observed multiple times will have this set to 1 for
+              one observation only. This is usually the 'best' observation, as defined
+              by critera listed in fieldmerge.py.
+          SPECBOSS:
+            name: SPECBOSS
+            type: int64
+            unit: ''
+            description: Best version of spectrum at this location
+          BOSS_SPECOBJ_ID:
+            name: BOSS_SPECOBJ_ID
+            type: int64
+            unit: ''
+            description: Same as SPECPRIMARY
+          NSPECOBS:
+            name: NSPECOBS
+            type: int64
+            unit: ''
+            description: Number of spectral observations
+          SPECTROFLUX:
+            name: SPECTROFLUX
+            type: float32[5]
+            unit: nanomaggy
+            description: Spectrum projected onto SDSS-{ugriz} filter
+          SPECTROFLUX_IVAR:
+            name: SPECTROFLUX_IVAR
+            type: float32[5]
+            unit: nanomaggy
+            description: Inverse variance of SPECTROFLUX_{ugriz}
+          SPECTROSYNFLUX:
+            name: SPECTROSYNFLUX
+            type: float32[5]
+            unit: nanomaggy
+            description: Best-fit template projected onto SDSS-{ugriz}
+          SPECTROSYNFLUX_IVAR:
+            name: SPECTROSYNFLUX_IVAR
+            type: float32[5]
+            unit: nanomaggy
+            description: Inverse variance of SPECTROSYNFLUX_{ugriz}
+          SPECTROSKYFLUX:
+            name: SPECTROSKYFLUX
+            type: float32[5]
+            unit: nanomaggy
+            description: Sky spectrum projected onto SDSS-{ugriz} filter
+          WAVEMIN:
+            name: WAVEMIN
+            type: float32
+            unit: AA
+            description: Minimum observed (vacuum) wavelength for target
+          WAVEMAX:
+            name: WAVEMAX
+            type: float32
+            unit: AA
+            description: Maximum observed (vacuum) wavelength for target
+          WCOVERAGE:
+            name: WCOVERAGE
+            type: float32
+            unit: log10(AA)
+            description: Amount of wavelength coverage in log-10(Angs)
+          CLASS:
+            name: CLASS
+            type: char[6]
+            unit: ''
+            description: 'Spectro classification: GALAXY, QSO, STAR'
+          SUBCLASS:
+            name: SUBCLASS
+            type: char[21]
+            unit: ''
+            description: Spectro sub-classification
+          Z:
+            name: Z
+            type: float32
+            unit: ''
+            description: Redshift; incorrect for nonzero ZWARNING flag
+          Z_ERR:
+            name: Z_ERR
+            type: float32
+            unit: ''
+            description: z error from chi^2 min; negative is invalid fit
+          ZWARNING:
+            name: ZWARNING
+            type: int64
+            unit: ''
+            description: A flag for bad z fits in place of CLASS=UNKNOWN
+          RCHI2:
+            name: RCHI2
+            type: float32
+            unit: ''
+            description: Reduced chi^2 for best fit
+          DOF:
+            name: DOF
+            type: int64
+            unit: ''
+            description: Degrees of freedom for best fit
+          RCHI2DIFF:
+            name: RCHI2DIFF
+            type: float32
+            unit: ''
+            description: Diff in reduced chi^2 of 2 best solutions
+          TFILE:
+            name: TFILE
+            type: char[24]
+            unit: ''
+            description: Template file in $IDLSPEC2D_DIR/templates
+          VDISP:
+            name: VDISP
+            type: float32
+            unit: km/s
+            description: Velocity dispersion, only computed for galaxies
+          VDISP_ERR:
+            name: VDISP_ERR
+            type: float32
+            unit: km/s
+            description: Error in VDISP; negative for invalid fit
+          VDISPZ:
+            name: VDISPZ
+            type: float32
+            unit: ''
+            description: Redshift for best-fit velocity dispersion
+          VDISPZ_ERR:
+            name: VDISPZ_ERR
+            type: float32
+            unit: ''
+            description: Error in VDISPZ
+          VDISPCHI2:
+            name: VDISPCHI2
+            type: float32
+            unit: ''
+            description: Chi^2 for best-fit velocity dispersion
+          VDISPNPIX:
+            name: VDISPNPIX
+            type: float32
+            unit: ''
+            description: Num of pixels overlapping VDISP fit templates
+          VDISPDOF:
+            name: VDISPDOF
+            type: int64
+            unit: ''
+            description: DOF for best-fit velocity dispersion
+          CHI68P:
+            name: CHI68P
+            type: float32
+            unit: ''
+            description: 68% of abs(chi) of synthetic to actual spectrum
+          Z_NOQSO:
+            name: Z_NOQSO
+            type: float32
+            unit: ''
+            description: Redshift of the best-fit non-QSO model
+          Z_ERR_NOQSO:
+            name: Z_ERR_NOQSO
+            type: float32
+            unit: ''
+            description: Formal one-sigma error on Z_NOQSO
+          ZNUM_NOQSO:
+            name: ZNUM_NOQSO
+            type: int64
+            unit: ''
+            description: Best fit z/class index excluding QSO; 1-indexed
+          ZWARNING_NOQSO:
+            name: ZWARNING_NOQSO
+            type: int64
+            unit: ''
+            description: Redshift warning flag for Z_NOQSO
+          CLASS_NOQSO:
+            name: CLASS_NOQSO
+            type: char[6]
+            unit: ''
+            description: Spectro class of best-fit non-QSO model
+          SUBCLASS_NOQSO:
+            name: SUBCLASS_NOQSO
+            type: char[21]
+            unit: ''
+            description: Spectro sub-class of best-fit non-QSO model
+          RCHI2DIFF_NOQSO:
+            name: RCHI2DIFF_NOQSO
+            type: float32
+            unit: ''
+            description: Reduced chi^2 diff to next-best non-QSO model
+          XCSAO_RV:
+            name: XCSAO_RV
+            type: float32
+            unit: km/s
+            description: Radial velocity measured with pyXCSAO
+          XCSAO_ERV:
+            name: XCSAO_ERV
+            type: float32
+            unit: km/s
+            description: Uncertainty in Radial velocity
+          XCSAO_RXC:
+            name: XCSAO_RXC
+            type: float32
+            unit: ''
+            description: Cross correlation strength from pyXCSAO
+          XCSAO_TEFF:
+            name: XCSAO_TEFF
+            type: float32
+            unit: K
+            description: Interpolated temperature from pyXCSAO
+          XCSAO_ETEFF:
+            name: XCSAO_ETEFF
+            type: float32
+            unit: K
+            description: Uncertainty in Interpolated temperature
+          XCSAO_LOGG:
+            name: XCSAO_LOGG
+            type: float32
+            unit: cm/s^2
+            description: Interpolated surface gravity from pyXCSAO
+          XCSAO_ELOGG:
+            name: XCSAO_ELOGG
+            type: float32
+            unit: cm/s^2
+            description: Uncertainty in Interpolated surface gravity
+          XCSAO_FEH:
+            name: XCSAO_FEH
+            type: float32
+            unit: soloar
+            description: Interpolated metallicity from pyXCSAO
+          XCSAO_EFEH:
+            name: XCSAO_EFEH
+            type: float32
+            unit: soloar
             description: Uncertainty in interpolated metallicity
 notes: |-
   None

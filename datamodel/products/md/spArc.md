@@ -19,7 +19,7 @@ This file contains information about flux density, wavelength solution, fibermas
 $BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/spArc-[BR][ID]-[FRAME].fits.gz
 
 ### Releases
-WORK
+IPL3, WORK
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -38,11 +38,11 @@ False
 
 ### HDUS List for release WORK
   - [HDU0: flux](#hdu0-flux)
-  - [HDU1: lambda](#hdu1-lambda)
-  - [HDU2: wset](#hdu2-wset)
-  - [HDU3: fibermask](#hdu3-fibermask)
-  - [HDU4: dispset](#hdu4-dispset)
-  - [HDU5: reslset](#hdu5-reslset)
+  - [HDU1: ](#hdu1-)
+  - [HDU2: ](#hdu2-)
+  - [HDU3: ](#hdu3-)
+  - [HDU4: ](#hdu4-)
+  - [HDU5: ](#hdu5-)
   - [HDU6: rejline](#hdu6-rejline)
   - [HDU7: XDIF_TSET](#hdu7-xdif_tset)
 
@@ -50,6 +50,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - WORK
+   - from: IPL3
+   - added_hdus: ['rejline', 'XDIF_TSET']
 
 ---
 ## Example HDUS List
@@ -274,7 +277,7 @@ Key | Value | Comment | |
 
 
 
-### HDU1: lambda
+### HDU1: 
 The data attribute of HDU 1 stores the wavelengths of good lamp lines (in Angstroms) and the Y position of each fiber on the CCD for the corresponding wavelengths.
 
 #### HDU Type: IMAGE
@@ -293,7 +296,7 @@ Key | Value | Comment | |
 
 
 
-### HDU2: wset
+### HDU2: 
 The HDU 2 data is a binary table whose fields are used to calculate wavelength solution (units of log10 Angstroms) for the arc calibration frames. The Y-positions on the CCD, which is the independent variable and corresponding wavelength solutions (in Angstroms) which is the dependent variable, are fitted to a functional form and the resulting coefficients are stored in the binary table. The use of these coefficients is described in the notes below
 
 #### HDU Type: BINARY TABLE
@@ -334,7 +337,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU3: fibermask
+### HDU3: 
 The HDU 3 data stores the fibermask. These are fiber status bits and are set to non-zero to indicate bad status. The status bits used for masking are documented in $IDLUTILS/$IDLUTILS_VER/data/sdss/sdssMaskbits.par.
 
 #### HDU Type: IMAGE
@@ -352,7 +355,7 @@ Key | Value | Comment | |
 
 
 
-### HDU4: dispset
+### HDU4: 
 rThe data attribute of HDU 4 gives the line width (in the dispersion axis) for each fiber. This Gaussian sigma is in units of pixels. The Y-positions on the CCD, which is the independent variable and the corresponding line width, which is the dependent variable are fitted to a functional form and the resulting coefficients are stored in a binary table. For instructions on how to use these tracesets, see HDU2 description of this file.
 
 #### HDU Type: BINARY TABLE
@@ -393,7 +396,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU5: reslset
+### HDU5: 
 Traceset structure containing fit coefficients to the emission line wavelength width for each arc fiber bundle
 
 #### HDU Type: BINARY TABLE

@@ -26,6 +26,12 @@
     "filesize": "2 MB",
     "releases": [
       {
+        "name": "IPL3",
+        "description": "SDSS internal product launch 3",
+        "public": false,
+        "release_date": "2023-11-01"
+      },
+      {
         "name": "WORK",
         "description": "SDSS unreleased data.  Represents any work-in-progress data.",
         "public": false,
@@ -40,7 +46,33 @@
   },
   "changelog": {
     "description": "Describes changes to the datamodel product and/or file structure from one release to another",
-    "releases": {}
+    "releases": {
+      "WORK": {
+        "from": "IPL3",
+        "note": "No changes",
+        "delta_nhdus": null,
+        "added_hdus": null,
+        "removed_hdus": null,
+        "primary_delta_nkeys": null,
+        "added_primary_header_kwargs": null,
+        "removed_primary_header_kwargs": null,
+        "delta_nkeys": null,
+        "addead_header_keys": null,
+        "removed_header_keys": null,
+        "delta_ntables": null,
+        "addead_tables": null,
+        "removed_tables": null,
+        "tables": null,
+        "new_libver": null,
+        "delta_nattrs": null,
+        "addead_attrs": null,
+        "removed_attrs": null,
+        "delta_nmembers": null,
+        "addead_members": null,
+        "removed_members": null,
+        "members": null
+      }
+    }
   },
   "releases": {
     "WORK": {
@@ -871,6 +903,878 @@
               "name": "STATUS2D",
               "description": "Status of 2d extraction",
               "type": "char[7]",
+              "unit": ""
+            },
+            "STATUSCOMBINE": {
+              "name": "STATUSCOMBINE",
+              "description": "Status of 1d combine",
+              "type": "char[7]",
+              "unit": ""
+            },
+            "STATUS1D": {
+              "name": "STATUS1D",
+              "description": "Status of 1d analysis",
+              "type": "char[7]",
+              "unit": ""
+            },
+            "FIELD_CADENCE": {
+              "name": "FIELD_CADENCE",
+              "description": "Planned Cadence of Observations",
+              "type": "char[21]",
+              "unit": ""
+            },
+            "PUBLIC": {
+              "name": "PUBLIC",
+              "description": "Is this Plate Public",
+              "type": "char[20]",
+              "unit": ""
+            },
+            "QUALCOMMENTS": {
+              "name": "QUALCOMMENTS",
+              "description": "Comments of Field Quality",
+              "type": "char[20]",
+              "unit": ""
+            },
+            "MOON_FRAC": {
+              "name": "MOON_FRAC",
+              "description": "Mean Moon phase of the Coadded Spectra",
+              "type": "float32",
+              "unit": ""
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null
+    },
+    "IPL3": {
+      "template": "$BOSS_SPECTRO_REDUX/[RUN2D]/fieldlist-[RUN2D].fits",
+      "example": "v6_1_3/fieldlist-v6_1_3.fits",
+      "location": "{run2d}/fieldlist-{run2d}.fits",
+      "environment": "BOSS_SPECTRO_REDUX",
+      "survey": "BHM",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "fieldlist",
+        "path_template": "$BOSS_SPECTRO_REDUX/{run2d}/fieldlist-{run2d}.fits",
+        "path_kwargs": [
+          "run2d"
+        ],
+        "access_string": "fieldlist = $BOSS_SPECTRO_REDUX/{run2d}/fieldlist-{run2d}.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            },
+            {
+              "key": "RUN2D",
+              "value": "v6_1_3",
+              "comment": "IDLSPEC2D RUN2D"
+            },
+            {
+              "key": "DATE",
+              "value": "Thu Apr  4 16:51:51 2024",
+              "comment": "Date Created"
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "FIELDLIST",
+          "is_image": false,
+          "description": "Field Summary Table",
+          "size": "2 MB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "BINTABLE",
+              "comment": "binary table extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "699",
+              "comment": "length of dimension 1"
+            },
+            {
+              "key": "NAXIS2",
+              "value": "3925",
+              "comment": "length of dimension 2"
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "number of group parameters"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "number of groups"
+            },
+            {
+              "key": "TFIELDS",
+              "value": "108",
+              "comment": "number of table fields"
+            },
+            {
+              "key": "TNULL4",
+              "value": "0",
+              "comment": ""
+            },
+            {
+              "key": "TNULL18",
+              "value": "-999",
+              "comment": ""
+            },
+            {
+              "key": "TNULL19",
+              "value": "-999",
+              "comment": ""
+            },
+            {
+              "key": "TNULL25",
+              "value": "-1",
+              "comment": ""
+            },
+            {
+              "key": "TNULL27",
+              "value": "-1",
+              "comment": ""
+            },
+            {
+              "key": "TNULL28",
+              "value": "-1",
+              "comment": ""
+            },
+            {
+              "key": "TNULL29",
+              "value": "-1",
+              "comment": ""
+            },
+            {
+              "key": "TNULL30",
+              "value": "-1",
+              "comment": ""
+            },
+            {
+              "key": "TNULL31",
+              "value": "-1",
+              "comment": ""
+            },
+            {
+              "key": "TNULL62",
+              "value": "-999",
+              "comment": ""
+            },
+            {
+              "key": "TNULL85",
+              "value": "-999",
+              "comment": ""
+            },
+            {
+              "key": "TNULL86",
+              "value": "-999",
+              "comment": ""
+            },
+            {
+              "key": "TNULL87",
+              "value": "-999",
+              "comment": ""
+            },
+            {
+              "key": "TNULL88",
+              "value": "-999",
+              "comment": ""
+            },
+            {
+              "key": "TNULL89",
+              "value": "-999",
+              "comment": ""
+            },
+            {
+              "key": "TNULL90",
+              "value": "-999",
+              "comment": ""
+            },
+            {
+              "key": "TNULL91",
+              "value": "-999",
+              "comment": ""
+            },
+            {
+              "key": "TNULL92",
+              "value": "-999",
+              "comment": ""
+            },
+            {
+              "key": "TNULL93",
+              "value": "-999",
+              "comment": ""
+            },
+            {
+              "key": "TNULL94",
+              "value": "-999",
+              "comment": ""
+            },
+            {
+              "key": "TNULL95",
+              "value": "-999",
+              "comment": ""
+            },
+            {
+              "key": "TNULL96",
+              "value": "-999",
+              "comment": ""
+            },
+            {
+              "key": "EXTNAME",
+              "value": "FIELDLIST",
+              "comment": "extension name"
+            }
+          ],
+          "columns": {
+            "FIELD": {
+              "name": "FIELD",
+              "description": "SDSS FieldID (plateID for plate era data)",
+              "type": "char[6]",
+              "unit": ""
+            },
+            "DESIGNS": {
+              "name": "DESIGNS",
+              "description": "List of Included Designs",
+              "type": "char[55]",
+              "unit": ""
+            },
+            "CONFIGS": {
+              "name": "CONFIGS",
+              "description": "List of Included Configurations",
+              "type": "char[47]",
+              "unit": ""
+            },
+            "MJD": {
+              "name": "MJD",
+              "description": "Modified Julian date of combined Spectra",
+              "type": "int64",
+              "unit": ""
+            },
+            "OBSERVATORY": {
+              "name": "OBSERVATORY",
+              "description": "Observatory of Observation",
+              "type": "char[3]",
+              "unit": ""
+            },
+            "RUN2D": {
+              "name": "RUN2D",
+              "description": "Spectro-2D reduction name",
+              "type": "char[6]",
+              "unit": ""
+            },
+            "RUN1D": {
+              "name": "RUN1D",
+              "description": "Spectro-1D reduction name",
+              "type": "char[6]",
+              "unit": ""
+            },
+            "RACEN": {
+              "name": "RACEN",
+              "description": "RA of the telescope pointing",
+              "type": "float32",
+              "unit": "deg"
+            },
+            "DECCEN": {
+              "name": "DECCEN",
+              "description": "DEC of the telescope pointing",
+              "type": "float32",
+              "unit": "deg"
+            },
+            "EPOCH": {
+              "name": "EPOCH",
+              "description": "Epoch of the RACEN/DECCEN",
+              "type": "float32",
+              "unit": ""
+            },
+            "CARTID": {
+              "name": "CARTID",
+              "description": "The currently loaded cartridge/instrument",
+              "type": "char[5]",
+              "unit": ""
+            },
+            "TAI": {
+              "name": "TAI",
+              "description": "Mean MJD(TAI) seconds of integration",
+              "type": "float32",
+              "unit": "s"
+            },
+            "TAI_BEG": {
+              "name": "TAI_BEG",
+              "description": "MJD(TAI) seconds at start of integration",
+              "type": "float32",
+              "unit": "s"
+            },
+            "TAI_END": {
+              "name": "TAI_END",
+              "description": "MJD(TAI) seconds at end of integration",
+              "type": "float32",
+              "unit": "s"
+            },
+            "AIRMASS": {
+              "name": "AIRMASS",
+              "description": "Mean Airmass",
+              "type": "float32",
+              "unit": ""
+            },
+            "EXPTIME": {
+              "name": "EXPTIME",
+              "description": "Total Exposure time",
+              "type": "float32",
+              "unit": "s"
+            },
+            "MAPNAME": {
+              "name": "MAPNAME",
+              "description": "ID of plate mapping file",
+              "type": "char[14]",
+              "unit": ""
+            },
+            "TILEID": {
+              "name": "TILEID",
+              "description": "Tile ID for SDSS BOSS plates (-1 for SDSS)",
+              "type": "int64",
+              "unit": ""
+            },
+            "DESIGNID": {
+              "name": "DESIGNID",
+              "description": "Plate Design ID",
+              "type": "int64",
+              "unit": ""
+            },
+            "SURVEY": {
+              "name": "SURVEY",
+              "description": "Survey that field is part of",
+              "type": "char[7]",
+              "unit": ""
+            },
+            "PROGRAMNAME": {
+              "name": "PROGRAMNAME",
+              "description": "Program name within a given survey",
+              "type": "char[12]",
+              "unit": ""
+            },
+            "FIELDQUALITY": {
+              "name": "FIELDQUALITY",
+              "description": "characterization of Field quality",
+              "type": "char[4]",
+              "unit": ""
+            },
+            "FIELDSN2": {
+              "name": "FIELDSN2",
+              "description": "Overall (S/N)^2 for field; min of cameras",
+              "type": "float32",
+              "unit": ""
+            },
+            "DEREDSN2": {
+              "name": "DEREDSN2",
+              "description": "Overall Dereddened (S/N)^2 for field",
+              "type": "float32",
+              "unit": ""
+            },
+            "QSURVEY": {
+              "name": "QSURVEY",
+              "description": "1 for an survey quality plate, 0 otherwise",
+              "type": "int64",
+              "unit": ""
+            },
+            "MJDLIST": {
+              "name": "MJDLIST",
+              "description": "List of MJD of each included exposures",
+              "type": "char[5]",
+              "unit": ""
+            },
+            "NEXP": {
+              "name": "NEXP",
+              "description": "Number of Included Exposures",
+              "type": "int64",
+              "unit": ""
+            },
+            "NEXP_B1": {
+              "name": "NEXP_B1",
+              "description": "Number of Included Exposures from b1",
+              "type": "int64",
+              "unit": ""
+            },
+            "NEXP_R1": {
+              "name": "NEXP_R1",
+              "description": "Number of Included Exposures from r1",
+              "type": "int64",
+              "unit": ""
+            },
+            "NEXP_B2": {
+              "name": "NEXP_B2",
+              "description": "Number of Included Exposures from b2",
+              "type": "int64",
+              "unit": ""
+            },
+            "NEXP_R2": {
+              "name": "NEXP_R2",
+              "description": "Number of Included Exposures from r2",
+              "type": "int64",
+              "unit": ""
+            },
+            "EXPT_B1": {
+              "name": "EXPT_B1",
+              "description": "Total Exposure Time of b1",
+              "type": "float32",
+              "unit": "s"
+            },
+            "EXPT_R1": {
+              "name": "EXPT_R1",
+              "description": "Total Exposure Time of r1",
+              "type": "float32",
+              "unit": "s"
+            },
+            "EXPT_B2": {
+              "name": "EXPT_B2",
+              "description": "Total Exposure Time of b2",
+              "type": "float32",
+              "unit": "s"
+            },
+            "EXPT_R2": {
+              "name": "EXPT_R2",
+              "description": "Total Exposure Time of r2",
+              "type": "float32",
+              "unit": "s"
+            },
+            "SN2_G1": {
+              "name": "SN2_G1",
+              "description": "Fit (S/N)^2 at g=20.20 for spectrograph #1",
+              "type": "float32",
+              "unit": ""
+            },
+            "SN2_R1": {
+              "name": "SN2_R1",
+              "description": "Fit (S/N)^2 at r=20.25 for spectrograph #1",
+              "type": "float32",
+              "unit": ""
+            },
+            "SN2_I1": {
+              "name": "SN2_I1",
+              "description": "Fit (S/N)^2 at i=19.90 for spectrograph #1",
+              "type": "float32",
+              "unit": ""
+            },
+            "SN2_G2": {
+              "name": "SN2_G2",
+              "description": "Fit (S/N)^2 at g=20.20 for spectrograph #2",
+              "type": "float32",
+              "unit": ""
+            },
+            "SN2_R2": {
+              "name": "SN2_R2",
+              "description": "Fit (S/N)^2 at r=20.25 for spectrograph #2",
+              "type": "float32",
+              "unit": ""
+            },
+            "SN2_I2": {
+              "name": "SN2_I2",
+              "description": "Fit (S/N)^2 at i=19.90 for spectrograph #2",
+              "type": "float32",
+              "unit": ""
+            },
+            "GOFFSTD": {
+              "name": "GOFFSTD",
+              "description": "Mean g mag difference (spectro-photo) for STDs",
+              "type": "float32",
+              "unit": ""
+            },
+            "GRMSSTD": {
+              "name": "GRMSSTD",
+              "description": "Stddev g mag diff (spectro-photo) for STDs",
+              "type": "float32",
+              "unit": ""
+            },
+            "ROFFSTD": {
+              "name": "ROFFSTD",
+              "description": "Mean r mag difference (spectro-photo) for STDs",
+              "type": "float32",
+              "unit": ""
+            },
+            "RRMSSTD": {
+              "name": "RRMSSTD",
+              "description": "Stddev r mag diff (spectro-photo) for STDs",
+              "type": "float32",
+              "unit": ""
+            },
+            "IOFFSTD": {
+              "name": "IOFFSTD",
+              "description": "Mean i mag difference (spectro-photo) for STDs",
+              "type": "float32",
+              "unit": ""
+            },
+            "IRMSSTD": {
+              "name": "IRMSSTD",
+              "description": "Stddev i mag diff (spectro-photo) for STDs",
+              "type": "float32",
+              "unit": ""
+            },
+            "GROFFSTD": {
+              "name": "GROFFSTD",
+              "description": "Spectrophoto offset for G-R in standards",
+              "type": "float32",
+              "unit": ""
+            },
+            "GRRMSSTD": {
+              "name": "GRRMSSTD",
+              "description": "Spectrophoto RMS for G-R in standards",
+              "type": "float32",
+              "unit": ""
+            },
+            "RIOFFSTD": {
+              "name": "RIOFFSTD",
+              "description": "Spectrophoto offset for R-I in standards",
+              "type": "float32",
+              "unit": ""
+            },
+            "RIRMSSTD": {
+              "name": "RIRMSSTD",
+              "description": "Spectrophoto RMS for R-I in standards",
+              "type": "float32",
+              "unit": ""
+            },
+            "GOFFGAL": {
+              "name": "GOFFGAL",
+              "description": "Mean g mag diff (spectro-photo) for galaxies",
+              "type": "float32",
+              "unit": ""
+            },
+            "GRMSGAL": {
+              "name": "GRMSGAL",
+              "description": "Stddev g mag diff (spectro-photo) for galaxies",
+              "type": "float32",
+              "unit": ""
+            },
+            "ROFFGAL": {
+              "name": "ROFFGAL",
+              "description": "Mean r mag diff (spectro-photo) for galaxies",
+              "type": "float32",
+              "unit": ""
+            },
+            "RRMSGAL": {
+              "name": "RRMSGAL",
+              "description": "Stddev r mag diff (spectro-photo) for galaxies",
+              "type": "float32",
+              "unit": ""
+            },
+            "IOFFGAL": {
+              "name": "IOFFGAL",
+              "description": "Mean i mag diff (spectro-photo) for galaxies",
+              "type": "float32",
+              "unit": ""
+            },
+            "IRMSGAL": {
+              "name": "IRMSGAL",
+              "description": "Stddev i mag diff (spectro-photo) for galaxies",
+              "type": "float32",
+              "unit": ""
+            },
+            "GROFFGAL": {
+              "name": "GROFFGAL",
+              "description": "Spectrophoto offset for G-R in galaxies",
+              "type": "float32",
+              "unit": ""
+            },
+            "GRRMSGAL": {
+              "name": "GRRMSGAL",
+              "description": "Spectrophoto RMS for G-R in galaxies",
+              "type": "float32",
+              "unit": ""
+            },
+            "RIOFFGAL": {
+              "name": "RIOFFGAL",
+              "description": "Spectrophoto offset for R-I in galaxies",
+              "type": "float32",
+              "unit": ""
+            },
+            "RIRMSGAL": {
+              "name": "RIRMSGAL",
+              "description": "Spectrophoto RMS for R-I in galaxies",
+              "type": "float32",
+              "unit": ""
+            },
+            "NGUIDE": {
+              "name": "NGUIDE",
+              "description": "Number of guider frames during the exposures",
+              "type": "int64",
+              "unit": ""
+            },
+            "SEEING20": {
+              "name": "SEEING20",
+              "description": "Mean 20% seeing during exposures",
+              "type": "float32",
+              "unit": "arcsec"
+            },
+            "SEEING50": {
+              "name": "SEEING50",
+              "description": "Mean 50% seeing during exposures",
+              "type": "float32",
+              "unit": "arcsec"
+            },
+            "SEEING80": {
+              "name": "SEEING80",
+              "description": "Mean 80% seeing during exposures",
+              "type": "float32",
+              "unit": "arcsec"
+            },
+            "RMSOFF20": {
+              "name": "RMSOFF20",
+              "description": "20% of RMS offset of guide fibers",
+              "type": "float32",
+              "unit": "arcsec"
+            },
+            "RMSOFF50": {
+              "name": "RMSOFF50",
+              "description": "50% of RMS offset of guide fibers",
+              "type": "float32",
+              "unit": "arcsec"
+            },
+            "RMSOFF80": {
+              "name": "RMSOFF80",
+              "description": "80% of RMS offset of guide fibers",
+              "type": "float32",
+              "unit": "arcsec"
+            },
+            "AIRTEMP": {
+              "name": "AIRTEMP",
+              "description": "Air temperature in the dome",
+              "type": "float32",
+              "unit": "dec"
+            },
+            "XSIGMA": {
+              "name": "XSIGMA",
+              "description": "Mean of median trace extraction profile width",
+              "type": "float32",
+              "unit": ""
+            },
+            "XSIGMIN": {
+              "name": "XSIGMIN",
+              "description": "Min of median trace extraction profile width",
+              "type": "float32",
+              "unit": ""
+            },
+            "XSIGMAX": {
+              "name": "XSIGMAX",
+              "description": "Max of median trace extraction profile width",
+              "type": "float32",
+              "unit": ""
+            },
+            "WSIGMA": {
+              "name": "WSIGMA",
+              "description": "Mean of median Arc Lines wavelength (Y) width",
+              "type": "float32",
+              "unit": ""
+            },
+            "WSIGMIN": {
+              "name": "WSIGMIN",
+              "description": "Min of median Arc Lines wavelength (Y) width",
+              "type": "float32",
+              "unit": ""
+            },
+            "WSIGMAX": {
+              "name": "WSIGMAX",
+              "description": "Max of median Arc Lines wavelength (Y) width",
+              "type": "float32",
+              "unit": ""
+            },
+            "XCHI2": {
+              "name": "XCHI2",
+              "description": "Mean of XCHI2 (reduced chi^2 of row-by-row)",
+              "type": "float32",
+              "unit": ""
+            },
+            "XCHI2MIN": {
+              "name": "XCHI2MIN",
+              "description": "Minimum of XCHI2 (reduced chi^2 of row-by-row)",
+              "type": "float32",
+              "unit": ""
+            },
+            "XCHI2MAX": {
+              "name": "XCHI2MAX",
+              "description": "Maximum of XCHI2 (reduced chi^2 of row-by-row)",
+              "type": "float32",
+              "unit": ""
+            },
+            "SKYCHI2": {
+              "name": "SKYCHI2",
+              "description": "Average chi^2 from sky subtraction",
+              "type": "float32",
+              "unit": ""
+            },
+            "SCHI2MIN": {
+              "name": "SCHI2MIN",
+              "description": "Minimum skyChi2 over all exposures",
+              "type": "float32",
+              "unit": ""
+            },
+            "SCHI2MAX": {
+              "name": "SCHI2MAX",
+              "description": "Maximum skyChi2 over all exposures",
+              "type": "float32",
+              "unit": ""
+            },
+            "FBADPIX": {
+              "name": "FBADPIX",
+              "description": "Fraction of bad pixels",
+              "type": "float32",
+              "unit": ""
+            },
+            "FBADPIX1": {
+              "name": "FBADPIX1",
+              "description": "Fraction of bad pixels from spectrograph #1",
+              "type": "float32",
+              "unit": ""
+            },
+            "FBADPIX2": {
+              "name": "FBADPIX2",
+              "description": "Fraction of bad pixels from spectrograph #2",
+              "type": "float32",
+              "unit": ""
+            },
+            "N_TOTAL": {
+              "name": "N_TOTAL",
+              "description": "Number of Sources",
+              "type": "int64",
+              "unit": ""
+            },
+            "N_GALAXY": {
+              "name": "N_GALAXY",
+              "description": "Number of Galaxies",
+              "type": "int64",
+              "unit": ""
+            },
+            "N_QSO": {
+              "name": "N_QSO",
+              "description": "Number of QSOs",
+              "type": "int64",
+              "unit": ""
+            },
+            "N_STAR": {
+              "name": "N_STAR",
+              "description": "Number of Stars",
+              "type": "int64",
+              "unit": ""
+            },
+            "N_UNKNOWN": {
+              "name": "N_UNKNOWN",
+              "description": "Number of Unknown Sources",
+              "type": "int64",
+              "unit": ""
+            },
+            "N_SKY": {
+              "name": "N_SKY",
+              "description": "Number of Skys",
+              "type": "int64",
+              "unit": ""
+            },
+            "N_STD": {
+              "name": "N_STD",
+              "description": "Number of Standards",
+              "type": "int64",
+              "unit": ""
+            },
+            "N_TARGET_QSO": {
+              "name": "N_TARGET_QSO",
+              "description": "Number of QSO Targeted",
+              "type": "int64",
+              "unit": ""
+            },
+            "N_TARGET_MAIN": {
+              "name": "N_TARGET_MAIN",
+              "description": "Number of Main Galaxy targeted",
+              "type": "int64",
+              "unit": ""
+            },
+            "N_TARGET_LRG1": {
+              "name": "N_TARGET_LRG1",
+              "description": "Number of LRG1 targeted",
+              "type": "int64",
+              "unit": ""
+            },
+            "N_TARGET_LRG2": {
+              "name": "N_TARGET_LRG2",
+              "description": "Number of LRG2 targeted",
+              "type": "int64",
+              "unit": ""
+            },
+            "N_TARGET_ELG": {
+              "name": "N_TARGET_ELG",
+              "description": "Number of ELG targted",
+              "type": "int64",
+              "unit": ""
+            },
+            "SUCCESS_MAIN": {
+              "name": "SUCCESS_MAIN",
+              "description": "Success rate of Main Galaxy targets",
+              "type": "float32",
+              "unit": ""
+            },
+            "SUCCESS_LRG1": {
+              "name": "SUCCESS_LRG1",
+              "description": "Success rate of LRG1s",
+              "type": "float32",
+              "unit": ""
+            },
+            "SUCCESS_LRG2": {
+              "name": "SUCCESS_LRG2",
+              "description": "Success rate of LRG2s",
+              "type": "float32",
+              "unit": ""
+            },
+            "SUCCESS_ELG": {
+              "name": "SUCCESS_ELG",
+              "description": "Success rate of ELGs",
+              "type": "float32",
+              "unit": ""
+            },
+            "SUCCESS_QSO": {
+              "name": "SUCCESS_QSO",
+              "description": "Success rate of QSOs",
+              "type": "float32",
+              "unit": ""
+            },
+            "STATUS2D": {
+              "name": "STATUS2D",
+              "description": "Status of 2d extraction",
+              "type": "char[6]",
               "unit": ""
             },
             "STATUSCOMBINE": {

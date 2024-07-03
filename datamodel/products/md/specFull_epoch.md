@@ -19,7 +19,7 @@ The spectral data for a given field, epoch, and catalogid including the coadded 
 $BOSS_SPECTRO_REDUX/[RUN2D]/epoch/spectra/full/[FIELD]/[MJD]/spec-[FIELD]-[MJD]-[CATALOGID].fits
 
 ### Releases
-WORK
+IPL3, WORK
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -60,6 +60,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - WORK
+   - from: IPL3
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -1483,14 +1486,14 @@ Key | Value | Comment | |
 ##### Binary Table Caption for HDU6
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | FLUX | float32 | FLUX | coadded calibrated flux |
- | LOGLAM | float32 | LOGLAM | log10(wavelength [Angstrom]) |
+ | FLUX | float32 |  | coadded calibrated flux |
+ | LOGLAM | float32 |  | log10(wavelength [Angstrom]) |
  | IVAR | float32 |  | inverse variance of flux |
  | AND_MASK | int32 |  | AND mask |
  | OR_MASK | int32 |  | OR mask |
- | WDISP | float32 | WDISP | Wavelength dispersion in number of pixel |
- | SKY | float32 | SKY | subtracted sky flux |
- | WRESL | float32 | WRESL | spectral resolution in A units |
+ | WDISP | float32 |  | Wavelength dispersion in number of pixel |
+ | SKY | float32 |  | subtracted sky flux |
+ | WRESL | float32 |  | spectral resolution in A units |
 
 
 
@@ -2047,14 +2050,14 @@ Key | Value | Comment | |
 ##### Binary Table Caption for HDU8
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | FLUX | float32 | FLUX | coadded calibrated flux |
- | LOGLAM | float32 | LOGLAM | log10(wavelength [Angstrom]) |
+ | FLUX | float32 |  | coadded calibrated flux |
+ | LOGLAM | float32 |  | log10(wavelength [Angstrom]) |
  | IVAR | float32 |  | inverse variance of flux |
  | AND_MASK | int32 |  | AND mask |
  | OR_MASK | int32 |  | OR mask |
- | WDISP | float32 | WDISP | Wavelength dispersion in number of pixel |
- | SKY | float32 | SKY | subtracted sky flux |
- | WRESL | float32 | WRESL | spectral resolution in A units |
+ | WDISP | float32 |  | Wavelength dispersion in number of pixel |
+ | SKY | float32 |  | subtracted sky flux |
+ | WRESL | float32 |  | spectral resolution in A units |
 
 
 
@@ -2609,14 +2612,14 @@ Key | Value | Comment | |
 ##### Binary Table Caption for HDU10
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | FLUX | float32 | FLUX | coadded calibrated flux |
- | LOGLAM | float32 | LOGLAM | log10(wavelength [Angstrom]) |
+ | FLUX | float32 |  | coadded calibrated flux |
+ | LOGLAM | float32 |  | log10(wavelength [Angstrom]) |
  | IVAR | float32 |  | inverse variance of flux |
  | AND_MASK | int32 |  | AND mask |
  | OR_MASK | int32 |  | OR mask |
- | WDISP | float32 | WDISP | Wavelength dispersion in number of pixel |
- | SKY | float32 | SKY | subtracted sky flux |
- | WRESL | float32 | WRESL | spectral resolution in A units |
+ | WDISP | float32 |  | Wavelength dispersion in number of pixel |
+ | SKY | float32 |  | subtracted sky flux |
+ | WRESL | float32 |  | spectral resolution in A units |
 
 
 
@@ -3173,14 +3176,14 @@ Key | Value | Comment | |
 ##### Binary Table Caption for HDU12
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | FLUX | float32 | FLUX | coadded calibrated flux |
- | LOGLAM | float32 | LOGLAM | log10(wavelength [Angstrom]) |
+ | FLUX | float32 |  | coadded calibrated flux |
+ | LOGLAM | float32 |  | log10(wavelength [Angstrom]) |
  | IVAR | float32 |  | inverse variance of flux |
  | AND_MASK | int32 |  | AND mask |
  | OR_MASK | int32 |  | OR mask |
- | WDISP | float32 | WDISP | Wavelength dispersion in number of pixel |
- | SKY | float32 | SKY | subtracted sky flux |
- | WRESL | float32 | WRESL | spectral resolution in A units |
+ | WDISP | float32 |  | Wavelength dispersion in number of pixel |
+ | SKY | float32 |  | subtracted sky flux |
+ | WRESL | float32 |  | spectral resolution in A units |
 
 
 
@@ -3737,14 +3740,14 @@ Key | Value | Comment | |
 ##### Binary Table Caption for HDU14
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | FLUX | float32 | FLUX | coadded calibrated flux |
- | LOGLAM | float32 | LOGLAM | log10(wavelength [Angstrom]) |
+ | FLUX | float32 |  | coadded calibrated flux |
+ | LOGLAM | float32 |  | log10(wavelength [Angstrom]) |
  | IVAR | float32 |  | inverse variance of flux |
  | AND_MASK | int32 |  | AND mask |
  | OR_MASK | int32 |  | OR mask |
- | WDISP | float32 | WDISP | Wavelength dispersion in number of pixel |
- | SKY | float32 | SKY | subtracted sky flux |
- | WRESL | float32 | WRESL | spectral resolution in A units |
+ | WDISP | float32 |  | Wavelength dispersion in number of pixel |
+ | SKY | float32 |  | subtracted sky flux |
+ | WRESL | float32 |  | spectral resolution in A units |
 
 
 
@@ -4299,14 +4302,14 @@ Key | Value | Comment | |
 ##### Binary Table Caption for HDU16
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | FLUX | float32 | FLUX | coadded calibrated flux |
- | LOGLAM | float32 | LOGLAM | log10(wavelength [Angstrom]) |
+ | FLUX | float32 |  | coadded calibrated flux |
+ | LOGLAM | float32 |  | log10(wavelength [Angstrom]) |
  | IVAR | float32 |  | inverse variance of flux |
  | AND_MASK | int32 |  | AND mask |
  | OR_MASK | int32 |  | OR mask |
- | WDISP | float32 | WDISP | Wavelength dispersion in number of pixel |
- | SKY | float32 | SKY | subtracted sky flux |
- | WRESL | float32 | WRESL | spectral resolution in A units |
+ | WDISP | float32 |  | Wavelength dispersion in number of pixel |
+ | SKY | float32 |  | subtracted sky flux |
+ | WRESL | float32 |  | spectral resolution in A units |
 
 
 

@@ -19,7 +19,7 @@ This file contains a summary of the BOSS idlspec2d and spectro-1d pipeline outpu
 $BOSS_SPECTRO_REDUX/[RUN2D]/spAll-lite-[RUN2D]-[coadd].fits.gz
 
 ### Releases
-WORK
+IPL3, WORK
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -44,6 +44,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - WORK
+   - from: IPL3
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -243,8 +246,8 @@ Name | Type | Unit | Description |
  | XCSAO_ETEFF | float32 | K | Uncertainty in Interpolated temperature |
  | XCSAO_LOGG | float32 | cm/s^2 | Interpolated surface gravity from pyXCSAO |
  | XCSAO_ELOGG | float32 | cm/s^2 | Uncertainty in Interpolated surface gravity |
- | XCSAO_FEH | float32 | soloar | Interpolated metallicity from pyXCSAO |
- | XCSAO_EFEH | float32 | soloar | Uncertainty in interpolated metallicity |
+ | XCSAO_FEH | float32 | solar | Interpolated metallicity from pyXCSAO |
+ | XCSAO_EFEH | float32 | solar | Uncertainty in interpolated metallicity |
 
 
 

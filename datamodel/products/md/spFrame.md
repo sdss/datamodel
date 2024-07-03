@@ -19,7 +19,7 @@ spFrame contains the non-calibrated spectra from the red- or blue-half of a sing
 $BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/spFrame-[BR][ID]-[FRAME].fits.gz
 
 ### Releases
-WORK
+IPL3, WORK
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -53,6 +53,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - WORK
+   - from: IPL3
+   - note: No changes
 
 ---
 ## Example HDUS List

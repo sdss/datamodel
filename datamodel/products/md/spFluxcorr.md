@@ -19,7 +19,7 @@ flux-correction factor between spectro-photometric exposure and science exposure
 $BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/spFluxcorr-[BR][ID]-[FRAME].fits.gz
 
 ### Releases
-WORK
+IPL3, WORK
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -44,6 +44,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - WORK
+   - from: IPL3
+   - note: No changes
 
 ---
 ## Example HDUS List

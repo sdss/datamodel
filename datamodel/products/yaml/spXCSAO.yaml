@@ -9,6 +9,7 @@ general:
   datatype: FITS
   filesize: 168 KB
   releases:
+  - IPL3
   - WORK
   environments:
   - BOSS_SPECTRO_REDUX
@@ -16,14 +17,16 @@ general:
   generated_by: idlspec2d - run_pyXCSAO.py
   design: false
   surveys:
-  - eBOSS
   - BHM
   vac: false
   recommended_science_product: false
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
-  releases: {}
+  releases:
+    WORK:
+      from: IPL3
+      note: No changes
 releases:
   WORK:
     template: $BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/[RUN1D]/spXCSAO-[FIELD]-[MJD].fits
@@ -63,112 +66,164 @@ releases:
         name: ''
         description: Object Metadata and pyXCSAO output
         is_image: false
-        size: 156 KB
+        size: 166 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 413
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 413
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 43
+          comment: number of table fields
+        - key: TNULL9
+          value: 999999
+          comment: ''
+        - key: TNULL10
+          value: 999999
+          comment: ''
+        - key: TNULL13
+          value: 999999
+          comment: ''
+        - key: TNULL14
+          value: 999999
+          comment: ''
         columns:
           ra:
-            name: RA
+            name: ra
             type: float64
             unit: deg
             description: RA (J2000)
           dec:
-            name: DEC
+            name: dec
             type: float64
             unit: deg
             description: DEC (J2000)
+          coord_epoch:
+            name: coord_epoch
+            type: float64
+            unit: ''
+            description: Epoch of the RACAT/DECCAT Catalog coordinates.
           objid:
-            name: OBJID
-            type: char[10]
-            unit: N/A
+            name: objid
+            type: char[22]
+            unit: ''
             description: Name of an object
           program:
-            name: PROGRAM
-            type: char[2]
-            unit: N/A
+            name: program
+            type: char[11]
+            unit: ''
             description: SDSS-V program that requested the source
           objtype:
-            name: OBJTYPE
-            type: char[16]
-            unit: N/A
+            name: objtype
+            type: char[7]
+            unit: ''
             description: Identified object type, inherited from the standard BOSS
               pipeline
           SOURCETYPE:
             name: SOURCETYPE
-            type: char[3]
-            unit: N/A
+            type: char[7]
+            unit: ''
             description: Targeting type (science star, standard star, etc)
-          plate:
-            name: PLATE
-            type: int64
-            unit: N/A
-            description: Plate ID of the field
+          FIELDID:
+            name: FIELDID
+            type: char[1]
+            unit: ''
+            description: SDSS FieldID (plateID for plate era data)
           mjd:
-            name: MJD
+            name: mjd
             type: int64
-            unit: N/A
+            unit: ''
             description: Date of observations
-          fiber:
-            name: FIBER
+          TARGET_INDEX:
+            name: TARGET_INDEX
             type: int64
-            unit: N/A
-            description: Fiber number of the observation
-          snr:
-            name: SNR
-            type: float64
-            unit: N/A
-            description: Average signal to noise ratio of the spectrum
+            unit: ''
+            description: Index of target on combined spField
+          FIBERID_LIST:
+            name: FIBERID_LIST
+            type: char[51]
+            unit: ''
+            description: List of FiberIDs contributing to Stack
           firstcarton:
-            name: FIRSTCARTON
-            type: char[18]
-            unit: N/A
+            name: firstcarton
+            type: char[27]
+            unit: ''
             description: The name of the first carton requesting the object in SDSS-V
               survey
+          SDSS_ID:
+            name: SDSS_ID
+            type: int64
+            unit: ''
+            description: Unified SDSS Target Identifier
+          CATALOGID:
+            name: CATALOGID
+            type: int64
+            unit: ''
+            description: SDSS-V CatalogID used in naming
           parallax:
-            name: PARALLAX
+            name: parallax
             type: float64
             unit: mas
             description: Gaia parallax
           pmra:
-            name: PMRA
+            name: pmra
             type: float64
             unit: mas/yr
             description: Gaia proper motions in RA
           pmdec:
-            name: PMDEC
+            name: pmdec
             type: float64
             unit: mas/yr
             description: Gaia proper motions in Dec
-          SFD_EBV:
-            name: wi
+          EBV:
+            name: EBV
             type: float64
-            unit: Mag
-            description: SRD reddening
-          u:
-            name: U
+            unit: ''
+            description: dust extinction
+          sdss_u:
+            name: sdss_u
             type: float64
-            unit: Mag
-            description: Sloan u band photometry
-          g:
-            name: G
+            unit: ''
+            description: SDSS u-band magnitude
+          sdss_g:
+            name: sdss_g
             type: float64
-            unit: Mag
-            description: Sloan g band photometry
-          r:
-            name: R
+            unit: ''
+            description: SDSS g-band magnitude
+          sdss_r:
+            name: sdss_r
             type: float64
-            unit: N/A
-            description: Cross correlation strength, as defined in Tonry+79
-          i:
-            name: I
+            unit: ''
+            description: SDSS r-band magnitude
+          sdss_i:
+            name: sdss_i
             type: float64
-            unit: Mag
-            description: Sloan i band photometry
-          z:
-            name: Z
+            unit: ''
+            description: SDSS i-band magnitude
+          sdss_z:
+            name: sdss_z
             type: float64
-            unit: Mag
-            description: Sloan z band photometry
+            unit: ''
+            description: SDSS z-band magnitude
           gaia_G:
-            name: GAIA_G
+            name: gaia_G
             type: float64
             unit: Mag
             description: Gaia G band photmetry
@@ -197,75 +252,378 @@ releases:
             type: float64
             unit: Mag
             description: Gaia K band photmetry
+          r:
+            name: r
+            type: float64
+            unit: ''
+            description: Cross correlation strength, as defined in Tonry+79
           rv:
-            name: RV
+            name: rv
             type: float64
             unit: km/s
             description: Radial velocity measured with XCSAO
           erv:
-            name: ERV
+            name: erv
             type: float64
             unit: km/s
             description: Uncertainty in rv
           grid:
-            name: GRID
+            name: grid
             type: char[7]
-            unit: N/A
+            unit: ''
             description: Name of the model grid with which cross-correlation is performed
           st_lambda:
-            name: ST_LAMBDA
+            name: st_lambda
             type: float64
             unit: Angstrom
             description: Minimum wavelength used in cross-correlation
           end_lambda:
-            name: END_LAMBDA
+            name: end_lambda
             type: float64
             unit: Angstrom
             description: Maximum wavelength used in cross-correlation
           teff:
-            name: TEFF
+            name: teff
             type: float64
             unit: K
             description: Interpolated temperature of the best matched cross-correlation
               template
           eteff:
-            name: ETEFF
+            name: eteff
             type: float64
             unit: K
             description: Uncertainty in Teff
           logg:
-            name: LOGG
+            name: logg
             type: float64
             unit: '[cm/s2]'
             description: Interpolated surface gravity of the best matched cross-correlation
               template
           elogg:
-            name: ELOGG
+            name: elogg
             type: float64
             unit: '[cm/s2]'
             description: Uncertainty in log g
           feh:
-            name: FEH
+            name: feh
             type: float64
             unit: '[Sun]'
             description: Interpolated metallicity of the best matched cross-correlation
               template
           efeh:
-            name: EFEH
+            name: efeh
             type: float64
             unit: '[Sun]'
             description: Uncertainty in Fe/H
           alpha:
-            name: ALPHA
+            name: alpha
             type: float64
             unit: '[Sun]'
             description: Interpolated [alpha/H] abundance of the best matched cross-correlation
               template
           ealpha:
-            name: EALPHA
+            name: ealpha
             type: float64
             unit: '[Sun]'
             description: Uncertainty in alpha
+  IPL3:
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/[RUN1D]/spXCSAO-[FIELD]-[MJD].fits
+    example: v6_1_3/112360/v6_1_3/spXCSAO-112360-60000.fits
+    location: '{run2d}/{field}/{run1d}/spXCSAO-{field}-{mjd}.fits'
+    environment: BOSS_SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: spXCSAO
+      path_template: $BOSS_SPECTRO_REDUX/{run2d}/@pad_fieldid|@isplate|/{run1d}/spXCSAO-@pad_fieldid|-{mjd}.fits
+      path_kwargs:
+      - mjd
+      - run2d
+      - fieldid
+      - run1d
+      access_string: spXCSAO = $BOSS_SPECTRO_REDUX/{run2d}/{field}/{run1d}/spXCSAO-{field}-{mjd}.fits
     survey: BHM
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Primary Header
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: Object Metadata and pyXCSAO output
+        is_image: false
+        size: 194 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 395
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 503
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 43
+          comment: number of table fields
+        - key: TNULL9
+          value: 999999
+          comment: ''
+        - key: TNULL10
+          value: 999999
+          comment: ''
+        - key: TNULL13
+          value: 999999
+          comment: ''
+        - key: TNULL14
+          value: 999999
+          comment: ''
+        columns:
+          ra:
+            name: ra
+            type: float64
+            unit: deg
+            description: RA (J2000)
+          dec:
+            name: dec
+            type: float64
+            unit: deg
+            description: DEC (J2000)
+          coord_epoch:
+            name: coord_epoch
+            type: float64
+            unit: ''
+            description: Epoch of the RACAT/DECCAT Catalog coordinates.
+          objid:
+            name: objid
+            type: char[18]
+            unit: ''
+            description: Name of an object
+          program:
+            name: program
+            type: char[7]
+            unit: ''
+            description: SDSS-V program that requested the source
+          objtype:
+            name: objtype
+            type: char[16]
+            unit: ''
+            description: Identified object type, inherited from the standard BOSS
+              pipeline
+          SOURCETYPE:
+            name: SOURCETYPE
+            type: char[13]
+            unit: ''
+            description: Targeting type (science star, standard star, etc)
+          FIELDID:
+            name: FIELDID
+            type: char[6]
+            unit: ''
+            description: SDSS FieldID (plateID for plate era data)
+          mjd:
+            name: mjd
+            type: int64
+            unit: ''
+            description: Date of observations
+          TARGET_INDEX:
+            name: TARGET_INDEX
+            type: int64
+            unit: ''
+            description: Index of target on combined spField
+          FIBERID_LIST:
+            name: FIBERID_LIST
+            type: char[31]
+            unit: ''
+            description: List of FiberIDs contributing to Stack
+          firstcarton:
+            name: firstcarton
+            type: char[17]
+            unit: ''
+            description: The name of the first carton requesting the object in SDSS-V
+              survey
+          SDSS_ID:
+            name: SDSS_ID
+            type: int64
+            unit: ''
+            description: Unified SDSS Target Identifier
+          CATALOGID:
+            name: CATALOGID
+            type: int64
+            unit: ''
+            description: SDSS-V CatalogID used in naming
+          parallax:
+            name: parallax
+            type: float64
+            unit: mas
+            description: Gaia parallax
+          pmra:
+            name: pmra
+            type: float64
+            unit: mas/yr
+            description: Gaia proper motions in RA
+          pmdec:
+            name: pmdec
+            type: float64
+            unit: mas/yr
+            description: Gaia proper motions in Dec
+          EBV:
+            name: EBV
+            type: float64
+            unit: ''
+            description: dust extinction
+          sdss_u:
+            name: sdss_u
+            type: float64
+            unit: ''
+            description: SDSS u-band magnitude
+          sdss_g:
+            name: sdss_g
+            type: float64
+            unit: ''
+            description: SDSS g-band magnitude
+          sdss_r:
+            name: sdss_r
+            type: float64
+            unit: ''
+            description: SDSS r-band magnitude
+          sdss_i:
+            name: sdss_i
+            type: float64
+            unit: ''
+            description: SDSS i-band magnitude
+          sdss_z:
+            name: sdss_z
+            type: float64
+            unit: ''
+            description: SDSS z-band magnitude
+          gaia_G:
+            name: gaia_G
+            type: float64
+            unit: Mag
+            description: Gaia G band photmetry
+          BP:
+            name: BP
+            type: float64
+            unit: Mag
+            description: Gaia BP band photmetry
+          RP:
+            name: RP
+            type: float64
+            unit: Mag
+            description: Gaia RP band photmetry
+          J:
+            name: J
+            type: float64
+            unit: Mag
+            description: Gaia J band photmetry
+          H:
+            name: H
+            type: float64
+            unit: Mag
+            description: Gaia H band photmetry
+          K:
+            name: K
+            type: float64
+            unit: Mag
+            description: Gaia K band photmetry
+          r:
+            name: r
+            type: float64
+            unit: ''
+            description: Cross correlation strength, as defined in Tonry+79
+          rv:
+            name: rv
+            type: float64
+            unit: km/s
+            description: Radial velocity measured with XCSAO
+          erv:
+            name: erv
+            type: float64
+            unit: km/s
+            description: Uncertainty in rv
+          grid:
+            name: grid
+            type: char[7]
+            unit: ''
+            description: Name of the model grid with which cross-correlation is performed
+          st_lambda:
+            name: st_lambda
+            type: float64
+            unit: Angstrom
+            description: Minimum wavelength used in cross-correlation
+          end_lambda:
+            name: end_lambda
+            type: float64
+            unit: Angstrom
+            description: Maximum wavelength used in cross-correlation
+          teff:
+            name: teff
+            type: float64
+            unit: K
+            description: Interpolated temperature of the best matched cross-correlation
+              template
+          eteff:
+            name: eteff
+            type: float64
+            unit: K
+            description: Uncertainty in Teff
+          logg:
+            name: logg
+            type: float64
+            unit: '[cm/s2]'
+            description: Interpolated surface gravity of the best matched cross-correlation
+              template
+          elogg:
+            name: elogg
+            type: float64
+            unit: '[cm/s2]'
+            description: Uncertainty in log g
+          feh:
+            name: feh
+            type: float64
+            unit: '[Sun]'
+            description: Interpolated metallicity of the best matched cross-correlation
+              template
+          efeh:
+            name: efeh
+            type: float64
+            unit: '[Sun]'
+            description: Uncertainty in Fe/H
+          alpha:
+            name: alpha
+            type: float64
+            unit: '[Sun]'
+            description: Interpolated [alpha/H] abundance of the best matched cross-correlation
+              template
+          ealpha:
+            name: ealpha
+            type: float64
+            unit: '[Sun]'
+            description: Uncertainty in alpha
 notes: |-
   None
