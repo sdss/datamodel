@@ -512,8 +512,8 @@
             },
             "SPECOBJID": {
               "name": "SPECOBJID",
-              "description": "Unique ID based on Field, MJD, FIBERID, RUN2D",
-              "type": "int64",
+              "description": "Unique ID based on Field, MJD, SDSSID, RUN2D, COADD type",
+              "type": "char[30]",
               "unit": ""
             },
             "CALIBFLUX": {
@@ -1040,7 +1040,7 @@
             },
             "TCOLUMN": {
               "name": "TCOLUMN",
-              "description": "Column to use in template file (0-indexed)",
+              "description": "Column to use in template file (0-indexed); unused value set to -1",
               "type": "int64[10]",
               "unit": ""
             },
@@ -1094,7 +1094,7 @@
             },
             "VDISPDOF": {
               "name": "VDISPDOF",
-              "description": "DOF for best-fit velocity dispersion",
+              "description": "Degrees of freedom for best-fit velocity dispersion, equal to VDISPNPIX minus the number of templates minus the number of polynomial terms minus 1 (the last 1 is for the velocity dispersion)",
               "type": "int64",
               "unit": ""
             },
@@ -1106,61 +1106,61 @@
             },
             "FRACNSIGMA": {
               "name": "FRACNSIGMA",
-              "description": "Fraction of pixels deviant by >{1-10} sigma",
+              "description": "Fraction of pixels low by >{1-10} sigma (igorning all points blueward of rest-frame 1216 Ang)",
               "type": "float32[10]",
               "unit": ""
             },
             "FRACNSIGHI": {
               "name": "FRACNSIGHI",
-              "description": "Fraction of pixels high by >{1-10} sigma",
+              "description": "Fraction of pixels high by >{1-10} sigma (igorning all points blueward of rest-frame 1216 Ang)",
               "type": "float32[10]",
               "unit": ""
             },
             "FRACNSIGLO": {
               "name": "FRACNSIGLO",
-              "description": "Fraction of pixels low by >{1-10} sigma",
+              "description": "Fraction of pixels deviant by >{1-10} sigma (igorning all points blueward of rest-frame 1216 Ang)",
               "type": "float32[10]",
               "unit": ""
             },
             "Z_NOQSO": {
               "name": "Z_NOQSO",
-              "description": "Redshift of the best-fit non-QSO model",
+              "description": "Redshift of the best-fit non-QSO model (recommended for CMASS and LOZ)",
               "type": "float32",
               "unit": ""
             },
             "Z_ERR_NOQSO": {
               "name": "Z_ERR_NOQSO",
-              "description": "Formal one-sigma error on Z_NOQSO",
+              "description": "Formal one-sigma error on Z_NOQSO (recommended for CMASS and LOZ)",
               "type": "float32",
               "unit": ""
             },
             "ZNUM_NOQSO": {
               "name": "ZNUM_NOQSO",
-              "description": "Best fit z/class index excluding QSO; 1-indexed",
+              "description": "Best fit z/class index excluding QSO; 1-indexed (recommended for CMASS and LOZ)",
               "type": "int64",
               "unit": ""
             },
             "ZWARNING_NOQSO": {
               "name": "ZWARNING_NOQSO",
-              "description": "Redshift warning flag for Z_NOQSO",
+              "description": "Redshift warning flag for Z_NOQSO (recommended for CMASS and LOZ)",
               "type": "int64",
               "unit": ""
             },
             "CLASS_NOQSO": {
               "name": "CLASS_NOQSO",
-              "description": "Spectro class of best-fit non-QSO model",
+              "description": "Spectro class of best-fit non-QSO model (recommended for CMASS and LOZ)",
               "type": "char[6]",
               "unit": ""
             },
             "SUBCLASS_NOQSO": {
               "name": "SUBCLASS_NOQSO",
-              "description": "Spectro sub-class of best-fit non-QSO model",
+              "description": "Spectro sub-class of best-fit non-QSO model (recommended for CMASS and LOZ)",
               "type": "char[21]",
               "unit": ""
             },
             "RCHI2DIFF_NOQSO": {
               "name": "RCHI2DIFF_NOQSO",
-              "description": "Reduced chi^2 diff to next-best non-QSO model",
+              "description": "Reduced chi^2 diff to next-best non-QSO model (recommended for CMASS and LOZ)",
               "type": "float32",
               "unit": ""
             },
@@ -1235,8 +1235,8 @@
         "path_name": "spAll_coadd",
         "path_template": "$BOSS_SPECTRO_REDUX/{run2d}/spAll-{run2d}-{coadd}.fits",
         "path_kwargs": [
-          "run2d",
-          "coadd"
+          "coadd",
+          "run2d"
         ],
         "access_string": "spAll_coadd = $BOSS_SPECTRO_REDUX/{run2d}/spAll-{run2d}-{coadd}.fits.gz"
       },
@@ -1661,8 +1661,8 @@
             },
             "SPECOBJID": {
               "name": "SPECOBJID",
-              "description": "Unique ID based on Field, MJD, FIBERID, RUN2D",
-              "type": "int64",
+              "description": "Unique ID based on Field, MJD, SDSSID, RUN2D, COADD type",
+              "type": "char[30]",
               "unit": ""
             },
             "CALIBFLUX": {
@@ -2189,7 +2189,7 @@
             },
             "TCOLUMN": {
               "name": "TCOLUMN",
-              "description": "Column to use in template file (0-indexed)",
+              "description": "Column to use in template file (0-indexed); unused value set to -1",
               "type": "int64[10]",
               "unit": ""
             },
@@ -2243,7 +2243,7 @@
             },
             "VDISPDOF": {
               "name": "VDISPDOF",
-              "description": "DOF for best-fit velocity dispersion",
+              "description": "Degrees of freedom for best-fit velocity dispersion, equal to VDISPNPIX minus the number of templates minus the number of polynomial terms minus 1 (the last 1 is for the velocity dispersion)",
               "type": "int64",
               "unit": ""
             },
@@ -2255,61 +2255,61 @@
             },
             "FRACNSIGMA": {
               "name": "FRACNSIGMA",
-              "description": "Fraction of pixels deviant by >{1-10} sigma",
+              "description": "Fraction of pixels low by >{1-10} sigma (igorning all points blueward of rest-frame 1216 Ang)",
               "type": "float32[10]",
               "unit": ""
             },
             "FRACNSIGHI": {
               "name": "FRACNSIGHI",
-              "description": "Fraction of pixels high by >{1-10} sigma",
+              "description": "Fraction of pixels high by >{1-10} sigma (igorning all points blueward of rest-frame 1216 Ang)",
               "type": "float32[10]",
               "unit": ""
             },
             "FRACNSIGLO": {
               "name": "FRACNSIGLO",
-              "description": "Fraction of pixels low by >{1-10} sigma",
+              "description": "Fraction of pixels deviant by >{1-10} sigma (igorning all points blueward of rest-frame 1216 Ang)",
               "type": "float32[10]",
               "unit": ""
             },
             "Z_NOQSO": {
               "name": "Z_NOQSO",
-              "description": "Redshift of the best-fit non-QSO model",
+              "description": "Redshift of the best-fit non-QSO model (recommended for CMASS and LOZ)",
               "type": "float32",
               "unit": ""
             },
             "Z_ERR_NOQSO": {
               "name": "Z_ERR_NOQSO",
-              "description": "Formal one-sigma error on Z_NOQSO",
+              "description": "Formal one-sigma error on Z_NOQSO (recommended for CMASS and LOZ)",
               "type": "float32",
               "unit": ""
             },
             "ZNUM_NOQSO": {
               "name": "ZNUM_NOQSO",
-              "description": "Best fit z/class index excluding QSO; 1-indexed",
+              "description": "Best fit z/class index excluding QSO; 1-indexed (recommended for CMASS and LOZ)",
               "type": "int64",
               "unit": ""
             },
             "ZWARNING_NOQSO": {
               "name": "ZWARNING_NOQSO",
-              "description": "Redshift warning flag for Z_NOQSO",
+              "description": "Redshift warning flag for Z_NOQSO (recommended for CMASS and LOZ)",
               "type": "int64",
               "unit": ""
             },
             "CLASS_NOQSO": {
               "name": "CLASS_NOQSO",
-              "description": "Spectro class of best-fit non-QSO model",
+              "description": "Spectro class of best-fit non-QSO model (recommended for CMASS and LOZ)",
               "type": "char[6]",
               "unit": ""
             },
             "SUBCLASS_NOQSO": {
               "name": "SUBCLASS_NOQSO",
-              "description": "Spectro sub-class of best-fit non-QSO model",
+              "description": "Spectro sub-class of best-fit non-QSO model (recommended for CMASS and LOZ)",
               "type": "char[21]",
               "unit": ""
             },
             "RCHI2DIFF_NOQSO": {
               "name": "RCHI2DIFF_NOQSO",
-              "description": "Reduced chi^2 diff to next-best non-QSO model",
+              "description": "Reduced chi^2 diff to next-best non-QSO model (recommended for CMASS and LOZ)",
               "type": "float32",
               "unit": ""
             },

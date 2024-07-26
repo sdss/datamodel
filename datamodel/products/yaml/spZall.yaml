@@ -1330,7 +1330,8 @@ releases:
             name: TCOLUMN
             type: int32[10]
             unit: ''
-            description: Column to use in template file (0-indexed)
+            description: Column to use in template file (0-indexed); unused value
+              set to -1
           NPOLY:
             name: NPOLY
             type: int32
@@ -1380,7 +1381,9 @@ releases:
             name: VDISPDOF
             type: int32
             unit: ''
-            description: DOF for best-fit velocity dispersion
+            description: Degrees of freedom for best-fit velocity dispersion, equal
+              to VDISPNPIX minus the number of templates minus the number of polynomial
+              terms minus 1 (the last 1 is for the velocity dispersion)
           WAVEMIN:
             name: WAVEMIN
             type: float32
@@ -1420,17 +1423,20 @@ releases:
             name: FRACNSIGMA
             type: float32[10]
             unit: ''
-            description: Fraction of pixels deviant by >{1-10} sigma
+            description: Fraction of pixels deviant by >{1-10} sigma (igorning all
+              points blueward of rest-frame 1216 Ang)
           FRACNSIGHI:
             name: FRACNSIGHI
             type: float32[10]
             unit: ''
-            description: Fraction of pixels high by >{1-10} sigma
+            description: Fraction of pixels high by >{1-10} sigma (igorning all points
+              blueward of rest-frame 1216 Ang)
           FRACNSIGLO:
             name: FRACNSIGLO
             type: float32[10]
             unit: ''
-            description: Fraction of pixels low by >{1-10} sigma
+            description: Fraction of pixels low by >{1-10} sigma (igorning all points
+              blueward of rest-frame 1216 Ang)
           SPECTROFLUX:
             name: SPECTROFLUX
             unit: nanomaggy
@@ -1504,7 +1510,7 @@ releases:
     access:
       in_sdss_access: true
       path_name: spZall
-      path_template: $BOSS_SPECTRO_REDUX/{run2d}/@pad_fieldid|@isplate|/{run1d}/spZall-@pad_fieldid|-{mjd}.fits
+      path_template: $BOSS_SPECTRO_REDUX/{run2d}/@pad_fieldid|/{run1d}/spZall-@pad_fieldid|-{mjd}.fits
       path_kwargs:
       - mjd
       - run2d
@@ -2801,7 +2807,8 @@ releases:
             name: TCOLUMN
             type: int32[10]
             unit: ''
-            description: Column to use in template file (0-indexed)
+            description: Column to use in template file (0-indexed); unused value
+              set to -1
           NPOLY:
             name: NPOLY
             type: int32
@@ -2851,7 +2858,9 @@ releases:
             name: VDISPDOF
             type: int32
             unit: ''
-            description: DOF for best-fit velocity dispersion
+            description: Degrees of freedom for best-fit velocity dispersion, equal
+              to VDISPNPIX minus the number of templates minus the number of polynomial
+              terms minus 1 (the last 1 is for the velocity dispersion)
           WAVEMIN:
             name: WAVEMIN
             type: float32
@@ -2891,17 +2900,20 @@ releases:
             name: FRACNSIGMA
             type: float32[10]
             unit: ''
-            description: Fraction of pixels deviant by >{1-10} sigma
+            description: Fraction of pixels deviant by >{1-10} sigma (igorning all
+              points blueward of rest-frame 1216 Ang)
           FRACNSIGHI:
             name: FRACNSIGHI
             type: float32[10]
             unit: ''
-            description: Fraction of pixels high by >{1-10} sigma
+            description: Fraction of pixels high by >{1-10} sigma (igorning all points
+              blueward of rest-frame 1216 Ang)
           FRACNSIGLO:
             name: FRACNSIGLO
             type: float32[10]
             unit: ''
-            description: Fraction of pixels low by >{1-10} sigma
+            description: Fraction of pixels low by >{1-10} sigma (igorning all points
+              blueward of rest-frame 1216 Ang)
           SPECTROFLUX:
             name: SPECTROFLUX
             type: float32[5]

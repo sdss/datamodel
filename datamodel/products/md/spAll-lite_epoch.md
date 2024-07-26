@@ -146,7 +146,7 @@ Name | Type | Unit | Description |
  | CATALOGID_V0 | int64 |  | SDSS-V CatalogID from Catalog v0 |
  | CATALOGID_V0P5 | int64 |  | SDSS-V CatalogID from Catalog v0.5 |
  | SDSS_ID | int64 |  | Unified SDSS Target Identifier |
- | SPECOBJID | int64 |  | Unique ID based on Field, MJD, FIBERID, RUN2D |
+ | SPECOBJID | char[30] |  | Unique ID based on Field, MJD, SDSSID, RUN2D, COADD type |
  | CALIBFLUX | float32[5] | nanomaggy | Broad-band flux in SDSS-{ugriz} from PSFmag |
  | CALIBFLUX_IVAR | float32[5] | nanomaggy | Inverse var flux SDSS-{ugriz} from PSFmag |
  | OPTICAL_PROV | char[26] |  | The source of the optical CATDB_MAG magnitudes |
@@ -230,15 +230,15 @@ Name | Type | Unit | Description |
  | VDISPZ_ERR | float32 |  | Error in VDISPZ |
  | VDISPCHI2 | float32 |  | Chi^2 for best-fit velocity dispersion |
  | VDISPNPIX | float32 |  | Num of pixels overlapping VDISP fit templates |
- | VDISPDOF | int64 |  | DOF for best-fit velocity dispersion |
+ | VDISPDOF | int64 |  | Degrees of freedom for best-fit velocity dispersion, equal to VDISPNPIX minus the number of templates minus the number of polynomial terms minus 1 (the last 1 is for the velocity dispersion) |
  | CHI68P | float32 |  | 68% of abs(chi) of synthetic to actual spectrum |
- | Z_NOQSO | float32 |  | Redshift of the best-fit non-QSO model |
- | Z_ERR_NOQSO | float32 |  | Formal one-sigma error on Z_NOQSO |
- | ZNUM_NOQSO | int64 |  | Best fit z/class index excluding QSO; 1-indexed |
- | ZWARNING_NOQSO | int64 |  | Redshift warning flag for Z_NOQSO |
- | CLASS_NOQSO | char[6] |  | Spectro class of best-fit non-QSO model |
- | SUBCLASS_NOQSO | char[21] |  | Spectro sub-class of best-fit non-QSO model |
- | RCHI2DIFF_NOQSO | float32 |  | Reduced chi^2 diff to next-best non-QSO model |
+ | Z_NOQSO | float32 |  | Redshift of the best-fit non-QSO model (recommended for CMASS and LOZ) |
+ | Z_ERR_NOQSO | float32 |  | Formal one-sigma error on Z_NOQSO (recommended for CMASS and LOZ) |
+ | ZNUM_NOQSO | int64 |  | Best fit z/class index excluding QSO; 1-indexed (recommended for CMASS and LOZ) |
+ | ZWARNING_NOQSO | int64 |  | Redshift warning flag for Z_NOQSO (recommended for CMASS and LOZ) |
+ | CLASS_NOQSO | char[6] |  | Spectro class of best-fit non-QSO model (recommended for CMASS and LOZ) |
+ | SUBCLASS_NOQSO | char[21] |  | Spectro sub-class of best-fit non-QSO model (recommended for CMASS and LOZ) |
+ | RCHI2DIFF_NOQSO | float32 |  | Reduced chi^2 diff to next-best non-QSO model (recommended for CMASS and LOZ) |
  | XCSAO_RV | float32 | km/s | Radial velocity measured with pyXCSAO |
  | XCSAO_ERV | float32 | km/s | Uncertainty in Radial velocity |
  | XCSAO_RXC | float32 |  | Cross correlation strength from pyXCSAO |

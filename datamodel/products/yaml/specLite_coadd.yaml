@@ -570,9 +570,9 @@ releases:
             description: Unified SDSS Target Identifier
           SPECOBJID:
             name: SPECOBJID
-            type: int64
+            type: char[30]
             unit: ''
-            description: Unique ID based on Field, MJD, FIBERID, RUN2D
+            description: Unique ID based on Field, MJD, SDSSID, RUN2D, COADD type
           CALIBFLUX:
             name: CALIBFLUX
             unit: nanomaggy
@@ -1012,7 +1012,8 @@ releases:
             name: TCOLUMN
             type: int64[10]
             unit: ''
-            description: Column to use in template file (0-indexed)
+            description: Column to use in template file (0-indexed); unused value
+              set to -1
           NPOLY:
             name: NPOLY
             type: int64
@@ -1057,7 +1058,9 @@ releases:
             name: VDISPDOF
             type: int64
             unit: ''
-            description: DOF for best-fit velocity dispersion
+            description: Degrees of freedom for best-fit velocity dispersion, equal
+              to VDISPNPIX minus the number of templates minus the number of polynomial
+              terms minus 1 (the last 1 is for the velocity dispersion)
           CHI68P:
             name: CHI68P
             type: float32
@@ -1067,52 +1070,62 @@ releases:
             name: FRACNSIGMA
             type: float32[10]
             unit: ''
-            description: Fraction of pixels deviant by >{1-10} sigma
+            description: Fraction of pixels deviant by >{1-10} sigma (igorning all
+              points blueward of rest-frame 1216 Ang)
           FRACNSIGHI:
             name: FRACNSIGHI
             type: float32[10]
             unit: ''
-            description: Fraction of pixels high by >{1-10} sigma
+            description: Fraction of pixels high by >{1-10} sigma (igorning all points
+              blueward of rest-frame 1216 Ang)
           FRACNSIGLO:
             name: FRACNSIGLO
             type: float32[10]
             unit: ''
-            description: Fraction of pixels low by >{1-10} sigma
+            description: Fraction of pixels low by >{1-10} sigma (igorning all points
+              blueward of rest-frame 1216 Ang)
           Z_NOQSO:
             name: Z_NOQSO
             type: float32
             unit: ''
-            description: Redshift of the best-fit non-QSO model
+            description: Redshift of the best-fit non-QSO model (recommended for CMASS
+              and LOZ)
           Z_ERR_NOQSO:
             name: Z_ERR_NOQSO
             type: float32
             unit: ''
-            description: Formal one-sigma error on Z_NOQSO
+            description: Formal one-sigma error on Z_NOQSO (recommended for CMASS
+              and LOZ)
           ZNUM_NOQSO:
             name: ZNUM_NOQSO
             type: int64
             unit: ''
-            description: Best fit z/class index excluding QSO; 1-indexed
+            description: Best fit z/class index excluding QSO; 1-indexed (recommended
+              for CMASS and LOZ)
           ZWARNING_NOQSO:
             name: ZWARNING_NOQSO
             type: int64
             unit: ''
-            description: Redshift warning flag for Z_NOQSO
+            description: Redshift warning flag for Z_NOQSO (recommended for CMASS
+              and LOZ)
           CLASS_NOQSO:
             name: CLASS_NOQSO
             type: char[6]
             unit: ''
-            description: Spectro class of best-fit non-QSO model
+            description: Spectro class of best-fit non-QSO model (recommended for
+              CMASS and LOZ)
           SUBCLASS_NOQSO:
             name: SUBCLASS_NOQSO
             type: char[21]
             unit: ''
-            description: Spectro sub-class of best-fit non-QSO model
+            description: Spectro sub-class of best-fit non-QSO model (recommended
+              for CMASS and LOZ)
           RCHI2DIFF_NOQSO:
             name: RCHI2DIFF_NOQSO
             type: float32
             unit: ''
-            description: Reduced chi^2 diff to next-best non-QSO model
+            description: Reduced chi^2 diff to next-best non-QSO model (recommended
+              for CMASS and LOZ)
           XCSAO_RV:
             name: XCSAO_RV
             unit: km/s
@@ -1348,7 +1361,8 @@ releases:
             name: TCOLUMN
             type: int32[10]
             unit: ''
-            description: Column to use in template file (0-indexed)
+            description: Column to use in template file (0-indexed); unused value
+              set to -1
           NPOLY:
             name: NPOLY
             type: int32
@@ -1398,7 +1412,9 @@ releases:
             name: VDISPDOF
             type: int32
             unit: ''
-            description: DOF for best-fit velocity dispersion
+            description: Degrees of freedom for best-fit velocity dispersion, equal
+              to VDISPNPIX minus the number of templates minus the number of polynomial
+              terms minus 1 (the last 1 is for the velocity dispersion)
           WAVEMIN:
             name: WAVEMIN
             unit: AA
@@ -1438,17 +1454,20 @@ releases:
             name: FRACNSIGMA
             type: float32[10]
             unit: ''
-            description: Fraction of pixels deviant by >{1-10} sigma
+            description: Fraction of pixels deviant by >{1-10} sigma (igorning all
+              points blueward of rest-frame 1216 Ang)
           FRACNSIGHI:
             name: FRACNSIGHI
             type: float32[10]
             unit: ''
-            description: Fraction of pixels high by >{1-10} sigma
+            description: Fraction of pixels high by >{1-10} sigma (igorning all points
+              blueward of rest-frame 1216 Ang)
           FRACNSIGLO:
             name: FRACNSIGLO
             type: float32[10]
             unit: ''
-            description: Fraction of pixels low by >{1-10} sigma
+            description: Fraction of pixels low by >{1-10} sigma (igorning all points
+              blueward of rest-frame 1216 Ang)
           SPECTROFLUX:
             name: SPECTROFLUX
             unit: nanomaggy
@@ -1671,8 +1690,8 @@ releases:
       path_kwargs:
       - mjd
       - catalogid
-      - run2d
       - coadd
+      - run2d
       access_string: specLite_coadd = $BOSS_SPECTRO_REDUX/{run2d}/spectra/lite/{coadd}/{mjd}/spec-{coadd}-{mjd}-{catalogid}.fits
     survey: BHM
     hdus:
@@ -2203,9 +2222,9 @@ releases:
             description: Unified SDSS Target Identifier
           SPECOBJID:
             name: SPECOBJID
-            type: int64
+            type: char[30]
             unit: ''
-            description: Unique ID based on Field, MJD, FIBERID, RUN2D
+            description: Unique ID based on Field, MJD, SDSSID, RUN2D, COADD type
           CALIBFLUX:
             name: CALIBFLUX
             type: float32[5]
@@ -2645,7 +2664,8 @@ releases:
             name: TCOLUMN
             type: int64[10]
             unit: ''
-            description: Column to use in template file (0-indexed)
+            description: Column to use in template file (0-indexed); unused value
+              set to -1
           NPOLY:
             name: NPOLY
             type: int64
@@ -2690,7 +2710,9 @@ releases:
             name: VDISPDOF
             type: int64
             unit: ''
-            description: DOF for best-fit velocity dispersion
+            description: Degrees of freedom for best-fit velocity dispersion, equal
+              to VDISPNPIX minus the number of templates minus the number of polynomial
+              terms minus 1 (the last 1 is for the velocity dispersion)
           CHI68P:
             name: CHI68P
             type: float32
@@ -2700,52 +2722,62 @@ releases:
             name: FRACNSIGMA
             type: float32[10]
             unit: ''
-            description: Fraction of pixels deviant by >{1-10} sigma
+            description: Fraction of pixels deviant by >{1-10} sigma (igorning all
+              points blueward of rest-frame 1216 Ang)
           FRACNSIGHI:
             name: FRACNSIGHI
             type: float32[10]
             unit: ''
-            description: Fraction of pixels high by >{1-10} sigma
+            description: Fraction of pixels high by >{1-10} sigma (igorning all points
+              blueward of rest-frame 1216 Ang)
           FRACNSIGLO:
             name: FRACNSIGLO
             type: float32[10]
             unit: ''
-            description: Fraction of pixels low by >{1-10} sigma
+            description: Fraction of pixels low by >{1-10} sigma (igorning all points
+              blueward of rest-frame 1216 Ang)
           Z_NOQSO:
             name: Z_NOQSO
             type: float32
             unit: ''
-            description: Redshift of the best-fit non-QSO model
+            description: Redshift of the best-fit non-QSO model (recommended for CMASS
+              and LOZ)
           Z_ERR_NOQSO:
             name: Z_ERR_NOQSO
             type: float32
             unit: ''
-            description: Formal one-sigma error on Z_NOQSO
+            description: Formal one-sigma error on Z_NOQSO (recommended for CMASS
+              and LOZ)
           ZNUM_NOQSO:
             name: ZNUM_NOQSO
             type: int64
             unit: ''
-            description: Best fit z/class index excluding QSO; 1-indexed
+            description: Best fit z/class index excluding QSO; 1-indexed (recommended
+              for CMASS and LOZ)
           ZWARNING_NOQSO:
             name: ZWARNING_NOQSO
             type: int64
             unit: ''
-            description: Redshift warning flag for Z_NOQSO
+            description: Redshift warning flag for Z_NOQSO (recommended for CMASS
+              and LOZ)
           CLASS_NOQSO:
             name: CLASS_NOQSO
             type: char[6]
             unit: ''
-            description: Spectro class of best-fit non-QSO model
+            description: Spectro class of best-fit non-QSO model (recommended for
+              CMASS and LOZ)
           SUBCLASS_NOQSO:
             name: SUBCLASS_NOQSO
             type: char[21]
             unit: ''
-            description: Spectro sub-class of best-fit non-QSO model
+            description: Spectro sub-class of best-fit non-QSO model (recommended
+              for CMASS and LOZ)
           RCHI2DIFF_NOQSO:
             name: RCHI2DIFF_NOQSO
             type: float32
             unit: ''
-            description: Reduced chi^2 diff to next-best non-QSO model
+            description: Reduced chi^2 diff to next-best non-QSO model (recommended
+              for CMASS and LOZ)
           XCSAO_RV:
             name: XCSAO_RV
             type: float32
@@ -2981,7 +3013,8 @@ releases:
             name: TCOLUMN
             type: int32[10]
             unit: ''
-            description: Column to use in template file (0-indexed)
+            description: Column to use in template file (0-indexed); unused value
+              set to -1
           NPOLY:
             name: NPOLY
             type: int32
@@ -3031,7 +3064,9 @@ releases:
             name: VDISPDOF
             type: int32
             unit: ''
-            description: DOF for best-fit velocity dispersion
+            description: Degrees of freedom for best-fit velocity dispersion, equal
+              to VDISPNPIX minus the number of templates minus the number of polynomial
+              terms minus 1 (the last 1 is for the velocity dispersion)
           WAVEMIN:
             name: WAVEMIN
             type: float32
@@ -3071,17 +3106,20 @@ releases:
             name: FRACNSIGMA
             type: float32[10]
             unit: ''
-            description: Fraction of pixels deviant by >{1-10} sigma
+            description: Fraction of pixels deviant by >{1-10} sigma (igorning all
+              points blueward of rest-frame 1216 Ang)
           FRACNSIGHI:
             name: FRACNSIGHI
             type: float32[10]
             unit: ''
-            description: Fraction of pixels high by >{1-10} sigma
+            description: Fraction of pixels high by >{1-10} sigma (igorning all points
+              blueward of rest-frame 1216 Ang)
           FRACNSIGLO:
             name: FRACNSIGLO
             type: float32[10]
             unit: ''
-            description: Fraction of pixels low by >{1-10} sigma
+            description: Fraction of pixels low by >{1-10} sigma (igorning all points
+              blueward of rest-frame 1216 Ang)
           SPECTROFLUX:
             name: SPECTROFLUX
             type: float32[5]

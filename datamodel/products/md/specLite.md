@@ -554,7 +554,7 @@ Name | Type | Unit | Description |
  | CATALOGID_V0 | int64 |  | SDSS-V CatalogID from Catalog v0 |
  | CATALOGID_V0P5 | int64 |  | SDSS-V CatalogID from Catalog v0.5 |
  | SDSS_ID | int64 |  | Unified SDSS Target Identifier |
- | SPECOBJID | int64 |  | Unique ID based on Field, MJD, FIBERID, RUN2D |
+ | SPECOBJID | char[30] |  | Unique ID based on Field, MJD, SDSSID, RUN2D, COADD type |
  | CALIBFLUX | float32[5] | nanomaggy | Broad-band flux in SDSS-{ugriz} from PSFmag |
  | CALIBFLUX_IVAR | float32[5] | nanomaggy | Inverse var flux SDSS-{ugriz} from PSFmag |
  | OPTICAL_PROV | char[11] |  | The source of the optical CATDB_MAG magnitudes |
@@ -642,7 +642,7 @@ Name | Type | Unit | Description |
  | DOF | int64 |  | Degrees of freedom for best fit |
  | RCHI2DIFF | float32 |  | Diff in reduced chi^2 of 2 best solutions |
  | TFILE | char[24] |  | Template file in $IDLSPEC2D_DIR/templates |
- | TCOLUMN | int64[10] |  | Column to use in template file (0-indexed) |
+ | TCOLUMN | int64[10] |  | Column to use in template file (0-indexed); unused value set to -1 |
  | NPOLY | int64 |  | # of polynomial terms with TFILE |
  | THETA | float32[10] |  | Eigenvalue coeff for template file + polynomial |
  | VDISP | float32 | km/s | Velocity dispersion, only computed for galaxies |
@@ -651,18 +651,18 @@ Name | Type | Unit | Description |
  | VDISPZ_ERR | float32 |  | Error in VDISPZ |
  | VDISPCHI2 | float32 |  | Chi^2 for best-fit velocity dispersion |
  | VDISPNPIX | float32 |  | Num of pixels overlapping VDISP fit templates |
- | VDISPDOF | int64 |  | DOF for best-fit velocity dispersion |
+ | VDISPDOF | int64 |  | Degrees of freedom for best-fit velocity dispersion, equal to VDISPNPIX minus the number of templates minus the number of polynomial terms minus 1 (the last 1 is for the velocity dispersion) |
  | CHI68P | float32 |  | 68% of abs(chi) of synthetic to actual spectrum |
- | FRACNSIGMA | float32[10] |  | Fraction of pixels deviant by >{1-10} sigma |
- | FRACNSIGHI | float32[10] |  | Fraction of pixels high by >{1-10} sigma |
- | FRACNSIGLO | float32[10] |  | Fraction of pixels low by >{1-10} sigma |
- | Z_NOQSO | float32 |  | Redshift of the best-fit non-QSO model |
- | Z_ERR_NOQSO | float32 |  | Formal one-sigma error on Z_NOQSO |
- | ZNUM_NOQSO | int64 |  | Best fit z/class index excluding QSO; 1-indexed |
- | ZWARNING_NOQSO | int64 |  | Redshift warning flag for Z_NOQSO |
- | CLASS_NOQSO | char[6] |  | Spectro class of best-fit non-QSO model |
- | SUBCLASS_NOQSO | char[21] |  | Spectro sub-class of best-fit non-QSO model |
- | RCHI2DIFF_NOQSO | float32 |  | Reduced chi^2 diff to next-best non-QSO model |
+ | FRACNSIGMA | float32[10] |  | Fraction of pixels deviant by >{1-10} sigma (igorning all points blueward of rest-frame 1216 Ang) |
+ | FRACNSIGHI | float32[10] |  | Fraction of pixels high by >{1-10} sigma (igorning all points blueward of rest-frame 1216 Ang) |
+ | FRACNSIGLO | float32[10] |  | Fraction of pixels low by >{1-10} sigma (igorning all points blueward of rest-frame 1216 Ang) |
+ | Z_NOQSO | float32 |  | Redshift of the best-fit non-QSO model (recommended for CMASS and LOZ) |
+ | Z_ERR_NOQSO | float32 |  | Formal one-sigma error on Z_NOQSO (recommended for CMASS and LOZ) |
+ | ZNUM_NOQSO | int64 |  | Best fit z/class index excluding QSO; 1-indexed (recommended for CMASS and LOZ) |
+ | ZWARNING_NOQSO | int64 |  | Redshift warning flag for Z_NOQSO (recommended for CMASS and LOZ) |
+ | CLASS_NOQSO | char[6] |  | Spectro class of best-fit non-QSO model (recommended for CMASS and LOZ) |
+ | SUBCLASS_NOQSO | char[21] |  | Spectro sub-class of best-fit non-QSO model (recommended for CMASS and LOZ) |
+ | RCHI2DIFF_NOQSO | float32 |  | Reduced chi^2 diff to next-best non-QSO model (recommended for CMASS and LOZ) |
  | XCSAO_RV | float32 | km/s | Radial velocity measured with pyXCSAO |
  | XCSAO_ERV | float32 | km/s | Uncertainty in Radial velocity |
  | XCSAO_RXC | float32 |  | Cross correlation strength from pyXCSAO |
@@ -733,7 +733,7 @@ Name | Type | Unit | Description |
  | DOF | int32 |  | Degrees of freedom for best fit |
  | RCHI2DIFF | float32 |  | Diff in reduced chi^2 of 2 best solutions |
  | TFILE | char[24] |  | Template file in $IDLSPEC2D_DIR/templates |
- | TCOLUMN | int32[10] |  | Column to use in template file (0-indexed) |
+ | TCOLUMN | int32[10] |  | Column to use in template file (0-indexed); unused value set to -1 |
  | NPOLY | int32 |  | # of polynomial terms with TFILE |
  | THETA | float32[10] |  | Eigenvalue coeff for template file + polynomial |
  | THETA_COVAR | float32[100] |  | Covariance matrix for THETA |
@@ -743,7 +743,7 @@ Name | Type | Unit | Description |
  | VDISPZ_ERR | float32 |  | Error in VDISPZ |
  | VDISPCHI2 | float32 |  | Chi^2 for best-fit velocity dispersion |
  | VDISPNPIX | float32 |  | Num of pixels overlapping VDISP fit templates |
- | VDISPDOF | int32 |  | DOF for best-fit velocity dispersion |
+ | VDISPDOF | int32 |  | Degrees of freedom for best-fit velocity dispersion, equal to VDISPNPIX minus the number of templates minus the number of polynomial terms minus 1 (the last 1 is for the velocity dispersion) |
  | WAVEMIN | float32 | AA | Minimum observed (vacuum) wavelength for target |
  | WAVEMAX | float32 | AA | Maximum observed (vacuum) wavelength for target |
  | WCOVERAGE | float32 | log10(AA) | Amount of wavelength coverage in log-10(Angs) |
@@ -751,9 +751,9 @@ Name | Type | Unit | Description |
  | SN_MEDIAN | float32[5] |  | Median S/N for all good pixels in SDSS-{ugriz} |
  | SN_MEDIAN_ALL | float32 |  | Median S/N for all good pixels in all filters |
  | CHI68P | float32 |  | 68% of abs(chi) of synthetic to actual spectrum |
- | FRACNSIGMA | float32[10] |  | Fraction of pixels deviant by >{1-10} sigma |
- | FRACNSIGHI | float32[10] |  | Fraction of pixels high by >{1-10} sigma |
- | FRACNSIGLO | float32[10] |  | Fraction of pixels low by >{1-10} sigma |
+ | FRACNSIGMA | float32[10] |  | Fraction of pixels deviant by >{1-10} sigma (igorning all points blueward of rest-frame 1216 Ang) |
+ | FRACNSIGHI | float32[10] |  | Fraction of pixels high by >{1-10} sigma (igorning all points blueward of rest-frame 1216 Ang) |
+ | FRACNSIGLO | float32[10] |  | Fraction of pixels low by >{1-10} sigma (igorning all points blueward of rest-frame 1216 Ang) |
  | SPECTROFLUX | float32[5] |  | Spectrum projected onto SDSS-{ugriz} filter |
  | SPECTROFLUX_IVAR | float32[5] |  | Inverse variance of SPECTROFLUX |
  | SPECTROSYNFLUX | float32[5] |  | Best-fit template projected onto SDSS-{ugriz} |
