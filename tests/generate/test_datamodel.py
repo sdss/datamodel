@@ -267,11 +267,11 @@ def test_valid_notes(validmodel):
 
     ss = dm.get_stub('yaml')
     ss.update_cache()
-    assert ss._cache['notes'] == 'here are some notes\nand more notes'
+    assert ss._cache['notes'] == 'here are some notes\nand more notes\n'
 
     ss = dm.get_stub('json')
     ss.update_cache()
-    assert ss._cache['notes'] == 'here are some notes\nand more notes'
+    assert ss._cache['notes'] == 'here are some notes\nand more notes\n'
 
 
 def test_remove_release(makefile, validmodel):
@@ -328,3 +328,17 @@ def test_par(datamodel):
     item = table['structure'][-1]
     assert item['type'] == "char[3][2]"
     assert item['example'] == ['11', '##', 'aa']
+
+def test_valid_regrets(validmodel):
+    """ test we have some regrets """
+    validmodel('fits')
+    dm = DataModel.from_yaml('test', release='WORK')
+    dm.write_stubs()
+
+    ss = dm.get_stub('yaml')
+    ss.update_cache()
+    assert ss._cache['regrets'] == 'here are some regrets\nand more regrets\n'
+
+    ss = dm.get_stub('json')
+    ss.update_cache()
+    assert ss._cache['regrets'] == 'here are some regrets\nand more regrets\n'

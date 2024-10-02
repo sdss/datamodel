@@ -3,7 +3,7 @@
 {# A list of FITS hdus for the content block #}
 {% block content %}
 {% for hdu_id, hdu in data.items() %}
-  - [{{ hdu_id | upper }}: {{ hdu.name }}](#{{hdu_id | lower}}-{{hdu.name | lower}})
+  - [{{ hdu_id | upper }}{% if hdu.name %}: {{ hdu.name }}{% endif %}](#{{ hdu_id | lower }}{% if hdu.name %}-{{ hdu.name | lower }}{% endif %})
 {% endfor %}
 {% endblock content %}
 

@@ -34,7 +34,7 @@ robostrategy
 
 ### HDUS List for release WORK
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: ](#hdu1-)
+  - [HDU1: ](#hdu1)
 
 ---
 
@@ -62,7 +62,7 @@ Key | Value | Comment | |
 
 
 
-### HDU1: 
+### HDU1:
 Statistics for each carton
 
 #### HDU Type: BINARY TABLE
@@ -81,5 +81,3 @@ Name | Type | Unit | Description |
  | NTARGET_LCO | int32 |  | Number of targets in carton (LCO) |
  | NGOT_LCO | int32 |  | Number of targets satisfied in carton (LCO) |
  | FGOT_LCO | float32 |  | Fraction of targets satisfied in carton (-1 if no targets in carton), for LCO |
-
-

@@ -13,7 +13,7 @@ Results from the ApogeeNet astra pipeline for each star
 ---
 
 ## Basic Information
-Results from the ApogeeNet astra pipeline for each star. 
+Results from the ApogeeNet astra pipeline for each star.
 
 ### Naming Convention
 $MWM_ASTRA/0.5.0/summary/astraAllStarApogeeNet-0.5.0.fits.gz
@@ -38,8 +38,8 @@ False
 
 ### HDUS List for release IPL3
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: ](#hdu1-)
-  - [HDU2: ](#hdu2-)
+  - [HDU1: ](#hdu1)
+  - [HDU2: ](#hdu2)
 
 ---
 
@@ -73,7 +73,7 @@ Key | Value | Comment | |
 
 
 
-### HDU1: 
+### HDU1:
 ApogeeNet results for each star from BOSS
 
 #### HDU Type: BINARY TABLE
@@ -287,7 +287,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU2: 
+### HDU2:
 ApogeeNet results for each star from APOGEE
 
 #### HDU Type: BINARY TABLE

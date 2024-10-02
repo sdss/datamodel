@@ -34,7 +34,7 @@ robostrategy
 
 ### HDUS List for release WORK
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: ](#hdu1-)
+  - [HDU1: ](#hdu1)
 
 ---
 
@@ -62,7 +62,7 @@ Key | Value | Comment | |
 
 
 
-### HDU1: 
+### HDU1:
 List of targets and whether they have been satisfied
 
 #### HDU Type: BINARY TABLE
@@ -83,5 +83,3 @@ Name | Type | Unit | Description |
  | ASSIGNED | int32 |  | Number  of fields in which this RSID is explicitly assigned to a robot at least once. |
  | NEXPS | int32 |  | Total number of exposures in which a robotID is assigned which corresponds to the requirements of this RSID; i.e. same CATALOGID, LAMBDA_EFF, DELTA_RA, DELTA_DEC, and FIBERTYPE. |
  | NEPOCHS | int32 |  | Total number of epochs in which a robotID is assigned which corresponds to the requirements of this RSID; i.e. same CATALOGID, LAMBDA_EFF, DELTA_RA, DELTA_DEC, and FIBERTYPE. |
-
-

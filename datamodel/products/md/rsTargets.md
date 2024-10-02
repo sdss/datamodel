@@ -34,7 +34,7 @@ robostrategy
 
 ### HDUS List for release WORK
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: ](#hdu1-)
+  - [HDU1: ](#hdu1)
 
 ---
 
@@ -62,7 +62,7 @@ Key | Value | Comment | |
 
 
 
-### HDU1: 
+### HDU1:
 List of targets
 
 #### HDU Type: BINARY TABLE
@@ -97,5 +97,3 @@ Name | Type | Unit | Description |
  | FIBERTYPE | char[6] |  | Fiber type desired |
  | PLAN | char[8] |  | Plan associated with targeting version |
  | TAG | char[8] |  | Tag associated with targeting version |
-
-

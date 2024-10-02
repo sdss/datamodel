@@ -34,7 +34,7 @@ robostrategy
 
 ### HDUS List for release WORK
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: ](#hdu1-)
+  - [HDU1: ](#hdu1)
 
 ---
 
@@ -62,7 +62,7 @@ Key | Value | Comment | |
 
 
 
-### HDU1: 
+### HDU1:
 List of all assignments
 
 #### HDU Type: BINARY TABLE
@@ -81,5 +81,3 @@ Name | Type | Unit | Description |
  | EXPOSURE | int32 |  | Index of exposure in field |
  | ROBOTID | int32 |  | Assigned robotID |
  | FIELD_CADENCE | char[30] |  | Cadence of the field |
-
-

@@ -13,7 +13,7 @@ Results from the SLAM astra pipeline for each visit
 ---
 
 ## Basic Information
-Results from the SLAM astra pipeline for each visit. 
+Results from the SLAM astra pipeline for each visit.
 
 ### Naming Convention
 $MWM_ASTRA/0.5.0/summary/astraAllVisitSLAM-0.5.0.fits.gz
@@ -38,8 +38,8 @@ False
 
 ### HDUS List for release IPL3
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: ](#hdu1-)
-  - [HDU2: ](#hdu2-)
+  - [HDU1: ](#hdu1)
+  - [HDU2: ](#hdu2)
 
 ---
 
@@ -73,7 +73,7 @@ Key | Value | Comment | |
 
 
 
-### HDU1: 
+### HDU1:
 SLAM results for each visit from BOSS
 
 #### HDU Type: BINARY TABLE
@@ -328,7 +328,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU2: 
+### HDU2:
 SLAM results for each visit from APOGEE
 
 #### HDU Type: BINARY TABLE

@@ -35,8 +35,8 @@ idlwrap (aspcap_allstar)
 
 ### HDU List for release DR16
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: ](#hdu1-)
-  - [HDU2: ](#hdu2-)
+  - [HDU1: ](#hdu1)
+  - [HDU2: ](#hdu2)
 
 
 ---
@@ -73,7 +73,7 @@ Key | Value | Comment | |
 
 
 
-### HDU1: 
+### HDU1:
 migration: Intro info not in database. Needs update
 
 #### HDU Type: BINARY TABLE
@@ -181,7 +181,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU2: 
+### HDU2:
 migration: Intro info not in database. Needs update
 
 #### HDU Type: IMAGE
@@ -196,5 +196,3 @@ Key | Value | Comment | |
 | NAXIS1 | 360 |  |
 | PCOUNT | 0 |  |
 | GCOUNT | 1 |  |
-
-

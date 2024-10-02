@@ -44,6 +44,7 @@ False
   - [HDU4: superflatset](#hdu4-superflatset)
   - [HDU5: xsol](#hdu5-xsol)
 
+
 ---
 
 ## Changelog
@@ -271,6 +272,7 @@ Key | Value | Comment | |
 ### HDU1: tset
 The HDU 1 data is a binary table whose fields are used to calculate the X-centers, for all fibers in the flat-field calibration frames. The Y-pixel positions on the CCD, which is the independent variable and the corresponding X-centers, which is the dependent variable are fitted to a functional form and the resulting coefficients are stored in the binary table.
 
+
 #### HDU Type: BINARY TABLE
 #### HDU Size:  27 KB
 
@@ -313,6 +315,7 @@ Name | Type | Unit | Description |
 ### HDU2: fibermask
 The HDU 3 data stores the fibermask. These are fiber status bits and are set to non-zero to indicate bad status. The status bits used for masking are documented in $IDLUTILS/$IDLUTILS_VER/data/sdss/sdssMaskbits.par.
 
+
 #### HDU Type: IMAGE
 #### HDU Size:  3 KB
 
@@ -345,6 +348,7 @@ Key | Value | Comment | |
 
 
 ### HDU3: widthset
+
 The data attribute of HDU 3 gives the first-order corrected profile width for each fiber bundle. This Gaussian sigma is in units of pixels. The X-positions on the CCD and their corresponding profile width are fitted to a functional form and the resulting coefficients are stored in a binary table. The X-position is the independent variable and the width is the dependent variable for the fitting function.
 
 #### HDU Type: BINARY TABLE
@@ -400,6 +404,7 @@ Name | Type | Unit | Description |
 
 ### HDU4: superflatset
 The data attribute of HDU 4 contains superflat which is constructed from extracted flat-field image and is stored in a bspline set structure form. A superflat is a bspline average across all fibers of the flat spectrum in raw counts as a function of wavelength.
+
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  24 KB
@@ -520,3 +525,4 @@ Key | Value | Comment | |
 ---
 ## Notes
 None
+

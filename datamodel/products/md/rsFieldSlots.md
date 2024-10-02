@@ -34,7 +34,7 @@ robostrategy
 
 ### HDUS List for release WORK
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: ](#hdu1-)
+  - [HDU1: ](#hdu1)
 
 ---
 
@@ -62,7 +62,7 @@ Key | Value | Comment | |
 
 
 
-### HDU1: 
+### HDU1:
 Needed and available slots for field-cadence combination.
 
 #### HDU Type: BINARY TABLE
@@ -78,5 +78,3 @@ Name | Type | Unit | Description |
  | NEEDED | int32 |  | Number of exposures needed for this cadence |
  | NEEDED_SB | int32[2] |  | Number of exposures needed for this cadence of each sky brightness type (in dark, bright order) |
  | SLOTS | int32[24, 2] |  | 0 or 1 for whether the LST and skybrightness slot can be used for this field-cadence, based on sky brightness and airmass requirements. |
-
-

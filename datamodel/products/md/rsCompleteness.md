@@ -34,10 +34,10 @@ robostrategy
 
 ### HDUS List for release WORK
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: ](#hdu1-)
-  - [HDU2: ](#hdu2-)
-  - [HDU3: ](#hdu3-)
-  - [HDU4: ](#hdu4-)
+  - [HDU1: ](#hdu1)
+  - [HDU2: ](#hdu2)
+  - [HDU3: ](#hdu3)
+  - [HDU4: ](#hdu4)
 
 ---
 
@@ -65,7 +65,7 @@ Key | Value | Comment | |
 
 
 
-### HDU1: 
+### HDU1:
 List of targets with completeness results
 
 #### HDU Type: BINARY TABLE
@@ -108,7 +108,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU2: 
+### HDU2:
 Number of targets in each healpix pixel
 
 #### HDU Type: IMAGE
@@ -141,7 +141,7 @@ Key | Value | Comment | |
 
 
 
-### HDU3: 
+### HDU3:
 Number of targets gotten in each healpix pixel
 
 #### HDU Type: IMAGE
@@ -174,7 +174,7 @@ Key | Value | Comment | |
 
 
 
-### HDU4: 
+### HDU4:
 Fraction of targets gotten in each healpix pixel (-1 if no targets in pixel)
 
 #### HDU Type: IMAGE
@@ -204,5 +204,3 @@ Key | Value | Comment | |
 | NTAPOGEE | 3632686 | # covered unique APOGEE science catalogids |
 | NGBOSS | 909809 | # gotten unique BOSS science catalogid |
 | NGAPOGEE | 1550062 | # gotten unique APOGEE science catalogid |
-
-

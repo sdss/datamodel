@@ -74,6 +74,7 @@ Key | Value | Comment | |
 
 ### HDU1: SPALL
 Spectral Summary Table
+ 
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  13 GB
