@@ -1,0 +1,299 @@
+general:
+  name: spCOADDS
+  short: Custom Coadd Schema Plans
+  description: Contains the Schema used to defined the Custom target level Coadding
+    schema
+  datatype: PAR
+  filesize: 895 bytes
+  releases:
+  - IPL3
+  - WORK
+  environments:
+  - BOSS_SPECTRO_REDUX
+  surveys:
+  - BHM
+  naming_convention: $BOSS_SPECTRO_REDUX/[RUN2D]/[PHASE]_[SURVEY]_COADDS.par
+  generated_by: idlspec2d - manage_coadd_Schema.py
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases:
+    WORK:
+      from: IPL3
+      note: No changes
+releases:
+  WORK:
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PHASE]_[SURVEY]_COADDS.par
+    example: v6_1_3/SDSSV_BHM_COADDS.par
+    location: '{run2d}/{phase}_{survey}_COADDS.par'
+    environment: BOSS_SPECTRO_REDUX
+    access:
+      in_sdss_access: false
+      path_name: null
+      path_template: null
+      path_kwargs: null
+      access_string: spCOADDS = $BOSS_SPECTRO_REDUX/{run2d}/{phase}_{survey}_COADDS.par
+    survey: BHM
+    par:
+      comments: |-
+        #%yanny
+        # Table
+        #
+        # Schema Description for custom BOSS Coadds
+        #
+        # Last Updated Fri Apr 06 22:37:45 2023
+        # Written by manage_coadd_Schema.py
+        #
+        #    Legacy is a currently unutilized, but there for future versions to include tags from SDSS-IV,-III etc in addition to current tag
+        #
+      header:
+      - key: SDSS_GEN
+        value: SDSS-V
+        comment: The associated SDSS Generation (or phase)
+      - key: SURVEY
+        value: BHM
+        comment: The associated survey
+      - key: Filename
+        value: /uufs/chpc.utah.edu/common/home/sdss50/sdsswork/bhm/boss/spectro/redux/v6_1_3/SDSSV_BHM_COADDS.par
+        comment: the filename (and path) of this file
+      tables:
+        SCHEMA:
+          name: SCHEMA
+          description: The Coadding Schema
+          n_rows: 1
+          structure:
+          - name: NAME
+            type: char[8]
+            description: Name of the Custom Coadd Schema
+            unit: ;;
+            is_array: false
+            is_enum: false
+            example: allepoch
+          - name: CARTON
+            type: char[5][25]
+            description: List of Cartons to include (can include wild cards)
+            unit: ''
+            is_array: true
+            is_enum: false
+            example:
+            - '*spiders*'
+            - '*bhm_gua*'
+            - '*bhm_csc*'
+            - '*mwm_erosita*'
+            - '*bhm_colr_galaxies*'
+          - name: SDSS_ID
+            type: char[1][1]
+            description: List of SDSS_IDs to select (or CatalogIDs if use_catid is
+              set)
+            unit: ''
+            is_array: true
+            is_enum: false
+            example:
+            - ''
+          - name: LEGACY
+            type: char[1][1]
+            description: Not used at present, but designed for legacy coadding
+            unit: ''
+            is_array: true
+            is_enum: false
+            example:
+            - ''
+          - name: CADENCE
+            type: double
+            description: Coadding Cadence (0.0 for open-ended)
+            unit: days
+            is_array: false
+            is_enum: false
+            example: 0.0
+          - name: MJD
+            type: char[1][1]
+            description: list of MJDs to include
+            unit: ''
+            is_array: true
+            is_enum: false
+            example:
+            - ''
+          - name: PROGRAM
+            type: char[1][1]
+            description: List of Programs to select
+            unit: ''
+            is_array: true
+            is_enum: false
+            example:
+            - ''
+          - name: DR
+            type: long
+            description: DR/IPL Coadding (1:True, 2:False)
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: 1
+          - name: RERUN1D
+            type: long
+            description: Rerun 1D analysis of custom coadd  (1:True, 2:False)
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: 1
+          - name: ACTIVE
+            type: long
+            description: Is this an active Schema (1:True, 2:False)
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: 1
+          - name: USE_CATID
+            type: long
+            description: Use CatalogIDs rather than SDSS_IDs  (1:True, 2:False)
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: 1
+          - name: USE_FIRSTCARTON
+            type: long
+            description: Use Firstcarton only for carton match (dont look at db)   (1:True,
+              2:False)
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: 0
+  IPL3:
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PHASE]_[SURVEY]_COADDS.par
+    example: v6_1_3/SDSSV_BHM_COADDS.par
+    location: '{run2d}/{phase}_{survey}_COADDS.par'
+    environment: BOSS_SPECTRO_REDUX
+    access:
+      in_sdss_access: false
+      path_name: null
+      path_template: null
+      path_kwargs: null
+      access_string: spCOADDS = $BOSS_SPECTRO_REDUX/{run2d}/{phase}_{survey}_COADDS.par
+    survey: BHM
+    par:
+      comments: |-
+        #%yanny
+        # Table
+        #
+        # Schema Description for custom BOSS Coadds
+        #
+        # Last Updated Fri Apr 06 22:37:45 2023
+        # Written by manage_coadd_Schema.py
+        #
+        #    Legacy is a currently unutilized, but there for future versions to include tags from SDSS-IV,-III etc in addition to current tag
+        #
+      header:
+      - key: SDSS_GEN
+        value: SDSS-V
+        comment: The associated SDSS Generation (or phase)
+      - key: SURVEY
+        value: BHM
+        comment: The associated survey
+      - key: Filename
+        value: /uufs/chpc.utah.edu/common/home/sdss50/sdsswork/bhm/boss/spectro/redux/v6_1_3/SDSSV_BHM_COADDS.par
+        comment: the filename (and path) of this file
+      tables:
+        SCHEMA:
+          name: SCHEMA
+          description: The Coadding Schema
+          n_rows: 1
+          structure:
+          - name: NAME
+            type: char[8]
+            description: Name of the Custom Coadd Schema
+            unit: ;;
+            is_array: false
+            is_enum: false
+            example: allepoch
+          - name: CARTON
+            type: char[5][25]
+            description: List of Cartons to include (can include wild cards)
+            unit: ''
+            is_array: true
+            is_enum: false
+            example:
+            - '*spiders*'
+            - '*bhm_gua*'
+            - '*bhm_csc*'
+            - '*mwm_erosita*'
+            - '*bhm_colr_galaxies*'
+          - name: SDSS_ID
+            type: char[1][1]
+            description: List of SDSS_IDs to select (or CatalogIDs if use_catid is
+              set)
+            unit: ''
+            is_array: true
+            is_enum: false
+            example:
+            - ''
+          - name: LEGACY
+            type: char[1][1]
+            description: Not used at present, but designed for legacy coadding
+            unit: ''
+            is_array: true
+            is_enum: false
+            example:
+            - ''
+          - name: CADENCE
+            type: double
+            description: Coadding Cadence (0.0 for open-ended)
+            unit: days
+            is_array: false
+            is_enum: false
+            example: 0.0
+          - name: MJD
+            type: char[1][1]
+            description: list of MJDs to include
+            unit: ''
+            is_array: true
+            is_enum: false
+            example:
+            - ''
+          - name: PROGRAM
+            type: char[1][1]
+            description: List of Programs to select
+            unit: ''
+            is_array: true
+            is_enum: false
+            example:
+            - ''
+          - name: DR
+            type: long
+            description: DR/IPL Coadding (1:True, 2:False)
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: 1
+          - name: RERUN1D
+            type: long
+            description: Rerun 1D analysis of custom coadd  (1:True, 2:False)
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: 1
+          - name: ACTIVE
+            type: long
+            description: Is this an active Schema (1:True, 2:False)
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: 1
+          - name: USE_CATID
+            type: long
+            description: Use CatalogIDs rather than SDSS_IDs  (1:True, 2:False)
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: 1
+          - name: USE_FIRSTCARTON
+            type: long
+            description: Use Firstcarton only for carton match (dont look at db)   (1:True,
+              2:False)
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: 0
+notes: |-
+  None

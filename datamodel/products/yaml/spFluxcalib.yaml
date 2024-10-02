@@ -1,1959 +1,56 @@
 general:
   name: spFluxcalib
-  short: 'migration: needs update'
-  description: "This file contains the calibration vectors for a given frame.\n<pre>\n\
-    \  HDU #0: Calibration image\n  HDU #1: Trace-set used to construct the former\n\
-    \  HDU #2: Structure with info on each standard star  \n</pre>"
+  short: The Flux Calibration image
+  description: Contains the calibration vectors for a given frame
   datatype: FITS
-  filesize: 4 MB
+  filesize: 16 MB
   releases:
-  - DR9
-  - DR10
-  - DR12
-  - DR11
-  - DR13
-  - DR14
-  - DR15
-  - DR16
-  - DR17
+  - IPL3
   - WORK
   environments:
   - BOSS_SPECTRO_REDUX
-  naming_convention: 'spFluxcalib-[c][n]-eeeeeeee.fits.gz
-
-    Where [c] indicates either a blue or red spectrograph, [n] indicates the spectrograph
-    number (1 or 2) and eeeeeeee indicates the exposure number.'
-  generated_by: spflux_v5.pro
-  design: false
   surveys:
-  - eBOSS
+  - BHM
+  naming_convention: with $BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/spFluxcalib-[BR][ID]-[FRAME].fits.gz
+  generated_by: idlspec2d - rm_spflux_v5.pro
+  design: false
+  vac: false
+  recommended_science_product: false
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
   releases:
     WORK:
-      from: DR17
-      note: No changes
-    DR17:
-      from: DR16
-      note: No changes
-    DR16:
-      from: DR15
-      note: No changes
-    DR15:
-      from: DR14
-      note: No changes
-    DR14:
-      from: DR13
-      note: No changes
-    DR13:
-      from: DR11
-      note: No changes
-    DR11:
-      from: DR12
-      note: No changes
-    DR12:
-      from: DR10
-      note: No changes
-    DR10:
-      from: DR9
+      from: IPL3
       note: No changes
 releases:
-  DR9:
-    template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID]/spFluxcalib-[BR][ID]-[FRAME].fits.gz
-    example: v5_4_45/3682/spFluxcalib-b1-00108607.fits.gz
-    location: '{run2d}/{plateid}/spFluxcalib-{br}{id}-{frame}.fits.gz'
-    environment: BOSS_SPECTRO_REDUX
-    access:
-      in_sdss_access: true
-      path_name: spFluxcalib
-      path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spFluxcalib-{br}{id}-{frame:0>8}.fits.gz'
-      path_kwargs:
-      - br
-      - id
-      - plateid
-      - frame
-      - run2d
-      access_string: spFluxcalib = $BOSS_SPECTRO_REDUX/{run2d}/{plateid}/spFluxcalib-{br}{id}-{frame}.fits.gz
-    hdus:
-      hdu0:
-        name: PRIMARY
-        description: 'Image with the flux calibration vector for each fiber.
-
-          <b>
-
-          Example header:
-
-          </b>'
-        is_image: true
-        size: 7 MB
-        header:
-        - key: SIMPLE
-          value: true
-          comment: Primary Header created by MWRFITS v1.8
-        - key: BITPIX
-          value: -32
-          comment: array data type
-        - key: NAXIS
-          value: 2
-          comment: number of array dimensions
-        - key: NAXIS1
-          value: 4112
-          comment: Number of wavelength bins
-        - key: NAXIS2
-          value: 500
-          comment: Number of fibers
-        - key: EXTEND
-          value: true
-          comment: Extensions may be present
-        - key: WAVEMIN
-          value: 3562.35
-          comment: 'migration: description of keyword/column is None in database.
-            Needs update'
-        - key: WAVEMAX
-          value: 6301.89
-          comment: 'migration: description of keyword/column is None in database.
-            Needs update'
-      hdu1:
-        name: ''
-        description: "Binary table with traceset structure of b-spline fits for\n\
-          \  calibration vectors.  This is a compact version of the information in\n\
-          \  the primary HDU.\n<b>Example header:</b>"
-        is_image: false
-        size: 3 KB
-        columns:
-          FULLBKPT:
-            name: FULLBKPT
-            type: float32[234]
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          BKMASK:
-            name: BKMASK
-            type: int16[234]
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          NORD:
-            name: NORD
-            type: int32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          COEFF:
-            name: COEFF
-            type: float32[231]
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          ICOEFF:
-            name: ICOEFF
-            type: float32[231]
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-      hdu2:
-        name: ''
-        description: "Binary table with information about the standard stars used\
-          \ to construct\n  the calibration vector.\n<b>Example header</b>"
-        is_image: false
-        size: 210 KB
-        columns:
-          PLATE:
-            name: PLATE
-            type: int32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          MJD:
-            name: MJD
-            type: int32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          FIBERID:
-            name: FIBERID
-            type: int32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          QGOOD:
-            name: QGOOD
-            type: int16
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          MODEL:
-            name: MODEL
-            type: char[19]
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          FEH:
-            name: FEH
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          TEFF:
-            name: TEFF
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          G:
-            name: G
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          MAG:
-            name: MAG
-            type: float32[5]
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          IMODEL:
-            name: IMODEL
-            type: int32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          Z:
-            name: Z
-            type: float64
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          SN_MEDIAN:
-            name: SN_MEDIAN
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          CHI2:
-            name: CHI2
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          DOF:
-            name: DOF
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          LINESN_MEDIAN:
-            name: LINESN_MEDIAN
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          LINECHI2:
-            name: LINECHI2
-            type: float64
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          LINEDOF:
-            name: LINEDOF
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          MODELFLUX:
-            name: MODELFLUX
-            type: float32[4128]
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-    survey: eBOSS
-  DR10:
-    template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID]/spFluxcalib-[BR][ID]-[FRAME].fits.gz
-    example: v5_5_12/3682/spFluxcalib-b1-00108607.fits.gz
-    location: '{run2d}/{plateid}/spFluxcalib-{br}{id}-{frame}.fits.gz'
-    environment: BOSS_SPECTRO_REDUX
-    access:
-      in_sdss_access: true
-      path_name: spFluxcalib
-      path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spFluxcalib-{br}{id}-{frame:0>8}.fits.gz'
-      path_kwargs:
-      - br
-      - id
-      - plateid
-      - frame
-      - run2d
-      access_string: spFluxcalib = $BOSS_SPECTRO_REDUX/{run2d}/{plateid}/spFluxcalib-{br}{id}-{frame}.fits.gz
-    hdus:
-      hdu0:
-        name: PRIMARY
-        description: 'Image with the flux calibration vector for each fiber.
-
-          <b>
-
-          Example header:
-
-          </b>'
-        is_image: true
-        size: 7 MB
-        header:
-        - key: SIMPLE
-          value: true
-          comment: Primary Header created by MWRFITS v1.8
-        - key: BITPIX
-          value: -32
-          comment: array data type
-        - key: NAXIS
-          value: 2
-          comment: number of array dimensions
-        - key: NAXIS1
-          value: 4112
-          comment: Number of wavelength bins
-        - key: NAXIS2
-          value: 500
-          comment: Number of fibers
-        - key: EXTEND
-          value: true
-          comment: Extensions may be present
-        - key: WAVEMIN
-          value: 3562.35
-          comment: 'migration: description of keyword/column is None in database.
-            Needs update'
-        - key: WAVEMAX
-          value: 6301.61
-          comment: 'migration: description of keyword/column is None in database.
-            Needs update'
-      hdu1:
-        name: ''
-        description: "Binary table with traceset structure of b-spline fits for\n\
-          \  calibration vectors.  This is a compact version of the information in\n\
-          \  the primary HDU.\n<b>Example header:</b>"
-        is_image: false
-        size: 3 KB
-        columns:
-          FULLBKPT:
-            name: FULLBKPT
-            type: float32[234]
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          BKMASK:
-            name: BKMASK
-            type: int16[234]
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          NORD:
-            name: NORD
-            type: int32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          COEFF:
-            name: COEFF
-            type: float32[231]
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          ICOEFF:
-            name: ICOEFF
-            type: float32[231]
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-      hdu2:
-        name: ''
-        description: "Binary table with information about the standard stars used\
-          \ to construct\n  the calibration vector.\n<b>Example header</b>"
-        is_image: false
-        size: 210 KB
-        columns:
-          PLATE:
-            name: PLATE
-            type: int32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          MJD:
-            name: MJD
-            type: int32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          FIBERID:
-            name: FIBERID
-            type: int32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          QGOOD:
-            name: QGOOD
-            type: int16
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          MODEL:
-            name: MODEL
-            type: char[19]
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          FEH:
-            name: FEH
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          TEFF:
-            name: TEFF
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          G:
-            name: G
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          MAG:
-            name: MAG
-            type: float32[5]
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          IMODEL:
-            name: IMODEL
-            type: int32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          Z:
-            name: Z
-            type: float64
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          SN_MEDIAN:
-            name: SN_MEDIAN
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          CHI2:
-            name: CHI2
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          DOF:
-            name: DOF
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          LINESN_MEDIAN:
-            name: LINESN_MEDIAN
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          LINECHI2:
-            name: LINECHI2
-            type: float64
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          LINEDOF:
-            name: LINEDOF
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          MODELFLUX:
-            name: MODELFLUX
-            type: float32[4128]
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-    survey: eBOSS
-  DR11:
-    template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID]/spFluxcalib-[BR][ID]-[FRAME].fits.gz
-    example: v5_6_5/3682/spFluxcalib-b1-00108607.fits.gz
-    location: '{run2d}/{plateid}/spFluxcalib-{br}{id}-{frame}.fits.gz'
-    environment: BOSS_SPECTRO_REDUX
-    access:
-      in_sdss_access: true
-      path_name: spFluxcalib
-      path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spFluxcalib-{br}{id}-{frame:0>8}.fits.gz'
-      path_kwargs:
-      - br
-      - id
-      - plateid
-      - frame
-      - run2d
-      access_string: spFluxcalib = $BOSS_SPECTRO_REDUX/{run2d}/{plateid}/spFluxcalib-{br}{id}-{frame}.fits.gz
-    hdus:
-      hdu0:
-        name: PRIMARY
-        description: 'Image with the flux calibration vector for each fiber.
-
-          <b>
-
-          Example header:
-
-          </b>'
-        is_image: true
-        size: 7 MB
-        header:
-        - key: SIMPLE
-          value: true
-          comment: Primary Header created by MWRFITS v1.8
-        - key: BITPIX
-          value: -32
-          comment: array data type
-        - key: NAXIS
-          value: 2
-          comment: number of array dimensions
-        - key: NAXIS1
-          value: 4112
-          comment: Number of wavelength bins
-        - key: NAXIS2
-          value: 500
-          comment: Number of fibers
-        - key: EXTEND
-          value: true
-          comment: Extensions may be present
-        - key: WAVEMIN
-          value: 3563.03
-          comment: 'migration: description of keyword/column is None in database.
-            Needs update'
-        - key: WAVEMAX
-          value: 6303.66
-          comment: 'migration: description of keyword/column is None in database.
-            Needs update'
-      hdu1:
-        name: ''
-        description: "Binary table with traceset structure of b-spline fits for\n\
-          \  calibration vectors.  This is a compact version of the information in\n\
-          \  the primary HDU.\n<b>Example header:</b>"
-        is_image: false
-        size: 3 KB
-        columns:
-          FULLBKPT:
-            name: FULLBKPT
-            type: float32[234]
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          BKMASK:
-            name: BKMASK
-            type: int16[234]
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          NORD:
-            name: NORD
-            type: int32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          COEFF:
-            name: COEFF
-            type: float32[231]
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          ICOEFF:
-            name: ICOEFF
-            type: float32[231]
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-      hdu2:
-        name: ''
-        description: "Binary table with information about the standard stars used\
-          \ to construct\n  the calibration vector.\n<b>Example header</b>"
-        is_image: false
-        size: 210 KB
-        columns:
-          PLATE:
-            name: PLATE
-            type: int32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          MJD:
-            name: MJD
-            type: int32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          FIBERID:
-            name: FIBERID
-            type: int32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          QGOOD:
-            name: QGOOD
-            type: int16
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          MODEL:
-            name: MODEL
-            type: char[19]
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          FEH:
-            name: FEH
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          TEFF:
-            name: TEFF
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          G:
-            name: G
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          MAG:
-            name: MAG
-            type: float32[5]
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          IMODEL:
-            name: IMODEL
-            type: int32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          Z:
-            name: Z
-            type: float64
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          SN_MEDIAN:
-            name: SN_MEDIAN
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          CHI2:
-            name: CHI2
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          DOF:
-            name: DOF
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          LINESN_MEDIAN:
-            name: LINESN_MEDIAN
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          LINECHI2:
-            name: LINECHI2
-            type: float64
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          LINEDOF:
-            name: LINEDOF
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          MODELFLUX:
-            name: MODELFLUX
-            type: float32[4128]
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-    survey: eBOSS
-  DR12:
-    template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID]/spFluxcalib-[BR][ID]-[FRAME].fits.gz
-    example: v5_7_0/3682/spFluxcalib-b1-00108607.fits.gz
-    location: '{run2d}/{plateid}/spFluxcalib-{br}{id}-{frame}.fits.gz'
-    environment: BOSS_SPECTRO_REDUX
-    access:
-      in_sdss_access: true
-      path_name: spFluxcalib
-      path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spFluxcalib-{br}{id}-{frame:0>8}.fits.gz'
-      path_kwargs:
-      - br
-      - id
-      - plateid
-      - frame
-      - run2d
-      access_string: spFluxcalib = $BOSS_SPECTRO_REDUX/{run2d}/{plateid}/spFluxcalib-{br}{id}-{frame}.fits.gz
-    hdus:
-      hdu0:
-        name: PRIMARY
-        description: 'Image with the flux calibration vector for each fiber.
-
-          <b>
-
-          Example header:
-
-          </b>'
-        is_image: true
-        size: 7 MB
-        header:
-        - key: SIMPLE
-          value: true
-          comment: Primary Header created by MWRFITS v1.8
-        - key: BITPIX
-          value: -32
-          comment: array data type
-        - key: NAXIS
-          value: 2
-          comment: number of array dimensions
-        - key: NAXIS1
-          value: 4112
-          comment: Number of wavelength bins
-        - key: NAXIS2
-          value: 500
-          comment: Number of fibers
-        - key: EXTEND
-          value: true
-          comment: Extensions may be present
-        - key: WAVEMIN
-          value: 3563.03
-          comment: 'migration: description of keyword/column is None in database.
-            Needs update'
-        - key: WAVEMAX
-          value: 6303.66
-          comment: 'migration: description of keyword/column is None in database.
-            Needs update'
-      hdu1:
-        name: ''
-        description: "Binary table with traceset structure of b-spline fits for\n\
-          \  calibration vectors.  This is a compact version of the information in\n\
-          \  the primary HDU.\n<b>Example header:</b>"
-        is_image: false
-        size: 3 KB
-        columns:
-          FULLBKPT:
-            name: FULLBKPT
-            type: float32[234]
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          BKMASK:
-            name: BKMASK
-            type: int16[234]
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          NORD:
-            name: NORD
-            type: int32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          COEFF:
-            name: COEFF
-            type: float32[231]
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          ICOEFF:
-            name: ICOEFF
-            type: float32[231]
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-      hdu2:
-        name: ''
-        description: "Binary table with information about the standard stars used\
-          \ to construct\n  the calibration vector.\n<b>Example header</b>"
-        is_image: false
-        size: 210 KB
-        columns:
-          PLATE:
-            name: PLATE
-            type: int32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          MJD:
-            name: MJD
-            type: int32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          FIBERID:
-            name: FIBERID
-            type: int32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          QGOOD:
-            name: QGOOD
-            type: int16
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          MODEL:
-            name: MODEL
-            type: char[19]
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          FEH:
-            name: FEH
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          TEFF:
-            name: TEFF
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          G:
-            name: G
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          MAG:
-            name: MAG
-            type: float32[5]
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          IMODEL:
-            name: IMODEL
-            type: int32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          Z:
-            name: Z
-            type: float64
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          SN_MEDIAN:
-            name: SN_MEDIAN
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          CHI2:
-            name: CHI2
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          DOF:
-            name: DOF
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          LINESN_MEDIAN:
-            name: LINESN_MEDIAN
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          LINECHI2:
-            name: LINECHI2
-            type: float64
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          LINEDOF:
-            name: LINEDOF
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          MODELFLUX:
-            name: MODELFLUX
-            type: float32[4128]
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-    survey: eBOSS
-  DR13:
-    template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID]/spFluxcalib-[BR][ID]-[FRAME].fits.gz
-    example: v5_9_0/3682/spFluxcalib-b1-00108607.fits.gz
-    location: '{run2d}/{plateid}/spFluxcalib-{br}{id}-{frame}.fits.gz'
-    environment: BOSS_SPECTRO_REDUX
-    access:
-      in_sdss_access: true
-      path_name: spFluxcalib
-      path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spFluxcalib-{br}{id}-{frame:0>8}.fits.gz'
-      path_kwargs:
-      - br
-      - id
-      - plateid
-      - frame
-      - run2d
-      access_string: spFluxcalib = $BOSS_SPECTRO_REDUX/{run2d}/{plateid}/spFluxcalib-{br}{id}-{frame}.fits.gz
-    hdus:
-      hdu0:
-        name: PRIMARY
-        description: 'Image with the flux calibration vector for each fiber.
-
-          <b>
-
-          Example header:
-
-          </b>'
-        is_image: true
-        size: 7 MB
-        header:
-        - key: SIMPLE
-          value: true
-          comment: Primary Header created by MWRFITS v1.8
-        - key: BITPIX
-          value: -32
-          comment: array data type
-        - key: NAXIS
-          value: 2
-          comment: number of array dimensions
-        - key: NAXIS1
-          value: 4112
-          comment: Number of wavelength bins
-        - key: NAXIS2
-          value: 500
-          comment: Number of fibers
-        - key: EXTEND
-          value: true
-          comment: Extensions may be present
-        - key: WAVEMIN
-          value: 3560.97
-          comment: 'migration: description of keyword/column is None in database.
-            Needs update'
-        - key: WAVEMAX
-          value: 6305.16
-          comment: 'migration: description of keyword/column is None in database.
-            Needs update'
-      hdu1:
-        name: ''
-        description: "Binary table with traceset structure of b-spline fits for\n\
-          \  calibration vectors.  This is a compact version of the information in\n\
-          \  the primary HDU.\n<b>Example header:</b>"
-        is_image: false
-        size: 3 KB
-        columns:
-          FULLBKPT:
-            name: FULLBKPT
-            type: float32[233]
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          BKMASK:
-            name: BKMASK
-            type: int16[233]
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          NORD:
-            name: NORD
-            type: int32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          COEFF:
-            name: COEFF
-            type: float32[230]
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          ICOEFF:
-            name: ICOEFF
-            type: float32[230]
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-      hdu2:
-        name: ''
-        description: "Binary table with information about the standard stars used\
-          \ to construct\n  the calibration vector.\n<b>Example header</b>"
-        is_image: false
-        size: 210 KB
-        columns:
-          PLATE:
-            name: PLATE
-            type: int32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          MJD:
-            name: MJD
-            type: int32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          FIBERID:
-            name: FIBERID
-            type: int32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          QGOOD:
-            name: QGOOD
-            type: int16
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          MODEL:
-            name: MODEL
-            type: char[19]
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          FEH:
-            name: FEH
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          TEFF:
-            name: TEFF
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          G:
-            name: G
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          MAG:
-            name: MAG
-            type: float32[5]
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          IMODEL:
-            name: IMODEL
-            type: int32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          Z:
-            name: Z
-            type: float64
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          SN_MEDIAN:
-            name: SN_MEDIAN
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          CHI2:
-            name: CHI2
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          DOF:
-            name: DOF
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          LINESN_MEDIAN:
-            name: LINESN_MEDIAN
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          LINECHI2:
-            name: LINECHI2
-            type: float64
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          LINEDOF:
-            name: LINEDOF
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          MODELFLUX:
-            name: MODELFLUX
-            type: float32[4128]
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-    survey: eBOSS
-  DR14:
-    template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID]/spFluxcalib-[BR][ID]-[FRAME].fits.gz
-    example: v5_10_0/3682/spFluxcalib-b1-00108607.fits.gz
-    location: '{run2d}/{plateid}/spFluxcalib-{br}{id}-{frame}.fits.gz'
-    environment: BOSS_SPECTRO_REDUX
-    access:
-      in_sdss_access: true
-      path_name: spFluxcalib
-      path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spFluxcalib-{br}{id}-{frame:0>8}.fits.gz'
-      path_kwargs:
-      - br
-      - id
-      - plateid
-      - frame
-      - run2d
-      access_string: spFluxcalib = $BOSS_SPECTRO_REDUX/{run2d}/{plateid}/spFluxcalib-{br}{id}-{frame}.fits.gz
-    hdus:
-      hdu0:
-        name: PRIMARY
-        description: 'Image with the flux calibration vector for each fiber.
-
-          <b>
-
-          Example header:
-
-          </b>'
-        is_image: true
-        size: 7 MB
-        header:
-        - key: SIMPLE
-          value: true
-          comment: Primary Header created by MWRFITS v1.8
-        - key: BITPIX
-          value: -32
-          comment: array data type
-        - key: NAXIS
-          value: 2
-          comment: number of array dimensions
-        - key: NAXIS1
-          value: 4112
-          comment: Number of wavelength bins
-        - key: NAXIS2
-          value: 500
-          comment: Number of fibers
-        - key: EXTEND
-          value: true
-          comment: Extensions may be present
-        - key: WAVEMIN
-          value: 3560.97
-          comment: 'migration: description of keyword/column is None in database.
-            Needs update'
-        - key: WAVEMAX
-          value: 6305.16
-          comment: 'migration: description of keyword/column is None in database.
-            Needs update'
-      hdu1:
-        name: ''
-        description: "Binary table with traceset structure of b-spline fits for\n\
-          \  calibration vectors.  This is a compact version of the information in\n\
-          \  the primary HDU.\n<b>Example header:</b>"
-        is_image: false
-        size: 3 KB
-        columns:
-          FULLBKPT:
-            name: FULLBKPT
-            type: float32[233]
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          BKMASK:
-            name: BKMASK
-            type: int16[233]
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          NORD:
-            name: NORD
-            type: int32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          COEFF:
-            name: COEFF
-            type: float32[230]
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          ICOEFF:
-            name: ICOEFF
-            type: float32[230]
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-      hdu2:
-        name: ''
-        description: "Binary table with information about the standard stars used\
-          \ to construct\n  the calibration vector.\n<b>Example header</b>"
-        is_image: false
-        size: 210 KB
-        columns:
-          PLATE:
-            name: PLATE
-            type: int32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          MJD:
-            name: MJD
-            type: int32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          FIBERID:
-            name: FIBERID
-            type: int32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          QGOOD:
-            name: QGOOD
-            type: int16
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          MODEL:
-            name: MODEL
-            type: char[19]
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          FEH:
-            name: FEH
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          TEFF:
-            name: TEFF
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          G:
-            name: G
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          MAG:
-            name: MAG
-            type: float32[5]
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          IMODEL:
-            name: IMODEL
-            type: int32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          Z:
-            name: Z
-            type: float64
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          SN_MEDIAN:
-            name: SN_MEDIAN
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          CHI2:
-            name: CHI2
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          DOF:
-            name: DOF
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          LINESN_MEDIAN:
-            name: LINESN_MEDIAN
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          LINECHI2:
-            name: LINECHI2
-            type: float64
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          LINEDOF:
-            name: LINEDOF
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          MODELFLUX:
-            name: MODELFLUX
-            type: float32[4128]
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-    survey: eBOSS
-  DR15:
-    template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID]/spFluxcalib-[BR][ID]-[FRAME].fits.gz
-    example: v5_10_0/3682/spFluxcalib-b1-00108607.fits.gz
-    location: '{run2d}/{plateid}/spFluxcalib-{br}{id}-{frame}.fits.gz'
-    environment: BOSS_SPECTRO_REDUX
-    access:
-      in_sdss_access: true
-      path_name: spFluxcalib
-      path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spFluxcalib-{br}{id}-{frame:0>8}.fits.gz'
-      path_kwargs:
-      - br
-      - id
-      - plateid
-      - frame
-      - run2d
-      access_string: spFluxcalib = $BOSS_SPECTRO_REDUX/{run2d}/{plateid}/spFluxcalib-{br}{id}-{frame}.fits.gz
-    hdus:
-      hdu0:
-        name: PRIMARY
-        description: 'Image with the flux calibration vector for each fiber.
-
-          <b>
-
-          Example header:
-
-          </b>'
-        is_image: true
-        size: 7 MB
-        header:
-        - key: SIMPLE
-          value: true
-          comment: Primary Header created by MWRFITS v1.8
-        - key: BITPIX
-          value: -32
-          comment: array data type
-        - key: NAXIS
-          value: 2
-          comment: number of array dimensions
-        - key: NAXIS1
-          value: 4112
-          comment: Number of wavelength bins
-        - key: NAXIS2
-          value: 500
-          comment: Number of fibers
-        - key: EXTEND
-          value: true
-          comment: Extensions may be present
-        - key: WAVEMIN
-          value: 3560.97
-          comment: 'migration: description of keyword/column is None in database.
-            Needs update'
-        - key: WAVEMAX
-          value: 6305.16
-          comment: 'migration: description of keyword/column is None in database.
-            Needs update'
-      hdu1:
-        name: ''
-        description: "Binary table with traceset structure of b-spline fits for\n\
-          \  calibration vectors.  This is a compact version of the information in\n\
-          \  the primary HDU.\n<b>Example header:</b>"
-        is_image: false
-        size: 3 KB
-        columns:
-          FULLBKPT:
-            name: FULLBKPT
-            type: float32[233]
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          BKMASK:
-            name: BKMASK
-            type: int16[233]
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          NORD:
-            name: NORD
-            type: int32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          COEFF:
-            name: COEFF
-            type: float32[230]
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          ICOEFF:
-            name: ICOEFF
-            type: float32[230]
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-      hdu2:
-        name: ''
-        description: "Binary table with information about the standard stars used\
-          \ to construct\n  the calibration vector.\n<b>Example header</b>"
-        is_image: false
-        size: 210 KB
-        columns:
-          PLATE:
-            name: PLATE
-            type: int32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          MJD:
-            name: MJD
-            type: int32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          FIBERID:
-            name: FIBERID
-            type: int32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          QGOOD:
-            name: QGOOD
-            type: int16
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          MODEL:
-            name: MODEL
-            type: char[19]
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          FEH:
-            name: FEH
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          TEFF:
-            name: TEFF
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          G:
-            name: G
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          MAG:
-            name: MAG
-            type: float32[5]
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          IMODEL:
-            name: IMODEL
-            type: int32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          Z:
-            name: Z
-            type: float64
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          SN_MEDIAN:
-            name: SN_MEDIAN
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          CHI2:
-            name: CHI2
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          DOF:
-            name: DOF
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          LINESN_MEDIAN:
-            name: LINESN_MEDIAN
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          LINECHI2:
-            name: LINECHI2
-            type: float64
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          LINEDOF:
-            name: LINEDOF
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          MODELFLUX:
-            name: MODELFLUX
-            type: float32[4128]
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-    survey: eBOSS
-  DR16:
-    template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID]/spFluxcalib-[BR][ID]-[FRAME].fits.gz
-    example: v5_13_0/3682/spFluxcalib-b1-00108607.fits.gz
-    location: '{run2d}/{plateid}/spFluxcalib-{br}{id}-{frame}.fits.gz'
-    environment: BOSS_SPECTRO_REDUX
-    access:
-      in_sdss_access: true
-      path_name: spFluxcalib
-      path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spFluxcalib-{br}{id}-{frame:0>8}.fits.gz'
-      path_kwargs:
-      - br
-      - id
-      - plateid
-      - frame
-      - run2d
-      access_string: spFluxcalib = $BOSS_SPECTRO_REDUX/{run2d}/{plateid}/spFluxcalib-{br}{id}-{frame}.fits.gz
-    hdus:
-      hdu0:
-        name: PRIMARY
-        description: 'Image with the flux calibration vector for each fiber.
-
-          <b>
-
-          Example header:
-
-          </b>'
-        is_image: true
-        size: 7 MB
-        header:
-        - key: SIMPLE
-          value: true
-          comment: Primary Header created by MWRFITS v1.8
-        - key: BITPIX
-          value: -32
-          comment: array data type
-        - key: NAXIS
-          value: 2
-          comment: number of array dimensions
-        - key: NAXIS1
-          value: 4112
-          comment: Number of wavelength bins
-        - key: NAXIS2
-          value: 500
-          comment: Number of fibers
-        - key: EXTEND
-          value: true
-          comment: Extensions may be present
-        - key: WAVEMIN
-          value: 3560.84
-          comment: 'migration: description of keyword/column is None in database.
-            Needs update'
-        - key: WAVEMAX
-          value: 6301.83
-          comment: 'migration: description of keyword/column is None in database.
-            Needs update'
-      hdu1:
-        name: ''
-        description: "Binary table with traceset structure of b-spline fits for\n\
-          \  calibration vectors.  This is a compact version of the information in\n\
-          \  the primary HDU.\n<b>Example header:</b>"
-        is_image: false
-        size: 3 KB
-        columns:
-          FULLBKPT:
-            name: FULLBKPT
-            type: float32[233]
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          BKMASK:
-            name: BKMASK
-            type: int16[233]
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          NORD:
-            name: NORD
-            type: int32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          COEFF:
-            name: COEFF
-            type: float32[230]
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          ICOEFF:
-            name: ICOEFF
-            type: float32[230]
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-      hdu2:
-        name: ''
-        description: "Binary table with information about the standard stars used\
-          \ to construct\n  the calibration vector.\n<b>Example header</b>"
-        is_image: false
-        size: 210 KB
-        columns:
-          PLATE:
-            name: PLATE
-            type: int32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          MJD:
-            name: MJD
-            type: int32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          FIBERID:
-            name: FIBERID
-            type: int32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          QGOOD:
-            name: QGOOD
-            type: int16
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          MODEL:
-            name: MODEL
-            type: char[3]
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          G:
-            name: G
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          TEFF:
-            name: TEFF
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          FEH:
-            name: FEH
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          IMODEL:
-            name: IMODEL
-            type: int32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          Z:
-            name: Z
-            type: float64
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          SN_MEDIAN:
-            name: SN_MEDIAN
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          CHI2:
-            name: CHI2
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          DOF:
-            name: DOF
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          LINESN_MEDIAN:
-            name: LINESN_MEDIAN
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          LINECHI2:
-            name: LINECHI2
-            type: float64
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          LINEDOF:
-            name: LINEDOF
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          MODELFLUX:
-            name: MODELFLUX
-            type: float32[4128]
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-    survey: eBOSS
-  DR17:
-    template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID]/spFluxcalib-[BR][ID]-[FRAME].fits.gz
-    example: v5_13_2/3682/spFluxcalib-b1-00108607.fits.gz
-    location: '{run2d}/{plateid}/spFluxcalib-{br}{id}-{frame}.fits.gz'
-    environment: BOSS_SPECTRO_REDUX
-    access:
-      in_sdss_access: true
-      path_name: spFluxcalib
-      path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spFluxcalib-{br}{id}-{frame:0>8}.fits.gz'
-      path_kwargs:
-      - br
-      - id
-      - plateid
-      - frame
-      - run2d
-      access_string: spFluxcalib = $BOSS_SPECTRO_REDUX/{run2d}/{plateid}/spFluxcalib-{br}{id}-{frame}.fits.gz
-    hdus:
-      hdu0:
-        name: PRIMARY
-        description: 'Image with the flux calibration vector for each fiber.
-
-          <b>
-
-          Example header:
-
-          </b>'
-        is_image: true
-        size: 7 MB
-        header:
-        - key: SIMPLE
-          value: true
-          comment: Primary Header created by MWRFITS v1.8
-        - key: BITPIX
-          value: -32
-          comment: array data type
-        - key: NAXIS
-          value: 2
-          comment: number of array dimensions
-        - key: NAXIS1
-          value: 4112
-          comment: Number of wavelength bins
-        - key: NAXIS2
-          value: 500
-          comment: Number of fibers
-        - key: EXTEND
-          value: true
-          comment: Extensions may be present
-        - key: WAVEMIN
-          value: 3560.84
-          comment: 'migration: description of keyword/column is None in database.
-            Needs update'
-        - key: WAVEMAX
-          value: 6301.83
-          comment: 'migration: description of keyword/column is None in database.
-            Needs update'
-      hdu1:
-        name: ''
-        description: "Binary table with traceset structure of b-spline fits for\n\
-          \  calibration vectors.  This is a compact version of the information in\n\
-          \  the primary HDU.\n<b>Example header:</b>"
-        is_image: false
-        size: 3 KB
-        columns:
-          FULLBKPT:
-            name: FULLBKPT
-            type: float32[233]
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          BKMASK:
-            name: BKMASK
-            type: int16[233]
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          NORD:
-            name: NORD
-            type: int32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          COEFF:
-            name: COEFF
-            type: float32[230]
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          ICOEFF:
-            name: ICOEFF
-            type: float32[230]
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-      hdu2:
-        name: ''
-        description: "Binary table with information about the standard stars used\
-          \ to construct\n  the calibration vector.\n<b>Example header</b>"
-        is_image: false
-        size: 210 KB
-        columns:
-          PLATE:
-            name: PLATE
-            type: int32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          MJD:
-            name: MJD
-            type: int32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          FIBERID:
-            name: FIBERID
-            type: int32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          QGOOD:
-            name: QGOOD
-            type: int16
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          MODEL:
-            name: MODEL
-            type: char[3]
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          G:
-            name: G
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          TEFF:
-            name: TEFF
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          FEH:
-            name: FEH
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          IMODEL:
-            name: IMODEL
-            type: int32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          Z:
-            name: Z
-            type: float64
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          SN_MEDIAN:
-            name: SN_MEDIAN
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          CHI2:
-            name: CHI2
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          DOF:
-            name: DOF
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          LINESN_MEDIAN:
-            name: LINESN_MEDIAN
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          LINECHI2:
-            name: LINECHI2
-            type: float64
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          LINEDOF:
-            name: LINEDOF
-            type: float32
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-          MODELFLUX:
-            name: MODELFLUX
-            type: float32[4128]
-            unit: 'migration: unit of keyword/column not found. Needs update'
-            description: 'migration: description of keyword/column not found. Needs
-              update'
-    survey: eBOSS
   WORK:
-    template: $BOSS_SPECTRO_REDUX/[RUN2D]/[FIELDID][ISPLATE]/spFluxcalib-[BR][ID]-[FRAME].fits.gz
-    example: v6_0_4/15000p/spFluxcalib-b1-00318676.fits.gz
-    location: '{run2d}/{fieldid}{isplate}/spFluxcalib-{br}{id}-{frame}.fits.gz'
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/spFluxcalib-[BR][ID]-[FRAME].fits.gz
+    example: v6_1_3/112360/spFluxcalib-b1-00353048.fits.gz
+    location: '{run2d}/{field}/spFluxcalib-{br}{id}-{frame}.fits.gz'
     environment: BOSS_SPECTRO_REDUX
     access:
       in_sdss_access: true
       path_name: spFluxcalib
-      path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spFluxcalib-{br}{id}-{frame:0>8}.fits.gz'
+      path_template: $BOSS_SPECTRO_REDUX/{run2d}/@pad_fieldid|@isplate|/spFluxcalib-{br}{id}-{frame:0>8}.fits.gz
       path_kwargs:
       - id
       - run2d
-      - br
       - frame
-      - plateid
-      access_string: spFluxcalib = $BOSS_SPECTRO_REDUX/{run2d}/{fieldid}{isplate}/spFluxcalib-{br}{id}-{frame}.fits.gz
+      - br
+      - fieldid
+      access_string: spFluxcalib = $BOSS_SPECTRO_REDUX/{run2d}/{field}/spFluxcalib-{br}{id}-{frame}.fits.gz
+    survey: BHM
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: Image with the flux calibration vector for each fiber.
         is_image: true
         size: 7 MB
         header:
         - key: SIMPLE
           value: true
-          comment: Primary Header created by MWRFITS v1.11
+          comment: Primary Header created by MWRFITS v1.13
         - key: BITPIX
           value: -32
           comment: ''
@@ -1970,228 +67,982 @@ releases:
           value: true
           comment: Extensions may be present
         - key: WAVEMIN
-          value: 3569.82
+          value: 3559.19
           comment: ''
         - key: WAVEMAX
-          value: 6317.41
+          value: 6317.02
           comment: ''
       hdu1:
         name: ''
-        description: replace me description
+        description: Binary table with traceset structure of b-spline fits for calibration
+          vectors. This is a compact version of the information in the primary HDU.
         is_image: false
         size: 3 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: Binary table written by MWRFITS v1.13
+        - key: BITPIX
+          value: 8
+          comment: Required value
+        - key: NAXIS
+          value: 2
+          comment: Required value
+        - key: NAXIS1
+          value: 3256
+          comment: Number of bytes per row
+        - key: NAXIS2
+          value: 1
+          comment: Number of rows
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: Required value
+        - key: TFIELDS
+          value: 5
+          comment: Number of columns in table
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** End of mandatory fields ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column formats ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column names ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
         columns:
           FULLBKPT:
             name: FULLBKPT
             type: float32[234]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Breakpoint vector
           BKMASK:
             name: BKMASK
             type: int16[234]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: mask of the breakpoint vector
           NORD:
             name: NORD
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of orders for Bspline fit
           COEFF:
             name: COEFF
             type: float32[231]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The bspline coeffients
           ICOEFF:
             name: ICOEFF
             type: float32[231]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: inversion bspline coeffients
       hdu2:
         name: ''
-        description: replace me description
+        description: Binary table with information about the standard stars used to
+          construct the calibration vector.
         is_image: false
         size: 5 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: Binary table written by MWRFITS v1.13
+        - key: BITPIX
+          value: 8
+          comment: Required value
+        - key: NAXIS
+          value: 2
+          comment: Required value
+        - key: NAXIS1
+          value: 82629
+          comment: Number of bytes per row
+        - key: NAXIS2
+          value: 70
+          comment: Number of rows
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: Required value
+        - key: TFIELDS
+          value: 21
+          comment: Number of columns in table
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** End of mandatory fields ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column formats ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column names ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
         columns:
           PLATE:
             name: PLATE
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: SDSS PlateID
           MJD:
             name: MJD
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: MJD of observation
           FIBERID:
             name: FIBERID
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Fiber of observation
           QGOOD:
             name: QGOOD
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: quality flag
           MODEL:
             name: MODEL
             type: char[3]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Model Name
           G:
             name: G
+            unit: cm/s^2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            description: surface gravity
           TEFF:
             name: TEFF
+            unit: K
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            description: Effective Temperature
           FEH:
             name: FEH
+            unit: solar
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            description: metallicity
           IMODEL:
             name: IMODEL
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: index of model
           Z:
             name: Z
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Redshift of fit
           SN_MEDIAN:
             name: SN_MEDIAN
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: S/N of spectra
           CHI2:
             name: CHI2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Chi-square of model fit
           DOF:
             name: DOF
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: degrees of freedom
           LINESN_MEDIAN:
             name: LINESN_MEDIAN
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: S/N near absorption lines
           LINECHI2:
             name: LINECHI2
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: CHi-square of fit near absorption lines
           LINEDOF:
             name: LINEDOF
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: degrees of freedom of fit near absorption lines
           LOGLAM:
             name: LOGLAM
             type: float32[4128]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: log10(AA)
+            description: Log Lambda
           OBJFLUX:
             name: OBJFLUX
             type: float32[4128]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggy
+            description: Flux of object
           MODELFLUX:
             name: MODELFLUX
+            unit: nanomaggy
             type: float32[4128]
-            unit: replace me - with content
-            description: replace me - with content
+            description: Flux of model fit
           MRATIO:
             name: MRATIO
             type: float32[4128]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: MRATIO vectors are the "raw" flux-calib vectors for each
+              expos+CCD
           MRATIVAR:
             name: MRATIVAR
             type: float32[4128]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Ivar of MRATIO
       hdu3:
         name: ''
-        description: replace me description
+        description: Binary table with traceset structure of b-spline fits for calibration
+          vectors of all standards.
         is_image: false
         size: 3 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: Binary table written by MWRFITS v1.13
+        - key: BITPIX
+          value: 8
+          comment: Required value
+        - key: NAXIS
+          value: 2
+          comment: Required value
+        - key: NAXIS1
+          value: 3256
+          comment: Number of bytes per row
+        - key: NAXIS2
+          value: 1
+          comment: Number of rows
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: Required value
+        - key: TFIELDS
+          value: 5
+          comment: Number of columns in table
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** End of mandatory fields ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column formats ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column names ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
         columns:
           FULLBKPT:
             name: FULLBKPT
             type: float32[234]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Breakpoint vector
           BKMASK:
             name: BKMASK
             type: int16[234]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: mask of the breakpoint vector
           NORD:
             name: NORD
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of orders for Bspline fit
           COEFF:
             name: COEFF
             type: float32[231]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The bspline coefficients
           ICOEFF:
             name: ICOEFF
             type: float32[231]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: inversion bspline coefficients
       hdu4:
         name: ''
-        description: replace me description
+        description: Output structure
         is_image: false
-        size: 8 MB
+        size: 9 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: Binary table written by MWRFITS v1.13
+        - key: BITPIX
+          value: 8
+          comment: Required value
+        - key: NAXIS
+          value: 2
+          comment: Required value
+        - key: NAXIS1
+          value: 10173032
+          comment: Number of bytes per row
+        - key: NAXIS2
+          value: 1
+          comment: Number of rows
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: Required value
+        - key: TFIELDS
+          value: 8
+          comment: Number of columns in table
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** End of mandatory fields ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column formats ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column dimensions (2 D or greater) ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: TDIM1
+          value: ( 4128, 1, 68)
+          comment: ''
+        - key: TDIM2
+          value: ( 4128, 1, 68)
+          comment: ''
+        - key: TDIM3
+          value: ( 4128, 1, 68)
+          comment: ''
+        - key: TDIM4
+          value: ( 4128, 1, 68)
+          comment: ''
+        - key: TDIM7
+          value: ( 2492, 500)
+          comment: ''
+        - key: TDIM8
+          value: ( 2492, 68)
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column names ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
         columns:
           THISLOGLAM:
             name: THISLOGLAM
-            type: float32[222912]
-            unit: replace me - with content
-            description: replace me - with content
+            type: float32[280704]
+            unit: log10(AA)
+            description: log lambda
           THISMRATIO:
             name: THISMRATIO
-            type: float32[222912]
-            unit: replace me - with content
-            description: replace me - with content
+            type: float32[280704]
+            unit: ''
+            description: MRATIO vectors are the "raw" flux-calib vectors for this
+              expos+CCD
           THISMRATIVAR:
             name: THISMRATIVAR
-            type: float32[222912]
-            unit: replace me - with content
-            description: replace me - with content
+            type: float32[280704]
+            unit: ''
+            description: Ivar of THISMRATIVAR
           THISFLATARR:
             name: THISFLATARR
-            type: float32[222912]
-            unit: replace me - with content
-            description: replace me - with content
+            type: float32[280704]
+            unit: ''
+            description: polynomial fit of the object with respect to the model
           FRAC_SCAT:
             name: FRAC_SCAT
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: percental dispersion of the fluxing vectors used wrt the
+              truth
           TMPLOGLAM:
             name: TMPLOGLAM
-            type: float64[2479]
-            unit: replace me - with content
-            description: replace me - with content
+            type: float64[2492]
+            unit: ''
+            description: output grid
           THISFLATARR_ALL:
             name: THISFLATARR_ALL
-            type: float32[1239500]
-            unit: replace me - with content
-            description: replace me - with content
+            type: float32[1246000]
+            unit: ''
+            description: rpolynomial fit of the object with respect to the model for
+              all star
           THISFLATARR_NEW:
             name: THISFLATARR_NEW
-            type: float32[133866]
-            unit: replace me - with content
-            description: replace me - with content
-    survey: eBOSS
+            type: float32[169456]
+            unit: ''
+            description: polynomial fit of the object with respect to the model for
+              all the std and all obj
+  IPL3:
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/spFluxcalib-[BR][ID]-[FRAME].fits.gz
+    example: v6_1_3/112360/spFluxcalib-b1-00353048.fits.gz
+    location: '{run2d}/{field}/spFluxcalib-{br}{id}-{frame}.fits.gz'
+    environment: BOSS_SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: spFluxcalib
+      path_template: $BOSS_SPECTRO_REDUX/{run2d}/@pad_fieldid|@isplate|/spFluxcalib-{br}{id}-{frame:0>8}.fits.gz
+      path_kwargs:
+      - br
+      - fieldid
+      - id
+      - frame
+      - run2d
+      access_string: spFluxcalib = $BOSS_SPECTRO_REDUX/{run2d}/{field}/spFluxcalib-{br}{id}-{frame}.fits.gz
+    survey: BHM
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Image with the flux calibration vector for each fiber.
+        is_image: true
+        size: 7 MB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: Primary Header created by MWRFITS v1.13
+        - key: BITPIX
+          value: -32
+          comment: ''
+        - key: NAXIS
+          value: 2
+          comment: ''
+        - key: NAXIS1
+          value: 4112
+          comment: ''
+        - key: NAXIS2
+          value: 500
+          comment: ''
+        - key: EXTEND
+          value: true
+          comment: Extensions may be present
+        - key: WAVEMIN
+          value: 3559.19
+          comment: ''
+        - key: WAVEMAX
+          value: 6317.02
+          comment: ''
+      hdu1:
+        name: ''
+        description: Binary table with traceset structure of b-spline fits for calibration
+          vectors. This is a compact version of the information in the primary HDU.
+        is_image: false
+        size: 3 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: Binary table written by MWRFITS v1.13
+        - key: BITPIX
+          value: 8
+          comment: Required value
+        - key: NAXIS
+          value: 2
+          comment: Required value
+        - key: NAXIS1
+          value: 3256
+          comment: Number of bytes per row
+        - key: NAXIS2
+          value: 1
+          comment: Number of rows
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: Required value
+        - key: TFIELDS
+          value: 5
+          comment: Number of columns in table
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** End of mandatory fields ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column formats ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column names ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        columns:
+          FULLBKPT:
+            name: FULLBKPT
+            type: float32[234]
+            unit: ''
+            description: Breakpoint vector
+          BKMASK:
+            name: BKMASK
+            type: int16[234]
+            unit: ''
+            description: mask of the breakpoint vector
+          NORD:
+            name: NORD
+            type: int32
+            unit: ''
+            description: Number of orders for Bspline fit
+          COEFF:
+            name: COEFF
+            type: float32[231]
+            unit: ''
+            description: The bspline coeffients
+          ICOEFF:
+            name: ICOEFF
+            type: float32[231]
+            unit: ''
+            description: inversion bspline coeffients
+      hdu2:
+        name: ''
+        description: Binary table with information about the standard stars used to
+          construct the calibration vector.
+        is_image: false
+        size: 5 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: Binary table written by MWRFITS v1.13
+        - key: BITPIX
+          value: 8
+          comment: Required value
+        - key: NAXIS
+          value: 2
+          comment: Required value
+        - key: NAXIS1
+          value: 82629
+          comment: Number of bytes per row
+        - key: NAXIS2
+          value: 70
+          comment: Number of rows
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: Required value
+        - key: TFIELDS
+          value: 21
+          comment: Number of columns in table
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** End of mandatory fields ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column formats ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column names ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        columns:
+          PLATE:
+            name: PLATE
+            type: int32
+            unit: ''
+            description: SDSS PlateID
+          MJD:
+            name: MJD
+            type: int32
+            unit: ''
+            description: MJD of observation
+          FIBERID:
+            name: FIBERID
+            type: int32
+            unit: ''
+            description: Fiber of observation
+          QGOOD:
+            name: QGOOD
+            type: int16
+            unit: ''
+            description: quality flag
+          MODEL:
+            name: MODEL
+            type: char[3]
+            unit: ''
+            description: Model Name
+          G:
+            name: G
+            type: float32
+            unit: cm/s^2
+            description: surface gravity
+          TEFF:
+            name: TEFF
+            type: float32
+            unit: K
+            description: Effective Temperature
+          FEH:
+            name: FEH
+            type: float32
+            unit: solar
+            description: metallicity
+          IMODEL:
+            name: IMODEL
+            type: int32
+            unit: ''
+            description: index of model
+          Z:
+            name: Z
+            type: float64
+            unit: ''
+            description: Redshift of fit
+          SN_MEDIAN:
+            name: SN_MEDIAN
+            type: float32
+            unit: ''
+            description: S/N of spectra
+          CHI2:
+            name: CHI2
+            type: float32
+            unit: ''
+            description: Chi-square of model fit
+          DOF:
+            name: DOF
+            type: float32
+            unit: ''
+            description: degrees of freedom
+          LINESN_MEDIAN:
+            name: LINESN_MEDIAN
+            type: float32
+            unit: ''
+            description: S/N near absorption lines
+          LINECHI2:
+            name: LINECHI2
+            type: float64
+            unit: ''
+            description: CHi-square of fit near absorption lines
+          LINEDOF:
+            name: LINEDOF
+            type: float32
+            unit: ''
+            description: degrees of freedom of fit near absorption lines
+          LOGLAM:
+            name: LOGLAM
+            type: float32[4128]
+            unit: log10(AA)
+            description: Log Lambda
+          OBJFLUX:
+            name: OBJFLUX
+            type: float32[4128]
+            unit: nanomaggy
+            description: Flux of object
+          MODELFLUX:
+            name: MODELFLUX
+            type: float32[4128]
+            unit: nanomaggy
+            description: Flux of model fit
+          MRATIO:
+            name: MRATIO
+            type: float32[4128]
+            unit: ''
+            description: MRATIO vectors are the "raw" flux-calib vectors for each
+              expos+CCD
+          MRATIVAR:
+            name: MRATIVAR
+            type: float32[4128]
+            unit: ''
+            description: Ivar of MRATIO
+      hdu3:
+        name: ''
+        description: Binary table with traceset structure of b-spline fits for calibration
+          vectors of all standards.
+        is_image: false
+        size: 3 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: Binary table written by MWRFITS v1.13
+        - key: BITPIX
+          value: 8
+          comment: Required value
+        - key: NAXIS
+          value: 2
+          comment: Required value
+        - key: NAXIS1
+          value: 3256
+          comment: Number of bytes per row
+        - key: NAXIS2
+          value: 1
+          comment: Number of rows
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: Required value
+        - key: TFIELDS
+          value: 5
+          comment: Number of columns in table
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** End of mandatory fields ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column formats ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column names ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        columns:
+          FULLBKPT:
+            name: FULLBKPT
+            type: float32[234]
+            unit: ''
+            description: Breakpoint vector
+          BKMASK:
+            name: BKMASK
+            type: int16[234]
+            unit: ''
+            description: mask of the breakpoint vector
+          NORD:
+            name: NORD
+            type: int32
+            unit: ''
+            description: Number of orders for Bspline fit
+          COEFF:
+            name: COEFF
+            type: float32[231]
+            unit: ''
+            description: The bspline coefficients
+          ICOEFF:
+            name: ICOEFF
+            type: float32[231]
+            unit: ''
+            description: inversion bspline coefficients
+      hdu4:
+        name: ''
+        description: Output structure
+        is_image: false
+        size: 9 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: Binary table written by MWRFITS v1.13
+        - key: BITPIX
+          value: 8
+          comment: Required value
+        - key: NAXIS
+          value: 2
+          comment: Required value
+        - key: NAXIS1
+          value: 10173032
+          comment: Number of bytes per row
+        - key: NAXIS2
+          value: 1
+          comment: Number of rows
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: Required value
+        - key: TFIELDS
+          value: 8
+          comment: Number of columns in table
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** End of mandatory fields ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column formats ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column dimensions (2 D or greater) ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: TDIM1
+          value: ( 4128, 1, 68)
+          comment: ''
+        - key: TDIM2
+          value: ( 4128, 1, 68)
+          comment: ''
+        - key: TDIM3
+          value: ( 4128, 1, 68)
+          comment: ''
+        - key: TDIM4
+          value: ( 4128, 1, 68)
+          comment: ''
+        - key: TDIM7
+          value: ( 2492, 500)
+          comment: ''
+        - key: TDIM8
+          value: ( 2492, 68)
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column names ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        columns:
+          THISLOGLAM:
+            name: THISLOGLAM
+            type: float32[280704]
+            unit: log10(AA)
+            description: log lambda
+          THISMRATIO:
+            name: THISMRATIO
+            type: float32[280704]
+            unit: ''
+            description: MRATIO vectors are the "raw" flux-calib vectors for this
+              expos+CCD
+          THISMRATIVAR:
+            name: THISMRATIVAR
+            type: float32[280704]
+            unit: ''
+            description: Ivar of THISMRATIVAR
+          THISFLATARR:
+            name: THISFLATARR
+            type: float32[280704]
+            unit: ''
+            description: polynomial fit of the object with respect to the model
+          FRAC_SCAT:
+            name: FRAC_SCAT
+            type: float64
+            unit: ''
+            description: percental dispersion of the fluxing vectors used wrt the
+              truth
+          TMPLOGLAM:
+            name: TMPLOGLAM
+            type: float64[2492]
+            unit: ''
+            description: output grid
+          THISFLATARR_ALL:
+            name: THISFLATARR_ALL
+            type: float32[1246000]
+            unit: ''
+            description: rpolynomial fit of the object with respect to the model for
+              all star
+          THISFLATARR_NEW:
+            name: THISFLATARR_NEW
+            type: float32[169456]
+            unit: ''
+            description: polynomial fit of the object with respect to the model for
+              all the std and all obj
+notes: |-
+  None

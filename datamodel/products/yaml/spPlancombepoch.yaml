@@ -1,0 +1,278 @@
+general:
+  name: spPlancombepoch
+  short: Processing plan for Coadding Exposures across a field epoch
+  description: Processing plan to combine all spectroscopic reductions for an epoch
+    of field/plate observations. In plates, an epoch is a single plugging that could
+    span several MJDs (except for RM plates that is limited to 3 days), and in FPS
+    an epoch is defined by the Field cadence definition. This replaces the spPlancomb
+    (from earlier versions) for coadding multiple mjds.
+  datatype: PAR
+  filesize: 3 KB
+  releases:
+  - IPL3
+  - WORK
+  environments:
+  - BOSS_SPECTRO_REDUX
+  surveys:
+  - BHM
+  naming_convention: $BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/epoch/spPlancombepoch-[FIELD]-[MJD].par
+  generated_by: idlspec2d - spplan_epoch.py
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases:
+    WORK:
+      from: IPL3
+      note: No changes
+releases:
+  WORK:
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/epoch/spPlancombepoch-[FIELD]-[MJD].par
+    example: v6_1_3/112360/epoch/spPlancombepoch-112360-60000.par
+    location: '{run2d}/{field}/epoch/spPlancombepoch-{field}-{mjd}.par'
+    environment: BOSS_SPECTRO_REDUX
+    access:
+      in_sdss_access: false
+      path_name: null
+      path_template: null
+      path_kwargs: null
+      access_string: spPlancombepoch = $BOSS_SPECTRO_REDUX/{run2d}/{field}/epoch/spPlancombepoch-{field}-{mjd}.par
+    survey: BHM
+    par:
+      comments: |-
+        #%yanny
+        # Table
+      header:
+      - key: fieldid
+        value: '112360'
+        comment: FieldID (or PlateID)
+      - key: MJD
+        value: '60000'
+        comment: Modified Julian Date of plan
+      - key: OBS
+        value: APO
+        comment: Associated Observatory
+      - key: DITHER
+        value: F
+        comment: 'Is the Field Dithered (T: True, F: False)'
+      - key: FieldCadence
+        value: dark_174x8_v1
+        comment: Field Cadence Name
+      - key: FieldPk
+        value: '33243'
+        comment: Field Primary Key (for sdssdb; -999 for plates)
+      - key: EpochID
+        value: '11'
+        comment: Completed Plan Epoch ID (or MJD of incomplete epoch or daily coadd)
+      - key: N_MJD
+        value: '2'
+        comment: Number of MJDs included in the Epoch
+      - key: planfile2d
+        value: '''spPlan2d-112360-59999.par'' ''spPlan2d-112360-60000.par'''
+        comment: Plan file(s) for Daily 2D spectral reductions
+      - key: planfilecomb
+        value: spPlancombepoch-112360-60000.par
+        comment: Plan file for Combine (this file)
+      - key: idlspec2dVersion
+        value: v6_1_3
+        comment: Version of idlspec2d when building plan file
+      - key: idlutilsVersion
+        value: 6.0.0dev
+        comment: Version of idlutils when building plan file
+      - key: sdssdb_Version
+        value: 0.9.0a0
+        comment: Version of sdssdb when building this plan file
+      - key: RS_Version
+        value: zeta-3
+        comment: Robostrategy Version for this field (or 'plates')
+      tables:
+        SPEXP:
+          name: SPEXP
+          description: Exposures included
+          n_rows: 24
+          structure:
+          - name: confid
+            type: char[4]
+            description: FPS Configuration ID of exposure
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: '8860'
+          - name: fieldid
+            type: char[6]
+            description: FieldID (or PlateID) of exposure
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: '112360'
+          - name: mjd
+            type: int
+            description: MJD of exposure
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: 59999
+          - name: mapname
+            type: char[4]
+            description: Plate Map Name or FPS configuration ID
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: '8860'
+          - name: flavor
+            type: char[7]
+            description: Flavor of Exposure (flat, arc, science)
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: science
+          - name: exptime
+            type: float
+            description: Exposure Length of exposure
+            unit: s
+            is_array: false
+            is_enum: false
+            example: 900.0900268554688
+          - name: name
+            type: char[2][30]
+            description: Name of spFrame Exposure Files
+            unit: ''
+            is_array: true
+            is_enum: false
+            example:
+            - spFrame-b1-00352994.fits
+            - spFrame-r1-00352994.fits
+          - name: epoch_combine
+            type: long
+            description: Epoch MJD for coadd (last MJD in coadd)
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: 60000
+  IPL3:
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/epoch/spPlancombepoch-[FIELD]-[MJD].par
+    example: v6_1_3/112360/epoch/spPlancombepoch-112360-60000.par
+    location: '{run2d}/{field}/epoch/spPlancombepoch-{field}-{mjd}.par'
+    environment: BOSS_SPECTRO_REDUX
+    access:
+      in_sdss_access: false
+      path_name: null
+      path_template: null
+      path_kwargs: null
+      access_string: spPlancombepoch = $BOSS_SPECTRO_REDUX/{run2d}/{field}/epoch/spPlancombepoch-{field}-{mjd}.par
+    survey: BHM
+    par:
+      comments: |-
+        #%yanny
+        # Table
+      header:
+      - key: fieldid
+        value: '112360'
+        comment: FieldID (or PlateID)
+      - key: MJD
+        value: '60000'
+        comment: Modified Julian Date of plan
+      - key: OBS
+        value: APO
+        comment: Associated Observatory
+      - key: DITHER
+        value: F
+        comment: 'Is the Field Dithered (T: True, F: False)'
+      - key: FieldCadence
+        value: dark_174x8_v1
+        comment: Field Cadence Name
+      - key: FieldPk
+        value: '33243'
+        comment: Field Primary Key (for sdssdb; -999 for plates)
+      - key: EpochID
+        value: '11'
+        comment: Completed Plan Epoch ID (or MJD of incomplete epoch or daily coadd)
+      - key: N_MJD
+        value: '2'
+        comment: Number of MJDs included in the Epoch
+      - key: planfile2d
+        value: '''spPlan2d-112360-59999.par'' ''spPlan2d-112360-60000.par'''
+        comment: Plan file(s) for Daily 2D spectral reductions
+      - key: planfilecomb
+        value: spPlancombepoch-112360-60000.par
+        comment: Plan file for Combine (this file)
+      - key: idlspec2dVersion
+        value: v6_1_3
+        comment: Version of idlspec2d when building plan file
+      - key: idlutilsVersion
+        value: 6.0.0dev
+        comment: Version of idlutils when building plan file
+      - key: sdssdb_Version
+        value: 0.9.0a0
+        comment: Version of sdssdb when building this plan file
+      - key: RS_Version
+        value: zeta-3
+        comment: Robostrategy Version for this field (or 'plates')
+      tables:
+        SPEXP:
+          name: SPEXP
+          description: Exposures included
+          n_rows: 24
+          structure:
+          - name: confid
+            type: char[4]
+            description: FPS Configuration ID of exposure
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: '8860'
+          - name: fieldid
+            type: char[6]
+            description: FieldID (or PlateID) of exposure
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: '112360'
+          - name: mjd
+            type: int
+            description: MJD of exposure
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: 59999
+          - name: mapname
+            type: char[4]
+            description: Plate Map Name or FPS configuration ID
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: '8860'
+          - name: flavor
+            type: char[7]
+            description: Flavor of Exposure (flat, arc, science)
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: science
+          - name: exptime
+            type: float
+            description: Exposure Length of exposure
+            unit: s
+            is_array: false
+            is_enum: false
+            example: 900.0900268554688
+          - name: name
+            type: char[2][30]
+            description: Name of spFrame Exposure Files
+            unit: ''
+            is_array: true
+            is_enum: false
+            example:
+            - spFrame-b1-00352994.fits
+            - spFrame-r1-00352994.fits
+          - name: epoch_combine
+            type: long
+            description: Epoch MJD for coadd (last MJD in coadd)
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: 60000
+notes: |-
+  None
