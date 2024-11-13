@@ -9,23 +9,23 @@ Results from the LineForest astra pipeline for each star
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
-Results from the LineForest astra pipeline for each star.
+Results from the LineForest astra pipeline for each star. 
 
 ### Naming Convention
-$MWM_ASTRA/0.5.0/summary/astraAllStarLineForest-0.5.0.fits.gz
+$MWM_ASTRA/0.6.0/summary/astraAllStarLineForest-0.6.0.fits.gz
 
 ### Releases
-IPL3
+DR19
 
 ### Enviroments
 MWM_ASTRA
 
 ### Approximate Size
-213 MB
+424 MB
 
 ### File Type
 FITS
@@ -36,10 +36,10 @@ astra
 ### Is a VAC
 False
 
-### HDUS List for release IPL3
+### HDUS List for release DR19
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: ](#hdu1)
-  - [HDU2: ](#hdu2)
+  - [HDU1](#hdu1)
+  - [HDU2](#hdu2)
 
 ---
 
@@ -63,21 +63,19 @@ Key | Value | Comment | |
 | NAXIS | 0 | number of array dimensions |
 | EXTEND | True |  |
 | PIPELINE | LineForest | Pipeline name |
-| V_ASTRA | 0.5.0 | Astra version |
-| CREATED | 23-11-16 06:34:08 | File creation time (UTC %y-%m-%d %H:%M:%S) |
+| V_ASTRA | 0.6.0 | Astra version |
+| CREATED | 24-09-13 14:31:07 | File creation time (UTC %y-%m-%d %H:%M:%S) |
 | COMMENT | HDU 0: Summary information only |  |
-| COMMENT | HDU 1: BOSS spectra taken at Apache Point Observatory |  |
-| COMMENT | HDU 2: BOSS spectra taken at Las Campanas Observatory |  |
-| COMMENT | HDU 3: APOGEE spectra taken at Apache Point Observatory |  |
-| COMMENT | HDU 4: APOGEE spectra taken at Las Campanas Observatory |  |
+| COMMENT | HDU 1: BOSS spectra |  |
+| COMMENT | HDU 2: APOGEE spectra |  |
 
 
 
-### HDU1:
+### HDU1: 
 LineForest results for each star from BOSS
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  563 MB
+#### HDU Size:  1 GB
 
 ##### Header Table Caption for HDU1
 Key | Value | Comment | |
@@ -85,125 +83,125 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | binary table extension |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
-| NAXIS1 | 2912 | length of dimension 1 |
-| NAXIS2 | 202769 | length of dimension 2 |
+| NAXIS1 | 2987 | length of dimension 1 |
+| NAXIS2 | 398960 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
-| TFIELDS | 480 | number of table fields |
+| TFIELDS | 479 | number of table fields |
 | INSTRMNT | BOSS | Instrument |
 | PIPELINE | LineForest | Pipeline name |
-| V_ASTRA | 0.5.0 | Astra version |
-| CREATED | 23-11-16 06:34:08 | File creation time (UTC %y-%m-%d %H:%M:%S) |
-| TDIM16 | (57) |  |
+| V_ASTRA | 0.6.0 | Astra version |
+| CREATED | 24-09-13 14:31:07 | File creation time (UTC %y-%m-%d %H:%M:%S) |
+| TDIM15 | (57) |  |
 | COMMENT | See https://www.ipac.caltech.edu/2mass/releases/allsky/doc/sec2_2a.html |  |
 | COMMENT | See https://catalog.unwise.me/catalogs.html |  |
 | COMMENT | See https://irsa.ipac.caltech.edu/data/SPITZER/GLIMPSE/gator_docs/ |  |
+| TDIM172 | (3) |  |
 | TDIM173 | (3) |  |
-| TDIM174 | (3) |  |
+| TDIM178 | (3) |  |
 | TDIM179 | (3) |  |
-| TDIM180 | (3) |  |
+| TDIM184 | (3) |  |
 | TDIM185 | (3) |  |
-| TDIM186 | (3) |  |
+| TDIM190 | (3) |  |
 | TDIM191 | (3) |  |
-| TDIM192 | (3) |  |
+| TDIM196 | (3) |  |
 | TDIM197 | (3) |  |
-| TDIM198 | (3) |  |
+| TDIM202 | (3) |  |
 | TDIM203 | (3) |  |
-| TDIM204 | (3) |  |
+| TDIM208 | (3) |  |
 | TDIM209 | (3) |  |
-| TDIM210 | (3) |  |
+| TDIM214 | (3) |  |
 | TDIM215 | (3) |  |
-| TDIM216 | (3) |  |
+| TDIM220 | (3) |  |
 | TDIM221 | (3) |  |
-| TDIM222 | (3) |  |
+| TDIM226 | (3) |  |
 | TDIM227 | (3) |  |
-| TDIM228 | (3) |  |
+| TDIM232 | (3) |  |
 | TDIM233 | (3) |  |
-| TDIM234 | (3) |  |
+| TDIM238 | (3) |  |
 | TDIM239 | (3) |  |
-| TDIM240 | (3) |  |
+| TDIM244 | (3) |  |
 | TDIM245 | (3) |  |
-| TDIM246 | (3) |  |
+| TDIM250 | (3) |  |
 | TDIM251 | (3) |  |
-| TDIM252 | (3) |  |
+| TDIM256 | (3) |  |
 | TDIM257 | (3) |  |
-| TDIM258 | (3) |  |
+| TDIM262 | (3) |  |
 | TDIM263 | (3) |  |
-| TDIM264 | (3) |  |
+| TDIM268 | (3) |  |
 | TDIM269 | (3) |  |
-| TDIM270 | (3) |  |
+| TDIM274 | (3) |  |
 | TDIM275 | (3) |  |
-| TDIM276 | (3) |  |
+| TDIM280 | (3) |  |
 | TDIM281 | (3) |  |
-| TDIM282 | (3) |  |
+| TDIM286 | (3) |  |
 | TDIM287 | (3) |  |
-| TDIM288 | (3) |  |
+| TDIM292 | (3) |  |
 | TDIM293 | (3) |  |
-| TDIM294 | (3) |  |
+| TDIM298 | (3) |  |
 | TDIM299 | (3) |  |
-| TDIM300 | (3) |  |
+| TDIM304 | (3) |  |
 | TDIM305 | (3) |  |
-| TDIM306 | (3) |  |
+| TDIM310 | (3) |  |
 | TDIM311 | (3) |  |
-| TDIM312 | (3) |  |
+| TDIM316 | (3) |  |
 | TDIM317 | (3) |  |
-| TDIM318 | (3) |  |
+| TDIM322 | (3) |  |
 | TDIM323 | (3) |  |
-| TDIM324 | (3) |  |
+| TDIM328 | (3) |  |
 | TDIM329 | (3) |  |
-| TDIM330 | (3) |  |
+| TDIM334 | (3) |  |
 | TDIM335 | (3) |  |
-| TDIM336 | (3) |  |
+| TDIM340 | (3) |  |
 | TDIM341 | (3) |  |
-| TDIM342 | (3) |  |
+| TDIM346 | (3) |  |
 | TDIM347 | (3) |  |
-| TDIM348 | (3) |  |
+| TDIM352 | (3) |  |
 | TDIM353 | (3) |  |
-| TDIM354 | (3) |  |
+| TDIM358 | (3) |  |
 | TDIM359 | (3) |  |
-| TDIM360 | (3) |  |
+| TDIM364 | (3) |  |
 | TDIM365 | (3) |  |
-| TDIM366 | (3) |  |
+| TDIM370 | (3) |  |
 | TDIM371 | (3) |  |
-| TDIM372 | (3) |  |
+| TDIM376 | (3) |  |
 | TDIM377 | (3) |  |
-| TDIM378 | (3) |  |
+| TDIM382 | (3) |  |
 | TDIM383 | (3) |  |
-| TDIM384 | (3) |  |
+| TDIM388 | (3) |  |
 | TDIM389 | (3) |  |
-| TDIM390 | (3) |  |
+| TDIM394 | (3) |  |
 | TDIM395 | (3) |  |
-| TDIM396 | (3) |  |
+| TDIM400 | (3) |  |
 | TDIM401 | (3) |  |
-| TDIM402 | (3) |  |
+| TDIM406 | (3) |  |
 | TDIM407 | (3) |  |
-| TDIM408 | (3) |  |
+| TDIM412 | (3) |  |
 | TDIM413 | (3) |  |
-| TDIM414 | (3) |  |
+| TDIM418 | (3) |  |
 | TDIM419 | (3) |  |
-| TDIM420 | (3) |  |
+| TDIM424 | (3) |  |
 | TDIM425 | (3) |  |
-| TDIM426 | (3) |  |
+| TDIM430 | (3) |  |
 | TDIM431 | (3) |  |
-| TDIM432 | (3) |  |
+| TDIM436 | (3) |  |
 | TDIM437 | (3) |  |
-| TDIM438 | (3) |  |
+| TDIM442 | (3) |  |
 | TDIM443 | (3) |  |
-| TDIM444 | (3) |  |
+| TDIM448 | (3) |  |
 | TDIM449 | (3) |  |
-| TDIM450 | (3) |  |
+| TDIM454 | (3) |  |
 | TDIM455 | (3) |  |
-| TDIM456 | (3) |  |
+| TDIM460 | (3) |  |
 | TDIM461 | (3) |  |
-| TDIM462 | (3) |  |
+| TDIM466 | (3) |  |
 | TDIM467 | (3) |  |
-| TDIM468 | (3) |  |
+| TDIM472 | (3) |  |
 | TDIM473 | (3) |  |
-| TDIM474 | (3) |  |
+| TDIM478 | (3) |  |
 | TDIM479 | (3) |  |
-| TDIM480 | (3) |  |
-| CHECKSUM | Z7a9Z4T6Z4Y6Z4Y6 | HDU checksum updated 2023-11-15T23:36:11 |
-| DATASUM | 2826678978 | data unit checksum updated 2023-11-15T23:36:11 |
+| CHECKSUM | 98lEF5lE95lEC5lE | HDU checksum updated 2024-09-13T08:35:27 |
+| DATASUM | 3304880751 | data unit checksum updated 2024-09-13T08:35:27 |
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
@@ -214,7 +212,6 @@ Name | Type | Unit | Description |
  | gaia_dr3_source_id | int64 |  | Gaia DR3 source identifier |
  | tic_v8_id | int64 |  | TESS Input Catalog (v8) identifier |
  | healpix | int32 |  | HEALPix (128 side) |
- | carton_0 | char[1] |  | Highest priority carton name |
  | lead | char[26] |  | Lead catalog used for cross-match |
  | version_id | int32 |  | SDSS catalog version for targeting |
  | catalogid | int64 |  | Catalog identifier used to target the source |
@@ -224,65 +221,65 @@ Name | Type | Unit | Description |
  | n_associated | int32 |  | SDSS_IDs associated with this CATALOGID |
  | n_neighborhood | int32 |  | Sources within 3" and G_MAG < G_MAG_source + 5 |
  | sdss5_target_flags | bool[57] |  | SDSS-5 targeting flags |
- | sdss4_apogee_target1_flags | int32 |  | SDSS4 APOGEE1 targeting flags (1/2) |
- | sdss4_apogee_target2_flags | int32 |  | SDSS4 APOGEE1 targeting flags (2/2) |
- | sdss4_apogee2_target1_flags | int32 |  | SDSS4 APOGEE2 targeting flags (1/3) |
- | sdss4_apogee2_target2_flags | int32 |  | SDSS4 APOGEE2 targeting flags (2/3) |
- | sdss4_apogee2_target3_flags | int32 |  | SDSS4 APOGEE2 targeting flags (3/3) |
- | sdss4_apogee_member_flags | int32 |  | SDSS4 likely cluster/galaxy member flags |
- | sdss4_apogee_extra_target_flags | int32 |  | SDSS4 target info (aka EXTRATARG) |
- | ra | float32 |  | Right ascension  |
- | dec | float32 |  | Declination  |
- | l | float32 |  | Galactic longitude  |
- | b | float32 |  | Galactic latitude  |
- | plx | float32 |  | Parallax  |
- | e_plx | float32 |  | Error on parallax  |
- | pmra | float32 |  | Proper motion in RA  |
- | e_pmra | float32 |  | Error on proper motion in RA  |
- | pmde | float32 |  | Proper motion in DEC  |
- | e_pmde | float32 |  | Error on proper motion in DEC  |
- | gaia_v_rad | float32 |  | Gaia radial velocity  |
- | gaia_e_v_rad | float32 |  | Error on Gaia radial velocity  |
- | g_mag | float32 |  | Gaia DR3 mean G band magnitude  |
- | bp_mag | float32 |  | Gaia DR3 mean BP band magnitude  |
- | rp_mag | float32 |  | Gaia DR3 mean RP band magnitude  |
- | j_mag | float32 |  | 2MASS J band magnitude  |
- | e_j_mag | float32 |  | Error on 2MASS J band magnitude  |
- | h_mag | float32 |  | 2MASS H band magnitude  |
- | e_h_mag | float32 |  | Error on 2MASS H band magnitude  |
- | k_mag | float32 |  | 2MASS K band magnitude  |
- | e_k_mag | float32 |  | Error on 2MASS K band magnitude  |
+ | sdss4_apogee_target1_flags | int64 |  | SDSS4 APOGEE1 targeting flags (1/2) |
+ | sdss4_apogee_target2_flags | int64 |  | SDSS4 APOGEE1 targeting flags (2/2) |
+ | sdss4_apogee2_target1_flags | int64 |  | SDSS4 APOGEE2 targeting flags (1/3) |
+ | sdss4_apogee2_target2_flags | int64 |  | SDSS4 APOGEE2 targeting flags (2/3) |
+ | sdss4_apogee2_target3_flags | int64 |  | SDSS4 APOGEE2 targeting flags (3/3) |
+ | sdss4_apogee_member_flags | int64 |  | SDSS4 likely cluster/galaxy member flags |
+ | sdss4_apogee_extra_target_flags | int64 |  | SDSS4 target info (aka EXTRATARG) |
+ | ra | float32 | deg | Right ascension  |
+ | dec | float32 | deg | Declination  |
+ | l | float32 | deg | Galactic longitude  |
+ | b | float32 | deg | Galactic latitude  |
+ | plx | float32 | mas | Parallax  |
+ | e_plx | float32 | mas | Error on parallax  |
+ | pmra | float32 | mas/yr | Proper motion in RA  |
+ | e_pmra | float32 | mas/yr | Error on proper motion in RA  |
+ | pmde | float32 | mas/yr | Proper motion in DEC  |
+ | e_pmde | float32 | mas/yr | Error on proper motion in DEC  |
+ | gaia_v_rad | float32 | km/s | Gaia radial velocity  |
+ | gaia_e_v_rad | float32 | km/s | Error on Gaia radial velocity  |
+ | g_mag | float32 | mag | Gaia DR3 mean G band magnitude  |
+ | bp_mag | float32 | mag | Gaia DR3 mean BP band magnitude  |
+ | rp_mag | float32 | mag | Gaia DR3 mean RP band magnitude  |
+ | j_mag | float32 | mag | 2MASS J band magnitude  |
+ | e_j_mag | float32 | mag | Error on 2MASS J band magnitude  |
+ | h_mag | float32 | mag | 2MASS H band magnitude  |
+ | e_h_mag | float32 | mag | Error on 2MASS H band magnitude  |
+ | k_mag | float32 | mag | 2MASS K band magnitude  |
+ | e_k_mag | float32 | mag | Error on 2MASS K band magnitude  |
  | ph_qual | char[3] |  | 2MASS photometric quality flag |
  | bl_flg | char[3] |  | Number of components fit per band (JHK) |
  | cc_flg | char[3] |  | Contamination and confusion flag |
  | w1_mag | float32 |  | W1 magnitude |
  | e_w1_mag | float32 |  | Error on W1 magnitude |
- | w1_flux | float32 |  | W1 flux  |
- | w1_dflux | float32 |  | Error on W1 flux  |
+ | w1_flux | float32 | Vega nMgy | W1 flux  |
+ | w1_dflux | float32 | Vega nMgy | Error on W1 flux  |
  | w1_frac | float32 |  | Fraction of W1 flux from this object |
- | w2_mag | float32 |  | W2 magnitude  |
+ | w2_mag | float32 | Vega | W2 magnitude  |
  | e_w2_mag | float32 |  | Error on W2 magnitude |
- | w2_flux | float32 |  | W2 flux  |
- | w2_dflux | float32 |  | Error on W2 flux  |
+ | w2_flux | float32 | Vega nMgy | W2 flux  |
+ | w2_dflux | float32 | Vega nMgy | Error on W2 flux  |
  | w2_frac | float32 |  | Fraction of W2 flux from this object |
- | w1uflags | int32 |  | unWISE flags for W1 |
- | w2uflags | int32 |  | unWISE flags for W2 |
- | w1aflags | int32 |  | Additional flags for W1 |
- | w2aflags | int32 |  | Additional flags for W2 |
- | mag4_5 | float32 |  | IRAC band 4.5 micron magnitude  |
- | d4_5m | float32 |  | Error on IRAC band 4.5 micron magnitude  |
- | rms_f4_5 | float32 |  | RMS deviations from final flux  |
- | sqf_4_5 | int32 |  | Source quality flag for IRAC band 4.5 micron |
- | mf4_5 | int32 |  | Flux calculation method flag |
- | csf | int32 |  | Close source flag |
- | zgr_teff | float32 |  | Stellar effective temperature  |
- | zgr_e_teff | float32 |  | Error on stellar effective temperature  |
- | zgr_logg | float32 |  | Surface gravity  |
- | zgr_e_logg | float32 |  | Error on surface gravity  |
- | zgr_fe_h | float32 |  | [Fe/H]  |
- | zgr_e_fe_h | float32 |  | Error on [Fe/H]  |
- | zgr_e | float32 |  | Extinction  |
- | zgr_e_e | float32 |  | Error on extinction  |
+ | w1uflags | int64 |  | unWISE flags for W1 |
+ | w2uflags | int64 |  | unWISE flags for W2 |
+ | w1aflags | int64 |  | Additional flags for W1 |
+ | w2aflags | int64 |  | Additional flags for W2 |
+ | mag4_5 | float32 | mag | IRAC band 4.5 micron magnitude  |
+ | d4_5m | float32 | mag | Error on IRAC band 4.5 micron magnitude  |
+ | rms_f4_5 | float32 | mJy | RMS deviations from final flux  |
+ | sqf_4_5 | int64 |  | Source quality flag for IRAC band 4.5 micron |
+ | mf4_5 | int64 |  | Flux calculation method flag |
+ | csf | int64 |  | Close source flag |
+ | zgr_teff | float32 | K | Stellar effective temperature  |
+ | zgr_e_teff | float32 | K | Error on stellar effective temperature  |
+ | zgr_logg | float32 | log10(cm/s^2) | Surface gravity  |
+ | zgr_e_logg | float32 | log10(cm/s^2) | Error on surface gravity  |
+ | zgr_fe_h | float32 | dex | [Fe/H]  |
+ | zgr_e_fe_h | float32 | dex | Error on [Fe/H]  |
+ | zgr_e | float32 | mag | Extinction  |
+ | zgr_e_e | float32 | mag | Error on extinction  |
  | zgr_plx | float32 |  | Parallax [mas] (Gaia DR3) |
  | zgr_e_plx | float32 |  | Error on parallax [mas] (Gaia DR3) |
  | zgr_teff_confidence | float32 |  | Confidence estimate in TEFF |
@@ -290,51 +287,51 @@ Name | Type | Unit | Description |
  | zgr_fe_h_confidence | float32 |  | Confidence estimate in FE_H |
  | zgr_ln_prior | float32 |  | Log prior probability |
  | zgr_chi2 | float32 |  | Chi-square value |
- | zgr_quality_flags | int32 |  | Quality flags |
- | r_med_geo | float32 |  | Median geometric distance  |
- | r_lo_geo | float32 |  | 16th percentile of geometric distance  |
- | r_hi_geo | float32 |  | 84th percentile of geometric distance  |
- | r_med_photogeo | float32 |  | 50th percentile of photogeometric distance  |
- | r_lo_photogeo | float32 |  | 16th percentile of photogeometric distance  |
- | r_hi_photogeo | float32 |  | 84th percentile of photogeometric distance  |
+ | zgr_quality_flags | int64 |  | Quality flags |
+ | r_med_geo | float32 | pc | Median geometric distance  |
+ | r_lo_geo | float32 | pc | 16th percentile of geometric distance  |
+ | r_hi_geo | float32 | pc | 84th percentile of geometric distance  |
+ | r_med_photogeo | float32 | pc | 50th percentile of photogeometric distance  |
+ | r_lo_photogeo | float32 | pc | 16th percentile of photogeometric distance  |
+ | r_hi_photogeo | float32 | pc | 84th percentile of photogeometric distance  |
  | bailer_jones_flags | char[5] |  | Bailer-Jones quality flags |
- | ebv | float32 |  | E(B-V)  |
- | e_ebv | float32 |  | Error on E(B-V)  |
- | ebv_flags | int32 |  | Flags indicating the source of E(B-V) |
- | ebv_zhang_2023 | float32 |  | E(B-V) from Zhang et al. (2023)  |
- | e_ebv_zhang_2023 | float32 |  | Error on E(B-V) from Zhang et al. (2023)  |
- | ebv_sfd | float32 |  | E(B-V) from SFD  |
- | e_ebv_sfd | float32 |  | Error on E(B-V) from SFD  |
- | ebv_rjce_glimpse | float32 |  | E(B-V) from RJCE GLIMPSE  |
- | e_ebv_rjce_glimpse | float32 |  | Error on RJCE GLIMPSE E(B-V)  |
- | ebv_rjce_allwise | float32 |  | E(B-V) from RJCE AllWISE  |
- | e_ebv_rjce_allwise | float32 |  | Error on RJCE AllWISE E(B-V) |
- | ebv_bayestar_2019 | float32 |  | E(B-V) from Bayestar 2019  |
- | e_ebv_bayestar_2019 | float32 |  | Error on Bayestar 2019 E(B-V)  |
- | ebv_edenhofer_2023 | float32 |  | E(B-V) from Edenhofer et al. (2023)  |
- | e_ebv_edenhofer_2023 | float32 |  | Error on Edenhofer et al. (2023) E(B-V)  |
+ | ebv | float32 | mag | E(B-V)  |
+ | e_ebv | float32 | mag | Error on E(B-V)  |
+ | ebv_flags | int64 |  | Flags indicating the source of E(B-V) |
+ | ebv_zhang_2023 | float32 | mag | E(B-V) from Zhang et al. (2023)  |
+ | e_ebv_zhang_2023 | float32 | mag | Error on E(B-V) from Zhang et al. (2023)  |
+ | ebv_sfd | float32 | mag | E(B-V) from SFD  |
+ | e_ebv_sfd | float32 | mag | Error on E(B-V) from SFD  |
+ | ebv_rjce_glimpse | float32 | mag | E(B-V) from RJCE GLIMPSE  |
+ | e_ebv_rjce_glimpse | float32 | mag | Error on RJCE GLIMPSE E(B-V)  |
+ | ebv_rjce_allwise | float32 | mag | E(B-V) from RJCE AllWISE  |
+ | e_ebv_rjce_allwise | float32 | mag | Error on RJCE AllWISE E(B-V) |
+ | ebv_bayestar_2019 | float32 | mag | E(B-V) from Bayestar 2019  |
+ | e_ebv_bayestar_2019 | float32 | mag | Error on Bayestar 2019 E(B-V)  |
+ | ebv_edenhofer_2023 | float32 | mag | E(B-V) from Edenhofer et al. (2023)  |
+ | e_ebv_edenhofer_2023 | float32 | mag | Error on Edenhofer et al. (2023) E(B-V)  |
  | c_star | float32 |  | Quality parameter (see Riello et al. 2021) |
- | u_jkc_mag | float32 |  | Gaia XP synthetic U-band (JKC)  |
+ | u_jkc_mag | float32 | mag | Gaia XP synthetic U-band (JKC)  |
  | u_jkc_mag_flag | int32 |  | U-band (JKC) is within valid range |
- | b_jkc_mag | float32 |  | Gaia XP synthetic B-band (JKC)  |
+ | b_jkc_mag | float32 | mag | Gaia XP synthetic B-band (JKC)  |
  | b_jkc_mag_flag | int32 |  | B-band (JKC) is within valid range |
- | v_jkc_mag | float32 |  | Gaia XP synthetic V-band (JKC)  |
+ | v_jkc_mag | float32 | mag | Gaia XP synthetic V-band (JKC)  |
  | v_jkc_mag_flag | int32 |  | V-band (JKC) is within valid range |
- | r_jkc_mag | float32 |  | Gaia XP synthetic R-band (JKC)  |
+ | r_jkc_mag | float32 | mag | Gaia XP synthetic R-band (JKC)  |
  | r_jkc_mag_flag | int32 |  | R-band (JKC) is within valid range |
- | i_jkc_mag | float32 |  | Gaia XP synthetic I-band (JKC)  |
+ | i_jkc_mag | float32 | mag | Gaia XP synthetic I-band (JKC)  |
  | i_jkc_mag_flag | int32 |  | I-band (JKC) is within valid range |
- | u_sdss_mag | float32 |  | Gaia XP synthetic u-band (SDSS)  |
+ | u_sdss_mag | float32 | mag | Gaia XP synthetic u-band (SDSS)  |
  | u_sdss_mag_flag | int32 |  | u-band (SDSS) is within valid range |
- | g_sdss_mag | float32 |  | Gaia XP synthetic g-band (SDSS)  |
+ | g_sdss_mag | float32 | mag | Gaia XP synthetic g-band (SDSS)  |
  | g_sdss_mag_flag | int32 |  | g-band (SDSS) is within valid range |
- | r_sdss_mag | float32 |  | Gaia XP synthetic r-band (SDSS)  |
+ | r_sdss_mag | float32 | mag | Gaia XP synthetic r-band (SDSS)  |
  | r_sdss_mag_flag | int32 |  | r-band (SDSS) is within valid range |
- | i_sdss_mag | float32 |  | Gaia XP synthetic i-band (SDSS)  |
+ | i_sdss_mag | float32 | mag | Gaia XP synthetic i-band (SDSS)  |
  | i_sdss_mag_flag | int32 |  | i-band (SDSS) is within valid range |
- | z_sdss_mag | float32 |  | Gaia XP synthetic z-band (SDSS)  |
+ | z_sdss_mag | float32 | mag | Gaia XP synthetic z-band (SDSS)  |
  | z_sdss_mag_flag | int32 |  | z-band (SDSS) is within valid range |
- | y_ps1_mag | float32 |  | Gaia XP synthetic Y-band (PS1)  |
+ | y_ps1_mag | float32 | mag | Gaia XP synthetic Y-band (PS1)  |
  | y_ps1_mag_flag | int32 |  | Y-band (PS1) is within valid range |
  | n_boss_visits | int32 |  | Number of BOSS visits |
  | boss_min_mjd | int32 |  | Minimum MJD of BOSS visits |
@@ -354,344 +351,344 @@ Name | Type | Unit | Description |
  | n_visits | int32 |  | Number of BOSS visits |
  | n_good_visits | int32 |  | Number of 'good' BOSS visits |
  | n_good_rvs | int32 |  | Number of 'good' BOSS radial velocities |
- | v_rad | float32 |  | Barycentric rest frame radial velocity  |
- | e_v_rad | float32 |  | Error on radial velocity  |
- | std_v_rad | float32 |  | Standard deviation of visit V_RAD  |
- | median_e_v_rad | float32 |  | Median error in radial velocity  |
- | xcsao_teff | float32 |  | Stellar effective temperature  |
- | xcsao_e_teff | float32 |  | Error on stellar effective temperature  |
- | xcsao_logg | float32 |  | Surface gravity  |
- | xcsao_e_logg | float32 |  | Error on surface gravity  |
- | xcsao_fe_h | float32 |  | [Fe/H]  |
- | xcsao_e_fe_h | float32 |  | Error on [Fe/H]  |
+ | v_rad | float32 | km/s | Barycentric rest frame radial velocity  |
+ | e_v_rad | float32 | km/s | Error on radial velocity  |
+ | std_v_rad | float32 | km/s | Standard deviation of visit V_RAD  |
+ | median_e_v_rad | float32 | km/s | Median error in radial velocity  |
+ | xcsao_teff | float32 | K | Stellar effective temperature  |
+ | xcsao_e_teff | float32 | K | Error on stellar effective temperature  |
+ | xcsao_logg | float32 | log10(cm/s^2) | Surface gravity  |
+ | xcsao_e_logg | float32 | log10(cm/s^2) | Error on surface gravity  |
+ | xcsao_fe_h | float32 | dex | [Fe/H]  |
+ | xcsao_e_fe_h | float32 | dex | Error on [Fe/H]  |
  | xcsao_meanrxc | float32 |  | Cross-correlation R-value (1979AJ.....84.1511T) |
  | snr | float32 |  | Signal-to-noise ratio |
- | gri_gaia_transform_flags | int32 |  | Flags for provenance of ugriz photometry |
- | zwarning_flags | int32 |  | BOSS DRP warning flags |
+ | gri_gaia_transform_flags | int64 |  | Flags for provenance of ugriz photometry |
+ | zwarning_flags | int64 |  | BOSS DRP warning flags |
  | nmf_rchi2 | float32 |  | Reduced chi-square value of NMF continuum fit |
- | nmf_flags | int32 |  | NMF Continuum method flags |
+ | nmf_flags | int64 |  | NMF Continuum method flags |
  | task_pk | int64 |  | Task model primary key |
  | source_pk | int64 |  |  |
  | created | char[26] |  | Datetime when task record was created |
- | t_elapsed | float32 |  | Core-time elapsed on this analysis  |
- | t_overhead | float32 |  | Estimated core-time spent in overhads  |
+ | t_elapsed | float32 | s | Core-time elapsed on this analysis  |
+ | t_overhead | float32 | s | Estimated core-time spent in overhads  |
  | tag | char[1] |  | Experiment tag for this result |
- | eqw_h_alpha | float32 |  | Equivalent width of H-alpha  |
+ | eqw_h_alpha | float32 | A | Equivalent width of H-alpha  |
  | abs_h_alpha | float32 |  |  |
  | detection_stat_h_alpha | float32 |  | Detection probability (+1: absorption; 0: u |
  | detection_raw_h_alpha | float32 |  | Probability that feature is not noise (0: no |
- | eqw_percentiles_h_alpha | float32[3] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_h_alpha | float32[3] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_h_alpha | float32[3] |  |  |
- | eqw_h_beta | float32 |  | Equivalent width of H-beta  |
+ | eqw_h_beta | float32 | A | Equivalent width of H-beta  |
  | abs_h_beta | float32 |  |  |
  | detection_stat_h_beta | float32 |  | Detection probability (+1: absorption; 0: un |
  | detection_raw_h_beta | float32 |  | Probability that feature is not noise (0: noi |
- | eqw_percentiles_h_beta | float32[3] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_h_beta | float32[3] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_h_beta | float32[3] |  |  |
- | eqw_h_gamma | float32 |  | Equivalent width of H-gamma  |
+ | eqw_h_gamma | float32 | A | Equivalent width of H-gamma  |
  | abs_h_gamma | float32 |  |  |
  | detection_stat_h_gamma | float32 |  | Detection probability (+1: absorption; 0: u |
  | detection_raw_h_gamma | float32 |  | Probability that feature is not noise (0: no |
- | eqw_percentiles_h_gamma | float32[3] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_h_gamma | float32[3] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_h_gamma | float32[3] |  |  |
- | eqw_h_delta | float32 |  | Equivalent width of H-delta  |
+ | eqw_h_delta | float32 | A | Equivalent width of H-delta  |
  | abs_h_delta | float32 |  |  |
  | detection_stat_h_delta | float32 |  | Detection probability (+1: absorption; 0: u |
  | detection_raw_h_delta | float32 |  | Probability that feature is not noise (0: no |
- | eqw_percentiles_h_delta | float32[3] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_h_delta | float32[3] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_h_delta | float32[3] |  |  |
- | eqw_h_epsilon | float32 |  | Equivalent width of H-epsilon  |
+ | eqw_h_epsilon | float32 | A | Equivalent width of H-epsilon  |
  | abs_h_epsilon | float32 |  |  |
  | detection_stat_h_epsilon | float32 |  | Detection probability (+1: absorption; 0: |
  | detection_raw_h_epsilon | float32 |  | Probability that feature is not noise (0: |
- | eqw_percentiles_h_epsilon | float32[3] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_h_epsilon | float32[3] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_h_epsilon | float32[3] |  |  |
- | eqw_h_8 | float32 |  | Equivalent width of H-8  |
+ | eqw_h_8 | float32 | A | Equivalent width of H-8  |
  | abs_h_8 | float32 |  |  |
  | detection_stat_h_8 | float32 |  | Detection probability (+1: absorption; 0: undet |
  | detection_raw_h_8 | float32 |  | Probability that feature is not noise (0: noise |
- | eqw_percentiles_h_8 | float32[3] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_h_8 | float32[3] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_h_8 | float32[3] |  |  |
- | eqw_h_9 | float32 |  | Equivalent width of H-9  |
+ | eqw_h_9 | float32 | A | Equivalent width of H-9  |
  | abs_h_9 | float32 |  |  |
  | detection_stat_h_9 | float32 |  | Detection probability (+1: absorption; 0: undet |
  | detection_raw_h_9 | float32 |  | Probability that feature is not noise (0: noise |
- | eqw_percentiles_h_9 | float32[3] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_h_9 | float32[3] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_h_9 | float32[3] |  |  |
- | eqw_h_10 | float32 |  | Equivalent width of H-10  |
+ | eqw_h_10 | float32 | A | Equivalent width of H-10  |
  | abs_h_10 | float32 |  |  |
  | detection_stat_h_10 | float32 |  | Detection probability (+1: absorption; 0: unde |
  | detection_raw_h_10 | float32 |  | Probability that feature is not noise (0: noise |
- | eqw_percentiles_h_10 | float32[3] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_h_10 | float32[3] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_h_10 | float32[3] |  |  |
- | eqw_h_11 | float32 |  | Equivalent width of H-11  |
+ | eqw_h_11 | float32 | A | Equivalent width of H-11  |
  | abs_h_11 | float32 |  |  |
  | detection_stat_h_11 | float32 |  | Detection probability (+1: absorption; 0: unde |
  | detection_raw_h_11 | float32 |  | Probability that feature is not noise (0: noise |
- | eqw_percentiles_h_11 | float32[3] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_h_11 | float32[3] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_h_11 | float32[3] |  |  |
- | eqw_h_12 | float32 |  | Equivalent width of H-12  |
+ | eqw_h_12 | float32 | A | Equivalent width of H-12  |
  | abs_h_12 | float32 |  |  |
  | detection_stat_h_12 | float32 |  | Detection probability (+1: absorption; 0: unde |
  | detection_raw_h_12 | float32 |  | Probability that feature is not noise (0: noise |
- | eqw_percentiles_h_12 | float32[3] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_h_12 | float32[3] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_h_12 | float32[3] |  |  |
- | eqw_h_13 | float32 |  | Equivalent width of H-13  |
+ | eqw_h_13 | float32 | A | Equivalent width of H-13  |
  | abs_h_13 | float32 |  |  |
  | detection_stat_h_13 | float32 |  | Detection probability (+1: absorption; 0: unde |
  | detection_raw_h_13 | float32 |  | Probability that feature is not noise (0: noise |
- | eqw_percentiles_h_13 | float32[3] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_h_13 | float32[3] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_h_13 | float32[3] |  |  |
- | eqw_h_14 | float32 |  | Equivalent width of H-14  |
+ | eqw_h_14 | float32 | A | Equivalent width of H-14  |
  | abs_h_14 | float32 |  |  |
  | detection_stat_h_14 | float32 |  | Detection probability (+1: absorption; 0: unde |
  | detection_raw_h_14 | float32 |  | Probability that feature is not noise (0: noise |
- | eqw_percentiles_h_14 | float32[3] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_h_14 | float32[3] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_h_14 | float32[3] |  |  |
- | eqw_h_15 | float32 |  | Equivalent width of H-15  |
+ | eqw_h_15 | float32 | A | Equivalent width of H-15  |
  | abs_h_15 | float32 |  |  |
  | detection_stat_h_15 | float32 |  | Detection probability (+1: absorption; 0: unde |
  | detection_raw_h_15 | float32 |  | Probability that feature is not noise (0: noise |
- | eqw_percentiles_h_15 | float32[3] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_h_15 | float32[3] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_h_15 | float32[3] |  |  |
- | eqw_h_16 | float32 |  | Equivalent width of H-16  |
+ | eqw_h_16 | float32 | A | Equivalent width of H-16  |
  | abs_h_16 | float32 |  |  |
  | detection_stat_h_16 | float32 |  | Detection probability (+1: absorption; 0: unde |
  | detection_raw_h_16 | float32 |  | Probability that feature is not noise (0: noise |
- | eqw_percentiles_h_16 | float32[3] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_h_16 | float32[3] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_h_16 | float32[3] |  |  |
- | eqw_h_17 | float32 |  | Equivalent width of H-17  |
+ | eqw_h_17 | float32 | A | Equivalent width of H-17  |
  | abs_h_17 | float32 |  |  |
  | detection_stat_h_17 | float32 |  | Detection probability (+1: absorption; 0: unde |
  | detection_raw_h_17 | float32 |  | Probability that feature is not noise (0: noise |
- | eqw_percentiles_h_17 | float32[3] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_h_17 | float32[3] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_h_17 | float32[3] |  |  |
- | eqw_pa_7 | float32 |  | Equivalent width of Pa-7  |
+ | eqw_pa_7 | float32 | A | Equivalent width of Pa-7  |
  | abs_pa_7 | float32 |  |  |
  | detection_stat_pa_7 | float32 |  | Detection probability (+1: absorption; 0: unde |
  | detection_raw_pa_7 | float32 |  | Probability that feature is not noise (0: noise |
- | eqw_percentiles_pa_7 | float32[3] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_pa_7 | float32[3] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_pa_7 | float32[3] |  |  |
- | eqw_pa_8 | float32 |  | Equivalent width of Pa-8  |
+ | eqw_pa_8 | float32 | A | Equivalent width of Pa-8  |
  | abs_pa_8 | float32 |  |  |
  | detection_stat_pa_8 | float32 |  | Detection probability (+1: absorption; 0: unde |
  | detection_raw_pa_8 | float32 |  | Probability that feature is not noise (0: noise |
- | eqw_percentiles_pa_8 | float32[3] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_pa_8 | float32[3] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_pa_8 | float32[3] |  |  |
- | eqw_pa_9 | float32 |  | Equivalent width of Pa-9  |
+ | eqw_pa_9 | float32 | A | Equivalent width of Pa-9  |
  | abs_pa_9 | float32 |  |  |
  | detection_stat_pa_9 | float32 |  | Detection probability (+1: absorption; 0: unde |
  | detection_raw_pa_9 | float32 |  | Probability that feature is not noise (0: noise |
- | eqw_percentiles_pa_9 | float32[3] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_pa_9 | float32[3] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_pa_9 | float32[3] |  |  |
- | eqw_pa_10 | float32 |  | Equivalent width of Pa-10  |
+ | eqw_pa_10 | float32 | A | Equivalent width of Pa-10  |
  | abs_pa_10 | float32 |  |  |
  | detection_stat_pa_10 | float32 |  | Detection probability (+1: absorption; 0: und |
  | detection_raw_pa_10 | float32 |  | Probability that feature is not noise (0: nois |
- | eqw_percentiles_pa_10 | float32[3] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_pa_10 | float32[3] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_pa_10 | float32[3] |  |  |
- | eqw_pa_11 | float32 |  | Equivalent width of Pa-11  |
+ | eqw_pa_11 | float32 | A | Equivalent width of Pa-11  |
  | abs_pa_11 | float32 |  |  |
  | detection_stat_pa_11 | float32 |  | Detection probability (+1: absorption; 0: und |
  | detection_raw_pa_11 | float32 |  | Probability that feature is not noise (0: nois |
- | eqw_percentiles_pa_11 | float32[3] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_pa_11 | float32[3] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_pa_11 | float32[3] |  |  |
- | eqw_pa_12 | float32 |  | Equivalent width of Pa-12  |
+ | eqw_pa_12 | float32 | A | Equivalent width of Pa-12  |
  | abs_pa_12 | float32 |  |  |
  | detection_stat_pa_12 | float32 |  | Detection probability (+1: absorption; 0: und |
  | detection_raw_pa_12 | float32 |  | Probability that feature is not noise (0: nois |
- | eqw_percentiles_pa_12 | float32[3] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_pa_12 | float32[3] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_pa_12 | float32[3] |  |  |
- | eqw_pa_13 | float32 |  | Equivalent width of Pa-13  |
+ | eqw_pa_13 | float32 | A | Equivalent width of Pa-13  |
  | abs_pa_13 | float32 |  |  |
  | detection_stat_pa_13 | float32 |  | Detection probability (+1: absorption; 0: und |
  | detection_raw_pa_13 | float32 |  | Probability that feature is not noise (0: nois |
- | eqw_percentiles_pa_13 | float32[3] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_pa_13 | float32[3] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_pa_13 | float32[3] |  |  |
- | eqw_pa_14 | float32 |  | Equivalent width of Pa-14  |
+ | eqw_pa_14 | float32 | A | Equivalent width of Pa-14  |
  | abs_pa_14 | float32 |  |  |
  | detection_stat_pa_14 | float32 |  | Detection probability (+1: absorption; 0: und |
  | detection_raw_pa_14 | float32 |  | Probability that feature is not noise (0: nois |
- | eqw_percentiles_pa_14 | float32[3] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_pa_14 | float32[3] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_pa_14 | float32[3] |  |  |
- | eqw_pa_15 | float32 |  | Equivalent width of Pa-15  |
+ | eqw_pa_15 | float32 | A | Equivalent width of Pa-15  |
  | abs_pa_15 | float32 |  |  |
  | detection_stat_pa_15 | float32 |  | Detection probability (+1: absorption; 0: und |
  | detection_raw_pa_15 | float32 |  | Probability that feature is not noise (0: nois |
- | eqw_percentiles_pa_15 | float32[3] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_pa_15 | float32[3] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_pa_15 | float32[3] |  |  |
- | eqw_pa_16 | float32 |  | Equivalent width of Pa-16  |
+ | eqw_pa_16 | float32 | A | Equivalent width of Pa-16  |
  | abs_pa_16 | float32 |  |  |
  | detection_stat_pa_16 | float32 |  | Detection probability (+1: absorption; 0: und |
  | detection_raw_pa_16 | float32 |  | Probability that feature is not noise (0: nois |
- | eqw_percentiles_pa_16 | float32[3] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_pa_16 | float32[3] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_pa_16 | float32[3] |  |  |
- | eqw_pa_17 | float32 |  | Equivalent width of Pa-17  |
+ | eqw_pa_17 | float32 | A | Equivalent width of Pa-17  |
  | abs_pa_17 | float32 |  |  |
  | detection_stat_pa_17 | float32 |  | Detection probability (+1: absorption; 0: und |
  | detection_raw_pa_17 | float32 |  | Probability that feature is not noise (0: nois |
- | eqw_percentiles_pa_17 | float32[3] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_pa_17 | float32[3] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_pa_17 | float32[3] |  |  |
- | eqw_ca_ii_8662 | float32 |  | Equivalent width of Ca II at 8662 A  |
+ | eqw_ca_ii_8662 | float32 | A | Equivalent width of Ca II at 8662 A  |
  | abs_ca_ii_8662 | float32 |  |  |
  | detection_stat_ca_ii_8662 | float32 |  | Detection probability (+1: absorption; 0 |
  | detection_raw_ca_ii_8662 | float32 |  | Probability that feature is not noise (0: |
- | eqw_percentiles_ca_ii_8662 | float32[3] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_ca_ii_8662 | float32[3] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_ca_ii_8662 | float32[3] |  |  |
- | eqw_ca_ii_8542 | float32 |  | Equivalent width of Ca II at 8542 A  |
+ | eqw_ca_ii_8542 | float32 | A | Equivalent width of Ca II at 8542 A  |
  | abs_ca_ii_8542 | float32 |  |  |
  | detection_stat_ca_ii_8542 | float32 |  | Detection probability (+1: absorption; 0 |
  | detection_raw_ca_ii_8542 | float32 |  | Probability that feature is not noise (0: |
- | eqw_percentiles_ca_ii_8542 | float32[3] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_ca_ii_8542 | float32[3] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_ca_ii_8542 | float32[3] |  |  |
- | eqw_ca_ii_8498 | float32 |  | Equivalent width of Ca II at 8498 A  |
+ | eqw_ca_ii_8498 | float32 | A | Equivalent width of Ca II at 8498 A  |
  | abs_ca_ii_8498 | float32 |  |  |
  | detection_stat_ca_ii_8498 | float32 |  | Detection probability (+1: absorption; 0 |
  | detection_raw_ca_ii_8498 | float32 |  | Probability that feature is not noise (0: |
- | eqw_percentiles_ca_ii_8498 | float32[3] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_ca_ii_8498 | float32[3] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_ca_ii_8498 | float32[3] |  |  |
- | eqw_ca_k_3933 | float32 |  | Equivalent width of Ca K at 3933 A  |
+ | eqw_ca_k_3933 | float32 | A | Equivalent width of Ca K at 3933 A  |
  | abs_ca_k_3933 | float32 |  |  |
  | detection_stat_ca_k_3933 | float32 |  | Detection probability (+1: absorption; 0: |
  | detection_raw_ca_k_3933 | float32 |  | Probability that feature is not noise (0: |
- | eqw_percentiles_ca_k_3933 | float32[3] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_ca_k_3933 | float32[3] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_ca_k_3933 | float32[3] |  |  |
- | eqw_ca_h_3968 | float32 |  | Equivalent width of Ca H at 3968 A  |
+ | eqw_ca_h_3968 | float32 | A | Equivalent width of Ca H at 3968 A  |
  | abs_ca_h_3968 | float32 |  |  |
  | detection_stat_ca_h_3968 | float32 |  | Detection probability (+1: absorption; 0: |
  | detection_raw_ca_h_3968 | float32 |  | Probability that feature is not noise (0: |
- | eqw_percentiles_ca_h_3968 | float32[3] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_ca_h_3968 | float32[3] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_ca_h_3968 | float32[3] |  |  |
- | eqw_he_i_6678 | float32 |  | Equivalent width of He I at 6678 A  |
+ | eqw_he_i_6678 | float32 | A | Equivalent width of He I at 6678 A  |
  | abs_he_i_6678 | float32 |  |  |
  | detection_stat_he_i_6678 | float32 |  | Detection probability (+1: absorption; 0: |
  | detection_raw_he_i_6678 | float32 |  | Probability that feature is not noise (0: |
- | eqw_percentiles_he_i_6678 | float32[3] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_he_i_6678 | float32[3] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_he_i_6678 | float32[3] |  |  |
- | eqw_he_i_5875 | float32 |  | Equivalent width of He I at 5875 A  |
+ | eqw_he_i_5875 | float32 | A | Equivalent width of He I at 5875 A  |
  | abs_he_i_5875 | float32 |  |  |
  | detection_stat_he_i_5875 | float32 |  | Detection probability (+1: absorption; 0: |
  | detection_raw_he_i_5875 | float32 |  | Probability that feature is not noise (0: |
- | eqw_percentiles_he_i_5875 | float32[3] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_he_i_5875 | float32[3] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_he_i_5875 | float32[3] |  |  |
- | eqw_he_i_5015 | float32 |  | Equivalent width of He I at 5015 A  |
+ | eqw_he_i_5015 | float32 | A | Equivalent width of He I at 5015 A  |
  | abs_he_i_5015 | float32 |  |  |
  | detection_stat_he_i_5015 | float32 |  | Detection probability (+1: absorption; 0: |
  | detection_raw_he_i_5015 | float32 |  | Probability that feature is not noise (0: |
- | eqw_percentiles_he_i_5015 | float32[3] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_he_i_5015 | float32[3] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_he_i_5015 | float32[3] |  |  |
- | eqw_he_i_4471 | float32 |  | Equivalent width of He I at 4471 A  |
+ | eqw_he_i_4471 | float32 | A | Equivalent width of He I at 4471 A  |
  | abs_he_i_4471 | float32 |  |  |
  | detection_stat_he_i_4471 | float32 |  | Detection probability (+1: absorption; 0: |
  | detection_raw_he_i_4471 | float32 |  | Probability that feature is not noise (0: |
- | eqw_percentiles_he_i_4471 | float32[3] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_he_i_4471 | float32[3] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_he_i_4471 | float32[3] |  |  |
- | eqw_he_ii_4685 | float32 |  | Equivalent width of He II at 4685 A  |
+ | eqw_he_ii_4685 | float32 | A | Equivalent width of He II at 4685 A  |
  | abs_he_ii_4685 | float32 |  |  |
  | detection_stat_he_ii_4685 | float32 |  | Detection probability (+1: absorption; 0 |
  | detection_raw_he_ii_4685 | float32 |  | Probability that feature is not noise (0: |
- | eqw_percentiles_he_ii_4685 | float32[3] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_he_ii_4685 | float32[3] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_he_ii_4685 | float32[3] |  |  |
- | eqw_n_ii_6583 | float32 |  | Equivalent width of N II at 6583 A  |
+ | eqw_n_ii_6583 | float32 | A | Equivalent width of N II at 6583 A  |
  | abs_n_ii_6583 | float32 |  |  |
  | detection_stat_n_ii_6583 | float32 |  | Detection probability (+1: absorption; 0: |
  | detection_raw_n_ii_6583 | float32 |  | Probability that feature is not noise (0: |
- | eqw_percentiles_n_ii_6583 | float32[3] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_n_ii_6583 | float32[3] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_n_ii_6583 | float32[3] |  |  |
- | eqw_n_ii_6548 | float32 |  | Equivalent width of N II at 6548 A  |
+ | eqw_n_ii_6548 | float32 | A | Equivalent width of N II at 6548 A  |
  | abs_n_ii_6548 | float32 |  |  |
  | detection_stat_n_ii_6548 | float32 |  | Detection probability (+1: absorption; 0: |
  | detection_raw_n_ii_6548 | float32 |  | Probability that feature is not noise (0: |
- | eqw_percentiles_n_ii_6548 | float32[3] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_n_ii_6548 | float32[3] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_n_ii_6548 | float32[3] |  |  |
- | eqw_s_ii_6716 | float32 |  | Equivalent width of S II at 6716 A  |
+ | eqw_s_ii_6716 | float32 | A | Equivalent width of S II at 6716 A  |
  | abs_s_ii_6716 | float32 |  |  |
  | detection_stat_s_ii_6716 | float32 |  | Detection probability (+1: absorption; 0: |
  | detection_raw_s_ii_6716 | float32 |  | Probability that feature is not noise (0: |
- | eqw_percentiles_s_ii_6716 | float32[3] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_s_ii_6716 | float32[3] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_s_ii_6716 | float32[3] |  |  |
- | eqw_s_ii_6730 | float32 |  | Equivalent width of S II at 6730 A  |
+ | eqw_s_ii_6730 | float32 | A | Equivalent width of S II at 6730 A  |
  | abs_s_ii_6730 | float32 |  |  |
  | detection_stat_s_ii_6730 | float32 |  | Detection probability (+1: absorption; 0: |
  | detection_raw_s_ii_6730 | float32 |  | Probability that feature is not noise (0: |
- | eqw_percentiles_s_ii_6730 | float32[3] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_s_ii_6730 | float32[3] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_s_ii_6730 | float32[3] |  |  |
- | eqw_fe_ii_5018 | float32 |  | Equivalent width of Fe II at 5018 A  |
+ | eqw_fe_ii_5018 | float32 | A | Equivalent width of Fe II at 5018 A  |
  | abs_fe_ii_5018 | float32 |  |  |
  | detection_stat_fe_ii_5018 | float32 |  | Detection probability (+1: absorption; 0 |
  | detection_raw_fe_ii_5018 | float32 |  | Probability that feature is not noise (0: |
- | eqw_percentiles_fe_ii_5018 | float32[3] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_fe_ii_5018 | float32[3] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_fe_ii_5018 | float32[3] |  |  |
- | eqw_fe_ii_5169 | float32 |  | Equivalent width of Fe II at 5169 A  |
+ | eqw_fe_ii_5169 | float32 | A | Equivalent width of Fe II at 5169 A  |
  | abs_fe_ii_5169 | float32 |  |  |
  | detection_stat_fe_ii_5169 | float32 |  | Detection probability (+1: absorption; 0 |
  | detection_raw_fe_ii_5169 | float32 |  | Probability that feature is not noise (0: |
- | eqw_percentiles_fe_ii_5169 | float32[3] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_fe_ii_5169 | float32[3] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_fe_ii_5169 | float32[3] |  |  |
- | eqw_fe_ii_5197 | float32 |  | Equivalent width of Fe II at 5197 A  |
+ | eqw_fe_ii_5197 | float32 | A | Equivalent width of Fe II at 5197 A  |
  | abs_fe_ii_5197 | float32 |  |  |
  | detection_stat_fe_ii_5197 | float32 |  | Detection probability (+1: absorption; 0 |
  | detection_raw_fe_ii_5197 | float32 |  | Probability that feature is not noise (0: |
- | eqw_percentiles_fe_ii_5197 | float32[3] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_fe_ii_5197 | float32[3] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_fe_ii_5197 | float32[3] |  |  |
- | eqw_fe_ii_6432 | float32 |  | Equivalent width of Fe II at 6432 A  |
+ | eqw_fe_ii_6432 | float32 | A | Equivalent width of Fe II at 6432 A  |
  | abs_fe_ii_6432 | float32 |  |  |
  | detection_stat_fe_ii_6432 | float32 |  | Detection probability (+1: absorption; 0 |
  | detection_raw_fe_ii_6432 | float32 |  | Probability that feature is not noise (0: |
- | eqw_percentiles_fe_ii_6432 | float32[3] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_fe_ii_6432 | float32[3] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_fe_ii_6432 | float32[3] |  |  |
- | eqw_o_i_5577 | float32 |  | Equivalent width of O I at 5577 A |
+ | eqw_o_i_5577 | float32 | A | Equivalent width of O I at 5577 A |
  | abs_o_i_5577 | float32 |  |  |
  | detection_stat_o_i_5577 | float32 |  | Detection probability (+1: absorption; 0: |
  | detection_raw_o_i_5577 | float32 |  | Probability that feature is not noise (0: n |
- | eqw_percentiles_o_i_5577 | float32[3] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_o_i_5577 | float32[3] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_o_i_5577 | float32[3] |  |  |
- | eqw_o_i_6300 | float32 |  | Equivalent width of O I at 6300 A  |
+ | eqw_o_i_6300 | float32 | A | Equivalent width of O I at 6300 A  |
  | abs_o_i_6300 | float32 |  |  |
  | detection_stat_o_i_6300 | float32 |  | Detection probability (+1: absorption; 0: |
  | detection_raw_o_i_6300 | float32 |  | Probability that feature is not noise (0: n |
- | eqw_percentiles_o_i_6300 | float32[3] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_o_i_6300 | float32[3] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_o_i_6300 | float32[3] |  |  |
- | eqw_o_i_6363 | float32 |  | Equivalent width of O I at 6363 A |
+ | eqw_o_i_6363 | float32 | A | Equivalent width of O I at 6363 A |
  | abs_o_i_6363 | float32 |  |  |
  | detection_stat_o_i_6363 | float32 |  | Detection probability (+1: absorption; 0: |
  | detection_raw_o_i_6363 | float32 |  | Probability that feature is not noise (0: n |
- | eqw_percentiles_o_i_6363 | float32[3] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_o_i_6363 | float32[3] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_o_i_6363 | float32[3] |  |  |
- | eqw_o_ii_3727 | float32 |  | Equivalent width of O II at 3727 A  |
+ | eqw_o_ii_3727 | float32 | A | Equivalent width of O II at 3727 A  |
  | abs_o_ii_3727 | float32 |  |  |
  | detection_stat_o_ii_3727 | float32 |  | Detection probability (+1: absorption; 0: |
  | detection_raw_o_ii_3727 | float32 |  | Probability that feature is not noise (0: |
- | eqw_percentiles_o_ii_3727 | float32[3] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_o_ii_3727 | float32[3] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_o_ii_3727 | float32[3] |  |  |
- | eqw_o_iii_4959 | float32 |  | Equivalent width of O III at 4959 A  |
+ | eqw_o_iii_4959 | float32 | A | Equivalent width of O III at 4959 A  |
  | abs_o_iii_4959 | float32 |  |  |
  | detection_stat_o_iii_4959 | float32 |  | Detection probability (+1: absorption; 0 |
  | detection_raw_o_iii_4959 | float32 |  | Probability that feature is not noise (0: |
- | eqw_percentiles_o_iii_4959 | float32[3] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_o_iii_4959 | float32[3] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_o_iii_4959 | float32[3] |  |  |
- | eqw_o_iii_5006 | float32 |  | Equivalent width of O III at 5006 A  |
+ | eqw_o_iii_5006 | float32 | A | Equivalent width of O III at 5006 A  |
  | abs_o_iii_5006 | float32 |  |  |
  | detection_stat_o_iii_5006 | float32 |  | Detection probability (+1: absorption; 0 |
  | detection_raw_o_iii_5006 | float32 |  | Probability that feature is not noise (0: |
- | eqw_percentiles_o_iii_5006 | float32[3] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_o_iii_5006 | float32[3] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_o_iii_5006 | float32[3] |  |  |
- | eqw_o_iii_4363 | float32 |  | Equivalent width of O III at 4363 A  |
+ | eqw_o_iii_4363 | float32 | A | Equivalent width of O III at 4363 A  |
  | abs_o_iii_4363 | float32 |  |  |
  | detection_stat_o_iii_4363 | float32 |  | Detection probability (+1: absorption; 0 |
  | detection_raw_o_iii_4363 | float32 |  | Probability that feature is not noise (0: |
- | eqw_percentiles_o_iii_4363 | float32[3] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_o_iii_4363 | float32[3] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_o_iii_4363 | float32[3] |  |  |
- | eqw_li_i | float32 |  | Equivalent width of Li I at 6707 A  |
+ | eqw_li_i | float32 | A | Equivalent width of Li I at 6707 A  |
  | abs_li_i | float32 |  |  |
  | detection_stat_li_i | float32 |  | Detection probability (+1: absorption; 0: unde |
  | detection_raw_li_i | float32 |  | Probability that feature is not noise (0: noise |
- | eqw_percentiles_li_i | float32[3] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_li_i | float32[3] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_li_i | float32[3] |  |  |
 
 
 
-### HDU2:
+### HDU2: 
 LineForest results for each star from APOGEE
 
 #### HDU Type: BINARY TABLE
@@ -703,125 +700,125 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | binary table extension |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
-| NAXIS1 | 1572 | length of dimension 1 |
+| NAXIS1 | 1643 | length of dimension 1 |
 | NAXIS2 | 0 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
-| TFIELDS | 492 | number of table fields |
+| TFIELDS | 491 | number of table fields |
 | INSTRMNT | APOGEE | Instrument |
 | PIPELINE | LineForest | Pipeline name |
-| V_ASTRA | 0.5.0 | Astra version |
-| CREATED | 23-11-16 06:36:16 | File creation time (UTC %y-%m-%d %H:%M:%S) |
-| TDIM16 | (1) |  |
+| V_ASTRA | 0.6.0 | Astra version |
+| CREATED | 24-09-13 14:35:38 | File creation time (UTC %y-%m-%d %H:%M:%S) |
+| TDIM15 | (1) |  |
 | COMMENT | See https://www.ipac.caltech.edu/2mass/releases/allsky/doc/sec2_2a.html |  |
 | COMMENT | See https://catalog.unwise.me/catalogs.html |  |
 | COMMENT | See https://irsa.ipac.caltech.edu/data/SPITZER/GLIMPSE/gator_docs/ |  |
+| TDIM184 | (0) |  |
 | TDIM185 | (0) |  |
-| TDIM186 | (0) |  |
+| TDIM190 | (0) |  |
 | TDIM191 | (0) |  |
-| TDIM192 | (0) |  |
+| TDIM196 | (0) |  |
 | TDIM197 | (0) |  |
-| TDIM198 | (0) |  |
+| TDIM202 | (0) |  |
 | TDIM203 | (0) |  |
-| TDIM204 | (0) |  |
+| TDIM208 | (0) |  |
 | TDIM209 | (0) |  |
-| TDIM210 | (0) |  |
+| TDIM214 | (0) |  |
 | TDIM215 | (0) |  |
-| TDIM216 | (0) |  |
+| TDIM220 | (0) |  |
 | TDIM221 | (0) |  |
-| TDIM222 | (0) |  |
+| TDIM226 | (0) |  |
 | TDIM227 | (0) |  |
-| TDIM228 | (0) |  |
+| TDIM232 | (0) |  |
 | TDIM233 | (0) |  |
-| TDIM234 | (0) |  |
+| TDIM238 | (0) |  |
 | TDIM239 | (0) |  |
-| TDIM240 | (0) |  |
+| TDIM244 | (0) |  |
 | TDIM245 | (0) |  |
-| TDIM246 | (0) |  |
+| TDIM250 | (0) |  |
 | TDIM251 | (0) |  |
-| TDIM252 | (0) |  |
+| TDIM256 | (0) |  |
 | TDIM257 | (0) |  |
-| TDIM258 | (0) |  |
+| TDIM262 | (0) |  |
 | TDIM263 | (0) |  |
-| TDIM264 | (0) |  |
+| TDIM268 | (0) |  |
 | TDIM269 | (0) |  |
-| TDIM270 | (0) |  |
+| TDIM274 | (0) |  |
 | TDIM275 | (0) |  |
-| TDIM276 | (0) |  |
+| TDIM280 | (0) |  |
 | TDIM281 | (0) |  |
-| TDIM282 | (0) |  |
+| TDIM286 | (0) |  |
 | TDIM287 | (0) |  |
-| TDIM288 | (0) |  |
+| TDIM292 | (0) |  |
 | TDIM293 | (0) |  |
-| TDIM294 | (0) |  |
+| TDIM298 | (0) |  |
 | TDIM299 | (0) |  |
-| TDIM300 | (0) |  |
+| TDIM304 | (0) |  |
 | TDIM305 | (0) |  |
-| TDIM306 | (0) |  |
+| TDIM310 | (0) |  |
 | TDIM311 | (0) |  |
-| TDIM312 | (0) |  |
+| TDIM316 | (0) |  |
 | TDIM317 | (0) |  |
-| TDIM318 | (0) |  |
+| TDIM322 | (0) |  |
 | TDIM323 | (0) |  |
-| TDIM324 | (0) |  |
+| TDIM328 | (0) |  |
 | TDIM329 | (0) |  |
-| TDIM330 | (0) |  |
+| TDIM334 | (0) |  |
 | TDIM335 | (0) |  |
-| TDIM336 | (0) |  |
+| TDIM340 | (0) |  |
 | TDIM341 | (0) |  |
-| TDIM342 | (0) |  |
+| TDIM346 | (0) |  |
 | TDIM347 | (0) |  |
-| TDIM348 | (0) |  |
+| TDIM352 | (0) |  |
 | TDIM353 | (0) |  |
-| TDIM354 | (0) |  |
+| TDIM358 | (0) |  |
 | TDIM359 | (0) |  |
-| TDIM360 | (0) |  |
+| TDIM364 | (0) |  |
 | TDIM365 | (0) |  |
-| TDIM366 | (0) |  |
+| TDIM370 | (0) |  |
 | TDIM371 | (0) |  |
-| TDIM372 | (0) |  |
+| TDIM376 | (0) |  |
 | TDIM377 | (0) |  |
-| TDIM378 | (0) |  |
+| TDIM382 | (0) |  |
 | TDIM383 | (0) |  |
-| TDIM384 | (0) |  |
+| TDIM388 | (0) |  |
 | TDIM389 | (0) |  |
-| TDIM390 | (0) |  |
+| TDIM394 | (0) |  |
 | TDIM395 | (0) |  |
-| TDIM396 | (0) |  |
+| TDIM400 | (0) |  |
 | TDIM401 | (0) |  |
-| TDIM402 | (0) |  |
+| TDIM406 | (0) |  |
 | TDIM407 | (0) |  |
-| TDIM408 | (0) |  |
+| TDIM412 | (0) |  |
 | TDIM413 | (0) |  |
-| TDIM414 | (0) |  |
+| TDIM418 | (0) |  |
 | TDIM419 | (0) |  |
-| TDIM420 | (0) |  |
+| TDIM424 | (0) |  |
 | TDIM425 | (0) |  |
-| TDIM426 | (0) |  |
+| TDIM430 | (0) |  |
 | TDIM431 | (0) |  |
-| TDIM432 | (0) |  |
+| TDIM436 | (0) |  |
 | TDIM437 | (0) |  |
-| TDIM438 | (0) |  |
+| TDIM442 | (0) |  |
 | TDIM443 | (0) |  |
-| TDIM444 | (0) |  |
+| TDIM448 | (0) |  |
 | TDIM449 | (0) |  |
-| TDIM450 | (0) |  |
+| TDIM454 | (0) |  |
 | TDIM455 | (0) |  |
-| TDIM456 | (0) |  |
+| TDIM460 | (0) |  |
 | TDIM461 | (0) |  |
-| TDIM462 | (0) |  |
+| TDIM466 | (0) |  |
 | TDIM467 | (0) |  |
-| TDIM468 | (0) |  |
+| TDIM472 | (0) |  |
 | TDIM473 | (0) |  |
-| TDIM474 | (0) |  |
+| TDIM478 | (0) |  |
 | TDIM479 | (0) |  |
-| TDIM480 | (0) |  |
+| TDIM484 | (0) |  |
 | TDIM485 | (0) |  |
-| TDIM486 | (0) |  |
+| TDIM490 | (0) |  |
 | TDIM491 | (0) |  |
-| TDIM492 | (0) |  |
-| CHECKSUM | Ne0LQZ0KNd0KNZ0K | HDU checksum updated 2023-11-15T23:36:19 |
-| DATASUM | 0 | data unit checksum updated 2023-11-15T23:36:19 |
+| CHECKSUM | ZkeReibQZibQdibQ | HDU checksum updated 2024-09-13T08:35:43 |
+| DATASUM | 0 | data unit checksum updated 2024-09-13T08:35:43 |
 
 ##### Binary Table Caption for HDU2
 Name | Type | Unit | Description |
@@ -832,7 +829,6 @@ Name | Type | Unit | Description |
  | gaia_dr3_source_id | int64 |  | Gaia DR3 source identifier |
  | tic_v8_id | int64 |  | TESS Input Catalog (v8) identifier |
  | healpix | int32 |  | HEALPix (128 side) |
- | carton_0 | char[1] |  | Highest priority carton name |
  | lead | char[1] |  | Lead catalog used for cross-match |
  | version_id | int32 |  | SDSS catalog version for targeting |
  | catalogid | int64 |  | Catalog identifier used to target the source |
@@ -842,65 +838,65 @@ Name | Type | Unit | Description |
  | n_associated | int32 |  | SDSS_IDs associated with this CATALOGID |
  | n_neighborhood | int32 |  | Sources within 3" and G_MAG < G_MAG_source + 5 |
  | sdss5_target_flags | bool[1] |  | SDSS-5 targeting flags |
- | sdss4_apogee_target1_flags | int32 |  | SDSS4 APOGEE1 targeting flags (1/2) |
- | sdss4_apogee_target2_flags | int32 |  | SDSS4 APOGEE1 targeting flags (2/2) |
- | sdss4_apogee2_target1_flags | int32 |  | SDSS4 APOGEE2 targeting flags (1/3) |
- | sdss4_apogee2_target2_flags | int32 |  | SDSS4 APOGEE2 targeting flags (2/3) |
- | sdss4_apogee2_target3_flags | int32 |  | SDSS4 APOGEE2 targeting flags (3/3) |
- | sdss4_apogee_member_flags | int32 |  | SDSS4 likely cluster/galaxy member flags |
- | sdss4_apogee_extra_target_flags | int32 |  | SDSS4 target info (aka EXTRATARG) |
- | ra | float32 |  | Right ascension  |
- | dec | float32 |  | Declination  |
- | l | float32 |  | Galactic longitude  |
- | b | float32 |  | Galactic latitude  |
- | plx | float32 |  | Parallax  |
- | e_plx | float32 |  | Error on parallax  |
- | pmra | float32 |  | Proper motion in RA  |
- | e_pmra | float32 |  | Error on proper motion in RA  |
- | pmde | float32 |  | Proper motion in DEC  |
- | e_pmde | float32 |  | Error on proper motion in DEC  |
- | gaia_v_rad | float32 |  | Gaia radial velocity  |
- | gaia_e_v_rad | float32 |  | Error on Gaia radial velocity  |
- | g_mag | float32 |  | Gaia DR3 mean G band magnitude  |
- | bp_mag | float32 |  | Gaia DR3 mean BP band magnitude  |
- | rp_mag | float32 |  | Gaia DR3 mean RP band magnitude  |
- | j_mag | float32 |  | 2MASS J band magnitude  |
- | e_j_mag | float32 |  | Error on 2MASS J band magnitude  |
- | h_mag | float32 |  | 2MASS H band magnitude  |
- | e_h_mag | float32 |  | Error on 2MASS H band magnitude  |
- | k_mag | float32 |  | 2MASS K band magnitude  |
- | e_k_mag | float32 |  | Error on 2MASS K band magnitude  |
+ | sdss4_apogee_target1_flags | int64 |  | SDSS4 APOGEE1 targeting flags (1/2) |
+ | sdss4_apogee_target2_flags | int64 |  | SDSS4 APOGEE1 targeting flags (2/2) |
+ | sdss4_apogee2_target1_flags | int64 |  | SDSS4 APOGEE2 targeting flags (1/3) |
+ | sdss4_apogee2_target2_flags | int64 |  | SDSS4 APOGEE2 targeting flags (2/3) |
+ | sdss4_apogee2_target3_flags | int64 |  | SDSS4 APOGEE2 targeting flags (3/3) |
+ | sdss4_apogee_member_flags | int64 |  | SDSS4 likely cluster/galaxy member flags |
+ | sdss4_apogee_extra_target_flags | int64 |  | SDSS4 target info (aka EXTRATARG) |
+ | ra | float32 | deg | Right ascension  |
+ | dec | float32 | deg | Declination  |
+ | l | float32 | deg | Galactic longitude  |
+ | b | float32 | deg | Galactic latitude  |
+ | plx | float32 | mas | Parallax  |
+ | e_plx | float32 | mas | Error on parallax  |
+ | pmra | float32 | mas/yr | Proper motion in RA  |
+ | e_pmra | float32 | mas/yr | Error on proper motion in RA  |
+ | pmde | float32 | mas/yr | Proper motion in DEC  |
+ | e_pmde | float32 | mas/yr | Error on proper motion in DEC  |
+ | gaia_v_rad | float32 | km/s | Gaia radial velocity  |
+ | gaia_e_v_rad | float32 | km/s | Error on Gaia radial velocity  |
+ | g_mag | float32 | mag | Gaia DR3 mean G band magnitude  |
+ | bp_mag | float32 | mag | Gaia DR3 mean BP band magnitude  |
+ | rp_mag | float32 | mag | Gaia DR3 mean RP band magnitude  |
+ | j_mag | float32 | mag | 2MASS J band magnitude  |
+ | e_j_mag | float32 | mag | Error on 2MASS J band magnitude  |
+ | h_mag | float32 | mag | 2MASS H band magnitude  |
+ | e_h_mag | float32 | mag | Error on 2MASS H band magnitude  |
+ | k_mag | float32 | mag | 2MASS K band magnitude  |
+ | e_k_mag | float32 | mag | Error on 2MASS K band magnitude  |
  | ph_qual | char[1] |  | 2MASS photometric quality flag |
  | bl_flg | char[1] |  | Number of components fit per band (JHK) |
  | cc_flg | char[1] |  | Contamination and confusion flag |
  | w1_mag | float32 |  | W1 magnitude |
  | e_w1_mag | float32 |  | Error on W1 magnitude |
- | w1_flux | float32 |  | W1 flux  |
- | w1_dflux | float32 |  | Error on W1 flux  |
+ | w1_flux | float32 | Vega nMgy | W1 flux  |
+ | w1_dflux | float32 | Vega nMgy | Error on W1 flux  |
  | w1_frac | float32 |  | Fraction of W1 flux from this object |
- | w2_mag | float32 |  | W2 magnitude  |
+ | w2_mag | float32 | Vega | W2 magnitude  |
  | e_w2_mag | float32 |  | Error on W2 magnitude |
- | w2_flux | float32 |  | W2 flux  |
- | w2_dflux | float32 |  | Error on W2 flux  |
+ | w2_flux | float32 | Vega nMgy | W2 flux  |
+ | w2_dflux | float32 | Vega nMgy | Error on W2 flux  |
  | w2_frac | float32 |  | Fraction of W2 flux from this object |
- | w1uflags | int32 |  | unWISE flags for W1 |
- | w2uflags | int32 |  | unWISE flags for W2 |
- | w1aflags | int32 |  | Additional flags for W1 |
- | w2aflags | int32 |  | Additional flags for W2 |
- | mag4_5 | float32 |  | IRAC band 4.5 micron magnitude  |
- | d4_5m | float32 |  | Error on IRAC band 4.5 micron magnitude  |
- | rms_f4_5 | float32 |  | RMS deviations from final flux  |
- | sqf_4_5 | int32 |  | Source quality flag for IRAC band 4.5 micron |
- | mf4_5 | int32 |  | Flux calculation method flag |
- | csf | int32 |  | Close source flag |
- | zgr_teff | float32 |  | Stellar effective temperature  |
- | zgr_e_teff | float32 |  | Error on stellar effective temperature  |
- | zgr_logg | float32 |  | Surface gravity  |
- | zgr_e_logg | float32 |  | Error on surface gravity  |
- | zgr_fe_h | float32 |  | [Fe/H]  |
- | zgr_e_fe_h | float32 |  | Error on [Fe/H]  |
- | zgr_e | float32 |  | Extinction  |
- | zgr_e_e | float32 |  | Error on extinction  |
+ | w1uflags | int64 |  | unWISE flags for W1 |
+ | w2uflags | int64 |  | unWISE flags for W2 |
+ | w1aflags | int64 |  | Additional flags for W1 |
+ | w2aflags | int64 |  | Additional flags for W2 |
+ | mag4_5 | float32 | mag | IRAC band 4.5 micron magnitude  |
+ | d4_5m | float32 | mag | Error on IRAC band 4.5 micron magnitude  |
+ | rms_f4_5 | float32 | mJy | RMS deviations from final flux  |
+ | sqf_4_5 | int64 |  | Source quality flag for IRAC band 4.5 micron |
+ | mf4_5 | int64 |  | Flux calculation method flag |
+ | csf | int64 |  | Close source flag |
+ | zgr_teff | float32 | K | Stellar effective temperature  |
+ | zgr_e_teff | float32 | K | Error on stellar effective temperature  |
+ | zgr_logg | float32 | log10(cm/s^2) | Surface gravity  |
+ | zgr_e_logg | float32 | log10(cm/s^2) | Error on surface gravity  |
+ | zgr_fe_h | float32 | dex | [Fe/H]  |
+ | zgr_e_fe_h | float32 | dex | Error on [Fe/H]  |
+ | zgr_e | float32 | mag | Extinction  |
+ | zgr_e_e | float32 | mag | Error on extinction  |
  | zgr_plx | float32 |  | Parallax [mas] (Gaia DR3) |
  | zgr_e_plx | float32 |  | Error on parallax [mas] (Gaia DR3) |
  | zgr_teff_confidence | float32 |  | Confidence estimate in TEFF |
@@ -908,51 +904,51 @@ Name | Type | Unit | Description |
  | zgr_fe_h_confidence | float32 |  | Confidence estimate in FE_H |
  | zgr_ln_prior | float32 |  | Log prior probability |
  | zgr_chi2 | float32 |  | Chi-square value |
- | zgr_quality_flags | int32 |  | Quality flags |
- | r_med_geo | float32 |  | Median geometric distance  |
- | r_lo_geo | float32 |  | 16th percentile of geometric distance  |
- | r_hi_geo | float32 |  | 84th percentile of geometric distance  |
- | r_med_photogeo | float32 |  | 50th percentile of photogeometric distance  |
- | r_lo_photogeo | float32 |  | 16th percentile of photogeometric distance  |
- | r_hi_photogeo | float32 |  | 84th percentile of photogeometric distance  |
+ | zgr_quality_flags | int64 |  | Quality flags |
+ | r_med_geo | float32 | pc | Median geometric distance  |
+ | r_lo_geo | float32 | pc | 16th percentile of geometric distance  |
+ | r_hi_geo | float32 | pc | 84th percentile of geometric distance  |
+ | r_med_photogeo | float32 | pc | 50th percentile of photogeometric distance  |
+ | r_lo_photogeo | float32 | pc | 16th percentile of photogeometric distance  |
+ | r_hi_photogeo | float32 | pc | 84th percentile of photogeometric distance  |
  | bailer_jones_flags | char[1] |  | Bailer-Jones quality flags |
- | ebv | float32 |  | E(B-V)  |
- | e_ebv | float32 |  | Error on E(B-V)  |
- | ebv_flags | int32 |  | Flags indicating the source of E(B-V) |
- | ebv_zhang_2023 | float32 |  | E(B-V) from Zhang et al. (2023)  |
- | e_ebv_zhang_2023 | float32 |  | Error on E(B-V) from Zhang et al. (2023)  |
- | ebv_sfd | float32 |  | E(B-V) from SFD  |
- | e_ebv_sfd | float32 |  | Error on E(B-V) from SFD  |
- | ebv_rjce_glimpse | float32 |  | E(B-V) from RJCE GLIMPSE  |
- | e_ebv_rjce_glimpse | float32 |  | Error on RJCE GLIMPSE E(B-V)  |
- | ebv_rjce_allwise | float32 |  | E(B-V) from RJCE AllWISE  |
- | e_ebv_rjce_allwise | float32 |  | Error on RJCE AllWISE E(B-V) |
- | ebv_bayestar_2019 | float32 |  | E(B-V) from Bayestar 2019  |
- | e_ebv_bayestar_2019 | float32 |  | Error on Bayestar 2019 E(B-V)  |
- | ebv_edenhofer_2023 | float32 |  | E(B-V) from Edenhofer et al. (2023)  |
- | e_ebv_edenhofer_2023 | float32 |  | Error on Edenhofer et al. (2023) E(B-V)  |
+ | ebv | float32 | mag | E(B-V)  |
+ | e_ebv | float32 | mag | Error on E(B-V)  |
+ | ebv_flags | int64 |  | Flags indicating the source of E(B-V) |
+ | ebv_zhang_2023 | float32 | mag | E(B-V) from Zhang et al. (2023)  |
+ | e_ebv_zhang_2023 | float32 | mag | Error on E(B-V) from Zhang et al. (2023)  |
+ | ebv_sfd | float32 | mag | E(B-V) from SFD  |
+ | e_ebv_sfd | float32 | mag | Error on E(B-V) from SFD  |
+ | ebv_rjce_glimpse | float32 | mag | E(B-V) from RJCE GLIMPSE  |
+ | e_ebv_rjce_glimpse | float32 | mag | Error on RJCE GLIMPSE E(B-V)  |
+ | ebv_rjce_allwise | float32 | mag | E(B-V) from RJCE AllWISE  |
+ | e_ebv_rjce_allwise | float32 | mag | Error on RJCE AllWISE E(B-V) |
+ | ebv_bayestar_2019 | float32 | mag | E(B-V) from Bayestar 2019  |
+ | e_ebv_bayestar_2019 | float32 | mag | Error on Bayestar 2019 E(B-V)  |
+ | ebv_edenhofer_2023 | float32 | mag | E(B-V) from Edenhofer et al. (2023)  |
+ | e_ebv_edenhofer_2023 | float32 | mag | Error on Edenhofer et al. (2023) E(B-V)  |
  | c_star | float32 |  | Quality parameter (see Riello et al. 2021) |
- | u_jkc_mag | float32 |  | Gaia XP synthetic U-band (JKC)  |
+ | u_jkc_mag | float32 | mag | Gaia XP synthetic U-band (JKC)  |
  | u_jkc_mag_flag | int32 |  | U-band (JKC) is within valid range |
- | b_jkc_mag | float32 |  | Gaia XP synthetic B-band (JKC)  |
+ | b_jkc_mag | float32 | mag | Gaia XP synthetic B-band (JKC)  |
  | b_jkc_mag_flag | int32 |  | B-band (JKC) is within valid range |
- | v_jkc_mag | float32 |  | Gaia XP synthetic V-band (JKC)  |
+ | v_jkc_mag | float32 | mag | Gaia XP synthetic V-band (JKC)  |
  | v_jkc_mag_flag | int32 |  | V-band (JKC) is within valid range |
- | r_jkc_mag | float32 |  | Gaia XP synthetic R-band (JKC)  |
+ | r_jkc_mag | float32 | mag | Gaia XP synthetic R-band (JKC)  |
  | r_jkc_mag_flag | int32 |  | R-band (JKC) is within valid range |
- | i_jkc_mag | float32 |  | Gaia XP synthetic I-band (JKC)  |
+ | i_jkc_mag | float32 | mag | Gaia XP synthetic I-band (JKC)  |
  | i_jkc_mag_flag | int32 |  | I-band (JKC) is within valid range |
- | u_sdss_mag | float32 |  | Gaia XP synthetic u-band (SDSS)  |
+ | u_sdss_mag | float32 | mag | Gaia XP synthetic u-band (SDSS)  |
  | u_sdss_mag_flag | int32 |  | u-band (SDSS) is within valid range |
- | g_sdss_mag | float32 |  | Gaia XP synthetic g-band (SDSS)  |
+ | g_sdss_mag | float32 | mag | Gaia XP synthetic g-band (SDSS)  |
  | g_sdss_mag_flag | int32 |  | g-band (SDSS) is within valid range |
- | r_sdss_mag | float32 |  | Gaia XP synthetic r-band (SDSS)  |
+ | r_sdss_mag | float32 | mag | Gaia XP synthetic r-band (SDSS)  |
  | r_sdss_mag_flag | int32 |  | r-band (SDSS) is within valid range |
- | i_sdss_mag | float32 |  | Gaia XP synthetic i-band (SDSS)  |
+ | i_sdss_mag | float32 | mag | Gaia XP synthetic i-band (SDSS)  |
  | i_sdss_mag_flag | int32 |  | i-band (SDSS) is within valid range |
- | z_sdss_mag | float32 |  | Gaia XP synthetic z-band (SDSS)  |
+ | z_sdss_mag | float32 | mag | Gaia XP synthetic z-band (SDSS)  |
  | z_sdss_mag_flag | int32 |  | z-band (SDSS) is within valid range |
- | y_ps1_mag | float32 |  | Gaia XP synthetic Y-band (PS1)  |
+ | y_ps1_mag | float32 | mag | Gaia XP synthetic Y-band (PS1)  |
  | y_ps1_mag_flag | int32 |  | Y-band (PS1) is within valid range |
  | n_boss_visits | int32 |  | Number of BOSS visits |
  | boss_min_mjd | int32 |  | Minimum MJD of BOSS visits |
@@ -980,22 +976,22 @@ Name | Type | Unit | Description |
  | snr | float32 |  | Signal-to-noise ratio |
  | mean_fiber | float32 |  | S/N-weighted mean visit fiber number |
  | std_fiber | float32 |  | Standard deviation of visit fiber numbers |
- | spectrum_flags | int32 |  | Data reduction pipeline flags for this spectrum |
- | v_rad | float32 |  | Barycentric rest frame radial velocity  |
- | e_v_rad | float32 |  | Error on radial velocity  |
- | std_v_rad | float32 |  | Standard deviation of visit V_RAD  |
- | median_e_v_rad | float32 |  | Median error in radial velocity  |
- | doppler_teff | float32 |  | Stellar effective temperature  |
- | doppler_e_teff | float32 |  | Error on stellar effective temperature  |
- | doppler_logg | float32 |  | Surface gravity  |
- | doppler_e_logg | float32 |  | Error on surface gravity  |
- | doppler_fe_h | float32 |  | [Fe/H]  |
- | doppler_e_fe_h | float32 |  | Error on [Fe/H]  |
+ | spectrum_flags | int64 |  | Data reduction pipeline flags for this spectrum |
+ | v_rad | float32 | km/s | Barycentric rest frame radial velocity  |
+ | e_v_rad | float32 | km/s | Error on radial velocity  |
+ | std_v_rad | float32 | km/s | Standard deviation of visit V_RAD  |
+ | median_e_v_rad | float32 | km/s | Median error in radial velocity  |
+ | doppler_teff | float32 | K | Stellar effective temperature  |
+ | doppler_e_teff | float32 | K | Error on stellar effective temperature  |
+ | doppler_logg | float32 | log10(cm/s^2) | Surface gravity  |
+ | doppler_e_logg | float32 | log10(cm/s^2) | Error on surface gravity  |
+ | doppler_fe_h | float32 | dex | [Fe/H]  |
+ | doppler_e_fe_h | float32 | dex | Error on [Fe/H]  |
  | doppler_rchi2 | float32 |  | Reduced chi-square value of DOPPLER fit |
- | doppler_flags | int32 |  | DOPPLER flags |
- | xcorr_v_rad | float32 |  | Barycentric rest frame radial velocity  |
- | xcorr_v_rel | float32 |  | Relative velocity  |
- | xcorr_e_v_rel | float32 |  | Error on relative velocity  |
+ | doppler_flags | int64 |  | DOPPLER flags |
+ | xcorr_v_rad | float32 | km/s | Barycentric rest frame radial velocity  |
+ | xcorr_v_rel | float32 | km/s | Relative velocity  |
+ | xcorr_e_v_rel | float32 | km/s | Error on relative velocity  |
  | ccfwhm | float32 |  | Cross-correlation function FWHM |
  | autofwhm | float32 |  | Auto-correlation function FWHM |
  | n_components | int32 |  | Number of components in CCF |
@@ -1003,320 +999,320 @@ Name | Type | Unit | Description |
  | source_pk | int64 |  |  |
  | v_astra | char[1] |  | Astra version |
  | created | char[26] |  | Datetime when task record was created |
- | t_elapsed | float32 |  | Core-time elapsed on this analysis  |
- | t_overhead | float32 |  | Estimated core-time spent in overhads  |
+ | t_elapsed | float32 | s | Core-time elapsed on this analysis  |
+ | t_overhead | float32 | s | Estimated core-time spent in overhads  |
  | tag | char[1] |  | Experiment tag for this result |
- | eqw_h_alpha | float32 |  | Equivalent width of H-alpha  |
+ | eqw_h_alpha | float32 | A | Equivalent width of H-alpha  |
  | abs_h_alpha | float32 |  |  |
  | detection_stat_h_alpha | float32 |  | Detection probability (+1: absorption; 0: u |
  | detection_raw_h_alpha | float32 |  | Probability that feature is not noise (0: no |
- | eqw_percentiles_h_alpha | float32[0] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_h_alpha | float32[0] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_h_alpha | float32[0] |  |  |
- | eqw_h_beta | float32 |  | Equivalent width of H-beta  |
+ | eqw_h_beta | float32 | A | Equivalent width of H-beta  |
  | abs_h_beta | float32 |  |  |
  | detection_stat_h_beta | float32 |  | Detection probability (+1: absorption; 0: un |
  | detection_raw_h_beta | float32 |  | Probability that feature is not noise (0: noi |
- | eqw_percentiles_h_beta | float32[0] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_h_beta | float32[0] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_h_beta | float32[0] |  |  |
- | eqw_h_gamma | float32 |  | Equivalent width of H-gamma  |
+ | eqw_h_gamma | float32 | A | Equivalent width of H-gamma  |
  | abs_h_gamma | float32 |  |  |
  | detection_stat_h_gamma | float32 |  | Detection probability (+1: absorption; 0: u |
  | detection_raw_h_gamma | float32 |  | Probability that feature is not noise (0: no |
- | eqw_percentiles_h_gamma | float32[0] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_h_gamma | float32[0] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_h_gamma | float32[0] |  |  |
- | eqw_h_delta | float32 |  | Equivalent width of H-delta  |
+ | eqw_h_delta | float32 | A | Equivalent width of H-delta  |
  | abs_h_delta | float32 |  |  |
  | detection_stat_h_delta | float32 |  | Detection probability (+1: absorption; 0: u |
  | detection_raw_h_delta | float32 |  | Probability that feature is not noise (0: no |
- | eqw_percentiles_h_delta | float32[0] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_h_delta | float32[0] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_h_delta | float32[0] |  |  |
- | eqw_h_epsilon | float32 |  | Equivalent width of H-epsilon  |
+ | eqw_h_epsilon | float32 | A | Equivalent width of H-epsilon  |
  | abs_h_epsilon | float32 |  |  |
  | detection_stat_h_epsilon | float32 |  | Detection probability (+1: absorption; 0: |
  | detection_raw_h_epsilon | float32 |  | Probability that feature is not noise (0: |
- | eqw_percentiles_h_epsilon | float32[0] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_h_epsilon | float32[0] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_h_epsilon | float32[0] |  |  |
- | eqw_h_8 | float32 |  | Equivalent width of H-8  |
+ | eqw_h_8 | float32 | A | Equivalent width of H-8  |
  | abs_h_8 | float32 |  |  |
  | detection_stat_h_8 | float32 |  | Detection probability (+1: absorption; 0: undet |
  | detection_raw_h_8 | float32 |  | Probability that feature is not noise (0: noise |
- | eqw_percentiles_h_8 | float32[0] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_h_8 | float32[0] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_h_8 | float32[0] |  |  |
- | eqw_h_9 | float32 |  | Equivalent width of H-9  |
+ | eqw_h_9 | float32 | A | Equivalent width of H-9  |
  | abs_h_9 | float32 |  |  |
  | detection_stat_h_9 | float32 |  | Detection probability (+1: absorption; 0: undet |
  | detection_raw_h_9 | float32 |  | Probability that feature is not noise (0: noise |
- | eqw_percentiles_h_9 | float32[0] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_h_9 | float32[0] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_h_9 | float32[0] |  |  |
- | eqw_h_10 | float32 |  | Equivalent width of H-10  |
+ | eqw_h_10 | float32 | A | Equivalent width of H-10  |
  | abs_h_10 | float32 |  |  |
  | detection_stat_h_10 | float32 |  | Detection probability (+1: absorption; 0: unde |
  | detection_raw_h_10 | float32 |  | Probability that feature is not noise (0: noise |
- | eqw_percentiles_h_10 | float32[0] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_h_10 | float32[0] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_h_10 | float32[0] |  |  |
- | eqw_h_11 | float32 |  | Equivalent width of H-11  |
+ | eqw_h_11 | float32 | A | Equivalent width of H-11  |
  | abs_h_11 | float32 |  |  |
  | detection_stat_h_11 | float32 |  | Detection probability (+1: absorption; 0: unde |
  | detection_raw_h_11 | float32 |  | Probability that feature is not noise (0: noise |
- | eqw_percentiles_h_11 | float32[0] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_h_11 | float32[0] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_h_11 | float32[0] |  |  |
- | eqw_h_12 | float32 |  | Equivalent width of H-12  |
+ | eqw_h_12 | float32 | A | Equivalent width of H-12  |
  | abs_h_12 | float32 |  |  |
  | detection_stat_h_12 | float32 |  | Detection probability (+1: absorption; 0: unde |
  | detection_raw_h_12 | float32 |  | Probability that feature is not noise (0: noise |
- | eqw_percentiles_h_12 | float32[0] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_h_12 | float32[0] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_h_12 | float32[0] |  |  |
- | eqw_h_13 | float32 |  | Equivalent width of H-13  |
+ | eqw_h_13 | float32 | A | Equivalent width of H-13  |
  | abs_h_13 | float32 |  |  |
  | detection_stat_h_13 | float32 |  | Detection probability (+1: absorption; 0: unde |
  | detection_raw_h_13 | float32 |  | Probability that feature is not noise (0: noise |
- | eqw_percentiles_h_13 | float32[0] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_h_13 | float32[0] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_h_13 | float32[0] |  |  |
- | eqw_h_14 | float32 |  | Equivalent width of H-14  |
+ | eqw_h_14 | float32 | A | Equivalent width of H-14  |
  | abs_h_14 | float32 |  |  |
  | detection_stat_h_14 | float32 |  | Detection probability (+1: absorption; 0: unde |
  | detection_raw_h_14 | float32 |  | Probability that feature is not noise (0: noise |
- | eqw_percentiles_h_14 | float32[0] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_h_14 | float32[0] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_h_14 | float32[0] |  |  |
- | eqw_h_15 | float32 |  | Equivalent width of H-15  |
+ | eqw_h_15 | float32 | A | Equivalent width of H-15  |
  | abs_h_15 | float32 |  |  |
  | detection_stat_h_15 | float32 |  | Detection probability (+1: absorption; 0: unde |
  | detection_raw_h_15 | float32 |  | Probability that feature is not noise (0: noise |
- | eqw_percentiles_h_15 | float32[0] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_h_15 | float32[0] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_h_15 | float32[0] |  |  |
- | eqw_h_16 | float32 |  | Equivalent width of H-16  |
+ | eqw_h_16 | float32 | A | Equivalent width of H-16  |
  | abs_h_16 | float32 |  |  |
  | detection_stat_h_16 | float32 |  | Detection probability (+1: absorption; 0: unde |
  | detection_raw_h_16 | float32 |  | Probability that feature is not noise (0: noise |
- | eqw_percentiles_h_16 | float32[0] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_h_16 | float32[0] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_h_16 | float32[0] |  |  |
- | eqw_h_17 | float32 |  | Equivalent width of H-17  |
+ | eqw_h_17 | float32 | A | Equivalent width of H-17  |
  | abs_h_17 | float32 |  |  |
  | detection_stat_h_17 | float32 |  | Detection probability (+1: absorption; 0: unde |
  | detection_raw_h_17 | float32 |  | Probability that feature is not noise (0: noise |
- | eqw_percentiles_h_17 | float32[0] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_h_17 | float32[0] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_h_17 | float32[0] |  |  |
- | eqw_pa_7 | float32 |  | Equivalent width of Pa-7  |
+ | eqw_pa_7 | float32 | A | Equivalent width of Pa-7  |
  | abs_pa_7 | float32 |  |  |
  | detection_stat_pa_7 | float32 |  | Detection probability (+1: absorption; 0: unde |
  | detection_raw_pa_7 | float32 |  | Probability that feature is not noise (0: noise |
- | eqw_percentiles_pa_7 | float32[0] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_pa_7 | float32[0] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_pa_7 | float32[0] |  |  |
- | eqw_pa_8 | float32 |  | Equivalent width of Pa-8  |
+ | eqw_pa_8 | float32 | A | Equivalent width of Pa-8  |
  | abs_pa_8 | float32 |  |  |
  | detection_stat_pa_8 | float32 |  | Detection probability (+1: absorption; 0: unde |
  | detection_raw_pa_8 | float32 |  | Probability that feature is not noise (0: noise |
- | eqw_percentiles_pa_8 | float32[0] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_pa_8 | float32[0] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_pa_8 | float32[0] |  |  |
- | eqw_pa_9 | float32 |  | Equivalent width of Pa-9  |
+ | eqw_pa_9 | float32 | A | Equivalent width of Pa-9  |
  | abs_pa_9 | float32 |  |  |
  | detection_stat_pa_9 | float32 |  | Detection probability (+1: absorption; 0: unde |
  | detection_raw_pa_9 | float32 |  | Probability that feature is not noise (0: noise |
- | eqw_percentiles_pa_9 | float32[0] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_pa_9 | float32[0] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_pa_9 | float32[0] |  |  |
- | eqw_pa_10 | float32 |  | Equivalent width of Pa-10  |
+ | eqw_pa_10 | float32 | A | Equivalent width of Pa-10  |
  | abs_pa_10 | float32 |  |  |
  | detection_stat_pa_10 | float32 |  | Detection probability (+1: absorption; 0: und |
  | detection_raw_pa_10 | float32 |  | Probability that feature is not noise (0: nois |
- | eqw_percentiles_pa_10 | float32[0] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_pa_10 | float32[0] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_pa_10 | float32[0] |  |  |
- | eqw_pa_11 | float32 |  | Equivalent width of Pa-11  |
+ | eqw_pa_11 | float32 | A | Equivalent width of Pa-11  |
  | abs_pa_11 | float32 |  |  |
  | detection_stat_pa_11 | float32 |  | Detection probability (+1: absorption; 0: und |
  | detection_raw_pa_11 | float32 |  | Probability that feature is not noise (0: nois |
- | eqw_percentiles_pa_11 | float32[0] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_pa_11 | float32[0] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_pa_11 | float32[0] |  |  |
- | eqw_pa_12 | float32 |  | Equivalent width of Pa-12  |
+ | eqw_pa_12 | float32 | A | Equivalent width of Pa-12  |
  | abs_pa_12 | float32 |  |  |
  | detection_stat_pa_12 | float32 |  | Detection probability (+1: absorption; 0: und |
  | detection_raw_pa_12 | float32 |  | Probability that feature is not noise (0: nois |
- | eqw_percentiles_pa_12 | float32[0] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_pa_12 | float32[0] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_pa_12 | float32[0] |  |  |
- | eqw_pa_13 | float32 |  | Equivalent width of Pa-13  |
+ | eqw_pa_13 | float32 | A | Equivalent width of Pa-13  |
  | abs_pa_13 | float32 |  |  |
  | detection_stat_pa_13 | float32 |  | Detection probability (+1: absorption; 0: und |
  | detection_raw_pa_13 | float32 |  | Probability that feature is not noise (0: nois |
- | eqw_percentiles_pa_13 | float32[0] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_pa_13 | float32[0] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_pa_13 | float32[0] |  |  |
- | eqw_pa_14 | float32 |  | Equivalent width of Pa-14  |
+ | eqw_pa_14 | float32 | A | Equivalent width of Pa-14  |
  | abs_pa_14 | float32 |  |  |
  | detection_stat_pa_14 | float32 |  | Detection probability (+1: absorption; 0: und |
  | detection_raw_pa_14 | float32 |  | Probability that feature is not noise (0: nois |
- | eqw_percentiles_pa_14 | float32[0] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_pa_14 | float32[0] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_pa_14 | float32[0] |  |  |
- | eqw_pa_15 | float32 |  | Equivalent width of Pa-15  |
+ | eqw_pa_15 | float32 | A | Equivalent width of Pa-15  |
  | abs_pa_15 | float32 |  |  |
  | detection_stat_pa_15 | float32 |  | Detection probability (+1: absorption; 0: und |
  | detection_raw_pa_15 | float32 |  | Probability that feature is not noise (0: nois |
- | eqw_percentiles_pa_15 | float32[0] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_pa_15 | float32[0] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_pa_15 | float32[0] |  |  |
- | eqw_pa_16 | float32 |  | Equivalent width of Pa-16  |
+ | eqw_pa_16 | float32 | A | Equivalent width of Pa-16  |
  | abs_pa_16 | float32 |  |  |
  | detection_stat_pa_16 | float32 |  | Detection probability (+1: absorption; 0: und |
  | detection_raw_pa_16 | float32 |  | Probability that feature is not noise (0: nois |
- | eqw_percentiles_pa_16 | float32[0] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_pa_16 | float32[0] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_pa_16 | float32[0] |  |  |
- | eqw_pa_17 | float32 |  | Equivalent width of Pa-17  |
+ | eqw_pa_17 | float32 | A | Equivalent width of Pa-17  |
  | abs_pa_17 | float32 |  |  |
  | detection_stat_pa_17 | float32 |  | Detection probability (+1: absorption; 0: und |
  | detection_raw_pa_17 | float32 |  | Probability that feature is not noise (0: nois |
- | eqw_percentiles_pa_17 | float32[0] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_pa_17 | float32[0] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_pa_17 | float32[0] |  |  |
- | eqw_ca_ii_8662 | float32 |  | Equivalent width of Ca II at 8662 A  |
+ | eqw_ca_ii_8662 | float32 | A | Equivalent width of Ca II at 8662 A  |
  | abs_ca_ii_8662 | float32 |  |  |
  | detection_stat_ca_ii_8662 | float32 |  | Detection probability (+1: absorption; 0 |
  | detection_raw_ca_ii_8662 | float32 |  | Probability that feature is not noise (0: |
- | eqw_percentiles_ca_ii_8662 | float32[0] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_ca_ii_8662 | float32[0] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_ca_ii_8662 | float32[0] |  |  |
- | eqw_ca_ii_8542 | float32 |  | Equivalent width of Ca II at 8542 A  |
+ | eqw_ca_ii_8542 | float32 | A | Equivalent width of Ca II at 8542 A  |
  | abs_ca_ii_8542 | float32 |  |  |
  | detection_stat_ca_ii_8542 | float32 |  | Detection probability (+1: absorption; 0 |
  | detection_raw_ca_ii_8542 | float32 |  | Probability that feature is not noise (0: |
- | eqw_percentiles_ca_ii_8542 | float32[0] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_ca_ii_8542 | float32[0] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_ca_ii_8542 | float32[0] |  |  |
- | eqw_ca_ii_8498 | float32 |  | Equivalent width of Ca II at 8498 A  |
+ | eqw_ca_ii_8498 | float32 | A | Equivalent width of Ca II at 8498 A  |
  | abs_ca_ii_8498 | float32 |  |  |
  | detection_stat_ca_ii_8498 | float32 |  | Detection probability (+1: absorption; 0 |
  | detection_raw_ca_ii_8498 | float32 |  | Probability that feature is not noise (0: |
- | eqw_percentiles_ca_ii_8498 | float32[0] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_ca_ii_8498 | float32[0] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_ca_ii_8498 | float32[0] |  |  |
- | eqw_ca_k_3933 | float32 |  | Equivalent width of Ca K at 3933 A  |
+ | eqw_ca_k_3933 | float32 | A | Equivalent width of Ca K at 3933 A  |
  | abs_ca_k_3933 | float32 |  |  |
  | detection_stat_ca_k_3933 | float32 |  | Detection probability (+1: absorption; 0: |
  | detection_raw_ca_k_3933 | float32 |  | Probability that feature is not noise (0: |
- | eqw_percentiles_ca_k_3933 | float32[0] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_ca_k_3933 | float32[0] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_ca_k_3933 | float32[0] |  |  |
- | eqw_ca_h_3968 | float32 |  | Equivalent width of Ca H at 3968 A  |
+ | eqw_ca_h_3968 | float32 | A | Equivalent width of Ca H at 3968 A  |
  | abs_ca_h_3968 | float32 |  |  |
  | detection_stat_ca_h_3968 | float32 |  | Detection probability (+1: absorption; 0: |
  | detection_raw_ca_h_3968 | float32 |  | Probability that feature is not noise (0: |
- | eqw_percentiles_ca_h_3968 | float32[0] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_ca_h_3968 | float32[0] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_ca_h_3968 | float32[0] |  |  |
- | eqw_he_i_6678 | float32 |  | Equivalent width of He I at 6678 A  |
+ | eqw_he_i_6678 | float32 | A | Equivalent width of He I at 6678 A  |
  | abs_he_i_6678 | float32 |  |  |
  | detection_stat_he_i_6678 | float32 |  | Detection probability (+1: absorption; 0: |
  | detection_raw_he_i_6678 | float32 |  | Probability that feature is not noise (0: |
- | eqw_percentiles_he_i_6678 | float32[0] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_he_i_6678 | float32[0] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_he_i_6678 | float32[0] |  |  |
- | eqw_he_i_5875 | float32 |  | Equivalent width of He I at 5875 A  |
+ | eqw_he_i_5875 | float32 | A | Equivalent width of He I at 5875 A  |
  | abs_he_i_5875 | float32 |  |  |
  | detection_stat_he_i_5875 | float32 |  | Detection probability (+1: absorption; 0: |
  | detection_raw_he_i_5875 | float32 |  | Probability that feature is not noise (0: |
- | eqw_percentiles_he_i_5875 | float32[0] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_he_i_5875 | float32[0] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_he_i_5875 | float32[0] |  |  |
- | eqw_he_i_5015 | float32 |  | Equivalent width of He I at 5015 A  |
+ | eqw_he_i_5015 | float32 | A | Equivalent width of He I at 5015 A  |
  | abs_he_i_5015 | float32 |  |  |
  | detection_stat_he_i_5015 | float32 |  | Detection probability (+1: absorption; 0: |
  | detection_raw_he_i_5015 | float32 |  | Probability that feature is not noise (0: |
- | eqw_percentiles_he_i_5015 | float32[0] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_he_i_5015 | float32[0] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_he_i_5015 | float32[0] |  |  |
- | eqw_he_i_4471 | float32 |  | Equivalent width of He I at 4471 A  |
+ | eqw_he_i_4471 | float32 | A | Equivalent width of He I at 4471 A  |
  | abs_he_i_4471 | float32 |  |  |
  | detection_stat_he_i_4471 | float32 |  | Detection probability (+1: absorption; 0: |
  | detection_raw_he_i_4471 | float32 |  | Probability that feature is not noise (0: |
- | eqw_percentiles_he_i_4471 | float32[0] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_he_i_4471 | float32[0] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_he_i_4471 | float32[0] |  |  |
- | eqw_he_ii_4685 | float32 |  | Equivalent width of He II at 4685 A  |
+ | eqw_he_ii_4685 | float32 | A | Equivalent width of He II at 4685 A  |
  | abs_he_ii_4685 | float32 |  |  |
  | detection_stat_he_ii_4685 | float32 |  | Detection probability (+1: absorption; 0 |
  | detection_raw_he_ii_4685 | float32 |  | Probability that feature is not noise (0: |
- | eqw_percentiles_he_ii_4685 | float32[0] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_he_ii_4685 | float32[0] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_he_ii_4685 | float32[0] |  |  |
- | eqw_n_ii_6583 | float32 |  | Equivalent width of N II at 6583 A  |
+ | eqw_n_ii_6583 | float32 | A | Equivalent width of N II at 6583 A  |
  | abs_n_ii_6583 | float32 |  |  |
  | detection_stat_n_ii_6583 | float32 |  | Detection probability (+1: absorption; 0: |
  | detection_raw_n_ii_6583 | float32 |  | Probability that feature is not noise (0: |
- | eqw_percentiles_n_ii_6583 | float32[0] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_n_ii_6583 | float32[0] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_n_ii_6583 | float32[0] |  |  |
- | eqw_n_ii_6548 | float32 |  | Equivalent width of N II at 6548 A  |
+ | eqw_n_ii_6548 | float32 | A | Equivalent width of N II at 6548 A  |
  | abs_n_ii_6548 | float32 |  |  |
  | detection_stat_n_ii_6548 | float32 |  | Detection probability (+1: absorption; 0: |
  | detection_raw_n_ii_6548 | float32 |  | Probability that feature is not noise (0: |
- | eqw_percentiles_n_ii_6548 | float32[0] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_n_ii_6548 | float32[0] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_n_ii_6548 | float32[0] |  |  |
- | eqw_s_ii_6716 | float32 |  | Equivalent width of S II at 6716 A  |
+ | eqw_s_ii_6716 | float32 | A | Equivalent width of S II at 6716 A  |
  | abs_s_ii_6716 | float32 |  |  |
  | detection_stat_s_ii_6716 | float32 |  | Detection probability (+1: absorption; 0: |
  | detection_raw_s_ii_6716 | float32 |  | Probability that feature is not noise (0: |
- | eqw_percentiles_s_ii_6716 | float32[0] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_s_ii_6716 | float32[0] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_s_ii_6716 | float32[0] |  |  |
- | eqw_s_ii_6730 | float32 |  | Equivalent width of S II at 6730 A  |
+ | eqw_s_ii_6730 | float32 | A | Equivalent width of S II at 6730 A  |
  | abs_s_ii_6730 | float32 |  |  |
  | detection_stat_s_ii_6730 | float32 |  | Detection probability (+1: absorption; 0: |
  | detection_raw_s_ii_6730 | float32 |  | Probability that feature is not noise (0: |
- | eqw_percentiles_s_ii_6730 | float32[0] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_s_ii_6730 | float32[0] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_s_ii_6730 | float32[0] |  |  |
- | eqw_fe_ii_5018 | float32 |  | Equivalent width of Fe II at 5018 A  |
+ | eqw_fe_ii_5018 | float32 | A | Equivalent width of Fe II at 5018 A  |
  | abs_fe_ii_5018 | float32 |  |  |
  | detection_stat_fe_ii_5018 | float32 |  | Detection probability (+1: absorption; 0 |
  | detection_raw_fe_ii_5018 | float32 |  | Probability that feature is not noise (0: |
- | eqw_percentiles_fe_ii_5018 | float32[0] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_fe_ii_5018 | float32[0] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_fe_ii_5018 | float32[0] |  |  |
- | eqw_fe_ii_5169 | float32 |  | Equivalent width of Fe II at 5169 A  |
+ | eqw_fe_ii_5169 | float32 | A | Equivalent width of Fe II at 5169 A  |
  | abs_fe_ii_5169 | float32 |  |  |
  | detection_stat_fe_ii_5169 | float32 |  | Detection probability (+1: absorption; 0 |
  | detection_raw_fe_ii_5169 | float32 |  | Probability that feature is not noise (0: |
- | eqw_percentiles_fe_ii_5169 | float32[0] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_fe_ii_5169 | float32[0] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_fe_ii_5169 | float32[0] |  |  |
- | eqw_fe_ii_5197 | float32 |  | Equivalent width of Fe II at 5197 A  |
+ | eqw_fe_ii_5197 | float32 | A | Equivalent width of Fe II at 5197 A  |
  | abs_fe_ii_5197 | float32 |  |  |
  | detection_stat_fe_ii_5197 | float32 |  | Detection probability (+1: absorption; 0 |
  | detection_raw_fe_ii_5197 | float32 |  | Probability that feature is not noise (0: |
- | eqw_percentiles_fe_ii_5197 | float32[0] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_fe_ii_5197 | float32[0] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_fe_ii_5197 | float32[0] |  |  |
- | eqw_fe_ii_6432 | float32 |  | Equivalent width of Fe II at 6432 A  |
+ | eqw_fe_ii_6432 | float32 | A | Equivalent width of Fe II at 6432 A  |
  | abs_fe_ii_6432 | float32 |  |  |
  | detection_stat_fe_ii_6432 | float32 |  | Detection probability (+1: absorption; 0 |
  | detection_raw_fe_ii_6432 | float32 |  | Probability that feature is not noise (0: |
- | eqw_percentiles_fe_ii_6432 | float32[0] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_fe_ii_6432 | float32[0] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_fe_ii_6432 | float32[0] |  |  |
- | eqw_o_i_5577 | float32 |  | Equivalent width of O I at 5577 A |
+ | eqw_o_i_5577 | float32 | A | Equivalent width of O I at 5577 A |
  | abs_o_i_5577 | float32 |  |  |
  | detection_stat_o_i_5577 | float32 |  | Detection probability (+1: absorption; 0: |
  | detection_raw_o_i_5577 | float32 |  | Probability that feature is not noise (0: n |
- | eqw_percentiles_o_i_5577 | float32[0] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_o_i_5577 | float32[0] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_o_i_5577 | float32[0] |  |  |
- | eqw_o_i_6300 | float32 |  | Equivalent width of O I at 6300 A  |
+ | eqw_o_i_6300 | float32 | A | Equivalent width of O I at 6300 A  |
  | abs_o_i_6300 | float32 |  |  |
  | detection_stat_o_i_6300 | float32 |  | Detection probability (+1: absorption; 0: |
  | detection_raw_o_i_6300 | float32 |  | Probability that feature is not noise (0: n |
- | eqw_percentiles_o_i_6300 | float32[0] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_o_i_6300 | float32[0] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_o_i_6300 | float32[0] |  |  |
- | eqw_o_i_6363 | float32 |  | Equivalent width of O I at 6363 A |
+ | eqw_o_i_6363 | float32 | A | Equivalent width of O I at 6363 A |
  | abs_o_i_6363 | float32 |  |  |
  | detection_stat_o_i_6363 | float32 |  | Detection probability (+1: absorption; 0: |
  | detection_raw_o_i_6363 | float32 |  | Probability that feature is not noise (0: n |
- | eqw_percentiles_o_i_6363 | float32[0] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_o_i_6363 | float32[0] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_o_i_6363 | float32[0] |  |  |
- | eqw_o_ii_3727 | float32 |  | Equivalent width of O II at 3727 A  |
+ | eqw_o_ii_3727 | float32 | A | Equivalent width of O II at 3727 A  |
  | abs_o_ii_3727 | float32 |  |  |
  | detection_stat_o_ii_3727 | float32 |  | Detection probability (+1: absorption; 0: |
  | detection_raw_o_ii_3727 | float32 |  | Probability that feature is not noise (0: |
- | eqw_percentiles_o_ii_3727 | float32[0] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_o_ii_3727 | float32[0] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_o_ii_3727 | float32[0] |  |  |
- | eqw_o_iii_4959 | float32 |  | Equivalent width of O III at 4959 A  |
+ | eqw_o_iii_4959 | float32 | A | Equivalent width of O III at 4959 A  |
  | abs_o_iii_4959 | float32 |  |  |
  | detection_stat_o_iii_4959 | float32 |  | Detection probability (+1: absorption; 0 |
  | detection_raw_o_iii_4959 | float32 |  | Probability that feature is not noise (0: |
- | eqw_percentiles_o_iii_4959 | float32[0] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_o_iii_4959 | float32[0] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_o_iii_4959 | float32[0] |  |  |
- | eqw_o_iii_5006 | float32 |  | Equivalent width of O III at 5006 A  |
+ | eqw_o_iii_5006 | float32 | A | Equivalent width of O III at 5006 A  |
  | abs_o_iii_5006 | float32 |  |  |
  | detection_stat_o_iii_5006 | float32 |  | Detection probability (+1: absorption; 0 |
  | detection_raw_o_iii_5006 | float32 |  | Probability that feature is not noise (0: |
- | eqw_percentiles_o_iii_5006 | float32[0] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_o_iii_5006 | float32[0] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_o_iii_5006 | float32[0] |  |  |
- | eqw_o_iii_4363 | float32 |  | Equivalent width of O III at 4363 A  |
+ | eqw_o_iii_4363 | float32 | A | Equivalent width of O III at 4363 A  |
  | abs_o_iii_4363 | float32 |  |  |
  | detection_stat_o_iii_4363 | float32 |  | Detection probability (+1: absorption; 0 |
  | detection_raw_o_iii_4363 | float32 |  | Probability that feature is not noise (0: |
- | eqw_percentiles_o_iii_4363 | float32[0] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_o_iii_4363 | float32[0] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_o_iii_4363 | float32[0] |  |  |
- | eqw_li_i | float32 |  | Equivalent width of Li I at 6707 A  |
+ | eqw_li_i | float32 | A | Equivalent width of Li I at 6707 A  |
  | abs_li_i | float32 |  |  |
  | detection_stat_li_i | float32 |  | Detection probability (+1: absorption; 0: unde |
  | detection_raw_li_i | float32 |  | Probability that feature is not noise (0: noise |
- | eqw_percentiles_li_i | float32[0] |  | (16, 50, 84)th percentiles of EW  |
+ | eqw_percentiles_li_i | float32[0] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_li_i | float32[0] |  |  |
 
 
@@ -1324,3 +1320,7 @@ Name | Type | Unit | Description |
 ---
 ## Notes
 None
+
+---
+## Regrets
+I  have no regrets!
