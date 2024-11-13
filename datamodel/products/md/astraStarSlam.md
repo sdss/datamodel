@@ -1,7 +1,7 @@
-# Data Model: astraStarSnowWhite
+# Data Model: astraStarSlam
 
 
-Results and best-fit models from the SnowWhite astra pipeline for a single star
+Results and best-fit models from the Slam astra pipeline for a single star
 
 
 ## Contents
@@ -13,10 +13,10 @@ Results and best-fit models from the SnowWhite astra pipeline for a single star
 ---
 
 ## Basic Information
-Results and best-fit models from the SnowWhite astra pipeline for a single star 
+Results and best-fit models from the Slam astra pipeline for a single star 
 
 ### Naming Convention
-$MWM_ASTRA/0.6.0/results/star/49/97/astraStarSnowWhite-0.6.0-62354997.fits
+$MWM_ASTRA/0.6.0/results/star/49/99/astraStarSlam-0.6.0-87874999.fits
 
 ### Releases
 DR19
@@ -25,7 +25,7 @@ DR19
 MWM_ASTRA
 
 ### Approximate Size
-95 KB
+84 KB
 
 ### File Type
 FITS
@@ -65,76 +65,76 @@ Key | Value | Comment | |
 | NAXIS | 0 | number of array dimensions |
 | EXTEND | True |  |
 | V_ASTRA | 0.6.0 | Astra version |
-| CREATED | 24-08-07 02:01:55 | File creation time (UTC %y-%m-%d %H:%M:%S) |
-| SDSS_ID | 62354997 | SDSS-5 unique identifier |
+| CREATED | 24-08-01 15:08:17 | File creation time (UTC %y-%m-%d %H:%M:%S) |
+| SDSS_ID | 87874999 | SDSS-5 unique identifier |
 | APOGEEID | None | SDSS-4 DR17 APOGEE identifier |
-| GAIA2_ID | 1628748085083559296 | Gaia DR2 source identifier |
-| GAIA3_ID | 1628748085083559296 | Gaia DR3 source identifier |
-| TIC_ID | 1201236958 | TESS Input Catalog (v8) identifier |
-| HEALPIX | 10712 | HEALPix (128 side) |
+| GAIA2_ID | 4307687928281427200 | Gaia DR2 source identifier |
+| GAIA3_ID | 4307687928281427200 | Gaia DR3 source identifier |
+| TIC_ID | 198214920 | TESS Input Catalog (v8) identifier |
+| HEALPIX | 82584 | HEALPix (128 side) |
 | LEAD | tic_v8 | Lead catalog used for cross-match |
-| VER_ID | 21 | SDSS catalog version for targeting |
-| CAT_ID | 4347441926 | Catalog identifier used to target the source |
-| CAT_ID21 | 4347441926 | Catalog identifier (v21; v0.0) |
-| CAT_ID25 | 27021597906498301 | Catalog identifier (v25; v0.5) |
-| CAT_ID31 | 63050394852615904 | Catalog identifier (v31; v1.0) |
+| VER_ID | 25 | SDSS catalog version for targeting |
+| CAT_ID | 27021598796328977 | Catalog identifier used to target the source |
+| CAT_ID21 | 5239923504 | Catalog identifier (v21; v0.0) |
+| CAT_ID25 | 27021598796328977 | Catalog identifier (v25; v0.5) |
+| CAT_ID31 | 63050395674493940 | Catalog identifier (v31; v1.0) |
 | N_ASSOC | 1 | SDSS_IDs associated with this CATALOGID |
-| N_NEIGH | 0 | Sources within 3" and G_MAG < G_MAG_source + 5 |
-| RA | 247.26265 | Right ascension [deg] |
-| DEC | 63.196484 | Declination [deg] |
-| L | 94.4092157988921 | Galactic longitude [deg] |
-| B | 39.836137413504396 | Galactic latitude [deg] |
-| PLX | 4.4182973 | Parallax [mas] |
-| E_PLX | 0.31994197 | Error on parallax [mas] |
-| PMRA | -29.59657 | Proper motion in RA [mas/yr] |
-| E_PMRA | 0.29762068 | Error on proper motion in RA [mas/yr] |
-| PMDE | 11.363555 | Proper motion in DEC [mas/yr] |
-| E_PMDE | 0.43375963 | Error on proper motion in DEC [mas/yr] |
-| V_RAD | NaN | Gaia radial velocity [km/s] |
-| E_V_RAD | NaN | Error on Gaia radial velocity [km/s] |
-| G_MAG | 19.643274 | Gaia DR3 mean G band magnitude [mag] |
-| BP_MAG | 19.871891 | Gaia DR3 mean BP band magnitude [mag] |
-| RP_MAG | 19.401697 | Gaia DR3 mean RP band magnitude [mag] |
-| J_MAG | None | 2MASS J band magnitude [mag] |
-| E_J_MAG | None | Error on 2MASS J band magnitude [mag] |
-| H_MAG | None | 2MASS H band magnitude [mag] |
-| E_H_MAG | None | Error on 2MASS H band magnitude [mag] |
-| K_MAG | None | 2MASS K band magnitude [mag] |
-| E_K_MAG | None | Error on 2MASS K band magnitude [mag] |
+| N_NEIGH | 1 | Sources within 3" and G_MAG < G_MAG_source + 5 |
+| RA | 286.90344 | Right ascension [deg] |
+| DEC | 9.453463 | Declination [deg] |
+| L | 43.18011812231807 | Galactic longitude [deg] |
+| B | 0.743862296928519 | Galactic latitude [deg] |
+| PLX | 0.41694582 | Parallax [mas] |
+| E_PLX | 0.027907245 | Error on parallax [mas] |
+| PMRA | -0.8794999 | Proper motion in RA [mas/yr] |
+| E_PMRA | 0.029547315 | Error on proper motion in RA [mas/yr] |
+| PMDE | -3.7837265 | Proper motion in DEC [mas/yr] |
+| E_PMDE | 0.029485429 | Error on proper motion in DEC [mas/yr] |
+| V_RAD | 42.253967 | Gaia radial velocity [km/s] |
+| E_V_RAD | 3.4601471 | Error on Gaia radial velocity [km/s] |
+| G_MAG | 15.13257 | Gaia DR3 mean G band magnitude [mag] |
+| BP_MAG | 16.943165 | Gaia DR3 mean BP band magnitude [mag] |
+| RP_MAG | 13.868556 | Gaia DR3 mean RP band magnitude [mag] |
+| J_MAG | 11.497 | 2MASS J band magnitude [mag] |
+| E_J_MAG | 0.023 | Error on 2MASS J band magnitude [mag] |
+| H_MAG | 10.511 | 2MASS H band magnitude [mag] |
+| E_H_MAG | 0.025 | Error on 2MASS H band magnitude [mag] |
+| K_MAG | 10.113 | 2MASS K band magnitude [mag] |
+| E_K_MAG | 0.018 | Error on 2MASS K band magnitude [mag] |
 | PH_QUAL | None | 2MASS photometric quality flag |
 | BL_FLG | None | Number of components fit per band (JHK) |
 | CC_FLG | None | Contamination and confusion flag |
 | COMMENT | See https://www.ipac.caltech.edu/2mass/releases/allsky/doc/sec2_2a.html |  |
-| W1_MAG | None | W1 magnitude |
-| E_W1_MAG | None | Error on W1 magnitude |
-| W1_FLUX | None | W1 flux [Vega nMgy] |
-| W1_DFLUX | None | Error on W1 flux [Vega nMgy] |
-| W1_FRAC | None | Fraction of W1 flux from this object |
-| W2_MAG | None | W2 magnitude [Vega] |
-| E_W2_MAG | None | Error on W2 magnitude |
-| W2_FLUX | None | W2 flux [Vega nMgy] |
-| W2_DFLUX | None | Error on W2 flux [Vega nMgy] |
-| W2_FRAC | None | Fraction of W2 flux from this object |
-| W1UFLAGS | 0 | unWISE flags for W1 |
-| W2UFLAGS | 0 | unWISE flags for W2 |
+| W1_MAG | 9.927885058954516 | W1 magnitude |
+| E_W1_MAG | 0.000602439493279438 | Error on W1 magnitude |
+| W1_FLUX | 106474.59 | W1 flux [Vega nMgy] |
+| W1_DFLUX | 59.079266 | Error on W1 flux [Vega nMgy] |
+| W1_FRAC | 0.8893659 | Fraction of W1 flux from this object |
+| W2_MAG | 9.975583472048847 | W2 magnitude [Vega] |
+| E_W2_MAG | 0.001488557644168273 | Error on W2 magnitude |
+| W2_FLUX | 99303.97 | W2 flux [Vega nMgy] |
+| W2_DFLUX | 136.14696 | Error on W2 flux [Vega nMgy] |
+| W2_FRAC | 0.63726777 | Fraction of W2 flux from this object |
+| W1UFLAGS | 32 | unWISE flags for W1 |
+| W2UFLAGS | 163 | unWISE flags for W2 |
 | W1AFLAGS | 0 | Additional flags for W1 |
 | W2AFLAGS | 0 | Additional flags for W2 |
 | COMMENT | See https://catalog.unwise.me/catalogs.html |  |
-| MAG4_5 | None | IRAC band 4.5 micron magnitude [mag] |
-| D4_5M | None | Error on IRAC band 4.5 micron magnitude [mag] |
-| RMS_F4_5 | None | RMS deviations from final flux [mJy] |
-| SQF_4_5 | 0 | Source quality flag for IRAC band 4.5 micron |
-| MF4_5 | 0 | Flux calculation method flag |
-| CSF | 0 | Close source flag |
+| MAG4_5 | 10.023 | IRAC band 4.5 micron magnitude [mag] |
+| D4_5M | 0.09 | Error on IRAC band 4.5 micron magnitude [mag] |
+| RMS_F4_5 | 1.076 | RMS deviations from final flux [mJy] |
+| SQF_4_5 | 24576 | Source quality flag for IRAC band 4.5 micron |
+| MF4_5 | 12 | Flux calculation method flag |
+| CSF | 1 | Close source flag |
 | COMMENT | See https://irsa.ipac.caltech.edu/data/SPITZER/GLIMPSE/gator_docs/ |  |
 | N_BOSS | 4 | Number of BOSS visits |
-| B_MINMJD | 59296 | Minimum MJD of BOSS visits |
-| N_MAXMJD | 59384 | Maximum MJD of BOSS visits |
-| N_APOGEE | 0 | Number of APOGEE visits |
-| A_MINMJD | None | Minimum MJD of APOGEE visits |
-| A_MAXMJD | None | Maximum MJD of APOGEE visits |
-| CHECKSUM | LjaOLgYOLgaOLgYO | HDU checksum updated 2024-08-06T20:01:55 |
-| DATASUM | 0 | data unit checksum updated 2024-08-06T20:01:55 |
+| B_MINMJD | 59715 | Minimum MJD of BOSS visits |
+| N_MAXMJD | 60479 | Maximum MJD of BOSS visits |
+| N_APOGEE | 3 | Number of APOGEE visits |
+| A_MINMJD | 60087 | Minimum MJD of APOGEE visits |
+| A_MAXMJD | 60105 | Maximum MJD of APOGEE visits |
+| CHECKSUM | j7fij4dgj4dgj4dg | HDU checksum updated 2024-08-01T09:08:17 |
+| DATASUM | 0 | data unit checksum updated 2024-08-01T09:08:17 |
 | COMMENT | HDU 0: Summary information only |  |
 | COMMENT | HDU 1: BOSS results from Apache Point Observatory |  |
 | COMMENT | HDU 2: BOSS results from Las Campanas Observatory |  |
@@ -155,22 +155,23 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | binary table extension |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
-| NAXIS1 | 438 | length of dimension 1 |
+| NAXIS1 | 363 | length of dimension 1 |
 | NAXIS2 | 0 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
-| TFIELDS | 106 | number of table fields |
+| TFIELDS | 89 | number of table fields |
 | EXTNAME | BOSS/APO | Extension name |
 | OBSRVTRY | APO | Observatory |
 | INSTRMNT | BOSS | Instrument |
 | V_ASTRA | 0.6.0 | Astra version |
-| CREATED | 24-08-07 02:01:55 | File creation time (UTC %y-%m-%d %H:%M:%S) |
+| CREATED | 24-08-01 15:08:17 | File creation time (UTC %y-%m-%d %H:%M:%S) |
 | TDIM48 | (0) |  |
 | TDIM49 | (0) |  |
-| TDIM105 | (0) |  |
-| TDIM106 | (0) |  |
-| CHECKSUM | PTZQRTZNPTZNPTZN | HDU checksum updated 2024-08-06T20:01:55 |
-| DATASUM | 0 | data unit checksum updated 2024-08-06T20:01:55 |
+| TDIM87 | (0) |  |
+| TDIM88 | (0) |  |
+| TDIM89 | (0) |  |
+| CHECKSUM | Z8Iag6HZZ6Haf6HY | HDU checksum updated 2024-08-01T09:08:17 |
+| DATASUM | 0 | data unit checksum updated 2024-08-01T09:08:17 |
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
@@ -243,44 +244,27 @@ Name | Type | Unit | Description |
  | t_elapsed | float32 | s | Core-time elapsed on this analysis  |
  | t_overhead | float32 | s | Estimated core-time spent in overhads  |
  | tag | char[1] |  | Experiment tag for this result |
- | classification | char[1] |  | Classification |
- | p_cv | float32 |  | Cataclysmic variable probability |
- | p_da | float32 |  | DA-type white dwarf probability |
- | p_dab | float32 |  | DAB-type white dwarf probability |
- | p_dabz | float32 |  | DABZ-type white dwarf probability |
- | p_dah | float32 |  | DA (H)-type white dwarf probability |
- | p_dahe | float32 |  | DA (He)-type white dwarf probability |
- | p_dao | float32 |  | DAO-type white dwarf probability |
- | p_daz | float32 |  | DAZ-type white dwarf probability |
- | p_da_ms | float32 |  | DA-MS binary probability |
- | p_db | float32 |  | DB-type white dwarf probability |
- | p_dba | float32 |  | DBA-type white dwarf probability |
- | p_dbaz | float32 |  | DBAZ-type white dwarf probability |
- | p_dbh | float32 |  | DB (H)-type white dwarf probability |
- | p_dbz | float32 |  | DBZ-type white dwarf probability |
- | p_db_ms | float32 |  | DB-MS binary probability |
- | p_dc | float32 |  | DC-type white dwarf probability |
- | p_dc_ms | float32 |  | DC-MS binary probability |
- | p_do | float32 |  | DO-type white dwarf probability |
- | p_dq | float32 |  | DQ-type white dwarf probability |
- | p_dqz | float32 |  | DQZ-type white dwarf probability |
- | p_dqpec | float32 |  | DQ Peculiar-type white dwarf probability |
- | p_dz | float32 |  | DZ-type white dwarf probability |
- | p_dza | float32 |  | DZA-type white dwarf probability |
- | p_dzb | float32 |  | DZB-type white dwarf probability |
- | p_dzba | float32 |  | DZBA-type white dwarf probability |
- | p_mwd | float32 |  | Main sequence star probability |
- | p_hotdq | float32 |  | Hot DQ-type white dwarf probability |
  | teff | float32 | K | Stellar effective temperature  |
  | e_teff | float32 | K | Error on stellar effective temperature  |
  | logg | float32 | log10(cm/s^2) | Surface gravity  |
  | e_logg | float32 | log10(cm/s^2) | Error on surface gravity  |
- | v_rel | float32 |  | Relative velocity used in stellar parameter fit |
- | raw_e_teff | float32 | K | Raw error on stellar effective temperature  |
- | raw_e_logg | float32 | log10(cm/s^2) | Raw error on surface gravity  |
- | result_flags | int64 |  | Result flags |
+ | fe_h | float32 | dex | [Fe/H]  |
+ | e_fe_h | float32 | dex | Error on [Fe/H]  |
+ | rho_teff_logg | float32 |  | Correlation coefficient between TEFF and LOGG |
+ | rho_teff_fe_h | float32 |  | Correlation coefficient between TEFF and FE_H |
+ | rho_logg_fe_h | float32 |  | Correlation coefficient between LOGG and FE_H |
+ | initial_teff | float32 | K | Initial stellar effective temperature  |
+ | initial_logg | float32 | log10(cm/s^2) | Initial surface gravity  |
+ | initial_fe_h | float32 | dex | Initial [Fe/H]  |
+ | success | bool |  | Optimizer returned successful value |
+ | status | int32 |  | Optimization status |
+ | optimality | bool |  | Optimality condition |
+ | result_flags | int64 |  | Flags describing the results |
+ | chi2 | float32 |  | Chi-square value |
+ | rchi2 | float32 |  | Reduced chi-square value |
  | wavelength | float32[0] | Angstrom | Wavelength (vacuum)  |
  | model_flux | float32[0] |  | Best-fit model flux |
+ | continuum | float32[0] |  | Best-fit continuum flux |
 
 
 
@@ -296,22 +280,23 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | binary table extension |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
-| NAXIS1 | 438 | length of dimension 1 |
+| NAXIS1 | 363 | length of dimension 1 |
 | NAXIS2 | 0 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
-| TFIELDS | 106 | number of table fields |
+| TFIELDS | 89 | number of table fields |
 | EXTNAME | BOSS/LCO | Extension name |
 | OBSRVTRY | LCO | Observatory |
 | INSTRMNT | BOSS | Instrument |
 | V_ASTRA | 0.6.0 | Astra version |
-| CREATED | 24-08-07 02:01:55 | File creation time (UTC %y-%m-%d %H:%M:%S) |
+| CREATED | 24-08-01 15:08:17 | File creation time (UTC %y-%m-%d %H:%M:%S) |
 | TDIM48 | (0) |  |
 | TDIM49 | (0) |  |
-| TDIM105 | (0) |  |
-| TDIM106 | (0) |  |
-| CHECKSUM | MVaQPTZNMTaNMTYN | HDU checksum updated 2024-08-06T20:01:55 |
-| DATASUM | 0 | data unit checksum updated 2024-08-06T20:01:55 |
+| TDIM87 | (0) |  |
+| TDIM88 | (0) |  |
+| TDIM89 | (0) |  |
+| CHECKSUM | Y7Mab7KZZ7Kaa7KY | HDU checksum updated 2024-08-01T09:08:17 |
+| DATASUM | 0 | data unit checksum updated 2024-08-01T09:08:17 |
 
 ##### Binary Table Caption for HDU2
 Name | Type | Unit | Description |
@@ -384,44 +369,27 @@ Name | Type | Unit | Description |
  | t_elapsed | float32 | s | Core-time elapsed on this analysis  |
  | t_overhead | float32 | s | Estimated core-time spent in overhads  |
  | tag | char[1] |  | Experiment tag for this result |
- | classification | char[1] |  | Classification |
- | p_cv | float32 |  | Cataclysmic variable probability |
- | p_da | float32 |  | DA-type white dwarf probability |
- | p_dab | float32 |  | DAB-type white dwarf probability |
- | p_dabz | float32 |  | DABZ-type white dwarf probability |
- | p_dah | float32 |  | DA (H)-type white dwarf probability |
- | p_dahe | float32 |  | DA (He)-type white dwarf probability |
- | p_dao | float32 |  | DAO-type white dwarf probability |
- | p_daz | float32 |  | DAZ-type white dwarf probability |
- | p_da_ms | float32 |  | DA-MS binary probability |
- | p_db | float32 |  | DB-type white dwarf probability |
- | p_dba | float32 |  | DBA-type white dwarf probability |
- | p_dbaz | float32 |  | DBAZ-type white dwarf probability |
- | p_dbh | float32 |  | DB (H)-type white dwarf probability |
- | p_dbz | float32 |  | DBZ-type white dwarf probability |
- | p_db_ms | float32 |  | DB-MS binary probability |
- | p_dc | float32 |  | DC-type white dwarf probability |
- | p_dc_ms | float32 |  | DC-MS binary probability |
- | p_do | float32 |  | DO-type white dwarf probability |
- | p_dq | float32 |  | DQ-type white dwarf probability |
- | p_dqz | float32 |  | DQZ-type white dwarf probability |
- | p_dqpec | float32 |  | DQ Peculiar-type white dwarf probability |
- | p_dz | float32 |  | DZ-type white dwarf probability |
- | p_dza | float32 |  | DZA-type white dwarf probability |
- | p_dzb | float32 |  | DZB-type white dwarf probability |
- | p_dzba | float32 |  | DZBA-type white dwarf probability |
- | p_mwd | float32 |  | Main sequence star probability |
- | p_hotdq | float32 |  | Hot DQ-type white dwarf probability |
  | teff | float32 | K | Stellar effective temperature  |
  | e_teff | float32 | K | Error on stellar effective temperature  |
  | logg | float32 | log10(cm/s^2) | Surface gravity  |
  | e_logg | float32 | log10(cm/s^2) | Error on surface gravity  |
- | v_rel | float32 |  | Relative velocity used in stellar parameter fit |
- | raw_e_teff | float32 | K | Raw error on stellar effective temperature  |
- | raw_e_logg | float32 | log10(cm/s^2) | Raw error on surface gravity  |
- | result_flags | int64 |  | Result flags |
+ | fe_h | float32 | dex | [Fe/H]  |
+ | e_fe_h | float32 | dex | Error on [Fe/H]  |
+ | rho_teff_logg | float32 |  | Correlation coefficient between TEFF and LOGG |
+ | rho_teff_fe_h | float32 |  | Correlation coefficient between TEFF and FE_H |
+ | rho_logg_fe_h | float32 |  | Correlation coefficient between LOGG and FE_H |
+ | initial_teff | float32 | K | Initial stellar effective temperature  |
+ | initial_logg | float32 | log10(cm/s^2) | Initial surface gravity  |
+ | initial_fe_h | float32 | dex | Initial [Fe/H]  |
+ | success | bool |  | Optimizer returned successful value |
+ | status | int32 |  | Optimization status |
+ | optimality | bool |  | Optimality condition |
+ | result_flags | int64 |  | Flags describing the results |
+ | chi2 | float32 |  | Chi-square value |
+ | rchi2 | float32 |  | Reduced chi-square value |
  | wavelength | float32[0] | Angstrom | Wavelength (vacuum)  |
  | model_flux | float32[0] |  | Best-fit model flux |
+ | continuum | float32[0] |  | Best-fit continuum flux |
 
 
 
@@ -437,20 +405,21 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | binary table extension |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
-| NAXIS1 | 337 | length of dimension 1 |
+| NAXIS1 | 262 | length of dimension 1 |
 | NAXIS2 | 0 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
-| TFIELDS | 83 | number of table fields |
+| TFIELDS | 66 | number of table fields |
 | EXTNAME | APOGEE/APO | Extension name |
 | OBSRVTRY | APO | Observatory |
 | INSTRMNT | APOGEE | Instrument |
 | V_ASTRA | 0.6.0 | Astra version |
-| CREATED | 24-08-07 02:01:55 | File creation time (UTC %y-%m-%d %H:%M:%S) |
-| TDIM82 | (0) |  |
-| TDIM83 | (0) |  |
-| CHECKSUM | 9qNaFoLX9oLaCoLU | HDU checksum updated 2024-08-06T20:01:55 |
-| DATASUM | 0 | data unit checksum updated 2024-08-06T20:01:55 |
+| CREATED | 24-08-01 15:08:17 | File creation time (UTC %y-%m-%d %H:%M:%S) |
+| TDIM64 | (0) |  |
+| TDIM65 | (0) |  |
+| TDIM66 | (0) |  |
+| CHECKSUM | GaLoJSInGYInGYIn | HDU checksum updated 2024-08-01T09:08:17 |
+| DATASUM | 0 | data unit checksum updated 2024-08-01T09:08:17 |
 
 ##### Binary Table Caption for HDU3
 Name | Type | Unit | Description |
@@ -500,44 +469,27 @@ Name | Type | Unit | Description |
  | t_elapsed | float32 | s | Core-time elapsed on this analysis  |
  | t_overhead | float32 | s | Estimated core-time spent in overhads  |
  | tag | char[1] |  | Experiment tag for this result |
- | classification | char[1] |  | Classification |
- | p_cv | float32 |  | Cataclysmic variable probability |
- | p_da | float32 |  | DA-type white dwarf probability |
- | p_dab | float32 |  | DAB-type white dwarf probability |
- | p_dabz | float32 |  | DABZ-type white dwarf probability |
- | p_dah | float32 |  | DA (H)-type white dwarf probability |
- | p_dahe | float32 |  | DA (He)-type white dwarf probability |
- | p_dao | float32 |  | DAO-type white dwarf probability |
- | p_daz | float32 |  | DAZ-type white dwarf probability |
- | p_da_ms | float32 |  | DA-MS binary probability |
- | p_db | float32 |  | DB-type white dwarf probability |
- | p_dba | float32 |  | DBA-type white dwarf probability |
- | p_dbaz | float32 |  | DBAZ-type white dwarf probability |
- | p_dbh | float32 |  | DB (H)-type white dwarf probability |
- | p_dbz | float32 |  | DBZ-type white dwarf probability |
- | p_db_ms | float32 |  | DB-MS binary probability |
- | p_dc | float32 |  | DC-type white dwarf probability |
- | p_dc_ms | float32 |  | DC-MS binary probability |
- | p_do | float32 |  | DO-type white dwarf probability |
- | p_dq | float32 |  | DQ-type white dwarf probability |
- | p_dqz | float32 |  | DQZ-type white dwarf probability |
- | p_dqpec | float32 |  | DQ Peculiar-type white dwarf probability |
- | p_dz | float32 |  | DZ-type white dwarf probability |
- | p_dza | float32 |  | DZA-type white dwarf probability |
- | p_dzb | float32 |  | DZB-type white dwarf probability |
- | p_dzba | float32 |  | DZBA-type white dwarf probability |
- | p_mwd | float32 |  | Main sequence star probability |
- | p_hotdq | float32 |  | Hot DQ-type white dwarf probability |
  | teff | float32 | K | Stellar effective temperature  |
  | e_teff | float32 | K | Error on stellar effective temperature  |
  | logg | float32 | log10(cm/s^2) | Surface gravity  |
  | e_logg | float32 | log10(cm/s^2) | Error on surface gravity  |
- | v_rel | float32 |  | Relative velocity used in stellar parameter fit |
- | raw_e_teff | float32 | K | Raw error on stellar effective temperature  |
- | raw_e_logg | float32 | log10(cm/s^2) | Raw error on surface gravity  |
- | result_flags | int64 |  | Result flags |
+ | fe_h | float32 | dex | [Fe/H]  |
+ | e_fe_h | float32 | dex | Error on [Fe/H]  |
+ | rho_teff_logg | float32 |  | Correlation coefficient between TEFF and LOGG |
+ | rho_teff_fe_h | float32 |  | Correlation coefficient between TEFF and FE_H |
+ | rho_logg_fe_h | float32 |  | Correlation coefficient between LOGG and FE_H |
+ | initial_teff | float32 | K | Initial stellar effective temperature  |
+ | initial_logg | float32 | log10(cm/s^2) | Initial surface gravity  |
+ | initial_fe_h | float32 | dex | Initial [Fe/H]  |
+ | success | bool |  | Optimizer returned successful value |
+ | status | int32 |  | Optimization status |
+ | optimality | bool |  | Optimality condition |
+ | result_flags | int64 |  | Flags describing the results |
+ | chi2 | float32 |  | Chi-square value |
+ | rchi2 | float32 |  | Reduced chi-square value |
  | wavelength | float32[0] | Angstrom | Wavelength (vacuum)  |
  | model_flux | float32[0] |  | Best-fit model flux |
+ | continuum | float32[0] |  | Best-fit continuum flux |
 
 
 
@@ -553,20 +505,21 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | binary table extension |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
-| NAXIS1 | 337 | length of dimension 1 |
+| NAXIS1 | 262 | length of dimension 1 |
 | NAXIS2 | 0 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
-| TFIELDS | 83 | number of table fields |
+| TFIELDS | 66 | number of table fields |
 | EXTNAME | APOGEE/LCO | Extension name |
 | OBSRVTRY | LCO | Observatory |
 | INSTRMNT | APOGEE | Instrument |
 | V_ASTRA | 0.6.0 | Astra version |
-| CREATED | 24-08-07 02:01:55 | File creation time (UTC %y-%m-%d %H:%M:%S) |
-| TDIM82 | (0) |  |
-| TDIM83 | (0) |  |
-| CHECKSUM | 95NYG2LY92LYE2LY | HDU checksum updated 2024-08-06T20:01:55 |
-| DATASUM | 0 | data unit checksum updated 2024-08-06T20:01:55 |
+| CREATED | 24-08-01 15:08:17 | File creation time (UTC %y-%m-%d %H:%M:%S) |
+| TDIM64 | (0) |  |
+| TDIM65 | (0) |  |
+| TDIM66 | (0) |  |
+| CHECKSUM | HaLmIZIkHaIkHWIk | HDU checksum updated 2024-08-01T09:08:17 |
+| DATASUM | 0 | data unit checksum updated 2024-08-01T09:08:17 |
 
 ##### Binary Table Caption for HDU4
 Name | Type | Unit | Description |
@@ -616,44 +569,27 @@ Name | Type | Unit | Description |
  | t_elapsed | float32 | s | Core-time elapsed on this analysis  |
  | t_overhead | float32 | s | Estimated core-time spent in overhads  |
  | tag | char[1] |  | Experiment tag for this result |
- | classification | char[1] |  | Classification |
- | p_cv | float32 |  | Cataclysmic variable probability |
- | p_da | float32 |  | DA-type white dwarf probability |
- | p_dab | float32 |  | DAB-type white dwarf probability |
- | p_dabz | float32 |  | DABZ-type white dwarf probability |
- | p_dah | float32 |  | DA (H)-type white dwarf probability |
- | p_dahe | float32 |  | DA (He)-type white dwarf probability |
- | p_dao | float32 |  | DAO-type white dwarf probability |
- | p_daz | float32 |  | DAZ-type white dwarf probability |
- | p_da_ms | float32 |  | DA-MS binary probability |
- | p_db | float32 |  | DB-type white dwarf probability |
- | p_dba | float32 |  | DBA-type white dwarf probability |
- | p_dbaz | float32 |  | DBAZ-type white dwarf probability |
- | p_dbh | float32 |  | DB (H)-type white dwarf probability |
- | p_dbz | float32 |  | DBZ-type white dwarf probability |
- | p_db_ms | float32 |  | DB-MS binary probability |
- | p_dc | float32 |  | DC-type white dwarf probability |
- | p_dc_ms | float32 |  | DC-MS binary probability |
- | p_do | float32 |  | DO-type white dwarf probability |
- | p_dq | float32 |  | DQ-type white dwarf probability |
- | p_dqz | float32 |  | DQZ-type white dwarf probability |
- | p_dqpec | float32 |  | DQ Peculiar-type white dwarf probability |
- | p_dz | float32 |  | DZ-type white dwarf probability |
- | p_dza | float32 |  | DZA-type white dwarf probability |
- | p_dzb | float32 |  | DZB-type white dwarf probability |
- | p_dzba | float32 |  | DZBA-type white dwarf probability |
- | p_mwd | float32 |  | Main sequence star probability |
- | p_hotdq | float32 |  | Hot DQ-type white dwarf probability |
  | teff | float32 | K | Stellar effective temperature  |
  | e_teff | float32 | K | Error on stellar effective temperature  |
  | logg | float32 | log10(cm/s^2) | Surface gravity  |
  | e_logg | float32 | log10(cm/s^2) | Error on surface gravity  |
- | v_rel | float32 |  | Relative velocity used in stellar parameter fit |
- | raw_e_teff | float32 | K | Raw error on stellar effective temperature  |
- | raw_e_logg | float32 | log10(cm/s^2) | Raw error on surface gravity  |
- | result_flags | int64 |  | Result flags |
+ | fe_h | float32 | dex | [Fe/H]  |
+ | e_fe_h | float32 | dex | Error on [Fe/H]  |
+ | rho_teff_logg | float32 |  | Correlation coefficient between TEFF and LOGG |
+ | rho_teff_fe_h | float32 |  | Correlation coefficient between TEFF and FE_H |
+ | rho_logg_fe_h | float32 |  | Correlation coefficient between LOGG and FE_H |
+ | initial_teff | float32 | K | Initial stellar effective temperature  |
+ | initial_logg | float32 | log10(cm/s^2) | Initial surface gravity  |
+ | initial_fe_h | float32 | dex | Initial [Fe/H]  |
+ | success | bool |  | Optimizer returned successful value |
+ | status | int32 |  | Optimization status |
+ | optimality | bool |  | Optimality condition |
+ | result_flags | int64 |  | Flags describing the results |
+ | chi2 | float32 |  | Chi-square value |
+ | rchi2 | float32 |  | Reduced chi-square value |
  | wavelength | float32[0] | Angstrom | Wavelength (vacuum)  |
  | model_flux | float32[0] |  | Best-fit model flux |
+ | continuum | float32[0] |  | Best-fit continuum flux |
 
 
 
