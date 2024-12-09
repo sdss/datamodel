@@ -1,16 +1,16 @@
 general:
-  name: astraAllStarSLAM
-  short: Results from the SLAM astra pipeline for each star
-  description: 'Results from the SLAM astra pipeline for each star. '
+  name: astraAllStarSlam
+  short: Results from the Slam astra pipeline for each star
+  description: 'Results from the Slam astra pipeline for each star. '
   datatype: FITS
-  filesize: 3 MB
+  filesize: 87 MB
   releases:
-  - IPL3
+  - DR19
   environments:
   - MWM_ASTRA
   surveys:
-  - MWM
-  naming_convention: $MWM_ASTRA/0.5.0/summary/astraAllStarSLAM-0.5.0.fits.gz
+  - SDSS
+  naming_convention: $MWM_ASTRA/0.6.0/summary/astraAllStarSlam-0.6.0.fits.gz
   generated_by: astra
   design: false
   vac: false
@@ -20,19 +20,19 @@ changelog:
     one release to another
   releases: {}
 releases:
-  IPL3:
-    template: $MWM_ASTRA/0.5.0/summary/astraAllStarSLAM-0.5.0.fits.gz
-    example: 0.5.0/summary/astraAllStarSLAM-0.5.0.fits.gz
-    location: 0.5.0/summary/astraAllStarSLAM-0.5.0.fits.gz
+  DR19:
+    template: $MWM_ASTRA/0.6.0/summary/astraAllStarSlam-0.6.0.fits.gz
+    example: 0.6.0/summary/astraAllStarSlam-0.6.0.fits.gz
+    location: 0.6.0/summary/astraAllStarSlam-0.6.0.fits.gz
     environment: MWM_ASTRA
     access:
       in_sdss_access: true
-      path_name: astraAllStarSLAM
-      path_template: $MWM_ASTRA/{v_astra}/summary/astraAllStarSLAM-{v_astra}.fits
+      path_name: astraAllStarSlam
+      path_template: $MWM_ASTRA/{v_astra}/summary/astraAllStarSlam-{v_astra}.fits.gz
       path_kwargs:
       - v_astra
-      access_string: astraAllStarSLAM = $MWM_ASTRA/0.5.0/summary/astraAllStarSLAM-0.5.0.fits.gz
-    survey: MWM
+      access_string: astraAllStarSlam = $MWM_ASTRA/0.6.0/summary/astraAllStarSlam-0.6.0.fits.gz
+    survey: SDSS
     hdus:
       hdu0:
         name: PRIMARY
@@ -56,31 +56,25 @@ releases:
           value: Slam
           comment: Pipeline name
         - key: V_ASTRA
-          value: 0.5.0
+          value: 0.6.0
           comment: Astra version
         - key: CREATED
-          value: 23-11-16 06:37:33
+          value: 24-09-13 15:07:10
           comment: File creation time (UTC %y-%m-%d %H:%M:%S)
         - key: COMMENT
           value: 'HDU 0: Summary information only'
           comment: ''
         - key: COMMENT
-          value: 'HDU 1: BOSS spectra taken at Apache Point Observatory'
+          value: 'HDU 1: BOSS spectra'
           comment: ''
         - key: COMMENT
-          value: 'HDU 2: BOSS spectra taken at Las Campanas Observatory'
-          comment: ''
-        - key: COMMENT
-          value: 'HDU 3: APOGEE spectra taken at Apache Point Observatory'
-          comment: ''
-        - key: COMMENT
-          value: 'HDU 4: APOGEE spectra taken at Las Campanas Observatory'
+          value: 'HDU 2: APOGEE spectra'
           comment: ''
       hdu1:
         name: ''
-        description: SLAM results for each star from BOSS
+        description: Slam results for each star from BOSS
         is_image: false
-        size: 7 MB
+        size: 185 MB
         header:
         - key: XTENSION
           value: BINTABLE
@@ -92,10 +86,10 @@ releases:
           value: 2
           comment: number of array dimensions
         - key: NAXIS1
-          value: 878
+          value: 982
           comment: length of dimension 1
         - key: NAXIS2
-          value: 8482
+          value: 197673
           comment: length of dimension 2
         - key: PCOUNT
           value: 0
@@ -104,7 +98,7 @@ releases:
           value: 1
           comment: number of groups
         - key: TFIELDS
-          value: 185
+          value: 190
           comment: number of table fields
         - key: INSTRMNT
           value: BOSS
@@ -113,13 +107,13 @@ releases:
           value: Slam
           comment: Pipeline name
         - key: V_ASTRA
-          value: 0.5.0
+          value: 0.6.0
           comment: Astra version
         - key: CREATED
-          value: 23-11-16 06:37:33
+          value: 24-09-13 15:07:10
           comment: File creation time (UTC %y-%m-%d %H:%M:%S)
-        - key: TDIM16
-          value: (56)
+        - key: TDIM15
+          value: (57)
           comment: ''
         - key: COMMENT
           value: See https://www.ipac.caltech.edu/2mass/releases/allsky/doc/sec2_2a.html
@@ -131,11 +125,11 @@ releases:
           value: See https://irsa.ipac.caltech.edu/data/SPITZER/GLIMPSE/gator_docs/
           comment: ''
         - key: CHECKSUM
-          value: YfhlZZhlYfhlYZhl
-          comment: HDU checksum updated 2023-11-15T23:37:35
+          value: LIR8LIO8LIO8LIO8
+          comment: HDU checksum updated 2024-09-13T09:07:48
         - key: DATASUM
-          value: '2799616441'
-          comment: data unit checksum updated 2023-11-15T23:37:35
+          value: '536846919'
+          comment: data unit checksum updated 2024-09-13T09:07:48
         columns:
           sdss_id:
             name: sdss_id
@@ -167,11 +161,6 @@ releases:
             type: int32
             unit: ''
             description: HEALPix (128 side)
-          carton_0:
-            name: carton_0
-            type: char[1]
-            unit: ''
-            description: Highest priority carton name
           lead:
             name: lead
             type: char[17]
@@ -214,148 +203,148 @@ releases:
             description: Sources within 3" and G_MAG < G_MAG_source + 5
           sdss5_target_flags:
             name: sdss5_target_flags
-            type: bool[56]
+            type: bool[57]
             unit: ''
             description: SDSS-5 targeting flags
           sdss4_apogee_target1_flags:
             name: sdss4_apogee_target1_flags
-            type: int32
+            type: int64
             unit: ''
             description: SDSS4 APOGEE1 targeting flags (1/2)
           sdss4_apogee_target2_flags:
             name: sdss4_apogee_target2_flags
-            type: int32
+            type: int64
             unit: ''
             description: SDSS4 APOGEE1 targeting flags (2/2)
           sdss4_apogee2_target1_flags:
             name: sdss4_apogee2_target1_flags
-            type: int32
+            type: int64
             unit: ''
             description: SDSS4 APOGEE2 targeting flags (1/3)
           sdss4_apogee2_target2_flags:
             name: sdss4_apogee2_target2_flags
-            type: int32
+            type: int64
             unit: ''
             description: SDSS4 APOGEE2 targeting flags (2/3)
           sdss4_apogee2_target3_flags:
             name: sdss4_apogee2_target3_flags
-            type: int32
+            type: int64
             unit: ''
             description: SDSS4 APOGEE2 targeting flags (3/3)
           sdss4_apogee_member_flags:
             name: sdss4_apogee_member_flags
-            type: int32
+            type: int64
             unit: ''
             description: SDSS4 likely cluster/galaxy member flags
           sdss4_apogee_extra_target_flags:
             name: sdss4_apogee_extra_target_flags
-            type: int32
+            type: int64
             unit: ''
             description: SDSS4 target info (aka EXTRATARG)
           ra:
             name: ra
             type: float32
-            unit: ''
+            unit: deg
             description: 'Right ascension '
           dec:
             name: dec
             type: float32
-            unit: ''
+            unit: deg
             description: 'Declination '
           l:
             name: l
             type: float32
-            unit: ''
+            unit: deg
             description: 'Galactic longitude '
           b:
             name: b
             type: float32
-            unit: ''
+            unit: deg
             description: 'Galactic latitude '
           plx:
             name: plx
             type: float32
-            unit: ''
+            unit: mas
             description: 'Parallax '
           e_plx:
             name: e_plx
             type: float32
-            unit: ''
+            unit: mas
             description: 'Error on parallax '
           pmra:
             name: pmra
             type: float32
-            unit: ''
+            unit: mas/yr
             description: 'Proper motion in RA '
           e_pmra:
             name: e_pmra
             type: float32
-            unit: ''
+            unit: mas/yr
             description: 'Error on proper motion in RA '
           pmde:
             name: pmde
             type: float32
-            unit: ''
+            unit: mas/yr
             description: 'Proper motion in DEC '
           e_pmde:
             name: e_pmde
             type: float32
-            unit: ''
+            unit: mas/yr
             description: 'Error on proper motion in DEC '
           gaia_v_rad:
             name: gaia_v_rad
             type: float32
-            unit: ''
+            unit: km/s
             description: 'Gaia radial velocity '
           gaia_e_v_rad:
             name: gaia_e_v_rad
             type: float32
-            unit: ''
+            unit: km/s
             description: 'Error on Gaia radial velocity '
           g_mag:
             name: g_mag
             type: float32
-            unit: ''
+            unit: mag
             description: 'Gaia DR3 mean G band magnitude '
           bp_mag:
             name: bp_mag
             type: float32
-            unit: ''
+            unit: mag
             description: 'Gaia DR3 mean BP band magnitude '
           rp_mag:
             name: rp_mag
             type: float32
-            unit: ''
+            unit: mag
             description: 'Gaia DR3 mean RP band magnitude '
           j_mag:
             name: j_mag
             type: float32
-            unit: ''
+            unit: mag
             description: '2MASS J band magnitude '
           e_j_mag:
             name: e_j_mag
             type: float32
-            unit: ''
+            unit: mag
             description: 'Error on 2MASS J band magnitude '
           h_mag:
             name: h_mag
             type: float32
-            unit: ''
+            unit: mag
             description: '2MASS H band magnitude '
           e_h_mag:
             name: e_h_mag
             type: float32
-            unit: ''
+            unit: mag
             description: 'Error on 2MASS H band magnitude '
           k_mag:
             name: k_mag
             type: float32
-            unit: ''
+            unit: mag
             description: '2MASS K band magnitude '
           e_k_mag:
             name: e_k_mag
             type: float32
-            unit: ''
+            unit: mag
             description: 'Error on 2MASS K band magnitude '
           ph_qual:
             name: ph_qual
@@ -385,12 +374,12 @@ releases:
           w1_flux:
             name: w1_flux
             type: float32
-            unit: ''
+            unit: Vega nMgy
             description: 'W1 flux '
           w1_dflux:
             name: w1_dflux
             type: float32
-            unit: ''
+            unit: Vega nMgy
             description: 'Error on W1 flux '
           w1_frac:
             name: w1_frac
@@ -400,7 +389,7 @@ releases:
           w2_mag:
             name: w2_mag
             type: float32
-            unit: ''
+            unit: Vega
             description: 'W2 magnitude '
           e_w2_mag:
             name: e_w2_mag
@@ -410,12 +399,12 @@ releases:
           w2_flux:
             name: w2_flux
             type: float32
-            unit: ''
+            unit: Vega nMgy
             description: 'W2 flux '
           w2_dflux:
             name: w2_dflux
             type: float32
-            unit: ''
+            unit: Vega nMgy
             description: 'Error on W2 flux '
           w2_frac:
             name: w2_frac
@@ -424,93 +413,93 @@ releases:
             description: Fraction of W2 flux from this object
           w1uflags:
             name: w1uflags
-            type: int32
+            type: int64
             unit: ''
             description: unWISE flags for W1
           w2uflags:
             name: w2uflags
-            type: int32
+            type: int64
             unit: ''
             description: unWISE flags for W2
           w1aflags:
             name: w1aflags
-            type: int32
+            type: int64
             unit: ''
             description: Additional flags for W1
           w2aflags:
             name: w2aflags
-            type: int32
+            type: int64
             unit: ''
             description: Additional flags for W2
           mag4_5:
             name: mag4_5
             type: float32
-            unit: ''
+            unit: mag
             description: 'IRAC band 4.5 micron magnitude '
           d4_5m:
             name: d4_5m
             type: float32
-            unit: ''
+            unit: mag
             description: 'Error on IRAC band 4.5 micron magnitude '
           rms_f4_5:
             name: rms_f4_5
             type: float32
-            unit: ''
+            unit: mJy
             description: 'RMS deviations from final flux '
           sqf_4_5:
             name: sqf_4_5
-            type: int32
+            type: int64
             unit: ''
             description: Source quality flag for IRAC band 4.5 micron
           mf4_5:
             name: mf4_5
-            type: int32
+            type: int64
             unit: ''
             description: Flux calculation method flag
           csf:
             name: csf
-            type: int32
+            type: int64
             unit: ''
             description: Close source flag
           zgr_teff:
             name: zgr_teff
             type: float32
-            unit: ''
+            unit: K
             description: 'Stellar effective temperature '
           zgr_e_teff:
             name: zgr_e_teff
             type: float32
-            unit: ''
+            unit: K
             description: 'Error on stellar effective temperature '
           zgr_logg:
             name: zgr_logg
             type: float32
-            unit: ''
+            unit: log10(cm/s^2)
             description: 'Surface gravity '
           zgr_e_logg:
             name: zgr_e_logg
             type: float32
-            unit: ''
+            unit: log10(cm/s^2)
             description: 'Error on surface gravity '
           zgr_fe_h:
             name: zgr_fe_h
             type: float32
-            unit: ''
+            unit: dex
             description: '[Fe/H] '
           zgr_e_fe_h:
             name: zgr_e_fe_h
             type: float32
-            unit: ''
+            unit: dex
             description: 'Error on [Fe/H] '
           zgr_e:
             name: zgr_e
             type: float32
-            unit: ''
+            unit: mag
             description: 'Extinction '
           zgr_e_e:
             name: zgr_e_e
             type: float32
-            unit: ''
+            unit: mag
             description: 'Error on extinction '
           zgr_plx:
             name: zgr_plx
@@ -549,38 +538,38 @@ releases:
             description: Chi-square value
           zgr_quality_flags:
             name: zgr_quality_flags
-            type: int32
+            type: int64
             unit: ''
             description: Quality flags
           r_med_geo:
             name: r_med_geo
             type: float32
-            unit: ''
+            unit: pc
             description: 'Median geometric distance '
           r_lo_geo:
             name: r_lo_geo
             type: float32
-            unit: ''
+            unit: pc
             description: '16th percentile of geometric distance '
           r_hi_geo:
             name: r_hi_geo
             type: float32
-            unit: ''
+            unit: pc
             description: '84th percentile of geometric distance '
           r_med_photogeo:
             name: r_med_photogeo
             type: float32
-            unit: ''
+            unit: pc
             description: '50th percentile of photogeometric distance '
           r_lo_photogeo:
             name: r_lo_photogeo
             type: float32
-            unit: ''
+            unit: pc
             description: '16th percentile of photogeometric distance '
           r_hi_photogeo:
             name: r_hi_photogeo
             type: float32
-            unit: ''
+            unit: pc
             description: '84th percentile of photogeometric distance '
           bailer_jones_flags:
             name: bailer_jones_flags
@@ -590,77 +579,77 @@ releases:
           ebv:
             name: ebv
             type: float32
-            unit: ''
+            unit: mag
             description: 'E(B-V) '
           e_ebv:
             name: e_ebv
             type: float32
-            unit: ''
+            unit: mag
             description: 'Error on E(B-V) '
           ebv_flags:
             name: ebv_flags
-            type: int32
+            type: int64
             unit: ''
             description: Flags indicating the source of E(B-V)
           ebv_zhang_2023:
             name: ebv_zhang_2023
             type: float32
-            unit: ''
+            unit: mag
             description: 'E(B-V) from Zhang et al. (2023) '
           e_ebv_zhang_2023:
             name: e_ebv_zhang_2023
             type: float32
-            unit: ''
+            unit: mag
             description: 'Error on E(B-V) from Zhang et al. (2023) '
           ebv_sfd:
             name: ebv_sfd
             type: float32
-            unit: ''
+            unit: mag
             description: 'E(B-V) from SFD '
           e_ebv_sfd:
             name: e_ebv_sfd
             type: float32
-            unit: ''
+            unit: mag
             description: 'Error on E(B-V) from SFD '
           ebv_rjce_glimpse:
             name: ebv_rjce_glimpse
             type: float32
-            unit: ''
+            unit: mag
             description: 'E(B-V) from RJCE GLIMPSE '
           e_ebv_rjce_glimpse:
             name: e_ebv_rjce_glimpse
             type: float32
-            unit: ''
+            unit: mag
             description: 'Error on RJCE GLIMPSE E(B-V) '
           ebv_rjce_allwise:
             name: ebv_rjce_allwise
             type: float32
-            unit: ''
+            unit: mag
             description: 'E(B-V) from RJCE AllWISE '
           e_ebv_rjce_allwise:
             name: e_ebv_rjce_allwise
             type: float32
-            unit: ''
+            unit: mag
             description: Error on RJCE AllWISE E(B-V)
           ebv_bayestar_2019:
             name: ebv_bayestar_2019
             type: float32
-            unit: ''
+            unit: mag
             description: 'E(B-V) from Bayestar 2019 '
           e_ebv_bayestar_2019:
             name: e_ebv_bayestar_2019
             type: float32
-            unit: ''
+            unit: mag
             description: 'Error on Bayestar 2019 E(B-V) '
           ebv_edenhofer_2023:
             name: ebv_edenhofer_2023
             type: float32
-            unit: ''
+            unit: mag
             description: 'E(B-V) from Edenhofer et al. (2023) '
           e_ebv_edenhofer_2023:
             name: e_ebv_edenhofer_2023
             type: float32
-            unit: ''
+            unit: mag
             description: 'Error on Edenhofer et al. (2023) E(B-V) '
           c_star:
             name: c_star
@@ -670,7 +659,7 @@ releases:
           u_jkc_mag:
             name: u_jkc_mag
             type: float32
-            unit: ''
+            unit: mag
             description: 'Gaia XP synthetic U-band (JKC) '
           u_jkc_mag_flag:
             name: u_jkc_mag_flag
@@ -680,7 +669,7 @@ releases:
           b_jkc_mag:
             name: b_jkc_mag
             type: float32
-            unit: ''
+            unit: mag
             description: 'Gaia XP synthetic B-band (JKC) '
           b_jkc_mag_flag:
             name: b_jkc_mag_flag
@@ -690,7 +679,7 @@ releases:
           v_jkc_mag:
             name: v_jkc_mag
             type: float32
-            unit: ''
+            unit: mag
             description: 'Gaia XP synthetic V-band (JKC) '
           v_jkc_mag_flag:
             name: v_jkc_mag_flag
@@ -700,7 +689,7 @@ releases:
           r_jkc_mag:
             name: r_jkc_mag
             type: float32
-            unit: ''
+            unit: mag
             description: 'Gaia XP synthetic R-band (JKC) '
           r_jkc_mag_flag:
             name: r_jkc_mag_flag
@@ -710,7 +699,7 @@ releases:
           i_jkc_mag:
             name: i_jkc_mag
             type: float32
-            unit: ''
+            unit: mag
             description: 'Gaia XP synthetic I-band (JKC) '
           i_jkc_mag_flag:
             name: i_jkc_mag_flag
@@ -720,7 +709,7 @@ releases:
           u_sdss_mag:
             name: u_sdss_mag
             type: float32
-            unit: ''
+            unit: mag
             description: 'Gaia XP synthetic u-band (SDSS) '
           u_sdss_mag_flag:
             name: u_sdss_mag_flag
@@ -730,7 +719,7 @@ releases:
           g_sdss_mag:
             name: g_sdss_mag
             type: float32
-            unit: ''
+            unit: mag
             description: 'Gaia XP synthetic g-band (SDSS) '
           g_sdss_mag_flag:
             name: g_sdss_mag_flag
@@ -740,7 +729,7 @@ releases:
           r_sdss_mag:
             name: r_sdss_mag
             type: float32
-            unit: ''
+            unit: mag
             description: 'Gaia XP synthetic r-band (SDSS) '
           r_sdss_mag_flag:
             name: r_sdss_mag_flag
@@ -750,7 +739,7 @@ releases:
           i_sdss_mag:
             name: i_sdss_mag
             type: float32
-            unit: ''
+            unit: mag
             description: 'Gaia XP synthetic i-band (SDSS) '
           i_sdss_mag_flag:
             name: i_sdss_mag_flag
@@ -760,7 +749,7 @@ releases:
           z_sdss_mag:
             name: z_sdss_mag
             type: float32
-            unit: ''
+            unit: mag
             description: 'Gaia XP synthetic z-band (SDSS) '
           z_sdss_mag_flag:
             name: z_sdss_mag_flag
@@ -770,7 +759,7 @@ releases:
           y_ps1_mag:
             name: y_ps1_mag
             type: float32
-            unit: ''
+            unit: mag
             description: 'Gaia XP synthetic Y-band (PS1) '
           y_ps1_mag_flag:
             name: y_ps1_mag_flag
@@ -870,52 +859,52 @@ releases:
           v_rad:
             name: v_rad
             type: float32
-            unit: ''
+            unit: km/s
             description: 'Barycentric rest frame radial velocity '
           e_v_rad:
             name: e_v_rad
             type: float32
-            unit: ''
+            unit: km/s
             description: 'Error on radial velocity '
           std_v_rad:
             name: std_v_rad
             type: float32
-            unit: ''
+            unit: km/s
             description: 'Standard deviation of visit V_RAD '
           median_e_v_rad:
             name: median_e_v_rad
             type: float32
-            unit: ''
+            unit: km/s
             description: 'Median error in radial velocity '
           xcsao_teff:
             name: xcsao_teff
             type: float32
-            unit: ''
+            unit: K
             description: 'Stellar effective temperature '
           xcsao_e_teff:
             name: xcsao_e_teff
             type: float32
-            unit: ''
+            unit: K
             description: 'Error on stellar effective temperature '
           xcsao_logg:
             name: xcsao_logg
             type: float32
-            unit: ''
+            unit: log10(cm/s^2)
             description: 'Surface gravity '
           xcsao_e_logg:
             name: xcsao_e_logg
             type: float32
-            unit: ''
+            unit: log10(cm/s^2)
             description: 'Error on surface gravity '
           xcsao_fe_h:
             name: xcsao_fe_h
             type: float32
-            unit: ''
+            unit: dex
             description: '[Fe/H] '
           xcsao_e_fe_h:
             name: xcsao_e_fe_h
             type: float32
-            unit: ''
+            unit: dex
             description: 'Error on [Fe/H] '
           xcsao_meanrxc:
             name: xcsao_meanrxc
@@ -929,12 +918,12 @@ releases:
             description: Signal-to-noise ratio
           gri_gaia_transform_flags:
             name: gri_gaia_transform_flags
-            type: int32
+            type: int64
             unit: ''
             description: Flags for provenance of ugriz photometry
           zwarning_flags:
             name: zwarning_flags
-            type: int32
+            type: int64
             unit: ''
             description: BOSS DRP warning flags
           nmf_rchi2:
@@ -944,7 +933,7 @@ releases:
             description: Reduced chi-square value of NMF continuum fit
           nmf_flags:
             name: nmf_flags
-            type: int32
+            type: int64
             unit: ''
             description: NMF Continuum method flags
           task_pk:
@@ -965,12 +954,12 @@ releases:
           t_elapsed:
             name: t_elapsed
             type: float32
-            unit: ''
+            unit: s
             description: 'Core-time elapsed on this analysis '
           t_overhead:
             name: t_overhead
             type: float32
-            unit: ''
+            unit: s
             description: 'Estimated core-time spent in overhads '
           tag:
             name: tag
@@ -980,48 +969,78 @@ releases:
           teff:
             name: teff
             type: float32
-            unit: ''
+            unit: K
             description: 'Stellar effective temperature '
           e_teff:
             name: e_teff
             type: float32
-            unit: ''
+            unit: K
             description: 'Error on stellar effective temperature '
           logg:
             name: logg
             type: float32
-            unit: ''
+            unit: log10(cm/s^2)
             description: 'Surface gravity '
           e_logg:
             name: e_logg
             type: float32
-            unit: ''
+            unit: log10(cm/s^2)
             description: 'Error on surface gravity '
           fe_h:
             name: fe_h
             type: float32
-            unit: ''
+            unit: dex
             description: '[Fe/H] '
           e_fe_h:
             name: e_fe_h
             type: float32
-            unit: ''
+            unit: dex
             description: 'Error on [Fe/H] '
+          fe_h_niu:
+            name: fe_h_niu
+            type: float32
+            unit: ''
+            description: '[Fe/H] calibrated from Niu et al. (2023)'
+          e_fe_h_niu:
+            name: e_fe_h_niu
+            type: float32
+            unit: ''
+            description: Error on [Fe/H] calibrated from Niu et al. (202
+          alpha_fe:
+            name: alpha_fe
+            type: float32
+            unit: dex
+            description: '[alpha/fe] '
+          e_alpha_fe:
+            name: e_alpha_fe
+            type: float32
+            unit: dex
+            description: 'Error on [alpha/fe] '
           initial_teff:
             name: initial_teff
             type: float32
-            unit: ''
+            unit: K
             description: 'Initial stellar effective temperature '
           initial_logg:
             name: initial_logg
             type: float32
-            unit: ''
+            unit: log10(cm/s^2)
             description: 'Initial surface gravity '
           initial_fe_h:
             name: initial_fe_h
             type: float32
-            unit: ''
+            unit: dex
             description: 'Initial [Fe/H] '
+          initial_alpha_fe:
+            name: initial_alpha_fe
+            type: float32
+            unit: dex
+            description: 'Initial [alpha/fe] '
+          initial_fe_h_niu:
+            name: initial_fe_h_niu
+            type: float32
+            unit: dex
+            description: 'Initial [Fe/H] on Niu et al. (2023) scale '
           success:
             name: success
             type: bool
@@ -1039,7 +1058,7 @@ releases:
             description: Optimality condition
           result_flags:
             name: result_flags
-            type: int32
+            type: int64
             unit: ''
             description: Flags describing the results
           flag_warn:
@@ -1064,7 +1083,7 @@ releases:
             description: Reduced chi-square value
       hdu2:
         name: ''
-        description: SLAM results for each star from APOGEE
+        description: Slam results for each star from APOGEE
         is_image: false
         size: 0 bytes
         header:
@@ -1078,7 +1097,7 @@ releases:
           value: 2
           comment: number of array dimensions
         - key: NAXIS1
-          value: 796
+          value: 895
           comment: length of dimension 1
         - key: NAXIS2
           value: 0
@@ -1090,7 +1109,7 @@ releases:
           value: 1
           comment: number of groups
         - key: TFIELDS
-          value: 197
+          value: 202
           comment: number of table fields
         - key: INSTRMNT
           value: APOGEE
@@ -1099,12 +1118,12 @@ releases:
           value: Slam
           comment: Pipeline name
         - key: V_ASTRA
-          value: 0.5.0
+          value: 0.6.0
           comment: Astra version
         - key: CREATED
-          value: 23-11-16 06:37:35
+          value: 24-09-13 15:07:49
           comment: File creation time (UTC %y-%m-%d %H:%M:%S)
-        - key: TDIM16
+        - key: TDIM15
           value: (1)
           comment: ''
         - key: COMMENT
@@ -1117,11 +1136,11 @@ releases:
           value: See https://irsa.ipac.caltech.edu/data/SPITZER/GLIMPSE/gator_docs/
           comment: ''
         - key: CHECKSUM
-          value: ZeQmddOmZdOmbdOm
-          comment: HDU checksum updated 2023-11-15T23:37:36
+          value: PIXUQIXSPIXSPIXS
+          comment: HDU checksum updated 2024-09-13T09:07:50
         - key: DATASUM
           value: '0'
-          comment: data unit checksum updated 2023-11-15T23:37:36
+          comment: data unit checksum updated 2024-09-13T09:07:50
         columns:
           sdss_id:
             name: sdss_id
@@ -1153,11 +1172,6 @@ releases:
             type: int32
             unit: ''
             description: HEALPix (128 side)
-          carton_0:
-            name: carton_0
-            type: char[1]
-            unit: ''
-            description: Highest priority carton name
           lead:
             name: lead
             type: char[1]
@@ -1205,143 +1219,143 @@ releases:
             description: SDSS-5 targeting flags
           sdss4_apogee_target1_flags:
             name: sdss4_apogee_target1_flags
-            type: int32
+            type: int64
             unit: ''
             description: SDSS4 APOGEE1 targeting flags (1/2)
           sdss4_apogee_target2_flags:
             name: sdss4_apogee_target2_flags
-            type: int32
+            type: int64
             unit: ''
             description: SDSS4 APOGEE1 targeting flags (2/2)
           sdss4_apogee2_target1_flags:
             name: sdss4_apogee2_target1_flags
-            type: int32
+            type: int64
             unit: ''
             description: SDSS4 APOGEE2 targeting flags (1/3)
           sdss4_apogee2_target2_flags:
             name: sdss4_apogee2_target2_flags
-            type: int32
+            type: int64
             unit: ''
             description: SDSS4 APOGEE2 targeting flags (2/3)
           sdss4_apogee2_target3_flags:
             name: sdss4_apogee2_target3_flags
-            type: int32
+            type: int64
             unit: ''
             description: SDSS4 APOGEE2 targeting flags (3/3)
           sdss4_apogee_member_flags:
             name: sdss4_apogee_member_flags
-            type: int32
+            type: int64
             unit: ''
             description: SDSS4 likely cluster/galaxy member flags
           sdss4_apogee_extra_target_flags:
             name: sdss4_apogee_extra_target_flags
-            type: int32
+            type: int64
             unit: ''
             description: SDSS4 target info (aka EXTRATARG)
           ra:
             name: ra
             type: float32
-            unit: ''
+            unit: deg
             description: 'Right ascension '
           dec:
             name: dec
             type: float32
-            unit: ''
+            unit: deg
             description: 'Declination '
           l:
             name: l
             type: float32
-            unit: ''
+            unit: deg
             description: 'Galactic longitude '
           b:
             name: b
             type: float32
-            unit: ''
+            unit: deg
             description: 'Galactic latitude '
           plx:
             name: plx
             type: float32
-            unit: ''
+            unit: mas
             description: 'Parallax '
           e_plx:
             name: e_plx
             type: float32
-            unit: ''
+            unit: mas
             description: 'Error on parallax '
           pmra:
             name: pmra
             type: float32
-            unit: ''
+            unit: mas/yr
             description: 'Proper motion in RA '
           e_pmra:
             name: e_pmra
             type: float32
-            unit: ''
+            unit: mas/yr
             description: 'Error on proper motion in RA '
           pmde:
             name: pmde
             type: float32
-            unit: ''
+            unit: mas/yr
             description: 'Proper motion in DEC '
           e_pmde:
             name: e_pmde
             type: float32
-            unit: ''
+            unit: mas/yr
             description: 'Error on proper motion in DEC '
           gaia_v_rad:
             name: gaia_v_rad
             type: float32
-            unit: ''
+            unit: km/s
             description: 'Gaia radial velocity '
           gaia_e_v_rad:
             name: gaia_e_v_rad
             type: float32
-            unit: ''
+            unit: km/s
             description: 'Error on Gaia radial velocity '
           g_mag:
             name: g_mag
             type: float32
-            unit: ''
+            unit: mag
             description: 'Gaia DR3 mean G band magnitude '
           bp_mag:
             name: bp_mag
             type: float32
-            unit: ''
+            unit: mag
             description: 'Gaia DR3 mean BP band magnitude '
           rp_mag:
             name: rp_mag
             type: float32
-            unit: ''
+            unit: mag
             description: 'Gaia DR3 mean RP band magnitude '
           j_mag:
             name: j_mag
             type: float32
-            unit: ''
+            unit: mag
             description: '2MASS J band magnitude '
           e_j_mag:
             name: e_j_mag
             type: float32
-            unit: ''
+            unit: mag
             description: 'Error on 2MASS J band magnitude '
           h_mag:
             name: h_mag
             type: float32
-            unit: ''
+            unit: mag
             description: '2MASS H band magnitude '
           e_h_mag:
             name: e_h_mag
             type: float32
-            unit: ''
+            unit: mag
             description: 'Error on 2MASS H band magnitude '
           k_mag:
             name: k_mag
             type: float32
-            unit: ''
+            unit: mag
             description: '2MASS K band magnitude '
           e_k_mag:
             name: e_k_mag
             type: float32
-            unit: ''
+            unit: mag
             description: 'Error on 2MASS K band magnitude '
           ph_qual:
             name: ph_qual
@@ -1371,12 +1385,12 @@ releases:
           w1_flux:
             name: w1_flux
             type: float32
-            unit: ''
+            unit: Vega nMgy
             description: 'W1 flux '
           w1_dflux:
             name: w1_dflux
             type: float32
-            unit: ''
+            unit: Vega nMgy
             description: 'Error on W1 flux '
           w1_frac:
             name: w1_frac
@@ -1386,7 +1400,7 @@ releases:
           w2_mag:
             name: w2_mag
             type: float32
-            unit: ''
+            unit: Vega
             description: 'W2 magnitude '
           e_w2_mag:
             name: e_w2_mag
@@ -1396,12 +1410,12 @@ releases:
           w2_flux:
             name: w2_flux
             type: float32
-            unit: ''
+            unit: Vega nMgy
             description: 'W2 flux '
           w2_dflux:
             name: w2_dflux
             type: float32
-            unit: ''
+            unit: Vega nMgy
             description: 'Error on W2 flux '
           w2_frac:
             name: w2_frac
@@ -1410,93 +1424,93 @@ releases:
             description: Fraction of W2 flux from this object
           w1uflags:
             name: w1uflags
-            type: int32
+            type: int64
             unit: ''
             description: unWISE flags for W1
           w2uflags:
             name: w2uflags
-            type: int32
+            type: int64
             unit: ''
             description: unWISE flags for W2
           w1aflags:
             name: w1aflags
-            type: int32
+            type: int64
             unit: ''
             description: Additional flags for W1
           w2aflags:
             name: w2aflags
-            type: int32
+            type: int64
             unit: ''
             description: Additional flags for W2
           mag4_5:
             name: mag4_5
             type: float32
-            unit: ''
+            unit: mag
             description: 'IRAC band 4.5 micron magnitude '
           d4_5m:
             name: d4_5m
             type: float32
-            unit: ''
+            unit: mag
             description: 'Error on IRAC band 4.5 micron magnitude '
           rms_f4_5:
             name: rms_f4_5
             type: float32
-            unit: ''
+            unit: mJy
             description: 'RMS deviations from final flux '
           sqf_4_5:
             name: sqf_4_5
-            type: int32
+            type: int64
             unit: ''
             description: Source quality flag for IRAC band 4.5 micron
           mf4_5:
             name: mf4_5
-            type: int32
+            type: int64
             unit: ''
             description: Flux calculation method flag
           csf:
             name: csf
-            type: int32
+            type: int64
             unit: ''
             description: Close source flag
           zgr_teff:
             name: zgr_teff
             type: float32
-            unit: ''
+            unit: K
             description: 'Stellar effective temperature '
           zgr_e_teff:
             name: zgr_e_teff
             type: float32
-            unit: ''
+            unit: K
             description: 'Error on stellar effective temperature '
           zgr_logg:
             name: zgr_logg
             type: float32
-            unit: ''
+            unit: log10(cm/s^2)
             description: 'Surface gravity '
           zgr_e_logg:
             name: zgr_e_logg
             type: float32
-            unit: ''
+            unit: log10(cm/s^2)
             description: 'Error on surface gravity '
           zgr_fe_h:
             name: zgr_fe_h
             type: float32
-            unit: ''
+            unit: dex
             description: '[Fe/H] '
           zgr_e_fe_h:
             name: zgr_e_fe_h
             type: float32
-            unit: ''
+            unit: dex
             description: 'Error on [Fe/H] '
           zgr_e:
             name: zgr_e
             type: float32
-            unit: ''
+            unit: mag
             description: 'Extinction '
           zgr_e_e:
             name: zgr_e_e
             type: float32
-            unit: ''
+            unit: mag
             description: 'Error on extinction '
           zgr_plx:
             name: zgr_plx
@@ -1535,38 +1549,38 @@ releases:
             description: Chi-square value
           zgr_quality_flags:
             name: zgr_quality_flags
-            type: int32
+            type: int64
             unit: ''
             description: Quality flags
           r_med_geo:
             name: r_med_geo
             type: float32
-            unit: ''
+            unit: pc
             description: 'Median geometric distance '
           r_lo_geo:
             name: r_lo_geo
             type: float32
-            unit: ''
+            unit: pc
             description: '16th percentile of geometric distance '
           r_hi_geo:
             name: r_hi_geo
             type: float32
-            unit: ''
+            unit: pc
             description: '84th percentile of geometric distance '
           r_med_photogeo:
             name: r_med_photogeo
             type: float32
-            unit: ''
+            unit: pc
             description: '50th percentile of photogeometric distance '
           r_lo_photogeo:
             name: r_lo_photogeo
             type: float32
-            unit: ''
+            unit: pc
             description: '16th percentile of photogeometric distance '
           r_hi_photogeo:
             name: r_hi_photogeo
             type: float32
-            unit: ''
+            unit: pc
             description: '84th percentile of photogeometric distance '
           bailer_jones_flags:
             name: bailer_jones_flags
@@ -1576,77 +1590,77 @@ releases:
           ebv:
             name: ebv
             type: float32
-            unit: ''
+            unit: mag
             description: 'E(B-V) '
           e_ebv:
             name: e_ebv
             type: float32
-            unit: ''
+            unit: mag
             description: 'Error on E(B-V) '
           ebv_flags:
             name: ebv_flags
-            type: int32
+            type: int64
             unit: ''
             description: Flags indicating the source of E(B-V)
           ebv_zhang_2023:
             name: ebv_zhang_2023
             type: float32
-            unit: ''
+            unit: mag
             description: 'E(B-V) from Zhang et al. (2023) '
           e_ebv_zhang_2023:
             name: e_ebv_zhang_2023
             type: float32
-            unit: ''
+            unit: mag
             description: 'Error on E(B-V) from Zhang et al. (2023) '
           ebv_sfd:
             name: ebv_sfd
             type: float32
-            unit: ''
+            unit: mag
             description: 'E(B-V) from SFD '
           e_ebv_sfd:
             name: e_ebv_sfd
             type: float32
-            unit: ''
+            unit: mag
             description: 'Error on E(B-V) from SFD '
           ebv_rjce_glimpse:
             name: ebv_rjce_glimpse
             type: float32
-            unit: ''
+            unit: mag
             description: 'E(B-V) from RJCE GLIMPSE '
           e_ebv_rjce_glimpse:
             name: e_ebv_rjce_glimpse
             type: float32
-            unit: ''
+            unit: mag
             description: 'Error on RJCE GLIMPSE E(B-V) '
           ebv_rjce_allwise:
             name: ebv_rjce_allwise
             type: float32
-            unit: ''
+            unit: mag
             description: 'E(B-V) from RJCE AllWISE '
           e_ebv_rjce_allwise:
             name: e_ebv_rjce_allwise
             type: float32
-            unit: ''
+            unit: mag
             description: Error on RJCE AllWISE E(B-V)
           ebv_bayestar_2019:
             name: ebv_bayestar_2019
             type: float32
-            unit: ''
+            unit: mag
             description: 'E(B-V) from Bayestar 2019 '
           e_ebv_bayestar_2019:
             name: e_ebv_bayestar_2019
             type: float32
-            unit: ''
+            unit: mag
             description: 'Error on Bayestar 2019 E(B-V) '
           ebv_edenhofer_2023:
             name: ebv_edenhofer_2023
             type: float32
-            unit: ''
+            unit: mag
             description: 'E(B-V) from Edenhofer et al. (2023) '
           e_ebv_edenhofer_2023:
             name: e_ebv_edenhofer_2023
             type: float32
-            unit: ''
+            unit: mag
             description: 'Error on Edenhofer et al. (2023) E(B-V) '
           c_star:
             name: c_star
@@ -1656,7 +1670,7 @@ releases:
           u_jkc_mag:
             name: u_jkc_mag
             type: float32
-            unit: ''
+            unit: mag
             description: 'Gaia XP synthetic U-band (JKC) '
           u_jkc_mag_flag:
             name: u_jkc_mag_flag
@@ -1666,7 +1680,7 @@ releases:
           b_jkc_mag:
             name: b_jkc_mag
             type: float32
-            unit: ''
+            unit: mag
             description: 'Gaia XP synthetic B-band (JKC) '
           b_jkc_mag_flag:
             name: b_jkc_mag_flag
@@ -1676,7 +1690,7 @@ releases:
           v_jkc_mag:
             name: v_jkc_mag
             type: float32
-            unit: ''
+            unit: mag
             description: 'Gaia XP synthetic V-band (JKC) '
           v_jkc_mag_flag:
             name: v_jkc_mag_flag
@@ -1686,7 +1700,7 @@ releases:
           r_jkc_mag:
             name: r_jkc_mag
             type: float32
-            unit: ''
+            unit: mag
             description: 'Gaia XP synthetic R-band (JKC) '
           r_jkc_mag_flag:
             name: r_jkc_mag_flag
@@ -1696,7 +1710,7 @@ releases:
           i_jkc_mag:
             name: i_jkc_mag
             type: float32
-            unit: ''
+            unit: mag
             description: 'Gaia XP synthetic I-band (JKC) '
           i_jkc_mag_flag:
             name: i_jkc_mag_flag
@@ -1706,7 +1720,7 @@ releases:
           u_sdss_mag:
             name: u_sdss_mag
             type: float32
-            unit: ''
+            unit: mag
             description: 'Gaia XP synthetic u-band (SDSS) '
           u_sdss_mag_flag:
             name: u_sdss_mag_flag
@@ -1716,7 +1730,7 @@ releases:
           g_sdss_mag:
             name: g_sdss_mag
             type: float32
-            unit: ''
+            unit: mag
             description: 'Gaia XP synthetic g-band (SDSS) '
           g_sdss_mag_flag:
             name: g_sdss_mag_flag
@@ -1726,7 +1740,7 @@ releases:
           r_sdss_mag:
             name: r_sdss_mag
             type: float32
-            unit: ''
+            unit: mag
             description: 'Gaia XP synthetic r-band (SDSS) '
           r_sdss_mag_flag:
             name: r_sdss_mag_flag
@@ -1736,7 +1750,7 @@ releases:
           i_sdss_mag:
             name: i_sdss_mag
             type: float32
-            unit: ''
+            unit: mag
             description: 'Gaia XP synthetic i-band (SDSS) '
           i_sdss_mag_flag:
             name: i_sdss_mag_flag
@@ -1746,7 +1760,7 @@ releases:
           z_sdss_mag:
             name: z_sdss_mag
             type: float32
-            unit: ''
+            unit: mag
             description: 'Gaia XP synthetic z-band (SDSS) '
           z_sdss_mag_flag:
             name: z_sdss_mag_flag
@@ -1756,7 +1770,7 @@ releases:
           y_ps1_mag:
             name: y_ps1_mag
             type: float32
-            unit: ''
+            unit: mag
             description: 'Gaia XP synthetic Y-band (PS1) '
           y_ps1_mag_flag:
             name: y_ps1_mag_flag
@@ -1895,58 +1909,58 @@ releases:
             description: Standard deviation of visit fiber numbers
           spectrum_flags:
             name: spectrum_flags
-            type: int32
+            type: int64
             unit: ''
             description: Data reduction pipeline flags for this spectrum
           v_rad:
             name: v_rad
             type: float32
-            unit: ''
+            unit: km/s
             description: 'Barycentric rest frame radial velocity '
           e_v_rad:
             name: e_v_rad
             type: float32
-            unit: ''
+            unit: km/s
             description: 'Error on radial velocity '
           std_v_rad:
             name: std_v_rad
             type: float32
-            unit: ''
+            unit: km/s
             description: 'Standard deviation of visit V_RAD '
           median_e_v_rad:
             name: median_e_v_rad
             type: float32
-            unit: ''
+            unit: km/s
             description: 'Median error in radial velocity '
           doppler_teff:
             name: doppler_teff
             type: float32
-            unit: ''
+            unit: K
             description: 'Stellar effective temperature '
           doppler_e_teff:
             name: doppler_e_teff
             type: float32
-            unit: ''
+            unit: K
             description: 'Error on stellar effective temperature '
           doppler_logg:
             name: doppler_logg
             type: float32
-            unit: ''
+            unit: log10(cm/s^2)
             description: 'Surface gravity '
           doppler_e_logg:
             name: doppler_e_logg
             type: float32
-            unit: ''
+            unit: log10(cm/s^2)
             description: 'Error on surface gravity '
           doppler_fe_h:
             name: doppler_fe_h
             type: float32
-            unit: ''
+            unit: dex
             description: '[Fe/H] '
           doppler_e_fe_h:
             name: doppler_e_fe_h
             type: float32
-            unit: ''
+            unit: dex
             description: 'Error on [Fe/H] '
           doppler_rchi2:
             name: doppler_rchi2
@@ -1955,23 +1969,23 @@ releases:
             description: Reduced chi-square value of DOPPLER fit
           doppler_flags:
             name: doppler_flags
-            type: int32
+            type: int64
             unit: ''
             description: DOPPLER flags
           xcorr_v_rad:
             name: xcorr_v_rad
             type: float32
-            unit: ''
+            unit: km/s
             description: 'Barycentric rest frame radial velocity '
           xcorr_v_rel:
             name: xcorr_v_rel
             type: float32
-            unit: ''
+            unit: km/s
             description: 'Relative velocity '
           xcorr_e_v_rel:
             name: xcorr_e_v_rel
             type: float32
-            unit: ''
+            unit: km/s
             description: 'Error on relative velocity '
           ccfwhm:
             name: ccfwhm
@@ -2011,12 +2025,12 @@ releases:
           t_elapsed:
             name: t_elapsed
             type: float32
-            unit: ''
+            unit: s
             description: 'Core-time elapsed on this analysis '
           t_overhead:
             name: t_overhead
             type: float32
-            unit: ''
+            unit: s
             description: 'Estimated core-time spent in overhads '
           tag:
             name: tag
@@ -2026,48 +2040,78 @@ releases:
           teff:
             name: teff
             type: float32
-            unit: ''
+            unit: K
             description: 'Stellar effective temperature '
           e_teff:
             name: e_teff
             type: float32
-            unit: ''
+            unit: K
             description: 'Error on stellar effective temperature '
           logg:
             name: logg
             type: float32
-            unit: ''
+            unit: log10(cm/s^2)
             description: 'Surface gravity '
           e_logg:
             name: e_logg
             type: float32
-            unit: ''
+            unit: log10(cm/s^2)
             description: 'Error on surface gravity '
           fe_h:
             name: fe_h
             type: float32
-            unit: ''
+            unit: dex
             description: '[Fe/H] '
           e_fe_h:
             name: e_fe_h
             type: float32
-            unit: ''
+            unit: dex
             description: 'Error on [Fe/H] '
+          fe_h_niu:
+            name: fe_h_niu
+            type: float32
+            unit: ''
+            description: '[Fe/H] calibrated from Niu et al. (2023)'
+          e_fe_h_niu:
+            name: e_fe_h_niu
+            type: float32
+            unit: ''
+            description: Error on [Fe/H] calibrated from Niu et al. (202
+          alpha_fe:
+            name: alpha_fe
+            type: float32
+            unit: dex
+            description: '[alpha/fe] '
+          e_alpha_fe:
+            name: e_alpha_fe
+            type: float32
+            unit: dex
+            description: 'Error on [alpha/fe] '
           initial_teff:
             name: initial_teff
             type: float32
-            unit: ''
+            unit: K
             description: 'Initial stellar effective temperature '
           initial_logg:
             name: initial_logg
             type: float32
-            unit: ''
+            unit: log10(cm/s^2)
             description: 'Initial surface gravity '
           initial_fe_h:
             name: initial_fe_h
             type: float32
-            unit: ''
+            unit: dex
             description: 'Initial [Fe/H] '
+          initial_alpha_fe:
+            name: initial_alpha_fe
+            type: float32
+            unit: dex
+            description: 'Initial [alpha/fe] '
+          initial_fe_h_niu:
+            name: initial_fe_h_niu
+            type: float32
+            unit: dex
+            description: 'Initial [Fe/H] on Niu et al. (2023) scale '
           success:
             name: success
             type: bool
@@ -2085,7 +2129,7 @@ releases:
             description: Optimality condition
           result_flags:
             name: result_flags
-            type: int32
+            type: int64
             unit: ''
             description: Flags describing the results
           flag_warn:
@@ -2110,3 +2154,5 @@ releases:
             description: Reduced chi-square value
 notes: |-
   None
+regrets: |-
+  I  have no regrets!
