@@ -1,7 +1,9 @@
 general:
   name: procFimgApo
   short: APO Fiber View Camera processed image
-  description: Fiber View Camera is used to image back illuminated metrology and fiducial fibers for fiber positioning feedback.  HDUs within contain centroiding and fiber/robot measurement data.
+  description: Fiber View Camera is used to image back illuminated metrology and fiducial
+    fibers for fiber positioning feedback.  HDUs within contain centroiding and fiber/robot
+    measurement data.
   datatype: FITS
   filesize: 31 MB
   releases:
@@ -22,16 +24,16 @@ changelog:
   releases: {}
 releases:
   WORK:
-    template: $FCAM_DATA_S/[MJD]/proc-fimg-fvc1s-[EXPNUM].fits
-    example: 60648/proc-fimg-fvc1s-0001.fits
-    location: '{mjd}/proc-fimg-fvc1s-{expnum}.fits'
-    environment: FCAM_DATA_S
+    template: $FCAM_DATA_N/[MJD]/proc-fimg-fvc1n-[EXPNUM].fits
+    example: 60648/proc-fimg-fvc1n-0001.fits
+    location: '{mjd}/proc-fimg-fvc1n-{expnum}.fits'
+    environment: FCAM_DATA_N
     access:
       in_sdss_access: false
       path_name: null
       path_template: null
       path_kwargs: null
-      access_string: procFimgApo = $FCAM_DATA_S/{mjd}/proc-fimg-fvc1s-{expnum}.fits
+      access_string: procFimgApo = $FCAM_DATA_N/{mjd}/proc-fimg-fvc1n-{expnum}.fits
     survey: SDSS
     hdus:
       hdu0:
@@ -495,7 +497,8 @@ releases:
           comment: data unit checksum updated 2024-12-03T22:50:10
       hdu2:
         name: POSITIONERTABLE
-        description: calibration info related to robot positions in the wok (positionerTable.csv copied from sdss-v's fps_calibrations package)
+        description: calibration info related to robot positions in the wok (positionerTable.csv
+          copied from sdss-v's fps_calibrations package)
         is_image: false
         size: 72 KB
         header:
@@ -536,101 +539,106 @@ releases:
           site:
             name: site
             type: char[3]
-            unit: ""
+            unit: ''
             description: observatory name (APO or LCO)
           holeID:
             name: holeID
             type: char[7]
-            unit: ""
+            unit: ''
             description: name of wok hole location where robot is installed
           positionerID:
             name: positionerID
             type: int64
-            unit: ""
+            unit: ''
             description: unique identifier number for robot
           robotailID:
             name: robotailID
             type: char[8]
-            unit: ""
+            unit: ''
             description: unique identifier for robotail (fibers) installed in robot
           wokID:
             name: wokID
             type: char[11]
-            unit: ""
+            unit: ''
             description: wok shape profile used
           apSpecID:
             name: apSpecID
             type: int64
-            unit: ""
+            unit: ''
             description: do not use!
           bossSpecID:
             name: bossSpecID
             type: int64
-            unit: ""
+            unit: ''
             description: do not use!
           alphaArmLen:
             name: alphaArmLen
             type: float64
-            unit: "mm"
+            unit: mm
             description: robot alpha arm length
           metX:
             name: metX
             type: float64
-            unit: "mm"
-            description: x location of metrology fiber in beta arm (non-rotating) frame
+            unit: mm
+            description: x location of metrology fiber in beta arm (non-rotating)
+              frame
           metY:
             name: metY
             type: float64
-            unit: "mm"
-            description: y location of metrology fiber in beta arm (non-rotating) frame
+            unit: mm
+            description: y location of metrology fiber in beta arm (non-rotating)
+              frame
           apX:
             name: apX
             type: float64
-            unit: "mm"
+            unit: mm
             description: x location of apogee fiber in beta arm (non-rotating) frame
           apY:
             name: apY
             type: float64
-            unit: "mm"
+            unit: mm
             description: y location of apogee fiber in beta arm (non-rotating) frame
           bossX:
             name: bossX
             type: float64
-            unit: "mm"
+            unit: mm
             description: x location of boss fiber in beta arm (non-rotating) frame
           bossY:
             name: bossY
             type: float64
-            unit: "mm"
+            unit: mm
             description: y location of boss fiber in beta arm (non-rotating) frame
           alphaOffset:
             name: alphaOffset
             type: float64
-            unit: "deg"
-            description: alpha angluar offset between robot's internal zeropoint and externally measured zeropoint
+            unit: deg
+            description: alpha angluar offset between robot's internal zeropoint and
+              externally measured zeropoint
           betaOffset:
             name: betaOffset
             type: float64
-            unit: "deg"
-            description: beta angluar offset between robot's internal zeropoint and externally measured zeropoint
+            unit: deg
+            description: beta angluar offset between robot's internal zeropoint and
+              externally measured zeropoint
           dx:
             name: dx
             type: float64
-            unit: "mm"
+            unit: mm
             description: x offset from robot center to wok hole center
           dy:
             name: dy
             type: float64
-            unit: "mm"
+            unit: mm
             description: y offset from robot center to wok hole center
           stdr:
             name: stdr
             type: float64
-            unit: ""
+            unit: ''
             description: do not use!
       hdu3:
         name: WOKCOORDS
-        description: calibration info related to robot positions in the wok (wokCoords.csv copied from sdss-v's fps_calibrations package)
+        description: calibration info related to robot positions in the wok (wokCoords.csv
+          copied from sdss-v's fps_calibrations package)
         is_image: false
         size: 78 KB
         header:
@@ -671,96 +679,107 @@ releases:
           site:
             name: site
             type: char[3]
-            unit: ""
+            unit: ''
             description: observatory name (APO or LCO)
           holeID:
             name: holeID
             type: char[7]
-            unit: ""
+            unit: ''
             description: name of wok hole location where robot is installed
           wokID:
             name: wokID
             type: char[11]
-            unit: ""
+            unit: ''
             description: wok shape profile used
           holeType:
             name: holeType
             type: char[10]
-            unit: ""
-            description: Type of thing in this wok hole, one of Fiducial, ApogeeBoss (robot with apogee and boss fiber), or Boss (robot with only boss fiber)
+            unit: ''
+            description: Type of thing in this wok hole, one of Fiducial, ApogeeBoss
+              (robot with apogee and boss fiber), or Boss (robot with only boss fiber)
           hexRow:
             name: hexRow
             type: float64
-            unit: ""
+            unit: ''
             description: wok hex grid row id
           hexCol:
             name: hexCol
             type: float64
-            unit: ""
+            unit: ''
             description: wok hex grid column id
           xWok:
             name: xWok
             type: float64
-            unit: "mm"
+            unit: mm
             description: x position of hole in wok coordinates
           yWok:
             name: yWok
             type: float64
-            unit: "mm"
+            unit: mm
             description: y position of hole in wok coordinates
           zWok:
             name: zWok
             type: int64
-            unit: "mm"
+            unit: mm
             description: recommend ignore, z coordinate locations not used
           ix:
             name: ix
             type: int64
-            unit: ""
-            description: x component of unit vector describing robot x axis in wok coords
+            unit: ''
+            description: x component of unit vector describing robot x axis in wok
+              coords
           iy:
             name: iy
             type: int64
-            unit: ""
-            description: y component of unit vector describing robot x axis in wok coords
+            unit: ''
+            description: y component of unit vector describing robot x axis in wok
+              coords
           iz:
             name: iz
             type: int64
-            unit: ""
-            description: z component of unit vector describing robot x axis in wok coords
+            unit: ''
+            description: z component of unit vector describing robot x axis in wok
+              coords
           jx:
             name: jx
             type: int64
-            unit: ""
-            description: x component of unit vector describing robot y axis in wok coords
+            unit: ''
+            description: x component of unit vector describing robot y axis in wok
+              coords
           jy:
             name: jy
             type: int64
-            unit: ""
-            description: y component of unit vector describing robot y axis in wok coords
+            unit: ''
+            description: y component of unit vector describing robot y axis in wok
+              coords
           jz:
             name: jz
             type: int64
-            unit: ""
-            description: z component of unit vector describing robot y axis in wok coords
+            unit: ''
+            description: z component of unit vector describing robot y axis in wok
+              coords
           kx:
             name: kx
             type: int64
-            unit: ""
-            description: x component of unit vector describing robot z axis in wok coords
+            unit: ''
+            description: x component of unit vector describing robot z axis in wok
+              coords
           ky:
             name: ky
             type: int64
-            unit: ""
-            description: y component of unit vector describing robot z axis in wok coords
+            unit: ''
+            description: y component of unit vector describing robot z axis in wok
+              coords
           kz:
             name: kz
             type: int64
-            unit: ""
-            description: z component of unit vector describing robot z axis in wok coords
+            unit: ''
+            description: z component of unit vector describing robot z axis in wok
+              coords
       hdu4:
         name: FIDUCIALCOORDS
-        description: calibration info related to fiducial positions in the wok (fiducialCoords.csv copied from sdss-v's fps_calibrations package)
+        description: calibration info related to fiducial positions in the wok (fiducialCoords.csv
+          copied from sdss-v's fps_calibrations package)
         is_image: false
         size: 3 KB
         header:
@@ -801,46 +820,49 @@ releases:
           site:
             name: site
             type: char[3]
-            unit: ""
+            unit: ''
             description: observatory name (APO or LCO)
           holeID:
             name: holeID
             type: char[7]
-            unit: ""
+            unit: ''
             description: name of wok hole location where robot is installed
           id:
             name: id
             type: char[7]
-            unit: ""
+            unit: ''
             description: unique identifier for fiducial
           xWok:
             name: xWok
             type: float64
-            unit: "mm"
+            unit: mm
             description: x wok location of fiducial
           yWok:
             name: yWok
             type: float64
-            unit: "mm"
+            unit: mm
             description: y wok location of fiducial
           zWok:
             name: zWok
             type: float64
-            unit: "mm"
+            unit: mm
             description: z wok location of fiducial
           col:
             name: col
             type: float64
-            unit: ""
+            unit: ''
             description: wok hex column id
           row:
             name: row
             type: float64
-            unit: ""
+            unit: ''
             description: wok hex row id
       hdu5:
         name: POSITIONERTABLEMEAS
-        description: Contains all FVC based robot-fiber measurements.  Merge of POSITIONERTABLE (hdu2), WOKCOORDS (hdu3), POSANGLES (hdu8), and CENTROIDS (hdu9).  Merge is made by matching on holeID, and matching centroids to individual robot metrology fibers.
+        description: Contains all FVC based robot-fiber measurements.  Merge of POSITIONERTABLE
+          (hdu2), WOKCOORDS (hdu3), POSANGLES (hdu8), and CENTROIDS (hdu9).  Merge
+          is made by matching on holeID, and matching centroids to individual robot
+          metrology fibers.
         is_image: false
         size: 410 KB
         header:
@@ -881,536 +903,589 @@ releases:
           holeID:
             name: holeID
             type: char[7]
-            unit: ""
+            unit: ''
             description: name of wok hole location where robot is installed
           positionerID:
             name: positionerID
             type: int64
-            unit: ""
+            unit: ''
             description: unique identifier number for robot
           robotailID:
             name: robotailID
             type: char[8]
-            unit: ""
+            unit: ''
             description: unique identifier for robotail (fibers) installed in robot
           wokID_x:
             name: wokID
             type: char[11]
-            unit: ""
+            unit: ''
             description: wok shape profile used
           apSpecID:
             name: apSpecID
             type: int64
-            unit: ""
+            unit: ''
             description: do not use!
           bossSpecID:
             name: bossSpecID
             type: int64
-            unit: ""
+            unit: ''
             description: do not use!
           alphaArmLen:
             name: alphaArmLen
             type: float64
-            unit: "mm"
+            unit: mm
             description: robot alpha arm length
           metX:
             name: metX
             type: float64
-            unit: "mm"
-            description: x location of metrology fiber in beta arm (non-rotating) frame
+            unit: mm
+            description: x location of metrology fiber in beta arm (non-rotating)
+              frame
           metY:
             name: metY
             type: float64
-            unit: "mm"
-            description: y location of metrology fiber in beta arm (non-rotating) frame
+            unit: mm
+            description: y location of metrology fiber in beta arm (non-rotating)
+              frame
           apX:
             name: apX
             type: float64
-            unit: "mm"
+            unit: mm
             description: x location of apogee fiber in beta arm (non-rotating) frame
           apY:
             name: apY
             type: float64
-            unit: "mm"
+            unit: mm
             description: y location of apogee fiber in beta arm (non-rotating) frame
           bossX:
             name: bossX
             type: float64
-            unit: "mm"
+            unit: mm
             description: x location of boss fiber in beta arm (non-rotating) frame
           bossY:
             name: bossY
             type: float64
-            unit: "mm"
+            unit: mm
             description: y location of boss fiber in beta arm (non-rotating) frame
           alphaOffset:
             name: alphaOffset
             type: float64
-            unit: "deg"
-            description: alpha angluar offset between robot's internal zeropoint and externally measured zeropoint
+            unit: deg
+            description: alpha angluar offset between robot's internal zeropoint and
+              externally measured zeropoint
           betaOffset:
             name: betaOffset
             type: float64
-            unit: "deg"
-            description: beta angluar offset between robot's internal zeropoint and externally measured zeropoint
+            unit: deg
+            description: beta angluar offset between robot's internal zeropoint and
+              externally measured zeropoint
           dx:
             name: dx
             type: float64
-            unit: "mm"
+            unit: mm
             description: x offset from robot center to wok hole center
           dy:
             name: dy
             type: float64
-            unit: "mm"
+            unit: mm
             description: y offset from robot center to wok hole center
           stdr:
             name: stdr
             type: float64
-            unit: ""
+            unit: ''
             description: not used
           wokID_y:
             name: wokID
             type: char[11]
-            unit: ""
+            unit: ''
             description: wok shape profile used, same as wokID_x
           holeType:
             name: holeType
             type: char[10]
-            unit: ""
-            description: Type of thing in this wok hole, one of Fiducial, ApogeeBoss (robot with apogee and boss fiber), or Boss (robot with only boss fiber)
+            unit: ''
+            description: Type of thing in this wok hole, one of Fiducial, ApogeeBoss
+              (robot with apogee and boss fiber), or Boss (robot with only boss fiber)
           hexRow:
             name: hexRow
             type: float64
-            unit: ""
+            unit: ''
             description: wok hex grid row id
           hexCol:
             name: hexCol
             type: float64
-            unit: ""
+            unit: ''
             description: wok hex grid column id
           xWok:
             name: xWok
             type: float64
-            unit: "mm"
+            unit: mm
             description: x position of hole in wok coordinates
           yWok:
             name: yWok
             type: float64
-            unit: "mm"
+            unit: mm
             description: y position of hole in wok coordinates
           zWok:
             name: zWok
             type: int64
-            unit: "mm"
+            unit: mm
             description: recommend ignore, z coordinate locations not used
           ix:
             name: ix
             type: int64
-            unit: ""
-            description: x component of unit vector describing robot x axis in wok coords
+            unit: ''
+            description: x component of unit vector describing robot x axis in wok
+              coords
           iy:
             name: iy
             type: int64
-            unit: ""
-            description: y component of unit vector describing robot x axis in wok coords
+            unit: ''
+            description: y component of unit vector describing robot x axis in wok
+              coords
           iz:
             name: iz
             type: int64
-            unit: ""
-            description: z component of unit vector describing robot x axis in wok coords
+            unit: ''
+            description: z component of unit vector describing robot x axis in wok
+              coords
           jx:
             name: jx
             type: int64
-            unit: ""
-            description: x component of unit vector describing robot y axis in wok coords
+            unit: ''
+            description: x component of unit vector describing robot y axis in wok
+              coords
           jy:
             name: jy
             type: int64
-            unit: ""
-            description: y component of unit vector describing robot y axis in wok coords
+            unit: ''
+            description: y component of unit vector describing robot y axis in wok
+              coords
           jz:
             name: jz
             type: int64
-            unit: ""
-            description: z component of unit vector describing robot y axis in wok coords
+            unit: ''
+            description: z component of unit vector describing robot y axis in wok
+              coords
           kx:
             name: kx
             type: int64
-            unit: ""
-            description: x component of unit vector describing robot z axis in wok coords
+            unit: ''
+            description: x component of unit vector describing robot z axis in wok
+              coords
           ky:
             name: ky
             type: int64
-            unit: ""
-            description: y component of unit vector describing robot z axis in wok coords
+            unit: ''
+            description: y component of unit vector describing robot z axis in wok
+              coords
           kz:
             name: kz
             type: int64
-            unit: ""
-            description: z component of unit vector describing robot z axis in wok coords
+            unit: ''
+            description: z component of unit vector describing robot z axis in wok
+              coords
           alphaReport:
             name: alphaReport
             type: float64
-            unit: "deg"
+            unit: deg
             description: alpha angle reported by robot firmware
           betaReport:
             name: betaReport
             type: float64
-            unit: "deg"
+            unit: deg
             description: beta angle reported by robot firmware
           xWokReportMetrology:
             name: xWokReportMetrology
             type: float64
-            unit: "mm"
-            description: expected x wok coordinate of metrology fiber given reported alpha/beta angles
+            unit: mm
+            description: expected x wok coordinate of metrology fiber given reported
+              alpha/beta angles
           yWokReportMetrology:
             name: yWokReportMetrology
             type: float64
-            unit: "mm"
-            description: expected y wok coordinate of metrology fiber given reported alpha/beta angles
+            unit: mm
+            description: expected y wok coordinate of metrology fiber given reported
+              alpha/beta angles
           xWokReportAPOGEE:
             name: xWokReportAPOGEE
             type: float64
-            unit: "mm"
-            description: expected x wok coordinate of apogee fiber given reported alpha/beta angles.
+            unit: mm
+            description: expected x wok coordinate of apogee fiber given reported
+              alpha/beta angles.
           yWokReportAPOGEE:
             name: yWokReportAPOGEE
             type: float64
-            unit: "mm"
-            description: expected y wok coordinate of apogee fiber given reported alpha/beta angles.
+            unit: mm
+            description: expected y wok coordinate of apogee fiber given reported
+              alpha/beta angles.
           xWokReportBOSS:
             name: xWokReportBOSS
             type: float64
-            unit: "mm"
-            description: expected x wok coordinate of boss fiber given reported alpha/beta angles.
+            unit: mm
+            description: expected x wok coordinate of boss fiber given reported alpha/beta
+              angles.
           yWokReportBOSS:
             name: yWokReportBOSS
             type: float64
-            unit: "mm"
-            description: expected y wok coordinate of boss fiber given reported alpha/beta angles.
+            unit: mm
+            description: expected y wok coordinate of boss fiber given reported alpha/beta
+              angles.
           thresh:
             name: thresh
             type: float64
-            unit: "adu"
+            unit: adu
             description: threshold at centroid location (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           npix:
             name: npix
             type: int64
-            unit: "pix"
-            description: number of pixels belonging to centroid (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+            unit: pix
+            description: number of pixels belonging to centroid (sep extraction output
+              https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           tnpix:
             name: tnpix
             type: int64
-            unit: "pix"
+            unit: pix
             description: number of pixels above threshold (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           xmin:
             name: xmin
             type: int64
-            unit: "pix"
+            unit: pix
             description: min x coord of centroid (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           xmax:
             name: xmax
             type: int64
-            unit: "pix"
+            unit: pix
             description: max x coord of centroid (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           ymin:
             name: ymin
             type: int64
-            unit: "pix"
+            unit: pix
             description: min y coord of centroid (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           ymax:
             name: ymax
             type: int64
-            unit: "pix"
+            unit: pix
             description: max y coord of centroid (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           x:
             name: x
             type: float64
-            unit: "pix"
-            description: x center of centroid (first moment, sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+            unit: pix
+            description: x center of centroid (first moment, sep extraction output
+              https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           y:
             name: y
             type: float64
-            unit: "pix"
-            description: y center of centroid (first moment, sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+            unit: pix
+            description: y center of centroid (first moment, sep extraction output
+              https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           x2:
             name: x2
             type: float64
-            unit: "pix^2"
-            description: x second moment (variance) of centroid (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+            unit: pix^2
+            description: x second moment (variance) of centroid (sep extraction output
+              https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           y2:
             name: y2
             type: float64
-            unit: "pix^2"
-            description: y second moment (variance) of centroid (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+            unit: pix^2
+            description: y second moment (variance) of centroid (sep extraction output
+              https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           xy:
             name: xy
             type: float64
-            unit: "pix^2"
-            description: xy second moment (covariance) of centroid (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+            unit: pix^2
+            description: xy second moment (covariance) of centroid (sep extraction
+              output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           errx2:
             name: errx2
             type: float64
-            unit: "pix^2"
+            unit: pix^2
             description: x second moment error (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           erry2:
             name: erry2
             type: float64
-            unit: "pix^2"
+            unit: pix^2
             description: y second moment error (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           errxy:
             name: errxy
             type: float64
-            unit: "pix^2"
+            unit: pix^2
             description: xy second moment error (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           a:
             name: a
             type: float64
-            unit: ""
+            unit: ''
             description: elipse parameter a (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           b:
             name: b
             type: float64
-            unit: ""
+            unit: ''
             description: elipse parameter b (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           theta:
             name: theta
             type: float64
-            unit: ""
+            unit: ''
             description: elipse parameter theta (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           cxx:
             name: cxx
             type: float64
-            unit: ""
+            unit: ''
             description: alternative ellipse parameter (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           cyy:
             name: cyy
             type: float64
-            unit: ""
+            unit: ''
             description: alternative ellipse parameter (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           cxy:
             name: cxy
             type: float64
-            unit: ""
+            unit: ''
             description: alternative ellipse parameter (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           cflux:
             name: cflux
             type: float64
-            unit: "adu"
-            description: sum of member pixels in convolved data (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+            unit: adu
+            description: sum of member pixels in convolved data (sep extraction output
+              https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           flux:
             name: flux
             type: float64
-            unit: "adu"
-            description: sum of member pixels in unconvolved data (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+            unit: adu
+            description: sum of member pixels in unconvolved data (sep extraction
+              output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           cpeak:
             name: cpeak
             type: float64
-            unit: "adu"
+            unit: adu
             description: peak value in convolved data (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           peak:
             name: peak
             type: float64
-            unit: "adu"
+            unit: adu
             description: peak value in unconvolved data (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           xcpeak:
             name: xcpeak
             type: int64
-            unit: "pix"
-            description: x coordinate of convolved peak pixel (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+            unit: pix
+            description: x coordinate of convolved peak pixel (sep extraction output
+              https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           ycpeak:
             name: ycpeak
             type: int64
-            unit: "pix"
-            description: y coordinate of convolved peak pixel (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+            unit: pix
+            description: y coordinate of convolved peak pixel (sep extraction output
+              https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           xpeak:
             name: xpeak
             type: int64
-            unit: "pix"
-            description: x coordinate of unconvolved peak pixel (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+            unit: pix
+            description: x coordinate of unconvolved peak pixel (sep extraction output
+              https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           ypeak:
             name: ypeak
             type: int64
-            unit: "pix"
-            description: y coordinate of unconvolved peak pixel (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+            unit: pix
+            description: y coordinate of unconvolved peak pixel (sep extraction output
+              https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           flag:
             name: flag
             type: int64
-            unit: ""
+            unit: ''
             description: centroid extraction flags (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           xFlex:
             name: xFlex
             type: float64
-            unit: "pix"
+            unit: pix
             description: x centroid location after adjusting for FVC flexure.
           yFlex:
             name: yFlex
             type: float64
-            unit: "pix"
+            unit: pix
             description: y centroid location after adjusting for FVC flexure.
           rm:
             name: rm
             type: float64
-            unit: "pix"
+            unit: pix
             description: distance of flex correction
           xcirc:
             name: xcirc
             type: float64
-            unit: "pix"
+            unit: pix
             description: x pixel center of circle fit to outermost fiducials
           ycirc:
             name: ycirc
             type: float64
-            unit: "pix"
+            unit: pix
             description: y pixel center of circle fit to outermost fiducials
           rcirc:
             name: rcirc
             type: float64
-            unit: "pix"
+            unit: pix
             description: radius of circle fit to outermost fiducials
           xNudge:
             name: xNudge
             type: float64
-            unit: "pix"
+            unit: pix
             description: x pixel location after applying nudge model
           yNudge:
             name: yNudge
             type: float64
-            unit: "pix"
+            unit: pix
             description: y pixel location after applying nudge model
           outerNudge:
             name: outerNudge
             type: bool
-            unit: ""
+            unit: ''
             description: separate nudge model applied to outer fiducials
           xSimple:
             name: xSimple
             type: float64
-            unit: "pix"
+            unit: pix
             description: x centroid location using upsampled epsf coorelation
           ySimple:
             name: ySimple
             type: float64
-            unit: "pix"
+            unit: pix
             description: y centroid location using upsampled epsf coorelation
           xRot:
             name: xRot
             type: float64
-            unit: "pix"
-            description: x centroid center rotated roughly such that xy pixels are aligned with xyWok before performing fiducial matching.
+            unit: pix
+            description: x centroid center rotated roughly such that xy pixels are
+              aligned with xyWok before performing fiducial matching.
           yRot:
             name: yRot
             type: float64
-            unit: "pix"
-            description: y centroid center rotated roughly such that xy pixels are aligned with xyWok before performing fiducial matching.
+            unit: pix
+            description: y centroid center rotated roughly such that xy pixels are
+              aligned with xyWok before performing fiducial matching.
           xSimpleRot:
             name: xSimpleRot
             type: float64
-            unit: "pix"
-            description: xSimple centroid center rotated roughly such that xy pixels are aligned with xyWok before performing fiducial matching.
+            unit: pix
+            description: xSimple centroid center rotated roughly such that xy pixels
+              are aligned with xyWok before performing fiducial matching.
           ySimpleRot:
             name: ySimpleRot
             type: float64
-            unit: "pix"
-            description: ySimple centroid center rotated roughly such that xy pixels are aligned with xyWok before performing fiducial matching.
+            unit: pix
+            description: ySimple centroid center rotated roughly such that xy pixels
+              are aligned with xyWok before performing fiducial matching.
           xFlexRot:
             name: xFlexRot
             type: float64
-            unit: "pix"
-            description: xFlex centroid center rotated roughly such that xy pixels are aligned with xyWok before performing fiducial matching.
+            unit: pix
+            description: xFlex centroid center rotated roughly such that xy pixels
+              are aligned with xyWok before performing fiducial matching.
           yFlexRot:
             name: yFlexRot
             type: float64
-            unit: "pix"
-            description: yFlex centroid center rotated roughly such that xy pixels are aligned with xyWok before performing fiducial matching.
+            unit: pix
+            description: yFlex centroid center rotated roughly such that xy pixels
+              are aligned with xyWok before performing fiducial matching.
           xNudgeRot:
             name: xNudgeRot
             type: float64
-            unit: "pix"
-            description: xNudge centroid center rotated roughly such that xy pixels are aligned with xyWok before performing fiducial matching.
+            unit: pix
+            description: xNudge centroid center rotated roughly such that xy pixels
+              are aligned with xyWok before performing fiducial matching.
           yNudgeRot:
             name: yNudgeRot
             type: float64
-            unit: "pix"
-            description: yNudge centroid center rotated roughly such that xy pixels are aligned with xyWok before performing fiducial matching.
+            unit: pix
+            description: yNudge centroid center rotated roughly such that xy pixels
+              are aligned with xyWok before performing fiducial matching.
           centroidID:
             name: centroidID
             type: int64
-            unit: ""
+            unit: ''
             description: unique ID for each centroid detected in FVC frame
           xWokMeasMetrology:
             name: xWokMeasMetrology
             type: float64
-            unit: "mm"
-            description: x wok measured location of metrology fiber after applying fiducial-based ccd to wok FVC transform.
+            unit: mm
+            description: x wok measured location of metrology fiber after applying
+              fiducial-based ccd to wok FVC transform.
           yWokMeasMetrology:
             name: yWokMeasMetrology
             type: float64
-            unit: "mm"
-            description: x wok measured location of metrology fiber after applying fiducial-based ccd to wok FVC transform.
+            unit: mm
+            description: x wok measured location of metrology fiber after applying
+              fiducial-based ccd to wok FVC transform.
           wokErr:
             name: wokErr
             type: float64
-            unit: "mm"
-            description: distance between expected and measured wok location of metrology fiber
+            unit: mm
+            description: distance between expected and measured wok location of metrology
+              fiber
           wokErrWarn:
             name: wokErrWarn
             type: bool
-            unit: ""
+            unit: ''
             description: true if wokErr is above some threshold
           xWokAdjMetrology:
             name: xWokAdjMetrology
             type: float64
-            unit: "mm"
+            unit: mm
             description: no longer used (should be 0)
           yWokAdjMetrology:
             name: yWokAdjMetrology
             type: float64
-            unit: "mm"
+            unit: mm
             description: no longer used (should be 0)
           alphaMeas:
             name: alphaMeas
             type: float64
-            unit: "deg"
-            description: measured alpha angle of robot derived from FVC measurement of metrology fiber
+            unit: deg
+            description: measured alpha angle of robot derived from FVC measurement
+              of metrology fiber
           betaMeas:
             name: betaMeas
             type: float64
-            unit: "deg"
-            description: measured beta angle of robot derived from FVC measurement of metrology fiber
+            unit: deg
+            description: measured beta angle of robot derived from FVC measurement
+              of metrology fiber
           xWokMeasAPOGEE:
             name: xWokMeasAPOGEE
             type: float64
-            unit: "mm"
-            description: x wok location of apogee fiber derived from measured alpha/beta angles of robot.
+            unit: mm
+            description: x wok location of apogee fiber derived from measured alpha/beta
+              angles of robot.
           yWokMeasAPOGEE:
             name: yWokMeasAPOGEE
             type: float64
-            unit: "mm"
-            description: y wok location of apogee fiber derived from measured alpha/beta angles of robot.
+            unit: mm
+            description: y wok location of apogee fiber derived from measured alpha/beta
+              angles of robot.
           xWokMeasBOSS:
             name: xWokMeasBOSS
             type: float64
-            unit: "mm"
-            description: x wok location of boss fiber derived from measured alpha/beta angles of robot
+            unit: mm
+            description: x wok location of boss fiber derived from measured alpha/beta
+              angles of robot
           yWokMeasBOSS:
             name: yWokMeasBOSS
             type: float64
-            unit: "mm"
-            description: x wok location of boss fiber derived from measured alpha/beta angles of robot
+            unit: mm
+            description: x wok location of boss fiber derived from measured alpha/beta
+              angles of robot
           xFVC:
             name: xFVC
             type: float64
-            unit: "pix"
-            description: x location used for center of FVC centroid for constructing fvc pixel to mm transform.
+            unit: pix
+            description: x location used for center of FVC centroid for constructing
+              fvc pixel to mm transform.
           yFVC:
             name: yFVC
             type: float64
-            unit: "pix"
-            description: x location used for center of FVC centroid for constructing fvc pixel to mm transform.
+            unit: pix
+            description: x location used for center of FVC centroid for constructing
+              fvc pixel to mm transform.
       hdu6:
         name: FIDUCIALCOORDSMEAS
-        description: Contains all FVC based fiducial fiber measurements.  Merge of FIDUCIALCOORDS (hdu4) and CENTROIDS (hdu9).  Merge is made by matching centroids to individual fiducial fibers.
+        description: Contains all FVC based fiducial fiber measurements.  Merge of
+          FIDUCIALCOORDS (hdu4) and CENTROIDS (hdu9).  Merge is made by matching centroids
+          to individual fiducial fibers.
         is_image: false
         size: 28 KB
         header:
@@ -1451,323 +1526,348 @@ releases:
           site:
             name: site
             type: char[3]
-            unit: ""
+            unit: ''
             description: observatory name (APO or LCO)
           holeID:
             name: holeID
             type: char[7]
-            unit: ""
+            unit: ''
             description: name of wok hole location where robot is installed
           id:
             name: id
             type: char[7]
-            unit: ""
+            unit: ''
             description: unique identifier for fiducial
           xWok:
             name: xWok
             type: float64
-            unit: "mm"
+            unit: mm
             description: x wok location of fiducial
           yWok:
             name: yWok
             type: float64
-            unit: "mm"
+            unit: mm
             description: y wok location of fiducial
           zWok:
             name: zWok
             type: float64
-            unit: "mm"
+            unit: mm
             description: z wok location of fiducial
           col:
             name: col
             type: float64
-            unit: ""
+            unit: ''
             description: wok hex column id
           row:
             name: row
             type: float64
-            unit: ""
+            unit: ''
             description: wok hex row id
           thresh:
             name: thresh
             type: float64
-            unit: "adu"
+            unit: adu
             description: threshold at centroid location (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           npix:
             name: npix
             type: int64
-            unit: "pix"
-            description: number of pixels belonging to centroid (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+            unit: pix
+            description: number of pixels belonging to centroid (sep extraction output
+              https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           tnpix:
             name: tnpix
             type: int64
-            unit: "pix"
+            unit: pix
             description: number of pixels above threshold (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           xmin:
             name: xmin
             type: int64
-            unit: "pix"
+            unit: pix
             description: min x coord of centroid (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           xmax:
             name: xmax
             type: int64
-            unit: "pix"
+            unit: pix
             description: max x coord of centroid (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           ymin:
             name: ymin
             type: int64
-            unit: "pix"
+            unit: pix
             description: min y coord of centroid (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           ymax:
             name: ymax
             type: int64
-            unit: "pix"
+            unit: pix
             description: max y coord of centroid (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           x:
             name: x
             type: float64
-            unit: "pix"
-            description: x center of centroid (first moment, sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+            unit: pix
+            description: x center of centroid (first moment, sep extraction output
+              https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           y:
             name: y
             type: float64
-            unit: "pix"
-            description: y center of centroid (first moment, sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+            unit: pix
+            description: y center of centroid (first moment, sep extraction output
+              https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           x2:
             name: x2
             type: float64
-            unit: "pix^2"
-            description: x second moment (variance) of centroid (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+            unit: pix^2
+            description: x second moment (variance) of centroid (sep extraction output
+              https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           y2:
             name: y2
             type: float64
-            unit: "pix^2"
-            description: y second moment (variance) of centroid (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+            unit: pix^2
+            description: y second moment (variance) of centroid (sep extraction output
+              https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           xy:
             name: xy
             type: float64
-            unit: "pix^2"
-            description: xy second moment (covariance) of centroid (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+            unit: pix^2
+            description: xy second moment (covariance) of centroid (sep extraction
+              output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           errx2:
             name: errx2
             type: float64
-            unit: "pix^2"
+            unit: pix^2
             description: x second moment error (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           erry2:
             name: erry2
             type: float64
-            unit: "pix^2"
+            unit: pix^2
             description: y second moment error (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           errxy:
             name: errxy
             type: float64
-            unit: "pix^2"
+            unit: pix^2
             description: xy second moment error (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           a:
             name: a
             type: float64
-            unit: ""
+            unit: ''
             description: elipse parameter a (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           b:
             name: b
             type: float64
-            unit: ""
+            unit: ''
             description: elipse parameter b (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           theta:
             name: theta
             type: float64
-            unit: ""
+            unit: ''
             description: elipse parameter theta (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           cxx:
             name: cxx
             type: float64
-            unit: ""
+            unit: ''
             description: alternative ellipse parameter (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           cyy:
             name: cyy
             type: float64
-            unit: ""
+            unit: ''
             description: alternative ellipse parameter (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           cxy:
             name: cxy
             type: float64
-            unit: ""
+            unit: ''
             description: alternative ellipse parameter (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           cflux:
             name: cflux
             type: float64
-            unit: "adu"
-            description: sum of member pixels in convolved data (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+            unit: adu
+            description: sum of member pixels in convolved data (sep extraction output
+              https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           flux:
             name: flux
             type: float64
-            unit: "adu"
-            description: sum of member pixels in unconvolved data (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+            unit: adu
+            description: sum of member pixels in unconvolved data (sep extraction
+              output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           cpeak:
             name: cpeak
             type: float64
-            unit: "adu"
+            unit: adu
             description: peak value in convolved data (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           peak:
             name: peak
             type: float64
-            unit: "adu"
+            unit: adu
             description: peak value in unconvolved data (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           xcpeak:
             name: xcpeak
             type: int64
-            unit: "pix"
-            description: x coordinate of convolved peak pixel (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+            unit: pix
+            description: x coordinate of convolved peak pixel (sep extraction output
+              https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           ycpeak:
             name: ycpeak
             type: int64
-            unit: "pix"
-            description: y coordinate of convolved peak pixel (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+            unit: pix
+            description: y coordinate of convolved peak pixel (sep extraction output
+              https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           xpeak:
             name: xpeak
             type: int64
-            unit: "pix"
-            description: x coordinate of unconvolved peak pixel (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+            unit: pix
+            description: x coordinate of unconvolved peak pixel (sep extraction output
+              https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           ypeak:
             name: ypeak
             type: int64
-            unit: "pix"
-            description: y coordinate of unconvolved peak pixel (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+            unit: pix
+            description: y coordinate of unconvolved peak pixel (sep extraction output
+              https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           flag:
             name: flag
             type: int64
-            unit: ""
+            unit: ''
             description: centroid extraction flags (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           xFlex:
             name: xFlex
             type: float64
-            unit: "pix"
+            unit: pix
             description: x centroid location after adjusting for FVC flexure.
           yFlex:
             name: yFlex
             type: float64
-            unit: "pix"
+            unit: pix
             description: y centroid location after adjusting for FVC flexure.
           rm:
             name: rm
             type: float64
-            unit: "pix"
+            unit: pix
             description: distance of flex correction
           xcirc:
             name: xcirc
             type: float64
-            unit: "pix"
+            unit: pix
             description: x pixel center of circle fit to outermost fiducials
           ycirc:
             name: ycirc
             type: float64
-            unit: "pix"
+            unit: pix
             description: y pixel center of circle fit to outermost fiducials
           rcirc:
             name: rcirc
             type: float64
-            unit: "pix"
+            unit: pix
             description: radius of circle fit to outermost fiducials
           xNudge:
             name: xNudge
             type: float64
-            unit: "pix"
+            unit: pix
             description: x pixel location after applying nudge model
           yNudge:
             name: yNudge
             type: float64
-            unit: "pix"
+            unit: pix
             description: y pixel location after applying nudge model
           outerNudge:
             name: outerNudge
             type: bool
-            unit: ""
+            unit: ''
             description: separate nudge model applied to outer fiducials
           xSimple:
             name: xSimple
             type: float64
-            unit: "pix"
+            unit: pix
             description: x centroid location using upsampled epsf coorelation
           ySimple:
             name: ySimple
             type: float64
-            unit: "pix"
+            unit: pix
             description: y centroid location using upsampled epsf coorelation
           xRot:
             name: xRot
             type: float64
-            unit: "pix"
-            description: x centroid center rotated roughly such that xy pixels are aligned with xyWok before performing fiducial matching.
+            unit: pix
+            description: x centroid center rotated roughly such that xy pixels are
+              aligned with xyWok before performing fiducial matching.
           yRot:
             name: yRot
             type: float64
-            unit: "pix"
-            description: y centroid center rotated roughly such that xy pixels are aligned with xyWok before performing fiducial matching.
+            unit: pix
+            description: y centroid center rotated roughly such that xy pixels are
+              aligned with xyWok before performing fiducial matching.
           xSimpleRot:
             name: xSimpleRot
             type: float64
-            unit: "pix"
-            description: xSimple centroid center rotated roughly such that xy pixels are aligned with xyWok before performing fiducial matching.
+            unit: pix
+            description: xSimple centroid center rotated roughly such that xy pixels
+              are aligned with xyWok before performing fiducial matching.
           ySimpleRot:
             name: ySimpleRot
             type: float64
-            unit: "pix"
-            description: ySimple centroid center rotated roughly such that xy pixels are aligned with xyWok before performing fiducial matching.
+            unit: pix
+            description: ySimple centroid center rotated roughly such that xy pixels
+              are aligned with xyWok before performing fiducial matching.
           xFlexRot:
             name: xFlexRot
             type: float64
-            unit: "pix"
-            description: xFlex centroid center rotated roughly such that xy pixels are aligned with xyWok before performing fiducial matching.
+            unit: pix
+            description: xFlex centroid center rotated roughly such that xy pixels
+              are aligned with xyWok before performing fiducial matching.
           yFlexRot:
             name: yFlexRot
             type: float64
-            unit: "pix"
-            description: yFlex centroid center rotated roughly such that xy pixels are aligned with xyWok before performing fiducial matching.
+            unit: pix
+            description: yFlex centroid center rotated roughly such that xy pixels
+              are aligned with xyWok before performing fiducial matching.
           xNudgeRot:
             name: xNudgeRot
             type: float64
-            unit: "pix"
-            description: xNudge centroid center rotated roughly such that xy pixels are aligned with xyWok before performing fiducial matching.
+            unit: pix
+            description: xNudge centroid center rotated roughly such that xy pixels
+              are aligned with xyWok before performing fiducial matching.
           yNudgeRot:
             name: yNudgeRot
             type: float64
-            unit: "pix"
-            description: yNudge centroid center rotated roughly such that xy pixels are aligned with xyWok before performing fiducial matching.
+            unit: pix
+            description: yNudge centroid center rotated roughly such that xy pixels
+              are aligned with xyWok before performing fiducial matching.
           centroidID:
             name: centroidID
             type: int64
-            unit: ""
+            unit: ''
             description: unique ID for each centroid detected in FVC frame
           xWokMeas:
             name: xWokMeas
             type: float64
-            unit: "mm"
-            description: x wok measured location of fiducial fiber after applying fiducial-based ccd to wok FVC transform.
+            unit: mm
+            description: x wok measured location of fiducial fiber after applying
+              fiducial-based ccd to wok FVC transform.
           yWokMeas:
             name: yWokMeas
             type: float64
-            unit: "mm"
-            description: x wok measured location of fiducial fiber after applying fiducial-based ccd to wok FVC transform.
+            unit: mm
+            description: x wok measured location of fiducial fiber after applying
+              fiducial-based ccd to wok FVC transform.
           wokErr:
             name: wokErr
             type: float64
-            unit: "mm"
-            description: distance between expected and measured wok location of fiducial fiber
+            unit: mm
+            description: distance between expected and measured wok location of fiducial
+              fiber
           wokErrWarn:
             name: wokErrWarn
             type: bool
-            unit: ""
+            unit: ''
             description: true if wokErr is above some threshold
           xFVC:
             name: xFVC
             type: float64
-            unit: "pix"
-            description: x location used for center of FVC centroid for constructing fvc pixel to mm transform.
+            unit: pix
+            description: x location used for center of FVC centroid for constructing
+              fvc pixel to mm transform.
           yFVC:
             name: yFVC
             type: float64
-            unit: "pix"
-            description: x location used for center of FVC centroid for constructing fvc pixel to mm transform.
+            unit: pix
+            description: x location used for center of FVC centroid for constructing
+              fvc pixel to mm transform.
       hdu7:
         name: FIBERDATA
         description: Information for each FPS fibre in a given configuration
@@ -1811,53 +1911,53 @@ releases:
           index:
             name: index
             type: int32
-            unit: ""
+            unit: ''
             description: Row index
           positioner_id:
             name: positioner_id
             type: int32
-            unit: ""
+            unit: ''
             description: The robotic fibre positioner identifier
           fibre_type:
             name: fibre_type
             type: char[9]
-            unit: ""
+            unit: ''
             description: rType of fibre in this entry (APOGEE, BOSS, or Metrology)
           hole_id:
             name: hole_id
             type: char[7]
-            unit: ""
+            unit: ''
             description: Hole identifier in which the positioner is located
           fibre_id:
             name: fibre_id
             type: float64
-            unit: ""
+            unit: ''
             description: Sequential ID of the fibre in the spectrograph slit
           site:
             name: site
             type: char[3]
-            unit: ""
+            unit: ''
             description: Observatory name (APO or LCO)
           assigned:
             name: assigned
             type: bool
-            unit: ""
+            unit: ''
             description: Whether this fibre is assigned to a target
           reassigned:
             name: reassigned
             type: bool
-            unit: ""
+            unit: ''
             description: Whether the fibre was reassigned after Kaiju decollision
           valid:
             name: valid
             type: bool
-            unit: ""
+            unit: ''
             description: Whether the alpha and beta angles are valid. Do not use targets
               with valid=0
           too:
             name: too
             type: bool
-            unit: ""
+            unit: ''
             description: Whether this entry is a target of opportunity (ToO). In this
               case the ToO replaced one of the initial science target assigned by
               robostrategy. The too entry was introduced in confSummary 14461 at APO
@@ -1865,68 +1965,70 @@ releases:
           on_target:
             name: on_target
             type: bool
-            unit: ""
-            description: The fibre is on target (was assigned and it was not replaced or decollided during reconfiguration)
+            unit: ''
+            description: The fibre is on target (was assigned and it was not replaced
+              or decollided during reconfiguration)
           disabled:
             name: disabled
             type: bool
-            unit: ""
+            unit: ''
             description: The positioner to which this fibre belongs is disabled
           offline:
             name: offline
             type: bool
-            unit: ""
+            unit: ''
             description: The positioner to which this fibre belongs is offline
           deadlocked:
             name: deadlocked
             type: bool
-            unit: ""
+            unit: ''
             description: The positioner to which this fibre belongs is deadlocked
           decollided:
             name: decollided
             type: bool
-            unit: ""
-            description: The positioner to which this fibre belongs was collided with another robot and one had to be moved
+            unit: ''
+            description: The positioner to which this fibre belongs was collided with
+              another robot and one had to be moved
           dubious:
             name: dubious
             type: bool
-            unit: ""
+            unit: ''
             description: The FVC-measured position of this fibre is dubious
           wavelength:
             name: wavelength
             type: float32
             unit: Angstrom
-            description: The wavelength at which the target was designed to be observed 
+            description: The wavelength at which the target was designed to be observed
           fiberId:
             name: fiberId
             type: float32
-            unit: ""
+            unit: ''
             description: Same as fibre_id but with American spelling
           catalogid:
             name: catalogid
             type: float64
-            unit: ""
+            unit: ''
             description: The unique identifier of the target in the target catalog
           ra_icrs:
             name: ra_icrs
             type: float64
-            unit: "deg"
+            unit: deg
             description: The ICRS right ascension of the target
           dec_icrs:
             name: dec_icrs
             type: float64
-            unit: "deg"
+            unit: deg
             description: The ICRS declination of the target
           pmra:
             name: pmra
             type: float32
-            unit: "mas/year"
+            unit: mas/year
             description: Right ascension proper motion from catalogdb.catalog. This
               is a real, on-sky angle (i.e., the cosine of the declination is included)
           pmdec:
             name: pmdec
             type: float32
-            unit: "mas/year"
+            unit: mas/year
             description: Declination proper motion from catalogdb.catalog
           parallax:
             name: parallax
@@ -1941,24 +2043,24 @@ releases:
           delta_ra:
             name: delta_ra
             type: float32
-            unit: "arcsec"
+            unit: arcsec
             description: Custom offset in right ascension applied to this target.
               Note that "ra", "dec", and the "_observed" coordinates do take this
               offset into account.
           delta_dec:
             name: delta_dec
             type: float32
-            unit: "arcsec"
+            unit: arcsec
             description: Custom offset in declination applied to this target.
           ra_offset:
             name: ra_offset
             type: float64
-            unit: "deg"
+            unit: deg
             description: ra_icrs + delta_ra
           dec_offset:
             name: dec_offset
             type: float64
-            unit: "deg"
+            unit: deg
             description: dec_icrs + delta_dec
           ra_epoch:
             name: ra_epoch
@@ -1974,7 +2076,8 @@ releases:
             name: ra_observed
             type: float64
             unit: deg
-            description: Topocentric right ascension of the target at the time of observation
+            description: Topocentric right ascension of the target at the time of
+              observation
           dec_observed:
             name: dec_observed
             type: float64
@@ -2008,7 +2111,8 @@ releases:
             unit: mm
             description: The X wok coordinate, measured from the centre of the wok.
               Calculated from the target ra_icrs and dec_icrs using the system coordinate
-              transformations At APO these coordinates are only available starting on MJD 59584.
+              transformations At APO these coordinates are only available starting
+              on MJD 59584.
           ywok:
             name: ywok
             type: float64
@@ -2023,8 +2127,8 @@ releases:
             name: xwok_kaiju
             type: float64
             unit: mm
-            description: The X wok coordinate, measured from the centre of the wok. Calculated
-              by Kaiju from the target alpha and beta angles.
+            description: The X wok coordinate, measured from the centre of the wok.
+              Calculated by Kaiju from the target alpha and beta angles.
           ywok_kaiju:
             name: ywok_kaiju
             type: float64
@@ -2054,12 +2158,14 @@ releases:
             name: alpha
             type: float64
             unit: deg
-            description: The alpha angle of the positioner. This value is calculated from the ICRS coordinates of the target by performing all the transformations to positioner coordinates.
+            description: The alpha angle of the positioner. This value is calculated
+              from the ICRS coordinates of the target by performing all the transformations
+              to positioner coordinates.
           beta:
             name: beta
             type: float64
             unit: deg
-            description: The beta angle of the positioner. 
+            description: The beta angle of the positioner.
       hdu8:
         name: POSANGLES
         description: information about robot angular positions before and after move
@@ -2103,41 +2209,43 @@ releases:
           positionerID:
             name: positionerID
             type: int64
-            unit: ""
+            unit: ''
             description: unique identifier number for robot
           alphaReport:
             name: alphaReport
             type: float64
-            unit: "deg"
+            unit: deg
             description: alpha angle reported by robot firmware
           betaReport:
             name: betaReport
             type: float64
-            unit: "deg"
+            unit: deg
             description: beta angle reported by robot firmware
           cmdAlpha:
             name: cmdAlpha
             type: float64
-            unit: "deg"
+            unit: deg
             description: alpha angle commanded to the robot
           cmdBeta:
             name: cmdBeta
             type: float64
-            unit: "deg"
+            unit: deg
             description: beta angle commanded to the robot
           startAlpha:
             name: startAlpha
             type: float64
-            unit: "deg"
+            unit: deg
             description: alpha angle prior to move command
           startBeta:
             name: startBeta
             type: float64
-            unit: "deg"
+            unit: deg
             description: beta angle prior to move command
       hdu9:
         name: CENTROIDS
-        description: centroid measurements for all FVC source detections prior to matching to specific metrology or fiducial fibers.  Most columns correspond to what is returned by sep.extract (https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html).
+        description: centroid measurements for all FVC source detections prior to
+          matching to specific metrology or fiducial fibers.  Most columns correspond
+          to what is returned by sep.extract (https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html).
         is_image: false
         size: 212 KB
         header:
@@ -2178,256 +2286,277 @@ releases:
           thresh:
             name: thresh
             type: float64
-            unit: "adu"
+            unit: adu
             description: threshold at centroid location (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           npix:
             name: npix
             type: int64
-            unit: "pix"
-            description: number of pixels belonging to centroid (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+            unit: pix
+            description: number of pixels belonging to centroid (sep extraction output
+              https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           tnpix:
             name: tnpix
             type: int64
-            unit: "pix"
+            unit: pix
             description: number of pixels above threshold (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           xmin:
             name: xmin
             type: int64
-            unit: "pix"
+            unit: pix
             description: min x coord of centroid (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           xmax:
             name: xmax
             type: int64
-            unit: "pix"
+            unit: pix
             description: max x coord of centroid (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           ymin:
             name: ymin
             type: int64
-            unit: "pix"
+            unit: pix
             description: min y coord of centroid (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           ymax:
             name: ymax
             type: int64
-            unit: "pix"
+            unit: pix
             description: max y coord of centroid (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           x:
             name: x
             type: float64
-            unit: "pix"
-            description: x center of centroid (first moment, sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+            unit: pix
+            description: x center of centroid (first moment, sep extraction output
+              https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           y:
             name: y
             type: float64
-            unit: "pix"
-            description: y center of centroid (first moment, sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+            unit: pix
+            description: y center of centroid (first moment, sep extraction output
+              https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           x2:
             name: x2
             type: float64
-            unit: "pix^2"
-            description: x second moment (variance) of centroid (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+            unit: pix^2
+            description: x second moment (variance) of centroid (sep extraction output
+              https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           y2:
             name: y2
             type: float64
-            unit: "pix^2"
-            description: y second moment (variance) of centroid (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+            unit: pix^2
+            description: y second moment (variance) of centroid (sep extraction output
+              https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           xy:
             name: xy
             type: float64
-            unit: "pix^2"
-            description: xy second moment (covariance) of centroid (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+            unit: pix^2
+            description: xy second moment (covariance) of centroid (sep extraction
+              output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           errx2:
             name: errx2
             type: float64
-            unit: "pix^2"
+            unit: pix^2
             description: x second moment error (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           erry2:
             name: erry2
             type: float64
-            unit: "pix^2"
+            unit: pix^2
             description: y second moment error (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           errxy:
             name: errxy
             type: float64
-            unit: "pix^2"
+            unit: pix^2
             description: xy second moment error (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           a:
             name: a
             type: float64
-            unit: ""
+            unit: ''
             description: elipse parameter a (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           b:
             name: b
             type: float64
-            unit: ""
+            unit: ''
             description: elipse parameter b (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           theta:
             name: theta
             type: float64
-            unit: ""
+            unit: ''
             description: elipse parameter theta (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           cxx:
             name: cxx
             type: float64
-            unit: ""
+            unit: ''
             description: alternative ellipse parameter (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           cyy:
             name: cyy
             type: float64
-            unit: ""
+            unit: ''
             description: alternative ellipse parameter (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           cxy:
             name: cxy
             type: float64
-            unit: ""
+            unit: ''
             description: alternative ellipse parameter (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           cflux:
             name: cflux
             type: float64
-            unit: "adu"
-            description: sum of member pixels in convolved data (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+            unit: adu
+            description: sum of member pixels in convolved data (sep extraction output
+              https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           flux:
             name: flux
             type: float64
-            unit: "adu"
-            description: sum of member pixels in unconvolved data (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+            unit: adu
+            description: sum of member pixels in unconvolved data (sep extraction
+              output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           cpeak:
             name: cpeak
             type: float64
-            unit: "adu"
+            unit: adu
             description: peak value in convolved data (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           peak:
             name: peak
             type: float64
-            unit: "adu"
+            unit: adu
             description: peak value in unconvolved data (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           xcpeak:
             name: xcpeak
             type: int64
-            unit: "pix"
-            description: x coordinate of convolved peak pixel (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+            unit: pix
+            description: x coordinate of convolved peak pixel (sep extraction output
+              https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           ycpeak:
             name: ycpeak
             type: int64
-            unit: "pix"
-            description: y coordinate of convolved peak pixel (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+            unit: pix
+            description: y coordinate of convolved peak pixel (sep extraction output
+              https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           xpeak:
             name: xpeak
             type: int64
-            unit: "pix"
-            description: x coordinate of unconvolved peak pixel (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+            unit: pix
+            description: x coordinate of unconvolved peak pixel (sep extraction output
+              https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           ypeak:
             name: ypeak
             type: int64
-            unit: "pix"
-            description: y coordinate of unconvolved peak pixel (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+            unit: pix
+            description: y coordinate of unconvolved peak pixel (sep extraction output
+              https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           flag:
             name: flag
             type: int64
-            unit: ""
+            unit: ''
             description: centroid extraction flags (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
           xFlex:
             name: xFlex
             type: float64
-            unit: "pix"
+            unit: pix
             description: x centroid location after adjusting for FVC flexure.
           yFlex:
             name: yFlex
             type: float64
-            unit: "pix"
+            unit: pix
             description: y centroid location after adjusting for FVC flexure.
           rm:
             name: rm
             type: float64
-            unit: "pix"
+            unit: pix
             description: distance of flex correction
           xcirc:
             name: xcirc
             type: float64
-            unit: "pix"
+            unit: pix
             description: x pixel center of circle fit to outermost fiducials
           ycirc:
             name: ycirc
             type: float64
-            unit: "pix"
+            unit: pix
             description: y pixel center of circle fit to outermost fiducials
           rcirc:
             name: rcirc
             type: float64
-            unit: "pix"
+            unit: pix
             description: radius of circle fit to outermost fiducials
           xNudge:
             name: xNudge
             type: float64
-            unit: "pix"
+            unit: pix
             description: x pixel location after applying nudge model
           yNudge:
             name: yNudge
             type: float64
-            unit: "pix"
+            unit: pix
             description: y pixel location after applying nudge model
           outerNudge:
             name: outerNudge
             type: bool
-            unit: ""
+            unit: ''
             description: separate nudge model applied to outer fiducials
           xSimple:
             name: xSimple
             type: float64
-            unit: "pix"
+            unit: pix
             description: x centroid location using upsampled epsf coorelation
           ySimple:
             name: ySimple
             type: float64
-            unit: "pix"
+            unit: pix
             description: y centroid location using upsampled epsf coorelation
           xRot:
             name: xRot
             type: float64
-            unit: "pix"
-            description: x centroid center rotated roughly such that xy pixels are aligned with xyWok before performing fiducial matching.
+            unit: pix
+            description: x centroid center rotated roughly such that xy pixels are
+              aligned with xyWok before performing fiducial matching.
           yRot:
             name: yRot
             type: float64
-            unit: "pix"
-            description: y centroid center rotated roughly such that xy pixels are aligned with xyWok before performing fiducial matching.
+            unit: pix
+            description: y centroid center rotated roughly such that xy pixels are
+              aligned with xyWok before performing fiducial matching.
           xSimpleRot:
             name: xSimpleRot
             type: float64
-            unit: "pix"
-            description: xSimple centroid center rotated roughly such that xy pixels are aligned with xyWok before performing fiducial matching.
+            unit: pix
+            description: xSimple centroid center rotated roughly such that xy pixels
+              are aligned with xyWok before performing fiducial matching.
           ySimpleRot:
             name: ySimpleRot
             type: float64
-            unit: "pix"
-            description: ySimple centroid center rotated roughly such that xy pixels are aligned with xyWok before performing fiducial matching.
+            unit: pix
+            description: ySimple centroid center rotated roughly such that xy pixels
+              are aligned with xyWok before performing fiducial matching.
           xFlexRot:
             name: xFlexRot
             type: float64
-            unit: "pix"
-            description: xFlex centroid center rotated roughly such that xy pixels are aligned with xyWok before performing fiducial matching.
+            unit: pix
+            description: xFlex centroid center rotated roughly such that xy pixels
+              are aligned with xyWok before performing fiducial matching.
           yFlexRot:
             name: yFlexRot
             type: float64
-            unit: "pix"
-            description: yFlex centroid center rotated roughly such that xy pixels are aligned with xyWok before performing fiducial matching.
+            unit: pix
+            description: yFlex centroid center rotated roughly such that xy pixels
+              are aligned with xyWok before performing fiducial matching.
           xNudgeRot:
             name: xNudgeRot
             type: float64
-            unit: "pix"
-            description: xNudge centroid center rotated roughly such that xy pixels are aligned with xyWok before performing fiducial matching.
+            unit: pix
+            description: xNudge centroid center rotated roughly such that xy pixels
+              are aligned with xyWok before performing fiducial matching.
           yNudgeRot:
             name: yNudgeRot
             type: float64
-            unit: "pix"
-            description: yNudge centroid center rotated roughly such that xy pixels are aligned with xyWok before performing fiducial matching.
+            unit: pix
+            description: yNudge centroid center rotated roughly such that xy pixels
+              are aligned with xyWok before performing fiducial matching.
           centroidID:
             name: centroidID
             type: int64
-            unit: ""
+            unit: ''
             description: unique ID for each centroid detected in FVC frame
       hdu10:
         name: OFFSETS
-        description: Computed offsets for each fibre based on positioners measured by the FVC
+        description: Computed offsets for each fibre based on positioners measured
+          by the FVC
         is_image: false
         size: 60 KB
         header:
@@ -2468,87 +2597,94 @@ releases:
           positioner_id:
             name: positioner_id
             type: int32
-            unit: ""
+            unit: ''
             description: The ID of the positioner
           alpha_reported:
             name: alpha_reported
             type: float64
-            unit: "deg"
-            description: The angle of the alpha arm as reported by the positioner firmware
+            unit: deg
+            description: The angle of the alpha arm as reported by the positioner
+              firmware
           beta_reported:
             name: beta_reported
             type: float64
-            unit: "deg"
+            unit: deg
             description: The angle of the beta arm as reported by the positioner firmware
           hole_id:
             name: hole_id
             type: char[7]
-            unit: ""
-            description: The hole in which the positioner is located, in the format 'RXXCYY'
+            unit: ''
+            description: The hole in which the positioner is located, in the format
+              'RXXCYY'
           xwok_distance:
             name: xwok_distance
             type: float64
-            unit: "mm"
-            description: The x-axis distance between measured and desired positions in wok coordinates
+            unit: mm
+            description: The x-axis distance between measured and desired positions
+              in wok coordinates
           ywok_distance:
             name: ywok_distance
             type: float64
-            unit: "mm"
-            description: The y-axis distance between measured and desired positions in wok coordinates
+            unit: mm
+            description: The y-axis distance between measured and desired positions
+              in wok coordinates
           alpha_expected:
             name: alpha_expected
             type: float64
-            unit: "deg"
+            unit: deg
             description: The desired alpha angle, from the configuration data
           beta_expected:
             name: beta_expected
             type: float64
-            unit: "deg"
+            unit: deg
             description: The desired beta angle, from the configuration data
           alpha_measured:
             name: alpha_measured
             type: float64
-            unit: "deg"
+            unit: deg
             description: The alpha angle measured by the FVC
           beta_measured:
             name: beta_measured
             type: float64
-            unit: "deg"
+            unit: deg
             description: The beta angle measured by the FVC
           transformation_valid:
             name: transformation_valid
             type: bool
-            unit: ""
-            description: Whether the transformation between wok and positioner coordinates was successful
+            unit: ''
+            description: Whether the transformation between wok and positioner coordinates
+              was successful
           alpha_offset:
             name: alpha_offset
             type: float64
-            unit: "deg"
-            description: The difference between the expected and measured alpha angles 
+            unit: deg
+            description: The difference between the expected and measured alpha angles
           beta_offset:
             name: beta_offset
             type: float64
-            unit: "deg"
+            unit: deg
             description: The difference between the expected and measured beta angles
           alpha_offset_corrected:
             name: alpha_offset_corrected
             type: float64
-            unit: "deg"
-            description: "The difference between the expected and measured alpha angles, after applying clipping limits. This is the applied offset."
+            unit: deg
+            description: The difference between the expected and measured alpha angles,
+              after applying clipping limits. This is the applied offset.
           beta_offset_corrected:
             name: beta_offset_corrected
             type: float64
-            unit: "deg"
-            description: "The difference between the expected and measured beta angles, after applying clipping limits. This is the applied offset."
+            unit: deg
+            description: The difference between the expected and measured beta angles,
+              after applying clipping limits. This is the applied offset.
           alpha_new:
             name: alpha_new
             type: float64
-            unit: "deg"
+            unit: deg
             description: The new alpha angle commanded to the positioner firmware
           beta_new:
             name: beta_new
             type: float64
-            unit: "deg"
+            unit: deg
             description: The new beta angle commanded to the positioner firmware
 notes: |-
   FVC measurement methods continue to evolve overtime and so proc-fimg files from different dates may not exactly match this datamodel, which was built from an image from MJD 60648.  At somepoint we should reprocess them using the same software version.
