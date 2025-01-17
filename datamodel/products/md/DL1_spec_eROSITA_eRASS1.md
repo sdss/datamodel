@@ -1,7 +1,7 @@
 # Data Model: DL1_spec_SDSSV_IPL3_eROSITA_eRASS1
 
 
-please replace this - with a short one sentence summary of file
+SDSS and eROSITA data of the sources within the SPIDERS program
 
 
 ## Contents
@@ -13,7 +13,7 @@ please replace this - with a short one sentence summary of file
 ---
 
 ## Basic Information
-please replace this - with a longer description of the data product
+Data Level 1 contains the data shared among the collaborations of SDSS and eROSITA, with optical and X-ray information of sources that were detected with eROSITA and followed-up with SDSS
 
 ### Naming Convention
 please replace this - with $DL1_SDSS_EROSITA/[VERS]/DL1_spec_SDSSV_IPL3_eROSITA_eRASS1.fits or DL1_spec_SDSSV_IPL3_eROSITA_eRASS1.fits but with regex pattern matches
@@ -49,7 +49,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 ## Example HDUS List
 
 ### HDU0: PRIMARY
-please replace this description
+Header
 
 #### HDU Type: IMAGE
 #### HDU Size:  7 KB
@@ -77,7 +77,7 @@ Key | Value | Comment | |
 
 
 ### HDU1: Joined
-please replace this description
+Column descriptions
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  10 MB
@@ -180,56 +180,56 @@ Key | Value | Comment | |
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | sdss_catalogid | int64 |  | label for column 1 |
- | sdss_id | int64 |  | label for column 2 |
- | sdss_target_flag | bool[32] |  | label for column 3 |
- | sdss_field | int64 |  | label for column 4 |
- | sdss_mjd | int64 | day | label for column 5 |
- | sdss_objtype | char[16] |  | label for column 6 |
- | sdss_fiber_ra | float64 | degree | label for column 7 |
- | sdss_fiber_dec | float64 | degree | label for column 8 |
- | sdss_z | float32 |  | label for column 9 |
- | sdss_z_err | float32 |  | label for column 10 |
- | sdss_zwarning | int64 |  | label for column 11 |
- | sdss_sn_median_all | float32 |  | label for column 12 |
- | sdss_class | char[6] |  | label for column 13 |
- | sdss_subclass | char[21] |  | label for column 14 |
- | sdss_obs | char[3] |  | label for column 15 |
- | sdss_run2d | char[6] |  | label for column 16 |
- | sdss_nspec | int16 |  | label for column 17 |
- | sdss_vrad_astra | float32 | km/s | label for column 18 |
- | sdss_evrad_astra | float32 | km/s | label for column 19 |
- | sdss_teff_astra | float32 |  | label for column 20 |
- | sdss_eteff_astra | float32 |  | label for column 21 |
- | sdss_logg_astra | float32 |  | label for column 22 |
- | sdss_elogg_astra | float32 |  | label for column 23 |
- | sdss_feh_astra | float32 |  | label for column 24 |
- | sdss_efeh_astra | float32 |  | label for column 25 |
- | sdss_ewha_astra | float32 |  | label for column 26 |
- | sdss_eewha_astra | float32[3] |  | label for column 27 |
- | gaia_bp | float32 | Vega mag | label for column 28 |
- | gaia_rp | float32 | Vega mag | label for column 29 |
- | gaia_g | float32 | Vega mag | label for column 30 |
- | racat | float64 | degree | label for column 31 |
- | deccat | float64 | degree | label for column 32 |
- | coord_epoch | float32 |  | label for column 33 |
- | pmra | float32 | mas/yr | label for column 34 |
- | pmdec | float32 | mas/yr | label for column 35 |
- | parallax | float32 | mas | label for column 36 |
- | wise_mag | float32[4] | AB mag | label for column 37 |
- | twomass_mag | float32[3] | Vega mag | label for column 38 |
- | guvcat_mag | float32[2] | AB mag | label for column 39 |
- | ero_detuid | char[32] |  | label for column 40 |
- | ero_ra | float64 | degree | label for column 41 |
- | ero_dec | float64 | degree | label for column 42 |
- | ero_pos_err | float64 | arcsec | label for column 43 |
- | ero_mjd | int32 | day | label for column 44 |
- | ero_mjd_flag | int16 |  | label for column 45 |
- | ero_morph | char[9] |  | label for column 46 |
- | ero_flux | float32 | erg/s/cm^2 | label for column 47 |
- | ero_flux_err | float32 | erg/s/cm^2 | label for column 48 |
- | ero_det_like | float32 |  | label for column 49 |
- | ero_flux_type | char[9] | keV | label for column 50 |
+ | sdss_catalogid | int64 |  | SDSS CATALOGID (used before the unification with SDSS_ID) |
+ | sdss_id | int64 |  | SDSS ID (unified for DR19) |
+ | sdss_target_flag | bool[32] |  | SDSS Semaphore byte array for the target cartons |
+ | sdss_field | int64 |  | SDSS field sequence number |
+ | sdss_mjd | int64 | day | SDSS modified Julian date of observation |
+ | sdss_objtype | char[16] |  | SDSS object type |
+ | sdss_fiber_ra | float64 | degree | SDSS fiber position coordinate: right ascension |
+ | sdss_fiber_dec | float64 | degree | SDSS fiber position coordinate: declination |
+ | sdss_z | float32 |  | SDSS best redshift fit |
+ | sdss_z_err | float32 |  | SDSS redshift error |
+ | sdss_zwarning | int64 |  | SDSS redshift measurement warning flag |
+ | sdss_sn_median_all | float32 |  | SDSS median Signal to Noise over the entire spectral range |
+ | sdss_class | char[6] |  | SDSS best fit spectroscopic classification |
+ | sdss_subclass | char[21] |  | SDSS subclass |
+ | sdss_obs | char[3] |  | SDSS observatory (APO or LCO) |
+ | sdss_run2d | char[6] |  | Tagged version of idlspec2d that was used to reduce the SDSS BOSS spectra |
+ | sdss_nspec | int16 |  | Number of observed SDSS spectra |
+ | sdss_vrad_astra | float32 | km/s | ASTRA stellar fit: Radial velocity |
+ | sdss_evrad_astra | float32 | km/s | ASTRA stellar fit: Radial velocity error |
+ | sdss_teff_astra | float32 |  | ASTRA stellar fit: Effective temperature |
+ | sdss_eteff_astra | float32 |  | ASTRA stellar fit: Effective temperature error |
+ | sdss_logg_astra | float32 |  | ASTRA stellar fit: Surface gravity |
+ | sdss_elogg_astra | float32 |  | ASTRA stellar fit: Surface gravity error |
+ | sdss_feh_astra | float32 |  | ASTRA stellar fit: Metallicity [Fe/H] |
+ | sdss_efeh_astra | float32 |  | ASTRA stellar fit: Metallicity [Fe/H] error |
+ | sdss_ewha_astra | float32 |  | ASTRA stellar fit: H alpha equivalent width |
+ | sdss_eewha_astra | float32[3] |  | ASTRA stellar fit: H alpha equivalent width error (percentiles) |
+ | gaia_bp | float32 | Vega mag | Gaia DR2 BP passband |
+ | gaia_rp | float32 | Vega mag | Gaia DR2 RP passband |
+ | gaia_g | float32 | Vega mag | Gaia DR2 G passband |
+ | racat | float64 | degree | Right ascension of the SDSS-V target, as derived from external catalogs |
+ | deccat | float64 | degree | Declination of the SDSS-V target, as derived from external catalogs |
+ | coord_epoch | float32 |  | Coordinate epoch of the SDSS-V target, as derived from external catalogs |
+ | pmra | float32 | mas/yr | Proper Motion in right ascension of the SDSS-V target, as derived from external catalogs |
+ | pmdec | float32 | mas/yr | Proper Motion in declination of the SDSS-V target, as derived from external catalogs |
+ | parallax | float32 | mas | Parallax of the SDSS-V target, as derived from external catalogs |
+ | wise_mag | float32[4] | AB mag | WISE photometry (W1, W2, W3, W4) |
+ | twomass_mag | float32[3] | Vega mag | 2MASS photometry (J, H, Ks) |
+ | guvcat_mag | float32[2] | AB mag | GALEX UV photometry (FUV, NUV) |
+ | ero_detuid | char[32] |  | eROSITA unique X-ray source identifier |
+ | ero_ra | float64 | degree | eROSITA position estimate: right ascension |
+ | ero_dec | float64 | degree | eROSITA position estimate: declination |
+ | ero_pos_err | float64 | arcsec | eROSITA positional error |
+ | ero_mjd | int32 | day | eROSITA modified Julian date of observation |
+ | ero_mjd_flag | int16 |  | eROSITA MJD flag (1 for sources close to the boundaries of the survey) |
+ | ero_morph | char[9] |  | eROSITA source morphological classification (point-like or extended) |
+ | ero_flux | float32 | erg/s/cm^2 | eROSITA flux |
+ | ero_flux_err | float32 | erg/s/cm^2 | eROSITA flux error |
+ | ero_det_like | float32 |  | eROSITA source detection likelihood in the given band |
+ | ero_flux_type | char[9] | keV | eROSITA band for the given flux |
 
 
 
