@@ -7,6 +7,7 @@ general:
   datatype: FITS
   filesize: 20 MB
   releases:
+  - DR19
   - WORK
   environments:
   - APOGEE_REDUX
@@ -20,9 +21,12 @@ general:
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
-  releases: {}
+  releases:
+    WORK:
+      from: DR19
+      note: No changes
 releases:
-  WORK:
+  WORK: &id001
     template: $APOGEE_REDUX/[APRED]/visit/[TELESCOPE]/[FIELD]/[PLATE]/[MJD]/apCframe-[CHIP]-[NUM8].fits
     example: daily/visit/apo25m/20910/441/59568/apCframe-a-40060025.fits
     location: '{apred}/visit/{telescope}/{field}/{plate}/{mjd}/apCframe-{chip}-{num:0>8}.fits'
@@ -44,7 +48,7 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: 'Exposure/detector information in primary HDU'
+        description: Exposure/detector information in primary HDU
         is_image: true
         size: 0 bytes
         header:
@@ -922,8 +926,8 @@ releases:
           value: 'AP1DVISIT:  HDU14 - Shift structure'
           comment: ''
       hdu1:
-        name: 'FLUX'
-        description: 'Flux in DN after sky subtraction and telluric correction'
+        name: FLUX
+        description: Flux in DN after sky subtraction and telluric correction
         is_image: true
         size: 2 MB
         header:
@@ -958,8 +962,8 @@ releases:
           value: Flux (ADU)
           comment: ''
       hdu2:
-        name: 'ERROR'
-        description: 'Uncertainty in flux'
+        name: ERROR
+        description: Uncertainty in flux
         is_image: true
         size: 2 MB
         header:
@@ -994,8 +998,8 @@ releases:
           value: Flux Error (ADU)
           comment: ''
       hdu3:
-        name: 'MASK'
-        description: 'Bitmask'
+        name: MASK
+        description: Bitmask
         is_image: true
         size: 1 MB
         header:
@@ -1045,8 +1049,8 @@ releases:
           value: ' 8 - unfixable'
           comment: ''
       hdu4:
-        name: 'WAVELENGTH'
-        description: 'Wavelength array'
+        name: WAVELENGTH
+        description: Wavelength array
         is_image: true
         size: 4 MB
         header:
@@ -1081,8 +1085,8 @@ releases:
           value: Wavelength (Ang)
           comment: ''
       hdu5:
-        name: 'SKY FLUX'
-        description: 'Subtracted sky flux'
+        name: SKY FLUX
+        description: Subtracted sky flux
         is_image: true
         size: 2 MB
         header:
@@ -1117,8 +1121,8 @@ releases:
           value: Sky (ADU)
           comment: ''
       hdu6:
-        name: 'SKY ERROR'
-        description: 'Uncertainty in subtracted sky flux'
+        name: SKY ERROR
+        description: Uncertainty in subtracted sky flux
         is_image: true
         size: 2 MB
         header:
@@ -1153,8 +1157,8 @@ releases:
           value: Sky Error (ADU)
           comment: ''
       hdu7:
-        name: 'TELLURIC'
-        description: 'Telluric correction applied'
+        name: TELLURIC
+        description: Telluric correction applied
         is_image: true
         size: 2 MB
         header:
@@ -1189,8 +1193,8 @@ releases:
           value: Telluric
           comment: ''
       hdu8:
-        name: 'TELLURIC ERORR'
-        description: 'Uncertainty in telluric correction'
+        name: TELLURIC ERORR
+        description: Uncertainty in telluric correction
         is_image: true
         size: 2 MB
         header:
@@ -1225,8 +1229,8 @@ releases:
           value: Telluric Error
           comment: ''
       hdu9:
-        name: 'WAVE COEFFICIENTS'
-        description: 'Wavelength calibration coefficients'
+        name: WAVE COEFFICIENTS
+        description: Wavelength calibration coefficients
         is_image: true
         size: 32 KB
         header:
@@ -1276,8 +1280,8 @@ releases:
           value: '                     in addition to the pixel offset)'
           comment: ''
       hdu10:
-        name: 'LSF COEFFICIENTS'
-        description: 'LSF characterization coefficients'
+        name: LSF COEFFICIENTS
+        description: LSF characterization coefficients
         is_image: true
         size: 60 KB
         header:
@@ -1377,7 +1381,7 @@ releases:
           comment: ''
       hdu11:
         name: ''
-        description: 'Target information'
+        description: Target information
         is_image: false
         size: 104 KB
         header:
@@ -1710,7 +1714,7 @@ releases:
             description: ''
       hdu12:
         name: ''
-        description: 'VISIT INFORMATION'
+        description: VISIT INFORMATION
         is_image: false
         size: 72 bytes
         header:
@@ -1808,7 +1812,7 @@ releases:
             description: ''
       hdu13:
         name: ''
-        description: 'Telluric fit information'
+        description: Telluric fit information
         is_image: false
         size: 17 KB
         header:
@@ -1947,7 +1951,7 @@ releases:
             description: ''
       hdu14:
         name: ''
-        description: 'Dither shift information'
+        description: Dither shift information
         is_image: false
         size: 57 bytes
         header:
@@ -2040,5 +2044,5 @@ releases:
             type: float32[4]
             unit: ''
             description: ''
-notes: |-
-  None
+  DR19: *id001
+notes: None
