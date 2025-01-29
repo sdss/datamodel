@@ -9,7 +9,7 @@
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
@@ -19,7 +19,7 @@ apPlate files combine multiple exposures in a visit, which include exposures at 
 $APOGEE_REDUX/[APRED]/visit/[TELESCOPE]/[FIELD]/[PLATE]/[MJD]/apPlate-[CHIP]-[PLATE]-[MJD].fits
 
 ### Releases
-WORK
+DR19, WORK
 
 ### Enviroments
 APOGEE_REDUX
@@ -38,32 +38,35 @@ False
 
 ### HDUS List for release WORK
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: ](#hdu1)
-  - [HDU2: ](#hdu2)
-  - [HDU3: ](#hdu3)
-  - [HDU4: ](#hdu4)
-  - [HDU5: ](#hdu5)
-  - [HDU6: ](#hdu6)
-  - [HDU7: ](#hdu7)
-  - [HDU8: ](#hdu8)
-  - [HDU9: ](#hdu9)
-  - [HDU10: ](#hdu10)
-  - [HDU11: ](#hdu11)
-  - [HDU12: ](#hdu12)
-  - [HDU13: ](#hdu13)
-  - [HDU14: ](#hdu14)
-  - [HDU15: ](#hdu15)
+  - [HDU1: FLUX](#hdu1-flux)
+  - [HDU2: ERROR](#hdu2-error)
+  - [HDU3: MASK](#hdu3-mask)
+  - [HDU4: WAVELENGTH](#hdu4-wavelength)
+  - [HDU5: SKY FLUX](#hdu5-sky flux)
+  - [HDU6: SKY ERROR](#hdu6-sky error)
+  - [HDU7: TELLURIC](#hdu7-telluric)
+  - [HDU8: TELLURIC ERROR](#hdu8-telluric error)
+  - [HDU9: WAVE COEFFICIENTS](#hdu9-wave coefficients)
+  - [HDU10: LSF COEFFICIENTS](#hdu10-lsf coefficients)
+  - [HDU11](#hdu11)
+  - [HDU12](#hdu12)
+  - [HDU13](#hdu13)
+  - [HDU14](#hdu14)
+  - [HDU15](#hdu15)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - WORK
+   - from: DR19
+   - note: No changes
 
 ---
 ## Example HDUS List
 
 ### HDU0: PRIMARY
-
+Basic exposure/detector information
 
 #### HDU Type: IMAGE
 #### HDU Size:  0 bytes
@@ -357,8 +360,8 @@ Key | Value | Comment | |
 
 
 
-### HDU1:
-
+### HDU1: FLUX
+Calibrated extracted, dither-combined flux
 
 #### HDU Type: IMAGE
 #### HDU Size:  2 MB
@@ -379,8 +382,8 @@ Key | Value | Comment | |
 
 
 
-### HDU2:
-
+### HDU2: ERROR
+Uncertainty in flux
 
 #### HDU Type: IMAGE
 #### HDU Size:  2 MB
@@ -401,8 +404,8 @@ Key | Value | Comment | |
 
 
 
-### HDU3:
-
+### HDU3: MASK
+Bitmask
 
 #### HDU Type: IMAGE
 #### HDU Size:  1 MB
@@ -423,8 +426,8 @@ Key | Value | Comment | |
 
 
 
-### HDU4:
-
+### HDU4: WAVELENGTH
+Wavelength array
 
 #### HDU Type: IMAGE
 #### HDU Size:  4 MB
@@ -445,8 +448,8 @@ Key | Value | Comment | |
 
 
 
-### HDU5:
-
+### HDU5: SKY FLUX
+Subtracted sky flux
 
 #### HDU Type: IMAGE
 #### HDU Size:  2 MB
@@ -467,8 +470,8 @@ Key | Value | Comment | |
 
 
 
-### HDU6:
-
+### HDU6: SKY ERROR
+Uncertainty in subtracted sky flux
 
 #### HDU Type: IMAGE
 #### HDU Size:  2 MB
@@ -489,8 +492,8 @@ Key | Value | Comment | |
 
 
 
-### HDU7:
-
+### HDU7: TELLURIC
+Applied telluric correction
 
 #### HDU Type: IMAGE
 #### HDU Size:  2 MB
@@ -511,8 +514,8 @@ Key | Value | Comment | |
 
 
 
-### HDU8:
-
+### HDU8: TELLURIC ERROR
+Uncertainty in telluric correction
 
 #### HDU Type: IMAGE
 #### HDU Size:  2 MB
@@ -533,8 +536,8 @@ Key | Value | Comment | |
 
 
 
-### HDU9:
-
+### HDU9: WAVE COEFFICIENTS
+Wavelength calibration coefficients
 
 #### HDU Type: IMAGE
 #### HDU Size:  32 KB
@@ -560,8 +563,8 @@ Key | Value | Comment | |
 
 
 
-### HDU10:
-
+### HDU10: LSF COEFFICIENTS
+LSF chararacterization coefficients
 
 #### HDU Type: IMAGE
 #### HDU Size:  60 KB
@@ -603,8 +606,8 @@ Key | Value | Comment | |
 
 
 
-### HDU11:
-
+### HDU11: 
+Target information
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  104 KB
@@ -691,8 +694,8 @@ Name | Type | Unit | Description |
 
 
 
-### HDU12:
-
+### HDU12: 
+Visit information
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  72 bytes
@@ -732,8 +735,8 @@ Name | Type | Unit | Description |
 
 
 
-### HDU13:
-
+### HDU13: 
+Dither shift information
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  76 bytes
@@ -778,8 +781,8 @@ Name | Type | Unit | Description |
 
 
 
-### HDU14:
-
+### HDU14: 
+Dither shift information
 
 #### HDU Type: IMAGE
 #### HDU Size:  0 bytes
@@ -795,8 +798,8 @@ Key | Value | Comment | |
 
 
 
-### HDU15:
-
+### HDU15: 
+Fluxing information
 
 #### HDU Type: IMAGE
 #### HDU Size:  1 KB
@@ -816,3 +819,7 @@ Key | Value | Comment | |
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!
