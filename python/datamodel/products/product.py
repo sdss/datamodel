@@ -415,6 +415,31 @@ class DataProducts(FuzzyList):
         """
         return grouper(field, self)
 
+    def get_level(self, level: str) -> dict:
+        """ Get products by data level
+
+        Get all products for a given data level.  The input data level can be
+        any ranking, e.g. "1", "1.2", "1.2.3", etc, and it will return
+        all products that match that level.
+
+        Parameters
+        ----------
+        level : str
+            the data level to retrieve
+
+        Returns
+        -------
+        dict
+            the products for the requested data level
+        """
+        # make sure a single integer is a string
+        if isinstance(level, int):
+            level = str(level)
+
+        levels = self.group_by('data_level')
+        return {k: v for k, v in levels.items() if k.startswith(level)}
+
+
 
 class SDSSDataModel:
     """ Class for the SDSS DataModel

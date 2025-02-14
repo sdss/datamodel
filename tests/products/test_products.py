@@ -162,6 +162,19 @@ def test_products_groupby(field, key):
     assert grp[key][0].name == 'test'
 
 
+def test_products_getlevel():
+    """ test we can get the data level of a product """
+    dp = DataProducts()
+    exp = {'1.2.3': [dp['test']]}
+    assert dp.get_level('1') == exp
+    assert dp.get_level(1) == exp
+    assert dp.get_level(2) == {}
+    assert dp.get_level('1.2') == exp
+    assert dp.get_level('1.3') == {}
+    assert dp.get_level('1.2.3') == exp
+    assert dp.get_level('1.2.4') == {}
+
+
 def test_sdss_datamodel():
     """ test the general SDSS datamodel object"""
     dm = SDSSDataModel()
