@@ -178,7 +178,8 @@ class BaseStub(abc.ABC):
             "example": [self.datamodel.real_location],
             "location": [self.datamodel.location],
             "access": self._get_access_cache(),
-            "design": self.datamodel.design
+            "design": self.datamodel.design,
+            "data_level": self.datamodel.data_level
         }
 
         # add additional real info if not in the design phase
@@ -270,6 +271,9 @@ class BaseStub(abc.ABC):
 
         # check the filetype and generate proper YAML content
         self.selected_file._set_cache(force=force)
+
+        # update the data level field
+        content['general']['data_level'] = self.datamodel.data_level or content['general']['data_level']
 
         # update the cache changelog
         self._update_cache_changelog()

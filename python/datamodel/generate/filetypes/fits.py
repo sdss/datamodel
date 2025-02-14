@@ -125,6 +125,9 @@ class FitsFile(BaseFile):
         hdus = {}
 
         for hdu_number, hdu in enumerate(self.hdulist):
+            # try to read the data level
+            if hdu.name == 'PRIMARY':
+                self._read_data_level(hdu.header)
 
             # issue a warning if the extension has no name
             if not hdu.name:
@@ -248,6 +251,10 @@ class FitsFile(BaseFile):
             return ''
 
         return self._nonempty_string(column.unit)
+
+    def _read_data_level(self, header: fits.Header) -> None:
+        """ Read the data level from the FITS header """
+        self._datamodel.data_level = header.get('DATA_LVL', None)
 
     def design_content(self, ext: str = 'primary', extno: int = None, name: str = 'EXAMPLE',
                    description: str = None, header: Union[list, dict, fits.Header] = None,
@@ -429,4 +436,3 @@ class FitsFile(BaseFile):
             if key in value
         ]
         return out[0]
-
