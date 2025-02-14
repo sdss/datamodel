@@ -55,6 +55,7 @@ def test_load_product():
     assert p.loaded is True
     assert 'WORK' in p.releases
     assert p.short == 'this is a test file'
+    assert str(p.data_level) == "1.2.3"
 
 
 def test_load_from_file():
@@ -65,6 +66,7 @@ def test_load_from_file():
     assert p.name == 'test'
     assert p.loaded is True
     assert p.short == 'this is a test file'
+    assert str(p.data_level) == "1.2.3"
 
 def test_load_context():
     """ test contextmanager product loader """
@@ -148,8 +150,9 @@ def test_list_products():
 
 @pytest.mark.parametrize('field, key',
                          [('releases', 'WORK'),
-                          ('_model.general.environments', 'TEST_REDUX')],
-                         ids=['release', 'environment'])
+                          ('_model.general.environments', 'TEST_REDUX'),
+                          ('data_level', '1.2.3')],
+                         ids=['release', 'environment', 'data_level'])
 def test_products_groupby(field, key):
     """ test we can group products by a field """
     dp = DataProducts()

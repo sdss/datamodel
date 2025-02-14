@@ -485,6 +485,28 @@ def zipper(x: Product, field: str) -> list:
     else:
         return list(zip(itertools.repeat(x), attr_value))
 
+def sort_function(x):
+    """ Sort function for grouping products by field value.
+
+    if item is a pydantic model, sort by the model's name if
+    it has one;
+    otherwise sort by the tuple item
+
+    Parameters
+    ----------
+    x : tuple
+        A tuple containing a product and its corresponding field value.
+
+    Returns
+    -------
+    str
+        The name of the field value
+    """
+    if isinstance(x[1], BaseModel):
+        return x[1].name if hasattr(x[1], 'name') else str(x[1])
+    else:
+        return x[1]
+
 
 def grouper(field: str, products: list) -> dict:
     """ Group the products by an attribute
@@ -519,12 +541,10 @@ def grouper(field: str, products: list) -> dict:
     r = sum((i for i in e if i), [])
 
     # sort the data ahead of groupby, using the field as key
-    # if item is a pydantic model, sort by the model's name; otherwise sort by the tuple item
-    sort_fxn = lambda x: x[1].name if isinstance(x[1], BaseModel) else x[1]
-    data = sorted(r, key=sort_fxn)
+    data = sorted(r, key=sort_function)
 
     # group items by field, drop into dict, and return
-    gg = itertools.groupby(data, key=sort_fxn)
+    gg = itertools.groupby(data, key=sort_function)
 
     groups = {}
     for i, g in gg:
