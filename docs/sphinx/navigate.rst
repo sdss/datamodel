@@ -212,6 +212,51 @@ of the JSON datamodel file, the full string path would be `_model.general.enviro
     >>> group
     {'MANGA_SPECTRO_REDUX': [<Product ("mangaRss", summary="this is a manga rss")>]}
 
+.. _data_levels:
+
+Data Levels
+-----------
+
+Each data product has a data level, a string that describes the data processing level of the product, with
+format ``x.y.z``. A level consists of three components, each:
+
+- **x**: the product type - high level category of pipeline processing, e.g. raw, intermediate, final, VAC
+- **y**: the product subtype - sub-category of the data type, e.g. image, spectra, cubes, etc
+- **z**: the product variant - optional, more specific description of the product, e.g. extracted spectra
+
+::
+
+    >>> # access a product and its level
+    >>> from datamodel.products import SDSSDataModel
+    >>> dm = SDSSDataModel()
+    >>> prod = dm.products['mangaRss']
+    >>> prod
+    <Product ("mangaRSS", summary="this is a manga rss", level="2.2.1")>
+    >>> print(prod.data_level)
+    2.2.1
+
+The ``data_level`` is actually a descriptive object that can be expanded for more information.
+::
+
+    >>> prod.data_level
+    DataLevel(x=<X.final: 2>, y=<Y.spectra: 2>, z=1)
+    >>> prod.describe()
+    {'product_type': 'final: Final science data product from a reduction or analysis pipeline',
+     'product_subtype': 'spectra: A 1d or 2d spectral data product, or a set of spectral data',
+     'product_variant': 'extracted_spectra: 1D extracted, wavelength-calibrated spectra'}
+
+You can also get all products with a specific data level with the ``dm.products.get_level`` method.
+::
+
+    >>> # get all products with at the specific data level 2.2.1
+    >>> dm.products.get_level('2.2.1')
+    {"2.2.1": [<Product ("mangaRSS", summary="this is a manga rss", level="2.2.1")>]}
+
+    >>> # get all products at data level 2
+    >>> dm.products.get_level('2')
+    {"2.2.1": [<Product ("mangaRSS", summary="this is a manga rss", level="2.2.1")>],
+     "2.3.0": [<Product ("mangaDrpall", summary="the manga drpall summary", level="2.3.0")>]}
+
 .. _metadata:
 
 Metadata Models
