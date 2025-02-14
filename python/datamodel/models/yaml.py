@@ -26,6 +26,7 @@ from pydantic.functional_validators import AfterValidator
 from .base import CoreModel
 from .releases import releases, Release
 from .surveys import surveys, Survey
+from .levels import DataLevel
 from .validators import replace_me, check_release
 from .filetypes import HDU, ParModel, HdfModel, ChangeFits, ChangePar, ChangeHdf
 
@@ -94,6 +95,8 @@ class GeneralSection(CoreModel):
         True if the datamodel is a VAC
     recommended_science_product : bool
         True if the product is recommended for science use
+    data_level : str
+        The product level or ranking, as numeral x.y.z
 
     Raises
     ------
@@ -113,9 +116,10 @@ class GeneralSection(CoreModel):
     design: bool = None
     vac: bool = None
     recommended_science_product: bool = None
+    data_level: DataLevel = None
 
     _check_replace_me = field_validator('short', 'description', 'naming_convention',
-                                  'generated_by')(replace_me)
+                                  'generated_by', 'data_level')(replace_me)
 
     # TODO[pydantic]: We couldn't refactor the `validator`, please replace it by `field_validator` manually.
     # Check https://docs.pydantic.dev/dev-v2/migration/#changes-to-validators for more information.
@@ -144,6 +148,12 @@ class GeneralSection(CoreModel):
     #         raise ValueError(f'{value} is not a valid survey')
     #     return surveys[value]
 
+    @field_validator('data_level')
+    @classmethod
+    def valid_data_level(cls, value: DataLevel):
+        if not re.match(r'^\d+\.\d+(\.\d+)?$', str(value)):
+            raise ValueError('data_level must be in the format x.y or x.y.z where x, y, z are integers')
+        return value
 
 class ChangeBase(CoreModel):
     """ Base Pydantic model representing a YAML changelog release section"""

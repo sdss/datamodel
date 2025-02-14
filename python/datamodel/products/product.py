@@ -57,7 +57,7 @@ class Product:
         If True, loads the model's JSON content, by default False
     """
     # contains JSON content fields to extract from the model into the main instance
-    _extract = ['short', 'description']
+    _extract = ['short', 'description', 'data_level']
 
     def __init__(self, name: str, load: bool = False):
         self.name = name
@@ -70,7 +70,9 @@ class Product:
 
     def __repr__(self) -> str:
         short = hasattr(self, 'short')
-        return f'<Product ("{self.name}", summary="{self.short if short else ""}")>'
+        level = getattr(self, 'data_level')
+        return (f'<Product ("{self.name}", summary="{self.short if short else ""}", '
+               f'level="{level if level else ""}")>')
 
     def load(self) -> None:
         """ Loads the DataModel content into the Product """
@@ -446,6 +448,44 @@ def rgetattr(obj: object, attr: str, *args):
     return functools.reduce(_getattr, [obj] + attr.split('.'))
 
 
+def zipper(x: Product, field: str) -> list:
+    """ Creates a list of tuples of the Product and its corresponding field value(s).
+
+    This function retrieves the value of the specified field from the given product.
+    It creates a list of tuples where each tuple contains
+    the product and the field value.  If the field value is a list,
+    it returns a list of (product, item_element) tuples.
+
+    This creates an easily sortable list of tuples for
+    grouping.
+
+    Parameters
+    ----------
+    x : Product
+        The product from which to retrieve the field value.
+    field : str
+        The name of the attribute or field to retrieve from the product.
+
+    Returns
+    -------
+    list
+        A list of tuples to sort
+    """
+    # don't include loaded products
+    if not x.loaded:
+        return None
+
+    # get the data field value
+    attr_value = rgetattr(x, field)
+    if not attr_value:
+        return None
+
+    if not isinstance(attr_value, list):
+        return list(zip(itertools.repeat(x), [attr_value]))
+    else:
+        return list(zip(itertools.repeat(x), attr_value))
+
+
 def grouper(field: str, products: list) -> dict:
     """ Group the products by an attribute
 
@@ -473,16 +513,10 @@ def grouper(field: str, products: list) -> dict:
         log.warning('Input list of products are not loaded.  Loading all!')
         products.load_all()
 
-    # check if the field is a list
-    value = rgetattr(products[0], field)
-    if not isinstance(value, list):
-        zipper = lambda x: list(zip(itertools.repeat(x), [rgetattr(x, field)]))
-    else:
-        zipper = lambda x: list(zip(itertools.repeat(x), rgetattr(x, field)))
-
     # create a master zipped list of [(product, field)] to easily sort by
-    e = list(map(zipper, products))
-    r = sum(e, [])
+    # also remove any None values
+    e = list(map(lambda x: zipper(x, field), products))
+    r = sum((i for i in e if i), [])
 
     # sort the data ahead of groupby, using the field as key
     # if item is a pydantic model, sort by the model's name; otherwise sort by the tuple item
