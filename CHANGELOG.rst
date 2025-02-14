@@ -8,6 +8,8 @@ Change Log
 ------------------
 - Updated to tree >= 4.0
 - Add support for multiple compressions, gz, fz, bz2
+- Add new ``data_level`` field into the datamodel yaml
+- Add support for ``data_level`` to the programmatic datamodel products
 
 0.5.3 (06-16-2023)
 ------------------
@@ -109,5 +111,3 @@ Change Log
 ------------------
 - Initial tag and release of datamodel code
 - Captures original functionality of SDSS-IV datamodel
-
-
