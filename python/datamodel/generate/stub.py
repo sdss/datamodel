@@ -273,6 +273,8 @@ class BaseStub(abc.ABC):
         self.selected_file._set_cache(force=force)
 
         # update the data level field
+        if 'data_level' not in content['general']:
+            content['general']['data_level'] = "replace me - with the data level of the product"
         content['general']['data_level'] = self.datamodel.data_level or content['general']['data_level']
 
         # update the cache changelog
