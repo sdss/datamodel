@@ -9,7 +9,7 @@ eROSITA/eFEDS Hard source catalogue counterparts with redshifts/classifications 
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
@@ -35,6 +35,9 @@ https://gitlab.mpcdf.mpg.de/tdwelly/efeds_speccomp
 
 ### Is a VAC
 True
+
+### Data Level
+3.1.0
 
 ### HDUS List for release DR18
   - [HDU0: PRIMARY](#hdu0-primary)
@@ -70,6 +73,7 @@ eROSITA/eFEDS Hard source catalogue counterparts with redshifts/classifications 
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  82 KB
+
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
@@ -137,3 +141,7 @@ Name | Type | Unit | Description |
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!
