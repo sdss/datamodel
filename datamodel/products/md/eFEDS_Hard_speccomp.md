@@ -37,7 +37,7 @@ https://gitlab.mpcdf.mpg.de/tdwelly/efeds_speccomp
 True
 
 ### Data Level
-3.1.0
+3.3.0
 
 ### HDUS List for release DR18
   - [HDU0: PRIMARY](#hdu0-primary)
