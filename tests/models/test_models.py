@@ -5,11 +5,12 @@ import pytest
 from pydantic import BaseModel, Field
 
 from datamodel.models.base import CoreModel
-from datamodel.models import releases, phases, surveys, tags, vacs
+from datamodel.models import releases, phases, surveys, tags, vacs, variants
 from datamodel.models.releases import Releases, Release
 from datamodel.models.surveys import Survey, Phase
 from datamodel.models.versions import Tag, Version, Tags
 from datamodel.models.vacs import VACS, VAC
+from datamodel.models.levels import DataLevel
 
 
 models = [releases, phases, surveys, tags, vacs]
@@ -101,6 +102,33 @@ def test_vac():
     vac = vacs['MANGA_GEMA']
     assert isinstance(vac, VAC)
     assert vac.name == 'MANGA_GEMA'
+
+
+def test_data_level():
+    """ test the data level model """
+    d = DataLevel(x=1, y=2, z=3)
+    assert d.x.name == 'intermediate'
+    assert d.x.value == 1
+    assert d.y.name == 'spectra'
+    assert d.y.value == 2
+    assert (d.z == 3) & isinstance(d.z, int)
+
+    desc = d.describe()
+    assert desc == {'product_type': 'intermediate: Intermediate or ancillary pipeline product output during data processing',
+                    'product_subtype': 'spectra: A 1d or 2d spectral data product, or a set of spectral data',
+                    'product_variant': 'skysub: Post sky subtraction'}
+
+
+def test_variants():
+    """ test the variants model """
+    assert 'apo25m' in variants
+    vv =  variants['apo25m']
+    assert vv.name == 'apo25m'
+    assert vv.description == 'Raw data from the APO 2.5m telescope'
+    assert vv.x == 0
+    assert vv.y == 1
+    assert vv.level == 1
+
 
 def test_repr():
     """ test reduced repr """

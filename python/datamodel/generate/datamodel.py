@@ -176,6 +176,7 @@ class DataModel(object):
         self.abstract_location = None
         self.file = None
         self.design = design
+        self.data_level = None
         self._science_product = science_product
 
         # setting options

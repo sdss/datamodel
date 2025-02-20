@@ -36,6 +36,9 @@
 ### Is a VAC
 {{ content.general.vac }}
 
+### Data Level
+{{ content.general.data_level }}
+
 {# List file content block - required #}
 ### {{cache_key|upper}} List for release {{ selected_release }}
 {% block content %}{% endblock content %}

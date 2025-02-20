@@ -1,0 +1,130 @@
+schema:
+  title: Variant
+  key: variant
+  description: SDSS data product variants
+  properties:
+    x:
+      title: x
+      description: the product type
+      type: int
+      required: true
+    y:
+      title: y
+      description: the product subtype
+      type: int
+      required: true
+    name:
+      title: name
+      description: the name of the variant
+      type: int
+      required: true
+    level:
+      title: level
+      description: the integer level of the variant, unique within a given x-y level
+      type: int
+      required: true
+    description:
+      title: description
+      description: a description of the variant
+      type: str
+      required: true
+
+# initial list of known or suggested variants
+# used for tracking and accessing variant descriptions
+# can update this list as new variants are decided
+variants:
+  - x: 0
+    y: 1
+    name: apo25m
+    level: 1
+    description: Raw data from the APO 2.5m telescope
+  - x: 0
+    y: 1
+    name: lco25m
+    level: 2
+    description: Raw data from the LCO 2.5m telescope
+  - x: 0
+    y: 1
+    name: apo1m
+    level: 3
+    description: Raw data from the APO 1m telescope
+  - x: 0
+    y: 1
+    name: lco16cm
+    level: 4
+    description: Raw data from the LCO 16 cm telescopes
+  - x: 1
+    y: 1
+    name: imageproc
+    level: 1
+    description: Post image preprocessing
+  - x: 1
+    y: 2
+    name: specextract
+    level: 1
+    description: Post spectral extraction from 2D frames
+  - x: 1
+    y: 2
+    name: wavecalib
+    level: 2
+    description: Post wavelength calibration
+  - x: 1
+    y: 2
+    name: skysub
+    level: 3
+    description: Post sky subtraction
+  - x: 1
+    y: 2
+    name: fluxcal
+    level: 4
+    description: Post flux calibration
+  - x: 2
+    y: 2
+    name: extracted_spectra
+    level: 1
+    description: 1D extracted, wavelength-calibrated spectra
+  - x: 2
+    y: 2
+    name: rest_frame_extracted_spectra
+    level: 2
+    description: Rest-frame, 1D extracted, wl-calibrated spectra
+  - x: 2
+    y: 2
+    name: resampled_extracted_spectra
+    level: 3
+    description: Rest-frame, resampled, 1D extracted, wl-calibrated spectra
+  - x: 2
+    y: 2
+    name: coadded_resampled_spectra
+    level: 4
+    description: Co-added rest-frame resampled, 1D extracted, wl-calibrated spectra
+  - x: 2
+    y: 2
+    name: best_fit_model_spectrum
+    level: 5
+    description: Best-fit model spectrum from a pipeline
+  - x: 2
+    y: 3
+    name: catalog_results_coadded_spectrum
+    level: 1
+    description: Catalog results per coadded spectrum
+  - x: 2
+    y: 3
+    name: catalog_results_visit_spectrum
+    level: 2
+    description: Catalog results per visit spectrum
+  - x: 2
+    y: 3
+    name: catalog_sources
+    level: 3
+    description: Catalog of sources
+  - x: 2
+    y: 3
+    name: catalog_visit_spectra
+    level: 4
+    description: Catalog of visit spectra
+  - x: 2
+    y: 3
+    name: catalog_coadd_spectra
+    level: 5
+    description: Catalog of coadd spectra

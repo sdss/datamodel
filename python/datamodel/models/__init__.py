@@ -17,3 +17,4 @@ from .releases import releases
 from .surveys import surveys, phases
 from .versions import tags
 from .vacs import vacs
+from .levels import variants
