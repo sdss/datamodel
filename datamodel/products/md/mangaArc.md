@@ -302,7 +302,7 @@ Name | Type | Unit | Description |
 | --- | --- | --- | --- |
  | FUNC | char[8] |  | describes the function used to fit the wavelength solutions (units of log-10 Angstroms) and Y-positions to a functional form. Chebyshev or Legendre functions are used. Default value is taken as Legendre function. |
  | XMIN | float64 |  | minimum value of the independent variable used by fitting function. |
- | XMAX | float64 |  | maximum value of the independent variable which is used along with the fitting coeff |
+ | XMAX | float64 |  | maximum value of the independent variable which is used along with the fitting coefficients, in the fitting function to get the value of dependent variable, which is the wavelength solution. |
  | COEFF | float64[4254] |  | fit coefficents |
 
 
@@ -365,7 +365,7 @@ Name | Type | Unit | Description |
 | --- | --- | --- | --- |
  | FUNC | char[8] |  | describes the function used to fit the line width (units of pixels) and Y-positions to a functional form. Chebyshev or Legendre functions are used. Default value is taken as Legendre function. |
  | XMIN | float64 |  | minimum value of the independent variable used by fitting function. |
- | XMAX | float64 |  | maximum value of the independent variable which is used along with the fitting coeff |
+ | XMAX | float64 |  | maximum value of the independent variable which is used along with the fitting coefficients, in the fitting function to get the value of dependent variable, which is the line width of fibers. |
  | COEFF | float64[2836] |  | fitting coeffiecients |
 
 
@@ -407,7 +407,7 @@ Name | Type | Unit | Description |
 | --- | --- | --- | --- |
  | FUNC | char[8] |  | describes the function used to fit the line width (units of pixels) and Y-positions to a functional form. Chebyshev or Legendre functions are used. Default value is taken as Legendre function. |
  | XMIN | float64 |  | minimum value of the independent variable used by fitting function. |
- | XMAX | float64 |  | maximum value of the independent variable which is used along with the fitting coeff |
+ | XMAX | float64 |  | maximum value of the independent variable which is used along with the fitting coefficients, in the fitting function to get the value of dependent variable, which is the line width of fibers. |
  | COEFF | float64[2836] |  | fitting coeffiecients |
 
 
