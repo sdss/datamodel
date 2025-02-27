@@ -1,29 +1,47 @@
 general:
   name: mangaFlat
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: The extracted flatfield frame
+  description: This FITS file contains the reduce flat frames. The headers record
+    the status of the telescope when the exposure is taken, and the software version
+    that used to reduce this frame.
   datatype: FITS
   filesize: 14 MB
   releases:
   - DR13
+  - DR14
+  - DR15
+  - DR16
+  - DR17
   environments:
   - MANGA_SPECTRO_REDUX
   surveys:
   - MaNGA
-  naming_convention: replace me - with $MANGA_SPECTRO_REDUX/[DRPVER]/[PLATE]/[MJD]/mgFlat-[CAMERA]-[EXPOSURE].fits.gz
-    or mgFlat-b1-00198579.fits.gz but with regex pattern matches
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
-  data_level: replace me - with the data level of the product, as defined here https://sdss-wiki.atlassian.net/wiki/x/IwDCGw
+  naming_convention: mgFlat-[camera]-[exposure].fits.gz, where [camera] is one of
+    the four cameras on the instrument, b1, r1, or b2, r2, for the blue and red cameras
+    on each SDSS spectrograph. [exposure] is the (zero-padded) 8-digit exposure number.
+  generated_by: mangadrp - mdrp_calib.pro
+  data_level: 1.1.3
   design: false
   vac: false
   recommended_science_product: false
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
-  releases: {}
+  releases:
+    DR17:
+      from: DR16
+      note: No changes
+    DR16:
+      from: DR15
+      note: No changes
+    DR15:
+      from: DR14
+      note: No changes
+    DR14:
+      from: DR13
+      note: No changes
 releases:
-  DR13:
+  DR13: &id001
     template: $MANGA_SPECTRO_REDUX/[DRPVER]/[PLATE]/[MJD]/mgFlat-[CAMERA]-[EXPOSURE].fits.gz
     example: v1_5_4/8485/57132/mgFlat-b1-00198579.fits.gz
     location: '{drpver}/{plate}/{mjd}/mgFlat-{camera}-{exposure}.fits.gz'
@@ -38,7 +56,7 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: primary header extension
         is_image: true
         size: 0 bytes
         header:
@@ -437,7 +455,8 @@ releases:
           comment: HDU checksum created 2016-03-11T20:50:58
       hdu1:
         name: FLUX
-        description: replace me description
+        description: Flat field vectors to remove relative flat-field variations as
+          function of wavelength
         is_image: true
         size: 11 MB
         header:
@@ -473,7 +492,8 @@ releases:
           comment: HDU checksum created 2016-03-11T20:50:58
       hdu2:
         name: TSET
-        description: replace me description
+        description: Legendre polynomial traceset containing the x,y centers of the
+          fiber traces
         is_image: false
         size: 38 KB
         header:
@@ -547,26 +567,31 @@ releases:
           FUNC:
             name: FUNC
             type: char[8]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: function used to fit the Y-pixel positions on the CCD and
+              corresponding X-centers are fitted to a functional form. Polynomial,
+              Chebyshev, Legendre or Chebyshev_split functions are used. Default value
+              is taken as Legendre function
           XMIN:
             name: XMIN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: minimum value of the independent variable used by fitting function.
+            description: ''
           XMAX:
             name: XMAX
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: maximum value of the independent variable which is used along
+              with the fitting coefficients, in the fitting function to get the value
+              of dependent variable, which is the X-center of fibers.
           COEFF:
             name: COEFF
             type: float64[4963]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: fit coefficents
       hdu3:
         name: MASK
-        description: replace me description
+        description: Fiber bit mask
         is_image: true
         size: 709 bytes
         header:
@@ -599,7 +624,7 @@ releases:
           comment: HDU checksum created 2016-03-11T20:50:58
       hdu4:
         name: WIDTH
-        description: replace me description
+        description: Profile width of each fiber
         is_image: true
         size: 11 MB
         header:
@@ -635,7 +660,7 @@ releases:
           comment: HDU checksum created 2016-03-11T20:50:58
       hdu5:
         name: SUPERFLATSET
-        description: replace me description
+        description: Traceset describing superflat
         is_image: false
         size: 35 KB
         header:
@@ -697,29 +722,31 @@ releases:
           FULLBKPT:
             name: FULLBKPT
             type: float32[2625]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The fullbkpt vector required by evaluations with bvalu
           BKMASK:
             name: BKMASK
             type: int16[2625]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: output mask vector
           NORD:
             name: NORD
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: order for spline fit
           COEFF:
             name: COEFF
             type: float32[2621]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: fitting coefficients
           ICOEFF:
             name: ICOEFF
             type: float32[2621]
-            unit: replace me - with content
-            description: replace me - with content
-notes: |-
-  None
-regrets: |-
-  I  have no regrets!
+            unit: ''
+            description: fitting coefficients
+  DR14: *id001
+  DR15: *id001
+  DR16: *id001
+  DR17: *id001
+notes: None
+regrets: I  have no regrets!
