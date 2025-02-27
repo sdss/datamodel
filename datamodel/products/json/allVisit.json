@@ -1,10 +1,57 @@
 {
   "general": {
     "name": "allVisit",
-    "short": "migration: needs update",
+    "short": "APOGEE Redux summary file",
     "description": "The allVisit_RESULTS-VERS.fits file contains summary information for every visit of each star in the data release.",
     "environments": [
-      "APOGEE_ASPCAP"
+      "APOGEE_ASPCAP",
+      "APOGEE_REDUX"
+    ],
+    "surveys": [
+      {
+        "name": "APOGEE-2",
+        "long": "Apache Point Observatory Galactic Evolution Experiment 2",
+        "description": "An infrared stellar spectroscopic survey of Milky Way stars in the Northern and Southern hemispheres",
+        "phase": {
+          "name": "Phase-IV",
+          "id": 4,
+          "start": 2014,
+          "end": 2020,
+          "active": false
+        },
+        "id": "apogee2",
+        "aliases": [
+          "apogee"
+        ]
+      },
+      {
+        "name": "MWM",
+        "long": "Milky Way Mapper",
+        "description": "A time-domain, optical+IR spectroscopic survey of Milky Way stars of all types.",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "mwm",
+        "aliases": []
+      },
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
     ],
     "datatype": "FITS",
     "filesize": "1 GB",
@@ -14,14 +61,119 @@
         "description": "SDSS public data release 16",
         "public": true,
         "release_date": "2019-12-09"
+      },
+      {
+        "name": "DR17",
+        "description": "SDSS public data release 17",
+        "public": true,
+        "release_date": "2021-12-06"
+      },
+      {
+        "name": "DR19",
+        "description": "SDSS public data release 19",
+        "public": true,
+        "release_date": "2025-07-11"
+      },
+      {
+        "name": "WORK",
+        "description": "SDSS unreleased data.  Represents any work-in-progress data.",
+        "public": false,
+        "release_date": "unreleased"
       }
     ],
     "naming_convention": "allVisit-RESULTS_VERS.fits",
-    "generated_by": "idlwrap (aspcap_allstar)"
+    "generated_by": "idlwrap (aspcap_allstar)",
+    "design": false,
+    "vac": false,
+    "recommended_science_product": false
   },
   "changelog": {
     "description": "Describes changes to the datamodel product and/or file structure from one release to another",
-    "releases": {}
+    "releases": {
+      "WORK": {
+        "from": "DR19",
+        "note": null,
+        "delta_nhdus": null,
+        "added_hdus": null,
+        "removed_hdus": [
+          "APOGEE reduction visit-level summary table"
+        ],
+        "primary_delta_nkeys": null,
+        "added_primary_header_kwargs": null,
+        "removed_primary_header_kwargs": null,
+        "delta_nkeys": null,
+        "addead_header_keys": null,
+        "removed_header_keys": null,
+        "delta_ntables": null,
+        "addead_tables": null,
+        "removed_tables": null,
+        "tables": null,
+        "new_libver": null,
+        "delta_nattrs": null,
+        "addead_attrs": null,
+        "removed_attrs": null,
+        "delta_nmembers": null,
+        "addead_members": null,
+        "removed_members": null,
+        "members": null
+      },
+      "DR19": {
+        "from": "DR17",
+        "note": null,
+        "delta_nhdus": null,
+        "added_hdus": [
+          "APOGEE reduction visit-level summary table"
+        ],
+        "removed_hdus": null,
+        "primary_delta_nkeys": null,
+        "added_primary_header_kwargs": null,
+        "removed_primary_header_kwargs": null,
+        "delta_nkeys": null,
+        "addead_header_keys": null,
+        "removed_header_keys": null,
+        "delta_ntables": null,
+        "addead_tables": null,
+        "removed_tables": null,
+        "tables": null,
+        "new_libver": null,
+        "delta_nattrs": null,
+        "addead_attrs": null,
+        "removed_attrs": null,
+        "delta_nmembers": null,
+        "addead_members": null,
+        "removed_members": null,
+        "members": null
+      },
+      "DR17": {
+        "from": "DR16",
+        "note": null,
+        "delta_nhdus": null,
+        "added_hdus": null,
+        "removed_hdus": null,
+        "primary_delta_nkeys": 9,
+        "added_primary_header_kwargs": null,
+        "removed_primary_header_kwargs": [
+          "HISTORY",
+          "COMMENT",
+          "DATE"
+        ],
+        "delta_nkeys": null,
+        "addead_header_keys": null,
+        "removed_header_keys": null,
+        "delta_ntables": null,
+        "addead_tables": null,
+        "removed_tables": null,
+        "tables": null,
+        "new_libver": null,
+        "delta_nattrs": null,
+        "addead_attrs": null,
+        "removed_attrs": null,
+        "delta_nmembers": null,
+        "addead_members": null,
+        "removed_members": null,
+        "members": null
+      }
+    }
   },
   "releases": {
     "DR16": {
@@ -29,6 +181,7 @@
       "example": "r12/l33/allVisit-r12-l33.fits",
       "location": "r12/l33/allVisit-r12-l33.fits",
       "environment": "APOGEE_ASPCAP",
+      "survey": null,
       "access": {
         "in_sdss_access": true,
         "path_name": "allVisit",
@@ -43,7 +196,7 @@
         "hdu0": {
           "name": "PRIMARY",
           "is_image": true,
-          "description": "migration: Intro info not in database. Needs update",
+          "description": "",
           "size": "0 bytes",
           "header": [
             {
@@ -69,47 +222,47 @@
             {
               "key": "DATE",
               "value": "2019-10-10",
-              "comment": "migration: description of keyword/column not found. Needs update"
+              "comment": ""
             },
             {
               "key": "COMMENT",
               "value": "FITS (Flexible Image Transport System) format is defined in 'Astronomy",
-              "comment": "migration: description of keyword/column not found. Needs update"
+              "comment": ""
             },
             {
               "key": "COMMENT",
               "value": "and Astrophysics', volume 376, page 359; bibcode 2001A&A...376..359H",
-              "comment": "migration: description of keyword/column not found. Needs update"
+              "comment": ""
             },
             {
               "key": "HISTORY",
               "value": "APRED VERSION: r12",
-              "comment": "migration: description of keyword/column not found. Needs update"
+              "comment": ""
             },
             {
               "key": "HISTORY",
               "value": "APSTAR VERSION: stars",
-              "comment": "migration: description of keyword/column not found. Needs update"
+              "comment": ""
             },
             {
               "key": "HISTORY",
               "value": "ASPCAP VERSION: l33",
-              "comment": "migration: description of keyword/column not found. Needs update"
+              "comment": ""
             },
             {
               "key": "HISTORY",
               "value": "RESULTS VERSION: r12-l33",
-              "comment": "migration: description of keyword/column not found. Needs update"
+              "comment": ""
             },
             {
               "key": "HISTORY",
               "value": "APOGEE SOFTWARE VERSION: 0.14.14",
-              "comment": "migration: description of keyword/column not found. Needs update"
+              "comment": ""
             },
             {
               "key": "HISTORY",
               "value": "DATE: Thu Oct 10 17:54:41 2019",
-              "comment": "migration: description of keyword/column not found. Needs update"
+              "comment": ""
             }
           ],
           "columns": null
@@ -117,592 +270,592 @@
         "hdu1": {
           "name": "",
           "is_image": false,
-          "description": "migration: Intro info not in database. Needs update",
+          "description": "",
           "size": "1 GB",
           "header": null,
           "columns": {
             "VISIT_ID": {
               "name": "VISIT_ID",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "char[57]",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "APRED_VERSION": {
               "name": "APRED_VERSION",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "char[3]",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "APOGEE_ID": {
               "name": "APOGEE_ID",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "char[18]",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "TARGET_ID": {
               "name": "TARGET_ID",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "char[47]",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "FILE": {
               "name": "FILE",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "char[46]",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "FIBERID": {
               "name": "FIBERID",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "int16",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "PLATE": {
               "name": "PLATE",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "char[13]",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "MJD": {
               "name": "MJD",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "int32",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "TELESCOPE": {
               "name": "TELESCOPE",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "char[6]",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "SURVEY": {
               "name": "SURVEY",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "char[14]",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "FIELD": {
               "name": "FIELD",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "char[16]",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "PROGRAMNAME": {
               "name": "PROGRAMNAME",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "char[18]",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "LOCATION_ID": {
               "name": "LOCATION_ID",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "int16",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "RA": {
               "name": "RA",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "float64",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "DEC": {
               "name": "DEC",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "float64",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "GLON": {
               "name": "GLON",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "float64",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "GLAT": {
               "name": "GLAT",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "float64",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "J": {
               "name": "J",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "float32",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "J_ERR": {
               "name": "J_ERR",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "float32",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "H": {
               "name": "H",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "float32",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "H_ERR": {
               "name": "H_ERR",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "float32",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "K": {
               "name": "K",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "float32",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "K_ERR": {
               "name": "K_ERR",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "float32",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "RA_TARG": {
               "name": "RA_TARG",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "float64",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "DEC_TARG": {
               "name": "DEC_TARG",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "float64",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "APOGEE_TARGET1": {
               "name": "APOGEE_TARGET1",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "int32",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "APOGEE_TARGET2": {
               "name": "APOGEE_TARGET2",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "int32",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "APOGEE_TARGET3": {
               "name": "APOGEE_TARGET3",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "int32",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "TARGFLAGS": {
               "name": "TARGFLAGS",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "char[192]",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "SNR": {
               "name": "SNR",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "float32",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "STARFLAG": {
               "name": "STARFLAG",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "int32",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "STARFLAGS": {
               "name": "STARFLAGS",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "char[74]",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "DATEOBS": {
               "name": "DATEOBS",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "char[23]",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "JD": {
               "name": "JD",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "float64",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "BC": {
               "name": "BC",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "float32",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "VTYPE": {
               "name": "VTYPE",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "int16",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "VREL": {
               "name": "VREL",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "float32",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "VRELERR": {
               "name": "VRELERR",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "float32",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "VHELIO": {
               "name": "VHELIO",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "float32",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "VLSR": {
               "name": "VLSR",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "float32",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "VGSR": {
               "name": "VGSR",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "float32",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "CHISQ": {
               "name": "CHISQ",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "float32",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "RV_TEFF": {
               "name": "RV_TEFF",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "float32",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "RV_FEH": {
               "name": "RV_FEH",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "float32",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "RV_LOGG": {
               "name": "RV_LOGG",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "float32",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "RV_ALPHA": {
               "name": "RV_ALPHA",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "float32",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "RV_CARB": {
               "name": "RV_CARB",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "float32",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "SYNTHFILE": {
               "name": "SYNTHFILE",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "char[18]",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "ESTVTYPE": {
               "name": "ESTVTYPE",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "int16",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "ESTVREL": {
               "name": "ESTVREL",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "float32",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "ESTVRELERR": {
               "name": "ESTVRELERR",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "float32",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "ESTVHELIO": {
               "name": "ESTVHELIO",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "float32",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "SYNTHVREL": {
               "name": "SYNTHVREL",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "float32",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "SYNTHVRELERR": {
               "name": "SYNTHVRELERR",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "float32",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "SYNTHVHELIO": {
               "name": "SYNTHVHELIO",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "float32",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "OBSVREL": {
               "name": "OBSVREL",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "float32",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "OBSVRELERR": {
               "name": "OBSVRELERR",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "float32",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "OBSVHELIO": {
               "name": "OBSVHELIO",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "float32",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "APOGEE2_TARGET1": {
               "name": "APOGEE2_TARGET1",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "int32",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "APOGEE2_TARGET2": {
               "name": "APOGEE2_TARGET2",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "int32",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "APOGEE2_TARGET3": {
               "name": "APOGEE2_TARGET3",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "int32",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "COMMISS": {
               "name": "COMMISS",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "int16",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "EXTRATARG": {
               "name": "EXTRATARG",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "int16",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "MIN_H": {
               "name": "MIN_H",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "float32",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "MAX_H": {
               "name": "MAX_H",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "float32",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "MIN_JK": {
               "name": "MIN_JK",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "float32",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "MAX_JK": {
               "name": "MAX_JK",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "float32",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "ALT_ID": {
               "name": "ALT_ID",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "char[47]",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "SRC_H": {
               "name": "SRC_H",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "char[14]",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "WASH_M": {
               "name": "WASH_M",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "float32",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "WASH_M_ERR": {
               "name": "WASH_M_ERR",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "float32",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "WASH_T2": {
               "name": "WASH_T2",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "float32",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "WASH_T2_ERR": {
               "name": "WASH_T2_ERR",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "float32",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "DDO51": {
               "name": "DDO51",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "float32",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "DDO51_ERR": {
               "name": "DDO51_ERR",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "float32",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "IRAC_3_6": {
               "name": "IRAC_3_6",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "float32",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "IRAC_3_6_ERR": {
               "name": "IRAC_3_6_ERR",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "float32",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "IRAC_4_5": {
               "name": "IRAC_4_5",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "float32",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "IRAC_4_5_ERR": {
               "name": "IRAC_4_5_ERR",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "float32",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "IRAC_5_8": {
               "name": "IRAC_5_8",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "float32",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "IRAC_5_8_ERR": {
               "name": "IRAC_5_8_ERR",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "float32",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "IRAC_8_0": {
               "name": "IRAC_8_0",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "float32",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "IRAC_8_0_ERR": {
               "name": "IRAC_8_0_ERR",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "float32",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "WISE_4_5": {
               "name": "WISE_4_5",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "float32",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "WISE_4_5_ERR": {
               "name": "WISE_4_5_ERR",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "float32",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "TARG_4_5": {
               "name": "TARG_4_5",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "float32",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "TARG_4_5_ERR": {
               "name": "TARG_4_5_ERR",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "float32",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "AK_TARG": {
               "name": "AK_TARG",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "float32",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "AK_TARG_METHOD": {
               "name": "AK_TARG_METHOD",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "char[17]",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "AK_WISE": {
               "name": "AK_WISE",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "float32",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "SFD_EBV": {
               "name": "SFD_EBV",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "float32",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "WASH_DDO51_GIANT_FLAG": {
               "name": "WASH_DDO51_GIANT_FLAG",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "int16",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "WASH_DDO51_STAR_FLAG": {
               "name": "WASH_DDO51_STAR_FLAG",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "int16",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "PMRA": {
               "name": "PMRA",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "float32",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "PMDEC": {
               "name": "PMDEC",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "float32",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             },
             "PM_SRC": {
               "name": "PM_SRC",
-              "description": "migration: description of keyword/column not found. Needs update",
+              "description": "IPL1: description of column needs update",
               "type": "char[20]",
-              "unit": "migration: unit of keyword/column not found. Needs update"
+              "unit": ""
             }
           }
         },
         "hdu2": {
           "name": "",
           "is_image": true,
-          "description": "migration: Intro info not in database. Needs update",
+          "description": "",
           "size": "1 KB",
           "header": [
             {
@@ -738,7 +891,1760 @@
           ],
           "columns": null
         }
-      }
+      },
+      "par": null,
+      "hdfs": null
+    },
+    "DR17": {
+      "template": "$APOGEE_ASPCAP/[APRED]/[ASPCAP]/allVisit-[APRED]-[ASPCAP].fits",
+      "example": "dr17/synspec_rev1/allVisit-dr17-synspec_rev1.fits",
+      "location": "{apred}/{aspcap}/allVisit-{apred}-{aspcap}.fits",
+      "environment": "APOGEE_ASPCAP",
+      "survey": "APOGEE-2",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "allVisit",
+        "path_template": "$APOGEE_ASPCAP/{apred}/{aspcap}/allVisit-{apred}-{aspcap}.fits",
+        "path_kwargs": [
+          "aspcap",
+          "apred"
+        ],
+        "access_string": "allVisit = $APOGEE_ASPCAP/{apred}/{aspcap}/allVisit-{apred}-{aspcap}.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "ignore me description",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "ignore me description",
+          "size": "2 GB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "BINTABLE",
+              "comment": "binary table extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "1050",
+              "comment": "length of dimension 1"
+            },
+            {
+              "key": "NAXIS2",
+              "value": "2659178",
+              "comment": "length of dimension 2"
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "number of group parameters"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "number of groups"
+            },
+            {
+              "key": "TFIELDS",
+              "value": "92",
+              "comment": "number of table fields"
+            },
+            {
+              "key": "TDIM91",
+              "value": "(3)",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": " *** End of mandatory fields ***",
+              "comment": ""
+            }
+          ],
+          "columns": {
+            "APOGEE_ID": {
+              "name": "APOGEE_ID",
+              "description": "ignore me - with content",
+              "type": "char[23]",
+              "unit": "ignore me - with content"
+            },
+            "TARGET_ID": {
+              "name": "TARGET_ID",
+              "description": "ignore me - with content",
+              "type": "char[23]",
+              "unit": "ignore me - with content"
+            },
+            "VISIT_ID": {
+              "name": "VISIT_ID",
+              "description": "ignore me - with content",
+              "type": "char[64]",
+              "unit": "ignore me - with content"
+            },
+            "FILE": {
+              "name": "FILE",
+              "description": "ignore me - with content",
+              "type": "char[45]",
+              "unit": "ignore me - with content"
+            },
+            "FIBERID": {
+              "name": "FIBERID",
+              "description": "ignore me - with content",
+              "type": "int16",
+              "unit": "ignore me - with content"
+            },
+            "CARTID": {
+              "name": "CARTID",
+              "description": "ignore me - with content",
+              "type": "int16",
+              "unit": "ignore me - with content"
+            },
+            "PLATE": {
+              "name": "PLATE",
+              "description": "ignore me - with content",
+              "type": "char[16]",
+              "unit": "ignore me - with content"
+            },
+            "MJD": {
+              "name": "MJD",
+              "description": "ignore me - with content",
+              "type": "int32",
+              "unit": "ignore me - with content"
+            },
+            "TELESCOPE": {
+              "name": "TELESCOPE",
+              "description": "ignore me - with content",
+              "type": "char[6]",
+              "unit": "ignore me - with content"
+            },
+            "SURVEY": {
+              "name": "SURVEY",
+              "description": "ignore me - with content",
+              "type": "char[14]",
+              "unit": "ignore me - with content"
+            },
+            "FIELD": {
+              "name": "FIELD",
+              "description": "ignore me - with content",
+              "type": "char[19]",
+              "unit": "ignore me - with content"
+            },
+            "PROGRAMNAME": {
+              "name": "PROGRAMNAME",
+              "description": "ignore me - with content",
+              "type": "char[18]",
+              "unit": "ignore me - with content"
+            },
+            "ALT_ID": {
+              "name": "ALT_ID",
+              "description": "ignore me - with content",
+              "type": "char[47]",
+              "unit": "ignore me - with content"
+            },
+            "LOCATION_ID": {
+              "name": "LOCATION_ID",
+              "description": "ignore me - with content",
+              "type": "int16",
+              "unit": "ignore me - with content"
+            },
+            "RA": {
+              "name": "RA",
+              "description": "ignore me - with content",
+              "type": "float64",
+              "unit": "ignore me - with content"
+            },
+            "DEC": {
+              "name": "DEC",
+              "description": "ignore me - with content",
+              "type": "float64",
+              "unit": "ignore me - with content"
+            },
+            "GLON": {
+              "name": "GLON",
+              "description": "ignore me - with content",
+              "type": "float64",
+              "unit": "ignore me - with content"
+            },
+            "GLAT": {
+              "name": "GLAT",
+              "description": "ignore me - with content",
+              "type": "float64",
+              "unit": "ignore me - with content"
+            },
+            "RELFLUX": {
+              "name": "RELFLUX",
+              "description": "ignore me - with content",
+              "type": "float32",
+              "unit": "ignore me - with content"
+            },
+            "MTPFLUX": {
+              "name": "MTPFLUX",
+              "description": "ignore me - with content",
+              "type": "float32",
+              "unit": "ignore me - with content"
+            },
+            "J": {
+              "name": "J",
+              "description": "ignore me - with content",
+              "type": "float32",
+              "unit": "ignore me - with content"
+            },
+            "J_ERR": {
+              "name": "J_ERR",
+              "description": "ignore me - with content",
+              "type": "float32",
+              "unit": "ignore me - with content"
+            },
+            "H": {
+              "name": "H",
+              "description": "ignore me - with content",
+              "type": "float32",
+              "unit": "ignore me - with content"
+            },
+            "H_ERR": {
+              "name": "H_ERR",
+              "description": "ignore me - with content",
+              "type": "float32",
+              "unit": "ignore me - with content"
+            },
+            "K": {
+              "name": "K",
+              "description": "ignore me - with content",
+              "type": "float32",
+              "unit": "ignore me - with content"
+            },
+            "K_ERR": {
+              "name": "K_ERR",
+              "description": "ignore me - with content",
+              "type": "float32",
+              "unit": "ignore me - with content"
+            },
+            "SRC_H": {
+              "name": "SRC_H",
+              "description": "ignore me - with content",
+              "type": "char[15]",
+              "unit": "ignore me - with content"
+            },
+            "WASH_M": {
+              "name": "WASH_M",
+              "description": "ignore me - with content",
+              "type": "float32",
+              "unit": "ignore me - with content"
+            },
+            "WASH_M_ERR": {
+              "name": "WASH_M_ERR",
+              "description": "ignore me - with content",
+              "type": "float32",
+              "unit": "ignore me - with content"
+            },
+            "WASH_T2": {
+              "name": "WASH_T2",
+              "description": "ignore me - with content",
+              "type": "float32",
+              "unit": "ignore me - with content"
+            },
+            "WASH_T2_ERR": {
+              "name": "WASH_T2_ERR",
+              "description": "ignore me - with content",
+              "type": "float32",
+              "unit": "ignore me - with content"
+            },
+            "DDO51": {
+              "name": "DDO51",
+              "description": "ignore me - with content",
+              "type": "float32",
+              "unit": "ignore me - with content"
+            },
+            "DDO51_ERR": {
+              "name": "DDO51_ERR",
+              "description": "ignore me - with content",
+              "type": "float32",
+              "unit": "ignore me - with content"
+            },
+            "IRAC_3_6": {
+              "name": "IRAC_3_6",
+              "description": "ignore me - with content",
+              "type": "float32",
+              "unit": "ignore me - with content"
+            },
+            "IRAC_3_6_ERR": {
+              "name": "IRAC_3_6_ERR",
+              "description": "ignore me - with content",
+              "type": "float32",
+              "unit": "ignore me - with content"
+            },
+            "IRAC_4_5": {
+              "name": "IRAC_4_5",
+              "description": "ignore me - with content",
+              "type": "float32",
+              "unit": "ignore me - with content"
+            },
+            "IRAC_4_5_ERR": {
+              "name": "IRAC_4_5_ERR",
+              "description": "ignore me - with content",
+              "type": "float32",
+              "unit": "ignore me - with content"
+            },
+            "IRAC_5_8": {
+              "name": "IRAC_5_8",
+              "description": "ignore me - with content",
+              "type": "float32",
+              "unit": "ignore me - with content"
+            },
+            "IRAC_5_8_ERR": {
+              "name": "IRAC_5_8_ERR",
+              "description": "ignore me - with content",
+              "type": "float32",
+              "unit": "ignore me - with content"
+            },
+            "IRAC_8_0": {
+              "name": "IRAC_8_0",
+              "description": "ignore me - with content",
+              "type": "float32",
+              "unit": "ignore me - with content"
+            },
+            "IRAC_8_0_ERR": {
+              "name": "IRAC_8_0_ERR",
+              "description": "ignore me - with content",
+              "type": "float32",
+              "unit": "ignore me - with content"
+            },
+            "WISE_4_5": {
+              "name": "WISE_4_5",
+              "description": "ignore me - with content",
+              "type": "float32",
+              "unit": "ignore me - with content"
+            },
+            "WISE_4_5_ERR": {
+              "name": "WISE_4_5_ERR",
+              "description": "ignore me - with content",
+              "type": "float32",
+              "unit": "ignore me - with content"
+            },
+            "TARG_4_5": {
+              "name": "TARG_4_5",
+              "description": "ignore me - with content",
+              "type": "float32",
+              "unit": "ignore me - with content"
+            },
+            "TARG_4_5_ERR": {
+              "name": "TARG_4_5_ERR",
+              "description": "ignore me - with content",
+              "type": "float32",
+              "unit": "ignore me - with content"
+            },
+            "WASH_DDO51_GIANT_FLAG": {
+              "name": "WASH_DDO51_GIANT_FLAG",
+              "description": "ignore me - with content",
+              "type": "int16",
+              "unit": "ignore me - with content"
+            },
+            "WASH_DDO51_STAR_FLAG": {
+              "name": "WASH_DDO51_STAR_FLAG",
+              "description": "ignore me - with content",
+              "type": "int16",
+              "unit": "ignore me - with content"
+            },
+            "PMRA": {
+              "name": "PMRA",
+              "description": "ignore me - with content",
+              "type": "float32",
+              "unit": "ignore me - with content"
+            },
+            "PMDEC": {
+              "name": "PMDEC",
+              "description": "ignore me - with content",
+              "type": "float32",
+              "unit": "ignore me - with content"
+            },
+            "PM_SRC": {
+              "name": "PM_SRC",
+              "description": "ignore me - with content",
+              "type": "char[20]",
+              "unit": "ignore me - with content"
+            },
+            "AK_TARG": {
+              "name": "AK_TARG",
+              "description": "ignore me - with content",
+              "type": "float32",
+              "unit": "ignore me - with content"
+            },
+            "AK_TARG_METHOD": {
+              "name": "AK_TARG_METHOD",
+              "description": "ignore me - with content",
+              "type": "char[17]",
+              "unit": "ignore me - with content"
+            },
+            "AK_WISE": {
+              "name": "AK_WISE",
+              "description": "ignore me - with content",
+              "type": "float32",
+              "unit": "ignore me - with content"
+            },
+            "SFD_EBV": {
+              "name": "SFD_EBV",
+              "description": "ignore me - with content",
+              "type": "float32",
+              "unit": "ignore me - with content"
+            },
+            "APOGEE_TARGET1": {
+              "name": "APOGEE_TARGET1",
+              "description": "ignore me - with content",
+              "type": "int32",
+              "unit": "ignore me - with content"
+            },
+            "APOGEE_TARGET2": {
+              "name": "APOGEE_TARGET2",
+              "description": "ignore me - with content",
+              "type": "int32",
+              "unit": "ignore me - with content"
+            },
+            "APOGEE2_TARGET1": {
+              "name": "APOGEE2_TARGET1",
+              "description": "ignore me - with content",
+              "type": "int32",
+              "unit": "ignore me - with content"
+            },
+            "APOGEE2_TARGET2": {
+              "name": "APOGEE2_TARGET2",
+              "description": "ignore me - with content",
+              "type": "int32",
+              "unit": "ignore me - with content"
+            },
+            "APOGEE2_TARGET3": {
+              "name": "APOGEE2_TARGET3",
+              "description": "ignore me - with content",
+              "type": "int32",
+              "unit": "ignore me - with content"
+            },
+            "APOGEE2_TARGET4": {
+              "name": "APOGEE2_TARGET4",
+              "description": "ignore me - with content",
+              "type": "int32",
+              "unit": "ignore me - with content"
+            },
+            "TARGFLAGS": {
+              "name": "TARGFLAGS",
+              "description": "ignore me - with content",
+              "type": "char[192]",
+              "unit": "ignore me - with content"
+            },
+            "SNR": {
+              "name": "SNR",
+              "description": "ignore me - with content",
+              "type": "float32",
+              "unit": "ignore me - with content"
+            },
+            "STARFLAG": {
+              "name": "STARFLAG",
+              "description": "ignore me - with content",
+              "type": "int64",
+              "unit": "ignore me - with content"
+            },
+            "STARFLAGS": {
+              "name": "STARFLAGS",
+              "description": "ignore me - with content",
+              "type": "char[132]",
+              "unit": "ignore me - with content"
+            },
+            "DATEOBS": {
+              "name": "DATEOBS",
+              "description": "ignore me - with content",
+              "type": "char[23]",
+              "unit": "ignore me - with content"
+            },
+            "JD": {
+              "name": "JD",
+              "description": "ignore me - with content",
+              "type": "float64",
+              "unit": "ignore me - with content"
+            },
+            "VLSR": {
+              "name": "VLSR",
+              "description": "ignore me - with content",
+              "type": "float32",
+              "unit": "ignore me - with content"
+            },
+            "VGSR": {
+              "name": "VGSR",
+              "description": "ignore me - with content",
+              "type": "float32",
+              "unit": "ignore me - with content"
+            },
+            "CHISQ": {
+              "name": "CHISQ",
+              "description": "ignore me - with content",
+              "type": "float32",
+              "unit": "ignore me - with content"
+            },
+            "SYNTHFILE": {
+              "name": "SYNTHFILE",
+              "description": "ignore me - with content",
+              "type": "char[18]",
+              "unit": "ignore me - with content"
+            },
+            "MIN_H": {
+              "name": "MIN_H",
+              "description": "ignore me - with content",
+              "type": "float32",
+              "unit": "ignore me - with content"
+            },
+            "MAX_H": {
+              "name": "MAX_H",
+              "description": "ignore me - with content",
+              "type": "float32",
+              "unit": "ignore me - with content"
+            },
+            "MIN_JK": {
+              "name": "MIN_JK",
+              "description": "ignore me - with content",
+              "type": "float32",
+              "unit": "ignore me - with content"
+            },
+            "MAX_JK": {
+              "name": "MAX_JK",
+              "description": "ignore me - with content",
+              "type": "float32",
+              "unit": "ignore me - with content"
+            },
+            "VREL": {
+              "name": "VREL",
+              "description": "ignore me - with content",
+              "type": "float64",
+              "unit": "ignore me - with content"
+            },
+            "VRELERR": {
+              "name": "VRELERR",
+              "description": "ignore me - with content",
+              "type": "float64",
+              "unit": "ignore me - with content"
+            },
+            "VHELIO": {
+              "name": "VHELIO",
+              "description": "ignore me - with content",
+              "type": "float64",
+              "unit": "ignore me - with content"
+            },
+            "BC": {
+              "name": "BC",
+              "description": "ignore me - with content",
+              "type": "float64",
+              "unit": "ignore me - with content"
+            },
+            "RV_TEFF": {
+              "name": "RV_TEFF",
+              "description": "ignore me - with content",
+              "type": "float64",
+              "unit": "ignore me - with content"
+            },
+            "RV_LOGG": {
+              "name": "RV_LOGG",
+              "description": "ignore me - with content",
+              "type": "float64",
+              "unit": "ignore me - with content"
+            },
+            "RV_FEH": {
+              "name": "RV_FEH",
+              "description": "ignore me - with content",
+              "type": "float64",
+              "unit": "ignore me - with content"
+            },
+            "RV_CARB": {
+              "name": "RV_CARB",
+              "description": "ignore me - with content",
+              "type": "float64",
+              "unit": "ignore me - with content"
+            },
+            "RV_ALPHA": {
+              "name": "RV_ALPHA",
+              "description": "ignore me - with content",
+              "type": "float64",
+              "unit": "ignore me - with content"
+            },
+            "XCORR_VREL": {
+              "name": "XCORR_VREL",
+              "description": "ignore me - with content",
+              "type": "float32",
+              "unit": "ignore me - with content"
+            },
+            "XCORR_VRELERR": {
+              "name": "XCORR_VRELERR",
+              "description": "ignore me - with content",
+              "type": "float32",
+              "unit": "ignore me - with content"
+            },
+            "XCORR_VHELIO": {
+              "name": "XCORR_VHELIO",
+              "description": "ignore me - with content",
+              "type": "float32",
+              "unit": "ignore me - with content"
+            },
+            "CCFWHM": {
+              "name": "CCFWHM",
+              "description": "ignore me - with content",
+              "type": "float32",
+              "unit": "ignore me - with content"
+            },
+            "AUTOFWHM": {
+              "name": "AUTOFWHM",
+              "description": "ignore me - with content",
+              "type": "float32",
+              "unit": "ignore me - with content"
+            },
+            "RV_CHI2": {
+              "name": "RV_CHI2",
+              "description": "ignore me - with content",
+              "type": "float32",
+              "unit": "ignore me - with content"
+            },
+            "N_COMPONENTS": {
+              "name": "N_COMPONENTS",
+              "description": "ignore me - with content",
+              "type": "int32",
+              "unit": "ignore me - with content"
+            },
+            "RV_COMPONENTS": {
+              "name": "RV_COMPONENTS",
+              "description": "ignore me - with content",
+              "type": "float32[3]",
+              "unit": "ignore me - with content"
+            },
+            "RV_FLAG": {
+              "name": "RV_FLAG",
+              "description": "ignore me - with content",
+              "type": "int32",
+              "unit": "ignore me - with content"
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null
+    },
+    "DR19": {
+      "template": "$APOGEE_REDUX/[APRED]/summary/allVisit-[APRED]-[TELESCOPE].fits",
+      "example": "1.3/summary/allVisit-1.3-apo25m.fits",
+      "location": "{apred}/summary/allVisit-{apred}-{telescope}.fits",
+      "environment": "APOGEE_REDUX",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": false,
+        "path_name": null,
+        "path_template": null,
+        "path_kwargs": null,
+        "access_string": "allVisit = $APOGEE_REDUX/{apred}/summary/allVisit-{apred}-{telescope}.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "APOGEE reduction visit-level summary table",
+          "is_image": false,
+          "description": "Contains all final data product and summary information for every observed visit (by the relevant telescope) in the data release.",
+          "size": "557 MB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "BINTABLE",
+              "comment": "binary table extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "1083",
+              "comment": "length of dimension 1"
+            },
+            {
+              "key": "NAXIS2",
+              "value": "539646",
+              "comment": "length of dimension 2"
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "number of group parameters"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "number of groups"
+            },
+            {
+              "key": "TFIELDS",
+              "value": "66",
+              "comment": "number of table fields"
+            },
+            {
+              "key": "TDIM66",
+              "value": "(3)",
+              "comment": ""
+            }
+          ],
+          "columns": {
+            "apogee_id": {
+              "name": "apogee_id",
+              "description": "2MASS-STYLE object name",
+              "type": "char[28]",
+              "unit": ""
+            },
+            "target_id": {
+              "name": "target_id",
+              "description": "Unique ID for visit spectrum, of form apogee.[telescope].[cs].[apred_version].plate.mjd.fiberid (Primary key)",
+              "type": "char[28]",
+              "unit": ""
+            },
+            "apred_vers": {
+              "name": "apred_vers",
+              "description": "APOGEE reduction version",
+              "type": "char[15]",
+              "unit": ""
+            },
+            "file": {
+              "name": "file",
+              "description": "apVisit File name",
+              "type": "char[51]",
+              "unit": ""
+            },
+            "uri": {
+              "name": "uri",
+              "description": "Uniform Resource Identifier.  Full path information for the apVisit file",
+              "type": "char[126]",
+              "unit": ""
+            },
+            "fiberid": {
+              "name": "fiberid",
+              "description": "APOGEE fiber number (1-300)",
+              "type": "int64",
+              "unit": ""
+            },
+            "plate": {
+              "name": "plate",
+              "description": "Plate (for plate era) or configurationID (for FPS era) of this visit",
+              "type": "char[15]",
+              "unit": ""
+            },
+            "mjd": {
+              "name": "mjd",
+              "description": "Modified Julian Date of the night",
+              "type": "int64",
+              "unit": "days"
+            },
+            "telescope": {
+              "name": "telescope",
+              "description": "String representation of of telescope used for observation (currently apo25m or lco25m)",
+              "type": "char[16]",
+              "unit": ""
+            },
+            "survey": {
+              "name": "survey",
+              "description": "SDSS-V survey name",
+              "type": "char[23]",
+              "unit": ""
+            },
+            "field": {
+              "name": "field",
+              "description": "SDSS-V field ID",
+              "type": "char[32]",
+              "unit": ""
+            },
+            "programname": {
+              "name": "programname",
+              "description": "SDSS-V program name",
+              "type": "char[57]",
+              "unit": ""
+            },
+            "healpix": {
+              "name": "healpix",
+              "description": "HEALPix number for this star, nside=128",
+              "type": "int64",
+              "unit": ""
+            },
+            "ra": {
+              "name": "ra",
+              "description": "Right ascension (J2000)",
+              "type": "float64",
+              "unit": "degree"
+            },
+            "dec": {
+              "name": "dec",
+              "description": "Declination (J2000)",
+              "type": "float64",
+              "unit": "degree"
+            },
+            "glon": {
+              "name": "glon",
+              "description": "Galactic longitude",
+              "type": "float64",
+              "unit": "degree"
+            },
+            "glat": {
+              "name": "glat",
+              "description": "Galactic latitude",
+              "type": "float64",
+              "unit": "degree"
+            },
+            "jmag": {
+              "name": "jmag",
+              "description": "2MASS J-band magnitude",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "jerr": {
+              "name": "jerr",
+              "description": "Uncertainty of 2MASS J-band magnitude",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "hmag": {
+              "name": "hmag",
+              "description": "2MASS H-band magnitude",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "herr": {
+              "name": "herr",
+              "description": "Uncertainty of 2MASS H-band magnitude",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "kmag": {
+              "name": "kmag",
+              "description": "2MASS Ks-band magnitude",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "kerr": {
+              "name": "kerr",
+              "description": "Uncertainty of 2MASS Ks-band magnitude",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "src_h": {
+              "name": "src_h",
+              "description": "Source of H-Band photometry",
+              "type": "char[15]",
+              "unit": ""
+            },
+            "pmra": {
+              "name": "pmra",
+              "description": "Proper motion in right ascension used in target selection",
+              "type": "float64",
+              "unit": "mas/yr"
+            },
+            "pmdec": {
+              "name": "pmdec",
+              "description": "Proper motion in declination used in target selection",
+              "type": "float64",
+              "unit": "mas/yr"
+            },
+            "pm_src": {
+              "name": "pm_src",
+              "description": "Source of proper motion used in target selection",
+              "type": "char[15]",
+              "unit": ""
+            },
+            "apogee_target1": {
+              "name": "apogee_target1",
+              "description": "Bitwise OR of first APOGEE-2 target flag of all visits, see <a href=\"https://www.sdss4.org/dr17/algorithms/bitmasks/#APOGEE2_TARGET1\"> bitmask definitions</a>",
+              "type": "int64",
+              "unit": ""
+            },
+            "apogee_target2": {
+              "name": "apogee_target2",
+              "description": "Bitwise OR of second APOGEE-2 target flag of all visits, see <a href=\"https://www.sdss4.org/dr17/algorithms/bitmasks/#APOGEE2_TARGET2\"> bitmask definitions</a>",
+              "type": "int64",
+              "unit": ""
+            },
+            "apogee_target3": {
+              "name": "apogee_target3",
+              "description": "Bitwise OR of third APOGEE-2 target flag of all visits, see <a href=\"https://www.sdss4.org/dr17/algorithms/bitmasks/#APOGEE2_TARGET3\"> bitmask definitions</a>",
+              "type": "int64",
+              "unit": ""
+            },
+            "apogee_target4": {
+              "name": "apogee_target4",
+              "description": "Bitwise OR of first APOGEE-2 target flag of all visits, see <a href=\"https://www.sdss4.org/dr17/algorithms/bitmasks/#APOGEE2_TARGET1\"> bitmask definitions</a>",
+              "type": "int64",
+              "unit": ""
+            },
+            "catalogid": {
+              "name": "catalogid",
+              "description": "SDSS-V catalog identification number",
+              "type": "int64",
+              "unit": ""
+            },
+            "sdss_id": {
+              "name": "sdss_id",
+              "description": "SDSS-V sdss_id unique identification number",
+              "type": "int64",
+              "unit": ""
+            },
+            "ra_sdss_id": {
+              "name": "ra_sdss_id",
+              "description": "Right Ascension of unique SDSS-V sdss_id object",
+              "type": "float64",
+              "unit": "degree"
+            },
+            "dec_sdss_id": {
+              "name": "dec_sdss_id",
+              "description": "Declination of unique SDSS-V sdsss_id object",
+              "type": "float64",
+              "unit": "degree"
+            },
+            "sdss5_target_pks": {
+              "name": "sdss5_target_pks",
+              "description": "SDSS-V target_pks (comma-delimited list)",
+              "type": "char[39]",
+              "unit": ""
+            },
+            "sdss5_target_catalogids": {
+              "name": "sdss5_target_catalogids",
+              "description": "SDSS-V catalogIDs (comma-delimited list)",
+              "type": "char[56]",
+              "unit": ""
+            },
+            "sdss5_target_carton_pks": {
+              "name": "sdss5_target_carton_pks",
+              "description": "SDSS-V carton_pks (comma-delimited list)",
+              "type": "char[310]",
+              "unit": ""
+            },
+            "sdss5_target_cartons": {
+              "name": "sdss5_target_cartons",
+              "description": "SDSS-V carton names (comma-delimited list)",
+              "type": "char[310]",
+              "unit": ""
+            },
+            "sdss5_target_flagshex": {
+              "name": "sdss5_target_flagshex",
+              "description": "SDSS-V carton flags as hexadecimal string",
+              "type": "char[124]",
+              "unit": ""
+            },
+            "brightneicount": {
+              "name": "brightneicount",
+              "description": "Count of bright neighbors",
+              "type": "int64",
+              "unit": ""
+            },
+            "brightneiflag": {
+              "name": "brightneiflag",
+              "description": "Bright neighbor flag",
+              "type": "int64",
+              "unit": ""
+            },
+            "brightneifluxfrac": {
+              "name": "brightneifluxfrac",
+              "description": "Bright neighbor flux fraction",
+              "type": "float64",
+              "unit": ""
+            },
+            "gaia_release": {
+              "name": "gaia_release",
+              "description": "GAIA data release used",
+              "type": "char[13]",
+              "unit": ""
+            },
+            "gaia_plx": {
+              "name": "gaia_plx",
+              "description": "Gaia parallax",
+              "type": "float64",
+              "unit": "mas"
+            },
+            "gaia_plx_error": {
+              "name": "gaia_plx_error",
+              "description": "Uncertainty in Gaia parallax",
+              "type": "float64",
+              "unit": "mas"
+            },
+            "gaia_pmra": {
+              "name": "gaia_pmra",
+              "description": "Gaia proper motion in Right Ascension",
+              "type": "float64",
+              "unit": "mas/yr"
+            },
+            "gaia_pmra_error": {
+              "name": "gaia_pmra_error",
+              "description": "Uncertainty in Gaia proper motion in Right Ascension",
+              "type": "float64",
+              "unit": "mas/yr"
+            },
+            "gaia_pmdec": {
+              "name": "gaia_pmdec",
+              "description": "Gaia proper motion in Declination",
+              "type": "float64",
+              "unit": "mas/yr"
+            },
+            "gaia_pmdec_error": {
+              "name": "gaia_pmdec_error",
+              "description": "Uncertainty in Gaia proper motion in declination",
+              "type": "float64",
+              "unit": "mas/yr"
+            },
+            "gaia_gmag": {
+              "name": "gaia_gmag",
+              "description": "Gaia G mean magnitude",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "gaia_gerr": {
+              "name": "gaia_gerr",
+              "description": "Uncertainty in Gaia G mean magnitude",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "gaia_bpmag": {
+              "name": "gaia_bpmag",
+              "description": "Gaia BP mean magnitude",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "gaia_bperr": {
+              "name": "gaia_bperr",
+              "description": "Uncertainty in Gaia BP mean magnitude",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "gaia_rpmag": {
+              "name": "gaia_rpmag",
+              "description": "Gaia RP mean magnitude",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "gaia_rperr": {
+              "name": "gaia_rperr",
+              "description": "Uncertainty in Gaia RP mean magnitude",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "sdssv_apogee_target0": {
+              "name": "sdssv_apogee_target0",
+              "description": "SDSS-V early targeting flag",
+              "type": "int64",
+              "unit": ""
+            },
+            "firstcarton": {
+              "name": "firstcarton",
+              "description": "SDSS-V primary target carton",
+              "type": "char[62]",
+              "unit": ""
+            },
+            "targflags": {
+              "name": "targflags",
+              "description": "Verbose/text form of APOGEE-1 target flags",
+              "type": "char[113]",
+              "unit": ""
+            },
+            "snr": {
+              "name": "snr",
+              "description": "Median signal-to-noise ratio per pixel",
+              "type": "float64",
+              "unit": ""
+            },
+            "starflag": {
+              "name": "starflag",
+              "description": "Star-level quality flags as taken from bitwise OR of individual visits, see <a href=\"https://www.sdss4.org/dr17/algorithms/bitmasks/#APOGEE_STARFLAG\"> bitmask definitions</a>",
+              "type": "int64",
+              "unit": ""
+            },
+            "starflags": {
+              "name": "starflags",
+              "description": "Star-level quality flags as comma-delimited ASCII text",
+              "type": "char[84]",
+              "unit": ""
+            },
+            "dateobs": {
+              "name": "dateobs",
+              "description": "Date of observation (YYYY-MM-DDTHH:MM:SS.SSS)",
+              "type": "char[33]",
+              "unit": ""
+            },
+            "jd": {
+              "name": "jd",
+              "description": "Julian date of the observation",
+              "type": "float64",
+              "unit": "days"
+            },
+            "exptime": {
+              "name": "exptime",
+              "description": "Exposure time",
+              "type": "float64",
+              "unit": "seconds"
+            },
+            "starver": {
+              "name": "starver",
+              "description": "Star combination version (MJD of last visit used) that this visit was used for",
+              "type": "char[15]",
+              "unit": ""
+            },
+            "bc": {
+              "name": "bc",
+              "description": "Barycentric correction for the observation date and location",
+              "type": "float64",
+              "unit": "km/s"
+            },
+            "vtype": {
+              "name": "vtype",
+              "description": "Type of RV determination used",
+              "type": "int64",
+              "unit": ""
+            },
+            "vrel": {
+              "name": "vrel",
+              "description": "Relative velocity (doppler shift) of the visit spectrum relative to the Doppler template",
+              "type": "float64",
+              "unit": "km/s"
+            },
+            "vrelerr": {
+              "name": "vrelerr",
+              "description": "Uncertainty in relative velocity",
+              "type": "float64",
+              "unit": "km/s"
+            },
+            "vrad": {
+              "name": "vrad",
+              "description": "Radial velocity in the Solar System Barycentric frame",
+              "type": "float64",
+              "unit": "km/s"
+            },
+            "chisq": {
+              "name": "chisq",
+              "description": "Reduced chi-squared of the Doppler best-fit model",
+              "type": "float64",
+              "unit": ""
+            },
+            "rv_teff": {
+              "name": "rv_teff",
+              "description": "Effective temperature of Doppler RV template match",
+              "type": "float64",
+              "unit": "K"
+            },
+            "rv_feh": {
+              "name": "rv_feh",
+              "description": "[Fe/H] from Doppler RV template match",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "rv_logg": {
+              "name": "rv_logg",
+              "description": "log g of Doppler RV template match",
+              "type": "float64",
+              "unit": "log (cgs)"
+            },
+            "xcorr_vrel": {
+              "name": "xcorr_vrel",
+              "description": "Doppler shift of individual visit spectrum relative to the best-fit Doppler model using cross-correlation",
+              "type": "float64",
+              "unit": "km/s"
+            },
+            "xcorr_vrelerr": {
+              "name": "xcorr_vrelerr",
+              "description": "Error in doppler shift for individual visit",
+              "type": "float64",
+              "unit": "km/s"
+            },
+            "xcorr_vrad": {
+              "name": "xcorr_vrad",
+              "description": "Barycentric radial velocity for individual visit using cross-correlation with best-fit Doppler model",
+              "type": "float64",
+              "unit": "km/s"
+            },
+            "n_components": {
+              "name": "n_components",
+              "description": "Number of components from cross correlation",
+              "type": "int64",
+              "unit": ""
+            },
+            "rv_components": {
+              "name": "rv_components",
+              "description": "RV offset for components",
+              "type": "float64[3]",
+              "unit": ""
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null
+    },
+    "WORK": {
+      "template": "$APOGEE_REDUX/[APRED]/summary/allVisit-[APRED]-[TELESCOPE].fits",
+      "example": "1.0/summary/allVisit-1.0-apo25m.fits",
+      "location": "{apred}/summary/allVisit-{apred}-{telescope}.fits",
+      "environment": "APOGEE_REDUX",
+      "survey": "MWM",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "allVisit",
+        "path_template": "$APOGEE_REDUX/{apred}/summary/allVisit-{apred}.fits",
+        "path_kwargs": [
+          "apred"
+        ],
+        "access_string": "allVisit = $APOGEE_REDUX/{apred}/summary/allVisit-{apred}-{telescope}.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "ignore me description",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "ignore me description",
+          "size": "557 MB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "BINTABLE",
+              "comment": "binary table extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "1083",
+              "comment": "length of dimension 1"
+            },
+            {
+              "key": "NAXIS2",
+              "value": "539646",
+              "comment": "length of dimension 2"
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "number of group parameters"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "number of groups"
+            },
+            {
+              "key": "TFIELDS",
+              "value": "66",
+              "comment": "number of table fields"
+            },
+            {
+              "key": "TDIM66",
+              "value": "(3)",
+              "comment": ""
+            }
+          ],
+          "columns": {
+            "apogee_id": {
+              "name": "APOGEE_ID",
+              "description": "ignore me - with content",
+              "type": "char[28]",
+              "unit": "ignore me - with content"
+            },
+            "target_id": {
+              "name": "TARGET_ID",
+              "description": "ignore me - with content",
+              "type": "char[28]",
+              "unit": "ignore me - with content"
+            },
+            "apred_vers": {
+              "name": "APRED_VERS",
+              "description": "ignore me - with content",
+              "type": "char[13]",
+              "unit": "ignore me - with content"
+            },
+            "file": {
+              "name": "FILE",
+              "description": "ignore me - with content",
+              "type": "char[49]",
+              "unit": "ignore me - with content"
+            },
+            "uri": {
+              "name": "URI",
+              "description": "ignore me - with content",
+              "type": "char[122]",
+              "unit": "ignore me - with content"
+            },
+            "fiberid": {
+              "name": "FIBERID",
+              "description": "ignore me - with content",
+              "type": "int64",
+              "unit": "ignore me - with content"
+            },
+            "plate": {
+              "name": "PLATE",
+              "description": "ignore me - with content",
+              "type": "char[15]",
+              "unit": "ignore me - with content"
+            },
+            "mjd": {
+              "name": "MJD",
+              "description": "ignore me - with content",
+              "type": "int64",
+              "unit": "ignore me - with content"
+            },
+            "telescope": {
+              "name": "TELESCOPE",
+              "description": "ignore me - with content",
+              "type": "char[16]",
+              "unit": "ignore me - with content"
+            },
+            "survey": {
+              "name": "SURVEY",
+              "description": "ignore me - with content",
+              "type": "char[17]",
+              "unit": "ignore me - with content"
+            },
+            "field": {
+              "name": "FIELD",
+              "description": "ignore me - with content",
+              "type": "char[32]",
+              "unit": "ignore me - with content"
+            },
+            "programname": {
+              "name": "PROGRAMNAME",
+              "description": "ignore me - with content",
+              "type": "char[45]",
+              "unit": "ignore me - with content"
+            },
+            "ra": {
+              "name": "RA",
+              "description": "ignore me - with content",
+              "type": "float64",
+              "unit": "ignore me - with content"
+            },
+            "dec": {
+              "name": "DEC",
+              "description": "ignore me - with content",
+              "type": "float64",
+              "unit": "ignore me - with content"
+            },
+            "glon": {
+              "name": "GLON",
+              "description": "ignore me - with content",
+              "type": "float64",
+              "unit": "ignore me - with content"
+            },
+            "glat": {
+              "name": "GLAT",
+              "description": "ignore me - with content",
+              "type": "float64",
+              "unit": "ignore me - with content"
+            },
+            "jmag": {
+              "name": "JMAG",
+              "description": "ignore me - with content",
+              "type": "float64",
+              "unit": "ignore me - with content"
+            },
+            "jerr": {
+              "name": "JERR",
+              "description": "ignore me - with content",
+              "type": "float64",
+              "unit": "ignore me - with content"
+            },
+            "hmag": {
+              "name": "HMAG",
+              "description": "ignore me - with content",
+              "type": "float64",
+              "unit": "ignore me - with content"
+            },
+            "herr": {
+              "name": "HERR",
+              "description": "ignore me - with content",
+              "type": "float64",
+              "unit": "ignore me - with content"
+            },
+            "kmag": {
+              "name": "KMAG",
+              "description": "ignore me - with content",
+              "type": "float64",
+              "unit": "ignore me - with content"
+            },
+            "kerr": {
+              "name": "KERR",
+              "description": "ignore me - with content",
+              "type": "float64",
+              "unit": "ignore me - with content"
+            },
+            "src_h": {
+              "name": "SRC_H",
+              "description": "ignore me - with content",
+              "type": "char[10]",
+              "unit": "ignore me - with content"
+            },
+            "pmra": {
+              "name": "PMRA",
+              "description": "ignore me - with content",
+              "type": "float64",
+              "unit": "ignore me - with content"
+            },
+            "pmdec": {
+              "name": "PMDEC",
+              "description": "ignore me - with content",
+              "type": "float64",
+              "unit": "ignore me - with content"
+            },
+            "pm_src": {
+              "name": "PM_SRC",
+              "description": "ignore me - with content",
+              "type": "char[10]",
+              "unit": "ignore me - with content"
+            },
+            "apogee_target1": {
+              "name": "APOGEE_TARGET1",
+              "description": "ignore me - with content",
+              "type": "int64",
+              "unit": "ignore me - with content"
+            },
+            "apogee_target2": {
+              "name": "APOGEE_TARGET2",
+              "description": "ignore me - with content",
+              "type": "int64",
+              "unit": "ignore me - with content"
+            },
+            "apogee_target3": {
+              "name": "APOGEE_TARGET3",
+              "description": "ignore me - with content",
+              "type": "int64",
+              "unit": "ignore me - with content"
+            },
+            "apogee_target4": {
+              "name": "APOGEE_TARGET4",
+              "description": "ignore me - with content",
+              "type": "int64",
+              "unit": "ignore me - with content"
+            },
+            "catalogid": {
+              "name": "CATALOGID",
+              "description": "ignore me - with content",
+              "type": "int64",
+              "unit": "ignore me - with content"
+            },
+            "gaiadr2_plx": {
+              "name": "GAIADR2_PLX",
+              "description": "ignore me - with content",
+              "type": "float64",
+              "unit": "ignore me - with content"
+            },
+            "gaiadr2_plx_error": {
+              "name": "GAIADR2_PLX_ERROR",
+              "description": "ignore me - with content",
+              "type": "float64",
+              "unit": "ignore me - with content"
+            },
+            "gaiadr2_pmra": {
+              "name": "GAIADR2_PMRA",
+              "description": "ignore me - with content",
+              "type": "float64",
+              "unit": "ignore me - with content"
+            },
+            "gaiadr2_pmra_error": {
+              "name": "GAIADR2_PMRA_ERROR",
+              "description": "ignore me - with content",
+              "type": "float64",
+              "unit": "ignore me - with content"
+            },
+            "gaiadr2_pmdec": {
+              "name": "GAIADR2_PMDEC",
+              "description": "ignore me - with content",
+              "type": "float64",
+              "unit": "ignore me - with content"
+            },
+            "gaiadr2_pmdec_error": {
+              "name": "GAIADR2_PMDEC_ERROR",
+              "description": "ignore me - with content",
+              "type": "float64",
+              "unit": "ignore me - with content"
+            },
+            "gaiadr2_gmag": {
+              "name": "GAIADR2_GMAG",
+              "description": "ignore me - with content",
+              "type": "float64",
+              "unit": "ignore me - with content"
+            },
+            "gaiadr2_gerr": {
+              "name": "GAIADR2_GERR",
+              "description": "ignore me - with content",
+              "type": "float64",
+              "unit": "ignore me - with content"
+            },
+            "gaiadr2_bpmag": {
+              "name": "GAIADR2_BPMAG",
+              "description": "ignore me - with content",
+              "type": "float64",
+              "unit": "ignore me - with content"
+            },
+            "gaiadr2_bperr": {
+              "name": "GAIADR2_BPERR",
+              "description": "ignore me - with content",
+              "type": "float64",
+              "unit": "ignore me - with content"
+            },
+            "gaiadr2_rpmag": {
+              "name": "GAIADR2_RPMAG",
+              "description": "ignore me - with content",
+              "type": "float64",
+              "unit": "ignore me - with content"
+            },
+            "gaiadr2_rperr": {
+              "name": "GAIADR2_RPERR",
+              "description": "ignore me - with content",
+              "type": "float64",
+              "unit": "ignore me - with content"
+            },
+            "sdssv_apogee_target0": {
+              "name": "SDSSV_APOGEE_TARGET0",
+              "description": "ignore me - with content",
+              "type": "int64",
+              "unit": "ignore me - with content"
+            },
+            "firstcarton": {
+              "name": "FIRSTCARTON",
+              "description": "ignore me - with content",
+              "type": "char[45]",
+              "unit": "ignore me - with content"
+            },
+            "targflags": {
+              "name": "TARGFLAGS",
+              "description": "ignore me - with content",
+              "type": "char[113]",
+              "unit": "ignore me - with content"
+            },
+            "snr": {
+              "name": "SNR",
+              "description": "ignore me - with content",
+              "type": "float64",
+              "unit": "ignore me - with content"
+            },
+            "starflag": {
+              "name": "STARFLAG",
+              "description": "ignore me - with content",
+              "type": "int64",
+              "unit": "ignore me - with content"
+            },
+            "starflags": {
+              "name": "STARFLAGS",
+              "description": "ignore me - with content",
+              "type": "char[84]",
+              "unit": "ignore me - with content"
+            },
+            "dateobs": {
+              "name": "DATEOBS",
+              "description": "ignore me - with content",
+              "type": "char[33]",
+              "unit": "ignore me - with content"
+            },
+            "jd": {
+              "name": "JD",
+              "description": "ignore me - with content",
+              "type": "float64",
+              "unit": "ignore me - with content"
+            },
+            "starver": {
+              "name": "STARVER",
+              "description": "ignore me - with content",
+              "type": "char[15]",
+              "unit": "ignore me - with content"
+            },
+            "bc": {
+              "name": "BC",
+              "description": "ignore me - with content",
+              "type": "float64",
+              "unit": "ignore me - with content"
+            },
+            "vtype": {
+              "name": "VTYPE",
+              "description": "ignore me - with content",
+              "type": "int64",
+              "unit": "ignore me - with content"
+            },
+            "vrel": {
+              "name": "VREL",
+              "description": "ignore me - with content",
+              "type": "float64",
+              "unit": "ignore me - with content"
+            },
+            "vrelerr": {
+              "name": "VRELERR",
+              "description": "ignore me - with content",
+              "type": "float64",
+              "unit": "ignore me - with content"
+            },
+            "vrad": {
+              "name": "VRAD",
+              "description": "ignore me - with content",
+              "type": "float64",
+              "unit": "ignore me - with content"
+            },
+            "chisq": {
+              "name": "CHISQ",
+              "description": "ignore me - with content",
+              "type": "float64",
+              "unit": "ignore me - with content"
+            },
+            "rv_teff": {
+              "name": "RV_TEFF",
+              "description": "ignore me - with content",
+              "type": "float64",
+              "unit": "ignore me - with content"
+            },
+            "rv_feh": {
+              "name": "RV_FEH",
+              "description": "ignore me - with content",
+              "type": "float64",
+              "unit": "ignore me - with content"
+            },
+            "rv_logg": {
+              "name": "RV_LOGG",
+              "description": "ignore me - with content",
+              "type": "float64",
+              "unit": "ignore me - with content"
+            },
+            "xcorr_vrel": {
+              "name": "XCORR_VREL",
+              "description": "ignore me - with content",
+              "type": "float64",
+              "unit": "ignore me - with content"
+            },
+            "xcorr_vrelerr": {
+              "name": "XCORR_VRELERR",
+              "description": "ignore me - with content",
+              "type": "float64",
+              "unit": "ignore me - with content"
+            },
+            "xcorr_vrad": {
+              "name": "XCORR_VRAD",
+              "description": "ignore me - with content",
+              "type": "float64",
+              "unit": "ignore me - with content"
+            },
+            "n_components": {
+              "name": "N_COMPONENTS",
+              "description": "ignore me - with content",
+              "type": "int64",
+              "unit": "ignore me - with content"
+            },
+            "rv_components": {
+              "name": "RV_COMPONENTS",
+              "description": "ignore me - with content",
+              "type": "float64[3]",
+              "unit": "ignore me - with content"
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null
     }
-  }
+  },
+  "notes": "None",
+  "regrets": "I have no regrets!"
 }
