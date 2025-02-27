@@ -19,7 +19,7 @@ The allVisit_RESULTS-VERS.fits file contains summary information for every visit
 allVisit-RESULTS_VERS.fits
 
 ### Releases
-DR16, DR17, DR19, WORK
+DR16, DR17, DR19
 
 ### Enviroments
 APOGEE_ASPCAP, APOGEE_REDUX
@@ -36,30 +36,27 @@ idlwrap (aspcap_allstar)
 ### Is a VAC
 False
 
-### HDUS List for release WORK
+### HDUS List for release DR19
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1](#hdu1)
+  - [HDU1: APOGEE reduction visit-level summary table](#hdu1-apogee reduction visit-level summary table)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
- - WORK
-   - from: DR19
-   - removed_hdus: ['APOGEE reduction visit-level summary table']
  - DR19
    - from: DR17
    - added_hdus: ['APOGEE reduction visit-level summary table']
  - DR17
    - from: DR16
    - primary_delta_nkeys: 9
-   - removed_primary_header_kwargs: ['HISTORY', 'COMMENT', 'DATE']
+   - removed_primary_header_kwargs: ['HISTORY', 'DATE', 'COMMENT']
 
 ---
 ## Example HDUS List
 
 ### HDU0: PRIMARY
-ignore me description
+
 
 #### HDU Type: IMAGE
 #### HDU Size:  0 bytes
@@ -74,8 +71,8 @@ Key | Value | Comment | |
 
 
 
-### HDU1: 
-ignore me description
+### HDU1: APOGEE reduction visit-level summary table
+Contains all final data product and summary information for every observed visit (by the relevant telescope) in the data release.
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  557 MB
@@ -96,72 +93,86 @@ Key | Value | Comment | |
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | APOGEE_ID | char[28] | ignore me - with content | ignore me - with content |
- | TARGET_ID | char[28] | ignore me - with content | ignore me - with content |
- | APRED_VERS | char[13] | ignore me - with content | ignore me - with content |
- | FILE | char[49] | ignore me - with content | ignore me - with content |
- | URI | char[122] | ignore me - with content | ignore me - with content |
- | FIBERID | int64 | ignore me - with content | ignore me - with content |
- | PLATE | char[15] | ignore me - with content | ignore me - with content |
- | MJD | int64 | ignore me - with content | ignore me - with content |
- | TELESCOPE | char[16] | ignore me - with content | ignore me - with content |
- | SURVEY | char[17] | ignore me - with content | ignore me - with content |
- | FIELD | char[32] | ignore me - with content | ignore me - with content |
- | PROGRAMNAME | char[45] | ignore me - with content | ignore me - with content |
- | RA | float64 | ignore me - with content | ignore me - with content |
- | DEC | float64 | ignore me - with content | ignore me - with content |
- | GLON | float64 | ignore me - with content | ignore me - with content |
- | GLAT | float64 | ignore me - with content | ignore me - with content |
- | JMAG | float64 | ignore me - with content | ignore me - with content |
- | JERR | float64 | ignore me - with content | ignore me - with content |
- | HMAG | float64 | ignore me - with content | ignore me - with content |
- | HERR | float64 | ignore me - with content | ignore me - with content |
- | KMAG | float64 | ignore me - with content | ignore me - with content |
- | KERR | float64 | ignore me - with content | ignore me - with content |
- | SRC_H | char[10] | ignore me - with content | ignore me - with content |
- | PMRA | float64 | ignore me - with content | ignore me - with content |
- | PMDEC | float64 | ignore me - with content | ignore me - with content |
- | PM_SRC | char[10] | ignore me - with content | ignore me - with content |
- | APOGEE_TARGET1 | int64 | ignore me - with content | ignore me - with content |
- | APOGEE_TARGET2 | int64 | ignore me - with content | ignore me - with content |
- | APOGEE_TARGET3 | int64 | ignore me - with content | ignore me - with content |
- | APOGEE_TARGET4 | int64 | ignore me - with content | ignore me - with content |
- | CATALOGID | int64 | ignore me - with content | ignore me - with content |
- | GAIADR2_PLX | float64 | ignore me - with content | ignore me - with content |
- | GAIADR2_PLX_ERROR | float64 | ignore me - with content | ignore me - with content |
- | GAIADR2_PMRA | float64 | ignore me - with content | ignore me - with content |
- | GAIADR2_PMRA_ERROR | float64 | ignore me - with content | ignore me - with content |
- | GAIADR2_PMDEC | float64 | ignore me - with content | ignore me - with content |
- | GAIADR2_PMDEC_ERROR | float64 | ignore me - with content | ignore me - with content |
- | GAIADR2_GMAG | float64 | ignore me - with content | ignore me - with content |
- | GAIADR2_GERR | float64 | ignore me - with content | ignore me - with content |
- | GAIADR2_BPMAG | float64 | ignore me - with content | ignore me - with content |
- | GAIADR2_BPERR | float64 | ignore me - with content | ignore me - with content |
- | GAIADR2_RPMAG | float64 | ignore me - with content | ignore me - with content |
- | GAIADR2_RPERR | float64 | ignore me - with content | ignore me - with content |
- | SDSSV_APOGEE_TARGET0 | int64 | ignore me - with content | ignore me - with content |
- | FIRSTCARTON | char[45] | ignore me - with content | ignore me - with content |
- | TARGFLAGS | char[113] | ignore me - with content | ignore me - with content |
- | SNR | float64 | ignore me - with content | ignore me - with content |
- | STARFLAG | int64 | ignore me - with content | ignore me - with content |
- | STARFLAGS | char[84] | ignore me - with content | ignore me - with content |
- | DATEOBS | char[33] | ignore me - with content | ignore me - with content |
- | JD | float64 | ignore me - with content | ignore me - with content |
- | STARVER | char[15] | ignore me - with content | ignore me - with content |
- | BC | float64 | ignore me - with content | ignore me - with content |
- | VTYPE | int64 | ignore me - with content | ignore me - with content |
- | VREL | float64 | ignore me - with content | ignore me - with content |
- | VRELERR | float64 | ignore me - with content | ignore me - with content |
- | VRAD | float64 | ignore me - with content | ignore me - with content |
- | CHISQ | float64 | ignore me - with content | ignore me - with content |
- | RV_TEFF | float64 | ignore me - with content | ignore me - with content |
- | RV_FEH | float64 | ignore me - with content | ignore me - with content |
- | RV_LOGG | float64 | ignore me - with content | ignore me - with content |
- | XCORR_VREL | float64 | ignore me - with content | ignore me - with content |
- | XCORR_VRELERR | float64 | ignore me - with content | ignore me - with content |
- | XCORR_VRAD | float64 | ignore me - with content | ignore me - with content |
- | N_COMPONENTS | int64 | ignore me - with content | ignore me - with content |
- | RV_COMPONENTS | float64[3] | ignore me - with content | ignore me - with content |
+ | apogee_id | char[28] |  | 2MASS-STYLE object name |
+ | target_id | char[28] |  | Unique ID for visit spectrum, of form apogee.[telescope].[cs].[apred_version].plate.mjd.fiberid (Primary key) |
+ | apred_vers | char[15] |  | APOGEE reduction version |
+ | file | char[51] |  | apVisit File name |
+ | uri | char[126] |  | Uniform Resource Identifier.  Full path information for the apVisit file |
+ | fiberid | int64 |  | APOGEE fiber number (1-300) |
+ | plate | char[15] |  | Plate (for plate era) or configurationID (for FPS era) of this visit |
+ | mjd | int64 | days | Modified Julian Date of the night |
+ | telescope | char[16] |  | String representation of of telescope used for observation (currently apo25m or lco25m) |
+ | survey | char[23] |  | SDSS-V survey name |
+ | field | char[32] |  | SDSS-V field ID |
+ | programname | char[57] |  | SDSS-V program name |
+ | healpix | int64 |  | HEALPix number for this star, nside=128 |
+ | ra | float64 | degree | Right ascension (J2000) |
+ | dec | float64 | degree | Declination (J2000) |
+ | glon | float64 | degree | Galactic longitude |
+ | glat | float64 | degree | Galactic latitude |
+ | jmag | float64 | mag | 2MASS J-band magnitude |
+ | jerr | float64 | mag | Uncertainty of 2MASS J-band magnitude |
+ | hmag | float64 | mag | 2MASS H-band magnitude |
+ | herr | float64 | mag | Uncertainty of 2MASS H-band magnitude |
+ | kmag | float64 | mag | 2MASS Ks-band magnitude |
+ | kerr | float64 | mag | Uncertainty of 2MASS Ks-band magnitude |
+ | src_h | char[15] |  | Source of H-Band photometry |
+ | pmra | float64 | mas/yr | Proper motion in right ascension used in target selection |
+ | pmdec | float64 | mas/yr | Proper motion in declination used in target selection |
+ | pm_src | char[15] |  | Source of proper motion used in target selection |
+ | apogee_target1 | int64 |  | Bitwise OR of first APOGEE-2 target flag of all visits, see <a href="https://www.sdss4.org/dr17/algorithms/bitmasks/#APOGEE2_TARGET1"> bitmask definitions</a> |
+ | apogee_target2 | int64 |  | Bitwise OR of second APOGEE-2 target flag of all visits, see <a href="https://www.sdss4.org/dr17/algorithms/bitmasks/#APOGEE2_TARGET2"> bitmask definitions</a> |
+ | apogee_target3 | int64 |  | Bitwise OR of third APOGEE-2 target flag of all visits, see <a href="https://www.sdss4.org/dr17/algorithms/bitmasks/#APOGEE2_TARGET3"> bitmask definitions</a> |
+ | apogee_target4 | int64 |  | Bitwise OR of first APOGEE-2 target flag of all visits, see <a href="https://www.sdss4.org/dr17/algorithms/bitmasks/#APOGEE2_TARGET1"> bitmask definitions</a> |
+ | catalogid | int64 |  | SDSS-V catalog identification number |
+ | sdss_id | int64 |  | SDSS-V sdss_id unique identification number |
+ | ra_sdss_id | float64 | degree | Right Ascension of unique SDSS-V sdss_id object |
+ | dec_sdss_id | float64 | degree | Declination of unique SDSS-V sdsss_id object |
+ | sdss5_target_pks | char[39] |  | SDSS-V target_pks (comma-delimited list) |
+ | sdss5_target_catalogids | char[56] |  | SDSS-V catalogIDs (comma-delimited list) |
+ | sdss5_target_carton_pks | char[310] |  | SDSS-V carton_pks (comma-delimited list) |
+ | sdss5_target_cartons | char[310] |  | SDSS-V carton names (comma-delimited list) |
+ | sdss5_target_flagshex | char[124] |  | SDSS-V carton flags as hexadecimal string |
+ | brightneicount | int64 |  | Count of bright neighbors |
+ | brightneiflag | int64 |  | Bright neighbor flag |
+ | brightneifluxfrac | float64 |  | Bright neighbor flux fraction |
+ | gaia_release | char[13] |  | GAIA data release used |
+ | gaia_plx | float64 | mas | Gaia parallax |
+ | gaia_plx_error | float64 | mas | Uncertainty in Gaia parallax |
+ | gaia_pmra | float64 | mas/yr | Gaia proper motion in Right Ascension |
+ | gaia_pmra_error | float64 | mas/yr | Uncertainty in Gaia proper motion in Right Ascension |
+ | gaia_pmdec | float64 | mas/yr | Gaia proper motion in Declination |
+ | gaia_pmdec_error | float64 | mas/yr | Uncertainty in Gaia proper motion in declination |
+ | gaia_gmag | float64 | mag | Gaia G mean magnitude |
+ | gaia_gerr | float64 | mag | Uncertainty in Gaia G mean magnitude |
+ | gaia_bpmag | float64 | mag | Gaia BP mean magnitude |
+ | gaia_bperr | float64 | mag | Uncertainty in Gaia BP mean magnitude |
+ | gaia_rpmag | float64 | mag | Gaia RP mean magnitude |
+ | gaia_rperr | float64 | mag | Uncertainty in Gaia RP mean magnitude |
+ | sdssv_apogee_target0 | int64 |  | SDSS-V early targeting flag |
+ | firstcarton | char[62] |  | SDSS-V primary target carton |
+ | targflags | char[113] |  | Verbose/text form of APOGEE-1 target flags |
+ | snr | float64 |  | Median signal-to-noise ratio per pixel |
+ | starflag | int64 |  | Star-level quality flags as taken from bitwise OR of individual visits, see <a href="https://www.sdss4.org/dr17/algorithms/bitmasks/#APOGEE_STARFLAG"> bitmask definitions</a> |
+ | starflags | char[84] |  | Star-level quality flags as comma-delimited ASCII text |
+ | dateobs | char[33] |  | Date of observation (YYYY-MM-DDTHH:MM:SS.SSS) |
+ | jd | float64 | days | Julian date of the observation |
+ | exptime | float64 | seconds | Exposure time |
+ | starver | char[15] |  | Star combination version (MJD of last visit used) that this visit was used for |
+ | bc | float64 | km/s | Barycentric correction for the observation date and location |
+ | vtype | int64 |  | Type of RV determination used |
+ | vrel | float64 | km/s | Relative velocity (doppler shift) of the visit spectrum relative to the Doppler template |
+ | vrelerr | float64 | km/s | Uncertainty in relative velocity |
+ | vrad | float64 | km/s | Radial velocity in the Solar System Barycentric frame |
+ | chisq | float64 |  | Reduced chi-squared of the Doppler best-fit model |
+ | rv_teff | float64 | K | Effective temperature of Doppler RV template match |
+ | rv_feh | float64 | dex | [Fe/H] from Doppler RV template match |
+ | rv_logg | float64 | log (cgs) | log g of Doppler RV template match |
+ | xcorr_vrel | float64 | km/s | Doppler shift of individual visit spectrum relative to the best-fit Doppler model using cross-correlation |
+ | xcorr_vrelerr | float64 | km/s | Error in doppler shift for individual visit |
+ | xcorr_vrad | float64 | km/s | Barycentric radial velocity for individual visit using cross-correlation with best-fit Doppler model |
+ | n_components | int64 |  | Number of components from cross correlation |
+ | rv_components | float64[3] |  | RV offset for components |
 
 
 
