@@ -19,7 +19,7 @@ apVisit files have data from a visit for each star, along with an initial RV mea
 <code>apVisit-[0-9]{4}-[0-9]{5}-[0-9]{3}\.fits</code>, where <code>[0-9]{4}</code> is the 4-digit plate number, <code>[0-9]{5}</code> is the 5-digit MJD number and <code>[0-9]{3}</code> is the zero-padded, 3-digit fiber number.
 
 ### Releases
-DR16, DR17, DR19, WORK
+DR16, DR17, DR19
 
 ### Enviroments
 APOGEE_REDUX
@@ -36,41 +36,35 @@ apogeereduce (apvisit_output)
 ### Is a VAC
 False
 
-### HDUS List for release WORK
+### HDUS List for release DR19
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1](#hdu1)
-  - [HDU2](#hdu2)
-  - [HDU3](#hdu3)
-  - [HDU4](#hdu4)
-  - [HDU5](#hdu5)
-  - [HDU6](#hdu6)
-  - [HDU7](#hdu7)
-  - [HDU8](#hdu8)
-  - [HDU9](#hdu9)
-  - [HDU10](#hdu10)
+  - [HDU1: FLUX](#hdu1-flux)
+  - [HDU2: ERROR](#hdu2-error)
+  - [HDU3: MASK](#hdu3-mask)
+  - [HDU4: WAVELENGTH](#hdu4-wavelength)
+  - [HDU5: SKY FLUX](#hdu5-sky flux)
+  - [HDU6: SKY ERROR](#hdu6-sky error)
+  - [HDU7: TELLURIC](#hdu7-telluric)
+  - [HDU8: TELLURIC ERROR](#hdu8-telluric error)
+  - [HDU9: WAVE COEFFICIENTS](#hdu9-wave coefficients)
+  - [HDU10: LSF COEFFICIENTS](#hdu10-lsf coefficients)
   - [HDU11](#hdu11)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
- - WORK
-   - from: DR19
-   - removed_hdus: ['SKY ERROR', 'WAVELENGTH', 'FLUX', 'ERROR', 'WAVE COEFFICIENTS', 'LSF COEFFICIENTS', 'SKY FLUX', 'TELLURIC', 'MASK', 'TELLURIC ERROR']
-   - primary_delta_nkeys: 19
-   - added_primary_header_kwargs: ['G2BPMAG', 'G2PLX', 'HISTORY', 'G2RPMAG', 'G2GMAG', 'G2PMRA', 'COMMENT', 'G2PMDEC']
-   - removed_primary_header_kwargs: ['GRELEASE', 'GBPMAG', 'GPMDEC', 'GPMRA', 'GGMAG', 'GRPMAG', 'GPLX']
  - DR19
    - from: DR17
-   - added_hdus: ['SKY ERROR', 'WAVELENGTH', 'FLUX', 'ERROR', 'WAVE COEFFICIENTS', 'LSF COEFFICIENTS', 'SKY FLUX', 'TELLURIC', 'MASK', 'TELLURIC ERROR']
+   - added_hdus: ['ERROR', 'TELLURIC', 'LSF COEFFICIENTS', 'WAVELENGTH', 'FLUX', 'SKY ERROR', 'TELLURIC ERROR', 'WAVE COEFFICIENTS', 'MASK', 'SKY FLUX']
    - primary_delta_nkeys: 17
-   - added_primary_header_kwargs: ['CATID', 'GPMDEC', 'TARG4', 'JMAG', 'GRELEASE', 'ONTARGET', 'APRED', 'KMAG', 'CATEGORY', 'VALID', 'GBPMAG', 'CADENCE', 'GGMAG', 'PROGRAM', 'ASSIGNED', 'SVAPTRG0', 'CARTON1', 'SVTARG0', 'GPMRA', 'GRPMAG', 'HMAG', 'GPLX']
-   - removed_primary_header_kwargs: ['FRAME3', 'H', 'K', 'FRAME2', 'WAVEID', 'MTPFLUX', 'FRAME7', 'FRAME4', 'AKMETHOD', 'COMMENT', 'J', 'HISTORY', 'AKTARG', 'AKWISE', 'FRAME6', 'SFD_EBV', 'CARTID', 'FRAME8', 'FRAME5', 'LSFID', 'RELFLUX']
+   - added_primary_header_kwargs: ['HMAG', 'CADENCE', 'GRELEASE', 'ONTARGET', 'VALID', 'SVTARG0', 'PROGRAM', 'GGMAG', 'TARG4', 'ASSIGNED', 'GBPMAG', 'GPMDEC', 'KMAG', 'APRED', 'CATID', 'SVAPTRG0', 'CARTON1', 'GRPMAG', 'GPMRA', 'JMAG', 'GPLX', 'CATEGORY']
+   - removed_primary_header_kwargs: ['WAVEID', 'HISTORY', 'RELFLUX', 'FRAME8', 'FRAME4', 'FRAME2', 'CARTID', 'FRAME3', 'LSFID', 'K', 'COMMENT', 'AKTARG', 'FRAME5', 'J', 'FRAME7', 'SFD_EBV', 'H', 'AKWISE', 'FRAME6', 'MTPFLUX', 'AKMETHOD']
  - DR17
    - from: DR16
    - primary_delta_nkeys: 23
-   - added_primary_header_kwargs: ['LSFID', 'WAVEID', 'RELFLUX', 'MTPFLUX', 'CARTID']
-   - removed_primary_header_kwargs: ['LONGSTRN', 'SYNTHFIL', 'VRADERR', 'RVFEH', 'RVTEFF', 'CHISQ', 'RVCARB', 'GLAT', 'VTYPE', 'BC', 'VHELIO', 'CCPFWHM', 'XSHIFT', 'RVLOGG', 'VGSR', 'HJD', 'CCPEAK', 'GLON', 'VSCATTER', 'VRAD', 'JD', 'VLSR', 'RVALPH']
+   - added_primary_header_kwargs: ['WAVEID', 'CARTID', 'RELFLUX', 'MTPFLUX', 'LSFID']
+   - removed_primary_header_kwargs: ['RVLOGG', 'RVTEFF', 'VGSR', 'RVALPH', 'GLAT', 'LONGSTRN', 'SYNTHFIL', 'CHISQ', 'GLON', 'HJD', 'CCPFWHM', 'VLSR', 'RVFEH', 'VSCATTER', 'XSHIFT', 'VHELIO', 'CCPEAK', 'BC', 'VRADERR', 'RVCARB', 'JD', 'VTYPE', 'VRAD']
 
 ---
 ## Example HDUS List
@@ -84,83 +78,64 @@ Describes changes to the datamodel product and/or file structure from one releas
 ##### Header Table Caption for HDU0
 Key | Value | Comment | |
 | --- | --- | --- | --- |
-| SIMPLE | True | APRV holtz on milkyway.nmsu.edu |
-| BITPIX | 16 | APRV holtz on milkyway.nmsu.edu |
-| NAXIS | 0 | APRV holtz on milkyway.nmsu.edu |
-| EXTEND | True | APRV holtz on milkyway.nmsu.edu |
-| DATE | 2022-10-15 | APRV holtz on milkyway.nmsu.edu |
-| COMMENT | FITS (Flexible Image Transport System) format is defined in | APRV holtz on milkyway.nmsu.edu |
-| COMMENT | Astronomy and Astrophysics, volume 376, page 359; bibcode 2001A&A...376..359H | APRV holtz on milkyway.nmsu.edu |
-| LOCID | 100537 | APRV holtz on milkyway.nmsu.edu |
-| PLATE | 4895 | APRV holtz on milkyway.nmsu.edu |
-| TELESCOP | apo25m | APRV holtz on milkyway.nmsu.edu |
-| MJD5 | 59683 | APRV holtz on milkyway.nmsu.edu |
-| FIBERID | 101 | APRV holtz on milkyway.nmsu.edu |
-| DATE-OBS | 2022-04-14T09:14:54.226 | APRV holtz on milkyway.nmsu.edu |
-| EXPTIME | 457.921 | APRV holtz on milkyway.nmsu.edu |
-| JD-MID | 2459683.888 | APRV holtz on milkyway.nmsu.edu |
-| UT-MID | 2022-04-14T09:18:43.2 | APRV holtz on milkyway.nmsu.edu |
-| NCOMBINE | 1 | APRV holtz on milkyway.nmsu.edu |
-| FRAME1 | 0 | APRV holtz on milkyway.nmsu.edu |
-| NPAIRS | 0 | APRV holtz on milkyway.nmsu.edu |
-| OBJID | 2M18312966+0037563 | APRV holtz on milkyway.nmsu.edu |
-| OBJTYPE | STAR | APRV holtz on milkyway.nmsu.edu |
-| RA | 277.873526423 | APRV holtz on milkyway.nmsu.edu |
-| DEC | 0.632144693711 | APRV holtz on milkyway.nmsu.edu |
-| JMAG | 10.792 | APRV holtz on milkyway.nmsu.edu |
-| HMAG | 10.267 | APRV holtz on milkyway.nmsu.edu |
-| KMAG | 9.988 | APRV holtz on milkyway.nmsu.edu |
-| SNR | 65.0601 | APRV holtz on milkyway.nmsu.edu |
-| SURVEY | SDSS-V | APRV holtz on milkyway.nmsu.edu |
-| TARG1 | 0 | APRV holtz on milkyway.nmsu.edu |
-| TARG2 | 0 | APRV holtz on milkyway.nmsu.edu |
-| TARG3 | 0 | APRV holtz on milkyway.nmsu.edu |
-| TARG4 | 0 | APRV holtz on milkyway.nmsu.edu |
-| SVAPTRG0 | 0 | APRV holtz on milkyway.nmsu.edu |
-| CATID | 27021598755520772 | APRV holtz on milkyway.nmsu.edu |
-| G2PLX | 2.07651 | APRV holtz on milkyway.nmsu.edu |
-| G2PMRA | -10.7297 | APRV holtz on milkyway.nmsu.edu |
-| G2PMDEC | -23.8428 | APRV holtz on milkyway.nmsu.edu |
-| G2GMAG | 13.4712 | APRV holtz on milkyway.nmsu.edu |
-| G2BPMAG | 14.5613 | APRV holtz on milkyway.nmsu.edu |
-| G2RPMAG | 12.4309 | APRV holtz on milkyway.nmsu.edu |
-| HPLUS | 2.162 | APRV holtz on milkyway.nmsu.edu |
-| HMINUS | 2.027 | APRV holtz on milkyway.nmsu.edu |
-| ASSIGNED | 1 | APRV holtz on milkyway.nmsu.edu |
-| ONTARGET | 1 | APRV holtz on milkyway.nmsu.edu |
-| VALID | 1 | APRV holtz on milkyway.nmsu.edu |
-| SVTARG0 | 0 | APRV holtz on milkyway.nmsu.edu |
-| CARTON1 | mwm_yso_pms_apogee | APRV holtz on milkyway.nmsu.edu |
-| CADENCE | bright_3x1 | APRV holtz on milkyway.nmsu.edu |
-| PROGRAM | mwm_yso | APRV holtz on milkyway.nmsu.edu |
-| CATEGORY | science | APRV holtz on milkyway.nmsu.edu |
-| STARFLAG | 0 | APRV holtz on milkyway.nmsu.edu |
-| FLUXFLAM | 1.82139e-18 | APRV holtz on milkyway.nmsu.edu |
-| V_APRED | 69de0d7427363363aae2017a0890751f40a3463e | APRV holtz on milkyway.nmsu.edu |
-| APRED | 1.0 | APRV holtz on milkyway.nmsu.edu |
-| HISTORY | AP1DVISIT: Sat Oct 15 12:56:17 2022 | APRV holtz on milkyway.nmsu.edu |
-| HISTORY | AP1DVISIT: u0914350 on notch291 | APRV holtz on milkyway.nmsu.edu |
-| HISTORY | AP1DVISIT:  APOGEE Reduction Pipeline Version: 1.0 | APRV holtz on milkyway.nmsu.edu |
-| HISTORY | AP1DVISIT: IDL 8.8.0 linux x86_64 | APRV holtz on milkyway.nmsu.edu |
-| HISTORY | AP1DVISIT: The data for the individual visit spectrum are in | APRV holtz on milkyway.nmsu.edu |
-| HISTORY | AP1DVISIT:   separate extensions.  All HDUs have data for each chip in | APRV holtz on milkyway.nmsu.edu |
-| HISTORY | AP1DVISIT:   a separate row (i.e. 4096x3) except for Wavelength and LSF | APRV holtz on milkyway.nmsu.edu |
-| HISTORY | AP1DVISIT:  HDU0 = Header only | APRV holtz on milkyway.nmsu.edu |
-| HISTORY | AP1DVISIT:  HDU1 - Flux (10^-17 ergs/s/cm^2/Ang) | APRV holtz on milkyway.nmsu.edu |
-| HISTORY | AP1DVISIT:  HDU2 - Error (10^-17 ergs/s/cm^2/Ang) | APRV holtz on milkyway.nmsu.edu |
-| HISTORY | AP1DVISIT:  HDU3 - Flag mask (bitwise OR combined) | APRV holtz on milkyway.nmsu.edu |
-| HISTORY | AP1DVISIT:  HDU4 - Wavelength (Ang) | APRV holtz on milkyway.nmsu.edu |
-| HISTORY | AP1DVISIT:  HDU5 - Sky (10^-17 ergs/s/cm^2/Ang) | APRV holtz on milkyway.nmsu.edu |
-| HISTORY | AP1DVISIT:  HDU6 - Sky Error (10^-17 ergs/s/cm^2/Ang) | APRV holtz on milkyway.nmsu.edu |
-| HISTORY | AP1DVISIT:  HDU7 - Telluric | APRV holtz on milkyway.nmsu.edu |
-| HISTORY | AP1DVISIT:  HDU8 - Telluric Error | APRV holtz on milkyway.nmsu.edu |
-| HISTORY | AP1DVISIT:  HDU9 - Wavelength coefficients | APRV holtz on milkyway.nmsu.edu |
-| HISTORY | AP1DVISIT:  HDU10 - LSF coefficients | APRV holtz on milkyway.nmsu.edu |
+| SIMPLE | True |  |
+| BITPIX | 16 |  |
+| NAXIS | 0 |  |
+| EXTEND | True |  |
+| DATE | 2022-10-15 | Creation UTC (CCCC-MM-DD) date of FITS header |
+| LOCID | 100537 | Location ID of field |
+| PLATE | 4895 | Plate ID |
+| TELESCOP | apo25m | Telescope |
+| MJD5 | 59683 | MJD of observation |
+| FIBERID | 101 | APOGEE Fiber ID 1-300 |
+| DATE-OBS | 2022-04-14T09:14:54.226 | Observation timestamp |
+| EXPTIME | 457.921 | Exposure time |
+| JD-MID | 2459683.888 | JD at midpoint of visit |
+| UT-MID | 2022-04-14T09:18:43.2 | Date at midpoint of visit |
+| NCOMBINE | 1 | Number of exposures combined |
+| FRAME1 | 0 | Constituent frame |
+| NPAIRS | 0 | Number of dither pairs combined |
+| OBJID | 2M18312966+0037563 | Object ID |
+| OBJTYPE | STAR | Object type |
+| RA | 277.873526423 | targeting right ascension, deg, J2000 |
+| DEC | 0.632144693711 | targeting declination, deg, J2000 |
+| JMAG | 10.792 | 2MASS J magnitude |
+| HMAG | 10.267 | 2MASS H magnitude |
+| KMAG | 9.988 | 2MASS Ks magnitude |
+| SNR | 65.0601 | median S/N, middle chip |
+| SURVEY | SDSS-V | Survey definition (for targeting flags) |
+| TARG1 | 0 | First APOGEE targeting flag (bitwise, see docs) |
+| TARG2 | 0 | Second APOGEE targeting flag (bitwise, see docs |
+| TARG3 | 0 | Third APOGEE targeting flag (bitwise, see docs) |
+| TARG4 | 0 | Fourth APOGEE targeting flag (bitwise, see docs |
+| SVAPTRG0 | 0 | SDSS-V APOGEE target0 |
+| CATID | 27021598755520772 | SDSS-V catalogID |
+| GRELEASE | dr3 | Gaia data release |
+| GPLX | 2.07651 | Gaia parallax |
+| GPMRA | -10.7297 | Gaia pmra |
+| GPMDEC | -23.8428 | Gaia pmdec |
+| GGMAG | 13.4712 | Gaia G magnitude |
+| GBPMAG | 14.5613 | Gaia Bp magnitude |
+| GRPMAG | 12.4309 | Gaia Rp magnitude |
+| HPLUS | 2.162 | Delta H (neigh-obj) mag of neighboring (+1) fib |
+| HMINUS | 2.027 | Delta H (neigh-obj) mag of neighboring (-1) fib |
+| ASSIGNED | 1 | FPS target assigned |
+| ONTARGET | 1 | FPS fiber on target |
+| VALID | 1 | Valid FPS target |
+| SVTARG0 | 0 | SDSS-V APG targeting bitmask |
+| CARTON1 | mwm_yso_pms_apogee | SDSS-V firstcarton |
+| CADENCE | bright_3x1 | SDSS-V target cadence |
+| PROGRAM | mwm_yso | SDSS-V target program |
+| CATEGORY | science | SDSS-V target category |
+| STARFLAG | 0 | Star data quality flag |
+| FLUXFLAM | 1.82139e-18 | ADU to flux units conv factor (ergs/s/cm^2/A) |
+| V_APRED | 69de0d7427363363aae2017a0890751f40a3463e | apogee software version |
+| APRED | 1.0 | apogee reduction version |
 
 
 
-### HDU1: 
-
+### HDU1: FLUX
+Flux spectrum
 
 #### HDU Type: IMAGE
 #### HDU Size:  48 KB
@@ -181,8 +156,8 @@ Key | Value | Comment | |
 
 
 
-### HDU2: 
-
+### HDU2: ERROR
+Uncertainty in flux
 
 #### HDU Type: IMAGE
 #### HDU Size:  48 KB
@@ -203,8 +178,8 @@ Key | Value | Comment | |
 
 
 
-### HDU3: 
-
+### HDU3: MASK
+Mask
 
 #### HDU Type: IMAGE
 #### HDU Size:  24 KB
@@ -225,8 +200,8 @@ Key | Value | Comment | |
 
 
 
-### HDU4: 
-
+### HDU4: WAVELENGTH
+Wavelength array
 
 #### HDU Type: IMAGE
 #### HDU Size:  96 KB
@@ -247,8 +222,8 @@ Key | Value | Comment | |
 
 
 
-### HDU5: 
-
+### HDU5: SKY FLUX
+Sky emission spectrum
 
 #### HDU Type: IMAGE
 #### HDU Size:  48 KB
@@ -269,8 +244,8 @@ Key | Value | Comment | |
 
 
 
-### HDU6: 
-
+### HDU6: SKY ERROR
+Uncertainty in the sky spectrum
 
 #### HDU Type: IMAGE
 #### HDU Size:  48 KB
@@ -291,8 +266,8 @@ Key | Value | Comment | |
 
 
 
-### HDU7: 
-
+### HDU7: TELLURIC
+Telluric absorption spectrum
 
 #### HDU Type: IMAGE
 #### HDU Size:  48 KB
@@ -313,8 +288,8 @@ Key | Value | Comment | |
 
 
 
-### HDU8: 
-
+### HDU8: TELLURIC ERROR
+Uncertainty in the telluric spectrum
 
 #### HDU Type: IMAGE
 #### HDU Size:  48 KB
@@ -335,8 +310,8 @@ Key | Value | Comment | |
 
 
 
-### HDU9: 
-
+### HDU9: WAVE COEFFICIENTS
+Wavelength coefficients
 
 #### HDU Type: IMAGE
 #### HDU Size:  336 bytes
@@ -362,8 +337,8 @@ Key | Value | Comment | |
 
 
 
-### HDU10: 
-
+### HDU10: LSF COEFFICIENTS
+LSF coefficients
 
 #### HDU Type: IMAGE
 #### HDU Size:  624 bytes
@@ -406,7 +381,7 @@ Key | Value | Comment | |
 
 
 ### HDU11: 
-
+Summary table
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  471 bytes
@@ -435,67 +410,81 @@ Key | Value | Comment | |
 ##### Binary Table Caption for HDU11
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | APOGEE_ID | char[18] |  |  |
- | TARGET_ID | char[18] |  |  |
- | FILE | char[38] |  |  |
- | URI | char[94] | IPL1: unit of column needs update | IPL1: description of column needs update |
- | APRED_VERS | char[3] | IPL1: unit of column needs update | IPL1: description of column needs update |
- | FIBERID | int16 |  |  |
- | PLATE | char[4] |  |  |
- | EXPTIME | float32 | IPL1: unit of column needs update | IPL1: description of column needs update |
- | NFRAMES | int32 | IPL1: unit of column needs update | IPL1: description of column needs update |
- | MJD | int32 |  |  |
- | TELESCOPE | char[6] |  |  |
- | SURVEY | char[6] |  |  |
- | FIELD | char[6] |  |  |
- | PROGRAMNAME | char[17] |  |  |
- | OBJTYPE | char[4] | IPL1: unit of column needs update | IPL1: description of column needs update |
- | ASSIGNED | int16 | IPL1: unit of column needs update | IPL1: description of column needs update |
- | ON_TARGET | int16 | IPL1: unit of column needs update | IPL1: description of column needs update |
- | VALID | int16 | IPL1: unit of column needs update | IPL1: description of column needs update |
- | RA | float64 |  |  |
- | DEC | float64 |  |  |
- | GLON | float64 |  |  |
- | GLAT | float64 |  |  |
- | JMAG | float32 | IPL1: unit of column needs update | IPL1: description of column needs update |
- | JERR | float32 | IPL1: unit of column needs update | IPL1: description of column needs update |
- | HMAG | float32 | IPL1: unit of column needs update | IPL1: description of column needs update |
- | HERR | float32 | IPL1: unit of column needs update | IPL1: description of column needs update |
- | KMAG | float32 | IPL1: unit of column needs update | IPL1: description of column needs update |
- | KERR | float32 | IPL1: unit of column needs update | IPL1: description of column needs update |
- | SRC_H | char |  |  |
- | PMRA | float32 |  |  |
- | PMDEC | float32 |  |  |
- | PM_SRC | char |  |  |
- | APOGEE_TARGET1 | int32 |  |  |
- | APOGEE_TARGET2 | int32 |  |  |
- | APOGEE_TARGET3 | int32 |  |  |
- | APOGEE_TARGET4 | int32 |  |  |
- | CATALOGID | int64 | IPL1: unit of column needs update | IPL1: description of column needs update |
- | GAIADR2_SOURCEID | int64 | IPL1: unit of column needs update | IPL1: description of column needs update |
- | GAIADR2_PLX | float32 | IPL1: unit of column needs update | IPL1: description of column needs update |
- | GAIADR2_PLX_ERROR | float32 | IPL1: unit of column needs update | IPL1: description of column needs update |
- | GAIADR2_PMRA | float32 | IPL1: unit of column needs update | IPL1: description of column needs update |
- | GAIADR2_PMRA_ERROR | float32 | IPL1: unit of column needs update | IPL1: description of column needs update |
- | GAIADR2_PMDEC | float32 | IPL1: unit of column needs update | IPL1: description of column needs update |
- | GAIADR2_PMDEC_ERROR | float32 | IPL1: unit of column needs update | IPL1: description of column needs update |
- | GAIADR2_GMAG | float32 | IPL1: unit of column needs update | IPL1: description of column needs update |
- | GAIADR2_GERR | float32 | IPL1: unit of column needs update | IPL1: description of column needs update |
- | GAIADR2_BPMAG | float32 | IPL1: unit of column needs update | IPL1: description of column needs update |
- | GAIADR2_BPERR | float32 | IPL1: unit of column needs update | IPL1: description of column needs update |
- | GAIADR2_RPMAG | float32 | IPL1: unit of column needs update | IPL1: description of column needs update |
- | GAIADR2_RPERR | float32 | IPL1: unit of column needs update | IPL1: description of column needs update |
- | SDSSV_APOGEE_TARGET0 | int64 | IPL1: unit of column needs update | IPL1: description of column needs update |
- | FIRSTCARTON | char[18] | IPL1: unit of column needs update | IPL1: description of column needs update |
- | CADENCE | char[10] | IPL1: unit of column needs update | IPL1: description of column needs update |
- | PROGRAM | char[7] | IPL1: unit of column needs update | IPL1: description of column needs update |
- | CATEGORY | char[7] | IPL1: unit of column needs update | IPL1: description of column needs update |
- | TARGFLAGS | char |  |  |
- | SNR | float32 |  |  |
- | STARFLAG | int32 |  |  |
- | STARFLAGS | char |  |  |
- | DATEOBS | char[23] |  |  |
- | JD | float64 |  |  |
+ | APOGEE_ID | char[18] |  | 2MASS-style star identification |
+ | TARGET_ID | char[18] |  | Unique ID for visit spectrum, of form apogee.[telescope].[cs].[apred_version].plate.mjd.fiberid (Primary key) |
+ | FILE | char[38] |  | File base name with visit spectrum and catalog information |
+ | URI | char[94] |  | Resource identifier for the full path of the combined apVisit spectrum file |
+ | APRED_VERS | char[3] |  | APOGEE reduction version |
+ | FIBERID | int16 |  | Fiber ID for this visit |
+ | PLATE | char[4] |  | Plate (for plate era) or configurationID (for FPS era) of this visit |
+ | EXPTIME | float32 | sec | Total exposure time |
+ | NFRAMES | int32 |  | Number of exposures in the visit |
+ | MJD | int32 | days | Modified Julian Date of the night |
+ | TELESCOPE | char[6] |  | Telescope where data was taken |
+ | SURVEY | char[6] |  | SDSS-V survey |
+ | FIELD | char[6] |  | SDSS-V field ID |
+ | DESIGN | char[6] |  | SDSS-V design ID |
+ | PROGRAMNAME | char[17] |  | SDSS-V program name |
+ | OBJTYPE | char[4] |  | Object type |
+ | ASSIGNED | int16 |  | FPS target assigned |
+ | ON_TARGET | int16 |  | FPS fiber on target |
+ | VALID | int16 |  | Valid FPS target |
+ | RA | float64 | degree | Right ascension, J2000 |
+ | DEC | float64 | degree | Declination, J2000 |
+ | GLON | float64 | degree | Galactic longitude |
+ | GLAT | float64 | degree | Galactic latitude |
+ | HEALPIX | int64 |  | HEALPix number for this star, nside=128 |
+ | JMAG | float32 | mag | 2MASS J magnitude |
+ | JERR | float32 | mag | 2MASS J magnitude uncertainty |
+ | HMAG | float32 | mag | 2MASS H magnitude |
+ | HERR | float32 | mag | 2MASS H magnitude uncertainty |
+ | KMAG | float32 | mag | 2MASS Ks magnitude |
+ | KERR | float32 | mag | 2MASS Ks magnitude uncertainty |
+ | SRC_H | char |  | H magnitude used |
+ | PMRA | float32 | mas/yr | Proper motion in right ascension used in target selection |
+ | PMDEC | float32 | mas/yr | Proper motion in declination used in target selection |
+ | PM_SRC | char |  | Source of proper motion used in target selection |
+ | APOGEE_TARGET1 | int32 |  | APOGEE-2 target flag (first 64 bits) (see https://www.sdss4.org/dr17/algorithms/bitmasks/#APOGEE2_TARGET1) |
+ | APOGEE_TARGET2 | int32 |  | APOGEE-2 target flag (second 64 bits) (see https://www.sdss4.org/dr17/algorithms/bitmasks/#APOGEE2_TARGET2) |
+ | APOGEE_TARGET3 | int32 |  | APOGEE-2 target flag (third 64 bits) (see https://www.sdss4.org/dr17/algorithms/bitmasks/#APOGEE2_TARGET3) |
+ | APOGEE_TARGET4 | int32 |  | APOGEE-2 target flag (fourth 64 bits) (see https://www.sdss4.org/dr17/algorithms/bitmasks/#APOGEE2_TARGET3) |
+ | SDSS5_TARGET_PKS | char[29] |  | SDSS-V target_pks (comma-delimited list) |
+ | SDSS5_TARGET_CATALOGIDS | char[46] |  | SDSS-V catalogIDs (comma-delimited list) |
+ | SDSS5_TARGET_CARTON_PKS | char[72] |  | SDSS-V carton_pks (comma-delimited list) |
+ | SDSS5_TARGET_CARTONS | char[195] |  | SDSS-V carton names (comma-delimited list) |
+ | SDSS5_TARGET_FLAGSHEX | char[112] |  | SDSS-V carton flags as hexadecimal string |
+ | BRIGHTNEICOUNT | int32 |  | Count of bright neighbors |
+ | BRIGHTNEIFLAG | int32 |  | Bright neighbor flag |
+ | BRIGHTNEIFLUXFRAC | float32 |  | Bright neighbor flux fraction |
+ | CATALOGID | int64 |  | SDSS-V catalog identification number |
+ | SDSS_ID | int64 |  | SDSS-V sdss_id identification number |
+ | RA_SDSS_ID | float64 |  | Right Ascension of unique SDSS-V sdss_id object |
+ | DEC_SDSS_ID | float64 |  | Declination of unique SDSS-V sdsss_id object |
+ | GAIA_RELEASE | int64 |  | GAIA data release used |
+ | GAIA_SOURCEID | int64 |  | GAIA source identification |
+ | GAIA_PLX | float32 | mas | GAIA parallax |
+ | GAIA_PLX_ERROR | float32 | mas | GAIA parallax uncertainty |
+ | GAIA_PMRA | float32 | mas/yr | GAIA proper motion in RA |
+ | GAIA_PMRA_ERROR | float32 | mas/yr | GAIA proper motion in RA uncertainty |
+ | GAIA_PMDEC | float32 | mas/yr | GAIA proper motion in DEC |
+ | GAIA_PMDEC_ERROR | float32 | mas/yr | GAIA proper motion in DEC uncertainty |
+ | GAIA_GMAG | float32 | mag | GAIA G mean magnitude |
+ | GAIA_GERR | float32 | mag | GAIA G mean magnitude uncertainty |
+ | GAIA_BPMAG | float32 | mag | GAIA Bp mean magnitude |
+ | GAIA_BPERR | float32 | mag | GAIA Bp mean magnitude uncertainty |
+ | GAIA_RPMAG | float32 | mag | GAIA Rp mean magnitude |
+ | GAIA_RPERR | float32 | mag | GAIA Rp mean magnitude uncertainty |
+ | SDSSV_APOGEE_TARGET0 | int64 |  | SDSS-V early targeting flag |
+ | FIRSTCARTON | char[18] |  | SDSS-V primary target carton |
+ | CADENCE | char[10] |  | SDSS-V cadence type |
+ | PROGRAM | char[7] |  | SDSS-V program name |
+ | CATEGORY | char[7] |  | SDSS-V category |
+ | TARGFLAGS | char |  | Targeting flags |
+ | SNR | float32 |  | Median signal-to-noise ratio per pixel |
+ | STARFLAG | int32 |  | Star-level quality flags as integer |
+ | STARFLAGS | char |  | Star-level quality flags as comma-delimited ASCII text |
+ | DATEOBS | char[23] |  | Date of observation (YYYY-MM-DDTHH:MM:SS.SSS) |
+ | JD | float64 | days | Julian date of observation |
 
 
 
