@@ -9,7 +9,7 @@ APOGEE Redux combined visit file
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
@@ -19,7 +19,7 @@ apVisit files have data from a visit for each star, along with an initial RV mea
 <code>apVisit-[0-9]{4}-[0-9]{5}-[0-9]{3}\.fits</code>, where <code>[0-9]{4}</code> is the 4-digit plate number, <code>[0-9]{5}</code> is the 5-digit MJD number and <code>[0-9]{3}</code> is the zero-padded, 3-digit fiber number.
 
 ### Releases
-DR16, DR17, WORK
+DR16, DR17, DR19, WORK
 
 ### Enviroments
 APOGEE_REDUX
@@ -38,32 +38,39 @@ False
 
 ### HDUS List for release WORK
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: ](#hdu1)
-  - [HDU2: ](#hdu2)
-  - [HDU3: ](#hdu3)
-  - [HDU4: ](#hdu4)
-  - [HDU5: ](#hdu5)
-  - [HDU6: ](#hdu6)
-  - [HDU7: ](#hdu7)
-  - [HDU8: ](#hdu8)
-  - [HDU9: ](#hdu9)
-  - [HDU10: ](#hdu10)
-  - [HDU11: ](#hdu11)
+  - [HDU1](#hdu1)
+  - [HDU2](#hdu2)
+  - [HDU3](#hdu3)
+  - [HDU4](#hdu4)
+  - [HDU5](#hdu5)
+  - [HDU6](#hdu6)
+  - [HDU7](#hdu7)
+  - [HDU8](#hdu8)
+  - [HDU9](#hdu9)
+  - [HDU10](#hdu10)
+  - [HDU11](#hdu11)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
  - WORK
+   - from: DR19
+   - removed_hdus: ['SKY ERROR', 'WAVELENGTH', 'FLUX', 'ERROR', 'WAVE COEFFICIENTS', 'LSF COEFFICIENTS', 'SKY FLUX', 'TELLURIC', 'MASK', 'TELLURIC ERROR']
+   - primary_delta_nkeys: 19
+   - added_primary_header_kwargs: ['G2BPMAG', 'G2PLX', 'HISTORY', 'G2RPMAG', 'G2GMAG', 'G2PMRA', 'COMMENT', 'G2PMDEC']
+   - removed_primary_header_kwargs: ['GRELEASE', 'GBPMAG', 'GPMDEC', 'GPMRA', 'GGMAG', 'GRPMAG', 'GPLX']
+ - DR19
    - from: DR17
-   - primary_delta_nkeys: 2
-   - added_primary_header_kwargs: ['KMAG', 'TARG4', 'G2GMAG', 'G2RPMAG', 'G2PMDEC', 'ONTARGET', 'CARTON1', 'CATID', 'HMAG', 'SVTARG0', 'CADENCE', 'PROGRAM', 'G2PLX', 'JMAG', 'G2PMRA', 'VALID', 'ASSIGNED', 'SVAPTRG0', 'CATEGORY', 'G2BPMAG', 'APRED']
-   - removed_primary_header_kwargs: ['K', 'RELFLUX', 'FRAME6', 'FRAME5', 'LSFID', 'AKTARG', 'FRAME2', 'CARTID', 'FRAME4', 'SFD_EBV', 'AKMETHOD', 'WAVEID', 'FRAME3', 'MTPFLUX', 'FRAME7', 'H', 'FRAME8', 'J', 'AKWISE']
+   - added_hdus: ['SKY ERROR', 'WAVELENGTH', 'FLUX', 'ERROR', 'WAVE COEFFICIENTS', 'LSF COEFFICIENTS', 'SKY FLUX', 'TELLURIC', 'MASK', 'TELLURIC ERROR']
+   - primary_delta_nkeys: 17
+   - added_primary_header_kwargs: ['CATID', 'GPMDEC', 'TARG4', 'JMAG', 'GRELEASE', 'ONTARGET', 'APRED', 'KMAG', 'CATEGORY', 'VALID', 'GBPMAG', 'CADENCE', 'GGMAG', 'PROGRAM', 'ASSIGNED', 'SVAPTRG0', 'CARTON1', 'SVTARG0', 'GPMRA', 'GRPMAG', 'HMAG', 'GPLX']
+   - removed_primary_header_kwargs: ['FRAME3', 'H', 'K', 'FRAME2', 'WAVEID', 'MTPFLUX', 'FRAME7', 'FRAME4', 'AKMETHOD', 'COMMENT', 'J', 'HISTORY', 'AKTARG', 'AKWISE', 'FRAME6', 'SFD_EBV', 'CARTID', 'FRAME8', 'FRAME5', 'LSFID', 'RELFLUX']
  - DR17
    - from: DR16
-   - primary_delta_nkeys: 25
-   - added_primary_header_kwargs: ['LSFID', 'RELFLUX', 'CARTID', 'WAVEID', 'MTPFLUX']
-   - removed_primary_header_kwargs: ['VSCATTER', 'RVFEH', 'VRADERR', 'CHISQ', 'CCPEAK', 'RVTEFF', 'XSHIFT', 'LONGSTRN', 'VTYPE', 'GLAT', 'HJD', 'RVALPH', 'SYNTHFIL', 'VHELIO', 'CCPFWHM', 'BC', 'VLSR', 'GLON', 'VRAD', 'VGSR', 'JD', 'RVCARB', 'RVLOGG']
+   - primary_delta_nkeys: 23
+   - added_primary_header_kwargs: ['LSFID', 'WAVEID', 'RELFLUX', 'MTPFLUX', 'CARTID']
+   - removed_primary_header_kwargs: ['LONGSTRN', 'SYNTHFIL', 'VRADERR', 'RVFEH', 'RVTEFF', 'CHISQ', 'RVCARB', 'GLAT', 'VTYPE', 'BC', 'VHELIO', 'CCPFWHM', 'XSHIFT', 'RVLOGG', 'VGSR', 'HJD', 'CCPEAK', 'GLON', 'VSCATTER', 'VRAD', 'JD', 'VLSR', 'RVALPH']
 
 ---
 ## Example HDUS List
@@ -82,8 +89,8 @@ Key | Value | Comment | |
 | NAXIS | 0 | APRV holtz on milkyway.nmsu.edu |
 | EXTEND | True | APRV holtz on milkyway.nmsu.edu |
 | DATE | 2022-10-15 | APRV holtz on milkyway.nmsu.edu |
-| COMMENT | FITS (Flexible Image Transport System) format is defined in 'Astronomy | APRV holtz on milkyway.nmsu.edu |
-| COMMENT | and Astrophysics', volume 376, page 359; bibcode 2001A&A...376..359H | APRV holtz on milkyway.nmsu.edu |
+| COMMENT | FITS (Flexible Image Transport System) format is defined in | APRV holtz on milkyway.nmsu.edu |
+| COMMENT | Astronomy and Astrophysics, volume 376, page 359; bibcode 2001A&A...376..359H | APRV holtz on milkyway.nmsu.edu |
 | LOCID | 100537 | APRV holtz on milkyway.nmsu.edu |
 | PLATE | 4895 | APRV holtz on milkyway.nmsu.edu |
 | TELESCOP | apo25m | APRV holtz on milkyway.nmsu.edu |
@@ -152,7 +159,7 @@ Key | Value | Comment | |
 
 
 
-### HDU1:
+### HDU1: 
 
 
 #### HDU Type: IMAGE
@@ -174,7 +181,7 @@ Key | Value | Comment | |
 
 
 
-### HDU2:
+### HDU2: 
 
 
 #### HDU Type: IMAGE
@@ -196,7 +203,7 @@ Key | Value | Comment | |
 
 
 
-### HDU3:
+### HDU3: 
 
 
 #### HDU Type: IMAGE
@@ -218,7 +225,7 @@ Key | Value | Comment | |
 
 
 
-### HDU4:
+### HDU4: 
 
 
 #### HDU Type: IMAGE
@@ -240,7 +247,7 @@ Key | Value | Comment | |
 
 
 
-### HDU5:
+### HDU5: 
 
 
 #### HDU Type: IMAGE
@@ -262,7 +269,7 @@ Key | Value | Comment | |
 
 
 
-### HDU6:
+### HDU6: 
 
 
 #### HDU Type: IMAGE
@@ -284,7 +291,7 @@ Key | Value | Comment | |
 
 
 
-### HDU7:
+### HDU7: 
 
 
 #### HDU Type: IMAGE
@@ -306,7 +313,7 @@ Key | Value | Comment | |
 
 
 
-### HDU8:
+### HDU8: 
 
 
 #### HDU Type: IMAGE
@@ -328,7 +335,7 @@ Key | Value | Comment | |
 
 
 
-### HDU9:
+### HDU9: 
 
 
 #### HDU Type: IMAGE
@@ -355,7 +362,7 @@ Key | Value | Comment | |
 
 
 
-### HDU10:
+### HDU10: 
 
 
 #### HDU Type: IMAGE
@@ -398,7 +405,7 @@ Key | Value | Comment | |
 
 
 
-### HDU11:
+### HDU11: 
 
 
 #### HDU Type: BINARY TABLE
@@ -495,3 +502,7 @@ Name | Type | Unit | Description |
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!

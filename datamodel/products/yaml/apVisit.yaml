@@ -25,88 +25,135 @@ general:
   vac: false
   surveys:
   - MWM
+  - SDSS
+  recommended_science_product: false
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
   releases:
     WORK:
-      from: DR17
-      primary_delta_nkeys: 2
+      from: DR19
+      removed_hdus:
+      - SKY ERROR
+      - WAVELENGTH
+      - FLUX
+      - ERROR
+      - WAVE COEFFICIENTS
+      - LSF COEFFICIENTS
+      - SKY FLUX
+      - TELLURIC
+      - MASK
+      - TELLURIC ERROR
+      primary_delta_nkeys: 19
       added_primary_header_kwargs:
-      - KMAG
-      - TARG4
-      - G2GMAG
-      - G2RPMAG
-      - G2PMDEC
-      - ONTARGET
-      - CARTON1
-      - CATID
-      - HMAG
-      - SVTARG0
-      - CADENCE
-      - PROGRAM
+      - G2BPMAG
       - G2PLX
-      - JMAG
+      - HISTORY
+      - G2RPMAG
+      - G2GMAG
       - G2PMRA
+      - COMMENT
+      - G2PMDEC
+      removed_primary_header_kwargs:
+      - GRELEASE
+      - GBPMAG
+      - GPMDEC
+      - GPMRA
+      - GGMAG
+      - GRPMAG
+      - GPLX
+    DR19:
+      from: DR17
+      added_hdus:
+      - SKY ERROR
+      - WAVELENGTH
+      - FLUX
+      - ERROR
+      - WAVE COEFFICIENTS
+      - LSF COEFFICIENTS
+      - SKY FLUX
+      - TELLURIC
+      - MASK
+      - TELLURIC ERROR
+      primary_delta_nkeys: 17
+      added_primary_header_kwargs:
+      - CATID
+      - GPMDEC
+      - TARG4
+      - JMAG
+      - GRELEASE
+      - ONTARGET
+      - APRED
+      - KMAG
+      - CATEGORY
       - VALID
+      - GBPMAG
+      - CADENCE
+      - GGMAG
+      - PROGRAM
       - ASSIGNED
       - SVAPTRG0
-      - CATEGORY
-      - G2BPMAG
-      - APRED
+      - CARTON1
+      - SVTARG0
+      - GPMRA
+      - GRPMAG
+      - HMAG
+      - GPLX
       removed_primary_header_kwargs:
-      - K
-      - RELFLUX
-      - FRAME6
-      - FRAME5
-      - LSFID
-      - AKTARG
-      - FRAME2
-      - CARTID
-      - FRAME4
-      - SFD_EBV
-      - AKMETHOD
-      - WAVEID
       - FRAME3
+      - H
+      - K
+      - FRAME2
+      - WAVEID
       - MTPFLUX
       - FRAME7
-      - H
-      - FRAME8
+      - FRAME4
+      - AKMETHOD
+      - COMMENT
       - J
+      - HISTORY
+      - AKTARG
       - AKWISE
-    DR17:
-      from: DR16
-      primary_delta_nkeys: 25
-      added_primary_header_kwargs:
+      - FRAME6
+      - SFD_EBV
+      - CARTID
+      - FRAME8
+      - FRAME5
       - LSFID
       - RELFLUX
-      - CARTID
+    DR17:
+      from: DR16
+      primary_delta_nkeys: 23
+      added_primary_header_kwargs:
+      - LSFID
       - WAVEID
+      - RELFLUX
       - MTPFLUX
+      - CARTID
       removed_primary_header_kwargs:
-      - VSCATTER
-      - RVFEH
-      - VRADERR
-      - CHISQ
-      - CCPEAK
-      - RVTEFF
-      - XSHIFT
       - LONGSTRN
-      - VTYPE
-      - GLAT
-      - HJD
-      - RVALPH
       - SYNTHFIL
+      - VRADERR
+      - RVFEH
+      - RVTEFF
+      - CHISQ
+      - RVCARB
+      - GLAT
+      - VTYPE
+      - BC
       - VHELIO
       - CCPFWHM
-      - BC
-      - VLSR
-      - GLON
-      - VRAD
-      - VGSR
-      - JD
-      - RVCARB
+      - XSHIFT
       - RVLOGG
+      - VGSR
+      - HJD
+      - CCPEAK
+      - GLON
+      - VSCATTER
+      - VRAD
+      - JD
+      - VLSR
+      - RVALPH
 releases:
   DR16:
     template: $APOGEE_REDUX/[APRED]/visit/[TELESCOPE]/[FIELD]/[PLATE]/[MJD]/[PREFIX]Visit-[APRED]-[PLATE]-[MJD]-{fiber:0
@@ -149,11 +196,11 @@ releases:
           value: '2019-02-24'
           comment: Creation UTC (CCCC-MM-DD) date of FITS header
         - key: COMMENT
-          value: FITS (Flexible Image Transport System) format is defined in 'Astronomy
-          comment: and Astrophysics', volume 376, page 359; bibcode 2001A&A...376..359H
+          value: FITS (Flexible Image Transport System) format is defined in
+          comment: APRV holtz on milkyway.nmsu.edu
         - key: COMMENT
-          value: and Astrophysics', volume 376, page 359; bibcode 2001A&A...376..359H
-          comment: and Astrophysics', volume 376, page 359; bibcode 2001A&A...376..359H
+          value: Astronomy and Astrophysics, volume 376, page 359; bibcode 2001A&A...376..359H
+          comment: APRV holtz on milkyway.nmsu.edu
         - key: LOCID
           value: 4240
           comment: ''
@@ -334,17 +381,11 @@ releases:
           value: OGIP 1.0
           comment: ''
         - key: COMMENT
-          value: ' This FITS file may contain long string keyword values that are'
-          comment: and Astrophysics', volume 376, page 359; bibcode 2001A&A...376..359H
+          value: FITS (Flexible Image Transport System) format is defined in
+          comment: APRV holtz on milkyway.nmsu.edu
         - key: COMMENT
-          value: ' continued over multiple keywords.  This convention uses the  ''&'''
-          comment: and Astrophysics', volume 376, page 359; bibcode 2001A&A...376..359H
-        - key: COMMENT
-          value: ' character at the end of a string which is then continued'
-          comment: and Astrophysics', volume 376, page 359; bibcode 2001A&A...376..359H
-        - key: COMMENT
-          value: ' on subsequent keywords whose name = ''CONTINUE''.'
-          comment: and Astrophysics', volume 376, page 359; bibcode 2001A&A...376..359H
+          value: Astronomy and Astrophysics, volume 376, page 359; bibcode 2001A&A...376..359H
+          comment: APRV holtz on milkyway.nmsu.edu
         - key: SYNTHFIL
           value: /uufs/chpc.utah.edu/common/home/sdss09/software/apogee/Linux//apogee/0.12.7/data/synthgrid/apg_synthgrid.fits
           comment: ''
@@ -1156,11 +1197,11 @@ releases:
           value: '2021-01-28'
           comment: Creation UTC (CCCC-MM-DD) date of FITS header
         - key: COMMENT
-          value: FITS (Flexible Image Transport System) format is defined in 'Astronomy
-          comment: and Astrophysics', volume 376, page 359; bibcode 2001A&A...376..359H
+          value: FITS (Flexible Image Transport System) format is defined in
+          comment: APRV holtz on milkyway.nmsu.edu
         - key: COMMENT
-          value: and Astrophysics', volume 376, page 359; bibcode 2001A&A...376..359H
-          comment: and Astrophysics', volume 376, page 359; bibcode 2001A&A...376..359H
+          value: Astronomy and Astrophysics, volume 376, page 359; bibcode 2001A&A...376..359H
+          comment: APRV holtz on milkyway.nmsu.edu
         - key: LOCID
           value: 4240
           comment: ''
@@ -2184,22 +2225,16 @@ releases:
             description: ''
   DR19:
     template: $APOGEE_REDUX/[APRED]/visit/[TELESCOPE]/[FIELD]/[PLATE]/[MJD]/apVisit-[APRED]-[TELESCOPE]-[PLATE]-[MJD]-[FIBER].fits
-    example: 1.0/visit/apo25m/100001/6340/59804/apVisit-1.0-apo25m-6340-59804-145.fits
+    example: 1.3/visit/apo25m/100001/6340/59804/apVisit-1.3-apo25m-6340-59804-145.fits
     location: '{apred}/visit/{telescope}/{field}/{plate}/{mjd}/apVisit-{apred}-{telescope}-{plate}-{mjd}-{fiber}.fits'
     environment: APOGEE_REDUX
     access:
-      in_sdss_access: true
-      path_name: apVisit
-      path_template: $APOGEE_REDUX/{apred}/visit/{telescope}/{field}/{plate}/{mjd}/apVisit-{apred}-{telescope}-{plate}-{mjd}-{fiber:0>3}.fits
-      path_kwargs:
-      - plate
-      - field
-      - telescope
-      - fiber
-      - mjd
-      - apred
+      in_sdss_access: false
+      path_name: null
+      path_template: null
+      path_kwargs: null
       access_string: apVisit = $APOGEE_REDUX/{apred}/visit/{telescope}/{field}/{plate}/{mjd}/apVisit-{apred}-{telescope}-{plate}-{mjd}-{fiber}.fits
-    survey: MWM
+    survey: SDSS
     hdus:
       hdu0:
         name: PRIMARY
@@ -2209,16 +2244,16 @@ releases:
         header:
         - key: SIMPLE
           value: true
-          comment: 
+          comment: ''
         - key: BITPIX
           value: 16
-          comment: 
+          comment: ''
         - key: NAXIS
           value: 0
-          comment: 
+          comment: ''
         - key: EXTEND
           value: true
-          comment: 
+          comment: ''
         - key: DATE
           value: '2022-10-15'
           comment: Creation UTC (CCCC-MM-DD) date of FITS header
@@ -2257,7 +2292,7 @@ releases:
           comment: Constituent frame
         - key: NPAIRS
           value: 0
-          comment: Number of dither pairs combined 
+          comment: Number of dither pairs combined
         - key: OBJID
           value: 2M18312966+0037563
           comment: Object ID
@@ -2269,7 +2304,7 @@ releases:
           comment: targeting right ascension, deg, J2000
         - key: DEC
           value: 0.632144693711
-          comment: targeting declination, deg, J2000  
+          comment: targeting declination, deg, J2000
         - key: JMAG
           value: 10.792
           comment: 2MASS J magnitude
@@ -2281,10 +2316,10 @@ releases:
           comment: 2MASS Ks magnitude
         - key: SNR
           value: 65.0601
-          comment: median S/N, middle chip 
+          comment: median S/N, middle chip
         - key: SURVEY
           value: SDSS-V
-          comment: Survey definition (for targeting flags)  
+          comment: Survey definition (for targeting flags)
         - key: TARG1
           value: 0
           comment: First APOGEE targeting flag (bitwise, see docs)
@@ -2304,11 +2339,11 @@ releases:
           value: 27021598755520772
           comment: SDSS-V catalogID
         - key: GRELEASE
-          value: 'dr3'
+          value: dr3
           comment: Gaia data release
         - key: GPLX
           value: 2.07651
-          comment: Gaia parallax 
+          comment: Gaia parallax
         - key: GPMRA
           value: -10.7297
           comment: Gaia pmra
@@ -2359,7 +2394,7 @@ releases:
           comment: Star data quality flag
         - key: FLUXFLAM
           value: 1.82139e-18
-          comment: ADU to flux units conv factor (ergs/s/cm^2/A) 
+          comment: ADU to flux units conv factor (ergs/s/cm^2/A)
         - key: V_APRED
           value: 69de0d7427363363aae2017a0890751f40a3463e
           comment: apogee software version
@@ -2367,8 +2402,8 @@ releases:
           value: '1.0'
           comment: apogee reduction version
       hdu1:
-        name: 'FLUX'
-        description: 'Flux spectrum'
+        name: FLUX
+        description: Flux spectrum
         is_image: true
         size: 48 KB
         header:
@@ -2403,8 +2438,8 @@ releases:
           value: Flux (10^-17 erg/s/cm^2/Ang)
           comment: ''
       hdu2:
-        name: 'ERROR'
-        description: 'Uncertainty in flux'
+        name: ERROR
+        description: Uncertainty in flux
         is_image: true
         size: 48 KB
         header:
@@ -2439,8 +2474,8 @@ releases:
           value: Flux Error (10^-17 erg/s/cm^2/Ang)
           comment: ''
       hdu3:
-        name: 'MASK'
-        description: 'Mask'
+        name: MASK
+        description: Mask
         is_image: true
         size: 24 KB
         header:
@@ -2475,8 +2510,8 @@ releases:
           value: Flag Mask (bitwise)
           comment: ''
       hdu4:
-        name: 'WAVELENGTH'
-        description: 'Wavelength array'
+        name: WAVELENGTH
+        description: Wavelength array
         is_image: true
         size: 96 KB
         header:
@@ -2511,8 +2546,8 @@ releases:
           value: Wavelength (Ang)
           comment: ''
       hdu5:
-        name: 'SKY FLUX'
-        description: 'Sky emission spectrum'
+        name: SKY FLUX
+        description: Sky emission spectrum
         is_image: true
         size: 48 KB
         header:
@@ -2547,8 +2582,8 @@ releases:
           value: Sky (10^-17 erg/s/cm^2/Ang)
           comment: ''
       hdu6:
-        name: 'SKY ERROR'
-        description: 'Uncertainty in the sky spectrum'
+        name: SKY ERROR
+        description: Uncertainty in the sky spectrum
         is_image: true
         size: 48 KB
         header:
@@ -2583,8 +2618,8 @@ releases:
           value: Sky Error (10^-17 erg/s/cm^2/Ang)
           comment: ''
       hdu7:
-        name: 'TELLURIC'
-        description: 'Telluric absorption spectrum'
+        name: TELLURIC
+        description: Telluric absorption spectrum
         is_image: true
         size: 48 KB
         header:
@@ -2619,8 +2654,8 @@ releases:
           value: Telluric
           comment: ''
       hdu8:
-        name: 'TELLURIC ERROR'
-        description: 'Uncertainty in the telluric spectrum'
+        name: TELLURIC ERROR
+        description: Uncertainty in the telluric spectrum
         is_image: true
         size: 48 KB
         header:
@@ -2655,8 +2690,8 @@ releases:
           value: Telluric Error
           comment: ''
       hdu9:
-        name: 'WAVE COEFFICIENTS'
-        description: 'Wavelength coefficients'
+        name: WAVE COEFFICIENTS
+        description: Wavelength coefficients
         is_image: true
         size: 336 bytes
         header:
@@ -2706,8 +2741,8 @@ releases:
           value: '                     in addition to the pixel offset)'
           comment: in addition to the pixel offset)
       hdu10:
-        name: 'LSF COEFFICIENTS'
-        description: 'LSF coefficients'
+        name: LSF COEFFICIENTS
+        description: LSF coefficients
         is_image: true
         size: 624 bytes
         header:
@@ -2807,7 +2842,7 @@ releases:
           comment: start with H1 since we fix H0=1.
       hdu11:
         name: ''
-        description: 'Summary table'
+        description: Summary table
         is_image: false
         size: 471 bytes
         header:
@@ -2872,7 +2907,8 @@ releases:
             name: TARGET_ID
             type: char[18]
             unit: ''
-            description: Unique ID for visit spectrum, of form apogee.[telescope].[cs].[apred_version].plate.mjd.fiberid (Primary key)
+            description: Unique ID for visit spectrum, of form apogee.[telescope].[cs].[apred_version].plate.mjd.fiberid
+              (Primary key)
           FILE:
             name: FILE
             type: char[38]
@@ -2882,7 +2918,8 @@ releases:
             name: URI
             type: char[94]
             unit: ''
-            description: Resource identifier for the full path of the combined apVisit spectrum file
+            description: Resource identifier for the full path of the combined apVisit
+              spectrum file
           APRED_VERS:
             name: APRED_VERS
             type: char[3]
@@ -2897,11 +2934,12 @@ releases:
             name: PLATE
             type: char[4]
             unit: ''
-            description: Plate (for plate era) or configurationID (for FPS era) of this visit
+            description: Plate (for plate era) or configurationID (for FPS era) of
+              this visit
           EXPTIME:
             name: EXPTIME
             type: float32
-            unit: 'sec'
+            unit: sec
             description: Total exposure time
           NFRAMES:
             name: NFRAMES
@@ -2911,7 +2949,7 @@ releases:
           MJD:
             name: MJD
             type: int32
-            unit: 'days'
+            unit: days
             description: Modified Julian Date of the night
           TELESCOPE:
             name: TELESCOPE
@@ -2961,22 +2999,22 @@ releases:
           RA:
             name: RA
             type: float64
-            unit: 'degree'
+            unit: degree
             description: Right ascension, J2000
           DEC:
             name: DEC
             type: float64
-            unit: 'degree'
+            unit: degree
             description: Declination, J2000
           GLON:
             name: GLON
             type: float64
-            unit: 'degree'
+            unit: degree
             description: Galactic longitude
           GLAT:
             name: GLAT
             type: float64
-            unit: 'degree'
+            unit: degree
             description: Galactic latitude
           HEALPIX:
             name: HEALPIX
@@ -2986,32 +3024,32 @@ releases:
           JMAG:
             name: JMAG
             type: float32
-            unit: 'mag'
+            unit: mag
             description: 2MASS J magnitude
           JERR:
             name: JERR
             type: float32
-            unit: 'mag'
+            unit: mag
             description: 2MASS J magnitude uncertainty
           HMAG:
             name: HMAG
             type: float32
-            unit: 'mag'
+            unit: mag
             description: 2MASS H magnitude
           HERR:
             name: HERR
             type: float32
-            unit: 'mag'
+            unit: mag
             description: 2MASS H magnitude uncertainty
           KMAG:
             name: KMAG
             type: float32
-            unit: 'mag'
+            unit: mag
             description: 2MASS Ks magnitude
           KERR:
             name: KERR
             type: float32
-            unit: 'mag'
+            unit: mag
             description: 2MASS Ks magnitude uncertainty
           SRC_H:
             name: SRC_H
@@ -3021,12 +3059,12 @@ releases:
           PMRA:
             name: PMRA
             type: float32
-            unit: 'mas/yr'
+            unit: mas/yr
             description: Proper motion in right ascension used in target selection
           PMDEC:
             name: PMDEC
             type: float32
-            unit: 'mas/yr'
+            unit: mas/yr
             description: Proper motion in declination used in target selection
           PM_SRC:
             name: PM_SRC
@@ -3037,26 +3075,22 @@ releases:
             name: APOGEE_TARGET1
             type: int32
             unit: ''
-            description: APOGEE-2 target flag (first 64 bits) (see https://www.sdss4.org/dr17/algorithms/bitma
-sks/#APOGEE2_TARGET1)
+            description: APOGEE-2 target flag (first 64 bits) (see https://www.sdss4.org/dr17/algorithms/bitmasks/#APOGEE2_TARGET1)
           APOGEE_TARGET2:
             name: APOGEE_TARGET2
             type: int32
             unit: ''
-            description: APOGEE-2 target flag (second 64 bits) (see https://www.sdss4.org/dr17/algorithms/bitm
-asks/#APOGEE2_TARGET2)
+            description: APOGEE-2 target flag (second 64 bits) (see https://www.sdss4.org/dr17/algorithms/bitmasks/#APOGEE2_TARGET2)
           APOGEE_TARGET3:
             name: APOGEE_TARGET3
             type: int32
             unit: ''
-            description: APOGEE-2 target flag (third 64 bits) (see https://www.sdss4.org/dr17/algorithms/bitma
-sks/#APOGEE2_TARGET3)
+            description: APOGEE-2 target flag (third 64 bits) (see https://www.sdss4.org/dr17/algorithms/bitmasks/#APOGEE2_TARGET3)
           APOGEE_TARGET4:
             name: APOGEE_TARGET4
             type: int32
             unit: ''
-            description: APOGEE-2 target flag (fourth 64 bits) (see https://www.sdss4.org/dr17/algorithms/bitm
-asks/#APOGEE2_TARGET3)
+            description: APOGEE-2 target flag (fourth 64 bits) (see https://www.sdss4.org/dr17/algorithms/bitmasks/#APOGEE2_TARGET3)
           SDSS5_TARGET_PKS:
             name: SDSS5_TARGET_PKS
             type: char[29]
@@ -3130,62 +3164,62 @@ asks/#APOGEE2_TARGET3)
           GAIA_PLX:
             name: GAIA_PLX
             type: float32
-            unit: 'mas'
+            unit: mas
             description: GAIA parallax
           GAIA_PLX_ERROR:
             name: GAIA_PLX_ERROR
             type: float32
-            unit: 'mas'
+            unit: mas
             description: GAIA parallax uncertainty
           GAIA_PMRA:
             name: GAIA_PMRA
             type: float32
-            unit: 'mas/yr'
+            unit: mas/yr
             description: GAIA proper motion in RA
           GAIA_PMRA_ERROR:
             name: GAIA_PMRA_ERROR
             type: float32
-            unit: 'mas/yr'
+            unit: mas/yr
             description: GAIA proper motion in RA uncertainty
           GAIA_PMDEC:
             name: GAIA_PMDEC
             type: float32
-            unit: 'mas/yr'
+            unit: mas/yr
             description: GAIA proper motion in DEC
           GAIA_PMDEC_ERROR:
             name: GAIA_PMDEC_ERROR
             type: float32
-            unit: 'mas/yr'
+            unit: mas/yr
             description: GAIA proper motion in DEC uncertainty
           GAIA_GMAG:
             name: GAIA_GMAG
             type: float32
-            unit: 'mag'
+            unit: mag
             description: GAIA G mean magnitude
           GAIA_GERR:
             name: GAIA_GERR
             type: float32
-            unit: 'mag'
+            unit: mag
             description: GAIA G mean magnitude uncertainty
           GAIA_BPMAG:
             name: GAIA_BPMAG
             type: float32
-            unit: 'mag'
+            unit: mag
             description: GAIA Bp mean magnitude
           GAIA_BPERR:
             name: GAIA_BPERR
             type: float32
-            unit: 'mag'
+            unit: mag
             description: GAIA Bp mean magnitude uncertainty
           GAIA_RPMAG:
             name: GAIA_RPMAG
             type: float32
-            unit: 'mag'
+            unit: mag
             description: GAIA Rp mean magnitude
           GAIA_RPERR:
             name: GAIA_RPERR
             type: float32
-            unit: 'mag'
+            unit: mag
             description: GAIA Rp mean magnitude uncertainty
           SDSSV_APOGEE_TARGET0:
             name: SDSSV_APOGEE_TARGET0
@@ -3240,7 +3274,7 @@ asks/#APOGEE2_TARGET3)
           JD:
             name: JD
             type: float64
-            unit: 'days'
+            unit: days
             description: Julian date of observation
   WORK:
     template: $APOGEE_REDUX/[APRED]/visit/[TELESCOPE]/[FIELD]/[PLATE]/[MJD]/apVisit-[APRED]-[TELESCOPE]-[PLATE]-[MJD]-[FIBER].fits
@@ -3283,10 +3317,10 @@ asks/#APOGEE2_TARGET3)
           value: '2022-10-15'
           comment: APRV holtz on milkyway.nmsu.edu
         - key: COMMENT
-          value: FITS (Flexible Image Transport System) format is defined in 'Astronomy
+          value: FITS (Flexible Image Transport System) format is defined in
           comment: APRV holtz on milkyway.nmsu.edu
         - key: COMMENT
-          value: and Astrophysics', volume 376, page 359; bibcode 2001A&A...376..359H
+          value: Astronomy and Astrophysics, volume 376, page 359; bibcode 2001A&A...376..359H
           comment: APRV holtz on milkyway.nmsu.edu
         - key: LOCID
           value: 100537
@@ -4289,3 +4323,5 @@ asks/#APOGEE2_TARGET3)
             description: ''
 notes: |-
   None
+regrets: |-
+  I have no regrets!
