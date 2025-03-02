@@ -1,0 +1,3852 @@
+general:
+  name: mangaDAPall
+  short: final summary tables of the MaNGA DAP results
+  description: 'The DAPall file provides final summary tables of the MaNGA Data Analysis
+    Pipeline (DAP) results. It provides collated summary information about the DAP
+    methods and global metrics derived from the DAP analysis products useful for sample
+    selection.
+
+
+    Similar to the DRPall file, the DAPall file contains no resolved maps or model
+    spectra, but a set of data that can be useful for selecting subsets of MAPS and
+    model LOGCUBE files for further analysis.
+
+
+    The DAP analyzes each observation (PLATEIFU) once per analysis method (DAPTYPE).
+    However, not all datacubes provided by the DRP are analyzed by the DAP. In DR17,
+    the DAPall file has multiple extensions, one for each DAPTYPE analysis (unlike
+    in previous data releases when all DAPTYPEs were listed in a single extension).
+    There is a row in each extension for all attempted analyses of the available PLATEIFU-DAPTYPE
+    combinations. Some of the attempted analyses faulted, and these are listed among
+    the known issues. The purpose of the DAPDONE column in the DAPall file is to select
+    those PLATEIFU-DAPTYPE combinations where the DAP was successful in its analysis
+    of the data.
+
+
+    For more information see the discussion of MaNGA catalogs in the data-release
+    documentation and the relevant MaNGA DAP ReadTheDocs page.
+
+    '
+  datatype: FITS
+  filesize: 23 MB
+  releases:
+  - DR15
+  - DR16
+  - DR17
+  environments:
+  - MANGA_SPECTRO_ANALYSIS
+  surveys:
+  - MaNGA
+  naming_convention: dapall-[drpver]-[dapver].fits, where [drpver] is the version
+    of the MaNGA Data Reduction Pipeline (DRP) that produced the reduced data products
+    and [dapver] is the version of the MaNGA Data Analysis Pipeline (DAP) that analyzed
+    those products and generated this file.
+  generated_by: mangadap - construct_dapall
+  data_level: 2.3.0
+  design: false
+  vac: false
+  recommended_science_product: true
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases:
+    DR17:
+      from: DR16
+      added_hdus:
+      - VOR10-MILESHC-MASTARSSP
+      - HYB10-MILESHC-MASTARHC2
+      - SPX-MILESHC-MASTARSSP
+      - HYB10-MILESHC-MASTARSSP
+      removed_hdus:
+      - DAPALL
+      primary_delta_nkeys: 26
+      added_primary_header_kwargs:
+      - ELS25
+      - ELS32
+      - ELS33
+      - ELG23
+      - ELG29
+      - ELG24
+      - ELS29
+      - ELG34
+      - ELG25
+      - ELS28
+      - ELS26
+      - ELG33
+      - ELS24
+      - ELS23
+      - ELG32
+      - ELG31
+      - ELG26
+      - ELG30
+      - ELS34
+      - ELG27
+      - ELS30
+      - ELS31
+      - ELG28
+      - ELS35
+      - ELS27
+      - ELG35
+    DR16:
+      from: DR15
+      note: No changes
+releases:
+  DR15: &id001
+    template: $MANGA_SPECTRO_ANALYSIS/[DRPVER]/[DAPVER]/dapall-[DRPVER]-[DAPVER].fits
+    example: v2_4_3/2.2.1/dapall-v2_4_3-2.2.1.fits
+    location: '{drpver}/{dapver}/dapall-{drpver}-{dapver}.fits'
+    environment: MANGA_SPECTRO_ANALYSIS
+    access:
+      in_sdss_access: true
+      path_name: dapall
+      path_template: $MANGA_SPECTRO_ANALYSIS/{drpver}/{dapver}/dapall-{drpver}-{dapver}.fits
+      path_kwargs:
+      - dapver
+      - drpver
+      access_string: dapall = $MANGA_SPECTRO_ANALYSIS/{drpver}/{dapver}/dapall-{drpver}-{dapver}.fits
+    survey: MaNGA
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: primary header extension
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: DATE
+          value: '2018-07-23'
+          comment: UTC date created
+        - key: VERSDRP3
+          value: v2_4_3
+          comment: DRP version
+        - key: VERSDAP
+          value: 2.2.1
+          comment: DAP version
+        - key: ELS01
+          value: OIId-3728
+          comment: Summed emission-line element
+        - key: ELS02
+          value: OII-3729
+          comment: Summed emission-line element
+        - key: ELS03
+          value: Hthe-3798
+          comment: Summed emission-line element
+        - key: ELS04
+          value: Heta-3836
+          comment: Summed emission-line element
+        - key: ELS05
+          value: NeIII-3869
+          comment: Summed emission-line element
+        - key: ELS06
+          value: Hzet-3890
+          comment: Summed emission-line element
+        - key: ELS07
+          value: NeIII-3968
+          comment: Summed emission-line element
+        - key: ELS08
+          value: Heps-3971
+          comment: Summed emission-line element
+        - key: ELS09
+          value: Hdel-4102
+          comment: Summed emission-line element
+        - key: ELS10
+          value: Hgam-4341
+          comment: Summed emission-line element
+        - key: ELS11
+          value: HeII-4687
+          comment: Summed emission-line element
+        - key: ELS12
+          value: Hb-4862
+          comment: Summed emission-line element
+        - key: ELS13
+          value: OIII-4960
+          comment: Summed emission-line element
+        - key: ELS14
+          value: OIII-5008
+          comment: Summed emission-line element
+        - key: ELS15
+          value: HeI-5877
+          comment: Summed emission-line element
+        - key: ELS16
+          value: OI-6302
+          comment: Summed emission-line element
+        - key: ELS17
+          value: OI-6365
+          comment: Summed emission-line element
+        - key: ELS18
+          value: NII-6549
+          comment: Summed emission-line element
+        - key: ELS19
+          value: Ha-6564
+          comment: Summed emission-line element
+        - key: ELS20
+          value: NII-6585
+          comment: Summed emission-line element
+        - key: ELS21
+          value: SII-6718
+          comment: Summed emission-line element
+        - key: ELS22
+          value: SII-6732
+          comment: Summed emission-line element
+        - key: ELG01
+          value: OII-3727
+          comment: Gaussian fit emission-line element
+        - key: ELG02
+          value: OII-3729
+          comment: Gaussian fit emission-line element
+        - key: ELG03
+          value: Hthe-3798
+          comment: Gaussian fit emission-line element
+        - key: ELG04
+          value: Heta-3836
+          comment: Gaussian fit emission-line element
+        - key: ELG05
+          value: NeIII-3869
+          comment: Gaussian fit emission-line element
+        - key: ELG06
+          value: Hzet-3890
+          comment: Gaussian fit emission-line element
+        - key: ELG07
+          value: NeIII-3968
+          comment: Gaussian fit emission-line element
+        - key: ELG08
+          value: Heps-3971
+          comment: Gaussian fit emission-line element
+        - key: ELG09
+          value: Hdel-4102
+          comment: Gaussian fit emission-line element
+        - key: ELG10
+          value: Hgam-4341
+          comment: Gaussian fit emission-line element
+        - key: ELG11
+          value: HeII-4687
+          comment: Gaussian fit emission-line element
+        - key: ELG12
+          value: Hb-4862
+          comment: Gaussian fit emission-line element
+        - key: ELG13
+          value: OIII-4960
+          comment: Gaussian fit emission-line element
+        - key: ELG14
+          value: OIII-5008
+          comment: Gaussian fit emission-line element
+        - key: ELG15
+          value: HeI-5877
+          comment: Gaussian fit emission-line element
+        - key: ELG16
+          value: OI-6302
+          comment: Gaussian fit emission-line element
+        - key: ELG17
+          value: OI-6365
+          comment: Gaussian fit emission-line element
+        - key: ELG18
+          value: NII-6549
+          comment: Gaussian fit emission-line element
+        - key: ELG19
+          value: Ha-6564
+          comment: Gaussian fit emission-line element
+        - key: ELG20
+          value: NII-6585
+          comment: Gaussian fit emission-line element
+        - key: ELG21
+          value: SII-6718
+          comment: Gaussian fit emission-line element
+        - key: ELG22
+          value: SII-6732
+          comment: Gaussian fit emission-line element
+        - key: SPI01
+          value: CN1
+          comment: Spectral-indx element
+        - key: SPIU01
+          value: mag
+          comment: Spectral-indx element unit
+        - key: SPI02
+          value: CN2
+          comment: Spectral-indx element
+        - key: SPIU02
+          value: mag
+          comment: Spectral-indx element unit
+        - key: SPI03
+          value: Ca4227
+          comment: Spectral-indx element
+        - key: SPIU03
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI04
+          value: G4300
+          comment: Spectral-indx element
+        - key: SPIU04
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI05
+          value: Fe4383
+          comment: Spectral-indx element
+        - key: SPIU05
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI06
+          value: Ca4455
+          comment: Spectral-indx element
+        - key: SPIU06
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI07
+          value: Fe4531
+          comment: Spectral-indx element
+        - key: SPIU07
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI08
+          value: C24668
+          comment: Spectral-indx element
+        - key: SPIU08
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI09
+          value: Hb
+          comment: Spectral-indx element
+        - key: SPIU09
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI10
+          value: Fe5015
+          comment: Spectral-indx element
+        - key: SPIU10
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI11
+          value: Mg1
+          comment: Spectral-indx element
+        - key: SPIU11
+          value: mag
+          comment: Spectral-indx element unit
+        - key: SPI12
+          value: Mg2
+          comment: Spectral-indx element
+        - key: SPIU12
+          value: mag
+          comment: Spectral-indx element unit
+        - key: SPI13
+          value: Mgb
+          comment: Spectral-indx element
+        - key: SPIU13
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI14
+          value: Fe5270
+          comment: Spectral-indx element
+        - key: SPIU14
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI15
+          value: Fe5335
+          comment: Spectral-indx element
+        - key: SPIU15
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI16
+          value: Fe5406
+          comment: Spectral-indx element
+        - key: SPIU16
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI17
+          value: Fe5709
+          comment: Spectral-indx element
+        - key: SPIU17
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI18
+          value: Fe5782
+          comment: Spectral-indx element
+        - key: SPIU18
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI19
+          value: NaD
+          comment: Spectral-indx element
+        - key: SPIU19
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI20
+          value: TiO1
+          comment: Spectral-indx element
+        - key: SPIU20
+          value: mag
+          comment: Spectral-indx element unit
+        - key: SPI21
+          value: TiO2
+          comment: Spectral-indx element
+        - key: SPIU21
+          value: mag
+          comment: Spectral-indx element unit
+        - key: SPI22
+          value: HDeltaA
+          comment: Spectral-indx element
+        - key: SPIU22
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI23
+          value: HGammaA
+          comment: Spectral-indx element
+        - key: SPIU23
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI24
+          value: HDeltaF
+          comment: Spectral-indx element
+        - key: SPIU24
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI25
+          value: HGammaF
+          comment: Spectral-indx element
+        - key: SPIU25
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI26
+          value: CaHK
+          comment: Spectral-indx element
+        - key: SPIU26
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI27
+          value: CaII1
+          comment: Spectral-indx element
+        - key: SPIU27
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI28
+          value: CaII2
+          comment: Spectral-indx element
+        - key: SPIU28
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI29
+          value: CaII3
+          comment: Spectral-indx element
+        - key: SPIU29
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI30
+          value: Pa17
+          comment: Spectral-indx element
+        - key: SPIU30
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI31
+          value: Pa14
+          comment: Spectral-indx element
+        - key: SPIU31
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI32
+          value: Pa12
+          comment: Spectral-indx element
+        - key: SPIU32
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI33
+          value: MgICvD
+          comment: Spectral-indx element
+        - key: SPIU33
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI34
+          value: NaICvD
+          comment: Spectral-indx element
+        - key: SPIU34
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI35
+          value: MgIIR
+          comment: Spectral-indx element
+        - key: SPIU35
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI36
+          value: FeHCvD
+          comment: Spectral-indx element
+        - key: SPIU36
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI37
+          value: NaI
+          comment: Spectral-indx element
+        - key: SPIU37
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI38
+          value: bTiO
+          comment: Spectral-indx element
+        - key: SPIU38
+          value: mag
+          comment: Spectral-indx element unit
+        - key: SPI39
+          value: aTiO
+          comment: Spectral-indx element
+        - key: SPIU39
+          value: mag
+          comment: Spectral-indx element unit
+        - key: SPI40
+          value: CaH1
+          comment: Spectral-indx element
+        - key: SPIU40
+          value: mag
+          comment: Spectral-indx element unit
+        - key: SPI41
+          value: CaH2
+          comment: Spectral-indx element
+        - key: SPIU41
+          value: mag
+          comment: Spectral-indx element unit
+        - key: SPI42
+          value: NaISDSS
+          comment: Spectral-indx element
+        - key: SPIU42
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI43
+          value: TiO2SDSS
+          comment: Spectral-indx element
+        - key: SPIU43
+          value: mag
+          comment: Spectral-indx element unit
+        - key: SPI44
+          value: D4000
+          comment: Spectral-indx element
+        - key: SPIU44
+          value: ''
+          comment: Spectral-indx element unit
+        - key: SPI45
+          value: Dn4000
+          comment: Spectral-indx element
+        - key: SPIU45
+          value: ''
+          comment: Spectral-indx element unit
+        - key: SPI46
+          value: TiOCvD
+          comment: Spectral-indx element
+        - key: SPIU46
+          value: ''
+          comment: Spectral-indx element unit
+        - key: CHECKSUM
+          value: VaQVXVPVVaPVVUPV
+          comment: HDU checksum updated 2018-07-22T21:46:07
+        - key: DATASUM
+          value: '0'
+          comment: data unit checksum updated 2018-07-22T21:46:07
+      hdu1:
+        name: DAPALL
+        description: the summary data for all galaxies, all daptypes
+        is_image: false
+        size: 23 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 2642
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 9462
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 90
+          comment: number of table fields
+        - key: EXTNAME
+          value: DAPALL
+          comment: extension name
+        - key: CHECKSUM
+          value: ZSYAdQW4ZQW9bQW9
+          comment: HDU checksum updated 2018-07-22T21:46:08
+        - key: DATASUM
+          value: '1841798254'
+          comment: data unit checksum updated 2018-07-22T21:46:08
+        columns:
+          PLATE:
+            name: PLATE
+            type: int64[1]
+            unit: ''
+            description: Plate number
+          IFUDESIGN:
+            name: IFUDESIGN
+            type: int64[1]
+            unit: ''
+            description: IFU design number
+          PLATEIFU:
+            name: PLATEIFU
+            type: char[12]
+            unit: ''
+            description: String combination of PLATE-IFU to ease searching
+          MANGAID:
+            name: MANGAID
+            type: char[10]
+            unit: ''
+            description: MaNGA ID string
+          DRPALLINDX:
+            name: DRPALLINDX
+            type: int64[1]
+            unit: ''
+            description: Row index of the observation in the DRPall file
+          MODE:
+            name: MODE
+            type: char[4]
+            unit: ''
+            description: 3D mode of the DRP file (CUBE or RSS)
+          DAPTYPE:
+            name: DAPTYPE
+            type: char[20]
+            unit: ''
+            description: Keyword of the analysis approach used (e.g., HYB10-GAU-MILESHC
+              for DR15/DR16, HYB10-MILESHC-MASTARSSP for DR17)
+          DAPDONE:
+            name: DAPDONE
+            type: bool[1]
+            unit: ''
+            description: Flag that MAPS file successfully produced
+          OBJRA:
+            name: OBJRA
+            type: float32[1]
+            unit: deg
+            description: RA of the galaxy center
+          OBJDEC:
+            name: OBJDEC
+            type: float32[1]
+            unit: deg
+            description: Declination of the galaxy center
+          IFURA:
+            name: IFURA
+            type: float32[1]
+            unit: deg
+            description: RA of the IFU pointing center (generally the same as OBJRA)
+          IFUDEC:
+            name: IFUDEC
+            type: float32[1]
+            unit: deg
+            description: Declination of the IFU pointing center (generally the same
+              as OBJDEC)
+          MNGTARG1:
+            name: MNGTARG1
+            type: int64[1]
+            unit: ''
+            description: Main survey targeting bit
+          MNGTARG2:
+            name: MNGTARG2
+            type: int64[1]
+            unit: ''
+            description: Non-galaxy targeting bit
+          MNGTARG3:
+            name: MNGTARG3
+            type: int64[1]
+            unit: ''
+            description: Ancillary targeting bit
+          Z:
+            name: Z
+            type: float32[1]
+            unit: ''
+            description: Redshift used to set initial guess velocity (typically identical
+              to NSA_Z)
+          LDIST_Z:
+            name: LDIST_Z
+            type: float32[1]
+            unit: h-1 Mpc
+            description: "Luminosity distance based on Z and a standard cosmology\
+              \ (h=1; \u03A9M=0.3; \u03A9\u039B=0.7)"
+          ADIST_Z:
+            name: ADIST_Z
+            type: float32[1]
+            unit: h-1 Mpc
+            description: "Angular-diameter distance based on Z and a standard cosmology\
+              \ (h=1; \u03A9M=0.3; \u03A9\u039B=0.7)"
+          NSA_Z:
+            name: NSA_Z
+            type: float32[1]
+            unit: ''
+            description: Redshift from the NASA-Sloan Atlas
+          NSA_ZDIST:
+            name: NSA_ZDIST
+            type: float32[1]
+            unit: ''
+            description: NSA distance estimate using pecular velocity model of Willick
+              et al. (1997); multiply by c/H0 for Mpc.
+          LDIST_NSA_Z:
+            name: LDIST_NSA_Z
+            type: float32[1]
+            unit: h-1 Mpc
+            description: "Luminosity distance based on NSA_Z and a standard cosmology\
+              \ (h=1; \u03A9M=0.3; \u03A9\u039B=0.7)"
+          ADIST_NSA_Z:
+            name: ADIST_NSA_Z
+            type: float32[1]
+            unit: h-1 Mpc
+            description: "Angular-diameter distance based on NSA_Z and a standard\
+              \ cosmology (h=1; \u03A9M=0.3; \u03A9\u039B=0.7)"
+          NSA_ELPETRO_BA:
+            name: NSA_ELPETRO_BA
+            type: float32[1]
+            unit: ''
+            description: NSA isophotal axial ratio from elliptical Petrosian analysis
+          NSA_ELPETRO_PHI:
+            name: NSA_ELPETRO_PHI
+            type: float32[1]
+            unit: deg
+            description: NSA isophotal position angle from elliptical Petrosian analysis
+          NSA_ELPETRO_TH50_R:
+            name: NSA_ELPETRO_TH50_R
+            type: float32[1]
+            unit: arcsec
+            description: NSA elliptical Petrosian effective radius in the r-band;
+              the is the same as Reff below.
+          NSA_SERSIC_BA:
+            name: NSA_SERSIC_BA
+            type: float32[1]
+            unit: ''
+            description: NSA isophotal axial ratio from Sersic fit
+          NSA_SERSIC_PHI:
+            name: NSA_SERSIC_PHI
+            type: float32[1]
+            unit: deg
+            description: NSA isophotal position angle from Sersic fit
+          NSA_SERSIC_TH50:
+            name: NSA_SERSIC_TH50
+            type: float32[1]
+            unit: arcsec
+            description: NSA effective radius from the Sersic fit
+          NSA_SERSIC_N:
+            name: NSA_SERSIC_N
+            type: float32[1]
+            unit: ''
+            description: NSA Sersic index
+          VERSDRP2:
+            name: VERSDRP2
+            type: char[8]
+            unit: ''
+            description: Version of DRP used for 2d reductions
+          VERSDRP3:
+            name: VERSDRP3
+            type: char[8]
+            unit: ''
+            description: Version of DRP used for 3d reductions
+          VERSCORE:
+            name: VERSCORE
+            type: char[8]
+            unit: ''
+            description: Version of mangacore used by the DAP
+          VERSUTIL:
+            name: VERSUTIL
+            type: char[8]
+            unit: ''
+            description: Version of idlutils used by the DAP
+          VERSDAP:
+            name: VERSDAP
+            type: char[8]
+            unit: ''
+            description: Version of mangadap
+          DRP3QUAL:
+            name: DRP3QUAL
+            type: int64[1]
+            unit: ''
+            description: DRP 3D quality bit
+          DAPQUAL:
+            name: DAPQUAL
+            type: int64[1]
+            unit: ''
+            description: DAP quality bit
+          RDXQAKEY:
+            name: RDXQAKEY
+            type: char[14]
+            unit: ''
+            description: Configuration keyword for the method used to assess the reduced
+              data
+          BINKEY:
+            name: BINKEY
+            type: char[14]
+            unit: ''
+            description: Configuration keyword for the spatial binning method
+          SCKEY:
+            name: SCKEY
+            type: char[14]
+            unit: ''
+            description: Configuration keyword for the method used to model the stellar-continuum
+          ELMKEY:
+            name: ELMKEY
+            type: char[14]
+            unit: ''
+            description: Configuration keyword that defines the emission-line moment
+              measurement method
+          ELFKEY:
+            name: ELFKEY
+            type: char[14]
+            unit: ''
+            description: Configuration keyword that defines the emission-line modeling
+              method
+          SIKEY:
+            name: SIKEY
+            type: char[14]
+            unit: ''
+            description: Configuration keyword that defines the spectral-index measurement
+              method
+          BINTYPE:
+            name: BINTYPE
+            type: char[10]
+            unit: ''
+            description: Type of binning used
+          BINSNR:
+            name: BINSNR
+            type: float32[1]
+            unit: ''
+            description: Target for bin S/N, if Voronoi binning
+          TPLKEY:
+            name: TPLKEY
+            type: char[15]
+            unit: ''
+            description: The identifier of the template library, e.g., MILES.
+          DATEDAP:
+            name: DATEDAP
+            type: char[10]
+            unit: ''
+            description: Date the DAP file was created and/or last modified.
+          DAPBINS:
+            name: DAPBINS
+            type: int64[1]
+            unit: ''
+            description: The number of "binned" spectra analyzed by the DAP.
+          RCOV90:
+            name: RCOV90
+            type: float32[1]
+            unit: arcsec
+            description: "Semi-major axis radius (R) below which spaxels cover at\
+              \ least 90% of elliptical annuli with width R \xB1 2.5 arcsec. This\
+              \ should be independent of the DAPTYPE."
+          SNR_MED:
+            name: SNR_MED
+            type: float32[4]
+            unit: ''
+            description: Median S/N per pixel in the ''griz'' bands within 1.0-1.5
+              Reff. This should be independent of the DAPTYPE.
+          SNR_RING:
+            name: SNR_RING
+            type: float32[4]
+            unit: ''
+            description: S/N in the ''griz'' bands when binning all spaxels within
+              1.0-1.5 Reff. This should be independent of the DAPTYPE.
+          SB_1RE:
+            name: SB_1RE
+            type: float32[1]
+            unit: 10-17 erg/s/cm2/angstrom/spaxel
+            description: Mean g-band surface brightness of valid spaxels within 1
+              Reff. This should be independent of the DAPTYPE.
+          BIN_RMAX:
+            name: BIN_RMAX
+            type: float32[1]
+            unit: NSA_ELPETRO_TH50_R
+            description: Maximum g-band luminosity-weighted semi-major radius of any
+              "valid" binned spectrum.
+          BIN_R_N:
+            name: BIN_R_N
+            type: float32[3]
+            unit: ''
+            description: Number of binned spectra with g-band luminosity-weighted
+              centers within 0-1, 0.5-1.5, and 1.5-2.5 Reff.
+          BIN_R_SNR:
+            name: BIN_R_SNR
+            type: float32[3]
+            unit: ''
+            description: Median g-band S/N of all binned spectra with luminosity-weighted
+              centers within 0-1, 0.5-1.5, and 1.5-2.5 Reff.
+          STELLAR_Z:
+            name: STELLAR_Z
+            type: float32[1]
+            unit: ''
+            description: Flux-weighted mean redshift of the stellar component within
+              a 2.5 arcsec aperture at the galaxy center.
+          STELLAR_VEL_LO:
+            name: STELLAR_VEL_LO
+            type: float32[1]
+            unit: km/s
+            description: Stellar velocity at 2.5% growth of all valid spaxels.
+          STELLAR_VEL_HI:
+            name: STELLAR_VEL_HI
+            type: float32[1]
+            unit: km/s
+            description: Stellar velocity at 97.5% growth of all valid spaxels.
+          STELLAR_VEL_LO_CLIP:
+            name: STELLAR_VEL_LO_CLIP
+            type: float32[1]
+            unit: km/s
+            description: Stellar velocity at 2.5% growth after iteratively clipping
+              3-sigma outliers.
+          STELLAR_VEL_HI_CLIP:
+            name: STELLAR_VEL_HI_CLIP
+            type: float32[1]
+            unit: km/s
+            description: Stellar velocity at 97.5% growth after iteratively clipping
+              3-sigma outliers.
+          STELLAR_SIGMA_1RE:
+            name: STELLAR_SIGMA_1RE
+            type: float32[1]
+            unit: km/s
+            description: Flux-weighted mean stellar velocity dispersion of all spaxels
+              within 1 Reff.
+          STELLAR_CONT_RCHI2_1RE:
+            name: STELLAR_CONT_RCHI2_1RE
+            type: float32[1]
+            unit: ''
+            description: Median reduced chi2 of the stellar-continuum fit within 1
+              Reff.
+          HA_Z:
+            name: HA_Z
+            type: float32[1]
+            unit: ''
+            description: "Flux-weighted mean redshift of the H\u03B1 line within a\
+              \ 2.5 arcsec aperture at the galaxy center."
+          HA_GVEL_LO:
+            name: HA_GVEL_LO
+            type: float32[1]
+            unit: km/s
+            description: Gaussian-fitted velocity of the H-alpha line at 2.5% growth
+              of all valid spaxels.
+          HA_GVEL_HI:
+            name: HA_GVEL_HI
+            type: float32[1]
+            unit: km/s
+            description: Gaussian-fitted velocity of the H-alpha line at 97.5% growth
+              of all valid spaxels.
+          HA_GVEL_LO_CLIP:
+            name: HA_GVEL_LO_CLIP
+            type: float32[1]
+            unit: km/s
+            description: Gaussian-fitted velocity of the H-alpha line at 2.5% growth
+              after iteratively clipping 3-sigma outliers.
+          HA_GVEL_HI_CLIP:
+            name: HA_GVEL_HI_CLIP
+            type: float32[1]
+            unit: km/s
+            description: Gaussian-fitted velocity of the H-alpha line at 97.5% growth
+              after iteratively clipping 3-sigma outliers.
+          HA_GSIGMA_1RE:
+            name: HA_GSIGMA_1RE
+            type: float32[1]
+            unit: km/s
+            description: Flux-weighted H-alpha velocity dispersion (from Gaussian
+              fit) of all spaxels within 1 Reff.
+          HA_GSIGMA_HI:
+            name: HA_GSIGMA_HI
+            type: float32[1]
+            unit: km/s
+            description: H-alpha velocity dispersion (from Gaussian fit) at 97.5%
+              growth of all valid spaxels.
+          HA_GSIGMA_HI_CLIP:
+            name: HA_GSIGMA_HI_CLIP
+            type: float32[1]
+            unit: km/s
+            description: H-alpha velocity dispersion (from Gaussian fit) at 97.5%
+              growth after iteratively clipping 3-sigma outliers.
+          EMLINE_SFLUX_CEN:
+            name: EMLINE_SFLUX_CEN
+            type: float32[22]
+            unit: 10-17 erg/s/cm2
+            description: Summed emission-line flux integrated within a 2.5 arcsec
+              aperture at the galaxy center.
+          EMLINE_SFLUX_1RE:
+            name: EMLINE_SFLUX_1RE
+            type: float32[22]
+            unit: 10-17 erg/s/cm2
+            description: Summed emission-line flux integrated within 1 effective-radius
+              aperture at the galaxy.
+          EMLINE_SFLUX_TOT:
+            name: EMLINE_SFLUX_TOT
+            type: float32[22]
+            unit: 10-17 erg/s/cm2
+            description: Total integrated flux of each summed emission measurement
+              within the full MaNGA field-of-view.
+          EMLINE_SSB_1RE:
+            name: EMLINE_SSB_1RE
+            type: float32[22]
+            unit: 10-17 erg/s/cm2/spaxel
+            description: Mean emission-line surface-brightness from the summed flux
+              measurements within 1 Reff.
+          EMLINE_SSB_PEAK:
+            name: EMLINE_SSB_PEAK
+            type: float32[22]
+            unit: 10-17 erg/s/cm2/spaxel
+            description: Peak summed-flux emission-line surface brightness.
+          EMLINE_SEW_1RE:
+            name: EMLINE_SEW_1RE
+            type: float32[22]
+            unit: angstrom
+            description: Mean emission-line equivalent width from the summed flux
+              measurements within 1 Reff.
+          EMLINE_SEW_PEAK:
+            name: EMLINE_SEW_PEAK
+            type: float32[22]
+            unit: angstrom
+            description: Peak emission-line equivalent width from the summed flux
+              measurements.
+          EMLINE_GFLUX_CEN:
+            name: EMLINE_GFLUX_CEN
+            type: float32[22]
+            unit: 10-17 erg/s/cm2
+            description: Gaussian-fitted emission-line flux integrated within a 2.5
+              arcsec aperture at the galaxy center.
+          EMLINE_GFLUX_1RE:
+            name: EMLINE_GFLUX_1RE
+            type: float32[22]
+            unit: 10-17 erg/s/cm2
+            description: Gaussian-fitted emission-line flux integrated within 1 effective-radius
+              aperture at the galaxy.
+          EMLINE_GFLUX_TOT:
+            name: EMLINE_GFLUX_TOT
+            type: float32[22]
+            unit: 10-17 erg/s/cm2
+            description: Total integrated flux of the Gaussian fit to each emission
+              line within the full MaNGA field-of-view.
+          EMLINE_GSB_1RE:
+            name: EMLINE_GSB_1RE
+            type: float32[22]
+            unit: 10-17 erg/s/cm2/spaxel
+            description: Mean emission-line surface-brightness from the Gaussian-fitted
+              flux measurements within 1 Reff.
+          EMLINE_GSB_PEAK:
+            name: EMLINE_GSB_PEAK
+            type: float32[22]
+            unit: 10-17 erg/s/cm2/spaxel
+            description: Peak Gaussian-fitted emission-line surface brightness.
+          EMLINE_GEW_1RE:
+            name: EMLINE_GEW_1RE
+            type: float32[22]
+            unit: angstrom
+            description: Mean emission-line equivalent width from the Gaussian-fitted
+              flux measurements within 1 Reff.
+          EMLINE_GEW_PEAK:
+            name: EMLINE_GEW_PEAK
+            type: float32[22]
+            unit: angstrom
+            description: Peak emission-line equivalent width from the Gaussian-fitted
+              flux measurements.
+          SPECINDEX_LO:
+            name: SPECINDEX_LO
+            type: float32[46]
+            unit: see HDU0-SPIU
+            description: Spectral index at 2.5% growth of all valid spaxels.
+          SPECINDEX_HI:
+            name: SPECINDEX_HI
+            type: float32[46]
+            unit: see HDU0-SPIU
+            description: Spectral index at 97.5% growth of all valid spaxels.
+          SPECINDEX_LO_CLIP:
+            name: SPECINDEX_LO_CLIP
+            type: float32[46]
+            unit: see HDU0-SPIU
+            description: Spectral index at 2.5% growth after iteratively clipping
+              3-sigma outliers.
+          SPECINDEX_HI_CLIP:
+            name: SPECINDEX_HI_CLIP
+            type: float32[46]
+            unit: see HDU0-SPIU
+            description: Spectral index at 97.5% growth after iteratively clipping
+              3-sigma outliers.
+          SPECINDEX_1RE:
+            name: SPECINDEX_1RE
+            type: float32[46]
+            unit: see HDU0-SPIU
+            description: Median spectral index within 1 effective radius.
+          SFR_1RE:
+            name: SFR_1RE
+            type: float32[1]
+            unit: h-2 Msun/yr
+            description: "Simple estimate of the star-formation rate within 1 effective\
+              \ radius based on the Gaussian-fitted H\u03B1 flux; log(SFR) = log LH\u03B1\
+              \ - 41.27 (Kennicutt & Evans [2012, ARAA, 50, 531], citing Murphy et\
+              \ al. [2011, ApJ, 737, 67] and Hao et al. [2011, ApJ, 741, 124]; Kroupa\
+              \ IMF), where LH\u03B1 = 4\u03C0 EML_FLUX_1RE (LDIST_Z)2 and ''no''\
+              \ attentuation correction has been applied."
+          SFR_TOT:
+            name: SFR_TOT
+            type: float32[1]
+            unit: h-2 Msun/yr
+            description: "Simple estimate of the star-formation rate within the IFU\
+              \ field-of-view based on the Gaussian-fitted H\u03B1 flux; log(SFR)\
+              \ = log LH\u03B1 - 41.27 (Kennicutt & Evans [2012, ARAA, 50, 531], citing\
+              \ Murphy et al. [2011, ApJ, 737, 67] and Hao et al. [2011, ApJ, 741,\
+              \ 124]; Kroupa IMF), where LH\u03B1 = 4\u03C0 EML_FLUX_TOT (LDIST_Z)2\
+              \ and ''no'' attentuation correction has been applied."
+  DR16: *id001
+  DR17:
+    template: $MANGA_SPECTRO_ANALYSIS/[DRPVER]/[DAPVER]/dapall-[DRPVER]-[DAPVER].fits
+    example: v3_1_1/3.1.0/dapall-v3_1_1-3.1.0.fits
+    location: '{drpver}/{dapver}/dapall-{drpver}-{dapver}.fits'
+    environment: MANGA_SPECTRO_ANALYSIS
+    access:
+      in_sdss_access: true
+      path_name: dapall
+      path_template: $MANGA_SPECTRO_ANALYSIS/{drpver}/{dapver}/dapall-{drpver}-{dapver}.fits
+      path_kwargs:
+      - dapver
+      - drpver
+      access_string: dapall = $MANGA_SPECTRO_ANALYSIS/{drpver}/{dapver}/dapall-{drpver}-{dapver}.fits
+    survey: MaNGA
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: primary header extension
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: DATE
+          value: '2021-02-26'
+          comment: UTC date created
+        - key: VERSDRP3
+          value: v3_1_1
+          comment: DRP version
+        - key: VERSDAP
+          value: 3.1.0
+          comment: DAP version
+        - key: ELS01
+          value: OIId-3728
+          comment: Summed emission-line element
+        - key: ELS02
+          value: OII-3729
+          comment: Summed emission-line element
+        - key: ELS03
+          value: H12-3751
+          comment: Summed emission-line element
+        - key: ELS04
+          value: H11-3771
+          comment: Summed emission-line element
+        - key: ELS05
+          value: Hthe-3798
+          comment: Summed emission-line element
+        - key: ELS06
+          value: Heta-3836
+          comment: Summed emission-line element
+        - key: ELS07
+          value: NeIII-3869
+          comment: Summed emission-line element
+        - key: ELS08
+          value: HeI-3889
+          comment: Summed emission-line element
+        - key: ELS09
+          value: Hzet-3890
+          comment: Summed emission-line element
+        - key: ELS10
+          value: NeIII-3968
+          comment: Summed emission-line element
+        - key: ELS11
+          value: Heps-3971
+          comment: Summed emission-line element
+        - key: ELS12
+          value: Hdel-4102
+          comment: Summed emission-line element
+        - key: ELS13
+          value: Hgam-4341
+          comment: Summed emission-line element
+        - key: ELS14
+          value: HeII-4687
+          comment: Summed emission-line element
+        - key: ELS15
+          value: Hb-4862
+          comment: Summed emission-line element
+        - key: ELS16
+          value: OIII-4960
+          comment: Summed emission-line element
+        - key: ELS17
+          value: OIII-5008
+          comment: Summed emission-line element
+        - key: ELS18
+          value: NI-5199
+          comment: Summed emission-line element
+        - key: ELS19
+          value: NI-5201
+          comment: Summed emission-line element
+        - key: ELS20
+          value: HeI-5877
+          comment: Summed emission-line element
+        - key: ELS21
+          value: OI-6302
+          comment: Summed emission-line element
+        - key: ELS22
+          value: OI-6365
+          comment: Summed emission-line element
+        - key: ELS23
+          value: NII-6549
+          comment: Summed emission-line element
+        - key: ELS24
+          value: Ha-6564
+          comment: Summed emission-line element
+        - key: ELS25
+          value: NII-6585
+          comment: Summed emission-line element
+        - key: ELS26
+          value: SII-6718
+          comment: Summed emission-line element
+        - key: ELS27
+          value: SII-6732
+          comment: Summed emission-line element
+        - key: ELS28
+          value: HeI-7067
+          comment: Summed emission-line element
+        - key: ELS29
+          value: ArIII-7137
+          comment: Summed emission-line element
+        - key: ELS30
+          value: ArIII-7753
+          comment: Summed emission-line element
+        - key: ELS31
+          value: Peta-9017
+          comment: Summed emission-line element
+        - key: ELS32
+          value: SIII-9071
+          comment: Summed emission-line element
+        - key: ELS33
+          value: Pzet-9231
+          comment: Summed emission-line element
+        - key: ELS34
+          value: SIII-9533
+          comment: Summed emission-line element
+        - key: ELS35
+          value: Peps-9548
+          comment: Summed emission-line element
+        - key: ELG01
+          value: OII-3727
+          comment: Gaussian fit emission-line element
+        - key: ELG02
+          value: OII-3729
+          comment: Gaussian fit emission-line element
+        - key: ELG03
+          value: H12-3751
+          comment: Gaussian fit emission-line element
+        - key: ELG04
+          value: H11-3771
+          comment: Gaussian fit emission-line element
+        - key: ELG05
+          value: Hthe-3798
+          comment: Gaussian fit emission-line element
+        - key: ELG06
+          value: Heta-3836
+          comment: Gaussian fit emission-line element
+        - key: ELG07
+          value: NeIII-3869
+          comment: Gaussian fit emission-line element
+        - key: ELG08
+          value: HeI-3889
+          comment: Gaussian fit emission-line element
+        - key: ELG09
+          value: Hzet-3890
+          comment: Gaussian fit emission-line element
+        - key: ELG10
+          value: NeIII-3968
+          comment: Gaussian fit emission-line element
+        - key: ELG11
+          value: Heps-3971
+          comment: Gaussian fit emission-line element
+        - key: ELG12
+          value: Hdel-4102
+          comment: Gaussian fit emission-line element
+        - key: ELG13
+          value: Hgam-4341
+          comment: Gaussian fit emission-line element
+        - key: ELG14
+          value: HeII-4687
+          comment: Gaussian fit emission-line element
+        - key: ELG15
+          value: Hb-4862
+          comment: Gaussian fit emission-line element
+        - key: ELG16
+          value: OIII-4960
+          comment: Gaussian fit emission-line element
+        - key: ELG17
+          value: OIII-5008
+          comment: Gaussian fit emission-line element
+        - key: ELG18
+          value: NI-5199
+          comment: Gaussian fit emission-line element
+        - key: ELG19
+          value: NI-5201
+          comment: Gaussian fit emission-line element
+        - key: ELG20
+          value: HeI-5877
+          comment: Gaussian fit emission-line element
+        - key: ELG21
+          value: OI-6302
+          comment: Gaussian fit emission-line element
+        - key: ELG22
+          value: OI-6365
+          comment: Gaussian fit emission-line element
+        - key: ELG23
+          value: NII-6549
+          comment: Gaussian fit emission-line element
+        - key: ELG24
+          value: Ha-6564
+          comment: Gaussian fit emission-line element
+        - key: ELG25
+          value: NII-6585
+          comment: Gaussian fit emission-line element
+        - key: ELG26
+          value: SII-6718
+          comment: Gaussian fit emission-line element
+        - key: ELG27
+          value: SII-6732
+          comment: Gaussian fit emission-line element
+        - key: ELG28
+          value: HeI-7067
+          comment: Gaussian fit emission-line element
+        - key: ELG29
+          value: ArIII-7137
+          comment: Gaussian fit emission-line element
+        - key: ELG30
+          value: ArIII-7753
+          comment: Gaussian fit emission-line element
+        - key: ELG31
+          value: Peta-9017
+          comment: Gaussian fit emission-line element
+        - key: ELG32
+          value: SIII-9071
+          comment: Gaussian fit emission-line element
+        - key: ELG33
+          value: Pzet-9231
+          comment: Gaussian fit emission-line element
+        - key: ELG34
+          value: SIII-9533
+          comment: Gaussian fit emission-line element
+        - key: ELG35
+          value: Peps-9548
+          comment: Gaussian fit emission-line element
+        - key: SPI01
+          value: CN1
+          comment: Spectral-indx element
+        - key: SPIU01
+          value: mag
+          comment: Spectral-indx element unit
+        - key: SPI02
+          value: CN2
+          comment: Spectral-indx element
+        - key: SPIU02
+          value: mag
+          comment: Spectral-indx element unit
+        - key: SPI03
+          value: Ca4227
+          comment: Spectral-indx element
+        - key: SPIU03
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI04
+          value: G4300
+          comment: Spectral-indx element
+        - key: SPIU04
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI05
+          value: Fe4383
+          comment: Spectral-indx element
+        - key: SPIU05
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI06
+          value: Ca4455
+          comment: Spectral-indx element
+        - key: SPIU06
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI07
+          value: Fe4531
+          comment: Spectral-indx element
+        - key: SPIU07
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI08
+          value: C24668
+          comment: Spectral-indx element
+        - key: SPIU08
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI09
+          value: Hb
+          comment: Spectral-indx element
+        - key: SPIU09
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI10
+          value: Fe5015
+          comment: Spectral-indx element
+        - key: SPIU10
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI11
+          value: Mg1
+          comment: Spectral-indx element
+        - key: SPIU11
+          value: mag
+          comment: Spectral-indx element unit
+        - key: SPI12
+          value: Mg2
+          comment: Spectral-indx element
+        - key: SPIU12
+          value: mag
+          comment: Spectral-indx element unit
+        - key: SPI13
+          value: Mgb
+          comment: Spectral-indx element
+        - key: SPIU13
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI14
+          value: Fe5270
+          comment: Spectral-indx element
+        - key: SPIU14
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI15
+          value: Fe5335
+          comment: Spectral-indx element
+        - key: SPIU15
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI16
+          value: Fe5406
+          comment: Spectral-indx element
+        - key: SPIU16
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI17
+          value: Fe5709
+          comment: Spectral-indx element
+        - key: SPIU17
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI18
+          value: Fe5782
+          comment: Spectral-indx element
+        - key: SPIU18
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI19
+          value: NaD
+          comment: Spectral-indx element
+        - key: SPIU19
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI20
+          value: TiO1
+          comment: Spectral-indx element
+        - key: SPIU20
+          value: mag
+          comment: Spectral-indx element unit
+        - key: SPI21
+          value: TiO2
+          comment: Spectral-indx element
+        - key: SPIU21
+          value: mag
+          comment: Spectral-indx element unit
+        - key: SPI22
+          value: HDeltaA
+          comment: Spectral-indx element
+        - key: SPIU22
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI23
+          value: HGammaA
+          comment: Spectral-indx element
+        - key: SPIU23
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI24
+          value: HDeltaF
+          comment: Spectral-indx element
+        - key: SPIU24
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI25
+          value: HGammaF
+          comment: Spectral-indx element
+        - key: SPIU25
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI26
+          value: CaHK
+          comment: Spectral-indx element
+        - key: SPIU26
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI27
+          value: CaII1
+          comment: Spectral-indx element
+        - key: SPIU27
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI28
+          value: CaII2
+          comment: Spectral-indx element
+        - key: SPIU28
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI29
+          value: CaII3
+          comment: Spectral-indx element
+        - key: SPIU29
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI30
+          value: Pa17
+          comment: Spectral-indx element
+        - key: SPIU30
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI31
+          value: Pa14
+          comment: Spectral-indx element
+        - key: SPIU31
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI32
+          value: Pa12
+          comment: Spectral-indx element
+        - key: SPIU32
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI33
+          value: MgICvD
+          comment: Spectral-indx element
+        - key: SPIU33
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI34
+          value: NaICvD
+          comment: Spectral-indx element
+        - key: SPIU34
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI35
+          value: MgIIR
+          comment: Spectral-indx element
+        - key: SPIU35
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI36
+          value: FeHCvD
+          comment: Spectral-indx element
+        - key: SPIU36
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI37
+          value: NaI
+          comment: Spectral-indx element
+        - key: SPIU37
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI38
+          value: bTiO
+          comment: Spectral-indx element
+        - key: SPIU38
+          value: mag
+          comment: Spectral-indx element unit
+        - key: SPI39
+          value: aTiO
+          comment: Spectral-indx element
+        - key: SPIU39
+          value: mag
+          comment: Spectral-indx element unit
+        - key: SPI40
+          value: CaH1
+          comment: Spectral-indx element
+        - key: SPIU40
+          value: mag
+          comment: Spectral-indx element unit
+        - key: SPI41
+          value: CaH2
+          comment: Spectral-indx element
+        - key: SPIU41
+          value: mag
+          comment: Spectral-indx element unit
+        - key: SPI42
+          value: NaISDSS
+          comment: Spectral-indx element
+        - key: SPIU42
+          value: ang
+          comment: Spectral-indx element unit
+        - key: SPI43
+          value: TiO2SDSS
+          comment: Spectral-indx element
+        - key: SPIU43
+          value: mag
+          comment: Spectral-indx element unit
+        - key: SPI44
+          value: D4000
+          comment: Spectral-indx element
+        - key: SPIU44
+          value: ''
+          comment: Spectral-indx element unit
+        - key: SPI45
+          value: Dn4000
+          comment: Spectral-indx element
+        - key: SPIU45
+          value: ''
+          comment: Spectral-indx element unit
+        - key: SPI46
+          value: TiOCvD
+          comment: Spectral-indx element
+        - key: SPIU46
+          value: ''
+          comment: Spectral-indx element unit
+        - key: CHECKSUM
+          value: VaQVXVPVVaPVVUPV
+          comment: HDU checksum updated 2018-07-22T21:46:07
+        - key: DATASUM
+          value: '0'
+          comment: data unit checksum updated 2018-07-22T21:46:07
+      hdu1:
+        name: SPX-MILESHC-MASTARSSP
+        description: the results using the SPX-MILESHC-MASTARSSP analysis approach
+        is_image: false
+        size: 34 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 3384
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 10782
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 91
+          comment: number of table fields
+        - key: EXTNAME
+          value: SPX-MILESHC-MASTARSSP
+          comment: extension name
+        - key: CHECKSUM
+          value: IaLXJYIUIaIUIWIU
+          comment: HDU checksum updated 2021-02-27T01:47:26
+        - key: DATASUM
+          value: '3330053181'
+          comment: data unit checksum updated 2021-02-27T01:47:26
+        columns:
+          PLATE:
+            name: PLATE
+            type: int64[1]
+            unit: ''
+            description: Plate number
+          IFUDESIGN:
+            name: IFUDESIGN
+            type: int64[1]
+            unit: ''
+            description: IFU design number
+          PLATEIFU:
+            name: PLATEIFU
+            type: char[12]
+            unit: ''
+            description: String combination of PLATE-IFU to ease searching
+          MANGAID:
+            name: MANGAID
+            type: char[10]
+            unit: ''
+            description: MaNGA ID string
+          DRPALLINDX:
+            name: DRPALLINDX
+            type: int64[1]
+            unit: ''
+            description: Row index of the observation in the DRPall file
+          MODE:
+            name: MODE
+            type: char[4]
+            unit: ''
+            description: 3D mode of the DRP file (CUBE or RSS)
+          DAPTYPE:
+            name: DAPTYPE
+            type: char[30]
+            unit: ''
+            description: Keyword of the analysis approach used (e.g., HYB10-GAU-MILESHC
+              for DR15/DR16, HYB10-MILESHC-MASTARSSP for DR17)
+          DAPDONE:
+            name: DAPDONE
+            type: bool[1]
+            unit: ''
+            description: Flag that MAPS file successfully produced
+          OBJRA:
+            name: OBJRA
+            type: float32[1]
+            unit: deg
+            description: RA of the galaxy center
+          OBJDEC:
+            name: OBJDEC
+            type: float32[1]
+            unit: deg
+            description: Declination of the galaxy center
+          IFURA:
+            name: IFURA
+            type: float32[1]
+            unit: deg
+            description: RA of the IFU pointing center (generally the same as OBJRA)
+          IFUDEC:
+            name: IFUDEC
+            type: float32[1]
+            unit: deg
+            description: Declination of the IFU pointing center (generally the same
+              as OBJDEC)
+          MNGTARG1:
+            name: MNGTARG1
+            type: int64[1]
+            unit: ''
+            description: Main survey targeting bit
+          MNGTARG2:
+            name: MNGTARG2
+            type: int64[1]
+            unit: ''
+            description: Non-galaxy targeting bit
+          MNGTARG3:
+            name: MNGTARG3
+            type: int64[1]
+            unit: ''
+            description: Ancillary targeting bit
+          Z:
+            name: Z
+            type: float32[1]
+            unit: ''
+            description: Redshift used to set initial guess velocity (typically identical
+              to NSA_Z)
+          LDIST_Z:
+            name: LDIST_Z
+            type: float32[1]
+            unit: h-1 Mpc
+            description: "Luminosity distance based on Z and a standard cosmology\
+              \ (h=1; \u03A9M=0.3; \u03A9\u039B=0.7)"
+          ADIST_Z:
+            name: ADIST_Z
+            type: float32[1]
+            unit: h-1 Mpc
+            description: "Angular-diameter distance based on Z and a standard cosmology\
+              \ (h=1; \u03A9M=0.3; \u03A9\u039B=0.7)"
+          NSA_Z:
+            name: NSA_Z
+            type: float32[1]
+            unit: ''
+            description: Redshift from the NASA-Sloan Atlas
+          NSA_ZDIST:
+            name: NSA_ZDIST
+            type: float32[1]
+            unit: ''
+            description: NSA distance estimate using pecular velocity model of Willick
+              et al. (1997); multiply by c/H0 for Mpc.
+          LDIST_NSA_Z:
+            name: LDIST_NSA_Z
+            type: float32[1]
+            unit: h-1 Mpc
+            description: "Luminosity distance based on NSA_Z and a standard cosmology\
+              \ (h=1; \u03A9M=0.3; \u03A9\u039B=0.7)"
+          ADIST_NSA_Z:
+            name: ADIST_NSA_Z
+            type: float32[1]
+            unit: h-1 Mpc
+            description: "Angular-diameter distance based on NSA_Z and a standard\
+              \ cosmology (h=1; \u03A9M=0.3; \u03A9\u039B=0.7)"
+          NSA_ELPETRO_BA:
+            name: NSA_ELPETRO_BA
+            type: float32[1]
+            unit: ''
+            description: NSA isophotal axial ratio from elliptical Petrosian analysis
+          NSA_ELPETRO_PHI:
+            name: NSA_ELPETRO_PHI
+            type: float32[1]
+            unit: deg
+            description: NSA isophotal position angle from elliptical Petrosian analysis
+          NSA_ELPETRO_TH50_R:
+            name: NSA_ELPETRO_TH50_R
+            type: float32[1]
+            unit: arcsec
+            description: NSA elliptical Petrosian effective radius in the r-band;
+              the is the same as Reff below.
+          NSA_SERSIC_BA:
+            name: NSA_SERSIC_BA
+            type: float32[1]
+            unit: ''
+            description: NSA isophotal axial ratio from Sersic fit
+          NSA_SERSIC_PHI:
+            name: NSA_SERSIC_PHI
+            type: float32[1]
+            unit: deg
+            description: NSA isophotal position angle from Sersic fit
+          NSA_SERSIC_TH50:
+            name: NSA_SERSIC_TH50
+            type: float32[1]
+            unit: arcsec
+            description: NSA effective radius from the Sersic fit
+          NSA_SERSIC_N:
+            name: NSA_SERSIC_N
+            type: float32[1]
+            unit: ''
+            description: NSA Sersic index
+          VERSDRP2:
+            name: VERSDRP2
+            type: char[8]
+            unit: ''
+            description: Version of DRP used for 2d reductions
+          VERSDRP3:
+            name: VERSDRP3
+            type: char[8]
+            unit: ''
+            description: Version of DRP used for 3d reductions
+          VERSCORE:
+            name: VERSCORE
+            type: char[8]
+            unit: ''
+            description: Version of mangacore used by the DAP
+          VERSUTIL:
+            name: VERSUTIL
+            type: char[8]
+            unit: ''
+            description: Version of idlutils used by the DAP
+          VERSDAP:
+            name: VERSDAP
+            type: char[8]
+            unit: ''
+            description: Version of mangadap
+          DRP3QUAL:
+            name: DRP3QUAL
+            type: int64[1]
+            unit: ''
+            description: DRP 3D quality bit
+          DAPQUAL:
+            name: DAPQUAL
+            type: int64[1]
+            unit: ''
+            description: DAP quality bit
+          RDXQAKEY:
+            name: RDXQAKEY
+            type: char[14]
+            unit: ''
+            description: Configuration keyword for the method used to assess the reduced
+              data
+          BINKEY:
+            name: BINKEY
+            type: char[14]
+            unit: ''
+            description: Configuration keyword for the spatial binning method
+          SCKEY:
+            name: SCKEY
+            type: char[14]
+            unit: ''
+            description: Configuration keyword for the method used to model the stellar-continuum
+          ELMKEY:
+            name: ELMKEY
+            type: char[14]
+            unit: ''
+            description: Configuration keyword that defines the emission-line moment
+              measurement method
+          ELFKEY:
+            name: ELFKEY
+            type: char[14]
+            unit: ''
+            description: Configuration keyword that defines the emission-line modeling
+              method
+          SIKEY:
+            name: SIKEY
+            type: char[14]
+            unit: ''
+            description: Configuration keyword that defines the spectral-index measurement
+              method
+          BINTYPE:
+            name: BINTYPE
+            type: char[10]
+            unit: ''
+            description: Type of binning used
+          BINSNR:
+            name: BINSNR
+            type: float32[1]
+            unit: ''
+            description: Target for bin S/N, if Voronoi binning
+          TPLKEY:
+            name: TPLKEY
+            type: char[15]
+            unit: ''
+            description: The identifier of the template library, e.g., MILES.
+          DATEDAP:
+            name: DATEDAP
+            type: char[10]
+            unit: ''
+            description: Date the DAP file was created and/or last modified.
+          DAPBINS:
+            name: DAPBINS
+            type: int64[1]
+            unit: ''
+            description: The number of "binned" spectra analyzed by the DAP.
+          RCOV90:
+            name: RCOV90
+            type: float32[1]
+            unit: arcsec
+            description: "Semi-major axis radius (R) below which spaxels cover at\
+              \ least 90% of elliptical annuli with width R \xB1 2.5 arcsec. This\
+              \ should be independent of the DAPTYPE."
+          SNR_MED:
+            name: SNR_MED
+            type: float32[4]
+            unit: ''
+            description: Median S/N per pixel in the ''griz'' bands within 1.0-1.5
+              Reff. This should be independent of the DAPTYPE.
+          SNR_RING:
+            name: SNR_RING
+            type: float32[4]
+            unit: ''
+            description: S/N in the ''griz'' bands when binning all spaxels within
+              1.0-1.5 Reff. This should be independent of the DAPTYPE.
+          SB_1RE:
+            name: SB_1RE
+            type: float32[1]
+            unit: 10-17 erg/s/cm2/angstrom/spaxel
+            description: Mean g-band surface brightness of valid spaxels within 1
+              Reff. This should be independent of the DAPTYPE.
+          BIN_RMAX:
+            name: BIN_RMAX
+            type: float32[1]
+            unit: NSA_ELPETRO_TH50_R
+            description: Maximum g-band luminosity-weighted semi-major radius of any
+              "valid" binned spectrum.
+          BIN_R_N:
+            name: BIN_R_N
+            type: float32[3]
+            unit: ''
+            description: Number of binned spectra with g-band luminosity-weighted
+              centers within 0-1, 0.5-1.5, and 1.5-2.5 Reff.
+          BIN_R_SNR:
+            name: BIN_R_SNR
+            type: float32[3]
+            unit: ''
+            description: Median g-band S/N of all binned spectra with luminosity-weighted
+              centers within 0-1, 0.5-1.5, and 1.5-2.5 Reff.
+          STELLAR_Z:
+            name: STELLAR_Z
+            type: float32[1]
+            unit: ''
+            description: Flux-weighted mean redshift of the stellar component within
+              a 2.5 arcsec aperture at the galaxy center.
+          STELLAR_VEL_LO:
+            name: STELLAR_VEL_LO
+            type: float32[1]
+            unit: km/s
+            description: Stellar velocity at 2.5% growth of all valid spaxels.
+          STELLAR_VEL_HI:
+            name: STELLAR_VEL_HI
+            type: float32[1]
+            unit: km/s
+            description: Stellar velocity at 97.5% growth of all valid spaxels.
+          STELLAR_VEL_LO_CLIP:
+            name: STELLAR_VEL_LO_CLIP
+            type: float32[1]
+            unit: km/s
+            description: Stellar velocity at 2.5% growth after iteratively clipping
+              3-sigma outliers.
+          STELLAR_VEL_HI_CLIP:
+            name: STELLAR_VEL_HI_CLIP
+            type: float32[1]
+            unit: km/s
+            description: Stellar velocity at 97.5% growth after iteratively clipping
+              3-sigma outliers.
+          STELLAR_SIGMA_1RE:
+            name: STELLAR_SIGMA_1RE
+            type: float32[1]
+            unit: km/s
+            description: Flux-weighted mean stellar velocity dispersion of all spaxels
+              within 1 Reff.
+          STELLAR_RCHI2_1RE:
+            name: STELLAR_RCHI2_1RE
+            type: float32[1]
+            unit: ''
+            description: Median reduced chi2 of the stellar-continuum fit within 1
+              Reff.
+          HA_Z:
+            name: HA_Z
+            type: float32[1]
+            unit: ''
+            description: "Flux-weighted mean redshift of the H\u03B1 line within a\
+              \ 2.5 arcsec aperture at the galaxy center."
+          HA_GVEL_LO:
+            name: HA_GVEL_LO
+            type: float32[1]
+            unit: km/s
+            description: Gaussian-fitted velocity of the H-alpha line at 2.5% growth
+              of all valid spaxels.
+          HA_GVEL_HI:
+            name: HA_GVEL_HI
+            type: float32[1]
+            unit: km/s
+            description: Gaussian-fitted velocity of the H-alpha line at 97.5% growth
+              of all valid spaxels.
+          HA_GVEL_LO_CLIP:
+            name: HA_GVEL_LO_CLIP
+            type: float32[1]
+            unit: km/s
+            description: Gaussian-fitted velocity of the H-alpha line at 2.5% growth
+              after iteratively clipping 3-sigma outliers.
+          HA_GVEL_HI_CLIP:
+            name: HA_GVEL_HI_CLIP
+            type: float32[1]
+            unit: km/s
+            description: Gaussian-fitted velocity of the H-alpha line at 97.5% growth
+              after iteratively clipping 3-sigma outliers.
+          HA_GSIGMA_1RE:
+            name: HA_GSIGMA_1RE
+            type: float32[1]
+            unit: km/s
+            description: Flux-weighted H-alpha velocity dispersion (from Gaussian
+              fit) of all spaxels within 1 Reff.
+          HA_GSIGMA_HI:
+            name: HA_GSIGMA_HI
+            type: float32[1]
+            unit: km/s
+            description: H-alpha velocity dispersion (from Gaussian fit) at 97.5%
+              growth of all valid spaxels.
+          HA_GSIGMA_HI_CLIP:
+            name: HA_GSIGMA_HI_CLIP
+            type: float32[1]
+            unit: km/s
+            description: H-alpha velocity dispersion (from Gaussian fit) at 97.5%
+              growth after iteratively clipping 3-sigma outliers.
+          EMLINE_RCHI2_1RE:
+            name: EMLINE_RCHI2_1RE
+            type: float32[1]
+            unit: ''
+            description: Median reduced chi-square of the continuum+emission-line
+              fit within 1 effective radius.
+          EMLINE_SFLUX_CEN:
+            name: EMLINE_SFLUX_CEN
+            type: float32[35]
+            unit: 10-17 erg/s/cm2
+            description: Summed emission-line flux integrated within a 2.5 arcsec
+              aperture at the galaxy center.
+          EMLINE_SFLUX_1RE:
+            name: EMLINE_SFLUX_1RE
+            type: float32[35]
+            unit: 10-17 erg/s/cm2
+            description: Summed emission-line flux integrated within 1 effective-radius
+              aperture at the galaxy.
+          EMLINE_SFLUX_TOT:
+            name: EMLINE_SFLUX_TOT
+            type: float32[35]
+            unit: 10-17 erg/s/cm2
+            description: Total integrated flux of each summed emission measurement
+              within the full MaNGA field-of-view.
+          EMLINE_SSB_1RE:
+            name: EMLINE_SSB_1RE
+            type: float32[35]
+            unit: 10-17 erg/s/cm2/spaxel
+            description: Mean emission-line surface-brightness from the summed flux
+              measurements within 1 Reff.
+          EMLINE_SSB_PEAK:
+            name: EMLINE_SSB_PEAK
+            type: float32[35]
+            unit: 10-17 erg/s/cm2/spaxel
+            description: Peak summed-flux emission-line surface brightness.
+          EMLINE_SEW_1RE:
+            name: EMLINE_SEW_1RE
+            type: float32[35]
+            unit: angstrom
+            description: Mean emission-line equivalent width from the summed flux
+              measurements within 1 Reff.
+          EMLINE_SEW_PEAK:
+            name: EMLINE_SEW_PEAK
+            type: float32[35]
+            unit: angstrom
+            description: Peak emission-line equivalent width from the summed flux
+              measurements.
+          EMLINE_GFLUX_CEN:
+            name: EMLINE_GFLUX_CEN
+            type: float32[35]
+            unit: 10-17 erg/s/cm2
+            description: Gaussian-fitted emission-line flux integrated within a 2.5
+              arcsec aperture at the galaxy center.
+          EMLINE_GFLUX_1RE:
+            name: EMLINE_GFLUX_1RE
+            type: float32[35]
+            unit: 10-17 erg/s/cm2
+            description: Gaussian-fitted emission-line flux integrated within 1 effective-radius
+              aperture at the galaxy.
+          EMLINE_GFLUX_TOT:
+            name: EMLINE_GFLUX_TOT
+            type: float32[35]
+            unit: 10-17 erg/s/cm2
+            description: Total integrated flux of the Gaussian fit to each emission
+              line within the full MaNGA field-of-view.
+          EMLINE_GSB_1RE:
+            name: EMLINE_GSB_1RE
+            type: float32[35]
+            unit: 10-17 erg/s/cm2/spaxel
+            description: Mean emission-line surface-brightness from the Gaussian-fitted
+              flux measurements within 1 Reff.
+          EMLINE_GSB_PEAK:
+            name: EMLINE_GSB_PEAK
+            type: float32[35]
+            unit: 10-17 erg/s/cm2/spaxel
+            description: Peak Gaussian-fitted emission-line surface brightness.
+          EMLINE_GEW_1RE:
+            name: EMLINE_GEW_1RE
+            type: float32[35]
+            unit: angstrom
+            description: Mean emission-line equivalent width from the Gaussian-fitted
+              flux measurements within 1 Reff.
+          EMLINE_GEW_PEAK:
+            name: EMLINE_GEW_PEAK
+            type: float32[35]
+            unit: angstrom
+            description: Peak emission-line equivalent width from the Gaussian-fitted
+              flux measurements.
+          SPECINDEX_LO:
+            name: SPECINDEX_LO
+            type: float32[46]
+            unit: see HDU0-SPIU
+            description: Spectral index at 2.5% growth of all valid spaxels.
+          SPECINDEX_HI:
+            name: SPECINDEX_HI
+            type: float32[46]
+            unit: see HDU0-SPIU
+            description: Spectral index at 97.5% growth of all valid spaxels.
+          SPECINDEX_LO_CLIP:
+            name: SPECINDEX_LO_CLIP
+            type: float32[46]
+            unit: see HDU0-SPIU
+            description: Spectral index at 2.5% growth after iteratively clipping
+              3-sigma outliers.
+          SPECINDEX_HI_CLIP:
+            name: SPECINDEX_HI_CLIP
+            type: float32[46]
+            unit: see HDU0-SPIU
+            description: Spectral index at 97.5% growth after iteratively clipping
+              3-sigma outliers.
+          SPECINDEX_1RE:
+            name: SPECINDEX_1RE
+            type: float32[46]
+            unit: see HDU0-SPIU
+            description: Median spectral index within 1 effective radius.
+          SFR_1RE:
+            name: SFR_1RE
+            type: float32[1]
+            unit: h-2 Msun/yr
+            description: "Simple estimate of the star-formation rate within 1 effective\
+              \ radius based on the Gaussian-fitted H\u03B1 flux; log(SFR) = log LH\u03B1\
+              \ - 41.27 (Kennicutt & Evans [2012, ARAA, 50, 531], citing Murphy et\
+              \ al. [2011, ApJ, 737, 67] and Hao et al. [2011, ApJ, 741, 124]; Kroupa\
+              \ IMF), where LH\u03B1 = 4\u03C0 EML_FLUX_1RE (LDIST_Z)2 and ''no''\
+              \ attentuation correction has been applied."
+          SFR_TOT:
+            name: SFR_TOT
+            type: float32[1]
+            unit: h-2 Msun/yr
+            description: "Simple estimate of the star-formation rate within the IFU\
+              \ field-of-view based on the Gaussian-fitted H\u03B1 flux; log(SFR)\
+              \ = log LH\u03B1 - 41.27 (Kennicutt & Evans [2012, ARAA, 50, 531], citing\
+              \ Murphy et al. [2011, ApJ, 737, 67] and Hao et al. [2011, ApJ, 741,\
+              \ 124]; Kroupa IMF), where LH\u03B1 = 4\u03C0 EML_FLUX_TOT (LDIST_Z)2\
+              \ and ''no'' attentuation correction has been applied."
+      hdu2:
+        name: VOR10-MILESHC-MASTARSSP
+        description: the results using the VOR10-MILESHC-MASTARSSP analysis approach
+        is_image: false
+        size: 34 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 3384
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 10782
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 91
+          comment: number of table fields
+        - key: EXTNAME
+          value: VOR10-MILESHC-MASTARSSP
+          comment: extension name
+        - key: CHECKSUM
+          value: fINei9LefGLef9Le
+          comment: HDU checksum updated 2021-02-27T01:47:27
+        - key: DATASUM
+          value: '1885800130'
+          comment: data unit checksum updated 2021-02-27T01:47:27
+        columns:
+          PLATE:
+            name: PLATE
+            type: int64[1]
+            unit: ''
+            description: Plate number
+          IFUDESIGN:
+            name: IFUDESIGN
+            type: int64[1]
+            unit: ''
+            description: IFU design number
+          PLATEIFU:
+            name: PLATEIFU
+            type: char[12]
+            unit: ''
+            description: String combination of PLATE-IFU to ease searching
+          MANGAID:
+            name: MANGAID
+            type: char[10]
+            unit: ''
+            description: MaNGA ID string
+          DRPALLINDX:
+            name: DRPALLINDX
+            type: int64[1]
+            unit: ''
+            description: Row index of the observation in the DRPall file
+          MODE:
+            name: MODE
+            type: char[4]
+            unit: ''
+            description: 3D mode of the DRP file (CUBE or RSS)
+          DAPTYPE:
+            name: DAPTYPE
+            type: char[30]
+            unit: ''
+            description: Keyword of the analysis approach used (e.g., HYB10-GAU-MILESHC
+              for DR15/DR16, HYB10-MILESHC-MASTARSSP for DR17)
+          DAPDONE:
+            name: DAPDONE
+            type: bool[1]
+            unit: ''
+            description: Flag that MAPS file successfully produced
+          OBJRA:
+            name: OBJRA
+            type: float32[1]
+            unit: deg
+            description: RA of the galaxy center
+          OBJDEC:
+            name: OBJDEC
+            type: float32[1]
+            unit: deg
+            description: Declination of the galaxy center
+          IFURA:
+            name: IFURA
+            type: float32[1]
+            unit: deg
+            description: RA of the IFU pointing center (generally the same as OBJRA)
+          IFUDEC:
+            name: IFUDEC
+            type: float32[1]
+            unit: deg
+            description: Declination of the IFU pointing center (generally the same
+              as OBJDEC)
+          MNGTARG1:
+            name: MNGTARG1
+            type: int64[1]
+            unit: ''
+            description: Main survey targeting bit
+          MNGTARG2:
+            name: MNGTARG2
+            type: int64[1]
+            unit: ''
+            description: Non-galaxy targeting bit
+          MNGTARG3:
+            name: MNGTARG3
+            type: int64[1]
+            unit: ''
+            description: Ancillary targeting bit
+          Z:
+            name: Z
+            type: float32[1]
+            unit: ''
+            description: Redshift used to set initial guess velocity (typically identical
+              to NSA_Z)
+          LDIST_Z:
+            name: LDIST_Z
+            type: float32[1]
+            unit: h-1 Mpc
+            description: "Luminosity distance based on Z and a standard cosmology\
+              \ (h=1; \u03A9M=0.3; \u03A9\u039B=0.7)"
+          ADIST_Z:
+            name: ADIST_Z
+            type: float32[1]
+            unit: h-1 Mpc
+            description: "Angular-diameter distance based on Z and a standard cosmology\
+              \ (h=1; \u03A9M=0.3; \u03A9\u039B=0.7)"
+          NSA_Z:
+            name: NSA_Z
+            type: float32[1]
+            unit: ''
+            description: Redshift from the NASA-Sloan Atlas
+          NSA_ZDIST:
+            name: NSA_ZDIST
+            type: float32[1]
+            unit: ''
+            description: NSA distance estimate using pecular velocity model of Willick
+              et al. (1997); multiply by c/H0 for Mpc.
+          LDIST_NSA_Z:
+            name: LDIST_NSA_Z
+            type: float32[1]
+            unit: h-1 Mpc
+            description: "Luminosity distance based on NSA_Z and a standard cosmology\
+              \ (h=1; \u03A9M=0.3; \u03A9\u039B=0.7)"
+          ADIST_NSA_Z:
+            name: ADIST_NSA_Z
+            type: float32[1]
+            unit: h-1 Mpc
+            description: "Angular-diameter distance based on NSA_Z and a standard\
+              \ cosmology (h=1; \u03A9M=0.3; \u03A9\u039B=0.7)"
+          NSA_ELPETRO_BA:
+            name: NSA_ELPETRO_BA
+            type: float32[1]
+            unit: ''
+            description: NSA isophotal axial ratio from elliptical Petrosian analysis
+          NSA_ELPETRO_PHI:
+            name: NSA_ELPETRO_PHI
+            type: float32[1]
+            unit: deg
+            description: NSA isophotal position angle from elliptical Petrosian analysis
+          NSA_ELPETRO_TH50_R:
+            name: NSA_ELPETRO_TH50_R
+            type: float32[1]
+            unit: arcsec
+            description: NSA elliptical Petrosian effective radius in the r-band;
+              the is the same as Reff below.
+          NSA_SERSIC_BA:
+            name: NSA_SERSIC_BA
+            type: float32[1]
+            unit: ''
+            description: NSA isophotal axial ratio from Sersic fit
+          NSA_SERSIC_PHI:
+            name: NSA_SERSIC_PHI
+            type: float32[1]
+            unit: deg
+            description: NSA isophotal position angle from Sersic fit
+          NSA_SERSIC_TH50:
+            name: NSA_SERSIC_TH50
+            type: float32[1]
+            unit: arcsec
+            description: NSA effective radius from the Sersic fit
+          NSA_SERSIC_N:
+            name: NSA_SERSIC_N
+            type: float32[1]
+            unit: ''
+            description: NSA Sersic index
+          VERSDRP2:
+            name: VERSDRP2
+            type: char[8]
+            unit: ''
+            description: Version of DRP used for 2d reductions
+          VERSDRP3:
+            name: VERSDRP3
+            type: char[8]
+            unit: ''
+            description: Version of DRP used for 3d reductions
+          VERSCORE:
+            name: VERSCORE
+            type: char[8]
+            unit: ''
+            description: Version of mangacore used by the DAP
+          VERSUTIL:
+            name: VERSUTIL
+            type: char[8]
+            unit: ''
+            description: Version of idlutils used by the DAP
+          VERSDAP:
+            name: VERSDAP
+            type: char[8]
+            unit: ''
+            description: Version of mangadap
+          DRP3QUAL:
+            name: DRP3QUAL
+            type: int64[1]
+            unit: ''
+            description: DRP 3D quality bit
+          DAPQUAL:
+            name: DAPQUAL
+            type: int64[1]
+            unit: ''
+            description: DAP quality bit
+          RDXQAKEY:
+            name: RDXQAKEY
+            type: char[14]
+            unit: ''
+            description: Configuration keyword for the method used to assess the reduced
+              data
+          BINKEY:
+            name: BINKEY
+            type: char[14]
+            unit: ''
+            description: Configuration keyword for the spatial binning method
+          SCKEY:
+            name: SCKEY
+            type: char[14]
+            unit: ''
+            description: Configuration keyword for the method used to model the stellar-continuum
+          ELMKEY:
+            name: ELMKEY
+            type: char[14]
+            unit: ''
+            description: Configuration keyword that defines the emission-line moment
+              measurement method
+          ELFKEY:
+            name: ELFKEY
+            type: char[14]
+            unit: ''
+            description: Configuration keyword that defines the emission-line modeling
+              method
+          SIKEY:
+            name: SIKEY
+            type: char[14]
+            unit: ''
+            description: Configuration keyword that defines the spectral-index measurement
+              method
+          BINTYPE:
+            name: BINTYPE
+            type: char[10]
+            unit: ''
+            description: Type of binning used
+          BINSNR:
+            name: BINSNR
+            type: float32[1]
+            unit: ''
+            description: Target for bin S/N, if Voronoi binning
+          TPLKEY:
+            name: TPLKEY
+            type: char[15]
+            unit: ''
+            description: The identifier of the template library, e.g., MILES.
+          DATEDAP:
+            name: DATEDAP
+            type: char[10]
+            unit: ''
+            description: Date the DAP file was created and/or last modified.
+          DAPBINS:
+            name: DAPBINS
+            type: int64[1]
+            unit: ''
+            description: The number of "binned" spectra analyzed by the DAP.
+          RCOV90:
+            name: RCOV90
+            type: float32[1]
+            unit: arcsec
+            description: "Semi-major axis radius (R) below which spaxels cover at\
+              \ least 90% of elliptical annuli with width R \xB1 2.5 arcsec. This\
+              \ should be independent of the DAPTYPE."
+          SNR_MED:
+            name: SNR_MED
+            type: float32[4]
+            unit: ''
+            description: Median S/N per pixel in the ''griz'' bands within 1.0-1.5
+              Reff. This should be independent of the DAPTYPE.
+          SNR_RING:
+            name: SNR_RING
+            type: float32[4]
+            unit: ''
+            description: S/N in the ''griz'' bands when binning all spaxels within
+              1.0-1.5 Reff. This should be independent of the DAPTYPE.
+          SB_1RE:
+            name: SB_1RE
+            type: float32[1]
+            unit: 10-17 erg/s/cm2/angstrom/spaxel
+            description: Mean g-band surface brightness of valid spaxels within 1
+              Reff. This should be independent of the DAPTYPE.
+          BIN_RMAX:
+            name: BIN_RMAX
+            type: float32[1]
+            unit: NSA_ELPETRO_TH50_R
+            description: Maximum g-band luminosity-weighted semi-major radius of any
+              "valid" binned spectrum.
+          BIN_R_N:
+            name: BIN_R_N
+            type: float32[3]
+            unit: ''
+            description: Number of binned spectra with g-band luminosity-weighted
+              centers within 0-1, 0.5-1.5, and 1.5-2.5 Reff.
+          BIN_R_SNR:
+            name: BIN_R_SNR
+            type: float32[3]
+            unit: ''
+            description: Median g-band S/N of all binned spectra with luminosity-weighted
+              centers within 0-1, 0.5-1.5, and 1.5-2.5 Reff.
+          STELLAR_Z:
+            name: STELLAR_Z
+            type: float32[1]
+            unit: ''
+            description: Flux-weighted mean redshift of the stellar component within
+              a 2.5 arcsec aperture at the galaxy center.
+          STELLAR_VEL_LO:
+            name: STELLAR_VEL_LO
+            type: float32[1]
+            unit: km/s
+            description: Stellar velocity at 2.5% growth of all valid spaxels.
+          STELLAR_VEL_HI:
+            name: STELLAR_VEL_HI
+            type: float32[1]
+            unit: km/s
+            description: Stellar velocity at 97.5% growth of all valid spaxels.
+          STELLAR_VEL_LO_CLIP:
+            name: STELLAR_VEL_LO_CLIP
+            type: float32[1]
+            unit: km/s
+            description: Stellar velocity at 2.5% growth after iteratively clipping
+              3-sigma outliers.
+          STELLAR_VEL_HI_CLIP:
+            name: STELLAR_VEL_HI_CLIP
+            type: float32[1]
+            unit: km/s
+            description: Stellar velocity at 97.5% growth after iteratively clipping
+              3-sigma outliers.
+          STELLAR_SIGMA_1RE:
+            name: STELLAR_SIGMA_1RE
+            type: float32[1]
+            unit: km/s
+            description: Flux-weighted mean stellar velocity dispersion of all spaxels
+              within 1 Reff.
+          STELLAR_RCHI2_1RE:
+            name: STELLAR_RCHI2_1RE
+            type: float32[1]
+            unit: ''
+            description: Median reduced chi2 of the stellar-continuum fit within 1
+              Reff.
+          HA_Z:
+            name: HA_Z
+            type: float32[1]
+            unit: ''
+            description: "Flux-weighted mean redshift of the H\u03B1 line within a\
+              \ 2.5 arcsec aperture at the galaxy center."
+          HA_GVEL_LO:
+            name: HA_GVEL_LO
+            type: float32[1]
+            unit: km/s
+            description: Gaussian-fitted velocity of the H-alpha line at 2.5% growth
+              of all valid spaxels.
+          HA_GVEL_HI:
+            name: HA_GVEL_HI
+            type: float32[1]
+            unit: km/s
+            description: Gaussian-fitted velocity of the H-alpha line at 97.5% growth
+              of all valid spaxels.
+          HA_GVEL_LO_CLIP:
+            name: HA_GVEL_LO_CLIP
+            type: float32[1]
+            unit: km/s
+            description: Gaussian-fitted velocity of the H-alpha line at 2.5% growth
+              after iteratively clipping 3-sigma outliers.
+          HA_GVEL_HI_CLIP:
+            name: HA_GVEL_HI_CLIP
+            type: float32[1]
+            unit: km/s
+            description: Gaussian-fitted velocity of the H-alpha line at 97.5% growth
+              after iteratively clipping 3-sigma outliers.
+          HA_GSIGMA_1RE:
+            name: HA_GSIGMA_1RE
+            type: float32[1]
+            unit: km/s
+            description: Flux-weighted H-alpha velocity dispersion (from Gaussian
+              fit) of all spaxels within 1 Reff.
+          HA_GSIGMA_HI:
+            name: HA_GSIGMA_HI
+            type: float32[1]
+            unit: km/s
+            description: H-alpha velocity dispersion (from Gaussian fit) at 97.5%
+              growth of all valid spaxels.
+          HA_GSIGMA_HI_CLIP:
+            name: HA_GSIGMA_HI_CLIP
+            type: float32[1]
+            unit: km/s
+            description: H-alpha velocity dispersion (from Gaussian fit) at 97.5%
+              growth after iteratively clipping 3-sigma outliers.
+          EMLINE_RCHI2_1RE:
+            name: EMLINE_RCHI2_1RE
+            type: float32[1]
+            unit: ''
+            description: Median reduced chi-square of the continuum+emission-line
+              fit within 1 effective radius.
+          EMLINE_SFLUX_CEN:
+            name: EMLINE_SFLUX_CEN
+            type: float32[35]
+            unit: 10-17 erg/s/cm2
+            description: Summed emission-line flux integrated within a 2.5 arcsec
+              aperture at the galaxy center.
+          EMLINE_SFLUX_1RE:
+            name: EMLINE_SFLUX_1RE
+            type: float32[35]
+            unit: 10-17 erg/s/cm2
+            description: Summed emission-line flux integrated within 1 effective-radius
+              aperture at the galaxy.
+          EMLINE_SFLUX_TOT:
+            name: EMLINE_SFLUX_TOT
+            type: float32[35]
+            unit: 10-17 erg/s/cm2
+            description: Total integrated flux of each summed emission measurement
+              within the full MaNGA field-of-view.
+          EMLINE_SSB_1RE:
+            name: EMLINE_SSB_1RE
+            type: float32[35]
+            unit: 10-17 erg/s/cm2/spaxel
+            description: Mean emission-line surface-brightness from the summed flux
+              measurements within 1 Reff.
+          EMLINE_SSB_PEAK:
+            name: EMLINE_SSB_PEAK
+            type: float32[35]
+            unit: 10-17 erg/s/cm2/spaxel
+            description: Peak summed-flux emission-line surface brightness.
+          EMLINE_SEW_1RE:
+            name: EMLINE_SEW_1RE
+            type: float32[35]
+            unit: angstrom
+            description: Mean emission-line equivalent width from the summed flux
+              measurements within 1 Reff.
+          EMLINE_SEW_PEAK:
+            name: EMLINE_SEW_PEAK
+            type: float32[35]
+            unit: angstrom
+            description: Peak emission-line equivalent width from the summed flux
+              measurements.
+          EMLINE_GFLUX_CEN:
+            name: EMLINE_GFLUX_CEN
+            type: float32[35]
+            unit: 10-17 erg/s/cm2
+            description: Gaussian-fitted emission-line flux integrated within a 2.5
+              arcsec aperture at the galaxy center.
+          EMLINE_GFLUX_1RE:
+            name: EMLINE_GFLUX_1RE
+            type: float32[35]
+            unit: 10-17 erg/s/cm2
+            description: Gaussian-fitted emission-line flux integrated within 1 effective-radius
+              aperture at the galaxy.
+          EMLINE_GFLUX_TOT:
+            name: EMLINE_GFLUX_TOT
+            type: float32[35]
+            unit: 10-17 erg/s/cm2
+            description: Total integrated flux of the Gaussian fit to each emission
+              line within the full MaNGA field-of-view.
+          EMLINE_GSB_1RE:
+            name: EMLINE_GSB_1RE
+            type: float32[35]
+            unit: 10-17 erg/s/cm2/spaxel
+            description: Mean emission-line surface-brightness from the Gaussian-fitted
+              flux measurements within 1 Reff.
+          EMLINE_GSB_PEAK:
+            name: EMLINE_GSB_PEAK
+            type: float32[35]
+            unit: 10-17 erg/s/cm2/spaxel
+            description: Peak Gaussian-fitted emission-line surface brightness.
+          EMLINE_GEW_1RE:
+            name: EMLINE_GEW_1RE
+            type: float32[35]
+            unit: angstrom
+            description: Mean emission-line equivalent width from the Gaussian-fitted
+              flux measurements within 1 Reff.
+          EMLINE_GEW_PEAK:
+            name: EMLINE_GEW_PEAK
+            type: float32[35]
+            unit: angstrom
+            description: Peak emission-line equivalent width from the Gaussian-fitted
+              flux measurements.
+          SPECINDEX_LO:
+            name: SPECINDEX_LO
+            type: float32[46]
+            unit: see HDU0-SPIU
+            description: Spectral index at 2.5% growth of all valid spaxels.
+          SPECINDEX_HI:
+            name: SPECINDEX_HI
+            type: float32[46]
+            unit: see HDU0-SPIU
+            description: Spectral index at 97.5% growth of all valid spaxels.
+          SPECINDEX_LO_CLIP:
+            name: SPECINDEX_LO_CLIP
+            type: float32[46]
+            unit: see HDU0-SPIU
+            description: Spectral index at 2.5% growth after iteratively clipping
+              3-sigma outliers.
+          SPECINDEX_HI_CLIP:
+            name: SPECINDEX_HI_CLIP
+            type: float32[46]
+            unit: see HDU0-SPIU
+            description: Spectral index at 97.5% growth after iteratively clipping
+              3-sigma outliers.
+          SPECINDEX_1RE:
+            name: SPECINDEX_1RE
+            type: float32[46]
+            unit: see HDU0-SPIU
+            description: Median spectral index within 1 effective radius.
+          SFR_1RE:
+            name: SFR_1RE
+            type: float32[1]
+            unit: h-2 Msun/yr
+            description: "Simple estimate of the star-formation rate within 1 effective\
+              \ radius based on the Gaussian-fitted H\u03B1 flux; log(SFR) = log LH\u03B1\
+              \ - 41.27 (Kennicutt & Evans [2012, ARAA, 50, 531], citing Murphy et\
+              \ al. [2011, ApJ, 737, 67] and Hao et al. [2011, ApJ, 741, 124]; Kroupa\
+              \ IMF), where LH\u03B1 = 4\u03C0 EML_FLUX_1RE (LDIST_Z)2 and ''no''\
+              \ attentuation correction has been applied."
+          SFR_TOT:
+            name: SFR_TOT
+            type: float32[1]
+            unit: h-2 Msun/yr
+            description: "Simple estimate of the star-formation rate within the IFU\
+              \ field-of-view based on the Gaussian-fitted H\u03B1 flux; log(SFR)\
+              \ = log LH\u03B1 - 41.27 (Kennicutt & Evans [2012, ARAA, 50, 531], citing\
+              \ Murphy et al. [2011, ApJ, 737, 67] and Hao et al. [2011, ApJ, 741,\
+              \ 124]; Kroupa IMF), where LH\u03B1 = 4\u03C0 EML_FLUX_TOT (LDIST_Z)2\
+              \ and ''no'' attentuation correction has been applied."
+      hdu3:
+        name: HYB10-MILESHC-MASTARSSP
+        description: the results using the HYB10-MILESHC-MASTARSSP analysis approach
+        is_image: false
+        size: 34 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 3384
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 10782
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 91
+          comment: number of table fields
+        - key: EXTNAME
+          value: HYB10-MILESHC-MASTARSSP
+          comment: extension name
+        - key: CHECKSUM
+          value: 0ego1bZm0bfm0bZm
+          comment: HDU checksum updated 2021-02-27T01:47:27
+        - key: DATASUM
+          value: '3559383214'
+          comment: data unit checksum updated 2021-02-27T01:47:27
+        columns:
+          PLATE:
+            name: PLATE
+            type: int64[1]
+            unit: ''
+            description: Plate number
+          IFUDESIGN:
+            name: IFUDESIGN
+            type: int64[1]
+            unit: ''
+            description: IFU design number
+          PLATEIFU:
+            name: PLATEIFU
+            type: char[12]
+            unit: ''
+            description: String combination of PLATE-IFU to ease searching
+          MANGAID:
+            name: MANGAID
+            type: char[10]
+            unit: ''
+            description: MaNGA ID string
+          DRPALLINDX:
+            name: DRPALLINDX
+            type: int64[1]
+            unit: ''
+            description: Row index of the observation in the DRPall file
+          MODE:
+            name: MODE
+            type: char[4]
+            unit: ''
+            description: 3D mode of the DRP file (CUBE or RSS)
+          DAPTYPE:
+            name: DAPTYPE
+            type: char[30]
+            unit: ''
+            description: Keyword of the analysis approach used (e.g., HYB10-GAU-MILESHC
+              for DR15/DR16, HYB10-MILESHC-MASTARSSP for DR17)
+          DAPDONE:
+            name: DAPDONE
+            type: bool[1]
+            unit: ''
+            description: Flag that MAPS file successfully produced
+          OBJRA:
+            name: OBJRA
+            type: float32[1]
+            unit: deg
+            description: RA of the galaxy center
+          OBJDEC:
+            name: OBJDEC
+            type: float32[1]
+            unit: deg
+            description: Declination of the galaxy center
+          IFURA:
+            name: IFURA
+            type: float32[1]
+            unit: deg
+            description: RA of the IFU pointing center (generally the same as OBJRA)
+          IFUDEC:
+            name: IFUDEC
+            type: float32[1]
+            unit: deg
+            description: Declination of the IFU pointing center (generally the same
+              as OBJDEC)
+          MNGTARG1:
+            name: MNGTARG1
+            type: int64[1]
+            unit: ''
+            description: Main survey targeting bit
+          MNGTARG2:
+            name: MNGTARG2
+            type: int64[1]
+            unit: ''
+            description: Non-galaxy targeting bit
+          MNGTARG3:
+            name: MNGTARG3
+            type: int64[1]
+            unit: ''
+            description: Ancillary targeting bit
+          Z:
+            name: Z
+            type: float32[1]
+            unit: ''
+            description: Redshift used to set initial guess velocity (typically identical
+              to NSA_Z)
+          LDIST_Z:
+            name: LDIST_Z
+            type: float32[1]
+            unit: h-1 Mpc
+            description: "Luminosity distance based on Z and a standard cosmology\
+              \ (h=1; \u03A9M=0.3; \u03A9\u039B=0.7)"
+          ADIST_Z:
+            name: ADIST_Z
+            type: float32[1]
+            unit: h-1 Mpc
+            description: "Angular-diameter distance based on Z and a standard cosmology\
+              \ (h=1; \u03A9M=0.3; \u03A9\u039B=0.7)"
+          NSA_Z:
+            name: NSA_Z
+            type: float32[1]
+            unit: ''
+            description: Redshift from the NASA-Sloan Atlas
+          NSA_ZDIST:
+            name: NSA_ZDIST
+            type: float32[1]
+            unit: ''
+            description: NSA distance estimate using pecular velocity model of Willick
+              et al. (1997); multiply by c/H0 for Mpc.
+          LDIST_NSA_Z:
+            name: LDIST_NSA_Z
+            type: float32[1]
+            unit: h-1 Mpc
+            description: "Luminosity distance based on NSA_Z and a standard cosmology\
+              \ (h=1; \u03A9M=0.3; \u03A9\u039B=0.7)"
+          ADIST_NSA_Z:
+            name: ADIST_NSA_Z
+            type: float32[1]
+            unit: h-1 Mpc
+            description: "Angular-diameter distance based on NSA_Z and a standard\
+              \ cosmology (h=1; \u03A9M=0.3; \u03A9\u039B=0.7)"
+          NSA_ELPETRO_BA:
+            name: NSA_ELPETRO_BA
+            type: float32[1]
+            unit: ''
+            description: NSA isophotal axial ratio from elliptical Petrosian analysis
+          NSA_ELPETRO_PHI:
+            name: NSA_ELPETRO_PHI
+            type: float32[1]
+            unit: deg
+            description: NSA isophotal position angle from elliptical Petrosian analysis
+          NSA_ELPETRO_TH50_R:
+            name: NSA_ELPETRO_TH50_R
+            type: float32[1]
+            unit: arcsec
+            description: NSA elliptical Petrosian effective radius in the r-band;
+              the is the same as Reff below.
+          NSA_SERSIC_BA:
+            name: NSA_SERSIC_BA
+            type: float32[1]
+            unit: ''
+            description: NSA isophotal axial ratio from Sersic fit
+          NSA_SERSIC_PHI:
+            name: NSA_SERSIC_PHI
+            type: float32[1]
+            unit: deg
+            description: NSA isophotal position angle from Sersic fit
+          NSA_SERSIC_TH50:
+            name: NSA_SERSIC_TH50
+            type: float32[1]
+            unit: arcsec
+            description: NSA effective radius from the Sersic fit
+          NSA_SERSIC_N:
+            name: NSA_SERSIC_N
+            type: float32[1]
+            unit: ''
+            description: NSA Sersic index
+          VERSDRP2:
+            name: VERSDRP2
+            type: char[8]
+            unit: ''
+            description: Version of DRP used for 2d reductions
+          VERSDRP3:
+            name: VERSDRP3
+            type: char[8]
+            unit: ''
+            description: Version of DRP used for 3d reductions
+          VERSCORE:
+            name: VERSCORE
+            type: char[8]
+            unit: ''
+            description: Version of mangacore used by the DAP
+          VERSUTIL:
+            name: VERSUTIL
+            type: char[8]
+            unit: ''
+            description: Version of idlutils used by the DAP
+          VERSDAP:
+            name: VERSDAP
+            type: char[8]
+            unit: ''
+            description: Version of mangadap
+          DRP3QUAL:
+            name: DRP3QUAL
+            type: int64[1]
+            unit: ''
+            description: DRP 3D quality bit
+          DAPQUAL:
+            name: DAPQUAL
+            type: int64[1]
+            unit: ''
+            description: DAP quality bit
+          RDXQAKEY:
+            name: RDXQAKEY
+            type: char[14]
+            unit: ''
+            description: Configuration keyword for the method used to assess the reduced
+              data
+          BINKEY:
+            name: BINKEY
+            type: char[14]
+            unit: ''
+            description: Configuration keyword for the spatial binning method
+          SCKEY:
+            name: SCKEY
+            type: char[14]
+            unit: ''
+            description: Configuration keyword for the method used to model the stellar-continuum
+          ELMKEY:
+            name: ELMKEY
+            type: char[14]
+            unit: ''
+            description: Configuration keyword that defines the emission-line moment
+              measurement method
+          ELFKEY:
+            name: ELFKEY
+            type: char[14]
+            unit: ''
+            description: Configuration keyword that defines the emission-line modeling
+              method
+          SIKEY:
+            name: SIKEY
+            type: char[14]
+            unit: ''
+            description: Configuration keyword that defines the spectral-index measurement
+              method
+          BINTYPE:
+            name: BINTYPE
+            type: char[10]
+            unit: ''
+            description: Type of binning used
+          BINSNR:
+            name: BINSNR
+            type: float32[1]
+            unit: ''
+            description: Target for bin S/N, if Voronoi binning
+          TPLKEY:
+            name: TPLKEY
+            type: char[15]
+            unit: ''
+            description: The identifier of the template library, e.g., MILES.
+          DATEDAP:
+            name: DATEDAP
+            type: char[10]
+            unit: ''
+            description: Date the DAP file was created and/or last modified.
+          DAPBINS:
+            name: DAPBINS
+            type: int64[1]
+            unit: ''
+            description: The number of "binned" spectra analyzed by the DAP.
+          RCOV90:
+            name: RCOV90
+            type: float32[1]
+            unit: arcsec
+            description: "Semi-major axis radius (R) below which spaxels cover at\
+              \ least 90% of elliptical annuli with width R \xB1 2.5 arcsec. This\
+              \ should be independent of the DAPTYPE."
+          SNR_MED:
+            name: SNR_MED
+            type: float32[4]
+            unit: ''
+            description: Median S/N per pixel in the ''griz'' bands within 1.0-1.5
+              Reff. This should be independent of the DAPTYPE.
+          SNR_RING:
+            name: SNR_RING
+            type: float32[4]
+            unit: ''
+            description: S/N in the ''griz'' bands when binning all spaxels within
+              1.0-1.5 Reff. This should be independent of the DAPTYPE.
+          SB_1RE:
+            name: SB_1RE
+            type: float32[1]
+            unit: 10-17 erg/s/cm2/angstrom/spaxel
+            description: Mean g-band surface brightness of valid spaxels within 1
+              Reff. This should be independent of the DAPTYPE.
+          BIN_RMAX:
+            name: BIN_RMAX
+            type: float32[1]
+            unit: NSA_ELPETRO_TH50_R
+            description: Maximum g-band luminosity-weighted semi-major radius of any
+              "valid" binned spectrum.
+          BIN_R_N:
+            name: BIN_R_N
+            type: float32[3]
+            unit: ''
+            description: Number of binned spectra with g-band luminosity-weighted
+              centers within 0-1, 0.5-1.5, and 1.5-2.5 Reff.
+          BIN_R_SNR:
+            name: BIN_R_SNR
+            type: float32[3]
+            unit: ''
+            description: Median g-band S/N of all binned spectra with luminosity-weighted
+              centers within 0-1, 0.5-1.5, and 1.5-2.5 Reff.
+          STELLAR_Z:
+            name: STELLAR_Z
+            type: float32[1]
+            unit: ''
+            description: Flux-weighted mean redshift of the stellar component within
+              a 2.5 arcsec aperture at the galaxy center.
+          STELLAR_VEL_LO:
+            name: STELLAR_VEL_LO
+            type: float32[1]
+            unit: km/s
+            description: Stellar velocity at 2.5% growth of all valid spaxels.
+          STELLAR_VEL_HI:
+            name: STELLAR_VEL_HI
+            type: float32[1]
+            unit: km/s
+            description: Stellar velocity at 97.5% growth of all valid spaxels.
+          STELLAR_VEL_LO_CLIP:
+            name: STELLAR_VEL_LO_CLIP
+            type: float32[1]
+            unit: km/s
+            description: Stellar velocity at 2.5% growth after iteratively clipping
+              3-sigma outliers.
+          STELLAR_VEL_HI_CLIP:
+            name: STELLAR_VEL_HI_CLIP
+            type: float32[1]
+            unit: km/s
+            description: Stellar velocity at 97.5% growth after iteratively clipping
+              3-sigma outliers.
+          STELLAR_SIGMA_1RE:
+            name: STELLAR_SIGMA_1RE
+            type: float32[1]
+            unit: km/s
+            description: Flux-weighted mean stellar velocity dispersion of all spaxels
+              within 1 Reff.
+          STELLAR_RCHI2_1RE:
+            name: STELLAR_RCHI2_1RE
+            type: float32[1]
+            unit: ''
+            description: Median reduced chi2 of the stellar-continuum fit within 1
+              Reff.
+          HA_Z:
+            name: HA_Z
+            type: float32[1]
+            unit: ''
+            description: "Flux-weighted mean redshift of the H\u03B1 line within a\
+              \ 2.5 arcsec aperture at the galaxy center."
+          HA_GVEL_LO:
+            name: HA_GVEL_LO
+            type: float32[1]
+            unit: km/s
+            description: Gaussian-fitted velocity of the H-alpha line at 2.5% growth
+              of all valid spaxels.
+          HA_GVEL_HI:
+            name: HA_GVEL_HI
+            type: float32[1]
+            unit: km/s
+            description: Gaussian-fitted velocity of the H-alpha line at 97.5% growth
+              of all valid spaxels.
+          HA_GVEL_LO_CLIP:
+            name: HA_GVEL_LO_CLIP
+            type: float32[1]
+            unit: km/s
+            description: Gaussian-fitted velocity of the H-alpha line at 2.5% growth
+              after iteratively clipping 3-sigma outliers.
+          HA_GVEL_HI_CLIP:
+            name: HA_GVEL_HI_CLIP
+            type: float32[1]
+            unit: km/s
+            description: Gaussian-fitted velocity of the H-alpha line at 97.5% growth
+              after iteratively clipping 3-sigma outliers.
+          HA_GSIGMA_1RE:
+            name: HA_GSIGMA_1RE
+            type: float32[1]
+            unit: km/s
+            description: Flux-weighted H-alpha velocity dispersion (from Gaussian
+              fit) of all spaxels within 1 Reff.
+          HA_GSIGMA_HI:
+            name: HA_GSIGMA_HI
+            type: float32[1]
+            unit: km/s
+            description: H-alpha velocity dispersion (from Gaussian fit) at 97.5%
+              growth of all valid spaxels.
+          HA_GSIGMA_HI_CLIP:
+            name: HA_GSIGMA_HI_CLIP
+            type: float32[1]
+            unit: km/s
+            description: H-alpha velocity dispersion (from Gaussian fit) at 97.5%
+              growth after iteratively clipping 3-sigma outliers.
+          EMLINE_RCHI2_1RE:
+            name: EMLINE_RCHI2_1RE
+            type: float32[1]
+            unit: ''
+            description: Median reduced chi-square of the continuum+emission-line
+              fit within 1 effective radius.
+          EMLINE_SFLUX_CEN:
+            name: EMLINE_SFLUX_CEN
+            type: float32[35]
+            unit: 10-17 erg/s/cm2
+            description: Summed emission-line flux integrated within a 2.5 arcsec
+              aperture at the galaxy center.
+          EMLINE_SFLUX_1RE:
+            name: EMLINE_SFLUX_1RE
+            type: float32[35]
+            unit: 10-17 erg/s/cm2
+            description: Summed emission-line flux integrated within 1 effective-radius
+              aperture at the galaxy.
+          EMLINE_SFLUX_TOT:
+            name: EMLINE_SFLUX_TOT
+            type: float32[35]
+            unit: 10-17 erg/s/cm2
+            description: Total integrated flux of each summed emission measurement
+              within the full MaNGA field-of-view.
+          EMLINE_SSB_1RE:
+            name: EMLINE_SSB_1RE
+            type: float32[35]
+            unit: 10-17 erg/s/cm2/spaxel
+            description: Mean emission-line surface-brightness from the summed flux
+              measurements within 1 Reff.
+          EMLINE_SSB_PEAK:
+            name: EMLINE_SSB_PEAK
+            type: float32[35]
+            unit: 10-17 erg/s/cm2/spaxel
+            description: Peak summed-flux emission-line surface brightness.
+          EMLINE_SEW_1RE:
+            name: EMLINE_SEW_1RE
+            type: float32[35]
+            unit: angstrom
+            description: Mean emission-line equivalent width from the summed flux
+              measurements within 1 Reff.
+          EMLINE_SEW_PEAK:
+            name: EMLINE_SEW_PEAK
+            type: float32[35]
+            unit: angstrom
+            description: Peak emission-line equivalent width from the summed flux
+              measurements.
+          EMLINE_GFLUX_CEN:
+            name: EMLINE_GFLUX_CEN
+            type: float32[35]
+            unit: 10-17 erg/s/cm2
+            description: Gaussian-fitted emission-line flux integrated within a 2.5
+              arcsec aperture at the galaxy center.
+          EMLINE_GFLUX_1RE:
+            name: EMLINE_GFLUX_1RE
+            type: float32[35]
+            unit: 10-17 erg/s/cm2
+            description: Gaussian-fitted emission-line flux integrated within 1 effective-radius
+              aperture at the galaxy.
+          EMLINE_GFLUX_TOT:
+            name: EMLINE_GFLUX_TOT
+            type: float32[35]
+            unit: 10-17 erg/s/cm2
+            description: Total integrated flux of the Gaussian fit to each emission
+              line within the full MaNGA field-of-view.
+          EMLINE_GSB_1RE:
+            name: EMLINE_GSB_1RE
+            type: float32[35]
+            unit: 10-17 erg/s/cm2/spaxel
+            description: Mean emission-line surface-brightness from the Gaussian-fitted
+              flux measurements within 1 Reff.
+          EMLINE_GSB_PEAK:
+            name: EMLINE_GSB_PEAK
+            type: float32[35]
+            unit: 10-17 erg/s/cm2/spaxel
+            description: Peak Gaussian-fitted emission-line surface brightness.
+          EMLINE_GEW_1RE:
+            name: EMLINE_GEW_1RE
+            type: float32[35]
+            unit: angstrom
+            description: Mean emission-line equivalent width from the Gaussian-fitted
+              flux measurements within 1 Reff.
+          EMLINE_GEW_PEAK:
+            name: EMLINE_GEW_PEAK
+            type: float32[35]
+            unit: angstrom
+            description: Peak emission-line equivalent width from the Gaussian-fitted
+              flux measurements.
+          SPECINDEX_LO:
+            name: SPECINDEX_LO
+            type: float32[46]
+            unit: see HDU0-SPIU
+            description: Spectral index at 2.5% growth of all valid spaxels.
+          SPECINDEX_HI:
+            name: SPECINDEX_HI
+            type: float32[46]
+            unit: see HDU0-SPIU
+            description: Spectral index at 97.5% growth of all valid spaxels.
+          SPECINDEX_LO_CLIP:
+            name: SPECINDEX_LO_CLIP
+            type: float32[46]
+            unit: see HDU0-SPIU
+            description: Spectral index at 2.5% growth after iteratively clipping
+              3-sigma outliers.
+          SPECINDEX_HI_CLIP:
+            name: SPECINDEX_HI_CLIP
+            type: float32[46]
+            unit: see HDU0-SPIU
+            description: Spectral index at 97.5% growth after iteratively clipping
+              3-sigma outliers.
+          SPECINDEX_1RE:
+            name: SPECINDEX_1RE
+            type: float32[46]
+            unit: see HDU0-SPIU
+            description: Median spectral index within 1 effective radius.
+          SFR_1RE:
+            name: SFR_1RE
+            type: float32[1]
+            unit: h-2 Msun/yr
+            description: "Simple estimate of the star-formation rate within 1 effective\
+              \ radius based on the Gaussian-fitted H\u03B1 flux; log(SFR) = log LH\u03B1\
+              \ - 41.27 (Kennicutt & Evans [2012, ARAA, 50, 531], citing Murphy et\
+              \ al. [2011, ApJ, 737, 67] and Hao et al. [2011, ApJ, 741, 124]; Kroupa\
+              \ IMF), where LH\u03B1 = 4\u03C0 EML_FLUX_1RE (LDIST_Z)2 and ''no''\
+              \ attentuation correction has been applied."
+          SFR_TOT:
+            name: SFR_TOT
+            type: float32[1]
+            unit: h-2 Msun/yr
+            description: "Simple estimate of the star-formation rate within the IFU\
+              \ field-of-view based on the Gaussian-fitted H\u03B1 flux; log(SFR)\
+              \ = log LH\u03B1 - 41.27 (Kennicutt & Evans [2012, ARAA, 50, 531], citing\
+              \ Murphy et al. [2011, ApJ, 737, 67] and Hao et al. [2011, ApJ, 741,\
+              \ 124]; Kroupa IMF), where LH\u03B1 = 4\u03C0 EML_FLUX_TOT (LDIST_Z)2\
+              \ and ''no'' attentuation correction has been applied."
+      hdu4:
+        name: HYB10-MILESHC-MASTARHC2
+        description: the results using the HYB10-MILESHC-MASTARHC2 analysis approach
+        is_image: false
+        size: 34 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 3384
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 10782
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 91
+          comment: number of table fields
+        - key: EXTNAME
+          value: HYB10-MILESHC-MASTARHC2
+          comment: extension name
+        - key: CHECKSUM
+          value: PcMRSbJQPbJQPbJQ
+          comment: HDU checksum updated 2021-02-27T01:47:28
+        - key: DATASUM
+          value: '3818539828'
+          comment: data unit checksum updated 2021-02-27T01:47:28
+        columns:
+          PLATE:
+            name: PLATE
+            type: int64[1]
+            unit: ''
+            description: Plate number
+          IFUDESIGN:
+            name: IFUDESIGN
+            type: int64[1]
+            unit: ''
+            description: IFU design number
+          PLATEIFU:
+            name: PLATEIFU
+            type: char[12]
+            unit: ''
+            description: String combination of PLATE-IFU to ease searching
+          MANGAID:
+            name: MANGAID
+            type: char[10]
+            unit: ''
+            description: MaNGA ID string
+          DRPALLINDX:
+            name: DRPALLINDX
+            type: int64[1]
+            unit: ''
+            description: Row index of the observation in the DRPall file
+          MODE:
+            name: MODE
+            type: char[4]
+            unit: ''
+            description: 3D mode of the DRP file (CUBE or RSS)
+          DAPTYPE:
+            name: DAPTYPE
+            type: char[30]
+            unit: ''
+            description: Keyword of the analysis approach used (e.g., HYB10-GAU-MILESHC
+              for DR15/DR16, HYB10-MILESHC-MASTARSSP for DR17)
+          DAPDONE:
+            name: DAPDONE
+            type: bool[1]
+            unit: ''
+            description: Flag that MAPS file successfully produced
+          OBJRA:
+            name: OBJRA
+            type: float32[1]
+            unit: deg
+            description: RA of the galaxy center
+          OBJDEC:
+            name: OBJDEC
+            type: float32[1]
+            unit: deg
+            description: Declination of the galaxy center
+          IFURA:
+            name: IFURA
+            type: float32[1]
+            unit: deg
+            description: RA of the IFU pointing center (generally the same as OBJRA)
+          IFUDEC:
+            name: IFUDEC
+            type: float32[1]
+            unit: deg
+            description: Declination of the IFU pointing center (generally the same
+              as OBJDEC)
+          MNGTARG1:
+            name: MNGTARG1
+            type: int64[1]
+            unit: ''
+            description: Main survey targeting bit
+          MNGTARG2:
+            name: MNGTARG2
+            type: int64[1]
+            unit: ''
+            description: Non-galaxy targeting bit
+          MNGTARG3:
+            name: MNGTARG3
+            type: int64[1]
+            unit: ''
+            description: Ancillary targeting bit
+          Z:
+            name: Z
+            type: float32[1]
+            unit: ''
+            description: Redshift used to set initial guess velocity (typically identical
+              to NSA_Z)
+          LDIST_Z:
+            name: LDIST_Z
+            type: float32[1]
+            unit: h-1 Mpc
+            description: "Luminosity distance based on Z and a standard cosmology\
+              \ (h=1; \u03A9M=0.3; \u03A9\u039B=0.7)"
+          ADIST_Z:
+            name: ADIST_Z
+            type: float32[1]
+            unit: h-1 Mpc
+            description: "Angular-diameter distance based on Z and a standard cosmology\
+              \ (h=1; \u03A9M=0.3; \u03A9\u039B=0.7)"
+          NSA_Z:
+            name: NSA_Z
+            type: float32[1]
+            unit: ''
+            description: Redshift from the NASA-Sloan Atlas
+          NSA_ZDIST:
+            name: NSA_ZDIST
+            type: float32[1]
+            unit: ''
+            description: NSA distance estimate using pecular velocity model of Willick
+              et al. (1997); multiply by c/H0 for Mpc.
+          LDIST_NSA_Z:
+            name: LDIST_NSA_Z
+            type: float32[1]
+            unit: h-1 Mpc
+            description: "Luminosity distance based on NSA_Z and a standard cosmology\
+              \ (h=1; \u03A9M=0.3; \u03A9\u039B=0.7)"
+          ADIST_NSA_Z:
+            name: ADIST_NSA_Z
+            type: float32[1]
+            unit: h-1 Mpc
+            description: "Angular-diameter distance based on NSA_Z and a standard\
+              \ cosmology (h=1; \u03A9M=0.3; \u03A9\u039B=0.7)"
+          NSA_ELPETRO_BA:
+            name: NSA_ELPETRO_BA
+            type: float32[1]
+            unit: ''
+            description: NSA isophotal axial ratio from elliptical Petrosian analysis
+          NSA_ELPETRO_PHI:
+            name: NSA_ELPETRO_PHI
+            type: float32[1]
+            unit: deg
+            description: NSA isophotal position angle from elliptical Petrosian analysis
+          NSA_ELPETRO_TH50_R:
+            name: NSA_ELPETRO_TH50_R
+            type: float32[1]
+            unit: arcsec
+            description: NSA elliptical Petrosian effective radius in the r-band;
+              the is the same as Reff below.
+          NSA_SERSIC_BA:
+            name: NSA_SERSIC_BA
+            type: float32[1]
+            unit: ''
+            description: NSA isophotal axial ratio from Sersic fit
+          NSA_SERSIC_PHI:
+            name: NSA_SERSIC_PHI
+            type: float32[1]
+            unit: deg
+            description: NSA isophotal position angle from Sersic fit
+          NSA_SERSIC_TH50:
+            name: NSA_SERSIC_TH50
+            type: float32[1]
+            unit: arcsec
+            description: NSA effective radius from the Sersic fit
+          NSA_SERSIC_N:
+            name: NSA_SERSIC_N
+            type: float32[1]
+            unit: ''
+            description: NSA Sersic index
+          VERSDRP2:
+            name: VERSDRP2
+            type: char[8]
+            unit: ''
+            description: Version of DRP used for 2d reductions
+          VERSDRP3:
+            name: VERSDRP3
+            type: char[8]
+            unit: ''
+            description: Version of DRP used for 3d reductions
+          VERSCORE:
+            name: VERSCORE
+            type: char[8]
+            unit: ''
+            description: Version of mangacore used by the DAP
+          VERSUTIL:
+            name: VERSUTIL
+            type: char[8]
+            unit: ''
+            description: Version of idlutils used by the DAP
+          VERSDAP:
+            name: VERSDAP
+            type: char[8]
+            unit: ''
+            description: Version of mangadap
+          DRP3QUAL:
+            name: DRP3QUAL
+            type: int64[1]
+            unit: ''
+            description: DRP 3D quality bit
+          DAPQUAL:
+            name: DAPQUAL
+            type: int64[1]
+            unit: ''
+            description: DAP quality bit
+          RDXQAKEY:
+            name: RDXQAKEY
+            type: char[14]
+            unit: ''
+            description: Configuration keyword for the method used to assess the reduced
+              data
+          BINKEY:
+            name: BINKEY
+            type: char[14]
+            unit: ''
+            description: Configuration keyword for the spatial binning method
+          SCKEY:
+            name: SCKEY
+            type: char[14]
+            unit: ''
+            description: Configuration keyword for the method used to model the stellar-continuum
+          ELMKEY:
+            name: ELMKEY
+            type: char[14]
+            unit: ''
+            description: Configuration keyword that defines the emission-line moment
+              measurement method
+          ELFKEY:
+            name: ELFKEY
+            type: char[14]
+            unit: ''
+            description: Configuration keyword that defines the emission-line modeling
+              method
+          SIKEY:
+            name: SIKEY
+            type: char[14]
+            unit: ''
+            description: Configuration keyword that defines the spectral-index measurement
+              method
+          BINTYPE:
+            name: BINTYPE
+            type: char[10]
+            unit: ''
+            description: Type of binning used
+          BINSNR:
+            name: BINSNR
+            type: float32[1]
+            unit: ''
+            description: Target for bin S/N, if Voronoi binning
+          TPLKEY:
+            name: TPLKEY
+            type: char[15]
+            unit: ''
+            description: The identifier of the template library, e.g., MILES.
+          DATEDAP:
+            name: DATEDAP
+            type: char[10]
+            unit: ''
+            description: Date the DAP file was created and/or last modified.
+          DAPBINS:
+            name: DAPBINS
+            type: int64[1]
+            unit: ''
+            description: The number of "binned" spectra analyzed by the DAP.
+          RCOV90:
+            name: RCOV90
+            type: float32[1]
+            unit: arcsec
+            description: "Semi-major axis radius (R) below which spaxels cover at\
+              \ least 90% of elliptical annuli with width R \xB1 2.5 arcsec. This\
+              \ should be independent of the DAPTYPE."
+          SNR_MED:
+            name: SNR_MED
+            type: float32[4]
+            unit: ''
+            description: Median S/N per pixel in the ''griz'' bands within 1.0-1.5
+              Reff. This should be independent of the DAPTYPE.
+          SNR_RING:
+            name: SNR_RING
+            type: float32[4]
+            unit: ''
+            description: S/N in the ''griz'' bands when binning all spaxels within
+              1.0-1.5 Reff. This should be independent of the DAPTYPE.
+          SB_1RE:
+            name: SB_1RE
+            type: float32[1]
+            unit: 10-17 erg/s/cm2/angstrom/spaxel
+            description: Mean g-band surface brightness of valid spaxels within 1
+              Reff. This should be independent of the DAPTYPE.
+          BIN_RMAX:
+            name: BIN_RMAX
+            type: float32[1]
+            unit: NSA_ELPETRO_TH50_R
+            description: Maximum g-band luminosity-weighted semi-major radius of any
+              "valid" binned spectrum.
+          BIN_R_N:
+            name: BIN_R_N
+            type: float32[3]
+            unit: ''
+            description: Number of binned spectra with g-band luminosity-weighted
+              centers within 0-1, 0.5-1.5, and 1.5-2.5 Reff.
+          BIN_R_SNR:
+            name: BIN_R_SNR
+            type: float32[3]
+            unit: ''
+            description: Median g-band S/N of all binned spectra with luminosity-weighted
+              centers within 0-1, 0.5-1.5, and 1.5-2.5 Reff.
+          STELLAR_Z:
+            name: STELLAR_Z
+            type: float32[1]
+            unit: ''
+            description: Flux-weighted mean redshift of the stellar component within
+              a 2.5 arcsec aperture at the galaxy center.
+          STELLAR_VEL_LO:
+            name: STELLAR_VEL_LO
+            type: float32[1]
+            unit: km/s
+            description: Stellar velocity at 2.5% growth of all valid spaxels.
+          STELLAR_VEL_HI:
+            name: STELLAR_VEL_HI
+            type: float32[1]
+            unit: km/s
+            description: Stellar velocity at 97.5% growth of all valid spaxels.
+          STELLAR_VEL_LO_CLIP:
+            name: STELLAR_VEL_LO_CLIP
+            type: float32[1]
+            unit: km/s
+            description: Stellar velocity at 2.5% growth after iteratively clipping
+              3-sigma outliers.
+          STELLAR_VEL_HI_CLIP:
+            name: STELLAR_VEL_HI_CLIP
+            type: float32[1]
+            unit: km/s
+            description: Stellar velocity at 97.5% growth after iteratively clipping
+              3-sigma outliers.
+          STELLAR_SIGMA_1RE:
+            name: STELLAR_SIGMA_1RE
+            type: float32[1]
+            unit: km/s
+            description: Flux-weighted mean stellar velocity dispersion of all spaxels
+              within 1 Reff.
+          STELLAR_RCHI2_1RE:
+            name: STELLAR_RCHI2_1RE
+            type: float32[1]
+            unit: ''
+            description: Median reduced chi2 of the stellar-continuum fit within 1
+              Reff.
+          HA_Z:
+            name: HA_Z
+            type: float32[1]
+            unit: ''
+            description: "Flux-weighted mean redshift of the H\u03B1 line within a\
+              \ 2.5 arcsec aperture at the galaxy center."
+          HA_GVEL_LO:
+            name: HA_GVEL_LO
+            type: float32[1]
+            unit: km/s
+            description: Gaussian-fitted velocity of the H-alpha line at 2.5% growth
+              of all valid spaxels.
+          HA_GVEL_HI:
+            name: HA_GVEL_HI
+            type: float32[1]
+            unit: km/s
+            description: Gaussian-fitted velocity of the H-alpha line at 97.5% growth
+              of all valid spaxels.
+          HA_GVEL_LO_CLIP:
+            name: HA_GVEL_LO_CLIP
+            type: float32[1]
+            unit: km/s
+            description: Gaussian-fitted velocity of the H-alpha line at 2.5% growth
+              after iteratively clipping 3-sigma outliers.
+          HA_GVEL_HI_CLIP:
+            name: HA_GVEL_HI_CLIP
+            type: float32[1]
+            unit: km/s
+            description: Gaussian-fitted velocity of the H-alpha line at 97.5% growth
+              after iteratively clipping 3-sigma outliers.
+          HA_GSIGMA_1RE:
+            name: HA_GSIGMA_1RE
+            type: float32[1]
+            unit: km/s
+            description: Flux-weighted H-alpha velocity dispersion (from Gaussian
+              fit) of all spaxels within 1 Reff.
+          HA_GSIGMA_HI:
+            name: HA_GSIGMA_HI
+            type: float32[1]
+            unit: km/s
+            description: H-alpha velocity dispersion (from Gaussian fit) at 97.5%
+              growth of all valid spaxels.
+          HA_GSIGMA_HI_CLIP:
+            name: HA_GSIGMA_HI_CLIP
+            type: float32[1]
+            unit: km/s
+            description: H-alpha velocity dispersion (from Gaussian fit) at 97.5%
+              growth after iteratively clipping 3-sigma outliers.
+          EMLINE_RCHI2_1RE:
+            name: EMLINE_RCHI2_1RE
+            type: float32[1]
+            unit: ''
+            description: Median reduced chi-square of the continuum+emission-line
+              fit within 1 effective radius.
+          EMLINE_SFLUX_CEN:
+            name: EMLINE_SFLUX_CEN
+            type: float32[35]
+            unit: 10-17 erg/s/cm2
+            description: Summed emission-line flux integrated within a 2.5 arcsec
+              aperture at the galaxy center.
+          EMLINE_SFLUX_1RE:
+            name: EMLINE_SFLUX_1RE
+            type: float32[35]
+            unit: 10-17 erg/s/cm2
+            description: Summed emission-line flux integrated within 1 effective-radius
+              aperture at the galaxy.
+          EMLINE_SFLUX_TOT:
+            name: EMLINE_SFLUX_TOT
+            type: float32[35]
+            unit: 10-17 erg/s/cm2
+            description: Total integrated flux of each summed emission measurement
+              within the full MaNGA field-of-view.
+          EMLINE_SSB_1RE:
+            name: EMLINE_SSB_1RE
+            type: float32[35]
+            unit: 10-17 erg/s/cm2/spaxel
+            description: Mean emission-line surface-brightness from the summed flux
+              measurements within 1 Reff.
+          EMLINE_SSB_PEAK:
+            name: EMLINE_SSB_PEAK
+            type: float32[35]
+            unit: 10-17 erg/s/cm2/spaxel
+            description: Peak summed-flux emission-line surface brightness.
+          EMLINE_SEW_1RE:
+            name: EMLINE_SEW_1RE
+            type: float32[35]
+            unit: angstrom
+            description: Mean emission-line equivalent width from the summed flux
+              measurements within 1 Reff.
+          EMLINE_SEW_PEAK:
+            name: EMLINE_SEW_PEAK
+            type: float32[35]
+            unit: angstrom
+            description: Peak emission-line equivalent width from the summed flux
+              measurements.
+          EMLINE_GFLUX_CEN:
+            name: EMLINE_GFLUX_CEN
+            type: float32[35]
+            unit: 10-17 erg/s/cm2
+            description: Gaussian-fitted emission-line flux integrated within a 2.5
+              arcsec aperture at the galaxy center.
+          EMLINE_GFLUX_1RE:
+            name: EMLINE_GFLUX_1RE
+            type: float32[35]
+            unit: 10-17 erg/s/cm2
+            description: Gaussian-fitted emission-line flux integrated within 1 effective-radius
+              aperture at the galaxy.
+          EMLINE_GFLUX_TOT:
+            name: EMLINE_GFLUX_TOT
+            type: float32[35]
+            unit: 10-17 erg/s/cm2
+            description: Total integrated flux of the Gaussian fit to each emission
+              line within the full MaNGA field-of-view.
+          EMLINE_GSB_1RE:
+            name: EMLINE_GSB_1RE
+            type: float32[35]
+            unit: 10-17 erg/s/cm2/spaxel
+            description: Mean emission-line surface-brightness from the Gaussian-fitted
+              flux measurements within 1 Reff.
+          EMLINE_GSB_PEAK:
+            name: EMLINE_GSB_PEAK
+            type: float32[35]
+            unit: 10-17 erg/s/cm2/spaxel
+            description: Peak Gaussian-fitted emission-line surface brightness.
+          EMLINE_GEW_1RE:
+            name: EMLINE_GEW_1RE
+            type: float32[35]
+            unit: angstrom
+            description: Mean emission-line equivalent width from the Gaussian-fitted
+              flux measurements within 1 Reff.
+          EMLINE_GEW_PEAK:
+            name: EMLINE_GEW_PEAK
+            type: float32[35]
+            unit: angstrom
+            description: Peak emission-line equivalent width from the Gaussian-fitted
+              flux measurements.
+          SPECINDEX_LO:
+            name: SPECINDEX_LO
+            type: float32[46]
+            unit: see HDU0-SPIU
+            description: Spectral index at 2.5% growth of all valid spaxels.
+          SPECINDEX_HI:
+            name: SPECINDEX_HI
+            type: float32[46]
+            unit: see HDU0-SPIU
+            description: Spectral index at 97.5% growth of all valid spaxels.
+          SPECINDEX_LO_CLIP:
+            name: SPECINDEX_LO_CLIP
+            type: float32[46]
+            unit: see HDU0-SPIU
+            description: Spectral index at 2.5% growth after iteratively clipping
+              3-sigma outliers.
+          SPECINDEX_HI_CLIP:
+            name: SPECINDEX_HI_CLIP
+            type: float32[46]
+            unit: see HDU0-SPIU
+            description: Spectral index at 97.5% growth after iteratively clipping
+              3-sigma outliers.
+          SPECINDEX_1RE:
+            name: SPECINDEX_1RE
+            type: float32[46]
+            unit: see HDU0-SPIU
+            description: Median spectral index within 1 effective radius.
+          SFR_1RE:
+            name: SFR_1RE
+            type: float32[1]
+            unit: h-2 Msun/yr
+            description: "Simple estimate of the star-formation rate within 1 effective\
+              \ radius based on the Gaussian-fitted H\u03B1 flux; log(SFR) = log LH\u03B1\
+              \ - 41.27 (Kennicutt & Evans [2012, ARAA, 50, 531], citing Murphy et\
+              \ al. [2011, ApJ, 737, 67] and Hao et al. [2011, ApJ, 741, 124]; Kroupa\
+              \ IMF), where LH\u03B1 = 4\u03C0 EML_FLUX_1RE (LDIST_Z)2 and ''no''\
+              \ attentuation correction has been applied."
+          SFR_TOT:
+            name: SFR_TOT
+            type: float32[1]
+            unit: h-2 Msun/yr
+            description: "Simple estimate of the star-formation rate within the IFU\
+              \ field-of-view based on the Gaussian-fitted H\u03B1 flux; log(SFR)\
+              \ = log LH\u03B1 - 41.27 (Kennicutt & Evans [2012, ARAA, 50, 531], citing\
+              \ Murphy et al. [2011, ApJ, 737, 67] and Hao et al. [2011, ApJ, 741,\
+              \ 124]; Kroupa IMF), where LH\u03B1 = 4\u03C0 EML_FLUX_TOT (LDIST_Z)2\
+              \ and ''no'' attentuation correction has been applied."
+notes: |-
+  None
+regrets: |-
+  I  have no regrets!

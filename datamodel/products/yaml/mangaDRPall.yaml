@@ -1,0 +1,2901 @@
+general:
+  name: mangaDRPall
+  short: The final summary FITS binary table for the MaNGA DRP
+  description: This is the final summary for the MaNGA Data Reduction Pipeline (DRP).
+    It merges together information taken from mangacore, the repository containing
+    all MaNGA metadata, and various header information taken from the output MaNGA
+    cubes. It contains no actual spectra from MaNGA cubes, but all of the information
+    required to find a given set of spectra. It can be used to search locally for
+    galaxies matching a given set of selection criteria.
+  datatype: FITS
+  filesize: 2 MB
+  releases:
+  - DR13
+  - DR14
+  - DR15
+  - DR16
+  - DR17
+  environments:
+  - MANGA_SPECTRO_REDUX
+  surveys:
+  - MaNGA
+  naming_convention: drpall-[drpver].fits, where [drpver]is the version of the MaNGA
+    Data Reduction Pipeline (DRP) that generated this file.
+  generated_by: mangadrp
+  data_level: 2.3.0
+  design: false
+  vac: false
+  recommended_science_product: true
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases:
+    DR17:
+      from: DR16
+      added_hdus:
+      - MASTAR
+      - MANGA
+    DR16:
+      from: DR15
+      note: No changes
+    DR15:
+      from: DR14
+      note: No changes
+    DR14:
+      from: DR13
+      note: No changes
+releases:
+  DR13:
+    template: $MANGA_SPECTRO_REDUX/[DRPVER]/drpall-[DRPVER].fits
+    example: v1_5_4/drpall-v1_5_4.fits
+    location: '{drpver}/drpall-{drpver}.fits'
+    environment: MANGA_SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: drpall
+      path_template: $MANGA_SPECTRO_REDUX/{drpver}/drpall-{drpver}.fits
+      path_kwargs:
+      - drpver
+      access_string: drpall = $MANGA_SPECTRO_REDUX/{drpver}/drpall-{drpver}.fits
+    survey: MaNGA
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: primary header extension
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: CHECKSUM
+          value: D7cHG5a9D5aGD5a9
+          comment: HDU checksum updated 2016-03-20T07:20:30
+        - key: DATASUM
+          value: '0'
+          comment: data unit checksum updated 2016-03-20T07:20:30
+      hdu1:
+        name: ''
+        description: Primary content
+        is_image: false
+        size: 2 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 1190
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 2391
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 83
+          comment: number of table fields
+        - key: CHECKSUM
+          value: CVCgDTBdCTBdCTBd
+          comment: HDU checksum updated 2016-03-20T07:20:30
+        - key: DATASUM
+          value: '3661594199'
+          comment: data unit checksum updated 2016-03-20T07:20:30
+        columns:
+          plate:
+            name: plate
+            type: int64
+            unit: ''
+            description: Plate ID
+          ifudsgn:
+            name: ifudsgn
+            type: char[21]
+            unit: ''
+            description: IFU Design ID (e.g. 12701)
+          plateifu:
+            name: plateifu
+            type: char[10]
+            unit: ''
+            description: Plate+ifudesign name for this object (e.g. 7443-12701)
+          mangaid:
+            name: mangaid
+            type: char[9]
+            unit: ''
+            description: MaNGA ID for this object (e.g. 1-114145)
+          versdrp2:
+            name: versdrp2
+            type: char[8]
+            unit: ''
+            description: Version of mangadrp used for 2d reductions
+          versdrp3:
+            name: versdrp3
+            type: char[8]
+            unit: ''
+            description: Version of mangadrp used for 3d reductions
+          verscore:
+            name: verscore
+            type: char[8]
+            unit: ''
+            description: Version of mangacore used for reductions
+          versutil:
+            name: versutil
+            type: char[8]
+            unit: ''
+            description: Version of idlutils used for reductions
+          versprim:
+            name: versprim
+            type: char[8]
+            unit: ''
+            description: Version of mangapreim used for reductions
+          platetyp:
+            name: platetyp
+            type: char[14]
+            unit: ''
+            description: Plate type (e.g. MANGA, APOGEE-2&MANGA)
+          srvymode:
+            name: srvymode
+            type: char[12]
+            unit: ''
+            description: Survey mode (e.g. MANGA dither, MANGA stare, APOGEE lead)
+          objra:
+            name: objra
+            type: float64
+            unit: degrees
+            description: Right ascension of the science object in J2000
+          objdec:
+            name: objdec
+            type: float64
+            unit: degrees
+            description: Declination of the science object in J2000
+          ifuglon:
+            name: ifuglon
+            type: float64
+            unit: degrees
+            description: Galactic longitude corresponding to IFURA/DEC
+          ifuglat:
+            name: ifuglat
+            type: float64
+            unit: degrees
+            description: Galactic latitude corresponding to IFURA/DEC
+          ifura:
+            name: ifura
+            type: float64
+            unit: degrees
+            description: Right ascension of this IFU in J2000
+          ifudec:
+            name: ifudec
+            type: float64
+            unit: degrees
+            description: Declination of this IFU in J2000
+          ebvgal:
+            name: ebvgal
+            type: float64
+            unit: ''
+            description: E(B-V) value from SDSS dust routine for this IFUGLON, IFUGLAT
+          nexp:
+            name: nexp
+            type: int64
+            unit: ''
+            description: Number of science exposures combined
+          exptime:
+            name: exptime
+            type: float64
+            unit: seconds
+            description: Total exposure time
+          drp3qual:
+            name: drp3qual
+            type: int64
+            unit: ''
+            description: Quality bitmask
+          bluesn2:
+            name: bluesn2
+            type: float64
+            unit: ''
+            description: Total blue (S/N)^2 across all nexp exposures
+          redsn2:
+            name: redsn2
+            type: float64
+            unit: ''
+            description: Total red (S/N)^2 across all nexp exposures
+          harname:
+            name: harname
+            type: char[8]
+            unit: ''
+            description: IFU harness name
+          frlplug:
+            name: frlplug
+            type: int64
+            unit: ''
+            description: Frplug hardware code
+          cartid:
+            name: cartid
+            type: char[8]
+            unit: ''
+            description: Cartridge ID number
+          designid:
+            name: designid
+            type: int64
+            unit: ''
+            description: Design ID number
+          cenra:
+            name: cenra
+            type: float64
+            unit: degrees
+            description: Plate center right ascension in J2000
+          cendec:
+            name: cendec
+            type: float64
+            unit: degrees
+            description: Plate center declination in J2000
+          airmsmin:
+            name: airmsmin
+            type: float64
+            unit: ''
+            description: Minimum airmass across all exposures
+          airmsmed:
+            name: airmsmed
+            type: float64
+            unit: ''
+            description: Median airmass across all exposures
+          airmsmax:
+            name: airmsmax
+            type: float64
+            unit: ''
+            description: Maximum airmass across all exposures
+          seemin:
+            name: seemin
+            type: float64
+            unit: arcsec
+            description: Best guider seeing
+          seemed:
+            name: seemed
+            type: float64
+            unit: arcsec
+            description: Median guider seeing
+          seemax:
+            name: seemax
+            type: float64
+            unit: arcsec
+            description: Worst guider seeing
+          transmin:
+            name: transmin
+            type: float64
+            unit: ''
+            description: Worst transparency
+          transmed:
+            name: transmed
+            type: float64
+            unit: ''
+            description: Median transparency
+          transmax:
+            name: transmax
+            type: float64
+            unit: ''
+            description: Best transparency
+          mjdmin:
+            name: mjdmin
+            type: int64
+            unit: ''
+            description: Minimum MJD across all exposures
+          mjdmed:
+            name: mjdmed
+            type: int64
+            unit: ''
+            description: Median MJD across all exposures
+          mjdmax:
+            name: mjdmax
+            type: int64
+            unit: ''
+            description: Maximum MJD across all exposures
+          gfwhm:
+            name: gfwhm
+            type: float64
+            unit: arcsec
+            description: Reconstructed FWHM in g-band
+          rfwhm:
+            name: rfwhm
+            type: float64
+            unit: arcsec
+            description: Reconstructed FWHM in r-band
+          ifwhm:
+            name: ifwhm
+            type: float64
+            unit: arcsec
+            description: Reconstructed FWHM in i-band
+          zfwhm:
+            name: zfwhm
+            type: float64
+            unit: arcsec
+            description: Reconstructed FWHM in z-band
+          mngtarg1:
+            name: mngtarg1
+            type: int64
+            unit: ''
+            description: Manga-target1 maskbit for galaxy target catalog
+          mngtarg2:
+            name: mngtarg2
+            type: int64
+            unit: ''
+            description: Manga-target2 maskbit for galaxy target catalog
+          mngtarg3:
+            name: mngtarg3
+            type: int64
+            unit: ''
+            description: Manga-target3 maskbit for galaxy target catalog
+          catidnum:
+            name: catidnum
+            type: int64
+            unit: ''
+            description: Primary target input catalog (leading digits of mangaid)
+          plttarg:
+            name: plttarg
+            type: char[19]
+            unit: ''
+            description: plateTarget reference file appropriate for this target
+          manga_tileid:
+            name: manga_tileid
+            type: int64
+            unit: ''
+            description: The ID of the tile to which this object has been allocated
+          nsa_iauname:
+            name: nsa_iauname
+            type: char[19]
+            unit: ''
+            description: IAU-style designation based on RA/Dec (NSA)
+          ifudesignsize:
+            name: ifudesignsize
+            type: int64
+            unit: ''
+            description: The allocated IFU size (0 = "unallocated")
+          ifutargetsize:
+            name: ifutargetsize
+            type: int64
+            unit: ''
+            description: The ideal IFU size for this object. The intended IFU size
+              is equal to IFUTargetSize except if IFUTargetSize > 127 when it is 127,
+              or < 19 when it is 19
+          ifudesignwrongsize:
+            name: ifudesignwrongsize
+            type: int64
+            unit: ''
+            description: The allocated IFU size if the intended IFU size was not available
+          nsa_field:
+            name: nsa_field
+            type: int64
+            unit: ''
+            description: SDSS field ID covering the target
+          nsa_run:
+            name: nsa_run
+            type: int64
+            unit: ''
+            description: SDSS run ID covering the target
+          nsa_camcol:
+            name: nsa_camcol
+            type: int64
+            unit: ''
+            description: SDSS camcol ID covering the catalog position
+          nsa_version:
+            name: nsa_version
+            type: char[6]
+            unit: ''
+            description: Version of NSA catalogue used to select these targets
+          nsa_nsaid:
+            name: nsa_nsaid
+            type: int64
+            unit: ''
+            description: The NSAID field in the NSA catalogue referenced in nsa_version
+          nsa_nsaid_v1b:
+            name: nsa_nsaid_v1b
+            type: int64
+            unit: ''
+            description: The NSAID of the target in the NSA_v1b_0_0_v2 catalogue (if
+              applicable)
+          nsa_z:
+            name: nsa_z
+            type: float64
+            unit: ''
+            description: Heliocentric redshift
+          nsa_zdist:
+            name: nsa_zdist
+            type: float64
+            unit: ''
+            description: Distance estimate using peculiar velocity model of Willick
+              et al. (1997); multiply by c/Ho for Mpc
+          nsa_sersic_absmag:
+            name: nsa_sersic_absmag
+            type: float64[7]
+            unit: ''
+            description: "Absolute magnitude estimates in rest-frame bands [FNugriz]\
+              \ from K-correction (\u03A9m=0.3, \u03A9\u039B=0.7, h=1)"
+          nsa_elpetro_absmag:
+            name: nsa_elpetro_absmag
+            type: float64[7]
+            unit: ''
+            description: "Absolute magnitude in rest-frame bands [FNugriz], from elliptical\
+              \ Petrosian fluxes (\u03A9m=0.3, \u03A9\u039B=0.7, h=1)"
+          nsa_elpetro_amivar:
+            name: nsa_elpetro_amivar
+            type: float64[7]
+            unit: ''
+            description: Inverse variance of nsa_elpetro_absmag in bands [FNugriz]
+          nsa_sersic_mass:
+            name: nsa_sersic_mass
+            type: float64
+            unit: ''
+            description: "Stellar mass from K-correction fit (use with caution) for\
+              \ Sersic fluxes (\u03A9m=0.3, \u03A9\u039B=0.7, h=1)"
+          nsa_elpetro_mass:
+            name: nsa_elpetro_mass
+            type: float64
+            unit: ''
+            description: "Stellar mass from K-correction fit (use with caution) for\
+              \ elliptical Petrosian fluxes (\u03A9m=0.3, \u03A9\u039B=0.7, h=1)"
+          nsa_elpetro_ba:
+            name: nsa_elpetro_ba
+            type: float64
+            unit: ''
+            description: Axis ratio used for elliptical apertures (for this version,
+              same as ba90)
+          nsa_elpetro_phi:
+            name: nsa_elpetro_phi
+            type: float64
+            unit: degrees
+            description: Position angle (east of north) used for elliptical apertures
+              (for this version, same as ba90)
+          nsa_extinction:
+            name: nsa_extinction
+            type: float64[7]
+            unit: ''
+            description: Galactic extinction from Schlegel, Finkbeiner, and Davis
+              (1997), in bands [FNugriz]
+          nsa_elpetro_th50_r:
+            name: nsa_elpetro_th50_r
+            type: float64
+            unit: arcsec
+            description: Elliptical Petrosian 50% light radius in SDSS r-band
+          nsa_petro_th50:
+            name: nsa_petro_th50
+            type: float64
+            unit: arcsec
+            description: Azimuthally averaged SDSS-style Petrosian 50% light radius
+              (derived from r band)
+          nsa_petro_flux:
+            name: nsa_petro_flux
+            type: float64[7]
+            unit: nanomaggies
+            description: Azimuthally-averaged SDSS-style Petrosian flux in bands [FNugriz]
+              (using r-band aperture)
+          nsa_petro_flux_ivar:
+            name: nsa_petro_flux_ivar
+            type: float64[7]
+            unit: nanomaggies-2
+            description: Inverse variance of nsa_petro_flux in bands [FNugriz]
+          nsa_elpetro_flux:
+            name: nsa_elpetro_flux
+            type: float64[7]
+            unit: nanomaggies
+            description: Elliptical SDSS-style Petrosian flux in bands [FNugriz] (using
+              r-band aperture)
+          nsa_elpetro_flux_ivar:
+            name: nsa_elpetro_flux_ivar
+            type: float64[7]
+            unit: nanomaggies-2
+            description: Inverse variance of nsa_elpetro_flux in bands [FNugriz]
+          nsa_sersic_ba:
+            name: nsa_sersic_ba
+            type: float64
+            unit: ''
+            description: Axis ratio b/a from two-dimensional, single-component Sersic
+              fit in r-band
+          nsa_sersic_n:
+            name: nsa_sersic_n
+            type: float64
+            unit: ''
+            description: Sersic index from two-dimensional, single-component Sersic
+              fit in r-band
+          nsa_sersic_phi:
+            name: nsa_sersic_phi
+            type: float64
+            unit: degrees
+            description: Angle (E of N) of major axis in two-dimensional, single-component
+              Sersic fit in r-band
+          nsa_sersic_th50:
+            name: nsa_sersic_th50
+            type: float64
+            unit: arcsec
+            description: 50% light radius of two-dimensional, single-component Sersic
+              fit to r-band
+          nsa_sersic_flux:
+            name: nsa_sersic_flux
+            type: float64[7]
+            unit: nanomaggies
+            description: Two-dimensional, single-component Sersic fit flux in bands
+              [FNugriz] (fit using r-band structural parameters)
+          nsa_sersic_flux_ivar:
+            name: nsa_sersic_flux_ivar
+            type: float64[7]
+            unit: nanomaggies-2
+            description: Inverse variance of nsa_sersic_flux in bands [FNugriz]
+  DR14:
+    template: $MANGA_SPECTRO_REDUX/[DRPVER]/drpall-[DRPVER].fits
+    example: v2_1_2/drpall-v2_1_2.fits
+    location: '{drpver}/drpall-{drpver}.fits'
+    environment: MANGA_SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: drpall
+      path_template: $MANGA_SPECTRO_REDUX/{drpver}/drpall-{drpver}.fits
+      path_kwargs:
+      - drpver
+      access_string: drpall = $MANGA_SPECTRO_REDUX/{drpver}/drpall-{drpver}.fits
+    survey: MaNGA
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: primary header extension
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: CHECKSUM
+          value: A7dHD5Z9A5bGA5Z9
+          comment: HDU checksum updated 2017-04-10T16:18:52
+        - key: DATASUM
+          value: '0'
+          comment: data unit checksum updated 2017-04-10T16:18:52
+      hdu1:
+        name: ''
+        description: Primary content
+        is_image: false
+        size: 5 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 1242
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 4824
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 89
+          comment: number of table fields
+        - key: CHECKSUM
+          value: ZRe3fPZ1ZPd1dPZ1
+          comment: HDU checksum updated 2017-04-10T16:18:52
+        - key: DATASUM
+          value: '3946663889'
+          comment: data unit checksum updated 2017-04-10T16:18:52
+        columns:
+          plate:
+            name: plate
+            type: int64
+            unit: ''
+            description: Plate ID
+          ifudsgn:
+            name: ifudsgn
+            type: char[21]
+            unit: ''
+            description: IFU Design ID (e.g. 12701)
+          plateifu:
+            name: plateifu
+            type: char[11]
+            unit: ''
+            description: Plate+ifudesign name for this object (e.g. 7443-12701)
+          mangaid:
+            name: mangaid
+            type: char[9]
+            unit: ''
+            description: MaNGA ID for this object (e.g. 1-114145)
+          versdrp2:
+            name: versdrp2
+            type: char[8]
+            unit: ''
+            description: Version of mangadrp used for 2d reductions
+          versdrp3:
+            name: versdrp3
+            type: char[8]
+            unit: ''
+            description: Version of mangadrp used for 3d reductions
+          verscore:
+            name: verscore
+            type: char[8]
+            unit: ''
+            description: Version of mangacore used for reductions
+          versutil:
+            name: versutil
+            type: char[8]
+            unit: ''
+            description: Version of idlutils used for reductions
+          versprim:
+            name: versprim
+            type: char[8]
+            unit: ''
+            description: Version of mangapreim used for reductions
+          platetyp:
+            name: platetyp
+            type: char[14]
+            unit: ''
+            description: Plate type (e.g. MANGA, APOGEE-2&MANGA)
+          srvymode:
+            name: srvymode
+            type: char[12]
+            unit: ''
+            description: Survey mode (e.g. MANGA dither, MANGA stare, APOGEE lead)
+          objra:
+            name: objra
+            type: float64
+            unit: degrees
+            description: Right ascension of the science object in J2000
+          objdec:
+            name: objdec
+            type: float64
+            unit: degrees
+            description: Declination of the science object in J2000
+          ifuglon:
+            name: ifuglon
+            type: float64
+            unit: degrees
+            description: Galactic longitude corresponding to IFURA/DEC
+          ifuglat:
+            name: ifuglat
+            type: float64
+            unit: degrees
+            description: Galactic latitude corresponding to IFURA/DEC
+          ifura:
+            name: ifura
+            type: float64
+            unit: degrees
+            description: Right ascension of this IFU in J2000
+          ifudec:
+            name: ifudec
+            type: float64
+            unit: degrees
+            description: Declination of this IFU in J2000
+          ebvgal:
+            name: ebvgal
+            type: float64
+            unit: ''
+            description: E(B-V) value from SDSS dust routine for this IFUGLON, IFUGLAT
+          nexp:
+            name: nexp
+            type: int64
+            unit: ''
+            description: Number of science exposures combined
+          exptime:
+            name: exptime
+            type: float64
+            unit: seconds
+            description: Total exposure time
+          drp3qual:
+            name: drp3qual
+            type: int64
+            unit: ''
+            description: Quality bitmask
+          bluesn2:
+            name: bluesn2
+            type: float64
+            unit: ''
+            description: Total blue (S/N)^2 across all nexp exposures
+          redsn2:
+            name: redsn2
+            type: float64
+            unit: ''
+            description: Total red (S/N)^2 across all nexp exposures
+          harname:
+            name: harname
+            type: char[11]
+            unit: ''
+            description: IFU harness name
+          frlplug:
+            name: frlplug
+            type: int64
+            unit: ''
+            description: Frplug hardware code
+          cartid:
+            name: cartid
+            type: char[8]
+            unit: ''
+            description: Cartridge ID number
+          designid:
+            name: designid
+            type: int64
+            unit: ''
+            description: Design ID number
+          cenra:
+            name: cenra
+            type: float64
+            unit: degrees
+            description: Plate center right ascension in J2000
+          cendec:
+            name: cendec
+            type: float64
+            unit: degrees
+            description: Plate center declination in J2000
+          airmsmin:
+            name: airmsmin
+            type: float64
+            unit: ''
+            description: Minimum airmass across all exposures
+          airmsmed:
+            name: airmsmed
+            type: float64
+            unit: ''
+            description: Median airmass across all exposures
+          airmsmax:
+            name: airmsmax
+            type: float64
+            unit: ''
+            description: Maximum airmass across all exposures
+          seemin:
+            name: seemin
+            type: float64
+            unit: arcsec
+            description: Best guider seeing
+          seemed:
+            name: seemed
+            type: float64
+            unit: arcsec
+            description: Median guider seeing
+          seemax:
+            name: seemax
+            type: float64
+            unit: arcsec
+            description: Worst guider seeing
+          transmin:
+            name: transmin
+            type: float64
+            unit: ''
+            description: Worst transparency
+          transmed:
+            name: transmed
+            type: float64
+            unit: ''
+            description: Median transparency
+          transmax:
+            name: transmax
+            type: float64
+            unit: ''
+            description: Best transparency
+          mjdmin:
+            name: mjdmin
+            type: int64
+            unit: ''
+            description: Minimum MJD across all exposures
+          mjdmed:
+            name: mjdmed
+            type: int64
+            unit: ''
+            description: Median MJD across all exposures
+          mjdmax:
+            name: mjdmax
+            type: int64
+            unit: ''
+            description: Maximum MJD across all exposures
+          gfwhm:
+            name: gfwhm
+            type: float64
+            unit: arcsec
+            description: Reconstructed FWHM in g-band
+          rfwhm:
+            name: rfwhm
+            type: float64
+            unit: arcsec
+            description: Reconstructed FWHM in r-band
+          ifwhm:
+            name: ifwhm
+            type: float64
+            unit: arcsec
+            description: Reconstructed FWHM in i-band
+          zfwhm:
+            name: zfwhm
+            type: float64
+            unit: arcsec
+            description: Reconstructed FWHM in z-band
+          mngtarg1:
+            name: mngtarg1
+            type: int64
+            unit: ''
+            description: Manga-target1 maskbit for galaxy target catalog
+          mngtarg2:
+            name: mngtarg2
+            type: int64
+            unit: ''
+            description: Manga-target2 maskbit for galaxy target catalog
+          mngtarg3:
+            name: mngtarg3
+            type: int64
+            unit: ''
+            description: Manga-target3 maskbit for galaxy target catalog
+          catidnum:
+            name: catidnum
+            type: int64
+            unit: ''
+            description: Primary target input catalog (leading digits of mangaid)
+          plttarg:
+            name: plttarg
+            type: char[19]
+            unit: ''
+            description: plateTarget reference file appropriate for this target
+          manga_tileid:
+            name: manga_tileid
+            type: int64
+            unit: ''
+            description: The ID of the tile to which this object has been allocated
+          nsa_iauname:
+            name: nsa_iauname
+            type: char[19]
+            unit: ''
+            description: IAU-style designation based on RA/Dec (NSA)
+          ifudesignsize:
+            name: ifudesignsize
+            type: int64
+            unit: ''
+            description: The allocated IFU size (0 = "unallocated")
+          ifutargetsize:
+            name: ifutargetsize
+            type: int64
+            unit: ''
+            description: The ideal IFU size for this object. The intended IFU size
+              is equal to IFUTargetSize except if IFUTargetSize > 127 when it is 127,
+              or < 19 when it is 19
+          ifudesignwrongsize:
+            name: ifudesignwrongsize
+            type: int64
+            unit: ''
+            description: The allocated IFU size if the intended IFU size was not available
+          zmin:
+            name: zmin
+            type: float64
+            unit: ''
+            description: The minimum redshift at which the galaxy could still have
+              been included in the Primary sample
+          zmax:
+            name: zmax
+            type: float64
+            unit: ''
+            description: The maximum redshift at which the galaxy could still have
+              been included in the Primary sample
+          szmin:
+            name: szmin
+            type: float64
+            unit: ''
+            description: The minimum redshift at which the galaxy could still have
+              been included in the Secondary sample
+          szmax:
+            name: szmax
+            type: float64
+            unit: ''
+            description: The maximum redshift at which the galaxy could still have
+              been included in the Secondary sample
+          ezmin:
+            name: ezmin
+            type: float64
+            unit: ''
+            description: The minimum redshift at which the galaxy could still have
+              been included in the Primary+ sample
+          ezmax:
+            name: ezmax
+            type: float64
+            unit: ''
+            description: The maximum redshift at which the galaxy could still have
+              been included in the Primary+ sample
+          nsa_field:
+            name: nsa_field
+            type: int64
+            unit: ''
+            description: SDSS field ID covering the target
+          nsa_run:
+            name: nsa_run
+            type: int64
+            unit: ''
+            description: SDSS run ID covering the target
+          nsa_camcol:
+            name: nsa_camcol
+            type: int64
+            unit: ''
+            description: SDSS camcol ID covering the catalog position
+          nsa_version:
+            name: nsa_version
+            type: char[6]
+            unit: ''
+            description: Version of NSA catalogue used to select these targets
+          nsa_nsaid:
+            name: nsa_nsaid
+            type: int64
+            unit: ''
+            description: The NSAID field in the NSA catalogue referenced in nsa_version
+          nsa_nsaid_v1b:
+            name: nsa_nsaid_v1b
+            type: int64
+            unit: ''
+            description: The NSAID of the target in the NSA_v1b_0_0_v2 catalogue (if
+              applicable)
+          nsa_z:
+            name: nsa_z
+            type: float64
+            unit: ''
+            description: Heliocentric redshift
+          nsa_zdist:
+            name: nsa_zdist
+            type: float64
+            unit: ''
+            description: Distance estimate using peculiar velocity model of Willick
+              et al. (1997); multiply by c/Ho for Mpc
+          nsa_sersic_absmag:
+            name: nsa_sersic_absmag
+            type: float64[7]
+            unit: ''
+            description: "Absolute magnitude estimates in rest-frame bands [FNugriz]\
+              \ from K-correction (\u03A9m=0.3, \u03A9\u039B=0.7, h=1)"
+          nsa_elpetro_absmag:
+            name: nsa_elpetro_absmag
+            type: float64[7]
+            unit: ''
+            description: "Absolute magnitude in rest-frame bands [FNugriz], from elliptical\
+              \ Petrosian fluxes (\u03A9m=0.3, \u03A9\u039B=0.7, h=1)"
+          nsa_elpetro_amivar:
+            name: nsa_elpetro_amivar
+            type: float64[7]
+            unit: ''
+            description: Inverse variance of nsa_elpetro_absmag in bands [FNugriz]
+          nsa_sersic_mass:
+            name: nsa_sersic_mass
+            type: float64
+            unit: ''
+            description: "Stellar mass from K-correction fit (use with caution) for\
+              \ Sersic fluxes (\u03A9m=0.3, \u03A9\u039B=0.7, h=1)"
+          nsa_elpetro_mass:
+            name: nsa_elpetro_mass
+            type: float64
+            unit: ''
+            description: "Stellar mass from K-correction fit (use with caution) for\
+              \ elliptical Petrosian fluxes (\u03A9m=0.3, \u03A9\u039B=0.7, h=1)"
+          nsa_elpetro_ba:
+            name: nsa_elpetro_ba
+            type: float64
+            unit: ''
+            description: Axis ratio used for elliptical apertures (for this version,
+              same as ba90)
+          nsa_elpetro_phi:
+            name: nsa_elpetro_phi
+            type: float64
+            unit: degrees
+            description: Position angle (east of north) used for elliptical apertures
+              (for this version, same as ba90)
+          nsa_extinction:
+            name: nsa_extinction
+            type: float64[7]
+            unit: ''
+            description: Galactic extinction from Schlegel, Finkbeiner, and Davis
+              (1997), in bands [FNugriz]
+          nsa_elpetro_th50_r:
+            name: nsa_elpetro_th50_r
+            type: float64
+            unit: arcsec
+            description: Elliptical Petrosian 50% light radius in SDSS r-band
+          nsa_petro_th50:
+            name: nsa_petro_th50
+            type: float64
+            unit: arcsec
+            description: Azimuthally averaged SDSS-style Petrosian 50% light radius
+              (derived from r band)
+          nsa_petro_flux:
+            name: nsa_petro_flux
+            type: float64[7]
+            unit: nanomaggies
+            description: Azimuthally-averaged SDSS-style Petrosian flux in bands [FNugriz]
+              (using r-band aperture)
+          nsa_petro_flux_ivar:
+            name: nsa_petro_flux_ivar
+            type: float64[7]
+            unit: nanomaggies-2
+            description: Inverse variance of nsa_petro_flux in bands [FNugriz]
+          nsa_elpetro_flux:
+            name: nsa_elpetro_flux
+            type: float64[7]
+            unit: nanomaggies
+            description: Elliptical SDSS-style Petrosian flux in bands [FNugriz] (using
+              r-band aperture)
+          nsa_elpetro_flux_ivar:
+            name: nsa_elpetro_flux_ivar
+            type: float64[7]
+            unit: nanomaggies-2
+            description: Inverse variance of nsa_elpetro_flux in bands [FNugriz]
+          nsa_sersic_ba:
+            name: nsa_sersic_ba
+            type: float64
+            unit: ''
+            description: Axis ratio b/a from two-dimensional, single-component Sersic
+              fit in r-band
+          nsa_sersic_n:
+            name: nsa_sersic_n
+            type: float64
+            unit: ''
+            description: Sersic index from two-dimensional, single-component Sersic
+              fit in r-band
+          nsa_sersic_phi:
+            name: nsa_sersic_phi
+            type: float64
+            unit: degrees
+            description: Angle (E of N) of major axis in two-dimensional, single-component
+              Sersic fit in r-band
+          nsa_sersic_th50:
+            name: nsa_sersic_th50
+            type: float64
+            unit: arcsec
+            description: 50% light radius of two-dimensional, single-component Sersic
+              fit to r-band
+          nsa_sersic_flux:
+            name: nsa_sersic_flux
+            type: float64[7]
+            unit: nanomaggies
+            description: Two-dimensional, single-component Sersic fit flux in bands
+              [FNugriz] (fit using r-band structural parameters)
+          nsa_sersic_flux_ivar:
+            name: nsa_sersic_flux_ivar
+            type: float64[7]
+            unit: nanomaggies-2
+            description: Inverse variance of nsa_sersic_flux in bands [FNugriz]
+  DR15: &id001
+    template: $MANGA_SPECTRO_REDUX/[DRPVER]/drpall-[DRPVER].fits
+    example: v2_4_3/drpall-v2_4_3.fits
+    location: '{drpver}/drpall-{drpver}.fits'
+    environment: MANGA_SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: drpall
+      path_template: $MANGA_SPECTRO_REDUX/{drpver}/drpall-{drpver}.fits
+      path_kwargs:
+      - drpver
+      access_string: drpall = $MANGA_SPECTRO_REDUX/{drpver}/drpall-{drpver}.fits
+    survey: MaNGA
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: primary header extension
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: CHECKSUM
+          value: 97bAJ6ZA96aAG6YA
+          comment: HDU checksum updated 2018-03-24T22:06:54
+        - key: DATASUM
+          value: '0'
+          comment: data unit checksum updated 2018-03-24T22:06:54
+      hdu1:
+        name: ''
+        description: Primary content
+        is_image: false
+        size: 14 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 1340
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 11465
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 99
+          comment: number of table fields
+        - key: CHECKSUM
+          value: Ci86Fi54Ci54Ci54
+          comment: HDU checksum updated 2018-03-24T22:06:55
+        - key: DATASUM
+          value: '3521176918'
+          comment: data unit checksum updated 2018-03-24T22:06:55
+        columns:
+          plate:
+            name: plate
+            type: int64
+            unit: ''
+            description: Plate ID
+          ifudsgn:
+            name: ifudsgn
+            type: char[21]
+            unit: ''
+            description: IFU Design ID (e.g. 12701)
+          plateifu:
+            name: plateifu
+            type: char[11]
+            unit: ''
+            description: Plate+ifudesign name for this object (e.g. 7443-12701)
+          mangaid:
+            name: mangaid
+            type: char[11]
+            unit: ''
+            description: MaNGA ID for this object (e.g. 1-114145)
+          versdrp2:
+            name: versdrp2
+            type: char[6]
+            unit: ''
+            description: Version of mangadrp used for 2d reductions
+          versdrp3:
+            name: versdrp3
+            type: char[6]
+            unit: ''
+            description: Version of mangadrp used for 3d reductions
+          verscore:
+            name: verscore
+            type: char[6]
+            unit: ''
+            description: Version of mangacore used for reductions
+          versutil:
+            name: versutil
+            type: char[7]
+            unit: ''
+            description: Version of idlutils used for reductions
+          versprim:
+            name: versprim
+            type: char[4]
+            unit: ''
+            description: Version of mangapreim used for reductions
+          platetyp:
+            name: platetyp
+            type: char[14]
+            unit: ''
+            description: Plate type (e.g. MANGA, APOGEE-2&MANGA)
+          srvymode:
+            name: srvymode
+            type: char[12]
+            unit: ''
+            description: Survey mode (e.g. MANGA dither, MANGA stare, APOGEE lead)
+          objra:
+            name: objra
+            type: float64
+            unit: degrees
+            description: Right ascension of the science object in J2000
+          objdec:
+            name: objdec
+            type: float64
+            unit: degrees
+            description: Declination of the science object in J2000
+          ifuglon:
+            name: ifuglon
+            type: float64
+            unit: degrees
+            description: Galactic longitude corresponding to IFURA/DEC
+          ifuglat:
+            name: ifuglat
+            type: float64
+            unit: degrees
+            description: Galactic latitude corresponding to IFURA/DEC
+          ifura:
+            name: ifura
+            type: float64
+            unit: degrees
+            description: Right ascension of this IFU in J2000
+          ifudec:
+            name: ifudec
+            type: float64
+            unit: degrees
+            description: Declination of this IFU in J2000
+          ebvgal:
+            name: ebvgal
+            type: float64
+            unit: ''
+            description: E(B-V) value from SDSS dust routine for this IFUGLON, IFUGLAT
+          nexp:
+            name: nexp
+            type: int64
+            unit: ''
+            description: Number of science exposures combined
+          exptime:
+            name: exptime
+            type: float64
+            unit: seconds
+            description: Total exposure time
+          drp3qual:
+            name: drp3qual
+            type: int64
+            unit: ''
+            description: Quality bitmask
+          bluesn2:
+            name: bluesn2
+            type: float64
+            unit: ''
+            description: Total blue (S/N)^2 across all nexp exposures
+          redsn2:
+            name: redsn2
+            type: float64
+            unit: ''
+            description: Total red (S/N)^2 across all nexp exposures
+          harname:
+            name: harname
+            type: char[35]
+            unit: ''
+            description: IFU harness name
+          frlplug:
+            name: frlplug
+            type: int64
+            unit: ''
+            description: Frplug hardware code
+          cartid:
+            name: cartid
+            type: char[11]
+            unit: ''
+            description: Cartridge ID number
+          designid:
+            name: designid
+            type: int64
+            unit: ''
+            description: Design ID number
+          cenra:
+            name: cenra
+            type: float64
+            unit: degrees
+            description: Plate center right ascension in J2000
+          cendec:
+            name: cendec
+            type: float64
+            unit: degrees
+            description: Plate center declination in J2000
+          airmsmin:
+            name: airmsmin
+            type: float64
+            unit: ''
+            description: Minimum airmass across all exposures
+          airmsmed:
+            name: airmsmed
+            type: float64
+            unit: ''
+            description: Median airmass across all exposures
+          airmsmax:
+            name: airmsmax
+            type: float64
+            unit: ''
+            description: Maximum airmass across all exposures
+          seemin:
+            name: seemin
+            type: float64
+            unit: arcsec
+            description: Best guider seeing
+          seemed:
+            name: seemed
+            type: float64
+            unit: arcsec
+            description: Median guider seeing
+          seemax:
+            name: seemax
+            type: float64
+            unit: arcsec
+            description: Worst guider seeing
+          transmin:
+            name: transmin
+            type: float64
+            unit: ''
+            description: Worst transparency
+          transmed:
+            name: transmed
+            type: float64
+            unit: ''
+            description: Median transparency
+          transmax:
+            name: transmax
+            type: float64
+            unit: ''
+            description: Best transparency
+          mjdmin:
+            name: mjdmin
+            type: int64
+            unit: ''
+            description: Minimum MJD across all exposures
+          mjdmed:
+            name: mjdmed
+            type: int64
+            unit: ''
+            description: Median MJD across all exposures
+          mjdmax:
+            name: mjdmax
+            type: int64
+            unit: ''
+            description: Maximum MJD across all exposures
+          gfwhm:
+            name: gfwhm
+            type: float64
+            unit: arcsec
+            description: Reconstructed FWHM in g-band
+          rfwhm:
+            name: rfwhm
+            type: float64
+            unit: arcsec
+            description: Reconstructed FWHM in r-band
+          ifwhm:
+            name: ifwhm
+            type: float64
+            unit: arcsec
+            description: Reconstructed FWHM in i-band
+          zfwhm:
+            name: zfwhm
+            type: float64
+            unit: arcsec
+            description: Reconstructed FWHM in z-band
+          mngtarg1:
+            name: mngtarg1
+            type: int64
+            unit: ''
+            description: Manga-target1 maskbit for galaxy target catalog
+          mngtarg2:
+            name: mngtarg2
+            type: int64
+            unit: ''
+            description: Manga-target2 maskbit for galaxy target catalog
+          mngtarg3:
+            name: mngtarg3
+            type: int64
+            unit: ''
+            description: Manga-target3 maskbit for galaxy target catalog
+          catidnum:
+            name: catidnum
+            type: int64
+            unit: ''
+            description: Primary target input catalog (leading digits of mangaid)
+          plttarg:
+            name: plttarg
+            type: char[19]
+            unit: ''
+            description: plateTarget reference file appropriate for this target
+          manga_tileid:
+            name: manga_tileid
+            type: int64
+            unit: ''
+            description: The ID of the tile to which this object has been allocated
+          nsa_iauname:
+            name: nsa_iauname
+            type: char[19]
+            unit: ''
+            description: IAU-style designation based on RA/Dec (NSA)
+          ifudesignsize:
+            name: ifudesignsize
+            type: int64
+            unit: ''
+            description: The allocated IFU size (0 = "unallocated")
+          ifutargetsize:
+            name: ifutargetsize
+            type: int64
+            unit: ''
+            description: The ideal IFU size for this object. The intended IFU size
+              is equal to IFUTargetSize except if IFUTargetSize > 127 when it is 127,
+              or < 19 when it is 19
+          ifudesignwrongsize:
+            name: ifudesignwrongsize
+            type: int64
+            unit: ''
+            description: The allocated IFU size if the intended IFU size was not available
+          z:
+            name: z
+            type: float64
+            unit: ''
+            description: The targeting redshift (identical to nsa_z for those targets
+              in the NSA Catalog. For others, it is the redshift provided by the Ancillary
+              programs)
+          zmin:
+            name: zmin
+            type: float64
+            unit: ''
+            description: The minimum redshift at which the galaxy could still have
+              been included in the Primary sample
+          zmax:
+            name: zmax
+            type: float64
+            unit: ''
+            description: The maximum redshift at which the galaxy could still have
+              been included in the Primary sample
+          szmin:
+            name: szmin
+            type: float64
+            unit: ''
+            description: The minimum redshift at which the galaxy could still have
+              been included in the Secondary sample
+          szmax:
+            name: szmax
+            type: float64
+            unit: ''
+            description: The maximum redshift at which the galaxy could still have
+              been included in the Secondary sample
+          ezmin:
+            name: ezmin
+            type: float64
+            unit: ''
+            description: The minimum redshift at which the galaxy could still have
+              been included in the Primary+ sample
+          ezmax:
+            name: ezmax
+            type: float64
+            unit: ''
+            description: The maximum redshift at which the galaxy could still have
+              been included in the Primary+ sample
+          probs:
+            name: probs
+            type: float64
+            unit: ''
+            description: The probability that a Secondary sample galaxy is included
+              after down-sampling. For galaxies not in the Secondary sample PROBS
+              is set to the mean down-sampling probability
+          pweight:
+            name: pweight
+            type: float64
+            unit: ''
+            description: The volume weight for the Primary sample. Corrects the MaNGA
+              selection to a volume limited sample.
+          psweight:
+            name: psweight
+            type: float64
+            unit: ''
+            description: The volume weight for the combined Primary and full Secondary
+              samples. Corrects the MaNGA selection to a volume limited sample.
+          psrweight:
+            name: psrweight
+            type: float64
+            unit: ''
+            description: The volume weight for the combined Primary and down-sampled
+              Secondary samples. Corrects the MaNGA selection to a volume limited
+              sample.
+          sweight:
+            name: sweight
+            type: float64
+            unit: ''
+            description: The volume weight for the full Secondary sample. Corrects
+              the MaNGA selection to a volume limited sample.
+          srweight:
+            name: srweight
+            type: float64
+            unit: ''
+            description: The volume weight for the down-sampled Secondary sample.
+              Corrects the MaNGA selection to a volume limited sample.
+          eweight:
+            name: eweight
+            type: float64
+            unit: ''
+            description: The volume weight for the Primary+ sample. Corrects the MaNGA
+              selection to a volume limited sample.
+          esweight:
+            name: esweight
+            type: float64
+            unit: ''
+            description: The volume weight for the combined Primary+ and full Secondary
+              samples. Corrects the MaNGA selection to a volume limited sample.
+          esrweight:
+            name: esrweight
+            type: float64
+            unit: ''
+            description: The volume weight for the combined Primary+ and down-sampled
+              Secondary samples. Corrects the MaNGA selection to a volume limited
+              sample.
+          nsa_field:
+            name: nsa_field
+            type: int64
+            unit: ''
+            description: SDSS field ID covering the target
+          nsa_run:
+            name: nsa_run
+            type: int64
+            unit: ''
+            description: SDSS run ID covering the target
+          nsa_camcol:
+            name: nsa_camcol
+            type: int64
+            unit: ''
+            description: SDSS camcol ID covering the catalog position
+          nsa_version:
+            name: nsa_version
+            type: char[6]
+            unit: ''
+            description: Version of NSA catalogue used to select these targets
+          nsa_nsaid:
+            name: nsa_nsaid
+            type: int64
+            unit: ''
+            description: The NSAID field in the NSA catalogue referenced in nsa_version
+          nsa_nsaid_v1b:
+            name: nsa_nsaid_v1b
+            type: int64
+            unit: ''
+            description: The NSAID of the target in the NSA_v1b_0_0_v2 catalogue (if
+              applicable)
+          nsa_z:
+            name: nsa_z
+            type: float64
+            unit: ''
+            description: Heliocentric redshift
+          nsa_zdist:
+            name: nsa_zdist
+            type: float64
+            unit: ''
+            description: Distance estimate using peculiar velocity model of Willick
+              et al. (1997); multiply by c/Ho for Mpc
+          nsa_sersic_absmag:
+            name: nsa_sersic_absmag
+            type: float64[7]
+            unit: ''
+            description: "Absolute magnitude estimates in rest-frame bands [FNugriz]\
+              \ from K-correction (\u03A9m=0.3, \u03A9\u039B=0.7, h=1)"
+          nsa_elpetro_absmag:
+            name: nsa_elpetro_absmag
+            type: float64[7]
+            unit: ''
+            description: "Absolute magnitude in rest-frame bands [FNugriz], from elliptical\
+              \ Petrosian fluxes (\u03A9m=0.3, \u03A9\u039B=0.7, h=1)"
+          nsa_elpetro_amivar:
+            name: nsa_elpetro_amivar
+            type: float64[7]
+            unit: ''
+            description: Inverse variance of nsa_elpetro_absmag in bands [FNugriz]
+          nsa_sersic_mass:
+            name: nsa_sersic_mass
+            type: float64
+            unit: ''
+            description: "Stellar mass from K-correction fit (use with caution) for\
+              \ Sersic fluxes (\u03A9m=0.3, \u03A9\u039B=0.7, h=1)"
+          nsa_elpetro_mass:
+            name: nsa_elpetro_mass
+            type: float64
+            unit: ''
+            description: "Stellar mass from K-correction fit (use with caution) for\
+              \ elliptical Petrosian fluxes (\u03A9m=0.3, \u03A9\u039B=0.7, h=1)"
+          nsa_elpetro_ba:
+            name: nsa_elpetro_ba
+            type: float64
+            unit: ''
+            description: Axis ratio used for elliptical apertures (for this version,
+              same as ba90)
+          nsa_elpetro_phi:
+            name: nsa_elpetro_phi
+            type: float64
+            unit: degrees
+            description: Position angle (east of north) used for elliptical apertures
+              (for this version, same as ba90)
+          nsa_extinction:
+            name: nsa_extinction
+            type: float64[7]
+            unit: ''
+            description: Galactic extinction from Schlegel, Finkbeiner, and Davis
+              (1997), in bands [FNugriz]
+          nsa_elpetro_th50_r:
+            name: nsa_elpetro_th50_r
+            type: float64
+            unit: arcsec
+            description: Elliptical Petrosian 50% light radius in SDSS r-band
+          nsa_petro_th50:
+            name: nsa_petro_th50
+            type: float64
+            unit: arcsec
+            description: Azimuthally averaged SDSS-style Petrosian 50% light radius
+              (derived from r band)
+          nsa_petro_flux:
+            name: nsa_petro_flux
+            type: float64[7]
+            unit: nanomaggies
+            description: Azimuthally-averaged SDSS-style Petrosian flux in bands [FNugriz]
+              (using r-band aperture)
+          nsa_petro_flux_ivar:
+            name: nsa_petro_flux_ivar
+            type: float64[7]
+            unit: nanomaggies-2
+            description: Inverse variance of nsa_petro_flux in bands [FNugriz]
+          nsa_elpetro_flux:
+            name: nsa_elpetro_flux
+            type: float64[7]
+            unit: nanomaggies
+            description: Elliptical SDSS-style Petrosian flux in bands [FNugriz] (using
+              r-band aperture)
+          nsa_elpetro_flux_ivar:
+            name: nsa_elpetro_flux_ivar
+            type: float64[7]
+            unit: nanomaggies-2
+            description: Inverse variance of nsa_elpetro_flux in bands [FNugriz]
+          nsa_sersic_ba:
+            name: nsa_sersic_ba
+            type: float64
+            unit: ''
+            description: Axis ratio b/a from two-dimensional, single-component Sersic
+              fit in r-band
+          nsa_sersic_n:
+            name: nsa_sersic_n
+            type: float64
+            unit: ''
+            description: Sersic index from two-dimensional, single-component Sersic
+              fit in r-band
+          nsa_sersic_phi:
+            name: nsa_sersic_phi
+            type: float64
+            unit: degrees
+            description: Angle (E of N) of major axis in two-dimensional, single-component
+              Sersic fit in r-band
+          nsa_sersic_th50:
+            name: nsa_sersic_th50
+            type: float64
+            unit: arcsec
+            description: 50% light radius of two-dimensional, single-component Sersic
+              fit to r-band
+          nsa_sersic_flux:
+            name: nsa_sersic_flux
+            type: float64[7]
+            unit: nanomaggies
+            description: Two-dimensional, single-component Sersic fit flux in bands
+              [FNugriz] (fit using r-band structural parameters)
+          nsa_sersic_flux_ivar:
+            name: nsa_sersic_flux_ivar
+            type: float64[7]
+            unit: nanomaggies-2
+            description: Inverse variance of nsa_sersic_flux in bands [FNugriz]
+  DR16: *id001
+  DR17:
+    template: $MANGA_SPECTRO_REDUX/[DRPVER]/drpall-[DRPVER].fits
+    example: v3_1_1/drpall-v3_1_1.fits
+    location: '{drpver}/drpall-{drpver}.fits'
+    environment: MANGA_SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: drpall
+      path_template: $MANGA_SPECTRO_REDUX/{drpver}/drpall-{drpver}.fits
+      path_kwargs:
+      - drpver
+      access_string: drpall = $MANGA_SPECTRO_REDUX/{drpver}/drpall-{drpver}.fits
+    survey: MaNGA
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: primary header extension
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: CHECKSUM
+          value: C7fHD5Z9C5fGC5Z9
+          comment: HDU checksum updated 2021-02-23T16:07:33
+        - key: DATASUM
+          value: '0'
+          comment: data unit checksum updated 2021-02-23T16:07:33
+      hdu1:
+        name: MANGA
+        description: Primary content for all galaxy-style data, defined here as everything that produces a final 3D data cube.
+        is_image: false
+        size: 17 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 1614
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 11273
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 99
+          comment: number of table fields
+        - key: EXTNAME
+          value: MANGA
+          comment: extension name
+        - key: CHECKSUM
+          value: IaYgIZXeIaXeIWXe
+          comment: HDU checksum updated 2021-02-23T16:07:34
+        - key: DATASUM
+          value: '217557703'
+          comment: data unit checksum updated 2021-02-23T16:07:34
+        columns:
+          plate:
+            name: plate
+            type: int64
+            unit: ''
+            description: Plate ID
+          ifudsgn:
+            name: ifudsgn
+            type: char[21]
+            unit: ''
+            description: IFU Design ID (e.g. 12701)
+          plateifu:
+            name: plateifu
+            type: char[11]
+            unit: ''
+            description: Plate+ifudesign name for this object (e.g. 7443-12701)
+          mangaid:
+            name: mangaid
+            type: char[11]
+            unit: ''
+            description: MaNGA ID for this object (e.g. 1-114145)
+          versdrp2:
+            name: versdrp2
+            type: char[6]
+            unit: ''
+            description: Version of mangadrp used for 2d reductions
+          versdrp3:
+            name: versdrp3
+            type: char[6]
+            unit: ''
+            description: Version of mangadrp used for 3d reductions
+          verscore:
+            name: verscore
+            type: char[6]
+            unit: ''
+            description: Version of mangacore used for reductions
+          versutil:
+            name: versutil
+            type: char[7]
+            unit: ''
+            description: Version of idlutils used for reductions
+          versprim:
+            name: versprim
+            type: char[4]
+            unit: ''
+            description: Version of mangapreim used for reductions
+          platetyp:
+            name: platetyp
+            type: char[14]
+            unit: ''
+            description: Plate type (e.g. MANGA, APOGEE-2&MANGA)
+          srvymode:
+            name: srvymode
+            type: char[12]
+            unit: ''
+            description: Survey mode (e.g. MANGA dither, MANGA stare, APOGEE lead)
+          objra:
+            name: objra
+            type: float64
+            unit: degrees
+            description: Right ascension of the science object in J2000
+          objdec:
+            name: objdec
+            type: float64
+            unit: degrees
+            description: Declination of the science object in J2000
+          ifuglon:
+            name: ifuglon
+            type: float64
+            unit: degrees
+            description: Galactic longitude corresponding to IFURA/DEC
+          ifuglat:
+            name: ifuglat
+            type: float64
+            unit: degrees
+            description: Galactic latitude corresponding to IFURA/DEC
+          ifura:
+            name: ifura
+            type: float64
+            unit: degrees
+            description: Right ascension of this IFU in J2000
+          ifudec:
+            name: ifudec
+            type: float64
+            unit: degrees
+            description: Declination of this IFU in J2000
+          ebvgal:
+            name: ebvgal
+            type: float64
+            unit: ''
+            description: E(B-V) value from SDSS dust routine for this IFUGLON, IFUGLAT
+          nexp:
+            name: nexp
+            type: int64
+            unit: ''
+            description: Number of science exposures combined
+          exptime:
+            name: exptime
+            type: float64
+            unit: seconds
+            description: Total exposure time
+          drp3qual:
+            name: drp3qual
+            type: int64
+            unit: ''
+            description: Quality bitmask
+          bluesn2:
+            name: bluesn2
+            type: float64
+            unit: ''
+            description: Total blue (S/N)^2 across all nexp exposures
+          redsn2:
+            name: redsn2
+            type: float64
+            unit: ''
+            description: Total red (S/N)^2 across all nexp exposures
+          harname:
+            name: harname
+            type: char[35]
+            unit: ''
+            description: IFU harness name
+          frlplug:
+            name: frlplug
+            type: int64
+            unit: ''
+            description: Frplug hardware code
+          cartid:
+            name: cartid
+            type: char[11]
+            unit: ''
+            description: Cartridge ID number
+          designid:
+            name: designid
+            type: int64
+            unit: ''
+            description: Design ID number
+          cenra:
+            name: cenra
+            type: float64
+            unit: degrees
+            description: Plate center right ascension in J2000
+          cendec:
+            name: cendec
+            type: float64
+            unit: degrees
+            description: Plate center declination in J2000
+          airmsmin:
+            name: airmsmin
+            type: float64
+            unit: ''
+            description: Minimum airmass across all exposures
+          airmsmed:
+            name: airmsmed
+            type: float64
+            unit: ''
+            description: Median airmass across all exposures
+          airmsmax:
+            name: airmsmax
+            type: float64
+            unit: ''
+            description: Maximum airmass across all exposures
+          seemin:
+            name: seemin
+            type: float64
+            unit: arcsec
+            description: Best guider seeing
+          seemed:
+            name: seemed
+            type: float64
+            unit: arcsec
+            description: Median guider seeing
+          seemax:
+            name: seemax
+            type: float64
+            unit: arcsec
+            description: Worst guider seeing
+          transmin:
+            name: transmin
+            type: float64
+            unit: ''
+            description: Worst transparency
+          transmed:
+            name: transmed
+            type: float64
+            unit: ''
+            description: Median transparency
+          transmax:
+            name: transmax
+            type: float64
+            unit: ''
+            description: Best transparency
+          mjdmin:
+            name: mjdmin
+            type: int64
+            unit: ''
+            description: Minimum MJD across all exposures
+          mjdmed:
+            name: mjdmed
+            type: int64
+            unit: ''
+            description: Median MJD across all exposures
+          mjdmax:
+            name: mjdmax
+            type: int64
+            unit: ''
+            description: Maximum MJD across all exposures
+          gfwhm:
+            name: gfwhm
+            type: float64
+            unit: arcsec
+            description: Reconstructed FWHM in g-band
+          rfwhm:
+            name: rfwhm
+            type: float64
+            unit: arcsec
+            description: Reconstructed FWHM in r-band
+          ifwhm:
+            name: ifwhm
+            type: float64
+            unit: arcsec
+            description: Reconstructed FWHM in i-band
+          zfwhm:
+            name: zfwhm
+            type: float64
+            unit: arcsec
+            description: Reconstructed FWHM in z-band
+          mngtarg1:
+            name: mngtarg1
+            type: int64
+            unit: ''
+            description: Manga-target1 maskbit for galaxy target catalog
+          mngtarg2:
+            name: mngtarg2
+            type: int64
+            unit: ''
+            description: Manga-target2 maskbit for galaxy target catalog
+          mngtarg3:
+            name: mngtarg3
+            type: int64
+            unit: ''
+            description: Manga-target3 maskbit for galaxy target catalog
+          catidnum:
+            name: catidnum
+            type: int64
+            unit: ''
+            description: Primary target input catalog (leading digits of mangaid)
+          plttarg:
+            name: plttarg
+            type: char[19]
+            unit: ''
+            description: plateTarget reference file appropriate for this target
+          manga_tileid:
+            name: manga_tileid
+            type: int64
+            unit: ''
+            description: The ID of the tile to which this object has been allocated
+          nsa_iauname:
+            name: nsa_iauname
+            type: char[19]
+            unit: ''
+            description: IAU-style designation based on RA/Dec (NSA)
+          ifudesignsize:
+            name: ifudesignsize
+            type: int64
+            unit: ''
+            description: The allocated IFU size (0 = "unallocated")
+          ifutargetsize:
+            name: ifutargetsize
+            type: int64
+            unit: ''
+            description: The ideal IFU size for this object. The intended IFU size
+              is equal to IFUTargetSize except if IFUTargetSize > 127 when it is 127,
+              or < 19 when it is 19
+          ifudesignwrongsize:
+            name: ifudesignwrongsize
+            type: int64
+            unit: ''
+            description: The allocated IFU size if the intended IFU size was not available
+          z:
+            name: z
+            type: float64
+            unit: ''
+            description: The targeting redshift (identical to nsa_z for those targets
+              in the NSA Catalog. For others, it is the redshift provided by the Ancillary
+              programs)
+          zmin:
+            name: zmin
+            type: float64
+            unit: ''
+            description: The minimum redshift at which the galaxy could still have
+              been included in the Primary sample
+          zmax:
+            name: zmax
+            type: float64
+            unit: ''
+            description: The maximum redshift at which the galaxy could still have
+              been included in the Primary sample
+          szmin:
+            name: szmin
+            type: float64
+            unit: ''
+            description: The minimum redshift at which the galaxy could still have
+              been included in the Secondary sample
+          szmax:
+            name: szmax
+            type: float64
+            unit: ''
+            description: The maximum redshift at which the galaxy could still have
+              been included in the Secondary sample
+          ezmin:
+            name: ezmin
+            type: float64
+            unit: ''
+            description: The minimum redshift at which the galaxy could still have
+              been included in the Primary+ sample
+          ezmax:
+            name: ezmax
+            type: float64
+            unit: ''
+            description: The maximum redshift at which the galaxy could still have
+              been included in the Primary+ sample
+          probs:
+            name: probs
+            type: float64
+            unit: ''
+            description: The probability that a Secondary sample galaxy is included
+              after down-sampling. For galaxies not in the Secondary sample PROBS
+              is set to the mean down-sampling probability
+          pweight:
+            name: pweight
+            type: float64
+            unit: ''
+            description: The volume weight for the Primary sample. Corrects the MaNGA
+              selection to a volume limited sample.
+          psweight:
+            name: psweight
+            type: float64
+            unit: ''
+            description: The volume weight for the combined Primary and full Secondary
+              samples. Corrects the MaNGA selection to a volume limited sample.
+          psrweight:
+            name: psrweight
+            type: float64
+            unit: ''
+            description: The volume weight for the combined Primary and down-sampled
+              Secondary samples. Corrects the MaNGA selection to a volume limited
+              sample.
+          sweight:
+            name: sweight
+            type: float64
+            unit: ''
+            description: The volume weight for the full Secondary sample. Corrects
+              the MaNGA selection to a volume limited sample.
+          srweight:
+            name: srweight
+            type: float64
+            unit: ''
+            description: The volume weight for the down-sampled Secondary sample.
+              Corrects the MaNGA selection to a volume limited sample.
+          eweight:
+            name: eweight
+            type: float64
+            unit: ''
+            description: The volume weight for the Primary+ sample. Corrects the MaNGA
+              selection to a volume limited sample.
+          esweight:
+            name: esweight
+            type: float64
+            unit: ''
+            description: The volume weight for the combined Primary+ and full Secondary
+              samples. Corrects the MaNGA selection to a volume limited sample.
+          esrweight:
+            name: esrweight
+            type: float64
+            unit: ''
+            description: The volume weight for the combined Primary+ and down-sampled
+              Secondary samples. Corrects the MaNGA selection to a volume limited
+              sample.
+          nsa_field:
+            name: nsa_field
+            type: int64
+            unit: ''
+            description: SDSS field ID covering the target
+          nsa_run:
+            name: nsa_run
+            type: int64
+            unit: ''
+            description: SDSS run ID covering the target
+          nsa_camcol:
+            name: nsa_camcol
+            type: int64
+            unit: ''
+            description: SDSS camcol ID covering the catalog position
+          nsa_version:
+            name: nsa_version
+            type: char[6]
+            unit: ''
+            description: Version of NSA catalogue used to select these targets
+          nsa_nsaid:
+            name: nsa_nsaid
+            type: int64
+            unit: ''
+            description: The NSAID field in the NSA catalogue referenced in nsa_version
+          nsa_nsaid_v1b:
+            name: nsa_nsaid_v1b
+            type: int64
+            unit: ''
+            description: The NSAID of the target in the NSA_v1b_0_0_v2 catalogue (if
+              applicable)
+          nsa_z:
+            name: nsa_z
+            type: float64
+            unit: ''
+            description: Heliocentric redshift
+          nsa_zdist:
+            name: nsa_zdist
+            type: float64
+            unit: ''
+            description: Distance estimate using peculiar velocity model of Willick
+              et al. (1997); multiply by c/Ho for Mpc
+          nsa_sersic_absmag:
+            name: nsa_sersic_absmag
+            type: float64[7]
+            unit: ''
+            description: "Absolute magnitude estimates in rest-frame bands [FNugriz]\
+              \ from K-correction (\u03A9m=0.3, \u03A9\u039B=0.7, h=1)"
+          nsa_elpetro_absmag:
+            name: nsa_elpetro_absmag
+            type: float64[7]
+            unit: ''
+            description: "Absolute magnitude in rest-frame bands [FNugriz], from elliptical\
+              \ Petrosian fluxes (\u03A9m=0.3, \u03A9\u039B=0.7, h=1)"
+          nsa_elpetro_amivar:
+            name: nsa_elpetro_amivar
+            type: float64[7]
+            unit: ''
+            description: Inverse variance of nsa_elpetro_absmag in bands [FNugriz]
+          nsa_sersic_mass:
+            name: nsa_sersic_mass
+            type: float64
+            unit: ''
+            description: "Stellar mass from K-correction fit (use with caution) for\
+              \ Sersic fluxes (\u03A9m=0.3, \u03A9\u039B=0.7, h=1)"
+          nsa_elpetro_mass:
+            name: nsa_elpetro_mass
+            type: float64
+            unit: ''
+            description: "Stellar mass from K-correction fit (use with caution) for\
+              \ elliptical Petrosian fluxes (\u03A9m=0.3, \u03A9\u039B=0.7, h=1)"
+          nsa_elpetro_ba:
+            name: nsa_elpetro_ba
+            type: float64
+            unit: ''
+            description: Axis ratio used for elliptical apertures (for this version,
+              same as ba90)
+          nsa_elpetro_phi:
+            name: nsa_elpetro_phi
+            type: float64
+            unit: degrees
+            description: Position angle (east of north) used for elliptical apertures
+              (for this version, same as ba90)
+          nsa_extinction:
+            name: nsa_extinction
+            type: float64[7]
+            unit: ''
+            description: Galactic extinction from Schlegel, Finkbeiner, and Davis
+              (1997), in bands [FNugriz]
+          nsa_elpetro_th50_r:
+            name: nsa_elpetro_th50_r
+            type: float64
+            unit: arcsec
+            description: Elliptical Petrosian 50% light radius in SDSS r-band
+          nsa_petro_th50:
+            name: nsa_petro_th50
+            type: float64
+            unit: arcsec
+            description: Azimuthally averaged SDSS-style Petrosian 50% light radius
+              (derived from r band)
+          nsa_petro_flux:
+            name: nsa_petro_flux
+            type: float64[7]
+            unit: nanomaggies
+            description: Azimuthally-averaged SDSS-style Petrosian flux in bands [FNugriz]
+              (using r-band aperture)
+          nsa_petro_flux_ivar:
+            name: nsa_petro_flux_ivar
+            type: float64[7]
+            unit: nanomaggies-2
+            description: Inverse variance of nsa_petro_flux in bands [FNugriz]
+          nsa_elpetro_flux:
+            name: nsa_elpetro_flux
+            type: float64[7]
+            unit: nanomaggies
+            description: Elliptical SDSS-style Petrosian flux in bands [FNugriz] (using
+              r-band aperture)
+          nsa_elpetro_flux_ivar:
+            name: nsa_elpetro_flux_ivar
+            type: float64[7]
+            unit: nanomaggies-2
+            description: Inverse variance of nsa_elpetro_flux in bands [FNugriz]
+          nsa_sersic_ba:
+            name: nsa_sersic_ba
+            type: float64
+            unit: ''
+            description: Axis ratio b/a from two-dimensional, single-component Sersic
+              fit in r-band
+          nsa_sersic_n:
+            name: nsa_sersic_n
+            type: float64
+            unit: ''
+            description: Sersic index from two-dimensional, single-component Sersic
+              fit in r-band
+          nsa_sersic_phi:
+            name: nsa_sersic_phi
+            type: float64
+            unit: degrees
+            description: Angle (E of N) of major axis in two-dimensional, single-component
+              Sersic fit in r-band
+          nsa_sersic_th50:
+            name: nsa_sersic_th50
+            type: float64
+            unit: arcsec
+            description: 50% light radius of two-dimensional, single-component Sersic
+              fit to r-band
+          nsa_sersic_flux:
+            name: nsa_sersic_flux
+            type: float64[7]
+            unit: nanomaggies
+            description: Two-dimensional, single-component Sersic fit flux in bands
+              [FNugriz] (fit using r-band structural parameters)
+          nsa_sersic_flux_ivar:
+            name: nsa_sersic_flux_ivar
+            type: float64[7]
+            unit: nanomaggies-2
+            description: Inverse variance of nsa_sersic_flux in bands [FNugriz]
+      hdu2:
+        name: MASTAR
+        description: Primary content for all stellar-library style data, defined here as everything that produces a final 1D spectrum
+        is_image: false
+        size: 54 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 1614
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 35394
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 99
+          comment: number of table fields
+        - key: EXTNAME
+          value: MASTAR
+          comment: extension name
+        - key: CHECKSUM
+          value: h5EAk298h2CAh295
+          comment: HDU checksum updated 2021-02-23T16:07:35
+        - key: DATASUM
+          value: '1750089548'
+          comment: data unit checksum updated 2021-02-23T16:07:35
+        columns:
+          plate:
+            name: plate
+            type: int64
+            unit: ''
+            description: Plate ID
+          ifudsgn:
+            name: ifudsgn
+            type: char[21]
+            unit: ''
+            description: IFU Design ID (e.g. 12701)
+          plateifu:
+            name: plateifu
+            type: char[11]
+            unit: ''
+            description: Plate+ifudesign name for this object (e.g. 7443-12701)
+          mangaid:
+            name: mangaid
+            type: char[11]
+            unit: ''
+            description: MaNGA ID for this object (e.g. 1-114145)
+          versdrp2:
+            name: versdrp2
+            type: char[6]
+            unit: ''
+            description: Version of mangadrp used for 2d reductions
+          versdrp3:
+            name: versdrp3
+            type: char[6]
+            unit: ''
+            description: Version of mangadrp used for 3d reductions
+          verscore:
+            name: verscore
+            type: char[6]
+            unit: ''
+            description: Version of mangacore used for reductions
+          versutil:
+            name: versutil
+            type: char[7]
+            unit: ''
+            description: Version of idlutils used for reductions
+          versprim:
+            name: versprim
+            type: char[4]
+            unit: ''
+            description: Version of mangapreim used for reductions
+          platetyp:
+            name: platetyp
+            type: char[14]
+            unit: ''
+            description: Plate type (e.g. MANGA, APOGEE-2&MANGA)
+          srvymode:
+            name: srvymode
+            type: char[12]
+            unit: ''
+            description: Survey mode (e.g. MANGA dither, MANGA stare, APOGEE lead)
+          objra:
+            name: objra
+            type: float64
+            unit: degrees
+            description: Right ascension of the science object in J2000
+          objdec:
+            name: objdec
+            type: float64
+            unit: degrees
+            description: Declination of the science object in J2000
+          ifuglon:
+            name: ifuglon
+            type: float64
+            unit: degrees
+            description: Galactic longitude corresponding to IFURA/DEC
+          ifuglat:
+            name: ifuglat
+            type: float64
+            unit: degrees
+            description: Galactic latitude corresponding to IFURA/DEC
+          ifura:
+            name: ifura
+            type: float64
+            unit: degrees
+            description: Right ascension of this IFU in J2000
+          ifudec:
+            name: ifudec
+            type: float64
+            unit: degrees
+            description: Declination of this IFU in J2000
+          ebvgal:
+            name: ebvgal
+            type: float64
+            unit: ''
+            description: E(B-V) value from SDSS dust routine for this IFUGLON, IFUGLAT
+          nexp:
+            name: nexp
+            type: int64
+            unit: ''
+            description: Number of science exposures combined
+          exptime:
+            name: exptime
+            type: float64
+            unit: seconds
+            description: Total exposure time
+          drp3qual:
+            name: drp3qual
+            type: int64
+            unit: ''
+            description: Quality bitmask
+          bluesn2:
+            name: bluesn2
+            type: float64
+            unit: ''
+            description: Total blue (S/N)^2 across all nexp exposures
+          redsn2:
+            name: redsn2
+            type: float64
+            unit: ''
+            description: Total red (S/N)^2 across all nexp exposures
+          harname:
+            name: harname
+            type: char[35]
+            unit: ''
+            description: IFU harness name
+          frlplug:
+            name: frlplug
+            type: int64
+            unit: ''
+            description: Frplug hardware code
+          cartid:
+            name: cartid
+            type: char[11]
+            unit: ''
+            description: Cartridge ID number
+          designid:
+            name: designid
+            type: int64
+            unit: ''
+            description: Design ID number
+          cenra:
+            name: cenra
+            type: float64
+            unit: degrees
+            description: Plate center right ascension in J2000
+          cendec:
+            name: cendec
+            type: float64
+            unit: degrees
+            description: Plate center declination in J2000
+          airmsmin:
+            name: airmsmin
+            type: float64
+            unit: ''
+            description: Minimum airmass across all exposures
+          airmsmed:
+            name: airmsmed
+            type: float64
+            unit: ''
+            description: Median airmass across all exposures
+          airmsmax:
+            name: airmsmax
+            type: float64
+            unit: ''
+            description: Maximum airmass across all exposures
+          seemin:
+            name: seemin
+            type: float64
+            unit: arcsec
+            description: Best guider seeing
+          seemed:
+            name: seemed
+            type: float64
+            unit: arcsec
+            description: Median guider seeing
+          seemax:
+            name: seemax
+            type: float64
+            unit: arcsec
+            description: Worst guider seeing
+          transmin:
+            name: transmin
+            type: float64
+            unit: ''
+            description: Worst transparency
+          transmed:
+            name: transmed
+            type: float64
+            unit: ''
+            description: Median transparency
+          transmax:
+            name: transmax
+            type: float64
+            unit: ''
+            description: Best transparency
+          mjdmin:
+            name: mjdmin
+            type: int64
+            unit: ''
+            description: Minimum MJD across all exposures
+          mjdmed:
+            name: mjdmed
+            type: int64
+            unit: ''
+            description: Median MJD across all exposures
+          mjdmax:
+            name: mjdmax
+            type: int64
+            unit: ''
+            description: Maximum MJD across all exposures
+          gfwhm:
+            name: gfwhm
+            type: float64
+            unit: arcsec
+            description: Reconstructed FWHM in g-band
+          rfwhm:
+            name: rfwhm
+            type: float64
+            unit: arcsec
+            description: Reconstructed FWHM in r-band
+          ifwhm:
+            name: ifwhm
+            type: float64
+            unit: arcsec
+            description: Reconstructed FWHM in i-band
+          zfwhm:
+            name: zfwhm
+            type: float64
+            unit: arcsec
+            description: Reconstructed FWHM in z-band
+          mngtarg1:
+            name: mngtarg1
+            type: int64
+            unit: ''
+            description: Manga-target1 maskbit for galaxy target catalog
+          mngtarg2:
+            name: mngtarg2
+            type: int64
+            unit: ''
+            description: Manga-target2 maskbit for galaxy target catalog
+          mngtarg3:
+            name: mngtarg3
+            type: int64
+            unit: ''
+            description: Manga-target3 maskbit for galaxy target catalog
+          catidnum:
+            name: catidnum
+            type: int64
+            unit: ''
+            description: Primary target input catalog (leading digits of mangaid)
+          plttarg:
+            name: plttarg
+            type: char[19]
+            unit: ''
+            description: plateTarget reference file appropriate for this target
+          manga_tileid:
+            name: manga_tileid
+            type: int64
+            unit: ''
+            description: The ID of the tile to which this object has been allocated
+          nsa_iauname:
+            name: nsa_iauname
+            type: char[19]
+            unit: ''
+            description: IAU-style designation based on RA/Dec (NSA)
+          ifudesignsize:
+            name: ifudesignsize
+            type: int64
+            unit: ''
+            description: The allocated IFU size (0 = "unallocated")
+          ifutargetsize:
+            name: ifutargetsize
+            type: int64
+            unit: ''
+            description: The ideal IFU size for this object. The intended IFU size
+              is equal to IFUTargetSize except if IFUTargetSize > 127 when it is 127,
+              or < 19 when it is 19
+          ifudesignwrongsize:
+            name: ifudesignwrongsize
+            type: int64
+            unit: ''
+            description: The allocated IFU size if the intended IFU size was not available
+          z:
+            name: z
+            type: float64
+            unit: ''
+            description: The targeting redshift (identical to nsa_z for those targets
+              in the NSA Catalog. For others, it is the redshift provided by the Ancillary
+              programs)
+          zmin:
+            name: zmin
+            type: float64
+            unit: ''
+            description: The minimum redshift at which the galaxy could still have
+              been included in the Primary sample
+          zmax:
+            name: zmax
+            type: float64
+            unit: ''
+            description: The maximum redshift at which the galaxy could still have
+              been included in the Primary sample
+          szmin:
+            name: szmin
+            type: float64
+            unit: ''
+            description: The minimum redshift at which the galaxy could still have
+              been included in the Secondary sample
+          szmax:
+            name: szmax
+            type: float64
+            unit: ''
+            description: The maximum redshift at which the galaxy could still have
+              been included in the Secondary sample
+          ezmin:
+            name: ezmin
+            type: float64
+            unit: ''
+            description: The minimum redshift at which the galaxy could still have
+              been included in the Primary+ sample
+          ezmax:
+            name: ezmax
+            type: float64
+            unit: ''
+            description: The maximum redshift at which the galaxy could still have
+              been included in the Primary+ sample
+          probs:
+            name: probs
+            type: float64
+            unit: ''
+            description: The probability that a Secondary sample galaxy is included
+              after down-sampling. For galaxies not in the Secondary sample PROBS
+              is set to the mean down-sampling probability
+          pweight:
+            name: pweight
+            type: float64
+            unit: ''
+            description: The volume weight for the Primary sample. Corrects the MaNGA
+              selection to a volume limited sample.
+          psweight:
+            name: psweight
+            type: float64
+            unit: ''
+            description: The volume weight for the combined Primary and full Secondary
+              samples. Corrects the MaNGA selection to a volume limited sample.
+          psrweight:
+            name: psrweight
+            type: float64
+            unit: ''
+            description: The volume weight for the combined Primary and down-sampled
+              Secondary samples. Corrects the MaNGA selection to a volume limited
+              sample.
+          sweight:
+            name: sweight
+            type: float64
+            unit: ''
+            description: The volume weight for the full Secondary sample. Corrects
+              the MaNGA selection to a volume limited sample.
+          srweight:
+            name: srweight
+            type: float64
+            unit: ''
+            description: The volume weight for the down-sampled Secondary sample.
+              Corrects the MaNGA selection to a volume limited sample.
+          eweight:
+            name: eweight
+            type: float64
+            unit: ''
+            description: The volume weight for the Primary+ sample. Corrects the MaNGA
+              selection to a volume limited sample.
+          esweight:
+            name: esweight
+            type: float64
+            unit: ''
+            description: The volume weight for the combined Primary+ and full Secondary
+              samples. Corrects the MaNGA selection to a volume limited sample.
+          esrweight:
+            name: esrweight
+            type: float64
+            unit: ''
+            description: The volume weight for the combined Primary+ and down-sampled
+              Secondary samples. Corrects the MaNGA selection to a volume limited
+              sample.
+          nsa_field:
+            name: nsa_field
+            type: int64
+            unit: ''
+            description: SDSS field ID covering the target
+          nsa_run:
+            name: nsa_run
+            type: int64
+            unit: ''
+            description: SDSS run ID covering the target
+          nsa_camcol:
+            name: nsa_camcol
+            type: int64
+            unit: ''
+            description: SDSS camcol ID covering the catalog position
+          nsa_version:
+            name: nsa_version
+            type: char[6]
+            unit: ''
+            description: Version of NSA catalogue used to select these targets
+          nsa_nsaid:
+            name: nsa_nsaid
+            type: int64
+            unit: ''
+            description: The NSAID field in the NSA catalogue referenced in nsa_version
+          nsa_nsaid_v1b:
+            name: nsa_nsaid_v1b
+            type: int64
+            unit: ''
+            description: The NSAID of the target in the NSA_v1b_0_0_v2 catalogue (if
+              applicable)
+          nsa_z:
+            name: nsa_z
+            type: float64
+            unit: ''
+            description: Heliocentric redshift
+          nsa_zdist:
+            name: nsa_zdist
+            type: float64
+            unit: ''
+            description: Distance estimate using peculiar velocity model of Willick
+              et al. (1997); multiply by c/Ho for Mpc
+          nsa_sersic_absmag:
+            name: nsa_sersic_absmag
+            type: float64[7]
+            unit: ''
+            description: "Absolute magnitude estimates in rest-frame bands [FNugriz]\
+              \ from K-correction (\u03A9m=0.3, \u03A9\u039B=0.7, h=1)"
+          nsa_elpetro_absmag:
+            name: nsa_elpetro_absmag
+            type: float64[7]
+            unit: ''
+            description: "Absolute magnitude in rest-frame bands [FNugriz], from elliptical\
+              \ Petrosian fluxes (\u03A9m=0.3, \u03A9\u039B=0.7, h=1)"
+          nsa_elpetro_amivar:
+            name: nsa_elpetro_amivar
+            type: float64[7]
+            unit: ''
+            description: Inverse variance of nsa_elpetro_absmag in bands [FNugriz]
+          nsa_sersic_mass:
+            name: nsa_sersic_mass
+            type: float64
+            unit: ''
+            description: "Stellar mass from K-correction fit (use with caution) for\
+              \ Sersic fluxes (\u03A9m=0.3, \u03A9\u039B=0.7, h=1)"
+          nsa_elpetro_mass:
+            name: nsa_elpetro_mass
+            type: float64
+            unit: ''
+            description: "Stellar mass from K-correction fit (use with caution) for\
+              \ elliptical Petrosian fluxes (\u03A9m=0.3, \u03A9\u039B=0.7, h=1)"
+          nsa_elpetro_ba:
+            name: nsa_elpetro_ba
+            type: float64
+            unit: ''
+            description: Axis ratio used for elliptical apertures (for this version,
+              same as ba90)
+          nsa_elpetro_phi:
+            name: nsa_elpetro_phi
+            type: float64
+            unit: degrees
+            description: Position angle (east of north) used for elliptical apertures
+              (for this version, same as ba90)
+          nsa_extinction:
+            name: nsa_extinction
+            type: float64[7]
+            unit: ''
+            description: Galactic extinction from Schlegel, Finkbeiner, and Davis
+              (1997), in bands [FNugriz]
+          nsa_elpetro_th50_r:
+            name: nsa_elpetro_th50_r
+            type: float64
+            unit: arcsec
+            description: Elliptical Petrosian 50% light radius in SDSS r-band
+          nsa_petro_th50:
+            name: nsa_petro_th50
+            type: float64
+            unit: arcsec
+            description: Azimuthally averaged SDSS-style Petrosian 50% light radius
+              (derived from r band)
+          nsa_petro_flux:
+            name: nsa_petro_flux
+            type: float64[7]
+            unit: nanomaggies
+            description: Azimuthally-averaged SDSS-style Petrosian flux in bands [FNugriz]
+              (using r-band aperture)
+          nsa_petro_flux_ivar:
+            name: nsa_petro_flux_ivar
+            type: float64[7]
+            unit: nanomaggies-2
+            description: Inverse variance of nsa_petro_flux in bands [FNugriz]
+          nsa_elpetro_flux:
+            name: nsa_elpetro_flux
+            type: float64[7]
+            unit: nanomaggies
+            description: Elliptical SDSS-style Petrosian flux in bands [FNugriz] (using
+              r-band aperture)
+          nsa_elpetro_flux_ivar:
+            name: nsa_elpetro_flux_ivar
+            type: float64[7]
+            unit: nanomaggies-2
+            description: Inverse variance of nsa_elpetro_flux in bands [FNugriz]
+          nsa_sersic_ba:
+            name: nsa_sersic_ba
+            type: float64
+            unit: ''
+            description: Axis ratio b/a from two-dimensional, single-component Sersic
+              fit in r-band
+          nsa_sersic_n:
+            name: nsa_sersic_n
+            type: float64
+            unit: ''
+            description: Sersic index from two-dimensional, single-component Sersic
+              fit in r-band
+          nsa_sersic_phi:
+            name: nsa_sersic_phi
+            type: float64
+            unit: degrees
+            description: Angle (E of N) of major axis in two-dimensional, single-component
+              Sersic fit in r-band
+          nsa_sersic_th50:
+            name: nsa_sersic_th50
+            type: float64
+            unit: arcsec
+            description: 50% light radius of two-dimensional, single-component Sersic
+              fit to r-band
+          nsa_sersic_flux:
+            name: nsa_sersic_flux
+            type: float64[7]
+            unit: nanomaggies
+            description: Two-dimensional, single-component Sersic fit flux in bands
+              [FNugriz] (fit using r-band structural parameters)
+          nsa_sersic_flux_ivar:
+            name: nsa_sersic_flux_ivar
+            type: float64[7]
+            unit: nanomaggies-2
+            description: Inverse variance of nsa_sersic_flux in bands [FNugriz]
+notes: |-
+  None
+regrets: |-
+  I  have no regrets!

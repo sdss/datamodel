@@ -1,0 +1,3637 @@
+general:
+  name: mangaModelCube
+  short: the binned spectra and the best-fitting model spectrum for each spectrum
+  description: 'The DAP model LOGCUBE files provide the binned spectra and the best-fitting
+    model spectrum for each spectrum that was successfully fit. These files are useful
+    for detailed assessments of the model parameters because they allow you to return
+    to the spectra and compare the model against the data. The DAP fits the spectra
+    in two stages, one to get the stellar kinematics and the second to determine the
+    emission-line properties. The emission-line module (used for all binning schemes)
+    fits both the stellar continuum and the emission lines at the same time, where
+    the stellar kinematics are fixed by the first fit. The exact details of the stellar
+    continuum fit determined by the stellar kinematics and emission-line modules are,
+    therefore, different.
+
+
+    It''s important to note that the DAP performs all spectral fitting on the binned
+    spectra (termed as such even if a bin only contains a single spaxel) after they
+    have been corrected for Galactic extinction. Therefore, the output emission-line
+    fluxes have been corrected for Galactic extinction. However, the models and binned
+    spectra in the output LOGCUBE file are reverted to their reddened values for direct
+    comparison with the DRP LOGCUBE file.
+
+
+    Also, for the HYB binning case, the binned spectra provided in the LOGCUBE files
+    are from the Voronoi binning step; however, the emission-line models are fit to
+    the individual spaxels. Therefore, when using the LOGCUBE files for this binning
+    scheme...
+
+
+    The stellar-continuum fits (e.g., the data in the STELLAR extension for DR17)
+    should be compared to the Voronoi binned spectra in the file, but
+
+    the best-fitting model spectra (stellar continuum + gas emission) in the MODEL
+    extension should be compared to the individual spectra from the DRP LOGCUBE file!
+
+    '
+  datatype: FITS
+  filesize: 18 MB
+  releases:
+  - DR15
+  - DR16
+  - DR17
+  environments:
+  - MANGA_SPECTRO_ANALYSIS
+  surveys:
+  - MaNGA
+  naming_convention: 'manga-[plate]-[ifudesign]-LOGCUBE-[daptype].fits.gz, where [plate]
+    is the plate number, [ifudesign] is the design IFU size and number, and [daptype]
+    is the shorthand keyword for the specific configuration of the analysis procedures
+    performed by the DAP. The combined [plate]-[ifudesign] is also known as the PLATEIFU
+    designation of a given galaxy. Note that the available [daptype]s have changed
+    between DR16 and DR17; more information is provided in the data release documentation.
+
+    '
+  generated_by: mangadap - manga_dap
+  data_level: 2.4.0
+  design: false
+  vac: false
+  recommended_science_product: true
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases:
+    DR17:
+      from: DR16
+      added_hdus:
+      - LSF
+      - MODEL_MASK
+      - STELLAR_MASK
+      - STELLAR
+      removed_hdus:
+      - EMLINE_BASE
+      - EMLINE_MASK
+      primary_delta_nkeys: 1
+      added_primary_header_kwargs:
+      - PPXFFILT
+      - VERSVBIN
+      - VERSPPXF
+      removed_primary_header_kwargs:
+      - STCKRES
+      - STCKPRE
+    DR16:
+      from: DR15
+      note: No changes
+releases:
+  DR15: &id001
+    template: $MANGA_SPECTRO_ANALYSIS/[DRPVER]/[DAPVER]/[DAPTYPE]/[PLATE]/[IFU]/manga-[PLATE]-[IFU]-LOGCUBE-[DAPTYPE].fits.gz
+    example: v2_4_3/2.2.1/HYB10-GAU-MILESHC/8485/1901/manga-8485-1901-LOGCUBE-HYB10-GAU-MILESHC.fits.gz
+    location: '{drpver}/{dapver}/{daptype}/{plate}/{ifu}/manga-{plate}-{ifu}-LOGCUBE-{daptype}.fits.gz'
+    environment: MANGA_SPECTRO_ANALYSIS
+    access:
+      in_sdss_access: true
+      path_name: mangadap
+      path_template: $MANGA_SPECTRO_ANALYSIS/{drpver}/{dapver}/{daptype}/{plate}/{ifu}/manga-{plate}-{ifu}-{mode}-{daptype}.fits.gz
+      path_kwargs:
+      - ifu
+      - daptype
+      - plate
+      - dapver
+      - drpver
+      - mode
+      access_string: mangadap = $MANGA_SPECTRO_ANALYSIS/{drpver}/{dapver}/{daptype}/{plate}/{ifu}/manga-{plate}-{ifu}-LOGCUBE-{daptype}.fits.gz
+    survey: MaNGA
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: primary header extension
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: AUTHOR
+          value: K Westfall, B Andrews <westfall@ucolick.org, andrewsb@pitt.edu>
+          comment: ''
+        - key: VERSDRP2
+          value: v2_4_3
+          comment: MaNGA DRP version (2d processing)
+        - key: VERSDRP3
+          value: v2_4_3
+          comment: MaNGA DRP Version (3d processing)
+        - key: VERSPLDS
+          value: v2_52
+          comment: Platedesign Version
+        - key: VERSFLAT
+          value: v1_31
+          comment: Specflat Version
+        - key: VERSCORE
+          value: v1_6_2
+          comment: MaNGAcore Version
+        - key: VERSPRIM
+          value: v2_5
+          comment: MaNGA Preimaging Version
+        - key: VERSUTIL
+          value: v5_5_32
+          comment: Version of idlutils
+        - key: VERSIDL
+          value: x86_64 linux unix linux 7.1.1 Aug 21 2009 64 64
+          comment: Version of IDL
+        - key: MASKNAME
+          value: MANGA_DAPSPECMASK
+          comment: Bits in sdssMaskbits.par used by mask extension
+        - key: TELESCOP
+          value: SDSS 2.5-M
+          comment: Sloan Digital Sky Survey
+        - key: INSTRUME
+          value: MaNGA
+          comment: SDSS-IV MaNGA IFU
+        - key: SRVYMODE
+          value: MaNGA dither
+          comment: Survey leading this observation and its mode
+        - key: PLATETYP
+          value: APOGEE-2&MaNGA
+          comment: Type of plate (e.g. MaNGA, APOGEE-2&MANGA)
+        - key: OBJSYS
+          value: ICRS
+          comment: The TCC objSys
+        - key: EQUINOX
+          value: 2000.0
+          comment: ''
+        - key: RADESYS
+          value: FK5
+          comment: ''
+        - key: LAMPLIST
+          value: lamphgcdne.dat
+          comment: ''
+        - key: TPLDATA
+          value: BOSZ_3000-11000A.fits
+          comment: ''
+        - key: NEXP
+          value: 9
+          comment: Total number of exposures
+        - key: EXPTIME
+          value: 8100.87
+          comment: Total exposure time (seconds)
+        - key: BLUESN2
+          value: 19.9834
+          comment: Total SN2 in blue channel
+        - key: REDSN2
+          value: 42.7417
+          comment: Total SN2 in red channel
+        - key: AIRMSMIN
+          value: 1.03987
+          comment: Minimum airmass
+        - key: AIRMSMED
+          value: 1.04708
+          comment: Median airmass
+        - key: AIRMSMAX
+          value: 1.08221
+          comment: Maximum airmass
+        - key: SEEMIN
+          value: 1.1779
+          comment: Best guider seeing
+        - key: SEEMED
+          value: 1.30425
+          comment: Median guider seeing
+        - key: SEEMAX
+          value: 1.42179
+          comment: Worst guider seeing
+        - key: TRANSMIN
+          value: 0.802254
+          comment: Worst guider transparency
+        - key: TRANSMED
+          value: 0.831209
+          comment: Median guider transparency
+        - key: TRANSMAX
+          value: 0.839501
+          comment: Best guider transparency
+        - key: MJDMIN
+          value: 57132
+          comment: MJD of first exposure
+        - key: MJDMED
+          value: 57132
+          comment: MJD of median exposure
+        - key: MJDMAX
+          value: 57132
+          comment: MJD of last exposure
+        - key: DATE-OBS
+          value: '2015-04-20'
+          comment: Date of median exposure
+        - key: MJDRED
+          value: 58198
+          comment: MJD of the reduction
+        - key: DATERED
+          value: '2018-03-21'
+          comment: Date of the reduction
+        - key: MNGTARG1
+          value: 2336
+          comment: manga_target1 maskbit
+        - key: MNGTARG2
+          value: 0
+          comment: manga_target2 maskbit
+        - key: MNGTARG3
+          value: 0
+          comment: manga_target3 maskbit
+        - key: IFURA
+          value: 232.5447
+          comment: IFU R.A. (J2000 deg.)
+        - key: IFUDEC
+          value: 48.690201
+          comment: IFU Dec. (J2000 deg.)
+        - key: OBJRA
+          value: 232.544703894
+          comment: Object R.A. (J2000 deg.)
+        - key: OBJDEC
+          value: 48.6902009334
+          comment: Object Dec. (J2000 deg.)
+        - key: CENRA
+          value: 234.06426
+          comment: Plate center R.A. (J2000 deg.)
+        - key: CENDEC
+          value: 48.589874
+          comment: Plate center Dec. (J2000 deg.)
+        - key: PLATEID
+          value: 8485
+          comment: Current plate
+        - key: DESIGNID
+          value: 8980
+          comment: Current design
+        - key: IFUDSGN
+          value: 1901
+          comment: ifuDesign
+        - key: FRLPLUG
+          value: 29
+          comment: Plugged ferrule
+        - key: PLATEIFU
+          value: 8485-1901
+          comment: PLATEID-ifuDesign
+        - key: CARTID
+          value: '3'
+          comment: Cart(s) used
+        - key: HARNAME
+          value: ma060
+          comment: Harness name(s)
+        - key: METFILE
+          value: ma060-56887-1.par
+          comment: IFU metrology file(s)
+        - key: MANGAID
+          value: 1-209232
+          comment: MaNGA ID number
+        - key: CATIDNUM
+          value: '1'
+          comment: Primary target input catalog
+        - key: PLTTARG
+          value: plateTargets-1.par
+          comment: plateTarget reference file
+        - key: DRP3QUAL
+          value: 0
+          comment: DRP-3d quality bitmask
+        - key: IFUGLON
+          value: 78.9550411299
+          comment: IFU Galactic longitude (deg)
+        - key: IFUGLAT
+          value: 52.6212190954
+          comment: IFU Galactic latitude (deg)
+        - key: EBVGAL
+          value: 0.0144335
+          comment: Galactic reddening E(B-V)
+        - key: GFWHM
+          value: 2.46769
+          comment: Reconstructed FWHM in g-band (arcsec)
+        - key: RFWHM
+          value: 2.47181
+          comment: Reconstructed FWHM in r-band (arcsec)
+        - key: IFWHM
+          value: 2.45516
+          comment: Reconstructed FWHM in i-band (arcsec)
+        - key: ZFWHM
+          value: 2.43769
+          comment: Reconstructed FWHM in z-band (arcsec)
+        - key: CHECKSUM
+          value: 01fG11ZD01fD01ZD
+          comment: HDU checksum updated 2018-07-21T17:57:26
+        - key: DATASUM
+          value: '0'
+          comment: data unit checksum updated 2018-07-21T17:57:26
+        - key: VERSPY
+          value: 3.6.3
+          comment: Python version
+        - key: VERSNP
+          value: 1.13.3
+          comment: Numpy version
+        - key: VERSSCI
+          value: 1.0.0
+          comment: Scipy version
+        - key: VERSAST
+          value: 2.0.2
+          comment: Astropy version
+        - key: VERSPYDL
+          value: 0.6.0
+          comment: pydl version
+        - key: VERSDAP
+          value: 2.2.1
+          comment: MaNGA DAP version
+        - key: DAPTYPE
+          value: HYB10-GAU-MILESHC
+          comment: DAP analysis method
+        - key: DAPFRMT
+          value: LOGCUBE
+          comment: DAP data file format
+        - key: RDXQAKEY
+          value: SNRG
+          comment: Method keyword
+        - key: ECOOPA
+          value: 154.873
+          comment: Position angle for ellip. coo
+        - key: ECOOELL
+          value: 0.12546003
+          comment: Ellipticity (1-b/a) for ellip. coo
+        - key: BBWAVE
+          value: 4616.814000777805
+          comment: Covariance channel wavelength
+        - key: BBINDEX
+          value: 1054
+          comment: Covariance channel index
+        - key: REFF
+          value: 1.33067
+          comment: ''
+        - key: BINKEY
+          value: HYB10
+          comment: Spectal binning method keyword
+        - key: BINMINSN
+          value: 1.0
+          comment: Minimum S/N of spectrum to include
+        - key: FSPCOV
+          value: 0.8
+          comment: Minimum allowed fraction of good pixels
+        - key: NBINS
+          value: 99
+          comment: Number of unique spatial bins
+        - key: BINTYPE
+          value: voronoi
+          comment: Binning method
+        - key: BINSNR
+          value: 10.0
+          comment: Voronoi binning minimum S/N
+        - key: BINCOV
+          value: full
+          comment: Voronoi binning S/N covariance type
+        - key: STCKOP
+          value: mean
+          comment: Stacking operation
+        - key: STCKVREG
+          value: 'False'
+          comment: Spectra shifted in velocity before stacked
+        - key: STCKCRMD
+          value: channels
+          comment: Stacking treatment of covariance
+        - key: STCKCRPR
+          value: '11'
+          comment: Covariance parameter(s)
+        - key: STCKRES
+          value: 'True'
+          comment: Spectral resolution stacked
+        - key: STCKPRE
+          value: 'True'
+          comment: Use prepixelized spectral resolution
+        - key: GEXTLAW
+          value: ODonnell
+          comment: Galactic extinction law
+        - key: RVGAL
+          value: 3.1
+          comment: Ratio of total to selective extinction, R(V)
+        - key: VSTEP
+          value: 69.02976447828435
+          comment: Velocity step per spectral channel.
+        - key: SCKEY
+          value: GAU-MILESHC
+          comment: Stellar-continuum model keyword
+        - key: SCMINSN
+          value: 1.0
+          comment: Minimum S/N of spectrum to include
+        - key: SCINPVEL
+          value: 12214.954
+          comment: Initial guess velocity
+        - key: SCINPSIG
+          value: 100.0
+          comment: Initial guess velocity dispersion
+        - key: NSCMOD
+          value: 99
+          comment: Number of unique stellar-continuum models
+        - key: SCTYPE
+          value: stellar_kinematics
+          comment: ''
+        - key: SCMETH
+          value: ppxf
+          comment: ''
+        - key: PPXFTPLK
+          value: MILESHC
+          comment: Template library key used with pPXF
+        - key: PPXFMODE
+          value: nonzero_templates
+          comment: pPXF iteration mode
+        - key: PPXFBIAS
+          value: None
+          comment: pPXF bias value
+        - key: PPXFAO
+          value: 8
+          comment: Additive order in pPXF
+        - key: PPXFMO
+          value: -1
+          comment: Multiplicative order in pPXF
+        - key: PPXFFAO
+          value: 8
+          comment: Additive order for filtered spectra
+        - key: PPXFFMO
+          value: 0
+          comment: Multiplicative order for filtered spectra
+        - key: PPXFMOM
+          value: 2
+          comment: Number of fitted LOSVD moments in pPXF
+        - key: PPXFRBOX
+          value: 100
+          comment: pPXF rejection boxcar
+        - key: ELFKEY
+          value: EFITMDB
+          comment: Emission-line modeling method keyword
+        - key: ELFMINSN
+          value: 0.0
+          comment: Minimum S/N of spectrum to include
+        - key: ARTDB
+          value: BADSKY
+          comment: Artifact database keyword
+        - key: EMLDB
+          value: ELPMILES
+          comment: Emission-line database keyword
+        - key: NELMOD
+          value: 393
+          comment: Number of unique emission-line models
+        - key: ELTYPE
+          value: emission_line
+          comment: ''
+        - key: ELMETH
+          value: sasuke
+          comment: ''
+        - key: ELREBIN
+          value: false
+          comment: Bin IDs disconnected from SC binning
+        - key: DAPQUAL
+          value: 0
+          comment: DAP quality bitmask
+      hdu1:
+        name: FLUX
+        description: "Flux in the binned spectra in units of 10-17 erg/s/cm2/\xC5\
+          /spaxel. In the context of this file, \"binned\" spectra can consist of\
+          \ a single spaxel. See the BINID extension."
+        is_image: true
+        size: 20 MB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image extension
+        - key: BITPIX
+          value: -32
+          comment: array data type
+        - key: NAXIS
+          value: 3
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 34
+          comment: ''
+        - key: NAXIS2
+          value: 34
+          comment: ''
+        - key: NAXIS3
+          value: 4563
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: number of parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: WCSAXES
+          value: 3
+          comment: Number of coordinate axes
+        - key: CRPIX1
+          value: 18.0
+          comment: Pixel coordinate of reference point
+        - key: CRPIX2
+          value: 18.0
+          comment: Pixel coordinate of reference point
+        - key: CRPIX3
+          value: 1.0
+          comment: Pixel coordinate of reference point
+        - key: PC1_1
+          value: -0.000138889
+          comment: Coordinate transformation matrix element
+        - key: PC2_2
+          value: 0.000138889
+          comment: Coordinate transformation matrix element
+        - key: PC3_3
+          value: 8.33903304339e-11
+          comment: Coordinate transformation matrix element
+        - key: CDELT1
+          value: 1.0
+          comment: '[deg] Coordinate increment at reference point'
+        - key: CDELT2
+          value: 1.0
+          comment: '[deg] Coordinate increment at reference point'
+        - key: CDELT3
+          value: 1.0
+          comment: '[m] Coordinate increment at reference point'
+        - key: CUNIT1
+          value: deg
+          comment: Units of coordinate increment and value
+        - key: CUNIT2
+          value: deg
+          comment: Units of coordinate increment and value
+        - key: CUNIT3
+          value: m
+          comment: Units of coordinate increment and value
+        - key: CTYPE1
+          value: RA---TAN
+          comment: Right ascension, gnomonic projection
+        - key: CTYPE2
+          value: DEC--TAN
+          comment: Declination, gnomonic projection
+        - key: CTYPE3
+          value: WAVE-LOG
+          comment: Vacuum wavelength
+        - key: CRVAL1
+          value: 232.5447
+          comment: '[deg] Coordinate value at reference point'
+        - key: CRVAL2
+          value: 48.690201
+          comment: '[deg] Coordinate value at reference point'
+        - key: CRVAL3
+          value: 3.62159598486e-07
+          comment: '[m] Coordinate value at reference point'
+        - key: LONPOLE
+          value: 180.0
+          comment: '[deg] Native longitude of celestial pole'
+        - key: LATPOLE
+          value: 48.690201
+          comment: '[deg] Native latitude of celestial pole'
+        - key: RADESYS
+          value: FK5
+          comment: Equatorial coordinate system
+        - key: EQUINOX
+          value: 2000.0
+          comment: '[yr] Equinox of equatorial coordinates'
+        - key: MJD-OBS
+          value: 57132.0
+          comment: '[d] MJD for DATE-OBS'
+        - key: DATE-OBS
+          value: '2015-04-20'
+          comment: Date of median exposure
+        - key: AUTHOR
+          value: K Westfall & B Andrews <westfall@ucolick.org, andrewsb@pitt.edu>
+          comment: ''
+        - key: MASKNAME
+          value: MANGA_DAPSPECMASK
+          comment: ''
+        - key: BUNIT
+          value: 1E-17 erg/s/cm^2/ang/spaxel
+          comment: Unit of pixel value
+        - key: HDUCLASS
+          value: SDSS
+          comment: SDSS format class
+        - key: HDUCLAS1
+          value: CUBE
+          comment: Data format
+        - key: HDUCLAS2
+          value: DATA
+          comment: ''
+        - key: ERRDATA
+          value: FLUX_IVAR
+          comment: Associated inv. variance extension
+        - key: QUALDATA
+          value: FLUX_MASK
+          comment: Associated quality extension
+        - key: EXTNAME
+          value: FLUX
+          comment: extension name
+        - key: CHECKSUM
+          value: o4AFq45Co4ACo45C
+          comment: HDU checksum updated 2018-07-21T17:57:26
+        - key: DATASUM
+          value: '1297936082'
+          comment: data unit checksum updated 2018-07-21T17:57:26
+      hdu2:
+        name: IVAR
+        description: Inverse variance of FLUX
+        is_image: true
+        size: 20 MB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image extension
+        - key: BITPIX
+          value: -32
+          comment: array data type
+        - key: NAXIS
+          value: 3
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 34
+          comment: ''
+        - key: NAXIS2
+          value: 34
+          comment: ''
+        - key: NAXIS3
+          value: 4563
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: number of parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: WCSAXES
+          value: 3
+          comment: Number of coordinate axes
+        - key: CRPIX1
+          value: 18.0
+          comment: Pixel coordinate of reference point
+        - key: CRPIX2
+          value: 18.0
+          comment: Pixel coordinate of reference point
+        - key: CRPIX3
+          value: 1.0
+          comment: Pixel coordinate of reference point
+        - key: PC1_1
+          value: -0.000138889
+          comment: Coordinate transformation matrix element
+        - key: PC2_2
+          value: 0.000138889
+          comment: Coordinate transformation matrix element
+        - key: PC3_3
+          value: 8.33903304339e-11
+          comment: Coordinate transformation matrix element
+        - key: CDELT1
+          value: 1.0
+          comment: '[deg] Coordinate increment at reference point'
+        - key: CDELT2
+          value: 1.0
+          comment: '[deg] Coordinate increment at reference point'
+        - key: CDELT3
+          value: 1.0
+          comment: '[m] Coordinate increment at reference point'
+        - key: CUNIT1
+          value: deg
+          comment: Units of coordinate increment and value
+        - key: CUNIT2
+          value: deg
+          comment: Units of coordinate increment and value
+        - key: CUNIT3
+          value: m
+          comment: Units of coordinate increment and value
+        - key: CTYPE1
+          value: RA---TAN
+          comment: Right ascension, gnomonic projection
+        - key: CTYPE2
+          value: DEC--TAN
+          comment: Declination, gnomonic projection
+        - key: CTYPE3
+          value: WAVE-LOG
+          comment: Vacuum wavelength
+        - key: CRVAL1
+          value: 232.5447
+          comment: '[deg] Coordinate value at reference point'
+        - key: CRVAL2
+          value: 48.690201
+          comment: '[deg] Coordinate value at reference point'
+        - key: CRVAL3
+          value: 3.62159598486e-07
+          comment: '[m] Coordinate value at reference point'
+        - key: LONPOLE
+          value: 180.0
+          comment: '[deg] Native longitude of celestial pole'
+        - key: LATPOLE
+          value: 48.690201
+          comment: '[deg] Native latitude of celestial pole'
+        - key: RADESYS
+          value: FK5
+          comment: Equatorial coordinate system
+        - key: EQUINOX
+          value: 2000.0
+          comment: '[yr] Equinox of equatorial coordinates'
+        - key: MJD-OBS
+          value: 57132.0
+          comment: '[d] MJD for DATE-OBS'
+        - key: DATE-OBS
+          value: '2015-04-20'
+          comment: Date of median exposure
+        - key: AUTHOR
+          value: K Westfall & B Andrews <westfall@ucolick.org, andrewsb@pitt.edu>
+          comment: ''
+        - key: MASKNAME
+          value: MANGA_DAPSPECMASK
+          comment: ''
+        - key: BUNIT
+          value: (1E-17 erg/s/cm^2/ang/spaxel)^{-2}
+          comment: Unit of pixel value
+        - key: HDUCLASS
+          value: SDSS
+          comment: SDSS format class
+        - key: HDUCLAS1
+          value: CUBE
+          comment: Data format
+        - key: HDUCLAS2
+          value: ERROR
+          comment: ''
+        - key: HDUCLAS3
+          value: INVMSE
+          comment: Value is inverse mean-square error
+        - key: SCIDATA
+          value: FLUX
+          comment: Associated data extension
+        - key: QUALDATA
+          value: MASK
+          comment: Associated quality extension
+        - key: EXTNAME
+          value: IVAR
+          comment: extension name
+        - key: CHECKSUM
+          value: UZEGaW9EUWCEaW9E
+          comment: HDU checksum updated 2018-07-21T17:57:26
+        - key: DATASUM
+          value: '2999352243'
+          comment: data unit checksum updated 2018-07-21T17:57:26
+      hdu3:
+        name: MASK
+        description: Bitmask for FLUX; in DR15/16, this is also the mask for the MODEL
+          data.
+        is_image: true
+        size: 10 MB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image extension
+        - key: BITPIX
+          value: 16
+          comment: array data type
+        - key: NAXIS
+          value: 3
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 34
+          comment: ''
+        - key: NAXIS2
+          value: 34
+          comment: ''
+        - key: NAXIS3
+          value: 4563
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: number of parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: WCSAXES
+          value: 3
+          comment: Number of coordinate axes
+        - key: CRPIX1
+          value: 18.0
+          comment: Pixel coordinate of reference point
+        - key: CRPIX2
+          value: 18.0
+          comment: Pixel coordinate of reference point
+        - key: CRPIX3
+          value: 1.0
+          comment: Pixel coordinate of reference point
+        - key: PC1_1
+          value: -0.000138889
+          comment: Coordinate transformation matrix element
+        - key: PC2_2
+          value: 0.000138889
+          comment: Coordinate transformation matrix element
+        - key: PC3_3
+          value: 8.33903304339e-11
+          comment: Coordinate transformation matrix element
+        - key: CDELT1
+          value: 1.0
+          comment: '[deg] Coordinate increment at reference point'
+        - key: CDELT2
+          value: 1.0
+          comment: '[deg] Coordinate increment at reference point'
+        - key: CDELT3
+          value: 1.0
+          comment: '[m] Coordinate increment at reference point'
+        - key: CUNIT1
+          value: deg
+          comment: Units of coordinate increment and value
+        - key: CUNIT2
+          value: deg
+          comment: Units of coordinate increment and value
+        - key: CUNIT3
+          value: m
+          comment: Units of coordinate increment and value
+        - key: CTYPE1
+          value: RA---TAN
+          comment: Right ascension, gnomonic projection
+        - key: CTYPE2
+          value: DEC--TAN
+          comment: Declination, gnomonic projection
+        - key: CTYPE3
+          value: WAVE-LOG
+          comment: Vacuum wavelength
+        - key: CRVAL1
+          value: 232.5447
+          comment: '[deg] Coordinate value at reference point'
+        - key: CRVAL2
+          value: 48.690201
+          comment: '[deg] Coordinate value at reference point'
+        - key: CRVAL3
+          value: 3.62159598486e-07
+          comment: '[m] Coordinate value at reference point'
+        - key: LONPOLE
+          value: 180.0
+          comment: '[deg] Native longitude of celestial pole'
+        - key: LATPOLE
+          value: 48.690201
+          comment: '[deg] Native latitude of celestial pole'
+        - key: RADESYS
+          value: FK5
+          comment: Equatorial coordinate system
+        - key: EQUINOX
+          value: 2000.0
+          comment: '[yr] Equinox of equatorial coordinates'
+        - key: MJD-OBS
+          value: 57132.0
+          comment: '[d] MJD for DATE-OBS'
+        - key: DATE-OBS
+          value: '2015-04-20'
+          comment: Date of median exposure
+        - key: AUTHOR
+          value: K Westfall & B Andrews <westfall@ucolick.org, andrewsb@pitt.edu>
+          comment: ''
+        - key: MASKNAME
+          value: MANGA_DAPSPECMASK
+          comment: ''
+        - key: HDUCLASS
+          value: SDSS
+          comment: SDSS format class
+        - key: HDUCLAS1
+          value: CUBE
+          comment: Data format
+        - key: HDUCLAS2
+          value: QUALITY
+          comment: ''
+        - key: HDUCLAS3
+          value: FLAG16BIT
+          comment: 16-bit mask
+        - key: SCIDATA
+          value: FLUX
+          comment: Associated data extension
+        - key: ERRDATA
+          value: IVAR
+          comment: Associated inv. variance extension
+        - key: EXTNAME
+          value: MASK
+          comment: extension name
+        - key: CHECKSUM
+          value: G8PUJ5OTG5OTG5OT
+          comment: HDU checksum updated 2018-07-21T17:57:27
+        - key: DATASUM
+          value: '658453948'
+          comment: data unit checksum updated 2018-07-21T17:57:27
+      hdu4:
+        name: WAVE
+        description: Wavelength vector for all spectra in the datacube. Wavelengths
+          are given in vacuum with Angstrom units. The wavelength vector is identical
+          for all spaxels in a MaNGA datacube.
+        is_image: true
+        size: 17 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image extension
+        - key: BITPIX
+          value: -32
+          comment: array data type
+        - key: NAXIS
+          value: 1
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 4563
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: number of parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: EXTNAME
+          value: WAVE
+          comment: extension name
+        - key: CHECKSUM
+          value: BHHpDHFnBHFnBHFn
+          comment: HDU checksum updated 2018-07-21T17:57:27
+        - key: DATASUM
+          value: '2156230326'
+          comment: data unit checksum updated 2018-07-21T17:57:27
+      hdu5:
+        name: REDCORR
+        description: The Galactic reddening correction applied during the fitting
+          procedures. The reddening vector is the same for all spaxels in a MaNGA
+          datacube. The dereddened flux is calculated as FLUX * REDCORR. The Galactic
+          E(B-V) reddening, extinction factor Rv, and specified extinction law used
+          are provided in the primary header (EBVGAL, RVGAL, and GEXTLAW, respectively).
+        is_image: true
+        size: 17 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image extension
+        - key: BITPIX
+          value: -32
+          comment: array data type
+        - key: NAXIS
+          value: 1
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 4563
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: number of parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: EXTNAME
+          value: REDCORR
+          comment: extension name
+        - key: CHECKSUM
+          value: 1RAj2QAj1QAj1QAj
+          comment: HDU checksum updated 2018-07-21T17:57:27
+        - key: DATASUM
+          value: '780242633'
+          comment: data unit checksum updated 2018-07-21T17:57:27
+      hdu6:
+        name: MODEL
+        description: "The best-fitting model spectra, in 10-17 erg/s/cm2/\xC5/spaxel,\
+          \ from the combined continuum+emission-line fit. Depending on the DAPTYPE,\
+          \ this may or may not be directly comparable to the data in the FLUX extension.\
+          \ See the general description above."
+        is_image: true
+        size: 20 MB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image extension
+        - key: BITPIX
+          value: -32
+          comment: array data type
+        - key: NAXIS
+          value: 3
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 34
+          comment: ''
+        - key: NAXIS2
+          value: 34
+          comment: ''
+        - key: NAXIS3
+          value: 4563
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: number of parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: WCSAXES
+          value: 3
+          comment: Number of coordinate axes
+        - key: CRPIX1
+          value: 18.0
+          comment: Pixel coordinate of reference point
+        - key: CRPIX2
+          value: 18.0
+          comment: Pixel coordinate of reference point
+        - key: CRPIX3
+          value: 1.0
+          comment: Pixel coordinate of reference point
+        - key: PC1_1
+          value: -0.000138889
+          comment: Coordinate transformation matrix element
+        - key: PC2_2
+          value: 0.000138889
+          comment: Coordinate transformation matrix element
+        - key: PC3_3
+          value: 8.33903304339e-11
+          comment: Coordinate transformation matrix element
+        - key: CDELT1
+          value: 1.0
+          comment: '[deg] Coordinate increment at reference point'
+        - key: CDELT2
+          value: 1.0
+          comment: '[deg] Coordinate increment at reference point'
+        - key: CDELT3
+          value: 1.0
+          comment: '[m] Coordinate increment at reference point'
+        - key: CUNIT1
+          value: deg
+          comment: Units of coordinate increment and value
+        - key: CUNIT2
+          value: deg
+          comment: Units of coordinate increment and value
+        - key: CUNIT3
+          value: m
+          comment: Units of coordinate increment and value
+        - key: CTYPE1
+          value: RA---TAN
+          comment: Right ascension, gnomonic projection
+        - key: CTYPE2
+          value: DEC--TAN
+          comment: Declination, gnomonic projection
+        - key: CTYPE3
+          value: WAVE-LOG
+          comment: Vacuum wavelength
+        - key: CRVAL1
+          value: 232.5447
+          comment: '[deg] Coordinate value at reference point'
+        - key: CRVAL2
+          value: 48.690201
+          comment: '[deg] Coordinate value at reference point'
+        - key: CRVAL3
+          value: 3.62159598486e-07
+          comment: '[m] Coordinate value at reference point'
+        - key: LONPOLE
+          value: 180.0
+          comment: '[deg] Native longitude of celestial pole'
+        - key: LATPOLE
+          value: 48.690201
+          comment: '[deg] Native latitude of celestial pole'
+        - key: RADESYS
+          value: FK5
+          comment: Equatorial coordinate system
+        - key: EQUINOX
+          value: 2000.0
+          comment: '[yr] Equinox of equatorial coordinates'
+        - key: MJD-OBS
+          value: 57132.0
+          comment: '[d] MJD for DATE-OBS'
+        - key: DATE-OBS
+          value: '2015-04-20'
+          comment: Date of median exposure
+        - key: AUTHOR
+          value: K Westfall & B Andrews <westfall@ucolick.org, andrewsb@pitt.edu>
+          comment: ''
+        - key: MASKNAME
+          value: MANGA_DAPSPECMASK
+          comment: ''
+        - key: BUNIT
+          value: 1E-17 erg/s/cm^2/ang/spaxel
+          comment: Unit of pixel value
+        - key: HDUCLASS
+          value: SDSS
+          comment: SDSS format class
+        - key: HDUCLAS1
+          value: CUBE
+          comment: Data format
+        - key: HDUCLAS2
+          value: DATA
+          comment: ''
+        - key: QUALDATA
+          value: MASK
+          comment: Associated quality extension
+        - key: EXTNAME
+          value: MODEL
+          comment: extension name
+        - key: CHECKSUM
+          value: BlKABjI0BjI7BjI7
+          comment: HDU checksum updated 2018-07-21T17:57:27
+        - key: DATASUM
+          value: '1985073008'
+          comment: data unit checksum updated 2018-07-21T17:57:27
+      hdu7:
+        name: EMLINE
+        description: "Spectra with only the best-fitting emission lines, not the stellar\
+          \ continuum, in units of 10-17 erg/s/cm2/\xC5/spaxel. This is the model\
+          \ subtracted from the flux data before measuring the spectral indices."
+        is_image: true
+        size: 20 MB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image extension
+        - key: BITPIX
+          value: -32
+          comment: array data type
+        - key: NAXIS
+          value: 3
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 34
+          comment: ''
+        - key: NAXIS2
+          value: 34
+          comment: ''
+        - key: NAXIS3
+          value: 4563
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: number of parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: WCSAXES
+          value: 3
+          comment: Number of coordinate axes
+        - key: CRPIX1
+          value: 18.0
+          comment: Pixel coordinate of reference point
+        - key: CRPIX2
+          value: 18.0
+          comment: Pixel coordinate of reference point
+        - key: CRPIX3
+          value: 1.0
+          comment: Pixel coordinate of reference point
+        - key: PC1_1
+          value: -0.000138889
+          comment: Coordinate transformation matrix element
+        - key: PC2_2
+          value: 0.000138889
+          comment: Coordinate transformation matrix element
+        - key: PC3_3
+          value: 8.33903304339e-11
+          comment: Coordinate transformation matrix element
+        - key: CDELT1
+          value: 1.0
+          comment: '[deg] Coordinate increment at reference point'
+        - key: CDELT2
+          value: 1.0
+          comment: '[deg] Coordinate increment at reference point'
+        - key: CDELT3
+          value: 1.0
+          comment: '[m] Coordinate increment at reference point'
+        - key: CUNIT1
+          value: deg
+          comment: Units of coordinate increment and value
+        - key: CUNIT2
+          value: deg
+          comment: Units of coordinate increment and value
+        - key: CUNIT3
+          value: m
+          comment: Units of coordinate increment and value
+        - key: CTYPE1
+          value: RA---TAN
+          comment: Right ascension, gnomonic projection
+        - key: CTYPE2
+          value: DEC--TAN
+          comment: Declination, gnomonic projection
+        - key: CTYPE3
+          value: WAVE-LOG
+          comment: Vacuum wavelength
+        - key: CRVAL1
+          value: 232.5447
+          comment: '[deg] Coordinate value at reference point'
+        - key: CRVAL2
+          value: 48.690201
+          comment: '[deg] Coordinate value at reference point'
+        - key: CRVAL3
+          value: 3.62159598486e-07
+          comment: '[m] Coordinate value at reference point'
+        - key: LONPOLE
+          value: 180.0
+          comment: '[deg] Native longitude of celestial pole'
+        - key: LATPOLE
+          value: 48.690201
+          comment: '[deg] Native latitude of celestial pole'
+        - key: RADESYS
+          value: FK5
+          comment: Equatorial coordinate system
+        - key: EQUINOX
+          value: 2000.0
+          comment: '[yr] Equinox of equatorial coordinates'
+        - key: MJD-OBS
+          value: 57132.0
+          comment: '[d] MJD for DATE-OBS'
+        - key: DATE-OBS
+          value: '2015-04-20'
+          comment: Date of median exposure
+        - key: AUTHOR
+          value: K Westfall & B Andrews <westfall@ucolick.org, andrewsb@pitt.edu>
+          comment: ''
+        - key: MASKNAME
+          value: MANGA_DAPSPECMASK
+          comment: ''
+        - key: BUNIT
+          value: 1E-17 erg/s/cm^2/ang/spaxel
+          comment: Unit of pixel value
+        - key: HDUCLASS
+          value: SDSS
+          comment: SDSS format class
+        - key: HDUCLAS1
+          value: CUBE
+          comment: Data format
+        - key: HDUCLAS2
+          value: DATA
+          comment: ''
+        - key: QUALDATA
+          value: EMLINE_MASK
+          comment: Associated quality extension
+        - key: EXTNAME
+          value: EMLINE
+          comment: extension name
+        - key: CHECKSUM
+          value: b5dad5ZTb5bZb5ZZ
+          comment: HDU checksum updated 2018-07-21T17:57:27
+        - key: DATASUM
+          value: '3482522027'
+          comment: data unit checksum updated 2018-07-21T17:57:27
+      hdu8:
+        name: EMLINE_BASE
+        description: Difference in the best-fit continuum between the continuum-only
+          fit and the combined continuum+emission-line fit. To obtain the continuum
+          fit to each spectrum during the continuum + emission-line fit, calculate
+          MODEL - EMLINE. To obtain the continuum fit to each spectrum during the
+          continuum-only (stellar kinematics fit), calculate MODEL - EMLINE - EMLINE_BASE.
+        is_image: true
+        size: 20 MB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image extension
+        - key: BITPIX
+          value: -32
+          comment: array data type
+        - key: NAXIS
+          value: 3
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 34
+          comment: ''
+        - key: NAXIS2
+          value: 34
+          comment: ''
+        - key: NAXIS3
+          value: 4563
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: number of parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: WCSAXES
+          value: 3
+          comment: Number of coordinate axes
+        - key: CRPIX1
+          value: 18.0
+          comment: Pixel coordinate of reference point
+        - key: CRPIX2
+          value: 18.0
+          comment: Pixel coordinate of reference point
+        - key: CRPIX3
+          value: 1.0
+          comment: Pixel coordinate of reference point
+        - key: PC1_1
+          value: -0.000138889
+          comment: Coordinate transformation matrix element
+        - key: PC2_2
+          value: 0.000138889
+          comment: Coordinate transformation matrix element
+        - key: PC3_3
+          value: 8.33903304339e-11
+          comment: Coordinate transformation matrix element
+        - key: CDELT1
+          value: 1.0
+          comment: '[deg] Coordinate increment at reference point'
+        - key: CDELT2
+          value: 1.0
+          comment: '[deg] Coordinate increment at reference point'
+        - key: CDELT3
+          value: 1.0
+          comment: '[m] Coordinate increment at reference point'
+        - key: CUNIT1
+          value: deg
+          comment: Units of coordinate increment and value
+        - key: CUNIT2
+          value: deg
+          comment: Units of coordinate increment and value
+        - key: CUNIT3
+          value: m
+          comment: Units of coordinate increment and value
+        - key: CTYPE1
+          value: RA---TAN
+          comment: Right ascension, gnomonic projection
+        - key: CTYPE2
+          value: DEC--TAN
+          comment: Declination, gnomonic projection
+        - key: CTYPE3
+          value: WAVE-LOG
+          comment: Vacuum wavelength
+        - key: CRVAL1
+          value: 232.5447
+          comment: '[deg] Coordinate value at reference point'
+        - key: CRVAL2
+          value: 48.690201
+          comment: '[deg] Coordinate value at reference point'
+        - key: CRVAL3
+          value: 3.62159598486e-07
+          comment: '[m] Coordinate value at reference point'
+        - key: LONPOLE
+          value: 180.0
+          comment: '[deg] Native longitude of celestial pole'
+        - key: LATPOLE
+          value: 48.690201
+          comment: '[deg] Native latitude of celestial pole'
+        - key: RADESYS
+          value: FK5
+          comment: Equatorial coordinate system
+        - key: EQUINOX
+          value: 2000.0
+          comment: '[yr] Equinox of equatorial coordinates'
+        - key: MJD-OBS
+          value: 57132.0
+          comment: '[d] MJD for DATE-OBS'
+        - key: DATE-OBS
+          value: '2015-04-20'
+          comment: Date of median exposure
+        - key: AUTHOR
+          value: K Westfall & B Andrews <westfall@ucolick.org, andrewsb@pitt.edu>
+          comment: ''
+        - key: MASKNAME
+          value: MANGA_DAPSPECMASK
+          comment: ''
+        - key: BUNIT
+          value: 1E-17 erg/s/cm^2/ang/spaxel
+          comment: Unit of pixel value
+        - key: HDUCLASS
+          value: SDSS
+          comment: SDSS format class
+        - key: HDUCLAS1
+          value: CUBE
+          comment: Data format
+        - key: HDUCLAS2
+          value: DATA
+          comment: ''
+        - key: QUALDATA
+          value: EMLINE_MASK
+          comment: Associated quality extension
+        - key: EXTNAME
+          value: EMLINE_BASE
+          comment: extension name
+        - key: CHECKSUM
+          value: OfcVRcZSOcbSOcZS
+          comment: HDU checksum updated 2018-07-21T17:57:27
+        - key: DATASUM
+          value: '3761175770'
+          comment: data unit checksum updated 2018-07-21T17:57:27
+      hdu9:
+        name: EMLINE_MASK
+        description: Bitmask that only applies to the emission-line modeling. In DR17,
+          this is incorporated into MODEL_MASK.
+        is_image: true
+        size: 10 MB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image extension
+        - key: BITPIX
+          value: 16
+          comment: array data type
+        - key: NAXIS
+          value: 3
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 34
+          comment: ''
+        - key: NAXIS2
+          value: 34
+          comment: ''
+        - key: NAXIS3
+          value: 4563
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: number of parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: WCSAXES
+          value: 3
+          comment: Number of coordinate axes
+        - key: CRPIX1
+          value: 18.0
+          comment: Pixel coordinate of reference point
+        - key: CRPIX2
+          value: 18.0
+          comment: Pixel coordinate of reference point
+        - key: CRPIX3
+          value: 1.0
+          comment: Pixel coordinate of reference point
+        - key: PC1_1
+          value: -0.000138889
+          comment: Coordinate transformation matrix element
+        - key: PC2_2
+          value: 0.000138889
+          comment: Coordinate transformation matrix element
+        - key: PC3_3
+          value: 8.33903304339e-11
+          comment: Coordinate transformation matrix element
+        - key: CDELT1
+          value: 1.0
+          comment: '[deg] Coordinate increment at reference point'
+        - key: CDELT2
+          value: 1.0
+          comment: '[deg] Coordinate increment at reference point'
+        - key: CDELT3
+          value: 1.0
+          comment: '[m] Coordinate increment at reference point'
+        - key: CUNIT1
+          value: deg
+          comment: Units of coordinate increment and value
+        - key: CUNIT2
+          value: deg
+          comment: Units of coordinate increment and value
+        - key: CUNIT3
+          value: m
+          comment: Units of coordinate increment and value
+        - key: CTYPE1
+          value: RA---TAN
+          comment: Right ascension, gnomonic projection
+        - key: CTYPE2
+          value: DEC--TAN
+          comment: Declination, gnomonic projection
+        - key: CTYPE3
+          value: WAVE-LOG
+          comment: Vacuum wavelength
+        - key: CRVAL1
+          value: 232.5447
+          comment: '[deg] Coordinate value at reference point'
+        - key: CRVAL2
+          value: 48.690201
+          comment: '[deg] Coordinate value at reference point'
+        - key: CRVAL3
+          value: 3.62159598486e-07
+          comment: '[m] Coordinate value at reference point'
+        - key: LONPOLE
+          value: 180.0
+          comment: '[deg] Native longitude of celestial pole'
+        - key: LATPOLE
+          value: 48.690201
+          comment: '[deg] Native latitude of celestial pole'
+        - key: RADESYS
+          value: FK5
+          comment: Equatorial coordinate system
+        - key: EQUINOX
+          value: 2000.0
+          comment: '[yr] Equinox of equatorial coordinates'
+        - key: MJD-OBS
+          value: 57132.0
+          comment: '[d] MJD for DATE-OBS'
+        - key: DATE-OBS
+          value: '2015-04-20'
+          comment: Date of median exposure
+        - key: AUTHOR
+          value: K Westfall & B Andrews <westfall@ucolick.org, andrewsb@pitt.edu>
+          comment: ''
+        - key: MASKNAME
+          value: MANGA_DAPSPECMASK
+          comment: ''
+        - key: HDUCLASS
+          value: SDSS
+          comment: SDSS format class
+        - key: HDUCLAS1
+          value: CUBE
+          comment: Data format
+        - key: HDUCLAS2
+          value: QUALITY
+          comment: ''
+        - key: HDUCLAS3
+          value: FLAG16BIT
+          comment: 16-bit mask
+        - key: SCIDATA
+          value: EMLINE
+          comment: Associated data extension
+        - key: EXTNAME
+          value: EMLINE_MASK
+          comment: extension name
+        - key: CHECKSUM
+          value: eaMLfVKKeZKKeZKK
+          comment: HDU checksum updated 2018-07-21T17:57:28
+        - key: DATASUM
+          value: '2778359338'
+          comment: data unit checksum updated 2018-07-21T17:57:28
+      hdu10:
+        name: BINID
+        description: "Numerical ID for spatial bins for the binned spectra, stellar-continuum\
+          \ results, emission-line moment results, emission-line model results, and\
+          \ spectral-index results. This is essentially a copy of the BINID extension\
+          \ from the MAPS file; however, note that the emission-line moment and spectral-index\
+          \ bin ID maps are not populated!\n\nIt is important to understand that not\
+          \ all of the data in the MAPS are independent. In addition to covariance,\
+          \ measurements are repeated for a given binned spectrum in all the spaxels\
+          \ associated with that bin. Therefore, if you are, e.g., fitting a model\
+          \ to the MAPS data or calculating azimuthal averages, you should pull out\
+          \ the binned quantities that are unique before proceeding. In addition to\
+          \ any associated MASK values, you should use the BINID extension (and, indeed,\
+          \ its main purpose is) to extract the unique (but still correlated) data\
+          \ to use in such an analysis.\n\nThis extension has one channel for each\
+          \ of the 5 main processing steps... binning, stellar-continuum and -kinematics\
+          \ fitting, emission-line moment measurements, emission-line Gaussian modeling,\
+          \ and spectral indices. However, note that the emission-line moment and\
+          \ spectral-index bin ID maps are not populated! Keep in mind the following...\n\
+          \n   BINID == -1 means that the spaxel was not included in the analysis.\
+          \ For example, BINID values of -1 in the first BINID channel means that\
+          \ either the spaxel had insufficiently good/unmasked pixels or too low S/N\
+          \ to be included in the binning procedure. Any spaxel with BINID = -1 should\
+          \ also be masked as DONOTUSE in the respective property map.\n   A BINID\
+          \ may be >-1 in one channel and = -1 in a different channel. For example,\
+          \ a spaxel in the binning BINID map may be >-1 but be = -1 in the stellar-continuum\
+          \ BINID. This likely means that the spaxels were successfully binned, but\
+          \ the bin had S/N < 1 meaning it was not analyzed by the stellar-continuum\
+          \ fitting module.\n   For the VOR binning case, the only difference in BINIDs\
+          \ is the -1 vs. non-negative distinction described in the last point, except\
+          \ for the HYB binning scheme. For the HYB binning case, the emission-line\
+          \ moments, emission-line modeling, and spectral-index measurements are done\
+          \ on a spaxel-by-spaxel basis, meaning that the BINIDs are redetermined\
+          \ and is just a running number for the spaxels that were analyzed.\n\nExample\
+          \ python code that extracts both the unique and unmasked data from a MAPS\
+          \ file to produce the g-band and H-alpha surface brightness profiles is\
+          \ provided by the data release documentation and the MaNGA DAP ReadTheDocs\
+          \ Documentation.\n"
+        is_image: true
+        size: 22 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image extension
+        - key: BITPIX
+          value: 32
+          comment: array data type
+        - key: NAXIS
+          value: 3
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 34
+          comment: ''
+        - key: NAXIS2
+          value: 34
+          comment: ''
+        - key: NAXIS3
+          value: 5
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: number of parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: WCSAXES
+          value: 3
+          comment: Number of coordinate axes
+        - key: CRPIX1
+          value: 18.0
+          comment: Pixel coordinate of reference point
+        - key: CRPIX2
+          value: 18.0
+          comment: Pixel coordinate of reference point
+        - key: CRPIX3
+          value: 1.0
+          comment: Pixel coordinate of reference point
+        - key: PC1_1
+          value: -0.000138889
+          comment: Coordinate transformation matrix element
+        - key: PC2_2
+          value: 0.000138889
+          comment: Coordinate transformation matrix element
+        - key: CDELT1
+          value: 1.0
+          comment: '[deg] Coordinate increment at reference point'
+        - key: CDELT2
+          value: 1.0
+          comment: '[deg] Coordinate increment at reference point'
+        - key: CDELT3
+          value: 1.0
+          comment: Coordinate increment at reference point
+        - key: CUNIT1
+          value: deg
+          comment: Units of coordinate increment and value
+        - key: CUNIT2
+          value: deg
+          comment: Units of coordinate increment and value
+        - key: CTYPE1
+          value: RA---TAN
+          comment: Right ascension, gnomonic projection
+        - key: CTYPE2
+          value: DEC--TAN
+          comment: Declination, gnomonic projection
+        - key: CRVAL1
+          value: 232.5447
+          comment: '[deg] Coordinate value at reference point'
+        - key: CRVAL2
+          value: 48.690201
+          comment: '[deg] Coordinate value at reference point'
+        - key: CRVAL3
+          value: 1.0
+          comment: Coordinate value at reference point
+        - key: LONPOLE
+          value: 180.0
+          comment: '[deg] Native longitude of celestial pole'
+        - key: LATPOLE
+          value: 48.690201
+          comment: '[deg] Native latitude of celestial pole'
+        - key: RADESYS
+          value: FK5
+          comment: Equatorial coordinate system
+        - key: EQUINOX
+          value: 2000.0
+          comment: '[yr] Equinox of equatorial coordinates'
+        - key: MJD-OBS
+          value: 57132.0
+          comment: '[d] MJD for DATE-OBS'
+        - key: DATE-OBS
+          value: '2015-04-20'
+          comment: Date of median exposure
+        - key: CTYPE3
+          value: ''
+          comment: Undefined type
+        - key: CUNIT3
+          value: ''
+          comment: Undefined units
+        - key: AUTHOR
+          value: K Westfall & B Andrews <westfall@ucolick.org, andrewsb@pitt.edu>
+          comment: ''
+        - key: MASKNAME
+          value: MANGA_DAPPIXMASK
+          comment: ''
+        - key: C1
+          value: Binned spectra
+          comment: Data in channel 1
+        - key: C2
+          value: Stellar continua
+          comment: Data in channel 2
+        - key: C3
+          value: Em. line moments
+          comment: Data in channel 3
+        - key: C4
+          value: Em. line models
+          comment: Data in channel 4
+        - key: C5
+          value: Spectral indices
+          comment: Data in channel 5
+        - key: HDUCLASS
+          value: SDSS
+          comment: SDSS format class
+        - key: HDUCLAS1
+          value: CUBE
+          comment: Data format
+        - key: HDUCLAS2
+          value: DATA
+          comment: ''
+        - key: EXTNAME
+          value: BINID
+          comment: extension name
+        - key: CHECKSUM
+          value: Z5k2a5h0V5h0Z5h0
+          comment: HDU checksum updated 2018-07-21T17:57:28
+        - key: DATASUM
+          value: '120728'
+          comment: data unit checksum updated 2018-07-21T17:57:28
+  DR16: *id001
+  DR17:
+    template: $MANGA_SPECTRO_ANALYSIS/[DRPVER]/[DAPVER]/[DAPTYPE]/[PLATE]/[IFU]/manga-[PLATE]-[IFU]-LOGCUBE-[DAPTYPE].fits.gz
+    example: v3_1_1/3.1.0/HYB10-MILESHC-MASTARSSP/8485/1901/manga-8485-1901-LOGCUBE-HYB10-MILESHC-MASTARSSP.fits.gz
+    location: '{drpver}/{dapver}/{daptype}/{plate}/{ifu}/manga-{plate}-{ifu}-LOGCUBE-{daptype}.fits.gz'
+    environment: MANGA_SPECTRO_ANALYSIS
+    access:
+      in_sdss_access: true
+      path_name: mangadap
+      path_template: $MANGA_SPECTRO_ANALYSIS/{drpver}/{dapver}/{daptype}/{plate}/{ifu}/manga-{plate}-{ifu}-{mode}-{daptype}.fits.gz
+      path_kwargs:
+      - ifu
+      - daptype
+      - plate
+      - dapver
+      - drpver
+      - mode
+      access_string: mangadap = $MANGA_SPECTRO_ANALYSIS/{drpver}/{dapver}/{daptype}/{plate}/{ifu}/manga-{plate}-{ifu}-LOGCUBE-{daptype}.fits.gz
+    survey: MaNGA
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: primary header extension
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: AUTHOR
+          value: K Westfall <westfall@ucolick.org>
+          comment: ''
+        - key: VERSDRP2
+          value: v3_1_1
+          comment: MaNGA DRP version (2d processing)
+        - key: VERSDRP3
+          value: v3_1_1
+          comment: MaNGA DRP Version (3d processing)
+        - key: VERSPLDS
+          value: v5_1
+          comment: Platedesign Version
+        - key: VERSFLAT
+          value: v1_33
+          comment: Specflat Version
+        - key: VERSCORE
+          value: v1_9_1
+          comment: MaNGAcore Version
+        - key: VERSPRIM
+          value: v2_9
+          comment: MaNGA Preimaging Version
+        - key: VERSUTIL
+          value: v5_5_36
+          comment: Version of idlutils
+        - key: VERSIDL
+          value: x86_64 linux unix linux 7.1.1 Aug 21 2009 64 64
+          comment: Version of IDL
+        - key: TELESCOP
+          value: SDSS 2.5-M
+          comment: Sloan Digital Sky Survey
+        - key: INSTRUME
+          value: MaNGA
+          comment: SDSS-IV MaNGA IFU
+        - key: SRVYMODE
+          value: MaNGA dither
+          comment: Survey leading this observation and its mode
+        - key: PLATETYP
+          value: APOGEE-2&MaNGA
+          comment: Type of plate (e.g. MaNGA, APOGEE-2&MANGA)
+        - key: OBJSYS
+          value: ICRS
+          comment: The TCC objSys
+        - key: EQUINOX
+          value: 2000.0
+          comment: ''
+        - key: RADESYS
+          value: FK5
+          comment: ''
+        - key: LAMPLIST
+          value: lamphgcdne.dat
+          comment: ''
+        - key: TPLDATA
+          value: BOSZ_3000-11000A.fits
+          comment: ''
+        - key: NEXP
+          value: 9
+          comment: Total number of exposures
+        - key: EXPTIME
+          value: 8100.87
+          comment: Total exposure time (seconds)
+        - key: BLUESN2
+          value: 18.6492
+          comment: Total SN2 in blue channel
+        - key: REDSN2
+          value: 39.4486
+          comment: Total SN2 in red channel
+        - key: AIRMSMIN
+          value: 1.03987
+          comment: Minimum airmass
+        - key: AIRMSMED
+          value: 1.04708
+          comment: Median airmass
+        - key: AIRMSMAX
+          value: 1.08221
+          comment: Maximum airmass
+        - key: SEEMIN
+          value: 1.17605
+          comment: Best guider seeing
+        - key: SEEMED
+          value: 1.30563
+          comment: Median guider seeing
+        - key: SEEMAX
+          value: 1.42456
+          comment: Worst guider seeing
+        - key: TRANSMIN
+          value: 0.80467
+          comment: Worst guider transparency
+        - key: TRANSMED
+          value: 0.831482
+          comment: Median guider transparency
+        - key: TRANSMAX
+          value: 0.839711
+          comment: Best guider transparency
+        - key: MJDMIN
+          value: 57132
+          comment: MJD of first exposure
+        - key: MJDMED
+          value: 57132
+          comment: MJD of median exposure
+        - key: MJDMAX
+          value: 57132
+          comment: MJD of last exposure
+        - key: DATE-OBS
+          value: '2015-04-20'
+          comment: Date of median exposure
+        - key: MJDRED
+          value: 59186
+          comment: MJD of the reduction
+        - key: DATERED
+          value: '2020-12-03'
+          comment: Date of the reduction
+        - key: MNGTARG1
+          value: 2336
+          comment: manga_target1 maskbit
+        - key: MNGTARG2
+          value: 0
+          comment: manga_target2 maskbit
+        - key: MNGTARG3
+          value: 0
+          comment: manga_target3 maskbit
+        - key: IFURA
+          value: 232.5447
+          comment: IFU R.A. (J2000 deg.)
+        - key: IFUDEC
+          value: 48.690201
+          comment: IFU Dec. (J2000 deg.)
+        - key: OBJRA
+          value: 232.544703894
+          comment: Object R.A. (J2000 deg.)
+        - key: OBJDEC
+          value: 48.6902009334
+          comment: Object Dec. (J2000 deg.)
+        - key: CENRA
+          value: 234.06426
+          comment: Plate center R.A. (J2000 deg.)
+        - key: CENDEC
+          value: 48.589874
+          comment: Plate center Dec. (J2000 deg.)
+        - key: PLATEID
+          value: 8485
+          comment: Current plate
+        - key: DESIGNID
+          value: 8980
+          comment: Current design
+        - key: IFUDSGN
+          value: 1901
+          comment: ifuDesign
+        - key: FRLPLUG
+          value: 29
+          comment: Plugged ferrule
+        - key: PLATEIFU
+          value: 8485-1901
+          comment: PLATEID-ifuDesign
+        - key: CARTID
+          value: '3'
+          comment: Cart(s) used
+        - key: HARNAME
+          value: ma060
+          comment: Harness name(s)
+        - key: METFILE
+          value: ma060-56887-3.par
+          comment: IFU metrology file(s)
+        - key: MANGAID
+          value: 1-209232
+          comment: MaNGA ID number
+        - key: CATIDNUM
+          value: '1'
+          comment: Primary target input catalog
+        - key: PLTTARG
+          value: plateTargets-1.par
+          comment: plateTarget reference file
+        - key: DRP3QUAL
+          value: 0
+          comment: DRP-3d quality bitmask
+        - key: IFUGLON
+          value: 78.9550411299
+          comment: IFU Galactic longitude (deg)
+        - key: IFUGLAT
+          value: 52.6212190954
+          comment: IFU Galactic latitude (deg)
+        - key: EBVGAL
+          value: 0.0144335
+          comment: Galactic reddening E(B-V)
+        - key: GFWHM
+          value: 2.4364
+          comment: Reconstructed FWHM in g-band (arcsec)
+        - key: RFWHM
+          value: 2.43751
+          comment: Reconstructed FWHM in r-band (arcsec)
+        - key: IFWHM
+          value: 2.42862
+          comment: Reconstructed FWHM in i-band (arcsec)
+        - key: ZFWHM
+          value: 2.40892
+          comment: Reconstructed FWHM in z-band (arcsec)
+        - key: CHECKSUM
+          value: Zg7fed4ZZd4ddd4Z
+          comment: HDU checksum updated 2020-12-25T13:18:00
+        - key: DATASUM
+          value: '0'
+          comment: data unit checksum updated 2020-12-25T13:18:00
+        - key: MASKNAME
+          value: MANGA_DAPSPECMASK
+          comment: ''
+        - key: VERSPY
+          value: 3.8.5
+          comment: Python version
+        - key: VERSNP
+          value: 1.19.4
+          comment: Numpy version
+        - key: VERSSCI
+          value: 1.5.4
+          comment: Scipy version
+        - key: VERSAST
+          value: '4.2'
+          comment: Astropy version
+        - key: VERSPYDL
+          value: 0.7.0
+          comment: pydl version
+        - key: VERSPPXF
+          value: 7.4.3
+          comment: pPXF version
+        - key: VERSVBIN
+          value: 3.1.4
+          comment: VorBin version (if used)
+        - key: VERSDAP
+          value: 3.1.0
+          comment: MaNGA DAP version
+        - key: DAPTYPE
+          value: HYB10-MILESHC-MASTARSSP
+          comment: DAP analysis method
+        - key: DAPFRMT
+          value: LOGCUBE
+          comment: DAP data file format
+        - key: RDXQAKEY
+          value: SNRG
+          comment: Method keyword
+        - key: ECOOPA
+          value: 154.873
+          comment: Position angle for ellip. coo
+        - key: ECOOELL
+          value: 0.12546
+          comment: Ellipticity (1-b/a) for ellip. coo
+        - key: BBWAVE
+          value: 4633.944856459669
+          comment: Covariance channel wavelength
+        - key: BBINDEX
+          value: 1071
+          comment: Covariance channel index
+        - key: REFF
+          value: 1.33067
+          comment: ''
+        - key: BINKEY
+          value: HYB10
+          comment: Spectal binning method keyword
+        - key: BINMINSN
+          value: 1.0
+          comment: Minimum S/N of spectrum to include
+        - key: FSPCOV
+          value: 0.8
+          comment: Minimum required fraction of good pixels
+        - key: NBINS
+          value: 86
+          comment: Number of unique spatial bins
+        - key: BINTYPE
+          value: voronoi
+          comment: Binning method
+        - key: BINSNR
+          value: 10.0
+          comment: Voronoi binning minimum S/N
+        - key: BINCOV
+          value: full
+          comment: Voronoi binning S/N covariance type
+        - key: STCKOP
+          value: mean
+          comment: Stacking operation
+        - key: STCKVREG
+          value: 'False'
+          comment: Spectra shifted in velocity before stacked
+        - key: STCKCRMD
+          value: channels
+          comment: Stacking treatment of covariance
+        - key: STCKCRPR
+          value: '11'
+          comment: Covariance parameter(s)
+        - key: GEXTLAW
+          value: ODonnell
+          comment: Galactic extinction law
+        - key: RVGAL
+          value: 3.1
+          comment: Ratio of total to selective extinction, R(V)
+        - key: VSTEP
+          value: 69.02976447828435
+          comment: Velocity step per spectral channel.
+        - key: SCKEY
+          value: MILESHCMPL11
+          comment: Stellar-continuum model keyword
+        - key: SCMINSN
+          value: 1.0
+          comment: Minimum S/N of spectrum to include
+        - key: SCINPVEL
+          value: 12214.9537634726
+          comment: Initial guess velocity
+        - key: SCINPSIG
+          value: 100.0
+          comment: Initial guess velocity dispersion
+        - key: NSCMOD
+          value: 86
+          comment: Number of unique stellar-continuum models
+        - key: SCTYPE
+          value: stellar_kinematics
+          comment: ''
+        - key: SCMETH
+          value: ppxf
+          comment: ''
+        - key: PPXFTPLK
+          value: MILESHC
+          comment: Template library key used with pPXF
+        - key: PPXFMODE
+          value: nonzero_templates
+          comment: pPXF iteration mode
+        - key: PPXFBIAS
+          value: None
+          comment: pPXF bias value
+        - key: PPXFAO
+          value: 8
+          comment: Additive order in pPXF
+        - key: PPXFMO
+          value: -1
+          comment: Multiplicative order in pPXF
+        - key: PPXFFAO
+          value: 8
+          comment: Additive order for filtered spectra
+        - key: PPXFFMO
+          value: 0
+          comment: Multiplicative order for filtered spectra
+        - key: PPXFMOM
+          value: 2
+          comment: Number of fitted LOSVD moments in pPXF
+        - key: PPXFRBOX
+          value: 100
+          comment: pPXF rejection boxcar
+        - key: PPXFFILT
+          value: 0
+          comment: pPXF number of filtering iterations
+        - key: ELFKEY
+          value: EFITMPL11SSPDB
+          comment: Emission-line modeling method keyword
+        - key: ELFMINSN
+          value: 0.0
+          comment: Minimum S/N of spectrum to include
+        - key: ARTDB
+          value: BADSKY
+          comment: Artifact database keyword
+        - key: EMLDB
+          value: ELPMPL11
+          comment: Emission-line database keyword
+        - key: NELMOD
+          value: 376
+          comment: Number of unique emission-line models
+        - key: ELTYPE
+          value: emission_line
+          comment: ''
+        - key: ELMETH
+          value: sasuke
+          comment: ''
+        - key: ELREBIN
+          value: false
+          comment: Bin IDs disconnected from SC binning
+        - key: DAPQUAL
+          value: 0
+          comment: DAP quality bitmask
+      hdu1:
+        name: FLUX
+        description: "Flux in the binned spectra in units of 10-17 erg/s/cm2/\xC5\
+          /spaxel. In the context of this file, \"binned\" spectra can consist of\
+          \ a single spaxel. See the BINID extension."
+        is_image: true
+        size: 20 MB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image extension
+        - key: BITPIX
+          value: -32
+          comment: array data type
+        - key: NAXIS
+          value: 3
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 34
+          comment: ''
+        - key: NAXIS2
+          value: 34
+          comment: ''
+        - key: NAXIS3
+          value: 4563
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: number of parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: WCSAXES
+          value: 3
+          comment: Number of coordinate axes
+        - key: CRPIX1
+          value: 18.0
+          comment: Pixel coordinate of reference point
+        - key: CRPIX2
+          value: 18.0
+          comment: Pixel coordinate of reference point
+        - key: CRPIX3
+          value: 1.0
+          comment: Pixel coordinate of reference point
+        - key: PC1_1
+          value: -0.000138889
+          comment: Coordinate transformation matrix element
+        - key: PC2_2
+          value: 0.000138889
+          comment: Coordinate transformation matrix element
+        - key: PC3_3
+          value: 8.33903304339e-11
+          comment: Coordinate transformation matrix element
+        - key: CDELT1
+          value: 1.0
+          comment: '[deg] Coordinate increment at reference point'
+        - key: CDELT2
+          value: 1.0
+          comment: '[deg] Coordinate increment at reference point'
+        - key: CDELT3
+          value: 1.0
+          comment: '[m] Coordinate increment at reference point'
+        - key: CUNIT1
+          value: deg
+          comment: Units of coordinate increment and value
+        - key: CUNIT2
+          value: deg
+          comment: Units of coordinate increment and value
+        - key: CUNIT3
+          value: m
+          comment: Units of coordinate increment and value
+        - key: CTYPE1
+          value: RA---TAN
+          comment: Right ascension, gnomonic projection
+        - key: CTYPE2
+          value: DEC--TAN
+          comment: Declination, gnomonic projection
+        - key: CTYPE3
+          value: WAVE-LOG
+          comment: Vacuum wavelength
+        - key: CRVAL1
+          value: 232.5447
+          comment: '[deg] Coordinate value at reference point'
+        - key: CRVAL2
+          value: 48.690201
+          comment: '[deg] Coordinate value at reference point'
+        - key: CRVAL3
+          value: 3.62159598486e-07
+          comment: '[m] Coordinate value at reference point'
+        - key: LONPOLE
+          value: 180.0
+          comment: '[deg] Native longitude of celestial pole'
+        - key: LATPOLE
+          value: 48.690201
+          comment: '[deg] Native latitude of celestial pole'
+        - key: MJDREF
+          value: 0.0
+          comment: '[d] MJD of fiducial time'
+        - key: DATE-OBS
+          value: '2015-04-20'
+          comment: Date of median exposure
+        - key: MJD-OBS
+          value: 57132.0
+          comment: '[d] MJD for DATE-OBS'
+        - key: RADESYS
+          value: FK5
+          comment: Equatorial coordinate system
+        - key: EQUINOX
+          value: 2000.0
+          comment: '[yr] Equinox of equatorial coordinates'
+        - key: AUTHOR
+          value: K Westfall <westfall@ucolick.org> & SDSS-IV Data Group
+          comment: ''
+        - key: MASKNAME
+          value: MANGA_DAPSPECMASK
+          comment: ''
+        - key: BUNIT
+          value: 1E-17 erg/s/cm^2/ang/spaxel
+          comment: Unit of pixel value
+        - key: HDUCLASS
+          value: SDSS
+          comment: SDSS format class
+        - key: HDUCLAS1
+          value: IMAGE
+          comment: Data format
+        - key: HDUCLAS2
+          value: DATA
+          comment: ''
+        - key: ERRDATA
+          value: FLUX_IVAR
+          comment: Associated inv. variance extension
+        - key: QUALDATA
+          value: FLUX_MASK
+          comment: Associated quality extension
+        - key: EXTNAME
+          value: FLUX
+          comment: extension name
+        - key: CHECKSUM
+          value: 3ACBA4BA3ABAA3BA
+          comment: HDU checksum updated 2020-12-25T13:18:00
+        - key: DATASUM
+          value: '3721931751'
+          comment: data unit checksum updated 2020-12-25T13:18:00
+      hdu2:
+        name: IVAR
+        description: Inverse variance of FLUX
+        is_image: true
+        size: 20 MB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image extension
+        - key: BITPIX
+          value: -32
+          comment: array data type
+        - key: NAXIS
+          value: 3
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 34
+          comment: ''
+        - key: NAXIS2
+          value: 34
+          comment: ''
+        - key: NAXIS3
+          value: 4563
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: number of parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: WCSAXES
+          value: 3
+          comment: Number of coordinate axes
+        - key: CRPIX1
+          value: 18.0
+          comment: Pixel coordinate of reference point
+        - key: CRPIX2
+          value: 18.0
+          comment: Pixel coordinate of reference point
+        - key: CRPIX3
+          value: 1.0
+          comment: Pixel coordinate of reference point
+        - key: PC1_1
+          value: -0.000138889
+          comment: Coordinate transformation matrix element
+        - key: PC2_2
+          value: 0.000138889
+          comment: Coordinate transformation matrix element
+        - key: PC3_3
+          value: 8.33903304339e-11
+          comment: Coordinate transformation matrix element
+        - key: CDELT1
+          value: 1.0
+          comment: '[deg] Coordinate increment at reference point'
+        - key: CDELT2
+          value: 1.0
+          comment: '[deg] Coordinate increment at reference point'
+        - key: CDELT3
+          value: 1.0
+          comment: '[m] Coordinate increment at reference point'
+        - key: CUNIT1
+          value: deg
+          comment: Units of coordinate increment and value
+        - key: CUNIT2
+          value: deg
+          comment: Units of coordinate increment and value
+        - key: CUNIT3
+          value: m
+          comment: Units of coordinate increment and value
+        - key: CTYPE1
+          value: RA---TAN
+          comment: Right ascension, gnomonic projection
+        - key: CTYPE2
+          value: DEC--TAN
+          comment: Declination, gnomonic projection
+        - key: CTYPE3
+          value: WAVE-LOG
+          comment: Vacuum wavelength
+        - key: CRVAL1
+          value: 232.5447
+          comment: '[deg] Coordinate value at reference point'
+        - key: CRVAL2
+          value: 48.690201
+          comment: '[deg] Coordinate value at reference point'
+        - key: CRVAL3
+          value: 3.62159598486e-07
+          comment: '[m] Coordinate value at reference point'
+        - key: LONPOLE
+          value: 180.0
+          comment: '[deg] Native longitude of celestial pole'
+        - key: LATPOLE
+          value: 48.690201
+          comment: '[deg] Native latitude of celestial pole'
+        - key: MJDREF
+          value: 0.0
+          comment: '[d] MJD of fiducial time'
+        - key: DATE-OBS
+          value: '2015-04-20'
+          comment: Date of median exposure
+        - key: MJD-OBS
+          value: 57132.0
+          comment: '[d] MJD for DATE-OBS'
+        - key: RADESYS
+          value: FK5
+          comment: Equatorial coordinate system
+        - key: EQUINOX
+          value: 2000.0
+          comment: '[yr] Equinox of equatorial coordinates'
+        - key: AUTHOR
+          value: K Westfall <westfall@ucolick.org> & SDSS-IV Data Group
+          comment: ''
+        - key: MASKNAME
+          value: MANGA_DAPSPECMASK
+          comment: ''
+        - key: BUNIT
+          value: (1E-17 erg/s/cm^2/ang/spaxel)^{-2}
+          comment: Unit of pixel value
+        - key: HDUCLASS
+          value: SDSS
+          comment: SDSS format class
+        - key: HDUCLAS1
+          value: IMAGE
+          comment: Data format
+        - key: HDUCLAS2
+          value: ERROR
+          comment: ''
+        - key: HDUCLAS3
+          value: INVMSE
+          comment: Value is inverse mean-square error
+        - key: SCIDATA
+          value: FLUX
+          comment: Associated data extension
+        - key: QUALDATA
+          value: MASK
+          comment: Associated quality extension
+        - key: EXTNAME
+          value: IVAR
+          comment: extension name
+        - key: CHECKSUM
+          value: S75CT559S55CS559
+          comment: HDU checksum updated 2020-12-25T13:18:00
+        - key: DATASUM
+          value: '3883128079'
+          comment: data unit checksum updated 2020-12-25T13:18:00
+      hdu3:
+        name: MASK
+        description: Bitmask for FLUX; in DR15/16, this is also the mask for the MODEL
+          data.
+        is_image: true
+        size: 10 MB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image extension
+        - key: BITPIX
+          value: 16
+          comment: array data type
+        - key: NAXIS
+          value: 3
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 34
+          comment: ''
+        - key: NAXIS2
+          value: 34
+          comment: ''
+        - key: NAXIS3
+          value: 4563
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: number of parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: WCSAXES
+          value: 3
+          comment: Number of coordinate axes
+        - key: CRPIX1
+          value: 18.0
+          comment: Pixel coordinate of reference point
+        - key: CRPIX2
+          value: 18.0
+          comment: Pixel coordinate of reference point
+        - key: CRPIX3
+          value: 1.0
+          comment: Pixel coordinate of reference point
+        - key: PC1_1
+          value: -0.000138889
+          comment: Coordinate transformation matrix element
+        - key: PC2_2
+          value: 0.000138889
+          comment: Coordinate transformation matrix element
+        - key: PC3_3
+          value: 8.33903304339e-11
+          comment: Coordinate transformation matrix element
+        - key: CDELT1
+          value: 1.0
+          comment: '[deg] Coordinate increment at reference point'
+        - key: CDELT2
+          value: 1.0
+          comment: '[deg] Coordinate increment at reference point'
+        - key: CDELT3
+          value: 1.0
+          comment: '[m] Coordinate increment at reference point'
+        - key: CUNIT1
+          value: deg
+          comment: Units of coordinate increment and value
+        - key: CUNIT2
+          value: deg
+          comment: Units of coordinate increment and value
+        - key: CUNIT3
+          value: m
+          comment: Units of coordinate increment and value
+        - key: CTYPE1
+          value: RA---TAN
+          comment: Right ascension, gnomonic projection
+        - key: CTYPE2
+          value: DEC--TAN
+          comment: Declination, gnomonic projection
+        - key: CTYPE3
+          value: WAVE-LOG
+          comment: Vacuum wavelength
+        - key: CRVAL1
+          value: 232.5447
+          comment: '[deg] Coordinate value at reference point'
+        - key: CRVAL2
+          value: 48.690201
+          comment: '[deg] Coordinate value at reference point'
+        - key: CRVAL3
+          value: 3.62159598486e-07
+          comment: '[m] Coordinate value at reference point'
+        - key: LONPOLE
+          value: 180.0
+          comment: '[deg] Native longitude of celestial pole'
+        - key: LATPOLE
+          value: 48.690201
+          comment: '[deg] Native latitude of celestial pole'
+        - key: MJDREF
+          value: 0.0
+          comment: '[d] MJD of fiducial time'
+        - key: DATE-OBS
+          value: '2015-04-20'
+          comment: Date of median exposure
+        - key: MJD-OBS
+          value: 57132.0
+          comment: '[d] MJD for DATE-OBS'
+        - key: RADESYS
+          value: FK5
+          comment: Equatorial coordinate system
+        - key: EQUINOX
+          value: 2000.0
+          comment: '[yr] Equinox of equatorial coordinates'
+        - key: AUTHOR
+          value: K Westfall <westfall@ucolick.org> & SDSS-IV Data Group
+          comment: ''
+        - key: MASKNAME
+          value: MANGA_DAPSPECMASK
+          comment: ''
+        - key: HDUCLASS
+          value: SDSS
+          comment: SDSS format class
+        - key: HDUCLAS1
+          value: IMAGE
+          comment: Data format
+        - key: HDUCLAS2
+          value: QUALITY
+          comment: ''
+        - key: HDUCLAS3
+          value: FLAG16BIT
+          comment: 16-bit mask
+        - key: SCIDATA
+          value: FLUX
+          comment: Associated data extension
+        - key: ERRDATA
+          value: IVAR
+          comment: Associated inv. variance extension
+        - key: EXTNAME
+          value: MASK
+          comment: extension name
+        - key: CHECKSUM
+          value: 9jFiHhEh9hEhEhEh
+          comment: HDU checksum updated 2020-12-25T13:18:00
+        - key: DATASUM
+          value: '167583006'
+          comment: data unit checksum updated 2020-12-25T13:18:00
+      hdu4:
+        name: LSF
+        description: "The dispersion (\u03C3) of the pre-pixelized Gaussian line-spread\
+          \ function (LSF) of the binned spectra. For bins consisting of single spaxels,\
+          \ this is identical to the LSFPRE extension in the DRP LOGCUBE files."
+        is_image: true
+        size: 20 MB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image extension
+        - key: BITPIX
+          value: -32
+          comment: array data type
+        - key: NAXIS
+          value: 3
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 34
+          comment: ''
+        - key: NAXIS2
+          value: 34
+          comment: ''
+        - key: NAXIS3
+          value: 4563
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: number of parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: WCSAXES
+          value: 3
+          comment: Number of coordinate axes
+        - key: CRPIX1
+          value: 18.0
+          comment: Pixel coordinate of reference point
+        - key: CRPIX2
+          value: 18.0
+          comment: Pixel coordinate of reference point
+        - key: CRPIX3
+          value: 1.0
+          comment: Pixel coordinate of reference point
+        - key: PC1_1
+          value: -0.000138889
+          comment: Coordinate transformation matrix element
+        - key: PC2_2
+          value: 0.000138889
+          comment: Coordinate transformation matrix element
+        - key: PC3_3
+          value: 8.33903304339e-11
+          comment: Coordinate transformation matrix element
+        - key: CDELT1
+          value: 1.0
+          comment: '[deg] Coordinate increment at reference point'
+        - key: CDELT2
+          value: 1.0
+          comment: '[deg] Coordinate increment at reference point'
+        - key: CDELT3
+          value: 1.0
+          comment: '[m] Coordinate increment at reference point'
+        - key: CUNIT1
+          value: deg
+          comment: Units of coordinate increment and value
+        - key: CUNIT2
+          value: deg
+          comment: Units of coordinate increment and value
+        - key: CUNIT3
+          value: m
+          comment: Units of coordinate increment and value
+        - key: CTYPE1
+          value: RA---TAN
+          comment: Right ascension, gnomonic projection
+        - key: CTYPE2
+          value: DEC--TAN
+          comment: Declination, gnomonic projection
+        - key: CTYPE3
+          value: WAVE-LOG
+          comment: Vacuum wavelength
+        - key: CRVAL1
+          value: 232.5447
+          comment: '[deg] Coordinate value at reference point'
+        - key: CRVAL2
+          value: 48.690201
+          comment: '[deg] Coordinate value at reference point'
+        - key: CRVAL3
+          value: 3.62159598486e-07
+          comment: '[m] Coordinate value at reference point'
+        - key: LONPOLE
+          value: 180.0
+          comment: '[deg] Native longitude of celestial pole'
+        - key: LATPOLE
+          value: 48.690201
+          comment: '[deg] Native latitude of celestial pole'
+        - key: MJDREF
+          value: 0.0
+          comment: '[d] MJD of fiducial time'
+        - key: DATE-OBS
+          value: '2015-04-20'
+          comment: Date of median exposure
+        - key: MJD-OBS
+          value: 57132.0
+          comment: '[d] MJD for DATE-OBS'
+        - key: RADESYS
+          value: FK5
+          comment: Equatorial coordinate system
+        - key: EQUINOX
+          value: 2000.0
+          comment: '[yr] Equinox of equatorial coordinates'
+        - key: AUTHOR
+          value: K Westfall <westfall@ucolick.org> & SDSS-IV Data Group
+          comment: ''
+        - key: MASKNAME
+          value: MANGA_DAPSPECMASK
+          comment: ''
+        - key: DRPEXT
+          value: LSFPRE
+          comment: Source ext from DRP file
+        - key: BUNIT
+          value: angstrom
+          comment: Unit of pixel value
+        - key: HDUCLASS
+          value: SDSS
+          comment: SDSS format class
+        - key: HDUCLAS1
+          value: IMAGE
+          comment: Data format
+        - key: HDUCLAS2
+          value: DATA
+          comment: ''
+        - key: EXTNAME
+          value: LSF
+          comment: extension name
+        - key: CHECKSUM
+          value: 8UOaARNX1RNa8RNW
+          comment: HDU checksum updated 2020-12-25T13:18:01
+        - key: DATASUM
+          value: '3190189700'
+          comment: data unit checksum updated 2020-12-25T13:18:01
+      hdu5:
+        name: WAVE
+        description: Wavelength vector for all spectra in the datacube. Wavelengths
+          are given in vacuum with Angstrom units. The wavelength vector is identical
+          for all spaxels in a MaNGA datacube.
+        is_image: true
+        size: 17 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image extension
+        - key: BITPIX
+          value: -32
+          comment: array data type
+        - key: NAXIS
+          value: 1
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 4563
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: number of parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: EXTNAME
+          value: WAVE
+          comment: extension name
+        - key: CHECKSUM
+          value: CNJ3ELG3CLG3CLG3
+          comment: HDU checksum updated 2020-12-25T13:18:01
+        - key: DATASUM
+          value: '2156230326'
+          comment: data unit checksum updated 2020-12-25T13:18:01
+      hdu6:
+        name: REDCORR
+        description: The Galactic reddening correction applied during the fitting
+          procedures. The reddening vector is the same for all spaxels in a MaNGA
+          datacube. The dereddened flux is calculated as FLUX * REDCORR. The Galactic
+          E(B-V) reddening, extinction factor Rv, and specified extinction law used
+          are provided in the primary header (EBVGAL, RVGAL, and GEXTLAW, respectively).
+        is_image: true
+        size: 17 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image extension
+        - key: BITPIX
+          value: -32
+          comment: array data type
+        - key: NAXIS
+          value: 1
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 4563
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: number of parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: EXTNAME
+          value: REDCORR
+          comment: extension name
+        - key: CHECKSUM
+          value: 2XBp3UBn2UBn2UBn
+          comment: HDU checksum updated 2020-12-25T13:18:01
+        - key: DATASUM
+          value: '780242633'
+          comment: data unit checksum updated 2020-12-25T13:18:01
+      hdu7:
+        name: MODEL
+        description: "The best-fitting model spectra, in 10-17 erg/s/cm2/\xC5/spaxel,\
+          \ from the combined continuum+emission-line fit. Depending on the DAPTYPE,\
+          \ this may or may not be directly comparable to the data in the FLUX extension.\
+          \ See the general description above."
+        is_image: true
+        size: 20 MB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image extension
+        - key: BITPIX
+          value: -32
+          comment: array data type
+        - key: NAXIS
+          value: 3
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 34
+          comment: ''
+        - key: NAXIS2
+          value: 34
+          comment: ''
+        - key: NAXIS3
+          value: 4563
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: number of parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: WCSAXES
+          value: 3
+          comment: Number of coordinate axes
+        - key: CRPIX1
+          value: 18.0
+          comment: Pixel coordinate of reference point
+        - key: CRPIX2
+          value: 18.0
+          comment: Pixel coordinate of reference point
+        - key: CRPIX3
+          value: 1.0
+          comment: Pixel coordinate of reference point
+        - key: PC1_1
+          value: -0.000138889
+          comment: Coordinate transformation matrix element
+        - key: PC2_2
+          value: 0.000138889
+          comment: Coordinate transformation matrix element
+        - key: PC3_3
+          value: 8.33903304339e-11
+          comment: Coordinate transformation matrix element
+        - key: CDELT1
+          value: 1.0
+          comment: '[deg] Coordinate increment at reference point'
+        - key: CDELT2
+          value: 1.0
+          comment: '[deg] Coordinate increment at reference point'
+        - key: CDELT3
+          value: 1.0
+          comment: '[m] Coordinate increment at reference point'
+        - key: CUNIT1
+          value: deg
+          comment: Units of coordinate increment and value
+        - key: CUNIT2
+          value: deg
+          comment: Units of coordinate increment and value
+        - key: CUNIT3
+          value: m
+          comment: Units of coordinate increment and value
+        - key: CTYPE1
+          value: RA---TAN
+          comment: Right ascension, gnomonic projection
+        - key: CTYPE2
+          value: DEC--TAN
+          comment: Declination, gnomonic projection
+        - key: CTYPE3
+          value: WAVE-LOG
+          comment: Vacuum wavelength
+        - key: CRVAL1
+          value: 232.5447
+          comment: '[deg] Coordinate value at reference point'
+        - key: CRVAL2
+          value: 48.690201
+          comment: '[deg] Coordinate value at reference point'
+        - key: CRVAL3
+          value: 3.62159598486e-07
+          comment: '[m] Coordinate value at reference point'
+        - key: LONPOLE
+          value: 180.0
+          comment: '[deg] Native longitude of celestial pole'
+        - key: LATPOLE
+          value: 48.690201
+          comment: '[deg] Native latitude of celestial pole'
+        - key: MJDREF
+          value: 0.0
+          comment: '[d] MJD of fiducial time'
+        - key: DATE-OBS
+          value: '2015-04-20'
+          comment: Date of median exposure
+        - key: MJD-OBS
+          value: 57132.0
+          comment: '[d] MJD for DATE-OBS'
+        - key: RADESYS
+          value: FK5
+          comment: Equatorial coordinate system
+        - key: EQUINOX
+          value: 2000.0
+          comment: '[yr] Equinox of equatorial coordinates'
+        - key: AUTHOR
+          value: K Westfall <westfall@ucolick.org> & SDSS-IV Data Group
+          comment: ''
+        - key: MASKNAME
+          value: MANGA_DAPSPECMASK
+          comment: ''
+        - key: BUNIT
+          value: 1E-17 erg/s/cm^2/ang/spaxel
+          comment: Unit of pixel value
+        - key: HDUCLASS
+          value: SDSS
+          comment: SDSS format class
+        - key: HDUCLAS1
+          value: IMAGE
+          comment: Data format
+        - key: HDUCLAS2
+          value: DATA
+          comment: ''
+        - key: QUALDATA
+          value: MODEL_MASK
+          comment: Associated quality extension
+        - key: EXTNAME
+          value: MODEL
+          comment: extension name
+        - key: CHECKSUM
+          value: 7gPABZP39fP9AZP9
+          comment: HDU checksum updated 2020-12-25T13:18:01
+        - key: DATASUM
+          value: '3718633565'
+          comment: data unit checksum updated 2020-12-25T13:18:01
+      hdu8:
+        name: MODEL_MASK
+        description: Bitmask for MODEL; for DR15/DR16, the MASK extension is the bitmask
+          for both the FLUX and MODEL extensions.
+        is_image: true
+        size: 10 MB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image extension
+        - key: BITPIX
+          value: 16
+          comment: array data type
+        - key: NAXIS
+          value: 3
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 34
+          comment: ''
+        - key: NAXIS2
+          value: 34
+          comment: ''
+        - key: NAXIS3
+          value: 4563
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: number of parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: WCSAXES
+          value: 3
+          comment: Number of coordinate axes
+        - key: CRPIX1
+          value: 18.0
+          comment: Pixel coordinate of reference point
+        - key: CRPIX2
+          value: 18.0
+          comment: Pixel coordinate of reference point
+        - key: CRPIX3
+          value: 1.0
+          comment: Pixel coordinate of reference point
+        - key: PC1_1
+          value: -0.000138889
+          comment: Coordinate transformation matrix element
+        - key: PC2_2
+          value: 0.000138889
+          comment: Coordinate transformation matrix element
+        - key: PC3_3
+          value: 8.33903304339e-11
+          comment: Coordinate transformation matrix element
+        - key: CDELT1
+          value: 1.0
+          comment: '[deg] Coordinate increment at reference point'
+        - key: CDELT2
+          value: 1.0
+          comment: '[deg] Coordinate increment at reference point'
+        - key: CDELT3
+          value: 1.0
+          comment: '[m] Coordinate increment at reference point'
+        - key: CUNIT1
+          value: deg
+          comment: Units of coordinate increment and value
+        - key: CUNIT2
+          value: deg
+          comment: Units of coordinate increment and value
+        - key: CUNIT3
+          value: m
+          comment: Units of coordinate increment and value
+        - key: CTYPE1
+          value: RA---TAN
+          comment: Right ascension, gnomonic projection
+        - key: CTYPE2
+          value: DEC--TAN
+          comment: Declination, gnomonic projection
+        - key: CTYPE3
+          value: WAVE-LOG
+          comment: Vacuum wavelength
+        - key: CRVAL1
+          value: 232.5447
+          comment: '[deg] Coordinate value at reference point'
+        - key: CRVAL2
+          value: 48.690201
+          comment: '[deg] Coordinate value at reference point'
+        - key: CRVAL3
+          value: 3.62159598486e-07
+          comment: '[m] Coordinate value at reference point'
+        - key: LONPOLE
+          value: 180.0
+          comment: '[deg] Native longitude of celestial pole'
+        - key: LATPOLE
+          value: 48.690201
+          comment: '[deg] Native latitude of celestial pole'
+        - key: MJDREF
+          value: 0.0
+          comment: '[d] MJD of fiducial time'
+        - key: DATE-OBS
+          value: '2015-04-20'
+          comment: Date of median exposure
+        - key: MJD-OBS
+          value: 57132.0
+          comment: '[d] MJD for DATE-OBS'
+        - key: RADESYS
+          value: FK5
+          comment: Equatorial coordinate system
+        - key: EQUINOX
+          value: 2000.0
+          comment: '[yr] Equinox of equatorial coordinates'
+        - key: AUTHOR
+          value: K Westfall <westfall@ucolick.org> & SDSS-IV Data Group
+          comment: ''
+        - key: MASKNAME
+          value: MANGA_DAPSPECMASK
+          comment: ''
+        - key: HDUCLASS
+          value: SDSS
+          comment: SDSS format class
+        - key: HDUCLAS1
+          value: IMAGE
+          comment: Data format
+        - key: HDUCLAS2
+          value: QUALITY
+          comment: ''
+        - key: HDUCLAS3
+          value: FLAG16BIT
+          comment: 16-bit mask
+        - key: SCIDATA
+          value: MODEL
+          comment: Associated data extension
+        - key: EXTNAME
+          value: MODEL_MASK
+          comment: extension name
+        - key: CHECKSUM
+          value: ceWYfeVVceVVceVV
+          comment: HDU checksum updated 2020-12-25T13:18:01
+        - key: DATASUM
+          value: '1161989450'
+          comment: data unit checksum updated 2020-12-25T13:18:01
+      hdu9:
+        name: EMLINE
+        description: "Spectra with only the best-fitting emission lines, not the stellar\
+          \ continuum, in units of 10-17 erg/s/cm2/\xC5/spaxel. This is the model\
+          \ subtracted from the flux data before measuring the spectral indices."
+        is_image: true
+        size: 20 MB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image extension
+        - key: BITPIX
+          value: -32
+          comment: array data type
+        - key: NAXIS
+          value: 3
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 34
+          comment: ''
+        - key: NAXIS2
+          value: 34
+          comment: ''
+        - key: NAXIS3
+          value: 4563
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: number of parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: WCSAXES
+          value: 3
+          comment: Number of coordinate axes
+        - key: CRPIX1
+          value: 18.0
+          comment: Pixel coordinate of reference point
+        - key: CRPIX2
+          value: 18.0
+          comment: Pixel coordinate of reference point
+        - key: CRPIX3
+          value: 1.0
+          comment: Pixel coordinate of reference point
+        - key: PC1_1
+          value: -0.000138889
+          comment: Coordinate transformation matrix element
+        - key: PC2_2
+          value: 0.000138889
+          comment: Coordinate transformation matrix element
+        - key: PC3_3
+          value: 8.33903304339e-11
+          comment: Coordinate transformation matrix element
+        - key: CDELT1
+          value: 1.0
+          comment: '[deg] Coordinate increment at reference point'
+        - key: CDELT2
+          value: 1.0
+          comment: '[deg] Coordinate increment at reference point'
+        - key: CDELT3
+          value: 1.0
+          comment: '[m] Coordinate increment at reference point'
+        - key: CUNIT1
+          value: deg
+          comment: Units of coordinate increment and value
+        - key: CUNIT2
+          value: deg
+          comment: Units of coordinate increment and value
+        - key: CUNIT3
+          value: m
+          comment: Units of coordinate increment and value
+        - key: CTYPE1
+          value: RA---TAN
+          comment: Right ascension, gnomonic projection
+        - key: CTYPE2
+          value: DEC--TAN
+          comment: Declination, gnomonic projection
+        - key: CTYPE3
+          value: WAVE-LOG
+          comment: Vacuum wavelength
+        - key: CRVAL1
+          value: 232.5447
+          comment: '[deg] Coordinate value at reference point'
+        - key: CRVAL2
+          value: 48.690201
+          comment: '[deg] Coordinate value at reference point'
+        - key: CRVAL3
+          value: 3.62159598486e-07
+          comment: '[m] Coordinate value at reference point'
+        - key: LONPOLE
+          value: 180.0
+          comment: '[deg] Native longitude of celestial pole'
+        - key: LATPOLE
+          value: 48.690201
+          comment: '[deg] Native latitude of celestial pole'
+        - key: MJDREF
+          value: 0.0
+          comment: '[d] MJD of fiducial time'
+        - key: DATE-OBS
+          value: '2015-04-20'
+          comment: Date of median exposure
+        - key: MJD-OBS
+          value: 57132.0
+          comment: '[d] MJD for DATE-OBS'
+        - key: RADESYS
+          value: FK5
+          comment: Equatorial coordinate system
+        - key: EQUINOX
+          value: 2000.0
+          comment: '[yr] Equinox of equatorial coordinates'
+        - key: AUTHOR
+          value: K Westfall <westfall@ucolick.org> & SDSS-IV Data Group
+          comment: ''
+        - key: MASKNAME
+          value: MANGA_DAPSPECMASK
+          comment: ''
+        - key: BUNIT
+          value: 1E-17 erg/s/cm^2/ang/spaxel
+          comment: Unit of pixel value
+        - key: HDUCLASS
+          value: SDSS
+          comment: SDSS format class
+        - key: HDUCLAS1
+          value: IMAGE
+          comment: Data format
+        - key: HDUCLAS2
+          value: DATA
+          comment: ''
+        - key: EXTNAME
+          value: EMLINE
+          comment: extension name
+        - key: CHECKSUM
+          value: UaaXXYWXUaaXUWWX
+          comment: HDU checksum updated 2020-12-25T13:18:01
+        - key: DATASUM
+          value: '4094499427'
+          comment: data unit checksum updated 2020-12-25T13:18:01
+      hdu10:
+        name: STELLAR
+        description: The best-fit continuum from the continuum-only (stellar kinematics)
+          fit. To obtain the equivalent in DR15/DR16, calculate MODEL - EMLINE - EMLINE_BASE.
+        is_image: true
+        size: 20 MB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image extension
+        - key: BITPIX
+          value: -32
+          comment: array data type
+        - key: NAXIS
+          value: 3
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 34
+          comment: ''
+        - key: NAXIS2
+          value: 34
+          comment: ''
+        - key: NAXIS3
+          value: 4563
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: number of parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: WCSAXES
+          value: 3
+          comment: Number of coordinate axes
+        - key: CRPIX1
+          value: 18.0
+          comment: Pixel coordinate of reference point
+        - key: CRPIX2
+          value: 18.0
+          comment: Pixel coordinate of reference point
+        - key: CRPIX3
+          value: 1.0
+          comment: Pixel coordinate of reference point
+        - key: PC1_1
+          value: -0.000138889
+          comment: Coordinate transformation matrix element
+        - key: PC2_2
+          value: 0.000138889
+          comment: Coordinate transformation matrix element
+        - key: PC3_3
+          value: 8.33903304339e-11
+          comment: Coordinate transformation matrix element
+        - key: CDELT1
+          value: 1.0
+          comment: '[deg] Coordinate increment at reference point'
+        - key: CDELT2
+          value: 1.0
+          comment: '[deg] Coordinate increment at reference point'
+        - key: CDELT3
+          value: 1.0
+          comment: '[m] Coordinate increment at reference point'
+        - key: CUNIT1
+          value: deg
+          comment: Units of coordinate increment and value
+        - key: CUNIT2
+          value: deg
+          comment: Units of coordinate increment and value
+        - key: CUNIT3
+          value: m
+          comment: Units of coordinate increment and value
+        - key: CTYPE1
+          value: RA---TAN
+          comment: Right ascension, gnomonic projection
+        - key: CTYPE2
+          value: DEC--TAN
+          comment: Declination, gnomonic projection
+        - key: CTYPE3
+          value: WAVE-LOG
+          comment: Vacuum wavelength
+        - key: CRVAL1
+          value: 232.5447
+          comment: '[deg] Coordinate value at reference point'
+        - key: CRVAL2
+          value: 48.690201
+          comment: '[deg] Coordinate value at reference point'
+        - key: CRVAL3
+          value: 3.62159598486e-07
+          comment: '[m] Coordinate value at reference point'
+        - key: LONPOLE
+          value: 180.0
+          comment: '[deg] Native longitude of celestial pole'
+        - key: LATPOLE
+          value: 48.690201
+          comment: '[deg] Native latitude of celestial pole'
+        - key: MJDREF
+          value: 0.0
+          comment: '[d] MJD of fiducial time'
+        - key: DATE-OBS
+          value: '2015-04-20'
+          comment: Date of median exposure
+        - key: MJD-OBS
+          value: 57132.0
+          comment: '[d] MJD for DATE-OBS'
+        - key: RADESYS
+          value: FK5
+          comment: Equatorial coordinate system
+        - key: EQUINOX
+          value: 2000.0
+          comment: '[yr] Equinox of equatorial coordinates'
+        - key: AUTHOR
+          value: K Westfall <westfall@ucolick.org> & SDSS-IV Data Group
+          comment: ''
+        - key: MASKNAME
+          value: MANGA_DAPSPECMASK
+          comment: ''
+        - key: BUNIT
+          value: 1E-17 erg/s/cm^2/ang/spaxel
+          comment: Unit of pixel value
+        - key: HDUCLASS
+          value: SDSS
+          comment: SDSS format class
+        - key: HDUCLAS1
+          value: IMAGE
+          comment: Data format
+        - key: HDUCLAS2
+          value: DATA
+          comment: ''
+        - key: QUALDATA
+          value: STELLAR_MASK
+          comment: Associated quality extension
+        - key: EXTNAME
+          value: STELLAR
+          comment: extension name
+        - key: CHECKSUM
+          value: ha6ikZ4Zha4fhY4Z
+          comment: HDU checksum updated 2020-12-25T13:18:02
+        - key: DATASUM
+          value: '3819626657'
+          comment: data unit checksum updated 2020-12-25T13:18:02
+      hdu11:
+        name: STELLAR_MASK
+        description: Bitmask for STELLAR
+        is_image: true
+        size: 10 MB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image extension
+        - key: BITPIX
+          value: 16
+          comment: array data type
+        - key: NAXIS
+          value: 3
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 34
+          comment: ''
+        - key: NAXIS2
+          value: 34
+          comment: ''
+        - key: NAXIS3
+          value: 4563
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: number of parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: WCSAXES
+          value: 3
+          comment: Number of coordinate axes
+        - key: CRPIX1
+          value: 18.0
+          comment: Pixel coordinate of reference point
+        - key: CRPIX2
+          value: 18.0
+          comment: Pixel coordinate of reference point
+        - key: CRPIX3
+          value: 1.0
+          comment: Pixel coordinate of reference point
+        - key: PC1_1
+          value: -0.000138889
+          comment: Coordinate transformation matrix element
+        - key: PC2_2
+          value: 0.000138889
+          comment: Coordinate transformation matrix element
+        - key: PC3_3
+          value: 8.33903304339e-11
+          comment: Coordinate transformation matrix element
+        - key: CDELT1
+          value: 1.0
+          comment: '[deg] Coordinate increment at reference point'
+        - key: CDELT2
+          value: 1.0
+          comment: '[deg] Coordinate increment at reference point'
+        - key: CDELT3
+          value: 1.0
+          comment: '[m] Coordinate increment at reference point'
+        - key: CUNIT1
+          value: deg
+          comment: Units of coordinate increment and value
+        - key: CUNIT2
+          value: deg
+          comment: Units of coordinate increment and value
+        - key: CUNIT3
+          value: m
+          comment: Units of coordinate increment and value
+        - key: CTYPE1
+          value: RA---TAN
+          comment: Right ascension, gnomonic projection
+        - key: CTYPE2
+          value: DEC--TAN
+          comment: Declination, gnomonic projection
+        - key: CTYPE3
+          value: WAVE-LOG
+          comment: Vacuum wavelength
+        - key: CRVAL1
+          value: 232.5447
+          comment: '[deg] Coordinate value at reference point'
+        - key: CRVAL2
+          value: 48.690201
+          comment: '[deg] Coordinate value at reference point'
+        - key: CRVAL3
+          value: 3.62159598486e-07
+          comment: '[m] Coordinate value at reference point'
+        - key: LONPOLE
+          value: 180.0
+          comment: '[deg] Native longitude of celestial pole'
+        - key: LATPOLE
+          value: 48.690201
+          comment: '[deg] Native latitude of celestial pole'
+        - key: MJDREF
+          value: 0.0
+          comment: '[d] MJD of fiducial time'
+        - key: DATE-OBS
+          value: '2015-04-20'
+          comment: Date of median exposure
+        - key: MJD-OBS
+          value: 57132.0
+          comment: '[d] MJD for DATE-OBS'
+        - key: RADESYS
+          value: FK5
+          comment: Equatorial coordinate system
+        - key: EQUINOX
+          value: 2000.0
+          comment: '[yr] Equinox of equatorial coordinates'
+        - key: AUTHOR
+          value: K Westfall <westfall@ucolick.org> & SDSS-IV Data Group
+          comment: ''
+        - key: MASKNAME
+          value: MANGA_DAPSPECMASK
+          comment: ''
+        - key: HDUCLASS
+          value: SDSS
+          comment: SDSS format class
+        - key: HDUCLAS1
+          value: IMAGE
+          comment: Data format
+        - key: HDUCLAS2
+          value: QUALITY
+          comment: ''
+        - key: HDUCLAS3
+          value: FLAG16BIT
+          comment: 16-bit mask
+        - key: SCIDATA
+          value: STELLAR
+          comment: Associated data extension
+        - key: EXTNAME
+          value: STELLAR_MASK
+          comment: extension name
+        - key: CHECKSUM
+          value: oCULoBSKoBSKoBSK
+          comment: HDU checksum updated 2020-12-25T13:18:02
+        - key: DATASUM
+          value: '3320668686'
+          comment: data unit checksum updated 2020-12-25T13:18:02
+      hdu12:
+        name: BINID
+        description: "Numerical ID for spatial bins for the binned spectra, stellar-continuum\
+          \ results, emission-line moment results, emission-line model results, and\
+          \ spectral-index results. This is essentially a copy of the BINID extension\
+          \ from the MAPS file; however, note that the emission-line moment and spectral-index\
+          \ bin ID maps are not populated!\n\nIt is important to understand that not\
+          \ all of the data in the MAPS are independent. In addition to covariance,\
+          \ measurements are repeated for a given binned spectrum in all the spaxels\
+          \ associated with that bin. Therefore, if you are, e.g., fitting a model\
+          \ to the MAPS data or calculating azimuthal averages, you should pull out\
+          \ the binned quantities that are unique before proceeding. In addition to\
+          \ any associated MASK values, you should use the BINID extension (and, indeed,\
+          \ its main purpose is) to extract the unique (but still correlated) data\
+          \ to use in such an analysis.\n\nThis extension has one channel for each\
+          \ of the 5 main processing steps... binning, stellar-continuum and -kinematics\
+          \ fitting, emission-line moment measurements, emission-line Gaussian modeling,\
+          \ and spectral indices. However, note that the emission-line moment and\
+          \ spectral-index bin ID maps are not populated! Keep in mind the following...\n\
+          \n   BINID == -1 means that the spaxel was not included in the analysis.\
+          \ For example, BINID values of -1 in the first BINID channel means that\
+          \ either the spaxel had insufficiently good/unmasked pixels or too low S/N\
+          \ to be included in the binning procedure. Any spaxel with BINID = -1 should\
+          \ also be masked as DONOTUSE in the respective property map.\n   A BINID\
+          \ may be >-1 in one channel and = -1 in a different channel. For example,\
+          \ a spaxel in the binning BINID map may be >-1 but be = -1 in the stellar-continuum\
+          \ BINID. This likely means that the spaxels were successfully binned, but\
+          \ the bin had S/N < 1 meaning it was not analyzed by the stellar-continuum\
+          \ fitting module.\n   For the VOR binning case, the only difference in BINIDs\
+          \ is the -1 vs. non-negative distinction described in the last point, except\
+          \ for the HYB binning scheme. For the HYB binning case, the emission-line\
+          \ moments, emission-line modeling, and spectral-index measurements are done\
+          \ on a spaxel-by-spaxel basis, meaning that the BINIDs are redetermined\
+          \ and is just a running number for the spaxels that were analyzed.\n\nExample\
+          \ python code that extracts both the unique and unmasked data from a MAPS\
+          \ file to produce the g-band and H-alpha surface brightness profiles is\
+          \ provided by the data release documentation and the MaNGA DAP ReadTheDocs\
+          \ Documentation.\n"
+        is_image: true
+        size: 22 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image extension
+        - key: BITPIX
+          value: 32
+          comment: array data type
+        - key: NAXIS
+          value: 3
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 34
+          comment: ''
+        - key: NAXIS2
+          value: 34
+          comment: ''
+        - key: NAXIS3
+          value: 5
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: number of parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: WCSAXES
+          value: 3
+          comment: Number of coordinate axes
+        - key: CRPIX1
+          value: 18.0
+          comment: Pixel coordinate of reference point
+        - key: CRPIX2
+          value: 18.0
+          comment: Pixel coordinate of reference point
+        - key: CRPIX3
+          value: 1.0
+          comment: Pixel coordinate of reference point
+        - key: PC1_1
+          value: -0.000138889
+          comment: Coordinate transformation matrix element
+        - key: PC2_2
+          value: 0.000138889
+          comment: Coordinate transformation matrix element
+        - key: CDELT1
+          value: 1.0
+          comment: '[deg] Coordinate increment at reference point'
+        - key: CDELT2
+          value: 1.0
+          comment: '[deg] Coordinate increment at reference point'
+        - key: CDELT3
+          value: 1.0
+          comment: Coordinate increment at reference point
+        - key: CUNIT1
+          value: deg
+          comment: Units of coordinate increment and value
+        - key: CUNIT2
+          value: deg
+          comment: Units of coordinate increment and value
+        - key: CTYPE1
+          value: RA---TAN
+          comment: Right ascension, gnomonic projection
+        - key: CTYPE2
+          value: DEC--TAN
+          comment: Declination, gnomonic projection
+        - key: CTYPE3
+          value: ''
+          comment: Undefined type
+        - key: CRVAL1
+          value: 232.5447
+          comment: '[deg] Coordinate value at reference point'
+        - key: CRVAL2
+          value: 48.690201
+          comment: '[deg] Coordinate value at reference point'
+        - key: CRVAL3
+          value: 1.0
+          comment: Coordinate value at reference point
+        - key: LONPOLE
+          value: 180.0
+          comment: '[deg] Native longitude of celestial pole'
+        - key: LATPOLE
+          value: 48.690201
+          comment: '[deg] Native latitude of celestial pole'
+        - key: MJDREF
+          value: 0.0
+          comment: '[d] MJD of fiducial time'
+        - key: DATE-OBS
+          value: '2015-04-20'
+          comment: Date of median exposure
+        - key: MJD-OBS
+          value: 57132.0
+          comment: '[d] MJD for DATE-OBS'
+        - key: RADESYS
+          value: FK5
+          comment: Equatorial coordinate system
+        - key: EQUINOX
+          value: 2000.0
+          comment: '[yr] Equinox of equatorial coordinates'
+        - key: CUNIT3
+          value: ''
+          comment: Undefined units
+        - key: AUTHOR
+          value: K Westfall <westfall@ucolick.org> & SDSS-IV Data Group
+          comment: ''
+        - key: MASKNAME
+          value: MANGA_DAPPIXMASK
+          comment: ''
+        - key: C1
+          value: Binned spectra
+          comment: Data in channel 1
+        - key: C2
+          value: Stellar continua
+          comment: Data in channel 2
+        - key: C3
+          value: Em. line moments
+          comment: Data in channel 3
+        - key: C4
+          value: Em. line models
+          comment: Data in channel 4
+        - key: C5
+          value: Spectral indices
+          comment: Data in channel 5
+        - key: HDUCLASS
+          value: SDSS
+          comment: SDSS format class
+        - key: HDUCLAS1
+          value: CUBE
+          comment: Data format
+        - key: HDUCLAS2
+          value: DATA
+          comment: ''
+        - key: EXTNAME
+          value: BINID
+          comment: extension name
+        - key: CHECKSUM
+          value: HcSHKcSHHcSHHcSH
+          comment: HDU checksum updated 2020-12-25T13:18:02
+        - key: DATASUM
+          value: '109084'
+          comment: data unit checksum updated 2020-12-25T13:18:02
+notes: |-
+  None
+regrets: |-
+  I  have no regrets!
