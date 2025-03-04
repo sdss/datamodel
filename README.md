@@ -6,31 +6,44 @@
 [![Build Sphinx Docs](https://github.com/sdss/datamodel/actions/workflows/sphinx.yml/badge.svg)](https://github.com/sdss/datamodel/actions/workflows/sphinx.yml)
 [![codecov](https://codecov.io/gh/sdss/datamodel/branch/main/graph/badge.svg)](https://codecov.io/gh/sdss/datamodel)
 
-SDSS-V Datamodel Project
+## SDSS-V Datamodel Project
 
 For complete documentation, see the [Datamodel Docs](https://internal.sdss.org/docs/datamodel/latest/index.html)
 
-To clone and install the product locally:
 
+## Installation
+
+First clone the repo locally:
 ```
 git clone https://github.com/sdss/datamodel datamodel
 cd datamodel
-pip install -e ".[dev,docs]"
+```
+
+To install the basic package for programmatic access to validated datamodels only, run:
+```
+pip install -e .
+```
+
+To generate new datamodels for testing and development, run:
+```
+pip install -e ".[test]"
+```
+
+To install everything, including packages for `hdf5` and `par` file support, run:
+```
+pip install -e ".[all]"
 
 ```
 
-To install it in an isolated conda environment:
-```
-conda create -n datamodel python=3.8 ipython
-conda activate datamodel
-pip install -e ".[dev,docs]"
-```
+## Documentation
 
 To build and view the Sphinx documentation locally, run the following commands from within the top level of the checked out git repo.  Note, this command requires `sdsstools` to be pip installed.
 ```
 sdss docs.build
 sdss docs.show
 ```
+
+## Usage
 
 After pip installation, see available command line tools with `datamodel --help`:
 
