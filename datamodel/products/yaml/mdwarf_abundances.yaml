@@ -1,0 +1,233 @@
+general:
+  name: mdwarf_abundances
+  short: Elemental abundances for ~17,000 M dwarfs in MWM.
+  description: Catalog of detailed elemental abundances for ~17,000 M dwarfs in MWM (Behmard et al. 2025, Table 2).
+  datatype: FITS
+  filesize: 3 MB
+  releases:
+  - DR19
+  environments:
+  - MWM_MDWARF
+  surveys:
+  - SDSS
+  naming_convention: $MWM_MDWARF/elemental_abundances/mdwarf_abundances-1.0.1.fits
+  generated_by: astra (abundance labels used in The Cannon model - see Behmard et al. 2025)
+  data_level: 3.2.1
+  design: false
+  vac: true
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR19:
+    template: $MWM_MDWARF/elemental_abundances/mdwarf_abundances-[VERS].fits
+    example: elemental_abundances/mdwarf_abundances-1.0.1.fits
+    location: elemental_abundances/mdwarf_abundances-{vers}.fits
+    environment: MWM_MDWARF
+    access:
+      in_sdss_access: true
+      path_name: mdwarf_abundances
+      path_template: $MWM_MDWARF/elemental_abundances/mdwarf_abundances-{vers}.fits
+      path_kwargs:
+      - vers
+      access_string: mdwarf_abundances = $MWM_MDWARF/elemental_abundances/mdwarf_abundances-1.0.1.fits
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Target information
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ELEMENT ABUNDANCES
+        description: M Dwarf elemental abundances
+        is_image: false
+        size: 3 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 217
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 16590
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 28
+          comment: number of table fields
+        - key: EXTNAME
+          value: ELEMENT ABUNDANCES
+          comment: extension name
+        columns:
+          gaia_dr3_source_id:
+            name: gaia_dr3_source_id
+            type: int64
+            unit: ''
+            description: Gaia DR3 source identifier
+          name:
+            name: name
+            type: int64
+            unit: ''
+            description: SDSS ID 
+          Teff_cannon:
+            name: Teff_cannon
+            type: float64
+            unit: Kelvin
+            description: M dwarf temperature
+          fe_h_cannon:
+            name: fe_h_cannon
+            type: float64
+            unit: dex
+            description: M dwarf [Fe/H]
+          mg_h_cannon:
+            name: mg_h_cannon
+            type: float64
+            unit: dex
+            description: M dwarf [Mg/H]
+          al_h_cannon:
+            name: al_h_cannon
+            type: float64
+            unit: dex
+            description: M dwarf [Al/H]
+          si_h_cannon:
+            name: si_h_cannon
+            type: float64
+            unit: dex
+            description: M dwarf [Si/H]
+          c_h_cannon:
+            name: c_h_cannon
+            type: float64
+            unit: dex
+            description: M dwarf [C/H]
+          o_h_cannon:
+            name: o_h_cannon
+            type: float64
+            unit: dex
+            description: M dwarf [O/H]
+          ca_h_cannon:
+            name: ca_h_cannon
+            type: float64
+            unit: dex
+            description: M dwarf [Ca/H]
+          ti_h_cannon:
+            name: ti_h_cannon
+            type: float64
+            unit: dex
+            description: M dwarf [Ti/H]
+          cr_h_cannon:
+            name: cr_h_cannon
+            type: float64
+            unit: dex
+            description: M dwarf [Cr/H]
+          n_h_cannon:
+            name: n_h_cannon
+            type: float64
+            unit: dex
+            description: M dwarf [N/H]
+          ni_h_cannon:
+            name: ni_h_cannon
+            type: float64
+            unit: dex
+            description: M dwarf [Ni/H]
+          spec_chisq:
+            name: spec_chisq
+            type: float64
+            unit: ''
+            description: Model-data spectral fit chi-squared
+          temp_agree:
+            name: temp_agree
+            type: bool
+            unit: ''
+            description: flag describing whether the photometric and The Cannon–inferred Teff agree to within 2σ
+          Teff_err:
+            name: Teff_err
+            type: float64
+            unit: Kelvin
+            description: M dwarf temperature uncertainties 
+          fe_h_err:
+            name: fe_h_err
+            type: float64
+            unit: dex
+            description: M dwarf [Fe/H] uncertainties 
+          mg_h_err:
+            name: mg_h_err
+            type: float64
+            unit: dex
+            description: M dwarf [Mg/H] uncertainties 
+          al_h_err:
+            name: al_h_err
+            type: float64
+            unit: dex
+            description: M dwarf [Al/H] uncertainties 
+          si_h_err:
+            name: si_h_err
+            type: float64
+            unit: dex
+            description: M dwarf [Si/H] uncertainties 
+          c_h_err:
+            name: c_h_err
+            type: float64
+            unit: dex
+            description: M dwarf [C/H] uncertainties 
+          o_h_err:
+            name: o_h_err
+            type: float64
+            unit: dex
+            description: M dwarf [O/H] uncertainties 
+          ca_h_err:
+            name: ca_h_err
+            type: float64
+            unit: dex
+            description: M dwarf [Ca/H] uncertainties 
+          ti_h_err:
+            name: ti_h_err
+            type: float64
+            unit: dex
+            description: M dwarf [Ti/H] uncertainties 
+          cr_h_err:
+            name: cr_h_err
+            type: float64
+            unit: dex
+            description: M dwarf [Cr/H] uncertainties 
+          n_h_err:
+            name: n_h_err
+            type: float64
+            unit: dex
+            description: M dwarf [N/H] uncertainties 
+          ni_h_err:
+            name: ni_h_err
+            type: float64
+            unit: dex
+            description: M dwarf [Ni/H] uncertainties 
+notes: |-
+  None
+regrets: |-
+  I have no regrets!
