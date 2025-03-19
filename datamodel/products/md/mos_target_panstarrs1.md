@@ -9,17 +9,17 @@ MOS Target Table: panstarrs1
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
 A copy of the PanSTARRS1-dr2 catalogue provided by E. Magnier. Based on the internal IPP database representation mainyaned by IfA, U. Hawaii. Column names may differ from publically available catalogues hosted at MAST (mapping provided in column descriptions). The SDSS-V copy of this database is derived from a combination of the PS1-dr2 StackObjectThin and ObjectThin tables (https://outerspace.stsci.edu/display/PANSTARRS/PS1+Database+object+and+detection+tables). The catalogue contains PSF, Kron, and Aper measurements based on stacked and forced warp photometry, and expressed as fluxes, including measurements are made of low-significance detections. The average exposure (chip) measurements are expressed in magnitudes since photometry is not measured at this stage for sources with S/N < 5, so there should not be any negative fluxes. Magnitudes are on the AB system, fluxes are in Janskys. Conversion to AB mags is via: mag = 8.9 - 2.5*log10(flux).
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_target_panstarrs1-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
+$MOS_TARGET/[V_TARG]/mos_panstarrs1-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
 
 ### Releases
-DR18
+DR18, DR19
 
 ### Enviroments
 MOS_TARGET
@@ -36,14 +36,20 @@ sdss5db> targetdb, operations database server
 ### Is a VAC
 False
 
-### HDUS List for release DR18
+### Data Level
+2.3.3
+
+### HDUS List for release DR19
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: ](#hdu1)
+  - [HDU1](#hdu1)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR19
+   - from: DR18
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -64,211 +70,310 @@ Key | Value | Comment | |
 
 
 
-### HDU1:
+### HDU1: 
 MOS Target Table: panstarrs1
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  1 GB
 
+##### Header Table Caption for HDU1
+Key | Value | Comment | |
+| --- | --- | --- | --- |
+| XTENSION | BINTABLE | binary table extension |
+| BITPIX | 8 | array data type |
+| NAXIS | 2 | number of array dimensions |
+| NAXIS1 | 784 | length of dimension 1 |
+| NAXIS2 | 2000000 | length of dimension 2 |
+| PCOUNT | 0 | number of group parameters |
+| GCOUNT | 1 | number of groups |
+| TFIELDS | 192 | number of table fields |
+| TNULL9 | -2147483648 |  |
+| TNULL10 | -2147483648 |  |
+| TNULL11 | -2147483648 |  |
+| TNULL12 | -2147483648 |  |
+| TNULL13 | -2147483648 |  |
+| TNULL14 | -2147483648 |  |
+| TNULL15 | -2147483648 |  |
+| TNULL18 | -2147483648 |  |
+| TNULL21 | -2147483648 |  |
+| TNULL24 | -2147483648 |  |
+| TNULL27 | -2147483648 |  |
+| TNULL30 | -2147483648 |  |
+| TNULL33 | -2147483648 |  |
+| TNULL36 | -2147483648 |  |
+| TNULL39 | -2147483648 |  |
+| TNULL42 | -2147483648 |  |
+| TNULL43 | -2147483648 |  |
+| TNULL44 | -2147483648 |  |
+| TNULL45 | -2147483648 |  |
+| TNULL46 | -2147483648 |  |
+| TNULL47 | -2147483648 |  |
+| TNULL48 | -2147483648 |  |
+| TNULL53 | -2147483648 |  |
+| TNULL56 | -2147483648 |  |
+| TNULL59 | -2147483648 |  |
+| TNULL62 | -2147483648 |  |
+| TNULL65 | -2147483648 |  |
+| TNULL68 | -2147483648 |  |
+| TNULL71 | -2147483648 |  |
+| TNULL74 | -2147483648 |  |
+| TNULL77 | -2147483648 |  |
+| TNULL78 | -2147483648 |  |
+| TNULL79 | -2147483648 |  |
+| TNULL80 | -2147483648 |  |
+| TNULL81 | -2147483648 |  |
+| TNULL82 | -2147483648 |  |
+| TNULL83 | -2147483648 |  |
+| TNULL88 | -2147483648 |  |
+| TNULL91 | -2147483648 |  |
+| TNULL94 | -2147483648 |  |
+| TNULL97 | -2147483648 |  |
+| TNULL100 | -2147483648 |  |
+| TNULL103 | -2147483648 |  |
+| TNULL106 | -2147483648 |  |
+| TNULL109 | -2147483648 |  |
+| TNULL112 | -2147483648 |  |
+| TNULL113 | -2147483648 |  |
+| TNULL114 | -2147483648 |  |
+| TNULL115 | -2147483648 |  |
+| TNULL116 | -2147483648 |  |
+| TNULL117 | -2147483648 |  |
+| TNULL118 | -2147483648 |  |
+| TNULL123 | -2147483648 |  |
+| TNULL126 | -2147483648 |  |
+| TNULL129 | -2147483648 |  |
+| TNULL132 | -2147483648 |  |
+| TNULL135 | -2147483648 |  |
+| TNULL138 | -2147483648 |  |
+| TNULL141 | -2147483648 |  |
+| TNULL144 | -2147483648 |  |
+| TNULL147 | -2147483648 |  |
+| TNULL148 | -2147483648 |  |
+| TNULL149 | -2147483648 |  |
+| TNULL150 | -2147483648 |  |
+| TNULL151 | -2147483648 |  |
+| TNULL152 | -2147483648 |  |
+| TNULL153 | -2147483648 |  |
+| TNULL158 | -2147483648 |  |
+| TNULL161 | -2147483648 |  |
+| TNULL164 | -2147483648 |  |
+| TNULL167 | -2147483648 |  |
+| TNULL170 | -2147483648 |  |
+| TNULL173 | -2147483648 |  |
+| TNULL176 | -2147483648 |  |
+| TNULL179 | -2147483648 |  |
+| TNULL182 | -2147483648 |  |
+| TNULL183 | -2147483648 |  |
+| TNULL184 | -2147483648 |  |
+| TNULL185 | -2147483648 |  |
+| TNULL186 | -2147483648 |  |
+| TNULL187 | -2147483648 |  |
+| TNULL188 | -2147483648 |  |
+| TNULL191 | -9223372036854775808 |  |
+| TNULL192 | -9223372036854775808 |  |
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | RA | float64 | deg | mean RA, (J2000, tied to Gaia DR1) |
- | DEC | float64 | deg | mean Dec, (J2000, tied to Gaia DR1) |
- | DRA | float32 | arcsec | error on RA |
- | DDEC | float32 | arcsec | error on DEC |
- | TMEAN | float32 | days | Mean epoch (MJD) |
- | TRANGE | float32 | days | Time range -- may include 2MASS values |
- | CHISQPOS | float32 |  | chi-square of a fixed position astrometry solution (equiv to ObjectThin.posMeanChisq) |
- | STARGAL | float32 |  | Measure of extendedness. Computed as the median across all chip measurements of extNsigma, where extNsigma = (PSF mag - Kron mag) expressed as a number of sigmas, so it somewhat adjusts for the spread at low signal-to-noise. |
- | NMEAS | int32 |  | total number of measurements in databases (including non-PS1 data) |
- | NWARP_OK | int32 |  | number of warps with psf_qf > 0 (any unmasked pixels) |
- | FLAGS | int32 |  | ObjectInfoFlags |
- | OBJID | int32 |  | internal Pan-STARRS IPP object ID : unique within database spatial partition (see catID) |
- | CATID | int32 |  | database spatial partition ID - (equiv. to StackObjectThin.dvoRegionID) |
- | EXTID_HI | int32 |  | upper 32 bits of PSPS object ID (objID in MAST PSPS database) |
- | EXTID_LO | int32 |  | lower 32 bits of PSPS object ID (objID in MAST PSPS database) |
- | G_CHP_PSF | float32 | mag | mean g-band chip PSF magnitude |
- | G_CHP_PSF_ERR | float32 | mag | error on mean g-band chip PSF magnitude |
- | G_CHP_PSF_NPHOT | int32 |  | number of measurements used for g_chp_psf (excluding outliers) |
- | G_CHP_APER | float32 | mag | mean g-band chip seeing-adapted aperture magnitude |
- | G_CHP_APER_ERR | float32 | mag | error on mean g-band chip seeing-adapted aperture magnitude |
- | G_CHP_APER_NPHOT | int32 |  | number of measurements used for above (excluding outliers) |
- | G_CHP_KRON | float32 | mag | mean g-band chip Kron magnitude |
- | G_CHP_KRON_ERR | float32 | mag | error on mean g-band chip Kron magnitude |
- | G_CHP_KRON_NPHOT | int32 |  | number of measurements used for g_chp_kron (excluding outliers) |
- | G_STK_PSF_FLUX | float32 | Jy | best g-band stack PSF flux |
- | G_STK_PSF_FLUXERR | float32 | Jy | error on best g-band stack PSF flux |
- | G_STK_PSF_NPHOT | int32 |  | number of measurements used for g_stk_psf_flux (excluding outliers) |
- | G_STK_APER_FLUX | float32 | Jy | g-band stack seeing-adapted aperture flux |
- | G_STK_APER_FLUXERR | float32 | Jy | error on g-band stack seeing-adapted aperture flux |
- | G_STK_APER_NPHOT | int32 |  | number of measurements used for g_stk_aper_flux (excluding outliers) |
- | G_STK_KRON_FLUX | float32 | Jy | g-band stack Kron flux from same stack as 'best' PSF above |
- | G_STK_KRON_FLUXERR | float32 | Jy | error on g-band stack Kron flux from same stack as 'best' PSF above |
- | G_STK_KRON_NPHOT | int32 |  | number of measurements used for g_stk_kron_flux (excluding outliers) |
- | G_WRP_PSF_FLUX | float32 | Jy | mean g-band forced-warp PSF flux |
- | G_WRP_PSF_FLUXERR | float32 | Jy | error on mean g-band forced-warp PSF flux |
- | G_WRP_PSF_NPHOT | int32 |  | number of measurements used for g_wrp_psf_flux (excluding outliers) |
- | G_WRP_APER_FLUX | float32 | Jy | mean g-band forced-warp seeing-adapted aperture flux |
- | G_WRP_APER_FLUXERR | float32 | Jy | error on mean g-band forced-warp seeing-adapted aperture flux |
- | G_WRP_APER_NPHOT | int32 |  | number of measurements used for g_wrp_aper_flux (excluding outliers) |
- | G_WRP_KRON_FLUX | float32 | Jy | mean g-band forced-warp Kron flux |
- | G_WRP_KRON_FLUXERR | float32 | Jy | error on mean g-band forced-warp Kron flux |
- | G_WRP_KRON_NPHOT | int32 |  | number of measurements used for g_wrp_kron_flux (excluding outliers) |
- | G_FLAGS | int32 |  | per-filter info flags (equiv. to StackObjectThin.ginfoFlag4) |
- | G_NCODE | int32 |  | number of chip detections in this filter (equiv. to StackObjectThin.ng) |
- | G_NWARP | int32 |  | number of warp measurements in this filter (including primary & secondary skycells) |
- | G_NWARP_GOOD | int32 |  | number of warp measurements with psfqfperf > 0.85 in this filter (including primary & secondary skycells) |
- | G_NSTACK | int32 |  | number of stack measurements (primary and secondary) |
- | G_NSTACK_DET | int32 |  | number of stack detections (S/N > 5, primary and secondary) |
- | G_PSFQF | float32 |  | g-band PSF coverage factor |
- | G_PSFQFPERF | float32 |  | g-band PSF weighted fraction of pixels totally unmasked |
- | R_CHP_PSF | float32 | mag | mean r-band chip PSF magnitude |
- | R_CHP_PSF_ERR | float32 | mag | error on mean r-band chip PSF magnitude |
- | R_CHP_PSF_NPHOT | int32 |  | number of measurements used for r_chp_psf (excluding outliers) |
- | R_CHP_APER | float32 | mag | mean r-band chip seeing-adapted aperture magnitude |
- | R_CHP_APER_ERR | float32 | mag | error on mean r-band chip seeing-adapted aperture magnitude |
- | R_CHP_APER_NPHOT | int32 |  | number of measurements used for above (excluding outliers) |
- | R_CHP_KRON | float32 | mag | mean r-band chip Kron magnitude |
- | R_CHP_KRON_ERR | float32 | mag | error on mean r-band chip Kron magnitude |
- | R_CHP_KRON_NPHOT | int32 |  | number of measurements used for r_chp_kron (excluding outliers) |
- | R_STK_PSF_FLUX | float32 | Jy | best r-band stack PSF flux |
- | R_STK_PSF_FLUXERR | float32 | Jy | error on best r-band stack PSF flux |
- | R_STK_PSF_NPHOT | int32 |  | number of measurements used for r_stk_psf_flux (excluding outliers) |
- | R_STK_APER_FLUX | float32 | Jy | r-band stack seeing-adapted aperture flux |
- | R_STK_APER_FLUXERR | float32 | Jy | error on r-band stack seeing-adapted aperture flux |
- | R_STK_APER_NPHOT | int32 |  | number of measurements used for r_stk_aper_flux (excluding outliers) |
- | R_STK_KRON_FLUX | float32 | Jy | r-band stack Kron flux from same stack as 'best' PSF above |
- | R_STK_KRON_FLUXERR | float32 | Jy | error on r-band stack Kron flux from same stack as 'best' PSF above |
- | R_STK_KRON_NPHOT | int32 |  | number of measurements used for r_stk_kron_flux (excluding outliers) |
- | R_WRP_PSF_FLUX | float32 | Jy | mean r-band forced-warp PSF flux |
- | R_WRP_PSF_FLUXERR | float32 | Jy | error on mean r-band forced-warp PSF flux |
- | R_WRP_PSF_NPHOT | int32 |  | number of measurements used for r_wrp_psf_flux (excluding outliers) |
- | R_WRP_APER_FLUX | float32 | Jy | mean r-band forced-warp seeing-adapted aperture flux |
- | R_WRP_APER_FLUXERR | float32 | Jy | error on mean r-band forced-warp seeing-adapted aperture flux |
- | R_WRP_APER_NPHOT | int32 |  | number of measurements used for r_wrp_aper_flux (excluding outliers) |
- | R_WRP_KRON_FLUX | float32 | Jy | mean r-band forced-warp Kron flux |
- | R_WRP_KRON_FLUXERR | float32 | Jy | error on mean r-band forced-warp Kron flux |
- | R_WRP_KRON_NPHOT | int32 |  | number of measurements used for r_wrp_kron_flux (excluding outliers) |
- | R_FLAGS | int32 |  | per-filter info flags (equiv. to StackObjectThin.rinfoFlag4) |
- | R_NCODE | int32 |  | number of chip detections in this filter (equiv. to StackObjectThin.nr) |
- | R_NWARP | int32 |  | number of warp measurements in this filter (including primary & secondary skycells) |
- | R_NWARP_GOOD | int32 |  | number of warp measurements with psfqfperf > 0.85 in this filter (including primary & secondary skycells) |
- | R_NSTACK | int32 |  | number of stack measurements (primary and secondary) |
- | R_NSTACK_DET | int32 |  | number of stack detections (S/N > 5, primary and secondary) |
- | R_PSFQF | float32 |  | r-band PSF coverage factor |
- | R_PSFQFPERF | float32 |  | r-band PSF weighted fraction of pixels totally unmasked |
- | I_CHP_PSF | float32 | mag | mean i-band chip PSF magnitude |
- | I_CHP_PSF_ERR | float32 | mag | error on mean i-band chip PSF magnitude |
- | I_CHP_PSF_NPHOT | int32 |  | number of measurements used for i_chp_psf (excluding outliers) |
- | I_CHP_APER | float32 | mag | mean i-band chip seeing-adapted aperture magnitude |
- | I_CHP_APER_ERR | float32 | mag | error on mean i-band chip seeing-adapted aperture magnitude |
- | I_CHP_APER_NPHOT | int32 |  | number of measurements used for above (excluding outliers) |
- | I_CHP_KRON | float32 | mag | mean i-band chip Kron magnitude |
- | I_CHP_KRON_ERR | float32 | mag | error on mean i-band chip Kron magnitude |
- | I_CHP_KRON_NPHOT | int32 |  | number of measurements used for i_chp_kron (excluding outliers) |
- | I_STK_PSF_FLUX | float32 | Jy | best i-band stack PSF flux |
- | I_STK_PSF_FLUXERR | float32 | Jy | error on best i-band stack PSF flux |
- | I_STK_PSF_NPHOT | int32 |  | number of measurements used for i_stk_psf_flux (excluding outliers) |
- | I_STK_APER_FLUX | float32 | Jy | i-band stack seeing-adapted aperture flux |
- | I_STK_APER_FLUXERR | float32 | Jy | error on i-band stack seeing-adapted aperture flux |
- | I_STK_APER_NPHOT | int32 |  | number of measurements used for i_stk_aper_flux (excluding outliers) |
- | I_STK_KRON_FLUX | float32 | Jy | i-band stack Kron flux from same stack as 'best' PSF above |
- | I_STK_KRON_FLUXERR | float32 | Jy | error on i-band stack Kron flux from same stack as 'best' PSF above |
- | I_STK_KRON_NPHOT | int32 |  | number of measurements used for i_stk_kron_flux (excluding outliers) |
- | I_WRP_PSF_FLUX | float32 | Jy | mean i-band forced-warp PSF flux |
- | I_WRP_PSF_FLUXERR | float32 | Jy | error on mean i-band forced-warp PSF flux |
- | I_WRP_PSF_NPHOT | int32 |  | number of measurements used for i_wrp_psf_flux (excluding outliers) |
- | I_WRP_APER_FLUX | float32 | Jy | mean i-band forced-warp seeing-adapted aperture flux |
- | I_WRP_APER_FLUXERR | float32 | Jy | error on mean i-band forced-warp seeing-adapted aperture flux |
- | I_WRP_APER_NPHOT | int32 |  | number of measurements used for i_wrp_aper_flux (excluding outliers) |
- | I_WRP_KRON_FLUX | float32 | Jy | mean i-band forced-warp Kron flux |
- | I_WRP_KRON_FLUXERR | float32 | Jy | error on mean i-band forced-warp Kron flux |
- | I_WRP_KRON_NPHOT | int32 |  | number of measurements used for i_wrp_kron_flux (excluding outliers) |
- | I_FLAGS | int32 |  | per-filter info flags (equiv. to StackObjectThin.iinfoFlag4) |
- | I_NCODE | int32 |  | number of chip detections in this filter (equiv. to StackObjectThin.ni) |
- | I_NWARP | int32 |  | number of warp measurements in this filter (including primary & secondary skycells) |
- | I_NWARP_GOOD | int32 |  | number of warp measurements with psfqfperf > 0.85 in this filter (including primary & secondary skycells) |
- | I_NSTACK | int32 |  | number of stack measurements (primary and secondary) |
- | I_NSTACK_DET | int32 |  | number of stack detections (S/N > 5, primary and secondary) |
- | I_PSFQF | float32 |  | i-band PSF coverage factor |
- | I_PSFQFPERF | float32 |  | i-band PSF weighted fraction of pixels totally unmasked |
- | Z_CHP_PSF | float32 | mag | mean z-band chip PSF magnitude |
- | Z_CHP_PSF_ERR | float32 | mag | error on mean z-band chip PSF magnitude |
- | Z_CHP_PSF_NPHOT | int32 |  | number of measurements used for z_chp_psf (excluding outliers) |
- | Z_CHP_APER | float32 | mag | mean z-band chip seeing-adapted aperture magnitude |
- | Z_CHP_APER_ERR | float32 | mag | error on mean z-band chip seeing-adapted aperture magnitude |
- | Z_CHP_APER_NPHOT | int32 |  | number of measurements used for above (excluding outliers) |
- | Z_CHP_KRON | float32 | mag | mean z-band chip Kron magnitude |
- | Z_CHP_KRON_ERR | float32 | mag | error on mean z-band chip Kron magnitude |
- | Z_CHP_KRON_NPHOT | int32 |  | number of measurements used for z_chp_kron (excluding outliers) |
- | Z_STK_PSF_FLUX | float32 | Jy | best z-band stack PSF flux |
- | Z_STK_PSF_FLUXERR | float32 | Jy | error on best z-band stack PSF flux |
- | Z_STK_PSF_NPHOT | int32 |  | number of measurements used for z_stk_psf_flux (excluding outliers) |
- | Z_STK_APER_FLUX | float32 | Jy | z-band stack seeing-adapted aperture flux |
- | Z_STK_APER_FLUXERR | float32 | Jy | error on z-band stack seeing-adapted aperture flux |
- | Z_STK_APER_NPHOT | int32 |  | number of measurements used for z_stk_aper_flux (excluding outliers) |
- | Z_STK_KRON_FLUX | float32 | Jy | z-band stack Kron flux from same stack as 'best' PSF above |
- | Z_STK_KRON_FLUXERR | float32 | Jy | error on z-band stack Kron flux from same stack as 'best' PSF above |
- | Z_STK_KRON_NPHOT | int32 |  | number of measurements used for z_stk_kron_flux (excluding outliers) |
- | Z_WRP_PSF_FLUX | float32 | Jy | mean z-band forced-warp PSF flux |
- | Z_WRP_PSF_FLUXERR | float32 | Jy | error on mean z-band forced-warp PSF flux |
- | Z_WRP_PSF_NPHOT | int32 |  | number of measurements used for z_wrp_psf_flux (excluding outliers) |
- | Z_WRP_APER_FLUX | float32 | Jy | mean z-band forced-warp seeing-adapted aperture flux |
- | Z_WRP_APER_FLUXERR | float32 | Jy | error on mean z-band forced-warp seeing-adapted aperture flux |
- | Z_WRP_APER_NPHOT | int32 |  | number of measurements used for z_wrp_aper_flux (excluding outliers) |
- | Z_WRP_KRON_FLUX | float32 | Jy | mean z-band forced-warp Kron flux |
- | Z_WRP_KRON_FLUXERR | float32 | Jy | error on mean z-band forced-warp Kron flux |
- | Z_WRP_KRON_NPHOT | int32 |  | number of measurements used for z_wrp_kron_flux (excluding outliers) |
- | Z_FLAGS | int32 |  | per-filter info flags (equiv. to StackObjectThin.zinfoFlag4) |
- | Z_NCODE | int32 |  | number of chip detections in this filter (equiv. to StackObjectThin.nz) |
- | Z_NWARP | int32 |  | number of warp measurements in this filter (including primary & secondary skycells) |
- | Z_NWARP_GOOD | int32 |  | number of warp measurements with psfqfperf > 0.85 in this filter (including primary & secondary skycells) |
- | Z_NSTACK | int32 |  | number of stack measurements (primary and secondary) |
- | Z_NSTACK_DET | int32 |  | number of stack detections (S/N > 5, primary and secondary) |
- | Z_PSFQF | float32 |  | z-band PSF coverage factor |
- | Z_PSFQFPERF | float32 |  | z-band PSF weighted fraction of pixels totally unmasked |
- | Y_CHP_PSF | float32 | mag | mean y-band chip PSF magnitude |
- | Y_CHP_PSF_ERR | float32 | mag | error on mean y-band chip PSF magnitude |
- | Y_CHP_PSF_NPHOT | int32 |  | number of measurements used for y_chp_psf (excluding outliers) |
- | Y_CHP_APER | float32 | mag | mean y-band chip seeing-adapted aperture magnitude |
- | Y_CHP_APER_ERR | float32 | mag | error on mean y-band chip seeing-adapted aperture magnitude |
- | Y_CHP_APER_NPHOT | int32 |  | number of measurements used for above (excluding outliers) |
- | Y_CHP_KRON | float32 | mag | mean y-band chip Kron magnitude |
- | Y_CHP_KRON_ERR | float32 | mag | error on mean y-band chip Kron magnitude |
- | Y_CHP_KRON_NPHOT | int32 |  | number of measurements used for y_chp_kron (excluding outliers) |
- | Y_STK_PSF_FLUX | float32 | Jy | best y-band stack PSF flux |
- | Y_STK_PSF_FLUXERR | float32 | Jy | error on best y-band stack PSF flux |
- | Y_STK_PSF_NPHOT | int32 |  | number of measurements used for y_stk_psf_flux (excluding outliers) |
- | Y_STK_APER_FLUX | float32 | Jy | y-band stack seeing-adapted aperture flux |
- | Y_STK_APER_FLUXERR | float32 | Jy | error on y-band stack seeing-adapted aperture flux |
- | Y_STK_APER_NPHOT | int32 |  | number of measurements used for y_stk_aper_flux (excluding outliers) |
- | Y_STK_KRON_FLUX | float32 | Jy | y-band stack Kron flux from same stack as 'best' PSF above |
- | Y_STK_KRON_FLUXERR | float32 | Jy | error on y-band stack Kron flux from same stack as 'best' PSF above |
- | Y_STK_KRON_NPHOT | int32 |  | number of measurements used for y_stk_kron_flux (excluding outliers) |
- | Y_WRP_PSF_FLUX | float32 | Jy | mean y-band forced-warp PSF flux |
- | Y_WRP_PSF_FLUXERR | float32 | Jy | error on mean y-band forced-warp PSF flux |
- | Y_WRP_PSF_NPHOT | int32 |  | number of measurements used for y_wrp_psf_flux (excluding outliers) |
- | Y_WRP_APER_FLUX | float32 | Jy | mean y-band forced-warp seeing-adapted aperture flux |
- | Y_WRP_APER_FLUXERR | float32 | Jy | error on mean y-band forced-warp seeing-adapted aperture flux |
- | Y_WRP_APER_NPHOT | int32 |  | number of measurements used for y_wrp_aper_flux (excluding outliers) |
- | Y_WRP_KRON_FLUX | float32 | Jy | mean y-band forced-warp Kron flux |
- | Y_WRP_KRON_FLUXERR | float32 | Jy | error on mean y-band forced-warp Kron flux |
- | Y_WRP_KRON_NPHOT | int32 |  | number of measurements used for y_wrp_kron_flux (excluding outliers) |
- | Y_FLAGS | int32 |  | per-filter info flags (equiv. to StackObjectThin.yinfoFlag4) |
- | Y_NCODE | int32 |  | number of chip detections in this filter (equiv. to StackObjectThin.ny) |
- | Y_NWARP | int32 |  | number of warp measurements in this filter (including primary & secondary skycells) |
- | Y_NWARP_GOOD | int32 |  | number of warp measurements with psfqfperf > 0.85 in this filter (including primary & secondary skycells) |
- | Y_NSTACK | int32 |  | number of stack measurements (primary and secondary) |
- | Y_NSTACK_DET | int32 |  | number of stack detections (S/N > 5, primary and secondary) |
- | Y_PSFQF | float32 |  | y-band PSF coverage factor |
- | Y_PSFQFPERF | float32 |  | y-band PSF weighted fraction of pixels totally unmasked |
- | CATID_OBJID | int64 |  | computed as (catid << 32) & objid. Equivalent to StackObjectThin.ippObjID |
- | EXTID_HI_LO | int64 |  | computed as (extid_hi << 32) & extid_lo. Equivalent to StackObjectThin.ObjID |
+ | ra | float64 | deg | mean RA, (J2000, tied to Gaia DR1) |
+ | dec | float64 | deg | mean Dec, (J2000, tied to Gaia DR1) |
+ | dra | float32 | arcsec | error on RA |
+ | ddec | float32 | arcsec | error on DEC |
+ | tmean | float32 | days | Mean epoch (MJD) |
+ | trange | float32 | days | Time range -- may include 2MASS values |
+ | chisqpos | float32 |  | chi-square of a fixed position astrometry solution (equiv to ObjectThin.posMeanChisq) |
+ | stargal | float32 |  | Measure of extendedness. Computed as the median across all chip measurements of extNsigma, where extNsigma = (PSF mag - Kron mag) expressed as a number of sigmas, so it somewhat adjusts for the spread at low signal-to-noise. |
+ | nmeas | int32 |  | total number of measurements in databases (including non-PS1 data) |
+ | nwarp_ok | int32 |  | number of warps with psf_qf > 0 (any unmasked pixels) |
+ | flags | int32 |  | ObjectInfoFlags |
+ | objid | int32 |  | internal Pan-STARRS IPP object ID : unique within database spatial partition (see catID) |
+ | catid | int32 |  | database spatial partition ID - (equiv. to StackObjectThin.dvoRegionID) |
+ | extid_hi | int32 |  | upper 32 bits of PSPS object ID (objID in MAST PSPS database) |
+ | extid_lo | int32 |  | lower 32 bits of PSPS object ID (objID in MAST PSPS database) |
+ | g_chp_psf | float32 | mag | mean g-band chip PSF magnitude |
+ | g_chp_psf_err | float32 | mag | error on mean g-band chip PSF magnitude |
+ | g_chp_psf_nphot | int32 |  | number of measurements used for g_chp_psf (excluding outliers) |
+ | g_chp_aper | float32 | mag | mean g-band chip seeing-adapted aperture magnitude |
+ | g_chp_aper_err | float32 | mag | error on mean g-band chip seeing-adapted aperture magnitude |
+ | g_chp_aper_nphot | int32 |  | number of measurements used for above (excluding outliers) |
+ | g_chp_kron | float32 | mag | mean g-band chip Kron magnitude |
+ | g_chp_kron_err | float32 | mag | error on mean g-band chip Kron magnitude |
+ | g_chp_kron_nphot | int32 |  | number of measurements used for g_chp_kron (excluding outliers) |
+ | g_stk_psf_flux | float32 | Jy | best g-band stack PSF flux |
+ | g_stk_psf_fluxerr | float32 | Jy | error on best g-band stack PSF flux |
+ | g_stk_psf_nphot | int32 |  | number of measurements used for g_stk_psf_flux (excluding outliers) |
+ | g_stk_aper_flux | float32 | Jy | g-band stack seeing-adapted aperture flux |
+ | g_stk_aper_fluxerr | float32 | Jy | error on g-band stack seeing-adapted aperture flux |
+ | g_stk_aper_nphot | int32 |  | number of measurements used for g_stk_aper_flux (excluding outliers) |
+ | g_stk_kron_flux | float32 | Jy | g-band stack Kron flux from same stack as 'best' PSF above |
+ | g_stk_kron_fluxerr | float32 | Jy | error on g-band stack Kron flux from same stack as 'best' PSF above |
+ | g_stk_kron_nphot | int32 |  | number of measurements used for g_stk_kron_flux (excluding outliers) |
+ | g_wrp_psf_flux | float32 | Jy | mean g-band forced-warp PSF flux |
+ | g_wrp_psf_fluxerr | float32 | Jy | error on mean g-band forced-warp PSF flux |
+ | g_wrp_psf_nphot | int32 |  | number of measurements used for g_wrp_psf_flux (excluding outliers) |
+ | g_wrp_aper_flux | float32 | Jy | mean g-band forced-warp seeing-adapted aperture flux |
+ | g_wrp_aper_fluxerr | float32 | Jy | error on mean g-band forced-warp seeing-adapted aperture flux |
+ | g_wrp_aper_nphot | int32 |  | number of measurements used for g_wrp_aper_flux (excluding outliers) |
+ | g_wrp_kron_flux | float32 | Jy | mean g-band forced-warp Kron flux |
+ | g_wrp_kron_fluxerr | float32 | Jy | error on mean g-band forced-warp Kron flux |
+ | g_wrp_kron_nphot | int32 |  | number of measurements used for g_wrp_kron_flux (excluding outliers) |
+ | g_flags | int32 |  | per-filter info flags (equiv. to StackObjectThin.ginfoFlag4) |
+ | g_ncode | int32 |  | number of chip detections in this filter (equiv. to StackObjectThin.ng) |
+ | g_nwarp | int32 |  | number of warp measurements in this filter (including primary & secondary skycells) |
+ | g_nwarp_good | int32 |  | number of warp measurements with psfqfperf > 0.85 in this filter (including primary & secondary skycells) |
+ | g_nstack | int32 |  | number of stack measurements (primary and secondary) |
+ | g_nstack_det | int32 |  | number of stack detections (S/N > 5, primary and secondary) |
+ | g_psfqf | float32 |  | g-band PSF coverage factor |
+ | g_psfqfperf | float32 |  | g-band PSF weighted fraction of pixels totally unmasked |
+ | r_chp_psf | float32 | mag | mean r-band chip PSF magnitude |
+ | r_chp_psf_err | float32 | mag | error on mean r-band chip PSF magnitude |
+ | r_chp_psf_nphot | int32 |  | number of measurements used for r_chp_psf (excluding outliers) |
+ | r_chp_aper | float32 | mag | mean r-band chip seeing-adapted aperture magnitude |
+ | r_chp_aper_err | float32 | mag | error on mean r-band chip seeing-adapted aperture magnitude |
+ | r_chp_aper_nphot | int32 |  | number of measurements used for above (excluding outliers) |
+ | r_chp_kron | float32 | mag | mean r-band chip Kron magnitude |
+ | r_chp_kron_err | float32 | mag | error on mean r-band chip Kron magnitude |
+ | r_chp_kron_nphot | int32 |  | number of measurements used for r_chp_kron (excluding outliers) |
+ | r_stk_psf_flux | float32 | Jy | best r-band stack PSF flux |
+ | r_stk_psf_fluxerr | float32 | Jy | error on best r-band stack PSF flux |
+ | r_stk_psf_nphot | int32 |  | number of measurements used for r_stk_psf_flux (excluding outliers) |
+ | r_stk_aper_flux | float32 | Jy | r-band stack seeing-adapted aperture flux |
+ | r_stk_aper_fluxerr | float32 | Jy | error on r-band stack seeing-adapted aperture flux |
+ | r_stk_aper_nphot | int32 |  | number of measurements used for r_stk_aper_flux (excluding outliers) |
+ | r_stk_kron_flux | float32 | Jy | r-band stack Kron flux from same stack as 'best' PSF above |
+ | r_stk_kron_fluxerr | float32 | Jy | error on r-band stack Kron flux from same stack as 'best' PSF above |
+ | r_stk_kron_nphot | int32 |  | number of measurements used for r_stk_kron_flux (excluding outliers) |
+ | r_wrp_psf_flux | float32 | Jy | mean r-band forced-warp PSF flux |
+ | r_wrp_psf_fluxerr | float32 | Jy | error on mean r-band forced-warp PSF flux |
+ | r_wrp_psf_nphot | int32 |  | number of measurements used for r_wrp_psf_flux (excluding outliers) |
+ | r_wrp_aper_flux | float32 | Jy | mean r-band forced-warp seeing-adapted aperture flux |
+ | r_wrp_aper_fluxerr | float32 | Jy | error on mean r-band forced-warp seeing-adapted aperture flux |
+ | r_wrp_aper_nphot | int32 |  | number of measurements used for r_wrp_aper_flux (excluding outliers) |
+ | r_wrp_kron_flux | float32 | Jy | mean r-band forced-warp Kron flux |
+ | r_wrp_kron_fluxerr | float32 | Jy | error on mean r-band forced-warp Kron flux |
+ | r_wrp_kron_nphot | int32 |  | number of measurements used for r_wrp_kron_flux (excluding outliers) |
+ | r_flags | int32 |  | per-filter info flags (equiv. to StackObjectThin.rinfoFlag4) |
+ | r_ncode | int32 |  | number of chip detections in this filter (equiv. to StackObjectThin.nr) |
+ | r_nwarp | int32 |  | number of warp measurements in this filter (including primary & secondary skycells) |
+ | r_nwarp_good | int32 |  | number of warp measurements with psfqfperf > 0.85 in this filter (including primary & secondary skycells) |
+ | r_nstack | int32 |  | number of stack measurements (primary and secondary) |
+ | r_nstack_det | int32 |  | number of stack detections (S/N > 5, primary and secondary) |
+ | r_psfqf | float32 |  | r-band PSF coverage factor |
+ | r_psfqfperf | float32 |  | r-band PSF weighted fraction of pixels totally unmasked |
+ | i_chp_psf | float32 | mag | mean i-band chip PSF magnitude |
+ | i_chp_psf_err | float32 | mag | error on mean i-band chip PSF magnitude |
+ | i_chp_psf_nphot | int32 |  | number of measurements used for i_chp_psf (excluding outliers) |
+ | i_chp_aper | float32 | mag | mean i-band chip seeing-adapted aperture magnitude |
+ | i_chp_aper_err | float32 | mag | error on mean i-band chip seeing-adapted aperture magnitude |
+ | i_chp_aper_nphot | int32 |  | number of measurements used for above (excluding outliers) |
+ | i_chp_kron | float32 | mag | mean i-band chip Kron magnitude |
+ | i_chp_kron_err | float32 | mag | error on mean i-band chip Kron magnitude |
+ | i_chp_kron_nphot | int32 |  | number of measurements used for i_chp_kron (excluding outliers) |
+ | i_stk_psf_flux | float32 | Jy | best i-band stack PSF flux |
+ | i_stk_psf_fluxerr | float32 | Jy | error on best i-band stack PSF flux |
+ | i_stk_psf_nphot | int32 |  | number of measurements used for i_stk_psf_flux (excluding outliers) |
+ | i_stk_aper_flux | float32 | Jy | i-band stack seeing-adapted aperture flux |
+ | i_stk_aper_fluxerr | float32 | Jy | error on i-band stack seeing-adapted aperture flux |
+ | i_stk_aper_nphot | int32 |  | number of measurements used for i_stk_aper_flux (excluding outliers) |
+ | i_stk_kron_flux | float32 | Jy | i-band stack Kron flux from same stack as 'best' PSF above |
+ | i_stk_kron_fluxerr | float32 | Jy | error on i-band stack Kron flux from same stack as 'best' PSF above |
+ | i_stk_kron_nphot | int32 |  | number of measurements used for i_stk_kron_flux (excluding outliers) |
+ | i_wrp_psf_flux | float32 | Jy | mean i-band forced-warp PSF flux |
+ | i_wrp_psf_fluxerr | float32 | Jy | error on mean i-band forced-warp PSF flux |
+ | i_wrp_psf_nphot | int32 |  | number of measurements used for i_wrp_psf_flux (excluding outliers) |
+ | i_wrp_aper_flux | float32 | Jy | mean i-band forced-warp seeing-adapted aperture flux |
+ | i_wrp_aper_fluxerr | float32 | Jy | error on mean i-band forced-warp seeing-adapted aperture flux |
+ | i_wrp_aper_nphot | int32 |  | number of measurements used for i_wrp_aper_flux (excluding outliers) |
+ | i_wrp_kron_flux | float32 | Jy | mean i-band forced-warp Kron flux |
+ | i_wrp_kron_fluxerr | float32 | Jy | error on mean i-band forced-warp Kron flux |
+ | i_wrp_kron_nphot | int32 |  | number of measurements used for i_wrp_kron_flux (excluding outliers) |
+ | i_flags | int32 |  | per-filter info flags (equiv. to StackObjectThin.iinfoFlag4) |
+ | i_ncode | int32 |  | number of chip detections in this filter (equiv. to StackObjectThin.ni) |
+ | i_nwarp | int32 |  | number of warp measurements in this filter (including primary & secondary skycells) |
+ | i_nwarp_good | int32 |  | number of warp measurements with psfqfperf > 0.85 in this filter (including primary & secondary skycells) |
+ | i_nstack | int32 |  | number of stack measurements (primary and secondary) |
+ | i_nstack_det | int32 |  | number of stack detections (S/N > 5, primary and secondary) |
+ | i_psfqf | float32 |  | i-band PSF coverage factor |
+ | i_psfqfperf | float32 |  | i-band PSF weighted fraction of pixels totally unmasked |
+ | z_chp_psf | float32 | mag | mean z-band chip PSF magnitude |
+ | z_chp_psf_err | float32 | mag | error on mean z-band chip PSF magnitude |
+ | z_chp_psf_nphot | int32 |  | number of measurements used for z_chp_psf (excluding outliers) |
+ | z_chp_aper | float32 | mag | mean z-band chip seeing-adapted aperture magnitude |
+ | z_chp_aper_err | float32 | mag | error on mean z-band chip seeing-adapted aperture magnitude |
+ | z_chp_aper_nphot | int32 |  | number of measurements used for above (excluding outliers) |
+ | z_chp_kron | float32 | mag | mean z-band chip Kron magnitude |
+ | z_chp_kron_err | float32 | mag | error on mean z-band chip Kron magnitude |
+ | z_chp_kron_nphot | int32 |  | number of measurements used for z_chp_kron (excluding outliers) |
+ | z_stk_psf_flux | float32 | Jy | best z-band stack PSF flux |
+ | z_stk_psf_fluxerr | float32 | Jy | error on best z-band stack PSF flux |
+ | z_stk_psf_nphot | int32 |  | number of measurements used for z_stk_psf_flux (excluding outliers) |
+ | z_stk_aper_flux | float32 | Jy | z-band stack seeing-adapted aperture flux |
+ | z_stk_aper_fluxerr | float32 | Jy | error on z-band stack seeing-adapted aperture flux |
+ | z_stk_aper_nphot | int32 |  | number of measurements used for z_stk_aper_flux (excluding outliers) |
+ | z_stk_kron_flux | float32 | Jy | z-band stack Kron flux from same stack as 'best' PSF above |
+ | z_stk_kron_fluxerr | float32 | Jy | error on z-band stack Kron flux from same stack as 'best' PSF above |
+ | z_stk_kron_nphot | int32 |  | number of measurements used for z_stk_kron_flux (excluding outliers) |
+ | z_wrp_psf_flux | float32 | Jy | mean z-band forced-warp PSF flux |
+ | z_wrp_psf_fluxerr | float32 | Jy | error on mean z-band forced-warp PSF flux |
+ | z_wrp_psf_nphot | int32 |  | number of measurements used for z_wrp_psf_flux (excluding outliers) |
+ | z_wrp_aper_flux | float32 | Jy | mean z-band forced-warp seeing-adapted aperture flux |
+ | z_wrp_aper_fluxerr | float32 | Jy | error on mean z-band forced-warp seeing-adapted aperture flux |
+ | z_wrp_aper_nphot | int32 |  | number of measurements used for z_wrp_aper_flux (excluding outliers) |
+ | z_wrp_kron_flux | float32 | Jy | mean z-band forced-warp Kron flux |
+ | z_wrp_kron_fluxerr | float32 | Jy | error on mean z-band forced-warp Kron flux |
+ | z_wrp_kron_nphot | int32 |  | number of measurements used for z_wrp_kron_flux (excluding outliers) |
+ | z_flags | int32 |  | per-filter info flags (equiv. to StackObjectThin.zinfoFlag4) |
+ | z_ncode | int32 |  | number of chip detections in this filter (equiv. to StackObjectThin.nz) |
+ | z_nwarp | int32 |  | number of warp measurements in this filter (including primary & secondary skycells) |
+ | z_nwarp_good | int32 |  | number of warp measurements with psfqfperf > 0.85 in this filter (including primary & secondary skycells) |
+ | z_nstack | int32 |  | number of stack measurements (primary and secondary) |
+ | z_nstack_det | int32 |  | number of stack detections (S/N > 5, primary and secondary) |
+ | z_psfqf | float32 |  | z-band PSF coverage factor |
+ | z_psfqfperf | float32 |  | z-band PSF weighted fraction of pixels totally unmasked |
+ | y_chp_psf | float32 | mag | mean y-band chip PSF magnitude |
+ | y_chp_psf_err | float32 | mag | error on mean y-band chip PSF magnitude |
+ | y_chp_psf_nphot | int32 |  | number of measurements used for y_chp_psf (excluding outliers) |
+ | y_chp_aper | float32 | mag | mean y-band chip seeing-adapted aperture magnitude |
+ | y_chp_aper_err | float32 | mag | error on mean y-band chip seeing-adapted aperture magnitude |
+ | y_chp_aper_nphot | int32 |  | number of measurements used for above (excluding outliers) |
+ | y_chp_kron | float32 | mag | mean y-band chip Kron magnitude |
+ | y_chp_kron_err | float32 | mag | error on mean y-band chip Kron magnitude |
+ | y_chp_kron_nphot | int32 |  | number of measurements used for y_chp_kron (excluding outliers) |
+ | y_stk_psf_flux | float32 | Jy | best y-band stack PSF flux |
+ | y_stk_psf_fluxerr | float32 | Jy | error on best y-band stack PSF flux |
+ | y_stk_psf_nphot | int32 |  | number of measurements used for y_stk_psf_flux (excluding outliers) |
+ | y_stk_aper_flux | float32 | Jy | y-band stack seeing-adapted aperture flux |
+ | y_stk_aper_fluxerr | float32 | Jy | error on y-band stack seeing-adapted aperture flux |
+ | y_stk_aper_nphot | int32 |  | number of measurements used for y_stk_aper_flux (excluding outliers) |
+ | y_stk_kron_flux | float32 | Jy | y-band stack Kron flux from same stack as 'best' PSF above |
+ | y_stk_kron_fluxerr | float32 | Jy | error on y-band stack Kron flux from same stack as 'best' PSF above |
+ | y_stk_kron_nphot | int32 |  | number of measurements used for y_stk_kron_flux (excluding outliers) |
+ | y_wrp_psf_flux | float32 | Jy | mean y-band forced-warp PSF flux |
+ | y_wrp_psf_fluxerr | float32 | Jy | error on mean y-band forced-warp PSF flux |
+ | y_wrp_psf_nphot | int32 |  | number of measurements used for y_wrp_psf_flux (excluding outliers) |
+ | y_wrp_aper_flux | float32 | Jy | mean y-band forced-warp seeing-adapted aperture flux |
+ | y_wrp_aper_fluxerr | float32 | Jy | error on mean y-band forced-warp seeing-adapted aperture flux |
+ | y_wrp_aper_nphot | int32 |  | number of measurements used for y_wrp_aper_flux (excluding outliers) |
+ | y_wrp_kron_flux | float32 | Jy | mean y-band forced-warp Kron flux |
+ | y_wrp_kron_fluxerr | float32 | Jy | error on mean y-band forced-warp Kron flux |
+ | y_wrp_kron_nphot | int32 |  | number of measurements used for y_wrp_kron_flux (excluding outliers) |
+ | y_flags | int32 |  | per-filter info flags (equiv. to StackObjectThin.yinfoFlag4) |
+ | y_ncode | int32 |  | number of chip detections in this filter (equiv. to StackObjectThin.ny) |
+ | y_nwarp | int32 |  | number of warp measurements in this filter (including primary & secondary skycells) |
+ | y_nwarp_good | int32 |  | number of warp measurements with psfqfperf > 0.85 in this filter (including primary & secondary skycells) |
+ | y_nstack | int32 |  | number of stack measurements (primary and secondary) |
+ | y_nstack_det | int32 |  | number of stack detections (S/N > 5, primary and secondary) |
+ | y_psfqf | float32 |  | y-band PSF coverage factor |
+ | y_psfqfperf | float32 |  | y-band PSF weighted fraction of pixels totally unmasked |
+ | catid_objid | int64 |  | computed as (catid << 32) & objid. Equivalent to StackObjectThin.ippObjID |
+ | extid_hi_lo | int64 |  | computed as (extid_hi << 32) & extid_lo. Equivalent to StackObjectThin.ObjID |
 
 
 
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!

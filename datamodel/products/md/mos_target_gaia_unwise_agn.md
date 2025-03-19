@@ -9,17 +9,17 @@ MOS Target Table: gaia_unwise_agn
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
 AGN identified using information from WISE and Gaia DR2 from the catalog of Shu et al. 2019. See complete information on the columns in https://academic.oup.com/mnras/article/489/4/4741/5561523
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_target_gaia_unwise_agn-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
+$MOS_TARGET/[V_TARG]/mos_gaia_unwise_agn-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
 
 ### Releases
-DR18
+DR18, DR19
 
 ### Enviroments
 MOS_TARGET
@@ -36,14 +36,20 @@ sdss5db> targetdb, operations database server
 ### Is a VAC
 False
 
-### HDUS List for release DR18
+### Data Level
+2.3.3
+
+### HDUS List for release DR19
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: ](#hdu1)
+  - [HDU1](#hdu1)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR19
+   - from: DR18
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -64,56 +70,79 @@ Key | Value | Comment | |
 
 
 
-### HDU1:
+### HDU1: 
 MOS Target Table: gaia_unwise_agn
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  526 MB
 
+##### Header Table Caption for HDU1
+Key | Value | Comment | |
+| --- | --- | --- | --- |
+| XTENSION | BINTABLE | binary table extension |
+| BITPIX | 8 | array data type |
+| NAXIS | 2 | number of array dimensions |
+| NAXIS1 | 276 | length of dimension 1 |
+| NAXIS2 | 2000000 | length of dimension 2 |
+| PCOUNT | 0 | number of group parameters |
+| GCOUNT | 1 | number of groups |
+| TFIELDS | 37 | number of table fields |
+| TNULL3 | -9223372036854775808 |  |
+| TNULL14 | -2147483648 |  |
+| TNULL30 | -2147483648 |  |
+| TNULL31 | -2147483648 |  |
+| TNULL32 | -2147483648 |  |
+| TNULL33 | -2147483648 |  |
+| TNULL34 | -2147483648 |  |
+| TNULL35 | -2147483648 |  |
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | RA | float64 | degrees | Right ascension from Gaia DR2 |
- | DEC | float64 | degrees | Declination from Gaia DR2 |
- | GAIA_SOURCEID | int64 |  | Unique Gaia DR2 source identifier |
- | UNWISE_OBJID | char[16] |  | Unique unWISE source identifier |
- | PLX | float64 | mas | Parallax from Gaia DR2 |
- | PLX_ERR | float64 | mas | Error in parallax from Gaia DR2 |
- | PMRA | float64 | mas/yr | Proper motion in right ascension from Gaia DR2 |
- | PMRA_ERR | float64 | mas/yr | Error in proper motion in right ascension from Gaia DR2 |
- | PMDEC | float64 | mas/yr | Proper motion in declination from Gaia DR2 |
- | PMDEC_ERR | float64 | mas/yr | Error in proper motinon in declination from Gaia DR2 |
- | PLXSIG | float64 |  | Parallax significance defined as parallax/parallax_error |
- | PMSIG | float64 |  | Proper motion significance |
- | EBV | float64 | mag | Galactic E(B-V) reddening from Schlegel et al. 1998 |
- | N_OBS | int32 |  | Number of observations contributing to Gaia DR2 G photometry |
- | G | float64 | mag | Gaia DR2 G-band mean magnitude (extinction corrected) |
- | BP | float64 | mag | Gaia DR2 BP-band mean magnitude (extinction corrected) |
- | RP | float64 | mag | Gaia DR2 RP-band mean magnitude (extinction corrected) |
- | W1 | float64 | mag | unWISE W1-band magnitude |
- | W2 | float64 | mag | unWISE W2-band magnitude |
- | BP_G | float64 | mag | Gaia DR2 BP − G color (extinction corrected) |
- | BP_RP | float64 | mag | Gaia DR2 BP − RP color (extinction corrected) |
- | G_RP | float64 | mag | Gaia DR2 G − RP color (extinction corrected) |
- | G_W1 | float64 | mag | Gaia DR2 G − unWISE W1 color (extinction corrected) |
- | GW_SEP | float64 | arcsec | Separation between a Gaia source and its unWISE counterpart |
- | W1_W2 | float64 | mag | unWISE W1 −W2 color |
- | G_VAR | float64 |  | Variation in GaiaG-band flux |
- | BPRP_EF | float64 |  | BP/RP excess factor from Gaia DR2 |
- | AEN | float64 | mas | Astrometric excess noise from Gaia DR2 |
- | GOF | float64 |  | Goodness-of-fit statistic of the astrometric solution from Gaia DR2 |
- | CNT1 | int32 |  | Number of Gaia DR2 sources within a 1 arcsec radius circular aperture |
- | CNT2 | int32 |  | Number of Gaia DR2 sources within a 2 arcsec radius circular aperture |
- | CNT4 | int32 |  | Number of Gaia DR2 sources within a 4 arcsec radius circular aperture |
- | CNT8 | int32 |  | Number of Gaia DR2 sources within a 8 arcsec radius circular aperture |
- | CNT16 | int32 |  | Number of Gaia DR2 sources within a 16 arcsec radius circular aperture |
- | CNT32 | int32 |  | Number of Gaia DR2 sources within a 32 arcsec radius circular aperture |
- | PHOT_Z | float64 |  | Photometric redshift |
- | PROB_RF | float64 |  | AGN probability |
+ | ra | float64 | degrees | Right ascension from Gaia DR2 |
+ | dec | float64 | degrees | Declination from Gaia DR2 |
+ | gaia_sourceid | int64 |  | Unique Gaia DR2 source identifier |
+ | unwise_objid | char[16] |  | Unique unWISE source identifier |
+ | plx | float64 | mas | Parallax from Gaia DR2 |
+ | plx_err | float64 | mas | Error in parallax from Gaia DR2 |
+ | pmra | float64 | mas/yr | Proper motion in right ascension from Gaia DR2 |
+ | pmra_err | float64 | mas/yr | Error in proper motion in right ascension from Gaia DR2 |
+ | pmdec | float64 | mas/yr | Proper motion in declination from Gaia DR2 |
+ | pmdec_err | float64 | mas/yr | Error in proper motinon in declination from Gaia DR2 |
+ | plxsig | float64 |  | Parallax significance defined as parallax/parallax_error |
+ | pmsig | float64 |  | Proper motion significance |
+ | ebv | float64 | mag | Galactic E(B-V) reddening from Schlegel et al. 1998 |
+ | n_obs | int32 |  | Number of observations contributing to Gaia DR2 G photometry |
+ | g | float64 | mag | Gaia DR2 G-band mean magnitude (extinction corrected) |
+ | bp | float64 | mag | Gaia DR2 BP-band mean magnitude (extinction corrected) |
+ | rp | float64 | mag | Gaia DR2 RP-band mean magnitude (extinction corrected) |
+ | w1 | float64 | mag | unWISE W1-band magnitude |
+ | w2 | float64 | mag | unWISE W2-band magnitude |
+ | bp_g | float64 | mag | Gaia DR2 BP − G color (extinction corrected) |
+ | bp_rp | float64 | mag | Gaia DR2 BP − RP color (extinction corrected) |
+ | g_rp | float64 | mag | Gaia DR2 G − RP color (extinction corrected) |
+ | g_w1 | float64 | mag | Gaia DR2 G − unWISE W1 color (extinction corrected) |
+ | gw_sep | float64 | arcsec | Separation between a Gaia source and its unWISE counterpart |
+ | w1_w2 | float64 | mag | unWISE W1 −W2 color |
+ | g_var | float64 |  | Variation in GaiaG-band flux |
+ | bprp_ef | float64 |  | BP/RP excess factor from Gaia DR2 |
+ | aen | float64 | mas | Astrometric excess noise from Gaia DR2 |
+ | gof | float64 |  | Goodness-of-fit statistic of the astrometric solution from Gaia DR2 |
+ | cnt1 | int32 |  | Number of Gaia DR2 sources within a 1 arcsec radius circular aperture |
+ | cnt2 | int32 |  | Number of Gaia DR2 sources within a 2 arcsec radius circular aperture |
+ | cnt4 | int32 |  | Number of Gaia DR2 sources within a 4 arcsec radius circular aperture |
+ | cnt8 | int32 |  | Number of Gaia DR2 sources within a 8 arcsec radius circular aperture |
+ | cnt16 | int32 |  | Number of Gaia DR2 sources within a 16 arcsec radius circular aperture |
+ | cnt32 | int32 |  | Number of Gaia DR2 sources within a 32 arcsec radius circular aperture |
+ | phot_z | float64 |  | Photometric redshift |
+ | prob_rf | float64 |  | AGN probability |
 
 
 
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!

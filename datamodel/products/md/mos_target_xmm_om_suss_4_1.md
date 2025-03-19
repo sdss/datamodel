@@ -9,17 +9,17 @@ MOS Target Table: xmm_om_suss_4_1
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
 The 2018 release of the XMM OM Serendipitous Ultraviolet Source Survey (XMM-SUSS4.1) Catalog. For full details, please see https://heasarc.gsfc.nasa.gov/W3Browse/all/xmmomsuob.html and the original catalog paper (Page et al. 2012; https://academic.oup.com/mnras/article/426/2/903/976665)
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_target_xmm_om_suss_4_1-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
+$MOS_TARGET/[V_TARG]/mos_xmm_om_suss_4_1-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
 
 ### Releases
-DR18
+DR18, DR19
 
 ### Enviroments
 MOS_TARGET
@@ -36,14 +36,20 @@ sdss5db> targetdb, operations database server
 ### Is a VAC
 False
 
-### HDUS List for release DR18
+### Data Level
+2.3.3
+
+### HDUS List for release DR19
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: ](#hdu1)
+  - [HDU1](#hdu1)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR19
+   - from: DR18
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -64,134 +70,165 @@ Key | Value | Comment | |
 
 
 
-### HDU1:
+### HDU1: 
 MOS Target Table: xmm_om_suss_4_1
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  350 MB
+#### HDU Size:  390 MB
 
+##### Header Table Caption for HDU1
+Key | Value | Comment | |
+| --- | --- | --- | --- |
+| XTENSION | BINTABLE | binary table extension |
+| BITPIX | 8 | array data type |
+| NAXIS | 2 | number of array dimensions |
+| NAXIS1 | 583 | length of dimension 1 |
+| NAXIS2 | 703223 | length of dimension 2 |
+| PCOUNT | 0 | number of group parameters |
+| GCOUNT | 1 | number of groups |
+| TFIELDS | 115 | number of table fields |
+| TNULL2 | -2147483648 |  |
+| TNULL4 | -2147483648 |  |
+| TNULL18 | -2147483648 |  |
+| TNULL91 | -32768 |  |
+| TNULL92 | -32768 |  |
+| TNULL93 | -32768 |  |
+| TNULL94 | -32768 |  |
+| TNULL95 | -32768 |  |
+| TNULL96 | -32768 |  |
+| TNULL103 | -9223372036854775808 |  |
+| TNULL104 | -9223372036854775808 |  |
+| TNULL105 | -9223372036854775808 |  |
+| TNULL106 | -9223372036854775808 |  |
+| TNULL107 | -9223372036854775808 |  |
+| TNULL108 | -9223372036854775808 |  |
+| TNULL115 | -9223372036854775808 |  |
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | IAUNAME | char[22] |  | Coordinate-based name |
- | N_SUMMARY | int32 |  | Reference number index for the XMM-Newton pointing in which the particular detection was mad |
- | OBSID | char[10] |  | The exclusive 10-digit identification number of the XMM pointing with the detection |
- | SRCNUM | int32 |  | The unique reference number within each combined source list created by the pipeline |
- | UVW2_SRCDIST | float32 | arcsec | Distance between source and nearest detected neighbor in UVW2 |
- | UVM2_SRCDIST | float32 | arcsec | Distance between source and nearest detected neighbor in UVM2 |
- | UVW1_SRCDIST | float32 | arcsec | Distance between source and nearest detected neighbor in UVW1 |
- | U_SRCDIST | float32 | arcsec | Distance between source and nearest detected neighbor in U |
- | B_SRCDIST | float32 | arcsec | Distance between source and nearest detected neighbor in B |
- | V_SRCDIST | float32 | arcsec | Distance between source and nearest detected neighbor in V |
- | RA | float64 | degrees | Right ascension |
- | DEC | float64 | degrees | Declination |
- | RA_HMS | char[13] | sexagesimal | Right ascension |
- | DEC_DMS | char[14] | sexagesimal | Declination |
- | POSERR | float32 | arcsec | Statistical error of the measured source position |
- | LII | float64 | degrees | Galactic longitude |
- | BII | float64 | degrees | Galactic latitude |
- | N_OBSID | int32 |  | Number of times a source has been detected during separate observations |
- | UVW2_SIGNIF | float32 |  | Significance of source detection in UVW2 |
- | UVM2_SIGNIF | float32 |  | Significance of source detection in UVM2 |
- | UVW1_SIGNIF | float32 |  | Significance of source detection in UVW1 |
- | U_SIGNIF | float32 |  | Significance of source detection in U |
- | B_SIGNIF | float32 |  | Significance of source detection in B |
- | V_SIGNIF | float32 |  | Significance of source detection in V |
- | UVW2_RATE | float32 | counts/s | Background-subtracted source count rate in UVW2 corrected for coincidence loss |
- | UVW2_RATE_ERR | float32 | counts/s | Uncertainty in the background-subtracted source count rate in UVW2 |
- | UVM2_RATE | float32 | counts/s | Background-subtracted source count rate in UVM2 corrected for coincidence loss |
- | UVM2_RATE_ERR | float32 | counts/s | Uncertainty in the background-subtracted source count rate in UVM2 |
- | UVW1_RATE | float32 | counts/s | Background-subtracted source count rate in UVW1 corrected for coincidence loss |
- | UVW1_RATE_ERR | float32 | counts/s | Uncertainty in the background-subtracted source count rate in UVW1 |
- | U_RATE | float32 | counts/s | Background-subtracted source count rate in U corrected for coincidence loss |
- | U_RATE_ERR | float32 | counts/s | Uncertainty in the background-subtracted source count rate in U |
- | B_RATE | float32 | counts/s | Background-subtracted source count rate in B corrected for coincidence loss |
- | B_RATE_ERR | float32 | counts/s | Uncertainty in the background-subtracted source count rate in B |
- | V_RATE | float32 | counts/s | Background-subtracted source count rate in V corrected for coincidence loss |
- | V_RATE_ERR | float32 | counts/s | Uncertainty in the background-subtracted source count rate in V |
- | UVW2_AB_FLUX | float32 | erg/s/cm^2/A | UVW2 AB flux |
- | UVW2_AB_FLUX_ERR | float32 | erg/s/cm^2/A | Error in UVW2 AB flux |
- | UVM2_AB_FLUX | float32 | erg/s/cm^2/A | UVM2 AB flux |
- | UVM2_AB_FLUX_ERR | float32 | erg/s/cm^2/A | Error in UVM2 AB flux |
- | UVW1_AB_FLUX | float32 | erg/s/cm^2/A | UVW1 AB flux |
- | UVW1_AB_FLUX_ERR | float32 | erg/s/cm^2/A | Error in UVW1 AB flux |
- | U_AB_FLUX | float32 | erg/s/cm^2/A | U AB flux |
- | U_AB_FLUX_ERR | float32 | erg/s/cm^2/A | Error in U AB flux |
- | B_AB_FLUX | float32 | erg/s/cm^2/A | B AB flux |
- | B_AB_FLUX_ERR | float32 | erg/s/cm^2/A | Error in B AB flux |
- | V_AB_FLUX | float32 | erg/s/cm^2/A | V AB flux |
- | V_AB_FLUX_ERR | float32 | erg/s/cm^2/A | Error in V AB flux |
- | UVW2_AB_MAG | float32 | mag | UVW2 AB magnitude |
- | UVW2_AB_MAG_ERR | float32 | mag | Error in UVW2 AB magnitude |
- | UVM2_AB_MAG | float32 | mag | UVM2 AB magnitude |
- | UVM2_AB_MAG_ERR | float32 | mag | Error in UVM2 AB magnitude |
- | UVW1_AB_MAG | float32 | mag | UVW1 AB magnitude |
- | UVW1_AB_MAG_ERR | float32 | mag | Error in UVW1 AB magnitude |
- | U_AB_MAG | float32 | mag | U AB magnitude |
- | U_AB_MAG_ERR | float32 | mag | Error in U AB magnitude |
- | B_AB_MAG | float32 | mag | B AB magnitude |
- | B_AB_MAG_ERR | float32 | mag | Error in B AB magnitude |
- | V_AB_MAG | float32 | mag | V AB magnitude |
- | V_AB_MAG_ERR | float32 | mag | Error in V AB magnitude |
- | UVW2_VEGA_MAG | float32 | mag | UVW2 Vega magnitude |
- | UVW2_VEGA_MAG_ERR | float32 | mag | Error in UVW2 Vega magnitude |
- | UVM2_VEGA_MAG | float32 | mag | UVM2 Vega magnitude |
- | UVM2_VEGA_MAG_ERR | float32 | mag | Error in UVM2 Vega magnitude |
- | UVW1_VEGA_MAG | float32 | mag | UVW1 Vega magnitude |
- | UVW1_VEGA_MAG_ERR | float32 | mag | Error in UVW1 Vega magnitude |
- | U_VEGA_MAG | float32 | mag | U Vega magnitude |
- | U_VEGA_MAG_ERR | float32 | mag | Error in U Vega magnitude |
- | B_VEGA_MAG | float32 | mag | B Vega magnitude |
- | B_VEGA_MAG_ERR | float32 | mag | Error in B Vega magnitude |
- | V_VEGA_MAG | float32 | mag | V Vega magnitude |
- | V_VEGA_MAG_ERR | float32 | mag | Error in V Vega magnitude |
- | UVW2_MAJOR_AXIS | float32 | arcsec | Length of major axis in UVW2 |
- | UVM2_MAJOR_AXIS | float32 | arcsec | Length of major axis in UVM2 |
- | UVW1_MAJOR_AXIS | float32 | arcsec | Length of major axis in UVW1 |
- | U_MAJOR_AXIS | float32 | arcsec | Length of major axis in U |
- | B_MAJOR_AXIS | float32 | arcsec | Length of major axis in B |
- | V_MAJOR_AXIS | float32 | arcsec | Length of major axis in V |
- | UVW2_MINOR_AXIS | float32 | arcsec | Length of minor axis in UVW2 |
- | UVM2_MINOR_AXIS | float32 | arcsec | Length of minor axis in UVM2 |
- | UVW1_MINOR_AXIS | float32 | arcsec | Length of minor axis in UVW1 |
- | U_MINOR_AXIS | float32 | arcsec | Length of minor axis in U |
- | B_MINOR_AXIS | float32 | arcsec | Length of minor axis in B |
- | V_MINOR_AXIS | float32 | arcsec | Length of minor axis in V |
- | UVW2_POSANG | float32 | degrees | Angle on the sky subtended by the major axis of the source and J2000 north in UVW2 |
- | UVM2_POSANG | float32 | degrees | Angle on the sky subtended by the major axis of the source and J2000 north in UVM2 |
- | UVW1_POSANG | float32 | degrees | Angle on the sky subtended by the major axis of the source and J2000 north in UVW1 |
- | U_POSANG | float32 | degrees | Angle on the sky subtended by the major axis of the source and J2000 north in U |
- | B_POSANG | float32 | degrees | Angle on the sky subtended by the major axis of the source and J2000 north in B |
- | V_POSANG | float32 | degrees | Angle on the sky subtended by the major axis of the source and J2000 north in V |
- | UVW2_QUALITY_FLAG | int16 |  | UVW2 quality flag |
- | UVM2_QUALITY_FLAG | int16 |  | UVM2 quality flag |
- | UVW1_QUALITY_FLAG | int16 |  | UVW1 quality flag |
- | U_QUALITY_FLAG | int16 |  | U quality flag |
- | B_QUALITY_FLAG | int16 |  | B quality flag |
- | V_QUALITY_FLAG | int16 |  | V quality flag |
- | UVW2_QUALITY_FLAG_ST | char[12] |  | Alternative UVW2 quality flag |
- | UVM2_QUALITY_FLAG_ST | char[12] |  | Alternative UVM2 quality flag |
- | UVW1_QUALITY_FLAG_ST | char[12] |  | Alternative UVW1 quality flag |
- | U_QUALITY_FLAG_ST | char[12] |  | Alternative U quality flag |
- | B_QUALITY_FLAG_ST | char[12] |  | Alternative B quality flag |
- | V_QUALITY_FLAG_ST | char[12] |  | Alternative V quality flag |
- | UVW2_EXTENDED_FLAG | int64 |  | Spatially extended flag in UVW2 |
- | UVM2_EXTENDED_FLAG | int64 |  | Spatially extended flag in UVM2 |
- | UVW1_EXTENDED_FLAG | int64 |  | Spatially extended flag in UVW1 |
- | U_EXTENDED_FLAG | int64 |  | Spatially extended flag in U |
- | B_EXTENDED_FLAG | int64 |  | Spatially extended flag in B |
- | V_EXTENDED_FLAG | int64 |  | Spatially extended flag in V |
- | UVW2_SKY_IMAGE | char[4] |  | Flag for stakcked sky images in UVW2 |
- | UVM2_SKY_IMAGE | char[4] |  | Flag for stakcked sky images in UVM2 |
- | UVW1_SKY_IMAGE | char[4] |  | Flag for stakcked sky images in UVW1 |
- | U_SKY_IMAGE | char[4] |  | Flag for stakcked sky images in U |
- | B_SKY_IMAGE | char[4] |  | Flag for stakcked sky images in B |
- | V_SKY_IMAGE | char[4] |  | Flag for stakcked sky images in V |
- | PK | int64 |  | Primary key |
+ | iauname | char[22] |  | Coordinate-based name |
+ | n_summary | int32 |  | Reference number index for the XMM-Newton pointing in which the particular detection was mad |
+ | obsid | char[10] |  | The exclusive 10-digit identification number of the XMM pointing with the detection |
+ | srcnum | int32 |  | The unique reference number within each combined source list created by the pipeline |
+ | uvw2_srcdist | float32 | arcsec | Distance between source and nearest detected neighbor in UVW2 |
+ | uvm2_srcdist | float32 | arcsec | Distance between source and nearest detected neighbor in UVM2 |
+ | uvw1_srcdist | float32 | arcsec | Distance between source and nearest detected neighbor in UVW1 |
+ | u_srcdist | float32 | arcsec | Distance between source and nearest detected neighbor in U |
+ | b_srcdist | float32 | arcsec | Distance between source and nearest detected neighbor in B |
+ | v_srcdist | float32 | arcsec | Distance between source and nearest detected neighbor in V |
+ | ra | float64 | degrees | Right ascension |
+ | dec | float64 | degrees | Declination |
+ | ra_hms | char[13] | sexagesimal | Right ascension |
+ | dec_dms | char[14] | sexagesimal | Declination |
+ | poserr | float32 | arcsec | Statistical error of the measured source position |
+ | lii | float64 | degrees | Galactic longitude |
+ | bii | float64 | degrees | Galactic latitude |
+ | n_obsid | int32 |  | Number of times a source has been detected during separate observations |
+ | uvw2_signif | float32 |  | Significance of source detection in UVW2 |
+ | uvm2_signif | float32 |  | Significance of source detection in UVM2 |
+ | uvw1_signif | float32 |  | Significance of source detection in UVW1 |
+ | u_signif | float32 |  | Significance of source detection in U |
+ | b_signif | float32 |  | Significance of source detection in B |
+ | v_signif | float32 |  | Significance of source detection in V |
+ | uvw2_rate | float32 | counts/s | Background-subtracted source count rate in UVW2 corrected for coincidence loss |
+ | uvw2_rate_err | float32 | counts/s | Uncertainty in the background-subtracted source count rate in UVW2 |
+ | uvm2_rate | float32 | counts/s | Background-subtracted source count rate in UVM2 corrected for coincidence loss |
+ | uvm2_rate_err | float32 | counts/s | Uncertainty in the background-subtracted source count rate in UVM2 |
+ | uvw1_rate | float32 | counts/s | Background-subtracted source count rate in UVW1 corrected for coincidence loss |
+ | uvw1_rate_err | float32 | counts/s | Uncertainty in the background-subtracted source count rate in UVW1 |
+ | u_rate | float32 | counts/s | Background-subtracted source count rate in U corrected for coincidence loss |
+ | u_rate_err | float32 | counts/s | Uncertainty in the background-subtracted source count rate in U |
+ | b_rate | float32 | counts/s | Background-subtracted source count rate in B corrected for coincidence loss |
+ | b_rate_err | float32 | counts/s | Uncertainty in the background-subtracted source count rate in B |
+ | v_rate | float32 | counts/s | Background-subtracted source count rate in V corrected for coincidence loss |
+ | v_rate_err | float32 | counts/s | Uncertainty in the background-subtracted source count rate in V |
+ | uvw2_ab_flux | float32 | erg/s/cm^2/A | UVW2 AB flux |
+ | uvw2_ab_flux_err | float32 | erg/s/cm^2/A | Error in UVW2 AB flux |
+ | uvm2_ab_flux | float32 | erg/s/cm^2/A | UVM2 AB flux |
+ | uvm2_ab_flux_err | float32 | erg/s/cm^2/A | Error in UVM2 AB flux |
+ | uvw1_ab_flux | float32 | erg/s/cm^2/A | UVW1 AB flux |
+ | uvw1_ab_flux_err | float32 | erg/s/cm^2/A | Error in UVW1 AB flux |
+ | u_ab_flux | float32 | erg/s/cm^2/A | U AB flux |
+ | u_ab_flux_err | float32 | erg/s/cm^2/A | Error in U AB flux |
+ | b_ab_flux | float32 | erg/s/cm^2/A | B AB flux |
+ | b_ab_flux_err | float32 | erg/s/cm^2/A | Error in B AB flux |
+ | v_ab_flux | float32 | erg/s/cm^2/A | V AB flux |
+ | v_ab_flux_err | float32 | erg/s/cm^2/A | Error in V AB flux |
+ | uvw2_ab_mag | float32 | mag | UVW2 AB magnitude |
+ | uvw2_ab_mag_err | float32 | mag | Error in UVW2 AB magnitude |
+ | uvm2_ab_mag | float32 | mag | UVM2 AB magnitude |
+ | uvm2_ab_mag_err | float32 | mag | Error in UVM2 AB magnitude |
+ | uvw1_ab_mag | float32 | mag | UVW1 AB magnitude |
+ | uvw1_ab_mag_err | float32 | mag | Error in UVW1 AB magnitude |
+ | u_ab_mag | float32 | mag | U AB magnitude |
+ | u_ab_mag_err | float32 | mag | Error in U AB magnitude |
+ | b_ab_mag | float32 | mag | B AB magnitude |
+ | b_ab_mag_err | float32 | mag | Error in B AB magnitude |
+ | v_ab_mag | float32 | mag | V AB magnitude |
+ | v_ab_mag_err | float32 | mag | Error in V AB magnitude |
+ | uvw2_vega_mag | float32 | mag | UVW2 Vega magnitude |
+ | uvw2_vega_mag_err | float32 | mag | Error in UVW2 Vega magnitude |
+ | uvm2_vega_mag | float32 | mag | UVM2 Vega magnitude |
+ | uvm2_vega_mag_err | float32 | mag | Error in UVM2 Vega magnitude |
+ | uvw1_vega_mag | float32 | mag | UVW1 Vega magnitude |
+ | uvw1_vega_mag_err | float32 | mag | Error in UVW1 Vega magnitude |
+ | u_vega_mag | float32 | mag | U Vega magnitude |
+ | u_vega_mag_err | float32 | mag | Error in U Vega magnitude |
+ | b_vega_mag | float32 | mag | B Vega magnitude |
+ | b_vega_mag_err | float32 | mag | Error in B Vega magnitude |
+ | v_vega_mag | float32 | mag | V Vega magnitude |
+ | v_vega_mag_err | float32 | mag | Error in V Vega magnitude |
+ | uvw2_major_axis | float32 | arcsec | Length of major axis in UVW2 |
+ | uvm2_major_axis | float32 | arcsec | Length of major axis in UVM2 |
+ | uvw1_major_axis | float32 | arcsec | Length of major axis in UVW1 |
+ | u_major_axis | float32 | arcsec | Length of major axis in U |
+ | b_major_axis | float32 | arcsec | Length of major axis in B |
+ | v_major_axis | float32 | arcsec | Length of major axis in V |
+ | uvw2_minor_axis | float32 | arcsec | Length of minor axis in UVW2 |
+ | uvm2_minor_axis | float32 | arcsec | Length of minor axis in UVM2 |
+ | uvw1_minor_axis | float32 | arcsec | Length of minor axis in UVW1 |
+ | u_minor_axis | float32 | arcsec | Length of minor axis in U |
+ | b_minor_axis | float32 | arcsec | Length of minor axis in B |
+ | v_minor_axis | float32 | arcsec | Length of minor axis in V |
+ | uvw2_posang | float32 | degrees | Angle on the sky subtended by the major axis of the source and J2000 north in UVW2 |
+ | uvm2_posang | float32 | degrees | Angle on the sky subtended by the major axis of the source and J2000 north in UVM2 |
+ | uvw1_posang | float32 | degrees | Angle on the sky subtended by the major axis of the source and J2000 north in UVW1 |
+ | u_posang | float32 | degrees | Angle on the sky subtended by the major axis of the source and J2000 north in U |
+ | b_posang | float32 | degrees | Angle on the sky subtended by the major axis of the source and J2000 north in B |
+ | v_posang | float32 | degrees | Angle on the sky subtended by the major axis of the source and J2000 north in V |
+ | uvw2_quality_flag | int16 |  | UVW2 quality flag |
+ | uvm2_quality_flag | int16 |  | UVM2 quality flag |
+ | uvw1_quality_flag | int16 |  | UVW1 quality flag |
+ | u_quality_flag | int16 |  | U quality flag |
+ | b_quality_flag | int16 |  | B quality flag |
+ | v_quality_flag | int16 |  | V quality flag |
+ | uvw2_quality_flag_st | char[12] |  | Alternative UVW2 quality flag |
+ | uvm2_quality_flag_st | char[12] |  | Alternative UVM2 quality flag |
+ | uvw1_quality_flag_st | char[12] |  | Alternative UVW1 quality flag |
+ | u_quality_flag_st | char[12] |  | Alternative U quality flag |
+ | b_quality_flag_st | char[12] |  | Alternative B quality flag |
+ | v_quality_flag_st | char[12] |  | Alternative V quality flag |
+ | uvw2_extended_flag | int64 |  | Spatially extended flag in UVW2 |
+ | uvm2_extended_flag | int64 |  | Spatially extended flag in UVM2 |
+ | uvw1_extended_flag | int64 |  | Spatially extended flag in UVW1 |
+ | u_extended_flag | int64 |  | Spatially extended flag in U |
+ | b_extended_flag | int64 |  | Spatially extended flag in B |
+ | v_extended_flag | int64 |  | Spatially extended flag in V |
+ | uvw2_sky_image | char[4] |  | Flag for stakcked sky images in UVW2 |
+ | uvm2_sky_image | char[4] |  | Flag for stakcked sky images in UVM2 |
+ | uvw1_sky_image | char[4] |  | Flag for stakcked sky images in UVW1 |
+ | u_sky_image | char[4] |  | Flag for stakcked sky images in U |
+ | b_sky_image | char[4] |  | Flag for stakcked sky images in B |
+ | v_sky_image | char[4] |  | Flag for stakcked sky images in V |
+ | pk | int64 |  | Primary key |
 
 
 
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!

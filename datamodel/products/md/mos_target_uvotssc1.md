@@ -9,17 +9,17 @@ MOS Target Table: uvotssc1
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
 Version 1.1 of the Swift UVOT Serendipitous Source Catalogue (UVOTSSC). For full details, please see Page et al. (2015) at https://pos.sissa.it/233/037 and the online documentation at https://archive.stsci.edu/prepds/uvotssc/
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_target_uvotssc1-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
+$MOS_TARGET/[V_TARG]/mos_uvotssc1-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
 
 ### Releases
-DR18
+DR18, DR19
 
 ### Enviroments
 MOS_TARGET
@@ -36,14 +36,20 @@ sdss5db> targetdb, operations database server
 ### Is a VAC
 False
 
-### HDUS List for release DR18
+### Data Level
+2.3.3
+
+### HDUS List for release DR19
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: ](#hdu1)
+  - [HDU1](#hdu1)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR19
+   - from: DR18
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -64,102 +70,135 @@ Key | Value | Comment | |
 
 
 
-### HDU1:
+### HDU1: 
 MOS Target Table: uvotssc1
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  837 MB
+#### HDU Size:  920 MB
 
+##### Header Table Caption for HDU1
+Key | Value | Comment | |
+| --- | --- | --- | --- |
+| XTENSION | BINTABLE | binary table extension |
+| BITPIX | 8 | array data type |
+| NAXIS | 2 | number of array dimensions |
+| NAXIS1 | 553 | length of dimension 1 |
+| NAXIS2 | 1744891 | length of dimension 2 |
+| PCOUNT | 0 | number of group parameters |
+| GCOUNT | 1 | number of groups |
+| TFIELDS | 83 | number of table fields |
+| TNULL2 | -9223372036854775808 |  |
+| TNULL3 | -9223372036854775808 |  |
+| TNULL4 | -9223372036854775808 |  |
+| TNULL5 | -9223372036854775808 |  |
+| TNULL16 | -9223372036854775808 |  |
+| TNULL71 | -2147483648 |  |
+| TNULL72 | -2147483648 |  |
+| TNULL73 | -2147483648 |  |
+| TNULL74 | -2147483648 |  |
+| TNULL75 | -2147483648 |  |
+| TNULL76 | -2147483648 |  |
+| TNULL77 | -2147483648 |  |
+| TNULL78 | -2147483648 |  |
+| TNULL79 | -2147483648 |  |
+| TNULL80 | -2147483648 |  |
+| TNULL81 | -2147483648 |  |
+| TNULL82 | -2147483648 |  |
+| TNULL83 | -9223372036854775808 |  |
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | NAME | char[17] |  | UVOTSSC1 name (JHHMMSS.s+DDMMSSa) |
- | OSEQ | int64 |  | Reference number in the observation table |
- | OBSID | int64 |  | Unique Swift observation ID |
- | NF | int64 |  | Number of filters included in this observation |
- | SRCID | int64 |  | Unique source number |
- | RADEG | float64 | degrees | Right ascension |
- | DEDEG | float64 | degrees | Declination |
- | E_RADEG | float64 | arcsec | Right ascension error |
- | E_DEDEG | float64 | arcsec | Declination error |
- | RUVW2 | float32 | arcsec | Distance to closest UVW2 source |
- | RUVM2 | float32 | arcsec | Distance to closest UVM2 source |
- | RUVW1 | float32 | arcsec | Distance to closest UVW1 source |
- | RU | float32 | arcsec | Distance to closest U source |
- | RB | float32 | arcsec | Distance to closest B source |
- | RV | float32 | arcsec | Distance to closest V source |
- | ND | int64 |  | Number of individual observations |
- | SUVW2 | float32 |  | Significance (S/N) in UVW2 |
- | SUVM2 | float32 |  | Significance (S/N) in UVM2 |
- | SUVW1 | float32 |  | Significance (S/N) in UVW1 |
- | SU | float32 |  | Significance (S/N) in U |
- | SB | float32 |  | Significance (S/N) in B |
- | SV | float32 |  | Significance (S/N) in V |
- | UVW2 | float64 | mag | UVOT/UVW2 Vega magnitude |
- | UVM2 | float64 | mag | UVOT/UVM2 Vega magnitude |
- | UVW1 | float64 | mag | UVOT/UVW1 Vega magnitude |
- | UMAG | float64 | mag | UVOT/U Vega magnitude |
- | BMAG | float64 | mag | UVOT/B Vega magnitude |
- | VMAG | float64 | mag | UVOT/V Vega magnitude |
- | UVW2_AB | float64 | mag | UVOT/UVW2 AB magnitude |
- | UVM2_AB | float64 | mag | UVOT/UVM2 AB magnitude |
- | UVW1_AB | float64 | mag | UVOT/UVW1 AB magnitude |
- | U_AB | float64 | mag | UVOT/U AB magnitude |
- | B_AB | float64 | mag | UVOT/B AB magnitude |
- | V_AB | float64 | mag | UVOT/V AB magnitude |
- | E_UVW2 | float64 | mag | Error on UVW2 magnitude |
- | E_UVM2 | float64 | mag | Error on UVM2 magnitude |
- | E_UVW1 | float64 | mag | Error on UVW1 magnitude |
- | E_UMAG | float64 | mag | Error on U magnitude |
- | E_BMAG | float64 | mag | Error on B magnitude |
- | E_VMAG | float64 | mag | Error on V magnitude |
- | F_UVW2 | float64 | cW/m2/nm | UVOT/UVW2 Flux |
- | F_UVM2 | float64 | cW/m2/nm | UVOT/UVM2 Flux |
- | F_UVW1 | float64 | cW/m2/nm | UVOT/UVW1 Flux |
- | F_U | float64 | cW/m2/nm | UVOT/U Flux |
- | F_B | float64 | cW/m2/nm | UVOT/B Flux |
- | F_V | float64 | cW/m2/nm | UVOT/V Flux |
- | E_F_UVW2 | float64 | cW/m2/nm | Error on F.UVW2 |
- | E_F_UVM2 | float64 | cW/m2/nm | Error on F.UVM2 |
- | E_F_UVW1 | float64 | cW/m2/nm | Error on F.UVW1 |
- | E_F_U | float64 | cW/m2/nm | Error on F.U |
- | E_F_B | float64 | cW/m2/nm | Error on F.B |
- | E_F_V | float64 | cW/m2/nm | Error on F.V |
- | AUVW2 | float64 | arcsec | Major axis in UVW2 |
- | AUVM2 | float64 | arcsec | Major axis in UVM2 |
- | AUVW1 | float64 | arcsec | Major axis in UVW1 |
- | AU | float64 | arcsec | Major axis in U |
- | AB | float64 | arcsec | Major axis in B |
- | AV | float64 | arcsec | Major axis in V |
- | BUVW2 | float64 | arcsec | Minor axis in UVW2 |
- | BUVM2 | float64 | arcsec | Minor axis in UVM2 |
- | BUVW1 | float64 | arcsec | Minor axis in UVW1 |
- | BU | float64 | arcsec | Minor axis in U |
- | BB | float64 | arcsec | Minor axis in B |
- | BV | float64 | arcsec | Minor axis in V |
- | PAUVW2 | float32 | degrees | Position angle of major axis in UVW2 |
- | PAUVM2 | float32 | degrees | Position angle of major axis in UVM2 |
- | PAUVW1 | float32 | degrees | Position angle of major axis in UVW1 |
- | PAU | float32 | degrees | Position angle of major axis in U |
- | PAB | float32 | degrees | Position angle of major axis in B |
- | PAV | float32 | degrees | Position angle of major axis in V |
- | XUVW2 | int32 |  | Extended flag in UVW2 |
- | XUVM2 | int32 |  | Extended flag in UVM2 |
- | XUVW1 | int32 |  | Extended flag in UVW1 |
- | XU | int32 |  | Extended flag in U |
- | XB | int32 |  | Extended flag in B |
- | XV | int32 |  | Extended flag in V |
- | FUVW2 | int32 |  | Quality flags in UVW2 |
- | FUVM2 | int32 |  | Quality flags in UVM2 |
- | FUVW1 | int32 |  | Quality flags in UVW1 |
- | FU | int32 |  | Quality flags in U |
- | FB | int32 |  | Quality flags in B |
- | FV | int32 |  | Quality flags in V |
- | ID | int64 |  | Internal identifier |
+ | name | char[17] |  | UVOTSSC1 name (JHHMMSS.s+DDMMSSa) |
+ | oseq | int64 |  | Reference number in the observation table |
+ | obsid | int64 |  | Unique Swift observation ID |
+ | nf | int64 |  | Number of filters included in this observation |
+ | srcid | int64 |  | Unique source number |
+ | radeg | float64 | degrees | Right ascension |
+ | dedeg | float64 | degrees | Declination |
+ | e_radeg | float64 | arcsec | Right ascension error |
+ | e_dedeg | float64 | arcsec | Declination error |
+ | ruvw2 | float32 | arcsec | Distance to closest UVW2 source |
+ | ruvm2 | float32 | arcsec | Distance to closest UVM2 source |
+ | ruvw1 | float32 | arcsec | Distance to closest UVW1 source |
+ | ru | float32 | arcsec | Distance to closest U source |
+ | rb | float32 | arcsec | Distance to closest B source |
+ | rv | float32 | arcsec | Distance to closest V source |
+ | nd | int64 |  | Number of individual observations |
+ | suvw2 | float32 |  | Significance (S/N) in UVW2 |
+ | suvm2 | float32 |  | Significance (S/N) in UVM2 |
+ | suvw1 | float32 |  | Significance (S/N) in UVW1 |
+ | su | float32 |  | Significance (S/N) in U |
+ | sb | float32 |  | Significance (S/N) in B |
+ | sv | float32 |  | Significance (S/N) in V |
+ | uvw2 | float64 | mag | UVOT/UVW2 Vega magnitude |
+ | uvm2 | float64 | mag | UVOT/UVM2 Vega magnitude |
+ | uvw1 | float64 | mag | UVOT/UVW1 Vega magnitude |
+ | umag | float64 | mag | UVOT/U Vega magnitude |
+ | bmag | float64 | mag | UVOT/B Vega magnitude |
+ | vmag | float64 | mag | UVOT/V Vega magnitude |
+ | uvw2_ab | float64 | mag | UVOT/UVW2 AB magnitude |
+ | uvm2_ab | float64 | mag | UVOT/UVM2 AB magnitude |
+ | uvw1_ab | float64 | mag | UVOT/UVW1 AB magnitude |
+ | u_ab | float64 | mag | UVOT/U AB magnitude |
+ | b_ab | float64 | mag | UVOT/B AB magnitude |
+ | v_ab | float64 | mag | UVOT/V AB magnitude |
+ | e_uvw2 | float64 | mag | Error on UVW2 magnitude |
+ | e_uvm2 | float64 | mag | Error on UVM2 magnitude |
+ | e_uvw1 | float64 | mag | Error on UVW1 magnitude |
+ | e_umag | float64 | mag | Error on U magnitude |
+ | e_bmag | float64 | mag | Error on B magnitude |
+ | e_vmag | float64 | mag | Error on V magnitude |
+ | f_uvw2 | float64 | cW/m2/nm | UVOT/UVW2 Flux |
+ | f_uvm2 | float64 | cW/m2/nm | UVOT/UVM2 Flux |
+ | f_uvw1 | float64 | cW/m2/nm | UVOT/UVW1 Flux |
+ | f_u | float64 | cW/m2/nm | UVOT/U Flux |
+ | f_b | float64 | cW/m2/nm | UVOT/B Flux |
+ | f_v | float64 | cW/m2/nm | UVOT/V Flux |
+ | e_f_uvw2 | float64 | cW/m2/nm | Error on F.UVW2 |
+ | e_f_uvm2 | float64 | cW/m2/nm | Error on F.UVM2 |
+ | e_f_uvw1 | float64 | cW/m2/nm | Error on F.UVW1 |
+ | e_f_u | float64 | cW/m2/nm | Error on F.U |
+ | e_f_b | float64 | cW/m2/nm | Error on F.B |
+ | e_f_v | float64 | cW/m2/nm | Error on F.V |
+ | auvw2 | float64 | arcsec | Major axis in UVW2 |
+ | auvm2 | float64 | arcsec | Major axis in UVM2 |
+ | auvw1 | float64 | arcsec | Major axis in UVW1 |
+ | au | float64 | arcsec | Major axis in U |
+ | ab | float64 | arcsec | Major axis in B |
+ | av | float64 | arcsec | Major axis in V |
+ | buvw2 | float64 | arcsec | Minor axis in UVW2 |
+ | buvm2 | float64 | arcsec | Minor axis in UVM2 |
+ | buvw1 | float64 | arcsec | Minor axis in UVW1 |
+ | bu | float64 | arcsec | Minor axis in U |
+ | bb | float64 | arcsec | Minor axis in B |
+ | bv | float64 | arcsec | Minor axis in V |
+ | pauvw2 | float32 | degrees | Position angle of major axis in UVW2 |
+ | pauvm2 | float32 | degrees | Position angle of major axis in UVM2 |
+ | pauvw1 | float32 | degrees | Position angle of major axis in UVW1 |
+ | pau | float32 | degrees | Position angle of major axis in U |
+ | pab | float32 | degrees | Position angle of major axis in B |
+ | pav | float32 | degrees | Position angle of major axis in V |
+ | xuvw2 | int32 |  | Extended flag in UVW2 |
+ | xuvm2 | int32 |  | Extended flag in UVM2 |
+ | xuvw1 | int32 |  | Extended flag in UVW1 |
+ | xu | int32 |  | Extended flag in U |
+ | xb | int32 |  | Extended flag in B |
+ | xv | int32 |  | Extended flag in V |
+ | fuvw2 | int32 |  | Quality flags in UVW2 |
+ | fuvm2 | int32 |  | Quality flags in UVM2 |
+ | fuvw1 | int32 |  | Quality flags in UVW1 |
+ | fu | int32 |  | Quality flags in U |
+ | fb | int32 |  | Quality flags in B |
+ | fv | int32 |  | Quality flags in V |
+ | id | int64 |  | Internal identifier |
 
 
 
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!

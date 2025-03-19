@@ -9,17 +9,17 @@ MOS Target Table: gaia_dr2_wd
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
 White dwarf catalog of high-probablity WDs from Gentile Fusillo (2019) based on Gaia DR2. Please see https://academic.oup.com/mnras/article/482/4/4570/5162857 for more information on the columns.
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_target_gaia_dr2_wd-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
+$MOS_TARGET/[V_TARG]/mos_gaia_dr2_wd-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
 
 ### Releases
-DR18
+DR18, DR19
 
 ### Enviroments
 MOS_TARGET
@@ -36,14 +36,20 @@ sdss5db> targetdb, operations database server
 ### Is a VAC
 False
 
-### HDUS List for release DR18
+### Data Level
+2.3.3
+
+### HDUS List for release DR19
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: ](#hdu1)
+  - [HDU1](#hdu1)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR19
+   - from: DR18
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -64,76 +70,94 @@ Key | Value | Comment | |
 
 
 
-### HDU1:
+### HDU1: 
 MOS Target Table: gaia_dr2_wd
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  75 MB
+#### HDU Size:  76 MB
 
+##### Header Table Caption for HDU1
+Key | Value | Comment | |
+| --- | --- | --- | --- |
+| XTENSION | BINTABLE | binary table extension |
+| BITPIX | 8 | array data type |
+| NAXIS | 2 | number of array dimensions |
+| NAXIS1 | 330 | length of dimension 1 |
+| NAXIS2 | 243990 | length of dimension 2 |
+| PCOUNT | 0 | number of group parameters |
+| GCOUNT | 1 | number of groups |
+| TFIELDS | 57 | number of table fields |
+| TNULL3 | -9223372036854775808 |  |
+| TNULL4 | -2147483648 |  |
+| TNULL43 | -2147483648 |  |
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | WD | char[23] |  | WD names from this catalog -- WD J + J2000 ra (hh mm ss.ss) + dec (dd mm ss.s), equinox and epoch 2000 |
- | DR2NAME | char[28] |  | Unique Gaia source designation |
- | SOURCE_ID | int64 |  | Unique Gaia DR2 source identifier |
- | SOURCE | int32 |  | Internal identifier (do not use) |
- | RA | float64 | deg | Right ascension |
- | E_RA | float64 | mas | Standard error of right ascenscion |
- | DEC | float64 | deg | Declination |
- | E_DEC | float64 | mas | Standard error of declination |
- | PLX | float32 | mas | Absolute stellar parallax of the source at J2015.5 |
- | E_PLX | float32 | mas | Standard error of parallax |
- | PMRA | float64 | mas/yr | Proper motion in right ascension |
- | E_PMRA | float64 | mas/yr | Standard error of proper motion in right ascension |
- | PMDEC | float64 | mas/yr | Proper motion in right declination |
- | E_PMDEC | float64 | mas/yr | Standard error of proper motion in declination |
- | EPSI | float32 | mas | Measure of the residuals in the astrometric solution |
- | AMAX | float32 | mas | 5-dimensional equivalent to the semimajor axis of the Gaia position error ellipse |
- | FG_GAIA | float32 | e-/s | Gaia G-band mean flux |
- | E_FG_GAIA | float32 | e-/s | Error on G-band mean flux |
- | G_GAIA_MAG | float32 | mag | Gaia G-band mean magnitude |
- | FBP | float32 | e-/s | Integrated G_BP mean flux |
- | E_FBP | float32 | e-/s | Error on integrated G_BP mean flux |
- | BPMAG | float32 | mag | Integrated G_BP mean magnitude |
- | FRP | float32 | e-/s | Integrated G_RP mean flux |
- | E_FRP | float32 | e-/s | Error on integrated G_RP mean flux |
- | RPMAG | float32 | mag | Integrated G_RP mean magnitude |
- | E_BR_RP | float32 |  | G_BP/G_RP execess factor |
- | GLON | float64 | deg | Galactic longitude |
- | GLAT | float64 | deg | Galactic latitude |
- | DENSITY | float32 | sq.deg^-1 | Number of Gaia sources around this object |
- | AG | float32 | mag | Extinction in the Gaia G band derived from E(B − V) values from Schlafly and  Finkbeiner |
- | SDSS | char[19] |  | SDSS object name if available |
- | UMAG | float32 | mag | SDSS u-band magnitude |
- | E_UMAG | float32 | mag | SDSS u-band magnitude uncertainty |
- | GMAG | float32 | mag | SDSS g-band magnitude uncertainty |
- | E_GMAG | float32 | mag | SDSS g-band magnitude |
- | RMAG | float32 | mag | SDSS r-band magnitude uncertainty |
- | E_RMAG | float32 | mag | SDSS r-band magnitude |
- | IMAG | float32 | mag | SDSS i-band magnitude uncertainty |
- | E_IMAG | float32 | mag | SDSS i-band magnitude |
- | ZMAG | float32 | mag | SDSS z-band magnitude uncertainty |
- | E_ZMAG | float32 | mag | SDSS z-band magnitude |
- | PWD | float32 |  | Probability of being a white dwarf |
- | F_PWD | int32 |  | Flag on probability of being a white dwarf |
- | TEFFH | float32 | K | Effective temperature from fitting the dereddened G, GBP, and GRP absolute fluxes with pure-H model atmospheres |
- | E_TEFFH | float32 | K | Uncertainty on Teff from pure-H model atmospheres |
- | LOGGH | float32 | dex cgs | Surface gravity from fitting the dereddened G, GBP, and GRP absolute fluxes with pure-H model atmospheres |
- | E_LOGGH | float32 | dex cgs | Uncertainty on log g from pure-H model atmospheres |
- | MASSH | float32 | Solar masses | Stellar mass assuming pure-H model atmospheres |
- | E_MASSH | float32 | Solar masses | Uncertainty on the mass assuming pure-H model atmospheres |
- | CHI2H | float32 |  | Chi^2 value of the pure-H fit |
- | TEFFHE | float32 | K | Effective temperature from fitting the dereddened G, GBP, and GRP absolute fluxes with pure-He model atmospheres |
- | E_TEFFHE | float32 | K | Uncertainty on Teff from pure-He model atmospheres |
- | LOGGHE | float32 | dex cgs | Surface gravity from fitting the dereddened G, GBP, and GRP absolute fluxes with pure-He model atmospheres |
- | E_LOGGHE | float32 | dex cgs | Uncertainty on log g from pure-He model atmospheres |
- | MASSHE | float32 | Solar masses | Stellar mass assuming pure-He model atmospheres |
- | E_MASSHE | float32 | Solar masses | Uncertainty on the mass assuming pure-H model atmospheres |
- | CHISQHE | float32 |  | Chi^2 value of the pure-H fit |
+ | wd | char[23] |  | WD names from this catalog -- WD J + J2000 ra (hh mm ss.ss) + dec (dd mm ss.s), equinox and epoch 2000 |
+ | dr2name | char[28] |  | Unique Gaia source designation |
+ | source_id | int64 |  | Unique Gaia DR2 source identifier |
+ | source | int32 |  | Internal identifier (do not use) |
+ | ra | float64 | deg | Right ascension |
+ | e_ra | float64 | mas | Standard error of right ascenscion |
+ | dec | float64 | deg | Declination |
+ | e_dec | float64 | mas | Standard error of declination |
+ | plx | float32 | mas | Absolute stellar parallax of the source at J2015.5 |
+ | e_plx | float32 | mas | Standard error of parallax |
+ | pmra | float64 | mas/yr | Proper motion in right ascension |
+ | e_pmra | float64 | mas/yr | Standard error of proper motion in right ascension |
+ | pmdec | float64 | mas/yr | Proper motion in right declination |
+ | e_pmdec | float64 | mas/yr | Standard error of proper motion in declination |
+ | epsi | float32 | mas | Measure of the residuals in the astrometric solution |
+ | amax | float32 | mas | 5-dimensional equivalent to the semimajor axis of the Gaia position error ellipse |
+ | fg_gaia | float32 | e-/s | Gaia G-band mean flux |
+ | e_fg_gaia | float32 | e-/s | Error on G-band mean flux |
+ | g_gaia_mag | float32 | mag | Gaia G-band mean magnitude |
+ | fbp | float32 | e-/s | Integrated G_BP mean flux |
+ | e_fbp | float32 | e-/s | Error on integrated G_BP mean flux |
+ | bpmag | float32 | mag | Integrated G_BP mean magnitude |
+ | frp | float32 | e-/s | Integrated G_RP mean flux |
+ | e_frp | float32 | e-/s | Error on integrated G_RP mean flux |
+ | rpmag | float32 | mag | Integrated G_RP mean magnitude |
+ | e_br_rp | float32 |  | G_BP/G_RP execess factor |
+ | glon | float64 | deg | Galactic longitude |
+ | glat | float64 | deg | Galactic latitude |
+ | density | float32 | sq.deg^-1 | Number of Gaia sources around this object |
+ | ag | float32 | mag | Extinction in the Gaia G band derived from E(B − V) values from Schlafly and  Finkbeiner |
+ | sdss | char[19] |  | SDSS object name if available |
+ | umag | float32 | mag | SDSS u-band magnitude |
+ | e_umag | float32 | mag | SDSS u-band magnitude uncertainty |
+ | gmag | float32 | mag | SDSS g-band magnitude uncertainty |
+ | e_gmag | float32 | mag | SDSS g-band magnitude |
+ | rmag | float32 | mag | SDSS r-band magnitude uncertainty |
+ | e_rmag | float32 | mag | SDSS r-band magnitude |
+ | imag | float32 | mag | SDSS i-band magnitude uncertainty |
+ | e_imag | float32 | mag | SDSS i-band magnitude |
+ | zmag | float32 | mag | SDSS z-band magnitude uncertainty |
+ | e_zmag | float32 | mag | SDSS z-band magnitude |
+ | pwd | float32 |  | Probability of being a white dwarf |
+ | f_pwd | int32 |  | Flag on probability of being a white dwarf |
+ | teffh | float32 | K | Effective temperature from fitting the dereddened G, GBP, and GRP absolute fluxes with pure-H model atmospheres |
+ | e_teffh | float32 | K | Uncertainty on Teff from pure-H model atmospheres |
+ | loggh | float32 | dex cgs | Surface gravity from fitting the dereddened G, GBP, and GRP absolute fluxes with pure-H model atmospheres |
+ | e_loggh | float32 | dex cgs | Uncertainty on log g from pure-H model atmospheres |
+ | massh | float32 | Solar masses | Stellar mass assuming pure-H model atmospheres |
+ | e_massh | float32 | Solar masses | Uncertainty on the mass assuming pure-H model atmospheres |
+ | chi2h | float32 |  | Chi^2 value of the pure-H fit |
+ | teffhe | float32 | K | Effective temperature from fitting the dereddened G, GBP, and GRP absolute fluxes with pure-He model atmospheres |
+ | e_teffhe | float32 | K | Uncertainty on Teff from pure-He model atmospheres |
+ | logghe | float32 | dex cgs | Surface gravity from fitting the dereddened G, GBP, and GRP absolute fluxes with pure-He model atmospheres |
+ | e_logghe | float32 | dex cgs | Uncertainty on log g from pure-He model atmospheres |
+ | masshe | float32 | Solar masses | Stellar mass assuming pure-He model atmospheres |
+ | e_masshe | float32 | Solar masses | Uncertainty on the mass assuming pure-H model atmospheres |
+ | chisqhe | float32 |  | Chi^2 value of the pure-H fit |
 
 
 
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!

@@ -8,22 +8,27 @@ general:
   filesize: 75 MB
   releases:
   - DR18
+  - DR19
   environments:
   - MOS_TARGET
   surveys:
   - BHM
   - MWM
   - SDSS
-  naming_convention: $MOS_TARGET/[V_TARG]/mos_gaia_dr2_wd-[NUM].fits, where
-    V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
+  naming_convention: $MOS_TARGET/[V_TARG]/mos_gaia_dr2_wd-[NUM].fits, where V_TARG=1.0.1
+    for DR18; and NUM = 1..1 to partition the file into parts
   generated_by: sdss5db> targetdb, operations database server
   design: false
   vac: false
   recommended_science_product: false
+  data_level: 2.3.3
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
-  releases: {}
+  releases:
+    DR19:
+      from: DR18
+      note: No changes
 releases:
   DR18:
     template: $MOS_TARGET/[V_TARG]/mos_gaia_dr2_wd.fits
@@ -355,5 +360,371 @@ releases:
             type: float32
             unit: ''
             description: Chi^2 value of the pure-H fit
+  DR19:
+    template: $MOS_TARGET/[V_TARG]/mos_gaia_dr2_wd.fits
+    example: 1.0.2/mos_gaia_dr2_wd.fits
+    location: '{v_targ}/mos_gaia_dr2_wd.fits'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_gaia_dr2_wd
+      path_template: $MOS_TARGET/{v_targ}/mos_gaia_dr2_wd.fits
+      path_kwargs:
+      - v_targ
+      access_string: mos_target_gaia_dr2_wd = $MOS_TARGET/{v_targ}/mos_gaia_dr2_wd.fits
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Primary header
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: 'MOS Target Table: gaia_dr2_wd'
+        is_image: false
+        size: 76 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 330
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 243990
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 57
+          comment: number of table fields
+        - key: TNULL3
+          value: -9223372036854775808
+          comment: ''
+        - key: TNULL4
+          value: -2147483648
+          comment: ''
+        - key: TNULL43
+          value: -2147483648
+          comment: ''
+        columns:
+          wd:
+            name: wd
+            type: char[23]
+            unit: ''
+            description: "WD names from this catalog -- WD\u2009J + J2000 ra (hh mm\
+              \ ss.ss) + dec (dd mm ss.s), equinox and epoch 2000"
+          dr2name:
+            name: dr2name
+            type: char[28]
+            unit: ''
+            description: Unique Gaia source designation
+          source_id:
+            name: source_id
+            type: int64
+            unit: ''
+            description: Unique Gaia DR2 source identifier
+          source:
+            name: source
+            type: int32
+            unit: ''
+            description: Internal identifier (do not use)
+          ra:
+            name: ra
+            type: float64
+            unit: deg
+            description: Right ascension
+          e_ra:
+            name: e_ra
+            type: float64
+            unit: mas
+            description: Standard error of right ascenscion
+          dec:
+            name: dec
+            type: float64
+            unit: deg
+            description: Declination
+          e_dec:
+            name: e_dec
+            type: float64
+            unit: mas
+            description: Standard error of declination
+          plx:
+            name: plx
+            type: float32
+            unit: mas
+            description: Absolute stellar parallax of the source at J2015.5
+          e_plx:
+            name: e_plx
+            type: float32
+            unit: mas
+            description: Standard error of parallax
+          pmra:
+            name: pmra
+            type: float64
+            unit: mas/yr
+            description: Proper motion in right ascension
+          e_pmra:
+            name: e_pmra
+            type: float64
+            unit: mas/yr
+            description: Standard error of proper motion in right ascension
+          pmdec:
+            name: pmdec
+            type: float64
+            unit: mas/yr
+            description: Proper motion in right declination
+          e_pmdec:
+            name: e_pmdec
+            type: float64
+            unit: mas/yr
+            description: Standard error of proper motion in declination
+          epsi:
+            name: epsi
+            type: float32
+            unit: mas
+            description: Measure of the residuals in the astrometric solution
+          amax:
+            name: amax
+            type: float32
+            unit: mas
+            description: 5-dimensional equivalent to the semimajor axis of the Gaia
+              position error ellipse
+          fg_gaia:
+            name: fg_gaia
+            type: float32
+            unit: e-/s
+            description: Gaia G-band mean flux
+          e_fg_gaia:
+            name: e_fg_gaia
+            type: float32
+            unit: e-/s
+            description: Error on G-band mean flux
+          g_gaia_mag:
+            name: g_gaia_mag
+            type: float32
+            unit: mag
+            description: Gaia G-band mean magnitude
+          fbp:
+            name: fbp
+            type: float32
+            unit: e-/s
+            description: Integrated G_BP mean flux
+          e_fbp:
+            name: e_fbp
+            type: float32
+            unit: e-/s
+            description: Error on integrated G_BP mean flux
+          bpmag:
+            name: bpmag
+            type: float32
+            unit: mag
+            description: Integrated G_BP mean magnitude
+          frp:
+            name: frp
+            type: float32
+            unit: e-/s
+            description: Integrated G_RP mean flux
+          e_frp:
+            name: e_frp
+            type: float32
+            unit: e-/s
+            description: Error on integrated G_RP mean flux
+          rpmag:
+            name: rpmag
+            type: float32
+            unit: mag
+            description: Integrated G_RP mean magnitude
+          e_br_rp:
+            name: e_br_rp
+            type: float32
+            unit: ''
+            description: G_BP/G_RP execess factor
+          glon:
+            name: glon
+            type: float64
+            unit: deg
+            description: Galactic longitude
+          glat:
+            name: glat
+            type: float64
+            unit: deg
+            description: Galactic latitude
+          density:
+            name: density
+            type: float32
+            unit: sq.deg^-1
+            description: Number of Gaia sources around this object
+          ag:
+            name: ag
+            type: float32
+            unit: mag
+            description: "Extinction in the Gaia G band derived from E(B \u2212 V)\
+              \ values from Schlafly and  Finkbeiner"
+          sdss:
+            name: sdss
+            type: char[19]
+            unit: ''
+            description: SDSS object name if available
+          umag:
+            name: umag
+            type: float32
+            unit: mag
+            description: SDSS u-band magnitude
+          e_umag:
+            name: e_umag
+            type: float32
+            unit: mag
+            description: SDSS u-band magnitude uncertainty
+          gmag:
+            name: gmag
+            type: float32
+            unit: mag
+            description: SDSS g-band magnitude uncertainty
+          e_gmag:
+            name: e_gmag
+            type: float32
+            unit: mag
+            description: SDSS g-band magnitude
+          rmag:
+            name: rmag
+            type: float32
+            unit: mag
+            description: SDSS r-band magnitude uncertainty
+          e_rmag:
+            name: e_rmag
+            type: float32
+            unit: mag
+            description: SDSS r-band magnitude
+          imag:
+            name: imag
+            type: float32
+            unit: mag
+            description: SDSS i-band magnitude uncertainty
+          e_imag:
+            name: e_imag
+            type: float32
+            unit: mag
+            description: SDSS i-band magnitude
+          zmag:
+            name: zmag
+            type: float32
+            unit: mag
+            description: SDSS z-band magnitude uncertainty
+          e_zmag:
+            name: e_zmag
+            type: float32
+            unit: mag
+            description: SDSS z-band magnitude
+          pwd:
+            name: pwd
+            type: float32
+            unit: ''
+            description: Probability of being a white dwarf
+          f_pwd:
+            name: f_pwd
+            type: int32
+            unit: ''
+            description: Flag on probability of being a white dwarf
+          teffh:
+            name: teffh
+            type: float32
+            unit: K
+            description: Effective temperature from fitting the dereddened G, GBP,
+              and GRP absolute fluxes with pure-H model atmospheres
+          e_teffh:
+            name: e_teffh
+            type: float32
+            unit: K
+            description: Uncertainty on Teff from pure-H model atmospheres
+          loggh:
+            name: loggh
+            type: float32
+            unit: dex cgs
+            description: Surface gravity from fitting the dereddened G, GBP, and GRP
+              absolute fluxes with pure-H model atmospheres
+          e_loggh:
+            name: e_loggh
+            type: float32
+            unit: dex cgs
+            description: "Uncertainty on log\u2009g from pure-H model atmospheres"
+          massh:
+            name: massh
+            type: float32
+            unit: Solar masses
+            description: Stellar mass assuming pure-H model atmospheres
+          e_massh:
+            name: e_massh
+            type: float32
+            unit: Solar masses
+            description: Uncertainty on the mass assuming pure-H model atmospheres
+          chi2h:
+            name: chi2h
+            type: float32
+            unit: ''
+            description: Chi^2 value of the pure-H fit
+          teffhe:
+            name: teffhe
+            type: float32
+            unit: K
+            description: Effective temperature from fitting the dereddened G, GBP,
+              and GRP absolute fluxes with pure-He model atmospheres
+          e_teffhe:
+            name: e_teffhe
+            type: float32
+            unit: K
+            description: Uncertainty on Teff from pure-He model atmospheres
+          logghe:
+            name: logghe
+            type: float32
+            unit: dex cgs
+            description: Surface gravity from fitting the dereddened G, GBP, and GRP
+              absolute fluxes with pure-He model atmospheres
+          e_logghe:
+            name: e_logghe
+            type: float32
+            unit: dex cgs
+            description: "Uncertainty on log\u2009g from pure-He model atmospheres"
+          masshe:
+            name: masshe
+            type: float32
+            unit: Solar masses
+            description: Stellar mass assuming pure-He model atmospheres
+          e_masshe:
+            name: e_masshe
+            type: float32
+            unit: Solar masses
+            description: Uncertainty on the mass assuming pure-H model atmospheres
+          chisqhe:
+            name: chisqhe
+            type: float32
+            unit: ''
+            description: Chi^2 value of the pure-H fit
 notes: |-
   None
+regrets: |-
+  I have no regrets!

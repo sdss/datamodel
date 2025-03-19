@@ -9,17 +9,17 @@ MOS Target Table: cataclysmic_variables
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
 Gaia DR2 parameters for AAVSO cataclysmic variables from cataclysmic (explosive and novalike) variables (N, NA, NB, NC, NL, NR, SN, SNI, SNII, UG, UGSS, UGSU, UGZ, ZAND). VSX catalog downloaded in summer 2019 and then manually pruned.
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_target_cataclysmic_variables-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
+$MOS_TARGET/[V_TARG]/mos_cataclysmic_variables-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
 
 ### Releases
-DR18
+DR18, DR19
 
 ### Enviroments
 MOS_TARGET
@@ -36,14 +36,20 @@ sdss5db> targetdb, operations database server
 ### Is a VAC
 False
 
-### HDUS List for release DR18
+### Data Level
+2.3.3
+
+### HDUS List for release DR19
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: ](#hdu1)
+  - [HDU1](#hdu1)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR19
+   - from: DR18
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -64,114 +70,149 @@ Key | Value | Comment | |
 
 
 
-### HDU1:
+### HDU1: 
 MOS Target Table: cataclysmic_variables
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  3 MB
 
+##### Header Table Caption for HDU1
+Key | Value | Comment | |
+| --- | --- | --- | --- |
+| XTENSION | BINTABLE | binary table extension |
+| BITPIX | 8 | array data type |
+| NAXIS | 2 | number of array dimensions |
+| NAXIS1 | 635 | length of dimension 1 |
+| NAXIS2 | 5167 | length of dimension 2 |
+| PCOUNT | 0 | number of group parameters |
+| GCOUNT | 1 | number of groups |
+| TFIELDS | 95 | number of table fields |
+| TNULL1 | -9223372036854775808 |  |
+| TNULL2 | -9223372036854775808 |  |
+| TNULL4 | -9223372036854775808 |  |
+| TNULL5 | -2147483648 |  |
+| TNULL28 | -32768 |  |
+| TNULL29 | -32768 |  |
+| TNULL30 | -32768 |  |
+| TNULL31 | -32768 |  |
+| TNULL36 | -32768 |  |
+| TNULL42 | -32768 |  |
+| TNULL43 | -32768 |  |
+| TNULL45 | -32768 |  |
+| TNULL46 | -32768 |  |
+| TNULL48 | -32768 |  |
+| TNULL53 | -32768 |  |
+| TNULL58 | -32768 |  |
+| TNULL64 | -32768 |  |
+| TNULL70 | -32768 |  |
+| TNULL79 | -2147483648 |  |
+| TNULL89 | -2147483648 |  |
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | REF_ID | int64 |  | same as source_id |
- | SOLUTION_ID | int64 |  | ID that identifies the version of all the subsystems that were used in the generation of the data as well as the input data used |
- | DESIGNATION | char[28] |  | Unique source designation across all Gaia data releases |
- | SOURCE_ID | int64 |  | Unique source identifier within a particular Gaia data release |
- | RANDOM_INDEX | int32 |  | Random index which can be used to select smaller subsets of the data |
- | REF_EPOCH | float32 | Julian Years | Time |
- | RA | float64 | degrees | Right Ascension |
- | RA_ERROR | float64 | degrees | Standard error of the right ascension |
- | DEC | float64 | degrees | Declination |
- | DEC_ERROR | float64 | degrees | Standard error of the declination |
- | PARALLAX | float64 | mas | Absolute stellar parallax of the source at the reference epoch |
- | PARALLAX_ERROR | float64 | mas | Standard error of parallax |
- | PARALLAX_OVER_ERROR | float64 |  | Parallax divided by its error |
- | PMRA | float64 | mas/yr | Proper motion in right ascension direction |
- | PMRA_ERROR | float64 | mas/yr | Standard error of proper motion in right ascension direction |
- | PMDEC | float64 | mas/yr | Proper motion in declination direction |
- | PMDEC_ERROR | float64 | mas/yr | Standard error of proper motion in declination direction |
- | RA_DEC_CORR | float64 |  | Correlation between right ascension and declination |
- | RA_PARALLAX_CORR | float64 |  | Correlation between right ascension and parallax |
- | RA_PMRA_CORR | float64 |  | Correlation between right ascension and proper motion in right ascension |
- | RA_PMDEC_CORR | float64 |  | Correlation between right ascension and proper motion in declination |
- | DEC_PARALLAX_CORR | float64 |  | Correlation between declination and parallax |
- | DEC_PMRA_CORR | float64 |  | Correlation between declination and proper motion in right ascension |
- | DEC_PMDEC_CORR | float64 |  | Correlation between declination and proper motion in declination |
- | PARALLAX_PMRA_CORR | float64 |  | Correlation between parallax and proper motion in right ascension |
- | PARALLAX_PMDEC_CORR | float64 |  | Correlation between parallax and proper motion in declination |
- | PMRA_PMDEC_CORR | float64 |  | Correlation between proper motion in right ascension and proper motion in declination |
- | ASTROMETRIC_N_OBS_AL | int16 |  | Total number of observations AL |
- | ASTROMETRIC_N_OBS_AC | int16 |  | Total number of observations AC |
- | ASTROMETRIC_N_GOOD_OBS_AL | int16 |  | Number of good observations AL |
- | ASTROMETRIC_N_BAD_OBS_AL | int16 |  | Number of bad observations AL |
- | ASTROMETRIC_GOF_AL | float64 |  | Goodness of fit statistic of model wrt along-scan observations |
- | ASTROMETRIC_CHI2_AL | float64 |  | AL chi-square value |
- | ASTROMETRIC_EXCESS_NOISE | float64 | mas | Excess noise of the source |
- | ASTROMETRIC_EXCESS_NOISE_SIG | float64 |  | Significance of excess noise |
- | ASTROMETRIC_PARAMS_SOLVED | int16 |  | Which parameters have been solved for |
- | ASTROMETRIC_PRIMARY_FLAG | bool |  | Flag indicating if this source was used as a primary source (true) or secondary source (false) |
- | ASTROMETRIC_WEIGHT_AL | float64 | mas^-2 | Mean astrometric weight of the source |
- | ASTROMETRIC_PSEUDO_COLOUR | float64 | um^-1 | Astrometrically determined pseudocolour of the source |
- | ASTROMETRIC_PSEUDO_COLOUR_ERROR | float64 | um^-1 | Standard error of the pseudocolour of the source |
- | MEAN_VARPI_FACTOR_AL | float64 |  | Mean Parallax factor AL |
- | ASTROMETRIC_MATCHED_OBSERVATIONS | int16 |  | number of FOV transits matched to this source |
- | VISIBILITY_PERIODS_USED | int16 |  | Number of visibility periods used in the astrometric solution |
- | ASTROMETRIC_SIGMA5D_MAX | float64 | mas | Longest semi-major axis of the 5-d error ellipsoid |
- | FRAME_ROTATOR_OBJECT_TYPE | int16 |  | Type of the source mainly used for frame rotation |
- | MATCHED_OBSERVATIONS | int16 |  | Total number of FOV transits matched to this source |
- | DUPLICATED_SOURCE | bool |  | Source with duplicate sources |
- | PHOT_G_N_OBS | int16 |  | Number of observations contributing to G photometry |
- | PHOT_G_MEAN_FLUX | float64 | e-/s | G-band mean flux |
- | PHOT_G_MEAN_FLUX_ERROR | float64 | e-/s | Error on G-band mean flux |
- | PHOT_G_MEAN_FLUX_OVER_ERROR | float64 |  | G-band mean flux divided by its error |
- | PHOT_G_MEAN_MAG | float64 | mag | G-band mean magnitude |
- | PHOT_BP_N_OBS | int16 |  | Number of observations contributing to BP photometry |
- | PHOT_BP_MEAN_FLUX | float64 | e-/s | Integrated BP mean flux |
- | PHOT_BP_MEAN_FLUX_ERROR | float64 | e-/s | Error on the integrated BP mean flux |
- | PHOT_BP_MEAN_FLUX_OVER_ERROR | float64 |  | Integrated BP mean flux divided by its error |
- | PHOT_BP_MEAN_MAG | float64 | mag | Integrated BP mean magnitude |
- | PHOT_RP_N_OBS | int16 |  | Number of observations contributing to RP photometry |
- | PHOT_RP_MEAN_FLUX | float64 | e-/s | Integrated RP mean flux |
- | PHOT_RP_MEAN_FLUX_ERROR | float64 | e-/s | Error on the integrated RP mean flux |
- | PHOT_RP_MEAN_FLUX_OVER_ERROR | float64 |  | Integrated RP mean flux divided by its error |
- | PHOT_RP_MEAN_MAG | float64 | mag | Integrated RP mean magnitude |
- | PHOT_BP_RP_EXCESS_FACTOR | float64 |  | BP/RP excess factor |
- | PHOT_PROC_MODE | int16 |  | Photometry processing mode |
- | BP_RP | float64 | mag | BP - RP color |
- | BP_G | float64 | mag | BP - G color |
- | G_RP | float64 | mag | G - RP color |
- | RADIAL_VELOCITY | float64 | km/s | Radial velocity |
- | RADIAL_VELOCITY_ERROR | float64 | km/s | Radial velocity error |
- | RV_NB_TRANSITS | int16 |  | Number of transits used to compute radial velocity |
- | RV_TEMPLATE_TEFF | float32 | K | Teff of the template used to compute radial velocity |
- | RV_TEMPLATE_LOGG | float32 | log cgs | logg of the template used to compute radial velocity |
- | RV_TEMPLATE_FE_H | float32 | dex | Fe/H of the template used to compute radial velocity |
- | PHOT_VARIABLE_FLAG | char[13] |  | Photometric variability flag |
- | L | float64 | degrees | Galactic longitude |
- | B | float64 | degrees | Galactic latitude |
- | ECL_LON | float64 | degrees | Ecliptic longitude |
- | ECL_LAT | float64 | degrees | Ecliptic latitude |
- | PRIAM_FLAGS | int32 |  | Flags for the Apsis-Priam results |
- | TEFF_VAL | float64 | K | Stellar effective temperature |
- | TEFF_PERCENTILE_LOWER | float64 | K | Teff_val lower uncertainty |
- | TEFF_PERCENTILE_UPPER | float64 | K | Teff_val upper uncertainty |
- | A_G_VAL | float32 | mag | Line-of-sight extinction in the G band |
- | A_G_PERCENTILE_LOWER | float32 | mag | A_g_val lower uncertainty |
- | A_G_PERCENTILE_UPPER | float32 | mag | A_g_val upper uncertainty |
- | E_BP_MIN_RP_VAL | float32 | mag | Line-of-sight reddening E(BP-RP) |
- | E_BP_MIN_RP_PERCENTILE_LOWER | float32 | mag | e_bp_min_rp_val lower uncertainty |
- | E_BP_MIN_RP_PERCENTILE_UPPER | float32 | mag | e_bp_min_rp_val upper uncertainty |
- | FLAME_FLAGS | int32 |  | Flags for the Apsis-FLAME results |
- | RADIUS_VAL | float64 | Solar Radius | Stellar radius |
- | RADIUS_PERCENTILE_LOWER | float64 | Solar Radius | Radius_val lower uncertainty |
- | RADIUS_PERCENTILE_UPPER | float64 | Solar Radius | Radius_val upper uncertainty |
- | LUM_VAL | float64 | Solar Luminosity | stellar luminosity |
- | LUM_PERCENTILE_LOWER | float64 | Solar Luminosity | lum_val lower uncertainty |
- | LUM_PERCENTILE_UPPER | float64 | Solar Luminosity | lum_val upper uncertainty |
+ | ref_id | int64 |  | same as source_id |
+ | solution_id | int64 |  | ID that identifies the version of all the subsystems that were used in the generation of the data as well as the input data used |
+ | designation | char[28] |  | Unique source designation across all Gaia data releases |
+ | source_id | int64 |  | Unique source identifier within a particular Gaia data release |
+ | random_index | int32 |  | Random index which can be used to select smaller subsets of the data |
+ | ref_epoch | float32 | Julian Years | Time |
+ | ra | float64 | degrees | Right Ascension |
+ | ra_error | float64 | degrees | Standard error of the right ascension |
+ | dec | float64 | degrees | Declination |
+ | dec_error | float64 | degrees | Standard error of the declination |
+ | parallax | float64 | mas | Absolute stellar parallax of the source at the reference epoch |
+ | parallax_error | float64 | mas | Standard error of parallax |
+ | parallax_over_error | float64 |  | Parallax divided by its error |
+ | pmra | float64 | mas/yr | Proper motion in right ascension direction |
+ | pmra_error | float64 | mas/yr | Standard error of proper motion in right ascension direction |
+ | pmdec | float64 | mas/yr | Proper motion in declination direction |
+ | pmdec_error | float64 | mas/yr | Standard error of proper motion in declination direction |
+ | ra_dec_corr | float64 |  | Correlation between right ascension and declination |
+ | ra_parallax_corr | float64 |  | Correlation between right ascension and parallax |
+ | ra_pmra_corr | float64 |  | Correlation between right ascension and proper motion in right ascension |
+ | ra_pmdec_corr | float64 |  | Correlation between right ascension and proper motion in declination |
+ | dec_parallax_corr | float64 |  | Correlation between declination and parallax |
+ | dec_pmra_corr | float64 |  | Correlation between declination and proper motion in right ascension |
+ | dec_pmdec_corr | float64 |  | Correlation between declination and proper motion in declination |
+ | parallax_pmra_corr | float64 |  | Correlation between parallax and proper motion in right ascension |
+ | parallax_pmdec_corr | float64 |  | Correlation between parallax and proper motion in declination |
+ | pmra_pmdec_corr | float64 |  | Correlation between proper motion in right ascension and proper motion in declination |
+ | astrometric_n_obs_al | int16 |  | Total number of observations AL |
+ | astrometric_n_obs_ac | int16 |  | Total number of observations AC |
+ | astrometric_n_good_obs_al | int16 |  | Number of good observations AL |
+ | astrometric_n_bad_obs_al | int16 |  | Number of bad observations AL |
+ | astrometric_gof_al | float64 |  | Goodness of fit statistic of model wrt along-scan observations |
+ | astrometric_chi2_al | float64 |  | AL chi-square value |
+ | astrometric_excess_noise | float64 | mas | Excess noise of the source |
+ | astrometric_excess_noise_sig | float64 |  | Significance of excess noise |
+ | astrometric_params_solved | int16 |  | Which parameters have been solved for |
+ | astrometric_primary_flag | bool |  | Flag indicating if this source was used as a primary source (true) or secondary source (false) |
+ | astrometric_weight_al | float64 | mas^-2 | Mean astrometric weight of the source |
+ | astrometric_pseudo_colour | float64 | um^-1 | Astrometrically determined pseudocolour of the source |
+ | astrometric_pseudo_colour_error | float64 | um^-1 | Standard error of the pseudocolour of the source |
+ | mean_varpi_factor_al | float64 |  | Mean Parallax factor AL |
+ | astrometric_matched_observations | int16 |  | number of FOV transits matched to this source |
+ | visibility_periods_used | int16 |  | Number of visibility periods used in the astrometric solution |
+ | astrometric_sigma5d_max | float64 | mas | Longest semi-major axis of the 5-d error ellipsoid |
+ | frame_rotator_object_type | int16 |  | Type of the source mainly used for frame rotation |
+ | matched_observations | int16 |  | Total number of FOV transits matched to this source |
+ | duplicated_source | bool |  | Source with duplicate sources |
+ | phot_g_n_obs | int16 |  | Number of observations contributing to G photometry |
+ | phot_g_mean_flux | float64 | e-/s | G-band mean flux |
+ | phot_g_mean_flux_error | float64 | e-/s | Error on G-band mean flux |
+ | phot_g_mean_flux_over_error | float64 |  | G-band mean flux divided by its error |
+ | phot_g_mean_mag | float64 | mag | G-band mean magnitude |
+ | phot_bp_n_obs | int16 |  | Number of observations contributing to BP photometry |
+ | phot_bp_mean_flux | float64 | e-/s | Integrated BP mean flux |
+ | phot_bp_mean_flux_error | float64 | e-/s | Error on the integrated BP mean flux |
+ | phot_bp_mean_flux_over_error | float64 |  | Integrated BP mean flux divided by its error |
+ | phot_bp_mean_mag | float64 | mag | Integrated BP mean magnitude |
+ | phot_rp_n_obs | int16 |  | Number of observations contributing to RP photometry |
+ | phot_rp_mean_flux | float64 | e-/s | Integrated RP mean flux |
+ | phot_rp_mean_flux_error | float64 | e-/s | Error on the integrated RP mean flux |
+ | phot_rp_mean_flux_over_error | float64 |  | Integrated RP mean flux divided by its error |
+ | phot_rp_mean_mag | float64 | mag | Integrated RP mean magnitude |
+ | phot_bp_rp_excess_factor | float64 |  | BP/RP excess factor |
+ | phot_proc_mode | int16 |  | Photometry processing mode |
+ | bp_rp | float64 | mag | BP - RP color |
+ | bp_g | float64 | mag | BP - G color |
+ | g_rp | float64 | mag | G - RP color |
+ | radial_velocity | float64 | km/s | Radial velocity |
+ | radial_velocity_error | float64 | km/s | Radial velocity error |
+ | rv_nb_transits | int16 |  | Number of transits used to compute radial velocity |
+ | rv_template_teff | float32 | K | Teff of the template used to compute radial velocity |
+ | rv_template_logg | float32 | log cgs | logg of the template used to compute radial velocity |
+ | rv_template_fe_h | float32 | dex | Fe/H of the template used to compute radial velocity |
+ | phot_variable_flag | char[13] |  | Photometric variability flag |
+ | l | float64 | degrees | Galactic longitude |
+ | b | float64 | degrees | Galactic latitude |
+ | ecl_lon | float64 | degrees | Ecliptic longitude |
+ | ecl_lat | float64 | degrees | Ecliptic latitude |
+ | priam_flags | int32 |  | Flags for the Apsis-Priam results |
+ | teff_val | float64 | K | Stellar effective temperature |
+ | teff_percentile_lower | float64 | K | Teff_val lower uncertainty |
+ | teff_percentile_upper | float64 | K | Teff_val upper uncertainty |
+ | a_g_val | float32 | mag | Line-of-sight extinction in the G band |
+ | a_g_percentile_lower | float32 | mag | A_g_val lower uncertainty |
+ | a_g_percentile_upper | float32 | mag | A_g_val upper uncertainty |
+ | e_bp_min_rp_val | float32 | mag | Line-of-sight reddening E(BP-RP) |
+ | e_bp_min_rp_percentile_lower | float32 | mag | e_bp_min_rp_val lower uncertainty |
+ | e_bp_min_rp_percentile_upper | float32 | mag | e_bp_min_rp_val upper uncertainty |
+ | flame_flags | int32 |  | Flags for the Apsis-FLAME results |
+ | radius_val | float64 | Solar Radius | Stellar radius |
+ | radius_percentile_lower | float64 | Solar Radius | Radius_val lower uncertainty |
+ | radius_percentile_upper | float64 | Solar Radius | Radius_val upper uncertainty |
+ | lum_val | float64 | Solar Luminosity | stellar luminosity |
+ | lum_percentile_lower | float64 | Solar Luminosity | lum_val lower uncertainty |
+ | lum_percentile_upper | float64 | Solar Luminosity | lum_val upper uncertainty |
 
 
 
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!

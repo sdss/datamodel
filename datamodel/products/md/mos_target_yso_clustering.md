@@ -9,17 +9,17 @@ MOS Target Table: yso_clustering
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
 YSO candidates from Kounkel et al. 2020. Please see details in the original paper: https://iopscience.iop.org/article/10.3847/1538-3881/abc0e6
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_target_yso_clustering-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
+$MOS_TARGET/[V_TARG]/mos_yso_clustering-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
 
 ### Releases
-DR18
+DR18, DR19
 
 ### Enviroments
 MOS_TARGET
@@ -36,14 +36,20 @@ sdss5db> targetdb, operations database server
 ### Is a VAC
 False
 
-### HDUS List for release DR18
+### Data Level
+2.3.3
+
+### HDUS List for release DR19
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: ](#hdu1)
+  - [HDU1](#hdu1)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR19
+   - from: DR18
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -64,37 +70,54 @@ Key | Value | Comment | |
 
 
 
-### HDU1:
+### HDU1: 
 MOS Target Table: yso_clustering
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  100 MB
 
+##### Header Table Caption for HDU1
+Key | Value | Comment | |
+| --- | --- | --- | --- |
+| XTENSION | BINTABLE | binary table extension |
+| BITPIX | 8 | array data type |
+| NAXIS | 2 | number of array dimensions |
+| NAXIS1 | 133 | length of dimension 1 |
+| NAXIS2 | 791219 | length of dimension 2 |
+| PCOUNT | 0 | number of group parameters |
+| GCOUNT | 1 | number of groups |
+| TFIELDS | 18 | number of table fields |
+| TNULL1 | -9223372036854775808 |  |
+| TNULL6 | -2147483648 |  |
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | SOURCE_ID | int64 |  | Gaia DR2 source id |
- | TWOMASS | char[17] |  | 2MASS ID |
- | RA | float64 | degrees | Right ascention in J2000 reference frame |
- | DEC | float64 | degrees | Declination in J2000 reference frame |
- | PARALLAX | float32 | mas | Parallax from Gaia DR2 |
- | ID | int32 |  | Identification of a parent group from Kounkel et al. (2020) |
- | G | float64 | mag | Gaia (DR2) G band magnitude |
- | BP | float64 | mag | Gaia (DR2) BP band magnitude |
- | RP | float64 | mag | Gaia (DR2) RP band magnitude |
- | J | float32 | mag | 2MASS J band magnitude |
- | H | float32 | mag | 2MASS H band magnitude |
- | K | float32 | mag | 2MASS K band magnitude |
- | AGE | float64 | log yr | Estimate of the age of the parent group from Kounkel et al. (2020) |
- | EAGE | float64 | log yr | Uncertainty in age |
- | AV | float64 | mag | Estimate of extinction of the parent group from Kounkel et al. (2020) |
- | EAV | float64 | mag | Uncertainty in av |
- | DIST | float64 | pc | Estimate of distance of the parent group from Kounkel et al. (2020) |
- | EDIST | float64 | pc | Uncertainty in dist |
+ | source_id | int64 |  | Gaia DR2 source id |
+ | twomass | char[17] |  | 2MASS ID |
+ | ra | float64 | degrees | Right ascention in J2000 reference frame |
+ | dec | float64 | degrees | Declination in J2000 reference frame |
+ | parallax | float32 | mas | Parallax from Gaia DR2 |
+ | id | int32 |  | Identification of a parent group from Kounkel et al. (2020) |
+ | g | float64 | mag | Gaia (DR2) G band magnitude |
+ | bp | float64 | mag | Gaia (DR2) BP band magnitude |
+ | rp | float64 | mag | Gaia (DR2) RP band magnitude |
+ | j | float32 | mag | 2MASS J band magnitude |
+ | h | float32 | mag | 2MASS H band magnitude |
+ | k | float32 | mag | 2MASS K band magnitude |
+ | age | float64 | log yr | Estimate of the age of the parent group from Kounkel et al. (2020) |
+ | eage | float64 | log yr | Uncertainty in age |
+ | av | float64 | mag | Estimate of extinction of the parent group from Kounkel et al. (2020) |
+ | eav | float64 | mag | Uncertainty in av |
+ | dist | float64 | pc | Estimate of distance of the parent group from Kounkel et al. (2020) |
+ | edist | float64 | pc | Uncertainty in dist |
 
 
 
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!

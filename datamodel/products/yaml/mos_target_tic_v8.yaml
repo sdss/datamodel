@@ -8,6 +8,7 @@ general:
   filesize: 1 GB
   releases:
   - DR18
+  - DR19
   environments:
   - MOS_TARGET
   surveys:
@@ -20,10 +21,14 @@ general:
   design: false
   vac: false
   recommended_science_product: false
+  data_level: 2.3.3
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
-  releases: {}
+  releases:
+    DR19:
+      from: DR18
+      note: No changes
 releases:
   DR18:
     template: $MOS_TARGET/[V_TARG]/mos_tic_v8-[NUM].fits
@@ -715,5 +720,764 @@ releases:
             type: int64
             unit: ''
             description: ALLWISE ID (integer). Not originally in TIC v8.
+  DR19:
+    template: $MOS_TARGET/[V_TARG]/mos_tic_v8-[NUM].fits
+    example: 1.0.2/mos_tic_v8-01.fits
+    location: '{v_targ}/mos_tic_v8-{num}.fits'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_tic_v8
+      path_template: $MOS_TARGET/{v_targ}/mos_tic_v8-{num}.fits
+      path_kwargs:
+      - v_targ
+      - num
+      access_string: mos_target_tic_v8 = $MOS_TARGET/{v_targ}/mos_tic_v8-{num}.fits
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Primary header
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: 'MOS Target Table: tic_v8'
+        is_image: false
+        size: 1 GB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 726
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 2000000
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 130
+          comment: number of table fields
+        - key: TNULL1
+          value: -9223372036854775808
+          comment: ''
+        - key: TNULL3
+          value: -2147483648
+          comment: ''
+        - key: TNULL7
+          value: -9223372036854775808
+          comment: ''
+        - key: TNULL11
+          value: -2147483648
+          comment: ''
+        - key: TNULL84
+          value: -2147483648
+          comment: ''
+        - key: TNULL87
+          value: -9223372036854775808
+          comment: ''
+        - key: TNULL112
+          value: -2147483648
+          comment: ''
+        - key: TNULL123
+          value: -2147483648
+          comment: ''
+        - key: TNULL124
+          value: -2147483648
+          comment: ''
+        - key: TNULL125
+          value: -9223372036854775808
+          comment: ''
+        - key: TNULL126
+          value: -9223372036854775808
+          comment: ''
+        - key: TNULL128
+          value: -2147483648
+          comment: ''
+        - key: TNULL129
+          value: -2147483648
+          comment: ''
+        - key: TNULL130
+          value: -9223372036854775808
+          comment: ''
+        columns:
+          id:
+            name: id
+            type: int64
+            unit: ''
+            description: TESS Input Catalog identifier
+          version:
+            name: version
+            type: char[8]
+            unit: ''
+            description: Version Identifier for this entry (yyyymmdd)
+          hip:
+            name: hip
+            type: int32
+            unit: ''
+            description: Hipparcos Identifier
+          tyc:
+            name: tyc
+            type: char[12]
+            unit: ''
+            description: Tycho2 Identifier
+          ucac:
+            name: ucac
+            type: char[10]
+            unit: ''
+            description: UCAC4 Identifier
+          twomass:
+            name: twomass
+            type: char[17]
+            unit: ''
+            description: 2MASS Identifier
+          sdss:
+            name: sdss
+            type: int64
+            unit: ''
+            description: SDSS DR9 Identifier
+          allwise:
+            name: allwise
+            type: char[19]
+            unit: ''
+            description: AllWISE Identifier
+          gaia:
+            name: gaia
+            type: char[19]
+            unit: ''
+            description: Gaia DR2 Identifier (source_id, string representation)
+          apass:
+            name: apass
+            type: char[8]
+            unit: ''
+            description: APASS Identifier
+          kic:
+            name: kic
+            type: int32
+            unit: ''
+            description: KIC Identifier
+          objtype:
+            name: objtype
+            type: char[4]
+            unit: ''
+            description: Object Type
+          typesrc:
+            name: typesrc
+            type: char[7]
+            unit: ''
+            description: Source of the object
+          ra:
+            name: ra
+            type: float64
+            unit: degrees
+            description: Right Ascension epoch 2000
+          dec:
+            name: dec
+            type: float64
+            unit: degrees
+            description: Declination epoch 2000
+          posflag:
+            name: posflag
+            type: char[7]
+            unit: ''
+            description: Source of the position
+          pmra:
+            name: pmra
+            type: float32
+            unit: mas/yr
+            description: Proper Motion in Right Ascension
+          e_pmra:
+            name: e_pmra
+            type: float32
+            unit: mas/yr
+            description: Uncertainty in PM Right Ascension
+          pmdec:
+            name: pmdec
+            type: float32
+            unit: mas/yr
+            description: Proper Motion in Declination
+          e_pmdec:
+            name: e_pmdec
+            type: float32
+            unit: mas/yr
+            description: Uncertainty in PM Declination
+          pmflag:
+            name: pmflag
+            type: char[6]
+            unit: ''
+            description: Source of the Proper Motion
+          plx:
+            name: plx
+            type: float32
+            unit: mas
+            description: Parallax
+          e_plx:
+            name: e_plx
+            type: float32
+            unit: mas
+            description: Error in the parallax
+          parflag:
+            name: parflag
+            type: char[5]
+            unit: ''
+            description: Source of the parallax
+          gallong:
+            name: gallong
+            type: float64
+            unit: degrees
+            description: Galactic Longitude
+          gallat:
+            name: gallat
+            type: float64
+            unit: degrees
+            description: Galactic Latitude
+          eclong:
+            name: eclong
+            type: float64
+            unit: degrees
+            description: Ecliptic Longitude
+          eclat:
+            name: eclat
+            type: float64
+            unit: degrees
+            description: Ecliptic Latitude
+          bmag:
+            name: bmag
+            type: float32
+            unit: mag
+            description: Johnson B
+          e_bmag:
+            name: e_bmag
+            type: float32
+            unit: mag
+            description: Uncertainty in Johnson B
+          vmag:
+            name: vmag
+            type: float32
+            unit: mag
+            description: Johnson V
+          e_vmag:
+            name: e_vmag
+            type: float32
+            unit: mag
+            description: Uncertainty in Johnson V
+          umag:
+            name: umag
+            type: float32
+            unit: mag
+            description: Sloan u
+          e_umag:
+            name: e_umag
+            type: float32
+            unit: mag
+            description: Uncertainty in Sloan u
+          gmag:
+            name: gmag
+            type: float32
+            unit: mag
+            description: Sloan g
+          e_gmag:
+            name: e_gmag
+            type: float32
+            unit: mag
+            description: Uncertainty in Sloan g
+          rmag:
+            name: rmag
+            type: float32
+            unit: mag
+            description: Sloan r
+          e_rmag:
+            name: e_rmag
+            type: float32
+            unit: mag
+            description: Uncertainty in Sloan r
+          imag:
+            name: imag
+            type: float32
+            unit: mag
+            description: Sloan i
+          e_imag:
+            name: e_imag
+            type: float32
+            unit: mag
+            description: Uncertainty in Sloan i
+          zmag:
+            name: zmag
+            type: float32
+            unit: mag
+            description: Sloan z
+          e_zmag:
+            name: e_zmag
+            type: float32
+            unit: mag
+            description: Uncertainty in Sloan z
+          jmag:
+            name: jmag
+            type: float32
+            unit: mag
+            description: 2MASS J
+          e_jmag:
+            name: e_jmag
+            type: float32
+            unit: mag
+            description: Uncertainty in 2MASS J
+          hmag:
+            name: hmag
+            type: float32
+            unit: mag
+            description: 2MASS H
+          e_hmag:
+            name: e_hmag
+            type: float32
+            unit: mag
+            description: Uncertainty in 2MASS H
+          kmag:
+            name: kmag
+            type: float32
+            unit: mag
+            description: 2MASS K
+          e_kmag:
+            name: e_kmag
+            type: float32
+            unit: mag
+            description: Uncertainty in 2MASS K
+          twomflag:
+            name: twomflag
+            type: char[19]
+            unit: ''
+            description: Quality Flags for 2MASS
+          prox:
+            name: prox
+            type: float32
+            unit: arcsec
+            description: Distance to 2MASS nearest neighbor
+          w1mag:
+            name: w1mag
+            type: float32
+            unit: mag
+            description: WISE W1
+          e_w1mag:
+            name: e_w1mag
+            type: float32
+            unit: mag
+            description: Uncertainty in WISE W1
+          w2mag:
+            name: w2mag
+            type: float32
+            unit: mag
+            description: WISE W2
+          e_w2mag:
+            name: e_w2mag
+            type: float32
+            unit: mag
+            description: Uncertainty in WISE W2
+          w3mag:
+            name: w3mag
+            type: float32
+            unit: mag
+            description: WISE W3
+          e_w3mag:
+            name: e_w3mag
+            type: float32
+            unit: mag
+            description: Uncertainty in WISE W3
+          w4mag:
+            name: w4mag
+            type: float32
+            unit: mag
+            description: WISE W4
+          e_w4mag:
+            name: e_w4mag
+            type: float32
+            unit: mag
+            description: Uncertainty in WISE W4
+          gaiamag:
+            name: gaiamag
+            type: float32
+            unit: mag
+            description: Gaia G Mag
+          e_gaiamag:
+            name: e_gaiamag
+            type: float32
+            unit: mag
+            description: Uncertainty in Gaia G
+          tmag:
+            name: tmag
+            type: float32
+            unit: mag
+            description: TESS Magnitude
+          e_tmag:
+            name: e_tmag
+            type: float32
+            unit: mag
+            description: Uncertainty in TESS Magnitude
+          tessflag:
+            name: tessflag
+            type: char[5]
+            unit: ''
+            description: TESS Magnitude Flag
+          spflag:
+            name: spflag
+            type: char[5]
+            unit: ''
+            description: Stellar Properties Flag
+          teff:
+            name: teff
+            type: float32
+            unit: K
+            description: Effective Temperature
+          e_teff:
+            name: e_teff
+            type: float32
+            unit: K
+            description: Uncertainty in Effective Temperature
+          logg:
+            name: logg
+            type: float32
+            unit: log(cgs)
+            description: log of the Surface Gravity
+          e_logg:
+            name: e_logg
+            type: float32
+            unit: log(cgs)
+            description: Uncertainty in Surface Gravity
+          mh:
+            name: mh
+            type: float32
+            unit: dex
+            description: Metallicity
+          e_mh:
+            name: e_mh
+            type: float32
+            unit: dex
+            description: Uncertainty in the Metallicity
+          rad:
+            name: rad
+            type: float32
+            unit: solar
+            description: Radius
+          e_rad:
+            name: e_rad
+            type: float32
+            unit: solar
+            description: Uncertainty in the Radius
+          mass:
+            name: mass
+            type: float32
+            unit: solar
+            description: Mass
+          e_mass:
+            name: e_mass
+            type: float32
+            unit: solar
+            description: Uncertainty in the Mass
+          rho:
+            name: rho
+            type: float32
+            unit: solar
+            description: Stellar Density
+          e_rho:
+            name: e_rho
+            type: float32
+            unit: solar
+            description: Uncertainty in the Stellar Density
+          lumclass:
+            name: lumclass
+            type: char[5]
+            unit: ''
+            description: Luminosity Class
+          lum:
+            name: lum
+            type: float32
+            unit: solar
+            description: Stellar Luminosity
+          e_lum:
+            name: e_lum
+            type: float32
+            unit: solar
+            description: Uncertainty in Luminosity
+          d:
+            name: d
+            type: float32
+            unit: pc
+            description: Distance
+          e_d:
+            name: e_d
+            type: float32
+            unit: pc
+            description: Uncertainty in the distance
+          ebv:
+            name: ebv
+            type: float32
+            unit: mag
+            description: Applied Color Excess
+          e_ebv:
+            name: e_ebv
+            type: float32
+            unit: mag
+            description: Uncertainty in Applied Color Excess
+          numcont:
+            name: numcont
+            type: int32
+            unit: ''
+            description: Number of Contamination Sources
+          contratio:
+            name: contratio
+            type: float32
+            unit: ''
+            description: Contamination Ratio
+          disposition:
+            name: disposition
+            type: char[5]
+            unit: ''
+            description: Disposition type
+          duplicate_id:
+            name: duplicate_id
+            type: int64
+            unit: ''
+            description: Points to the duplicate object TIC ID
+          priority:
+            name: priority
+            type: float32
+            unit: ''
+            description: CTL priority
+          eneg_ebv:
+            name: eneg_ebv
+            type: float32
+            unit: mag
+            description: Negative error for EBV
+          epos_ebv:
+            name: epos_ebv
+            type: float32
+            unit: mag
+            description: Positive error for EBV
+          ebvflag:
+            name: ebvflag
+            type: char[9]
+            unit: ''
+            description: Source of EBV
+          eneg_mass:
+            name: eneg_mass
+            type: float32
+            unit: solar
+            description: Negative error for Mass
+          epos_mass:
+            name: epos_mass
+            type: float32
+            unit: solar
+            description: Positive error for Mass
+          eneg_rad:
+            name: eneg_rad
+            type: float32
+            unit: solar
+            description: Negative error for Radius
+          epos_rad:
+            name: epos_rad
+            type: float32
+            unit: solar
+            description: Positive error for Radius
+          eneg_rho:
+            name: eneg_rho
+            type: float32
+            unit: solar
+            description: Negative error for Density
+          epos_rho:
+            name: epos_rho
+            type: float32
+            unit: solar
+            description: Positive error for Density
+          eneg_logg:
+            name: eneg_logg
+            type: float32
+            unit: log(cgs)
+            description: Negative error for Surface Gravity
+          epos_logg:
+            name: epos_logg
+            type: float32
+            unit: log(cgs)
+            description: Positive error for Surface Gravity
+          eneg_lum:
+            name: eneg_lum
+            type: float32
+            unit: solar
+            description: Negative error for Luminosity
+          epos_lum:
+            name: epos_lum
+            type: float32
+            unit: solar
+            description: Positive error for Luminosity
+          eneg_dist:
+            name: eneg_dist
+            type: float32
+            unit: pc
+            description: Negative Error for Distance
+          epos_dist:
+            name: epos_dist
+            type: float32
+            unit: pc
+            description: Positive Error for Distance
+          distflag:
+            name: distflag
+            type: char[6]
+            unit: ''
+            description: Source of distance
+          eneg_teff:
+            name: eneg_teff
+            type: float32
+            unit: K
+            description: Negative error for effective temperature
+          epos_teff:
+            name: epos_teff
+            type: float32
+            unit: K
+            description: Positive error for effective temperature
+          tefflag:
+            name: tefflag
+            type: char[6]
+            unit: ''
+            description: Source of effective Temperature
+          gaiabp:
+            name: gaiabp
+            type: float32
+            unit: mag
+            description: Gaia BP magnitude
+          e_gaiabp:
+            name: e_gaiabp
+            type: float32
+            unit: mag
+            description: Error in Gaia BP magnitude
+          gaiarp:
+            name: gaiarp
+            type: float32
+            unit: mag
+            description: Gaia RP magnitude
+          e_gaiarp:
+            name: e_gaiarp
+            type: float32
+            unit: mag
+            description: Error in Gaia RP magnitude
+          gaiaqflag:
+            name: gaiaqflag
+            type: int32
+            unit: ''
+            description: Quality of Gaia information
+          starchareflag:
+            name: starchareflag
+            type: char[4]
+            unit: ''
+            description: Error of asymmetric errors
+          vmagflag:
+            name: vmagflag
+            type: char[8]
+            unit: ''
+            description: Source of V magnitude
+          bmagflag:
+            name: bmagflag
+            type: char[8]
+            unit: ''
+            description: Source of B magnitude
+          splits:
+            name: splits
+            type: char[15]
+            unit: ''
+            description: Identifies if star is in a specially curated list. (original
+              TIC column is named splists).
+          e_ra:
+            name: e_ra
+            type: float64
+            unit: mas
+            description: Error in RA
+          e_dec:
+            name: e_dec
+            type: float64
+            unit: mas
+            description: Error in Dec
+          ra_orig:
+            name: ra_orig
+            type: float64
+            unit: degrees
+            description: RA from original catalog
+          dec_orig:
+            name: dec_orig
+            type: float64
+            unit: degrees
+            description: Dec from original catalog
+          e_ra_orig:
+            name: e_ra_orig
+            type: float64
+            unit: mas
+            description: RA error as given in original catalog
+          e_dec_orig:
+            name: e_dec_orig
+            type: float64
+            unit: mas
+            description: Dec error as given in original catalog
+          raddflag:
+            name: raddflag
+            type: int32
+            unit: ''
+            description: 1=dwarf by radius, 0=giant by radius
+          wdflag:
+            name: wdflag
+            type: int32
+            unit: ''
+            description: 1=star in Gaia's photometric "White Dwarf region"
+          objid:
+            name: objid
+            type: int64
+            unit: ''
+            description: Object identifier (integer)
+          gaia_int:
+            name: gaia_int
+            type: int64
+            unit: ''
+            description: Gaia DR2 source ID (integer). Not originally in TIC v8.
+          twomass_psc:
+            name: twomass_psc
+            type: char[17]
+            unit: ''
+            description: 2MASS PSC identifier. Not originally in TIC v8.
+          twomass_psc_pts_key:
+            name: twomass_psc_pts_key
+            type: int32
+            unit: ''
+            description: 2MASS PSC identifier. Not originally in TIC v8.
+          tycho2_tycid:
+            name: tycho2_tycid
+            type: int32
+            unit: ''
+            description: Tycho2 identifier (integer). Not originally in TIC v8.
+          allwise_cntr:
+            name: allwise_cntr
+            type: int64
+            unit: ''
+            description: ALLWISE ID (integer). Not originally in TIC v8.
 notes: |-
   None
+regrets: |-
+  I have no regrets!

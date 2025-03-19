@@ -9,17 +9,17 @@ MOS Target Table: glimpse
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
 GLIMPSE catalog (I, II and 3-D). See full documentation at https://irsa.ipac.caltech.edu/data/SPITZER/GLIMPSE/doc/glimpse1_dataprod_v2.0.pdf
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_target_glimpse-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
+$MOS_TARGET/[V_TARG]/mos_glimpse-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
 
 ### Releases
-DR18
+DR18, DR19
 
 ### Enviroments
 MOS_TARGET
@@ -36,14 +36,20 @@ sdss5db> targetdb, operations database server
 ### Is a VAC
 False
 
-### HDUS List for release DR18
+### Data Level
+2.3.3
+
+### HDUS List for release DR19
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: ](#hdu1)
+  - [HDU1](#hdu1)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR19
+   - from: DR18
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -64,98 +70,135 @@ Key | Value | Comment | |
 
 
 
-### HDU1:
+### HDU1: 
 MOS Target Table: glimpse
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  732 MB
 
+##### Header Table Caption for HDU1
+Key | Value | Comment | |
+| --- | --- | --- | --- |
+| XTENSION | BINTABLE | binary table extension |
+| BITPIX | 8 | array data type |
+| NAXIS | 2 | number of array dimensions |
+| NAXIS1 | 384 | length of dimension 1 |
+| NAXIS2 | 2000000 | length of dimension 2 |
+| PCOUNT | 0 | number of group parameters |
+| GCOUNT | 1 | number of groups |
+| TFIELDS | 79 | number of table fields |
+| TNULL3 | -2147483648 |  |
+| TNULL12 | -2147483648 |  |
+| TNULL60 | -2147483648 |  |
+| TNULL61 | -2147483648 |  |
+| TNULL62 | -2147483648 |  |
+| TNULL63 | -2147483648 |  |
+| TNULL64 | -2147483648 |  |
+| TNULL65 | -2147483648 |  |
+| TNULL66 | -2147483648 |  |
+| TNULL67 | -2147483648 |  |
+| TNULL68 | -2147483648 |  |
+| TNULL69 | -2147483648 |  |
+| TNULL70 | -2147483648 |  |
+| TNULL71 | -2147483648 |  |
+| TNULL72 | -2147483648 |  |
+| TNULL73 | -2147483648 |  |
+| TNULL74 | -2147483648 |  |
+| TNULL75 | -2147483648 |  |
+| TNULL76 | -2147483648 |  |
+| TNULL77 | -2147483648 |  |
+| TNULL78 | -2147483648 |  |
+| TNULL79 | -9223372036854775808 |  |
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | DESIGNATION | char[24] |  | position-based designation in Galactic coordinates |
- | TMASS_DESIGNATION | char[16] |  | 2MASS designation from PSC |
- | TMASS_CNTR | int32 |  | 2MASS counter |
- | L | float64 | degrees | Galactic longitude |
- | B | float64 | degrees | Galactic latitude |
- | DL | float64 | degrees | uncertaintiy in Galactic longitude |
- | DB | float64 | degrees | uncertainty in Galactic latitude |
- | RA | float64 | degrees | right ascension |
- | DEC | float64 | degrees | declination |
- | DRA | float64 | degrees | uncertainity in RA |
- | DDEC | float64 | degrees | uncertainity in Dec |
- | CSF | int32 |  | close source flag (see GLIMPSE documentation for details) |
- | MAG_J | float32 | mag | 2MASS J-band magnitude |
- | DJ_M | float32 | mag | uncertainity in 2MASS J-band magnitude |
- | MAG_H | float32 | mag | 2MASS H-band magnitude |
- | DH_M | float32 | mag | uncertainity in 2MASS H-band magnitude |
- | MAG_KS | float32 | mag | 2MASS Ks-band magnitude |
- | DKS_M | float32 | mag | uncertainity in 2MASS Ks-band magnitude |
- | MAG3_6 | float32 | mag | IRAC 3.6-band magnitude |
- | D3_6M | float32 | mag | uncertainty in IRAC 3.6-band magnitude |
- | MAG4_5 | float32 | mag | IRAC 4.5-band magnitude |
- | D4_5M | float32 | mag | uncertainty in IRAC 4.5-band magnitude |
- | MAG5_8 | float32 | mag | IRAC 5.8-band magnitude |
- | D5_8M | float32 | mag | uncertainty in IRAC 5.8-band magnitude |
- | MAG8_0 | float32 | mag | IRAC 8.0-band magnitude |
- | D8_0M | float32 | mag | uncertainty in IRAC 8.0-band magnitude |
- | F_J | float32 | mJy | 2MASS J-band flux |
- | DF_J | float32 | mJy | uncertainity in 2MASS J-band flux |
- | F_H | float32 | mJy | 2MASS H-band flux |
- | DF_H | float32 | mJy | uncertainty in 2MASS H-band flux |
- | F_KS | float32 | mJy | 2MASS Ks-band flux |
- | DF_KS | float32 | mJy | uncertainity in 2MASS Ks-band flux |
- | F3_6 | float32 | mJy | IRAC 3.6-band flux |
- | DF3_6 | float32 | mJy | uncertainty in IRAC 3.6-band flux |
- | F4_5 | float32 | mJy | IRAC 4.5-band flux |
- | DF4_5 | float32 | mJy | uncertainty in IRAC 4.5-band flux |
- | F5_8 | float32 | mJy | IRAC 5.8-band flux |
- | DF5_8 | float32 | mJy | uncertainty in IRAC 5.8-band flux |
- | F8_0 | float32 | mJy | IRAC 8.0-band flux |
- | DF8_0 | float32 | mJy | uncertainty in IRAC 8.0-band flux |
- | RMS_F3_6 | float32 | mJy | RMS deviation of the individual detections from final flux in IRAC 3.6-band |
- | RMS_F4_5 | float32 | mJy | RMS deviation of the individual detections from final flux in IRAC 4.5-band |
- | RMS_F5_8 | float32 | mJy | RMS deviation of the individual detections from final flux in IRAC 5.8-band |
- | RMS_F8_0 | float32 | mJy | RMS deviation of the individual detections from final flux in IRAC 8.0-band |
- | SKY_3_6 | float32 | mJy/sr | local background sky in IRAC 3.6-band |
- | SKY_4_5 | float32 | mJy/sr | local background sky in IRAC 4.5-band |
- | SKY_5_8 | float32 | mJy/sr | local background sky in IRAC 5.8-band |
- | SKY_8_0 | float32 | mJy/sr | local background sky in IRAC 8.0-band |
- | SN_J | float32 |  | j_snr in 2MASS J-band |
- | SN_H | float32 |  | h_snr from 2MASS catalog |
- | SN_KS | float32 |  | ks_snr from 2MASS catalog |
- | SN_3_6 | float32 |  | (flux)/(uncertainty in flux) in IRAC 3.5-band |
- | SN_4_5 | float32 |  | (flux)/(uncertainty in flux) in IRAC 4.5-band |
- | SN_5_8 | float32 |  | (flux)/(uncertainty in flux) in IRAC 5.8-band |
- | SN_8_0 | float32 |  | (flux)/(uncertainty in flux) in IRAC 8.0-band |
- | DENS_3_6 | float32 | #/sqarcmin | local source density in IRAC 3.6-band |
- | DENS_4_5 | float32 | #/sqarcmin | local source density in IRAC 4.5-band |
- | DENS_5_8 | float32 | #/sqarcmin | local source density in IRAC 5.8-band |
- | DENS_8_0 | float32 | #/sqarcmin | local source density in IRAC 8.0-band |
- | M3_6 | int32 |  | number of source detections in IRAC 3.6-band |
- | M4_5 | int32 |  | number of source detections in IRAC 4.5-band |
- | M5_8 | int32 |  | number of source detections in IRAC 5.8-band |
- | M8_0 | int32 |  | number of source detections in IRAC 8.0-band |
- | N3_6 | int32 |  | number of observations in IRAC 3.6-band |
- | N4_5 | int32 |  | number of observations in IRAC 4.5-band |
- | N5_8 | int32 |  | number of observations in IRAC 5.8-band |
- | N8_0 | int32 |  | number of observations in IRAC 8.0-band |
- | SQF_J | int32 |  | source quality flag for 2MASS J-band (see GLIMPSE documentation for details) |
- | SQF_H | int32 |  | source quality flag for 2MASS H-band (see GLIMPSE documentation for details) |
- | SQF_KS | int32 |  | source quality flag for 2MASS Ks-band (see GLIMPSE documentation for details) |
- | SQF_3_6 | int32 |  | source quality flag for IRAC 3.6-band (see GLIMPSE documentation for details) |
- | SQF_4_5 | int32 |  | source quality flag for IRAC 4.5-band (see GLIMPSE documentation for details) |
- | SQF_5_8 | int32 |  | source quality flag for IRAC 5.8-band (see GLIMPSE documentation for details) |
- | SQF_8_0 | int32 |  | source quality flag for IRAC 8.0-band (see GLIMPSE documentation for details) |
- | MF3_6 | int32 |  | method flag for IRAC 3.6-band (see GLIMPSE documentation for details) |
- | MF4_5 | int32 |  | method flag for IRAC 4.5-band (see GLIMPSE documentation for details) |
- | MF5_8 | int32 |  | method flag for IRAC 5.8-band (see GLIMPSE documentation for details) |
- | MF8_0 | int32 |  | method flag for IRAC 8.0-band (see GLIMPSE documentation for details) |
- | PK | int64 |  | primary key |
+ | designation | char[24] |  | position-based designation in Galactic coordinates |
+ | tmass_designation | char[16] |  | 2MASS designation from PSC |
+ | tmass_cntr | int32 |  | 2MASS counter |
+ | l | float64 | degrees | Galactic longitude |
+ | b | float64 | degrees | Galactic latitude |
+ | dl | float64 | degrees | uncertaintiy in Galactic longitude |
+ | db | float64 | degrees | uncertainty in Galactic latitude |
+ | ra | float64 | degrees | right ascension |
+ | dec | float64 | degrees | declination |
+ | dra | float64 | degrees | uncertainity in RA |
+ | ddec | float64 | degrees | uncertainity in Dec |
+ | csf | int32 |  | close source flag (see GLIMPSE documentation for details) |
+ | mag_j | float32 | mag | 2MASS J-band magnitude |
+ | dj_m | float32 | mag | uncertainity in 2MASS J-band magnitude |
+ | mag_h | float32 | mag | 2MASS H-band magnitude |
+ | dh_m | float32 | mag | uncertainity in 2MASS H-band magnitude |
+ | mag_ks | float32 | mag | 2MASS Ks-band magnitude |
+ | dks_m | float32 | mag | uncertainity in 2MASS Ks-band magnitude |
+ | mag3_6 | float32 | mag | IRAC 3.6-band magnitude |
+ | d3_6m | float32 | mag | uncertainty in IRAC 3.6-band magnitude |
+ | mag4_5 | float32 | mag | IRAC 4.5-band magnitude |
+ | d4_5m | float32 | mag | uncertainty in IRAC 4.5-band magnitude |
+ | mag5_8 | float32 | mag | IRAC 5.8-band magnitude |
+ | d5_8m | float32 | mag | uncertainty in IRAC 5.8-band magnitude |
+ | mag8_0 | float32 | mag | IRAC 8.0-band magnitude |
+ | d8_0m | float32 | mag | uncertainty in IRAC 8.0-band magnitude |
+ | f_j | float32 | mJy | 2MASS J-band flux |
+ | df_j | float32 | mJy | uncertainity in 2MASS J-band flux |
+ | f_h | float32 | mJy | 2MASS H-band flux |
+ | df_h | float32 | mJy | uncertainty in 2MASS H-band flux |
+ | f_ks | float32 | mJy | 2MASS Ks-band flux |
+ | df_ks | float32 | mJy | uncertainity in 2MASS Ks-band flux |
+ | f3_6 | float32 | mJy | IRAC 3.6-band flux |
+ | df3_6 | float32 | mJy | uncertainty in IRAC 3.6-band flux |
+ | f4_5 | float32 | mJy | IRAC 4.5-band flux |
+ | df4_5 | float32 | mJy | uncertainty in IRAC 4.5-band flux |
+ | f5_8 | float32 | mJy | IRAC 5.8-band flux |
+ | df5_8 | float32 | mJy | uncertainty in IRAC 5.8-band flux |
+ | f8_0 | float32 | mJy | IRAC 8.0-band flux |
+ | df8_0 | float32 | mJy | uncertainty in IRAC 8.0-band flux |
+ | rms_f3_6 | float32 | mJy | RMS deviation of the individual detections from final flux in IRAC 3.6-band |
+ | rms_f4_5 | float32 | mJy | RMS deviation of the individual detections from final flux in IRAC 4.5-band |
+ | rms_f5_8 | float32 | mJy | RMS deviation of the individual detections from final flux in IRAC 5.8-band |
+ | rms_f8_0 | float32 | mJy | RMS deviation of the individual detections from final flux in IRAC 8.0-band |
+ | sky_3_6 | float32 | mJy/sr | local background sky in IRAC 3.6-band |
+ | sky_4_5 | float32 | mJy/sr | local background sky in IRAC 4.5-band |
+ | sky_5_8 | float32 | mJy/sr | local background sky in IRAC 5.8-band |
+ | sky_8_0 | float32 | mJy/sr | local background sky in IRAC 8.0-band |
+ | sn_j | float32 |  | j_snr in 2MASS J-band |
+ | sn_h | float32 |  | h_snr from 2MASS catalog |
+ | sn_ks | float32 |  | ks_snr from 2MASS catalog |
+ | sn_3_6 | float32 |  | (flux)/(uncertainty in flux) in IRAC 3.5-band |
+ | sn_4_5 | float32 |  | (flux)/(uncertainty in flux) in IRAC 4.5-band |
+ | sn_5_8 | float32 |  | (flux)/(uncertainty in flux) in IRAC 5.8-band |
+ | sn_8_0 | float32 |  | (flux)/(uncertainty in flux) in IRAC 8.0-band |
+ | dens_3_6 | float32 | #/sqarcmin | local source density in IRAC 3.6-band |
+ | dens_4_5 | float32 | #/sqarcmin | local source density in IRAC 4.5-band |
+ | dens_5_8 | float32 | #/sqarcmin | local source density in IRAC 5.8-band |
+ | dens_8_0 | float32 | #/sqarcmin | local source density in IRAC 8.0-band |
+ | m3_6 | int32 |  | number of source detections in IRAC 3.6-band |
+ | m4_5 | int32 |  | number of source detections in IRAC 4.5-band |
+ | m5_8 | int32 |  | number of source detections in IRAC 5.8-band |
+ | m8_0 | int32 |  | number of source detections in IRAC 8.0-band |
+ | n3_6 | int32 |  | number of observations in IRAC 3.6-band |
+ | n4_5 | int32 |  | number of observations in IRAC 4.5-band |
+ | n5_8 | int32 |  | number of observations in IRAC 5.8-band |
+ | n8_0 | int32 |  | number of observations in IRAC 8.0-band |
+ | sqf_j | int32 |  | source quality flag for 2MASS J-band (see GLIMPSE documentation for details) |
+ | sqf_h | int32 |  | source quality flag for 2MASS H-band (see GLIMPSE documentation for details) |
+ | sqf_ks | int32 |  | source quality flag for 2MASS Ks-band (see GLIMPSE documentation for details) |
+ | sqf_3_6 | int32 |  | source quality flag for IRAC 3.6-band (see GLIMPSE documentation for details) |
+ | sqf_4_5 | int32 |  | source quality flag for IRAC 4.5-band (see GLIMPSE documentation for details) |
+ | sqf_5_8 | int32 |  | source quality flag for IRAC 5.8-band (see GLIMPSE documentation for details) |
+ | sqf_8_0 | int32 |  | source quality flag for IRAC 8.0-band (see GLIMPSE documentation for details) |
+ | mf3_6 | int32 |  | method flag for IRAC 3.6-band (see GLIMPSE documentation for details) |
+ | mf4_5 | int32 |  | method flag for IRAC 4.5-band (see GLIMPSE documentation for details) |
+ | mf5_8 | int32 |  | method flag for IRAC 5.8-band (see GLIMPSE documentation for details) |
+ | mf8_0 | int32 |  | method flag for IRAC 8.0-band (see GLIMPSE documentation for details) |
+ | pk | int64 |  | primary key |
 
 
 
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!

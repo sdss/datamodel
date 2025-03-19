@@ -9,17 +9,17 @@ MOS Target Table: geometric_distances_gaia_dr2
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
 Bayesian distances from Gaia DR2 parameters from Bailer-Jones et al. 2018. For complete details, see the original paper: https://iopscience.iop.org/article/10.3847/1538-3881/aacb21/pdf
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_target_geometric_distances_gaia_dr2-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
+$MOS_TARGET/[V_TARG]/mos_geometric_distances_gaia_dr2-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
 
 ### Releases
-DR18
+DR18, DR19
 
 ### Enviroments
 MOS_TARGET
@@ -36,14 +36,20 @@ sdss5db> targetdb, operations database server
 ### Is a VAC
 False
 
-### HDUS List for release DR18
+### Data Level
+2.3.3
+
+### HDUS List for release DR19
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: ](#hdu1)
+  - [HDU1](#hdu1)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR19
+   - from: DR18
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -64,26 +70,43 @@ Key | Value | Comment | |
 
 
 
-### HDU1:
+### HDU1: 
 MOS Target Table: geometric_distances_gaia_dr2
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  51 MB
 
+##### Header Table Caption for HDU1
+Key | Value | Comment | |
+| --- | --- | --- | --- |
+| XTENSION | BINTABLE | binary table extension |
+| BITPIX | 8 | array data type |
+| NAXIS | 2 | number of array dimensions |
+| NAXIS1 | 27 | length of dimension 1 |
+| NAXIS2 | 2000000 | length of dimension 2 |
+| PCOUNT | 0 | number of group parameters |
+| GCOUNT | 1 | number of groups |
+| TFIELDS | 7 | number of table fields |
+| TNULL1 | -9223372036854775808 |  |
+| TNULL7 | -32768 |  |
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | SOURCE_ID | int64 |  | Unique Gaia DR2 source identifier |
- | R_EST | float32 | pc | Estimated distance |
- | R_LO | float32 | pc | Lower bound on the confidence interval of the estimated distance |
- | R_HI | float32 | pc | Upper bound on the confidence interval of the estimated distance |
- | R_LEN | float32 | pc | Length scale used in the prior for the distance estimation |
- | RESULT_FLAG | char[1] |  | Result flag |
- | MODALITY_FLAG | int16 |  | Number of modes in the posterior |
+ | source_id | int64 |  | Unique Gaia DR2 source identifier |
+ | r_est | float32 | pc | Estimated distance |
+ | r_lo | float32 | pc | Lower bound on the confidence interval of the estimated distance |
+ | r_hi | float32 | pc | Upper bound on the confidence interval of the estimated distance |
+ | r_len | float32 | pc | Length scale used in the prior for the distance estimation |
+ | result_flag | char[1] |  | Result flag |
+ | modality_flag | int16 |  | Number of modes in the posterior |
 
 
 
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!

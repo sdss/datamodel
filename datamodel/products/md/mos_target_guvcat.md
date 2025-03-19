@@ -9,17 +9,17 @@ MOS Target Table: guvcat
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
 GALEX unique source catalog from Bianchi et al. 2017 (https://iopscience.iop.org/article/10.3847/1538-4365/aa7053/pdf). For more details on the column descriptions see https://archive.stsci.edu/hlsp/guvcat/guvcat-column-description
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_target_guvcat-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
+$MOS_TARGET/[V_TARG]/mos_guvcat-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
 
 ### Releases
-DR18
+DR18, DR19
 
 ### Enviroments
 MOS_TARGET
@@ -36,14 +36,20 @@ sdss5db> targetdb, operations database server
 ### Is a VAC
 False
 
-### HDUS List for release DR18
+### Data Level
+2.3.3
+
+### HDUS List for release DR19
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: ](#hdu1)
+  - [HDU1](#hdu1)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR19
+   - from: DR18
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -64,114 +70,148 @@ Key | Value | Comment | |
 
 
 
-### HDU1:
+### HDU1: 
 MOS Target Table: guvcat
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  1 GB
 
+##### Header Table Caption for HDU1
+Key | Value | Comment | |
+| --- | --- | --- | --- |
+| XTENSION | BINTABLE | binary table extension |
+| BITPIX | 8 | array data type |
+| NAXIS | 2 | number of array dimensions |
+| NAXIS1 | 889 | length of dimension 1 |
+| NAXIS2 | 2000000 | length of dimension 2 |
+| PCOUNT | 0 | number of group parameters |
+| GCOUNT | 1 | number of groups |
+| TFIELDS | 95 | number of table fields |
+| TNULL1 | -9223372036854775808 |  |
+| TNULL2 | -9223372036854775808 |  |
+| TNULL12 | -2147483648 |  |
+| TNULL13 | -2147483648 |  |
+| TNULL14 | -2147483648 |  |
+| TNULL16 | -2147483648 |  |
+| TNULL17 | -2147483648 |  |
+| TNULL19 | -32768 |  |
+| TNULL20 | -32768 |  |
+| TNULL37 | -32768 |  |
+| TNULL38 | -32768 |  |
+| TNULL39 | -32768 |  |
+| TNULL40 | -32768 |  |
+| TNULL79 | -32768 |  |
+| TNULL80 | -32768 |  |
+| TNULL81 | -9223372036854775808 |  |
+| TNULL83 | -32768 |  |
+| TNULL84 | -9223372036854775808 |  |
+| TNULL85 | -9223372036854775808 |  |
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | OBJID | int64 |  | GALEX identifier for the source |
- | PHOTOEXTRACTID | int64 |  | Pointer to GALEX photoExtract Table (identifier of original observation) |
- | MPSTYPE | char[3] |  | Survey type ("AIS") |
- | AVASPRA | float64 | degrees | R.A. of center of field where object was measured |
- | AVASPDEC | float64 | degrees | Declination of center of field where object was measured |
- | FEXPTIME | float32 | seconds | FUV exposure time |
- | NEXPTIME | float32 | seconds | NUV exposure time |
- | RA | float64 | degrees | Source's right ascension |
- | DEC | float64 | degrees | Source's declination |
- | GLON | float64 | degrees | Source's Galactic longitude |
- | GLAT | float64 | degrees | Source's Galactic latitude |
- | TILENUM | int32 |  | "Tile" number |
- | IMG | int32 |  | Image number |
- | SUBVISIT | int32 |  | Number of subvisit if exposure was divided |
- | FOV_RADIUS | float32 |  | Distance of source from center of the field in which it was measured |
- | TYPE | int32 |  | Obs. type (0=single, 1=multi) |
- | BAND | int32 |  | Band number (1=NUV, 2=FUV, 3=both) |
- | E_BV | float32 | mag | E(B-V) Galactic reddening from Schlegel et al. 1998 maps) |
- | ISTHERESPECTRUM | int16 |  | Does this object have a GALEX spectrum? |
- | CHKOBJ_TYPE | int16 |  | Astrometry check type |
- | FUV_MAG | float32 | mag | FUV calibrated magnitude |
- | FUV_MAGERR | float32 | mag | FUV calibrated magnitude error |
- | NUV_MAG | float32 | mag | NUV calibrated magnitude |
- | NUV_MAGERR | float32 | mag | NUV calibrated magnitude error |
- | FUV_MAG_AUTO | float32 | mag | FUV Kron-like elliptical aperture magnitude |
- | FUV_MAGERR_AUTO | float32 | mag | FUV rms error for AUTO magnitude |
- | NUV_MAG_AUTO | float32 | mag | NUV Kron-like elliptical aperture magnitude |
- | NUV_MAGERR_AUTO | float32 | mag | NUV rms error for AUTO magnitude |
- | FUV_MAG_APER_4 | float32 | mag | FUV magnitude aperture (8 pixel) |
- | FUV_MAGERR_APER_4 | float32 | mag | FUV magnitude error aperture (8 pixel) |
- | NUV_MAG_APER_4 | float32 | mag | NUV magnitude aperture (8 pixel) |
- | NUV_MAGERR_APER_4 | float32 | mag | NUV magnitude error aperture (8 pixel) |
- | FUV_MAG_APER_6 | float32 | mag | FUV magnitude aperture (17 pixel) |
- | FUV_MAGERR_APER_6 | float32 | mag | FUV magnitude error aperture (17 pixel) |
- | NUV_MAG_APER_6 | float32 | mag | NUV magnitude aperture (17 pixel) |
- | NUV_MAGERR_APER_6 | float32 | mag | NUV magnitude error aperture (17 pixel) |
- | FUV_ARTIFACT | int16 |  | FUV artifact flag |
- | NUV_ARTIFACT | int16 |  | NUV artifact flag |
- | FUV_FLAGS | int16 |  | FUV extraction flags |
- | NUV_FLAGS | int16 |  | NUV extraction flags |
- | FUV_FLUX | float32 | mJy | FUV calibrated flux |
- | FUV_FLUXERR | float32 | mJy | FUV calibrated flux error |
- | NUV_FLUX | float32 | mJy | NUV calibrated flux |
- | NUV_FLUXERR | float32 | mJy | NUV calibrated flux error |
- | FUV_X_IMAGE | float32 |  | FUV object position along x |
- | FUV_Y_IMAGE | float32 |  | FUV object position along y |
- | NUV_X_IMAGE | float32 |  | NUV object position along x |
- | NUV_Y_IMAGE | float32 |  | NUV object position along y |
- | FUV_FWHM_IMAGE | float32 |  | FUV FWHM assuming a Gaussian core |
- | NUV_FWHM_IMAGE | float32 |  | NUV FWHM assuming a Gaussian core |
- | FUV_FWHM_WORLD | float32 |  | FUV FWHM assuming a Gaussian core (WORLD units) |
- | NUV_FWHM_WORLD | float32 |  | NUV FWHM assuming a Gaussian core (WORLD units) |
- | NUV_CLASS_STAR | float32 |  | NUV Star/Galaxy classifier |
- | FUV_CLASS_STAR | float32 |  | FUV Star/Galaxy classifier |
- | NUV_ELLIPTICITY | float32 |  | NUV (1. - B_IMAGE/A_IMAGE) |
- | FUV_ELLIPTICITY | float32 |  | FUV (1. - B_IMAGE/A_IMAGE) |
- | NUV_THETA_J2000 | float32 | degrees | NUV position angle (east of north) (J2000) |
- | NUV_ERRTHETA_J2000 | float32 | degrees | NUV position angle error (east of north) (J2000) |
- | FUV_THETA_J2000 | float32 | degrees | FUV position angle (east of north) (J2000) |
- | FUV_ERRTHETA_J2000 | float32 | degrees | FUV position angle error (east of north) (J2000) |
- | FUV_NCAT_FWHM_IMAGE | float32 | pixels | FUV FWHM_IMAGE value from -fd-ncat.fits |
- | FUV_NCAT_FLUX_RADIUS_3 | float32 |  | FUV FLUX_RADIUS using Aperture |
- | NUV_KRON_RADIUS | float32 |  | NUV Kron apertures in units of A or B |
- | NUV_A_WORLD | float32 |  | NUV profile rms along major axis (world units) |
- | NUV_B_WORLD | float32 |  | NUV profile rms along minor axis (world units) |
- | FUV_KRON_RADIUS | float32 |  | FUV Kron apertures in units of A or B |
- | FUV_A_WORLD | float32 |  | FUV profile rms along major axis (world units) |
- | FUV_B_WORLD | float32 |  | FUV profile rms along minor axis (world units) |
- | NUV_WEIGHT | float32 | seconds | NUV effective exposure (flat-field response value) at the source position |
- | FUV_WEIGHT | float32 | seconds | FUV effective exposure (flat-field response value) at the source position |
- | PROB | float32 |  | Probability of the FUV-NUV cross-match |
- | SEP | float32 |  | Separation between the FUV and NUV position of the source in the same observation |
- | NUV_POSERR | float32 | arcsec | Position error of the source in the NUV image |
- | FUV_POSERR | float32 | arcsec | Position error of the source in the FUV image |
- | IB_POSERR | float32 | arcsec | Inter-band position error |
- | NUV_PPERR | float32 |  | NUV Poisson position error |
- | FUV_PPERR | float32 |  | FUV Poisson position error |
- | CORV | char[1] |  | Whether the source comes from a coadd or visit |
- | GRANK | int16 |  | rank of source with 2.5 arcsec of primary |
- | NGRANK | int16 |  | If this is a primary, the number of sources within 2.5 arcsec |
- | PRIMGID | int64 |  | OBJID of the primary |
- | GROUPGID | char[159] |  | OBJID's of all AIS sources within 2.5 arcseconds concatenated by a "+" |
- | GRANKDIST | int16 |  | Same for GRANK, but based on distance criterion |
- | NGRANKDIST | int64 |  | Same for NGRANK, but based on distance criterion |
- | PRIMGIDDIST | int64 |  | Same for PRIMGID, but based on distance criterion |
- | GROUPGIDDIST | char[159] |  | Same for GROUPGID, but based on distance criterion |
- | GROUPGIDTOT | char[159] |  | OBJID's of all sources within 2.5 arcseconds |
- | DIFFFUV | float32 | mag | FUV magnitude difference between primary and secondary |
- | DIFFNUV | float32 | mag | NUV magnitude difference between primary and secondary |
- | DIFFFUVDIST | float32 | mag | FUV magnitude difference between primary and secondary, but based on distance criterion |
- | DIFFNUVDIST | float32 | mag | NUV magnitude difference between primary and secondary, but based on distance criterion |
- | SEPAS | float32 | arcsec | Separation between primary and secondary |
- | SEPASDIST | float32 | arcsec | Separation between primary and secondary, but based on distance criterion |
- | INLARGEOBJ | char[26] |  | Is source in the footprint of an extended object? |
- | LARGEOBJSIZE | float32 |  | Size of the extended object |
+ | objid | int64 |  | GALEX identifier for the source |
+ | photoextractid | int64 |  | Pointer to GALEX photoExtract Table (identifier of original observation) |
+ | mpstype | char[3] |  | Survey type ("AIS") |
+ | avaspra | float64 | degrees | R.A. of center of field where object was measured |
+ | avaspdec | float64 | degrees | Declination of center of field where object was measured |
+ | fexptime | float32 | seconds | FUV exposure time |
+ | nexptime | float32 | seconds | NUV exposure time |
+ | ra | float64 | degrees | Source's right ascension |
+ | dec | float64 | degrees | Source's declination |
+ | glon | float64 | degrees | Source's Galactic longitude |
+ | glat | float64 | degrees | Source's Galactic latitude |
+ | tilenum | int32 |  | "Tile" number |
+ | img | int32 |  | Image number |
+ | subvisit | int32 |  | Number of subvisit if exposure was divided |
+ | fov_radius | float32 |  | Distance of source from center of the field in which it was measured |
+ | type | int32 |  | Obs. type (0=single, 1=multi) |
+ | band | int32 |  | Band number (1=NUV, 2=FUV, 3=both) |
+ | e_bv | float32 | mag | E(B-V) Galactic reddening from Schlegel et al. 1998 maps) |
+ | istherespectrum | int16 |  | Does this object have a GALEX spectrum? |
+ | chkobj_type | int16 |  | Astrometry check type |
+ | fuv_mag | float32 | mag | FUV calibrated magnitude |
+ | fuv_magerr | float32 | mag | FUV calibrated magnitude error |
+ | nuv_mag | float32 | mag | NUV calibrated magnitude |
+ | nuv_magerr | float32 | mag | NUV calibrated magnitude error |
+ | fuv_mag_auto | float32 | mag | FUV Kron-like elliptical aperture magnitude |
+ | fuv_magerr_auto | float32 | mag | FUV rms error for AUTO magnitude |
+ | nuv_mag_auto | float32 | mag | NUV Kron-like elliptical aperture magnitude |
+ | nuv_magerr_auto | float32 | mag | NUV rms error for AUTO magnitude |
+ | fuv_mag_aper_4 | float32 | mag | FUV magnitude aperture (8 pixel) |
+ | fuv_magerr_aper_4 | float32 | mag | FUV magnitude error aperture (8 pixel) |
+ | nuv_mag_aper_4 | float32 | mag | NUV magnitude aperture (8 pixel) |
+ | nuv_magerr_aper_4 | float32 | mag | NUV magnitude error aperture (8 pixel) |
+ | fuv_mag_aper_6 | float32 | mag | FUV magnitude aperture (17 pixel) |
+ | fuv_magerr_aper_6 | float32 | mag | FUV magnitude error aperture (17 pixel) |
+ | nuv_mag_aper_6 | float32 | mag | NUV magnitude aperture (17 pixel) |
+ | nuv_magerr_aper_6 | float32 | mag | NUV magnitude error aperture (17 pixel) |
+ | fuv_artifact | int16 |  | FUV artifact flag |
+ | nuv_artifact | int16 |  | NUV artifact flag |
+ | fuv_flags | int16 |  | FUV extraction flags |
+ | nuv_flags | int16 |  | NUV extraction flags |
+ | fuv_flux | float32 | mJy | FUV calibrated flux |
+ | fuv_fluxerr | float32 | mJy | FUV calibrated flux error |
+ | nuv_flux | float32 | mJy | NUV calibrated flux |
+ | nuv_fluxerr | float32 | mJy | NUV calibrated flux error |
+ | fuv_x_image | float32 |  | FUV object position along x |
+ | fuv_y_image | float32 |  | FUV object position along y |
+ | nuv_x_image | float32 |  | NUV object position along x |
+ | nuv_y_image | float32 |  | NUV object position along y |
+ | fuv_fwhm_image | float32 |  | FUV FWHM assuming a Gaussian core |
+ | nuv_fwhm_image | float32 |  | NUV FWHM assuming a Gaussian core |
+ | fuv_fwhm_world | float32 |  | FUV FWHM assuming a Gaussian core (WORLD units) |
+ | nuv_fwhm_world | float32 |  | NUV FWHM assuming a Gaussian core (WORLD units) |
+ | nuv_class_star | float32 |  | NUV Star/Galaxy classifier |
+ | fuv_class_star | float32 |  | FUV Star/Galaxy classifier |
+ | nuv_ellipticity | float32 |  | NUV (1. - B_IMAGE/A_IMAGE) |
+ | fuv_ellipticity | float32 |  | FUV (1. - B_IMAGE/A_IMAGE) |
+ | nuv_theta_j2000 | float32 | degrees | NUV position angle (east of north) (J2000) |
+ | nuv_errtheta_j2000 | float32 | degrees | NUV position angle error (east of north) (J2000) |
+ | fuv_theta_j2000 | float32 | degrees | FUV position angle (east of north) (J2000) |
+ | fuv_errtheta_j2000 | float32 | degrees | FUV position angle error (east of north) (J2000) |
+ | fuv_ncat_fwhm_image | float32 | pixels | FUV FWHM_IMAGE value from -fd-ncat.fits |
+ | fuv_ncat_flux_radius_3 | float32 |  | FUV FLUX_RADIUS using Aperture |
+ | nuv_kron_radius | float32 |  | NUV Kron apertures in units of A or B |
+ | nuv_a_world | float32 |  | NUV profile rms along major axis (world units) |
+ | nuv_b_world | float32 |  | NUV profile rms along minor axis (world units) |
+ | fuv_kron_radius | float32 |  | FUV Kron apertures in units of A or B |
+ | fuv_a_world | float32 |  | FUV profile rms along major axis (world units) |
+ | fuv_b_world | float32 |  | FUV profile rms along minor axis (world units) |
+ | nuv_weight | float32 | seconds | NUV effective exposure (flat-field response value) at the source position |
+ | fuv_weight | float32 | seconds | FUV effective exposure (flat-field response value) at the source position |
+ | prob | float32 |  | Probability of the FUV-NUV cross-match |
+ | sep | float32 |  | Separation between the FUV and NUV position of the source in the same observation |
+ | nuv_poserr | float32 | arcsec | Position error of the source in the NUV image |
+ | fuv_poserr | float32 | arcsec | Position error of the source in the FUV image |
+ | ib_poserr | float32 | arcsec | Inter-band position error |
+ | nuv_pperr | float32 |  | NUV Poisson position error |
+ | fuv_pperr | float32 |  | FUV Poisson position error |
+ | corv | char[1] |  | Whether the source comes from a coadd or visit |
+ | grank | int16 |  | rank of source with 2.5 arcsec of primary |
+ | ngrank | int16 |  | If this is a primary, the number of sources within 2.5 arcsec |
+ | primgid | int64 |  | OBJID of the primary |
+ | groupgid | char[159] |  | OBJID's of all AIS sources within 2.5 arcseconds concatenated by a "+" |
+ | grankdist | int16 |  | Same for GRANK, but based on distance criterion |
+ | ngrankdist | int64 |  | Same for NGRANK, but based on distance criterion |
+ | primgiddist | int64 |  | Same for PRIMGID, but based on distance criterion |
+ | groupgiddist | char[159] |  | Same for GROUPGID, but based on distance criterion |
+ | groupgidtot | char[159] |  | OBJID's of all sources within 2.5 arcseconds |
+ | difffuv | float32 | mag | FUV magnitude difference between primary and secondary |
+ | diffnuv | float32 | mag | NUV magnitude difference between primary and secondary |
+ | difffuvdist | float32 | mag | FUV magnitude difference between primary and secondary, but based on distance criterion |
+ | diffnuvdist | float32 | mag | NUV magnitude difference between primary and secondary, but based on distance criterion |
+ | sepas | float32 | arcsec | Separation between primary and secondary |
+ | sepasdist | float32 | arcsec | Separation between primary and secondary, but based on distance criterion |
+ | inlargeobj | char[26] |  | Is source in the footprint of an extended object? |
+ | largeobjsize | float32 |  | Size of the extended object |
 
 
 
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!
