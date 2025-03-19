@@ -41,7 +41,7 @@ datamodel_generate -f mos_target_geometric_distances_gaia_dr2 -p MOS_TARGET/{v_t
 datamodel_generate -f mos_target_glimpse -p MOS_TARGET/{v_targ}/mos_glimpse-{num}.fits -k v_targ=1.0.2 -k num=1 -r DR19 -c DR18 -h
 datamodel_generate -f mos_target_guvcat -p MOS_TARGET/{v_targ}/mos_guvcat-{num}.fits -k v_targ=1.0.2 -k num=1 -r DR19 -c DR18 -h
 datamodel_generate -f mos_target_instrument -p MOS_TARGET/{v_targ}/mos_instrument.fits -k v_targ=1.0.2 -r DR19 -c DR18 -h
-?? datamodel_generate -f mos_target_legacy_survey_dr8 -p MOS_TARGET/{v_targ}/mos_legacy_survey_dr8-{num}.fits -k v_targ=1.0.2 -k num=1 -r DR19 -c DR18 -h
+datamodel_generate -f mos_target_legacy_survey_dr8 -p MOS_TARGET/{v_targ}/mos_legacy_survey_dr8-{num}.fits -k v_targ=1.0.2 -k num=01 -r DR19 -c DR18 -h
 datamodel_generate -f mos_target_magnitude -p MOS_TARGET/{v_targ}/mos_magnitude-{num}.fits -k v_targ=1.0.2 -k num=01 -r DR19 -c DR18 -h
 datamodel_generate -f mos_target_mapper -p MOS_TARGET/{v_targ}/mos_mapper.fits -k v_targ=1.0.2 -r DR19 -c DR18 -h
 datamodel_generate -f mos_target_panstarrs1 -p MOS_TARGET/{v_targ}/mos_panstarrs1-{num}.fits -k v_targ=1.0.2 -k num=01 -r DR19 -c DR18 -h
@@ -58,7 +58,8 @@ datamodel_generate -f mos_target_target -p MOS_TARGET/{v_targ}/mos_target-{num}.
 ?? datamodel_generate -f mos_target_targeting_generation -p MOS_TARGET/{v_targ}/mos_targeting_generation.fits -k v_targ=1.0.2 -r DR19 -c DR18 -h
 datamodel_generate -f mos_target_tic_v8 -p MOS_TARGET/{v_targ}/mos_tic_v8-{num}.fits -k v_targ=1.0.2 -k num=01 -r DR19 -c DR18 -h
 datamodel_generate -f mos_target_twomass_psc -p MOS_TARGET/{v_targ}/mos_twomass_psc-{num}.fits -k v_targ=1.0.2 -k num=01 -r DR19 -c DR18 -h
-? datamodel_generate -f mos_target_tycho2 -p MOS_TARGET/{v_targ}/mos_tycho2-{num}.fits -k v_targ=1.0.2 -k num=1 -r DR19 -c DR18 -h
+datamodel_generate -f mos_target_tycho2 -p MOS_TARGET/{v_targ}/mos_tycho2-{num}.fits -k v_targ=1.0.2 -k num=1 -r DR19 -c DR18 -h
+datamodel_update -f mos_target_tycho2 -r DR19
 datamodel_generate -f mos_target_uvotssc1 -p MOS_TARGET/{v_targ}/mos_uvotssc1.fits -k v_targ=1.0.2 -r DR19 -c DR18 -h
 datamodel_generate -f mos_target_xmm_om_suss_4_1 -p MOS_TARGET/{v_targ}/mos_xmm_om_suss_4_1.fits -k v_targ=1.0.2 -r DR19 -c DR18 -h
 datamodel_generate -f mos_target_yso_clustering -p MOS_TARGET/{v_targ}/mos_yso_clustering.fits -k v_targ=1.0.2 -r DR19 -c DR18 -h
