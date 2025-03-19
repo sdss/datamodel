@@ -9,17 +9,17 @@ MOS Target Table: best_brightest
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
 Catalog from Kevin Schlaufman for the selection of bright metal-poor stars from the method of Schlaufman and Casey (2014): https://ui.adsabs.harvard.edu/abs/2014ApJ...797...13S/abstract. WISE values from WHICH CATALOG, 2MASS values from 2MASS point source catalog.
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_target_best_brightest-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
+$MOS_TARGET/[V_TARG]/mos_best_brightest-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
 
 ### Releases
-DR18
+DR18, DR19
 
 ### Enviroments
 MOS_TARGET
@@ -36,14 +36,20 @@ sdss5db> targetdb, operations database server
 ### Is a VAC
 False
 
-### HDUS List for release DR18
+### Data Level
+2.3.3
+
+### HDUS List for release DR19
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: ](#hdu1)
+  - [HDU1](#hdu1)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR19
+   - from: DR18
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -64,55 +70,77 @@ Key | Value | Comment | |
 
 
 
-### HDU1:
+### HDU1: 
 MOS Target Table: best_brightest
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  28 MB
+#### HDU Size:  131 MB
 
+##### Header Table Caption for HDU1
+Key | Value | Comment | |
+| --- | --- | --- | --- |
+| XTENSION | BINTABLE | binary table extension |
+| BITPIX | 8 | array data type |
+| NAXIS | 2 | number of array dimensions |
+| NAXIS1 | 213 | length of dimension 1 |
+| NAXIS2 | 646940 | length of dimension 2 |
+| PCOUNT | 0 | number of group parameters |
+| GCOUNT | 1 | number of groups |
+| TFIELDS | 36 | number of table fields |
+| TNULL10 | -2147483648 |  |
+| TNULL11 | -2147483648 |  |
+| TNULL19 | -2147483648 |  |
+| TNULL20 | -2147483648 |  |
+| TNULL31 | -2147483648 |  |
+| TNULL34 | -2147483648 |  |
+| TNULL36 | -9223372036854775808 |  |
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | DESIGNATION | char[19] |  | 2MASS Designation |
- | RA_1 | float64 | degrees | right ascension from the AllWISE catalog |
- | DEC_1 | float64 | degrees | declination from the AllWISE catalog |
- | GLON | float64 | degrees | Galactic longitude from AllWISE catalog |
- | GLAT | float64 | degrees | Galactic latitude from the AllWISE catalog |
- | W1MPRO | float32 | mag | AllWISE W1-band magnitude measured with profile-fitting photometry |
- | W2MPRO | float32 | mag | AllWISE W2-band magnitude measured with profile-fitting photometry |
- | W3MPRO | float32 | mag | AllWISE W3-band magnitude measured with profile-fitting photometry |
- | W4MPRO | char[6] | mag | AllWISE W4-band magnitude measured with profile-fitting photometry |
- | PMRA | int32 | mas/yr | Gaia DR2 proper motion |
- | PMDEC | int32 | mas/yr | Gaia DR2 proper motion |
- | J_M_2MASS | float32 | mag | 2MASS J=band magnitude |
- | H_M_2MASS | float32 | mag | 2MASS magnitude |
- | K_M_2MASS | float32 | mag | 2MASS magnitude |
- | RA_2 | float64 | degrees | Right ascension from the 2MASS catalog |
- | RAERR | float64 | degrees | Uncertainty in right ascension from the 2MASS catalog |
- | DEC_2 | float64 | degrees | Declination from the 2MASS catalog |
- | DECERR | float64 | degrees | Uncertainty in declination from the 2MASS catalog |
- | NOBS | int32 |  | Number of observed nights from the APASS catalog |
- | MOBS | int32 |  | Number of images for this field from the APASS catalog |
- | VJMAG | float32 | mag | APASS V_J magnitude |
- | BJMAG | float32 | mag | APASS B_J magnitude |
- | GMAG | float32 | mag | APASS Sloan g' magnitude |
- | RMAG | float32 | mag | APASS Sloan r' magnitude |
- | IMAG | float32 | mag | APASS Sloan i' magnitude |
- | EVJMAG | float32 | mag | Uncertainty in APASS V_J  magnitude |
- | EBJMAG | float32 | mag | Uncertainty in APASS B_J magnitude |
- | EGMAG | float32 | mag | Uncertainty in APASS Sloan g' magnitude |
- | ERMAG | float32 | mag | Uncertainty in APASS Sloan r' magnitude |
- | EIMAG | float32 | mag | Uncertainty in APASS Sloan i' magnitude |
- | NAME | int32 |  | APASS field name |
- | SEPARATION | float64 | arcsec | Separation between AllWISE object and APASS object |
- | EBV | float32 | mag | SFD dustmap E(B-V) |
- | VERSION | int32 |  | version 2 is high priiority, version 1 is low priority (see Schlaufman + Casey 2014 for definitions) |
- | ORIGINAL_EXT_SOURCE_ID | char[16] |  | 2MASS designation removing the "." from the coordinates and getting rid of "J" at the front |
- | CNTR | int64 |  | Internal Identifier |
+ | designation | char[19] |  | 2MASS Designation |
+ | ra_1 | float64 | degrees | right ascension from the AllWISE catalog |
+ | dec_1 | float64 | degrees | declination from the AllWISE catalog |
+ | glon | float64 | degrees | Galactic longitude from AllWISE catalog |
+ | glat | float64 | degrees | Galactic latitude from the AllWISE catalog |
+ | w1mpro | float32 | mag | AllWISE W1-band magnitude measured with profile-fitting photometry |
+ | w2mpro | float32 | mag | AllWISE W2-band magnitude measured with profile-fitting photometry |
+ | w3mpro | float32 | mag | AllWISE W3-band magnitude measured with profile-fitting photometry |
+ | w4mpro | char[6] | mag | AllWISE W4-band magnitude measured with profile-fitting photometry |
+ | pmra | int32 | mas/yr | Gaia DR2 proper motion |
+ | pmdec | int32 | mas/yr | Gaia DR2 proper motion |
+ | j_m_2mass | float32 | mag | 2MASS J=band magnitude |
+ | h_m_2mass | float32 | mag | 2MASS magnitude |
+ | k_m_2mass | float32 | mag | 2MASS magnitude |
+ | ra_2 | float64 | degrees | Right ascension from the 2MASS catalog |
+ | raerr | float64 | degrees | Uncertainty in right ascension from the 2MASS catalog |
+ | dec_2 | float64 | degrees | Declination from the 2MASS catalog |
+ | decerr | float64 | degrees | Uncertainty in declination from the 2MASS catalog |
+ | nobs | int32 |  | Number of observed nights from the APASS catalog |
+ | mobs | int32 |  | Number of images for this field from the APASS catalog |
+ | vjmag | float32 | mag | APASS V_J magnitude |
+ | bjmag | float32 | mag | APASS B_J magnitude |
+ | gmag | float32 | mag | APASS Sloan g' magnitude |
+ | rmag | float32 | mag | APASS Sloan r' magnitude |
+ | imag | float32 | mag | APASS Sloan i' magnitude |
+ | evjmag | float32 | mag | Uncertainty in APASS V_J  magnitude |
+ | ebjmag | float32 | mag | Uncertainty in APASS B_J magnitude |
+ | egmag | float32 | mag | Uncertainty in APASS Sloan g' magnitude |
+ | ermag | float32 | mag | Uncertainty in APASS Sloan r' magnitude |
+ | eimag | float32 | mag | Uncertainty in APASS Sloan i' magnitude |
+ | name | int32 |  | APASS field name |
+ | separation | float64 | arcsec | Separation between AllWISE object and APASS object |
+ | ebv | float32 | mag | SFD dustmap E(B-V) |
+ | version | int32 |  | version 2 is high priiority, version 1 is low priority (see Schlaufman + Casey 2014 for definitions) |
+ | original_ext_source_id | char[16] |  | 2MASS designation removing the "." from the coordinates and getting rid of "J" at the front |
+ | cntr | int64 |  | Internal Identifier |
 
 
 
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!

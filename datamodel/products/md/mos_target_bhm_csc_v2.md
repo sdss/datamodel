@@ -9,17 +9,17 @@ MOS Target Table: bhm_csc_v2
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
 CSC2 X-ray sources that have been matched
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_target_bhm_csc_v2-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
+$MOS_TARGET/[V_TARG]/mos_bhm_csc_v2-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
 
 ### Releases
-DR18
+DR18, DR19
 
 ### Enviroments
 MOS_TARGET
@@ -36,14 +36,20 @@ sdss5db> targetdb, operations database server
 ### Is a VAC
 False
 
-### HDUS List for release DR18
+### Data Level
+2.3.3
+
+### HDUS List for release DR19
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: ](#hdu1)
+  - [HDU1](#hdu1)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR19
+   - from: DR18
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -64,44 +70,67 @@ Key | Value | Comment | |
 
 
 
-### HDU1:
+### HDU1: 
 MOS Target Table: bhm_csc_v2
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  27 MB
 
+##### Header Table Caption for HDU1
+Key | Value | Comment | |
+| --- | --- | --- | --- |
+| XTENSION | BINTABLE | binary table extension |
+| BITPIX | 8 | array data type |
+| NAXIS | 2 | number of array dimensions |
+| NAXIS1 | 191 | length of dimension 1 |
+| NAXIS2 | 148443 | length of dimension 2 |
+| PCOUNT | 0 | number of group parameters |
+| GCOUNT | 1 | number of groups |
+| TFIELDS | 25 | number of table fields |
+| TNULL4 | -32768 |  |
+| TNULL6 | -9223372036854775808 |  |
+| TNULL10 | -32768 |  |
+| TNULL15 | -32768 |  |
+| TNULL21 | -2147483648 |  |
+| TNULL23 | -9223372036854775808 |  |
+| TNULL24 | -9223372036854775808 |  |
+| TNULL25 | -9223372036854775808 |  |
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | CXOID | char[22] |  | CSC2 Chandra ID |
- | XRA | float64 | deg | RA of X-ray source from CSC2 |
- | XDEC | float64 | deg | Dec of X-ray source from CSC2 |
- | PRI | int16 |  | Priority (based on X-ray S/N) |
- | OCAT | char[1] |  | optical catalog code (P for PS1, G for Gaia) |
- | OID | int64 |  | object ID from optical catalog |
- | ORA | float64 | deg | right ascension (2000) from optical catalog |
- | ODEC | float64 | deg | declination (2000) from optical catalog |
- | OMAG | float32 | mag | optical magnitude from optical catalog |
- | OMATCHTYPE | int16 |  | X-ray/optical match type (1-4 definite/likely/multiple opt, multiple X) |
- | IRID | char[24] |  | object ID from 2MASS |
- | RA2M | float64 | deg | right ascension (2000) from 2MASS |
- | DEC2M | float64 | deg | declination (2000) from 2MASS |
- | HMAG | float32 | mag | H mag from 2MASS |
- | IRMATCHTYPE | int16 |  | X-ray/IR match type (1-4 definite/likely/multiple opt, multiple X) |
- | LGAL | float64 | deg | Galactic longitude (from X-ray position) |
- | BGAL | float64 | deg | Galactic latitude (from X-ray position) |
- | LOGFX | float32 |  | log10 of X-ray cgs flux in xband |
- | XBAND | char[1] |  | X-ray bandpass for logfx, priority b,m,s,h,w |
- | XSN | float64 |  | X-ray S/N |
- | XFLAGS | int32 |  | concatenated X-ray source flags: extended,confused,piledup,variable,streak,saturated |
- | DESIGNATION2M | char[17] |  | 2MASS identifier (designation) derived from irid |
- | IDG2 | int64 |  | Gaia DR2 source_id (derived from ocat, oid) |
- | IDPS | int64 |  | Pan-STARRS1 Object identifier (derived here from ocat+oid) - equivalent to ObjID in MAST database (https://outerspace.stsci.edu/display/PANSTARRS/PS1+Object+Identifiers), and to our panstarrs1.extid_hi_lo |
- | PK | int64 |  | primary key of the database table |
+ | cxoid | char[22] |  | CSC2 Chandra ID |
+ | xra | float64 | deg | RA of X-ray source from CSC2 |
+ | xdec | float64 | deg | Dec of X-ray source from CSC2 |
+ | pri | int16 |  | Priority (based on X-ray S/N) |
+ | ocat | char[1] |  | optical catalog code (P for PS1, G for Gaia) |
+ | oid | int64 |  | object ID from optical catalog |
+ | ora | float64 | deg | right ascension (2000) from optical catalog |
+ | odec | float64 | deg | declination (2000) from optical catalog |
+ | omag | float32 | mag | optical magnitude from optical catalog |
+ | omatchtype | int16 |  | X-ray/optical match type (1-4 definite/likely/multiple opt, multiple X) |
+ | irid | char[24] |  | object ID from 2MASS |
+ | ra2m | float64 | deg | right ascension (2000) from 2MASS |
+ | dec2m | float64 | deg | declination (2000) from 2MASS |
+ | hmag | float32 | mag | H mag from 2MASS |
+ | irmatchtype | int16 |  | X-ray/IR match type (1-4 definite/likely/multiple opt, multiple X) |
+ | lgal | float64 | deg | Galactic longitude (from X-ray position) |
+ | bgal | float64 | deg | Galactic latitude (from X-ray position) |
+ | logfx | float32 |  | log10 of X-ray cgs flux in xband |
+ | xband | char[1] |  | X-ray bandpass for logfx, priority b,m,s,h,w |
+ | xsn | float64 |  | X-ray S/N |
+ | xflags | int32 |  | concatenated X-ray source flags: extended,confused,piledup,variable,streak,saturated |
+ | designation2m | char[17] |  | 2MASS identifier (designation) derived from irid |
+ | idg2 | int64 |  | Gaia DR2 source_id (derived from ocat, oid) |
+ | idps | int64 |  | Pan-STARRS1 Object identifier (derived here from ocat+oid) - equivalent to ObjID in MAST database (https://outerspace.stsci.edu/display/PANSTARRS/PS1+Object+Identifiers), and to our panstarrs1.extid_hi_lo |
+ | pk | int64 |  | primary key of the database table |
 
 
 
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!

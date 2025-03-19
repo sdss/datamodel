@@ -9,17 +9,17 @@ MOS Target Table: twomass_psc
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
 2MASS point source catalog. For full details, please see https://www.ipac.caltech.edu/2mass/releases/allsky/doc/sec2_2a.html
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_target_twomass_psc-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
+$MOS_TARGET/[V_TARG]/mos_twomass_psc-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
 
 ### Releases
-DR18
+DR18, DR19
 
 ### Enviroments
 MOS_TARGET
@@ -36,14 +36,20 @@ sdss5db> targetdb, operations database server
 ### Is a VAC
 False
 
-### HDUS List for release DR18
+### Data Level
+2.3.3
+
+### HDUS List for release DR19
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: ](#hdu1)
+  - [HDU1](#hdu1)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR19
+   - from: DR18
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -64,79 +70,111 @@ Key | Value | Comment | |
 
 
 
-### HDU1:
+### HDU1: 
 MOS Target Table: twomass_psc
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  459 MB
 
+##### Header Table Caption for HDU1
+Key | Value | Comment | |
+| --- | --- | --- | --- |
+| XTENSION | BINTABLE | binary table extension |
+| BITPIX | 8 | array data type |
+| NAXIS | 2 | number of array dimensions |
+| NAXIS1 | 241 | length of dimension 1 |
+| NAXIS2 | 2000000 | length of dimension 2 |
+| PCOUNT | 0 | number of group parameters |
+| GCOUNT | 1 | number of groups |
+| TFIELDS | 60 | number of table fields |
+| TNULL5 | -32768 |  |
+| TNULL24 | -32768 |  |
+| TNULL25 | -2147483648 |  |
+| TNULL26 | -32768 |  |
+| TNULL27 | -32768 |  |
+| TNULL28 | -2147483648 |  |
+| TNULL31 | -32768 |  |
+| TNULL45 | -2147483648 |  |
+| TNULL46 | -2147483648 |  |
+| TNULL48 | -32768 |  |
+| TNULL49 | -32768 |  |
+| TNULL52 | -32768 |  |
+| TNULL55 | -32768 |  |
+| TNULL56 | -2147483648 |  |
+| TNULL57 | -2147483648 |  |
+| TNULL58 | -2147483648 |  |
+| TNULL59 | -32768 |  |
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | RA | float64 | degrees | Right ascenscion |
- | DECL | float64 | degrees | Declination |
- | ERR_MAJ | float32 | arcsec | Semi-major axis of position error ellipse |
- | ERR_MIN | float32 | arcsec | Semi-minor axis of position error ellipse |
- | ERR_ANG | int16 | degrees | Position angle of error ellipse major axis (E of N) |
- | J_M | float32 | mag | 2MASS J-band default magnitude |
- | J_CMSIG | float32 | mag | J-band default magnitude uncertainty |
- | J_MSIGCOM | float32 | mag | J-band total magnitude uncertainty |
- | J_SNR | float32 |  | J-band signal-to-noise ratio |
- | H_M | float32 | mag | 2MASS H-band default magnitude |
- | H_CMSIG | float32 | mag | H-band default magnitude uncertainty |
- | H_MSIGCOM | float32 | mag | H-band total magnitude uncertainty |
- | H_SNR | float32 |  | H-band signal-to-noise ratio |
- | K_M | float32 | mag | 2MASS K-band default magnitude |
- | K_CMSIG | float32 | mag | K-band default magnitude uncertainty |
- | K_MSIGCOM | float32 | mag | K-band total magnitude uncertainty |
- | K_SNR | float32 |  | K-band signal-to-noise ratio |
- | PH_QUAL | char[3] |  | JHK photometric quality flag {} |
- | RD_FLG | char[3] |  | Source of JHK default mag |
- | BL_FLG | char[3] |  | JHK components fit to source |
- | CC_FLG | char[3] |  | Artifact contamination, confusion flag |
- | NDET | char[6] |  | Number of aperture measurements (jjhhkk) |
- | PROX | float32 | arcsec | Distance between source and nearest neighbor |
- | PXPA | int16 | degrees | Position ange of vector from source to nearest neighbor (E of N) |
- | PXCNTR | int32 |  | Sequence number of nearest neighbor |
- | GAL_CONTAM | int16 |  | Extended source contamination flag |
- | MP_FLG | int16 |  | Association with asteroid or comet flag |
- | PTS_KEY | int32 |  | A unique identification number for the PSC source |
- | HEMIS | char[1] |  | Hemisphere code for the 2MASS Observatory from which this source was observed |
- | DATE | char[10] | yyyy-mm-dd | The observation reference date for this source expressed in ISO standard format. |
- | SCAN | int16 |  | The nightly scan number in which the source was detected |
- | GLON | float32 | degrees | Galactic longitude |
- | GLAT | float32 | degrees | Galactic latitude |
- | X_SCAN | float32 | arcsec | Mean cross-scan focal plane position of the source in the Universal scan (U-scan) coordinate system |
- | JDATE | float64 | days | The Julian Date of the source measurement accurate to 30 seconds |
- | J_PSFCHI | float32 |  | Reduced chi-squared goodness-of-fit value for the J-band profile-fit photometry |
- | H_PSFCHI | float32 |  | Reduced chi-squared goodness-of-fit value for the H-band profile-fit photometry |
- | K_PSFCHI | float32 |  | Reduced chi-squared goodness-of-fit value for the K-band profile-fit photometry |
- | J_M_STDAP | float32 | mag | J-band "standard" aperture magnitude |
- | J_MSIG_STDAP | float32 | mag | Uncertainty in the J-band standard aperture magnitude |
- | H_M_STDAP | float32 | mag | H-band "standard" aperture magnitude |
- | H_MSIG_STDAP | float32 | mag | Uncertainty in the H-band standard aperture magnitude |
- | K_M_STDAP | float32 | mag | K-band "standard" aperture magnitude |
- | K_MSIG_STDAP | float32 | mag | Uncertainty in the K-band standard aperture magnitude |
- | DIST_EDGE_NS | int32 | arcsec | Distance from the source to the nearest North or South scan edge |
- | DIST_EDGE_EW | int32 | arcsec | Distance from the source to the nearest East or West scan edge |
- | DIST_EDGE_FLG | char[2] |  | Flag that specifies to which scan edges a source lies closest and to which edges the dist_edge_ns and dist_edge_ew values refer |
- | DUP_SRC | int16 |  | Duplicate source flag |
- | USE_SRC | int16 |  | Use source flag |
- | A | char[1] |  | Catalog identifier of an optical source from either the Tycho 2 or USNO-A2.0 catalog that falls within approximately 5 arcsec of the 2MASS source position |
- | DIST_OPT | float32 | arcsec | Distance separating 2MASS source position and associated optical source |
- | PHI_OPT | int16 | degrees | Position angle on the sky of the vector from the the associated optical source to the 2MASS source position (East of North) |
- | B_M_OPT | float32 | mag | Blue magnitude of associated optical source |
- | VR_M_OPT | float32 | mag | Visual or red magnitude of the associated optical source |
- | NOPT_MCHS | int16 |  | The number of USNO-A2.0 or Tycho 2 optical sources found within a radius of approximately 5 arcsec of the 2MASS position |
- | EXT_KEY | int32 |  | Unique identification number of the record in the XSC that corresponds to this point source |
- | SCAN_KEY | int32 |  | Unique identification number of the record in the Scan Information Table |
- | COADD_KEY | int32 |  | Unique identification number of the record in the Atlas Image Information Table |
- | COADD | int16 |  | Sequence number of the Atlas Image in which the position of this source falls |
- | DESIGNATION | char[17] |  | Sexagesimal, equatorial position-based source |
+ | ra | float64 | degrees | Right ascenscion |
+ | decl | float64 | degrees | Declination |
+ | err_maj | float32 | arcsec | Semi-major axis of position error ellipse |
+ | err_min | float32 | arcsec | Semi-minor axis of position error ellipse |
+ | err_ang | int16 | degrees | Position angle of error ellipse major axis (E of N) |
+ | j_m | float32 | mag | 2MASS J-band default magnitude |
+ | j_cmsig | float32 | mag | J-band default magnitude uncertainty |
+ | j_msigcom | float32 | mag | J-band total magnitude uncertainty |
+ | j_snr | float32 |  | J-band signal-to-noise ratio |
+ | h_m | float32 | mag | 2MASS H-band default magnitude |
+ | h_cmsig | float32 | mag | H-band default magnitude uncertainty |
+ | h_msigcom | float32 | mag | H-band total magnitude uncertainty |
+ | h_snr | float32 |  | H-band signal-to-noise ratio |
+ | k_m | float32 | mag | 2MASS K-band default magnitude |
+ | k_cmsig | float32 | mag | K-band default magnitude uncertainty |
+ | k_msigcom | float32 | mag | K-band total magnitude uncertainty |
+ | k_snr | float32 |  | K-band signal-to-noise ratio |
+ | ph_qual | char[3] |  | JHK photometric quality flag {} |
+ | rd_flg | char[3] |  | Source of JHK default mag |
+ | bl_flg | char[3] |  | JHK components fit to source |
+ | cc_flg | char[3] |  | Artifact contamination, confusion flag |
+ | ndet | char[6] |  | Number of aperture measurements (jjhhkk) |
+ | prox | float32 | arcsec | Distance between source and nearest neighbor |
+ | pxpa | int16 | degrees | Position ange of vector from source to nearest neighbor (E of N) |
+ | pxcntr | int32 |  | Sequence number of nearest neighbor |
+ | gal_contam | int16 |  | Extended source contamination flag |
+ | mp_flg | int16 |  | Association with asteroid or comet flag |
+ | pts_key | int32 |  | A unique identification number for the PSC source |
+ | hemis | char[1] |  | Hemisphere code for the 2MASS Observatory from which this source was observed |
+ | date | char[10] | yyyy-mm-dd | The observation reference date for this source expressed in ISO standard format. |
+ | scan | int16 |  | The nightly scan number in which the source was detected |
+ | glon | float32 | degrees | Galactic longitude |
+ | glat | float32 | degrees | Galactic latitude |
+ | x_scan | float32 | arcsec | Mean cross-scan focal plane position of the source in the Universal scan (U-scan) coordinate system |
+ | jdate | float64 | days | The Julian Date of the source measurement accurate to 30 seconds |
+ | j_psfchi | float32 |  | Reduced chi-squared goodness-of-fit value for the J-band profile-fit photometry |
+ | h_psfchi | float32 |  | Reduced chi-squared goodness-of-fit value for the H-band profile-fit photometry |
+ | k_psfchi | float32 |  | Reduced chi-squared goodness-of-fit value for the K-band profile-fit photometry |
+ | j_m_stdap | float32 | mag | J-band "standard" aperture magnitude |
+ | j_msig_stdap | float32 | mag | Uncertainty in the J-band standard aperture magnitude |
+ | h_m_stdap | float32 | mag | H-band "standard" aperture magnitude |
+ | h_msig_stdap | float32 | mag | Uncertainty in the H-band standard aperture magnitude |
+ | k_m_stdap | float32 | mag | K-band "standard" aperture magnitude |
+ | k_msig_stdap | float32 | mag | Uncertainty in the K-band standard aperture magnitude |
+ | dist_edge_ns | int32 | arcsec | Distance from the source to the nearest North or South scan edge |
+ | dist_edge_ew | int32 | arcsec | Distance from the source to the nearest East or West scan edge |
+ | dist_edge_flg | char[2] |  | Flag that specifies to which scan edges a source lies closest and to which edges the dist_edge_ns and dist_edge_ew values refer |
+ | dup_src | int16 |  | Duplicate source flag |
+ | use_src | int16 |  | Use source flag |
+ | a | char[1] |  | Catalog identifier of an optical source from either the Tycho 2 or USNO-A2.0 catalog that falls within approximately 5 arcsec of the 2MASS source position |
+ | dist_opt | float32 | arcsec | Distance separating 2MASS source position and associated optical source |
+ | phi_opt | int16 | degrees | Position angle on the sky of the vector from the the associated optical source to the 2MASS source position (East of North) |
+ | b_m_opt | float32 | mag | Blue magnitude of associated optical source |
+ | vr_m_opt | float32 | mag | Visual or red magnitude of the associated optical source |
+ | nopt_mchs | int16 |  | The number of USNO-A2.0 or Tycho 2 optical sources found within a radius of approximately 5 arcsec of the 2MASS position |
+ | ext_key | int32 |  | Unique identification number of the record in the XSC that corresponds to this point source |
+ | scan_key | int32 |  | Unique identification number of the record in the Scan Information Table |
+ | coadd_key | int32 |  | Unique identification number of the record in the Atlas Image Information Table |
+ | coadd | int16 |  | Sequence number of the Atlas Image in which the position of this source falls |
+ | designation | char[17] |  | Sexagesimal, equatorial position-based source |
 
 
 
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!

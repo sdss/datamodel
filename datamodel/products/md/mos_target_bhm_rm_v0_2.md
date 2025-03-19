@@ -9,17 +9,17 @@ MOS Target Table: bhm_rm_v0_2
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
 Parent sample for the RM project, used to select confirmed and candidate quasar targets for the BHM-RM Program in SDSS-V. For more details please see Yang and Shen, (2022, https://ui.adsabs.harvard.edu/abs/2022arXiv220608989Y/abstract).
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_target_bhm_rm_v0_2-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
+$MOS_TARGET/[V_TARG]/mos_bhm_rm_v0_2-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
 
 ### Releases
-DR18
+DR18, DR19
 
 ### Enviroments
 MOS_TARGET
@@ -36,14 +36,20 @@ sdss5db> targetdb, operations database server
 ### Is a VAC
 False
 
-### HDUS List for release DR18
+### Data Level
+2.3.3
+
+### HDUS List for release DR19
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: ](#hdu1)
+  - [HDU1](#hdu1)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR19
+   - from: DR18
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -64,268 +70,343 @@ Key | Value | Comment | |
 
 
 
-### HDU1:
+### HDU1: 
 MOS Target Table: bhm_rm_v0_2
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  130 MB
+#### HDU Size:  172 MB
 
+##### Header Table Caption for HDU1
+Key | Value | Comment | |
+| --- | --- | --- | --- |
+| XTENSION | BINTABLE | binary table extension |
+| BITPIX | 8 | array data type |
+| NAXIS | 2 | number of array dimensions |
+| NAXIS1 | 1792 | length of dimension 1 |
+| NAXIS2 | 101049 | length of dimension 2 |
+| PCOUNT | 0 | number of group parameters |
+| GCOUNT | 1 | number of groups |
+| TFIELDS | 249 | number of table fields |
+| TNULL7 | -2147483648 |  |
+| TNULL8 | -9223372036854775808 |  |
+| TNULL11 | -2147483648 |  |
+| TNULL13 | -2147483648 |  |
+| TNULL14 | -9223372036854775808 |  |
+| TNULL19 | -2147483648 |  |
+| TNULL20 | -9223372036854775808 |  |
+| TNULL24 | -2147483648 |  |
+| TNULL26 | -2147483648 |  |
+| TNULL27 | -9223372036854775808 |  |
+| TNULL30 | -2147483648 |  |
+| TNULL31 | -2147483648 |  |
+| TNULL33 | -2147483648 |  |
+| TNULL34 | -9223372036854775808 |  |
+| TNULL44 | -2147483648 |  |
+| TNULL49 | -2147483648 |  |
+| TNULL51 | -9223372036854775808 |  |
+| TNULL57 | -2147483648 |  |
+| TNULL58 | -2147483648 |  |
+| TNULL59 | -2147483648 |  |
+| TNULL60 | -2147483648 |  |
+| TNULL69 | -2147483648 |  |
+| TNULL74 | -2147483648 |  |
+| TNULL88 | -2147483648 |  |
+| TNULL90 | -9223372036854775808 |  |
+| TNULL93 | -2147483648 |  |
+| TNULL95 | -9223372036854775808 |  |
+| TNULL99 | -9223372036854775808 |  |
+| TNULL120 | -2147483648 |  |
+| TNULL121 | -2147483648 |  |
+| TNULL122 | -2147483648 |  |
+| TNULL123 | -2147483648 |  |
+| TNULL124 | -2147483648 |  |
+| TNULL145 | -2147483648 |  |
+| TNULL146 | -2147483648 |  |
+| TNULL147 | -2147483648 |  |
+| TNULL148 | -2147483648 |  |
+| TNULL149 | -2147483648 |  |
+| TNULL190 | -2147483648 |  |
+| TNULL191 | -2147483648 |  |
+| TNULL200 | -2147483648 |  |
+| TNULL201 | -2147483648 |  |
+| TNULL202 | -2147483648 |  |
+| TNULL203 | -2147483648 |  |
+| TNULL204 | -2147483648 |  |
+| TNULL205 | -2147483648 |  |
+| TNULL206 | -2147483648 |  |
+| TNULL207 | -2147483648 |  |
+| TNULL208 | -2147483648 |  |
+| TNULL209 | -2147483648 |  |
+| TNULL225 | -2147483648 |  |
+| TNULL226 | -2147483648 |  |
+| TNULL227 | -2147483648 |  |
+| TNULL228 | -2147483648 |  |
+| TNULL229 | -2147483648 |  |
+| TNULL230 | -2147483648 |  |
+| TNULL231 | -2147483648 |  |
+| TNULL232 | -2147483648 |  |
+| TNULL233 | -2147483648 |  |
+| TNULL234 | -2147483648 |  |
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | FIELD_NAME | char[8] |  | One of COSMOS, SDSS-RM, XMM-LSS, CDFS, S-CVZ, or ELAIS-S1 |
- | RA | float64 | deg | Fiducial Right Ascension (J2000) |
- | DEC | float64 | deg | Fiducial Declination (J2000) |
- | DISTANCE | float64 | deg | Angular distance from the field center |
- | POS_REF | char[4] |  | Fiducial coordinates reference, priority: Gaia > DES > PS1 > NSC |
- | EBV | float64 |  | Galactic E(B−V) reddening from Schlegel et al. (1998) |
- | DES | int32 |  | A flag set to 1 if in DES photometric catalog |
- | COADD_OBJECT_ID | int64 |  | DES coadd object ID |
- | RA_DES | float64 | deg | DES Right Ascension (J2000) |
- | DEC_DES | float64 | deg | DES Declination (J2000) |
- | EXTENDED_COADD | int32 |  | DES type classifier: 0 (high-confidence stars), 1 (likely stars), 2 (mostly galaxies), and 3 (high-confidence galaxies) |
- | SEPARATION_DES | float64 | arcsec | Angular distance between DES position and the fiducial coordinates |
- | PS1 | int32 |  | A flag set to 1 if in PS1 photometric catalog |
- | OBJID_PS1 | int64 |  | PS1 unique object identifier |
- | RA_PS1 | float64 | deg | PS1 right ascension from i filter stack detection |
- | DEC_PS1 | float64 | deg | PS1 declination from i filter stack detection |
- | CLASS_PS1 | float64 |  | PS1 source classification = iPsfMag - iKronMag |
- | SEPARATION_PS1 | float64 | arcsec | Angular distance between PS1 position and the fiducial coordinates |
- | NSC | int32 |  | A flag set to 1 if in  photometric catalog |
- | ID_NSC | int64 |  | NSC unique object identifier |
- | RA_NSC | float64 | deg | Right Ascension (J2000) |
- | DEC_NSC | float64 | deg | Declination (J2000) |
- | CLASS_STAR | float64 |  | NSC Star/Galaxy classifier |
- | FLAGS_NSC | int32 |  | NSC SExtractor flag value |
- | SEPARATION_NSC | float64 | arcsec | Angular distance between NSC position and the fiducial coordinates |
- | SDSS | int32 |  | A flag set to 1 if in SDSS photometric catalog |
- | OBJID_SDSS | int64 |  | Unique SDSS identifier |
- | RA_SDSS | float64 | deg | Right Ascension (J2000) |
- | DEC_SDSS | float64 | deg | Declination (J2000) |
- | TYPE_SDSS | int32 |  | SDSS type classifier (star 6, galaxy 3, etc.) |
- | CLEAN_SDSS | int32 |  | SDSS clean photometry flag (1=clean, 0=unclean) |
- | SEPARATION_SDSS | float64 | arcsec | Angular distance between SDSS position and the fiducial coordinates |
- | GAIA | int32 |  | A flag set to 1 if in Gaia DR2 photometric catalog |
- | SOURCE_ID_GAIA | int64 |  | Gaia DR2 unique source identifier |
- | MG | float64 | mag | Gaia g-band magnitude (phot_g_mean_mag in Gaia catalog, Vega) |
- | PARALLAX | float64 | mas | Parallax, Angle, |
- | PARALLAX_ERROR | float64 | mas | Standard error of parallax, Angle, |
- | PLXSIG | float64 |  | Parallax significance defined as |PARALLAX/PARALLAX_ERROR| |
- | PMRA | float64 | mas/year | Proper motion in RA direction, Angular Velocity, |
- | PMRA_ERROR | float64 | mas/year | Standard error of proper motion in RA direction, Angular Velocity, |
- | PMDEC | float64 | mas/year | Proper motion in DEC direction, Angular Velocity, |
- | PMDEC_ERROR | float64 | mas/year | Standard error of proper motion in DEC direction, Angular Velocity, |
- | PMSIG | float64 |  | Proper motion significance defined as (pmra^2+pmdec^2)/sqrt(pmra^2*pmra_error^2 + pmdec^2*pmdec_error^2) |
- | UNWISE | int32 |  | A flag set to 1 if in unWISE photometric catalog |
- | OBJID_UNWISE | char[16] |  | unWISE unique object id |
- | RA_UNWISE | float64 | deg | unWISE Right Ascension (J2000) |
- | DEC_UNWISE | float64 | deg | unWISE Declination (J2000) |
- | SEPARATION_UNWISE | float64 | arcsec | Angular distance between unWISE position and the fiducial coordinates |
- | NEAR_IR | int32 |  | A flag set to 1 if in NIR photometric catalog |
- | SURVEY_IR | char[6] |  | Near-IR survey name: LAS, UHS, VHS, Viking, VMC, VIDEO |
- | SOURCEID_IR | int64 |  | NIR source identifier |
- | RA_IR | float64 | deg | NIR Right Ascension (J2000) |
- | DEC_IR | float64 | deg | NIR Declination (J2000) |
- | SEPARATION_IR | float64 | arcsec | Angular distance between NIR position and the fiducial coordinates |
- | OPTICAL_SURVEY | char[4] |  | Optical survey used in Skewt-QSO, e.g., DES, PS1, Gaia, NSC |
- | MI | float64 | mag | i-band PSF magnitude (galactic extinction not corrected) |
- | CAL_SKEWT_QSO | int32 |  | A flag indicates whether Skewt-QSO is calculated.(Set to 1 when Nband_Optical_use > 2.) |
- | NBAND_OPTICAL_USE | int32 |  | Number of optical bands used in Skewt-QSQ. |
- | USE_UNWISE | int32 |  | Set to 1 when unWISE photometry is used in Skewt-QSO calculation. |
- | USE_NIR | int32 |  | Set to 1 when NIR photometry is usedin Skewt-QSO calculation. |
- | PHOTO_COMBINATION | char[17] |  | The photometric data combinations used in Skewt-QSO, for example, "DECam-YJHK-unWISE" - DECam/PS1 includes grizy bands; unWISE incldes unWISE W1 and W2 bands; and Gaia includes Gaia bp, g, and rp bands |
- | LOG_QSO | float64 |  | The (natural) logarithmic probability of a target fitting to QSO colors convolved with a QLF. Set to -323 if log_QSO<-323 (close to the lower limit of double-precision data). |
- | LOG_STAR | float64 |  | The logarithmic probability of a target fitting to star colors multiplied by star number counts based on a stellar simulation. Set to -323 if log_Star<-323. |
- | LOG_GALAXY | float64 |  | The logarithmic probability of a target fitting to galaxy colors convolved with a GLF. Set to -323 if  log_Galaxy<-323. |
- | P_QSO | float64 |  | QSO probability from Skewt-QSO. P_QSO = exp(log_qso)/(exp(log_qso) + exp(log_star) + exp(log_galaxy)) |
- | P_STAR | float32 |  | Star probability from Skewt-QSO. |
- | P_GALAXY | float64 |  | Galaxy probability from Skewt-QSO. |
- | CLASS_SKEWT_QSO | char[6] |  | Classification based on the highest probability from Skewt-QSO, QSO/Star/Galaxy |
- | SKEWT_QSO | int32 |  | flag indicating whether the object is a QSO (same as class_skewt_qso, except additionally requiring log_QSO>-10). (P_QSO>P_Star & P_QSO>P_galaxy & log_QSO>-10) |
- | P_QSO_PRIOR | float64 |  | QSO probability with prior probabilities from additional info, such as separation (between optical survey and unWISE), morphology, variability, and/or proper motion.(Note: *_Prior are generally not populated in this version, except for the "S-CVZ" field, where we take into account the separation between optical surveys and unWISE.) |
- | P_STAR_PRIOR | float32 |  | Star probability with prior probabilities. |
- | P_GALAXY_PRIOR | float64 |  | Galaxy probability with prior probabilities. |
- | CLASS_SKEWT_QSO_PRIOR | char[6] |  | Classification based on Skewt-QSO with prior probabilities described above. |
- | SKEWT_QSO_PRIOR | int32 |  | flag indicating whether the object is QSO based on Skewt-QSO with prior probabilities described above. |
- | PHOTOZ_QSO | float64 |  | Photometric redshift of QSO from Skewt-QSO |
- | PHOTOZ_QSO_LOWER | float64 |  | Lower limit of photoz_QSO |
- | PHOTOZ_QSO_UPPER | float64 |  | Upper limit of photoz_QSO |
- | PROB_PHOTOZ_QSO | float64 |  | The total probability of z located between photoz_QSO_lower and photoz_QSO_upper (assuming it is QSO). |
- | PHOTOZ_GALAXY | float64 |  | Photometric redshift of Galaxy from Skewt-QSO (fitting to galaxy colors). |
- | PHOTOZ_GALAXY_LOWER | float64 |  | Lower limit of photoz_Galaxy. |
- | PHOTOZ_GALAXY_UPPER | float64 |  | Upper limit of photoz_Galaxy. |
- | PQSO_XDQSO | float64 |  | QSO probability from the public XDQSO catalog |
- | PHOTOZ_XDQSO | float64 |  | Photometric redshift of QSO from the public XDQSO catalog |
- | PROB_RF_GAIA_UNWISE | float64 |  | AGN probability from the Gaia-unWISE AGN catalog |
- | PHOTOZ_GAIA_UNWISE | float64 |  | Photometric redshift from the Gaia-unWISE AGN catalog |
- | DES_VAR_SN_MAX | float64 |  | The signal-to-noise ratio of the measured intrinsic RMS in grizy bands (DES). |
- | PS1_VAR_SN_MAX | float64 |  | The maximum signal-to-noise ratio of the measured intrinsic RMS over 5 bands (PS1). |
- | SPEC_Q | int32 |  | flag indicating if the object was spectroscopically confirmed as QSO from earlier surveys. |
- | SPEC_STRMASK | char[6] |  | string format of spec_bitmask, e.g., '000001'. |
- | SPEC_BITMASK | int64 |  | bitmask - bit 0: SDSS-DR14Q, bit 1: SDSS-DR7Q, bit 2: OzDES-DR1Q, bit 3: SDSS-RM_Q, bit 4: COSMOS_Q, bit 5: Milliquas_QA. (Note: Milliquas_QA=1 are objects spectroscopically classified as broad-line QSO/AGN in the Million Quasars (MILLIQUAS) catalog.) |
- | SPECZ | float64 |  | spectroscopic redshift from multiple surveys. Priority: SDSS-RM_Q/COSMOS_Q > SDSS-DR14Q > SDSS-DR7Q > OzDES-DR1Q > Milliquas_QA |
- | SPECZ_REF | char[16] |  | Reference of specz. |
- | PHOTO_Q | int32 |  | flag indicating if the object was selected as QSO in public photometric quasar catalogs. |
- | PHOTO_STRMASK | char[3] |  | string format of photo_bitmask |
- | PHOTO_BITMASK | int64 |  | bit mask, bit 0: XDQSO catalog, bit 1: Gaia-unWISE AGN catalog; bit 2: Milliquas_photo: photometric quasar candidates in the Milliquas catalog |
- | PHOTOZ | float64 |  | Photometric redshift from public photometric quasar catalogs. Priority: XDQSO > Gaia-unWISE > Milliquas_photo |
- | PQSO_PHOTO | float64 |  | QSO probability from public photometric quasar catalogs. |
- | PHOTOZ_REF | char[16] |  | photoz reference. |
- | PK | int64 |  | primary key for the database table |
- | PSFMAG_DES_G | float64 | mag | DES PSF photometry |
- | PSFMAG_DES_R | float64 | mag | DES PSF photometry |
- | PSFMAG_DES_I | float64 | mag | DES PSF photometry |
- | PSFMAG_DES_Z | float64 | mag | DES PSF photometry |
- | PSFMAG_DES_Y | float64 | mag | DES PSF photometry |
- | PSFMAGERR_DES_G | float64 | mag | DES PSF photometry error |
- | PSFMAGERR_DES_R | float64 | mag | DES PSF photometry error |
- | PSFMAGERR_DES_I | float64 | mag | DES PSF photometry error |
- | PSFMAGERR_DES_Z | float64 | mag | DES PSF photometry error |
- | PSFMAGERR_DES_Y | float64 | mag | DES PSF photometry error |
- | MAG_AUTO_DES_G | float64 | mag | DES auto photometry |
- | MAG_AUTO_DES_R | float64 | mag | DES auto photometry |
- | MAG_AUTO_DES_I | float64 | mag | DES auto photometry |
- | MAG_AUTO_DES_Z | float64 | mag | DES auto photometry |
- | MAG_AUTO_DES_Y | float64 | mag | DES auto photometry |
- | MAGERR_AUTO_DES_G | float64 | mag | DES auto photometry error |
- | MAGERR_AUTO_DES_R | float64 | mag | DES auto photometry error |
- | MAGERR_AUTO_DES_I | float64 | mag | DES auto photometry error |
- | MAGERR_AUTO_DES_Z | float64 | mag | DES auto photometry error |
- | MAGERR_AUTO_DES_Y | float64 | mag | DES auto photometry error |
- | IMAFLAGS_ISO_G | int32 |  | DES flag identifying sources with missing/flagged pixels, considering all single epoch images |
- | IMAFLAGS_ISO_R | int32 |  | DES flag identifying sources with missing/flagged pixels, considering all single epoch images |
- | IMAFLAGS_ISO_I | int32 |  | DES flag identifying sources with missing/flagged pixels, considering all single epoch images |
- | IMAFLAGS_ISO_Z | int32 |  | DES flag identifying sources with missing/flagged pixels, considering all single epoch images |
- | IMAFLAGS_ISO_Y | int32 |  | DES flag identifying sources with missing/flagged pixels, considering all single epoch images |
- | PSFMAG_PS1_G | float64 | mag | PS1 PSF magnitude |
- | PSFMAG_PS1_R | float64 | mag | PS1 PSF magnitude |
- | PSFMAG_PS1_I | float64 | mag | PS1 PSF magnitude |
- | PSFMAG_PS1_Z | float64 | mag | PS1 PSF magnitude |
- | PSFMAG_PS1_Y | float64 | mag | PS1 PSF magnitude |
- | PSFMAGERR_PS1_G | float64 | mag | PS1 PSF magnitude error |
- | PSFMAGERR_PS1_R | float64 | mag | PS1 PSF magnitude error |
- | PSFMAGERR_PS1_I | float64 | mag | PS1 PSF magnitude error |
- | PSFMAGERR_PS1_Z | float64 | mag | PS1 PSF magnitude error |
- | PSFMAGERR_PS1_Y | float64 | mag | PS1 PSF magnitude error |
- | KRONMAG_PS1_G | float64 | mag | PS1 Kron magnitude |
- | KRONMAG_PS1_R | float64 | mag | PS1 Kron magnitude |
- | KRONMAG_PS1_I | float64 | mag | PS1 Kron magnitude |
- | KRONMAG_PS1_Z | float64 | mag | PS1 Kron magnitude |
- | KRONMAG_PS1_Y | float64 | mag | PS1 Kron magnitude |
- | KRONMAGERR_PS1_G | float64 | mag | PS1 Kron magnitude error |
- | KRONMAGERR_PS1_R | float64 | mag | PS1 Kron magnitude error |
- | KRONMAGERR_PS1_I | float64 | mag | PS1 Kron magnitude error |
- | KRONMAGERR_PS1_Z | float64 | mag | PS1 Kron magnitude error |
- | KRONMAGERR_PS1_Y | float64 | mag | PS1 Kron magnitude error |
- | INFOFLAG2_G | int32 |  | PS1 flags, values listed in DetectionFlags2 |
- | INFOFLAG2_R | int32 |  | PS1 flags, values listed in DetectionFlags2 |
- | INFOFLAG2_I | int32 |  | PS1 flags, values listed in DetectionFlags2 |
- | INFOFLAG2_Z | int32 |  | PS1 flags, values listed in DetectionFlags2 |
- | INFOFLAG2_Y | int32 |  | PS1 flags, values listed in DetectionFlags2 |
- | MAG_NSC_G | float64 | mag | Weighted-average magnitude |
- | MAG_NSC_R | float64 | mag | Weighted-average magnitude |
- | MAG_NSC_I | float64 | mag | Weighted-average magnitude |
- | MAG_NSC_Z | float64 | mag | Weighted-average magnitude |
- | MAG_NSC_Y | float64 | mag | Weighted-average magnitude |
- | MAGERR_NSC_G | float64 | mag | Weighted-average NSC magnitude |
- | MAGERR_NSC_R | float64 | mag | Weighted-average NSC magnitude |
- | MAGERR_NSC_I | float64 | mag | Weighted-average NSC magnitude |
- | MAGERR_NSC_Z | float64 | mag | Weighted-average NSC magnitude |
- | MAGERR_NSC_Y | float64 | mag | Weighted-average NSC magnitude |
- | PSFMAG_SDSS_U | float64 | mag | SDSS PSF magnitude |
- | PSFMAG_SDSS_G | float64 | mag | SDSS PSF magnitude |
- | PSFMAG_SDSS_R | float64 | mag | SDSS PSF magnitude |
- | PSFMAG_SDSS_I | float64 | mag | SDSS PSF magnitude |
- | PSFMAG_SDSS_Z | float64 | mag | SDSS PSF magnitude |
- | PSFMAGERR_SDSS_U | float64 | mag | SDSS PSF magnitude error |
- | PSFMAGERR_SDSS_G | float64 | mag | SDSS PSF magnitude error |
- | PSFMAGERR_SDSS_R | float64 | mag | SDSS PSF magnitude error |
- | PSFMAGERR_SDSS_I | float64 | mag | SDSS PSF magnitude error |
- | PSFMAGERR_SDSS_Z | float64 | mag | SDSS PSF magnitude error |
- | MODELMAG_SDSS_U | float64 | mag | SDSS Model magnitude |
- | MODELMAG_SDSS_G | float64 | mag | SDSS Model magnitude |
- | MODELMAG_SDSS_R | float64 | mag | SDSS Model magnitude |
- | MODELMAG_SDSS_I | float64 | mag | SDSS Model magnitude |
- | MODELMAG_SDSS_Z | float64 | mag | SDSS Model magnitude |
- | MODELMAGERR_SDSS_U | float64 | mag | SDSS Model magnitude error |
- | MODELMAGERR_SDSS_G | float64 | mag | SDSS Model magnitude error |
- | MODELMAGERR_SDSS_R | float64 | mag | SDSS Model magnitude error |
- | MODELMAGERR_SDSS_I | float64 | mag | SDSS Model magnitude error |
- | MODELMAGERR_SDSS_Z | float64 | mag | SDSS Model magnitude error |
- | MAG_GAIA_G | float64 | mag | Gaia DR2 G-band magnitude, Vega |
- | MAG_GAIA_BP | float64 | mag | Gaia DR2 BP-band magnitude, Vega |
- | MAG_GAIA_RP | float64 | mag | Gaia DR2 RP-band magnitude, Vega |
- | MAGERR_GAIA_G | float64 | mag | Gaia DR2 G-band magnitude error, Vega |
- | MAGERR_GAIA_BP | float64 | mag | Gaia DR2 BP-band magnitude error, Vega |
- | MAGERR_GAIA_RP | float64 | mag | Gaia DR2 RP-band magnitude error, Vega |
- | MAG_UNWISE_W1 | float64 | mag | unWISE (Vega) magnitude, |
- | MAG_UNWISE_W2 | float64 | mag | unWISE (Vega) magnitude, |
- | MAGERR_UNWISE_W1 | float64 | mag | unWISE (Vega) magnitude error, |
- | MAGERR_UNWISE_W2 | float64 | mag | unWISE (Vega) magnitude error, |
- | FLAGS_UNWISE_W1 | int32 |  | unWISE Coadd Flags |
- | FLAGS_UNWISE_W2 | int32 |  | unWISE Coadd Flags |
- | MAG_IR_Y | float64 | mag | (Vega) magnitude in near-IR, |
- | MAG_IR_J | float64 | mag | (Vega) magnitude in near-IR, |
- | MAG_IR_H | float64 | mag | (Vega) magnitude in near-IR, |
- | MAG_IR_K | float64 | mag | (Vega) magnitude in near-IR, |
- | MAGERR_IR_Y | float64 | mag | magnitude error in near-IR |
- | MAGERR_IR_J | float64 | mag | magnitude error in near-IR |
- | MAGERR_IR_H | float64 | mag | magnitude error in near-IR |
- | MAGERR_IR_K | float64 | mag | magnitude error in near-IR |
- | DES_VAR_NEPOCH_G | int32 |  | Number of DES single-epoch photometric datapoints per band |
- | DES_VAR_NEPOCH_R | int32 |  | Number of DES single-epoch photometric datapoints per band |
- | DES_VAR_NEPOCH_I | int32 |  | Number of DES single-epoch photometric datapoints per band |
- | DES_VAR_NEPOCH_Z | int32 |  | Number of DES single-epoch photometric datapoints per band |
- | DES_VAR_NEPOCH_Y | int32 |  | Number of DES single-epoch photometric datapoints per band |
- | DES_VAR_STATUS_G | int32 |  | Status of intrinsic variability calculation from DES |
- | DES_VAR_STATUS_R | int32 |  | Status of intrinsic variability calculation from DES |
- | DES_VAR_STATUS_I | int32 |  | Status of intrinsic variability calculation from DES |
- | DES_VAR_STATUS_Z | int32 |  | Status of intrinsic variability calculation from DES |
- | DES_VAR_STATUS_Y | int32 |  | Status of intrinsic variability calculation from DES |
- | DES_VAR_RMS_G | float64 | mag | Intrinsic RMS from DES |
- | DES_VAR_RMS_R | float64 | mag | Intrinsic RMS from DES |
- | DES_VAR_RMS_I | float64 | mag | Intrinsic RMS from DES |
- | DES_VAR_RMS_Z | float64 | mag | Intrinsic RMS from DES |
- | DES_VAR_RMS_Y | float64 | mag | Intrinsic RMS from DES |
- | DES_VAR_SIGRMS_G | float64 | mag | Error of intrinsic RMS from DES |
- | DES_VAR_SIGRMS_R | float64 | mag | Error of intrinsic RMS from DES |
- | DES_VAR_SIGRMS_I | float64 | mag | Error of intrinsic RMS from DES |
- | DES_VAR_SIGRMS_Z | float64 | mag | Error of intrinsic RMS from DES |
- | DES_VAR_SIGRMS_Y | float64 | mag | Error of intrinsic RMS from DES |
- | DES_VAR_SN_G | float64 |  | The signal-to-noise ratio of the measured intrinsic RMS from DES |
- | DES_VAR_SN_R | float64 |  | The signal-to-noise ratio of the measured intrinsic RMS from DES |
- | DES_VAR_SN_I | float64 |  | The signal-to-noise ratio of the measured intrinsic RMS from DES |
- | DES_VAR_SN_Z | float64 |  | The signal-to-noise ratio of the measured intrinsic RMS from DES |
- | DES_VAR_SN_Y | float64 |  | The signal-to-noise ratio of the measured intrinsic RMS from DES |
- | PS1_VAR_NEPOCH_G | int32 |  | Number of PS1 single-epoch photometric data points |
- | PS1_VAR_NEPOCH_R | int32 |  | Number of PS1 single-epoch photometric data points |
- | PS1_VAR_NEPOCH_I | int32 |  | Number of PS1 single-epoch photometric data points |
- | PS1_VAR_NEPOCH_Z | int32 |  | Number of PS1 single-epoch photometric data points |
- | PS1_VAR_NEPOCH_Y | int32 |  | Number of PS1 single-epoch photometric data points |
- | PS1_VAR_STATUS_G | int32 |  | Status of intrinsic variability calculation from PS1 |
- | PS1_VAR_STATUS_R | int32 |  | Status of intrinsic variability calculation from PS1 |
- | PS1_VAR_STATUS_I | int32 |  | Status of intrinsic variability calculation from PS1 |
- | PS1_VAR_STATUS_Z | int32 |  | Status of intrinsic variability calculation from PS1 |
- | PS1_VAR_STATUS_Y | int32 |  | Status of intrinsic variability calculation from PS1 |
- | PS1_VAR_RMS_G | float64 | mag | Intrinsic RMS from PS1 |
- | PS1_VAR_RMS_R | float64 | mag | Intrinsic RMS from PS1 |
- | PS1_VAR_RMS_I | float64 | mag | Intrinsic RMS from PS1 |
- | PS1_VAR_RMS_Z | float64 | mag | Intrinsic RMS from PS1 |
- | PS1_VAR_RMS_Y | float64 | mag | Intrinsic RMS from PS1 |
- | PS1_VAR_SIGRMS_G | float64 | mag | Error of intrinsic RMS from PS1 |
- | PS1_VAR_SIGRMS_R | float64 | mag | Error of intrinsic RMS from PS1 |
- | PS1_VAR_SIGRMS_I | float64 | mag | Error of intrinsic RMS from PS1 |
- | PS1_VAR_SIGRMS_Z | float64 | mag | Error of intrinsic RMS from PS1 |
- | PS1_VAR_SIGRMS_Y | float64 | mag | Error of intrinsic RMS from PS1 |
- | PS1_VAR_SN_G | float64 |  | The signal-to-noise ratio of the measured intrinsic RMS from PS1 |
- | PS1_VAR_SN_R | float64 |  | The signal-to-noise ratio of the measured intrinsic RMS from PS1 |
- | PS1_VAR_SN_I | float64 |  | The signal-to-noise ratio of the measured intrinsic RMS from PS1 |
- | PS1_VAR_SN_Z | float64 |  | The signal-to-noise ratio of the measured intrinsic RMS from PS1 |
- | PS1_VAR_SN_Y | float64 |  | The signal-to-noise ratio of the measured intrinsic RMS from PS1 |
+ | field_name | char[8] |  | One of COSMOS, SDSS-RM, XMM-LSS, CDFS, S-CVZ, or ELAIS-S1 |
+ | ra | float64 | deg | Fiducial Right Ascension (J2000) |
+ | dec | float64 | deg | Fiducial Declination (J2000) |
+ | distance | float64 | deg | Angular distance from the field center |
+ | pos_ref | char[4] |  | Fiducial coordinates reference, priority: Gaia > DES > PS1 > NSC |
+ | ebv | float64 |  | Galactic E(B−V) reddening from Schlegel et al. (1998) |
+ | des | int32 |  | A flag set to 1 if in DES photometric catalog |
+ | coadd_object_id | int64 |  | DES coadd object ID |
+ | ra_des | float64 | deg | DES Right Ascension (J2000) |
+ | dec_des | float64 | deg | DES Declination (J2000) |
+ | extended_coadd | int32 |  | DES type classifier: 0 (high-confidence stars), 1 (likely stars), 2 (mostly galaxies), and 3 (high-confidence galaxies) |
+ | separation_des | float64 | arcsec | Angular distance between DES position and the fiducial coordinates |
+ | ps1 | int32 |  | A flag set to 1 if in PS1 photometric catalog |
+ | objid_ps1 | int64 |  | PS1 unique object identifier |
+ | ra_ps1 | float64 | deg | PS1 right ascension from i filter stack detection |
+ | dec_ps1 | float64 | deg | PS1 declination from i filter stack detection |
+ | class_ps1 | float64 |  | PS1 source classification = iPsfMag - iKronMag |
+ | separation_ps1 | float64 | arcsec | Angular distance between PS1 position and the fiducial coordinates |
+ | nsc | int32 |  | A flag set to 1 if in  photometric catalog |
+ | id_nsc | int64 |  | NSC unique object identifier |
+ | ra_nsc | float64 | deg | Right Ascension (J2000) |
+ | dec_nsc | float64 | deg | Declination (J2000) |
+ | class_star | float64 |  | NSC Star/Galaxy classifier |
+ | flags_nsc | int32 |  | NSC SExtractor flag value |
+ | separation_nsc | float64 | arcsec | Angular distance between NSC position and the fiducial coordinates |
+ | sdss | int32 |  | A flag set to 1 if in SDSS photometric catalog |
+ | objid_sdss | int64 |  | Unique SDSS identifier |
+ | ra_sdss | float64 | deg | Right Ascension (J2000) |
+ | dec_sdss | float64 | deg | Declination (J2000) |
+ | type_sdss | int32 |  | SDSS type classifier (star 6, galaxy 3, etc.) |
+ | clean_sdss | int32 |  | SDSS clean photometry flag (1=clean, 0=unclean) |
+ | separation_sdss | float64 | arcsec | Angular distance between SDSS position and the fiducial coordinates |
+ | gaia | int32 |  | A flag set to 1 if in Gaia DR2 photometric catalog |
+ | source_id_gaia | int64 |  | Gaia DR2 unique source identifier |
+ | mg | float64 | mag | Gaia g-band magnitude (phot_g_mean_mag in Gaia catalog, Vega) |
+ | parallax | float64 | mas | Parallax, Angle, |
+ | parallax_error | float64 | mas | Standard error of parallax, Angle, |
+ | plxsig | float64 |  | Parallax significance defined as |PARALLAX/PARALLAX_ERROR| |
+ | pmra | float64 | mas/year | Proper motion in RA direction, Angular Velocity, |
+ | pmra_error | float64 | mas/year | Standard error of proper motion in RA direction, Angular Velocity, |
+ | pmdec | float64 | mas/year | Proper motion in DEC direction, Angular Velocity, |
+ | pmdec_error | float64 | mas/year | Standard error of proper motion in DEC direction, Angular Velocity, |
+ | pmsig | float64 |  | Proper motion significance defined as (pmra^2+pmdec^2)/sqrt(pmra^2*pmra_error^2 + pmdec^2*pmdec_error^2) |
+ | unwise | int32 |  | A flag set to 1 if in unWISE photometric catalog |
+ | objid_unwise | char[16] |  | unWISE unique object id |
+ | ra_unwise | float64 | deg | unWISE Right Ascension (J2000) |
+ | dec_unwise | float64 | deg | unWISE Declination (J2000) |
+ | separation_unwise | float64 | arcsec | Angular distance between unWISE position and the fiducial coordinates |
+ | near_ir | int32 |  | A flag set to 1 if in NIR photometric catalog |
+ | survey_ir | char[6] |  | Near-IR survey name: LAS, UHS, VHS, Viking, VMC, VIDEO |
+ | sourceid_ir | int64 |  | NIR source identifier |
+ | ra_ir | float64 | deg | NIR Right Ascension (J2000) |
+ | dec_ir | float64 | deg | NIR Declination (J2000) |
+ | separation_ir | float64 | arcsec | Angular distance between NIR position and the fiducial coordinates |
+ | optical_survey | char[4] |  | Optical survey used in Skewt-QSO, e.g., DES, PS1, Gaia, NSC |
+ | mi | float64 | mag | i-band PSF magnitude (galactic extinction not corrected) |
+ | cal_skewt_qso | int32 |  | A flag indicates whether Skewt-QSO is calculated.(Set to 1 when Nband_Optical_use > 2.) |
+ | nband_optical_use | int32 |  | Number of optical bands used in Skewt-QSQ. |
+ | use_unwise | int32 |  | Set to 1 when unWISE photometry is used in Skewt-QSO calculation. |
+ | use_nir | int32 |  | Set to 1 when NIR photometry is usedin Skewt-QSO calculation. |
+ | photo_combination | char[17] |  | The photometric data combinations used in Skewt-QSO, for example, "DECam-YJHK-unWISE" - DECam/PS1 includes grizy bands; unWISE incldes unWISE W1 and W2 bands; and Gaia includes Gaia bp, g, and rp bands |
+ | log_qso | float64 |  | The (natural) logarithmic probability of a target fitting to QSO colors convolved with a QLF. Set to -323 if log_QSO<-323 (close to the lower limit of double-precision data). |
+ | log_star | float64 |  | The logarithmic probability of a target fitting to star colors multiplied by star number counts based on a stellar simulation. Set to -323 if log_Star<-323. |
+ | log_galaxy | float64 |  | The logarithmic probability of a target fitting to galaxy colors convolved with a GLF. Set to -323 if  log_Galaxy<-323. |
+ | p_qso | float64 |  | QSO probability from Skewt-QSO. P_QSO = exp(log_qso)/(exp(log_qso) + exp(log_star) + exp(log_galaxy)) |
+ | p_star | float32 |  | Star probability from Skewt-QSO. |
+ | p_galaxy | float64 |  | Galaxy probability from Skewt-QSO. |
+ | class_skewt_qso | char[6] |  | Classification based on the highest probability from Skewt-QSO, QSO/Star/Galaxy |
+ | skewt_qso | int32 |  | flag indicating whether the object is a QSO (same as class_skewt_qso, except additionally requiring log_QSO>-10). (P_QSO>P_Star & P_QSO>P_galaxy & log_QSO>-10) |
+ | p_qso_prior | float64 |  | QSO probability with prior probabilities from additional info, such as separation (between optical survey and unWISE), morphology, variability, and/or proper motion.(Note: *_Prior are generally not populated in this version, except for the "S-CVZ" field, where we take into account the separation between optical surveys and unWISE.) |
+ | p_star_prior | float32 |  | Star probability with prior probabilities. |
+ | p_galaxy_prior | float64 |  | Galaxy probability with prior probabilities. |
+ | class_skewt_qso_prior | char[6] |  | Classification based on Skewt-QSO with prior probabilities described above. |
+ | skewt_qso_prior | int32 |  | flag indicating whether the object is QSO based on Skewt-QSO with prior probabilities described above. |
+ | photoz_qso | float64 |  | Photometric redshift of QSO from Skewt-QSO |
+ | photoz_qso_lower | float64 |  | Lower limit of photoz_QSO |
+ | photoz_qso_upper | float64 |  | Upper limit of photoz_QSO |
+ | prob_photoz_qso | float64 |  | The total probability of z located between photoz_QSO_lower and photoz_QSO_upper (assuming it is QSO). |
+ | photoz_galaxy | float64 |  | Photometric redshift of Galaxy from Skewt-QSO (fitting to galaxy colors). |
+ | photoz_galaxy_lower | float64 |  | Lower limit of photoz_Galaxy. |
+ | photoz_galaxy_upper | float64 |  | Upper limit of photoz_Galaxy. |
+ | pqso_xdqso | float64 |  | QSO probability from the public XDQSO catalog |
+ | photoz_xdqso | float64 |  | Photometric redshift of QSO from the public XDQSO catalog |
+ | prob_rf_gaia_unwise | float64 |  | AGN probability from the Gaia-unWISE AGN catalog |
+ | photoz_gaia_unwise | float64 |  | Photometric redshift from the Gaia-unWISE AGN catalog |
+ | des_var_sn_max | float64 |  | The signal-to-noise ratio of the measured intrinsic RMS in grizy bands (DES). |
+ | ps1_var_sn_max | float64 |  | The maximum signal-to-noise ratio of the measured intrinsic RMS over 5 bands (PS1). |
+ | spec_q | int32 |  | flag indicating if the object was spectroscopically confirmed as QSO from earlier surveys. |
+ | spec_strmask | char[6] |  | string format of spec_bitmask, e.g., '000001'. |
+ | spec_bitmask | int64 |  | bitmask - bit 0: SDSS-DR14Q, bit 1: SDSS-DR7Q, bit 2: OzDES-DR1Q, bit 3: SDSS-RM_Q, bit 4: COSMOS_Q, bit 5: Milliquas_QA. (Note: Milliquas_QA=1 are objects spectroscopically classified as broad-line QSO/AGN in the Million Quasars (MILLIQUAS) catalog.) |
+ | specz | float64 |  | spectroscopic redshift from multiple surveys. Priority: SDSS-RM_Q/COSMOS_Q > SDSS-DR14Q > SDSS-DR7Q > OzDES-DR1Q > Milliquas_QA |
+ | specz_ref | char[16] |  | Reference of specz. |
+ | photo_q | int32 |  | flag indicating if the object was selected as QSO in public photometric quasar catalogs. |
+ | photo_strmask | char[3] |  | string format of photo_bitmask |
+ | photo_bitmask | int64 |  | bit mask, bit 0: XDQSO catalog, bit 1: Gaia-unWISE AGN catalog; bit 2: Milliquas_photo: photometric quasar candidates in the Milliquas catalog |
+ | photoz | float64 |  | Photometric redshift from public photometric quasar catalogs. Priority: XDQSO > Gaia-unWISE > Milliquas_photo |
+ | pqso_photo | float64 |  | QSO probability from public photometric quasar catalogs. |
+ | photoz_ref | char[16] |  | photoz reference. |
+ | pk | int64 |  | primary key for the database table |
+ | psfmag_des_g | float64 | mag | DES PSF photometry |
+ | psfmag_des_r | float64 | mag | DES PSF photometry |
+ | psfmag_des_i | float64 | mag | DES PSF photometry |
+ | psfmag_des_z | float64 | mag | DES PSF photometry |
+ | psfmag_des_y | float64 | mag | DES PSF photometry |
+ | psfmagerr_des_g | float64 | mag | DES PSF photometry error |
+ | psfmagerr_des_r | float64 | mag | DES PSF photometry error |
+ | psfmagerr_des_i | float64 | mag | DES PSF photometry error |
+ | psfmagerr_des_z | float64 | mag | DES PSF photometry error |
+ | psfmagerr_des_y | float64 | mag | DES PSF photometry error |
+ | mag_auto_des_g | float64 | mag | DES auto photometry |
+ | mag_auto_des_r | float64 | mag | DES auto photometry |
+ | mag_auto_des_i | float64 | mag | DES auto photometry |
+ | mag_auto_des_z | float64 | mag | DES auto photometry |
+ | mag_auto_des_y | float64 | mag | DES auto photometry |
+ | magerr_auto_des_g | float64 | mag | DES auto photometry error |
+ | magerr_auto_des_r | float64 | mag | DES auto photometry error |
+ | magerr_auto_des_i | float64 | mag | DES auto photometry error |
+ | magerr_auto_des_z | float64 | mag | DES auto photometry error |
+ | magerr_auto_des_y | float64 | mag | DES auto photometry error |
+ | imaflags_iso_g | int32 |  | DES flag identifying sources with missing/flagged pixels, considering all single epoch images |
+ | imaflags_iso_r | int32 |  | DES flag identifying sources with missing/flagged pixels, considering all single epoch images |
+ | imaflags_iso_i | int32 |  | DES flag identifying sources with missing/flagged pixels, considering all single epoch images |
+ | imaflags_iso_z | int32 |  | DES flag identifying sources with missing/flagged pixels, considering all single epoch images |
+ | imaflags_iso_y | int32 |  | DES flag identifying sources with missing/flagged pixels, considering all single epoch images |
+ | psfmag_ps1_g | float64 | mag | PS1 PSF magnitude |
+ | psfmag_ps1_r | float64 | mag | PS1 PSF magnitude |
+ | psfmag_ps1_i | float64 | mag | PS1 PSF magnitude |
+ | psfmag_ps1_z | float64 | mag | PS1 PSF magnitude |
+ | psfmag_ps1_y | float64 | mag | PS1 PSF magnitude |
+ | psfmagerr_ps1_g | float64 | mag | PS1 PSF magnitude error |
+ | psfmagerr_ps1_r | float64 | mag | PS1 PSF magnitude error |
+ | psfmagerr_ps1_i | float64 | mag | PS1 PSF magnitude error |
+ | psfmagerr_ps1_z | float64 | mag | PS1 PSF magnitude error |
+ | psfmagerr_ps1_y | float64 | mag | PS1 PSF magnitude error |
+ | kronmag_ps1_g | float64 | mag | PS1 Kron magnitude |
+ | kronmag_ps1_r | float64 | mag | PS1 Kron magnitude |
+ | kronmag_ps1_i | float64 | mag | PS1 Kron magnitude |
+ | kronmag_ps1_z | float64 | mag | PS1 Kron magnitude |
+ | kronmag_ps1_y | float64 | mag | PS1 Kron magnitude |
+ | kronmagerr_ps1_g | float64 | mag | PS1 Kron magnitude error |
+ | kronmagerr_ps1_r | float64 | mag | PS1 Kron magnitude error |
+ | kronmagerr_ps1_i | float64 | mag | PS1 Kron magnitude error |
+ | kronmagerr_ps1_z | float64 | mag | PS1 Kron magnitude error |
+ | kronmagerr_ps1_y | float64 | mag | PS1 Kron magnitude error |
+ | infoflag2_g | int32 |  | PS1 flags, values listed in DetectionFlags2 |
+ | infoflag2_r | int32 |  | PS1 flags, values listed in DetectionFlags2 |
+ | infoflag2_i | int32 |  | PS1 flags, values listed in DetectionFlags2 |
+ | infoflag2_z | int32 |  | PS1 flags, values listed in DetectionFlags2 |
+ | infoflag2_y | int32 |  | PS1 flags, values listed in DetectionFlags2 |
+ | mag_nsc_g | float64 | mag | Weighted-average magnitude |
+ | mag_nsc_r | float64 | mag | Weighted-average magnitude |
+ | mag_nsc_i | float64 | mag | Weighted-average magnitude |
+ | mag_nsc_z | float64 | mag | Weighted-average magnitude |
+ | mag_nsc_y | float64 | mag | Weighted-average magnitude |
+ | magerr_nsc_g | float64 | mag | Weighted-average NSC magnitude |
+ | magerr_nsc_r | float64 | mag | Weighted-average NSC magnitude |
+ | magerr_nsc_i | float64 | mag | Weighted-average NSC magnitude |
+ | magerr_nsc_z | float64 | mag | Weighted-average NSC magnitude |
+ | magerr_nsc_y | float64 | mag | Weighted-average NSC magnitude |
+ | psfmag_sdss_u | float64 | mag | SDSS PSF magnitude |
+ | psfmag_sdss_g | float64 | mag | SDSS PSF magnitude |
+ | psfmag_sdss_r | float64 | mag | SDSS PSF magnitude |
+ | psfmag_sdss_i | float64 | mag | SDSS PSF magnitude |
+ | psfmag_sdss_z | float64 | mag | SDSS PSF magnitude |
+ | psfmagerr_sdss_u | float64 | mag | SDSS PSF magnitude error |
+ | psfmagerr_sdss_g | float64 | mag | SDSS PSF magnitude error |
+ | psfmagerr_sdss_r | float64 | mag | SDSS PSF magnitude error |
+ | psfmagerr_sdss_i | float64 | mag | SDSS PSF magnitude error |
+ | psfmagerr_sdss_z | float64 | mag | SDSS PSF magnitude error |
+ | modelmag_sdss_u | float64 | mag | SDSS Model magnitude |
+ | modelmag_sdss_g | float64 | mag | SDSS Model magnitude |
+ | modelmag_sdss_r | float64 | mag | SDSS Model magnitude |
+ | modelmag_sdss_i | float64 | mag | SDSS Model magnitude |
+ | modelmag_sdss_z | float64 | mag | SDSS Model magnitude |
+ | modelmagerr_sdss_u | float64 | mag | SDSS Model magnitude error |
+ | modelmagerr_sdss_g | float64 | mag | SDSS Model magnitude error |
+ | modelmagerr_sdss_r | float64 | mag | SDSS Model magnitude error |
+ | modelmagerr_sdss_i | float64 | mag | SDSS Model magnitude error |
+ | modelmagerr_sdss_z | float64 | mag | SDSS Model magnitude error |
+ | mag_gaia_g | float64 | mag | Gaia DR2 G-band magnitude, Vega |
+ | mag_gaia_bp | float64 | mag | Gaia DR2 BP-band magnitude, Vega |
+ | mag_gaia_rp | float64 | mag | Gaia DR2 RP-band magnitude, Vega |
+ | magerr_gaia_g | float64 | mag | Gaia DR2 G-band magnitude error, Vega |
+ | magerr_gaia_bp | float64 | mag | Gaia DR2 BP-band magnitude error, Vega |
+ | magerr_gaia_rp | float64 | mag | Gaia DR2 RP-band magnitude error, Vega |
+ | mag_unwise_w1 | float64 | mag | unWISE (Vega) magnitude, |
+ | mag_unwise_w2 | float64 | mag | unWISE (Vega) magnitude, |
+ | magerr_unwise_w1 | float64 | mag | unWISE (Vega) magnitude error, |
+ | magerr_unwise_w2 | float64 | mag | unWISE (Vega) magnitude error, |
+ | flags_unwise_w1 | int32 |  | unWISE Coadd Flags |
+ | flags_unwise_w2 | int32 |  | unWISE Coadd Flags |
+ | mag_ir_y | float64 | mag | (Vega) magnitude in near-IR, |
+ | mag_ir_j | float64 | mag | (Vega) magnitude in near-IR, |
+ | mag_ir_h | float64 | mag | (Vega) magnitude in near-IR, |
+ | mag_ir_k | float64 | mag | (Vega) magnitude in near-IR, |
+ | magerr_ir_y | float64 | mag | magnitude error in near-IR |
+ | magerr_ir_j | float64 | mag | magnitude error in near-IR |
+ | magerr_ir_h | float64 | mag | magnitude error in near-IR |
+ | magerr_ir_k | float64 | mag | magnitude error in near-IR |
+ | des_var_nepoch_g | int32 |  | Number of DES single-epoch photometric datapoints per band |
+ | des_var_nepoch_r | int32 |  | Number of DES single-epoch photometric datapoints per band |
+ | des_var_nepoch_i | int32 |  | Number of DES single-epoch photometric datapoints per band |
+ | des_var_nepoch_z | int32 |  | Number of DES single-epoch photometric datapoints per band |
+ | des_var_nepoch_y | int32 |  | Number of DES single-epoch photometric datapoints per band |
+ | des_var_status_g | int32 |  | Status of intrinsic variability calculation from DES |
+ | des_var_status_r | int32 |  | Status of intrinsic variability calculation from DES |
+ | des_var_status_i | int32 |  | Status of intrinsic variability calculation from DES |
+ | des_var_status_z | int32 |  | Status of intrinsic variability calculation from DES |
+ | des_var_status_y | int32 |  | Status of intrinsic variability calculation from DES |
+ | des_var_rms_g | float64 | mag | Intrinsic RMS from DES |
+ | des_var_rms_r | float64 | mag | Intrinsic RMS from DES |
+ | des_var_rms_i | float64 | mag | Intrinsic RMS from DES |
+ | des_var_rms_z | float64 | mag | Intrinsic RMS from DES |
+ | des_var_rms_y | float64 | mag | Intrinsic RMS from DES |
+ | des_var_sigrms_g | float64 | mag | Error of intrinsic RMS from DES |
+ | des_var_sigrms_r | float64 | mag | Error of intrinsic RMS from DES |
+ | des_var_sigrms_i | float64 | mag | Error of intrinsic RMS from DES |
+ | des_var_sigrms_z | float64 | mag | Error of intrinsic RMS from DES |
+ | des_var_sigrms_y | float64 | mag | Error of intrinsic RMS from DES |
+ | des_var_sn_g | float64 |  | The signal-to-noise ratio of the measured intrinsic RMS from DES |
+ | des_var_sn_r | float64 |  | The signal-to-noise ratio of the measured intrinsic RMS from DES |
+ | des_var_sn_i | float64 |  | The signal-to-noise ratio of the measured intrinsic RMS from DES |
+ | des_var_sn_z | float64 |  | The signal-to-noise ratio of the measured intrinsic RMS from DES |
+ | des_var_sn_y | float64 |  | The signal-to-noise ratio of the measured intrinsic RMS from DES |
+ | ps1_var_nepoch_g | int32 |  | Number of PS1 single-epoch photometric data points |
+ | ps1_var_nepoch_r | int32 |  | Number of PS1 single-epoch photometric data points |
+ | ps1_var_nepoch_i | int32 |  | Number of PS1 single-epoch photometric data points |
+ | ps1_var_nepoch_z | int32 |  | Number of PS1 single-epoch photometric data points |
+ | ps1_var_nepoch_y | int32 |  | Number of PS1 single-epoch photometric data points |
+ | ps1_var_status_g | int32 |  | Status of intrinsic variability calculation from PS1 |
+ | ps1_var_status_r | int32 |  | Status of intrinsic variability calculation from PS1 |
+ | ps1_var_status_i | int32 |  | Status of intrinsic variability calculation from PS1 |
+ | ps1_var_status_z | int32 |  | Status of intrinsic variability calculation from PS1 |
+ | ps1_var_status_y | int32 |  | Status of intrinsic variability calculation from PS1 |
+ | ps1_var_rms_g | float64 | mag | Intrinsic RMS from PS1 |
+ | ps1_var_rms_r | float64 | mag | Intrinsic RMS from PS1 |
+ | ps1_var_rms_i | float64 | mag | Intrinsic RMS from PS1 |
+ | ps1_var_rms_z | float64 | mag | Intrinsic RMS from PS1 |
+ | ps1_var_rms_y | float64 | mag | Intrinsic RMS from PS1 |
+ | ps1_var_sigrms_g | float64 | mag | Error of intrinsic RMS from PS1 |
+ | ps1_var_sigrms_r | float64 | mag | Error of intrinsic RMS from PS1 |
+ | ps1_var_sigrms_i | float64 | mag | Error of intrinsic RMS from PS1 |
+ | ps1_var_sigrms_z | float64 | mag | Error of intrinsic RMS from PS1 |
+ | ps1_var_sigrms_y | float64 | mag | Error of intrinsic RMS from PS1 |
+ | ps1_var_sn_g | float64 |  | The signal-to-noise ratio of the measured intrinsic RMS from PS1 |
+ | ps1_var_sn_r | float64 |  | The signal-to-noise ratio of the measured intrinsic RMS from PS1 |
+ | ps1_var_sn_i | float64 |  | The signal-to-noise ratio of the measured intrinsic RMS from PS1 |
+ | ps1_var_sn_z | float64 |  | The signal-to-noise ratio of the measured intrinsic RMS from PS1 |
+ | ps1_var_sn_y | float64 |  | The signal-to-noise ratio of the measured intrinsic RMS from PS1 |
 
 
 
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!

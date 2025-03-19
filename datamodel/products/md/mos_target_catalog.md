@@ -9,17 +9,17 @@ MOS Target Table: catalog
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
 The table stores the results of the cross-match used for DR18 targeting. All entries in this table are expected to be unique physical objects drawn from one or more parent catalogues. The mos_target_catalog_to_ tables provide the relationship between mos_target_catalog objects and their parent catalogue counterparts.
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_target_catalog-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
+$MOS_TARGET/[V_TARG]/mos_catalog-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
 
 ### Releases
-DR18
+DR18, DR19
 
 ### Enviroments
 MOS_TARGET
@@ -36,14 +36,20 @@ sdss5db> targetdb, operations database server
 ### Is a VAC
 False
 
-### HDUS List for release DR18
+### Data Level
+2.3.3
+
+### HDUS List for release DR19
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: ](#hdu1)
+  - [HDU1](#hdu1)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR19
+   - from: DR18
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -64,28 +70,45 @@ Key | Value | Comment | |
 
 
 
-### HDU1:
+### HDU1: 
 MOS Target Table: catalog
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  95 MB
+#### HDU Size:  133 MB
 
+##### Header Table Caption for HDU1
+Key | Value | Comment | |
+| --- | --- | --- | --- |
+| XTENSION | BINTABLE | binary table extension |
+| BITPIX | 8 | array data type |
+| NAXIS | 2 | number of array dimensions |
+| NAXIS1 | 70 | length of dimension 1 |
+| NAXIS2 | 2000000 | length of dimension 2 |
+| PCOUNT | 0 | number of group parameters |
+| GCOUNT | 1 | number of groups |
+| TFIELDS | 9 | number of table fields |
+| TNULL1 | -9223372036854775808 |  |
+| TNULL9 | -2147483648 |  |
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | CATALOGID | int64 |  | The SDSS identifier for a unique object in this cross-match run. |
- | IAUNAME | char[4] |  | The IAU-style name. Not used. |
- | RA | float64 | degrees | The right ascension of the target in ICRS coordinates for J2015.5. Taken from the lead parent catalogue |
- | DEC | float64 | degrees | The declination of the target in ICRS coordinates for J2015.5. Taken from the lead parent catalogue |
- | PMRA | float32 | mas/yr | The proper motion of the target in right ascension. Taken from the lead parent catalogue. This is a true angle (i.e., the cos(dec) factor has been applied) |
- | PMDEC | float32 | mas/yr | The proper motion of the target in declination. Taken from the lead parent catalogue |
- | PARALLAX | float32 | arcsec | The parallax of the target. Taken from the lead parent catalogue |
- | LEAD | char[6] |  | The name of the parent catalogue from which this target was selected and whose data was used to determine its astrometric position. |
- | VERSION_ID | int32 |  | The internal version for the cross-match. |
+ | catalogid | int64 |  | The SDSS identifier for a unique object in this cross-match run. |
+ | iauname | char[4] |  | The IAU-style name. Not used. |
+ | ra | float64 | degrees | The right ascension of the target in ICRS coordinates for J2015.5. Taken from the lead parent catalogue |
+ | dec | float64 | degrees | The declination of the target in ICRS coordinates for J2015.5. Taken from the lead parent catalogue |
+ | pmra | float32 | mas/yr | The proper motion of the target in right ascension. Taken from the lead parent catalogue. This is a true angle (i.e., the cos(dec) factor has been applied) |
+ | pmdec | float32 | mas/yr | The proper motion of the target in declination. Taken from the lead parent catalogue |
+ | parallax | float32 | arcsec | The parallax of the target. Taken from the lead parent catalogue |
+ | lead | char[26] |  | The name of the parent catalogue from which this target was selected and whose data was used to determine its astrometric position. |
+ | version_id | int32 |  | The internal version for the cross-match. |
 
 
 
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!

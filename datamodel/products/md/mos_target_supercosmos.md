@@ -9,17 +9,17 @@ MOS Target Table: supercosmos
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
 Contains merged sources for every field in the SuperCOSMOS Science Archive (SSA).
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_target_supercosmos-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
+$MOS_TARGET/[V_TARG]/mos_supercosmos-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
 
 ### Releases
-DR18
+DR18, DR19
 
 ### Enviroments
 MOS_TARGET
@@ -36,14 +36,20 @@ sdss5db> targetdb, operations database server
 ### Is a VAC
 False
 
-### HDUS List for release DR18
+### Data Level
+2.3.3
+
+### HDUS List for release DR19
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: ](#hdu1)
+  - [HDU1](#hdu1)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR19
+   - from: DR18
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -64,76 +70,111 @@ Key | Value | Comment | |
 
 
 
-### HDU1:
+### HDU1: 
 MOS Target Table: supercosmos
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  511 MB
 
+##### Header Table Caption for HDU1
+Key | Value | Comment | |
+| --- | --- | --- | --- |
+| XTENSION | BINTABLE | binary table extension |
+| BITPIX | 8 | array data type |
+| NAXIS | 2 | number of array dimensions |
+| NAXIS1 | 268 | length of dimension 1 |
+| NAXIS2 | 2000000 | length of dimension 2 |
+| PCOUNT | 0 | number of group parameters |
+| GCOUNT | 1 | number of groups |
+| TFIELDS | 57 | number of table fields |
+| TNULL1 | -9223372036854775808 |  |
+| TNULL2 | -9223372036854775808 |  |
+| TNULL3 | -9223372036854775808 |  |
+| TNULL4 | -9223372036854775808 |  |
+| TNULL5 | -9223372036854775808 |  |
+| TNULL6 | -9223372036854775808 |  |
+| TNULL20 | -32768 |  |
+| TNULL33 | -32768 |  |
+| TNULL34 | -32768 |  |
+| TNULL35 | -32768 |  |
+| TNULL36 | -32768 |  |
+| TNULL37 | -32768 |  |
+| TNULL42 | -2147483648 |  |
+| TNULL43 | -2147483648 |  |
+| TNULL44 | -2147483648 |  |
+| TNULL45 | -2147483648 |  |
+| TNULL46 | -2147483648 |  |
+| TNULL47 | -2147483648 |  |
+| TNULL48 | -2147483648 |  |
+| TNULL49 | -2147483648 |  |
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | OBJID | int64 |  | Unique identifier of merged source |
- | OBJIDB | int64 |  | objID for B band detection merged into this object |
- | OBJIDR1 | int64 |  | objID for R1 band detection merged into this object |
- | OBJIDR2 | int64 |  | objID for R2 band detection merged into this object |
- | OBJIDI | int64 |  | objID for I band detection merged into this object |
- | HTMID | int64 |  | Hierarchical Triangular Mesh (20-deep) of centroid |
- | EPOCH | float32 | yr | Epoch of position (variance weighted mean epoch of available measures) |
- | RA | float64 | deg | Mean RA, computed from detections merged in this catalogue |
- | DEC | float64 | deg | Mean Dec, computed from detections merged in this catalogue |
- | SIGRA | float64 | deg | Uncertainty in RA (formal random error not inc. systematic errors) |
- | SIGDEC | float64 | deg | Uncertainty in Dec (formal random error not inc. systematic errors) |
- | CX | float64 |  | Cartesian x of unit (ra,dec) vector on celestial sphere |
- | CY | float64 |  | Cartesian y of unit (ra,dec) vector on celestial sphere |
- | CZ | float64 |  | Cartesian z of unit (ra,dec) vector on celestial sphere |
- | MUACOSD | float32 | mas/yr | Proper motion in RA direction |
- | MUD | float32 | mas/yr | Proper motion in Dec direction |
- | SIGMUACOSD | float32 | mas/yr | Error on proper motion in RA direction |
- | SIGMUD | float32 | mas/yr | Error on proper motion in Dec direction |
- | CHI2 | float32 |  | Chi-squared value of proper motion solution |
- | NPLATES | int16 |  | No. of plates used for this proper motion measurement |
- | CLASSMAGB | float32 | mag | B band magnitude selected by B image class |
- | CLASSMAGR1 | float32 | mag | R1 band magnitude selected by R1 image class |
- | CLASSMAGR2 | float32 | mag | R2 band magnitude selected by R2 image class |
- | CLASSMAGI | float32 | mag | I band magnitude selected by I image class |
- | GCORMAGB | float32 | mag | B band magnitude assuming object is galaxy |
- | GCORMAGR1 | float32 | mag | R1 band magnitude assuming object is galaxy |
- | GCORMAGR2 | float32 | mag | R2 band magnitude assuming object is galaxy |
- | GCORMAGI | float32 | mag | I band magnitude assuming object is galaxy |
- | SCORMAGB | float32 | mag | B band magnitude assuming object is star |
- | SCORMAGR1 | float32 | mag | R1 band magnitude assuming object is star |
- | SCORMAGR2 | float32 | mag | R2 band magnitude assuming object is star |
- | SCORMAGI | float32 | mag | I band magnitude assuming object is star |
- | MEANCLASS | int16 |  | Estimate of image class based on unit-weighted mean of individual classes |
- | CLASSB | int16 |  | Image classification from B band detection |
- | CLASSR1 | int16 |  | Image classification from R1 band detection |
- | CLASSR2 | int16 |  | Image classification from R2 band detection |
- | CLASSI | int16 |  | Image classification from I band detection |
- | ELLIPB | float32 |  | Ellipticity of B band detection |
- | ELLIPR1 | float32 |  | Ellipticity of R1 band detection |
- | ELLIPR2 | float32 |  | Ellipticity of R2 band detection |
- | ELLIPI | float32 |  | Ellipticity of I band detection |
- | QUALB | int32 |  | Bitwise quality flag from B band detection |
- | QUALR1 | int32 |  | Bitwise quality flag from R1 band detection |
- | QUALR2 | int32 |  | Bitwise quality flag from R2 band detection |
- | QUALI | int32 |  | Bitwise quality flag from I band detection |
- | BLENDB | int32 |  | Blend flag from B band detection |
- | BLENDR1 | int32 |  | Blend flag from R1 band detection |
- | BLENDR2 | int32 |  | Blend flag from R2 band detection |
- | BLENDI | int32 |  | Blend flag from I band detection |
- | PRFSTATB | float32 |  | Profile statistic from B band detection |
- | PRFSTATR1 | float32 |  | Profile statistic from R1 band detection |
- | PRFSTATR2 | float32 |  | Profile statistic from R2 band detection |
- | PRFSTATI | float32 |  | Profile statistic from I band detection |
- | L | float32 | deg | The Galactic longitude of the source |
- | B | float32 | deg | The Galactic latitude of the source |
- | D | float32 | deg | The great-circle distance of the source from the Galactic centre |
- | EBMV | float32 | mag | The estimated foreground reddening at this position from Schlegel et al. (1998) |
+ | objid | int64 |  | Unique identifier of merged source |
+ | objidb | int64 |  | objID for B band detection merged into this object |
+ | objidr1 | int64 |  | objID for R1 band detection merged into this object |
+ | objidr2 | int64 |  | objID for R2 band detection merged into this object |
+ | objidi | int64 |  | objID for I band detection merged into this object |
+ | htmid | int64 |  | Hierarchical Triangular Mesh (20-deep) of centroid |
+ | epoch | float32 | yr | Epoch of position (variance weighted mean epoch of available measures) |
+ | ra | float64 | deg | Mean RA, computed from detections merged in this catalogue |
+ | dec | float64 | deg | Mean Dec, computed from detections merged in this catalogue |
+ | sigra | float64 | deg | Uncertainty in RA (formal random error not inc. systematic errors) |
+ | sigdec | float64 | deg | Uncertainty in Dec (formal random error not inc. systematic errors) |
+ | cx | float64 |  | Cartesian x of unit (ra,dec) vector on celestial sphere |
+ | cy | float64 |  | Cartesian y of unit (ra,dec) vector on celestial sphere |
+ | cz | float64 |  | Cartesian z of unit (ra,dec) vector on celestial sphere |
+ | muacosd | float32 | mas/yr | Proper motion in RA direction |
+ | mud | float32 | mas/yr | Proper motion in Dec direction |
+ | sigmuacosd | float32 | mas/yr | Error on proper motion in RA direction |
+ | sigmud | float32 | mas/yr | Error on proper motion in Dec direction |
+ | chi2 | float32 |  | Chi-squared value of proper motion solution |
+ | nplates | int16 |  | No. of plates used for this proper motion measurement |
+ | classmagb | float32 | mag | B band magnitude selected by B image class |
+ | classmagr1 | float32 | mag | R1 band magnitude selected by R1 image class |
+ | classmagr2 | float32 | mag | R2 band magnitude selected by R2 image class |
+ | classmagi | float32 | mag | I band magnitude selected by I image class |
+ | gcormagb | float32 | mag | B band magnitude assuming object is galaxy |
+ | gcormagr1 | float32 | mag | R1 band magnitude assuming object is galaxy |
+ | gcormagr2 | float32 | mag | R2 band magnitude assuming object is galaxy |
+ | gcormagi | float32 | mag | I band magnitude assuming object is galaxy |
+ | scormagb | float32 | mag | B band magnitude assuming object is star |
+ | scormagr1 | float32 | mag | R1 band magnitude assuming object is star |
+ | scormagr2 | float32 | mag | R2 band magnitude assuming object is star |
+ | scormagi | float32 | mag | I band magnitude assuming object is star |
+ | meanclass | int16 |  | Estimate of image class based on unit-weighted mean of individual classes |
+ | classb | int16 |  | Image classification from B band detection |
+ | classr1 | int16 |  | Image classification from R1 band detection |
+ | classr2 | int16 |  | Image classification from R2 band detection |
+ | classi | int16 |  | Image classification from I band detection |
+ | ellipb | float32 |  | Ellipticity of B band detection |
+ | ellipr1 | float32 |  | Ellipticity of R1 band detection |
+ | ellipr2 | float32 |  | Ellipticity of R2 band detection |
+ | ellipi | float32 |  | Ellipticity of I band detection |
+ | qualb | int32 |  | Bitwise quality flag from B band detection |
+ | qualr1 | int32 |  | Bitwise quality flag from R1 band detection |
+ | qualr2 | int32 |  | Bitwise quality flag from R2 band detection |
+ | quali | int32 |  | Bitwise quality flag from I band detection |
+ | blendb | int32 |  | Blend flag from B band detection |
+ | blendr1 | int32 |  | Blend flag from R1 band detection |
+ | blendr2 | int32 |  | Blend flag from R2 band detection |
+ | blendi | int32 |  | Blend flag from I band detection |
+ | prfstatb | float32 |  | Profile statistic from B band detection |
+ | prfstatr1 | float32 |  | Profile statistic from R1 band detection |
+ | prfstatr2 | float32 |  | Profile statistic from R2 band detection |
+ | prfstati | float32 |  | Profile statistic from I band detection |
+ | l | float32 | deg | The Galactic longitude of the source |
+ | b | float32 | deg | The Galactic latitude of the source |
+ | d | float32 | deg | The great-circle distance of the source from the Galactic centre |
+ | ebmv | float32 | mag | The estimated foreground reddening at this position from Schlegel et al. (1998) |
 
 
 
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!

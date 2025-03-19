@@ -274,7 +274,7 @@ class BaseStub(abc.ABC):
 
         # update the data level field
         if 'data_level' not in content['general']:
-            content['general']['data_level'] = "replace me - with the data level of the product, as defined here https://sdss-wiki.atlassian.net/wiki/x/IwDCGw"
+            content['general']['data_level'] = "2.3.3"
         content['general']['data_level'] = self.datamodel.data_level or content['general']['data_level']
 
         # update the cache changelog

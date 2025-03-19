@@ -9,17 +9,17 @@ MOS Target Table: gaiadr2_tmass_best_neighbour
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
 The Gaia DR2 vs. 2MASS PSC crossmatch provided by the Gaia collaboration. Please see https://gea.esac.esa.int/archive/documentation/GDR2/Catalogue_consolidation/chap_cu9val_cu9val/ssec_cu9xma/sssec_cu9xma_extcat.html for complete details.
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_target_gaiadr2_tmass_best_neighbour-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
+$MOS_TARGET/[V_TARG]/mos_gaiadr2_tmass_best_neighbour-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
 
 ### Releases
-DR18
+DR18, DR19
 
 ### Enviroments
 MOS_TARGET
@@ -36,14 +36,20 @@ sdss5db> targetdb, operations database server
 ### Is a VAC
 False
 
-### HDUS List for release DR18
+### Data Level
+2.3.3
+
+### HDUS List for release DR19
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: ](#hdu1)
+  - [HDU1](#hdu1)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR19
+   - from: DR18
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -64,28 +70,50 @@ Key | Value | Comment | |
 
 
 
-### HDU1:
+### HDU1: 
 MOS Target Table: gaiadr2_tmass_best_neighbour
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  116 MB
 
+##### Header Table Caption for HDU1
+Key | Value | Comment | |
+| --- | --- | --- | --- |
+| XTENSION | BINTABLE | binary table extension |
+| BITPIX | 8 | array data type |
+| NAXIS | 2 | number of array dimensions |
+| NAXIS1 | 61 | length of dimension 1 |
+| NAXIS2 | 2000000 | length of dimension 2 |
+| PCOUNT | 0 | number of group parameters |
+| GCOUNT | 1 | number of groups |
+| TFIELDS | 9 | number of table fields |
+| TNULL1 | -9223372036854775808 |  |
+| TNULL2 | -2147483648 |  |
+| TNULL3 | -2147483648 |  |
+| TNULL4 | -2147483648 |  |
+| TNULL5 | -9223372036854775808 |  |
+| TNULL8 | -2147483648 |  |
+| TNULL9 | -2147483648 |  |
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | TMASS_OID | int64 |  | Additional numeric unique source identifier of 2MASS, increasing with declination |
- | NUMBER_OF_NEIGHBOURS | int32 |  | Number of sources in the 2MASS Catalogue which match the Gaia source within position errors |
- | NUMBER_OF_MATES | int32 |  | Number of other Gaia sources that have as best-neighbour the same 2MASS source. |
- | BEST_NEIGHBOUR_MULTIPLICITY | int32 |  | Number of neighbours with same probability as best neighbour |
- | SOURCE_ID | int64 |  | Unique Gaia DR2 source identifier |
- | ORIGINAL_EXT_SOURCE_ID | char[17] |  | The unique source identifier in the original 2MASS catalogue |
- | ANGULAR_DISTANCE | float64 | arcsec | Angular distance between the two sources |
- | GAIA_ASTROMETRIC_PARAMS | int32 |  | Number of Gaia astrometric params used |
- | TMASS_PTS_KEY | int32 |  | key for crossmatch |
+ | tmass_oid | int64 |  | Additional numeric unique source identifier of 2MASS, increasing with declination |
+ | number_of_neighbours | int32 |  | Number of sources in the 2MASS Catalogue which match the Gaia source within position errors |
+ | number_of_mates | int32 |  | Number of other Gaia sources that have as best-neighbour the same 2MASS source. |
+ | best_neighbour_multiplicity | int32 |  | Number of neighbours with same probability as best neighbour |
+ | source_id | int64 |  | Unique Gaia DR2 source identifier |
+ | original_ext_source_id | char[17] |  | The unique source identifier in the original 2MASS catalogue |
+ | angular_distance | float64 | arcsec | Angular distance between the two sources |
+ | gaia_astrometric_params | int32 |  | Number of Gaia astrometric params used |
+ | tmass_pts_key | int32 |  | key for crossmatch |
 
 
 
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!

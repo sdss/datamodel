@@ -9,17 +9,17 @@ MOS Target Table: magnitude
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
 This table stores magnitude information for a target. Optical magnitudes that are not selected from SDSS photometry have been converted to the SDSS system.
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_target_magnitude-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
+$MOS_TARGET/[V_TARG]/mos_magnitude-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
 
 ### Releases
-DR18
+DR18, DR19
 
 ### Enviroments
 MOS_TARGET
@@ -36,14 +36,20 @@ sdss5db> targetdb, operations database server
 ### Is a VAC
 False
 
-### HDUS List for release DR18
+### Data Level
+2.3.3
+
+### HDUS List for release DR19
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: ](#hdu1)
+  - [HDU1](#hdu1)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR19
+   - from: DR18
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -64,32 +70,49 @@ Key | Value | Comment | |
 
 
 
-### HDU1:
+### HDU1: 
 MOS Target Table: magnitude
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  129 MB
+#### HDU Size:  114 MB
 
+##### Header Table Caption for HDU1
+Key | Value | Comment | |
+| --- | --- | --- | --- |
+| XTENSION | BINTABLE | binary table extension |
+| BITPIX | 8 | array data type |
+| NAXIS | 2 | number of array dimensions |
+| NAXIS1 | 60 | length of dimension 1 |
+| NAXIS2 | 2000000 | length of dimension 2 |
+| PCOUNT | 0 | number of group parameters |
+| GCOUNT | 1 | number of groups |
+| TFIELDS | 13 | number of table fields |
+| TNULL1 | -9223372036854775808 |  |
+| TNULL2 | -9223372036854775808 |  |
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | CARTON_TO_TARGET_PK | int32 |  | The primary key of the target in the mos_target_carton_to_target table. |
- | MAGNITUDE_PK | int64 |  | The primary key. A sequential identifier. |
- | G | float32 |  | The optical g magnitude. |
- | R | float32 |  | The optical r magnitude. |
- | I | float32 |  | The optical i magnitude. |
- | H | float32 |  | The IR H magnitude. |
- | BP | float32 |  | The Gaia BP magnitude. |
- | RP | float32 |  | The Gaia RP magnitude. |
- | Z | float32 |  | The optical z magnitude. |
- | J | float32 |  | The IR J magnitude. |
- | K | float32 |  | The IR K magnitude. |
- | GAIA_G | float32 |  | The Gaia G magnitude. |
- | OPTICAL_PROV | char[16] |  | The source of the optical magnitudes. |
+ | carton_to_target_pk | int64 |  | The primary key of the target in the mos_target_carton_to_target table. |
+ | magnitude_pk | int64 |  | The primary key. A sequential identifier. |
+ | g | float32 |  | The optical g magnitude. |
+ | r | float32 |  | The optical r magnitude. |
+ | i | float32 |  | The optical i magnitude. |
+ | h | float32 |  | The IR H magnitude. |
+ | bp | float32 |  | The Gaia BP magnitude. |
+ | rp | float32 |  | The Gaia RP magnitude. |
+ | z | float32 |  | The optical z magnitude. |
+ | j | float32 |  | The IR J magnitude. |
+ | k | float32 |  | The IR K magnitude. |
+ | gaia_g | float32 |  | The Gaia G magnitude. |
+ | optical_prov | char[4] |  | The source of the optical magnitudes. |
 
 
 
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!

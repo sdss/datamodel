@@ -16,22 +16,27 @@ general:
   filesize: 1 GB
   releases:
   - DR18
+  - DR19
   environments:
   - MOS_TARGET
   surveys:
   - BHM
   - MWM
   - SDSS
-  naming_convention: $MOS_TARGET/[V_TARG]/mos_panstarrs1-[NUM].fits, where
-    V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
+  naming_convention: $MOS_TARGET/[V_TARG]/mos_panstarrs1-[NUM].fits, where V_TARG=1.0.1
+    for DR18; and NUM = 1..1 to partition the file into parts
   generated_by: sdss5db> targetdb, operations database server
   design: false
   vac: false
   recommended_science_product: false
+  data_level: 2.3.3
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
-  releases: {}
+  releases:
+    DR19:
+      from: DR18
+      note: No changes
 releases:
   DR18:
     template: $MOS_TARGET/[V_TARG]/mos_panstarrs1-[NUM].fits
@@ -1088,5 +1093,1339 @@ releases:
             type: int64
             unit: ''
             description: computed as (extid_hi << 32) & extid_lo. Equivalent to StackObjectThin.ObjID
+  DR19:
+    template: $MOS_TARGET/[V_TARG]/mos_panstarrs1-[NUM].fits
+    example: 1.0.2/mos_panstarrs1-01.fits
+    location: '{v_targ}/mos_panstarrs1-{num}.fits'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_panstarrs1
+      path_template: $MOS_TARGET/{v_targ}/mos_panstarrs1-{num}.fits
+      path_kwargs:
+      - v_targ
+      - num
+      access_string: mos_target_panstarrs1 = $MOS_TARGET/{v_targ}/mos_panstarrs1-{num}.fits
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Primary header
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: 'MOS Target Table: panstarrs1'
+        is_image: false
+        size: 1 GB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 784
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 2000000
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 192
+          comment: number of table fields
+        - key: TNULL9
+          value: -2147483648
+          comment: ''
+        - key: TNULL10
+          value: -2147483648
+          comment: ''
+        - key: TNULL11
+          value: -2147483648
+          comment: ''
+        - key: TNULL12
+          value: -2147483648
+          comment: ''
+        - key: TNULL13
+          value: -2147483648
+          comment: ''
+        - key: TNULL14
+          value: -2147483648
+          comment: ''
+        - key: TNULL15
+          value: -2147483648
+          comment: ''
+        - key: TNULL18
+          value: -2147483648
+          comment: ''
+        - key: TNULL21
+          value: -2147483648
+          comment: ''
+        - key: TNULL24
+          value: -2147483648
+          comment: ''
+        - key: TNULL27
+          value: -2147483648
+          comment: ''
+        - key: TNULL30
+          value: -2147483648
+          comment: ''
+        - key: TNULL33
+          value: -2147483648
+          comment: ''
+        - key: TNULL36
+          value: -2147483648
+          comment: ''
+        - key: TNULL39
+          value: -2147483648
+          comment: ''
+        - key: TNULL42
+          value: -2147483648
+          comment: ''
+        - key: TNULL43
+          value: -2147483648
+          comment: ''
+        - key: TNULL44
+          value: -2147483648
+          comment: ''
+        - key: TNULL45
+          value: -2147483648
+          comment: ''
+        - key: TNULL46
+          value: -2147483648
+          comment: ''
+        - key: TNULL47
+          value: -2147483648
+          comment: ''
+        - key: TNULL48
+          value: -2147483648
+          comment: ''
+        - key: TNULL53
+          value: -2147483648
+          comment: ''
+        - key: TNULL56
+          value: -2147483648
+          comment: ''
+        - key: TNULL59
+          value: -2147483648
+          comment: ''
+        - key: TNULL62
+          value: -2147483648
+          comment: ''
+        - key: TNULL65
+          value: -2147483648
+          comment: ''
+        - key: TNULL68
+          value: -2147483648
+          comment: ''
+        - key: TNULL71
+          value: -2147483648
+          comment: ''
+        - key: TNULL74
+          value: -2147483648
+          comment: ''
+        - key: TNULL77
+          value: -2147483648
+          comment: ''
+        - key: TNULL78
+          value: -2147483648
+          comment: ''
+        - key: TNULL79
+          value: -2147483648
+          comment: ''
+        - key: TNULL80
+          value: -2147483648
+          comment: ''
+        - key: TNULL81
+          value: -2147483648
+          comment: ''
+        - key: TNULL82
+          value: -2147483648
+          comment: ''
+        - key: TNULL83
+          value: -2147483648
+          comment: ''
+        - key: TNULL88
+          value: -2147483648
+          comment: ''
+        - key: TNULL91
+          value: -2147483648
+          comment: ''
+        - key: TNULL94
+          value: -2147483648
+          comment: ''
+        - key: TNULL97
+          value: -2147483648
+          comment: ''
+        - key: TNULL100
+          value: -2147483648
+          comment: ''
+        - key: TNULL103
+          value: -2147483648
+          comment: ''
+        - key: TNULL106
+          value: -2147483648
+          comment: ''
+        - key: TNULL109
+          value: -2147483648
+          comment: ''
+        - key: TNULL112
+          value: -2147483648
+          comment: ''
+        - key: TNULL113
+          value: -2147483648
+          comment: ''
+        - key: TNULL114
+          value: -2147483648
+          comment: ''
+        - key: TNULL115
+          value: -2147483648
+          comment: ''
+        - key: TNULL116
+          value: -2147483648
+          comment: ''
+        - key: TNULL117
+          value: -2147483648
+          comment: ''
+        - key: TNULL118
+          value: -2147483648
+          comment: ''
+        - key: TNULL123
+          value: -2147483648
+          comment: ''
+        - key: TNULL126
+          value: -2147483648
+          comment: ''
+        - key: TNULL129
+          value: -2147483648
+          comment: ''
+        - key: TNULL132
+          value: -2147483648
+          comment: ''
+        - key: TNULL135
+          value: -2147483648
+          comment: ''
+        - key: TNULL138
+          value: -2147483648
+          comment: ''
+        - key: TNULL141
+          value: -2147483648
+          comment: ''
+        - key: TNULL144
+          value: -2147483648
+          comment: ''
+        - key: TNULL147
+          value: -2147483648
+          comment: ''
+        - key: TNULL148
+          value: -2147483648
+          comment: ''
+        - key: TNULL149
+          value: -2147483648
+          comment: ''
+        - key: TNULL150
+          value: -2147483648
+          comment: ''
+        - key: TNULL151
+          value: -2147483648
+          comment: ''
+        - key: TNULL152
+          value: -2147483648
+          comment: ''
+        - key: TNULL153
+          value: -2147483648
+          comment: ''
+        - key: TNULL158
+          value: -2147483648
+          comment: ''
+        - key: TNULL161
+          value: -2147483648
+          comment: ''
+        - key: TNULL164
+          value: -2147483648
+          comment: ''
+        - key: TNULL167
+          value: -2147483648
+          comment: ''
+        - key: TNULL170
+          value: -2147483648
+          comment: ''
+        - key: TNULL173
+          value: -2147483648
+          comment: ''
+        - key: TNULL176
+          value: -2147483648
+          comment: ''
+        - key: TNULL179
+          value: -2147483648
+          comment: ''
+        - key: TNULL182
+          value: -2147483648
+          comment: ''
+        - key: TNULL183
+          value: -2147483648
+          comment: ''
+        - key: TNULL184
+          value: -2147483648
+          comment: ''
+        - key: TNULL185
+          value: -2147483648
+          comment: ''
+        - key: TNULL186
+          value: -2147483648
+          comment: ''
+        - key: TNULL187
+          value: -2147483648
+          comment: ''
+        - key: TNULL188
+          value: -2147483648
+          comment: ''
+        - key: TNULL191
+          value: -9223372036854775808
+          comment: ''
+        - key: TNULL192
+          value: -9223372036854775808
+          comment: ''
+        columns:
+          ra:
+            name: ra
+            type: float64
+            unit: deg
+            description: mean RA, (J2000, tied to Gaia DR1)
+          dec:
+            name: dec
+            type: float64
+            unit: deg
+            description: mean Dec, (J2000, tied to Gaia DR1)
+          dra:
+            name: dra
+            type: float32
+            unit: arcsec
+            description: error on RA
+          ddec:
+            name: ddec
+            type: float32
+            unit: arcsec
+            description: error on DEC
+          tmean:
+            name: tmean
+            type: float32
+            unit: days
+            description: Mean epoch (MJD)
+          trange:
+            name: trange
+            type: float32
+            unit: days
+            description: Time range -- may include 2MASS values
+          chisqpos:
+            name: chisqpos
+            type: float32
+            unit: ''
+            description: chi-square of a fixed position astrometry solution (equiv
+              to ObjectThin.posMeanChisq)
+          stargal:
+            name: stargal
+            type: float32
+            unit: ''
+            description: Measure of extendedness. Computed as the median across all
+              chip measurements of extNsigma, where extNsigma = (PSF mag - Kron mag)
+              expressed as a number of sigmas, so it somewhat adjusts for the spread
+              at low signal-to-noise.
+          nmeas:
+            name: nmeas
+            type: int32
+            unit: ''
+            description: total number of measurements in databases (including non-PS1
+              data)
+          nwarp_ok:
+            name: nwarp_ok
+            type: int32
+            unit: ''
+            description: number of warps with psf_qf > 0 (any unmasked pixels)
+          flags:
+            name: flags
+            type: int32
+            unit: ''
+            description: ObjectInfoFlags
+          objid:
+            name: objid
+            type: int32
+            unit: ''
+            description: 'internal Pan-STARRS IPP object ID : unique within database
+              spatial partition (see catID)'
+          catid:
+            name: catid
+            type: int32
+            unit: ''
+            description: database spatial partition ID - (equiv. to StackObjectThin.dvoRegionID)
+          extid_hi:
+            name: extid_hi
+            type: int32
+            unit: ''
+            description: upper 32 bits of PSPS object ID (objID in MAST PSPS database)
+          extid_lo:
+            name: extid_lo
+            type: int32
+            unit: ''
+            description: lower 32 bits of PSPS object ID (objID in MAST PSPS database)
+          g_chp_psf:
+            name: g_chp_psf
+            type: float32
+            unit: mag
+            description: mean g-band chip PSF magnitude
+          g_chp_psf_err:
+            name: g_chp_psf_err
+            type: float32
+            unit: mag
+            description: error on mean g-band chip PSF magnitude
+          g_chp_psf_nphot:
+            name: g_chp_psf_nphot
+            type: int32
+            unit: ''
+            description: number of measurements used for g_chp_psf (excluding outliers)
+          g_chp_aper:
+            name: g_chp_aper
+            type: float32
+            unit: mag
+            description: mean g-band chip seeing-adapted aperture magnitude
+          g_chp_aper_err:
+            name: g_chp_aper_err
+            type: float32
+            unit: mag
+            description: error on mean g-band chip seeing-adapted aperture magnitude
+          g_chp_aper_nphot:
+            name: g_chp_aper_nphot
+            type: int32
+            unit: ''
+            description: number of measurements used for above (excluding outliers)
+          g_chp_kron:
+            name: g_chp_kron
+            type: float32
+            unit: mag
+            description: mean g-band chip Kron magnitude
+          g_chp_kron_err:
+            name: g_chp_kron_err
+            type: float32
+            unit: mag
+            description: error on mean g-band chip Kron magnitude
+          g_chp_kron_nphot:
+            name: g_chp_kron_nphot
+            type: int32
+            unit: ''
+            description: number of measurements used for g_chp_kron (excluding outliers)
+          g_stk_psf_flux:
+            name: g_stk_psf_flux
+            type: float32
+            unit: Jy
+            description: best g-band stack PSF flux
+          g_stk_psf_fluxerr:
+            name: g_stk_psf_fluxerr
+            type: float32
+            unit: Jy
+            description: error on best g-band stack PSF flux
+          g_stk_psf_nphot:
+            name: g_stk_psf_nphot
+            type: int32
+            unit: ''
+            description: number of measurements used for g_stk_psf_flux (excluding
+              outliers)
+          g_stk_aper_flux:
+            name: g_stk_aper_flux
+            type: float32
+            unit: Jy
+            description: g-band stack seeing-adapted aperture flux
+          g_stk_aper_fluxerr:
+            name: g_stk_aper_fluxerr
+            type: float32
+            unit: Jy
+            description: error on g-band stack seeing-adapted aperture flux
+          g_stk_aper_nphot:
+            name: g_stk_aper_nphot
+            type: int32
+            unit: ''
+            description: number of measurements used for g_stk_aper_flux (excluding
+              outliers)
+          g_stk_kron_flux:
+            name: g_stk_kron_flux
+            type: float32
+            unit: Jy
+            description: g-band stack Kron flux from same stack as 'best' PSF above
+          g_stk_kron_fluxerr:
+            name: g_stk_kron_fluxerr
+            type: float32
+            unit: Jy
+            description: error on g-band stack Kron flux from same stack as 'best'
+              PSF above
+          g_stk_kron_nphot:
+            name: g_stk_kron_nphot
+            type: int32
+            unit: ''
+            description: number of measurements used for g_stk_kron_flux (excluding
+              outliers)
+          g_wrp_psf_flux:
+            name: g_wrp_psf_flux
+            type: float32
+            unit: Jy
+            description: mean g-band forced-warp PSF flux
+          g_wrp_psf_fluxerr:
+            name: g_wrp_psf_fluxerr
+            type: float32
+            unit: Jy
+            description: error on mean g-band forced-warp PSF flux
+          g_wrp_psf_nphot:
+            name: g_wrp_psf_nphot
+            type: int32
+            unit: ''
+            description: number of measurements used for g_wrp_psf_flux (excluding
+              outliers)
+          g_wrp_aper_flux:
+            name: g_wrp_aper_flux
+            type: float32
+            unit: Jy
+            description: mean g-band forced-warp seeing-adapted aperture flux
+          g_wrp_aper_fluxerr:
+            name: g_wrp_aper_fluxerr
+            type: float32
+            unit: Jy
+            description: error on mean g-band forced-warp seeing-adapted aperture
+              flux
+          g_wrp_aper_nphot:
+            name: g_wrp_aper_nphot
+            type: int32
+            unit: ''
+            description: number of measurements used for g_wrp_aper_flux (excluding
+              outliers)
+          g_wrp_kron_flux:
+            name: g_wrp_kron_flux
+            type: float32
+            unit: Jy
+            description: mean g-band forced-warp Kron flux
+          g_wrp_kron_fluxerr:
+            name: g_wrp_kron_fluxerr
+            type: float32
+            unit: Jy
+            description: error on mean g-band forced-warp Kron flux
+          g_wrp_kron_nphot:
+            name: g_wrp_kron_nphot
+            type: int32
+            unit: ''
+            description: number of measurements used for g_wrp_kron_flux (excluding
+              outliers)
+          g_flags:
+            name: g_flags
+            type: int32
+            unit: ''
+            description: per-filter info flags (equiv. to StackObjectThin.ginfoFlag4)
+          g_ncode:
+            name: g_ncode
+            type: int32
+            unit: ''
+            description: number of chip detections in this filter (equiv. to StackObjectThin.ng)
+          g_nwarp:
+            name: g_nwarp
+            type: int32
+            unit: ''
+            description: number of warp measurements in this filter (including primary
+              & secondary skycells)
+          g_nwarp_good:
+            name: g_nwarp_good
+            type: int32
+            unit: ''
+            description: number of warp measurements with psfqfperf > 0.85 in this
+              filter (including primary & secondary skycells)
+          g_nstack:
+            name: g_nstack
+            type: int32
+            unit: ''
+            description: number of stack measurements (primary and secondary)
+          g_nstack_det:
+            name: g_nstack_det
+            type: int32
+            unit: ''
+            description: number of stack detections (S/N > 5, primary and secondary)
+          g_psfqf:
+            name: g_psfqf
+            type: float32
+            unit: ''
+            description: g-band PSF coverage factor
+          g_psfqfperf:
+            name: g_psfqfperf
+            type: float32
+            unit: ''
+            description: g-band PSF weighted fraction of pixels totally unmasked
+          r_chp_psf:
+            name: r_chp_psf
+            type: float32
+            unit: mag
+            description: mean r-band chip PSF magnitude
+          r_chp_psf_err:
+            name: r_chp_psf_err
+            type: float32
+            unit: mag
+            description: error on mean r-band chip PSF magnitude
+          r_chp_psf_nphot:
+            name: r_chp_psf_nphot
+            type: int32
+            unit: ''
+            description: number of measurements used for r_chp_psf (excluding outliers)
+          r_chp_aper:
+            name: r_chp_aper
+            type: float32
+            unit: mag
+            description: mean r-band chip seeing-adapted aperture magnitude
+          r_chp_aper_err:
+            name: r_chp_aper_err
+            type: float32
+            unit: mag
+            description: error on mean r-band chip seeing-adapted aperture magnitude
+          r_chp_aper_nphot:
+            name: r_chp_aper_nphot
+            type: int32
+            unit: ''
+            description: number of measurements used for above (excluding outliers)
+          r_chp_kron:
+            name: r_chp_kron
+            type: float32
+            unit: mag
+            description: mean r-band chip Kron magnitude
+          r_chp_kron_err:
+            name: r_chp_kron_err
+            type: float32
+            unit: mag
+            description: error on mean r-band chip Kron magnitude
+          r_chp_kron_nphot:
+            name: r_chp_kron_nphot
+            type: int32
+            unit: ''
+            description: number of measurements used for r_chp_kron (excluding outliers)
+          r_stk_psf_flux:
+            name: r_stk_psf_flux
+            type: float32
+            unit: Jy
+            description: best r-band stack PSF flux
+          r_stk_psf_fluxerr:
+            name: r_stk_psf_fluxerr
+            type: float32
+            unit: Jy
+            description: error on best r-band stack PSF flux
+          r_stk_psf_nphot:
+            name: r_stk_psf_nphot
+            type: int32
+            unit: ''
+            description: number of measurements used for r_stk_psf_flux (excluding
+              outliers)
+          r_stk_aper_flux:
+            name: r_stk_aper_flux
+            type: float32
+            unit: Jy
+            description: r-band stack seeing-adapted aperture flux
+          r_stk_aper_fluxerr:
+            name: r_stk_aper_fluxerr
+            type: float32
+            unit: Jy
+            description: error on r-band stack seeing-adapted aperture flux
+          r_stk_aper_nphot:
+            name: r_stk_aper_nphot
+            type: int32
+            unit: ''
+            description: number of measurements used for r_stk_aper_flux (excluding
+              outliers)
+          r_stk_kron_flux:
+            name: r_stk_kron_flux
+            type: float32
+            unit: Jy
+            description: r-band stack Kron flux from same stack as 'best' PSF above
+          r_stk_kron_fluxerr:
+            name: r_stk_kron_fluxerr
+            type: float32
+            unit: Jy
+            description: error on r-band stack Kron flux from same stack as 'best'
+              PSF above
+          r_stk_kron_nphot:
+            name: r_stk_kron_nphot
+            type: int32
+            unit: ''
+            description: number of measurements used for r_stk_kron_flux (excluding
+              outliers)
+          r_wrp_psf_flux:
+            name: r_wrp_psf_flux
+            type: float32
+            unit: Jy
+            description: mean r-band forced-warp PSF flux
+          r_wrp_psf_fluxerr:
+            name: r_wrp_psf_fluxerr
+            type: float32
+            unit: Jy
+            description: error on mean r-band forced-warp PSF flux
+          r_wrp_psf_nphot:
+            name: r_wrp_psf_nphot
+            type: int32
+            unit: ''
+            description: number of measurements used for r_wrp_psf_flux (excluding
+              outliers)
+          r_wrp_aper_flux:
+            name: r_wrp_aper_flux
+            type: float32
+            unit: Jy
+            description: mean r-band forced-warp seeing-adapted aperture flux
+          r_wrp_aper_fluxerr:
+            name: r_wrp_aper_fluxerr
+            type: float32
+            unit: Jy
+            description: error on mean r-band forced-warp seeing-adapted aperture
+              flux
+          r_wrp_aper_nphot:
+            name: r_wrp_aper_nphot
+            type: int32
+            unit: ''
+            description: number of measurements used for r_wrp_aper_flux (excluding
+              outliers)
+          r_wrp_kron_flux:
+            name: r_wrp_kron_flux
+            type: float32
+            unit: Jy
+            description: mean r-band forced-warp Kron flux
+          r_wrp_kron_fluxerr:
+            name: r_wrp_kron_fluxerr
+            type: float32
+            unit: Jy
+            description: error on mean r-band forced-warp Kron flux
+          r_wrp_kron_nphot:
+            name: r_wrp_kron_nphot
+            type: int32
+            unit: ''
+            description: number of measurements used for r_wrp_kron_flux (excluding
+              outliers)
+          r_flags:
+            name: r_flags
+            type: int32
+            unit: ''
+            description: per-filter info flags (equiv. to StackObjectThin.rinfoFlag4)
+          r_ncode:
+            name: r_ncode
+            type: int32
+            unit: ''
+            description: number of chip detections in this filter (equiv. to StackObjectThin.nr)
+          r_nwarp:
+            name: r_nwarp
+            type: int32
+            unit: ''
+            description: number of warp measurements in this filter (including primary
+              & secondary skycells)
+          r_nwarp_good:
+            name: r_nwarp_good
+            type: int32
+            unit: ''
+            description: number of warp measurements with psfqfperf > 0.85 in this
+              filter (including primary & secondary skycells)
+          r_nstack:
+            name: r_nstack
+            type: int32
+            unit: ''
+            description: number of stack measurements (primary and secondary)
+          r_nstack_det:
+            name: r_nstack_det
+            type: int32
+            unit: ''
+            description: number of stack detections (S/N > 5, primary and secondary)
+          r_psfqf:
+            name: r_psfqf
+            type: float32
+            unit: ''
+            description: r-band PSF coverage factor
+          r_psfqfperf:
+            name: r_psfqfperf
+            type: float32
+            unit: ''
+            description: r-band PSF weighted fraction of pixels totally unmasked
+          i_chp_psf:
+            name: i_chp_psf
+            type: float32
+            unit: mag
+            description: mean i-band chip PSF magnitude
+          i_chp_psf_err:
+            name: i_chp_psf_err
+            type: float32
+            unit: mag
+            description: error on mean i-band chip PSF magnitude
+          i_chp_psf_nphot:
+            name: i_chp_psf_nphot
+            type: int32
+            unit: ''
+            description: number of measurements used for i_chp_psf (excluding outliers)
+          i_chp_aper:
+            name: i_chp_aper
+            type: float32
+            unit: mag
+            description: mean i-band chip seeing-adapted aperture magnitude
+          i_chp_aper_err:
+            name: i_chp_aper_err
+            type: float32
+            unit: mag
+            description: error on mean i-band chip seeing-adapted aperture magnitude
+          i_chp_aper_nphot:
+            name: i_chp_aper_nphot
+            type: int32
+            unit: ''
+            description: number of measurements used for above (excluding outliers)
+          i_chp_kron:
+            name: i_chp_kron
+            type: float32
+            unit: mag
+            description: mean i-band chip Kron magnitude
+          i_chp_kron_err:
+            name: i_chp_kron_err
+            type: float32
+            unit: mag
+            description: error on mean i-band chip Kron magnitude
+          i_chp_kron_nphot:
+            name: i_chp_kron_nphot
+            type: int32
+            unit: ''
+            description: number of measurements used for i_chp_kron (excluding outliers)
+          i_stk_psf_flux:
+            name: i_stk_psf_flux
+            type: float32
+            unit: Jy
+            description: best i-band stack PSF flux
+          i_stk_psf_fluxerr:
+            name: i_stk_psf_fluxerr
+            type: float32
+            unit: Jy
+            description: error on best i-band stack PSF flux
+          i_stk_psf_nphot:
+            name: i_stk_psf_nphot
+            type: int32
+            unit: ''
+            description: number of measurements used for i_stk_psf_flux (excluding
+              outliers)
+          i_stk_aper_flux:
+            name: i_stk_aper_flux
+            type: float32
+            unit: Jy
+            description: i-band stack seeing-adapted aperture flux
+          i_stk_aper_fluxerr:
+            name: i_stk_aper_fluxerr
+            type: float32
+            unit: Jy
+            description: error on i-band stack seeing-adapted aperture flux
+          i_stk_aper_nphot:
+            name: i_stk_aper_nphot
+            type: int32
+            unit: ''
+            description: number of measurements used for i_stk_aper_flux (excluding
+              outliers)
+          i_stk_kron_flux:
+            name: i_stk_kron_flux
+            type: float32
+            unit: Jy
+            description: i-band stack Kron flux from same stack as 'best' PSF above
+          i_stk_kron_fluxerr:
+            name: i_stk_kron_fluxerr
+            type: float32
+            unit: Jy
+            description: error on i-band stack Kron flux from same stack as 'best'
+              PSF above
+          i_stk_kron_nphot:
+            name: i_stk_kron_nphot
+            type: int32
+            unit: ''
+            description: number of measurements used for i_stk_kron_flux (excluding
+              outliers)
+          i_wrp_psf_flux:
+            name: i_wrp_psf_flux
+            type: float32
+            unit: Jy
+            description: mean i-band forced-warp PSF flux
+          i_wrp_psf_fluxerr:
+            name: i_wrp_psf_fluxerr
+            type: float32
+            unit: Jy
+            description: error on mean i-band forced-warp PSF flux
+          i_wrp_psf_nphot:
+            name: i_wrp_psf_nphot
+            type: int32
+            unit: ''
+            description: number of measurements used for i_wrp_psf_flux (excluding
+              outliers)
+          i_wrp_aper_flux:
+            name: i_wrp_aper_flux
+            type: float32
+            unit: Jy
+            description: mean i-band forced-warp seeing-adapted aperture flux
+          i_wrp_aper_fluxerr:
+            name: i_wrp_aper_fluxerr
+            type: float32
+            unit: Jy
+            description: error on mean i-band forced-warp seeing-adapted aperture
+              flux
+          i_wrp_aper_nphot:
+            name: i_wrp_aper_nphot
+            type: int32
+            unit: ''
+            description: number of measurements used for i_wrp_aper_flux (excluding
+              outliers)
+          i_wrp_kron_flux:
+            name: i_wrp_kron_flux
+            type: float32
+            unit: Jy
+            description: mean i-band forced-warp Kron flux
+          i_wrp_kron_fluxerr:
+            name: i_wrp_kron_fluxerr
+            type: float32
+            unit: Jy
+            description: error on mean i-band forced-warp Kron flux
+          i_wrp_kron_nphot:
+            name: i_wrp_kron_nphot
+            type: int32
+            unit: ''
+            description: number of measurements used for i_wrp_kron_flux (excluding
+              outliers)
+          i_flags:
+            name: i_flags
+            type: int32
+            unit: ''
+            description: per-filter info flags (equiv. to StackObjectThin.iinfoFlag4)
+          i_ncode:
+            name: i_ncode
+            type: int32
+            unit: ''
+            description: number of chip detections in this filter (equiv. to StackObjectThin.ni)
+          i_nwarp:
+            name: i_nwarp
+            type: int32
+            unit: ''
+            description: number of warp measurements in this filter (including primary
+              & secondary skycells)
+          i_nwarp_good:
+            name: i_nwarp_good
+            type: int32
+            unit: ''
+            description: number of warp measurements with psfqfperf > 0.85 in this
+              filter (including primary & secondary skycells)
+          i_nstack:
+            name: i_nstack
+            type: int32
+            unit: ''
+            description: number of stack measurements (primary and secondary)
+          i_nstack_det:
+            name: i_nstack_det
+            type: int32
+            unit: ''
+            description: number of stack detections (S/N > 5, primary and secondary)
+          i_psfqf:
+            name: i_psfqf
+            type: float32
+            unit: ''
+            description: i-band PSF coverage factor
+          i_psfqfperf:
+            name: i_psfqfperf
+            type: float32
+            unit: ''
+            description: i-band PSF weighted fraction of pixels totally unmasked
+          z_chp_psf:
+            name: z_chp_psf
+            type: float32
+            unit: mag
+            description: mean z-band chip PSF magnitude
+          z_chp_psf_err:
+            name: z_chp_psf_err
+            type: float32
+            unit: mag
+            description: error on mean z-band chip PSF magnitude
+          z_chp_psf_nphot:
+            name: z_chp_psf_nphot
+            type: int32
+            unit: ''
+            description: number of measurements used for z_chp_psf (excluding outliers)
+          z_chp_aper:
+            name: z_chp_aper
+            type: float32
+            unit: mag
+            description: mean z-band chip seeing-adapted aperture magnitude
+          z_chp_aper_err:
+            name: z_chp_aper_err
+            type: float32
+            unit: mag
+            description: error on mean z-band chip seeing-adapted aperture magnitude
+          z_chp_aper_nphot:
+            name: z_chp_aper_nphot
+            type: int32
+            unit: ''
+            description: number of measurements used for above (excluding outliers)
+          z_chp_kron:
+            name: z_chp_kron
+            type: float32
+            unit: mag
+            description: mean z-band chip Kron magnitude
+          z_chp_kron_err:
+            name: z_chp_kron_err
+            type: float32
+            unit: mag
+            description: error on mean z-band chip Kron magnitude
+          z_chp_kron_nphot:
+            name: z_chp_kron_nphot
+            type: int32
+            unit: ''
+            description: number of measurements used for z_chp_kron (excluding outliers)
+          z_stk_psf_flux:
+            name: z_stk_psf_flux
+            type: float32
+            unit: Jy
+            description: best z-band stack PSF flux
+          z_stk_psf_fluxerr:
+            name: z_stk_psf_fluxerr
+            type: float32
+            unit: Jy
+            description: error on best z-band stack PSF flux
+          z_stk_psf_nphot:
+            name: z_stk_psf_nphot
+            type: int32
+            unit: ''
+            description: number of measurements used for z_stk_psf_flux (excluding
+              outliers)
+          z_stk_aper_flux:
+            name: z_stk_aper_flux
+            type: float32
+            unit: Jy
+            description: z-band stack seeing-adapted aperture flux
+          z_stk_aper_fluxerr:
+            name: z_stk_aper_fluxerr
+            type: float32
+            unit: Jy
+            description: error on z-band stack seeing-adapted aperture flux
+          z_stk_aper_nphot:
+            name: z_stk_aper_nphot
+            type: int32
+            unit: ''
+            description: number of measurements used for z_stk_aper_flux (excluding
+              outliers)
+          z_stk_kron_flux:
+            name: z_stk_kron_flux
+            type: float32
+            unit: Jy
+            description: z-band stack Kron flux from same stack as 'best' PSF above
+          z_stk_kron_fluxerr:
+            name: z_stk_kron_fluxerr
+            type: float32
+            unit: Jy
+            description: error on z-band stack Kron flux from same stack as 'best'
+              PSF above
+          z_stk_kron_nphot:
+            name: z_stk_kron_nphot
+            type: int32
+            unit: ''
+            description: number of measurements used for z_stk_kron_flux (excluding
+              outliers)
+          z_wrp_psf_flux:
+            name: z_wrp_psf_flux
+            type: float32
+            unit: Jy
+            description: mean z-band forced-warp PSF flux
+          z_wrp_psf_fluxerr:
+            name: z_wrp_psf_fluxerr
+            type: float32
+            unit: Jy
+            description: error on mean z-band forced-warp PSF flux
+          z_wrp_psf_nphot:
+            name: z_wrp_psf_nphot
+            type: int32
+            unit: ''
+            description: number of measurements used for z_wrp_psf_flux (excluding
+              outliers)
+          z_wrp_aper_flux:
+            name: z_wrp_aper_flux
+            type: float32
+            unit: Jy
+            description: mean z-band forced-warp seeing-adapted aperture flux
+          z_wrp_aper_fluxerr:
+            name: z_wrp_aper_fluxerr
+            type: float32
+            unit: Jy
+            description: error on mean z-band forced-warp seeing-adapted aperture
+              flux
+          z_wrp_aper_nphot:
+            name: z_wrp_aper_nphot
+            type: int32
+            unit: ''
+            description: number of measurements used for z_wrp_aper_flux (excluding
+              outliers)
+          z_wrp_kron_flux:
+            name: z_wrp_kron_flux
+            type: float32
+            unit: Jy
+            description: mean z-band forced-warp Kron flux
+          z_wrp_kron_fluxerr:
+            name: z_wrp_kron_fluxerr
+            type: float32
+            unit: Jy
+            description: error on mean z-band forced-warp Kron flux
+          z_wrp_kron_nphot:
+            name: z_wrp_kron_nphot
+            type: int32
+            unit: ''
+            description: number of measurements used for z_wrp_kron_flux (excluding
+              outliers)
+          z_flags:
+            name: z_flags
+            type: int32
+            unit: ''
+            description: per-filter info flags (equiv. to StackObjectThin.zinfoFlag4)
+          z_ncode:
+            name: z_ncode
+            type: int32
+            unit: ''
+            description: number of chip detections in this filter (equiv. to StackObjectThin.nz)
+          z_nwarp:
+            name: z_nwarp
+            type: int32
+            unit: ''
+            description: number of warp measurements in this filter (including primary
+              & secondary skycells)
+          z_nwarp_good:
+            name: z_nwarp_good
+            type: int32
+            unit: ''
+            description: number of warp measurements with psfqfperf > 0.85 in this
+              filter (including primary & secondary skycells)
+          z_nstack:
+            name: z_nstack
+            type: int32
+            unit: ''
+            description: number of stack measurements (primary and secondary)
+          z_nstack_det:
+            name: z_nstack_det
+            type: int32
+            unit: ''
+            description: number of stack detections (S/N > 5, primary and secondary)
+          z_psfqf:
+            name: z_psfqf
+            type: float32
+            unit: ''
+            description: z-band PSF coverage factor
+          z_psfqfperf:
+            name: z_psfqfperf
+            type: float32
+            unit: ''
+            description: z-band PSF weighted fraction of pixels totally unmasked
+          y_chp_psf:
+            name: y_chp_psf
+            type: float32
+            unit: mag
+            description: mean y-band chip PSF magnitude
+          y_chp_psf_err:
+            name: y_chp_psf_err
+            type: float32
+            unit: mag
+            description: error on mean y-band chip PSF magnitude
+          y_chp_psf_nphot:
+            name: y_chp_psf_nphot
+            type: int32
+            unit: ''
+            description: number of measurements used for y_chp_psf (excluding outliers)
+          y_chp_aper:
+            name: y_chp_aper
+            type: float32
+            unit: mag
+            description: mean y-band chip seeing-adapted aperture magnitude
+          y_chp_aper_err:
+            name: y_chp_aper_err
+            type: float32
+            unit: mag
+            description: error on mean y-band chip seeing-adapted aperture magnitude
+          y_chp_aper_nphot:
+            name: y_chp_aper_nphot
+            type: int32
+            unit: ''
+            description: number of measurements used for above (excluding outliers)
+          y_chp_kron:
+            name: y_chp_kron
+            type: float32
+            unit: mag
+            description: mean y-band chip Kron magnitude
+          y_chp_kron_err:
+            name: y_chp_kron_err
+            type: float32
+            unit: mag
+            description: error on mean y-band chip Kron magnitude
+          y_chp_kron_nphot:
+            name: y_chp_kron_nphot
+            type: int32
+            unit: ''
+            description: number of measurements used for y_chp_kron (excluding outliers)
+          y_stk_psf_flux:
+            name: y_stk_psf_flux
+            type: float32
+            unit: Jy
+            description: best y-band stack PSF flux
+          y_stk_psf_fluxerr:
+            name: y_stk_psf_fluxerr
+            type: float32
+            unit: Jy
+            description: error on best y-band stack PSF flux
+          y_stk_psf_nphot:
+            name: y_stk_psf_nphot
+            type: int32
+            unit: ''
+            description: number of measurements used for y_stk_psf_flux (excluding
+              outliers)
+          y_stk_aper_flux:
+            name: y_stk_aper_flux
+            type: float32
+            unit: Jy
+            description: y-band stack seeing-adapted aperture flux
+          y_stk_aper_fluxerr:
+            name: y_stk_aper_fluxerr
+            type: float32
+            unit: Jy
+            description: error on y-band stack seeing-adapted aperture flux
+          y_stk_aper_nphot:
+            name: y_stk_aper_nphot
+            type: int32
+            unit: ''
+            description: number of measurements used for y_stk_aper_flux (excluding
+              outliers)
+          y_stk_kron_flux:
+            name: y_stk_kron_flux
+            type: float32
+            unit: Jy
+            description: y-band stack Kron flux from same stack as 'best' PSF above
+          y_stk_kron_fluxerr:
+            name: y_stk_kron_fluxerr
+            type: float32
+            unit: Jy
+            description: error on y-band stack Kron flux from same stack as 'best'
+              PSF above
+          y_stk_kron_nphot:
+            name: y_stk_kron_nphot
+            type: int32
+            unit: ''
+            description: number of measurements used for y_stk_kron_flux (excluding
+              outliers)
+          y_wrp_psf_flux:
+            name: y_wrp_psf_flux
+            type: float32
+            unit: Jy
+            description: mean y-band forced-warp PSF flux
+          y_wrp_psf_fluxerr:
+            name: y_wrp_psf_fluxerr
+            type: float32
+            unit: Jy
+            description: error on mean y-band forced-warp PSF flux
+          y_wrp_psf_nphot:
+            name: y_wrp_psf_nphot
+            type: int32
+            unit: ''
+            description: number of measurements used for y_wrp_psf_flux (excluding
+              outliers)
+          y_wrp_aper_flux:
+            name: y_wrp_aper_flux
+            type: float32
+            unit: Jy
+            description: mean y-band forced-warp seeing-adapted aperture flux
+          y_wrp_aper_fluxerr:
+            name: y_wrp_aper_fluxerr
+            type: float32
+            unit: Jy
+            description: error on mean y-band forced-warp seeing-adapted aperture
+              flux
+          y_wrp_aper_nphot:
+            name: y_wrp_aper_nphot
+            type: int32
+            unit: ''
+            description: number of measurements used for y_wrp_aper_flux (excluding
+              outliers)
+          y_wrp_kron_flux:
+            name: y_wrp_kron_flux
+            type: float32
+            unit: Jy
+            description: mean y-band forced-warp Kron flux
+          y_wrp_kron_fluxerr:
+            name: y_wrp_kron_fluxerr
+            type: float32
+            unit: Jy
+            description: error on mean y-band forced-warp Kron flux
+          y_wrp_kron_nphot:
+            name: y_wrp_kron_nphot
+            type: int32
+            unit: ''
+            description: number of measurements used for y_wrp_kron_flux (excluding
+              outliers)
+          y_flags:
+            name: y_flags
+            type: int32
+            unit: ''
+            description: per-filter info flags (equiv. to StackObjectThin.yinfoFlag4)
+          y_ncode:
+            name: y_ncode
+            type: int32
+            unit: ''
+            description: number of chip detections in this filter (equiv. to StackObjectThin.ny)
+          y_nwarp:
+            name: y_nwarp
+            type: int32
+            unit: ''
+            description: number of warp measurements in this filter (including primary
+              & secondary skycells)
+          y_nwarp_good:
+            name: y_nwarp_good
+            type: int32
+            unit: ''
+            description: number of warp measurements with psfqfperf > 0.85 in this
+              filter (including primary & secondary skycells)
+          y_nstack:
+            name: y_nstack
+            type: int32
+            unit: ''
+            description: number of stack measurements (primary and secondary)
+          y_nstack_det:
+            name: y_nstack_det
+            type: int32
+            unit: ''
+            description: number of stack detections (S/N > 5, primary and secondary)
+          y_psfqf:
+            name: y_psfqf
+            type: float32
+            unit: ''
+            description: y-band PSF coverage factor
+          y_psfqfperf:
+            name: y_psfqfperf
+            type: float32
+            unit: ''
+            description: y-band PSF weighted fraction of pixels totally unmasked
+          catid_objid:
+            name: catid_objid
+            type: int64
+            unit: ''
+            description: computed as (catid << 32) & objid. Equivalent to StackObjectThin.ippObjID
+          extid_hi_lo:
+            name: extid_hi_lo
+            type: int64
+            unit: ''
+            description: computed as (extid_hi << 32) & extid_lo. Equivalent to StackObjectThin.ObjID
 notes: |-
   None
+regrets: |-
+  I have no regrets!

@@ -9,17 +9,17 @@ MOS Target Table: ebosstarget_v5
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
 A catalog of targets, selected from SDSS+WISE imaging that were considered for observation in the
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_target_ebosstarget_v5-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
+$MOS_TARGET/[V_TARG]/mos_ebosstarget_v5-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
 
 ### Releases
-DR18
+DR18, DR19
 
 ### Enviroments
 MOS_TARGET
@@ -36,14 +36,20 @@ sdss5db> targetdb, operations database server
 ### Is a VAC
 False
 
-### HDUS List for release DR18
+### Data Level
+2.3.3
+
+### HDUS List for release DR19
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: ](#hdu1)
+  - [HDU1](#hdu1)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR19
+   - from: DR18
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -64,118 +70,154 @@ Key | Value | Comment | |
 
 
 
-### HDU1:
+### HDU1: 
 MOS Target Table: ebosstarget_v5
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  555 MB
+#### HDU Size:  801 MB
 
+##### Header Table Caption for HDU1
+Key | Value | Comment | |
+| --- | --- | --- | --- |
+| XTENSION | BINTABLE | binary table extension |
+| BITPIX | 8 | array data type |
+| NAXIS | 2 | number of array dimensions |
+| NAXIS1 | 420 | length of dimension 1 |
+| NAXIS2 | 2000000 | length of dimension 2 |
+| PCOUNT | 0 | number of group parameters |
+| GCOUNT | 1 | number of groups |
+| TFIELDS | 99 | number of table fields |
+| TNULL1 | -2147483648 |  |
+| TNULL2 | -2147483648 |  |
+| TNULL3 | -2147483648 |  |
+| TNULL4 | -2147483648 |  |
+| TNULL16 | -2147483648 |  |
+| TNULL17 | -2147483648 |  |
+| TNULL18 | -2147483648 |  |
+| TNULL19 | -2147483648 |  |
+| TNULL20 | -2147483648 |  |
+| TNULL26 | -9223372036854775808 |  |
+| TNULL27 | -9223372036854775808 |  |
+| TNULL28 | -9223372036854775808 |  |
+| TNULL29 | -2147483648 |  |
+| TNULL30 | -2147483648 |  |
+| TNULL31 | -2147483648 |  |
+| TNULL32 | -2147483648 |  |
+| TNULL33 | -2147483648 |  |
+| TNULL34 | -2147483648 |  |
+| TNULL90 | -2147483648 |  |
+| TNULL98 | -9223372036854775808 |  |
+| TNULL99 | -9223372036854775808 |  |
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | RUN | int32 |  | SDSS imaging run |
- | CAMCOL | int32 |  | SDSS imaging camcol |
- | FIELD | int32 |  | SDSS imaging field |
- | ID | int32 |  | SDSS imaging object id |
- | RERUN | char[3] |  | SDSS imaging rerun |
- | FIBERMAG_U | float32 | mag | Magnitude in 3 arcsec diameter fiber radius, u-band |
- | FIBERMAG_G | float32 | mag | Magnitude in 3 arcsec diameter fiber radius, g-band |
- | FIBERMAG_R | float32 | mag | Magnitude in 3 arcsec diameter fiber radius, r-band |
- | FIBERMAG_I | float32 | mag | Magnitude in 3 arcsec diameter fiber radius, i-band |
- | FIBERMAG_Z | float32 | mag | Magnitude in 3 arcsec diameter fiber radius, z-band |
- | FIBER2MAG_U | float32 | mag | Magnitude in 2 arcsec diameter fiber radius, u-band |
- | FIBER2MAG_G | float32 | mag | Magnitude in 2 arcsec diameter fiber radius, g-band |
- | FIBER2MAG_R | float32 | mag | Magnitude in 2 arcsec diameter fiber radius, r-band |
- | FIBER2MAG_I | float32 | mag | Magnitude in 2 arcsec diameter fiber radius, i-band |
- | FIBER2MAG_Z | float32 | mag | Magnitude in 2 arcsec diameter fiber radius, z-band |
- | CALIB_STATUS_U | int32 |  | Calibration status in u-band |
- | CALIB_STATUS_G | int32 |  | Calibration status in g-band |
- | CALIB_STATUS_R | int32 |  | Calibration status in r-band |
- | CALIB_STATUS_I | int32 |  | Calibration status in i-band |
- | CALIB_STATUS_Z | int32 |  | Calibration status in z-band |
- | RA | float64 | deg | J2000 Right Ascension |
- | DEC | float64 | deg | J2000 Declination |
- | EPOCH | float32 | year | Epoch of position |
- | PMRA | float32 | mas/yr | proper motion in RA direction |
- | PMDEC | float32 | mas/yr | - proper motion in Dec direction |
- | EBOSS_TARGET1 | int64 |  | eBOSS target selection information, for eBOSS plates |
- | EBOSS_TARGET2 | int64 |  | eBOSS target selection information, for TDSS, SPIDERS, ELG, etc. plates |
- | EBOSS_TARGET_ID | int64 |  | eBOSS unique target identifier for every spectroscopic target |
- | THING_ID_TARGETING | int32 |  | thing_id value from the version of resolve from which the targeting was created |
- | OBJC_TYPE | int32 |  | Type classification of the object (star, galaxy, cosmic ray, etc.) |
- | OBJC_FLAGS | int32 |  | Photo Object Attribute Flags(?) |
- | OBJC_FLAGS2 | int32 |  | Additional Photo Object Attribute Flags(?) |
- | FLAGS | int32 |  | Target selection flags set by ebosstarget (?) |
- | FLAGS2 | int32 |  | Additional target selection flags set by ebosstarget (?) |
- | PSF_FWHM_U | float32 | arcsec | Imaging FWHM in u-band |
- | PSF_FWHM_G | float32 | arcsec | Imaging FWHM in g-band |
- | PSF_FWHM_R | float32 | arcsec | Imaging FWHM in r-band |
- | PSF_FWHM_I | float32 | arcsec | Imaging FWHM in i-band |
- | PSF_FWHM_Z | float32 | arcsec | Imaging FWHM in z-band |
- | PSFFLUX_U | float32 | nMgy | PSF flux, u-band |
- | PSFFLUX_G | float32 | nMgy | PSF flux, g-band |
- | PSFFLUX_R | float32 | nMgy | PSF flux, r-band |
- | PSFFLUX_I | float32 | nMgy | PSF flux, i-band |
- | PSFFLUX_Z | float32 | nMgy | PSF flux, z-band |
- | PSFFLUX_IVAR_U | float32 | nMgy^{-2} | PSF flux inverse variance, u-band |
- | PSFFLUX_IVAR_G | float32 | nMgy^{-2} | PSF flux inverse variance, g-band |
- | PSFFLUX_IVAR_R | float32 | nMgy^{-2} | PSF flux inverse variance, r-band |
- | PSFFLUX_IVAR_I | float32 | nMgy^{-2} | PSF flux inverse variance, r-band |
- | PSFFLUX_IVAR_Z | float32 | nMgy^{-2} | PSF flux inverse variance, i-band |
- | EXTINCTION_U | float32 | mag | Extinction in u-band |
- | EXTINCTION_G | float32 | mag | Extinction in g-band |
- | EXTINCTION_R | float32 | mag | Extinction in r-band |
- | EXTINCTION_I | float32 | mag | Extinction in i-band |
- | EXTINCTION_Z | float32 | mag | Extinction in z-band |
- | FIBERFLUX_U | float32 | nMgy | Flux in 3 arcsec diameter fiber radius, u-band |
- | FIBERFLUX_G | float32 | nMgy | Flux in 3 arcsec diameter fiber radius, g-band |
- | FIBERFLUX_R | float32 | nMgy | Flux in 3 arcsec diameter fiber radius, r-band |
- | FIBERFLUX_I | float32 | nMgy | Flux in 3 arcsec diameter fiber radius, i-band |
- | FIBERFLUX_Z | float32 | nMgy | Flux in 3 arcsec diameter fiber radius, z-band |
- | FIBERFLUX_IVAR_U | float32 | nMgy^{-2} | Inverse variance of flux in 3 arcsec diameter fiber radius, u-band |
- | FIBERFLUX_IVAR_G | float32 | nMgy^{-2} | Inverse variance of flux in 3 arcsec diameter fiber radius, g-band |
- | FIBERFLUX_IVAR_R | float32 | nMgy^{-2} | Inverse variance of flux in 3 arcsec diameter fiber radius, r-band |
- | FIBERFLUX_IVAR_I | float32 | nMgy^{-2} | Inverse variance of flux in 3 arcsec diameter fiber radius, i-band |
- | FIBERFLUX_IVAR_Z | float32 | nMgy^{-2} | Inverse variance of flux in 3 arcsec diameter fiber radius, z-band |
- | FIBER2FLUX_IVAR_U | float32 | nMgy^{-2} | Inverse variance of flux in 2 arcsec diameter fiber radius, u-band |
- | FIBER2FLUX_IVAR_G | float32 | nMgy^{-2} | Inverse variance of flux in 2 arcsec diameter fiber radius, g-band |
- | FIBER2FLUX_IVAR_R | float32 | nMgy^{-2} | Inverse variance of flux in 2 arcsec diameter fiber radius, r-band |
- | FIBER2FLUX_IVAR_I | float32 | nMgy^{-2} | Inverse variance of flux in 2 arcsec diameter fiber radius, i-band |
- | FIBER2FLUX_IVAR_Z | float32 | nMgy^{-2} | Inverse variance of flux in 2 arcsec diameter fiber radius, z-band |
- | MODELFLUX_U | float32 | nMgy | Flux of best fitting model, u-band |
- | MODELFLUX_G | float32 | nMgy | Flux of best fitting model, g-band |
- | MODELFLUX_R | float32 | nMgy | Flux of best fitting model, r-band |
- | MODELFLUX_I | float32 | nMgy | Flux of best fitting model, i-band |
- | MODELFLUX_Z | float32 | nMgy | Flux of best fitting model, z-band |
- | MODELFLUX_IVAR_U | float32 | nMgy^{-2} | Inverse variance of flux of best fitting model, u-band |
- | MODELFLUX_IVAR_G | float32 | nMgy^{-2} | Inverse variance of flux of best fitting model, g-band |
- | MODELFLUX_IVAR_R | float32 | nMgy^{-2} | Inverse variance of flux of best fitting model, r-band |
- | MODELFLUX_IVAR_I | float32 | nMgy^{-2} | Inverse variance of flux of best fitting model, i-band |
- | MODELFLUX_IVAR_Z | float32 | nMgy^{-2} | Inverse variance of flux of best fitting model, z-band |
- | MODELMAG_U | float32 | nMgy | Magnitude of best fitting model, u-band |
- | MODELMAG_G | float32 | nMgy | Magnitude of best fitting model, g-band |
- | MODELMAG_R | float32 | nMgy | Magnitude of best fitting model, r-band |
- | MODELMAG_I | float32 | nMgy | Magnitude of best fitting model, i-band |
- | MODELMAG_Z | float32 | nMgy | Magnitude of best fitting model, z-band |
- | MODELMAG_IVAR_U | float32 | nMgy^{-2} | Inverse variance of magnitude of best fitting model, u-band |
- | MODELMAG_IVAR_G | float32 | nMgy^{-2} | Inverse variance of magnitude of best fitting model, g-band |
- | MODELMAG_IVAR_R | float32 | nMgy^{-2} | Inverse variance of magnitude of best fitting model, r-band |
- | MODELMAG_IVAR_I | float32 | nMgy^{-2} | Inverse variance of magnitude of best fitting model, i-band |
- | MODELMAG_IVAR_Z | float32 | nMgy^{-2} | Inverse variance of magnitude of best fitting model, z-band |
- | RESOLVE_STATUS | int32 |  | Resolve status of object |
- | W1_MAG | float32 | mag | WISE AllSky magnitude of the object, W1-band |
- | W1_MAG_ERR | float32 | mag | Error on WISE AllSky magnitude of the object, W1-band |
- | W1_NANOMAGGIES | float32 | nMgy | WISE AllSky flux of the object, W1-band |
- | W1_NANOMAGGIES_IVAR | float32 | nMgy^{-2} | Inverse variance of WISE AllSky flux of the object, W1-band |
- | W2_NANOMAGGIES | float32 | nMgy | WISE AllSky flux of the object, W2-band |
- | W2_NANOMAGGIES_IVAR | float32 | nMgy^{-2} | Inverse variance of WISE AllSky flux of the object, W2-band |
- | HAS_WISE_PHOT | bool |  | True if WISE photometry is available for this object |
- | OBJID_TARGETING | int64 |  | Object ID of target |
- | PK | int64 |  | primary key for entry in database table |
+ | run | int32 |  | SDSS imaging run |
+ | camcol | int32 |  | SDSS imaging camcol |
+ | field | int32 |  | SDSS imaging field |
+ | id | int32 |  | SDSS imaging object id |
+ | rerun | char[3] |  | SDSS imaging rerun |
+ | fibermag_u | float32 | mag | Magnitude in 3 arcsec diameter fiber radius, u-band |
+ | fibermag_g | float32 | mag | Magnitude in 3 arcsec diameter fiber radius, g-band |
+ | fibermag_r | float32 | mag | Magnitude in 3 arcsec diameter fiber radius, r-band |
+ | fibermag_i | float32 | mag | Magnitude in 3 arcsec diameter fiber radius, i-band |
+ | fibermag_z | float32 | mag | Magnitude in 3 arcsec diameter fiber radius, z-band |
+ | fiber2mag_u | float32 | mag | Magnitude in 2 arcsec diameter fiber radius, u-band |
+ | fiber2mag_g | float32 | mag | Magnitude in 2 arcsec diameter fiber radius, g-band |
+ | fiber2mag_r | float32 | mag | Magnitude in 2 arcsec diameter fiber radius, r-band |
+ | fiber2mag_i | float32 | mag | Magnitude in 2 arcsec diameter fiber radius, i-band |
+ | fiber2mag_z | float32 | mag | Magnitude in 2 arcsec diameter fiber radius, z-band |
+ | calib_status_u | int32 |  | Calibration status in u-band |
+ | calib_status_g | int32 |  | Calibration status in g-band |
+ | calib_status_r | int32 |  | Calibration status in r-band |
+ | calib_status_i | int32 |  | Calibration status in i-band |
+ | calib_status_z | int32 |  | Calibration status in z-band |
+ | ra | float64 | deg | J2000 Right Ascension |
+ | dec | float64 | deg | J2000 Declination |
+ | epoch | float32 | year | Epoch of position |
+ | pmra | float32 | mas/yr | proper motion in RA direction |
+ | pmdec | float32 | mas/yr | - proper motion in Dec direction |
+ | eboss_target1 | int64 |  | eBOSS target selection information, for eBOSS plates |
+ | eboss_target2 | int64 |  | eBOSS target selection information, for TDSS, SPIDERS, ELG, etc. plates |
+ | eboss_target_id | int64 |  | eBOSS unique target identifier for every spectroscopic target |
+ | thing_id_targeting | int32 |  | thing_id value from the version of resolve from which the targeting was created |
+ | objc_type | int32 |  | Type classification of the object (star, galaxy, cosmic ray, etc.) |
+ | objc_flags | int32 |  | Photo Object Attribute Flags(?) |
+ | objc_flags2 | int32 |  | Additional Photo Object Attribute Flags(?) |
+ | flags | int32 |  | Target selection flags set by ebosstarget (?) |
+ | flags2 | int32 |  | Additional target selection flags set by ebosstarget (?) |
+ | psf_fwhm_u | float32 | arcsec | Imaging FWHM in u-band |
+ | psf_fwhm_g | float32 | arcsec | Imaging FWHM in g-band |
+ | psf_fwhm_r | float32 | arcsec | Imaging FWHM in r-band |
+ | psf_fwhm_i | float32 | arcsec | Imaging FWHM in i-band |
+ | psf_fwhm_z | float32 | arcsec | Imaging FWHM in z-band |
+ | psfflux_u | float32 | nMgy | PSF flux, u-band |
+ | psfflux_g | float32 | nMgy | PSF flux, g-band |
+ | psfflux_r | float32 | nMgy | PSF flux, r-band |
+ | psfflux_i | float32 | nMgy | PSF flux, i-band |
+ | psfflux_z | float32 | nMgy | PSF flux, z-band |
+ | psfflux_ivar_u | float32 | nMgy^{-2} | PSF flux inverse variance, u-band |
+ | psfflux_ivar_g | float32 | nMgy^{-2} | PSF flux inverse variance, g-band |
+ | psfflux_ivar_r | float32 | nMgy^{-2} | PSF flux inverse variance, r-band |
+ | psfflux_ivar_i | float32 | nMgy^{-2} | PSF flux inverse variance, r-band |
+ | psfflux_ivar_z | float32 | nMgy^{-2} | PSF flux inverse variance, i-band |
+ | extinction_u | float32 | mag | Extinction in u-band |
+ | extinction_g | float32 | mag | Extinction in g-band |
+ | extinction_r | float32 | mag | Extinction in r-band |
+ | extinction_i | float32 | mag | Extinction in i-band |
+ | extinction_z | float32 | mag | Extinction in z-band |
+ | fiberflux_u | float32 | nMgy | Flux in 3 arcsec diameter fiber radius, u-band |
+ | fiberflux_g | float32 | nMgy | Flux in 3 arcsec diameter fiber radius, g-band |
+ | fiberflux_r | float32 | nMgy | Flux in 3 arcsec diameter fiber radius, r-band |
+ | fiberflux_i | float32 | nMgy | Flux in 3 arcsec diameter fiber radius, i-band |
+ | fiberflux_z | float32 | nMgy | Flux in 3 arcsec diameter fiber radius, z-band |
+ | fiberflux_ivar_u | float32 | nMgy^{-2} | Inverse variance of flux in 3 arcsec diameter fiber radius, u-band |
+ | fiberflux_ivar_g | float32 | nMgy^{-2} | Inverse variance of flux in 3 arcsec diameter fiber radius, g-band |
+ | fiberflux_ivar_r | float32 | nMgy^{-2} | Inverse variance of flux in 3 arcsec diameter fiber radius, r-band |
+ | fiberflux_ivar_i | float32 | nMgy^{-2} | Inverse variance of flux in 3 arcsec diameter fiber radius, i-band |
+ | fiberflux_ivar_z | float32 | nMgy^{-2} | Inverse variance of flux in 3 arcsec diameter fiber radius, z-band |
+ | fiber2flux_ivar_u | float32 | nMgy^{-2} | Inverse variance of flux in 2 arcsec diameter fiber radius, u-band |
+ | fiber2flux_ivar_g | float32 | nMgy^{-2} | Inverse variance of flux in 2 arcsec diameter fiber radius, g-band |
+ | fiber2flux_ivar_r | float32 | nMgy^{-2} | Inverse variance of flux in 2 arcsec diameter fiber radius, r-band |
+ | fiber2flux_ivar_i | float32 | nMgy^{-2} | Inverse variance of flux in 2 arcsec diameter fiber radius, i-band |
+ | fiber2flux_ivar_z | float32 | nMgy^{-2} | Inverse variance of flux in 2 arcsec diameter fiber radius, z-band |
+ | modelflux_u | float32 | nMgy | Flux of best fitting model, u-band |
+ | modelflux_g | float32 | nMgy | Flux of best fitting model, g-band |
+ | modelflux_r | float32 | nMgy | Flux of best fitting model, r-band |
+ | modelflux_i | float32 | nMgy | Flux of best fitting model, i-band |
+ | modelflux_z | float32 | nMgy | Flux of best fitting model, z-band |
+ | modelflux_ivar_u | float32 | nMgy^{-2} | Inverse variance of flux of best fitting model, u-band |
+ | modelflux_ivar_g | float32 | nMgy^{-2} | Inverse variance of flux of best fitting model, g-band |
+ | modelflux_ivar_r | float32 | nMgy^{-2} | Inverse variance of flux of best fitting model, r-band |
+ | modelflux_ivar_i | float32 | nMgy^{-2} | Inverse variance of flux of best fitting model, i-band |
+ | modelflux_ivar_z | float32 | nMgy^{-2} | Inverse variance of flux of best fitting model, z-band |
+ | modelmag_u | float32 | nMgy | Magnitude of best fitting model, u-band |
+ | modelmag_g | float32 | nMgy | Magnitude of best fitting model, g-band |
+ | modelmag_r | float32 | nMgy | Magnitude of best fitting model, r-band |
+ | modelmag_i | float32 | nMgy | Magnitude of best fitting model, i-band |
+ | modelmag_z | float32 | nMgy | Magnitude of best fitting model, z-band |
+ | modelmag_ivar_u | float32 | nMgy^{-2} | Inverse variance of magnitude of best fitting model, u-band |
+ | modelmag_ivar_g | float32 | nMgy^{-2} | Inverse variance of magnitude of best fitting model, g-band |
+ | modelmag_ivar_r | float32 | nMgy^{-2} | Inverse variance of magnitude of best fitting model, r-band |
+ | modelmag_ivar_i | float32 | nMgy^{-2} | Inverse variance of magnitude of best fitting model, i-band |
+ | modelmag_ivar_z | float32 | nMgy^{-2} | Inverse variance of magnitude of best fitting model, z-band |
+ | resolve_status | int32 |  | Resolve status of object |
+ | w1_mag | float32 | mag | WISE AllSky magnitude of the object, W1-band |
+ | w1_mag_err | float32 | mag | Error on WISE AllSky magnitude of the object, W1-band |
+ | w1_nanomaggies | float32 | nMgy | WISE AllSky flux of the object, W1-band |
+ | w1_nanomaggies_ivar | float32 | nMgy^{-2} | Inverse variance of WISE AllSky flux of the object, W1-band |
+ | w2_nanomaggies | float32 | nMgy | WISE AllSky flux of the object, W2-band |
+ | w2_nanomaggies_ivar | float32 | nMgy^{-2} | Inverse variance of WISE AllSky flux of the object, W2-band |
+ | has_wise_phot | bool |  | True if WISE photometry is available for this object |
+ | objid_targeting | int64 |  | Object ID of target |
+ | pk | int64 |  | primary key for entry in database table |
 
 
 
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!
