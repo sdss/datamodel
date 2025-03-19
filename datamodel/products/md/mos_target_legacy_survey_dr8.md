@@ -9,7 +9,7 @@ MOS Target Table: legacy_survey_dr8
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
@@ -19,7 +19,7 @@ Legacy Survey DR8 catalogue derived from 'sweep' catalogues (See <a href="https:
 $MOS_TARGET/[V_TARG]/mos_legacy_survey_dr8-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
 
 ### Releases
-DR18
+DR18, DR19
 
 ### Enviroments
 MOS_TARGET
@@ -36,14 +36,20 @@ sdss5db> targetdb, operations database server
 ### Is a VAC
 False
 
-### HDUS List for release DR18
+### Data Level
+2.3.3
+
+### HDUS List for release DR19
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: ](#hdu1)
+  - [HDU1](#hdu1)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR19
+   - from: DR18
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -64,146 +70,185 @@ Key | Value | Comment | |
 
 
 
-### HDU1:
+### HDU1: 
 MOS Target Table: legacy_survey_dr8
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  1 GB
 
+##### Header Table Caption for HDU1
+Key | Value | Comment | |
+| --- | --- | --- | --- |
+| XTENSION | BINTABLE | binary table extension |
+| BITPIX | 8 | array data type |
+| NAXIS | 2 | number of array dimensions |
+| NAXIS1 | 537 | length of dimension 1 |
+| NAXIS2 | 2000000 | length of dimension 2 |
+| PCOUNT | 0 | number of group parameters |
+| GCOUNT | 1 | number of groups |
+| TFIELDS | 127 | number of table fields |
+| TNULL1 | -2147483648 |  |
+| TNULL2 | -9223372036854775808 |  |
+| TNULL4 | -9223372036854775808 |  |
+| TNULL37 | -2147483648 |  |
+| TNULL38 | -2147483648 |  |
+| TNULL39 | -2147483648 |  |
+| TNULL40 | -2147483648 |  |
+| TNULL41 | -2147483648 |  |
+| TNULL42 | -2147483648 |  |
+| TNULL43 | -2147483648 |  |
+| TNULL64 | -2147483648 |  |
+| TNULL65 | -2147483648 |  |
+| TNULL66 | -2147483648 |  |
+| TNULL67 | -2147483648 |  |
+| TNULL68 | -2147483648 |  |
+| TNULL69 | -2147483648 |  |
+| TNULL70 | -32768 |  |
+| TNULL71 | -32768 |  |
+| TNULL105 | -9223372036854775808 |  |
+| TNULL117 | -32768 |  |
+| TNULL124 | -2147483648 |  |
+| TNULL125 | -9223372036854775808 |  |
+| TNULL126 | -9223372036854775808 |  |
+| TNULL127 | -9223372036854775808 |  |
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | RELEASE | int32 |  | Unique integer denoting the camera and filter set used (RELEASE documentation: https://www.legacysurvey.org/release/) |
- | BRICKID | int64 |  | A unique Brick ID (in the range 1-662174) |
- | BRICKNAME | char[8] |  | Name of brick, encoding the brick sky position, eg "1126p222" near RA=112.6, Dec=+22.2 |
- | OBJID | int64 |  | Catalog object number within this brick; a unique identifier hash is RELEASE,BRICKID,OBJID; OBJID spans 0 to N-1 and is contiguously enumerated within each blob |
- | TYPE | char[4] |  | Morphological model: "PSF"=stellar, "REX"="round exponential galaxy" = round EXP galaxy with a variable radius, "EXP"=exponential, "DEV"=deVauc, "COMP"=composite, "DUP"==Gaia source fit by different model. Note that in some FITS readers, a trailing space may be appended for "PSF ", "EXP " and "DEV " since the column data type is a 4-character string |
- | RA | float64 | deg | Right ascension at equinox J2000 |
- | DEC | float64 | deg | Declination at equinox J2000 |
- | RA_IVAR | float32 | 1/deg^2 | Inverse variance of RA (no cosine term!), excluding astrometric calibration errors |
- | DEC_IVAR | float32 | 1/deg^2 | Inverse variance of DEC, excluding astrometric calibration errors |
- | DCHISQ_PSF | float32 |  | Difference in chi2 between successively more-complex model fits: PSF. The difference is versus no source. |
- | DCHISQ_REX | float32 |  | Difference in chi2 between successively more-complex model fits: REX. The difference is versus no source. |
- | DCHISQ_DEV | float32 |  | Difference in chi2 between successively more-complex model fits: DEV. The difference is versus no source. |
- | DCHISQ_EXP | float32 |  | Difference in chi2 between successively more-complex model fits: EXP. The difference is versus no source. |
- | DCHISQ_COMP | float32 |  | Difference in chi2 between successively more-complex model fits: COMP. The difference is versus no source. |
- | EBV | float32 | mag | Galactic extinction E(B-V) reddening from SFD98, used to compute MW_TRANSMISSION |
- | FLUX_G | float32 | nanomaggies | model flux in g |
- | FLUX_R | float32 | nanomaggies | model flux in r |
- | FLUX_Z | float32 | nanomaggies | model flux in z |
- | FLUX_W1 | float32 | nanomaggies | WISE model flux in W1 (AB system) |
- | FLUX_W2 | float32 | nanomaggies | WISE model flux in W2 (AB system) |
- | FLUX_W3 | float32 | nanomaggies | WISE model flux in W3 (AB system) |
- | FLUX_W4 | float32 | nanomaggies | WISE model flux in W4 (AB system) |
- | FLUX_IVAR_G | float32 | 1/nanomaggies^2 | Inverse variance of FLUX_G |
- | FLUX_IVAR_R | float32 | 1/nanomaggies^2 | Inverse variance of FLUX_R |
- | FLUX_IVAR_Z | float32 | 1/nanomaggies^2 | Inverse variance of FLUX_Z |
- | FLUX_IVAR_W1 | float32 | 1/nanomaggies^2 | Inverse variance of FLUX_W1 (AB system) |
- | FLUX_IVAR_W2 | float32 | 1/nanomaggies^2 | Inverse variance of FLUX_W2 (AB system) |
- | FLUX_IVAR_W3 | float32 | 1/nanomaggies^2 | Inverse variance of FLUX_W3 (AB system) |
- | FLUX_IVAR_W4 | float32 | 1/nanomaggies^2 | Inverse variance of FLUX_W4 (AB system) |
- | MW_TRANSMISSION_G | float32 |  | Galactic transmission in g filter in linear units |
- | MW_TRANSMISSION_R | float32 |  | Galactic transmission in r filter in linear units |
- | MW_TRANSMISSION_Z | float32 |  | Galactic transmission in z filter in linear units |
- | MW_TRANSMISSION_W1 | float32 |  | Galactic transmission in W1 filter in linear units |
- | MW_TRANSMISSION_W2 | float32 |  | Galactic transmission in W2 filter in linear units |
- | MW_TRANSMISSION_W3 | float32 |  | Galactic transmission in W3 filter in linear units |
- | MW_TRANSMISSION_W4 | float32 |  | Galactic transmission in W4 filter in linear units |
- | NOBS_G | int32 |  | Number of images that contribute to the central pixel in g: filter for this object (not profile-weighted) |
- | NOBS_R | int32 |  | Number of images that contribute to the central pixel in r: filter for this object (not profile-weighted) |
- | NOBS_Z | int32 |  | Number of images that contribute to the central pixel in z: filter for this object (not profile-weighted) |
- | NOBS_W1 | int32 |  | Number of images that contribute to the central pixel in W1: filter for this object (not profile-weighted) |
- | NOBS_W2 | int32 |  | Number of images that contribute to the central pixel in W2: filter for this object (not profile-weighted) |
- | NOBS_W3 | int32 |  | Number of images that contribute to the central pixel in W3: filter for this object (not profile-weighted) |
- | NOBS_W4 | int32 |  | Number of images that contribute to the central pixel in W4: filter for this object (not profile-weighted) |
- | RCHISQ_G | float32 |  | Profile-weighted chi2 of model fit normalized by the number of pixels in g |
- | RCHISQ_R | float32 |  | Profile-weighted chi2 of model fit normalized by the number of pixels in r |
- | RCHISQ_Z | float32 |  | Profile-weighted chi2 of model fit normalized by the number of pixels in z |
- | RCHISQ_W1 | float32 |  | Profile-weighted chi2 of model fit normalized by the number of pixels in W1 |
- | RCHISQ_W2 | float32 |  | Profile-weighted chi2 of model fit normalized by the number of pixels in W2 |
- | RCHISQ_W3 | float32 |  | Profile-weighted chi2 of model fit normalized by the number of pixels in W3 |
- | RCHISQ_W4 | float32 |  | Profile-weighted chi2 of model fit normalized by the number of pixels in W4 |
- | FRACFLUX_G | float32 |  | Profile-weighted fraction of the flux from other sources divided by the total flux in g (typically in 0..1) |
- | FRACFLUX_R | float32 |  | Profile-weighted fraction of the flux from other sources divided by the total flux in r (typically in 0..1) |
- | FRACFLUX_Z | float32 |  | Profile-weighted fraction of the flux from other sources divided by the total flux in z (typically in 0..1) |
- | FRACFLUX_W1 | float32 |  | Profile-weighted fraction of the flux from other sources divided by the total flux in W1 (typically in 0..1) |
- | FRACFLUX_W2 | float32 |  | Profile-weighted fraction of the flux from other sources divided by the total flux in W2 (typically in 0..1) |
- | FRACFLUX_W3 | float32 |  | Profile-weighted fraction of the flux from other sources divided by the total flux in W3 (typically in 0..1) |
- | FRACFLUX_W4 | float32 |  | Profile-weighted fraction of the flux from other sources divided by the total flux in W4 (typically in 0..1) |
- | FRACMASKED_G | float32 |  | Profile-weighted fraction of pixels masked from all observations of this object in g, strictly between 0..1 |
- | FRACMASKED_R | float32 |  | Profile-weighted fraction of pixels masked from all observations of this object in r, strictly between 0..1 |
- | FRACMASKED_Z | float32 |  | Profile-weighted fraction of pixels masked from all observations of this object in z, strictly between 0..1 |
- | FRACIN_G | float32 |  | Fraction of a source's flux within the blob in g, near unity for real sources |
- | FRACIN_R | float32 |  | Fraction of a source's flux within the blob in r, near unity for real sources |
- | FRACIN_Z | float32 |  | Fraction of a source's flux within the blob in z, near unity for real sources |
- | ANYMASK_G | int32 |  | Bitwise mask set if the central pixel from any image satisfies each condition in g (see the DR8 bitmasks page) |
- | ANYMASK_R | int32 |  | Bitwise mask set if the central pixel from any image satisfies each condition in r (see the DR8 bitmasks page) |
- | ANYMASK_Z | int32 |  | Bitwise mask set if the central pixel from any image satisfies each condition in z (see the DR8 bitmasks page) |
- | ALLMASK_G | int32 |  | Bitwise mask set if the central pixel from all images satisfy each condition in g (see the DR8 bitmasks page) |
- | ALLMASK_R | int32 |  | Bitwise mask set if the central pixel from all images satisfy each condition in r (see the DR8 bitmasks page) |
- | ALLMASK_Z | int32 |  | Bitwise mask set if the central pixel from all images satisfy each condition in z (see the DR8 bitmasks page) |
- | WISEMASK_W1 | int16 |  | W1 bitmask as cataloged on the DR8 bitmasks page |
- | WISEMASK_W2 | int16 |  | W2 bitmask as cataloged on the DR8 bitmasks page |
- | PSFSIZE_G | float32 | arcsec | Weighted average PSF FWHM in the g band |
- | PSFSIZE_R | float32 | arcsec | Weighted average PSF FWHM in the r band |
- | PSFSIZE_Z | float32 | arcsec | Weighted average PSF FWHM in the z band |
- | PSFDEPTH_G | float32 | 1/nanomaggies^2 | For a 5σ point source detection limit in g, 5/sqrt(PSFDEPTH_G) gives flux in nanomaggies and -2.5(log10(5/sqrt(PSFDEPTH_G))-9) give corresponding magnitude |
- | PSFDEPTH_R | float32 | 1/nanomaggies^2 | For a 5σ point source detection limit in g, 5/sqrt(PSFDEPTH_R) gives flux in nanomaggies and -2.5(log10(5/sqrt(PSFDEPTH_R))-9) give corresponding magnitude |
- | PSFDEPTH_Z | float32 | 1/nanomaggies^2 | For a 5σ point source detection limit in g, 5/sqrt(PSFDEPTH_Z) gives flux in nanomaggies and -2.5(log10(5/sqrt(PSFDEPTH_Z))-9) give corresponding magnitude |
- | GALDEPTH_G | float32 | 1/nanomaggies^2 | As for PSFDEPTH_G but for a galaxy (0.45" exp, round) detection sensitivity |
- | GALDEPTH_R | float32 | 1/nanomaggies^2 | As for PSFDEPTH_R but for a galaxy (0.45" exp, round) detection sensitivity |
- | GALDEPTH_Z | float32 | 1/nanomaggies^2 | As for PSFDEPTH_Z but for a galaxy (0.45" exp, round) detection sensitivity |
- | PSFDEPTH_W1 | float32 | 1/nanomaggies^2 | As for PSFDEPTH_G (and also on the AB system) but for WISE W1 |
- | PSFDEPTH_W2 | float32 | 1/nanomaggies^2 | As for PSFDEPTH_G (and also on the AB system) but for WISE W2 |
- | WISE_COADD_ID | char[8] |  | unWISE coadd file name for the center of each object |
- | FRACDEV | float32 |  | Fraction of model in deVauc (in range 0..1) |
- | FRACDEV_IVAR | float32 |  | Inverse variance of FRACDEV |
- | SHAPEDEV_R | float32 | arcsec | Half-light radius of deVaucouleurs model (>0) |
- | SHAPEDEV_R_IVAR | float32 | 1/arcsec | Inverse variance of SHAPEDEV_R |
- | SHAPEDEV_E1 | float32 |  | Ellipticity component 1 |
- | SHAPEDEV_E1_IVAR | float32 |  | Inverse variance of SHAPEDEV_E1 |
- | SHAPEDEV_E2 | float32 |  | Ellipticity component 2 |
- | SHAPEDEV_E2_IVAR | float32 |  | Inverse variance of SHAPEDEV_E2 |
- | SHAPEEXP_R | float32 | acrsec | Half-light radius of exponential model (>0) |
- | SHAPEEXP_R_IVAR | float32 | 1/arcsec | Inverse variance of SHAPEEXP_R |
- | SHAPEEXP_E1 | float32 |  | Ellipticity component 1 |
- | SHAPEEXP_E1_IVAR | float32 |  | Inverse variance of SHAPEEXP_E1 |
- | SHAPEEXP_E2 | float32 |  | Ellipticity component 2 |
- | SHAPEEXP_E2_IVAR | float32 |  | Inverse variance of SHAPEEXP_E2 |
- | FIBERFLUX_G | float32 | nanomaggies | Predicted g-band flux within a fiber of diameter 1.5 arcsec from this object in 1 arcsec Gaussian seeing |
- | FIBERFLUX_R | float32 | nanomaggies | Predicted r-band flux within a fiber of diameter 1.5 arcsec from this object in 1 arcsec Gaussian seeing |
- | FIBERFLUX_Z | float32 | nanomaggies | Predicted z-band flux within a fiber of diameter 1.5 arcsec from this object in 1 arcsec Gaussian seeing |
- | FIBERTOTFLUX_G | float32 | nanomaggies | Predicted g-band flux within a fiber of diameter 1.5 arcsec from all sources at this location in 1 arcsec Gaussian seeing |
- | FIBERTOTFLUX_R | float32 | nanomaggies | Predicted r-band flux within a fiber of diameter 1.5 arcsec from all sources at this location in 1 arcsec Gaussian seeing |
- | FIBERTOTFLUX_Z | float32 | nanomaggies | Predicted z-band flux within a fiber of diameter 1.5 arcsec from all sources at this location in 1 arcsec Gaussian seeing |
- | REF_CAT | char[2] |  | Reference catalog source for this star: "T2" for Tycho-2, "G2" for Gaia DR2, "L2" for the SGA, empty otherwise |
- | REF_ID | int64 |  | Reference catalog identifier for this star; Tyc1*1,000,000+Tyc2*10+Tyc3 for Tycho2; "sourceid" for Gaia-DR2 and SGA |
- | REF_EPOCH | float32 | yr | Reference catalog reference epoch (eg, 2015.5 for Gaia DR2) |
- | GAIA_PHOT_G_MEAN_MAG | float32 | mag | Gaia G band magnitude, Vega |
- | GAIA_PHOT_G_MEAN_FLUX_OVER_ERROR | float32 |  | Gaia G band magnitude signal-to-noise |
- | GAIA_PHOT_BP_MEAN_MAG | float32 | mag | Gaia BP band magnitude, Vega |
- | GAIA_PHOT_BP_MEAN_FLUX_OVER_ERROR | float32 |  | Gaia BP band magnitude signal-to-noise |
- | GAIA_PHOT_RP_MEAN_MAG | float32 | mag | Gaia RP band magnitude, Vega |
- | GAIA_PHOT_RP_MEAN_FLUX_OVER_ERROR | float32 |  | Gaia RP band magnitude signal-to-noise |
- | GAIA_ASTROMETRIC_EXCESS_NOISE | float32 |  | Gaia astrometric excess noise |
- | GAIA_DUPLICATED_SOURCE | bool |  | Gaia duplicated source flag (1/0 for True/False) |
- | GAIA_PHOT_BP_RP_EXCESS_FACTOR | float32 |  | Gaia BP/RP excess factor |
- | GAIA_ASTROMETRIC_SIGMA5D_MAX | float32 | mas | Gaia longest semi-major axis of the 5-d error ellipsoid |
- | GAIA_ASTROMETRIC_PARAMS_SOLVED | int16 |  | Which astrometric parameters were estimated for a Gaia source |
- | PARALLAX | float32 | mas | Reference catalog parallax |
- | PARALLAX_IVAR | float32 | 1/mas^2 | Reference catalog inverse-variance on parallax |
- | PMRA | float32 | mas/yr | Reference catalog proper motion in the RA direction |
- | PMRA_IVAR | float32 | 1/(mas/yr)^2 | Reference catalog inverse-variance on pmra |
- | PMDEC | float32 | mas/yr | Reference catalog proper motion in the Dec direction |
- | PMDEC_IVAR | float32 | 1/(mas/yr)^2 | Reference catalog inverse-variance on pmdec |
- | MASKBITS | int32 |  | Bitwise mask indicating that an object touches a pixel in the coadd/*/*/*maskbits* maps (see the DR8 bitmasks page) |
- | LS_ID | int64 |  | Added by SDSS-V: Derived unique object identifier. Computed as follows: ls_id = objid + (brickid << 16) + (release << 40) |
- | TYCHO_REF | int64 |  | Added by SDSS-V: TychoII identifier (equal to ref_id when ref_cat = "T2") |
- | GAIA_SOURCEID | int64 |  | Added by SDSS-V: Gaia DR2 source_id identifier (equal to ref_id when ref_cat = "G2") |
+ | release | int32 |  | Unique integer denoting the camera and filter set used (RELEASE documentation: https://www.legacysurvey.org/release/) |
+ | brickid | int64 |  | A unique Brick ID (in the range 1-662174) |
+ | brickname | char[8] |  | Name of brick, encoding the brick sky position, eg "1126p222" near RA=112.6, Dec=+22.2 |
+ | objid | int64 |  | Catalog object number within this brick; a unique identifier hash is RELEASE,BRICKID,OBJID; OBJID spans 0 to N-1 and is contiguously enumerated within each blob |
+ | type | char[4] |  | Morphological model: "PSF"=stellar, "REX"="round exponential galaxy" = round EXP galaxy with a variable radius, "EXP"=exponential, "DEV"=deVauc, "COMP"=composite, "DUP"==Gaia source fit by different model. Note that in some FITS readers, a trailing space may be appended for "PSF ", "EXP " and "DEV " since the column data type is a 4-character string |
+ | ra | float64 | deg | Right ascension at equinox J2000 |
+ | dec | float64 | deg | Declination at equinox J2000 |
+ | ra_ivar | float32 | 1/deg^2 | Inverse variance of RA (no cosine term!), excluding astrometric calibration errors |
+ | dec_ivar | float32 | 1/deg^2 | Inverse variance of DEC, excluding astrometric calibration errors |
+ | dchisq_psf | float32 |  | Difference in chi2 between successively more-complex model fits: PSF. The difference is versus no source. |
+ | dchisq_rex | float32 |  | Difference in chi2 between successively more-complex model fits: REX. The difference is versus no source. |
+ | dchisq_dev | float32 |  | Difference in chi2 between successively more-complex model fits: DEV. The difference is versus no source. |
+ | dchisq_exp | float32 |  | Difference in chi2 between successively more-complex model fits: EXP. The difference is versus no source. |
+ | dchisq_comp | float32 |  | Difference in chi2 between successively more-complex model fits: COMP. The difference is versus no source. |
+ | ebv | float32 | mag | Galactic extinction E(B-V) reddening from SFD98, used to compute MW_TRANSMISSION |
+ | flux_g | float32 | nanomaggies | model flux in g |
+ | flux_r | float32 | nanomaggies | model flux in r |
+ | flux_z | float32 | nanomaggies | model flux in z |
+ | flux_w1 | float32 | nanomaggies | WISE model flux in W1 (AB system) |
+ | flux_w2 | float32 | nanomaggies | WISE model flux in W2 (AB system) |
+ | flux_w3 | float32 | nanomaggies | WISE model flux in W3 (AB system) |
+ | flux_w4 | float32 | nanomaggies | WISE model flux in W4 (AB system) |
+ | flux_ivar_g | float32 | 1/nanomaggies^2 | Inverse variance of FLUX_G |
+ | flux_ivar_r | float32 | 1/nanomaggies^2 | Inverse variance of FLUX_R |
+ | flux_ivar_z | float32 | 1/nanomaggies^2 | Inverse variance of FLUX_Z |
+ | flux_ivar_w1 | float32 | 1/nanomaggies^2 | Inverse variance of FLUX_W1 (AB system) |
+ | flux_ivar_w2 | float32 | 1/nanomaggies^2 | Inverse variance of FLUX_W2 (AB system) |
+ | flux_ivar_w3 | float32 | 1/nanomaggies^2 | Inverse variance of FLUX_W3 (AB system) |
+ | flux_ivar_w4 | float32 | 1/nanomaggies^2 | Inverse variance of FLUX_W4 (AB system) |
+ | mw_transmission_g | float32 |  | Galactic transmission in g filter in linear units |
+ | mw_transmission_r | float32 |  | Galactic transmission in r filter in linear units |
+ | mw_transmission_z | float32 |  | Galactic transmission in z filter in linear units |
+ | mw_transmission_w1 | float32 |  | Galactic transmission in W1 filter in linear units |
+ | mw_transmission_w2 | float32 |  | Galactic transmission in W2 filter in linear units |
+ | mw_transmission_w3 | float32 |  | Galactic transmission in W3 filter in linear units |
+ | mw_transmission_w4 | float32 |  | Galactic transmission in W4 filter in linear units |
+ | nobs_g | int32 |  | Number of images that contribute to the central pixel in g: filter for this object (not profile-weighted) |
+ | nobs_r | int32 |  | Number of images that contribute to the central pixel in r: filter for this object (not profile-weighted) |
+ | nobs_z | int32 |  | Number of images that contribute to the central pixel in z: filter for this object (not profile-weighted) |
+ | nobs_w1 | int32 |  | Number of images that contribute to the central pixel in W1: filter for this object (not profile-weighted) |
+ | nobs_w2 | int32 |  | Number of images that contribute to the central pixel in W2: filter for this object (not profile-weighted) |
+ | nobs_w3 | int32 |  | Number of images that contribute to the central pixel in W3: filter for this object (not profile-weighted) |
+ | nobs_w4 | int32 |  | Number of images that contribute to the central pixel in W4: filter for this object (not profile-weighted) |
+ | rchisq_g | float32 |  | Profile-weighted chi2 of model fit normalized by the number of pixels in g |
+ | rchisq_r | float32 |  | Profile-weighted chi2 of model fit normalized by the number of pixels in r |
+ | rchisq_z | float32 |  | Profile-weighted chi2 of model fit normalized by the number of pixels in z |
+ | rchisq_w1 | float32 |  | Profile-weighted chi2 of model fit normalized by the number of pixels in W1 |
+ | rchisq_w2 | float32 |  | Profile-weighted chi2 of model fit normalized by the number of pixels in W2 |
+ | rchisq_w3 | float32 |  | Profile-weighted chi2 of model fit normalized by the number of pixels in W3 |
+ | rchisq_w4 | float32 |  | Profile-weighted chi2 of model fit normalized by the number of pixels in W4 |
+ | fracflux_g | float32 |  | Profile-weighted fraction of the flux from other sources divided by the total flux in g (typically in 0..1) |
+ | fracflux_r | float32 |  | Profile-weighted fraction of the flux from other sources divided by the total flux in r (typically in 0..1) |
+ | fracflux_z | float32 |  | Profile-weighted fraction of the flux from other sources divided by the total flux in z (typically in 0..1) |
+ | fracflux_w1 | float32 |  | Profile-weighted fraction of the flux from other sources divided by the total flux in W1 (typically in 0..1) |
+ | fracflux_w2 | float32 |  | Profile-weighted fraction of the flux from other sources divided by the total flux in W2 (typically in 0..1) |
+ | fracflux_w3 | float32 |  | Profile-weighted fraction of the flux from other sources divided by the total flux in W3 (typically in 0..1) |
+ | fracflux_w4 | float32 |  | Profile-weighted fraction of the flux from other sources divided by the total flux in W4 (typically in 0..1) |
+ | fracmasked_g | float32 |  | Profile-weighted fraction of pixels masked from all observations of this object in g, strictly between 0..1 |
+ | fracmasked_r | float32 |  | Profile-weighted fraction of pixels masked from all observations of this object in r, strictly between 0..1 |
+ | fracmasked_z | float32 |  | Profile-weighted fraction of pixels masked from all observations of this object in z, strictly between 0..1 |
+ | fracin_g | float32 |  | Fraction of a source's flux within the blob in g, near unity for real sources |
+ | fracin_r | float32 |  | Fraction of a source's flux within the blob in r, near unity for real sources |
+ | fracin_z | float32 |  | Fraction of a source's flux within the blob in z, near unity for real sources |
+ | anymask_g | int32 |  | Bitwise mask set if the central pixel from any image satisfies each condition in g (see the DR8 bitmasks page) |
+ | anymask_r | int32 |  | Bitwise mask set if the central pixel from any image satisfies each condition in r (see the DR8 bitmasks page) |
+ | anymask_z | int32 |  | Bitwise mask set if the central pixel from any image satisfies each condition in z (see the DR8 bitmasks page) |
+ | allmask_g | int32 |  | Bitwise mask set if the central pixel from all images satisfy each condition in g (see the DR8 bitmasks page) |
+ | allmask_r | int32 |  | Bitwise mask set if the central pixel from all images satisfy each condition in r (see the DR8 bitmasks page) |
+ | allmask_z | int32 |  | Bitwise mask set if the central pixel from all images satisfy each condition in z (see the DR8 bitmasks page) |
+ | wisemask_w1 | int16 |  | W1 bitmask as cataloged on the DR8 bitmasks page |
+ | wisemask_w2 | int16 |  | W2 bitmask as cataloged on the DR8 bitmasks page |
+ | psfsize_g | float32 | arcsec | Weighted average PSF FWHM in the g band |
+ | psfsize_r | float32 | arcsec | Weighted average PSF FWHM in the r band |
+ | psfsize_z | float32 | arcsec | Weighted average PSF FWHM in the z band |
+ | psfdepth_g | float32 | 1/nanomaggies^2 | For a 5σ point source detection limit in g, 5/sqrt(PSFDEPTH_G) gives flux in nanomaggies and -2.5(log10(5/sqrt(PSFDEPTH_G))-9) give corresponding magnitude |
+ | psfdepth_r | float32 | 1/nanomaggies^2 | For a 5σ point source detection limit in g, 5/sqrt(PSFDEPTH_R) gives flux in nanomaggies and -2.5(log10(5/sqrt(PSFDEPTH_R))-9) give corresponding magnitude |
+ | psfdepth_z | float32 | 1/nanomaggies^2 | For a 5σ point source detection limit in g, 5/sqrt(PSFDEPTH_Z) gives flux in nanomaggies and -2.5(log10(5/sqrt(PSFDEPTH_Z))-9) give corresponding magnitude |
+ | galdepth_g | float32 | 1/nanomaggies^2 | As for PSFDEPTH_G but for a galaxy (0.45" exp, round) detection sensitivity |
+ | galdepth_r | float32 | 1/nanomaggies^2 | As for PSFDEPTH_R but for a galaxy (0.45" exp, round) detection sensitivity |
+ | galdepth_z | float32 | 1/nanomaggies^2 | As for PSFDEPTH_Z but for a galaxy (0.45" exp, round) detection sensitivity |
+ | psfdepth_w1 | float32 | 1/nanomaggies^2 | As for PSFDEPTH_G (and also on the AB system) but for WISE W1 |
+ | psfdepth_w2 | float32 | 1/nanomaggies^2 | As for PSFDEPTH_G (and also on the AB system) but for WISE W2 |
+ | wise_coadd_id | char[8] |  | unWISE coadd file name for the center of each object |
+ | fracdev | float32 |  | Fraction of model in deVauc (in range 0..1) |
+ | fracdev_ivar | float32 |  | Inverse variance of FRACDEV |
+ | shapedev_r | float32 | arcsec | Half-light radius of deVaucouleurs model (>0) |
+ | shapedev_r_ivar | float32 | 1/arcsec | Inverse variance of SHAPEDEV_R |
+ | shapedev_e1 | float32 |  | Ellipticity component 1 |
+ | shapedev_e1_ivar | float32 |  | Inverse variance of SHAPEDEV_E1 |
+ | shapedev_e2 | float32 |  | Ellipticity component 2 |
+ | shapedev_e2_ivar | float32 |  | Inverse variance of SHAPEDEV_E2 |
+ | shapeexp_r | float32 | acrsec | Half-light radius of exponential model (>0) |
+ | shapeexp_r_ivar | float32 | 1/arcsec | Inverse variance of SHAPEEXP_R |
+ | shapeexp_e1 | float32 |  | Ellipticity component 1 |
+ | shapeexp_e1_ivar | float32 |  | Inverse variance of SHAPEEXP_E1 |
+ | shapeexp_e2 | float32 |  | Ellipticity component 2 |
+ | shapeexp_e2_ivar | float32 |  | Inverse variance of SHAPEEXP_E2 |
+ | fiberflux_g | float32 | nanomaggies | Predicted g-band flux within a fiber of diameter 1.5 arcsec from this object in 1 arcsec Gaussian seeing |
+ | fiberflux_r | float32 | nanomaggies | Predicted r-band flux within a fiber of diameter 1.5 arcsec from this object in 1 arcsec Gaussian seeing |
+ | fiberflux_z | float32 | nanomaggies | Predicted z-band flux within a fiber of diameter 1.5 arcsec from this object in 1 arcsec Gaussian seeing |
+ | fibertotflux_g | float32 | nanomaggies | Predicted g-band flux within a fiber of diameter 1.5 arcsec from all sources at this location in 1 arcsec Gaussian seeing |
+ | fibertotflux_r | float32 | nanomaggies | Predicted r-band flux within a fiber of diameter 1.5 arcsec from all sources at this location in 1 arcsec Gaussian seeing |
+ | fibertotflux_z | float32 | nanomaggies | Predicted z-band flux within a fiber of diameter 1.5 arcsec from all sources at this location in 1 arcsec Gaussian seeing |
+ | ref_cat | char[2] |  | Reference catalog source for this star: "T2" for Tycho-2, "G2" for Gaia DR2, "L2" for the SGA, empty otherwise |
+ | ref_id | int64 |  | Reference catalog identifier for this star; Tyc1*1,000,000+Tyc2*10+Tyc3 for Tycho2; "sourceid" for Gaia-DR2 and SGA |
+ | ref_epoch | float32 | yr | Reference catalog reference epoch (eg, 2015.5 for Gaia DR2) |
+ | gaia_phot_g_mean_mag | float32 | mag | Gaia G band magnitude, Vega |
+ | gaia_phot_g_mean_flux_over_error | float32 |  | Gaia G band magnitude signal-to-noise |
+ | gaia_phot_bp_mean_mag | float32 | mag | Gaia BP band magnitude, Vega |
+ | gaia_phot_bp_mean_flux_over_error | float32 |  | Gaia BP band magnitude signal-to-noise |
+ | gaia_phot_rp_mean_mag | float32 | mag | Gaia RP band magnitude, Vega |
+ | gaia_phot_rp_mean_flux_over_error | float32 |  | Gaia RP band magnitude signal-to-noise |
+ | gaia_astrometric_excess_noise | float32 |  | Gaia astrometric excess noise |
+ | gaia_duplicated_source | bool |  | Gaia duplicated source flag (1/0 for True/False) |
+ | gaia_phot_bp_rp_excess_factor | float32 |  | Gaia BP/RP excess factor |
+ | gaia_astrometric_sigma5d_max | float32 | mas | Gaia longest semi-major axis of the 5-d error ellipsoid |
+ | gaia_astrometric_params_solved | int16 |  | Which astrometric parameters were estimated for a Gaia source |
+ | parallax | float32 | mas | Reference catalog parallax |
+ | parallax_ivar | float32 | 1/mas^2 | Reference catalog inverse-variance on parallax |
+ | pmra | float32 | mas/yr | Reference catalog proper motion in the RA direction |
+ | pmra_ivar | float32 | 1/(mas/yr)^2 | Reference catalog inverse-variance on pmra |
+ | pmdec | float32 | mas/yr | Reference catalog proper motion in the Dec direction |
+ | pmdec_ivar | float32 | 1/(mas/yr)^2 | Reference catalog inverse-variance on pmdec |
+ | maskbits | int32 |  | Bitwise mask indicating that an object touches a pixel in the coadd/*/*/*maskbits* maps (see the DR8 bitmasks page) |
+ | ls_id | int64 |  | Added by SDSS-V: Derived unique object identifier. Computed as follows: ls_id = objid + (brickid << 16) + (release << 40) |
+ | tycho_ref | int64 |  | Added by SDSS-V: TychoII identifier (equal to ref_id when ref_cat = "T2") |
+ | gaia_sourceid | int64 |  | Added by SDSS-V: Gaia DR2 source_id identifier (equal to ref_id when ref_cat = "G2") |
 
 
 
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!
