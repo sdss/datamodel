@@ -9,7 +9,7 @@ MOS Target Table: sdss_dr16_qso
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
@@ -19,7 +19,7 @@ SDSS Data Release 16 Quasar Catalog (Lyke et al. 2020). For complete details, pl
 $MOS_TARGET/[V_TARG]/mos_sdss_dr16_qso-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
 
 ### Releases
-DR18
+DR18, DR19
 
 ### Enviroments
 MOS_TARGET
@@ -36,14 +36,20 @@ sdss5db> targetdb, operations database server
 ### Is a VAC
 False
 
-### HDUS List for release DR18
+### Data Level
+2.3.3
+
+### HDUS List for release DR19
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: ](#hdu1)
+  - [HDU1](#hdu1)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR19
+   - from: DR18
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -64,223 +70,286 @@ Key | Value | Comment | |
 
 
 
-### HDU1:
+### HDU1: 
 MOS Target Table: sdss_dr16_qso
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  1 GB
 
+##### Header Table Caption for HDU1
+Key | Value | Comment | |
+| --- | --- | --- | --- |
+| XTENSION | BINTABLE | binary table extension |
+| BITPIX | 8 | array data type |
+| NAXIS | 2 | number of array dimensions |
+| NAXIS1 | 2796 | length of dimension 1 |
+| NAXIS2 | 750372 | length of dimension 2 |
+| PCOUNT | 0 | number of group parameters |
+| GCOUNT | 1 | number of groups |
+| TFIELDS | 204 | number of table fields |
+| TNULL4 | -2147483648 |  |
+| TNULL5 | -2147483648 |  |
+| TNULL6 | -2147483648 |  |
+| TNULL9 | -2147483648 |  |
+| TNULL11 | -2147483648 |  |
+| TNULL13 | -2147483648 |  |
+| TNULL14 | -2147483648 |  |
+| TNULL15 | -2147483648 |  |
+| TNULL16 | -9223372036854775808 |  |
+| TNULL18 | -2147483648 |  |
+| TNULL19 | -2147483648 |  |
+| TNULL21 | -2147483648 |  |
+| TNULL23 | -2147483648 |  |
+| TNULL26 | -2147483648 |  |
+| TNULL30 | -2147483648 |  |
+| TNULL33 | -9223372036854775808 |  |
+| TNULL36 | -9223372036854775808 |  |
+| TNULL39 | -9223372036854775808 |  |
+| TNULL42 | -9223372036854775808 |  |
+| TNULL45 | -9223372036854775808 |  |
+| TNULL48 | -9223372036854775808 |  |
+| TNULL51 | -9223372036854775808 |  |
+| TNULL66 | -9223372036854775808 |  |
+| TNULL67 | -9223372036854775808 |  |
+| TNULL68 | -9223372036854775808 |  |
+| TNULL69 | -9223372036854775808 |  |
+| TNULL70 | -9223372036854775808 |  |
+| TNULL71 | -9223372036854775808 |  |
+| TNULL72 | -2147483648 |  |
+| TNULL73 | -2147483648 |  |
+| TNULL74 | -2147483648 |  |
+| TNULL79 | -2147483648 |  |
+| TNULL80 | -2147483648 |  |
+| TNULL82 | -2147483648 |  |
+| TNULL83 | -2147483648 |  |
+| TNULL84 | -2147483648 |  |
+| TNULL90 | -2147483648 |  |
+| TNULL119 | -2147483648 |  |
+| TNULL124 | -2147483648 |  |
+| TNULL142 | -2147483648 |  |
+| TNULL152 | -2147483648 |  |
+| TNULL153 | -2147483648 |  |
+| TNULL160 | -2147483648 |  |
+| TNULL164 | -2147483648 |  |
+| TNULL168 | -2147483648 |  |
+| TNULL176 | -9223372036854775808 |  |
+| TNULL187 | -2147483648 |  |
+| TNULL204 | -9223372036854775808 |  |
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | SDSS_NAME | char[18] |  | SDSS-DR16 designation (hhmmss.ss+-ddmmss.s, J2000) |
- | RA | float64 | degrees | Right ascension in decimal degrees (J2000) |
- | DEC | float64 | degrees | Declination in decimal degrees (J2000) |
- | PLATE | int32 |  | Spectroscopic plate number |
- | MJD | int32 | day | Modified Julian day of the spectroscopic observation |
- | FIBERID | int32 |  | Fiber ID number |
- | AUTOCLASS_PQN | char[6] |  | Object classification post-QuasarNET |
- | AUTOCLASS_DR14Q | char[6] |  | Object classification based only on the DR14Q algorithm |
- | IS_QSO_QN | int32 |  | Binary flag for QuasarNET quasar identification |
- | Z_QN | float64 |  | Systemic redshift from QuasarNET |
- | RANDOM_SELECT | int32 |  | Binary flag indicating objects selected for random visual inspection |
- | Z_10K | float64 |  | Redshift from visual inspection in random set |
- | Z_CONF_10K | int32 |  | Confidence rating for visual inspection redshift in random set |
- | PIPE_CORR_10K | int32 |  | Binary flag indicating if the automated pipeline classification and redshift were correct in the random set |
- | IS_QSO_10K | int32 |  | Binary flag for random set quasar identification |
- | THING_ID | int64 |  | SDSS identifier |
- | Z_VI | float64 |  | Visual inspection redshift |
- | Z_CONF | int32 |  | Confidence rating for visual inspection redshift |
- | CLASS_PERSON | int32 |  | Object classification from visual inspection |
- | Z_DR12Q | float64 |  | Redshift taken from DR12Q visual inspection |
- | IS_QSO_DR12Q | int32 |  | Flag indicating if an object was a quasar in DR12Q |
- | Z_DR7Q_SCH | float64 |  | Redshift taken from DR7Q Schneider et al (2010) catalog |
- | IS_QSO_DR7Q | int32 |  | Flag indicating if an object was a quasar in DR7Q |
- | Z_DR6Q_HW | float64 |  | Redshift taken from DR6-based Hewett and Wild (2010) catalog |
- | Z_DR7Q_HW | float64 |  | Redshift using Hewett and Wild (2010) updates for DR7Q sources from the Shen et al. (2011) catalog |
- | IS_QSO_FINAL | int32 |  | Flag indicating quasars to be included in final catalog |
- | Z | float64 |  | Best available redshift taken from Z_VI, Z_PIPE, Z_DR12Q, Z_DR7Q_SCH, Z_DR6Q_HW, and Z_10K |
- | SOURCE_Z | char[9] |  | Origin of the reported redshift in Z |
- | Z_PIPE | float64 |  | SDSS automated pipeline redshift |
- | ZWARNING | int32 |  | Quality flag on the pipeline redshift estimate |
- | OBJID | char[19] |  | SDSS object identification number |
- | Z_PCA | float64 |  | PCA-derived systemic redshift from redvsblue |
- | ZWARN_PCA | int64 |  | Warning flag for redvsblue redshift |
- | DELTACHI2_PCA | float64 |  | Delta χ2 for PCA redshift vs. cubic continuum fit |
- | Z_HALPHA | float64 |  | PCA line redshift for Halpha from redvsblue |
- | ZWARN_HALPHA | int64 |  | Warning flag for Halpha redshift |
- | DELTACHI2_HALPHA | float64 |  | Delta χ2 for Halpha line redshift vs. cubic continuum fit |
- | Z_HBETA | float64 |  | PCA line redshift for Hbeta from redvsblue |
- | ZWARN_HBETA | int64 |  | Warning flag for Hbeta redshift |
- | DELTACHI2_HBETA | float64 |  | Delta χ2 for Hbeta line redshift vs. cubic continuum fit |
- | Z_MGII | float64 |  | PCA line redshift for Mg II 2799AA from redvsblue |
- | ZWARN_MGII | int64 |  | Warning flag for Mg II 2799AA redshift |
- | DELTACHI2_MGII | float64 |  | Delta χ2 for Mg II 2799AA line redshift vs. cubic continuum fit |
- | Z_CIII | float64 |  | PCA line redshift for C III] 1908AA from redvsblue |
- | ZWARN_CIII | int64 |  | Warning flag for C III] 1908AA redshift |
- | DELTACHI2_CIII | float64 |  | Delta χ2 for C III] 1908AA line redshift vs. cubic continuum fit |
- | Z_CIV | float64 |  | PCA line redshift for C IV 1549AA from redvsblue |
- | ZWARN_CIV | int64 |  | Warning flag for C IV 1549AA redshift |
- | DELTACHI2_CIV | float64 |  | Delta χ2 for C IV 1549AA line redshift vs. cubic continuum fit |
- | Z_LYA | float64 |  | PCA line redshift for Lyalpha from redvsblue |
- | ZWARN_LYA | int64 |  | Warning flag for Lyalpha redshift |
- | DELTACHI2_LYA | float64 |  | Delta χ2 for Lyalpha line redshift vs. cubic continuum fit |
- | Z_LYAWG | float32 |  | PCA systemic redshift from redvsblue with a masked Lyalpha emission line and forest |
- | Z_DLA | char[91] |  | Redshift for damped Lyalpha features |
- | NHI_DLA | char[94] | log(cm**-2) | Absorber column density for damped Lyalpha features |
- | CONF_DLA | char[43] |  | Confidence of detection for damped Lyalpha features |
- | BAL_PROB | float32 |  | BAL probability |
- | BI_CIV | float64 | km/s | BALnicity index for C IV 1549AA region |
- | ERR_BI_CIV | float64 | km/s | Uncertainty of BI for C IV 1549AA region |
- | AI_CIV | float64 | km/s | Absorption index for C IV 1549AA region |
- | ERR_AI_CIV | float64 | km/s | Uncertainty of absorption index for C IV 1549AA region |
- | BI_SIIV | float64 | km/s | BALnicity index for Si IV 1396AA region |
- | ERR_BI_SIIV | float64 | km/s | Uncertainty of BI for Si IV 1396AA region |
- | AI_SIIV | float64 | km/s | Absorption index for Si IV 1396AA region |
- | ERR_AI_SIIV | float64 | km/s | Uncertainty of absorption index for Si IV 1396AA region |
- | BOSS_TARGET1 | int64 |  | BOSS target selection bitmask for main survey |
- | EBOSS_TARGET0 | int64 |  | Target selection bitmask for the eBOSS pilot survey (SEQUELS) |
- | EBOSS_TARGET1 | int64 |  | eBOSS target selection bitmask |
- | EBOSS_TARGET2 | int64 |  | eBOSS target selection bitmask |
- | ANCILLARY_TARGET1 | int64 |  | BOSS target selection bitmask for ancillary programs |
- | ANCILLARY_TARGET2 | int64 |  | BOSS target selection bitmask for ancillary programs |
- | NSPEC_SDSS | int32 |  | Number of additional observations from SDSS-I/II |
- | NSPEC_BOSS | int32 |  | Number of additional observations from BOSS/eBOSS |
- | NSPEC | int32 |  | Total number of additional observations |
- | PLATE_DUPLICATE | char[364] |  | Spectroscopic plate number of duplicate spectroscopic observations |
- | MJD_DUPLICATE | char[437] |  | Spectroscopic MJD of duplicate spectroscopic observations |
- | FIBERID_DUPLICATE | char[297] |  | Fiber ID number of duplicate spectrocscopic observations. |
- | SPECTRO_DUPLICATE | char[145] |  | Spectroscopic instrument for each duplicate, 1=SDSS, 2=(e)BOSS |
- | SKYVERSION | int32 |  | SDSS photometric sky version number |
- | RUN_NUMBER | int32 |  | SDSS photometric run number |
- | RERUN_NUMBER | char[4] |  | SDSS photometric rerun number |
- | CAMCOL_NUMBER | int32 |  | SDSS photometric camera column |
- | FIELD_NUMBER | int32 |  | SDSS photometric field number |
- | ID_NUMBER | int32 |  | SDSS photometric ID number |
- | LAMBDA_EFF | float64 | Angstrom | Wavelength to optimize hold location for |
- | ZOFFSET | float64 | um | Backstopping offset distance |
- | XFOCAL | float64 | mm | Hole x-axis position in focal plane |
- | YFOCAL | float64 | mm | Hole y-axis position in focal plane |
- | CHUNK | char[14] |  | Name of tiling chunk (from platelist product) |
- | TILE | int32 |  | Tile number |
- | PLATESN2 | float64 |  | Overall (S/N)^2 measure for plate, minimum of all 4 cameras |
- | PSFFLUX_U | float32 | nMgy | PSF flux, u-band |
- | PSFFLUX_G | float32 | nMgy | PSF flux, g-band |
- | PSFFLUX_R | float32 | nMgy | PSF flux, r-band |
- | PSFFLUX_I | float32 | nMgy | PSF flux, i-band |
- | PSFFLUX_Z | float32 | nMgy | PSF flux, z-band |
- | PSFFLUX_IVAR_U | float32 | nMgy^{-2} | PSF flux inverse variance, u-band |
- | PSFFLUX_IVAR_G | float32 | nMgy^{-2} | PSF flux inverse variance, g-band |
- | PSFFLUX_IVAR_R | float32 | nMgy^{-2} | PSF flux inverse variance, r-band |
- | PSFFLUX_IVAR_I | float32 | nMgy^{-2} | PSF flux inverse variance, r-band |
- | PSFFLUX_IVAR_Z | float32 | nMgy^{-2} | PSF flux inverse variance, i-band |
- | PSFMAG_U | float64 | mag | SDSS PSF magnitude |
- | PSFMAG_G | float64 | mag | SDSS PSF magnitude |
- | PSFMAG_R | float64 | mag | SDSS PSF magnitude |
- | PSFMAG_I | float64 | mag | SDSS PSF magnitude |
- | PSFMAG_Z | float64 | mag | SDSS PSF magnitude |
- | PSFMAGERR_SDSS_U | float64 | mag | SDSS PSF magnitude error |
- | PSFMAGERR_SDSS_G | float64 | mag | SDSS PSF magnitude error |
- | PSFMAGERR_SDSS_R | float64 | mag | SDSS PSF magnitude error |
- | PSFMAGERR_SDSS_I | float64 | mag | SDSS PSF magnitude error |
- | PSFMAGERR_SDSS_Z | float64 | mag | SDSS PSF magnitude error |
- | EXTINCTION_U | float32 | mag | Extinction in u-band |
- | EXTINCTION_G | float32 | mag | Extinction in g-band |
- | EXTINCTION_R | float32 | mag | Extinction in r-band |
- | EXTINCTION_I | float32 | mag | Extinction in i-band |
- | EXTINCTION_Z | float32 | mag | Extinction in z-band |
- | M_I | float64 | mag | Absolute i-band magnitude. Assuming H0 = 67.6 km/s/Mpc, OmegaM=0.31, OmegaL=0.69, Omega_r=9.11e-5. K-corrections taken from Table 4 of Richards et al. (2006). Z_PCA used for redshifts |
- | SN_MEDIAN_ALL | float64 |  | Median S/N value of all good spectroscopic pixels |
- | GALEX_MATCHED | int32 |  | Matching flag for GALEX |
- | FUV | float64 | nMgy | FUV flux from GALEX |
- | FUV_IVAR | float64 | nMgy**-2 | Inverse variance of FUV flux from GALEX |
- | NUV | float64 | nMgy | NUV flux from GALEX |
- | NUV_IVAR | float64 | nMgy**-2 | Inverse variance of NUV flux from GALEX |
- | UKIDSS_MATCHED | int32 |  | Matching flag for UKIDSS |
- | YFLUX | float64 | W m-2 Hz-1 | Y-band flux density from UKIDSS |
- | YFLUX_ERR | float64 | W m-2 Hz-1 | Error in Y-band flux density from UKIDSS |
- | JFLUX | float64 | W m-2 Hz-1 | J-band flux density from UKIDSS |
- | JFLUX_ERR | float64 | W m-2 Hz-1 | Error in J-band flux density from UKIDSS |
- | HFLUX | float64 | W m-2 Hz-1 | H-band flux density from UKIDSS |
- | HFLUX_ERR | float64 | W m-2 Hz-1 | Error in H-band flux density from UKIDSS |
- | KFLUX | float64 | W m-2 Hz-1 | K-band flux density from UKIDSS |
- | KFLUX_ERR | float64 | W m-2 Hz-1 | Error in K-band flux density from UKIDSS |
- | W1_FLUX | float32 | nMgy | WISE flux in W1-band (Vega) |
- | W1_FLUX_IVAR | float32 | nMgy**-2 | Inverse variance in W1-band (Vega) |
- | W1_MAG | float32 | mag | W1-band magnitude (Vega) |
- | W1_MAG_ERR | float32 | mag | W1-band uncertainty in magnitude (Vega) |
- | W1_CHI2 | float32 |  | Profile-weighed χ2 |
- | W1_FLUX_SNR | float32 |  | S/N from flux and inverse variance |
- | W1_SRC_FRAC | float32 |  | Profile-weighted number of exposures in coadd |
- | W1_EXT_FLUX | float32 | nMgy | Profile-weighted flux from other sources |
- | W1_EXT_FRAC | float32 |  | Profile-weighted fraction of flux from other sources (blendedness measure) |
- | W1_NPIX | int32 |  | Number of pixels in fit |
- | W2_FLUX | float32 | nMgy | WISE flux in W2-band (Vega) |
- | W2_FLUX_IVAR | float32 | nMgy**-2 | Inverse variance in W2-band (Vega) |
- | W2_MAG | float32 | mag | W2-band magnitude (Vega) |
- | W2_MAG_ERR | float32 | mag | W2-band uncertainty in magnitude (Vega) |
- | W2_CHI2 | float32 |  | Profile-weighed χ2 |
- | W2_FLUX_SNR | float32 |  | S/N from flux and inverse variance |
- | W2_SRC_FRAC | float32 |  | Profile-weighted number of exposures in coadd |
- | W2_EXT_FLUX | float32 | nMgy | Profile-weighted flux from other sources |
- | W2_EXT_FRAC | float32 |  | Profile-weighted fraction of flux from other sources (blendedness measure) |
- | W2_NPIX | int32 |  | Number of pixels in fit |
- | FIRST_MATCHED | int32 |  | Matching flag for FIRST |
- | FIRST_FLUX | float64 | mJy | FIRST peak flux density at 20 cm |
- | FIRST_SNR | float64 |  | FIRST flux density S/N |
- | SDSS2FIRST_SEP | float64 |  | SDSS-FIRST separation in arcsec |
- | JMAG | float64 | mag | 2MASS J-band magnitude (Vega) |
- | JMAG_ERR | float64 | mag | 2MASS Error in J-band magnitude |
- | JSNR | float64 |  | 2MASS J-band S/N |
- | JRDFLAG | int32 |  | 2MASS J-band photometry flag |
- | HMAG | float64 | mag | 2MASS H-band magnitude (Vega) |
- | HMAG_ERR | float64 | mag | 2MASS Error in H-band magnitude |
- | HSNR | float64 |  | 2MASS H-band S/N |
- | HRDFLAG | int32 |  | 2MASS H-band photometry flag |
- | KMAG | float64 | mag | 2MASS Ks-band magnitude (Vega) |
- | KMAG_ERR | float64 | mag | 2MASS Error in Ks-band magnitude |
- | KSNR | float64 |  | 2MASS Ks-band S/N |
- | KRDFLAG | int32 |  | 2MASS Ks-band photometry flag |
- | SDSS2MASS_SEP | float64 | arcsec | SDSS-2MASS separation |
- | RASS2RXS_ID | char[21] |  | Second ROSAT All-Sky Survey Point Source Catalog (RASS2RXS) ID |
- | RASS2RXS_RA | float64 | degrees | Right Ascension for RASS2RXS Source |
- | RASS2RXS_DEC | float64 | degrees | Declination for RASS2RXS Source |
- | RASS2RXS_SRC_FLUX | float32 | erg/s/cm2 | flux from RASS2RXS |
- | RASS2RXS_SRC_FLUX_ERR | float32 | erg/s/cm2 | Error in flux from RASS2RXS |
- | SDSS2ROSAT_SEP | float64 | arcsec | SDSS-ROSAT separation |
- | XMM_SRC_ID | int64 |  | XMM source ID |
- | XMM_RA | float64 | degrees | Right ascension for XMM source in decimal degrees (J2000) |
- | XMM_DEC | float64 | degrees | Declination for XMM source in decimal degrees (J2000) |
- | XMM_SOFT_FLUX | float32 | erg/s/cm2 | Soft (0.2-2.0 keV) X-ray flux from XMM-Newton |
- | XMM_SOFT_FLUX_ERR | float32 | erg/s/cm2 | Error on soft X-ray flux from XMM-Newton |
- | XMM_HARD_FLUX | float32 | erg/s/cm2 | Hard (2.0-12.0 keV) X-ray flux from XMM-Newton |
- | XMM_HARD_FLUX_ERR | float32 | erg/s/cm2 | Error on hard X-ray flux from XMM-Newton |
- | XMM_TOTAL_FLUX | float32 | erg/s/cm2 | Total (0.2-12.0 keV) X-ray flux from XMM-Newton |
- | XMM_TOTAL_FLUX_ERR | float32 | erg/s/cm2 | Error on total X-ray flux from XMM-Newton |
- | XMM_TOTAL_LUM | float32 | erg/s | Total (0.2-12.0 keV) X-ray luminosity from XMM-Newton |
- | SDSS2XMM_SEP | float64 | arcsec | SDSS-XMM-Newton separation |
- | GAIA_MATCHED | int32 |  | Gaia matching flag |
- | GAIA_DESIGNATION | char[28] |  | Gaia designation, includes data release and source ID in that release |
- | GAIA_RA | float64 | degrees | Gaia barycentric right ascension in decimal degrees (J2015.5) |
- | GAIA_DEC | float64 | degrees | Gaia barycentric declination in decimal degrees (J2015.5) |
- | GAIA_PARALLAX | float64 | mas | Absolute stellar parallax |
- | GAIA_PARALLAX_ERR | float64 | mas**-2 | Inverse variance of the stellar parallax |
- | GAIA_PM_RA | float64 | mas/yr | Proper motion in right ascension |
- | GAIA_PM_RA_ERR | float64 | (mas/yr)**-2 | Inverse variance of the proper motion in right ascension |
- | GAIA_PM_DEC | float64 | mas/yr | Proper motion in declination |
- | GAIA_PM_DEC_ERR | float64 | (mas/yr)**-2 | Inverse variance of the proper motion in declination |
- | GAIA_G_MAG | float64 | mag | Mean magnitude in G-band (Vega) |
- | GAIA_G_FLUX_SNR | float64 |  | Mean flux over standard deviation in G-band |
- | GAIA_BP_MAG | float64 | mag | Mean magnitude in BP-band (Vega) |
- | GAIA_BP_FLUX_SNR | float64 |  | Mean flux over standard deviation in BP-band |
- | GAIA_RP_MAG | float64 | mag | Mean magnitude in RP-band (Vega) |
- | GAIA_RP_FLUX_SNR | float64 |  | Mean flux over standard deviation in RP-band |
- | SDSS2GAIA_SEP | float64 | arcsec | SDSS-Gaia separation |
- | PK | int64 |  | Added for convenience - serial integer primary key |
+ | sdss_name | char[18] |  | SDSS-DR16 designation (hhmmss.ss+-ddmmss.s, J2000) |
+ | ra | float64 | degrees | Right ascension in decimal degrees (J2000) |
+ | dec | float64 | degrees | Declination in decimal degrees (J2000) |
+ | plate | int32 |  | Spectroscopic plate number |
+ | mjd | int32 | day | Modified Julian day of the spectroscopic observation |
+ | fiberid | int32 |  | Fiber ID number |
+ | autoclass_pqn | char[6] |  | Object classification post-QuasarNET |
+ | autoclass_dr14q | char[6] |  | Object classification based only on the DR14Q algorithm |
+ | is_qso_qn | int32 |  | Binary flag for QuasarNET quasar identification |
+ | z_qn | float64 |  | Systemic redshift from QuasarNET |
+ | random_select | int32 |  | Binary flag indicating objects selected for random visual inspection |
+ | z_10k | float64 |  | Redshift from visual inspection in random set |
+ | z_conf_10k | int32 |  | Confidence rating for visual inspection redshift in random set |
+ | pipe_corr_10k | int32 |  | Binary flag indicating if the automated pipeline classification and redshift were correct in the random set |
+ | is_qso_10k | int32 |  | Binary flag for random set quasar identification |
+ | thing_id | int64 |  | SDSS identifier |
+ | z_vi | float64 |  | Visual inspection redshift |
+ | z_conf | int32 |  | Confidence rating for visual inspection redshift |
+ | class_person | int32 |  | Object classification from visual inspection |
+ | z_dr12q | float64 |  | Redshift taken from DR12Q visual inspection |
+ | is_qso_dr12q | int32 |  | Flag indicating if an object was a quasar in DR12Q |
+ | z_dr7q_sch | float64 |  | Redshift taken from DR7Q Schneider et al (2010) catalog |
+ | is_qso_dr7q | int32 |  | Flag indicating if an object was a quasar in DR7Q |
+ | z_dr6q_hw | float64 |  | Redshift taken from DR6-based Hewett and Wild (2010) catalog |
+ | z_dr7q_hw | float64 |  | Redshift using Hewett and Wild (2010) updates for DR7Q sources from the Shen et al. (2011) catalog |
+ | is_qso_final | int32 |  | Flag indicating quasars to be included in final catalog |
+ | z | float64 |  | Best available redshift taken from Z_VI, Z_PIPE, Z_DR12Q, Z_DR7Q_SCH, Z_DR6Q_HW, and Z_10K |
+ | source_z | char[9] |  | Origin of the reported redshift in Z |
+ | z_pipe | float64 |  | SDSS automated pipeline redshift |
+ | zwarning | int32 |  | Quality flag on the pipeline redshift estimate |
+ | objid | char[19] |  | SDSS object identification number |
+ | z_pca | float64 |  | PCA-derived systemic redshift from redvsblue |
+ | zwarn_pca | int64 |  | Warning flag for redvsblue redshift |
+ | deltachi2_pca | float64 |  | Delta χ2 for PCA redshift vs. cubic continuum fit |
+ | z_halpha | float64 |  | PCA line redshift for Halpha from redvsblue |
+ | zwarn_halpha | int64 |  | Warning flag for Halpha redshift |
+ | deltachi2_halpha | float64 |  | Delta χ2 for Halpha line redshift vs. cubic continuum fit |
+ | z_hbeta | float64 |  | PCA line redshift for Hbeta from redvsblue |
+ | zwarn_hbeta | int64 |  | Warning flag for Hbeta redshift |
+ | deltachi2_hbeta | float64 |  | Delta χ2 for Hbeta line redshift vs. cubic continuum fit |
+ | z_mgii | float64 |  | PCA line redshift for Mg II 2799AA from redvsblue |
+ | zwarn_mgii | int64 |  | Warning flag for Mg II 2799AA redshift |
+ | deltachi2_mgii | float64 |  | Delta χ2 for Mg II 2799AA line redshift vs. cubic continuum fit |
+ | z_ciii | float64 |  | PCA line redshift for C III] 1908AA from redvsblue |
+ | zwarn_ciii | int64 |  | Warning flag for C III] 1908AA redshift |
+ | deltachi2_ciii | float64 |  | Delta χ2 for C III] 1908AA line redshift vs. cubic continuum fit |
+ | z_civ | float64 |  | PCA line redshift for C IV 1549AA from redvsblue |
+ | zwarn_civ | int64 |  | Warning flag for C IV 1549AA redshift |
+ | deltachi2_civ | float64 |  | Delta χ2 for C IV 1549AA line redshift vs. cubic continuum fit |
+ | z_lya | float64 |  | PCA line redshift for Lyalpha from redvsblue |
+ | zwarn_lya | int64 |  | Warning flag for Lyalpha redshift |
+ | deltachi2_lya | float64 |  | Delta χ2 for Lyalpha line redshift vs. cubic continuum fit |
+ | z_lyawg | float32 |  | PCA systemic redshift from redvsblue with a masked Lyalpha emission line and forest |
+ | z_dla | char[91] |  | Redshift for damped Lyalpha features |
+ | nhi_dla | char[94] | log(cm**-2) | Absorber column density for damped Lyalpha features |
+ | conf_dla | char[43] |  | Confidence of detection for damped Lyalpha features |
+ | bal_prob | float32 |  | BAL probability |
+ | bi_civ | float64 | km/s | BALnicity index for C IV 1549AA region |
+ | err_bi_civ | float64 | km/s | Uncertainty of BI for C IV 1549AA region |
+ | ai_civ | float64 | km/s | Absorption index for C IV 1549AA region |
+ | err_ai_civ | float64 | km/s | Uncertainty of absorption index for C IV 1549AA region |
+ | bi_siiv | float64 | km/s | BALnicity index for Si IV 1396AA region |
+ | err_bi_siiv | float64 | km/s | Uncertainty of BI for Si IV 1396AA region |
+ | ai_siiv | float64 | km/s | Absorption index for Si IV 1396AA region |
+ | err_ai_siiv | float64 | km/s | Uncertainty of absorption index for Si IV 1396AA region |
+ | boss_target1 | int64 |  | BOSS target selection bitmask for main survey |
+ | eboss_target0 | int64 |  | Target selection bitmask for the eBOSS pilot survey (SEQUELS) |
+ | eboss_target1 | int64 |  | eBOSS target selection bitmask |
+ | eboss_target2 | int64 |  | eBOSS target selection bitmask |
+ | ancillary_target1 | int64 |  | BOSS target selection bitmask for ancillary programs |
+ | ancillary_target2 | int64 |  | BOSS target selection bitmask for ancillary programs |
+ | nspec_sdss | int32 |  | Number of additional observations from SDSS-I/II |
+ | nspec_boss | int32 |  | Number of additional observations from BOSS/eBOSS |
+ | nspec | int32 |  | Total number of additional observations |
+ | plate_duplicate | char[364] |  | Spectroscopic plate number of duplicate spectroscopic observations |
+ | mjd_duplicate | char[437] |  | Spectroscopic MJD of duplicate spectroscopic observations |
+ | fiberid_duplicate | char[297] |  | Fiber ID number of duplicate spectrocscopic observations. |
+ | spectro_duplicate | char[145] |  | Spectroscopic instrument for each duplicate, 1=SDSS, 2=(e)BOSS |
+ | skyversion | int32 |  | SDSS photometric sky version number |
+ | run_number | int32 |  | SDSS photometric run number |
+ | rerun_number | char[4] |  | SDSS photometric rerun number |
+ | camcol_number | int32 |  | SDSS photometric camera column |
+ | field_number | int32 |  | SDSS photometric field number |
+ | id_number | int32 |  | SDSS photometric ID number |
+ | lambda_eff | float64 | Angstrom | Wavelength to optimize hold location for |
+ | zoffset | float64 | um | Backstopping offset distance |
+ | xfocal | float64 | mm | Hole x-axis position in focal plane |
+ | yfocal | float64 | mm | Hole y-axis position in focal plane |
+ | chunk | char[14] |  | Name of tiling chunk (from platelist product) |
+ | tile | int32 |  | Tile number |
+ | platesn2 | float64 |  | Overall (S/N)^2 measure for plate, minimum of all 4 cameras |
+ | psfflux_u | float32 | nMgy | PSF flux, u-band |
+ | psfflux_g | float32 | nMgy | PSF flux, g-band |
+ | psfflux_r | float32 | nMgy | PSF flux, r-band |
+ | psfflux_i | float32 | nMgy | PSF flux, i-band |
+ | psfflux_z | float32 | nMgy | PSF flux, z-band |
+ | psfflux_ivar_u | float64 | nMgy^{-2} | PSF flux inverse variance, u-band |
+ | psfflux_ivar_g | float64 | nMgy^{-2} | PSF flux inverse variance, g-band |
+ | psfflux_ivar_r | float64 | nMgy^{-2} | PSF flux inverse variance, r-band |
+ | psfflux_ivar_i | float64 | nMgy^{-2} | PSF flux inverse variance, r-band |
+ | psfflux_ivar_z | float64 | nMgy^{-2} | PSF flux inverse variance, i-band |
+ | psfmag_u | float32 | mag | SDSS PSF magnitude |
+ | psfmag_g | float32 | mag | SDSS PSF magnitude |
+ | psfmag_r | float32 | mag | SDSS PSF magnitude |
+ | psfmag_i | float32 | mag | SDSS PSF magnitude |
+ | psfmag_z | float32 | mag | SDSS PSF magnitude |
+ | psfmagerr_u | float64 | mag | Error on SDSS PSF magnitude |
+ | psfmagerr_g | float64 | mag | Error on SDSS PSF magnitude |
+ | psfmagerr_r | float64 | mag | Error on SDSS PSF magnitude |
+ | psfmagerr_i | float64 | mag | Error on SDSS PSF magnitude |
+ | psfmagerr_z | float64 | mag | Error on SDSS PSF magnitude |
+ | extinction_u | float32 | mag | Extinction in u-band |
+ | extinction_g | float32 | mag | Extinction in g-band |
+ | extinction_r | float32 | mag | Extinction in r-band |
+ | extinction_i | float32 | mag | Extinction in i-band |
+ | extinction_z | float32 | mag | Extinction in z-band |
+ | m_i | float64 | mag | Absolute i-band magnitude. Assuming H0 = 67.6 km/s/Mpc, OmegaM=0.31, OmegaL=0.69, Omega_r=9.11e-5. K-corrections taken from Table 4 of Richards et al. (2006). Z_PCA used for redshifts |
+ | sn_median_all | float64 |  | Median S/N value of all good spectroscopic pixels |
+ | galex_matched | int32 |  | Matching flag for GALEX |
+ | fuv | float64 | nMgy | FUV flux from GALEX |
+ | fuv_ivar | float64 | nMgy**-2 | Inverse variance of FUV flux from GALEX |
+ | nuv | float64 | nMgy | NUV flux from GALEX |
+ | nuv_ivar | float64 | nMgy**-2 | Inverse variance of NUV flux from GALEX |
+ | ukidss_matched | int32 |  | Matching flag for UKIDSS |
+ | yflux | float64 | W m-2 Hz-1 | Y-band flux density from UKIDSS |
+ | yflux_err | float64 | W m-2 Hz-1 | Error in Y-band flux density from UKIDSS |
+ | jflux | float64 | W m-2 Hz-1 | J-band flux density from UKIDSS |
+ | jflux_err | float64 | W m-2 Hz-1 | Error in J-band flux density from UKIDSS |
+ | hflux | float64 | W m-2 Hz-1 | H-band flux density from UKIDSS |
+ | hflux_err | float64 | W m-2 Hz-1 | Error in H-band flux density from UKIDSS |
+ | kflux | float64 | W m-2 Hz-1 | K-band flux density from UKIDSS |
+ | kflux_err | float64 | W m-2 Hz-1 | Error in K-band flux density from UKIDSS |
+ | w1_flux | float32 | nMgy | WISE flux in W1-band (Vega) |
+ | w1_flux_ivar | float32 | nMgy**-2 | Inverse variance in W1-band (Vega) |
+ | w1_mag | float32 | mag | W1-band magnitude (Vega) |
+ | w1_mag_err | float32 | mag | W1-band uncertainty in magnitude (Vega) |
+ | w1_chi2 | float32 |  | Profile-weighed χ2 |
+ | w1_flux_snr | float32 |  | S/N from flux and inverse variance |
+ | w1_src_frac | float32 |  | Profile-weighted number of exposures in coadd |
+ | w1_ext_flux | float32 | nMgy | Profile-weighted flux from other sources |
+ | w1_ext_frac | float32 |  | Profile-weighted fraction of flux from other sources (blendedness measure) |
+ | w1_npix | int32 |  | Number of pixels in fit |
+ | w2_flux | float32 | nMgy | WISE flux in W2-band (Vega) |
+ | w2_flux_ivar | float32 | nMgy**-2 | Inverse variance in W2-band (Vega) |
+ | w2_mag | float32 | mag | W2-band magnitude (Vega) |
+ | w2_mag_err | float32 | mag | W2-band uncertainty in magnitude (Vega) |
+ | w2_chi2 | float32 |  | Profile-weighed χ2 |
+ | w2_flux_snr | float32 |  | S/N from flux and inverse variance |
+ | w2_src_frac | float32 |  | Profile-weighted number of exposures in coadd |
+ | w2_ext_flux | float32 | nMgy | Profile-weighted flux from other sources |
+ | w2_ext_frac | float32 |  | Profile-weighted fraction of flux from other sources (blendedness measure) |
+ | w2_npix | int32 |  | Number of pixels in fit |
+ | first_matched | int32 |  | Matching flag for FIRST |
+ | first_flux | float64 | mJy | FIRST peak flux density at 20 cm |
+ | first_snr | float64 |  | FIRST flux density S/N |
+ | sdss2first_sep | float64 |  | SDSS-FIRST separation in arcsec |
+ | jmag | float64 | mag | 2MASS J-band magnitude (Vega) |
+ | jmag_err | float64 | mag | 2MASS Error in J-band magnitude |
+ | jsnr | float64 |  | 2MASS J-band S/N |
+ | jrdflag | int32 |  | 2MASS J-band photometry flag |
+ | hmag | float64 | mag | 2MASS H-band magnitude (Vega) |
+ | hmag_err | float64 | mag | 2MASS Error in H-band magnitude |
+ | hsnr | float64 |  | 2MASS H-band S/N |
+ | hrdflag | int32 |  | 2MASS H-band photometry flag |
+ | kmag | float64 | mag | 2MASS Ks-band magnitude (Vega) |
+ | kmag_err | float64 | mag | 2MASS Error in Ks-band magnitude |
+ | ksnr | float64 |  | 2MASS Ks-band S/N |
+ | krdflag | int32 |  | 2MASS Ks-band photometry flag |
+ | sdss2mass_sep | float64 | arcsec | SDSS-2MASS separation |
+ | rass2rxs_id | char[21] |  | Second ROSAT All-Sky Survey Point Source Catalog (RASS2RXS) ID |
+ | rass2rxs_ra | float64 | degrees | Right Ascension for RASS2RXS Source |
+ | rass2rxs_dec | float64 | degrees | Declination for RASS2RXS Source |
+ | rass2rxs_src_flux | float32 | erg/s/cm2 | flux from RASS2RXS |
+ | rass2rxs_src_flux_err | float32 | erg/s/cm2 | Error in flux from RASS2RXS |
+ | sdss2rosat_sep | float64 | arcsec | SDSS-ROSAT separation |
+ | xmm_src_id | int64 |  | XMM source ID |
+ | xmm_ra | float64 | degrees | Right ascension for XMM source in decimal degrees (J2000) |
+ | xmm_dec | float64 | degrees | Declination for XMM source in decimal degrees (J2000) |
+ | xmm_soft_flux | float32 | erg/s/cm2 | Soft (0.2-2.0 keV) X-ray flux from XMM-Newton |
+ | xmm_soft_flux_err | float32 | erg/s/cm2 | Error on soft X-ray flux from XMM-Newton |
+ | xmm_hard_flux | float32 | erg/s/cm2 | Hard (2.0-12.0 keV) X-ray flux from XMM-Newton |
+ | xmm_hard_flux_err | float32 | erg/s/cm2 | Error on hard X-ray flux from XMM-Newton |
+ | xmm_total_flux | float32 | erg/s/cm2 | Total (0.2-12.0 keV) X-ray flux from XMM-Newton |
+ | xmm_total_flux_err | float32 | erg/s/cm2 | Error on total X-ray flux from XMM-Newton |
+ | xmm_total_lum | float32 | erg/s | Total (0.2-12.0 keV) X-ray luminosity from XMM-Newton |
+ | sdss2xmm_sep | float64 | arcsec | SDSS-XMM-Newton separation |
+ | gaia_matched | int32 |  | Gaia matching flag |
+ | gaia_designation | char[28] |  | Gaia designation, includes data release and source ID in that release |
+ | gaia_ra | float64 | degrees | Gaia barycentric right ascension in decimal degrees (J2015.5) |
+ | gaia_dec | float64 | degrees | Gaia barycentric declination in decimal degrees (J2015.5) |
+ | gaia_parallax | float64 | mas | Absolute stellar parallax |
+ | gaia_parallax_err | float64 | mas**-2 | Inverse variance of the stellar parallax |
+ | gaia_pm_ra | float64 | mas/yr | Proper motion in right ascension |
+ | gaia_pm_ra_err | float64 | (mas/yr)**-2 | Inverse variance of the proper motion in right ascension |
+ | gaia_pm_dec | float64 | mas/yr | Proper motion in declination |
+ | gaia_pm_dec_err | float64 | (mas/yr)**-2 | Inverse variance of the proper motion in declination |
+ | gaia_g_mag | float64 | mag | Mean magnitude in G-band (Vega) |
+ | gaia_g_flux_snr | float64 |  | Mean flux over standard deviation in G-band |
+ | gaia_bp_mag | float64 | mag | Mean magnitude in BP-band (Vega) |
+ | gaia_bp_flux_snr | float64 |  | Mean flux over standard deviation in BP-band |
+ | gaia_rp_mag | float64 | mag | Mean magnitude in RP-band (Vega) |
+ | gaia_rp_flux_snr | float64 |  | Mean flux over standard deviation in RP-band |
+ | sdss2gaia_sep | float64 | arcsec | SDSS-Gaia separation |
+ | pk | int64 |  | Added for convenience - serial integer primary key |
 
 
 
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!
