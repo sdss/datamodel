@@ -7,6 +7,7 @@ general:
   filesize: 36 KB
   releases:
   - DR18
+  - DR19
   environments:
   - MOS_TARGET
   surveys:
@@ -19,10 +20,14 @@ general:
   design: false
   vac: false
   recommended_science_product: false
+  data_level: 2.3.3
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
-  releases: {}
+  releases:
+    DR19:
+      from: DR18
+      note: No changes
 releases:
   DR18:
     template: $MOS_TARGET/[V_TARG]/mos_cadence.fits
@@ -97,5 +102,114 @@ releases:
             type: int32
             unit: ''
             description: The total number of exposures planned for this cadence
+  DR19:
+    template: $MOS_TARGET/[V_TARG]/mos_cadence.fits
+    example: 1.0.2/mos_cadence.fits
+    location: '{v_targ}/mos_cadence.fits'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_cadence
+      path_template: $MOS_TARGET/{v_targ}/mos_cadence.fits
+      path_kwargs:
+      - v_targ
+      access_string: mos_target_cadence = $MOS_TARGET/{v_targ}/mos_cadence.fits
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Primary header
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: 'MOS Target Table: cadence'
+        is_image: false
+        size: 261 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 72
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 3718
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 7
+          comment: number of table fields
+        - key: TNULL2
+          value: -2147483648
+          comment: ''
+        - key: TNULL3
+          value: -9223372036854775808
+          comment: ''
+        - key: TNULL7
+          value: -2147483648
+          comment: ''
+        columns:
+          label:
+            name: label
+            type: char[26]
+            unit: ''
+            description: Descriptive name for the cadence with a version
+          nepochs:
+            name: nepochs
+            type: int32
+            unit: ''
+            description: Number of epochs in the cadence
+          pk:
+            name: pk
+            type: int64
+            unit: ''
+            description: Primary key
+          label_root:
+            name: label_root
+            type: char[23]
+            unit: ''
+            description: Descriptive name, typically {bright/dark}_{nepochs}x{nexps}
+          label_version:
+            name: label_version
+            type: char[3]
+            unit: ''
+            description: Version; cadences are added in versioned batches
+          max_skybrightness:
+            name: max_skybrightness
+            type: float32
+            unit: ''
+            description: The maximum skybrightness for all epochs in this cadence
+          nexp_total:
+            name: nexp_total
+            type: int32
+            unit: ''
+            description: The total number of exposures planned for this cadence
 notes: |-
   None
+regrets: |-
+  I have no regrets!
