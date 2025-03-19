@@ -7,7 +7,8 @@ datamodel_generate -f mos_target_bhm_efeds_veto -p MOS_TARGET/{v_targ}/mos_bhm_e
 datamodel_generate -f mos_target_bhm_rm_v0_2 -p MOS_TARGET/{v_targ}/mos_bhm_rm_v0_2.fits -k v_targ=1.0.2 -r DR19 -c DR18 -h
 datamodel_generate -f mos_target_cadence -p MOS_TARGET/{v_targ}/mos_cadence.fits -k v_targ=1.0.2 -r DR19 -c DR18 -h
 datamodel_generate -f mos_target_cadence_epoch -p MOS_TARGET/{v_targ}/mos_cadence_epoch.fits -k v_targ=1.0.2 -r DR19 -c DR18 -h
-?? datamodel_generate -f mos_target_carton -p MOS_TARGET/{v_targ}/mos_carton.fits -k v_targ=1.0.2 -r DR19 -c DR18 -h
+datamodel_generate -f mos_target_carton -p MOS_TARGET/{v_targ}/mos_carton.fits -k v_targ=1.0.2 -r DR19 -c DR18 -h
+datamodel_update -f mos_target_carton -r DR19
 datamodel_generate -f mos_target_carton_to_target -p MOS_TARGET/{v_targ}/mos_carton_to_target-{num}.fits -k v_targ=1.0.2 -k num=001 -r DR19 -c DR18 -h
 datamodel_generate -f mos_target_cataclysmic_variables -p MOS_TARGET/{v_targ}/mos_cataclysmic_variables.fits -k v_targ=1.0.2 -r DR19 -c DR18 -h
 datamodel_generate -f mos_target_catalog -p MOS_TARGET/{v_targ}/mos_catalog-{num}.fits -k v_targ=1.0.2 -k num=01 -r DR19 -c DR18 -h
