@@ -74,51 +74,72 @@ Key | Value | Comment | |
 MOS Target Table: tycho2
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  446 MB
+#### HDU Size:  480 MB
 
+##### Header Table Caption for HDU1
+Key | Value | Comment | |
+| --- | --- | --- | --- |
+| XTENSION | BINTABLE | binary table extension |
+| BITPIX | 8 | array data type |
+| NAXIS | 2 | number of array dimensions |
+| NAXIS1 | 252 | length of dimension 1 |
+| NAXIS2 | 2000000 | length of dimension 2 |
+| PCOUNT | 0 | number of group parameters |
+| GCOUNT | 1 | number of groups |
+| TFIELDS | 40 | number of table fields |
+| TNULL1 | -2147483648 |  |
+| TNULL2 | -2147483648 |  |
+| TNULL3 | -2147483648 |  |
+| TNULL9 | -2147483648 |  |
+| TNULL10 | -2147483648 |  |
+| TNULL15 | -2147483648 |  |
+| TNULL24 | -2147483648 |  |
+| TNULL26 | -9223372036854775808 |  |
+| TNULL39 | -2147483648 |  |
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | TYC1 | int32 |  | TYC1 from TYC or GSC (used to construct the Tycho identifier) |
- | TYC2 | int32 |  | TYC2 from TYC or GSC (used to construct the Tycho identifier) |
- | TYC3 | int32 |  | TYC3 from TYC (used to construct the Tycho identifier) |
- | PFLAG | char[4] |  | Mean position flag |
- | RAMDEG | float64 | degrees | Mean Right Asc, ICRS, epoch=J2000 |
- | DEMDEG | float64 | degrees | Mean Decl, ICRS, at epoch=J2000 |
- | PMRA | float64 | mas/yr | Proper motion in RA*cos(dec) |
- | PMDE | float64 | mas/yr | Proper motion in Dec |
- | E_RAMDEG | int32 | mas | standard error of RA*cos(dec) at mean epoch |
- | E_DEMDEG | int32 | mas | standard error of Declination at mean epoch |
- | E_PMRA | float64 | mas/yr | standard error of proper motion in RA*cos(dec) |
- | E_PMDE | float64 | mas/yr | standard error of proper motion in Declination |
- | EPRAM | float64 | yr | mean epoch of RA |
- | EPDEM | float64 | yr | mean epoch of Dec |
- | NUM | int32 |  | Number of positions used |
- | Q_RAMDEG | float64 |  | Goodness of fit for mean RA |
- | Q_DEMDEG | float64 |  | Goodness of fit for mean Dec |
- | Q_PMRA | float64 |  | Goodness of fit for pmra |
- | Q_PMDE | float64 |  | Goodness of fit for pmde |
- | BTMAG | float32 | mag | Tycho-2 BT magnitude |
- | E_BTMAG | float32 | mag | Standard error of BT magnitude |
- | VTMAG | float32 | mag | Tycho-2 VT magnitude |
- | E_VTMAG | float32 | mag | Standard error of VT magnitude |
- | PROX | int32 | 0.1 arcsec | Distance to the nearest entry in the Tycho-2 main catalogue or supplement |
- | TYC | char[4] |  | Tycho-1 star flag |
- | HIP | int64 |  | Hipparcos number |
- | CCDM | char[4] |  | CCDM component identifiers for double or multiple Hipparcos stars contributing to this Tycho-2 entry |
- | RADEG | float64 | degrees | Observed Tycho-2 Right Ascension, ICRS |
- | DEDEG | float64 | degrees | Observed Tycho-2 Declination, ICRS |
- | EPRA_1990 | float64 | yr | epoch-1990 of RAdeg |
- | EPDE_1990 | float64 | yr | epoch-1990 of Dedeg |
- | E_RADEG | float64 | mas | Standard error of RA*cos(dec), of observed Tycho-2 RA |
- | E_DEDEG | float64 | mas | Standard error of observed Tycho-2 Dec |
- | POSFLG | char[4] |  | Type of Tycho-2 solution |
- | CORR | float32 |  | correlation (RAdeg,DEdeg) |
- | FLAG | char[4] |  | flag indicating whether data from Hipparcos or Tycho-1 |
- | MFLAG | char[4] |  | magnitude flag |
- | DESIGNATION | char[12] |  | Unique Tycho designation |
- | TYCID | int32 |  | Tycho ID |
+ | tyc1 | int32 |  | TYC1 from TYC or GSC (used to construct the Tycho identifier) |
+ | tyc2 | int32 |  | TYC2 from TYC or GSC (used to construct the Tycho identifier) |
+ | tyc3 | int32 |  | TYC3 from TYC (used to construct the Tycho identifier) |
+ | pflag | char[4] |  | Mean position flag |
+ | ramdeg | float64 | degrees | Mean Right Asc, ICRS, epoch=J2000 |
+ | demdeg | float64 | degrees | Mean Decl, ICRS, at epoch=J2000 |
+ | pmra | float64 | mas/yr | Proper motion in RA*cos(dec) |
+ | pmde | float64 | mas/yr | Proper motion in Dec |
+ | e_ramdeg | int32 | mas | standard error of RA*cos(dec) at mean epoch |
+ | e_demdeg | int32 | mas | standard error of Declination at mean epoch |
+ | e_pmra | float64 | mas/yr | standard error of proper motion in RA*cos(dec) |
+ | e_pmde | float64 | mas/yr | standard error of proper motion in Declination |
+ | epram | float64 | yr | mean epoch of RA |
+ | epdem | float64 | yr | mean epoch of Dec |
+ | num | int32 |  | Number of positions used |
+ | q_ramdeg | float64 |  | Goodness of fit for mean RA |
+ | q_demdeg | float64 |  | Goodness of fit for mean Dec |
+ | q_pmra | float64 |  | Goodness of fit for pmra |
+ | q_pmde | float64 |  | Goodness of fit for pmde |
+ | btmag | float32 | mag | Tycho-2 BT magnitude |
+ | e_btmag | float32 | mag | Standard error of BT magnitude |
+ | vtmag | float32 | mag | Tycho-2 VT magnitude |
+ | e_vtmag | float32 | mag | Standard error of VT magnitude |
+ | prox | int32 | 0.1 arcsec | Distance to the nearest entry in the Tycho-2 main catalogue or supplement |
+ | tyc | char[4] |  | Tycho-1 star flag |
+ | hip | int64 |  | Hipparcos number |
+ | ccdm | char[4] |  | CCDM component identifiers for double or multiple Hipparcos stars contributing to this Tycho-2 entry |
+ | radeg | float64 | degrees | Observed Tycho-2 Right Ascension, ICRS |
+ | dedeg | float64 | degrees | Observed Tycho-2 Declination, ICRS |
+ | epra_1990 | float64 | yr | epoch-1990 of RAdeg |
+ | epde_1990 | float64 | yr | epoch-1990 of Dedeg |
+ | e_radeg | float64 | mas | Standard error of RA*cos(dec), of observed Tycho-2 RA |
+ | e_dedeg | float64 | mas | Standard error of observed Tycho-2 Dec |
+ | posflg | char[4] |  | Type of Tycho-2 solution |
+ | corr | float32 |  | correlation (RAdeg,DEdeg) |
+ | flag | char[4] |  | flag indicating whether data from Hipparcos or Tycho-1 |
+ | mflag | char[4] |  | magnitude flag |
+ | designation | char[12] |  | Unique Tycho designation |
+ | tycid | int32 |  | Tycho ID |
+ | designation2 | char[12] |  | Unique Tycho designation |
 
 
 
