@@ -16,7 +16,7 @@ MOS Target Table: legacy_survey_dr8
 Legacy Survey DR8 catalogue derived from 'sweep' catalogues (See <a href="https://www.legacysurvey.org/dr8/">https://www.legacysurvey.org/dr8/</a>).
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_target_legacy_survey_dr8-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
+$MOS_TARGET/[V_TARG]/mos_legacy_survey_dr8-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
 
 ### Releases
 DR18

@@ -16,7 +16,7 @@ MOS Target Table: catalog_to_legacy_survey_dr8
 The table contains the cross-match between the mos_target_catalog targets and the mos_target_legacy_survey_dr8 table.
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_target_catalog_to_legacy_survey_dr8-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
+$MOS_TARGET/[V_TARG]/mos_catalog_to_legacy_survey_dr8-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
 
 ### Releases
 DR18
