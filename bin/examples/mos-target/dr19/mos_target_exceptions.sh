@@ -1,6 +1,5 @@
 ?? datamodel_generate -f mos_target_carton -p MOS_TARGET/{v_targ}/mos_carton.fits -k v_targ=1.0.2 -r DR19 -c DR18 -h
 needs a dr18 datamodel?
-? datamodel_generate -f mos_target_sdss_dr16_qso -p MOS_TARGET/{v_targ}/mos_sdss_dr16_qso.fits -k v_targ=1.0.2 -r DR19 -c DR18 -h
 
 ?? datamodel_generate -f mos_target_targetdb_version -p MOS_TARGET/{v_targ}/mos_targetdb_version.fits -k v_targ=1.0.2 -r DR19 -c DR18 -h
 needs a DR18 datamodel

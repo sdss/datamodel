@@ -48,7 +48,8 @@ datamodel_generate -f mos_target_panstarrs1 -p MOS_TARGET/{v_targ}/mos_panstarrs
 datamodel_generate -f mos_target_sagitta -p MOS_TARGET/{v_targ}/mos_sagitta.fits -k v_targ=1.0.2 -r DR19 -c DR18 -h
 datamodel_generate -f mos_target_sdss_apogeeallstarmerge_r13 -p MOS_TARGET/{v_targ}/mos_sdss_apogeeallstarmerge_r13.fits -k v_targ=1.0.2 -r DR19 -c DR18 -h
 datamodel_generate -f mos_target_sdss_dr13_photoobj_primary -p MOS_TARGET/{v_targ}/mos_sdss_dr13_photoobj_primary-{num}.fits -k v_targ=1.0.2 -k num=1 -r DR19 -c DR18 -h
-? datamodel_generate -f mos_target_sdss_dr16_qso -p MOS_TARGET/{v_targ}/mos_sdss_dr16_qso.fits -k v_targ=1.0.2 -r DR19 -c DR18 -h
+datamodel_generate -f mos_target_sdss_dr16_qso -p MOS_TARGET/{v_targ}/mos_sdss_dr16_qso.fits -k v_targ=1.0.2 -r DR19 -c DR18 -h
+datamodel_update -f mos_target_sdss_dr16_qso -r DR19
 datamodel_generate -f mos_target_sdss_dr16_specobj -p MOS_TARGET/{v_targ}/mos_sdss_dr16_specobj-{num}.fits -k v_targ=1.0.2 -k num=1 -r DR19 -c DR18 -h
 datamodel_generate -f mos_target_skies_v2 -p MOS_TARGET/{v_targ}/mos_skies_v2-{num}.fits -k v_targ=1.0.2 -k num=01 -r DR19 -c DR18 -h
 datamodel_generate -f mos_target_skymapper_dr2 -p MOS_TARGET/{v_targ}/mos_skymapper_dr2-{num}.fits -k v_targ=1.0.2 -k num=01 -r DR19 -c DR18 -h
