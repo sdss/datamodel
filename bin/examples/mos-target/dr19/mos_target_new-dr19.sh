@@ -23,7 +23,6 @@ datamodel_generate -f mos_target_field -p MOS_TARGET/{v_targ}/mos_field.fits -k 
 datamodel_generate -f mos_target_gaia_assas_sn_cepheids -p MOS_TARGET/{v_targ}/mos_gaia_assas_sn_cepheids.fits -k v_targ=1.0.2 -r DR19
 datamodel_generate -f mos_target_hole -p MOS_TARGET/{v_targ}/mos_hole.fits -k v_targ=1.0.2 -r DR19
 datamodel_generate -f mos_targeting_generation -p MOS_TARGET/{v_targ}/mos_targeting_generation.fits -k v_targ=1.0.2 -r DR19
-datamodel_generate -f mos_target_catalog_to_uvotssc1_2 -p MOS_TARGET/{v_targ}/mos_catalog_to_uvotssc1_2.fits -k v_targ=1.0.2 -r DR19
 datamodel_generate -f mos_target_mangadapall -p MOS_TARGET/{v_targ}/mos_mangadapall.fits -k v_targ=1.0.2 -r DR19
 datamodel_generate -f mos_target_mangadrpall -p MOS_TARGET/{v_targ}/mos_mangadrpall.fits -k v_targ=1.0.2 -r DR19
 datamodel_generate -f mos_target_mangatarget -p MOS_TARGET/{v_targ}/mos_mangatarget.fits -k v_targ=1.0.2 -r DR19
@@ -56,20 +55,25 @@ datamodel_generate -f mos_target_catalog_to_allstar_dr17_synspec_rev1 -p MOS_TAR
 
 datamodel_generate -f mos_target_assignment -p MOS_TARGET/{v_targ}/mos_assignment-{num}.fits -k v_targ=1.0.2 -k num=01 -r DR19
 datamodel_generate -f mos_target_catalog_to_gaia_dr2_source -p MOS_TARGET/{v_targ}/mos_catalog_to_gaia_dr2_source-{num}.fits -k v_targ=1.0.2 -k num=01 -r DR19
-datamodel_generate -f mos_target_catalog_to_sdss_dr16_specobj -p MOS_TARGET/{v_targ}/mos_catalog_to_sdss_dr16_specobj-{num}.fits -k v_targ=1.0.2 -k num=01 -r DR19
-datamodel_generate -f mos_target_catalog_to_sdss_dr17_specobj -p MOS_TARGET/{v_targ}/mos_catalog_to_sdss_dr17_specobj-{num}.fits -k v_targ=1.0.2 -k num=01 -r DR19
+datamodel_generate -f mos_target_catalog_to_sdss_dr17_specobj -p MOS_TARGET/{v_targ}/mos_catalog_to_sdss_dr17_specobj-{num}.fits -k v_targ=1.0.2 -k num=1 -r DR19
 datamodel_generate -f mos_target_catalog_to_skies_v1 -p MOS_TARGET/{v_targ}/mos_catalog_to_skies_v1-{num}.fits -k v_targ=1.0.2 -k num=01 -r DR19
 datamodel_generate -f mos_target_catalog_to_twomass_psc -p MOS_TARGET/{v_targ}/mos_catalog_to_twomass_psc-{num}.fits -k v_targ=1.0.2 -k num=01 -r DR19
-datamodel_generate -f mos_target_catalog_to_tycho2 -p MOS_TARGET/{v_targ}/mos_catalog_to_tycho2-{num}.fits -k v_targ=1.0.2 -k num=01 -r DR19
 datamodel_generate -f mos_target_catalog_to_unwise -p MOS_TARGET/{v_targ}/mos_catalog_to_unwise-{num}.fits -k v_targ=1.0.2 -k num=01 -r DR19
-datamodel_generate -f mos_target_erosita_superset_agn -p MOS_TARGET/{v_targ}/mos_erosita_superset_agn-{num}.fits -k v_targ=1.0.2 -k num=01 -r DR19
-datamodel_generate -f mos_target_revised_magnitude -p MOS_TARGET/{v_targ}/mos_revised_magnitude-{num}.fits -k v_targ=1.0.2 -k num=01 -r DR19
-datamodel_generate -f mos_target_sdss_dr16_specobj -p MOS_TARGET/{v_targ}/mos_sdss_dr16_specobj-{num}.fits -k v_targ=1.0.2 -k num=01 -r DR19
-datamodel_generate -f mos_target_sdss_dr17_specobj -p MOS_TARGET/{v_targ}/mos_sdss_dr17_specobj-{num}.fits -k v_targ=1.0.2 -k num=01 -r DR19
+datamodel_generate -f mos_target_erosita_superset_agn -p MOS_TARGET/{v_targ}/mos_erosita_superset_agn-{num}.fits -k v_targ=1.0.2 -k num=1 -r DR19
+datamodel_generate -f mos_target_revised_magnitude -p MOS_TARGET/{v_targ}/mos_revised_magnitude-{num}.fits -k v_targ=1.0.2 -k num=1 -r DR19
+datamodel_generate -f mos_target_sdss_dr17_specobj -p MOS_TARGET/{v_targ}/mos_sdss_dr17_specobj-{num}.fits -k v_targ=1.0.2 -k num=1 -r DR19
 datamodel_generate -f mos_target_sdss_id_flat -p MOS_TARGET/{v_targ}/mos_sdss_id_flat-{num}.fits -k v_targ=1.0.2 -k num=01 -r DR19
 datamodel_generate -f mos_target_sdss_id_stacked -p MOS_TARGET/{v_targ}/mos_sdss_id_stacked-{num}.fits -k v_targ=1.0.2 -k num=01 -r DR19
 datamodel_generate -f mos_target_sdss_id_to_catalog -p MOS_TARGET/{v_targ}/mos_sdss_id_to_catalog-{num}.fits -k v_targ=1.0.2 -k num=01 -r DR19
 datamodel_generate -f mos_target_skies_v1 -p MOS_TARGET/{v_targ}/mos_skies_v1-{num}.fits -k v_targ=1.0.2 -k num=01 -r DR19
-datamodel_generate -f mos_target_skymapper_gaia -p MOS_TARGET/{v_targ}/mos_skymapper_gaia-{num}.fits -k v_targ=1.0.2 -k num=01 -r DR19
-datamodel_generate -f mos_target_tycho2 -p MOS_TARGET/{v_targ}/mos_tycho2-{num}.fits -k v_targ=1.0.2 -k num=01 -r DR19
+datamodel_generate -f mos_target_skymapper_gaia -p MOS_TARGET/{v_targ}/mos_skymapper_gaia-{num}.fits -k v_targ=1.0.2 -k num=1 -r DR19
 datamodel_generate -f mos_target_unwise -p MOS_TARGET/{v_targ}/mos_unwise-{num}.fits -k v_targ=1.0.2 -k num=01 -r DR19
+
+
+
+
+===
+datamodel_generate -f mos_target_catalog_to_sdss_dr16_specobj -p MOS_TARGET/{v_targ}/mos_catalog_to_sdss_dr16_specobj-{num}.fits -k v_targ=1.0.2 -k num=1 -r DR19
+datamodel_generate -f mos_target_catalog_to_tycho2 -p MOS_TARGET/{v_targ}/mos_catalog_to_tycho2-{num}.fits -k v_targ=1.0.2 -k num=01 -r DR19
+datamodel_generate -f mos_target_sdss_dr16_specobj -p MOS_TARGET/{v_targ}/mos_sdss_dr16_specobj-{num}.fits -k v_targ=1.0.2 -k num=01 -r DR19
+datamodel_generate -f mos_target_tycho2 -p MOS_TARGET/{v_targ}/mos_tycho2-{num}.fits -k v_targ=1.0.2 -k num=01 -r DR19
