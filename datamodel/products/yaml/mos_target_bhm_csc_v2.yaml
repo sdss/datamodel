@@ -1,16 +1,20 @@
 general:
   name: mos_target_bhm_csc_v2
-  short: 'MOS Target table: mos_target_bhm_csc_v2'
-  description: ': CSC2 X-ray sources that have been matched'
+  short: 'MOS Target Table: bhm_csc_v2'
+  description: CSC2 X-ray sources that have been matched
   datatype: FITS
   filesize: 27 MB
   releases:
   - DR18
   - DR19
-  environments: '[''MOS_TARGET'']'
-  surveys: SDSS-V Multi-Object Spectroscopy (MOS)
-  naming_convention: $MOS_TARGET/[V_TARG]/mos_bhm_csc_v2.fits, where V_TARG=1.0.2
-    for DR19
+  environments:
+  - MOS_TARGET
+  surveys:
+  - BHM
+  - MWM
+  - SDSS
+  naming_convention: $MOS_TARGET/[V_TARG]/mos_bhm_csc_v2-[NUM].fits, where V_TARG=1.0.1
+    for DR18; and NUM = 1..1 to partition the file into parts
   generated_by: sdss5db> targetdb, operations database server
   design: false
   vac: false
@@ -287,12 +291,12 @@ releases:
             name: xra
             type: float64
             unit: deg
-            description: 'RA of X-ray source from CSC2 '
+            description: RA of X-ray source from CSC2
           xdec:
             name: xdec
             type: float64
             unit: deg
-            description: 'Dec of X-ray source from CSC2 '
+            description: Dec of X-ray source from CSC2
           pri:
             name: pri
             type: int16
@@ -312,17 +316,17 @@ releases:
             name: ora
             type: float64
             unit: deg
-            description: 'right ascension (2000) from optical catalog '
+            description: right ascension (2000) from optical catalog
           odec:
             name: odec
             type: float64
             unit: deg
-            description: 'declination (2000) from optical catalog '
+            description: declination (2000) from optical catalog
           omag:
             name: omag
             type: float32
             unit: mag
-            description: 'optical magnitude from optical catalog '
+            description: optical magnitude from optical catalog
           omatchtype:
             name: omatchtype
             type: int16
@@ -338,17 +342,17 @@ releases:
             name: ra2m
             type: float64
             unit: deg
-            description: 'right ascension (2000) from 2MASS '
+            description: right ascension (2000) from 2MASS
           dec2m:
             name: dec2m
             type: float64
             unit: deg
-            description: 'declination (2000) from 2MASS '
+            description: declination (2000) from 2MASS
           hmag:
             name: hmag
             type: float32
             unit: mag
-            description: 'H mag from 2MASS '
+            description: H mag from 2MASS
           irmatchtype:
             name: irmatchtype
             type: int16
@@ -359,17 +363,17 @@ releases:
             name: lgal
             type: float64
             unit: deg
-            description: 'Galactic longitude (from X-ray position) '
+            description: Galactic longitude (from X-ray position)
           bgal:
             name: bgal
             type: float64
             unit: deg
-            description: 'Galactic latitude (from X-ray position) '
+            description: Galactic latitude (from X-ray position)
           logfx:
             name: logfx
             type: float32
             unit: ''
-            description: 'log10 of X-ray cgs flux in xband '
+            description: log10 of X-ray cgs flux in xband
           xband:
             name: xband
             type: char[1]
@@ -407,5 +411,7 @@ releases:
             type: int64
             unit: ''
             description: primary key of the database table
-notes: None
-regrets: I have no regrets!
+notes: |-
+  None
+regrets: |-
+  I have no regrets!
