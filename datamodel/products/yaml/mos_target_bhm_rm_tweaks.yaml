@@ -1,7 +1,12 @@
 general:
   name: mos_target_bhm_rm_tweaks
   short: 'MOS Target table: mos_target_bhm_rm_tweaks'
-  description: ': This table enables small modifications to be made to the set of'
+  description: This table enables small modifications to be made to the set of reverberation
+    mapping (RM) targets selected for observation in SDSS-V. The dr19_bhm_rm_tweaks
+    table allows identification of i) confirmed QSOs which were observed in plate
+    mode that should be preferentially targeted in forward-looking FPS mode observations,
+    and ii) reject candidates which the plate-mode observations have revealed to be
+    unsuitable for continued RM studies.
   datatype: FITS
   filesize: 222 KB
   releases:
@@ -30,10 +35,11 @@ releases:
     location: '{v_targ}/mos_bhm_rm_tweaks.fits'
     environment: MOS_TARGET
     access:
-      in_sdss_access: false
-      path_name: null
-      path_template: null
-      path_kwargs: null
+      in_sdss_access: true
+      path_name: mos_target_bhm_rm_tweaks
+      path_template: $MOS_TARGET/{v_targ}/mos_bhm_rm_tweaks.fits
+      path_kwargs:
+      - v_targ
       access_string: mos_target_bhm_rm_tweaks = $MOS_TARGET/{v_targ}/mos_bhm_rm_tweaks.fits
     survey: SDSS
     hdus:
@@ -170,32 +176,32 @@ releases:
             name: mag_u
             type: float32
             unit: mag
-            description: 'optical magnitude of the target (u-band) '
+            description: optical magnitude of the target (u-band)
           mag_g:
             name: mag_g
             type: float32
             unit: mag
-            description: 'optical magnitude of the target (g-band) '
+            description: optical magnitude of the target (g-band)
           mag_r:
             name: mag_r
             type: float32
             unit: mag
-            description: 'optical magnitude of the target (r-band) '
+            description: optical magnitude of the target (r-band)
           mag_i:
             name: mag_i
             type: float32
             unit: mag
-            description: 'optical magnitude of the target (i-band) '
+            description: optical magnitude of the target (i-band)
           mag_z:
             name: mag_z
             type: float32
             unit: mag
-            description: 'optical magnitude of the target (z-band) '
+            description: optical magnitude of the target (z-band)
           gaia_g:
             name: gaia_g
             type: float32
             unit: mag
-            description: 'optical magnitude of the target (Gaia G-band) '
+            description: optical magnitude of the target (Gaia G-band)
           date_set:
             name: date_set
             type: char[11]

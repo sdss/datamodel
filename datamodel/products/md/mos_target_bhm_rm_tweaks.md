@@ -13,7 +13,7 @@ MOS Target table: mos_target_bhm_rm_tweaks
 ---
 
 ## Basic Information
-: This table enables small modifications to be made to the set of
+This table enables small modifications to be made to the set of reverberation mapping (RM) targets selected for observation in SDSS-V. The dr19_bhm_rm_tweaks table allows identification of i) confirmed QSOs which were observed in plate mode that should be preferentially targeted in forward-looking FPS mode observations, and ii) reject candidates which the plate-mode observations have revealed to be unsuitable for continued RM studies.
 
 ### Naming Convention
 $MOS_TARGET/[V_TARG]/mos_bhm_rm_tweaks.fits, where V_TARG=1.0.2 for DR19
@@ -104,12 +104,12 @@ Name | Type | Unit | Description |
  | rm_suitability | int32 |  | Flag indicating if this target is well suited to continued RM observation. Known values are: -1 - unconfirmed (but might still be a good QSO target, e.g. due to unplugged fiber, or unverified visual inspection); 0 - target is probably unsuitable for RM, do not observe in the future; 1 - target is probably suitable for RM |
  | in_plate | bool |  | flag indicating if this target was included in a plate design during SDSS-V plate observations |
  | firstcarton | char[17] |  | 'firstcarton' that selected this target for observation in the SDSS-V plate-mode operations phase |
- | mag_u | float32 | mag | optical magnitude of the target (u-band)  |
- | mag_g | float32 | mag | optical magnitude of the target (g-band)  |
- | mag_r | float32 | mag | optical magnitude of the target (r-band)  |
- | mag_i | float32 | mag | optical magnitude of the target (i-band)  |
- | mag_z | float32 | mag | optical magnitude of the target (z-band)  |
- | gaia_g | float32 | mag | optical magnitude of the target (Gaia G-band)  |
+ | mag_u | float32 | mag | optical magnitude of the target (u-band) |
+ | mag_g | float32 | mag | optical magnitude of the target (g-band) |
+ | mag_r | float32 | mag | optical magnitude of the target (r-band) |
+ | mag_i | float32 | mag | optical magnitude of the target (i-band) |
+ | mag_z | float32 | mag | optical magnitude of the target (z-band) |
+ | gaia_g | float32 | mag | optical magnitude of the target (Gaia G-band) |
  | date_set | char[11] |  | Human readable date string, e.g. '25-Nov-2020' that indicates roughly when this entry was added |
  | pkey | int64 |  | primary key of the table entry |
 
