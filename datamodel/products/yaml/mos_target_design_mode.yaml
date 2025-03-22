@@ -1,7 +1,8 @@
 general:
   name: mos_target_design_mode
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: 'MOS Target table: mos_target_design_mode'
+  description: The parameters for the metrics that descirbe a given Design Mode, where
+    a Design Mode constrains the assignments on a design.
   datatype: FITS
   filesize: 30 KB
   releases:
@@ -9,11 +10,12 @@ general:
   environments:
   - MOS_TARGET
   surveys:
+  - BHM
+  - MWM
   - SDSS
-  naming_convention: replace me - with $MOS_TARGET/[V_TARG]/mos_design_mode.fits or
-    mos_design_mode.fits but with regex pattern matches
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  naming_convention: $MOS_TARGET/[V_TARG]/mos_design_mode.fits, where V_TARG=1.0.2
+    for DR19
+  generated_by: sdss5db> targetdb, operations database server
   data_level: 2.3.3
   design: false
   vac: false
@@ -29,16 +31,17 @@ releases:
     location: '{v_targ}/mos_design_mode.fits'
     environment: MOS_TARGET
     access:
-      in_sdss_access: false
-      path_name: null
-      path_template: null
-      path_kwargs: null
+      in_sdss_access: true
+      path_name: mos_target_design_mode
+      path_template: $MOS_TARGET/{v_targ}/mos_design_mode.fits
+      path_kwargs:
+      - v_targ
       access_string: mos_target_design_mode = $MOS_TARGET/{v_targ}/mos_design_mode.fits
     survey: SDSS
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: Primary header
         is_image: true
         size: 0 bytes
         header:
@@ -56,7 +59,7 @@ releases:
           comment: ''
       hdu1:
         name: ''
-        description: replace me description
+        description: 'MOS Target table: mos_target_design_mode'
         is_image: false
         size: 10 KB
         header:
@@ -100,499 +103,511 @@ releases:
           label:
             name: label
             type: char[27]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The primary key. A string label.
           boss_skies_min:
             name: boss_skies_min
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Minimum number of Boss skies needed for design.
           apogee_skies_min:
             name: apogee_skies_min
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Minimum number of Apogee skies needed for design.
           boss_stds_min:
             name: boss_stds_min
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Minimum number of Boss standards needed for design.
           apogee_stds_min:
             name: apogee_stds_min
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Minimum number of Apogee standards needed for design.
           boss_trace_diff_targets:
             name: boss_trace_diff_targets
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Limit for magnitude difference between adjacent traces on
+              Boss instrument.
           apogee_trace_diff_targets:
             name: apogee_trace_diff_targets
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Limit for magnitude difference between adjacent traces on
+              Apogee instrument.
           boss_skies_fov_k:
             name: boss_skies_fov_k
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The kth neighbor to measure distance to for the Field of
+              View metric for Boss skies.
           boss_skies_fov_perc:
             name: boss_skies_fov_perc
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The percentile of the distances for the Field of View metric
+              for Boss skies.
           boss_skies_fov_perc_dist:
             name: boss_skies_fov_perc_dist
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The maximum percentile distance for the Field of View metric
+              for Boss skies.
           apogee_skies_fov_k:
             name: apogee_skies_fov_k
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The kth neighbor to measure distance to for the Field of
+              View metric for Apogee skies.
           apogee_skies_fov_perc:
             name: apogee_skies_fov_perc
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The percentile of the distances for the Field of View metric
+              for Apogee skies.
           apogee_skies_fov_perc_dist:
             name: apogee_skies_fov_perc_dist
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The maximum percentile distance for the Field of View metric
+              for Apogee skies.
           boss_stds_fov_k:
             name: boss_stds_fov_k
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The kth neighbor to measure distance to for the Field of
+              View metric for Boss standards.
           boss_stds_fov_perc:
             name: boss_stds_fov_perc
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The percentile of the distances for the Field of View metric
+              for Boss standards.
           boss_stds_fov_perc_dist:
             name: boss_stds_fov_perc_dist
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The maximum percentile distance for the Field of View metric
+              for Boss standards.
           apogee_stds_fov_k:
             name: apogee_stds_fov_k
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The kth neighbor to measure distance to for the Field of
+              View metric for Apogee standards.
           apogee_stds_fov_perc:
             name: apogee_stds_fov_perc
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The percentile of the distances for the Field of View metric
+              for Apogee standards.
           apogee_stds_fov_perc_dist:
             name: apogee_stds_fov_perc_dist
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The maximum percentile distance for the Field of View metric
+              for Apogee standards.
           boss_stds_mags_min_g:
             name: boss_stds_mags_min_g
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The minimum optical g magnitude for Boss standards.
           boss_stds_mags_min_r:
             name: boss_stds_mags_min_r
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The minimum optical r magnitude for Boss standards.
           boss_stds_mags_min_i:
             name: boss_stds_mags_min_i
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The minimum optical i magnitude for Boss standards.
           boss_stds_mags_min_z:
             name: boss_stds_mags_min_z
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The minimum optical z magnitude for Boss standards.
           boss_stds_mags_min_bp:
             name: boss_stds_mags_min_bp
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The minimum Gaia BP magnitude for Boss standards.
           boss_stds_mags_min_gaia_g:
             name: boss_stds_mags_min_gaia_g
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The minimum Gaia G magnitude for Boss standards.
           boss_stds_mags_min_rp:
             name: boss_stds_mags_min_rp
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The minimum Gaia RP magnitude for Boss standards.
           boss_stds_mags_min_j:
             name: boss_stds_mags_min_j
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The minimum IR J magnitude for Boss standards.
           boss_stds_mags_min_h:
             name: boss_stds_mags_min_h
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The minimum IR H magnitude for Boss standards.
           boss_stds_mags_min_k:
             name: boss_stds_mags_min_k
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The minimum IR K magnitude for Boss standards.
           boss_stds_mags_max_g:
             name: boss_stds_mags_max_g
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The maximum optical g magnitude for Boss standards.
           boss_stds_mags_max_r:
             name: boss_stds_mags_max_r
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The maximum optical r magnitude for Boss standards.
           boss_stds_mags_max_i:
             name: boss_stds_mags_max_i
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The maximum optical i magnitude for Boss standards.
           boss_stds_mags_max_z:
             name: boss_stds_mags_max_z
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The maximum optical z magnitude for Boss standards.
           boss_stds_mags_max_bp:
             name: boss_stds_mags_max_bp
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The maximum Gaia BP magnitude for Boss standards.
           boss_stds_mags_max_gaia_g:
             name: boss_stds_mags_max_gaia_g
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The maximum Gaia G magnitude for Boss standards.
           boss_stds_mags_max_rp:
             name: boss_stds_mags_max_rp
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The maximum Gaia RP magnitude for Boss standards.
           boss_stds_mags_max_j:
             name: boss_stds_mags_max_j
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The maximum IR J magnitude for Boss standards.
           boss_stds_mags_max_h:
             name: boss_stds_mags_max_h
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The maximum IR H magnitude for Boss standards.
           boss_stds_mags_max_k:
             name: boss_stds_mags_max_k
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The maximum IR K magnitude for Boss standards.
           apogee_stds_mags_min_g:
             name: apogee_stds_mags_min_g
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The minimum optical g magnitude for Apogee standards.
           apogee_stds_mags_min_r:
             name: apogee_stds_mags_min_r
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The minimum optical r magnitude for Apogee standards.
           apogee_stds_mags_min_i:
             name: apogee_stds_mags_min_i
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The minimum optical i magnitude for Apogee standards.
           apogee_stds_mags_min_z:
             name: apogee_stds_mags_min_z
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The minimum optical z magnitude for Apogee standards.
           apogee_stds_mags_min_bp:
             name: apogee_stds_mags_min_bp
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The minimum Gaia BP magnitude for Apogee standards.
           apogee_stds_mags_min_gaia_g:
             name: apogee_stds_mags_min_gaia_g
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The minimum Gaia G magnitude for Apogee standards.
           apogee_stds_mags_min_rp:
             name: apogee_stds_mags_min_rp
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The minimum Gaia RP magnitude for Apogee standards.
           apogee_stds_mags_min_j:
             name: apogee_stds_mags_min_j
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The minimum IR J magnitude for Apogee standards.
           apogee_stds_mags_min_h:
             name: apogee_stds_mags_min_h
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The minimum IR H magnitude for Apogee standards.
           apogee_stds_mags_min_k:
             name: apogee_stds_mags_min_k
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The minimum IR K magnitude for Apogee standards.
           apogee_stds_mags_max_g:
             name: apogee_stds_mags_max_g
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The maximum optical g magnitude for Apogee standards.
           apogee_stds_mags_max_r:
             name: apogee_stds_mags_max_r
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The maximum optical r magnitude for Apogee standards.
           apogee_stds_mags_max_i:
             name: apogee_stds_mags_max_i
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The maximum optical i magnitude for Apogee standards.
           apogee_stds_mags_max_z:
             name: apogee_stds_mags_max_z
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The maximum optical z magnitude for Apogee standards.
           apogee_stds_mags_max_bp:
             name: apogee_stds_mags_max_bp
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The maximum Gaia BP magnitude for Apogee standards.
           apogee_stds_mags_max_gaia_g:
             name: apogee_stds_mags_max_gaia_g
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The maximum Gaia G magnitude for Apogee standards.
           apogee_stds_mags_max_rp:
             name: apogee_stds_mags_max_rp
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The maximum Gaia RP magnitude for Apogee standards.
           apogee_stds_mags_max_j:
             name: apogee_stds_mags_max_j
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The maximum IR J magnitude for Apogee standards.
           apogee_stds_mags_max_h:
             name: apogee_stds_mags_max_h
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The maximum IR H magnitude for Apogee standards.
           apogee_stds_mags_max_k:
             name: apogee_stds_mags_max_k
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The maximum IR K magnitude for Apogee standards.
           boss_bright_limit_targets_min_g:
             name: boss_bright_limit_targets_min_g
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The minimum optical g magnitude for Boss science targets.
           boss_bright_limit_targets_min_r:
             name: boss_bright_limit_targets_min_r
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The minimum optical r magnitude for Boss science targets.
           boss_bright_limit_targets_min_i:
             name: boss_bright_limit_targets_min_i
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The minimum optical i magnitude for Boss science targets.
           boss_bright_limit_targets_min_z:
             name: boss_bright_limit_targets_min_z
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The minimum optical z magnitude for Boss science targets.
           boss_bright_limit_targets_min_bp:
             name: boss_bright_limit_targets_min_bp
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The minimum Gaia BP magnitude for Boss science targets.
           boss_bright_limit_targets_min_gaia_g:
             name: boss_bright_limit_targets_min_gaia_g
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The minimum Gaia G magnitude for Boss science targets.
           boss_bright_limit_targets_min_rp:
             name: boss_bright_limit_targets_min_rp
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The minimum Gaia RP magnitude for Boss science targets.
           boss_bright_limit_targets_min_j:
             name: boss_bright_limit_targets_min_j
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The minimum IR J magnitude for Boss science targets.
           boss_bright_limit_targets_min_h:
             name: boss_bright_limit_targets_min_h
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The minimum IR H magnitude for Boss science targets.
           boss_bright_limit_targets_min_k:
             name: boss_bright_limit_targets_min_k
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The minimum IR K magnitude for Boss science targets.
           boss_bright_limit_targets_max_g:
             name: boss_bright_limit_targets_max_g
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The maximum optical g magnitude for Boss science targets.
           boss_bright_limit_targets_max_r:
             name: boss_bright_limit_targets_max_r
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The maximum optical r magnitude for Boss science targets.
           boss_bright_limit_targets_max_i:
             name: boss_bright_limit_targets_max_i
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The maximum optical i magnitude for Boss science targets.
           boss_bright_limit_targets_max_z:
             name: boss_bright_limit_targets_max_z
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The maximum optical z magnitude for Boss science targets.
           boss_bright_limit_targets_max_bp:
             name: boss_bright_limit_targets_max_bp
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The maximum Gaia BP magnitude for Boss science targets.
           boss_bright_limit_targets_max_gaia_g:
             name: boss_bright_limit_targets_max_gaia_g
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The maximum Gaia G magnitude for Boss science targets.
           boss_bright_limit_targets_max_rp:
             name: boss_bright_limit_targets_max_rp
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The maximum Gaia RP magnitude for Boss science targets.
           boss_bright_limit_targets_max_j:
             name: boss_bright_limit_targets_max_j
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The maximum IR J magnitude for Boss science targets.
           boss_bright_limit_targets_max_h:
             name: boss_bright_limit_targets_max_h
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The maximum IR H magnitude for Boss science targets.
           boss_bright_limit_targets_max_k:
             name: boss_bright_limit_targets_max_k
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The maximum IR K magnitude for Boss science targets.
           apogee_bright_limit_targets_min_g:
             name: apogee_bright_limit_targets_min_g
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The minimum optical g magnitude for Apogee science targets.
           apogee_bright_limit_targets_min_r:
             name: apogee_bright_limit_targets_min_r
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The minimum optical r magnitude for Apogee science targets.
           apogee_bright_limit_targets_min_i:
             name: apogee_bright_limit_targets_min_i
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The minimum optical i magnitude for Apogee science targets.
           apogee_bright_limit_targets_min_z:
             name: apogee_bright_limit_targets_min_z
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The minimum optical z magnitude for Apogee science targets.
           apogee_bright_limit_targets_min_bp:
             name: apogee_bright_limit_targets_min_bp
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The minimum Gaia BP magnitude for Apogee science targets.
           apogee_bright_limit_targets_min_gaia_g:
             name: apogee_bright_limit_targets_min_gaia_g
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The minimum Gaia G magnitude for Apogee science targets.
           apogee_bright_limit_targets_min_rp:
             name: apogee_bright_limit_targets_min_rp
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The minimum Gaia RP magnitude for Apogee science targets.
           apogee_bright_limit_targets_min_j:
             name: apogee_bright_limit_targets_min_j
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The minimum IR J magnitude for Apogee science targets.
           apogee_bright_limit_targets_min_h:
             name: apogee_bright_limit_targets_min_h
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The minimum IR H magnitude for Apogee science targets.
           apogee_bright_limit_targets_min_k:
             name: apogee_bright_limit_targets_min_k
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The minimum IR K magnitude for Apogee science targets.
           apogee_bright_limit_targets_max_g:
             name: apogee_bright_limit_targets_max_g
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The maximum optical g magnitude for Apogee science targets.
           apogee_bright_limit_targets_max_r:
             name: apogee_bright_limit_targets_max_r
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The maximum optical r magnitude for Apogee science targets.
           apogee_bright_limit_targets_max_i:
             name: apogee_bright_limit_targets_max_i
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The maximum optical i magnitude for Apogee science targets.
           apogee_bright_limit_targets_max_z:
             name: apogee_bright_limit_targets_max_z
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The maximum optical z magnitude for Apogee science targets.
           apogee_bright_limit_targets_max_bp:
             name: apogee_bright_limit_targets_max_bp
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The maximum Gaia BP magnitude for Apogee science targets.
           apogee_bright_limit_targets_max_gaia_g:
             name: apogee_bright_limit_targets_max_gaia_g
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The maximum Gaia G magnitude for Apogee science targets.
           apogee_bright_limit_targets_max_rp:
             name: apogee_bright_limit_targets_max_rp
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The maximum Gaia RP magnitude for Apogee science targets.
           apogee_bright_limit_targets_max_j:
             name: apogee_bright_limit_targets_max_j
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The maximum IR J magnitude for Apogee science targets.
           apogee_bright_limit_targets_max_h:
             name: apogee_bright_limit_targets_max_h
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The maximum IR H magnitude for Apogee science targets.
           apogee_bright_limit_targets_max_k:
             name: apogee_bright_limit_targets_max_k
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
-notes: |-
-  None
-regrets: |-
-  I  have no regrets!
+            unit: ''
+            description: The maximum IR K magnitude for Apogee science targets.
+notes: None
+regrets: I  have no regrets!
