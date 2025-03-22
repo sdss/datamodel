@@ -1,7 +1,9 @@
 general:
   name: mos_target_opsdb_apo_camera_frame
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: 'MOS Target table: mos_target_opsdb_apo_camera_frame'
+  description: The table contains signal-to-noise estimates for each 'camera', for
+    each exposure. APOGEE is treated as one camera, while R1/2 and B1/2 are treated
+    separately.
   datatype: FITS
   filesize: 3 MB
   releases:
@@ -9,11 +11,12 @@ general:
   environments:
   - MOS_TARGET
   surveys:
+  - BHM
+  - MWM
   - SDSS
-  naming_convention: replace me - with $MOS_TARGET/[V_TARG]/mos_opsdb_apo_camera_frame.fits
-    or mos_opsdb_apo_camera_frame.fits but with regex pattern matches
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  naming_convention: $MOS_TARGET/[V_TARG]/mos_opsdb_apo_camera_frame.fits, where V_TARG=1.0.2
+    for DR19
+  generated_by: sdss5db> targetdb, operations database server
   data_level: 2.3.3
   design: false
   vac: false
@@ -29,16 +32,17 @@ releases:
     location: '{v_targ}/mos_opsdb_apo_camera_frame.fits'
     environment: MOS_TARGET
     access:
-      in_sdss_access: false
-      path_name: null
-      path_template: null
-      path_kwargs: null
+      in_sdss_access: true
+      path_name: mos_target_opsdb_apo_camera_frame
+      path_template: $MOS_TARGET/{v_targ}/mos_opsdb_apo_camera_frame.fits
+      path_kwargs:
+      - v_targ
       access_string: mos_target_opsdb_apo_camera_frame = $MOS_TARGET/{v_targ}/mos_opsdb_apo_camera_frame.fits
     survey: SDSS
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: Primary header
         is_image: true
         size: 0 bytes
         header:
@@ -56,7 +60,7 @@ releases:
           comment: ''
       hdu1:
         name: ''
-        description: replace me description
+        description: 'MOS Target table: mos_target_opsdb_apo_camera_frame'
         is_image: false
         size: 3 MB
         header:
@@ -97,28 +101,29 @@ releases:
           pk:
             name: pk
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Unique identifier
           exposure_pk:
             name: exposure_pk
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Unique identifier in the exposure table
           camera_pk:
             name: camera_pk
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Unique identifier in the camera table
           sn2:
             name: sn2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Signal-to-noise squared estimate from on-mountain quick reduction
+              pipelines
           comment:
             name: comment
             type: char[104]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: An optional comment
 notes: |-
   None
 regrets: |-
