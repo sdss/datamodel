@@ -1,7 +1,15 @@
 general:
   name: mos_target_gaia_assas_sn_cepheids
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: 'MOS Target table: mos_target_gaia_assas_sn_cepheids'
+  description: 'Well-defined and characterized all-sky sample of classical Cepheids
+    in the Milky Way, obtained by combining two time-domain all-sky surveys: Gaia
+    DR2 (Gaia Col. 2018; see I/345) and All-Sky Automated Survey for Supernovae (ASAS-SN;
+    Shappee+ 2014AAS...22323603S) and presented in Inno+2021.   Inno+21 use parallax
+    and variability information from Gaia  to select ~30000 bright (G<17) Cepheid
+    candidates with M_K_{<}-1.  They analyze their ASAS-SN V-band light curves, determining
+    periods  and classifying the light curves using their Fourier parameters.  This
+    results in ~1900 likely Galactic Cepheids, Inno+21 estimate  to be >~90% complete
+    and pure within their adopted selection criteria.'
   datatype: FITS
   filesize: 1 MB
   releases:
@@ -9,11 +17,12 @@ general:
   environments:
   - MOS_TARGET
   surveys:
+  - BHM
+  - MWM
   - SDSS
-  naming_convention: replace me - with $MOS_TARGET/[V_TARG]/mos_gaia_assas_sn_cepheids.fits
-    or mos_gaia_assas_sn_cepheids.fits but with regex pattern matches
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  naming_convention: $MOS_TARGET/[V_TARG]/mos_gaia_assas_sn_cepheids.fits, where V_TARG=1.0.2
+    for DR19
+  generated_by: sdss5db> targetdb, operations database server
   data_level: 2.3.3
   design: false
   vac: false
@@ -29,16 +38,17 @@ releases:
     location: '{v_targ}/mos_gaia_assas_sn_cepheids.fits'
     environment: MOS_TARGET
     access:
-      in_sdss_access: false
-      path_name: null
-      path_template: null
-      path_kwargs: null
+      in_sdss_access: true
+      path_name: mos_target_gaia_assas_sn_cepheids
+      path_template: $MOS_TARGET/{v_targ}/mos_gaia_assas_sn_cepheids.fits
+      path_kwargs:
+      - v_targ
       access_string: mos_target_gaia_assas_sn_cepheids = $MOS_TARGET/{v_targ}/mos_gaia_assas_sn_cepheids.fits
     survey: SDSS
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: Primary header
         is_image: true
         size: 0 bytes
         header:
@@ -56,7 +66,7 @@ releases:
           comment: ''
       hdu1:
         name: ''
-        description: replace me description
+        description: 'MOS Target table: mos_target_gaia_assas_sn_cepheids'
         is_image: false
         size: 1 MB
         header:
@@ -112,48 +122,49 @@ releases:
           source:
             name: source
             type: char[12]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Source of photometric data
           ref:
             name: ref
             type: char[3]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Reference of the catalog from which period and mode are adopted
+              (I20 = Inno+21)
           star:
             name: star
             type: char[23]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Name of the star from literature sources
           period:
             name: period
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: days
+            description: Period
           amp_v:
             name: amp_v
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Variability amplitude in the V band
           mean_v:
             name: mean_v
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Mean V band magnitude
           a1_v:
             name: a1_v
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: A_1 column in Table 2 of Inno+2021
           source_id:
             name: source_id
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Unique Gaia DR2 source identifier
           random_index:
             name: random_index
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Random index used to select subsets
           ref_epoch:
             name: ref_epoch
             type: float32
@@ -162,343 +173,369 @@ releases:
           ra:
             name: ra
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: Right ascension
           ra_error:
             name: ra_error
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mas
+            description: Standard error of right ascenscion
           dec:
             name: dec
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: Declination
           dec_error:
             name: dec_error
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mas
+            description: Standard error of declination
           parallax:
             name: parallax
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mas
+            description: Absolute stellar parallax of the source at J2015.5
           parallax_error:
             name: parallax_error
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mas
+            description: Standard error of parallax
           parallax_over_error:
             name: parallax_over_error
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Ratio of parallax/parallax_error
           pmra:
             name: pmra
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mas/yr
+            description: Proper motion in right ascension
           pmra_error:
             name: pmra_error
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mas/yr
+            description: Standard error of proper motion in right ascension
           pmdec:
             name: pmdec
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mas/yr
+            description: Proper motion in right declination
           pmdec_error:
             name: pmdec_error
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mas/yr
+            description: Standard error of proper motion in declination
           ra_dec_corr:
             name: ra_dec_corr
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Correlation between right ascension and declination
           ra_parallax_corr:
             name: ra_parallax_corr
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Correlation between right ascension and parallax
           ra_pmra_corr:
             name: ra_pmra_corr
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Correlation between right ascension and proper motion in
+              right ascension
           ra_pmdec_corr:
             name: ra_pmdec_corr
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Correlation between right ascension and proper motion in
+              declination
           dec_parallax_corr:
             name: dec_parallax_corr
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Correlation between declination and parallax
           dec_pmra_corr:
             name: dec_pmra_corr
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Correlation between declination and proper motion in right
+              ascension
           dec_pmdec_corr:
             name: dec_pmdec_corr
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Correlation between declination and proper motion in declination
           parallax_pmra_corr:
             name: parallax_pmra_corr
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Correlation between parallax and proper motion in right ascension
           parallax_pmdec_corr:
             name: parallax_pmdec_corr
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Correlation between parallax and proper motion in declination
           pmra_pmdec_corr:
             name: pmra_pmdec_corr
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Correlation between proper motion in right ascension and
+              proper motion in declination
           phot_g_n_obs:
             name: phot_g_n_obs
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of observations contributing to G photometry
           phot_g_mean_flux:
             name: phot_g_mean_flux
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: e-/s
+            description: G-band mean flux
           phot_g_mean_flux_error:
             name: phot_g_mean_flux_error
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: e-/s
+            description: Error on G-band mean flux
           phot_g_mean_flux_over_error:
             name: phot_g_mean_flux_over_error
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: G-band mean flux divided by its error
           phot_g_mean_mag:
             name: phot_g_mean_mag
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: G-band mean magnitude
           phot_bp_n_obs:
             name: phot_bp_n_obs
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of observations contributing to BP photometry
           phot_bp_mean_flux:
             name: phot_bp_mean_flux
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: e-/s
+            description: BP-band mean flux
           phot_bp_mean_flux_error:
             name: phot_bp_mean_flux_error
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: e-/s
+            description: Error on BP-band mean flux
           phot_bp_mean_flux_over_error:
             name: phot_bp_mean_flux_over_error
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: BP-band mean flux divided by its error
           phot_bp_mean_mag:
             name: phot_bp_mean_mag
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: BP-band mean magnitude
           phot_rp_n_obs:
             name: phot_rp_n_obs
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of observations contributing to RP photometry
           phot_rp_mean_flux:
             name: phot_rp_mean_flux
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: e-/s
+            description: RP-band mean flux
           phot_rp_mean_flux_error:
             name: phot_rp_mean_flux_error
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: e-/s
+            description: Error on RP-band mean flux
           phot_rp_mean_flux_over_error:
             name: phot_rp_mean_flux_over_error
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: RP-band mean flux divided by its error
           phot_rp_mean_mag:
             name: phot_rp_mean_mag
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: RP-band mean magnitude
           phot_bp_rp_excess_factor:
             name: phot_bp_rp_excess_factor
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: BP/RP excess factor
           phot_proc_mode:
             name: phot_proc_mode
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Photometry processing mode
           bp_rp:
             name: bp_rp
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: BP - RP
           bp_g:
             name: bp_g
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: BP - G
           g_rp:
             name: g_rp
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: G - RP
           radial_velocity:
             name: radial_velocity
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: km/s
+            description: Gaia radial velocity
           radial_velocity_error:
             name: radial_velocity_error
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: km/s
+            description: Gaia radial velocity error
           a_g_val:
             name: a_g_val
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: line-of-sight extinction in the G band, A_G
           a_g_percentile_lower:
             name: a_g_percentile_lower
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: aGVal lower uncertainty
           a_g_percentile_upper:
             name: a_g_percentile_upper
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: aGVal upper uncertainty
           e_bp_min_rp_val:
             name: e_bp_min_rp_val
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: line-of-sight reddening E(BP-RP)
           e_bp_min_rp_percentile_lower:
             name: e_bp_min_rp_percentile_lower
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: eBPminRPVal lower uncertainty
           e_bp_min_rp_percentile_upper:
             name: e_bp_min_rp_percentile_upper
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: eBPminRPVal upper uncertainty
           variability:
             name: variability
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: '2'
+            description: Proxy for rms variability in the Gaia G band, defined as
+              in Eq. 2 in Inno+21
           type:
             name: type
             type: char[7]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Pulsation mode. F is Fundamental, 1O is First Overtone
           twomass:
             name: twomass
             type: char[16]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Two Mass source identifier
           raj2000:
             name: raj2000
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Right ascension (J2000)
           dej2000:
             name: dej2000
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Declination (J2000)
           errhalfmaj:
             name: errhalfmaj
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: arcsec
+            description: Semi-major axis length of the one sigma position uncertainty
+              ellipse
           errhalfmin:
             name: errhalfmin
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: arcsec
+            description: Semi-minor axis length of the one sigma position uncertainty
+              ellipse
           errposang:
             name: errposang
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: Position angle on the sky of the semi-major axis of the position
+              uncertainty ellipse (East of North)
           jmag:
             name: jmag
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Default J-band magnitude. In case of a source not detected
+              in the J-band, it is an upper limit and the corresponding total photometric
+              uncertainty is NULL. In case of a source detected in the J-band and
+              with no useful brightness estimate, it is set to NULL
           hmag:
             name: hmag
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Default H-band magnitude. In case of a source not detected
+              in the H-band, it is an upper limit and the corresponding total photometric
+              uncertainty is NULL. In case of a source detected in the H-band and
+              with no useful brightness estimate, it is set to NULL
           kmag:
             name: kmag
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Default Ks-band magnitude. In case of a source not detected
+              in the Ks-band, it is an upper limit and the corresponding total photometric
+              uncertainty is NULL. In case of a source detected in the Ks-band and
+              with no useful brightness estimate, it is set to NULL
           e_jmag:
             name: e_jmag
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Total photometric uncertainty for the default J-band magnitude.
+              This column is NULL if the default magnitude is a 95% confidence upper
+              limit (i.e. the source is not detected, or inconsistently deblended
+              in the J-band)
           e_hmag:
             name: e_hmag
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Total photometric uncertainty for the default H-band magnitude.
+              This column is NULL if the default magnitude is a 95% confidence upper
+              limit (i.e. the source is not detected, or inconsistently deblended
+              in the H-band)
           e_kmag:
             name: e_kmag
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Total photometric uncertainty for the default Ks-band magnitude.
+              This column is NULL if the default magnitude is a 95% confidence upper
+              limit (i.e. the source is not detected, or inconsistently deblended
+              in the Ks-band)
           qfl:
             name: qfl
             type: char[3]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: JHK photometric quality flag
           rfl:
             name: rfl
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: JHK default magnitude read flag
           x:
             name: x
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: Distance of source from focal plane centerline
           measurejd:
             name: measurejd
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Julian date of detection
           angdist:
             name: angdist
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: arcsec
+            description: X-match angular distance
 notes: |-
   None
 regrets: |-

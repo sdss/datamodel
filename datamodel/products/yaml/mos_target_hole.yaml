@@ -1,7 +1,7 @@
 general:
   name: mos_target_hole
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: 'MOS Target table: mos_target_hole'
+  description: The holes in which the positioners sit for the FPS at each observatory.
   datatype: FITS
   filesize: 30 KB
   releases:
@@ -9,11 +9,11 @@ general:
   environments:
   - MOS_TARGET
   surveys:
+  - BHM
+  - MWM
   - SDSS
-  naming_convention: replace me - with $MOS_TARGET/[V_TARG]/mos_hole.fits or mos_hole.fits
-    but with regex pattern matches
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  naming_convention: $MOS_TARGET/[V_TARG]/mos_hole.fits, where V_TARG=1.0.2 for DR19
+  generated_by: sdss5db> targetdb, operations database server
   data_level: 2.3.3
   design: false
   vac: false
@@ -29,16 +29,17 @@ releases:
     location: '{v_targ}/mos_hole.fits'
     environment: MOS_TARGET
     access:
-      in_sdss_access: false
-      path_name: null
-      path_template: null
-      path_kwargs: null
+      in_sdss_access: true
+      path_name: mos_target_hole
+      path_template: $MOS_TARGET/{v_targ}/mos_hole.fits
+      path_kwargs:
+      - v_targ
       access_string: mos_target_hole = $MOS_TARGET/{v_targ}/mos_hole.fits
     survey: SDSS
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: Primary header
         is_image: true
         size: 0 bytes
         header:
@@ -56,7 +57,7 @@ releases:
           comment: ''
       hdu1:
         name: ''
-        description: replace me description
+        description: 'MOS Target table: mos_target_hole'
         is_image: false
         size: 24 KB
         header:
@@ -100,28 +101,29 @@ releases:
           pk:
             name: pk
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The primary key. A sequential identifier.
           row_num:
             name: row_num
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The row of the hole in which the positioner is sitting.
           column_num:
             name: column_num
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The column of the hole in which the positioner is sitting.
           holeid:
             name: holeid
             type: char[7]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The identifier for the hole in which the positioner is sitting.
           observatory_pk:
             name: observatory_pk
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The primary key of the observatory in the dr19_observatory
+              table.
 notes: |-
   None
 regrets: |-
