@@ -18,8 +18,10 @@ datamodel_update -f mos_target_bhm_spiders_clusters_superset -r DR19
 datamodel_generate -f mos_target_catalog_to_bhm_csc -p MOS_TARGET/{v_targ}/mos_catalog_to_bhm_csc.fits -k v_targ=1.0.2 -r DR19
 datamodel_update -f mos_target_catalog_to_bhm_csc -r DR19
 
+datamodel_generate -f mos_target_catalog_to_bhm_rm_v0 -p MOS_TARGET/{v_targ}/mos_catalog_to_bhm_rm_v0.fits -k v_targ=1.0.2 -r DR19
+datamodel_update -f mos_target_catalog_to_bhm_rm_v0 -r DR19
 
-datamodel_generate -f mos_target_catalog_to_bhm_rm_v0_1 -p MOS_TARGET/{v_targ}/mos_catalog_to_bhm_rm_v0_1.fits -k v_targ=1.0.2 -r DR19
+
 datamodel_generate -f mos_target_catalog_to_mangatarget -p MOS_TARGET/{v_targ}/mos_catalog_to_mangatarget.fits -k v_targ=1.0.2 -r DR19
 datamodel_generate -f mos_target_catalog_to_marvels_dr11_star -p MOS_TARGET/{v_targ}/mos_catalog_to_marvels_dr11_star.fits -k v_targ=1.0.2 -r DR19
 datamodel_generate -f mos_target_catalog_to_marvels_dr12_star -p MOS_TARGET/{v_targ}/mos_catalog_to_marvels_dr12_star.fits -k v_targ=1.0.2 -r DR19
