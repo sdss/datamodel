@@ -63,11 +63,17 @@ datamodel_update -f mos_target_erosita_superset_stars -r DR19
 datamodel_generate -f mos_target_erosita_superset_agn -p MOS_TARGET/{v_targ}/mos_erosita_superset_agn-{num}.fits -k v_targ=1.0.2 -k num=1 -r DR19
 datamodel_update -f mos_target_erosita_superset_agn -r DR19
 
-
 datamodel_generate -f mos_target_field -p MOS_TARGET/{v_targ}/mos_field.fits -k v_targ=1.0.2 -r DR19
+datamodel_update -f mos_target_field -r DR19
+
 datamodel_generate -f mos_target_gaia_assas_sn_cepheids -p MOS_TARGET/{v_targ}/mos_gaia_assas_sn_cepheids.fits -k v_targ=1.0.2 -r DR19
+datamodel_update -f mos_target_gaia_assas_sn_cepheids -r DR19
+
 datamodel_generate -f mos_target_hole -p MOS_TARGET/{v_targ}/mos_hole.fits -k v_targ=1.0.2 -r DR19
-datamodel_generate -f mos_targeting_generation -p MOS_TARGET/{v_targ}/mos_targeting_generation.fits -k v_targ=1.0.2 -r DR19
+datamodel_update -f mos_target_hole -r DR19
+
+#datamodel_generate -f mos_targeting_generation -p MOS_TARGET/{v_targ}/mos_targeting_generation.fits -k v_targ=1.0.2 -r DR19
+
 datamodel_generate -f mos_target_mangadapall -p MOS_TARGET/{v_targ}/mos_mangadapall.fits -k v_targ=1.0.2 -r DR19
 datamodel_generate -f mos_target_mangadrpall -p MOS_TARGET/{v_targ}/mos_mangadrpall.fits -k v_targ=1.0.2 -r DR19
 datamodel_generate -f mos_target_mangatarget -p MOS_TARGET/{v_targ}/mos_mangatarget.fits -k v_targ=1.0.2 -r DR19
