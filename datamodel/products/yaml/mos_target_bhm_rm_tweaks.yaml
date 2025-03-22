@@ -1,7 +1,7 @@
 general:
   name: mos_target_bhm_rm_tweaks
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: 'MOS Target table: mos_target_bhm_rm_tweaks'
+  description: ': This table enables small modifications to be made to the set of'
   datatype: FITS
   filesize: 222 KB
   releases:
@@ -9,11 +9,12 @@ general:
   environments:
   - MOS_TARGET
   surveys:
+  - BHM
+  - MWM
   - SDSS
-  naming_convention: replace me - with $MOS_TARGET/[V_TARG]/mos_bhm_rm_tweaks.fits
-    or mos_bhm_rm_tweaks.fits but with regex pattern matches
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  naming_convention: $MOS_TARGET/[V_TARG]/mos_bhm_rm_tweaks.fits, where V_TARG=1.0.2
+    for DR19
+  generated_by: sdss5db> targetdb, operations database server
   data_level: 2.3.3
   design: false
   vac: false
@@ -38,7 +39,7 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: Primary header
         is_image: true
         size: 0 bytes
         header:
@@ -56,7 +57,7 @@ releases:
           comment: ''
       hdu1:
         name: ''
-        description: replace me description
+        description: 'MOS Target table: mos_target_bhm_rm_tweaks'
         is_image: false
         size: 211 KB
         header:
@@ -106,93 +107,106 @@ releases:
           rm_field_name:
             name: rm_field_name
             type: char[12]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Human readable name of the field (e.g. 'XMM-LSS', 'COSMOS',
+              'SDSS-RM')
           plate:
             name: plate
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: PLATEID of the SDSS-V spectrum from which the visual inspection
+              information was derived
           fiberid:
             name: fiberid
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: FIBERID of the SDSS-V spectrum from which the visual inspection
+              information was derived
           mjd:
             name: mjd
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: MJD of the SDSS-V spectrum from which the visual inspection
+              information was derived
           catalogid:
             name: catalogid
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: SDSS-V catalogid from version '0.1.0' of the crossmatch
           ra:
             name: ra
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: PLUG_RA of the SDSS-V spectrum from which the visual inspection
+              information was derived
           dec:
             name: dec
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: PLUG_DEC of the SDSS-V spectrum from which the visual inspection
+              information was derived
           rm_suitability:
             name: rm_suitability
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 'Flag indicating if this target is well suited to continued
+              RM observation. Known values are: -1 - unconfirmed (but might still
+              be a good QSO target, e.g. due to unplugged fiber, or unverified visual
+              inspection); 0 - target is probably unsuitable for RM, do not observe
+              in the future; 1 - target is probably suitable for RM'
           in_plate:
             name: in_plate
             type: bool
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: flag indicating if this target was included in a plate design
+              during SDSS-V plate observations
           firstcarton:
             name: firstcarton
             type: char[17]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: '''firstcarton'' that selected this target for observation
+              in the SDSS-V plate-mode operations phase'
           mag_u:
             name: mag_u
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: 'optical magnitude of the target (u-band) '
           mag_g:
             name: mag_g
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: 'optical magnitude of the target (g-band) '
           mag_r:
             name: mag_r
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: 'optical magnitude of the target (r-band) '
           mag_i:
             name: mag_i
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: 'optical magnitude of the target (i-band) '
           mag_z:
             name: mag_z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: 'optical magnitude of the target (z-band) '
           gaia_g:
             name: gaia_g
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: 'optical magnitude of the target (Gaia G-band) '
           date_set:
             name: date_set
             type: char[11]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Human readable date string, e.g. '25-Nov-2020' that indicates
+              roughly when this entry was added
           pkey:
             name: pkey
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: primary key of the table entry
 notes: |-
   None
 regrets: |-
