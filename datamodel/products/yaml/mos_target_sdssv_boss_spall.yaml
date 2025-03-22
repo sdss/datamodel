@@ -1,7 +1,14 @@
 general:
   name: mos_target_sdssv_boss_spall
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: 'MOS Target table: mos_target_sdssv_boss_spall'
+  description: 'The dr19_sdssv_boss_spall table is a database representation of an
+    early version of the SDSS-V BOSS spAll data product.  The dr19_sdssv_boss_spall
+    table was used within early iterations of FPS target_selection as a way to communicate
+    information about which targets had been observed in SDSS-V plates. This information
+    was used to e.g. de-prioritise targets that were expected to have a good quality
+    spectroscopic measurement before the start of SDSS-V FPS operations.  Caution.
+    The dr19_sdssv_boss_spall table should only be used in order to recreate the target_selection
+    selection function.  Column descriptions are mainly derived from: https://data.sdss.org/datamodel/files/BOSS_SPECTRO_REDUX/RUN2D/spAll.html'
   datatype: FITS
   filesize: 164 MB
   releases:
@@ -9,11 +16,12 @@ general:
   environments:
   - MOS_TARGET
   surveys:
+  - BHM
+  - MWM
   - SDSS
-  naming_convention: replace me - with $MOS_TARGET/[V_TARG]/mos_sdssv_boss_spall.fits
-    or mos_sdssv_boss_spall.fits but with regex pattern matches
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  naming_convention: $MOS_TARGET/[V_TARG]/mos_sdssv_boss_spall.fits, where V_TARG=1.0.2
+    for DR19
+  generated_by: sdss5db> targetdb, operations database server
   data_level: 2.3.3
   design: false
   vac: false
@@ -29,16 +37,17 @@ releases:
     location: '{v_targ}/mos_sdssv_boss_spall.fits'
     environment: MOS_TARGET
     access:
-      in_sdss_access: false
-      path_name: null
-      path_template: null
-      path_kwargs: null
+      in_sdss_access: true
+      path_name: mos_target_sdssv_boss_spall
+      path_template: $MOS_TARGET/{v_targ}/mos_sdssv_boss_spall.fits
+      path_kwargs:
+      - v_targ
       access_string: mos_target_sdssv_boss_spall = $MOS_TARGET/{v_targ}/mos_sdssv_boss_spall.fits
     survey: SDSS
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: Primary header
         is_image: true
         size: 0 bytes
         header:
@@ -56,7 +65,7 @@ releases:
           comment: ''
       hdu1:
         name: ''
-        description: replace me description
+        description: 'MOS Target table: mos_target_sdssv_boss_spall'
         is_image: false
         size: 164 MB
         header:
@@ -178,683 +187,706 @@ releases:
           programname:
             name: programname
             type: char[12]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Program name within a given survey
           chunk:
             name: chunk
             type: char[17]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: from platelist product
+            description: Name of tiling chunk
           survey:
             name: survey
             type: char[7]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Survey that plate is a part of
           platequality:
             name: platequality
             type: char[4]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Characterization of plate quality
           platesn2:
             name: platesn2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Overall (S/N)^2 measure for plate; minimum of all 4 cameras
           deredsn2:
             name: deredsn2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Dereddened (extinction corrected) (S/N)^2 measure for plate;
+              minimum of all 4 cameras
           primtarget:
             name: primtarget
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: n/a ignore
           sectarget:
             name: sectarget
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: n/a ignore
           lambda_eff:
             name: lambda_eff
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Angstrom
+            description: Wavelength to optimize hole location for
           bluefiber:
             name: bluefiber
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 1 if assigned target a blue fiber; 0 otherwise
           zoffset:
             name: zoffset
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Backstopping offset distance
           xfocal:
             name: xfocal
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Hole/robot x-axis position in focal plane
           yfocal:
             name: yfocal
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Hole/robot y-axis position in focal plane
           specprimary:
             name: specprimary
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Objects observed multiple times will have this set to 1 for
+              one observation only. This is usually the 'best' observation, as defined
+              by critera listed in fieldmerge.py.
           specboss:
             name: specboss
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Best version of spectrum at this location
           boss_specobj_id:
             name: boss_specobj_id
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ID of spectrum location on sky
           nspecobs:
             name: nspecobs
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of spectral observations
           calibflux_u:
             name: calibflux_u
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggy
+            description: Broad-band flux in SDSS-u from PSFmag
           calibflux_g:
             name: calibflux_g
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggy
+            description: Broad-band flux in SDSS-g from PSFmag
           calibflux_r:
             name: calibflux_r
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggy
+            description: Broad-band flux in SDSS-r from PSFmag
           calibflux_i:
             name: calibflux_i
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggy
+            description: Broad-band flux in SDSS-i from PSFmag
           calibflux_z:
             name: calibflux_z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggy
+            description: Broad-band flux in SDSS-z from PSFmag
           calibflux_ivar_u:
             name: calibflux_ivar_u
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Inverse var flux SDSS-u from PSFmag
           calibflux_ivar_g:
             name: calibflux_ivar_g
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Inverse var flux SDSS-g from PSFmag
           calibflux_ivar_r:
             name: calibflux_ivar_r
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Inverse var flux SDSS-r from PSFmag
           calibflux_ivar_i:
             name: calibflux_ivar_i
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Inverse var flux SDSS-i from PSFmag
           calibflux_ivar_z:
             name: calibflux_ivar_z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Inverse var flux SDSS-z from PSFmag
           gaia_bp:
             name: gaia_bp
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag, Vega
+            description: Gaia BP magnitude
           gaia_rp:
             name: gaia_rp
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag, Vega
+            description: Gaia RP magnitude
           gaia_g:
             name: gaia_g
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag, Vega
+            description: Gaia G magnitude
           firstcarton:
             name: firstcarton
             type: char[48]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Primary SDSS Carton for target
           mag_u:
             name: mag_u
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag, AB
+            description: u-band optical magnitude
           mag_g:
             name: mag_g
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag, AB
+            description: g-band optical magnitude
           mag_r:
             name: mag_r
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag, AB
+            description: r-band optical magnitude
           mag_i:
             name: mag_i
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag, AB
+            description: i-band optical magnitude
           mag_z:
             name: mag_z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag, AB
+            description: z-band optical magnitude
           plate:
             name: plate
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Plate ID number
           designid:
             name: designid
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Design ID number
           nexp:
             name: nexp
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of Included Exposures
           exptime:
             name: exptime
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: s
+            description: Total Exposure time of Coadded Spectra
           airmass:
             name: airmass
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Airmass at time of observation
           healpix:
             name: healpix
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: healpix pixel number of the RACAT and DECCAT coordinates,
+              computed with healpix nside=128
           healpixgrp:
             name: healpixgrp
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Rounded-down integer value of healpix / 1000
           healpix_dir:
             name: healpix_dir
             type: char[68]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Relative directory for spectra grouped by healpixel
           mjd_final:
             name: mjd_final
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Mean MJD of the Coadded Spectra
           mjd_list:
             name: mjd_list
             type: char[41]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: List of MJD of each included exposures
           tai_list:
             name: tai_list
             type: char[68]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: List Tai for each exposure (at midpoint)
           catalogid:
             name: catalogid
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: SDSS-V CatalogID used in naming
           sdssv_boss_target0:
             name: sdssv_boss_target0
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: bitmask for SDSS-V plate-era BOSS targeting
           field:
             name: field
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: SDSS FieldID (plateID for plate era data)
           tile:
             name: tile
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: n/a ignore
           mjd:
             name: mjd
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Modified Julian date of combined Spectra
           fiberid:
             name: fiberid
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Index of the fiber which observed the target
           run2d:
             name: run2d
             type: char[6]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Spectro-2D reduction name
           run1d:
             name: run1d
             type: char[6]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Spectro-1D reduction name
           objtype:
             name: objtype
             type: char[16]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Why this object was targeted.  Note that if this field says
+              QSO, it could be the case that this object would have been targeted
+              as a GALAXY or any number of other categories as well. The PRIMTARGET
+              and SECTARGET flags in the plug-map structure (in the spField file)
+              gives this full information.
           plug_ra:
             name: plug_ra
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: J2000] [degrees
+            description: Object RA (drilled fiber position)
           plug_dec:
             name: plug_dec
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: J2000] [degrees
+            description: Object DEC (drilled fiber position)
           class:
             name: class
             type: char[6]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 'Spectro classification: GALAXY, QSO, STAR'
           subclass:
             name: subclass
             type: char[21]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Spectro sub-classification
           z:
             name: z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Redshift; incorrect for nonzero ZWARNING flag
           z_err:
             name: z_err
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: z error from chi^2 min; negative is invalid fit
           rchi2:
             name: rchi2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Reduced chi^2 for best fit
           dof:
             name: dof
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Degrees of freedom for best fit
           rchi2diff:
             name: rchi2diff
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Diff in reduced chi^2 of 2 best solutions
           tfile:
             name: tfile
             type: char[24]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Template file in $IDLSPEC2D_DIR/templates
           npoly:
             name: npoly
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: '# of polynomial terms with TFILE'
           vdisp:
             name: vdisp
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: km/s
+            description: Velocity dispersion, only computed for galaxies
           vdisp_err:
             name: vdisp_err
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: km/s
+            description: Error in VDISP; negative for invalid fit
           vdispz:
             name: vdispz
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Redshift for best-fit velocity dispersion
           vdispz_err:
             name: vdispz_err
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Error in VDISPZ
           vdispchi2:
             name: vdispchi2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Chi^2 for best-fit velocity dispersion
           vdispnpix:
             name: vdispnpix
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Num of pixels overlapping VDISP fit templates
           vdispdof:
             name: vdispdof
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Degrees of freedom for best-fit velocity dispersion, equal
+              to VDISPNPIX minus the number of templates minus the number of polynomial
+              terms minus 1 (the last 1 is for the velocity dispersion)
           wavemin:
             name: wavemin
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: AA
+            description: Minimum observed (vacuum) wavelength for target
           wavemax:
             name: wavemax
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: AA
+            description: Maximum observed (vacuum) wavelength for target
           wcoverage:
             name: wcoverage
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: log10(AA)
+            description: Amount of wavelength coverage in log-10(Angs)
           zwarning:
             name: zwarning
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: A flag for bad z fits in place of CLASS=UNKNOWN
           sn_median_u:
             name: sn_median_u
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Median S/N for all good pixels in SDSS-u
           sn_median_g:
             name: sn_median_g
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Median S/N for all good pixels in SDSS-g
           sn_median_r:
             name: sn_median_r
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Median S/N for all good pixels in SDSS-r
           sn_median_i:
             name: sn_median_i
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Median S/N for all good pixels in SDSS-i
           sn_median_z:
             name: sn_median_z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Median S/N for all good pixels in SDSS-z
           sn_median_all:
             name: sn_median_all
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Median S/N for all good pixels in all filters
           chi68p:
             name: chi68p
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 68% of abs(chi) of synthetic to actual spectrum
           spectroflux_u:
             name: spectroflux_u
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggy
+            description: Spectrum projected onto SDSS-u filter
           spectroflux_g:
             name: spectroflux_g
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggy
+            description: Spectrum projected onto SDSS-g filter
           spectroflux_r:
             name: spectroflux_r
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggy
+            description: Spectrum projected onto SDSS-r filter
           spectroflux_i:
             name: spectroflux_i
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggy
+            description: Spectrum projected onto SDSS-i filter
           spectroflux_z:
             name: spectroflux_z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggy
+            description: Spectrum projected onto SDSS-z filter
           spectroflux_ivar_u:
             name: spectroflux_ivar_u
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggy
+            description: Inverse variance of SPECTROFLUX_u
           spectroflux_ivar_g:
             name: spectroflux_ivar_g
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggy
+            description: Inverse variance of SPECTROFLUX_g
           spectroflux_ivar_r:
             name: spectroflux_ivar_r
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggy
+            description: Inverse variance of SPECTROFLUX_r
           spectroflux_ivar_i:
             name: spectroflux_ivar_i
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggy
+            description: Inverse variance of SPECTROFLUX_i
           spectroflux_ivar_z:
             name: spectroflux_ivar_z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggy
+            description: Inverse variance of SPECTROFLUX_z
           spectrosynflux_u:
             name: spectrosynflux_u
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggy
+            description: Best-fit template projected onto SDSS-u
           spectrosynflux_g:
             name: spectrosynflux_g
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggy
+            description: Best-fit template projected onto SDSS-g
           spectrosynflux_r:
             name: spectrosynflux_r
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggy
+            description: Best-fit template projected onto SDSS-r
           spectrosynflux_i:
             name: spectrosynflux_i
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggy
+            description: Best-fit template projected onto SDSS-i
           spectrosynflux_z:
             name: spectrosynflux_z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggy
+            description: Best-fit template projected onto SDSS-z
           spectrosynflux_ivar_u:
             name: spectrosynflux_ivar_u
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggy
+            description: Inverse variance of SPECTROSYNFLUX_u
           spectrosynflux_ivar_g:
             name: spectrosynflux_ivar_g
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggy
+            description: Inverse variance of SPECTROSYNFLUX_g
           spectrosynflux_ivar_r:
             name: spectrosynflux_ivar_r
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggy
+            description: Inverse variance of SPECTROSYNFLUX_r
           spectrosynflux_ivar_i:
             name: spectrosynflux_ivar_i
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggy
+            description: Inverse variance of SPECTROSYNFLUX_i
           spectrosynflux_ivar_z:
             name: spectrosynflux_ivar_z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggy
+            description: Inverse variance of SPECTROSYNFLUX_z
           spectroskyflux_u:
             name: spectroskyflux_u
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggy
+            description: Sky spectrum projected onto SDSS-u filter
           spectroskyflux_g:
             name: spectroskyflux_g
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggy
+            description: Sky spectrum projected onto SDSS-g filter
           spectroskyflux_r:
             name: spectroskyflux_r
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggy
+            description: Sky spectrum projected onto SDSS-r filter
           spectroskyflux_i:
             name: spectroskyflux_i
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggy
+            description: Sky spectrum projected onto SDSS-i filter
           spectroskyflux_z:
             name: spectroskyflux_z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggy
+            description: Sky spectrum projected onto SDSS-z filter
           anyandmask:
             name: anyandmask
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: For each bit, records whether any pixel in the spectrum has
+              that bit set in its ANDMASK
           anyormask:
             name: anyormask
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: For each bit, records whether any pixel in the spectrum has
+              that bit set in its ORMASK
           spec1_g:
             name: spec1_g
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: '(S/N)^2 at g=20.20 for spectrograph #1 (same value for 500
+              fibers)'
           spec1_r:
             name: spec1_r
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: '(S/N)^2 at r=20.25 for spectrograph #1 (same value for 500
+              fibers)'
           spec1_i:
             name: spec1_i
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: '(S/N)^2 at i=19.90 for spectrograph #1 (same value for 500
+              fibers)'
           elodie_filename:
             name: elodie_filename
             type: char[16]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: File name for best-fit Elodie star
           elodie_object:
             name: elodie_object
             type: char[9]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Star name (mostly Henry Draper names)
           elodie_sptype:
             name: elodie_sptype
             type: char[12]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Spectral type
           elodie_bv:
             name: elodie_bv
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: (B-V) color
           elodie_teff:
             name: elodie_teff
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Effective temperature
           elodie_logg:
             name: elodie_logg
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Log10(gravity)
           elodie_feh:
             name: elodie_feh
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Fe/H
+            description: null
           elodie_z:
             name: elodie_z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: redshift
           elodie_z_err:
             name: elodie_z_err
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: redshift error; negative for invalid fit
           elodie_z_modelerr:
             name: elodie_z_modelerr
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The standard deviation in redshift amongst the 12 best-fit
+              stars
           elodie_rchi2:
             name: elodie_rchi2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Reduced chi^2
           elodie_dof:
             name: elodie_dof
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Degrees of freedom for fit
           z_noqso:
             name: z_noqso
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Redshift of the best-fit non-QSO model (recommended for CMASS
+              and LOZ)
           z_err_noqso:
             name: z_err_noqso
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Formal one-sigma error on Z_NOQSO (recommended for CMASS
+              and LOZ)
           znum_noqso:
             name: znum_noqso
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Best fit z/class index excluding QSO; 1-indexed (recommended
+              for CMASS and LOZ)
           zwarning_noqso:
             name: zwarning_noqso
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Redshift warning flag for Z_NOQSO (recommended for CMASS
+              and LOZ)
           class_noqso:
             name: class_noqso
             type: char[6]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Spectro class of best-fit non-QSO model (recommended for
+              CMASS and LOZ)
           subclass_noqso:
             name: subclass_noqso
             type: char[21]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Spectro sub-class of best-fit non-QSO model (recommended
+              for CMASS and LOZ)
           rchi2diff_noqso:
             name: rchi2diff_noqso
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Reduced chi^2 diff to next-best non-QSO model (recommended
+              for CMASS and LOZ)
           specobjid:
             name: specobjid
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Unique ID based on Field, MJD, SDSSID, RUN2D, COADD type
           pkey:
             name: pkey
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: primary key for table entry
 notes: |-
   None
 regrets: |-

@@ -1,7 +1,12 @@
 general:
   name: mos_target_tess_toi_v05
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: 'MOS Target table: mos_target_tess_toi_v05'
+  description: This catalog contains targets that recieved the 2 minute cadence during
+    the TESS Mission, are TESS Objects of Interest (TOI) or Community TESS Objects
+    of Interest (CTOI). The contents of this catalog were derived from the MIT TESS
+    website (https://tess.mit.edu/public/target_lists/target_lists.html) and the ExoFOP
+    website https://exofop.ipac.caltech.edu/tess/index.php. These targets were updated
+    on 2020-11-24.
   datatype: FITS
   filesize: 28 MB
   releases:
@@ -9,11 +14,12 @@ general:
   environments:
   - MOS_TARGET
   surveys:
+  - BHM
+  - MWM
   - SDSS
-  naming_convention: replace me - with $MOS_TARGET/[V_TARG]/mos_tess_toi_v05.fits
-    or mos_tess_toi_v05.fits but with regex pattern matches
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  naming_convention: $MOS_TARGET/[V_TARG]/mos_tess_toi_v05.fits, where V_TARG=1.0.2
+    for DR19
+  generated_by: sdss5db> targetdb, operations database server
   data_level: 2.3.3
   design: false
   vac: false
@@ -29,16 +35,17 @@ releases:
     location: '{v_targ}/mos_tess_toi_v05.fits'
     environment: MOS_TARGET
     access:
-      in_sdss_access: false
-      path_name: null
-      path_template: null
-      path_kwargs: null
+      in_sdss_access: true
+      path_name: mos_target_tess_toi_v05
+      path_template: $MOS_TARGET/{v_targ}/mos_tess_toi_v05.fits
+      path_kwargs:
+      - v_targ
       access_string: mos_target_tess_toi_v05 = $MOS_TARGET/{v_targ}/mos_tess_toi_v05.fits
     survey: SDSS
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: Primary header
         is_image: true
         size: 0 bytes
         header:
@@ -56,7 +63,7 @@ releases:
           comment: ''
       hdu1:
         name: ''
-        description: replace me description
+        description: 'MOS Target table: mos_target_tess_toi_v05'
         is_image: false
         size: 28 MB
         header:
@@ -94,48 +101,54 @@ releases:
           ticid:
             name: ticid
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: TESS Input Catalog (TIC) ID
           target_type:
             name: target_type
             type: char[8]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 'Type of target. Options: 2min = 2 minute cadence, exo_TOI
+              = TOI, and exo_CTOI = CTOI'
           toi:
             name: toi
             type: char[32]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: TESS Object of Interest ID
           tess_disposition:
             name: tess_disposition
             type: char[4]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 'TESS Team Dispositon Options: EB = Eclipsing Binary, KP
+              = Known Planet, PC = Planet Candidate, O = Other, or blank'
           tfopwg_disposition:
             name: tfopwg_disposition
             type: char[3]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 'TESS Follow-up Observing Program (TFOP) Working Group Disposition
+              Options: APC = Ambiguous Planet Candidate, CP = Confirmed Planet, FA
+              = False Alarm, FP = False Positive, KP = Known Planet, PC = Planet Candidate
+              or blank'
           ctoi:
             name: ctoi
             type: char[32]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Community Tareget of Interest ID
           user_disposition:
             name: user_disposition
             type: char[2]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Initial Community User Disposition
           num_sectors:
             name: num_sectors
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The total number of sectors that this object was observed
+              on as of the catalog date
           pkey:
             name: pkey
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Primary Key
 notes: |-
   None
 regrets: |-

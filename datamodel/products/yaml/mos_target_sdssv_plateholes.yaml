@@ -1,7 +1,16 @@
 general:
   name: mos_target_sdssv_plateholes
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: 'MOS Target table: mos_target_sdssv_plateholes'
+  description: 'The combination of the dr19_sdssv_plateholes and dr19_sdssv_plateholes_meta
+    tables are a database representation of the SDSS-V platelist data product (https://svn.sdss.org/public/data/sdss/platelist/trunk/).
+    These tables were used within early iterations of FPS target_selection as a way
+    to communicate information about which targets had been included in SDSS-V plates.
+    This information was used to e.g. de-prioritise targets that were expected to
+    have a good quality spectroscopic measurement by the end of the SDSS-V plate observations.
+    The dr19_sdssv_plateholes_meta table contains meta-data for each SDSS-V plate
+    (one record per plate), whereas the dr19_sdssv_plateholes table has one entry
+    for each drilled hole in each SDSS-V plate. The dr19_sdssv_plateholes and dr19_sdssv_plateholes_meta
+    tables should be joined via the yanny_uid field.  Mostly derived from: https://data.sdss.org/datamodel/files/PLATELIST_DIR/designs/DESIGNID6XX/DESIGNID6/plateDesign.html'
   datatype: FITS
   filesize: 254 MB
   releases:
@@ -9,11 +18,12 @@ general:
   environments:
   - MOS_TARGET
   surveys:
+  - BHM
+  - MWM
   - SDSS
-  naming_convention: replace me - with $MOS_TARGET/[V_TARG]/mos_sdssv_plateholes.fits
-    or mos_sdssv_plateholes.fits but with regex pattern matches
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  naming_convention: $MOS_TARGET/[V_TARG]/mos_sdssv_plateholes.fits, where V_TARG=1.0.2
+    for DR19
+  generated_by: sdss5db> targetdb, operations database server
   data_level: 2.3.3
   design: false
   vac: false
@@ -29,16 +39,17 @@ releases:
     location: '{v_targ}/mos_sdssv_plateholes.fits'
     environment: MOS_TARGET
     access:
-      in_sdss_access: false
-      path_name: null
-      path_template: null
-      path_kwargs: null
+      in_sdss_access: true
+      path_name: mos_target_sdssv_plateholes
+      path_template: $MOS_TARGET/{v_targ}/mos_sdssv_plateholes.fits
+      path_kwargs:
+      - v_targ
       access_string: mos_target_sdssv_plateholes = $MOS_TARGET/{v_targ}/mos_sdssv_plateholes.fits
     survey: SDSS
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: Primary header
         is_image: true
         size: 0 bytes
         header:
@@ -56,7 +67,7 @@ releases:
           comment: ''
       hdu1:
         name: ''
-        description: replace me description
+        description: 'MOS Target table: mos_target_sdssv_plateholes'
         is_image: false
         size: 254 MB
         header:
@@ -250,748 +261,848 @@ releases:
           holetype:
             name: holetype
             type: char[13]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: type of hole to be drilled; one of SDSS, BOSS, MARVELS, APOGEE,
+              GUIDE, CENTER, TRAP, or ALIGNMENT; this really refers to the instrument
+              to be used, so for example SEGUE targets should be either SDSS or BOSS
           targettype:
             name: targettype
             type: char[8]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: type of target; one of SCIENCE, STANDARD, or SKY (if holetype
+              is BOSS, SDSS, MARVELS or APOGEE); NA if not holetype is not one of
+              the instruments (GUIDE, CENTER, TRAP, ALIGNMENT)
           sourcetype:
             name: sourcetype
             type: char[4]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: indicate the nature of the source, one of STAR, QSO, GALAXY,
+              or NA (if targettype is NA)
           target_ra:
             name: target_ra
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: right ascension, in J2000 deg
           target_dec:
             name: target_dec
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: declination, in J2000 deg
           iplateinput:
             name: iplateinput
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: integer indicating which plateInput file from the list in
+              the plateDefinition file this came from (1-indexed); -1 or 0 if the
+              hole wasn't from a plateInput file.
           pointing:
             name: pointing
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: which pointing (1-indexed) this target is associated with;
+              note this means which pointing among the ones that this plate is designed
+              for, so if this a single pointing plate but uses the B-side MARVELS
+              fibers, this will be "1", not "2"
           offset_integer:
             name: offset_integer
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: which offset this target is associated with; 0 means it is
+              not associated with an offset, it is associated with the primary pointing
           fiberid:
             name: fiberid
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: what fiber on the appropriate instrument (as listed in holetype)
+              is assigned to this target (-9999 for none)
           block:
             name: block
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: which fiber block that fiber is associated with (-9999 for
+              none)
           iguide:
             name: iguide
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: for guide holes, which guide fiber it is assigned to (from
+              1 to 11) (-9999 for non guide holes)
           xf_default:
             name: xf_default
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: X position of hole in focal plane, given a default set of
+              observing parameters (hour angle of zero, temperature of 5 deg C), in
+              units of mm; for position angle of zero (which we always use), +X is
+              +RA
           yf_default:
             name: yf_default
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Y position of hole in focal plane, given a default set of
+              observing parameters (hour angle of zero, temperature of 5 deg C), in
+              units of mm; for position angle of zero (which we always use), +Y is
+              +Dec
           lambda_eff:
             name: lambda_eff
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: wavelength to optimize hole location for, in Angstroms (platedesign
+              will default to 5400 if not set)
           zoffset:
             name: zoffset
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: backstopping offset distance, in microns (platedesign will
+              default to 0 if not set)
           bluefiber:
             name: bluefiber
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 1 if the BOSS instrument is meant to assign this target a
+              "blue" fiber; 0 otherwise
           chunk:
             name: chunk
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: BOSS chunk number (0 if not appropriate)
           ifinal:
             name: ifinal
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 0-indexed position in BOSS final tiling file (-1 if not appropriate)
           origfile:
             name: origfile
             type: char[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: for BOSS targets, name of file that target originated within
+              (for BOSS targets, one of the bosstarget files, for ancillary targets,
+              a file within the directory.
           fileindx:
             name: fileindx
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: for BOSS targets, 0-indexed position within ORIGFILE (-1
+              if not appropriate)
           diameter:
             name: diameter
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: diameter of hole to be drilled, in mm
           buffer:
             name: buffer
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: buffer to leave around hole edge for conflicts in mm
           priority:
             name: priority
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: priority number assigned by the plateInput file; lower numbers
+              indicate higher priority
           assigned:
             name: assigned
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 1 if this was a target assigned to a fiber, 0 otherwise;
+              clearly for all targets this will be 1 for plateDesign files, but this
+              will not be the case for plateInput-output files, which also have this
+              same format.
           conflicted:
             name: conflicted
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 1 if this was a target not assigned because of a collision,
+              0 otherwise; clearly for all targets this will be 0 for plateDesign
+              files, but this will not be the case for plateInput-output files, which
+              also have this same format.
           ranout:
             name: ranout
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 1 if this was a target not assigned because we ran out of
+              fibers, 0 otherwise; clearly for all targets this will be 0 for plateDesign
+              files, but this will not be the case for plateInput-output files, which
+              also have this same format.
           outside:
             name: outside
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 1 if this was a target not assigned because it was too fare
+              from the plate center, 0 otherwise; clearly for all targets this will
+              be 0 for plateDesign files, but this will not be the case for plateInput-output
+              files, which also have this same format.
           mangaid:
             name: mangaid
             type: char[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: MaNGA identifier
           ifudesign:
             name: ifudesign
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: intended IFU identified for this object
           ifudesignsize:
             name: ifudesignsize
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: number of fibers in intended IFU identified for this object
           bundle_size:
             name: bundle_size
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: obsolete; used for number of fibers in bundle for MaNGA prototype
+              cartridge, December 2012
           fiber_size:
             name: fiber_size
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: obsolete; used for fiber size (in arcsec) for MaNGA prototype
+              cartridge, December 2012
           tmass_j:
             name: tmass_j
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 2MASS Point Source Catalog J-band magnitude; Vega-relative;
+              not Galactic extinction corrected; if available
           tmass_h:
             name: tmass_h
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 2MASS Point Source Catalog H-band magnitude; Vega-relative;
+              not Galactic extinction corrected, if available
           tmass_k:
             name: tmass_k
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 2MASS Point Source Catalog K-band magnitude; Vega-relative;
+              not Galactic extinction corrected, if available
           gsc_vmag:
             name: gsc_vmag
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: V mag from GSC if available
           tyc_bmag:
             name: tyc_bmag
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: B mag from Tycho2 if available
           tyc_vmag:
             name: tyc_vmag
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: V mag from Tycho2 if available
           mfd_mag_u:
             name: mfd_mag_u
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: MARVELS magnitudes for stars in the PRE_SELECTION plates;
+              VT, BT, V, J, H, K
           mfd_mag_g:
             name: mfd_mag_g
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: MARVELS magnitudes for stars in the PRE_SELECTION plates;
+              VT, BT, V, J, H, K
           mfd_mag_r:
             name: mfd_mag_r
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: MARVELS magnitudes for stars in the PRE_SELECTION plates;
+              VT, BT, V, J, H, K
           mfd_mag_i:
             name: mfd_mag_i
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: MARVELS magnitudes for stars in the PRE_SELECTION plates;
+              VT, BT, V, J, H, K
           mfd_mag_z:
             name: mfd_mag_z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: MARVELS magnitudes for stars in the PRE_SELECTION plates;
+              VT, BT, V, J, H, K
           usnob_mag_u:
             name: usnob_mag_u
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: USNO-B magnitudes if available
           usnob_mag_g:
             name: usnob_mag_g
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: USNO-B magnitudes if available
           usnob_mag_r:
             name: usnob_mag_r
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: USNO-B magnitudes if available
           usnob_mag_i:
             name: usnob_mag_i
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: USNO-B magnitudes if available
           usnob_mag_z:
             name: usnob_mag_z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: USNO-B magnitudes if available
           source_id:
             name: source_id
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Gaia source_id, if available
           phot_g_mean_mag:
             name: phot_g_mean_mag
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Gaia G mag if available
           sp_param_source:
             name: sp_param_source
             type: char[2]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: source for stellar parameters for MARVELS stars
           marvels_target1:
             name: marvels_target1
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: bitmask for MARVELS targeting flags (see the MARVELS target
+              flag descriptions.
           marvels_target2:
             name: marvels_target2
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: bitmask for MARVELS targeting flags (see the MARVELS target
+              flag descriptions.
           boss_target1:
             name: boss_target1
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: bitmask for BOSS targeting flags (see the BOSS target flag
+              descriptions.
           boss_target2:
             name: boss_target2
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Always set to zero (placeholder for BOSS target flags never
+              used).
           ancillary_target1:
             name: ancillary_target1
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: bitmask for BOSS ancillary targeting flags (see the BOSS
+              target flag descriptions.
           ancillary_target2:
             name: ancillary_target2
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: bitmask for BOSS ancillary targeting flags (see the BOSS
+              target flag descriptions.
           segue2_target1:
             name: segue2_target1
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: bitmask for SEGUE-2 targeting flags (see the SEGUE-2 target
+              flag descriptions.
           segue2_target2:
             name: segue2_target2
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: bitmask for SEGUE-2 targeting flags (see the SEGUE-2 target
+              flag descriptions.
           segueb_target1:
             name: segueb_target1
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: bitmask for SEGUE-bright targeting flags (see the SEGUE-bright
+              target flag descriptions.
           segueb_target2:
             name: segueb_target2
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: bitmask for SEGUE-bright targeting flags (see the SEGUE-bright
+              target flag descriptions.
           apogee_target1:
             name: apogee_target1
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: bitmask for APOGEE targeting flags (see the APOGEE target
+              flag descriptions.
           apogee_target2:
             name: apogee_target2
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: bitmask for APOGEE targeting flags (see the APOGEE target
+              flag descriptions.
           manga_target1:
             name: manga_target1
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: bitmask for MaNGA targeting flags. Used for galaxy targets.
           manga_target2:
             name: manga_target2
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: bitmask for MaNGA targeting flags. Used for stars and sky
+              positions.
           manga_target3:
             name: manga_target3
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: bitmask for MaNGA targeting flags. Used for ancillary targets.
           eboss_target0:
             name: eboss_target0
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: bitmask for SEQUels targeting
           eboss_target1:
             name: eboss_target1
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: bitmask for eBOSS targeting
           eboss_target2:
             name: eboss_target2
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: bitmask for eBOSS targeting
           eboss_target_id:
             name: eboss_target_id
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: n/a ignore
           thing_id_targeting:
             name: thing_id_targeting
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: n/a ignore
           objid_targeting:
             name: objid_targeting
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: n/a ignore
           apogee2_target1:
             name: apogee2_target1
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: bitmask for APOGEE2 targeting flags (see the APOGEE2 target
+              flag descriptions.
           apogee2_target2:
             name: apogee2_target2
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: bitmask for APOGEE2 targeting flags (see the APOGEE2 target
+              flag descriptions.
           apogee2_target3:
             name: apogee2_target3
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: bitmask for APOGEE2 targeting flags (see the APOGEE2 target
+              flag descriptions.
           run:
             name: run
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: SDSS imaging run, for SDSS imaging based targets
           rerun:
             name: rerun
             type: char[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: SDSS imaging rerun, for SDSS imaging based targets
           camcol:
             name: camcol
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: SDSS imaging camcol, for SDSS imaging based targets
           field:
             name: field
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: SDSS imaging field, for SDSS imaging based targets
           id:
             name: id
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: SDSS imaging id, for SDSS imaging based targets
           psfflux_u:
             name: psfflux_u
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: PSF flux in nanomaggies, for SDSS imaging based targets
           psfflux_g:
             name: psfflux_g
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: PSF flux in nanomaggies, for SDSS imaging based targets
           psfflux_r:
             name: psfflux_r
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: PSF flux in nanomaggies, for SDSS imaging based targets
           psfflux_i:
             name: psfflux_i
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: PSF flux in nanomaggies, for SDSS imaging based targets
           psfflux_z:
             name: psfflux_z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: PSF flux in nanomaggies, for SDSS imaging based targets
           psfflux_ivar_u:
             name: psfflux_ivar_u
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: inverse variance of PSF flux in nanomaggies, for SDSS imaging
+              based targets
           psfflux_ivar_g:
             name: psfflux_ivar_g
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: inverse variance of PSF flux in nanomaggies, for SDSS imaging
+              based targets
           psfflux_ivar_r:
             name: psfflux_ivar_r
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: inverse variance of PSF flux in nanomaggies, for SDSS imaging
+              based targets
           psfflux_ivar_i:
             name: psfflux_ivar_i
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: inverse variance of PSF flux in nanomaggies, for SDSS imaging
+              based targets
           psfflux_ivar_z:
             name: psfflux_ivar_z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: inverse variance of PSF flux in nanomaggies, for SDSS imaging
+              based targets
           fiberflux_u:
             name: fiberflux_u
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 3 arcsec fiber flux in nanomaggies, for SDSS imaging based
+              targets
           fiberflux_g:
             name: fiberflux_g
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 3 arcsec fiber flux in nanomaggies, for SDSS imaging based
+              targets
           fiberflux_r:
             name: fiberflux_r
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 3 arcsec fiber flux in nanomaggies, for SDSS imaging based
+              targets
           fiberflux_i:
             name: fiberflux_i
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 3 arcsec fiber flux in nanomaggies, for SDSS imaging based
+              targets
           fiberflux_z:
             name: fiberflux_z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 3 arcsec fiber flux in nanomaggies, for SDSS imaging based
+              targets
           fiberflux_ivar_u:
             name: fiberflux_ivar_u
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: inverse variance of 3 arcsec fiber flux in nanomaggies, for
+              SDSS imaging based targets
           fiberflux_ivar_g:
             name: fiberflux_ivar_g
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: inverse variance of 3 arcsec fiber flux in nanomaggies, for
+              SDSS imaging based targets
           fiberflux_ivar_r:
             name: fiberflux_ivar_r
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: inverse variance of 3 arcsec fiber flux in nanomaggies, for
+              SDSS imaging based targets
           fiberflux_ivar_i:
             name: fiberflux_ivar_i
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: inverse variance of 3 arcsec fiber flux in nanomaggies, for
+              SDSS imaging based targets
           fiberflux_ivar_z:
             name: fiberflux_ivar_z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: inverse variance of 3 arcsec fiber flux in nanomaggies, for
+              SDSS imaging based targets
           fiber2flux_u:
             name: fiber2flux_u
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 2 arcsec fiber flux in nanomaggies, for SDSS imaging based
+              targets
           fiber2flux_g:
             name: fiber2flux_g
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 2 arcsec fiber flux in nanomaggies, for SDSS imaging based
+              targets
           fiber2flux_r:
             name: fiber2flux_r
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 2 arcsec fiber flux in nanomaggies, for SDSS imaging based
+              targets
           fiber2flux_i:
             name: fiber2flux_i
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 2 arcsec fiber flux in nanomaggies, for SDSS imaging based
+              targets
           fiber2flux_z:
             name: fiber2flux_z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 2 arcsec fiber flux in nanomaggies, for SDSS imaging based
+              targets
           fiber2flux_ivar_u:
             name: fiber2flux_ivar_u
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: inverse variance of 2 arcsec fiber flux in nanomaggies, for
+              SDSS imaging based targets
           fiber2flux_ivar_g:
             name: fiber2flux_ivar_g
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: inverse variance of 2 arcsec fiber flux in nanomaggies, for
+              SDSS imaging based targets
           fiber2flux_ivar_r:
             name: fiber2flux_ivar_r
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: inverse variance of 2 arcsec fiber flux in nanomaggies, for
+              SDSS imaging based targets
           fiber2flux_ivar_i:
             name: fiber2flux_ivar_i
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: inverse variance of 2 arcsec fiber flux in nanomaggies, for
+              SDSS imaging based targets
           fiber2flux_ivar_z:
             name: fiber2flux_ivar_z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: inverse variance of 2 arcsec fiber flux in nanomaggies, for
+              SDSS imaging based targets
           psfmag_u:
             name: psfmag_u
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: PSF magnitude, for SDSS imaging based targets
           psfmag_g:
             name: psfmag_g
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: PSF magnitude, for SDSS imaging based targets
           psfmag_r:
             name: psfmag_r
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: PSF magnitude, for SDSS imaging based targets
           psfmag_i:
             name: psfmag_i
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: PSF magnitude, for SDSS imaging based targets
           psfmag_z:
             name: psfmag_z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: PSF magnitude, for SDSS imaging based targets
           fibermag_u:
             name: fibermag_u
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 3 arcsec fiber magnitude, for SDSS imaging based targets
           fibermag_g:
             name: fibermag_g
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 3 arcsec fiber magnitude, for SDSS imaging based targets
           fibermag_r:
             name: fibermag_r
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 3 arcsec fiber magnitude, for SDSS imaging based targets
           fibermag_i:
             name: fibermag_i
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 3 arcsec fiber magnitude, for SDSS imaging based targets
           fibermag_z:
             name: fibermag_z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 3 arcsec fiber magnitude, for SDSS imaging based targets
           fiber2mag_u:
             name: fiber2mag_u
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 2 arcsec fiber magnitude, for SDSS imaging based targets
           fiber2mag_g:
             name: fiber2mag_g
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 2 arcsec fiber magnitude, for SDSS imaging based targets
           fiber2mag_r:
             name: fiber2mag_r
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 2 arcsec fiber magnitude, for SDSS imaging based targets
           fiber2mag_i:
             name: fiber2mag_i
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 2 arcsec fiber magnitude, for SDSS imaging based targets
           fiber2mag_z:
             name: fiber2mag_z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 2 arcsec fiber magnitude, for SDSS imaging based targets
           mag_u:
             name: mag_u
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: magnitude to use for the SOS software as the best known fiber
+              magnitude for the object
           mag_g:
             name: mag_g
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: magnitude to use for the SOS software as the best known fiber
+              magnitude for the object
           mag_r:
             name: mag_r
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: magnitude to use for the SOS software as the best known fiber
+              magnitude for the object
           mag_i:
             name: mag_i
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: magnitude to use for the SOS software as the best known fiber
+              magnitude for the object
           mag_z:
             name: mag_z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: magnitude to use for the SOS software as the best known fiber
+              magnitude for the object
           epoch:
             name: epoch
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: epoch for which RA and DEC are most appropriate in years
+              AD (default 2011)
           pmra:
             name: pmra
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: proper motion in RA direction in milliarcsec/yr
           pmdec:
             name: pmdec
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: proper motion in Dec direction in milliarcsec/yr
           targetids:
             name: targetids
             type: char[2]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: free-form, white-space separated list of identifiers
           ifuid:
             name: ifuid
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: n/a ignore
           catalogid:
             name: catalogid
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: SDSS-V catalogid associated with this target
           gaia_bp:
             name: gaia_bp
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Gaia BP magnitude (Vega), if available
           gaia_rp:
             name: gaia_rp
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Gaia RP magnitude (Vega), if available
           gaia_g:
             name: gaia_g
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Gaia G magnitude (Vega), if available
           tmass_id:
             name: tmass_id
             type: char[24]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 2MASS identification, if available
           sdssv_apogee_target0:
             name: sdssv_apogee_target0
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: bitmask for SDSS-V plate-era APOGEE targeting
           sdssv_boss_target0:
             name: sdssv_boss_target0
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: bitmask for SDSS-V plate-era BOSS targeting
           gri_gaia_transform:
             name: gri_gaia_transform
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: n/a ignore
           firstcarton:
             name: firstcarton
             type: char[48]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: name of the SDSS-V carton which was the primary reason this
+              target was assigned a fiber
           xfocal:
             name: xfocal
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: final X position in the focal plane of the hole, in mm; for
+              position angle of zero (which we always use), +X is +RA
           yfocal:
             name: yfocal
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: final Y position in the focal plane of the hole, in mm; for
+              position angle of zero (which we always use), +Y is +Dec
           yanny_uid:
             name: yanny_uid
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: internal integer identifier for the platelist file from which
+              this inforation was extracted
           yanny_filename:
             name: yanny_filename
             type: char[129]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: filename from which this information was extracted
           pkey:
             name: pkey
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: primary key for this table entry
 notes: |-
   None
 regrets: |-
