@@ -13,7 +13,7 @@ MOS Target table: mos_target_bhm_csc
 ---
 
 ## Basic Information
-: Chandra Source Catalogue version 2.0 (CSC2) sources that have been matched (separately) to the PanSTARRS-1 and 2MASS catalogs.  This version of the CSC2 catalog informed early (plate era) SDSS-V observations but was then replaced by updated versions.
+Chandra Source Catalogue version 2.0 (CSC2) sources that have been matched (separately) to the PanSTARRS-1 and 2MASS catalogs.  This version of the CSC2 catalog informed early (plate era) SDSS-V observations but was then replaced by updated versions.
 
 ### Naming Convention
 $MOS_TARGET/[V_TARG]/mos_bhm_csc.fits, where V_TARG=1.0.2 for DR19
@@ -92,13 +92,13 @@ Name | Type | Unit | Description |
  | pk | int64 |  | primary key of this table entry |
  | csc_version | char[9] |  | Always equal to 'CSC2stub1' |
  | cxo_name | char[22] |  | unique identifier for the CSC X-ray source |
- | oir_ra | float64 | deg | despite the name, this is the X-ray coordinate of the target  |
- | oir_dec | float64 | deg | despite the name, this is the X-ray coordinate of the target  |
- | mag_g | float32 | mag | optical magnitude (g-band) from Pan-STARRS1 catalog, if available  |
- | mag_r | float32 | mag | optical magnitude (r-band) from Pan-STARRS1 catalog, if available  |
- | mag_i | float32 | mag | optical magnitude (i-band) from Pan-STARRS1 catalog, if available  |
- | mag_z | float32 | mag | optical magnitude (z-band) from Pan-STARRS1 catalog, if available  |
- | mag_h | float32 | mag | H-band NIR magnitude from 2MASS catalog, if available  |
+ | oir_ra | float64 | deg | despite the name, this is the X-ray coordinate of the target |
+ | oir_dec | float64 | deg | despite the name, this is the X-ray coordinate of the target |
+ | mag_g | float32 | mag | optical magnitude (g-band) from Pan-STARRS1 catalog, if available |
+ | mag_r | float32 | mag | optical magnitude (r-band) from Pan-STARRS1 catalog, if available |
+ | mag_i | float32 | mag | optical magnitude (i-band) from Pan-STARRS1 catalog, if available |
+ | mag_z | float32 | mag | optical magnitude (z-band) from Pan-STARRS1 catalog, if available |
+ | mag_h | float32 | mag | H-band NIR magnitude from 2MASS catalog, if available |
  | spectrograph | char[6] |  | Which spectrograph this target should be observed with (BOSS or APOGEE) |
 
 

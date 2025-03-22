@@ -1,10 +1,10 @@
 general:
   name: mos_target_bhm_csc
   short: 'MOS Target table: mos_target_bhm_csc'
-  description: ': Chandra Source Catalogue version 2.0 (CSC2) sources that have been
+  description: Chandra Source Catalogue version 2.0 (CSC2) sources that have been
     matched (separately) to the PanSTARRS-1 and 2MASS catalogs.  This version of the
     CSC2 catalog informed early (plate era) SDSS-V observations but was then replaced
-    by updated versions.'
+    by updated versions.
   datatype: FITS
   filesize: 6 MB
   releases:
@@ -33,10 +33,11 @@ releases:
     location: '{v_targ}/mos_bhm_csc.fits'
     environment: MOS_TARGET
     access:
-      in_sdss_access: false
-      path_name: null
-      path_template: null
-      path_kwargs: null
+      in_sdss_access: true
+      path_name: mos_target_bhm_csc
+      path_template: $MOS_TARGET/{v_targ}/mos_bhm_csc.fits
+      path_kwargs:
+      - v_targ
       access_string: mos_target_bhm_csc = $MOS_TARGET/{v_targ}/mos_bhm_csc.fits
     survey: SDSS
     hdus:
@@ -111,41 +112,37 @@ releases:
             name: oir_ra
             type: float64
             unit: deg
-            description: 'despite the name, this is the X-ray coordinate of the target '
+            description: despite the name, this is the X-ray coordinate of the target
           oir_dec:
             name: oir_dec
             type: float64
             unit: deg
-            description: 'despite the name, this is the X-ray coordinate of the target '
+            description: despite the name, this is the X-ray coordinate of the target
           mag_g:
             name: mag_g
             type: float32
             unit: mag
-            description: 'optical magnitude (g-band) from Pan-STARRS1 catalog, if
-              available '
+            description: optical magnitude (g-band) from Pan-STARRS1 catalog, if available
           mag_r:
             name: mag_r
             type: float32
             unit: mag
-            description: 'optical magnitude (r-band) from Pan-STARRS1 catalog, if
-              available '
+            description: optical magnitude (r-band) from Pan-STARRS1 catalog, if available
           mag_i:
             name: mag_i
             type: float32
             unit: mag
-            description: 'optical magnitude (i-band) from Pan-STARRS1 catalog, if
-              available '
+            description: optical magnitude (i-band) from Pan-STARRS1 catalog, if available
           mag_z:
             name: mag_z
             type: float32
             unit: mag
-            description: 'optical magnitude (z-band) from Pan-STARRS1 catalog, if
-              available '
+            description: optical magnitude (z-band) from Pan-STARRS1 catalog, if available
           mag_h:
             name: mag_h
             type: float32
             unit: mag
-            description: 'H-band NIR magnitude from 2MASS catalog, if available '
+            description: H-band NIR magnitude from 2MASS catalog, if available
           spectrograph:
             name: spectrograph
             type: char[6]
