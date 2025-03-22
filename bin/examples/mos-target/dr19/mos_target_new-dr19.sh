@@ -75,24 +75,62 @@ datamodel_update -f mos_target_hole -r DR19
 #datamodel_generate -f mos_targeting_generation -p MOS_TARGET/{v_targ}/mos_targeting_generation.fits -k v_targ=1.0.2 -r DR19
 
 datamodel_generate -f mos_target_mangadapall -p MOS_TARGET/{v_targ}/mos_mangadapall.fits -k v_targ=1.0.2 -r DR19
+datamodel_update -f mos_target_mangadapall -r DR19
+
 datamodel_generate -f mos_target_mangadrpall -p MOS_TARGET/{v_targ}/mos_mangadrpall.fits -k v_targ=1.0.2 -r DR19
+datamodel_update -f mos_target_mangadrpall -r DR19
+
 datamodel_generate -f mos_target_mangatarget -p MOS_TARGET/{v_targ}/mos_mangatarget.fits -k v_targ=1.0.2 -r DR19
+datamodel_update -f mos_target_mangatarget -r DR19
+
 datamodel_generate -f mos_target_marvels_dr11_star -p MOS_TARGET/{v_targ}/mos_marvels_dr11_star.fits -k v_targ=1.0.2 -r DR19
+datamodel_update -f mos_target_marvels_dr11_star -r DR19
+
 datamodel_generate -f mos_target_marvels_dr12_star -p MOS_TARGET/{v_targ}/mos_marvels_dr12_star.fits -k v_targ=1.0.2 -r DR19
+datamodel_update -f mos_target_marvels_dr12_star -r DR19
+
 datamodel_generate -f mos_target_mastar_goodstars -p MOS_TARGET/{v_targ}/mos_mastar_goodstars.fits -k v_targ=1.0.2 -r DR19
+datamodel_update -f mos_target_mastar_goodstars -r DR19
+
 datamodel_generate -f mos_target_mastar_goodvisits -p MOS_TARGET/{v_targ}/mos_mastar_goodvisits.fits -k v_targ=1.0.2 -r DR19
+datamodel_update -f mos_target_mastar_goodvisits -r DR19
+
 datamodel_generate -f mos_target_mipsgal -p MOS_TARGET/{v_targ}/mos_mipsgal.fits -k v_targ=1.0.2 -r DR19
+datamodel_update -f mos_target_mipsgal -r DR19
+
 datamodel_generate -f mos_target_mwm_tess_ob -p MOS_TARGET/{v_targ}/mos_mwm_tess_ob.fits -k v_targ=1.0.2 -r DR19
+datamodel_update -f mos_target_mwm_tess_ob -r DR19
+
 datamodel_generate -f mos_target_observatory -p MOS_TARGET/{v_targ}/mos_observatory.fits -k v_targ=1.0.2 -r DR19
+datamodel_update -f mos_target_observatory -r DR19
+
 datamodel_generate -f mos_target_obsmode -p MOS_TARGET/{v_targ}/mos_obsmode.fits -k v_targ=1.0.2 -r DR19
+datamodel_update -f mos_target_obsmode -r DR19
+
 datamodel_generate -f mos_target_opsdb_apo_camera -p MOS_TARGET/{v_targ}/mos_opsdb_apo_camera.fits -k v_targ=1.0.2 -r DR19
+datamodel_update -f mos_target_opsdb_apo_camera -r DR19
+
 datamodel_generate -f mos_target_opsdb_apo_camera_frame -p MOS_TARGET/{v_targ}/mos_opsdb_apo_camera_frame.fits -k v_targ=1.0.2 -r DR19
+datamodel_update -f mos_target_opsdb_apo_camera_frame -r DR19
+
 datamodel_generate -f mos_target_opsdb_apo_completion_status -p MOS_TARGET/{v_targ}/mos_opsdb_apo_completion_status.fits -k v_targ=1.0.2 -r DR19
+datamodel_update -f mos_target_opsdb_apo_completion_status -r DR19
+
 datamodel_generate -f mos_target_opsdb_apo_configuration -p MOS_TARGET/{v_targ}/mos_opsdb_apo_configuration.fits -k v_targ=1.0.2 -r DR19
+datamodel_update -f mos_target_opsdb_apo_configuration -r DR19
+
 datamodel_generate -f mos_target_opsdb_apo_design_to_status -p MOS_TARGET/{v_targ}/mos_opsdb_apo_design_to_status.fits -k v_targ=1.0.2 -r DR19
+datamodel_update -f mos_target_opsdb_apo_design_to_status -r DR19
+
 datamodel_generate -f mos_target_opsdb_apo_exposure -p MOS_TARGET/{v_targ}/mos_opsdb_apo_exposure.fits -k v_targ=1.0.2 -r DR19
+datamodel_update -f mos_target_opsdb_apo_exposure -r DR19
+
 datamodel_generate -f mos_target_opsdb_apo_exposure_flavor -p MOS_TARGET/{v_targ}/mos_opsdb_apo_exposure_flavor.fits -k v_targ=1.0.2 -r DR19
+datamodel_update -f mos_target_opsdb_apo_exposure_flavor -r DR19
+
 datamodel_generate -f mos_target_positioner_status -p MOS_TARGET/{v_targ}/mos_positioner_status.fits -k v_targ=1.0.2 -r DR19
+datamodel_update -f mos_target_positioner_status -r DR19
+
 datamodel_generate -f mos_target_sdssv_boss_conflist -p MOS_TARGET/{v_targ}/mos_sdssv_boss_conflist.fits -k v_targ=1.0.2 -r DR19
 datamodel_generate -f mos_target_sdssv_boss_spall -p MOS_TARGET/{v_targ}/mos_sdssv_boss_spall.fits -k v_targ=1.0.2 -r DR19
 datamodel_generate -f mos_target_sdssv_plateholes -p MOS_TARGET/{v_targ}/mos_sdssv_plateholes.fits -k v_targ=1.0.2 -r DR19
