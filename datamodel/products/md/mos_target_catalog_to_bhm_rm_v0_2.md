@@ -13,7 +13,7 @@ MOS Target Table: catalog_to_bhm_rm_v0_2
 ---
 
 ## Basic Information
-The table contains the cross-match between the mos_target_catalog targets and the mos_target_rm_v0_2 table.
+The table contains the cross-match between the mos_target_catalog targets and the mos_target_rm_v0_2 table.  This table is identical to dr19_catalog_to_bhm_rm_v0.
 
 ### Naming Convention
 $MOS_TARGET/[V_TARG]/mos_catalog_to_bhm_rm_v0_2-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
