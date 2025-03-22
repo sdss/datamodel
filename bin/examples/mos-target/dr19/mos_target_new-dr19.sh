@@ -49,10 +49,21 @@ datamodel_update -f mos_target_design_mode_check_results -r DR19
 datamodel_generate -f mos_target_design_to_field -p MOS_TARGET/{v_targ}/mos_design_to_field.fits -k v_targ=1.0.2 -r DR19
 datamodel_update -f mos_target_design_to_field -r DR19
 
-datamodel_generate -f mos_target_ebosstarget_v5_2 -p MOS_TARGET/{v_targ}/mos_ebosstarget_v5_2.fits -k v_targ=1.0.2 -r DR19
+#datamodel_generate -f mos_target_ebosstarget_v5_2 -p MOS_TARGET/{v_targ}/mos_ebosstarget_v5_2.fits -k v_targ=1.0.2 -r DR19
+
 datamodel_generate -f mos_target_erosita_superset_clusters -p MOS_TARGET/{v_targ}/mos_erosita_superset_clusters.fits -k v_targ=1.0.2 -r DR19
+datamodel_update -f mos_target_erosita_superset_clusters -r DR19
+
 datamodel_generate -f mos_target_erosita_superset_compactobjects -p MOS_TARGET/{v_targ}/mos_erosita_superset_compactobjects.fits -k v_targ=1.0.2 -r DR19
+datamodel_update -f mos_target_erosita_superset_compactobjects -r DR19
+
 datamodel_generate -f mos_target_erosita_superset_stars -p MOS_TARGET/{v_targ}/mos_erosita_superset_stars.fits -k v_targ=1.0.2 -r DR19
+datamodel_update -f mos_target_erosita_superset_stars -r DR19
+
+datamodel_generate -f mos_target_erosita_superset_agn -p MOS_TARGET/{v_targ}/mos_erosita_superset_agn-{num}.fits -k v_targ=1.0.2 -k num=1 -r DR19
+datamodel_update -f mos_target_erosita_superset_agn -r DR19
+
+
 datamodel_generate -f mos_target_field -p MOS_TARGET/{v_targ}/mos_field.fits -k v_targ=1.0.2 -r DR19
 datamodel_generate -f mos_target_gaia_assas_sn_cepheids -p MOS_TARGET/{v_targ}/mos_gaia_assas_sn_cepheids.fits -k v_targ=1.0.2 -r DR19
 datamodel_generate -f mos_target_hole -p MOS_TARGET/{v_targ}/mos_hole.fits -k v_targ=1.0.2 -r DR19
@@ -93,7 +104,6 @@ datamodel_generate -f mos_target_catalog_to_sdss_dr17_specobj -p MOS_TARGET/{v_t
 datamodel_generate -f mos_target_catalog_to_skies_v1 -p MOS_TARGET/{v_targ}/mos_catalog_to_skies_v1-{num}.fits -k v_targ=1.0.2 -k num=01 -r DR19
 datamodel_generate -f mos_target_catalog_to_twomass_psc -p MOS_TARGET/{v_targ}/mos_catalog_to_twomass_psc-{num}.fits -k v_targ=1.0.2 -k num=01 -r DR19
 datamodel_generate -f mos_target_catalog_to_unwise -p MOS_TARGET/{v_targ}/mos_catalog_to_unwise-{num}.fits -k v_targ=1.0.2 -k num=01 -r DR19
-datamodel_generate -f mos_target_erosita_superset_agn -p MOS_TARGET/{v_targ}/mos_erosita_superset_agn-{num}.fits -k v_targ=1.0.2 -k num=1 -r DR19
 datamodel_generate -f mos_target_revised_magnitude -p MOS_TARGET/{v_targ}/mos_revised_magnitude-{num}.fits -k v_targ=1.0.2 -k num=1 -r DR19
 datamodel_generate -f mos_target_sdss_dr17_specobj -p MOS_TARGET/{v_targ}/mos_sdss_dr17_specobj-{num}.fits -k v_targ=1.0.2 -k num=1 -r DR19
 datamodel_generate -f mos_target_sdss_id_flat -p MOS_TARGET/{v_targ}/mos_sdss_id_flat-{num}.fits -k v_targ=1.0.2 -k num=01 -r DR19
