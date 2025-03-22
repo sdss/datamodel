@@ -2,6 +2,8 @@ datamodel_generate -f mos_target_bhm_csc -p MOS_TARGET/{v_targ}/mos_bhm_csc.fits
 datamodel_update -f mos_target_bhm_csc -r DR19
 
 datamodel_generate -f mos_target_bhm_rm_tweaks -p MOS_TARGET/{v_targ}/mos_bhm_rm_tweaks.fits -k v_targ=1.0.2 -r DR19
+datamodel_update -f mos_target_bhm_rm_tweaks -r DR19
+
 datamodel_generate -f mos_target_bhm_rm_v0_1 -p MOS_TARGET/{v_targ}/mos_bhm_rm_v0_1.fits -k v_targ=1.0.2 -r DR19
 datamodel_generate -f mos_target_bhm_spiders_agn_superset -p MOS_TARGET/{v_targ}/mos_bhm_spiders_agn_superset.fits -k v_targ=1.0.2 -r DR19
 datamodel_generate -f mos_target_bhm_spiders_clusters_superset -p MOS_TARGET/{v_targ}/mos_bhm_spiders_clusters_superset.fits -k v_targ=1.0.2 -r DR19
