@@ -13,7 +13,7 @@ MOS Target table: mos_target_bhm_csc
 ---
 
 ## Basic Information
-: Chandra Source Catalogue version 2.0 (CSC2) sources that have been
+: Chandra Source Catalogue version 2.0 (CSC2) sources that have been matched (separately) to the PanSTARRS-1 and 2MASS catalogs.  This version of the CSC2 catalog informed early (plate era) SDSS-V observations but was then replaced by updated versions.
 
 ### Naming Convention
 $MOS_TARGET/[V_TARG]/mos_bhm_csc.fits, where V_TARG=1.0.2 for DR19
