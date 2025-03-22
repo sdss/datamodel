@@ -1,0 +1,246 @@
+{
+  "general": {
+    "name": "mos_target_bhm_csc",
+    "short": "MOS Target table: mos_target_bhm_csc",
+    "description": ": Chandra Source Catalogue version 2.0 (CSC2) sources that have been",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "BHM",
+        "long": "Black Hole Mapper",
+        "description": "An optical time-domain spectroscopic survey of quasars and X-ray sources",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "bhm",
+        "aliases": []
+      },
+      {
+        "name": "MWM",
+        "long": "Milky Way Mapper",
+        "description": "A time-domain, optical+IR spectroscopic survey of Milky Way stars of all types.",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "mwm",
+        "aliases": []
+      },
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "FITS",
+    "filesize": "6 MB",
+    "releases": [
+      {
+        "name": "DR19",
+        "description": "SDSS public data release 19",
+        "public": true,
+        "release_date": "2025-07-11"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/mos_bhm_csc.fits, where V_TARG=1.0.2 for DR19",
+    "generated_by": "sdss5db> targetdb, operations database server",
+    "design": false,
+    "vac": false,
+    "recommended_science_product": false,
+    "data_level": "2.3.3"
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR19": {
+      "template": "$MOS_TARGET/[V_TARG]/mos_bhm_csc.fits",
+      "example": "1.0.2/mos_bhm_csc.fits",
+      "location": "{v_targ}/mos_bhm_csc.fits",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": false,
+        "path_name": null,
+        "path_template": null,
+        "path_kwargs": null,
+        "access_string": "mos_target_bhm_csc = $MOS_TARGET/{v_targ}/mos_bhm_csc.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Primary header",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "MOS Target table: mos_target_bhm_csc",
+          "size": "6 MB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "BINTABLE",
+              "comment": "binary table extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "81",
+              "comment": "length of dimension 1"
+            },
+            {
+              "key": "NAXIS2",
+              "value": "86039",
+              "comment": "length of dimension 2"
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "number of group parameters"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "number of groups"
+            },
+            {
+              "key": "TFIELDS",
+              "value": "11",
+              "comment": "number of table fields"
+            },
+            {
+              "key": "TNULL1",
+              "value": "-9223372036854775808",
+              "comment": ""
+            }
+          ],
+          "columns": {
+            "pk": {
+              "name": "pk",
+              "description": "primary key of this table entry",
+              "type": "int64",
+              "unit": ""
+            },
+            "csc_version": {
+              "name": "csc_version",
+              "description": "Always equal to 'CSC2stub1'",
+              "type": "char[9]",
+              "unit": ""
+            },
+            "cxo_name": {
+              "name": "cxo_name",
+              "description": "unique identifier for the CSC X-ray source",
+              "type": "char[22]",
+              "unit": ""
+            },
+            "oir_ra": {
+              "name": "oir_ra",
+              "description": "despite the name, this is the X-ray coordinate of the target ",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "oir_dec": {
+              "name": "oir_dec",
+              "description": "despite the name, this is the X-ray coordinate of the target ",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "mag_g": {
+              "name": "mag_g",
+              "description": "optical magnitude (g-band) from Pan-STARRS1 catalog, if available ",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "mag_r": {
+              "name": "mag_r",
+              "description": "optical magnitude (r-band) from Pan-STARRS1 catalog, if available ",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "mag_i": {
+              "name": "mag_i",
+              "description": "optical magnitude (i-band) from Pan-STARRS1 catalog, if available ",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "mag_z": {
+              "name": "mag_z",
+              "description": "optical magnitude (z-band) from Pan-STARRS1 catalog, if available ",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "mag_h": {
+              "name": "mag_h",
+              "description": "H-band NIR magnitude from 2MASS catalog, if available ",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "spectrograph": {
+              "name": "spectrograph",
+              "description": "Which spectrograph this target should be observed with (BOSS or APOGEE)",
+              "type": "char[6]",
+              "unit": ""
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null
+    }
+  },
+  "notes": "None",
+  "regrets": "I  have no regrets!"
+}
