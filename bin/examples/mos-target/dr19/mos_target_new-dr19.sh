@@ -132,12 +132,26 @@ datamodel_generate -f mos_target_positioner_status -p MOS_TARGET/{v_targ}/mos_po
 datamodel_update -f mos_target_positioner_status -r DR19
 
 datamodel_generate -f mos_target_sdssv_boss_conflist -p MOS_TARGET/{v_targ}/mos_sdssv_boss_conflist.fits -k v_targ=1.0.2 -r DR19
+datamodel_update -f mos_target_sdssv_boss_conflist -r DR19
+
 datamodel_generate -f mos_target_sdssv_boss_spall -p MOS_TARGET/{v_targ}/mos_sdssv_boss_spall.fits -k v_targ=1.0.2 -r DR19
+datamodel_update -f mos_target_sdssv_boss_spall -r DR19
+
 datamodel_generate -f mos_target_sdssv_plateholes -p MOS_TARGET/{v_targ}/mos_sdssv_plateholes.fits -k v_targ=1.0.2 -r DR19
+datamodel_update -f mos_target_sdssv_plateholes -r DR19
+
 datamodel_generate -f mos_target_sdssv_plateholes_meta -p MOS_TARGET/{v_targ}/mos_sdssv_plateholes_meta.fits -k v_targ=1.0.2 -r DR19
+datamodel_update -f mos_target_sdssv_plateholes -r DR19
+
 datamodel_generate -f mos_target_targeting_generation_to_carton -p MOS_TARGET/{v_targ}/mos_targeting_generation_to_carton.fits -k v_targ=1.0.2 -r DR19
+datamodel_update -f mos_target_targeting_generation_to_carton -r DR19
+
 datamodel_generate -f mos_target_tess_toi -p MOS_TARGET/{v_targ}/mos_tess_toi.fits -k v_targ=1.0.2 -r DR19
+datamodel_update -f mos_target_tess_toi -r DR19
+
 datamodel_generate -f mos_target_tess_toi_v05 -p MOS_TARGET/{v_targ}/mos_tess_toi_v05.fits -k v_targ=1.0.2 -r DR19
+datamodel_update -f mos_target_tess_toi_v05 -r DR19
+
 datamodel_generate -f mos_target_targeting_generation_to_version -p MOS_TARGET/{v_targ}/mos_targeting_generation_to_version.fits -k v_targ=1.0.2 -r DR19
 datamodel_generate -f mos_target_catalog_to_allstar_dr17_synspec_rev1 -p MOS_TARGET/{v_targ}/mos_catalog_to_allstar_dr17_synspec_rev1.fits -k v_targ=1.0.2 -r DR19
 
