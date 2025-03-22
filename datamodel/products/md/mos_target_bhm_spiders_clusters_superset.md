@@ -13,7 +13,7 @@ MOS Target table: mos_target_bhm_spiders_clusters_superset
 ---
 
 ## Basic Information
-One of several tables describing optical/IR counterparts to eROSITA
+One of several tables describing optical/IR counterparts to eROSITA X-ray sources identified via various methods.  These tables contain a superset of potential targets from which the SDSS-V spectroscopic targets were drawn.  The dr19_bhm_spiders_clusters_superset table includes counterparts selected via algorithms optimised to find clusters of galaxies. Each row corresponds to one possible match between an X-ray source and a potential optical/IR counterpart.  The X-ray columns (ero_*) record the eROSITA information known at the time of target selection and may differ from publicly available eROSITA catalogs. The dr19_bhm_spiders_*_superset tables are derived from eROSITA observations of the eROSITA Final Equatorial Depth performance verification field ('eFEDS').
 
 ### Naming Convention
 $MOS_TARGET/[V_TARG]/mos_bhm_spiders_clusters_superset.fits, where V_TARG=1.0.2 for DR19
