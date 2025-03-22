@@ -38,9 +38,17 @@ datamodel_update -f mos_target_catalog_to_mastar_goodstars -r DR19
 #datamodel_generate -f mos_target_catalog_to_uvotssc1_2 -p MOS_TARGET/{v_targ}/mos_catalog_to_uvotssc1_2.fits -k v_targ=1.0.2 -r DR19
 
 datamodel_generate -f mos_target_design -p MOS_TARGET/{v_targ}/mos_design.fits -k v_targ=1.0.2 -r DR19
+datamodel_update -f mos_target_design -r DR19
+
 datamodel_generate -f mos_target_design_mode -p MOS_TARGET/{v_targ}/mos_design_mode.fits -k v_targ=1.0.2 -r DR19
+datamodel_update -f mos_target_design -r DR19
+
 datamodel_generate -f mos_target_design_mode_check_results -p MOS_TARGET/{v_targ}/mos_design_mode_check_results.fits -k v_targ=1.0.2 -r DR19
+datamodel_update -f mos_target_design_mode_check_results -r DR19
+
 datamodel_generate -f mos_target_design_to_field -p MOS_TARGET/{v_targ}/mos_design_to_field.fits -k v_targ=1.0.2 -r DR19
+datamodel_update -f mos_target_design_to_field -r DR19
+
 datamodel_generate -f mos_target_ebosstarget_v5_2 -p MOS_TARGET/{v_targ}/mos_ebosstarget_v5_2.fits -k v_targ=1.0.2 -r DR19
 datamodel_generate -f mos_target_erosita_superset_clusters -p MOS_TARGET/{v_targ}/mos_erosita_superset_clusters.fits -k v_targ=1.0.2 -r DR19
 datamodel_generate -f mos_target_erosita_superset_compactobjects -p MOS_TARGET/{v_targ}/mos_erosita_superset_compactobjects.fits -k v_targ=1.0.2 -r DR19
