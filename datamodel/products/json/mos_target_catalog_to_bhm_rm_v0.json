@@ -1,8 +1,8 @@
 {
   "general": {
-    "name": "mos_target_catalog_to_bhm_rm_v0_2",
-    "short": "MOS Target Table: catalog_to_bhm_rm_v0_2",
-    "description": "The table contains the cross-match between the mos_target_catalog targets and the mos_target_rm_v0_2 table.  This table is identical to dr19_catalog_to_bhm_rm_v0.",
+    "name": "mos_target_catalog_to_bhm_rm_v0",
+    "short": "MOS Target table: mos_target_catalog_to_bhm_rm_v0",
+    "description": "The table contains the cross-match between the dr19_catalog targets and the dr19_rm_v0 table. Note. This table is identical to dr19_catalog_to_bhm_rm_v0_2.",
     "environments": [
       "MOS_TARGET"
     ],
@@ -51,14 +51,8 @@
       }
     ],
     "datatype": "FITS",
-    "filesize": "1 MB",
+    "filesize": "3 MB",
     "releases": [
-      {
-        "name": "DR18",
-        "description": "SDSS public data release 18",
-        "public": true,
-        "release_date": "2022-12-05"
-      },
       {
         "name": "DR19",
         "description": "SDSS public data release 19",
@@ -66,7 +60,7 @@
         "release_date": "2025-07-11"
       }
     ],
-    "naming_convention": "$MOS_TARGET/[V_TARG]/mos_catalog_to_bhm_rm_v0_2-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts",
+    "naming_convention": "$MOS_TARGET/[V_TARG]/mos_catalog_to_bhm_rm_v0.fits, where V_TARG=1.0.2 for DR19",
     "generated_by": "sdss5db> targetdb, operations database server",
     "design": false,
     "vac": false,
@@ -75,137 +69,23 @@
   },
   "changelog": {
     "description": "Describes changes to the datamodel product and/or file structure from one release to another",
-    "releases": {
-      "DR19": {
-        "from": "DR18",
-        "note": "No changes",
-        "delta_nhdus": null,
-        "added_hdus": null,
-        "removed_hdus": null,
-        "primary_delta_nkeys": null,
-        "added_primary_header_kwargs": null,
-        "removed_primary_header_kwargs": null,
-        "delta_nkeys": null,
-        "addead_header_keys": null,
-        "removed_header_keys": null,
-        "delta_ntables": null,
-        "addead_tables": null,
-        "removed_tables": null,
-        "tables": null,
-        "new_libver": null,
-        "delta_nattrs": null,
-        "addead_attrs": null,
-        "removed_attrs": null,
-        "delta_nmembers": null,
-        "addead_members": null,
-        "removed_members": null,
-        "members": null
-      }
-    }
+    "releases": {}
   },
   "releases": {
-    "DR18": {
-      "template": "$MOS_TARGET/[V_TARG]/mos_catalog_to_bhm_rm_v0_2.fits",
-      "example": "1.0.1/mos_catalog_to_bhm_rm_v0_2.fits",
-      "location": "{v_targ}/mos_catalog_to_bhm_rm_v0_2.fits",
-      "environment": "MOS_TARGET",
-      "survey": "SDSS",
-      "access": {
-        "in_sdss_access": true,
-        "path_name": "mos_target_catalog_to_bhm_rm_v0_2",
-        "path_template": "$MOS_TARGET/{v_targ}/mos_catalog_to_bhm_rm_v0_2.fits",
-        "path_kwargs": [
-          "v_targ"
-        ],
-        "access_string": "mos_target_catalog_to_bhm_rm_v0_2 = $MOS_TARGET/{v_targ}/mos_catalog_to_bhm_rm_v0_2.fits"
-      },
-      "hdus": {
-        "hdu0": {
-          "name": "PRIMARY",
-          "is_image": true,
-          "description": "Primary header",
-          "size": "0 bytes",
-          "header": [
-            {
-              "key": "SIMPLE",
-              "value": "True",
-              "comment": "conforms to FITS standard"
-            },
-            {
-              "key": "BITPIX",
-              "value": "8",
-              "comment": "array data type"
-            },
-            {
-              "key": "NAXIS",
-              "value": "0",
-              "comment": "number of array dimensions"
-            },
-            {
-              "key": "EXTEND",
-              "value": "True",
-              "comment": ""
-            }
-          ],
-          "columns": null
-        },
-        "hdu1": {
-          "name": "",
-          "is_image": false,
-          "description": "MOS Target Table: catalog_to_bhm_rm_v0_2",
-          "size": "1 MB",
-          "header": null,
-          "columns": {
-            "catalogid": {
-              "name": "CATALOGID",
-              "description": "The catalogid identifier in the mos_target_catalog table.",
-              "type": "int64",
-              "unit": ""
-            },
-            "target_id": {
-              "name": "TARGET_ID",
-              "description": "The primary key identifier in the mos_target_rm_v0_2 table.",
-              "type": "int64",
-              "unit": ""
-            },
-            "version_id": {
-              "name": "VERSION_ID",
-              "description": "The internal version for the cross-match.",
-              "type": "int16",
-              "unit": ""
-            },
-            "distance": {
-              "name": "DISTANCE",
-              "description": "The distance between the catalog and target coordinates if best=F.",
-              "type": "float64",
-              "unit": ""
-            },
-            "best": {
-              "name": "BEST",
-              "description": "Whether this is considered the best match between the catalog entry and mos_target_rm_v0_2.",
-              "type": "bool",
-              "unit": ""
-            }
-          }
-        }
-      },
-      "par": null,
-      "hdfs": null
-    },
     "DR19": {
-      "template": "$MOS_TARGET/[V_TARG]/mos_catalog_to_bhm_rm_v0_2.fits",
-      "example": "1.0.2/mos_catalog_to_bhm_rm_v0_2.fits",
-      "location": "{v_targ}/mos_catalog_to_bhm_rm_v0_2.fits",
+      "template": "$MOS_TARGET/[V_TARG]/mos_catalog_to_bhm_rm_v0.fits",
+      "example": "1.0.2/mos_catalog_to_bhm_rm_v0.fits",
+      "location": "{v_targ}/mos_catalog_to_bhm_rm_v0.fits",
       "environment": "MOS_TARGET",
       "survey": "SDSS",
       "access": {
         "in_sdss_access": true,
-        "path_name": "mos_target_catalog_to_bhm_rm_v0_2",
-        "path_template": "$MOS_TARGET/{v_targ}/mos_catalog_to_bhm_rm_v0_2.fits",
+        "path_name": "mos_target_catalog_to_bhm_rm_v0",
+        "path_template": "$MOS_TARGET/{v_targ}/mos_catalog_to_bhm_rm_v0.fits",
         "path_kwargs": [
           "v_targ"
         ],
-        "access_string": "mos_target_catalog_to_bhm_rm_v0_2 = $MOS_TARGET/{v_targ}/mos_catalog_to_bhm_rm_v0_2.fits"
+        "access_string": "mos_target_catalog_to_bhm_rm_v0 = $MOS_TARGET/{v_targ}/mos_catalog_to_bhm_rm_v0.fits"
       },
       "hdus": {
         "hdu0": {
@@ -240,7 +120,7 @@
         "hdu1": {
           "name": "",
           "is_image": false,
-          "description": "MOS Target Table: catalog_to_bhm_rm_v0_2",
+          "description": "MOS Target table: mos_target_catalog_to_bhm_rm_v0",
           "size": "3 MB",
           "header": [
             {
@@ -302,13 +182,13 @@
           "columns": {
             "catalogid": {
               "name": "catalogid",
-              "description": "The catalogid identifier in the mos_target_catalog table.",
+              "description": "The catalogid identifier in the dr19_catalog table.",
               "type": "int64",
               "unit": ""
             },
             "target_id": {
               "name": "target_id",
-              "description": "The primary key identifier in the mos_target_rm_v0_2 table.",
+              "description": "The primary key identifier in the dr19_rm_v0 table.",
               "type": "int64",
               "unit": ""
             },
@@ -322,11 +202,11 @@
               "name": "distance",
               "description": "The distance between the catalog and target coordinates if best=F.",
               "type": "float64",
-              "unit": ""
+              "unit": "deg"
             },
             "best": {
               "name": "best",
-              "description": "Whether this is considered the best match between the catalog entry and mos_target_rm_v0_2.",
+              "description": "Whether this is considered the best match between the catalog entry and dr19_rm_v0.",
               "type": "bool",
               "unit": ""
             }
@@ -338,5 +218,5 @@
     }
   },
   "notes": "None",
-  "regrets": "I have no regrets!"
+  "regrets": "I  have no regrets!"
 }

@@ -1,10 +1,10 @@
 general:
-  name: mos_target_catalog_to_marvels_dr12_star
-  short: 'MOS Target table: mos_target_catalog_to_marvels_dr12_star'
+  name: mos_target_catalog_to_bhm_rm_v0
+  short: 'MOS Target table: mos_target_catalog_to_bhm_rm_v0'
   description: The table contains the cross-match between the dr19_catalog targets
-    and the dr19_marvels_dr12_star table.
+    and the dr19_rm_v0 table. Note. This table is identical to dr19_catalog_to_bhm_rm_v0_2.
   datatype: FITS
-  filesize: 374 KB
+  filesize: 3 MB
   releases:
   - DR19
   environments:
@@ -13,8 +13,8 @@ general:
   - BHM
   - MWM
   - SDSS
-  naming_convention: $MOS_TARGET/[V_TARG]/mos_catalog_to_marvels_dr12_star.fits, where
-    V_TARG=1.0.2 for DR19
+  naming_convention: $MOS_TARGET/[V_TARG]/mos_catalog_to_bhm_rm_v0.fits, where V_TARG=1.0.2
+    for DR19
   generated_by: sdss5db> targetdb, operations database server
   data_level: 2.3.3
   design: false
@@ -26,17 +26,17 @@ changelog:
   releases: {}
 releases:
   DR19:
-    template: $MOS_TARGET/[V_TARG]/mos_catalog_to_marvels_dr12_star.fits
-    example: 1.0.2/mos_catalog_to_marvels_dr12_star.fits
-    location: '{v_targ}/mos_catalog_to_marvels_dr12_star.fits'
+    template: $MOS_TARGET/[V_TARG]/mos_catalog_to_bhm_rm_v0.fits
+    example: 1.0.2/mos_catalog_to_bhm_rm_v0.fits
+    location: '{v_targ}/mos_catalog_to_bhm_rm_v0.fits'
     environment: MOS_TARGET
     access:
       in_sdss_access: true
-      path_name: mos_target_catalog_to_marvels_dr12_star
-      path_template: $MOS_TARGET/{v_targ}/mos_catalog_to_marvels_dr12_star.fits
+      path_name: mos_target_catalog_to_bhm_rm_v0
+      path_template: $MOS_TARGET/{v_targ}/mos_catalog_to_bhm_rm_v0.fits
       path_kwargs:
       - v_targ
-      access_string: mos_target_catalog_to_marvels_dr12_star = $MOS_TARGET/{v_targ}/mos_catalog_to_marvels_dr12_star.fits
+      access_string: mos_target_catalog_to_bhm_rm_v0 = $MOS_TARGET/{v_targ}/mos_catalog_to_bhm_rm_v0.fits
     survey: SDSS
     hdus:
       hdu0:
@@ -59,9 +59,9 @@ releases:
           comment: ''
       hdu1:
         name: ''
-        description: 'MOS Target table: mos_target_catalog_to_marvels_dr12_star'
+        description: 'MOS Target table: mos_target_catalog_to_bhm_rm_v0'
         is_image: false
-        size: 366 KB
+        size: 3 MB
         header:
         - key: XTENSION
           value: BINTABLE
@@ -73,10 +73,10 @@ releases:
           value: 2
           comment: number of array dimensions
         - key: NAXIS1
-          value: 34
+          value: 27
           comment: length of dimension 1
         - key: NAXIS2
-          value: 11040
+          value: 147768
           comment: length of dimension 2
         - key: PCOUNT
           value: 0
@@ -85,7 +85,7 @@ releases:
           value: 1
           comment: number of groups
         - key: TFIELDS
-          value: 7
+          value: 5
           comment: number of table fields
         - key: TNULL1
           value: -9223372036854775808
@@ -94,9 +94,6 @@ releases:
           value: -9223372036854775808
           comment: ''
         - key: TNULL3
-          value: -32768
-          comment: ''
-        - key: TNULL7
           value: -32768
           comment: ''
         columns:
@@ -109,8 +106,7 @@ releases:
             name: target_id
             type: int64
             unit: ''
-            description: The primary key identifier in the dr19_marvels_dr12_star
-              table.
+            description: The primary key identifier in the dr19_rm_v0 table.
           version_id:
             name: version_id
             type: int16
@@ -119,7 +115,7 @@ releases:
           distance:
             name: distance
             type: float64
-            unit: ''
+            unit: deg
             description: The distance between the catalog and target coordinates if
               best=F.
           best:
@@ -127,18 +123,7 @@ releases:
             type: bool
             unit: ''
             description: Whether this is considered the best match between the catalog
-              entry and dr19_marvels_dr12_star.
-          plan_id:
-            name: plan_id
-            type: char[5]
-            unit: ''
-            description: Identifier of the cross-matching plan used to generate this
-              file.
-          added_by_phase:
-            name: added_by_phase
-            type: int16
-            unit: ''
-            description: The phase of the cross-match in which this target was added.
+              entry and dr19_rm_v0.
 notes: |-
   None
 regrets: |-

@@ -1,7 +1,7 @@
-# Data Model: mos_target_catalog_to_bhm_rm_v0_2
+# Data Model: mos_target_catalog_to_bhm_rm_v0
 
 
-MOS Target Table: catalog_to_bhm_rm_v0_2
+MOS Target table: mos_target_catalog_to_bhm_rm_v0
 
 
 ## Contents
@@ -13,19 +13,19 @@ MOS Target Table: catalog_to_bhm_rm_v0_2
 ---
 
 ## Basic Information
-The table contains the cross-match between the mos_target_catalog targets and the mos_target_rm_v0_2 table.  This table is identical to dr19_catalog_to_bhm_rm_v0.
+The table contains the cross-match between the dr19_catalog targets and the dr19_rm_v0 table. Note. This table is identical to dr19_catalog_to_bhm_rm_v0_2.
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_catalog_to_bhm_rm_v0_2-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
+$MOS_TARGET/[V_TARG]/mos_catalog_to_bhm_rm_v0.fits, where V_TARG=1.0.2 for DR19
 
 ### Releases
-DR18, DR19
+DR19
 
 ### Enviroments
 MOS_TARGET
 
 ### Approximate Size
-1 MB
+3 MB
 
 ### File Type
 FITS
@@ -47,9 +47,6 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
- - DR19
-   - from: DR18
-   - note: No changes
 
 ---
 ## Example HDUS List
@@ -71,7 +68,7 @@ Key | Value | Comment | |
 
 
 ### HDU1: 
-MOS Target Table: catalog_to_bhm_rm_v0_2
+MOS Target table: mos_target_catalog_to_bhm_rm_v0
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  3 MB
@@ -94,11 +91,11 @@ Key | Value | Comment | |
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | catalogid | int64 |  | The catalogid identifier in the mos_target_catalog table. |
- | target_id | int64 |  | The primary key identifier in the mos_target_rm_v0_2 table. |
+ | catalogid | int64 |  | The catalogid identifier in the dr19_catalog table. |
+ | target_id | int64 |  | The primary key identifier in the dr19_rm_v0 table. |
  | version_id | int16 |  | The internal version for the cross-match. |
- | distance | float64 |  | The distance between the catalog and target coordinates if best=F. |
- | best | bool |  | Whether this is considered the best match between the catalog entry and mos_target_rm_v0_2. |
+ | distance | float64 | deg | The distance between the catalog and target coordinates if best=F. |
+ | best | bool |  | Whether this is considered the best match between the catalog entry and dr19_rm_v0. |
 
 
 
@@ -108,4 +105,4 @@ None
 
 ---
 ## Regrets
-I have no regrets!
+I  have no regrets!

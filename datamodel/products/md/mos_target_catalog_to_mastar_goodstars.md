@@ -1,7 +1,7 @@
-# Data Model: mos_target_catalog_to_bhm_rm_v0_2
+# Data Model: mos_target_catalog_to_mastar_goodstars
 
 
-MOS Target Table: catalog_to_bhm_rm_v0_2
+MOS Target table: mos_target_catalog_to_mastar_goodstars
 
 
 ## Contents
@@ -13,13 +13,13 @@ MOS Target Table: catalog_to_bhm_rm_v0_2
 ---
 
 ## Basic Information
-The table contains the cross-match between the mos_target_catalog targets and the mos_target_rm_v0_2 table.  This table is identical to dr19_catalog_to_bhm_rm_v0.
+The table contains the cross-match between the dr19_catalog targets and the dr19_mastar_goodstars table.
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_catalog_to_bhm_rm_v0_2-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
+$MOS_TARGET/[V_TARG]/mos_catalog_to_mastar_goodstars.fits, where V_TARG=1.0.2 for DR19
 
 ### Releases
-DR18, DR19
+DR19
 
 ### Enviroments
 MOS_TARGET
@@ -47,9 +47,6 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
- - DR19
-   - from: DR18
-   - note: No changes
 
 ---
 ## Example HDUS List
@@ -71,10 +68,10 @@ Key | Value | Comment | |
 
 
 ### HDU1: 
-MOS Target Table: catalog_to_bhm_rm_v0_2
+MOS Target table: mos_target_catalog_to_mastar_goodstars
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  3 MB
+#### HDU Size:  1 MB
 
 ##### Header Table Caption for HDU1
 Key | Value | Comment | |
@@ -82,23 +79,25 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | binary table extension |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
-| NAXIS1 | 27 | length of dimension 1 |
-| NAXIS2 | 147768 | length of dimension 2 |
+| NAXIS1 | 48 | length of dimension 1 |
+| NAXIS2 | 25474 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
-| TFIELDS | 5 | number of table fields |
+| TFIELDS | 7 | number of table fields |
 | TNULL1 | -9223372036854775808 |  |
-| TNULL2 | -9223372036854775808 |  |
 | TNULL3 | -32768 |  |
+| TNULL7 | -32768 |  |
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | catalogid | int64 |  | The catalogid identifier in the mos_target_catalog table. |
- | target_id | int64 |  | The primary key identifier in the mos_target_rm_v0_2 table. |
+ | catalogid | int64 |  | The catalogid identifier in the dr19_catalog table. |
+ | target_id | char[22] |  | The primary key identifier in the dr19_mastar_goodstars table. |
  | version_id | int16 |  | The internal version for the cross-match. |
  | distance | float64 |  | The distance between the catalog and target coordinates if best=F. |
- | best | bool |  | Whether this is considered the best match between the catalog entry and mos_target_rm_v0_2. |
+ | best | bool |  | Whether this is considered the best match between the catalog entry and dr19_mastar_goodstars. |
+ | plan_id | char[5] |  | Identifier of the cross-matching plan used to generate this file. |
+ | added_by_phase | int16 |  | The phase of the cross-match in which this target was added. |
 
 
 
@@ -108,4 +107,4 @@ None
 
 ---
 ## Regrets
-I have no regrets!
+I  have no regrets!
