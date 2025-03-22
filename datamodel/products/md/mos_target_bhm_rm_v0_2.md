@@ -13,7 +13,7 @@ MOS Target Table: bhm_rm_v0_2
 ---
 
 ## Basic Information
-Parent sample for the RM project, used to select confirmed and candidate quasar targets for the BHM-RM Program in SDSS-V. For more details please see Yang and Shen, (2022, https://ui.adsabs.harvard.edu/abs/2022arXiv220608989Y/abstract).
+Parent sample for the RM project, used to select confirmed and candidate quasar targets for the BHM-RM Program in SDSS-V. For more details please see Yang and Shen, (2022, https://ui.adsabs.harvard.edu/abs/2022arXiv220608989Y/abstract). This table contains all photometric objects detected in the COSMOS, SDSS-RM, XMM-LSS, CDFS, S-CVZ, and ELAIS-S1 fields., within a circular area of 10 degree^2 from the field center.
 
 ### Naming Convention
 $MOS_TARGET/[V_TARG]/mos_bhm_rm_v0_2-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
@@ -405,7 +405,33 @@ Name | Type | Unit | Description |
 
 ---
 ## Notes
-None
+Field center: Name     RA          DEC
+    XMM-LSS  02:22:50.00    -04:45:00.0
+        CDFS     03:30:35.60    -28:06:00.0
+            EDFS     04:04:57.84    -48:25:22.8
+                ELAIS-S1 00:37:48.00    -44:00:00.0
+                COSMOS   10:00:00.00    +02:12:00.0
+                SDSS-RM  14:14:49.00    +53:05:00.0
+                S-CVZ    06:00:00.00    -66:33:38.0
+
+The table includes information from the following survey data releases: 
+DES: Dark Energy Survey, Y6, Y6A1_COADD_OBJECT_SUMMARY
+PS1: Pan-STARRS, DR1, StackObjectThin
+NSC: NOAO Source Catalog, DR1, nsc_dr1.object
+SDSS: Sloan Digital Sky Survey, DR14, PhotoObjAll
+Gaia: DR2, gaia_dr2.gaia_source
+unWISE: DR1
+Near-infrared: LAS: UKIDSS Large Area Surveys (DR11),
+    UHS: UKIRT Hemisphere Survey (DR1),
+        VHS: VISTA Hemisphere Survey (DR6),
+            Viking: VISTA Kilo-Degree Infrared Galaxy Survey (DR5),
+                VIDEO: VISTA Deep Extragalactic Observations Survey (DR5),
+                VMC: VISTA Magellanic Cloud Survey (DR4)
+
+Values are set to -9.0 or -9 if null.
+
+The dr19_bhm_rm_v0_2 table corresponds to Version: v0.2, 06/30/2020
+Changes (wrt v0) include correct error in spec_q column, and add specz from OzDES DR2
 
 ---
 ## Regrets
