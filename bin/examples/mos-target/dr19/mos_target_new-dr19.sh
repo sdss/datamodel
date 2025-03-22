@@ -20,13 +20,23 @@ datamodel_update -f mos_target_catalog_to_bhm_csc -r DR19
 
 datamodel_generate -f mos_target_catalog_to_bhm_rm_v0 -p MOS_TARGET/{v_targ}/mos_catalog_to_bhm_rm_v0.fits -k v_targ=1.0.2 -r DR19
 datamodel_update -f mos_target_catalog_to_bhm_rm_v0 -r DR19
-
+datamodel_update -f mos_target_catalog_to_bhm_rm_v0_2 -r DR19
 
 datamodel_generate -f mos_target_catalog_to_mangatarget -p MOS_TARGET/{v_targ}/mos_catalog_to_mangatarget.fits -k v_targ=1.0.2 -r DR19
+datamodel_update -f mos_target_catalog_to_mangatarget -r DR19
+
 datamodel_generate -f mos_target_catalog_to_marvels_dr11_star -p MOS_TARGET/{v_targ}/mos_catalog_to_marvels_dr11_star.fits -k v_targ=1.0.2 -r DR19
+datamodel_update -f mos_target_catalog_to_marvels_dr11_star -r DR19
+
 datamodel_generate -f mos_target_catalog_to_marvels_dr12_star -p MOS_TARGET/{v_targ}/mos_catalog_to_marvels_dr12_star.fits -k v_targ=1.0.2 -r DR19
+datamodel_update -f mos_target_catalog_to_marvels_dr12_star -r DR19
+
+
 datamodel_generate -f mos_target_catalog_to_mastar_goodstars -p MOS_TARGET/{v_targ}/mos_catalog_to_mastar_goodstars.fits -k v_targ=1.0.2 -r DR19
-datamodel_generate -f mos_target_catalog_to_uvotssc1_2 -p MOS_TARGET/{v_targ}/mos_catalog_to_uvotssc1_2.fits -k v_targ=1.0.2 -r DR19
+datamodel_update -f mos_target_catalog_to_mastar_goodstars -r DR19
+
+#datamodel_generate -f mos_target_catalog_to_uvotssc1_2 -p MOS_TARGET/{v_targ}/mos_catalog_to_uvotssc1_2.fits -k v_targ=1.0.2 -r DR19
+
 datamodel_generate -f mos_target_design -p MOS_TARGET/{v_targ}/mos_design.fits -k v_targ=1.0.2 -r DR19
 datamodel_generate -f mos_target_design_mode -p MOS_TARGET/{v_targ}/mos_design_mode.fits -k v_targ=1.0.2 -r DR19
 datamodel_generate -f mos_target_design_mode_check_results -p MOS_TARGET/{v_targ}/mos_design_mode_check_results.fits -k v_targ=1.0.2 -r DR19
