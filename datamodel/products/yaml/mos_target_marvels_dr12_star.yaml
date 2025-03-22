@@ -1,7 +1,7 @@
 general:
   name: mos_target_marvels_dr12_star
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: 'MOS Target table: mos_target_marvels_dr12_star'
+  description: Contains data for a MARVELS star (DR12 release).
   datatype: FITS
   filesize: 3 MB
   releases:
@@ -9,11 +9,12 @@ general:
   environments:
   - MOS_TARGET
   surveys:
+  - BHM
+  - MWM
   - SDSS
-  naming_convention: replace me - with $MOS_TARGET/[V_TARG]/mos_marvels_dr12_star.fits
-    or mos_marvels_dr12_star.fits but with regex pattern matches
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  naming_convention: $MOS_TARGET/[V_TARG]/mos_marvels_dr12_star.fits, where V_TARG=1.0.2
+    for DR19
+  generated_by: sdss5db> targetdb, operations database server
   data_level: 2.3.3
   design: false
   vac: false
@@ -29,16 +30,17 @@ releases:
     location: '{v_targ}/mos_marvels_dr12_star.fits'
     environment: MOS_TARGET
     access:
-      in_sdss_access: false
-      path_name: null
-      path_template: null
-      path_kwargs: null
+      in_sdss_access: true
+      path_name: mos_target_marvels_dr12_star
+      path_template: $MOS_TARGET/{v_targ}/mos_marvels_dr12_star.fits
+      path_kwargs:
+      - v_targ
       access_string: mos_target_marvels_dr12_star = $MOS_TARGET/{v_targ}/mos_marvels_dr12_star.fits
     survey: SDSS
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: Primary header
         is_image: true
         size: 0 bytes
         header:
@@ -56,7 +58,7 @@ releases:
           comment: ''
       hdu1:
         name: ''
-        description: replace me description
+        description: 'MOS Target table: mos_target_marvels_dr12_star'
         is_image: false
         size: 3 MB
         header:
@@ -91,218 +93,225 @@ releases:
           starname:
             name: starname
             type: char[31]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The primary name of the star (STARNAME)
           twomass_name:
             name: twomass_name
             type: char[25]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 2MASS Star Catalog Name
           plate:
             name: plate
             type: char[14]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Plate Name
           gsc_name:
             name: gsc_name
             type: char[17]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Guide Star Catalog Name
           tyc_name:
             name: tyc_name
             type: char[16]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Tycho Star Catalog Name
           hip_name:
             name: hip_name
             type: char[10]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Hipparcos Star Catalog Name
           ra_final:
             name: ra_final
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: Star Right Ascension
           dec_final:
             name: dec_final
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: Star Declination
           gsc_b:
             name: gsc_b
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: GSC B Magnitude
           gsc_v:
             name: gsc_v
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: GSC V Magnitude
           twomass_j:
             name: twomass_j
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: 2MASS J Magnitude
           twomass_h:
             name: twomass_h
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: 2MASS H Magnitude
           twomass_k:
             name: twomass_k
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: 2MASS K Magnitude
           sp1:
             name: sp1
             type: char[5]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Hipparcos Spectral type 1
           sp2:
             name: sp2
             type: char[5]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Hipparcos Spectral type 2
           rpm_log_g:
             name: rpm_log_g
             type: char[7]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Luminosity Class from SSPP* (Mainseq/Giant/Refstar) Refstar
+              means it is a known planet host (different method used for year34 -
+              see docs)
           teff:
             name: teff
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: K
+            description: SSPP* effective temperature (different method used for year34
+              - see docs)
           log_g:
             name: log_g
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: SSPP* Surface gravity (different method used for year34 -
+              see docs)
           feh:
             name: feh
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: SSPP* Metallicity (different method used for year34 - see
+              docs)
           gsc_b_e:
             name: gsc_b_e
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Error in GSC B Magnitude
           gsc_v_e:
             name: gsc_v_e
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Error in GSC V Magnitude
           twomass_j_e:
             name: twomass_j_e
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Error in 2MASS J Magnitude
           twomass_h_e:
             name: twomass_h_e
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Error in 2MASS H Magnitude
           twomass_k_e:
             name: twomass_k_e
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Error in 2MASS H Magnitude
           teff_e:
             name: teff_e
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: K
+            description: Error in SSPP* effective temperature
           log_g_e:
             name: log_g_e
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Error in SSPP* Surface gravity (different method used for
+              year34 - see docs) (different method used for year34 - see docs)
           feh_e:
             name: feh_e
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Error in SSPP* Metallicity (different method used for year34
+              - see docs)
           epoch_0:
             name: epoch_0
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Epoch 0
           ra_0:
             name: ra_0
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: Right Ascension at Epoch 0
           dec_0:
             name: dec_0
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: Declination at Epoch 0
           ra_twomass:
             name: ra_twomass
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: 2MASS Right Ascension
           dec_twomass:
             name: dec_twomass
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: 2MASS Declination
           gsc_pm_ra:
             name: gsc_pm_ra
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mas/yr
+            description: GSC Proper Motion in RA pmra * cos(dec)
           gsc_pm_dec:
             name: gsc_pm_dec
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mas/yr
+            description: GSC Proper MOtion in DEC
           gsc_pm_ra_e:
             name: gsc_pm_ra_e
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mas/yr
+            description: Error in GSC Proper Motion in RA pmra * cos(dec)
           gsc_pm_dec_e:
             name: gsc_pm_dec_e
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mas/yr
+            description: Error in GSC Proper MOtion in DEC
           tyc_b:
             name: tyc_b
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Tycho B Magnitude
           tyc_b_e:
             name: tyc_b_e
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Error in Tycho B Magnitude
           tyc_v:
             name: tyc_v
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Tycho V Magnitude
           tyc_v_e:
             name: tyc_v_e
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Error in Tycho V Magnitude
           hip_plx:
             name: hip_plx
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mas
+            description: Hipparcos Parallax
           hip_plx_e:
             name: hip_plx_e
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mas
+            description: Error in Hipparcos Parallax
           hip_sptype:
             name: hip_sptype
             type: char[12]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Hipparcos Spectral Type
           pk:
             name: pk
             type: int64
@@ -311,13 +320,13 @@ releases:
           twomass_designation:
             name: twomass_designation
             type: char[16]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 2MASS Designation ID in dr19_twomass_psc
           tycho2_designation:
             name: tycho2_designation
             type: char[12]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Tycho2 Designation ID in dr19_tycho2
 notes: |-
   None
 regrets: |-
