@@ -1,7 +1,8 @@
 general:
   name: mos_target_design
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: 'MOS Target table: mos_target_design'
+  description: This table stores the meta-data for the design, including its Design
+    Mode and versioning information.
   datatype: FITS
   filesize: 14 MB
   releases:
@@ -9,11 +10,12 @@ general:
   environments:
   - MOS_TARGET
   surveys:
+  - BHM
+  - MWM
   - SDSS
-  naming_convention: replace me - with $MOS_TARGET/[V_TARG]/mos_design.fits or mos_design.fits
-    but with regex pattern matches
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  naming_convention: $MOS_TARGET/[V_TARG]/mos_design.fits, where V_TARG=1.0.2 for
+    DR19
+  generated_by: sdss5db> targetdb, operations database server
   data_level: 2.3.3
   design: false
   vac: false
@@ -29,16 +31,17 @@ releases:
     location: '{v_targ}/mos_design.fits'
     environment: MOS_TARGET
     access:
-      in_sdss_access: false
-      path_name: null
-      path_template: null
-      path_kwargs: null
+      in_sdss_access: true
+      path_name: mos_target_design
+      path_template: $MOS_TARGET/{v_targ}/mos_design.fits
+      path_kwargs:
+      - v_targ
       access_string: mos_target_design = $MOS_TARGET/{v_targ}/mos_design.fits
     survey: SDSS
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: Primary header
         is_image: true
         size: 0 bytes
         header:
@@ -56,7 +59,7 @@ releases:
           comment: ''
       hdu1:
         name: ''
-        description: replace me description
+        description: 'MOS Target table: mos_target_design'
         is_image: false
         size: 13 MB
         header:
@@ -94,33 +97,34 @@ releases:
           design_id:
             name: design_id
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The primary key. A sequential identifier.
           design_mode_label:
             name: design_mode_label
             type: char[11]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The primary key of the design_mode in the dr19_design_mode
+              table.
           mugatu_version:
             name: mugatu_version
             type: char[5]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Software version of mugatu used to validate and ingest design.
           run_on:
             name: run_on
             type: char[10]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Date that design was added to database.
           assignment_hash:
             name: assignment_hash
             type: char[36]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Hash of the assignments in the design.
           design_version_pk:
             name: design_version_pk
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The primary key of the version in the dr19_version table.
 notes: |-
   None
 regrets: |-
