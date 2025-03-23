@@ -1,0 +1,223 @@
+{
+  "general": {
+    "name": "mos_target_catalog_to_twomass_psc",
+    "short": "MOS Target table: mos_target_catalog_to_twomass_psc",
+    "description": "The table contains the cross-match between the dr19_catalog targets and the dr19_twomass_psc table.",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "BHM",
+        "long": "Black Hole Mapper",
+        "description": "An optical time-domain spectroscopic survey of quasars and X-ray sources",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "bhm",
+        "aliases": []
+      },
+      {
+        "name": "MWM",
+        "long": "Milky Way Mapper",
+        "description": "A time-domain, optical+IR spectroscopic survey of Milky Way stars of all types.",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "mwm",
+        "aliases": []
+      },
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "FITS",
+    "filesize": "43 MB",
+    "releases": [
+      {
+        "name": "DR19",
+        "description": "SDSS public data release 19",
+        "public": true,
+        "release_date": "2025-07-11"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/mos_catalog_to_twomass_psc.fits, where V_TARG=1.0.2 for DR19",
+    "generated_by": "sdss5db> targetdb, operations database server",
+    "design": false,
+    "vac": false,
+    "recommended_science_product": false,
+    "data_level": "2.3.3"
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR19": {
+      "template": "$MOS_TARGET/[V_TARG]/mos_catalog_to_twomass_psc-[NUM].fits",
+      "example": "1.0.2/mos_catalog_to_twomass_psc-01.fits",
+      "location": "{v_targ}/mos_catalog_to_twomass_psc-{num}.fits",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_catalog_to_twomass_psc",
+        "path_template": "$MOS_TARGET/{v_targ}/mos_catalog_to_twomass_psc-{num}.fits",
+        "path_kwargs": [
+          "num",
+          "v_targ"
+        ],
+        "access_string": "mos_target_catalog_to_twomass_psc = $MOS_TARGET/{v_targ}/mos_catalog_to_twomass_psc-{num}.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Primary header",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "MOS Target table: mos_target_catalog_to_twomass_psc",
+          "size": "43 MB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "BINTABLE",
+              "comment": "binary table extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "23",
+              "comment": "length of dimension 1"
+            },
+            {
+              "key": "NAXIS2",
+              "value": "2000000",
+              "comment": "length of dimension 2"
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "number of group parameters"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "number of groups"
+            },
+            {
+              "key": "TFIELDS",
+              "value": "5",
+              "comment": "number of table fields"
+            },
+            {
+              "key": "TNULL1",
+              "value": "-9223372036854775808",
+              "comment": ""
+            },
+            {
+              "key": "TNULL2",
+              "value": "-2147483648",
+              "comment": ""
+            },
+            {
+              "key": "TNULL3",
+              "value": "-32768",
+              "comment": ""
+            }
+          ],
+          "columns": {
+            "catalogid": {
+              "name": "catalogid",
+              "description": "The catalogid identifier in the dr19_catalog table.",
+              "type": "int64",
+              "unit": ""
+            },
+            "target_id": {
+              "name": "target_id",
+              "description": "The primary key identifier in the dr19_twomass_psc table.",
+              "type": "int32",
+              "unit": ""
+            },
+            "version_id": {
+              "name": "version_id",
+              "description": "The internal version for the cross-match.",
+              "type": "int16",
+              "unit": ""
+            },
+            "distance": {
+              "name": "distance",
+              "description": "The distance between the catalog and target coordinates if best=F.",
+              "type": "float64",
+              "unit": ""
+            },
+            "best": {
+              "name": "best",
+              "description": "Whether this is considered the best match between the catalog entry and dr19_twomass_psc.",
+              "type": "bool",
+              "unit": ""
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null
+    }
+  },
+  "notes": "None",
+  "regrets": "I  have no regrets!"
+}
