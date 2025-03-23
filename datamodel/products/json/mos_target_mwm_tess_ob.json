@@ -1,0 +1,218 @@
+{
+  "general": {
+    "name": "mos_target_mwm_tess_ob",
+    "short": "MOS Target table: mos_target_mwm_tess_ob",
+    "description": "This table contains targets requested for the manual carton mwm_tess_ob.",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "BHM",
+        "long": "Black Hole Mapper",
+        "description": "An optical time-domain spectroscopic survey of quasars and X-ray sources",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "bhm",
+        "aliases": []
+      },
+      {
+        "name": "MWM",
+        "long": "Milky Way Mapper",
+        "description": "A time-domain, optical+IR spectroscopic survey of Milky Way stars of all types.",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "mwm",
+        "aliases": []
+      },
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "FITS",
+    "filesize": "25 KB",
+    "releases": [
+      {
+        "name": "DR19",
+        "description": "SDSS public data release 19",
+        "public": true,
+        "release_date": "2025-07-11"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/mos_mwm_tess_ob.fits, where V_TARG=1.0.2 for DR19",
+    "generated_by": "sdss5db> targetdb, operations database server",
+    "design": false,
+    "vac": false,
+    "recommended_science_product": false,
+    "data_level": "2.3.3"
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR19": {
+      "template": "$MOS_TARGET/[V_TARG]/mos_mwm_tess_ob.fits",
+      "example": "1.0.2/mos_mwm_tess_ob.fits",
+      "location": "{v_targ}/mos_mwm_tess_ob.fits",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_mwm_tess_ob",
+        "path_template": "$MOS_TARGET/{v_targ}/mos_mwm_tess_ob.fits",
+        "path_kwargs": [
+          "v_targ"
+        ],
+        "access_string": "mos_target_mwm_tess_ob = $MOS_TARGET/{v_targ}/mos_mwm_tess_ob.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Primary header",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "MOS Target table: mos_target_mwm_tess_ob",
+          "size": "17 KB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "BINTABLE",
+              "comment": "binary table extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "48",
+              "comment": "length of dimension 1"
+            },
+            {
+              "key": "NAXIS2",
+              "value": "364",
+              "comment": "length of dimension 2"
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "number of group parameters"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "number of groups"
+            },
+            {
+              "key": "TFIELDS",
+              "value": "6",
+              "comment": "number of table fields"
+            },
+            {
+              "key": "TNULL1",
+              "value": "-9223372036854775808",
+              "comment": ""
+            }
+          ],
+          "columns": {
+            "gaia_dr2_id": {
+              "name": "gaia_dr2_id",
+              "description": "Gaia DR2 unique source identifier",
+              "type": "int64",
+              "unit": ""
+            },
+            "ra": {
+              "name": "ra",
+              "description": "Right Ascension (J2000)",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "dec": {
+              "name": "dec",
+              "description": "Declination (J2000)",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "h_mag": {
+              "name": "h_mag",
+              "description": "2MASS H-band mangitude",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "instrument": {
+              "name": "instrument",
+              "description": "Instrument requested for this target (only APOGEE for this carton)",
+              "type": "char[6]",
+              "unit": ""
+            },
+            "cadence": {
+              "name": "cadence",
+              "description": "Cadence requested for this carton",
+              "type": "char[10]",
+              "unit": ""
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null
+    }
+  },
+  "notes": "None",
+  "regrets": "I  have no regrets!"
+}

@@ -9,22 +9,27 @@ general:
   filesize: 3 MB
   releases:
   - DR18
+  - DR19
   environments:
   - MOS_TARGET
   surveys:
   - BHM
   - MWM
   - SDSS
-  naming_convention: $MOS_TARGET/[V_TARG]/mos_cataclysmic_variables-[NUM].fits,
-    where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
+  naming_convention: $MOS_TARGET/[V_TARG]/mos_cataclysmic_variables-[NUM].fits, where
+    V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
   generated_by: sdss5db> targetdb, operations database server
   design: false
   vac: false
   recommended_science_product: false
+  data_level: 2.3.3
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
-  releases: {}
+  releases:
+    DR19:
+      from: DR18
+      note: No changes
 releases:
   DR18:
     template: $MOS_TARGET/[V_TARG]/mos_cataclysmic_variables.fits
@@ -34,7 +39,7 @@ releases:
     access:
       in_sdss_access: true
       path_name: mos_target_cataclysmic_variables
-      path_template: $MOS_TARGET/{v_targ}/mos_cataclysmic_variables
+      path_template: $MOS_TARGET/{v_targ}/mos_cataclysmic_variables.fits
       path_kwargs:
       - v_targ
       access_string: mos_target_cataclysmic_variables = $MOS_TARGET/{v_targ}/mos_cataclysmic_variables.fits
@@ -547,5 +552,613 @@ releases:
             type: float64
             unit: Solar Luminosity
             description: lum_val upper uncertainty
+  DR19:
+    template: $MOS_TARGET/[V_TARG]/mos_cataclysmic_variables.fits
+    example: 1.0.2/mos_cataclysmic_variables.fits
+    location: '{v_targ}/mos_cataclysmic_variables.fits'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_cataclysmic_variables
+      path_template: $MOS_TARGET/{v_targ}/mos_cataclysmic_variables.fits
+      path_kwargs:
+      - v_targ
+      access_string: mos_target_cataclysmic_variables = $MOS_TARGET/{v_targ}/mos_cataclysmic_variables.fits
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Primary header
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: 'MOS Target Table: cataclysmic_variables'
+        is_image: false
+        size: 3 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 635
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 5167
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 95
+          comment: number of table fields
+        - key: TNULL1
+          value: -9223372036854775808
+          comment: ''
+        - key: TNULL2
+          value: -9223372036854775808
+          comment: ''
+        - key: TNULL4
+          value: -9223372036854775808
+          comment: ''
+        - key: TNULL5
+          value: -2147483648
+          comment: ''
+        - key: TNULL28
+          value: -32768
+          comment: ''
+        - key: TNULL29
+          value: -32768
+          comment: ''
+        - key: TNULL30
+          value: -32768
+          comment: ''
+        - key: TNULL31
+          value: -32768
+          comment: ''
+        - key: TNULL36
+          value: -32768
+          comment: ''
+        - key: TNULL42
+          value: -32768
+          comment: ''
+        - key: TNULL43
+          value: -32768
+          comment: ''
+        - key: TNULL45
+          value: -32768
+          comment: ''
+        - key: TNULL46
+          value: -32768
+          comment: ''
+        - key: TNULL48
+          value: -32768
+          comment: ''
+        - key: TNULL53
+          value: -32768
+          comment: ''
+        - key: TNULL58
+          value: -32768
+          comment: ''
+        - key: TNULL64
+          value: -32768
+          comment: ''
+        - key: TNULL70
+          value: -32768
+          comment: ''
+        - key: TNULL79
+          value: -2147483648
+          comment: ''
+        - key: TNULL89
+          value: -2147483648
+          comment: ''
+        columns:
+          ref_id:
+            name: ref_id
+            type: int64
+            unit: ''
+            description: same as source_id
+          solution_id:
+            name: solution_id
+            type: int64
+            unit: ''
+            description: ID that identifies the version of all the subsystems that
+              were used in the generation of the data as well as the input data used
+          designation:
+            name: designation
+            type: char[28]
+            unit: ''
+            description: Unique source designation across all Gaia data releases
+          source_id:
+            name: source_id
+            type: int64
+            unit: ''
+            description: Unique source identifier within a particular Gaia data release
+          random_index:
+            name: random_index
+            type: int32
+            unit: ''
+            description: Random index which can be used to select smaller subsets
+              of the data
+          ref_epoch:
+            name: ref_epoch
+            type: float32
+            unit: Julian Years
+            description: Time
+          ra:
+            name: ra
+            type: float64
+            unit: degrees
+            description: Right Ascension
+          ra_error:
+            name: ra_error
+            type: float64
+            unit: degrees
+            description: Standard error of the right ascension
+          dec:
+            name: dec
+            type: float64
+            unit: degrees
+            description: Declination
+          dec_error:
+            name: dec_error
+            type: float64
+            unit: degrees
+            description: Standard error of the declination
+          parallax:
+            name: parallax
+            type: float64
+            unit: mas
+            description: Absolute stellar parallax of the source at the reference
+              epoch
+          parallax_error:
+            name: parallax_error
+            type: float64
+            unit: mas
+            description: Standard error of parallax
+          parallax_over_error:
+            name: parallax_over_error
+            type: float64
+            unit: ''
+            description: Parallax divided by its error
+          pmra:
+            name: pmra
+            type: float64
+            unit: mas/yr
+            description: Proper motion in right ascension direction
+          pmra_error:
+            name: pmra_error
+            type: float64
+            unit: mas/yr
+            description: Standard error of proper motion in right ascension direction
+          pmdec:
+            name: pmdec
+            type: float64
+            unit: mas/yr
+            description: Proper motion in declination direction
+          pmdec_error:
+            name: pmdec_error
+            type: float64
+            unit: mas/yr
+            description: Standard error of proper motion in declination direction
+          ra_dec_corr:
+            name: ra_dec_corr
+            type: float64
+            unit: ''
+            description: Correlation between right ascension and declination
+          ra_parallax_corr:
+            name: ra_parallax_corr
+            type: float64
+            unit: ''
+            description: Correlation between right ascension and parallax
+          ra_pmra_corr:
+            name: ra_pmra_corr
+            type: float64
+            unit: ''
+            description: Correlation between right ascension and proper motion in
+              right ascension
+          ra_pmdec_corr:
+            name: ra_pmdec_corr
+            type: float64
+            unit: ''
+            description: Correlation between right ascension and proper motion in
+              declination
+          dec_parallax_corr:
+            name: dec_parallax_corr
+            type: float64
+            unit: ''
+            description: Correlation between declination and parallax
+          dec_pmra_corr:
+            name: dec_pmra_corr
+            type: float64
+            unit: ''
+            description: Correlation between declination and proper motion in right
+              ascension
+          dec_pmdec_corr:
+            name: dec_pmdec_corr
+            type: float64
+            unit: ''
+            description: Correlation between declination and proper motion in declination
+          parallax_pmra_corr:
+            name: parallax_pmra_corr
+            type: float64
+            unit: ''
+            description: Correlation between parallax and proper motion in right ascension
+          parallax_pmdec_corr:
+            name: parallax_pmdec_corr
+            type: float64
+            unit: ''
+            description: Correlation between parallax and proper motion in declination
+          pmra_pmdec_corr:
+            name: pmra_pmdec_corr
+            type: float64
+            unit: ''
+            description: Correlation between proper motion in right ascension and
+              proper motion in declination
+          astrometric_n_obs_al:
+            name: astrometric_n_obs_al
+            type: int16
+            unit: ''
+            description: Total number of observations AL
+          astrometric_n_obs_ac:
+            name: astrometric_n_obs_ac
+            type: int16
+            unit: ''
+            description: Total number of observations AC
+          astrometric_n_good_obs_al:
+            name: astrometric_n_good_obs_al
+            type: int16
+            unit: ''
+            description: Number of good observations AL
+          astrometric_n_bad_obs_al:
+            name: astrometric_n_bad_obs_al
+            type: int16
+            unit: ''
+            description: Number of bad observations AL
+          astrometric_gof_al:
+            name: astrometric_gof_al
+            type: float64
+            unit: ''
+            description: Goodness of fit statistic of model wrt along-scan observations
+          astrometric_chi2_al:
+            name: astrometric_chi2_al
+            type: float64
+            unit: ''
+            description: AL chi-square value
+          astrometric_excess_noise:
+            name: astrometric_excess_noise
+            type: float64
+            unit: mas
+            description: Excess noise of the source
+          astrometric_excess_noise_sig:
+            name: astrometric_excess_noise_sig
+            type: float64
+            unit: ''
+            description: Significance of excess noise
+          astrometric_params_solved:
+            name: astrometric_params_solved
+            type: int16
+            unit: ''
+            description: Which parameters have been solved for
+          astrometric_primary_flag:
+            name: astrometric_primary_flag
+            type: bool
+            unit: ''
+            description: Flag indicating if this source was used as a primary source
+              (true) or secondary source (false)
+          astrometric_weight_al:
+            name: astrometric_weight_al
+            type: float64
+            unit: mas^-2
+            description: Mean astrometric weight of the source
+          astrometric_pseudo_colour:
+            name: astrometric_pseudo_colour
+            type: float64
+            unit: um^-1
+            description: Astrometrically determined pseudocolour of the source
+          astrometric_pseudo_colour_error:
+            name: astrometric_pseudo_colour_error
+            type: float64
+            unit: um^-1
+            description: Standard error of the pseudocolour of the source
+          mean_varpi_factor_al:
+            name: mean_varpi_factor_al
+            type: float64
+            unit: ''
+            description: Mean Parallax factor AL
+          astrometric_matched_observations:
+            name: astrometric_matched_observations
+            type: int16
+            unit: ''
+            description: number of FOV transits matched to this source
+          visibility_periods_used:
+            name: visibility_periods_used
+            type: int16
+            unit: ''
+            description: Number of visibility periods used in the astrometric solution
+          astrometric_sigma5d_max:
+            name: astrometric_sigma5d_max
+            type: float64
+            unit: mas
+            description: Longest semi-major axis of the 5-d error ellipsoid
+          frame_rotator_object_type:
+            name: frame_rotator_object_type
+            type: int16
+            unit: ''
+            description: Type of the source mainly used for frame rotation
+          matched_observations:
+            name: matched_observations
+            type: int16
+            unit: ''
+            description: Total number of FOV transits matched to this source
+          duplicated_source:
+            name: duplicated_source
+            type: bool
+            unit: ''
+            description: Source with duplicate sources
+          phot_g_n_obs:
+            name: phot_g_n_obs
+            type: int16
+            unit: ''
+            description: Number of observations contributing to G photometry
+          phot_g_mean_flux:
+            name: phot_g_mean_flux
+            type: float64
+            unit: e-/s
+            description: G-band mean flux
+          phot_g_mean_flux_error:
+            name: phot_g_mean_flux_error
+            type: float64
+            unit: e-/s
+            description: Error on G-band mean flux
+          phot_g_mean_flux_over_error:
+            name: phot_g_mean_flux_over_error
+            type: float64
+            unit: ''
+            description: G-band mean flux divided by its error
+          phot_g_mean_mag:
+            name: phot_g_mean_mag
+            type: float64
+            unit: mag
+            description: G-band mean magnitude
+          phot_bp_n_obs:
+            name: phot_bp_n_obs
+            type: int16
+            unit: ''
+            description: Number of observations contributing to BP photometry
+          phot_bp_mean_flux:
+            name: phot_bp_mean_flux
+            type: float64
+            unit: e-/s
+            description: Integrated BP mean flux
+          phot_bp_mean_flux_error:
+            name: phot_bp_mean_flux_error
+            type: float64
+            unit: e-/s
+            description: Error on the integrated BP mean flux
+          phot_bp_mean_flux_over_error:
+            name: phot_bp_mean_flux_over_error
+            type: float64
+            unit: ''
+            description: Integrated BP mean flux divided by its error
+          phot_bp_mean_mag:
+            name: phot_bp_mean_mag
+            type: float64
+            unit: mag
+            description: Integrated BP mean magnitude
+          phot_rp_n_obs:
+            name: phot_rp_n_obs
+            type: int16
+            unit: ''
+            description: Number of observations contributing to RP photometry
+          phot_rp_mean_flux:
+            name: phot_rp_mean_flux
+            type: float64
+            unit: e-/s
+            description: Integrated RP mean flux
+          phot_rp_mean_flux_error:
+            name: phot_rp_mean_flux_error
+            type: float64
+            unit: e-/s
+            description: Error on the integrated RP mean flux
+          phot_rp_mean_flux_over_error:
+            name: phot_rp_mean_flux_over_error
+            type: float64
+            unit: ''
+            description: Integrated RP mean flux divided by its error
+          phot_rp_mean_mag:
+            name: phot_rp_mean_mag
+            type: float64
+            unit: mag
+            description: Integrated RP mean magnitude
+          phot_bp_rp_excess_factor:
+            name: phot_bp_rp_excess_factor
+            type: float64
+            unit: ''
+            description: BP/RP excess factor
+          phot_proc_mode:
+            name: phot_proc_mode
+            type: int16
+            unit: ''
+            description: Photometry processing mode
+          bp_rp:
+            name: bp_rp
+            type: float64
+            unit: mag
+            description: BP - RP color
+          bp_g:
+            name: bp_g
+            type: float64
+            unit: mag
+            description: BP - G color
+          g_rp:
+            name: g_rp
+            type: float64
+            unit: mag
+            description: G - RP color
+          radial_velocity:
+            name: radial_velocity
+            type: float64
+            unit: km/s
+            description: Radial velocity
+          radial_velocity_error:
+            name: radial_velocity_error
+            type: float64
+            unit: km/s
+            description: Radial velocity error
+          rv_nb_transits:
+            name: rv_nb_transits
+            type: int16
+            unit: ''
+            description: Number of transits used to compute radial velocity
+          rv_template_teff:
+            name: rv_template_teff
+            type: float32
+            unit: K
+            description: Teff of the template used to compute radial velocity
+          rv_template_logg:
+            name: rv_template_logg
+            type: float32
+            unit: log cgs
+            description: logg of the template used to compute radial velocity
+          rv_template_fe_h:
+            name: rv_template_fe_h
+            type: float32
+            unit: dex
+            description: Fe/H of the template used to compute radial velocity
+          phot_variable_flag:
+            name: phot_variable_flag
+            type: char[13]
+            unit: ''
+            description: Photometric variability flag
+          l:
+            name: l
+            type: float64
+            unit: degrees
+            description: Galactic longitude
+          b:
+            name: b
+            type: float64
+            unit: degrees
+            description: Galactic latitude
+          ecl_lon:
+            name: ecl_lon
+            type: float64
+            unit: degrees
+            description: Ecliptic longitude
+          ecl_lat:
+            name: ecl_lat
+            type: float64
+            unit: degrees
+            description: Ecliptic latitude
+          priam_flags:
+            name: priam_flags
+            type: int32
+            unit: ''
+            description: Flags for the Apsis-Priam results
+          teff_val:
+            name: teff_val
+            type: float64
+            unit: K
+            description: Stellar effective temperature
+          teff_percentile_lower:
+            name: teff_percentile_lower
+            type: float64
+            unit: K
+            description: Teff_val lower uncertainty
+          teff_percentile_upper:
+            name: teff_percentile_upper
+            type: float64
+            unit: K
+            description: Teff_val upper uncertainty
+          a_g_val:
+            name: a_g_val
+            type: float32
+            unit: mag
+            description: Line-of-sight extinction in the G band
+          a_g_percentile_lower:
+            name: a_g_percentile_lower
+            type: float32
+            unit: mag
+            description: A_g_val lower uncertainty
+          a_g_percentile_upper:
+            name: a_g_percentile_upper
+            type: float32
+            unit: mag
+            description: A_g_val upper uncertainty
+          e_bp_min_rp_val:
+            name: e_bp_min_rp_val
+            type: float32
+            unit: mag
+            description: Line-of-sight reddening E(BP-RP)
+          e_bp_min_rp_percentile_lower:
+            name: e_bp_min_rp_percentile_lower
+            type: float32
+            unit: mag
+            description: e_bp_min_rp_val lower uncertainty
+          e_bp_min_rp_percentile_upper:
+            name: e_bp_min_rp_percentile_upper
+            type: float32
+            unit: mag
+            description: e_bp_min_rp_val upper uncertainty
+          flame_flags:
+            name: flame_flags
+            type: int32
+            unit: ''
+            description: Flags for the Apsis-FLAME results
+          radius_val:
+            name: radius_val
+            type: float64
+            unit: Solar Radius
+            description: Stellar radius
+          radius_percentile_lower:
+            name: radius_percentile_lower
+            type: float64
+            unit: Solar Radius
+            description: Radius_val lower uncertainty
+          radius_percentile_upper:
+            name: radius_percentile_upper
+            type: float64
+            unit: Solar Radius
+            description: Radius_val upper uncertainty
+          lum_val:
+            name: lum_val
+            type: float64
+            unit: Solar Luminosity
+            description: stellar luminosity
+          lum_percentile_lower:
+            name: lum_percentile_lower
+            type: float64
+            unit: Solar Luminosity
+            description: lum_val lower uncertainty
+          lum_percentile_upper:
+            name: lum_percentile_upper
+            type: float64
+            unit: Solar Luminosity
+            description: lum_val upper uncertainty
 notes: |-
   None
+regrets: |-
+  I have no regrets!

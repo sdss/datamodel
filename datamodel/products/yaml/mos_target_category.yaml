@@ -7,6 +7,7 @@ general:
   filesize: 8 KB
   releases:
   - DR18
+  - DR19
   environments:
   - MOS_TARGET
   surveys:
@@ -19,10 +20,14 @@ general:
   design: false
   vac: false
   recommended_science_product: false
+  data_level: 2.3.3
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
-  releases: {}
+  releases:
+    DR19:
+      from: DR18
+      note: No changes
 releases:
   DR18:
     template: $MOS_TARGET/[V_TARG]/mos_category.fits
@@ -32,7 +37,7 @@ releases:
     access:
       in_sdss_access: true
       path_name: mos_target_category
-      path_template: $MOS_TARGET/{v_targ}/mos_category
+      path_template: $MOS_TARGET/{v_targ}/mos_category.fits
       path_kwargs:
       - v_targ
       access_string: mos_target_category = $MOS_TARGET/{v_targ}/mos_category.fits
@@ -72,5 +77,83 @@ releases:
             type: char[20]
             unit: ''
             description: The name of the category.
+  DR19:
+    template: $MOS_TARGET/[V_TARG]/mos_category.fits
+    example: 1.0.2/mos_category.fits
+    location: '{v_targ}/mos_category.fits'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_category
+      path_template: $MOS_TARGET/{v_targ}/mos_category.fits
+      path_kwargs:
+      - v_targ
+      access_string: mos_target_category = $MOS_TARGET/{v_targ}/mos_category.fits
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Primary header
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: 'MOS Target Table: category'
+        is_image: false
+        size: 288 bytes
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 24
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 12
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 2
+          comment: number of table fields
+        - key: TNULL1
+          value: -2147483648
+          comment: ''
+        columns:
+          pk:
+            name: pk
+            type: int32
+            unit: ''
+            description: The primary key. A sequential identifier.
+          label:
+            name: label
+            type: char[20]
+            unit: ''
+            description: The name of the category.
 notes: |-
   None
+regrets: |-
+  I have no regrets!

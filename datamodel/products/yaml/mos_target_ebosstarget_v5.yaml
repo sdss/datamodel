@@ -7,22 +7,27 @@ general:
   filesize: 555 MB
   releases:
   - DR18
+  - DR19
   environments:
   - MOS_TARGET
   surveys:
   - BHM
   - MWM
   - SDSS
-  naming_convention: $MOS_TARGET/[V_TARG]/mos_ebosstarget_v5-[NUM].fits, where
-    V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
+  naming_convention: $MOS_TARGET/[V_TARG]/mos_ebosstarget_v5-[NUM].fits, where V_TARG=1.0.1
+    for DR18; and NUM = 1..1 to partition the file into parts
   generated_by: sdss5db> targetdb, operations database server
   design: false
   vac: false
   recommended_science_product: false
+  data_level: 2.3.3
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
-  releases: {}
+  releases:
+    DR19:
+      from: DR18
+      note: No changes
 releases:
   DR18:
     template: $MOS_TARGET/[V_TARG]/mos_ebosstarget_v5.fits
@@ -32,7 +37,7 @@ releases:
     access:
       in_sdss_access: true
       path_name: mos_target_ebosstarget_v5
-      path_template: $MOS_TARGET/{v_targ}/mos_ebosstarget_v5
+      path_template: $MOS_TARGET/{v_targ}/mos_ebosstarget_v5.fits
       path_kwargs:
       - v_targ
       access_string: mos_target_ebosstarget_v5 = $MOS_TARGET/{v_targ}/mos_ebosstarget_v5.fits
@@ -570,5 +575,641 @@ releases:
             type: int64
             unit: ''
             description: primary key for entry in database table
+  DR19:
+    template: $MOS_TARGET/[V_TARG]/mos_ebosstarget_v5.fits
+    example: 1.0.2/mos_ebosstarget_v5.fits
+    location: '{v_targ}/mos_ebosstarget_v5.fits'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_ebosstarget_v5
+      path_template: $MOS_TARGET/{v_targ}/mos_ebosstarget_v5.fits
+      path_kwargs:
+      - v_targ
+      access_string: mos_target_ebosstarget_v5 = $MOS_TARGET/{v_targ}/mos_ebosstarget_v5.fits
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Primary header
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: 'MOS Target Table: ebosstarget_v5'
+        is_image: false
+        size: 801 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 420
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 2000000
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 99
+          comment: number of table fields
+        - key: TNULL1
+          value: -2147483648
+          comment: ''
+        - key: TNULL2
+          value: -2147483648
+          comment: ''
+        - key: TNULL3
+          value: -2147483648
+          comment: ''
+        - key: TNULL4
+          value: -2147483648
+          comment: ''
+        - key: TNULL16
+          value: -2147483648
+          comment: ''
+        - key: TNULL17
+          value: -2147483648
+          comment: ''
+        - key: TNULL18
+          value: -2147483648
+          comment: ''
+        - key: TNULL19
+          value: -2147483648
+          comment: ''
+        - key: TNULL20
+          value: -2147483648
+          comment: ''
+        - key: TNULL26
+          value: -9223372036854775808
+          comment: ''
+        - key: TNULL27
+          value: -9223372036854775808
+          comment: ''
+        - key: TNULL28
+          value: -9223372036854775808
+          comment: ''
+        - key: TNULL29
+          value: -2147483648
+          comment: ''
+        - key: TNULL30
+          value: -2147483648
+          comment: ''
+        - key: TNULL31
+          value: -2147483648
+          comment: ''
+        - key: TNULL32
+          value: -2147483648
+          comment: ''
+        - key: TNULL33
+          value: -2147483648
+          comment: ''
+        - key: TNULL34
+          value: -2147483648
+          comment: ''
+        - key: TNULL90
+          value: -2147483648
+          comment: ''
+        - key: TNULL98
+          value: -9223372036854775808
+          comment: ''
+        - key: TNULL99
+          value: -9223372036854775808
+          comment: ''
+        columns:
+          run:
+            name: run
+            type: int32
+            unit: ''
+            description: SDSS imaging run
+          camcol:
+            name: camcol
+            type: int32
+            unit: ''
+            description: SDSS imaging camcol
+          field:
+            name: field
+            type: int32
+            unit: ''
+            description: SDSS imaging field
+          id:
+            name: id
+            type: int32
+            unit: ''
+            description: SDSS imaging object id
+          rerun:
+            name: rerun
+            type: char[3]
+            unit: ''
+            description: SDSS imaging rerun
+          fibermag_u:
+            name: fibermag_u
+            type: float32
+            unit: mag
+            description: Magnitude in 3 arcsec diameter fiber radius, u-band
+          fibermag_g:
+            name: fibermag_g
+            type: float32
+            unit: mag
+            description: Magnitude in 3 arcsec diameter fiber radius, g-band
+          fibermag_r:
+            name: fibermag_r
+            type: float32
+            unit: mag
+            description: Magnitude in 3 arcsec diameter fiber radius, r-band
+          fibermag_i:
+            name: fibermag_i
+            type: float32
+            unit: mag
+            description: Magnitude in 3 arcsec diameter fiber radius, i-band
+          fibermag_z:
+            name: fibermag_z
+            type: float32
+            unit: mag
+            description: Magnitude in 3 arcsec diameter fiber radius, z-band
+          fiber2mag_u:
+            name: fiber2mag_u
+            type: float32
+            unit: mag
+            description: Magnitude in 2 arcsec diameter fiber radius, u-band
+          fiber2mag_g:
+            name: fiber2mag_g
+            type: float32
+            unit: mag
+            description: Magnitude in 2 arcsec diameter fiber radius, g-band
+          fiber2mag_r:
+            name: fiber2mag_r
+            type: float32
+            unit: mag
+            description: Magnitude in 2 arcsec diameter fiber radius, r-band
+          fiber2mag_i:
+            name: fiber2mag_i
+            type: float32
+            unit: mag
+            description: Magnitude in 2 arcsec diameter fiber radius, i-band
+          fiber2mag_z:
+            name: fiber2mag_z
+            type: float32
+            unit: mag
+            description: Magnitude in 2 arcsec diameter fiber radius, z-band
+          calib_status_u:
+            name: calib_status_u
+            type: int32
+            unit: ''
+            description: Calibration status in u-band
+          calib_status_g:
+            name: calib_status_g
+            type: int32
+            unit: ''
+            description: Calibration status in g-band
+          calib_status_r:
+            name: calib_status_r
+            type: int32
+            unit: ''
+            description: Calibration status in r-band
+          calib_status_i:
+            name: calib_status_i
+            type: int32
+            unit: ''
+            description: Calibration status in i-band
+          calib_status_z:
+            name: calib_status_z
+            type: int32
+            unit: ''
+            description: Calibration status in z-band
+          ra:
+            name: ra
+            type: float64
+            unit: deg
+            description: J2000 Right Ascension
+          dec:
+            name: dec
+            type: float64
+            unit: deg
+            description: J2000 Declination
+          epoch:
+            name: epoch
+            type: float32
+            unit: year
+            description: Epoch of position
+          pmra:
+            name: pmra
+            type: float32
+            unit: mas/yr
+            description: proper motion in RA direction
+          pmdec:
+            name: pmdec
+            type: float32
+            unit: mas/yr
+            description: '- proper motion in Dec direction'
+          eboss_target1:
+            name: eboss_target1
+            type: int64
+            unit: ''
+            description: eBOSS target selection information, for eBOSS plates
+          eboss_target2:
+            name: eboss_target2
+            type: int64
+            unit: ''
+            description: eBOSS target selection information, for TDSS, SPIDERS, ELG,
+              etc. plates
+          eboss_target_id:
+            name: eboss_target_id
+            type: int64
+            unit: ''
+            description: eBOSS unique target identifier for every spectroscopic target
+          thing_id_targeting:
+            name: thing_id_targeting
+            type: int32
+            unit: ''
+            description: thing_id value from the version of resolve from which the
+              targeting was created
+          objc_type:
+            name: objc_type
+            type: int32
+            unit: ''
+            description: Type classification of the object (star, galaxy, cosmic ray,
+              etc.)
+          objc_flags:
+            name: objc_flags
+            type: int32
+            unit: ''
+            description: Photo Object Attribute Flags(?)
+          objc_flags2:
+            name: objc_flags2
+            type: int32
+            unit: ''
+            description: Additional Photo Object Attribute Flags(?)
+          flags:
+            name: flags
+            type: int32
+            unit: ''
+            description: Target selection flags set by ebosstarget (?)
+          flags2:
+            name: flags2
+            type: int32
+            unit: ''
+            description: Additional target selection flags set by ebosstarget (?)
+          psf_fwhm_u:
+            name: psf_fwhm_u
+            type: float32
+            unit: arcsec
+            description: Imaging FWHM in u-band
+          psf_fwhm_g:
+            name: psf_fwhm_g
+            type: float32
+            unit: arcsec
+            description: Imaging FWHM in g-band
+          psf_fwhm_r:
+            name: psf_fwhm_r
+            type: float32
+            unit: arcsec
+            description: Imaging FWHM in r-band
+          psf_fwhm_i:
+            name: psf_fwhm_i
+            type: float32
+            unit: arcsec
+            description: Imaging FWHM in i-band
+          psf_fwhm_z:
+            name: psf_fwhm_z
+            type: float32
+            unit: arcsec
+            description: Imaging FWHM in z-band
+          psfflux_u:
+            name: psfflux_u
+            type: float32
+            unit: nMgy
+            description: PSF flux, u-band
+          psfflux_g:
+            name: psfflux_g
+            type: float32
+            unit: nMgy
+            description: PSF flux, g-band
+          psfflux_r:
+            name: psfflux_r
+            type: float32
+            unit: nMgy
+            description: PSF flux, r-band
+          psfflux_i:
+            name: psfflux_i
+            type: float32
+            unit: nMgy
+            description: PSF flux, i-band
+          psfflux_z:
+            name: psfflux_z
+            type: float32
+            unit: nMgy
+            description: PSF flux, z-band
+          psfflux_ivar_u:
+            name: psfflux_ivar_u
+            type: float32
+            unit: nMgy^{-2}
+            description: PSF flux inverse variance, u-band
+          psfflux_ivar_g:
+            name: psfflux_ivar_g
+            type: float32
+            unit: nMgy^{-2}
+            description: PSF flux inverse variance, g-band
+          psfflux_ivar_r:
+            name: psfflux_ivar_r
+            type: float32
+            unit: nMgy^{-2}
+            description: PSF flux inverse variance, r-band
+          psfflux_ivar_i:
+            name: psfflux_ivar_i
+            type: float32
+            unit: nMgy^{-2}
+            description: PSF flux inverse variance, r-band
+          psfflux_ivar_z:
+            name: psfflux_ivar_z
+            type: float32
+            unit: nMgy^{-2}
+            description: PSF flux inverse variance, i-band
+          extinction_u:
+            name: extinction_u
+            type: float32
+            unit: mag
+            description: Extinction in u-band
+          extinction_g:
+            name: extinction_g
+            type: float32
+            unit: mag
+            description: Extinction in g-band
+          extinction_r:
+            name: extinction_r
+            type: float32
+            unit: mag
+            description: Extinction in r-band
+          extinction_i:
+            name: extinction_i
+            type: float32
+            unit: mag
+            description: Extinction in i-band
+          extinction_z:
+            name: extinction_z
+            type: float32
+            unit: mag
+            description: Extinction in z-band
+          fiberflux_u:
+            name: fiberflux_u
+            type: float32
+            unit: nMgy
+            description: Flux in 3 arcsec diameter fiber radius, u-band
+          fiberflux_g:
+            name: fiberflux_g
+            type: float32
+            unit: nMgy
+            description: Flux in 3 arcsec diameter fiber radius, g-band
+          fiberflux_r:
+            name: fiberflux_r
+            type: float32
+            unit: nMgy
+            description: Flux in 3 arcsec diameter fiber radius, r-band
+          fiberflux_i:
+            name: fiberflux_i
+            type: float32
+            unit: nMgy
+            description: Flux in 3 arcsec diameter fiber radius, i-band
+          fiberflux_z:
+            name: fiberflux_z
+            type: float32
+            unit: nMgy
+            description: Flux in 3 arcsec diameter fiber radius, z-band
+          fiberflux_ivar_u:
+            name: fiberflux_ivar_u
+            type: float32
+            unit: nMgy^{-2}
+            description: Inverse variance of flux in 3 arcsec diameter fiber radius,
+              u-band
+          fiberflux_ivar_g:
+            name: fiberflux_ivar_g
+            type: float32
+            unit: nMgy^{-2}
+            description: Inverse variance of flux in 3 arcsec diameter fiber radius,
+              g-band
+          fiberflux_ivar_r:
+            name: fiberflux_ivar_r
+            type: float32
+            unit: nMgy^{-2}
+            description: Inverse variance of flux in 3 arcsec diameter fiber radius,
+              r-band
+          fiberflux_ivar_i:
+            name: fiberflux_ivar_i
+            type: float32
+            unit: nMgy^{-2}
+            description: Inverse variance of flux in 3 arcsec diameter fiber radius,
+              i-band
+          fiberflux_ivar_z:
+            name: fiberflux_ivar_z
+            type: float32
+            unit: nMgy^{-2}
+            description: Inverse variance of flux in 3 arcsec diameter fiber radius,
+              z-band
+          fiber2flux_ivar_u:
+            name: fiber2flux_ivar_u
+            type: float32
+            unit: nMgy^{-2}
+            description: Inverse variance of flux in 2 arcsec diameter fiber radius,
+              u-band
+          fiber2flux_ivar_g:
+            name: fiber2flux_ivar_g
+            type: float32
+            unit: nMgy^{-2}
+            description: Inverse variance of flux in 2 arcsec diameter fiber radius,
+              g-band
+          fiber2flux_ivar_r:
+            name: fiber2flux_ivar_r
+            type: float32
+            unit: nMgy^{-2}
+            description: Inverse variance of flux in 2 arcsec diameter fiber radius,
+              r-band
+          fiber2flux_ivar_i:
+            name: fiber2flux_ivar_i
+            type: float32
+            unit: nMgy^{-2}
+            description: Inverse variance of flux in 2 arcsec diameter fiber radius,
+              i-band
+          fiber2flux_ivar_z:
+            name: fiber2flux_ivar_z
+            type: float32
+            unit: nMgy^{-2}
+            description: Inverse variance of flux in 2 arcsec diameter fiber radius,
+              z-band
+          modelflux_u:
+            name: modelflux_u
+            type: float32
+            unit: nMgy
+            description: Flux of best fitting model, u-band
+          modelflux_g:
+            name: modelflux_g
+            type: float32
+            unit: nMgy
+            description: Flux of best fitting model, g-band
+          modelflux_r:
+            name: modelflux_r
+            type: float32
+            unit: nMgy
+            description: Flux of best fitting model, r-band
+          modelflux_i:
+            name: modelflux_i
+            type: float32
+            unit: nMgy
+            description: Flux of best fitting model, i-band
+          modelflux_z:
+            name: modelflux_z
+            type: float32
+            unit: nMgy
+            description: Flux of best fitting model, z-band
+          modelflux_ivar_u:
+            name: modelflux_ivar_u
+            type: float32
+            unit: nMgy^{-2}
+            description: Inverse variance of flux of best fitting model, u-band
+          modelflux_ivar_g:
+            name: modelflux_ivar_g
+            type: float32
+            unit: nMgy^{-2}
+            description: Inverse variance of flux of best fitting model, g-band
+          modelflux_ivar_r:
+            name: modelflux_ivar_r
+            type: float32
+            unit: nMgy^{-2}
+            description: Inverse variance of flux of best fitting model, r-band
+          modelflux_ivar_i:
+            name: modelflux_ivar_i
+            type: float32
+            unit: nMgy^{-2}
+            description: Inverse variance of flux of best fitting model, i-band
+          modelflux_ivar_z:
+            name: modelflux_ivar_z
+            type: float32
+            unit: nMgy^{-2}
+            description: Inverse variance of flux of best fitting model, z-band
+          modelmag_u:
+            name: modelmag_u
+            type: float32
+            unit: nMgy
+            description: Magnitude of best fitting model, u-band
+          modelmag_g:
+            name: modelmag_g
+            type: float32
+            unit: nMgy
+            description: Magnitude of best fitting model, g-band
+          modelmag_r:
+            name: modelmag_r
+            type: float32
+            unit: nMgy
+            description: Magnitude of best fitting model, r-band
+          modelmag_i:
+            name: modelmag_i
+            type: float32
+            unit: nMgy
+            description: Magnitude of best fitting model, i-band
+          modelmag_z:
+            name: modelmag_z
+            type: float32
+            unit: nMgy
+            description: Magnitude of best fitting model, z-band
+          modelmag_ivar_u:
+            name: modelmag_ivar_u
+            type: float32
+            unit: nMgy^{-2}
+            description: Inverse variance of magnitude of best fitting model, u-band
+          modelmag_ivar_g:
+            name: modelmag_ivar_g
+            type: float32
+            unit: nMgy^{-2}
+            description: Inverse variance of magnitude of best fitting model, g-band
+          modelmag_ivar_r:
+            name: modelmag_ivar_r
+            type: float32
+            unit: nMgy^{-2}
+            description: Inverse variance of magnitude of best fitting model, r-band
+          modelmag_ivar_i:
+            name: modelmag_ivar_i
+            type: float32
+            unit: nMgy^{-2}
+            description: Inverse variance of magnitude of best fitting model, i-band
+          modelmag_ivar_z:
+            name: modelmag_ivar_z
+            type: float32
+            unit: nMgy^{-2}
+            description: Inverse variance of magnitude of best fitting model, z-band
+          resolve_status:
+            name: resolve_status
+            type: int32
+            unit: ''
+            description: Resolve status of object
+          w1_mag:
+            name: w1_mag
+            type: float32
+            unit: mag
+            description: WISE AllSky magnitude of the object, W1-band
+          w1_mag_err:
+            name: w1_mag_err
+            type: float32
+            unit: mag
+            description: Error on WISE AllSky magnitude of the object, W1-band
+          w1_nanomaggies:
+            name: w1_nanomaggies
+            type: float32
+            unit: nMgy
+            description: WISE AllSky flux of the object, W1-band
+          w1_nanomaggies_ivar:
+            name: w1_nanomaggies_ivar
+            type: float32
+            unit: nMgy^{-2}
+            description: Inverse variance of WISE AllSky flux of the object, W1-band
+          w2_nanomaggies:
+            name: w2_nanomaggies
+            type: float32
+            unit: nMgy
+            description: WISE AllSky flux of the object, W2-band
+          w2_nanomaggies_ivar:
+            name: w2_nanomaggies_ivar
+            type: float32
+            unit: nMgy^{-2}
+            description: Inverse variance of WISE AllSky flux of the object, W2-band
+          has_wise_phot:
+            name: has_wise_phot
+            type: bool
+            unit: ''
+            description: True if WISE photometry is available for this object
+          objid_targeting:
+            name: objid_targeting
+            type: int64
+            unit: ''
+            description: Object ID of target
+          pk:
+            name: pk
+            type: int64
+            unit: ''
+            description: primary key for entry in database table
 notes: |-
   None
+regrets: |-
+  I have no regrets!

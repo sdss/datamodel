@@ -9,6 +9,7 @@ general:
   filesize: 91 MB
   releases:
   - DR18
+  - DR19
   environments:
   - MOS_TARGET
   surveys:
@@ -21,10 +22,14 @@ general:
   design: false
   vac: false
   recommended_science_product: false
+  data_level: 2.3.3
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
-  releases: {}
+  releases:
+    DR19:
+      from: DR18
+      note: No changes
 releases:
   DR18:
     template: $MOS_TARGET/[V_TARG]/mos_target-[NUM].fits
@@ -34,7 +39,7 @@ releases:
     access:
       in_sdss_access: true
       path_name: mos_target_target
-      path_template: $MOS_TARGET/{v_targ}/mos_target-{num}
+      path_template: $MOS_TARGET/{v_targ}/mos_target-{num}.fits
       path_kwargs:
       - v_targ
       - num
@@ -109,5 +114,121 @@ releases:
             unit: ''
             description: The catalogid of the entry in mos_target_catalog associated
               with this target.
+  DR19:
+    template: $MOS_TARGET/[V_TARG]/mos_target-[NUM].fits
+    example: 1.0.2/mos_target-01.fits
+    location: '{v_targ}/mos_target-{num}.fits'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_target
+      path_template: $MOS_TARGET/{v_targ}/mos_target-{num}.fits
+      path_kwargs:
+      - v_targ
+      - num
+      access_string: mos_target_target = $MOS_TARGET/{v_targ}/mos_target-{num}.fits
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Primary header
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: 'MOS Target Table: target'
+        is_image: false
+        size: 91 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 48
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 2000000
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 8
+          comment: number of table fields
+        - key: TNULL1
+          value: -9223372036854775808
+          comment: ''
+        - key: TNULL8
+          value: -9223372036854775808
+          comment: ''
+        columns:
+          target_pk:
+            name: target_pk
+            type: int64
+            unit: ''
+            description: The primary key. A sequential identifier.
+          ra:
+            name: ra
+            type: float64
+            unit: degree
+            description: The right ascension of the target in ICRS coordinates at
+              epoch. From mos_target_catalog.
+          dec:
+            name: dec
+            type: float64
+            unit: degree
+            description: The declination of the target in ICRS coordinates at epoch.
+              From mos_target_catalog.
+          pmra:
+            name: pmra
+            type: float32
+            unit: mas/yr
+            description: The proper motion in right ascenscion of the target, as a
+              true angle. From mos_target_catalog.
+          pmdec:
+            name: pmdec
+            type: float32
+            unit: mas/yr
+            description: The proper motion in declination of the target. From mos_target_catalog.
+          epoch:
+            name: epoch
+            type: float32
+            unit: years
+            description: The epoch of the coordinates, as a Julian epoch.
+          parallax:
+            name: parallax
+            type: float32
+            unit: arcsec
+            description: The parallax of the target. From mos_target_catalog.
+          catalogid:
+            name: catalogid
+            type: int64
+            unit: ''
+            description: The catalogid of the entry in mos_target_catalog associated
+              with this target.
 notes: |-
   None
+regrets: |-
+  I have no regrets!

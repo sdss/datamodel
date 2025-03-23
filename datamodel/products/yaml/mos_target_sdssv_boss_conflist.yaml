@@ -1,0 +1,625 @@
+general:
+  name: mos_target_sdssv_boss_conflist
+  short: 'MOS Target table: mos_target_sdssv_boss_conflist'
+  description: 'The dr19_sdssv_boss_conflist table is a database representation of
+    an early version of the SDSS-V BOSS fieldlist data product.  The dr19_sdssv_boss_conflist
+    table was used within early iterations of FPS target_selection as a way to communicate
+    information about which SDSS-V plates had been observed by the time of target
+    selection. This information was used to e.g. de-prioritise targets that were expected
+    to have a good quality spectroscopic measurement before the start of SDSS-V FPS
+    operations.  Caution. The dr19_sdssv_boss_conflist table should only be used in
+    order to recreate the target_selection selection function.  Column descriptions
+    are mainly derived from: https://data.sdss.org/datamodel/files/BOSS_SPECTRO_REDUX/RUN2D/platelist.html'
+  datatype: FITS
+  filesize: 225 KB
+  releases:
+  - DR19
+  environments:
+  - MOS_TARGET
+  surveys:
+  - BHM
+  - MWM
+  - SDSS
+  naming_convention: $MOS_TARGET/[V_TARG]/mos_sdssv_boss_conflist.fits, where V_TARG=1.0.2
+    for DR19
+  generated_by: sdss5db> targetdb, operations database server
+  data_level: 2.3.3
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR19:
+    template: $MOS_TARGET/[V_TARG]/mos_sdssv_boss_conflist.fits
+    example: 1.0.2/mos_sdssv_boss_conflist.fits
+    location: '{v_targ}/mos_sdssv_boss_conflist.fits'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_sdssv_boss_conflist
+      path_template: $MOS_TARGET/{v_targ}/mos_sdssv_boss_conflist.fits
+      path_kwargs:
+      - v_targ
+      access_string: mos_target_sdssv_boss_conflist = $MOS_TARGET/{v_targ}/mos_sdssv_boss_conflist.fits
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Primary header
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: 'MOS Target table: mos_target_sdssv_boss_conflist'
+        is_image: false
+        size: 202 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 528
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 393
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 94
+          comment: number of table fields
+        - key: TNULL1
+          value: -2147483648
+          comment: ''
+        - key: TNULL2
+          value: -2147483648
+          comment: ''
+        - key: TNULL3
+          value: -2147483648
+          comment: ''
+        - key: TNULL9
+          value: -2147483648
+          comment: ''
+        - key: TNULL22
+          value: -2147483648
+          comment: ''
+        - key: TNULL25
+          value: -2147483648
+          comment: ''
+        - key: TNULL26
+          value: -2147483648
+          comment: ''
+        - key: TNULL27
+          value: -2147483648
+          comment: ''
+        - key: TNULL56
+          value: -2147483648
+          comment: ''
+        - key: TNULL79
+          value: -2147483648
+          comment: ''
+        - key: TNULL80
+          value: -2147483648
+          comment: ''
+        - key: TNULL81
+          value: -2147483648
+          comment: ''
+        - key: TNULL82
+          value: -2147483648
+          comment: ''
+        - key: TNULL83
+          value: -2147483648
+          comment: ''
+        - key: TNULL84
+          value: -2147483648
+          comment: ''
+        - key: TNULL85
+          value: -2147483648
+          comment: ''
+        - key: TNULL86
+          value: -2147483648
+          comment: ''
+        - key: TNULL94
+          value: -9223372036854775808
+          comment: ''
+        columns:
+          plate:
+            name: plate
+            type: int32
+            unit: ''
+            description: Plate ID number
+          designid:
+            name: designid
+            type: int32
+            unit: ''
+            description: Design ID number
+          mjd:
+            name: mjd
+            type: int32
+            unit: ''
+            description: Modified Julian date of combined Spectra
+          run2d:
+            name: run2d
+            type: char[6]
+            unit: ''
+            description: Spectro-2D reduction name
+          run1d:
+            name: run1d
+            type: char[6]
+            unit: ''
+            description: Spectro-1D reduction name
+          racen:
+            name: racen
+            type: float32
+            unit: deg
+            description: RA of the telescope pointing
+          deccen:
+            name: deccen
+            type: float32
+            unit: deg
+            description: DEC of the telescope pointing
+          epoch:
+            name: epoch
+            type: float32
+            unit: ''
+            description: Epoch of the RACEN/DECCEN
+          cartid:
+            name: cartid
+            type: int32
+            unit: ''
+            description: The currently loaded cartridge/instrument
+          tai:
+            name: tai
+            type: float64
+            unit: s
+            description: Mean MJD(TAI) seconds of integration
+          tai_beg:
+            name: tai_beg
+            type: float64
+            unit: s
+            description: MJD(TAI) seconds at start of integration
+          tai_end:
+            name: tai_end
+            type: float64
+            unit: s
+            description: MJD(TAI) seconds at end of integration
+          airmass:
+            name: airmass
+            type: float32
+            unit: ''
+            description: Mean Airmass
+          exptime:
+            name: exptime
+            type: float32
+            unit: s
+            description: Total Exposure time
+          mapname:
+            name: mapname
+            type: char[11]
+            unit: ''
+            description: ID of plate mapping file
+          survey:
+            name: survey
+            type: char[7]
+            unit: ''
+            description: Survey that plate is part of
+          programname:
+            name: programname
+            type: char[12]
+            unit: ''
+            description: Program name within a given survey
+          chunk:
+            name: chunk
+            type: char[17]
+            unit: from platelist product
+            description: Name of tiling chunk
+          platequality:
+            name: platequality
+            type: char[4]
+            unit: ''
+            description: Characterization of plate quality
+          platesn2:
+            name: platesn2
+            type: float32
+            unit: ''
+            description: Overall (S/N)^2 measure for plate
+          deredsn2:
+            name: deredsn2
+            type: float32
+            unit: ''
+            description: Overall Dereddened (S/N)^2 for plate
+          qsurvey:
+            name: qsurvey
+            type: int32
+            unit: ''
+            description: 1 for an survey quality plate, 0 otherwise
+          mjdlist:
+            name: mjdlist
+            type: char[41]
+            unit: ''
+            description: List of MJD for each included exposure
+          tailist:
+            name: tailist
+            type: char[68]
+            unit: ''
+            description: List of TAI for each included exposure
+          nexp:
+            name: nexp
+            type: int32
+            unit: ''
+            description: Number of Included Exposures
+          nexp_b1:
+            name: nexp_b1
+            type: int32
+            unit: ''
+            description: Number of Included Exposures from b1
+          nexp_r1:
+            name: nexp_r1
+            type: int32
+            unit: ''
+            description: Number of Included Exposures from r1
+          expt_b1:
+            name: expt_b1
+            type: float32
+            unit: s
+            description: Total Exposure Time of b1
+          expt_r1:
+            name: expt_r1
+            type: float32
+            unit: s
+            description: Total Exposure Time of r1
+          sn2_g1:
+            name: sn2_g1
+            type: float32
+            unit: ''
+            description: 'Fit (S/N)^2 at g=20.20 for spectrograph #1'
+          sn2_r1:
+            name: sn2_r1
+            type: float32
+            unit: ''
+            description: 'Fit (S/N)^2 at r=20.25 for spectrograph #1'
+          sn2_i1:
+            name: sn2_i1
+            type: float32
+            unit: ''
+            description: 'Fit (S/N)^2 at i=19.90 for spectrograph #1'
+          dered_sn2_g1:
+            name: dered_sn2_g1
+            type: float32
+            unit: ''
+            description: Extinction corrected (S/N)^2 for sp1 g-band
+          dered_sn2_r1:
+            name: dered_sn2_r1
+            type: float32
+            unit: ''
+            description: Extinction corrected (S/N)^2 for sp1 r-band
+          dered_sn2_i1:
+            name: dered_sn2_i1
+            type: float32
+            unit: ''
+            description: Extinction corrected (S/N)^2 for sp1 i-band
+          goffstd:
+            name: goffstd
+            type: float32
+            unit: ''
+            description: Mean g mag difference (spectro-photo) for STDs
+          grmsstd:
+            name: grmsstd
+            type: float32
+            unit: ''
+            description: Stddev g mag diff (spectro-photo) for STDs
+          roffstd:
+            name: roffstd
+            type: float32
+            unit: ''
+            description: Mean r mag difference (spectro-photo) for STDs
+          rrmsstd:
+            name: rrmsstd
+            type: float32
+            unit: ''
+            description: Stddev r mag diff (spectro-photo) for STDs
+          ioffstd:
+            name: ioffstd
+            type: float32
+            unit: ''
+            description: Mean i mag difference (spectro-photo) for STDs
+          irmsstd:
+            name: irmsstd
+            type: float32
+            unit: ''
+            description: Stddev i mag diff (spectro-photo) for STDs
+          groffstd:
+            name: groffstd
+            type: float32
+            unit: ''
+            description: Spectrophoto offset for G-R in standards
+          grrmsstd:
+            name: grrmsstd
+            type: float32
+            unit: ''
+            description: Spectrophoto RMS for G-R in standards
+          rioffstd:
+            name: rioffstd
+            type: float32
+            unit: ''
+            description: Spectrophoto offset for R-I in standards
+          rirmsstd:
+            name: rirmsstd
+            type: float32
+            unit: ''
+            description: Spectrophoto RMS for R-I in standards
+          goffgal:
+            name: goffgal
+            type: float32
+            unit: ''
+            description: Mean g mag diff (spectro-photo) for galaxies
+          grmsgal:
+            name: grmsgal
+            type: float32
+            unit: ''
+            description: Stddev g mag diff (spectro-photo) for galaxies
+          roffgal:
+            name: roffgal
+            type: float32
+            unit: ''
+            description: Mean r mag diff (spectro-photo) for galaxies
+          rrmsgal:
+            name: rrmsgal
+            type: float32
+            unit: ''
+            description: Stddev r mag diff (spectro-photo) for galaxies
+          ioffgal:
+            name: ioffgal
+            type: float32
+            unit: ''
+            description: Mean i mag diff (spectro-photo) for galaxies
+          irmsgal:
+            name: irmsgal
+            type: float32
+            unit: ''
+            description: Stddev i mag diff (spectro-photo) for galaxies
+          groffgal:
+            name: groffgal
+            type: float32
+            unit: ''
+            description: Spectrophoto offset for G-R in galaxies
+          grrmsgal:
+            name: grrmsgal
+            type: float32
+            unit: ''
+            description: Spectrophoto RMS for G-R in galaxies
+          rioffgal:
+            name: rioffgal
+            type: float32
+            unit: ''
+            description: Spectrophoto offset for R-I in galaxies
+          rirmsgal:
+            name: rirmsgal
+            type: float32
+            unit: ''
+            description: Spectrophoto RMS for R-I in galaxies
+          nguide:
+            name: nguide
+            type: int32
+            unit: ''
+            description: Number of guider frames during the exposures
+          seeing20:
+            name: seeing20
+            type: float32
+            unit: arcsec
+            description: Mean 20% seeing during exposures
+          seeing50:
+            name: seeing50
+            type: float32
+            unit: arcsec
+            description: Mean 50% seeing during exposures
+          seeing80:
+            name: seeing80
+            type: float32
+            unit: arcsec
+            description: Mean 80% seeing during exposures
+          rmsoff20:
+            name: rmsoff20
+            type: float32
+            unit: arcsec
+            description: 20% of RMS offset of guide fibers
+          rmsoff50:
+            name: rmsoff50
+            type: float32
+            unit: arcsec
+            description: 50% of RMS offset of guide fibers
+          rmsoff80:
+            name: rmsoff80
+            type: float32
+            unit: arcsec
+            description: 80% of RMS offset of guide fibers
+          airtemp:
+            name: airtemp
+            type: float32
+            unit: dec
+            description: Air temperature in the dome
+          xsigma:
+            name: xsigma
+            type: float32
+            unit: ''
+            description: Mean of median trace extraction profile width
+          xsigmin:
+            name: xsigmin
+            type: float32
+            unit: ''
+            description: Min of median trace extraction profile width
+          xsigmax:
+            name: xsigmax
+            type: float32
+            unit: ''
+            description: Max of median trace extraction profile width
+          wsigma:
+            name: wsigma
+            type: float32
+            unit: ''
+            description: Mean of median Arc Lines wavelength (Y) width
+          wsigmin:
+            name: wsigmin
+            type: float32
+            unit: ''
+            description: Min of median Arc Lines wavelength (Y) width
+          wsigmax:
+            name: wsigmax
+            type: float32
+            unit: ''
+            description: Max of median Arc Lines wavelength (Y) width
+          xchi2:
+            name: xchi2
+            type: float32
+            unit: ''
+            description: Mean of XCHI2 (reduced chi^2 of row-by-row)
+          xchi2min:
+            name: xchi2min
+            type: float32
+            unit: ''
+            description: Minimum of XCHI2 (reduced chi^2 of row-by-row)
+          xchi2max:
+            name: xchi2max
+            type: float32
+            unit: ''
+            description: Maximum of XCHI2 (reduced chi^2 of row-by-row)
+          skychi2:
+            name: skychi2
+            type: float32
+            unit: ''
+            description: Average chi^2 from sky subtraction
+          schi2min:
+            name: schi2min
+            type: float32
+            unit: ''
+            description: Minimum skyChi2 over all exposures
+          schi2max:
+            name: schi2max
+            type: float32
+            unit: ''
+            description: Maximum skyChi2 over all exposures
+          fbadpix:
+            name: fbadpix
+            type: float32
+            unit: ''
+            description: Fraction of bad pixels
+          fbadpix1:
+            name: fbadpix1
+            type: float32
+            unit: ''
+            description: 'Fraction of bad pixels from spectrograph #1'
+          fbadpix2:
+            name: fbadpix2
+            type: float32
+            unit: ''
+            description: 'Fraction of bad pixels from spectrograph #2'
+          n_total:
+            name: n_total
+            type: int32
+            unit: ''
+            description: Number of Sources
+          n_galaxy:
+            name: n_galaxy
+            type: int32
+            unit: ''
+            description: Number of Galaxies
+          n_qso:
+            name: n_qso
+            type: int32
+            unit: ''
+            description: Number of QSOs
+          n_star:
+            name: n_star
+            type: int32
+            unit: ''
+            description: Number of Stars
+          n_unknown:
+            name: n_unknown
+            type: int32
+            unit: ''
+            description: Number of Unknown Sources
+          n_sky:
+            name: n_sky
+            type: int32
+            unit: ''
+            description: Number of Skys
+          n_std:
+            name: n_std
+            type: int32
+            unit: ''
+            description: Number of Standards
+          n_target_qso:
+            name: n_target_qso
+            type: int32
+            unit: ''
+            description: Number of QSO Targeted
+          success_qso:
+            name: success_qso
+            type: float32
+            unit: ''
+            description: Success rate of QSOs
+          status2d:
+            name: status2d
+            type: char[4]
+            unit: ''
+            description: Status of 2d extraction
+          statuscombine:
+            name: statuscombine
+            type: char[7]
+            unit: ''
+            description: Status of 1d combine
+          status1d:
+            name: status1d
+            type: char[7]
+            unit: ''
+            description: Status of 1d analysis
+          public:
+            name: public
+            type: char[1]
+            unit: ''
+            description: Is this Plate Public
+          qualcomments:
+            name: qualcomments
+            type: char[1]
+            unit: ''
+            description: Comments on Plate Quality
+          moon_frac:
+            name: moon_frac
+            type: float32
+            unit: ''
+            description: Mean Moon phase of the Coadded Spectra
+          pkey:
+            name: pkey
+            type: int64
+            unit: ''
+            description: primary key for table entry
+notes: |-
+  None
+regrets: |-
+  I  have no regrets!

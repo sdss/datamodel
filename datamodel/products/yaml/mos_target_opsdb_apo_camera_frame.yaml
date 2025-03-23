@@ -1,0 +1,130 @@
+general:
+  name: mos_target_opsdb_apo_camera_frame
+  short: 'MOS Target table: mos_target_opsdb_apo_camera_frame'
+  description: The table contains signal-to-noise estimates for each 'camera', for
+    each exposure. APOGEE is treated as one camera, while R1/2 and B1/2 are treated
+    separately.
+  datatype: FITS
+  filesize: 3 MB
+  releases:
+  - DR19
+  environments:
+  - MOS_TARGET
+  surveys:
+  - BHM
+  - MWM
+  - SDSS
+  naming_convention: $MOS_TARGET/[V_TARG]/mos_opsdb_apo_camera_frame.fits, where V_TARG=1.0.2
+    for DR19
+  generated_by: sdss5db> targetdb, operations database server
+  data_level: 2.3.3
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR19:
+    template: $MOS_TARGET/[V_TARG]/mos_opsdb_apo_camera_frame.fits
+    example: 1.0.2/mos_opsdb_apo_camera_frame.fits
+    location: '{v_targ}/mos_opsdb_apo_camera_frame.fits'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_opsdb_apo_camera_frame
+      path_template: $MOS_TARGET/{v_targ}/mos_opsdb_apo_camera_frame.fits
+      path_kwargs:
+      - v_targ
+      access_string: mos_target_opsdb_apo_camera_frame = $MOS_TARGET/{v_targ}/mos_opsdb_apo_camera_frame.fits
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Primary header
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: 'MOS Target table: mos_target_opsdb_apo_camera_frame'
+        is_image: false
+        size: 3 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 118
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 29792
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 5
+          comment: number of table fields
+        - key: TNULL1
+          value: -2147483648
+          comment: ''
+        - key: TNULL2
+          value: -2147483648
+          comment: ''
+        - key: TNULL3
+          value: -32768
+          comment: ''
+        columns:
+          pk:
+            name: pk
+            type: int32
+            unit: ''
+            description: Unique identifier
+          exposure_pk:
+            name: exposure_pk
+            type: int32
+            unit: ''
+            description: Unique identifier in the exposure table
+          camera_pk:
+            name: camera_pk
+            type: int16
+            unit: ''
+            description: Unique identifier in the camera table
+          sn2:
+            name: sn2
+            type: float32
+            unit: ''
+            description: Signal-to-noise squared estimate from on-mountain quick reduction
+              pipelines
+          comment:
+            name: comment
+            type: char[104]
+            unit: ''
+            description: An optional comment
+notes: |-
+  None
+regrets: |-
+  I  have no regrets!

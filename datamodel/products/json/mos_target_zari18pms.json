@@ -58,17 +58,50 @@
         "description": "SDSS public data release 18",
         "public": true,
         "release_date": "2022-12-05"
+      },
+      {
+        "name": "DR19",
+        "description": "SDSS public data release 19",
+        "public": true,
+        "release_date": "2025-07-11"
       }
     ],
     "naming_convention": "$MOS_TARGET/[V_TARG]/mos_zari18pms-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts",
     "generated_by": "sdss5db> targetdb, operations database server",
     "design": false,
     "vac": false,
-    "recommended_science_product": false
+    "recommended_science_product": false,
+    "data_level": "2.3.3"
   },
   "changelog": {
     "description": "Describes changes to the datamodel product and/or file structure from one release to another",
-    "releases": {}
+    "releases": {
+      "DR19": {
+        "from": "DR18",
+        "note": "No changes",
+        "delta_nhdus": null,
+        "added_hdus": null,
+        "removed_hdus": null,
+        "primary_delta_nkeys": null,
+        "added_primary_header_kwargs": null,
+        "removed_primary_header_kwargs": null,
+        "delta_nkeys": null,
+        "addead_header_keys": null,
+        "removed_header_keys": null,
+        "delta_ntables": null,
+        "addead_tables": null,
+        "removed_tables": null,
+        "tables": null,
+        "new_libver": null,
+        "delta_nattrs": null,
+        "addead_attrs": null,
+        "removed_attrs": null,
+        "delta_nmembers": null,
+        "addead_members": null,
+        "removed_members": null,
+        "members": null
+      }
+    }
   },
   "releases": {
     "DR18": {
@@ -254,7 +287,243 @@
       },
       "par": null,
       "hdfs": null
+    },
+    "DR19": {
+      "template": "$MOS_TARGET/[V_TARG]/mos_zari18pms.fits",
+      "example": "1.0.2/mos_zari18pms.fits",
+      "location": "{v_targ}/mos_zari18pms.fits",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_zari18pms",
+        "path_template": "$MOS_TARGET/{v_targ}/mos_zari18pms.fits",
+        "path_kwargs": [
+          "v_targ"
+        ],
+        "access_string": "mos_target_zari18pms = $MOS_TARGET/{v_targ}/mos_zari18pms.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Primary header",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "MOS Target Table: zari18pms",
+          "size": "3 MB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "BINTABLE",
+              "comment": "binary table extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "96",
+              "comment": "length of dimension 1"
+            },
+            {
+              "key": "NAXIS2",
+              "value": "43151",
+              "comment": "length of dimension 2"
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "number of group parameters"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "number of groups"
+            },
+            {
+              "key": "TFIELDS",
+              "value": "21",
+              "comment": "number of table fields"
+            },
+            {
+              "key": "TNULL1",
+              "value": "-9223372036854775808",
+              "comment": ""
+            },
+            {
+              "key": "TNULL18",
+              "value": "-2147483648",
+              "comment": ""
+            }
+          ],
+          "columns": {
+            "source": {
+              "name": "source",
+              "description": "Unique source identifier (Gaia DR2 source_id)",
+              "type": "int64",
+              "unit": ""
+            },
+            "glon": {
+              "name": "glon",
+              "description": "Galactic longitude",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "glat": {
+              "name": "glat",
+              "description": "Galactic latitude",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "plx": {
+              "name": "plx",
+              "description": "Parallax",
+              "type": "float32",
+              "unit": "mas"
+            },
+            "e_plx": {
+              "name": "e_plx",
+              "description": "Standard error of parallax (parallax_error)",
+              "type": "float32",
+              "unit": "mas"
+            },
+            "pmglon": {
+              "name": "pmglon",
+              "description": "Proper motion in galactic longitude",
+              "type": "float32",
+              "unit": "mas/yr"
+            },
+            "e_pmglon": {
+              "name": "e_pmglon",
+              "description": "Standard error of proper motion in galactic longitude",
+              "type": "float32",
+              "unit": "mas/yr"
+            },
+            "pmglat": {
+              "name": "pmglat",
+              "description": "Proper motion in galactic latitude",
+              "type": "float32",
+              "unit": "mas/yr"
+            },
+            "e_pmglat": {
+              "name": "e_pmglat",
+              "description": "Standard error of proper motion in galactic latitude",
+              "type": "float32",
+              "unit": "mas/yr"
+            },
+            "pmlbcorr": {
+              "name": "pmlbcorr",
+              "description": "Correlation between proper motion in galactic longitude and proper motion in galactic latitude",
+              "type": "float32",
+              "unit": ""
+            },
+            "rv": {
+              "name": "rv",
+              "description": "radial velocity",
+              "type": "float32",
+              "unit": "km/s"
+            },
+            "e_rv": {
+              "name": "e_rv",
+              "description": "radial velocity error",
+              "type": "float32",
+              "unit": "km/s"
+            },
+            "gmag": {
+              "name": "gmag",
+              "description": "G-band mean magnitude (phot_g_mean_mag)",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "bpmag": {
+              "name": "bpmag",
+              "description": "BP-band mean magnitude (phot_bp_mean_mag)",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "rpmag": {
+              "name": "rpmag",
+              "description": "RP-band mean magnitude (phot_g_mean_mag)",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "bp_over_rp": {
+              "name": "bp_over_rp",
+              "description": "BP/RP excess factor",
+              "type": "float32",
+              "unit": ""
+            },
+            "chi2al": {
+              "name": "chi2al",
+              "description": "AL chi-square value (astrometric_chi2_al)",
+              "type": "float32",
+              "unit": ""
+            },
+            "ngal": {
+              "name": "ngal",
+              "description": "Number of good observation AL (astrometric_n_good_obs_al)",
+              "type": "int32",
+              "unit": ""
+            },
+            "ag": {
+              "name": "ag",
+              "description": "Extinction in G-band (A_G)",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "bp_rp": {
+              "name": "bp_rp",
+              "description": "Colour excess in BP-RP",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "uwe": {
+              "name": "uwe",
+              "description": "Unit Weight Error, as defined in Lindegren et al., 2018A&A...616A...2L",
+              "type": "float32",
+              "unit": ""
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null
     }
   },
-  "notes": "None"
+  "notes": "None",
+  "regrets": "I have no regrets!"
 }

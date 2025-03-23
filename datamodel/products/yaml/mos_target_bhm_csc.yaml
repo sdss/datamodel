@@ -1,0 +1,155 @@
+general:
+  name: mos_target_bhm_csc
+  short: 'MOS Target table: mos_target_bhm_csc'
+  description: Chandra Source Catalogue version 2.0 (CSC2) sources that have been
+    matched (separately) to the PanSTARRS-1 and 2MASS catalogs.  This version of the
+    CSC2 catalog informed early (plate era) SDSS-V observations but was then replaced
+    by updated versions.
+  datatype: FITS
+  filesize: 6 MB
+  releases:
+  - DR19
+  environments:
+  - MOS_TARGET
+  surveys:
+  - BHM
+  - MWM
+  - SDSS
+  naming_convention: $MOS_TARGET/[V_TARG]/mos_bhm_csc.fits, where V_TARG=1.0.2 for
+    DR19
+  generated_by: sdss5db> targetdb, operations database server
+  data_level: 2.3.3
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR19:
+    template: $MOS_TARGET/[V_TARG]/mos_bhm_csc.fits
+    example: 1.0.2/mos_bhm_csc.fits
+    location: '{v_targ}/mos_bhm_csc.fits'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_bhm_csc
+      path_template: $MOS_TARGET/{v_targ}/mos_bhm_csc.fits
+      path_kwargs:
+      - v_targ
+      access_string: mos_target_bhm_csc = $MOS_TARGET/{v_targ}/mos_bhm_csc.fits
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Primary header
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: 'MOS Target table: mos_target_bhm_csc'
+        is_image: false
+        size: 6 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 81
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 86039
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 11
+          comment: number of table fields
+        - key: TNULL1
+          value: -9223372036854775808
+          comment: ''
+        columns:
+          pk:
+            name: pk
+            type: int64
+            unit: ''
+            description: primary key of this table entry
+          csc_version:
+            name: csc_version
+            type: char[9]
+            unit: ''
+            description: Always equal to 'CSC2stub1'
+          cxo_name:
+            name: cxo_name
+            type: char[22]
+            unit: ''
+            description: unique identifier for the CSC X-ray source
+          oir_ra:
+            name: oir_ra
+            type: float64
+            unit: deg
+            description: despite the name, this is the X-ray coordinate of the target
+          oir_dec:
+            name: oir_dec
+            type: float64
+            unit: deg
+            description: despite the name, this is the X-ray coordinate of the target
+          mag_g:
+            name: mag_g
+            type: float32
+            unit: mag
+            description: optical magnitude (g-band) from Pan-STARRS1 catalog, if available
+          mag_r:
+            name: mag_r
+            type: float32
+            unit: mag
+            description: optical magnitude (r-band) from Pan-STARRS1 catalog, if available
+          mag_i:
+            name: mag_i
+            type: float32
+            unit: mag
+            description: optical magnitude (i-band) from Pan-STARRS1 catalog, if available
+          mag_z:
+            name: mag_z
+            type: float32
+            unit: mag
+            description: optical magnitude (z-band) from Pan-STARRS1 catalog, if available
+          mag_h:
+            name: mag_h
+            type: float32
+            unit: mag
+            description: H-band NIR magnitude from 2MASS catalog, if available
+          spectrograph:
+            name: spectrograph
+            type: char[6]
+            unit: ''
+            description: Which spectrograph this target should be observed with (BOSS
+              or APOGEE)
+notes: |-
+  None
+regrets: |-
+  I  have no regrets!

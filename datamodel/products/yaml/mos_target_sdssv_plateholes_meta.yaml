@@ -1,0 +1,785 @@
+general:
+  name: mos_target_sdssv_plateholes_meta
+  short: 'MOS Target table: mos_target_sdssv_plateholes_meta'
+  description: 'The combination of the dr19_sdssv_plateholes and dr19_sdssv_plateholes_meta
+    tables are a database representation of the SDSS-V platelist data product (https://svn.sdss.org/public/data/sdss/platelist/trunk/).
+    These tables were used within early iterations of FPS target_selection as a way
+    to communicate information about which targets had been included in SDSS-V plates.
+    This information was used to e.g. de-prioritise targets that were expected to
+    have a good quality spectroscopic measurement by the end of the SDSS-V plate observations.
+    The dr19_sdssv_plateholes_meta table contains meta-data for each SDSS-V plate
+    (one record per plate), whereas the dr19_sdssv_plateholes table has one entry
+    for each drilled hole in each SDSS-V plate. The dr19_sdssv_plateholes and dr19_sdssv_plateholes_meta
+    tables should be joined via the yanny_uid field.  Mostly derived from: https://data.sdss.org/datamodel/files/PLATELIST_DIR/plates/PLATEID6XX/PLATEID6/plateHoles.html'
+  datatype: FITS
+  filesize: 1 MB
+  releases:
+  - DR19
+  environments:
+  - MOS_TARGET
+  surveys:
+  - BHM
+  - MWM
+  - SDSS
+  naming_convention: $MOS_TARGET/[V_TARG]/mos_sdssv_plateholes_meta.fits, where V_TARG=1.0.2
+    for DR19
+  generated_by: sdss5db> targetdb, operations database server
+  data_level: 2.3.3
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR19:
+    template: $MOS_TARGET/[V_TARG]/mos_sdssv_plateholes_meta.fits
+    example: 1.0.2/mos_sdssv_plateholes_meta.fits
+    location: '{v_targ}/mos_sdssv_plateholes_meta.fits'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_sdssv_plateholes_meta
+      path_template: $MOS_TARGET/{v_targ}/mos_sdssv_plateholes_meta.fits
+      path_kwargs:
+      - v_targ
+      access_string: mos_target_sdssv_plateholes_meta = $MOS_TARGET/{v_targ}/mos_sdssv_plateholes_meta.fits
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Primary header
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: 'MOS Target table: mos_target_sdssv_plateholes_meta'
+        is_image: false
+        size: 1 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 3599
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 374
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 113
+          comment: number of table fields
+        - key: TNULL1
+          value: -2147483648
+          comment: ''
+        - key: TNULL20
+          value: -2147483648
+          comment: ''
+        - key: TNULL22
+          value: -2147483648
+          comment: ''
+        - key: TNULL23
+          value: -2147483648
+          comment: ''
+        - key: TNULL25
+          value: -2147483648
+          comment: ''
+        - key: TNULL31
+          value: -2147483648
+          comment: ''
+        - key: TNULL46
+          value: -2147483648
+          comment: ''
+        - key: TNULL47
+          value: -2147483648
+          comment: ''
+        - key: TNULL52
+          value: -2147483648
+          comment: ''
+        - key: TNULL61
+          value: -2147483648
+          comment: ''
+        - key: TNULL63
+          value: -2147483648
+          comment: ''
+        - key: TNULL64
+          value: -2147483648
+          comment: ''
+        - key: TNULL65
+          value: -2147483648
+          comment: ''
+        - key: TNULL66
+          value: -2147483648
+          comment: ''
+        - key: TNULL67
+          value: -2147483648
+          comment: ''
+        - key: TNULL68
+          value: -2147483648
+          comment: ''
+        - key: TNULL69
+          value: -2147483648
+          comment: ''
+        - key: TNULL76
+          value: -2147483648
+          comment: ''
+        - key: TNULL77
+          value: -2147483648
+          comment: ''
+        - key: TNULL80
+          value: -2147483648
+          comment: ''
+        columns:
+          plateid:
+            name: plateid
+            type: int32
+            unit: ''
+            description: plate ID number
+          ha:
+            name: ha
+            type: float32
+            unit: ''
+            description: the hour angle for which each pointing is designed (negative
+              = rising, positive = setting, given in degrees)
+          ha_observable_min:
+            name: ha_observable_min
+            type: float32
+            unit: ''
+            description: the minimum observable hour angle to guarantee no hole offsets
+              due to refraction greater than value given by MAX_OFF_FIBER_FOR_HA header
+              keyword in plateDefaults file (negative = rising, positive = setting,
+              given in degrees)
+          ha_observable_max:
+            name: ha_observable_max
+            type: float32
+            unit: ''
+            description: the minimum observable hour angle to guarantee no hole offsets
+              due to refraction greater than value given by MAX_OFF_FIBER_FOR_HA header
+              keyword in plateDefaults file (negative = rising, positive = setting,
+              given in degrees)
+          programname:
+            name: programname
+            type: char[16]
+            unit: ''
+            description: The scientific program to which this plate belongs
+          temp:
+            name: temp
+            type: float32
+            unit: ''
+            description: temperature of design (deg C)
+          design_platescale_alt:
+            name: design_platescale_alt
+            type: float32
+            unit: ''
+            description: effective plate scale of the design (in altitude direction,
+              mm per deg)
+          design_platescale_az:
+            name: design_platescale_az
+            type: float32
+            unit: ''
+            description: effective plate scale of the design (in azimuth direction,
+              mm per deg)
+          design_parallactic_angle:
+            name: design_parallactic_angle
+            type: float32
+            unit: ''
+            description: parallactic angle (deg E of N)
+          guider_coeff_0:
+            name: guider_coeff_0
+            type: float32
+            unit: ''
+            description: placeholders for guider coefficients, unused (N from 0 to
+              9)
+          guider_coeff_1:
+            name: guider_coeff_1
+            type: float32
+            unit: ''
+            description: placeholders for guider coefficients, unused (N from 0 to
+              9)
+          guider_coeff_2:
+            name: guider_coeff_2
+            type: float32
+            unit: ''
+            description: placeholders for guider coefficients, unused (N from 0 to
+              9)
+          guider_coeff_3:
+            name: guider_coeff_3
+            type: float32
+            unit: ''
+            description: placeholders for guider coefficients, unused (N from 0 to
+              9)
+          guider_coeff_4:
+            name: guider_coeff_4
+            type: float32
+            unit: ''
+            description: placeholders for guider coefficients, unused (N from 0 to
+              9)
+          guider_coeff_5:
+            name: guider_coeff_5
+            type: float32
+            unit: ''
+            description: placeholders for guider coefficients, unused (N from 0 to
+              9)
+          guider_coeff_6:
+            name: guider_coeff_6
+            type: float32
+            unit: ''
+            description: placeholders for guider coefficients, unused (N from 0 to
+              9)
+          guider_coeff_7:
+            name: guider_coeff_7
+            type: float32
+            unit: ''
+            description: placeholders for guider coefficients, unused (N from 0 to
+              9)
+          guider_coeff_8:
+            name: guider_coeff_8
+            type: float32
+            unit: ''
+            description: placeholders for guider coefficients, unused (N from 0 to
+              9)
+          guider_coeff_9:
+            name: guider_coeff_9
+            type: float32
+            unit: ''
+            description: placeholders for guider coefficients, unused (N from 0 to
+              9)
+          locationid:
+            name: locationid
+            type: int32
+            unit: ''
+            description: An internal identifier for each unique location on the sky
+              for which SDSS-V plates were designed
+          instruments:
+            name: instruments
+            type: char[25]
+            unit: ''
+            description: 'list of instrument names that are used in this type of plate
+              (allowed: "SDSS", "BOSS", "MARVELS", "APOGEE")'
+          npointings:
+            name: npointings
+            type: int32
+            unit: ''
+            description: number of pointings that the plate is designed to make; each
+              pointing will correspond to one or more exposures during observation;
+              number must be less than or equal to 6
+          noffsets:
+            name: noffsets
+            type: int32
+            unit: ''
+            description: number of offsets to perform within each exposure
+          minstdinblockboss_shared:
+            name: minstdinblockboss_shared
+            type: char[1]
+            unit: ''
+            description: for the given instrument, specify if we have a minimum number
+              of standards we want to assign per fiber block (default 0)
+          maxskyinblockboss_shared:
+            name: maxskyinblockboss_shared
+            type: int32
+            unit: ''
+            description: for the given instrument, specify if we have a maximum number
+              of skies we want to assign per fiber block (default 0)
+          gfibertype:
+            name: gfibertype
+            type: char[7]
+            unit: ''
+            description: type of guide fibers to assume (old "gfiber" or new "gfiber2")
+          guidetype:
+            name: guidetype
+            type: char[4]
+            unit: ''
+            description: for each pointing, the source to search for guide fibers
+              from (can be "SDSS" or "2MASS")
+          guidemag_min:
+            name: guidemag_min
+            type: float32
+            unit: 13, 15.5
+            description: 'minimum and maximum g-band magnitudes for guide stars (default:'
+          guidemag_max:
+            name: guidemag_max
+            type: float32
+            unit: 13, 15.5
+            description: 'minimum and maximum g-band magnitudes for guide stars (default:'
+          guide_lambda_eff:
+            name: guide_lambda_eff
+            type: float32
+            unit: ''
+            description: The effective wavelength at which to guide, Angstroms
+          nguidemax:
+            name: nguidemax
+            type: int32
+            unit: ''
+            description: 'maximum number of possible guide stars to track, otherwise
+              tracks 10s of thousands at low b (default: infinite)'
+          ferrulesizeboss_shared:
+            name: ferrulesizeboss_shared
+            type: float32
+            unit: ''
+            description: for specified instrument, diameter of ferrule in mm; must
+              exist for all instruments, plus also for instrument=GUIDE
+          buffersizeboss_shared:
+            name: buffersizeboss_shared
+            type: float32
+            unit: ''
+            description: for specified instrument, buffer to include outside ferrule
+              for checking for conflicts; must exist for all instruments, plus also
+              for instrument=GUIDE
+          ferrulesizeapogee_shared:
+            name: ferrulesizeapogee_shared
+            type: float32
+            unit: ''
+            description: for specified instrument, diameter of ferrule in mm; must
+              exist for all instruments, plus also for instrument=GUIDE
+          buffersizeapogee_shared:
+            name: buffersizeapogee_shared
+            type: float32
+            unit: ''
+            description: for specified instrument, diameter of ferrule in mm; must
+              exist for all instruments, plus also for instrument=GUIDE
+          ferrulesizeguide:
+            name: ferrulesizeguide
+            type: float32
+            unit: ''
+            description: for specified instrument, diameter of ferrule in mm; must
+              exist for all instruments, plus also for instrument=GUIDE
+          buffersizeguide:
+            name: buffersizeguide
+            type: float32
+            unit: ''
+            description: for specified instrument, buffer to include outside ferrule
+              for checking for conflicts; must exist for all instruments, plus also
+              for instrument=GUIDE
+          platedesignstandards:
+            name: platedesignstandards
+            type: char[11]
+            unit: ''
+            description: 'specify what instruments we want plate design to find standards
+              for; otherwise one of the plateInput files specified by the plateDefinition
+              file should find them; (default: plate design doesn''t find standards)'
+          standardtype:
+            name: standardtype
+            type: char[4]
+            unit: ''
+            description: for each pointing, type of standard to find (can be "SDSS"
+              or "2MASS", or "None" --- in fact, any value other than SDSS or 2MASS
+              is equivalent to "None")
+          platedesignskies:
+            name: platedesignskies
+            type: char[11]
+            unit: ''
+            description: specify what instruments we want plate design to find skies
+              for, if any
+          skytype:
+            name: skytype
+            type: char[4]
+            unit: ''
+            description: for each pointing, type of skies to find (can be "SDSS" or
+              "2MASS")
+          plugmapstyle:
+            name: plugmapstyle
+            type: char[21]
+            unit: ''
+            description: type of plugmap file to create (default "plplugmap")
+          bossmagtype:
+            name: bossmagtype
+            type: char[9]
+            unit: ''
+            description: type of magnitude used for fiber magnitudes for BOSS targets
+          pointing_name:
+            name: pointing_name
+            type: char[11]
+            unit: ''
+            description: '"name" for each of the pointings (in legacy plates where
+              not given, default to "A B C D E F")'
+          max_off_fiber_for_ha:
+            name: max_off_fiber_for_ha
+            type: float32
+            unit: ''
+            description: set HA limits (ha_observable_min, haobservable_max) to guarantee
+              no offsets greater than this limit, in arcsec (platedesign v1_27 and
+              above)
+          collectfactor:
+            name: collectfactor
+            type: int32
+            unit: ''
+            description: 'oversampling factor for collecting skies and standards;
+              to ensure pluggability, should be at least 5 (default: 5)'
+          designid:
+            name: designid
+            type: int32
+            unit: ''
+            description: design identification number
+          platedesignversion:
+            name: platedesignversion
+            type: char[2]
+            unit: ''
+            description: version of plateDefault file to use (for backwards compatibility;
+              if specified it must agree with the corresponding entry in the platePlans
+              file
+          platetype:
+            name: platetype
+            type: char[11]
+            unit: ''
+            description: type of plateDefault file to use (always "APOGEE-BOSS")
+          racen:
+            name: racen
+            type: float32
+            unit: ''
+            description: right ascension of pointing center, J2000 deg
+          deccen:
+            name: deccen
+            type: float32
+            unit: ''
+            description: declination of pointing center, J2000 deg
+          ninputs:
+            name: ninputs
+            type: int32
+            unit: ''
+            description: Number of input files to platedesign
+          plateinput1:
+            name: plateinput1
+            type: char[94]
+            unit: ''
+            description: filename of input to platedesign
+          plateinput2:
+            name: plateinput2
+            type: char[87]
+            unit: ''
+            description: filename of input to platedesign
+          plateinput3:
+            name: plateinput3
+            type: char[84]
+            unit: ''
+            description: filename of input to platedesign
+          plateinput4:
+            name: plateinput4
+            type: char[87]
+            unit: ''
+            description: filename of input to platedesign
+          plateinput5:
+            name: plateinput5
+            type: char[90]
+            unit: ''
+            description: filename of input to platedesign
+          plateinput6:
+            name: plateinput6
+            type: char[87]
+            unit: ''
+            description: filename of input to platedesign
+          plateinput7:
+            name: plateinput7
+            type: char[84]
+            unit: ''
+            description: filename of input to platedesign
+          priority:
+            name: priority
+            type: char[62]
+            unit: ''
+            description: order of priority for input files; lower numbers get checked
+              first; if two files have the same priority, their targets are checked
+              simultaneously (in order of the individual priority number for each
+              object); (default is 1..nInputs).
+          relaxed_fiber_classes:
+            name: relaxed_fiber_classes
+            type: int32
+            unit: ''
+            description: for APOGEE, do not break target classes up into bright/medium/faint.
+          targettypes:
+            name: targettypes
+            type: char[20]
+            unit: ''
+            description: Which targettypes to include in plate design (e.g. "standard
+              science sky")
+          napogee_shared_standard:
+            name: napogee_shared_standard
+            type: int32
+            unit: ''
+            description: The number of APOGEE standard star targets in this plate
+          napogee_shared_science:
+            name: napogee_shared_science
+            type: int32
+            unit: ''
+            description: The number of APOGEE science targets in this plate
+          napogee_shared_sky:
+            name: napogee_shared_sky
+            type: int32
+            unit: ''
+            description: '- The number of APOGEE sky targets in this plate'
+          nboss_shared_standard:
+            name: nboss_shared_standard
+            type: int32
+            unit: ''
+            description: The number of BOSS standard star targets in this plate
+          nboss_shared_science:
+            name: nboss_shared_science
+            type: int32
+            unit: ''
+            description: The number of BOSS science targets in this plate
+          nboss_shared_sky:
+            name: nboss_shared_sky
+            type: int32
+            unit: ''
+            description: The number of BOSS sky targets in this plate
+          minskyinblockboss_shared:
+            name: minskyinblockboss_shared
+            type: int32
+            unit: ''
+            description: for the given instrument, specify if we have a minimum number
+              of skies we want to assign per fiber block (default 0)
+          minstandardinblockboss_shared:
+            name: minstandardinblockboss_shared
+            type: char[1]
+            unit: ''
+            description: for the given instrument, specify if we have a minimum number
+              of standards we want to assign per fiber block (default 0)
+          reddeningmed_u:
+            name: reddeningmed_u
+            type: float32
+            unit: mag
+            description: The estimated Galactic reddening (u-band) at the sky location
+              of this plate
+          reddeningmed_g:
+            name: reddeningmed_g
+            type: float32
+            unit: mag
+            description: The estimated Galactic reddening (g-band) at the sky location
+              of this plate
+          reddeningmed_r:
+            name: reddeningmed_r
+            type: float32
+            unit: mag
+            description: The estimated Galactic reddening (r-band) at the sky location
+              of this plate
+          reddeningmed_i:
+            name: reddeningmed_i
+            type: float32
+            unit: mag
+            description: The estimated Galactic reddening (i-band) at the sky location
+              of this plate
+          reddeningmed_z:
+            name: reddeningmed_z
+            type: float32
+            unit: mag
+            description: The estimated Galactic reddening (z-band) at the sky location
+              of this plate
+          tileid:
+            name: tileid
+            type: int32
+            unit: ''
+            description: Not used
+          theta:
+            name: theta
+            type: int32
+            unit: ''
+            description: position angle of design (always 0 in practice)
+          platerun:
+            name: platerun
+            type: char[17]
+            unit: ''
+            description: name of platerun this file was part of
+          platedesign_version:
+            name: platedesign_version
+            type: char[9]
+            unit: ''
+            description: version of platedesign used to produce design file
+          yanny_uid:
+            name: yanny_uid
+            type: int32
+            unit: ''
+            description: internal integer identifier for the platelist file from which
+              this inforation was extracted
+          yanny_filename:
+            name: yanny_filename
+            type: char[129]
+            unit: ''
+            description: filename from which this information was extracted
+          plateinput8:
+            name: plateinput8
+            type: char[92]
+            unit: ''
+            description: filename of input to platedesign
+          plateinput9:
+            name: plateinput9
+            type: char[92]
+            unit: ''
+            description: filename of input to platedesign
+          plateinput10:
+            name: plateinput10
+            type: char[92]
+            unit: ''
+            description: filename of input to platedesign
+          plateinput11:
+            name: plateinput11
+            type: char[92]
+            unit: ''
+            description: filename of input to platedesign
+          plateinput12:
+            name: plateinput12
+            type: char[91]
+            unit: ''
+            description: filename of input to platedesign
+          plateinput13:
+            name: plateinput13
+            type: char[90]
+            unit: ''
+            description: filename of input to platedesign
+          plateinput14:
+            name: plateinput14
+            type: char[96]
+            unit: ''
+            description: filename of input to platedesign
+          plateinput15:
+            name: plateinput15
+            type: char[96]
+            unit: ''
+            description: filename of input to platedesign
+          plateinput16:
+            name: plateinput16
+            type: char[96]
+            unit: ''
+            description: filename of input to platedesign
+          skyinput17:
+            name: skyinput17
+            type: char[75]
+            unit: ''
+            description: filename of input to platedesign
+          plateinput18:
+            name: plateinput18
+            type: char[95]
+            unit: ''
+            description: filename of input to platedesign
+          plateinput17:
+            name: plateinput17
+            type: char[95]
+            unit: ''
+            description: filename of input to platedesign
+          skyinput18:
+            name: skyinput18
+            type: char[75]
+            unit: ''
+            description: filename of input to platedesign
+          plateinput19:
+            name: plateinput19
+            type: char[95]
+            unit: ''
+            description: filename of input to platedesign
+          skyinput16:
+            name: skyinput16
+            type: char[75]
+            unit: ''
+            description: filename of input to platedesign
+          skyinput19:
+            name: skyinput19
+            type: char[75]
+            unit: ''
+            description: filename of input to platedesign
+          plateinput20:
+            name: plateinput20
+            type: char[87]
+            unit: ''
+            description: filename of input to platedesign
+          skyinput15:
+            name: skyinput15
+            type: char[73]
+            unit: ''
+            description: filename of input to platedesign
+          skyinput21:
+            name: skyinput21
+            type: char[73]
+            unit: ''
+            description: filename of input to platedesign
+          plateinput22:
+            name: plateinput22
+            type: char[76]
+            unit: ''
+            description: filename of input to platedesign
+          skyinput13:
+            name: skyinput13
+            type: char[73]
+            unit: ''
+            description: filename of input to platedesign
+          skyinput20:
+            name: skyinput20
+            type: char[75]
+            unit: ''
+            description: filename of input to platedesign
+          plateinput21:
+            name: plateinput21
+            type: char[81]
+            unit: ''
+            description: filename of input to platedesign
+          skyinput14:
+            name: skyinput14
+            type: char[73]
+            unit: ''
+            description: filename of input to platedesign
+          skyinput6:
+            name: skyinput6
+            type: char[65]
+            unit: ''
+            description: filename of input to platedesign
+          defaultsurveymode:
+            name: defaultsurveymode
+            type: char[7]
+            unit: ''
+            description: Which mapper leads the plate design (bhmLead or mwmLead).
+              Ony set for plateID>=15072.
+          skyinput23:
+            name: skyinput23
+            type: char[63]
+            unit: ''
+            description: filename of input to platedesign
+          plateinput24:
+            name: plateinput24
+            type: char[65]
+            unit: ''
+            description: filename of input to platedesign
+          skyinput22:
+            name: skyinput22
+            type: char[52]
+            unit: ''
+            description: filename of input to platedesign
+          plateinput23:
+            name: plateinput23
+            type: char[54]
+            unit: ''
+            description: filename of input to platedesign
+          skyinput8:
+            name: skyinput8
+            type: char[55]
+            unit: ''
+            description: filename of input to platedesign
+          isvalid:
+            name: isvalid
+            type: bool
+            unit: ''
+            description: Whether the plate design is valid (i.e. eligible for drilling+plugging)
+notes: None
+regrets: I  have no regrets!

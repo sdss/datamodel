@@ -1,0 +1,223 @@
+{
+  "general": {
+    "name": "mos_target_sdss_id_stacked",
+    "short": "MOS Target table: mos_target_sdss_id_stacked",
+    "description": "This table includes associations between sdss_id identifiers and the matched catalogids for each catalogue cross-match. The table contains one row per sdss_id with columns for each catalogid version. However, catalogids may be associated with multiple sdss_id. dr19_sdss_id_flat is a pivoted/flattened version of this table and contains information about the preferred sdss_id for a catalogid. Note: The sdss_id match was extended internally for a more recent crossmatch not yet part of the publicly released data. As such, the ra/dec_sdss_id columns may differ from the catalogid coordinates.",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "BHM",
+        "long": "Black Hole Mapper",
+        "description": "An optical time-domain spectroscopic survey of quasars and X-ray sources",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "bhm",
+        "aliases": []
+      },
+      {
+        "name": "MWM",
+        "long": "Milky Way Mapper",
+        "description": "A time-domain, optical+IR spectroscopic survey of Milky Way stars of all types.",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "mwm",
+        "aliases": []
+      },
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "FITS",
+    "filesize": "76 MB",
+    "releases": [
+      {
+        "name": "DR19",
+        "description": "SDSS public data release 19",
+        "public": true,
+        "release_date": "2025-07-11"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/mos_sdss_id_stacked.fits, where V_TARG=1.0.2 for DR19",
+    "generated_by": "sdss5db> targetdb, operations database server",
+    "design": false,
+    "vac": false,
+    "recommended_science_product": false,
+    "data_level": "2.3.3"
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR19": {
+      "template": "$MOS_TARGET/[V_TARG]/mos_sdss_id_stacked-[NUM].fits",
+      "example": "1.0.2/mos_sdss_id_stacked-01.fits",
+      "location": "{v_targ}/mos_sdss_id_stacked-{num}.fits",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_sdss_id_stacked",
+        "path_template": "$MOS_TARGET/{v_targ}/mos_sdss_id_stacked-{num}.fits",
+        "path_kwargs": [
+          "v_targ",
+          "num"
+        ],
+        "access_string": "mos_target_sdss_id_stacked = $MOS_TARGET/{v_targ}/mos_sdss_id_stacked-{num}.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Primary header",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "MOS Target table: mos_target_sdss_id_stacked",
+          "size": "76 MB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "BINTABLE",
+              "comment": "binary table extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "40",
+              "comment": "length of dimension 1"
+            },
+            {
+              "key": "NAXIS2",
+              "value": "2000000",
+              "comment": "length of dimension 2"
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "number of group parameters"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "number of groups"
+            },
+            {
+              "key": "TFIELDS",
+              "value": "5",
+              "comment": "number of table fields"
+            },
+            {
+              "key": "TNULL1",
+              "value": "-9223372036854775808",
+              "comment": ""
+            },
+            {
+              "key": "TNULL2",
+              "value": "-9223372036854775808",
+              "comment": ""
+            },
+            {
+              "key": "TNULL5",
+              "value": "-9223372036854775808",
+              "comment": ""
+            }
+          ],
+          "columns": {
+            "catalogid21": {
+              "name": "catalogid21",
+              "description": "The catalogid for the best matched object in the v0.1 cross-match (pk=21).",
+              "type": "int64",
+              "unit": ""
+            },
+            "catalogid25": {
+              "name": "catalogid25",
+              "description": "The catalogid for the best matched object in the v0.5 cross-match (pk=25).",
+              "type": "int64",
+              "unit": ""
+            },
+            "ra_sdss_id": {
+              "name": "ra_sdss_id",
+              "description": "The right ascension of the target in ICRS J2015.5 coordinates (taken from the highest version catalogid).",
+              "type": "float64",
+              "unit": ""
+            },
+            "dec_sdss_id": {
+              "name": "dec_sdss_id",
+              "description": "The declination of the target in ICRS J2015.5 coordinates (taken from the highest version catalogid).",
+              "type": "float64",
+              "unit": ""
+            },
+            "sdss_id": {
+              "name": "sdss_id",
+              "description": "The SDSS identifier for a unique object.",
+              "type": "int64",
+              "unit": ""
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null
+    }
+  },
+  "notes": "None",
+  "regrets": "I  have no regrets!"
+}

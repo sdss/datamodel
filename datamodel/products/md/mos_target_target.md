@@ -9,17 +9,17 @@ MOS Target Table: target
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
 This table stores the targets associated with DR18 target selection cartons. Note that the targets in this table are unique, but a target can be associated with multiple cartons. That many-to-many relationship is encoded in the mos_target_carton_to_target table.
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_target_target-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
+$MOS_TARGET/[V_TARG]/mos_target-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
 
 ### Releases
-DR18
+DR18, DR19
 
 ### Enviroments
 MOS_TARGET
@@ -36,14 +36,20 @@ sdss5db> targetdb, operations database server
 ### Is a VAC
 False
 
-### HDUS List for release DR18
+### Data Level
+2.3.3
+
+### HDUS List for release DR19
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: ](#hdu1)
+  - [HDU1](#hdu1)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR19
+   - from: DR18
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -64,27 +70,44 @@ Key | Value | Comment | |
 
 
 
-### HDU1:
+### HDU1: 
 MOS Target Table: target
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  91 MB
 
+##### Header Table Caption for HDU1
+Key | Value | Comment | |
+| --- | --- | --- | --- |
+| XTENSION | BINTABLE | binary table extension |
+| BITPIX | 8 | array data type |
+| NAXIS | 2 | number of array dimensions |
+| NAXIS1 | 48 | length of dimension 1 |
+| NAXIS2 | 2000000 | length of dimension 2 |
+| PCOUNT | 0 | number of group parameters |
+| GCOUNT | 1 | number of groups |
+| TFIELDS | 8 | number of table fields |
+| TNULL1 | -9223372036854775808 |  |
+| TNULL8 | -9223372036854775808 |  |
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | TARGET_PK | int64 |  | The primary key. A sequential identifier. |
- | RA | float64 | degree | The right ascension of the target in ICRS coordinates at epoch. From mos_target_catalog. |
- | DEC | float64 | degree | The declination of the target in ICRS coordinates at epoch. From mos_target_catalog. |
- | PMRA | float32 | mas/yr | The proper motion in right ascenscion of the target, as a true angle. From mos_target_catalog. |
- | PMDEC | float32 | mas/yr | The proper motion in declination of the target. From mos_target_catalog. |
- | EPOCH | float32 | years | The epoch of the coordinates, as a Julian epoch. |
- | PARALLAX | float32 | arcsec | The parallax of the target. From mos_target_catalog. |
- | CATALOGID | int64 |  | The catalogid of the entry in mos_target_catalog associated with this target. |
+ | target_pk | int64 |  | The primary key. A sequential identifier. |
+ | ra | float64 | degree | The right ascension of the target in ICRS coordinates at epoch. From mos_target_catalog. |
+ | dec | float64 | degree | The declination of the target in ICRS coordinates at epoch. From mos_target_catalog. |
+ | pmra | float32 | mas/yr | The proper motion in right ascenscion of the target, as a true angle. From mos_target_catalog. |
+ | pmdec | float32 | mas/yr | The proper motion in declination of the target. From mos_target_catalog. |
+ | epoch | float32 | years | The epoch of the coordinates, as a Julian epoch. |
+ | parallax | float32 | arcsec | The parallax of the target. From mos_target_catalog. |
+ | catalogid | int64 |  | The catalogid of the entry in mos_target_catalog associated with this target. |
 
 
 
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!

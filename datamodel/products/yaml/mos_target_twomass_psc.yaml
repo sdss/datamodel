@@ -6,22 +6,27 @@ general:
   filesize: 459 MB
   releases:
   - DR18
+  - DR19
   environments:
   - MOS_TARGET
   surveys:
   - BHM
   - MWM
   - SDSS
-  naming_convention: $MOS_TARGET/[V_TARG]/mos_twomass_psc-[NUM].fits, where
-    V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
+  naming_convention: $MOS_TARGET/[V_TARG]/mos_twomass_psc-[NUM].fits, where V_TARG=1.0.1
+    for DR18; and NUM = 1..1 to partition the file into parts
   generated_by: sdss5db> targetdb, operations database server
   design: false
   vac: false
   recommended_science_product: false
+  data_level: 2.3.3
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
-  releases: {}
+  releases:
+    DR19:
+      from: DR18
+      note: No changes
 releases:
   DR18:
     template: $MOS_TARGET/[V_TARG]/mos_twomass_psc-[NUM].fits
@@ -31,7 +36,7 @@ releases:
     access:
       in_sdss_access: true
       path_name: mos_target_twomass_psc
-      path_template: $MOS_TARGET/{v_targ}/mos_twomass_psc-{num}
+      path_template: $MOS_TARGET/{v_targ}/mos_twomass_psc-{num}.fits
       path_kwargs:
       - num
       - v_targ
@@ -382,5 +387,442 @@ releases:
             type: char[17]
             unit: ''
             description: Sexagesimal, equatorial position-based source
+  DR19:
+    template: $MOS_TARGET/[V_TARG]/mos_twomass_psc-[NUM].fits
+    example: 1.0.2/mos_twomass_psc-01.fits
+    location: '{v_targ}/mos_twomass_psc-{num}.fits'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_twomass_psc
+      path_template: $MOS_TARGET/{v_targ}/mos_twomass_psc-{num}.fits
+      path_kwargs:
+      - v_targ
+      - num
+      access_string: mos_target_twomass_psc = $MOS_TARGET/{v_targ}/mos_twomass_psc-{num}.fits
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Primary header
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: 'MOS Target Table: twomass_psc'
+        is_image: false
+        size: 459 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 241
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 2000000
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 60
+          comment: number of table fields
+        - key: TNULL5
+          value: -32768
+          comment: ''
+        - key: TNULL24
+          value: -32768
+          comment: ''
+        - key: TNULL25
+          value: -2147483648
+          comment: ''
+        - key: TNULL26
+          value: -32768
+          comment: ''
+        - key: TNULL27
+          value: -32768
+          comment: ''
+        - key: TNULL28
+          value: -2147483648
+          comment: ''
+        - key: TNULL31
+          value: -32768
+          comment: ''
+        - key: TNULL45
+          value: -2147483648
+          comment: ''
+        - key: TNULL46
+          value: -2147483648
+          comment: ''
+        - key: TNULL48
+          value: -32768
+          comment: ''
+        - key: TNULL49
+          value: -32768
+          comment: ''
+        - key: TNULL52
+          value: -32768
+          comment: ''
+        - key: TNULL55
+          value: -32768
+          comment: ''
+        - key: TNULL56
+          value: -2147483648
+          comment: ''
+        - key: TNULL57
+          value: -2147483648
+          comment: ''
+        - key: TNULL58
+          value: -2147483648
+          comment: ''
+        - key: TNULL59
+          value: -32768
+          comment: ''
+        columns:
+          ra:
+            name: ra
+            type: float64
+            unit: degrees
+            description: Right ascenscion
+          decl:
+            name: decl
+            type: float64
+            unit: degrees
+            description: Declination
+          err_maj:
+            name: err_maj
+            type: float32
+            unit: arcsec
+            description: Semi-major axis of position error ellipse
+          err_min:
+            name: err_min
+            type: float32
+            unit: arcsec
+            description: Semi-minor axis of position error ellipse
+          err_ang:
+            name: err_ang
+            type: int16
+            unit: degrees
+            description: Position angle of error ellipse major axis (E of N)
+          j_m:
+            name: j_m
+            type: float32
+            unit: mag
+            description: 2MASS J-band default magnitude
+          j_cmsig:
+            name: j_cmsig
+            type: float32
+            unit: mag
+            description: J-band default magnitude uncertainty
+          j_msigcom:
+            name: j_msigcom
+            type: float32
+            unit: mag
+            description: J-band total magnitude uncertainty
+          j_snr:
+            name: j_snr
+            type: float32
+            unit: ''
+            description: J-band signal-to-noise ratio
+          h_m:
+            name: h_m
+            type: float32
+            unit: mag
+            description: 2MASS H-band default magnitude
+          h_cmsig:
+            name: h_cmsig
+            type: float32
+            unit: mag
+            description: H-band default magnitude uncertainty
+          h_msigcom:
+            name: h_msigcom
+            type: float32
+            unit: mag
+            description: H-band total magnitude uncertainty
+          h_snr:
+            name: h_snr
+            type: float32
+            unit: ''
+            description: H-band signal-to-noise ratio
+          k_m:
+            name: k_m
+            type: float32
+            unit: mag
+            description: 2MASS K-band default magnitude
+          k_cmsig:
+            name: k_cmsig
+            type: float32
+            unit: mag
+            description: K-band default magnitude uncertainty
+          k_msigcom:
+            name: k_msigcom
+            type: float32
+            unit: mag
+            description: K-band total magnitude uncertainty
+          k_snr:
+            name: k_snr
+            type: float32
+            unit: ''
+            description: K-band signal-to-noise ratio
+          ph_qual:
+            name: ph_qual
+            type: char[3]
+            unit: ''
+            description: JHK photometric quality flag {}
+          rd_flg:
+            name: rd_flg
+            type: char[3]
+            unit: ''
+            description: Source of JHK default mag
+          bl_flg:
+            name: bl_flg
+            type: char[3]
+            unit: ''
+            description: JHK components fit to source
+          cc_flg:
+            name: cc_flg
+            type: char[3]
+            unit: ''
+            description: Artifact contamination, confusion flag
+          ndet:
+            name: ndet
+            type: char[6]
+            unit: ''
+            description: Number of aperture measurements (jjhhkk)
+          prox:
+            name: prox
+            type: float32
+            unit: arcsec
+            description: Distance between source and nearest neighbor
+          pxpa:
+            name: pxpa
+            type: int16
+            unit: degrees
+            description: Position ange of vector from source to nearest neighbor (E
+              of N)
+          pxcntr:
+            name: pxcntr
+            type: int32
+            unit: ''
+            description: Sequence number of nearest neighbor
+          gal_contam:
+            name: gal_contam
+            type: int16
+            unit: ''
+            description: Extended source contamination flag
+          mp_flg:
+            name: mp_flg
+            type: int16
+            unit: ''
+            description: Association with asteroid or comet flag
+          pts_key:
+            name: pts_key
+            type: int32
+            unit: ''
+            description: A unique identification number for the PSC source
+          hemis:
+            name: hemis
+            type: char[1]
+            unit: ''
+            description: Hemisphere code for the 2MASS Observatory from which this
+              source was observed
+          date:
+            name: date
+            type: char[10]
+            unit: yyyy-mm-dd
+            description: The observation reference date for this source expressed
+              in ISO standard format.
+          scan:
+            name: scan
+            type: int16
+            unit: ''
+            description: The nightly scan number in which the source was detected
+          glon:
+            name: glon
+            type: float32
+            unit: degrees
+            description: Galactic longitude
+          glat:
+            name: glat
+            type: float32
+            unit: degrees
+            description: Galactic latitude
+          x_scan:
+            name: x_scan
+            type: float32
+            unit: arcsec
+            description: Mean cross-scan focal plane position of the source in the
+              Universal scan (U-scan) coordinate system
+          jdate:
+            name: jdate
+            type: float64
+            unit: days
+            description: The Julian Date of the source measurement accurate to 30
+              seconds
+          j_psfchi:
+            name: j_psfchi
+            type: float32
+            unit: ''
+            description: Reduced chi-squared goodness-of-fit value for the J-band
+              profile-fit photometry
+          h_psfchi:
+            name: h_psfchi
+            type: float32
+            unit: ''
+            description: Reduced chi-squared goodness-of-fit value for the H-band
+              profile-fit photometry
+          k_psfchi:
+            name: k_psfchi
+            type: float32
+            unit: ''
+            description: Reduced chi-squared goodness-of-fit value for the K-band
+              profile-fit photometry
+          j_m_stdap:
+            name: j_m_stdap
+            type: float32
+            unit: mag
+            description: J-band "standard" aperture magnitude
+          j_msig_stdap:
+            name: j_msig_stdap
+            type: float32
+            unit: mag
+            description: Uncertainty in the J-band standard aperture magnitude
+          h_m_stdap:
+            name: h_m_stdap
+            type: float32
+            unit: mag
+            description: H-band "standard" aperture magnitude
+          h_msig_stdap:
+            name: h_msig_stdap
+            type: float32
+            unit: mag
+            description: Uncertainty in the H-band standard aperture magnitude
+          k_m_stdap:
+            name: k_m_stdap
+            type: float32
+            unit: mag
+            description: K-band "standard" aperture magnitude
+          k_msig_stdap:
+            name: k_msig_stdap
+            type: float32
+            unit: mag
+            description: Uncertainty in the K-band standard aperture magnitude
+          dist_edge_ns:
+            name: dist_edge_ns
+            type: int32
+            unit: arcsec
+            description: Distance from the source to the nearest North or South scan
+              edge
+          dist_edge_ew:
+            name: dist_edge_ew
+            type: int32
+            unit: arcsec
+            description: Distance from the source to the nearest East or West scan
+              edge
+          dist_edge_flg:
+            name: dist_edge_flg
+            type: char[2]
+            unit: ''
+            description: Flag that specifies to which scan edges a source lies closest
+              and to which edges the dist_edge_ns and dist_edge_ew values refer
+          dup_src:
+            name: dup_src
+            type: int16
+            unit: ''
+            description: Duplicate source flag
+          use_src:
+            name: use_src
+            type: int16
+            unit: ''
+            description: Use source flag
+          a:
+            name: a
+            type: char[1]
+            unit: ''
+            description: Catalog identifier of an optical source from either the Tycho
+              2 or USNO-A2.0 catalog that falls within approximately 5 arcsec of the
+              2MASS source position
+          dist_opt:
+            name: dist_opt
+            type: float32
+            unit: arcsec
+            description: Distance separating 2MASS source position and associated
+              optical source
+          phi_opt:
+            name: phi_opt
+            type: int16
+            unit: degrees
+            description: Position angle on the sky of the vector from the the associated
+              optical source to the 2MASS source position (East of North)
+          b_m_opt:
+            name: b_m_opt
+            type: float32
+            unit: mag
+            description: Blue magnitude of associated optical source
+          vr_m_opt:
+            name: vr_m_opt
+            type: float32
+            unit: mag
+            description: Visual or red magnitude of the associated optical source
+          nopt_mchs:
+            name: nopt_mchs
+            type: int16
+            unit: ''
+            description: The number of USNO-A2.0 or Tycho 2 optical sources found
+              within a radius of approximately 5 arcsec of the 2MASS position
+          ext_key:
+            name: ext_key
+            type: int32
+            unit: ''
+            description: Unique identification number of the record in the XSC that
+              corresponds to this point source
+          scan_key:
+            name: scan_key
+            type: int32
+            unit: ''
+            description: Unique identification number of the record in the Scan Information
+              Table
+          coadd_key:
+            name: coadd_key
+            type: int32
+            unit: ''
+            description: Unique identification number of the record in the Atlas Image
+              Information Table
+          coadd:
+            name: coadd
+            type: int16
+            unit: ''
+            description: Sequence number of the Atlas Image in which the position
+              of this source falls
+          designation:
+            name: designation
+            type: char[17]
+            unit: ''
+            description: Sexagesimal, equatorial position-based source
 notes: |-
   None
+regrets: |-
+  I have no regrets!

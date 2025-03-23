@@ -58,17 +58,50 @@
         "description": "SDSS public data release 18",
         "public": true,
         "release_date": "2022-12-05"
+      },
+      {
+        "name": "DR19",
+        "description": "SDSS public data release 19",
+        "public": true,
+        "release_date": "2025-07-11"
       }
     ],
     "naming_convention": "$MOS_TARGET/[V_TARG]/mos_geometric_distances_gaia_dr2-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts",
     "generated_by": "sdss5db> targetdb, operations database server",
     "design": false,
     "vac": false,
-    "recommended_science_product": false
+    "recommended_science_product": false,
+    "data_level": "2.3.3"
   },
   "changelog": {
     "description": "Describes changes to the datamodel product and/or file structure from one release to another",
-    "releases": {}
+    "releases": {
+      "DR19": {
+        "from": "DR18",
+        "note": "No changes",
+        "delta_nhdus": null,
+        "added_hdus": null,
+        "removed_hdus": null,
+        "primary_delta_nkeys": null,
+        "added_primary_header_kwargs": null,
+        "removed_primary_header_kwargs": null,
+        "delta_nkeys": null,
+        "addead_header_keys": null,
+        "removed_header_keys": null,
+        "delta_ntables": null,
+        "addead_tables": null,
+        "removed_tables": null,
+        "tables": null,
+        "new_libver": null,
+        "delta_nattrs": null,
+        "addead_attrs": null,
+        "removed_attrs": null,
+        "delta_nmembers": null,
+        "addead_members": null,
+        "removed_members": null,
+        "members": null
+      }
+    }
   },
   "releases": {
     "DR18": {
@@ -82,8 +115,8 @@
         "path_name": "mos_target_geometric_distances_gaia_dr2",
         "path_template": "$MOS_TARGET/{v_targ}/mos_geometric_distances_gaia_dr2-{num}.fits",
         "path_kwargs": [
-          "num",
-          "v_targ"
+          "v_targ",
+          "num"
         ],
         "access_string": "mos_target_geometric_distances_gaia_dr2 = $MOS_TARGET/{v_targ}/mos_geometric_distances_gaia_dr2-{num}.fits"
       },
@@ -171,7 +204,160 @@
       },
       "par": null,
       "hdfs": null
+    },
+    "DR19": {
+      "template": "$MOS_TARGET/[V_TARG]/mos_geometric_distances_gaia_dr2-[NUM].fits",
+      "example": "1.0.2/mos_geometric_distances_gaia_dr2-01.fits",
+      "location": "{v_targ}/mos_geometric_distances_gaia_dr2-{num}.fits",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_geometric_distances_gaia_dr2",
+        "path_template": "$MOS_TARGET/{v_targ}/mos_geometric_distances_gaia_dr2-{num}.fits",
+        "path_kwargs": [
+          "num",
+          "v_targ"
+        ],
+        "access_string": "mos_target_geometric_distances_gaia_dr2 = $MOS_TARGET/{v_targ}/mos_geometric_distances_gaia_dr2-{num}.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Primary header",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "MOS Target Table: geometric_distances_gaia_dr2",
+          "size": "51 MB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "BINTABLE",
+              "comment": "binary table extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "27",
+              "comment": "length of dimension 1"
+            },
+            {
+              "key": "NAXIS2",
+              "value": "2000000",
+              "comment": "length of dimension 2"
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "number of group parameters"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "number of groups"
+            },
+            {
+              "key": "TFIELDS",
+              "value": "7",
+              "comment": "number of table fields"
+            },
+            {
+              "key": "TNULL1",
+              "value": "-9223372036854775808",
+              "comment": ""
+            },
+            {
+              "key": "TNULL7",
+              "value": "-32768",
+              "comment": ""
+            }
+          ],
+          "columns": {
+            "source_id": {
+              "name": "source_id",
+              "description": "Unique Gaia DR2 source identifier",
+              "type": "int64",
+              "unit": ""
+            },
+            "r_est": {
+              "name": "r_est",
+              "description": "Estimated distance",
+              "type": "float32",
+              "unit": "pc"
+            },
+            "r_lo": {
+              "name": "r_lo",
+              "description": "Lower bound on the confidence interval of the estimated distance",
+              "type": "float32",
+              "unit": "pc"
+            },
+            "r_hi": {
+              "name": "r_hi",
+              "description": "Upper bound on the confidence interval of the estimated distance",
+              "type": "float32",
+              "unit": "pc"
+            },
+            "r_len": {
+              "name": "r_len",
+              "description": "Length scale used in the prior for the distance estimation",
+              "type": "float32",
+              "unit": "pc"
+            },
+            "result_flag": {
+              "name": "result_flag",
+              "description": "Result flag",
+              "type": "char[1]",
+              "unit": ""
+            },
+            "modality_flag": {
+              "name": "modality_flag",
+              "description": "Number of modes in the posterior",
+              "type": "int16",
+              "unit": ""
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null
     }
   },
-  "notes": "None"
+  "notes": "None",
+  "regrets": "I have no regrets!"
 }

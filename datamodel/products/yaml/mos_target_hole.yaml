@@ -1,0 +1,130 @@
+general:
+  name: mos_target_hole
+  short: 'MOS Target table: mos_target_hole'
+  description: The holes in which the positioners sit for the FPS at each observatory.
+  datatype: FITS
+  filesize: 30 KB
+  releases:
+  - DR19
+  environments:
+  - MOS_TARGET
+  surveys:
+  - BHM
+  - MWM
+  - SDSS
+  naming_convention: $MOS_TARGET/[V_TARG]/mos_hole.fits, where V_TARG=1.0.2 for DR19
+  generated_by: sdss5db> targetdb, operations database server
+  data_level: 2.3.3
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR19:
+    template: $MOS_TARGET/[V_TARG]/mos_hole.fits
+    example: 1.0.2/mos_hole.fits
+    location: '{v_targ}/mos_hole.fits'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_hole
+      path_template: $MOS_TARGET/{v_targ}/mos_hole.fits
+      path_kwargs:
+      - v_targ
+      access_string: mos_target_hole = $MOS_TARGET/{v_targ}/mos_hole.fits
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Primary header
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: 'MOS Target table: mos_target_hole'
+        is_image: false
+        size: 24 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 23
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 1094
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 5
+          comment: number of table fields
+        - key: TNULL1
+          value: -2147483648
+          comment: ''
+        - key: TNULL2
+          value: -2147483648
+          comment: ''
+        - key: TNULL3
+          value: -2147483648
+          comment: ''
+        - key: TNULL5
+          value: -2147483648
+          comment: ''
+        columns:
+          pk:
+            name: pk
+            type: int32
+            unit: ''
+            description: The primary key. A sequential identifier.
+          row_num:
+            name: row_num
+            type: int32
+            unit: ''
+            description: The row of the hole in which the positioner is sitting.
+          column_num:
+            name: column_num
+            type: int32
+            unit: ''
+            description: The column of the hole in which the positioner is sitting.
+          holeid:
+            name: holeid
+            type: char[7]
+            unit: ''
+            description: The identifier for the hole in which the positioner is sitting.
+          observatory_pk:
+            name: observatory_pk
+            type: int32
+            unit: ''
+            description: The primary key of the observatory in the dr19_observatory
+              table.
+notes: |-
+  None
+regrets: |-
+  I  have no regrets!

@@ -9,17 +9,17 @@ MOS Target Table: bhm_efeds_veto
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
 The BHM-SPIDERS eFEDS veto catalogue.
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_target_bhm_efeds_veto-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
+$MOS_TARGET/[V_TARG]/mos_bhm_efeds_veto-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
 
 ### Releases
-DR18
+DR18, DR19
 
 ### Enviroments
 MOS_TARGET
@@ -36,14 +36,20 @@ sdss5db> targetdb, operations database server
 ### Is a VAC
 False
 
-### HDUS List for release DR18
+### Data Level
+2.3.3
+
+### HDUS List for release DR19
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: ](#hdu1)
+  - [HDU1](#hdu1)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR19
+   - from: DR18
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -64,42 +70,66 @@ Key | Value | Comment | |
 
 
 
-### HDU1:
+### HDU1: 
 MOS Target Table: bhm_efeds_veto
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  371 KB
+#### HDU Size:  418 KB
 
+##### Header Table Caption for HDU1
+Key | Value | Comment | |
+| --- | --- | --- | --- |
+| XTENSION | BINTABLE | binary table extension |
+| BITPIX | 8 | array data type |
+| NAXIS | 2 | number of array dimensions |
+| NAXIS1 | 114 | length of dimension 1 |
+| NAXIS2 | 3756 | length of dimension 2 |
+| PCOUNT | 0 | number of group parameters |
+| GCOUNT | 1 | number of groups |
+| TFIELDS | 23 | number of table fields |
+| TNULL4 | -2147483648 |  |
+| TNULL5 | -2147483648 |  |
+| TNULL6 | -2147483648 |  |
+| TNULL7 | -2147483648 |  |
+| TNULL14 | -2147483648 |  |
+| TNULL19 | -2147483648 |  |
+| TNULL21 | -2147483648 |  |
+| TNULL22 | -2147483648 |  |
+| TNULL23 | -9223372036854775808 |  |
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | PROGRAMNAME | char[5] |  | program name within a given survey |
- | CHUNK | char[7] |  | Name of tiling chunk |
- | PLATESN2 | float32 |  | Overall (S/N)^2 measure for plate; minimum of all 4 cameras |
- | PLATE | int32 |  | Plate ID |
- | TILE | int32 |  | Tile ID |
- | MJD | int32 | days | MJD of (last) observation |
- | FIBERID | int32 |  | Fiber ID (1-1000) |
- | RUN2D | char[7] |  | idlspec 2D reduction version |
- | RUN1D | char[7] |  | idlspec 1D reduction version |
- | PLUG_RA | float64 | deg | Object RA (drilled fiber position at expected epoch of observation) |
- | PLUG_DEC | float64 | deg | Object Dec (drilled fiber position at expected epoch of observation) |
- | Z_ERR | float32 |  | Redshift error based upon fit to chi^2 minimum; negative for invalid fit |
- | RCHI2 | float32 |  | Reduced chi^2 for best fit |
- | DOF | int32 |  | Degrees of freedom for best fit |
- | RCHI2DIFF | float32 |  | Difference in reduced chi^2 of best solution to 2nd best solution |
- | WAVEMIN | float32 | Angstroms | Minimum observed (vacuum) wavelength for this object |
- | WAVEMAX | float32 | Angstroms | Maximum observed (vacuum) wavelength for this object |
- | WCOVERAGE | float32 |  | Amount of wavelength coverage in log-10(Angstroms) |
- | ZWARNING | int32 |  | A flag bitmask set for bad data or redshift fits |
- | SN_MEDIAN_ALL | float32 |  | Median S/N for all good pixels in all filters |
- | ANYANDMASK | int32 |  | Mask bits which are set if any pixels for an object's ANDMASK have that bit set |
- | ANYORMASK | int32 |  | Mask bits which are set if any pixels for an object's ORMASK have that bit set |
- | PK | int64 |  | primary key in the database table |
+ | programname | char[5] |  | program name within a given survey |
+ | chunk | char[7] |  | Name of tiling chunk |
+ | platesn2 | float32 |  | Overall (S/N)^2 measure for plate; minimum of all 4 cameras |
+ | plate | int32 |  | Plate ID |
+ | tile | int32 |  | Tile ID |
+ | mjd | int32 | days | MJD of (last) observation |
+ | fiberid | int32 |  | Fiber ID (1-1000) |
+ | run2d | char[7] |  | idlspec 2D reduction version |
+ | run1d | char[7] |  | idlspec 1D reduction version |
+ | plug_ra | float64 | deg | Object RA (drilled fiber position at expected epoch of observation) |
+ | plug_dec | float64 | deg | Object Dec (drilled fiber position at expected epoch of observation) |
+ | z_err | float32 |  | Redshift error based upon fit to chi^2 minimum; negative for invalid fit |
+ | rchi2 | float32 |  | Reduced chi^2 for best fit |
+ | dof | int32 |  | Degrees of freedom for best fit |
+ | rchi2diff | float32 |  | Difference in reduced chi^2 of best solution to 2nd best solution |
+ | wavemin | float32 | Angstroms | Minimum observed (vacuum) wavelength for this object |
+ | wavemax | float32 | Angstroms | Maximum observed (vacuum) wavelength for this object |
+ | wcoverage | float32 |  | Amount of wavelength coverage in log-10(Angstroms) |
+ | zwarning | int32 |  | A flag bitmask set for bad data or redshift fits |
+ | sn_median_all | float32 |  | Median S/N for all good pixels in all filters |
+ | anyandmask | int32 |  | Mask bits which are set if any pixels for an object's ANDMASK have that bit set |
+ | anyormask | int32 |  | Mask bits which are set if any pixels for an object's ORMASK have that bit set |
+ | pk | int64 |  | primary key in the database table |
 
 
 
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!

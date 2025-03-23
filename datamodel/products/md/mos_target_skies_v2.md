@@ -9,17 +9,17 @@ MOS Target Table: skies_v2
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
 This table stores the positions used as blank sky regions for DR18 targetting. The sky regions are selected by dividing the sky in tiles of HEALpix nside 32. Each tile is then subdivided in candidate regions of HEALpix nside 32768 and the pixels that meet the isolation requirements are considered valid skies. This process is repeated for a number of all-sky catalogues. See <a href="https://sdss.org/dr18/targeting/fps/"> for further details of the process by which suitable sky locations are selected in SDSS-V/FPS.
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_target_skies_v2-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
+$MOS_TARGET/[V_TARG]/mos_skies_v2-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
 
 ### Releases
-DR18
+DR18, DR19
 
 ### Enviroments
 MOS_TARGET
@@ -36,14 +36,20 @@ sdss5db> targetdb, operations database server
 ### Is a VAC
 False
 
-### HDUS List for release DR18
+### Data Level
+2.3.3
+
+### HDUS List for release DR19
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: ](#hdu1)
+  - [HDU1](#hdu1)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR19
+   - from: DR18
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -64,47 +70,65 @@ Key | Value | Comment | |
 
 
 
-### HDU1:
+### HDU1: 
 MOS Target Table: skies_v2
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  183 MB
 
+##### Header Table Caption for HDU1
+Key | Value | Comment | |
+| --- | --- | --- | --- |
+| XTENSION | BINTABLE | binary table extension |
+| BITPIX | 8 | array data type |
+| NAXIS | 2 | number of array dimensions |
+| NAXIS1 | 96 | length of dimension 1 |
+| NAXIS2 | 2000000 | length of dimension 2 |
+| PCOUNT | 0 | number of group parameters |
+| GCOUNT | 1 | number of groups |
+| TFIELDS | 28 | number of table fields |
+| TNULL1 | -9223372036854775808 |  |
+| TNULL4 | -9223372036854775808 |  |
+| TNULL5 | -9223372036854775808 |  |
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | PIX_32768 | int64 |  | The HEALpix pixel (nside=32768, nested indexing, Equatorial coords) of the sky region. |
- | RA | float64 | degrees | The RA of the centre of the sky pixel. |
- | DEC | float64 | degrees | The declination of the centre of the sky pixel. |
- | DOWN_PIX | int64 |  | The HEALpix pixel (nside=256, nested indexing, Equatorial coords) of the sky region. Used internally to downsample the list of candidate region. |
- | TILE_32 | int64 |  | The HEALpix pixel (nside=32, nested indexing, Equatorial coords) of the sky region. |
- | VALID_GAIA | bool |  | Whether this is a valid sky region in the Gaia catalogue. |
- | SELECTED_GAIA | bool |  | Whether this sky region was selected in the Gaia catalogue. |
- | SEP_NEIGHBOUR_GAIA | float32 | arcsec | Separation to the nearest Gaia DR2 neighbour |
- | MAG_NEIGHBOUR_GAIA | float32 | mag | Magnitude of the nearest Gaia DR2 neighbour (G band, Vega). |
- | VALID_LS8 | bool |  | Whether this is a valid sky region in the Legacy Survey DR8 catalogue. |
- | SELECTED_LS8 | bool |  | Whether this sky region was selected in the Legacy Survey DR8 catalogue. |
- | SEP_NEIGHBOUR_LS8 | float32 | arcsec | Separation to the nearest Legacy Survey DR8 neighbour |
- | MAG_NEIGHBOUR_LS8 | float32 | mag | Magnitude of the nearest Legacy Survey DR8 neighbour (r-band, AB). |
- | VALID_PS1DR2 | bool |  | Whether this is a valid sky region in the PanSTARRS1 DR2 catalogue. |
- | SELECTED_PS1DR2 | bool |  | Whether this sky region was selected in the PanSTARRS1 DR2 catalogue. |
- | SEP_NEIGHBOUR_PS1DR2 | float32 | arcsec | Separation to the nearest PanSTARRS1 DR2 neighbour |
- | MAG_NEIGHBOUR_PS1DR2 | float32 | mag | Magnitude of the nearest PanSTARRS1 DR2 neighbour (r-band, AB). |
- | VALID_TMASS | bool |  | Whether this is a valid sky region in the 2MASS point source catalogue. |
- | SELECTED_TMASS | bool |  | Whether this sky region was selected in the 2MASS point source catalogue. |
- | SEP_NEIGHBOUR_TMASS | float32 | arcsec | Separation to the nearest 2MASS point source neighbour |
- | MAG_NEIGHBOUR_TMASS | float32 | mag | Magnitude of the nearest 2MASS point source neighbour (H band, Vega). |
- | VALID_TYCHO2 | bool |  | Whether this is a valid sky region in the Tycho2 catalogue. |
- | SELECTED_TYCHO2 | bool |  | Whether this sky region was selected in the Tycho2 catalogue. |
- | SEP_NEIGHBOUR_TYCHO2 | float32 | arcsec | Separation to the nearest Tycho2 neighbour |
- | MAG_NEIGHBOUR_TYCHO2 | float32 | mag | Magnitude of the nearest Tycho2 neighbour (Vt band, Vega). |
- | VALID_TMASS_XSC | bool |  | Whether this is a valid sky region in the 2MASS extended source catalogue. |
- | SELECTED_TMASS_XSC | bool |  | Whether this sky region was selected in the 2MASS extended source catalogue. |
- | SEP_NEIGHBOUR_TMASS_XSC | float32 | arcsec | Separation to the nearest 2MASS extended source neighbour |
+ | pix_32768 | int64 |  | The HEALpix pixel (nside=32768, nested indexing, Equatorial coords) of the sky region. |
+ | ra | float64 | degrees | The RA of the centre of the sky pixel. |
+ | dec | float64 | degrees | The declination of the centre of the sky pixel. |
+ | down_pix | int64 |  | The HEALpix pixel (nside=256, nested indexing, Equatorial coords) of the sky region. Used internally to downsample the list of candidate region. |
+ | tile_32 | int64 |  | The HEALpix pixel (nside=32, nested indexing, Equatorial coords) of the sky region. |
+ | valid_gaia | bool |  | Whether this is a valid sky region in the Gaia catalogue. |
+ | selected_gaia | bool |  | Whether this sky region was selected in the Gaia catalogue. |
+ | sep_neighbour_gaia | float32 | arcsec | Separation to the nearest Gaia DR2 neighbour |
+ | mag_neighbour_gaia | float32 | mag | Magnitude of the nearest Gaia DR2 neighbour (G band, Vega). |
+ | valid_ls8 | bool |  | Whether this is a valid sky region in the Legacy Survey DR8 catalogue. |
+ | selected_ls8 | bool |  | Whether this sky region was selected in the Legacy Survey DR8 catalogue. |
+ | sep_neighbour_ls8 | float32 | arcsec | Separation to the nearest Legacy Survey DR8 neighbour |
+ | mag_neighbour_ls8 | float32 | mag | Magnitude of the nearest Legacy Survey DR8 neighbour (r-band, AB). |
+ | valid_ps1dr2 | bool |  | Whether this is a valid sky region in the PanSTARRS1 DR2 catalogue. |
+ | selected_ps1dr2 | bool |  | Whether this sky region was selected in the PanSTARRS1 DR2 catalogue. |
+ | sep_neighbour_ps1dr2 | float32 | arcsec | Separation to the nearest PanSTARRS1 DR2 neighbour |
+ | mag_neighbour_ps1dr2 | float32 | mag | Magnitude of the nearest PanSTARRS1 DR2 neighbour (r-band, AB). |
+ | valid_tmass | bool |  | Whether this is a valid sky region in the 2MASS point source catalogue. |
+ | selected_tmass | bool |  | Whether this sky region was selected in the 2MASS point source catalogue. |
+ | sep_neighbour_tmass | float32 | arcsec | Separation to the nearest 2MASS point source neighbour |
+ | mag_neighbour_tmass | float32 | mag | Magnitude of the nearest 2MASS point source neighbour (H band, Vega). |
+ | valid_tycho2 | bool |  | Whether this is a valid sky region in the Tycho2 catalogue. |
+ | selected_tycho2 | bool |  | Whether this sky region was selected in the Tycho2 catalogue. |
+ | sep_neighbour_tycho2 | float32 | arcsec | Separation to the nearest Tycho2 neighbour |
+ | mag_neighbour_tycho2 | float32 | mag | Magnitude of the nearest Tycho2 neighbour (Vt band, Vega). |
+ | valid_tmass_xsc | bool |  | Whether this is a valid sky region in the 2MASS extended source catalogue. |
+ | selected_tmass_xsc | bool |  | Whether this sky region was selected in the 2MASS extended source catalogue. |
+ | sep_neighbour_tmass_xsc | float32 | arcsec | Separation to the nearest 2MASS extended source neighbour |
 
 
 
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!

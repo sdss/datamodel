@@ -9,17 +9,17 @@ MOS Target Table: tic_v8
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
 The Eighth version (v8.0) of the TESS Input Catalogue (<a href="https://outerspace.stsci.edu/display/TESS/TIC+v8+and+CTL+v8.xx+Data+Release+Notes"></a>). This catalogue is used in v0.5 target selection as a form of internal cross-match between the objects found in difference input catalogues.
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_target_tic_v8-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
+$MOS_TARGET/[V_TARG]/mos_tic_v8-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
 
 ### Releases
-DR18
+DR18, DR19
 
 ### Enviroments
 MOS_TARGET
@@ -36,14 +36,20 @@ sdss5db> targetdb, operations database server
 ### Is a VAC
 False
 
-### HDUS List for release DR18
+### Data Level
+2.3.3
+
+### HDUS List for release DR19
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: ](#hdu1)
+  - [HDU1](#hdu1)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR19
+   - from: DR18
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -64,149 +70,178 @@ Key | Value | Comment | |
 
 
 
-### HDU1:
+### HDU1: 
 MOS Target Table: tic_v8
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  1 GB
 
+##### Header Table Caption for HDU1
+Key | Value | Comment | |
+| --- | --- | --- | --- |
+| XTENSION | BINTABLE | binary table extension |
+| BITPIX | 8 | array data type |
+| NAXIS | 2 | number of array dimensions |
+| NAXIS1 | 726 | length of dimension 1 |
+| NAXIS2 | 2000000 | length of dimension 2 |
+| PCOUNT | 0 | number of group parameters |
+| GCOUNT | 1 | number of groups |
+| TFIELDS | 130 | number of table fields |
+| TNULL1 | -9223372036854775808 |  |
+| TNULL3 | -2147483648 |  |
+| TNULL7 | -9223372036854775808 |  |
+| TNULL11 | -2147483648 |  |
+| TNULL84 | -2147483648 |  |
+| TNULL87 | -9223372036854775808 |  |
+| TNULL112 | -2147483648 |  |
+| TNULL123 | -2147483648 |  |
+| TNULL124 | -2147483648 |  |
+| TNULL125 | -9223372036854775808 |  |
+| TNULL126 | -9223372036854775808 |  |
+| TNULL128 | -2147483648 |  |
+| TNULL129 | -2147483648 |  |
+| TNULL130 | -9223372036854775808 |  |
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | ID | int64 |  | TESS Input Catalog identifier |
- | VERSION | char[8] |  | Version Identifier for this entry (yyyymmdd) |
- | HIP | int32 |  | Hipparcos Identifier |
- | TYC | char[12] |  | Tycho2 Identifier |
- | UCAC | char[10] |  | UCAC4 Identifier |
- | TWOMASS | char[17] |  | 2MASS Identifier |
- | SDSS | int64 |  | SDSS DR9 Identifier |
- | ALLWISE | char[19] |  | AllWISE Identifier |
- | GAIA | char[19] |  | Gaia DR2 Identifier (source_id, string representation) |
- | APASS | char[8] |  | APASS Identifier |
- | KIC | int32 |  | KIC Identifier |
- | OBJTYPE | char[4] |  | Object Type |
- | TYPESRC | char[7] |  | Source of the object |
- | RA | float64 | degrees | Right Ascension epoch 2000 |
- | DEC | float64 | degrees | Declination epoch 2000 |
- | POSFLAG | char[7] |  | Source of the position |
- | PMRA | float32 | mas/yr | Proper Motion in Right Ascension |
- | E_PMRA | float32 | mas/yr | Uncertainty in PM Right Ascension |
- | PMDEC | float32 | mas/yr | Proper Motion in Declination |
- | E_PMDEC | float32 | mas/yr | Uncertainty in PM Declination |
- | PMFLAG | char[6] |  | Source of the Proper Motion |
- | PLX | float32 | mas | Parallax |
- | E_PLX | float32 | mas | Error in the parallax |
- | PARFLAG | char[5] |  | Source of the parallax |
- | GALLONG | float64 | degrees | Galactic Longitude |
- | GALLAT | float64 | degrees | Galactic Latitude |
- | ECLONG | float64 | degrees | Ecliptic Longitude |
- | ECLAT | float64 | degrees | Ecliptic Latitude |
- | BMAG | float32 | mag | Johnson B |
- | E_BMAG | float32 | mag | Uncertainty in Johnson B |
- | VMAG | float32 | mag | Johnson V |
- | E_VMAG | float32 | mag | Uncertainty in Johnson V |
- | UMAG | float32 | mag | Sloan u |
- | E_UMAG | float32 | mag | Uncertainty in Sloan u |
- | GMAG | float32 | mag | Sloan g |
- | E_GMAG | float32 | mag | Uncertainty in Sloan g |
- | RMAG | float32 | mag | Sloan r |
- | E_RMAG | float32 | mag | Uncertainty in Sloan r |
- | IMAG | float32 | mag | Sloan i |
- | E_IMAG | float32 | mag | Uncertainty in Sloan i |
- | ZMAG | float32 | mag | Sloan z |
- | E_ZMAG | float32 | mag | Uncertainty in Sloan z |
- | JMAG | float32 | mag | 2MASS J |
- | E_JMAG | float32 | mag | Uncertainty in 2MASS J |
- | HMAG | float32 | mag | 2MASS H |
- | E_HMAG | float32 | mag | Uncertainty in 2MASS H |
- | KMAG | float32 | mag | 2MASS K |
- | E_KMAG | float32 | mag | Uncertainty in 2MASS K |
- | TWOMFLAG | char[19] |  | Quality Flags for 2MASS |
- | PROX | float32 | arcsec | Distance to 2MASS nearest neighbor |
- | W1MAG | float32 | mag | WISE W1 |
- | E_W1MAG | float32 | mag | Uncertainty in WISE W1 |
- | W2MAG | float32 | mag | WISE W2 |
- | E_W2MAG | float32 | mag | Uncertainty in WISE W2 |
- | W3MAG | float32 | mag | WISE W3 |
- | E_W3MAG | float32 | mag | Uncertainty in WISE W3 |
- | W4MAG | float32 | mag | WISE W4 |
- | E_W4MAG | float32 | mag | Uncertainty in WISE W4 |
- | GAIAMAG | float32 | mag | Gaia G Mag |
- | E_GAIAMAG | float32 | mag | Uncertainty in Gaia G |
- | TMAG | float32 | mag | TESS Magnitude |
- | E_TMAG | float32 | mag | Uncertainty in TESS Magnitude |
- | TESSFLAG | char[5] |  | TESS Magnitude Flag |
- | SPFLAG | char[5] |  | Stellar Properties Flag |
- | TEFF | float32 | K | Effective Temperature |
- | E_TEFF | float32 | K | Uncertainty in Effective Temperature |
- | LOGG | float32 | log(cgs) | log of the Surface Gravity |
- | E_LOGG | float32 | log(cgs) | Uncertainty in Surface Gravity |
- | MH | float32 | dex | Metallicity |
- | E_MH | float32 | dex | Uncertainty in the Metallicity |
- | RAD | float32 | solar | Radius |
- | E_RAD | float32 | solar | Uncertainty in the Radius |
- | MASS | float32 | solar | Mass |
- | E_MASS | float32 | solar | Uncertainty in the Mass |
- | RHO | float32 | solar | Stellar Density |
- | E_RHO | float32 | solar | Uncertainty in the Stellar Density |
- | LUMCLASS | char[5] |  | Luminosity Class |
- | LUM | float32 | solar | Stellar Luminosity |
- | E_LUM | float32 | solar | Uncertainty in Luminosity |
- | D | float32 | pc | Distance |
- | E_D | float32 | pc | Uncertainty in the distance |
- | EBV | float32 | mag | Applied Color Excess |
- | E_EBV | float32 | mag | Uncertainty in Applied Color Excess |
- | NUMCONT | int32 |  | Number of Contamination Sources |
- | CONTRATIO | float32 |  | Contamination Ratio |
- | DISPOSITION | char[5] |  | Disposition type |
- | DUPLICATE_ID | int64 |  | Points to the duplicate object TIC ID |
- | PRIORITY | float32 |  | CTL priority |
- | ENEG_EBV | float32 | mag | Negative error for EBV |
- | EPOS_EBV | float32 | mag | Positive error for EBV |
- | EBVFLAG | char[9] |  | Source of EBV |
- | ENEG_MASS | float32 | solar | Negative error for Mass |
- | EPOS_MASS | float32 | solar | Positive error for Mass |
- | ENEG_RAD | float32 | solar | Negative error for Radius |
- | EPOS_RAD | float32 | solar | Positive error for Radius |
- | ENEG_RHO | float32 | solar | Negative error for Density |
- | EPOS_RHO | float32 | solar | Positive error for Density |
- | ENEG_LOGG | float32 | log(cgs) | Negative error for Surface Gravity |
- | EPOS_LOGG | float32 | log(cgs) | Positive error for Surface Gravity |
- | ENEG_LUM | float32 | solar | Negative error for Luminosity |
- | EPOS_LUM | float32 | solar | Positive error for Luminosity |
- | ENEG_DIST | float32 | pc | Negative Error for Distance |
- | EPOS_DIST | float32 | pc | Positive Error for Distance |
- | DISTFLAG | char[6] |  | Source of distance |
- | ENEG_TEFF | float32 | K | Negative error for effective temperature |
- | EPOS_TEFF | float32 | K | Positive error for effective temperature |
- | TEFFLAG | char[6] |  | Source of effective Temperature |
- | GAIABP | float32 | mag | Gaia BP magnitude |
- | E_GAIABP | float32 | mag | Error in Gaia BP magnitude |
- | GAIARP | float32 | mag | Gaia RP magnitude |
- | E_GAIARP | float32 | mag | Error in Gaia RP magnitude |
- | GAIAQFLAG | int32 |  | Quality of Gaia information |
- | STARCHAREFLAG | char[4] |  | Error of asymmetric errors |
- | VMAGFLAG | char[8] |  | Source of V magnitude |
- | BMAGFLAG | char[8] |  | Source of B magnitude |
- | SPLITS | char[15] |  | Identifies if star is in a specially curated list. (original TIC column is named splists). |
- | E_RA | float64 | mas | Error in RA |
- | E_DEC | float64 | mas | Error in Dec |
- | RA_ORIG | float64 | degrees | RA from original catalog |
- | DEC_ORIG | float64 | degrees | Dec from original catalog |
- | E_RA_ORIG | float64 | mas | RA error as given in original catalog |
- | E_DEC_ORIG | float64 | mas | Dec error as given in original catalog |
- | RADDFLAG | int32 |  | 1=dwarf by radius, 0=giant by radius |
- | WDFLAG | int32 |  | 1=star in Gaia's photometric "White Dwarf region" |
- | OBJID | int64 |  | Object identifier (integer) |
- | GAIA_INT | int64 |  | Gaia DR2 source ID (integer). Not originally in TIC v8. |
- | TWOMASS_PSC | char[17] |  | 2MASS PSC identifier. Not originally in TIC v8. |
- | TWOMASS_PSC_PTS_KEY | int32 |  | 2MASS PSC identifier. Not originally in TIC v8. |
- | TYCHO2_TYCID | int32 |  | Tycho2 identifier (integer). Not originally in TIC v8. |
- | ALLWISE_CNTR | int64 |  | ALLWISE ID (integer). Not originally in TIC v8. |
+ | id | int64 |  | TESS Input Catalog identifier |
+ | version | char[8] |  | Version Identifier for this entry (yyyymmdd) |
+ | hip | int32 |  | Hipparcos Identifier |
+ | tyc | char[12] |  | Tycho2 Identifier |
+ | ucac | char[10] |  | UCAC4 Identifier |
+ | twomass | char[17] |  | 2MASS Identifier |
+ | sdss | int64 |  | SDSS DR9 Identifier |
+ | allwise | char[19] |  | AllWISE Identifier |
+ | gaia | char[19] |  | Gaia DR2 Identifier (source_id, string representation) |
+ | apass | char[8] |  | APASS Identifier |
+ | kic | int32 |  | KIC Identifier |
+ | objtype | char[4] |  | Object Type |
+ | typesrc | char[7] |  | Source of the object |
+ | ra | float64 | degrees | Right Ascension epoch 2000 |
+ | dec | float64 | degrees | Declination epoch 2000 |
+ | posflag | char[7] |  | Source of the position |
+ | pmra | float32 | mas/yr | Proper Motion in Right Ascension |
+ | e_pmra | float32 | mas/yr | Uncertainty in PM Right Ascension |
+ | pmdec | float32 | mas/yr | Proper Motion in Declination |
+ | e_pmdec | float32 | mas/yr | Uncertainty in PM Declination |
+ | pmflag | char[6] |  | Source of the Proper Motion |
+ | plx | float32 | mas | Parallax |
+ | e_plx | float32 | mas | Error in the parallax |
+ | parflag | char[5] |  | Source of the parallax |
+ | gallong | float64 | degrees | Galactic Longitude |
+ | gallat | float64 | degrees | Galactic Latitude |
+ | eclong | float64 | degrees | Ecliptic Longitude |
+ | eclat | float64 | degrees | Ecliptic Latitude |
+ | bmag | float32 | mag | Johnson B |
+ | e_bmag | float32 | mag | Uncertainty in Johnson B |
+ | vmag | float32 | mag | Johnson V |
+ | e_vmag | float32 | mag | Uncertainty in Johnson V |
+ | umag | float32 | mag | Sloan u |
+ | e_umag | float32 | mag | Uncertainty in Sloan u |
+ | gmag | float32 | mag | Sloan g |
+ | e_gmag | float32 | mag | Uncertainty in Sloan g |
+ | rmag | float32 | mag | Sloan r |
+ | e_rmag | float32 | mag | Uncertainty in Sloan r |
+ | imag | float32 | mag | Sloan i |
+ | e_imag | float32 | mag | Uncertainty in Sloan i |
+ | zmag | float32 | mag | Sloan z |
+ | e_zmag | float32 | mag | Uncertainty in Sloan z |
+ | jmag | float32 | mag | 2MASS J |
+ | e_jmag | float32 | mag | Uncertainty in 2MASS J |
+ | hmag | float32 | mag | 2MASS H |
+ | e_hmag | float32 | mag | Uncertainty in 2MASS H |
+ | kmag | float32 | mag | 2MASS K |
+ | e_kmag | float32 | mag | Uncertainty in 2MASS K |
+ | twomflag | char[19] |  | Quality Flags for 2MASS |
+ | prox | float32 | arcsec | Distance to 2MASS nearest neighbor |
+ | w1mag | float32 | mag | WISE W1 |
+ | e_w1mag | float32 | mag | Uncertainty in WISE W1 |
+ | w2mag | float32 | mag | WISE W2 |
+ | e_w2mag | float32 | mag | Uncertainty in WISE W2 |
+ | w3mag | float32 | mag | WISE W3 |
+ | e_w3mag | float32 | mag | Uncertainty in WISE W3 |
+ | w4mag | float32 | mag | WISE W4 |
+ | e_w4mag | float32 | mag | Uncertainty in WISE W4 |
+ | gaiamag | float32 | mag | Gaia G Mag |
+ | e_gaiamag | float32 | mag | Uncertainty in Gaia G |
+ | tmag | float32 | mag | TESS Magnitude |
+ | e_tmag | float32 | mag | Uncertainty in TESS Magnitude |
+ | tessflag | char[5] |  | TESS Magnitude Flag |
+ | spflag | char[5] |  | Stellar Properties Flag |
+ | teff | float32 | K | Effective Temperature |
+ | e_teff | float32 | K | Uncertainty in Effective Temperature |
+ | logg | float32 | log(cgs) | log of the Surface Gravity |
+ | e_logg | float32 | log(cgs) | Uncertainty in Surface Gravity |
+ | mh | float32 | dex | Metallicity |
+ | e_mh | float32 | dex | Uncertainty in the Metallicity |
+ | rad | float32 | solar | Radius |
+ | e_rad | float32 | solar | Uncertainty in the Radius |
+ | mass | float32 | solar | Mass |
+ | e_mass | float32 | solar | Uncertainty in the Mass |
+ | rho | float32 | solar | Stellar Density |
+ | e_rho | float32 | solar | Uncertainty in the Stellar Density |
+ | lumclass | char[5] |  | Luminosity Class |
+ | lum | float32 | solar | Stellar Luminosity |
+ | e_lum | float32 | solar | Uncertainty in Luminosity |
+ | d | float32 | pc | Distance |
+ | e_d | float32 | pc | Uncertainty in the distance |
+ | ebv | float32 | mag | Applied Color Excess |
+ | e_ebv | float32 | mag | Uncertainty in Applied Color Excess |
+ | numcont | int32 |  | Number of Contamination Sources |
+ | contratio | float32 |  | Contamination Ratio |
+ | disposition | char[5] |  | Disposition type |
+ | duplicate_id | int64 |  | Points to the duplicate object TIC ID |
+ | priority | float32 |  | CTL priority |
+ | eneg_ebv | float32 | mag | Negative error for EBV |
+ | epos_ebv | float32 | mag | Positive error for EBV |
+ | ebvflag | char[9] |  | Source of EBV |
+ | eneg_mass | float32 | solar | Negative error for Mass |
+ | epos_mass | float32 | solar | Positive error for Mass |
+ | eneg_rad | float32 | solar | Negative error for Radius |
+ | epos_rad | float32 | solar | Positive error for Radius |
+ | eneg_rho | float32 | solar | Negative error for Density |
+ | epos_rho | float32 | solar | Positive error for Density |
+ | eneg_logg | float32 | log(cgs) | Negative error for Surface Gravity |
+ | epos_logg | float32 | log(cgs) | Positive error for Surface Gravity |
+ | eneg_lum | float32 | solar | Negative error for Luminosity |
+ | epos_lum | float32 | solar | Positive error for Luminosity |
+ | eneg_dist | float32 | pc | Negative Error for Distance |
+ | epos_dist | float32 | pc | Positive Error for Distance |
+ | distflag | char[6] |  | Source of distance |
+ | eneg_teff | float32 | K | Negative error for effective temperature |
+ | epos_teff | float32 | K | Positive error for effective temperature |
+ | tefflag | char[6] |  | Source of effective Temperature |
+ | gaiabp | float32 | mag | Gaia BP magnitude |
+ | e_gaiabp | float32 | mag | Error in Gaia BP magnitude |
+ | gaiarp | float32 | mag | Gaia RP magnitude |
+ | e_gaiarp | float32 | mag | Error in Gaia RP magnitude |
+ | gaiaqflag | int32 |  | Quality of Gaia information |
+ | starchareflag | char[4] |  | Error of asymmetric errors |
+ | vmagflag | char[8] |  | Source of V magnitude |
+ | bmagflag | char[8] |  | Source of B magnitude |
+ | splits | char[15] |  | Identifies if star is in a specially curated list. (original TIC column is named splists). |
+ | e_ra | float64 | mas | Error in RA |
+ | e_dec | float64 | mas | Error in Dec |
+ | ra_orig | float64 | degrees | RA from original catalog |
+ | dec_orig | float64 | degrees | Dec from original catalog |
+ | e_ra_orig | float64 | mas | RA error as given in original catalog |
+ | e_dec_orig | float64 | mas | Dec error as given in original catalog |
+ | raddflag | int32 |  | 1=dwarf by radius, 0=giant by radius |
+ | wdflag | int32 |  | 1=star in Gaia's photometric "White Dwarf region" |
+ | objid | int64 |  | Object identifier (integer) |
+ | gaia_int | int64 |  | Gaia DR2 source ID (integer). Not originally in TIC v8. |
+ | twomass_psc | char[17] |  | 2MASS PSC identifier. Not originally in TIC v8. |
+ | twomass_psc_pts_key | int32 |  | 2MASS PSC identifier. Not originally in TIC v8. |
+ | tycho2_tycid | int32 |  | Tycho2 identifier (integer). Not originally in TIC v8. |
+ | allwise_cntr | int64 |  | ALLWISE ID (integer). Not originally in TIC v8. |
 
 
 
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!

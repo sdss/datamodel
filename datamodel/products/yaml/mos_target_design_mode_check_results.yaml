@@ -1,0 +1,251 @@
+general:
+  name: mos_target_design_mode_check_results
+  short: 'MOS Target table: mos_target_design_mode_check_results'
+  description: Summary if design passed individual Design Mode checks from dr19_design_mode.
+  datatype: FITS
+  filesize: 12 MB
+  releases:
+  - DR19
+  environments:
+  - MOS_TARGET
+  surveys:
+  - BHM
+  - MWM
+  - SDSS
+  naming_convention: $MOS_TARGET/[V_TARG]/mos_design_mode_check_results.fits, where
+    V_TARG=1.0.2 for DR19
+  generated_by: sdss5db> targetdb, operations database server
+  data_level: 2.3.3
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR19:
+    template: $MOS_TARGET/[V_TARG]/mos_design_mode_check_results.fits
+    example: 1.0.2/mos_design_mode_check_results.fits
+    location: '{v_targ}/mos_design_mode_check_results.fits'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_design_mode_check_results
+      path_template: $MOS_TARGET/{v_targ}/mos_design_mode_check_results.fits
+      path_kwargs:
+      - v_targ
+      access_string: mos_target_design_mode_check_results = $MOS_TARGET/{v_targ}/mos_design_mode_check_results.fits
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Primary header
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: 'MOS Target table: mos_target_design_mode_check_results'
+        is_image: false
+        size: 12 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 76
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 166104
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 27
+          comment: number of table fields
+        - key: TNULL1
+          value: -2147483648
+          comment: ''
+        - key: TNULL2
+          value: -2147483648
+          comment: ''
+        - key: TNULL4
+          value: -2147483648
+          comment: ''
+        - key: TNULL6
+          value: -2147483648
+          comment: ''
+        - key: TNULL10
+          value: -2147483648
+          comment: ''
+        - key: TNULL14
+          value: -2147483648
+          comment: ''
+        - key: TNULL18
+          value: -2147483648
+          comment: ''
+        columns:
+          pk:
+            name: pk
+            type: int32
+            unit: ''
+            description: The primary key. A sequential identifier.
+          design_id:
+            name: design_id
+            type: int32
+            unit: ''
+            description: The primary key of the design in the dr19_design table.
+          design_pass:
+            name: design_pass
+            type: bool
+            unit: ''
+            description: If minimum design checks were passed.
+          design_status:
+            name: design_status
+            type: int32
+            unit: ''
+            description: Bitmask for design. 1 if revalidated design. 2 if replacement
+              design.
+          boss_skies_min_pass:
+            name: boss_skies_min_pass
+            type: bool
+            unit: ''
+            description: If passed minimum Boss skies metric.
+          boss_skies_min_value:
+            name: boss_skies_min_value
+            type: int32
+            unit: ''
+            description: How many Boss skies in the design.
+          boss_skies_fov_pass:
+            name: boss_skies_fov_pass
+            type: bool
+            unit: ''
+            description: If passed Boss skies Field of View metric.
+          boss_skies_fov_value:
+            name: boss_skies_fov_value
+            type: float64
+            unit: ''
+            description: Boss skies Field of View metric value.
+          apogee_skies_min_pass:
+            name: apogee_skies_min_pass
+            type: bool
+            unit: ''
+            description: If passed minimum Apogee skies metric.
+          apogee_skies_min_value:
+            name: apogee_skies_min_value
+            type: int32
+            unit: ''
+            description: How many Apogee skies in the design.
+          apogee_skies_fov_pass:
+            name: apogee_skies_fov_pass
+            type: bool
+            unit: ''
+            description: If passed Apogee skies Field of View metric.
+          apogee_skies_fov_value:
+            name: apogee_skies_fov_value
+            type: float64
+            unit: ''
+            description: Apogee skies Field of View metric value.
+          boss_stds_min_pass:
+            name: boss_stds_min_pass
+            type: bool
+            unit: ''
+            description: If passed minimum Boss standards metric.
+          boss_stds_min_value:
+            name: boss_stds_min_value
+            type: int32
+            unit: ''
+            description: How many Boss standards in the design.
+          boss_stds_fov_pass:
+            name: boss_stds_fov_pass
+            type: bool
+            unit: ''
+            description: If passed Boss standards Field of View metric.
+          boss_stds_fov_value:
+            name: boss_stds_fov_value
+            type: float64
+            unit: ''
+            description: Boss standards Field of View metric value.
+          apogee_stds_min_pass:
+            name: apogee_stds_min_pass
+            type: bool
+            unit: ''
+            description: If passed minimum Apogee standards metric.
+          apogee_stds_min_value:
+            name: apogee_stds_min_value
+            type: int32
+            unit: ''
+            description: How many Apogee standards in the design.
+          apogee_stds_fov_pass:
+            name: apogee_stds_fov_pass
+            type: bool
+            unit: ''
+            description: If passed Apogee standards Field of View metric.
+          apogee_stds_fov_value:
+            name: apogee_stds_fov_value
+            type: float64
+            unit: ''
+            description: Apogee standards Field of View metric value.
+          boss_stds_mags_pass:
+            name: boss_stds_mags_pass
+            type: bool
+            unit: ''
+            description: If all Boss standards within magnitude limits.
+          apogee_stds_mags_pass:
+            name: apogee_stds_mags_pass
+            type: bool
+            unit: ''
+            description: If all Apogee standards within magnitude limits.
+          boss_bright_limit_targets_pass:
+            name: boss_bright_limit_targets_pass
+            type: bool
+            unit: ''
+            description: If all Boss science targets within magnitude limits.
+          apogee_bright_limit_targets_pass:
+            name: apogee_bright_limit_targets_pass
+            type: bool
+            unit: ''
+            description: If all Apogee science targets within magnitude limits.
+          boss_sky_neighbors_targets_pass:
+            name: boss_sky_neighbors_targets_pass
+            type: bool
+            unit: ''
+            description: If all Boss assignments pass bright neighobor check.
+          apogee_sky_neighbors_targets_pass:
+            name: apogee_sky_neighbors_targets_pass
+            type: bool
+            unit: ''
+            description: If all Apogee assignments pass bright neighobor check.
+          apogee_trace_diff_targets_pass:
+            name: apogee_trace_diff_targets_pass
+            type: bool
+            unit: ''
+            description: If all Apogee assignments pass magnitude difference between
+              adjacent traces check.
+notes: |-
+  None
+regrets: |-
+  I  have no regrets!

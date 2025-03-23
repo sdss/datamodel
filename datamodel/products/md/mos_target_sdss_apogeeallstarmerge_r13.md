@@ -9,17 +9,17 @@ MOS Target Table: sdss_apogeeallstarmerge_r13
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
 List of APOGEE DR16 stars for RV followup
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_target_sdss_apogeeallstarmerge_r13-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
+$MOS_TARGET/[V_TARG]/mos_sdss_apogeeallstarmerge_r13-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
 
 ### Releases
-DR18
+DR18, DR19
 
 ### Enviroments
 MOS_TARGET
@@ -36,14 +36,20 @@ sdss5db> targetdb, operations database server
 ### Is a VAC
 False
 
-### HDUS List for release DR18
+### Data Level
+2.3.3
+
+### HDUS List for release DR19
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: ](#hdu1)
+  - [HDU1](#hdu1)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR19
+   - from: DR18
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -64,69 +70,85 @@ Key | Value | Comment | |
 
 
 
-### HDU1:
+### HDU1: 
 MOS Target Table: sdss_apogeeallstarmerge_r13
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  1 GB
 
+##### Header Table Caption for HDU1
+Key | Value | Comment | |
+| --- | --- | --- | --- |
+| XTENSION | BINTABLE | binary table extension |
+| BITPIX | 8 | array data type |
+| NAXIS | 2 | number of array dimensions |
+| NAXIS1 | 3198 | length of dimension 1 |
+| NAXIS2 | 617583 | length of dimension 2 |
+| PCOUNT | 0 | number of group parameters |
+| GCOUNT | 1 | number of groups |
+| TFIELDS | 49 | number of table fields |
+| TNULL2 | -32768 |  |
+| TNULL3 | -2147483648 |  |
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | APOGEE_ID | char[18] |  | 2MASS style ID from APOGEE DR16 |
- | NVISITS | int16 |  | Number of visits into combined spectra, accross all allStar entries for the star |
- | NENTRIES | int32 |  | Number of unique allStar entries for the star |
- | RA | float64 | degrees | Right ascension (J2000) |
- | DEC | float64 | degrees | Declination (J2000) |
- | GLON | float64 | degrees | Galactic longitude |
- | GLAT | float64 | degrees | Galactic latitude |
- | PMRA | float64 | mas/yr | proper motion in RA |
- | PMDEC | float64 | mas/yr | proper motion in DEC |
- | PM_SRC | char[4] |  | source of proper motion (e.g. gaia) |
- | J | float32 | bad=99] [mag | 2MASS J mag |
- | J_ERR | float32 | mag | Uncertainty in 2MASS J mag |
- | H | float32 | bad=99] [mag | 2MASS H mag |
- | H_ERR | float32 | mag | Uncertainty in 2MASS H mag |
- | K | float32 | bad=99] [mag | 2MASS Ks mag |
- | K_ERR | float32 | mag | Uncertainty in 2MASS Ks mag |
- | AK | float32 | mag | K-band extinction adopted for targetting |
- | VHELIO_AVG | float32 | km/s | Average radial velocity, weighted by S/N, rederived to reflect all entries |
- | VHELIO_ERR | float32 | km/s | Uncertainty in VHELIO_AVG from the S/N-weighted individual RVs, rederived to reflect all entries |
- | VSCATTER | float32 | km/s | Scatter of individual visit RVs around average, rederived to reflect all entries |
- | SIG_RVVAR | float32 |  | Measure of the significance of the star's RV variability (see Troup, et. al 2016) |
- | BASELINE | float32 | days | Temporal baseline of the observations (JD_last-JD-first) |
- | MEAN_FIBER | float32 |  | The mean fiberID of all of the star's visits |
- | SIG_FIBER | float32 |  | The standard deviation of the fiberID of all of the star's visits |
- | APSTAR_IDS | char[675] |  | List of APSTAR_ID from each of the star's allStar entries |
- | VISITS | char[1379] |  | List of VISIT_ID from eeach of the star's allVisit entries |
- | FIELDS | char[142] |  | List of FIELD flags from each of the star's allStar entries |
- | SURVEYS | char[181] |  | List of SURVEY flags from each of the star's allStar entries |
- | TELESCOPES | char[90] |  | List of TELESCOPE flags from each of the star's allStar entries |
- | TARGFLAGS | char[236] |  | Verbose/text form of TARGFLAG combined from all entries |
- | STARFLAGS | char[165] |  | Verbose/text form of STARFLAG combined from all entries |
- | ASPCAPFLAGS | char[108] |  | Verbose/text form of ASPCAPFLAG combined from all entries |
- | TEFF | float32 | K | Teff from ASPCAP analysis of combined spectra (from PARAM) averaged across entries |
- | TEFF_ERR | float32 | K | Teff uncertainty (from PARAM_COV) |
- | LOGG | float32 | dex | log g from ASPCAP analysis of combined spectrum (from PARAM) averaged across entries |
- | LOGG_ERR | float32 | dex | log g uncertainty (from PARAM_COV) |
- | FEH | float32 | dex | metallicity from ASPCAP analysis of combined spectrum (from PARAM) averaged across entries |
- | FEH_ERR | float32 | dex | feh uncertainty (from PARAM_COV) |
- | STARTYPE | char[3] |  | Best guess of star's evolutionary state based on stellar parameters or external catalogs (RC=red clump, RG=red giant, SG = subgiant, MS=dwarf, PMS=pre-main sequence) |
- | VJITTER | float32 | km/s | Atmospheric RV jitter derived from log g using the relationship derived in Hekker, et. al 2008. |
- | DIST | float32 | pc | Derived or given distance to the star |
- | DIST_ERR | float32 | pc | uncertainy of the distance |
- | DIST_SRC | char[9] |  | Source of the star's distance measurement (e.g. gaia=derived from gaia parallax) |
- | DIST_SRCLIST | char[93] |  | Source list of the star's distance measurement |
- | MSTAR | float32 |  | Derived or given stellar mass (Solar Mass) |
- | MSTAR_ERR | float32 | Solar Mass | Uncertainty of the Derived stellar mass |
- | RSTAR | float32 | Solar Radius | Derived stellar radius |
- | RSTAR_ERR | float32 | Solar Radius | Uncertainty of the Derived stellar radius |
- | MSTAR_SRC | char[8] |  | Source of the star's Mass (if not derived) |
- | DESIGNATION | char[16] |  | identifier |
+ | apogee_id | char[18] |  | 2MASS style ID from APOGEE DR16 |
+ | nvisits | int16 |  | Number of visits into combined spectra, accross all allStar entries for the star |
+ | nentries | int32 |  | Number of unique allStar entries for the star |
+ | ra | float64 | degrees | Right ascension (J2000) |
+ | dec | float64 | degrees | Declination (J2000) |
+ | glon | float64 | degrees | Galactic longitude |
+ | glat | float64 | degrees | Galactic latitude |
+ | pmra | float64 | mas/yr | proper motion in RA |
+ | pmdec | float64 | mas/yr | proper motion in DEC |
+ | pm_src | char[4] |  | source of proper motion (e.g. gaia) |
+ | j | float32 | bad=99] [mag | 2MASS J mag |
+ | j_err | float32 | mag | Uncertainty in 2MASS J mag |
+ | h | float32 | bad=99] [mag | 2MASS H mag |
+ | h_err | float32 | mag | Uncertainty in 2MASS H mag |
+ | k | float32 | bad=99] [mag | 2MASS Ks mag |
+ | k_err | float32 | mag | Uncertainty in 2MASS Ks mag |
+ | ak | float32 | mag | K-band extinction adopted for targetting |
+ | vhelio_avg | float32 | km/s | Average radial velocity, weighted by S/N, rederived to reflect all entries |
+ | vhelio_err | float32 | km/s | Uncertainty in VHELIO_AVG from the S/N-weighted individual RVs, rederived to reflect all entries |
+ | vscatter | float32 | km/s | Scatter of individual visit RVs around average, rederived to reflect all entries |
+ | sig_rvvar | float32 |  | Measure of the significance of the star's RV variability (see Troup, et. al 2016) |
+ | baseline | float32 | days | Temporal baseline of the observations (JD_last-JD-first) |
+ | mean_fiber | float32 |  | The mean fiberID of all of the star's visits |
+ | sig_fiber | float32 |  | The standard deviation of the fiberID of all of the star's visits |
+ | apstar_ids | char[675] |  | List of APSTAR_ID from each of the star's allStar entries |
+ | visits | char[1379] |  | List of VISIT_ID from eeach of the star's allVisit entries |
+ | fields | char[142] |  | List of FIELD flags from each of the star's allStar entries |
+ | surveys | char[181] |  | List of SURVEY flags from each of the star's allStar entries |
+ | telescopes | char[90] |  | List of TELESCOPE flags from each of the star's allStar entries |
+ | targflags | char[236] |  | Verbose/text form of TARGFLAG combined from all entries |
+ | starflags | char[165] |  | Verbose/text form of STARFLAG combined from all entries |
+ | aspcapflags | char[108] |  | Verbose/text form of ASPCAPFLAG combined from all entries |
+ | teff | float32 | K | Teff from ASPCAP analysis of combined spectra (from PARAM) averaged across entries |
+ | teff_err | float32 | K | Teff uncertainty (from PARAM_COV) |
+ | logg | float32 | dex | log g from ASPCAP analysis of combined spectrum (from PARAM) averaged across entries |
+ | logg_err | float32 | dex | log g uncertainty (from PARAM_COV) |
+ | feh | float32 | dex | metallicity from ASPCAP analysis of combined spectrum (from PARAM) averaged across entries |
+ | feh_err | float32 | dex | feh uncertainty (from PARAM_COV) |
+ | startype | char[3] |  | Best guess of star's evolutionary state based on stellar parameters or external catalogs (RC=red clump, RG=red giant, SG = subgiant, MS=dwarf, PMS=pre-main sequence) |
+ | vjitter | float32 | km/s | Atmospheric RV jitter derived from log g using the relationship derived in Hekker, et. al 2008. |
+ | dist | float32 | pc | Derived or given distance to the star |
+ | dist_err | float32 | pc | uncertainy of the distance |
+ | dist_src | char[9] |  | Source of the star's distance measurement (e.g. gaia=derived from gaia parallax) |
+ | mstar | float32 |  | Derived or given stellar mass (Solar Mass) |
+ | mstar_err | float32 | Solar Mass | Uncertainty of the Derived stellar mass |
+ | rstar | float32 | Solar Radius | Derived stellar radius |
+ | rstar_err | float32 | Solar Radius | Uncertainty of the Derived stellar radius |
+ | mstar_src | char[8] |  | Source of the star's Mass (if not derived) |
+ | designation | char[18] |  | identifier |
 
 
 
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!

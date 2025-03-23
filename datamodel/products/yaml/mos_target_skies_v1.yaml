@@ -1,0 +1,220 @@
+general:
+  name: mos_target_skies_v1
+  short: 'MOS Target table: mos_target_skies_v1'
+  description: This table stores the positions used as blank sky regions for DR19
+    targetting. The sky regions are selected by dividing the sky in tiles of HEALpix
+    nside 32. Each tile is then subdivided in candidate regions of HEALpix nside 32768
+    and the pixels that meet the isolation requirements are considered valid skies.
+    This process is repeated for a number of all-sky catalogues. See <a href="https://sdss.org/dr19/targeting/fps/sky/">
+    for further details of the process by which suitable sky locations are selected
+    in SDSS-V/FPS. This version of the skies catalog was used for v0.1 target selection.
+    The skies_v2 catalog was used for v0.5 and subsequent target selections.
+  datatype: FITS
+  filesize: 146 MB
+  releases:
+  - DR19
+  environments:
+  - MOS_TARGET
+  surveys:
+  - BHM
+  - MWM
+  - SDSS
+  naming_convention: $MOS_TARGET/[V_TARG]/mos_skies_v1.fits, where V_TARG=1.0.2 for
+    DR19
+  generated_by: sdss5db> targetdb, operations database server
+  data_level: 2.3.3
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR19:
+    template: $MOS_TARGET/[V_TARG]/mos_skies_v1-[NUM].fits
+    example: 1.0.2/mos_skies_v1-01.fits
+    location: '{v_targ}/mos_skies_v1-{num}.fits'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_skies_v1
+      path_template: $MOS_TARGET/{v_targ}/mos_skies_v1-{num}.fits
+      path_kwargs:
+      - v_targ
+      - num
+      access_string: mos_target_skies_v1 = $MOS_TARGET/{v_targ}/mos_skies_v1-{num}.fits
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Primary header
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: 'MOS Target table: mos_target_skies_v1'
+        is_image: false
+        size: 146 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 77
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 2000000
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 20
+          comment: number of table fields
+        - key: TNULL1
+          value: -9223372036854775808
+          comment: ''
+        - key: TNULL4
+          value: -2147483648
+          comment: ''
+        - key: TNULL5
+          value: -2147483648
+          comment: ''
+        columns:
+          pix_32768:
+            name: pix_32768
+            type: int64
+            unit: ''
+            description: The HEALpix pixel (nside=32768, nested indexing, Equatorial
+              coords) of the sky region.
+          ra:
+            name: ra
+            type: float64
+            unit: degrees
+            description: The RA of the centre of the sky pixel.
+          dec:
+            name: dec
+            type: float64
+            unit: degrees
+            description: The declination of the centre of the sky pixel.
+          down_pix:
+            name: down_pix
+            type: int32
+            unit: ''
+            description: The HEALpix pixel (nside=256, nested indexing, Equatorial
+              coords) of the sky region. Used internally to downsample the list of
+              candidate region.
+          tile_32:
+            name: tile_32
+            type: int32
+            unit: ''
+            description: The HEALpix pixel (nside=32, nested indexing, Equatorial
+              coords) of the sky region.
+          gaia_sky:
+            name: gaia_sky
+            type: bool
+            unit: ''
+            description: Whether this is a valid sky region in the Gaia DR2 catalogue.
+          sep_neighbour_gaia:
+            name: sep_neighbour_gaia
+            type: float32
+            unit: arcsec
+            description: Separation to the nearest Gaia DR2 neighbour.
+          mag_neighbour_gaia:
+            name: mag_neighbour_gaia
+            type: float32
+            unit: mag
+            description: Magnitude of the nearest Gaia DR2 neighbour (G band, Vega).
+          ls8_sky:
+            name: ls8_sky
+            type: bool
+            unit: ''
+            description: Whether this is a valid sky region in the Legacy Survey DR8
+              catalogue.
+          sep_neighbour_ls8:
+            name: sep_neighbour_ls8
+            type: float32
+            unit: arcsec
+            description: Separation to the nearest Legacy Survey DR8 neighbour.
+          mag_neighbour_ls8:
+            name: mag_neighbour_ls8
+            type: float32
+            unit: mag
+            description: Magnitude of the nearest Legacy Survey DR8 neighbour (r-band,
+              AB).
+          tmass_sky:
+            name: tmass_sky
+            type: bool
+            unit: ''
+            description: Whether this is a valid sky region in the 2MASS point source
+              catalogue.
+          sep_neighbour_tmass:
+            name: sep_neighbour_tmass
+            type: float32
+            unit: arcsec
+            description: Separation to the nearest 2MASS point source neighbour.
+          mag_neighbour_tmass:
+            name: mag_neighbour_tmass
+            type: float32
+            unit: mag
+            description: Magnitude of the nearest 2MASS point source neighbour (H
+              band, Vega).
+          tycho2_sky:
+            name: tycho2_sky
+            type: bool
+            unit: ''
+            description: Whether this is a valid sky region in the Tycho2 catalogue.
+          sep_neighbour_tycho2:
+            name: sep_neighbour_tycho2
+            type: float32
+            unit: arcsec
+            description: Separation to the nearest Tycho2 neighbour.
+          mag_neighbour_tycho2:
+            name: mag_neighbour_tycho2
+            type: float32
+            unit: mag
+            description: Magnitude of the nearest Tycho2 neighbour (Vt band, Vega).
+          tmass_xsc_sky:
+            name: tmass_xsc_sky
+            type: bool
+            unit: ''
+            description: Whether this is a valid sky region in the 2MASS extended
+              source catalogue.
+          sep_neighbour_tmass_xsc:
+            name: sep_neighbour_tmass_xsc
+            type: float32
+            unit: arcsec
+            description: Separation to the nearest 2MASS extended source neighbour
+          mag_neighbour_tmass_xsc:
+            name: mag_neighbour_tmass_xsc
+            type: float32
+            unit: mag
+            description: Magnitude of the nearest 2MASS extended source neighbour
+              (H band, Vega).
+notes: |-
+  None
+regrets: |-
+  I  have no regrets!

@@ -1,0 +1,223 @@
+{
+  "general": {
+    "name": "mos_target_opsdb_apo_configuration",
+    "short": "MOS Target table: mos_target_opsdb_apo_configuration",
+    "description": "This table contains basic information about a configuration of robots loaded at the telescope.",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "BHM",
+        "long": "Black Hole Mapper",
+        "description": "An optical time-domain spectroscopic survey of quasars and X-ray sources",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "bhm",
+        "aliases": []
+      },
+      {
+        "name": "MWM",
+        "long": "Milky Way Mapper",
+        "description": "A time-domain, optical+IR spectroscopic survey of Milky Way stars of all types.",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "mwm",
+        "aliases": []
+      },
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "FITS",
+    "filesize": "523 KB",
+    "releases": [
+      {
+        "name": "DR19",
+        "description": "SDSS public data release 19",
+        "public": true,
+        "release_date": "2025-07-11"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/mos_opsdb_apo_configuration.fits, where V_TARG=1.0.2 for DR19",
+    "generated_by": "sdss5db> targetdb, operations database server",
+    "design": false,
+    "vac": false,
+    "recommended_science_product": false,
+    "data_level": "2.3.3"
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR19": {
+      "template": "$MOS_TARGET/[V_TARG]/mos_opsdb_apo_configuration.fits",
+      "example": "1.0.2/mos_opsdb_apo_configuration.fits",
+      "location": "{v_targ}/mos_opsdb_apo_configuration.fits",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_opsdb_apo_configuration",
+        "path_template": "$MOS_TARGET/{v_targ}/mos_opsdb_apo_configuration.fits",
+        "path_kwargs": [
+          "v_targ"
+        ],
+        "access_string": "mos_target_opsdb_apo_configuration = $MOS_TARGET/{v_targ}/mos_opsdb_apo_configuration.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Primary header",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "MOS Target table: mos_target_opsdb_apo_configuration",
+          "size": "517 KB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "BINTABLE",
+              "comment": "binary table extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "58",
+              "comment": "length of dimension 1"
+            },
+            {
+              "key": "NAXIS2",
+              "value": "9134",
+              "comment": "length of dimension 2"
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "number of group parameters"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "number of groups"
+            },
+            {
+              "key": "TFIELDS",
+              "value": "6",
+              "comment": "number of table fields"
+            },
+            {
+              "key": "TNULL1",
+              "value": "-2147483648",
+              "comment": ""
+            },
+            {
+              "key": "TNULL2",
+              "value": "-2147483648",
+              "comment": ""
+            }
+          ],
+          "columns": {
+            "configuration_id": {
+              "name": "configuration_id",
+              "description": "Unique identifier",
+              "type": "int32",
+              "unit": ""
+            },
+            "design_id": {
+              "name": "design_id",
+              "description": "Unique identifier of the design loaded",
+              "type": "int32",
+              "unit": ""
+            },
+            "comment": {
+              "name": "comment",
+              "description": "An optional comment",
+              "type": "char[4]",
+              "unit": ""
+            },
+            "temperature": {
+              "name": "temperature",
+              "description": "The ambient temperature when the design was loaded",
+              "type": "char[4]",
+              "unit": ""
+            },
+            "epoch": {
+              "name": "epoch",
+              "description": "The Julian Date (JD) when the design was loaded",
+              "type": "float64",
+              "unit": ""
+            },
+            "calibration_version": {
+              "name": "calibration_version",
+              "description": "The version of fps_calibration used, https://github.com/sdss/fps_calibrations/tags",
+              "type": "char[34]",
+              "unit": ""
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null
+    }
+  },
+  "notes": "None",
+  "regrets": "I  have no regrets!"
+}

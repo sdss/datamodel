@@ -1,0 +1,394 @@
+general:
+  name: mos_target_unwise
+  short: 'MOS Target table: mos_target_unwise'
+  description: The unWISE catalog, containing the positions and fluxes of approximately
+    two billion objects observed by the Wide-field Infrared Survey Explorer (WISE).
+    See Schlafly et al. (2019). The original catalogs are hosted at https://catalog.unwise.me/catalogs.html
+  datatype: FITS
+  filesize: 534 MB
+  releases:
+  - DR19
+  environments:
+  - MOS_TARGET
+  surveys:
+  - BHM
+  - MWM
+  - SDSS
+  naming_convention: $MOS_TARGET/[V_TARG]/mos_unwise.fits, where V_TARG=1.0.2 for
+    DR19
+  generated_by: sdss5db> targetdb, operations database server
+  data_level: 2.3.3
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR19:
+    template: $MOS_TARGET/[V_TARG]/mos_unwise-[NUM].fits
+    example: 1.0.2/mos_unwise-01.fits
+    location: '{v_targ}/mos_unwise-{num}.fits'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_unwise
+      path_template: $MOS_TARGET/{v_targ}/mos_unwise-{num}.fits
+      path_kwargs:
+      - num
+      - v_targ
+      access_string: mos_target_unwise = $MOS_TARGET/{v_targ}/mos_unwise-{num}.fits
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Primary header
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: 'MOS Target table: mos_target_unwise'
+        is_image: false
+        size: 534 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 280
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 2000000
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 49
+          comment: number of table fields
+        - key: TNULL38
+          value: -2147483648
+          comment: ''
+        - key: TNULL39
+          value: -2147483648
+          comment: ''
+        - key: TNULL40
+          value: -2147483648
+          comment: ''
+        - key: TNULL41
+          value: -2147483648
+          comment: ''
+        - key: TNULL42
+          value: -2147483648
+          comment: ''
+        - key: TNULL43
+          value: -2147483648
+          comment: ''
+        - key: TNULL44
+          value: -2147483648
+          comment: ''
+        - key: TNULL45
+          value: -2147483648
+          comment: ''
+        - key: TNULL48
+          value: -2147483648
+          comment: ''
+        columns:
+          x_w1:
+            name: x_w1
+            type: float64
+            unit: pixels
+            description: x coordinate from the W1 measurement of the source
+          x_w2:
+            name: x_w2
+            type: float64
+            unit: pixels
+            description: x coordinate from the W2 measurement of the source
+          y_w1:
+            name: y_w1
+            type: float64
+            unit: pixels
+            description: y coordinate from the W1 measurement of the source
+          y_w2:
+            name: y_w2
+            type: float64
+            unit: pixels
+            description: y coordinate from the W2 measurement of the source
+          flux_w1:
+            name: flux_w1
+            type: float32
+            unit: Vega nMgy
+            description: flux from the W1 measurement of the source
+          flux_w2:
+            name: flux_w2
+            type: float32
+            unit: Vega nMgy
+            description: flux from the W2 measurement of the source
+          dx_w1:
+            name: dx_w1
+            type: float32
+            unit: pixels
+            description: uncertainty in x from the W1 measurement of the source
+          dx_w2:
+            name: dx_w2
+            type: float32
+            unit: pixels
+            description: uncertainty in x from the W2 measurement of the source
+          dy_w1:
+            name: dy_w1
+            type: float32
+            unit: pixels
+            description: uncertainty in y from the W1 measurement of the source
+          dy_w2:
+            name: dy_w2
+            type: float32
+            unit: pixels
+            description: uncertainty in y from the W2 measurement of the source
+          dflux_w1:
+            name: dflux_w1
+            type: float32
+            unit: Vega nMgy
+            description: uncertainty in flux (statistical only) from the W1 measurement
+          dflux_w2:
+            name: dflux_w2
+            type: float32
+            unit: Vega nMgy
+            description: uncertainty in flux (statistical only) from the W2 measurement
+          qf_w1:
+            name: qf_w1
+            type: float32
+            unit: ''
+            description: '"quality factor" for the W1 measurement'
+          qf_w2:
+            name: qf_w2
+            type: float32
+            unit: ''
+            description: '"quality factor" for the W2 measurement'
+          rchi2_w1:
+            name: rchi2_w1
+            type: float32
+            unit: ''
+            description: average chi2 per pixel, weighted by PSF from the W1 measurement
+              of the source
+          rchi2_w2:
+            name: rchi2_w2
+            type: float32
+            unit: ''
+            description: average chi2 per pixel, weighted by PSF from the W2 measurement
+              of the source
+          fracflux_w1:
+            name: fracflux_w1
+            type: float32
+            unit: ''
+            description: fraction of flux in this object's PSF that comes from this
+              object from the W1 measurement of the source
+          fracflux_w2:
+            name: fracflux_w2
+            type: float32
+            unit: ''
+            description: fraction of flux in this object's PSF that comes from this
+              object from the W2 measurement of the source
+          fluxlbs_w1:
+            name: fluxlbs_w1
+            type: float32
+            unit: Vega nMgy
+            description: local-background-subtracted flux from the W1 measurement
+              of the source
+          fluxlbs_w2:
+            name: fluxlbs_w2
+            type: float32
+            unit: Vega nMgy
+            description: local-background-subtracted flux from the W2 measurement
+              of the source
+          dfluxlbs_w1:
+            name: dfluxlbs_w1
+            type: float32
+            unit: Vega nMgy
+            description: uncertainty in local-background-subtracted flux from the
+              W1 measurement of the source
+          dfluxlbs_w2:
+            name: dfluxlbs_w2
+            type: float32
+            unit: Vega nMgy
+            description: uncertainty in local-background-subtracted flux from the
+              W2 measurement of the source
+          fwhm_w1:
+            name: fwhm_w1
+            type: float32
+            unit: pixels
+            description: full-width at half-maximum of PSF from the W1 measurement
+              of the source
+          fwhm_w2:
+            name: fwhm_w2
+            type: float32
+            unit: pixels
+            description: full-width at half-maximum of PSF from the W2 measurement
+              of the source
+          spread_model_w1:
+            name: spread_model_w1
+            type: float32
+            unit: ''
+            description: SExtractor spread_model parameter from the W1 measurement
+              of the source
+          spread_model_w2:
+            name: spread_model_w2
+            type: float32
+            unit: ''
+            description: SExtractor spread_model parameter from the W2 measurement
+              of the source
+          dspread_model_w1:
+            name: dspread_model_w1
+            type: float32
+            unit: ''
+            description: uncertainty in spread_model from the W1 measurement of the
+              source
+          dspread_model_w2:
+            name: dspread_model_w2
+            type: float32
+            unit: ''
+            description: uncertainty in spread_model from the W2 measurement of the
+              source
+          sky_w1:
+            name: sky_w1
+            type: float32
+            unit: Vega nMgy
+            description: sky flux from the W1 measurement of the source
+          sky_w2:
+            name: sky_w2
+            type: float32
+            unit: Vega nMgy
+            description: sky flux from the W2 measurement of the source
+          ra12_w1:
+            name: ra12_w1
+            type: float64
+            unit: ''
+            description: RA position from individual-image catalogs from the W1 measurement
+              of the source
+          ra12_w2:
+            name: ra12_w2
+            type: float64
+            unit: degrees
+            description: RA position from individual-image catalogs from the W2 measurement
+              of the source
+          dec12_w1:
+            name: dec12_w1
+            type: float64
+            unit: degrees
+            description: Dec position from individual-image catalogs from the W1 measurement
+              of the source
+          dec12_w2:
+            name: dec12_w2
+            type: float64
+            unit: degrees
+            description: Dec position from individual-image catalogs from the W2 measurement
+              of the source
+          coadd_id:
+            name: coadd_id
+            type: char[8]
+            unit: ''
+            description: unique identifier for the coadd
+          unwise_detid_w1:
+            name: unwise_detid_w1
+            type: char[18]
+            unit: ''
+            description: unWISE detection ID from the W1 measurement of the source
+          unwise_detid_w2:
+            name: unwise_detid_w2
+            type: char[18]
+            unit: ''
+            description: unWISE detection ID from the W2 measurement of the source
+          nm_w1:
+            name: nm_w1
+            type: int32
+            unit: ''
+            description: number of single-exposure images of this part of sky in coadd
+              for the W1 band
+          nm_w2:
+            name: nm_w2
+            type: int32
+            unit: ''
+            description: number of single-exposure images of this part of sky in coadd
+              for the W2 band
+          primary12_w1:
+            name: primary12_w1
+            type: int32
+            unit: ''
+            description: '''primary'' status from individual-image catalogs from the
+              W1 measurement of the source'
+          primary12_w2:
+            name: primary12_w2
+            type: int32
+            unit: ''
+            description: '''primary'' status from individual-image catalogs from the
+              W2 measurement of the source'
+          flags_unwise_w1:
+            name: flags_unwise_w1
+            type: int32
+            unit: ''
+            description: unWISE Coadd Flags flags at central pixel for the W1 measurement
+              of the source
+          flags_unwise_w2:
+            name: flags_unwise_w2
+            type: int32
+            unit: ''
+            description: unWISE Coadd Flags flags at central pixel for the W2 measurement
+              of the source
+          flags_info_w1:
+            name: flags_info_w1
+            type: int32
+            unit: ''
+            description: additional informational flags at central pixel for the W1
+              measurement of the source
+          flags_info_w2:
+            name: flags_info_w2
+            type: int32
+            unit: ''
+            description: additional informational flags at central pixel for the W2
+              measurement of the source
+          ra:
+            name: ra
+            type: float64
+            unit: ''
+            description: RA W1 position, if available; otherwise W2 position
+          dec:
+            name: dec
+            type: float64
+            unit: ''
+            description: Declination W1 position, if available; otherwise W2 position
+          primary_status:
+            name: primary_status
+            type: int32
+            unit: ''
+            description: W1 primary status, if available; otherwise W2 primary status
+          unwise_objid:
+            name: unwise_objid
+            type: char[16]
+            unit: ''
+            description: unique object id
+notes: |-
+  None
+regrets: |-
+  I  have no regrets!

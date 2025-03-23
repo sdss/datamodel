@@ -58,17 +58,50 @@
         "description": "SDSS public data release 18",
         "public": true,
         "release_date": "2022-12-05"
+      },
+      {
+        "name": "DR19",
+        "description": "SDSS public data release 19",
+        "public": true,
+        "release_date": "2025-07-11"
       }
     ],
     "naming_convention": "$MOS_TARGET/[V_TARG]/mos_bhm_csc_v2-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts",
     "generated_by": "sdss5db> targetdb, operations database server",
     "design": false,
     "vac": false,
-    "recommended_science_product": false
+    "recommended_science_product": false,
+    "data_level": "2.3.3"
   },
   "changelog": {
     "description": "Describes changes to the datamodel product and/or file structure from one release to another",
-    "releases": {}
+    "releases": {
+      "DR19": {
+        "from": "DR18",
+        "note": "No changes",
+        "delta_nhdus": null,
+        "added_hdus": null,
+        "removed_hdus": null,
+        "primary_delta_nkeys": null,
+        "added_primary_header_kwargs": null,
+        "removed_primary_header_kwargs": null,
+        "delta_nkeys": null,
+        "addead_header_keys": null,
+        "removed_header_keys": null,
+        "delta_ntables": null,
+        "addead_tables": null,
+        "removed_tables": null,
+        "tables": null,
+        "new_libver": null,
+        "delta_nattrs": null,
+        "addead_attrs": null,
+        "removed_attrs": null,
+        "delta_nmembers": null,
+        "addead_members": null,
+        "removed_members": null,
+        "members": null
+      }
+    }
   },
   "releases": {
     "DR18": {
@@ -278,7 +311,297 @@
       },
       "par": null,
       "hdfs": null
+    },
+    "DR19": {
+      "template": "$MOS_TARGET/[V_TARG]/mos_bhm_csc_v2.fits",
+      "example": "1.0.2/mos_bhm_csc_v2.fits",
+      "location": "{v_targ}/mos_bhm_csc_v2.fits",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_bhm_csc_v2",
+        "path_template": "$MOS_TARGET/{v_targ}/mos_bhm_csc_v2.fits",
+        "path_kwargs": [
+          "v_targ"
+        ],
+        "access_string": "mos_target_bhm_csc_v2 = $MOS_TARGET/{v_targ}/mos_bhm_csc_v2.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Primary header",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "MOS Target Table: bhm_csc_v2",
+          "size": "27 MB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "BINTABLE",
+              "comment": "binary table extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "191",
+              "comment": "length of dimension 1"
+            },
+            {
+              "key": "NAXIS2",
+              "value": "148443",
+              "comment": "length of dimension 2"
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "number of group parameters"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "number of groups"
+            },
+            {
+              "key": "TFIELDS",
+              "value": "25",
+              "comment": "number of table fields"
+            },
+            {
+              "key": "TNULL4",
+              "value": "-32768",
+              "comment": ""
+            },
+            {
+              "key": "TNULL6",
+              "value": "-9223372036854775808",
+              "comment": ""
+            },
+            {
+              "key": "TNULL10",
+              "value": "-32768",
+              "comment": ""
+            },
+            {
+              "key": "TNULL15",
+              "value": "-32768",
+              "comment": ""
+            },
+            {
+              "key": "TNULL21",
+              "value": "-2147483648",
+              "comment": ""
+            },
+            {
+              "key": "TNULL23",
+              "value": "-9223372036854775808",
+              "comment": ""
+            },
+            {
+              "key": "TNULL24",
+              "value": "-9223372036854775808",
+              "comment": ""
+            },
+            {
+              "key": "TNULL25",
+              "value": "-9223372036854775808",
+              "comment": ""
+            }
+          ],
+          "columns": {
+            "cxoid": {
+              "name": "cxoid",
+              "description": "CSC2 Chandra ID",
+              "type": "char[22]",
+              "unit": ""
+            },
+            "xra": {
+              "name": "xra",
+              "description": "RA of X-ray source from CSC2",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "xdec": {
+              "name": "xdec",
+              "description": "Dec of X-ray source from CSC2",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "pri": {
+              "name": "pri",
+              "description": "Priority (based on X-ray S/N)",
+              "type": "int16",
+              "unit": ""
+            },
+            "ocat": {
+              "name": "ocat",
+              "description": "optical catalog code (P for PS1, G for Gaia)",
+              "type": "char[1]",
+              "unit": ""
+            },
+            "oid": {
+              "name": "oid",
+              "description": "object ID from optical catalog",
+              "type": "int64",
+              "unit": ""
+            },
+            "ora": {
+              "name": "ora",
+              "description": "right ascension (2000) from optical catalog",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "odec": {
+              "name": "odec",
+              "description": "declination (2000) from optical catalog",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "omag": {
+              "name": "omag",
+              "description": "optical magnitude from optical catalog",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "omatchtype": {
+              "name": "omatchtype",
+              "description": "X-ray/optical match type (1-4 definite/likely/multiple opt, multiple X)",
+              "type": "int16",
+              "unit": ""
+            },
+            "irid": {
+              "name": "irid",
+              "description": "object ID from 2MASS",
+              "type": "char[24]",
+              "unit": ""
+            },
+            "ra2m": {
+              "name": "ra2m",
+              "description": "right ascension (2000) from 2MASS",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "dec2m": {
+              "name": "dec2m",
+              "description": "declination (2000) from 2MASS",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "hmag": {
+              "name": "hmag",
+              "description": "H mag from 2MASS",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "irmatchtype": {
+              "name": "irmatchtype",
+              "description": "X-ray/IR match type (1-4 definite/likely/multiple opt, multiple X)",
+              "type": "int16",
+              "unit": ""
+            },
+            "lgal": {
+              "name": "lgal",
+              "description": "Galactic longitude (from X-ray position)",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "bgal": {
+              "name": "bgal",
+              "description": "Galactic latitude (from X-ray position)",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "logfx": {
+              "name": "logfx",
+              "description": "log10 of X-ray cgs flux in xband",
+              "type": "float32",
+              "unit": ""
+            },
+            "xband": {
+              "name": "xband",
+              "description": "X-ray bandpass for logfx, priority b,m,s,h,w",
+              "type": "char[1]",
+              "unit": ""
+            },
+            "xsn": {
+              "name": "xsn",
+              "description": "X-ray S/N",
+              "type": "float64",
+              "unit": ""
+            },
+            "xflags": {
+              "name": "xflags",
+              "description": "concatenated X-ray source flags: extended,confused,piledup,variable,streak,saturated",
+              "type": "int32",
+              "unit": ""
+            },
+            "designation2m": {
+              "name": "designation2m",
+              "description": "2MASS identifier (designation) derived from irid",
+              "type": "char[17]",
+              "unit": ""
+            },
+            "idg2": {
+              "name": "idg2",
+              "description": "Gaia DR2 source_id (derived from ocat, oid)",
+              "type": "int64",
+              "unit": ""
+            },
+            "idps": {
+              "name": "idps",
+              "description": "Pan-STARRS1 Object identifier (derived here from ocat+oid) - equivalent to ObjID in MAST database (https://outerspace.stsci.edu/display/PANSTARRS/PS1+Object+Identifiers), and to our panstarrs1.extid_hi_lo",
+              "type": "int64",
+              "unit": ""
+            },
+            "pk": {
+              "name": "pk",
+              "description": "primary key of the database table",
+              "type": "int64",
+              "unit": ""
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null
     }
   },
-  "notes": "None"
+  "notes": "None",
+  "regrets": "I have no regrets!"
 }

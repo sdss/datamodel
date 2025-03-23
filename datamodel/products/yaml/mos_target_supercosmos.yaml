@@ -7,22 +7,27 @@ general:
   filesize: 511 MB
   releases:
   - DR18
+  - DR19
   environments:
   - MOS_TARGET
   surveys:
   - BHM
   - MWM
   - SDSS
-  naming_convention: $MOS_TARGET/[V_TARG]/mos_supercosmos-[NUM].fits, where
-    V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
+  naming_convention: $MOS_TARGET/[V_TARG]/mos_supercosmos-[NUM].fits, where V_TARG=1.0.1
+    for DR18; and NUM = 1..1 to partition the file into parts
   generated_by: sdss5db> targetdb, operations database server
   design: false
   vac: false
   recommended_science_product: false
+  data_level: 2.3.3
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
-  releases: {}
+  releases:
+    DR19:
+      from: DR18
+      note: No changes
 releases:
   DR18:
     template: $MOS_TARGET/[V_TARG]/mos_supercosmos-[NUM].fits
@@ -32,7 +37,7 @@ releases:
     access:
       in_sdss_access: true
       path_name: mos_target_supercosmos
-      path_template: $MOS_TARGET/{v_targ}/mos_supercosmos-{num}
+      path_template: $MOS_TARGET/{v_targ}/mos_supercosmos-{num}.fits
       path_kwargs:
       - num
       - v_targ
@@ -354,5 +359,422 @@ releases:
             unit: mag
             description: The estimated foreground reddening at this position from
               Schlegel et al. (1998)
+  DR19:
+    template: $MOS_TARGET/[V_TARG]/mos_supercosmos-[NUM].fits
+    example: 1.0.2/mos_supercosmos-01.fits
+    location: '{v_targ}/mos_supercosmos-{num}.fits'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_supercosmos
+      path_template: $MOS_TARGET/{v_targ}/mos_supercosmos-{num}.fits
+      path_kwargs:
+      - num
+      - v_targ
+      access_string: mos_target_supercosmos = $MOS_TARGET/{v_targ}/mos_supercosmos-{num}.fits
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Primary header
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: 'MOS Target Table: supercosmos'
+        is_image: false
+        size: 511 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 268
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 2000000
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 57
+          comment: number of table fields
+        - key: TNULL1
+          value: -9223372036854775808
+          comment: ''
+        - key: TNULL2
+          value: -9223372036854775808
+          comment: ''
+        - key: TNULL3
+          value: -9223372036854775808
+          comment: ''
+        - key: TNULL4
+          value: -9223372036854775808
+          comment: ''
+        - key: TNULL5
+          value: -9223372036854775808
+          comment: ''
+        - key: TNULL6
+          value: -9223372036854775808
+          comment: ''
+        - key: TNULL20
+          value: -32768
+          comment: ''
+        - key: TNULL33
+          value: -32768
+          comment: ''
+        - key: TNULL34
+          value: -32768
+          comment: ''
+        - key: TNULL35
+          value: -32768
+          comment: ''
+        - key: TNULL36
+          value: -32768
+          comment: ''
+        - key: TNULL37
+          value: -32768
+          comment: ''
+        - key: TNULL42
+          value: -2147483648
+          comment: ''
+        - key: TNULL43
+          value: -2147483648
+          comment: ''
+        - key: TNULL44
+          value: -2147483648
+          comment: ''
+        - key: TNULL45
+          value: -2147483648
+          comment: ''
+        - key: TNULL46
+          value: -2147483648
+          comment: ''
+        - key: TNULL47
+          value: -2147483648
+          comment: ''
+        - key: TNULL48
+          value: -2147483648
+          comment: ''
+        - key: TNULL49
+          value: -2147483648
+          comment: ''
+        columns:
+          objid:
+            name: objid
+            type: int64
+            unit: ''
+            description: Unique identifier of merged source
+          objidb:
+            name: objidb
+            type: int64
+            unit: ''
+            description: objID for B band detection merged into this object
+          objidr1:
+            name: objidr1
+            type: int64
+            unit: ''
+            description: objID for R1 band detection merged into this object
+          objidr2:
+            name: objidr2
+            type: int64
+            unit: ''
+            description: objID for R2 band detection merged into this object
+          objidi:
+            name: objidi
+            type: int64
+            unit: ''
+            description: objID for I band detection merged into this object
+          htmid:
+            name: htmid
+            type: int64
+            unit: ''
+            description: Hierarchical Triangular Mesh (20-deep) of centroid
+          epoch:
+            name: epoch
+            type: float32
+            unit: yr
+            description: Epoch of position (variance weighted mean epoch of available
+              measures)
+          ra:
+            name: ra
+            type: float64
+            unit: deg
+            description: Mean RA, computed from detections merged in this catalogue
+          dec:
+            name: dec
+            type: float64
+            unit: deg
+            description: Mean Dec, computed from detections merged in this catalogue
+          sigra:
+            name: sigra
+            type: float64
+            unit: deg
+            description: Uncertainty in RA (formal random error not inc. systematic
+              errors)
+          sigdec:
+            name: sigdec
+            type: float64
+            unit: deg
+            description: Uncertainty in Dec (formal random error not inc. systematic
+              errors)
+          cx:
+            name: cx
+            type: float64
+            unit: ''
+            description: Cartesian x of unit (ra,dec) vector on celestial sphere
+          cy:
+            name: cy
+            type: float64
+            unit: ''
+            description: Cartesian y of unit (ra,dec) vector on celestial sphere
+          cz:
+            name: cz
+            type: float64
+            unit: ''
+            description: Cartesian z of unit (ra,dec) vector on celestial sphere
+          muacosd:
+            name: muacosd
+            type: float32
+            unit: mas/yr
+            description: Proper motion in RA direction
+          mud:
+            name: mud
+            type: float32
+            unit: mas/yr
+            description: Proper motion in Dec direction
+          sigmuacosd:
+            name: sigmuacosd
+            type: float32
+            unit: mas/yr
+            description: Error on proper motion in RA direction
+          sigmud:
+            name: sigmud
+            type: float32
+            unit: mas/yr
+            description: Error on proper motion in Dec direction
+          chi2:
+            name: chi2
+            type: float32
+            unit: ''
+            description: Chi-squared value of proper motion solution
+          nplates:
+            name: nplates
+            type: int16
+            unit: ''
+            description: No. of plates used for this proper motion measurement
+          classmagb:
+            name: classmagb
+            type: float32
+            unit: mag
+            description: B band magnitude selected by B image class
+          classmagr1:
+            name: classmagr1
+            type: float32
+            unit: mag
+            description: R1 band magnitude selected by R1 image class
+          classmagr2:
+            name: classmagr2
+            type: float32
+            unit: mag
+            description: R2 band magnitude selected by R2 image class
+          classmagi:
+            name: classmagi
+            type: float32
+            unit: mag
+            description: I band magnitude selected by I image class
+          gcormagb:
+            name: gcormagb
+            type: float32
+            unit: mag
+            description: B band magnitude assuming object is galaxy
+          gcormagr1:
+            name: gcormagr1
+            type: float32
+            unit: mag
+            description: R1 band magnitude assuming object is galaxy
+          gcormagr2:
+            name: gcormagr2
+            type: float32
+            unit: mag
+            description: R2 band magnitude assuming object is galaxy
+          gcormagi:
+            name: gcormagi
+            type: float32
+            unit: mag
+            description: I band magnitude assuming object is galaxy
+          scormagb:
+            name: scormagb
+            type: float32
+            unit: mag
+            description: B band magnitude assuming object is star
+          scormagr1:
+            name: scormagr1
+            type: float32
+            unit: mag
+            description: R1 band magnitude assuming object is star
+          scormagr2:
+            name: scormagr2
+            type: float32
+            unit: mag
+            description: R2 band magnitude assuming object is star
+          scormagi:
+            name: scormagi
+            type: float32
+            unit: mag
+            description: I band magnitude assuming object is star
+          meanclass:
+            name: meanclass
+            type: int16
+            unit: ''
+            description: Estimate of image class based on unit-weighted mean of individual
+              classes
+          classb:
+            name: classb
+            type: int16
+            unit: ''
+            description: Image classification from B band detection
+          classr1:
+            name: classr1
+            type: int16
+            unit: ''
+            description: Image classification from R1 band detection
+          classr2:
+            name: classr2
+            type: int16
+            unit: ''
+            description: Image classification from R2 band detection
+          classi:
+            name: classi
+            type: int16
+            unit: ''
+            description: Image classification from I band detection
+          ellipb:
+            name: ellipb
+            type: float32
+            unit: ''
+            description: Ellipticity of B band detection
+          ellipr1:
+            name: ellipr1
+            type: float32
+            unit: ''
+            description: Ellipticity of R1 band detection
+          ellipr2:
+            name: ellipr2
+            type: float32
+            unit: ''
+            description: Ellipticity of R2 band detection
+          ellipi:
+            name: ellipi
+            type: float32
+            unit: ''
+            description: Ellipticity of I band detection
+          qualb:
+            name: qualb
+            type: int32
+            unit: ''
+            description: Bitwise quality flag from B band detection
+          qualr1:
+            name: qualr1
+            type: int32
+            unit: ''
+            description: Bitwise quality flag from R1 band detection
+          qualr2:
+            name: qualr2
+            type: int32
+            unit: ''
+            description: Bitwise quality flag from R2 band detection
+          quali:
+            name: quali
+            type: int32
+            unit: ''
+            description: Bitwise quality flag from I band detection
+          blendb:
+            name: blendb
+            type: int32
+            unit: ''
+            description: Blend flag from B band detection
+          blendr1:
+            name: blendr1
+            type: int32
+            unit: ''
+            description: Blend flag from R1 band detection
+          blendr2:
+            name: blendr2
+            type: int32
+            unit: ''
+            description: Blend flag from R2 band detection
+          blendi:
+            name: blendi
+            type: int32
+            unit: ''
+            description: Blend flag from I band detection
+          prfstatb:
+            name: prfstatb
+            type: float32
+            unit: ''
+            description: Profile statistic from B band detection
+          prfstatr1:
+            name: prfstatr1
+            type: float32
+            unit: ''
+            description: Profile statistic from R1 band detection
+          prfstatr2:
+            name: prfstatr2
+            type: float32
+            unit: ''
+            description: Profile statistic from R2 band detection
+          prfstati:
+            name: prfstati
+            type: float32
+            unit: ''
+            description: Profile statistic from I band detection
+          l:
+            name: l
+            type: float32
+            unit: deg
+            description: The Galactic longitude of the source
+          b:
+            name: b
+            type: float32
+            unit: deg
+            description: The Galactic latitude of the source
+          d:
+            name: d
+            type: float32
+            unit: deg
+            description: The great-circle distance of the source from the Galactic
+              centre
+          ebmv:
+            name: ebmv
+            type: float32
+            unit: mag
+            description: The estimated foreground reddening at this position from
+              Schlegel et al. (1998)
 notes: |-
   None
+regrets: |-
+  I have no regrets!

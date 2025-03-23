@@ -1,0 +1,127 @@
+general:
+  name: mos_target_mwm_tess_ob
+  short: 'MOS Target table: mos_target_mwm_tess_ob'
+  description: This table contains targets requested for the manual carton mwm_tess_ob.
+  datatype: FITS
+  filesize: 25 KB
+  releases:
+  - DR19
+  environments:
+  - MOS_TARGET
+  surveys:
+  - BHM
+  - MWM
+  - SDSS
+  naming_convention: $MOS_TARGET/[V_TARG]/mos_mwm_tess_ob.fits, where V_TARG=1.0.2
+    for DR19
+  generated_by: sdss5db> targetdb, operations database server
+  data_level: 2.3.3
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR19:
+    template: $MOS_TARGET/[V_TARG]/mos_mwm_tess_ob.fits
+    example: 1.0.2/mos_mwm_tess_ob.fits
+    location: '{v_targ}/mos_mwm_tess_ob.fits'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_mwm_tess_ob
+      path_template: $MOS_TARGET/{v_targ}/mos_mwm_tess_ob.fits
+      path_kwargs:
+      - v_targ
+      access_string: mos_target_mwm_tess_ob = $MOS_TARGET/{v_targ}/mos_mwm_tess_ob.fits
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Primary header
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: 'MOS Target table: mos_target_mwm_tess_ob'
+        is_image: false
+        size: 17 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 48
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 364
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 6
+          comment: number of table fields
+        - key: TNULL1
+          value: -9223372036854775808
+          comment: ''
+        columns:
+          gaia_dr2_id:
+            name: gaia_dr2_id
+            type: int64
+            unit: ''
+            description: Gaia DR2 unique source identifier
+          ra:
+            name: ra
+            type: float64
+            unit: degrees
+            description: Right Ascension (J2000)
+          dec:
+            name: dec
+            type: float64
+            unit: degrees
+            description: Declination (J2000)
+          h_mag:
+            name: h_mag
+            type: float64
+            unit: mag
+            description: 2MASS H-band mangitude
+          instrument:
+            name: instrument
+            type: char[6]
+            unit: ''
+            description: Instrument requested for this target (only APOGEE for this
+              carton)
+          cadence:
+            name: cadence
+            type: char[10]
+            unit: ''
+            description: Cadence requested for this carton
+notes: |-
+  None
+regrets: |-
+  I  have no regrets!

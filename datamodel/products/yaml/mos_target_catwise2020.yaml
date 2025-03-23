@@ -8,22 +8,27 @@ general:
   filesize: 1 GB
   releases:
   - DR18
+  - DR19
   environments:
   - MOS_TARGET
   surveys:
   - BHM
   - MWM
   - SDSS
-  naming_convention: $MOS_TARGET/[V_TARG]/mos_catwise2020-[NUM].fits, where
-    V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
+  naming_convention: $MOS_TARGET/[V_TARG]/mos_catwise2020-[NUM].fits, where V_TARG=1.0.1
+    for DR18; and NUM = 1..1 to partition the file into parts
   generated_by: sdss5db> targetdb, operations database server
   design: false
   vac: false
   recommended_science_product: false
+  data_level: 2.3.3
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
-  releases: {}
+  releases:
+    DR19:
+      from: DR18
+      note: No changes
 releases:
   DR18:
     template: $MOS_TARGET/[V_TARG]/mos_catwise2020-[NUM].fits
@@ -33,7 +38,7 @@ releases:
     access:
       in_sdss_access: true
       path_name: mos_target_catwise2020
-      path_template: $MOS_TARGET/{v_targ}/mos_catwise2020-{num}
+      path_template: $MOS_TARGET/{v_targ}/mos_catwise2020-{num}.fits
       path_kwargs:
       - num
       - v_targ
@@ -1053,5 +1058,1186 @@ releases:
             type: char[20]
             unit: ''
             description: UnWISE Object ID (only present in CatWISE 2020)
+  DR19:
+    template: $MOS_TARGET/[V_TARG]/mos_catwise2020-[NUM].fits
+    example: 1.0.2/mos_catwise2020-01.fits
+    location: '{v_targ}/mos_catwise2020-{num}.fits'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_catwise2020
+      path_template: $MOS_TARGET/{v_targ}/mos_catwise2020-{num}.fits
+      path_kwargs:
+      - num
+      - v_targ
+      access_string: mos_target_catwise2020 = $MOS_TARGET/{v_targ}/mos_catwise2020-{num}.fits
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Primary header
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: 'MOS Target Table: catwise2020'
+        is_image: false
+        size: 1 GB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 940
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 2000000
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 187
+          comment: number of table fields
+        - key: TNULL31
+          value: -2147483648
+          comment: ''
+        - key: TNULL32
+          value: -2147483648
+          comment: ''
+        - key: TNULL37
+          value: -2147483648
+          comment: ''
+        - key: TNULL41
+          value: -2147483648
+          comment: ''
+        - key: TNULL45
+          value: -2147483648
+          comment: ''
+        - key: TNULL48
+          value: -2147483648
+          comment: ''
+        - key: TNULL51
+          value: -2147483648
+          comment: ''
+        - key: TNULL54
+          value: -2147483648
+          comment: ''
+        - key: TNULL57
+          value: -2147483648
+          comment: ''
+        - key: TNULL60
+          value: -2147483648
+          comment: ''
+        - key: TNULL63
+          value: -2147483648
+          comment: ''
+        - key: TNULL66
+          value: -2147483648
+          comment: ''
+        - key: TNULL69
+          value: -2147483648
+          comment: ''
+        - key: TNULL72
+          value: -2147483648
+          comment: ''
+        - key: TNULL75
+          value: -2147483648
+          comment: ''
+        - key: TNULL78
+          value: -2147483648
+          comment: ''
+        - key: TNULL81
+          value: -2147483648
+          comment: ''
+        - key: TNULL84
+          value: -2147483648
+          comment: ''
+        - key: TNULL87
+          value: -2147483648
+          comment: ''
+        - key: TNULL90
+          value: -2147483648
+          comment: ''
+        - key: TNULL91
+          value: -2147483648
+          comment: ''
+        - key: TNULL92
+          value: -2147483648
+          comment: ''
+        - key: TNULL97
+          value: -2147483648
+          comment: ''
+        - key: TNULL102
+          value: -2147483648
+          comment: ''
+        - key: TNULL103
+          value: -2147483648
+          comment: ''
+        - key: TNULL108
+          value: -2147483648
+          comment: ''
+        - key: TNULL113
+          value: -2147483648
+          comment: ''
+        - key: TNULL114
+          value: -2147483648
+          comment: ''
+        - key: TNULL115
+          value: -2147483648
+          comment: ''
+        - key: TNULL116
+          value: -2147483648
+          comment: ''
+        - key: TNULL117
+          value: -2147483648
+          comment: ''
+        - key: TNULL144
+          value: -2147483648
+          comment: ''
+        - key: TNULL145
+          value: -2147483648
+          comment: ''
+        - key: TNULL163
+          value: -2147483648
+          comment: ''
+        - key: TNULL164
+          value: -2147483648
+          comment: ''
+        - key: TNULL165
+          value: -2147483648
+          comment: ''
+        - key: TNULL166
+          value: -2147483648
+          comment: ''
+        - key: TNULL173
+          value: -2147483648
+          comment: ''
+        - key: TNULL175
+          value: -2147483648
+          comment: ''
+        - key: TNULL177
+          value: -2147483648
+          comment: ''
+        - key: TNULL179
+          value: -2147483648
+          comment: ''
+        - key: TNULL181
+          value: -2147483648
+          comment: ''
+        columns:
+          source_name:
+            name: source_name
+            type: char[21]
+            unit: ''
+            description: source hexagesimal designation
+          source_id:
+            name: source_id
+            type: char[25]
+            unit: ''
+            description: tile name + processing code + wphot index
+          ra:
+            name: ra
+            type: float64
+            unit: deg
+            description: right ascension (J2000); (note uncorrected systematic in
+              CatWISE2020)
+          dec:
+            name: dec
+            type: float64
+            unit: deg
+            description: declination (J2000); (note uncorrected systematic in CatWISE2020)
+          sigra:
+            name: sigra
+            type: float32
+            unit: arcsec
+            description: uncertainty in RA
+          sigdec:
+            name: sigdec
+            type: float32
+            unit: arcsec
+            description: uncertainty in DEC
+          sigradec:
+            name: sigradec
+            type: float32
+            unit: arcsec
+            description: cross-term of RA and Dec uncertainties
+          wx:
+            name: wx
+            type: float32
+            unit: pix
+            description: x pixel value
+          wy:
+            name: wy
+            type: float32
+            unit: pix
+            description: y pixel value
+          w1sky:
+            name: w1sky
+            type: float32
+            unit: '''dn'''
+            description: frame sky background value, band 1
+          w1sigsk:
+            name: w1sigsk
+            type: float32
+            unit: '''dn'''
+            description: frame sky background value uncertainty, band 1
+          w1conf:
+            name: w1conf
+            type: float32
+            unit: '''dn'''
+            description: frame sky confusion based on the uncertainty images, band
+              1
+          w2sky:
+            name: w2sky
+            type: float32
+            unit: '''dn'''
+            description: frame sky background value, band 2
+          w2sigsk:
+            name: w2sigsk
+            type: float32
+            unit: '''dn'''
+            description: frame sky background value uncertainty, band 2
+          w2conf:
+            name: w2conf
+            type: float32
+            unit: '''dn'''
+            description: frame sky confusion based on the uncertainty images, band
+              2
+          w1fitr:
+            name: w1fitr
+            type: float32
+            unit: arcsec
+            description: fitting radius for W1; see note
+          w2fitr:
+            name: w2fitr
+            type: float32
+            unit: arcsec
+            description: fitting radius for W2; see note
+          w1snr:
+            name: w1snr
+            type: float32
+            unit: ''
+            description: instrumental profile-fit photometry S/N ratio, band 1
+          w2snr:
+            name: w2snr
+            type: float32
+            unit: ''
+            description: instrumental profile-fit photometry S/N ratio, band 2
+          w1flux:
+            name: w1flux
+            type: float32
+            unit: '''dn'''
+            description: profile-fit photometry raw flux, band 1
+          w1sigflux:
+            name: w1sigflux
+            type: float32
+            unit: '''dn'''
+            description: profile-fit photometry raw flux uncertainty, band 1
+          w2flux:
+            name: w2flux
+            type: float32
+            unit: '''db'''
+            description: profile-fit photometry raw flux, band 2
+          w2sigflux:
+            name: w2sigflux
+            type: float32
+            unit: '''dn'''
+            description: profile-fit photometry raw flux uncertainty, band 2
+          w1mpro:
+            name: w1mpro
+            type: float32
+            unit: mag
+            description: instrumental profile-fit photometry magnitude, band 1
+          w1sigmpro:
+            name: w1sigmpro
+            type: float32
+            unit: mag
+            description: instrumental profile-fit photometry flux uncertainty in mag
+              units, band 1
+          w1rchi2:
+            name: w1rchi2
+            type: float32
+            unit: ''
+            description: instrumental profile-fit photometry reduced chi^2, band 1
+          w2mpro:
+            name: w2mpro
+            type: float32
+            unit: mag
+            description: instrumental profile-fit photometry magnitude, band 2
+          w2sigmpro:
+            name: w2sigmpro
+            type: float32
+            unit: mag
+            description: instrumental profile-fit photometry flux uncertainty in mag
+              units, band 2
+          w2rchi2:
+            name: w2rchi2
+            type: float32
+            unit: ''
+            description: instrumental profile-fit photometry reduced chi^2, band 2
+          rchi2:
+            name: rchi2
+            type: float32
+            unit: ''
+            description: instrumental profile-fit photometry reduced chi squared,
+              total
+          nb:
+            name: nb
+            type: int32
+            unit: ''
+            description: number of blend components used in each fit
+          na:
+            name: na
+            type: int32
+            unit: ''
+            description: number of actively deblended components
+          w1sat:
+            name: w1sat
+            type: float32
+            unit: ''
+            description: fraction of pixels affected by saturation, band 1
+          w2sat:
+            name: w2sat
+            type: float32
+            unit: ''
+            description: fraction of pixels affected by saturation, band 2
+          w1mag:
+            name: w1mag
+            type: float32
+            unit: mag
+            description: instrumental standard aperture (8.25") mag w/ aperture correction
+              applied, band 1
+          w1sigm:
+            name: w1sigm
+            type: float32
+            unit: mag
+            description: instrumental standard aperture mag uncertainty, band 1
+          w1flg:
+            name: w1flg
+            type: int32
+            unit: ''
+            description: instrumental standard aperture flag, band 1
+          w1cov:
+            name: w1cov
+            type: float32
+            unit: ''
+            description: mean coverage depth, band 1
+          w2mag:
+            name: w2mag
+            type: float32
+            unit: mag
+            description: instrumental standard aperture (8.25") mag w/ aperture correction
+              applied, band 2
+          w2sigm:
+            name: w2sigm
+            type: float32
+            unit: mag
+            description: instrumental standard aperture mag uncertainty, band 2
+          w2flg:
+            name: w2flg
+            type: int32
+            unit: ''
+            description: instrumental standard aperture flag, band 2
+          w2cov:
+            name: w2cov
+            type: float32
+            unit: ''
+            description: mean coverage depth, band 2
+          w1mag_1:
+            name: w1mag_1
+            type: float32
+            unit: mag
+            description: aperture 1 (5.50") instrumental aperture mag, band 1
+          w1sigm_1:
+            name: w1sigm_1
+            type: float32
+            unit: mag
+            description: aperture 1 instrumental aperture mag uncertainty, band 1
+          w1flg_1:
+            name: w1flg_1
+            type: int32
+            unit: ''
+            description: aperture 1 instrumental aperture flag, band 1
+          w2mag_1:
+            name: w2mag_1
+            type: float32
+            unit: mag
+            description: aperture 1 (5.50") instrumental aperture mag, band 2
+          w2sigm_1:
+            name: w2sigm_1
+            type: float32
+            unit: mag
+            description: aperture 1 instrumental aperture mag uncertainty, band 2
+          w2flg_1:
+            name: w2flg_1
+            type: int32
+            unit: ''
+            description: aperture 1 instrumental aperture flag, band 2
+          w1mag_2:
+            name: w1mag_2
+            type: float32
+            unit: mag
+            description: aperture 2 (8.25") instrumental aperture mag, band 1
+          w1sigm_2:
+            name: w1sigm_2
+            type: float32
+            unit: mag
+            description: aperture 2 instrumental aperture mag uncertainty, band 1
+          w1flg_2:
+            name: w1flg_2
+            type: int32
+            unit: ''
+            description: aperture 2 instrumental aperture flag, band 1
+          w2mag_2:
+            name: w2mag_2
+            type: float32
+            unit: mag
+            description: aperture 2 (8.25") instrumental aperture mag, band 2
+          w2sigm_2:
+            name: w2sigm_2
+            type: float32
+            unit: mag
+            description: aperture 2 instrumental aperture mag uncertainty, band 2
+          w2flg_2:
+            name: w2flg_2
+            type: int32
+            unit: ''
+            description: aperture 2 instrumental aperture flag, band 2
+          w1mag_3:
+            name: w1mag_3
+            type: float32
+            unit: mag
+            description: aperture 3 (11.00") instrumental aperture mag, band 1
+          w1sigm_3:
+            name: w1sigm_3
+            type: float32
+            unit: mag
+            description: aperture 3 instrumental aperture mag uncertainty, band 1
+          w1flg_3:
+            name: w1flg_3
+            type: int32
+            unit: ''
+            description: aperture 3 instrumental aperture flag, band 1
+          w2mag_3:
+            name: w2mag_3
+            type: float32
+            unit: mag
+            description: aperture 3 (11.00") instrumental aperture mag, band 2
+          w2sigm_3:
+            name: w2sigm_3
+            type: float32
+            unit: mag
+            description: aperture 3 instrumental aperture mag uncertainty, band 2
+          w2flg_3:
+            name: w2flg_3
+            type: int32
+            unit: ''
+            description: aperture 3 instrumental aperture flag, band 2
+          w1mag_4:
+            name: w1mag_4
+            type: float32
+            unit: mag
+            description: aperture 4 (13.75") instrumental aperture mag, band 1
+          w1sigm_4:
+            name: w1sigm_4
+            type: float32
+            unit: mag
+            description: aperture 4 instrumental aperture mag uncertainty, band 1
+          w1flg_4:
+            name: w1flg_4
+            type: int32
+            unit: ''
+            description: aperture 4 instrumental aperture flag, band 1
+          w2mag_4:
+            name: w2mag_4
+            type: float32
+            unit: mag
+            description: aperture 4 (13.75") instrumental aperture mag, band 2
+          w2sigm_4:
+            name: w2sigm_4
+            type: float32
+            unit: mag
+            description: aperture 4 instrumental aperture mag uncertainty, band 2
+          w2flg_4:
+            name: w2flg_4
+            type: int32
+            unit: ''
+            description: aperture 4 instrumental aperture flag, band 2
+          w1mag_5:
+            name: w1mag_5
+            type: float32
+            unit: mag
+            description: aperture 5 (16.50") instrumental aperture mag, band 1
+          w1sigm_5:
+            name: w1sigm_5
+            type: float32
+            unit: mag
+            description: aperture 5 instrumental aperture mag uncertainty, band 1
+          w1flg_5:
+            name: w1flg_5
+            type: int32
+            unit: ''
+            description: aperture 5 instrumental aperture flag, band 1
+          w2mag_5:
+            name: w2mag_5
+            type: float32
+            unit: mag
+            description: aperture 5 (16.50") instrumental aperture mag, band 2
+          w2sigm_5:
+            name: w2sigm_5
+            type: float32
+            unit: mag
+            description: aperture 5 instrumental aperture mag uncertainty, band 2
+          w2flg_5:
+            name: w2flg_5
+            type: int32
+            unit: ''
+            description: aperture 5 instrumental aperture flag, band 2
+          w1mag_6:
+            name: w1mag_6
+            type: float32
+            unit: mag
+            description: aperture 6 (19.25") instrumental aperture mag, band 1
+          w1sigm_6:
+            name: w1sigm_6
+            type: float32
+            unit: mag
+            description: aperture 6 instrumental aperture mag uncertainty, band 1
+          w1flg_6:
+            name: w1flg_6
+            type: int32
+            unit: ''
+            description: aperture 6 instrumental aperture flag, band 1
+          w2mag_6:
+            name: w2mag_6
+            type: float32
+            unit: mag
+            description: aperture 6 (19.25") instrumental aperture mag, band 2
+          w2sigm_6:
+            name: w2sigm_6
+            type: float32
+            unit: mag
+            description: aperture 6 instrumental aperture mag uncertainty, band 2
+          w2flg_6:
+            name: w2flg_6
+            type: int32
+            unit: ''
+            description: aperture 6 instrumental aperture flag, band 2
+          w1mag_7:
+            name: w1mag_7
+            type: float32
+            unit: mag
+            description: aperture 7 (22.00") instrumental aperture mag, band 1
+          w1sigm_7:
+            name: w1sigm_7
+            type: float32
+            unit: mag
+            description: aperture 7 instrumental aperture mag uncertainty, band 1
+          w1flg_7:
+            name: w1flg_7
+            type: int32
+            unit: ''
+            description: aperture 7 instrumental aperture flag, band 1
+          w2mag_7:
+            name: w2mag_7
+            type: float32
+            unit: mag
+            description: aperture 7 (22.00") instrumental aperture mag, band 2
+          w2sigm_7:
+            name: w2sigm_7
+            type: float32
+            unit: mag
+            description: aperture 7 instrumental aperture mag uncertainty, band 2
+          w2flg_7:
+            name: w2flg_7
+            type: int32
+            unit: ''
+            description: aperture 7 instrumental aperture flag, band 2
+          w1mag_8:
+            name: w1mag_8
+            type: float32
+            unit: mag
+            description: aperture 8 (24.75") instrumental aperture mag, band 1
+          w1sigm_8:
+            name: w1sigm_8
+            type: float32
+            unit: mag
+            description: aperture 8 instrumental aperture mag uncertainty, band 1
+          w1flg_8:
+            name: w1flg_8
+            type: int32
+            unit: ''
+            description: aperture 8 instrumental aperture flag, band 1
+          w2mag_8:
+            name: w2mag_8
+            type: float32
+            unit: mag
+            description: aperture 8 (24.75") instrumental aperture mag, band 2
+          w2sigm_8:
+            name: w2sigm_8
+            type: float32
+            unit: mag
+            description: aperture 8 instrumental aperture mag uncertainty, band 2
+          w2flg_8:
+            name: w2flg_8
+            type: int32
+            unit: ''
+            description: aperture 8 instrumental aperture flag, band 2
+          w1nm:
+            name: w1nm
+            type: int32
+            unit: ''
+            description: number of profile-fit flux measurements for source with SNR
+              >= 3, band 1
+          w1m:
+            name: w1m
+            type: int32
+            unit: ''
+            description: number of profile-fit flux measurements for source, band
+              1
+          w1magp:
+            name: w1magp
+            type: float32
+            unit: mag
+            description: profile-fit repeatability mag -- inverse-variance weighted
+              mean mag, band 1
+          w1sigp1:
+            name: w1sigp1
+            type: float32
+            unit: mag
+            description: standard deviation of population of profile-fit repeatability
+              mag, band 1
+          w1sigp2:
+            name: w1sigp2
+            type: float32
+            unit: mag
+            description: standard deviation of the mean of profile-fit repeatability
+              mag, band 1
+          w1k:
+            name: w1k
+            type: float32
+            unit: ''
+            description: Stetson K variability index, band 1
+          w1ndf:
+            name: w1ndf
+            type: int32
+            unit: ''
+            description: number degrees of freedom in variability chi^2, band 1
+          w1mlq:
+            name: w1mlq
+            type: float32
+            unit: ''
+            description: -ln(Q), where Q = 1 - P(chi^2), band 1
+          w1mjdmin:
+            name: w1mjdmin
+            type: float64
+            unit: d
+            description: minimum modified Julian Date of frame extractions, band 1
+          w1mjdmax:
+            name: w1mjdmax
+            type: float64
+            unit: d
+            description: maximum modified Julian Date of frame extractions, band 1
+          w1mjdmean:
+            name: w1mjdmean
+            type: float64
+            unit: d
+            description: mean modified Julian Date of frame extractions, band 1
+          w2nm:
+            name: w2nm
+            type: int32
+            unit: ''
+            description: number of profile-fit flux measurements for source with SNR
+              >= 3, band 2
+          w2m:
+            name: w2m
+            type: int32
+            unit: ''
+            description: number of profile-fit flux measurements for source, band
+              2
+          w2magp:
+            name: w2magp
+            type: float32
+            unit: mag
+            description: profile-fit repeatability mag -- inverse-variance weighted
+              mean mag, band 2
+          w2sigp1:
+            name: w2sigp1
+            type: float32
+            unit: mag
+            description: standard deviation of population of profile-fit repeatability
+              mag, band 2
+          w2sigp2:
+            name: w2sigp2
+            type: float32
+            unit: mag
+            description: standard deviation of the mean of profile-fit repeatability
+              mag, band 2
+          w2k:
+            name: w2k
+            type: float32
+            unit: ''
+            description: Stetson K variability index, band 2
+          w2ndf:
+            name: w2ndf
+            type: int32
+            unit: ''
+            description: number degrees of freedom in variability chi^2, band 2
+          w2mlq:
+            name: w2mlq
+            type: float32
+            unit: ''
+            description: -ln(Q), where Q = 1 - P(chi^2), band 2
+          w2mjdmin:
+            name: w2mjdmin
+            type: float64
+            unit: d
+            description: minimum modified Julian Date of frame extractions, band 2
+          w2mjdmax:
+            name: w2mjdmax
+            type: float64
+            unit: d
+            description: maximum modified Julian Date of frame extractions, band 2
+          w2mjdmean:
+            name: w2mjdmean
+            type: float64
+            unit: d
+            description: mean modified Julian Date of frame extractions, band 2
+          rho12:
+            name: rho12
+            type: int32
+            unit: '%'
+            description: band 1 - band 2 correlation coefficient
+          q12:
+            name: q12
+            type: int32
+            unit: '%'
+            description: -log10(1 - P(rho12)), given no real correlation
+          niters:
+            name: niters
+            type: int32
+            unit: ''
+            description: number of chi-square minimization iterations
+          nsteps:
+            name: nsteps
+            type: int32
+            unit: ''
+            description: number of steps in all iterations
+          mdetid:
+            name: mdetid
+            type: int32
+            unit: ''
+            description: source ID in mdet list
+          p1:
+            name: p1
+            type: float32
+            unit: arcsec
+            description: distance in ra from the mdet position to the wphot template-fit
+              position
+          p2:
+            name: p2
+            type: float32
+            unit: arcsec
+            description: distance in dec from the mdet position to the wphot template-fit
+              position
+          meanobsmjd:
+            name: meanobsmjd
+            type: float64
+            unit: d
+            description: mean observation epoch
+          ra_pm:
+            name: ra_pm
+            type: float64
+            unit: deg
+            description: Right ascension from psf model incl. motion at epoch MJD=56700.0
+              (2014.118) for Preliminary Catalog and MJD=57170 (2015.405) for CatWISE2020
+          dec_pm:
+            name: dec_pm
+            type: float64
+            unit: deg
+            description: Declination from psf model incl. motion at epoch MJD=56700.0
+              (2014.118) for Preliminary Catalog and MJD=57170 (2015.405) for CatWISE2020
+          sigra_pm:
+            name: sigra_pm
+            type: float32
+            unit: arcsec
+            description: One-sigma uncertainty in RA from psf model incl. motion
+          sigdec_pm:
+            name: sigdec_pm
+            type: float32
+            unit: arcsec
+            description: One-sigma uncertainty in DEC from psf model incl. motion
+          sigradec_pm:
+            name: sigradec_pm
+            type: float32
+            unit: arcsec
+            description: The co-sigma of the equatorial position uncertainties from
+              psf model incl motion
+          pmra:
+            name: pmra
+            type: float32
+            unit: arcsec/yr
+            description: Apparent motion in RA; (note uncorrected systematic in CatWISE2020)
+          pmdec:
+            name: pmdec
+            type: float32
+            unit: arcsec/yr
+            description: Apparent motion in DEC; (note uncorrected systematic in CatWISE2020)
+          sigpmra:
+            name: sigpmra
+            type: float32
+            unit: arcsec/yr
+            description: Uncertainty in the RA motion estimate
+          sigpmdec:
+            name: sigpmdec
+            type: float32
+            unit: arcsec/yr
+            description: Uncertainty in the Dec motion estimate
+          w1snr_pm:
+            name: w1snr_pm
+            type: float32
+            unit: ''
+            description: S/N ratio of the W1 profile-fit photometry including motion
+          w2snr_pm:
+            name: w2snr_pm
+            type: float32
+            unit: ''
+            description: S/N ratio of the W2 profile-fit photometry including motion
+          w1flux_pm:
+            name: w1flux_pm
+            type: float32
+            unit: '''dn'''
+            description: Raw flux W1 profile-fit photometry including motion
+          w1sigflux_pm:
+            name: w1sigflux_pm
+            type: float32
+            unit: '''dn'''
+            description: Raw flux uncertainty W1 profile-fit photometry including
+              motion
+          w2flux_pm:
+            name: w2flux_pm
+            type: float32
+            unit: '''dn'''
+            description: Raw flux W2 profile-fit photometry including motion
+          w2sigflux_pm:
+            name: w2sigflux_pm
+            type: float32
+            unit: '''dn'''
+            description: Raw flux uncertainty W2 profile-fit photometry including
+              motion
+          w1mpro_pm:
+            name: w1mpro_pm
+            type: float32
+            unit: nag
+            description: W1 magnitude from profile-fit photometry including motion
+          w1sigmpro_pm:
+            name: w1sigmpro_pm
+            type: float32
+            unit: mag
+            description: W1 flux uncertainty in mag units from profile-fit photometry
+              including motion
+          w1rchi2_pm:
+            name: w1rchi2_pm
+            type: float32
+            unit: ''
+            description: Reduced chi^2 of the W1 profile-fit photometry measurement
+              including motion est
+          w2mpro_pm:
+            name: w2mpro_pm
+            type: float32
+            unit: mag
+            description: W2 magnitude from profile-fit photometry including motion
+          w2sigmpro_pm:
+            name: w2sigmpro_pm
+            type: float32
+            unit: mag
+            description: W2 flux uncertainty in mag units from profile-fit photometry
+              including motion
+          w2rchi2_pm:
+            name: w2rchi2_pm
+            type: float32
+            unit: ''
+            description: Reduced chi^2 of the W2 profile-fit photometry measurement
+              including motion est
+          rchi2_pm:
+            name: rchi2_pm
+            type: float32
+            unit: ''
+            description: Combined Reduced chi^2 in all bands for the psf photometry
+              includes src motion
+          pmcode:
+            name: pmcode
+            type: char[7]
+            unit: ''
+            description: 'Motion estimate quality code: the format is ABCCC, where
+              A is the number of components in the passive blend group (including
+              the primary) before any are removed or added, B is "Y" or "N" to indicate
+              "Yes" or "No" that a secondary blend component replaced the primary,
+              and CCC is the distance in hundredths of an arcsec between the PM position
+              solution for the mean observation epoch and the stationary solution'
+          niters_pm:
+            name: niters_pm
+            type: int32
+            unit: ''
+            description: number of chi-square minimization iterations
+          nsteps_pm:
+            name: nsteps_pm
+            type: int32
+            unit: ''
+            description: number of steps in all iterations
+          dist:
+            name: dist
+            type: float32
+            unit: arcsec
+            description: radial distance between source positions in ascending and
+              descending scans
+          dw1mag:
+            name: dw1mag
+            type: float32
+            unit: mag
+            description: difference in w1mpro between ascending and descending scans
+          rch2w1:
+            name: rch2w1
+            type: float32
+            unit: ''
+            description: chi-square for dw1mag (1 degree of freedom)
+          dw2mag:
+            name: dw2mag
+            type: float32
+            unit: mag
+            description: difference in w2mpro between ascending and descending scans
+          rch2w2:
+            name: rch2w2
+            type: float32
+            unit: ''
+            description: chi-square for dw2mag (1 degree of freedom)
+          elon_avg:
+            name: elon_avg
+            type: float64
+            unit: deg
+            description: average ecliptic longitude
+          elonsig:
+            name: elonsig
+            type: float32
+            unit: arcsec
+            description: uncertainty in elon_avg
+          elat_avg:
+            name: elat_avg
+            type: float64
+            unit: deg
+            description: average ecliptic latitude
+          elatsig:
+            name: elatsig
+            type: float32
+            unit: arcsec
+            description: uncertainty in elat_avg
+          delon:
+            name: delon
+            type: float32
+            unit: arcsec
+            description: descending scan - ascending scan ecliptic longitude difference
+              (notes)
+          delonsig:
+            name: delonsig
+            type: float32
+            unit: arcsec
+            description: one-sigma uncertainty in Delon
+          delat:
+            name: delat
+            type: float32
+            unit: arcsec
+            description: descending scan - ascending scan ecliptic longitude difference
+          delatsig:
+            name: delatsig
+            type: float32
+            unit: arcsec
+            description: one-sigma uncertainty in Delat
+          delonsnr:
+            name: delonsnr
+            type: float32
+            unit: ''
+            description: abs(Delon)/DelonSig
+          delatsnr:
+            name: delatsnr
+            type: float32
+            unit: ''
+            description: abs(Delat)/DelatSig
+          chi2pmra:
+            name: chi2pmra
+            type: float32
+            unit: ''
+            description: chi-square for PMRA difference (1 degree of freedom)
+          chi2pmdec:
+            name: chi2pmdec
+            type: float32
+            unit: ''
+            description: chi-square for PMDec difference (1 degree of freedom)
+          ka:
+            name: ka
+            type: int32
+            unit: ''
+            description: 'astrometry usage code: 0 neither the ascending nor the descending
+              scan provided a solution; 1 only the ascending scan provided a solution;
+              2 only the descending scan provided a solutio; 3 both scans provided
+              solutions which were combined in the relevant way'
+          k1:
+            name: k1
+            type: int32
+            unit: ''
+            description: 'W1 photometry usage code: 0 neither the ascending nor the
+              descending scan provided a solution; 1 only the ascending scan provided
+              a solution; 2 only the descending scan provided a solutio; 3 both scans
+              provided solutions which were combined in the relevant way'
+          k2:
+            name: k2
+            type: int32
+            unit: ''
+            description: 'W2 photometry usage code: 0 neither the ascending nor the
+              descending scan provided a solution; 1 only the ascending scan provided
+              a solution; 2 only the descending scan provided a solutio; 3 both scans
+              provided solutions which were combined in the relevant way'
+          km:
+            name: km
+            type: int32
+            unit: ''
+            description: 'proper motion usage code: 0 neither the ascending nor the
+              descending scan provided a solution; 1 only the ascending scan provided
+              a solution; 2 only the descending scan provided a solutio; 3 both scans
+              provided solutions which were combined in the relevant way'
+          par_pm:
+            name: par_pm
+            type: float32
+            unit: arcsec
+            description: parallax from PM desc-asce elon (notes)
+          par_pmsig:
+            name: par_pmsig
+            type: float32
+            unit: arcsec
+            description: one-sigma uncertainty in par_pm
+          par_stat:
+            name: par_stat
+            type: float32
+            unit: arcsec
+            description: parallax estimate from stationary solution (notes)
+          par_sigma:
+            name: par_sigma
+            type: float32
+            unit: arcsec
+            description: one-sigma uncertainty in par_stat
+          dist_x:
+            name: dist_x
+            type: float32
+            unit: arcsec
+            description: distance between CatWISE and AllWISE source
+          cc_flags:
+            name: cc_flags
+            type: char[16]
+            unit: ''
+            description: worst case 4 character cc_flag from AllWISE (See Table A1
+              in Eisenhardt et al. (2020))
+          w1cc_map:
+            name: w1cc_map
+            type: int32
+            unit: ''
+            description: worst case w1cc_map from AllWISE (See Table A1 in Eisenhardt
+              et al. (2020))
+          w1cc_map_str:
+            name: w1cc_map_str
+            type: char[20]
+            unit: ''
+            description: worst case w1cc_map_str from AllWISE (See Table A1 in Eisenhardt
+              et al. (2020))
+          w2cc_map:
+            name: w2cc_map
+            type: int32
+            unit: ''
+            description: worst case w2cc_map from AllWISE (See Table A1 in Eisenhardt
+              et al. (2020))
+          w2cc_map_str:
+            name: w2cc_map_str
+            type: char[20]
+            unit: ''
+            description: worst case w2cc_map_str from AllWISE (See Table A1 in Eisenhardt
+              et al. (2020))
+          n_aw:
+            name: n_aw
+            type: int32
+            unit: ''
+            description: number of sources within 2.75" in AllWISE
+          ab_flags:
+            name: ab_flags
+            type: char[9]
+            unit: ''
+            description: unWISE artifact bitmask contamination flags
+          w1ab_map:
+            name: w1ab_map
+            type: int32
+            unit: ''
+            description: unWISE artifact bitmask contamination map for W1
+          w1ab_map_str:
+            name: w1ab_map_str
+            type: char[13]
+            unit: ''
+            description: unWISE artifact bitmask contamination string for W1
+          w2ab_map:
+            name: w2ab_map
+            type: int32
+            unit: ''
+            description: unWISE artifact bitmask contamination map for W2
+          w2ab_map_str:
+            name: w2ab_map_str
+            type: char[13]
+            unit: ''
+            description: unWISE artifact bitmask contamination string for W1
+          glon:
+            name: glon
+            type: float64
+            unit: deg
+            description: Galactic longitude (only present in CatWISE 2020)
+          glat:
+            name: glat
+            type: float64
+            unit: deg
+            description: Galactic latitude (only present in CatWISE 2020)
+          elon:
+            name: elon
+            type: float64
+            unit: deg
+            description: Ecliptic longitude
+          elat:
+            name: elat
+            type: float64
+            unit: deg
+            description: Ecliptic latitude
+          unwise_objid:
+            name: unwise_objid
+            type: char[20]
+            unit: ''
+            description: UnWISE Object ID (only present in CatWISE 2020)
 notes: |-
   None
+regrets: |-
+  I have no regrets!

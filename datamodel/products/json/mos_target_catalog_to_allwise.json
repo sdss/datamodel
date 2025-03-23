@@ -58,17 +58,50 @@
         "description": "SDSS public data release 18",
         "public": true,
         "release_date": "2022-12-05"
+      },
+      {
+        "name": "DR19",
+        "description": "SDSS public data release 19",
+        "public": true,
+        "release_date": "2025-07-11"
       }
     ],
     "naming_convention": "$MOS_TARGET/[V_TARG]/mos_catalog_to_allwise-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts",
     "generated_by": "sdss5db> targetdb, operations database server",
     "design": false,
     "vac": false,
-    "recommended_science_product": false
+    "recommended_science_product": false,
+    "data_level": "2.3.3"
   },
   "changelog": {
     "description": "Describes changes to the datamodel product and/or file structure from one release to another",
-    "releases": {}
+    "releases": {
+      "DR19": {
+        "from": "DR18",
+        "note": "No changes",
+        "delta_nhdus": null,
+        "added_hdus": null,
+        "removed_hdus": null,
+        "primary_delta_nkeys": null,
+        "added_primary_header_kwargs": null,
+        "removed_primary_header_kwargs": null,
+        "delta_nkeys": null,
+        "addead_header_keys": null,
+        "removed_header_keys": null,
+        "delta_ntables": null,
+        "addead_tables": null,
+        "removed_tables": null,
+        "tables": null,
+        "new_libver": null,
+        "delta_nattrs": null,
+        "addead_attrs": null,
+        "removed_attrs": null,
+        "delta_nmembers": null,
+        "addead_members": null,
+        "removed_members": null,
+        "members": null
+      }
+    }
   },
   "releases": {
     "DR18": {
@@ -82,8 +115,8 @@
         "path_name": "mos_target_catalog_to_allwise",
         "path_template": "$MOS_TARGET/{v_targ}/mos_catalog_to_allwise-{num}.fits",
         "path_kwargs": [
-          "num",
-          "v_targ"
+          "v_targ",
+          "num"
         ],
         "access_string": "mos_target_catalog_to_allwise = $MOS_TARGET/{v_targ}/mos_catalog_to_allwise-{num}.fits"
       },
@@ -159,7 +192,153 @@
       },
       "par": null,
       "hdfs": null
+    },
+    "DR19": {
+      "template": "$MOS_TARGET/[V_TARG]/mos_catalog_to_allwise-[NUM].fits",
+      "example": "1.0.2/mos_catalog_to_allwise-01.fits",
+      "location": "{v_targ}/mos_catalog_to_allwise-{num}.fits",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_catalog_to_allwise",
+        "path_template": "$MOS_TARGET/{v_targ}/mos_catalog_to_allwise-{num}.fits",
+        "path_kwargs": [
+          "v_targ",
+          "num"
+        ],
+        "access_string": "mos_target_catalog_to_allwise = $MOS_TARGET/{v_targ}/mos_catalog_to_allwise-{num}.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Primary header",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "MOS Target Table: catalog_to_allwise",
+          "size": "51 MB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "BINTABLE",
+              "comment": "binary table extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "27",
+              "comment": "length of dimension 1"
+            },
+            {
+              "key": "NAXIS2",
+              "value": "2000000",
+              "comment": "length of dimension 2"
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "number of group parameters"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "number of groups"
+            },
+            {
+              "key": "TFIELDS",
+              "value": "5",
+              "comment": "number of table fields"
+            },
+            {
+              "key": "TNULL1",
+              "value": "-9223372036854775808",
+              "comment": ""
+            },
+            {
+              "key": "TNULL2",
+              "value": "-9223372036854775808",
+              "comment": ""
+            },
+            {
+              "key": "TNULL3",
+              "value": "-32768",
+              "comment": ""
+            }
+          ],
+          "columns": {
+            "catalogid": {
+              "name": "catalogid",
+              "description": "The catalogid identifier in the mos_target_catalog table.",
+              "type": "int64",
+              "unit": ""
+            },
+            "target_id": {
+              "name": "target_id",
+              "description": "The primary key identifier in the mos_target_allwise table.",
+              "type": "int64",
+              "unit": ""
+            },
+            "version_id": {
+              "name": "version_id",
+              "description": "The internal version for the cross-match.",
+              "type": "int16",
+              "unit": ""
+            },
+            "distance": {
+              "name": "distance",
+              "description": "The distance between the catalog and target coordinates if best=F.",
+              "type": "float64",
+              "unit": ""
+            },
+            "best": {
+              "name": "best",
+              "description": "Whether this is considered the best match between the catalog entry and mos_target_allwise.",
+              "type": "bool",
+              "unit": ""
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null
     }
   },
-  "notes": "None"
+  "notes": "None",
+  "regrets": "I have no regrets!"
 }

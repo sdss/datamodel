@@ -1,0 +1,138 @@
+general:
+  name: mos_target_assignment
+  short: 'MOS Target table: mos_target_assignment'
+  description: This table stores the assignment of a given target in a carton to a
+    fiber of a given instrument. A collection of assignments are included within a
+    design, which is one configuartion of the robots for an exposure.
+  datatype: FITS
+  filesize: 45 MB
+  releases:
+  - DR19
+  environments:
+  - MOS_TARGET
+  surveys:
+  - BHM
+  - MWM
+  - SDSS
+  naming_convention: $MOS_TARGET/[V_TARG]/mos_assignment.fits, where V_TARG=1.0.2
+    for DR19
+  generated_by: sdss5db> targetdb, operations database server
+  data_level: 2.3.3
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR19:
+    template: $MOS_TARGET/[V_TARG]/mos_assignment-[NUM].fits
+    example: 1.0.2/mos_assignment-01.fits
+    location: '{v_targ}/mos_assignment-{num}.fits'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_assignment
+      path_template: $MOS_TARGET/{v_targ}/mos_assignment-{num}.fits
+      path_kwargs:
+      - num
+      - v_targ
+      access_string: mos_target_assignment = $MOS_TARGET/{v_targ}/mos_assignment-{num}.fits
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Primary header
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: 'MOS Target table: mos_target_assignment'
+        is_image: false
+        size: 45 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 24
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 2000000
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 5
+          comment: number of table fields
+        - key: TNULL1
+          value: -2147483648
+          comment: ''
+        - key: TNULL2
+          value: -9223372036854775808
+          comment: ''
+        - key: TNULL3
+          value: -2147483648
+          comment: ''
+        - key: TNULL4
+          value: -2147483648
+          comment: ''
+        - key: TNULL5
+          value: -2147483648
+          comment: ''
+        columns:
+          pk:
+            name: pk
+            type: int32
+            unit: ''
+            description: The primary key. A sequential identifier.
+          carton_to_target_pk:
+            name: carton_to_target_pk
+            type: int64
+            unit: ''
+            description: The primary key of the carton_to_target in the dr19_carton_to_target
+              table.
+          hole_pk:
+            name: hole_pk
+            type: int32
+            unit: ''
+            description: The primary key of the hole in the dr19_hole table.
+          instrument_pk:
+            name: instrument_pk
+            type: int32
+            unit: ''
+            description: The primary key of the instrument in the dr19_instrument
+              table.
+          design_id:
+            name: design_id
+            type: int32
+            unit: ''
+            description: The primary key of the design in the dr19_design table.
+notes: |-
+  None
+regrets: |-
+  I  have no regrets!

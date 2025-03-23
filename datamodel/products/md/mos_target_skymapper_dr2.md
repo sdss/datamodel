@@ -9,17 +9,17 @@ MOS Target Table: skymapper_dr2
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
 Skymapper Data Release 2 photometry. For detailed descriptions, please see the SkyMapper documentation: https://skymapper.anu.edu.au/table-browser/
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_target_skymapper_dr2-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
+$MOS_TARGET/[V_TARG]/mos_skymapper_dr2-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
 
 ### Releases
-DR18
+DR18, DR19
 
 ### Enviroments
 MOS_TARGET
@@ -36,14 +36,20 @@ sdss5db> targetdb, operations database server
 ### Is a VAC
 False
 
-### HDUS List for release DR18
+### Data Level
+2.3.3
+
+### HDUS List for release DR19
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: ](#hdu1)
+  - [HDU1](#hdu1)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR19
+   - from: DR18
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -64,119 +70,183 @@ Key | Value | Comment | |
 
 
 
-### HDU1:
+### HDU1: 
 MOS Target Table: skymapper_dr2
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  789 MB
 
+##### Header Table Caption for HDU1
+Key | Value | Comment | |
+| --- | --- | --- | --- |
+| XTENSION | BINTABLE | binary table extension |
+| BITPIX | 8 | array data type |
+| NAXIS | 2 | number of array dimensions |
+| NAXIS1 | 414 | length of dimension 1 |
+| NAXIS2 | 2000000 | length of dimension 2 |
+| PCOUNT | 0 | number of group parameters |
+| GCOUNT | 1 | number of groups |
+| TFIELDS | 100 | number of table fields |
+| TNULL1 | -9223372036854775808 |  |
+| TNULL4 | -2147483648 |  |
+| TNULL5 | -2147483648 |  |
+| TNULL11 | -32768 |  |
+| TNULL12 | -2147483648 |  |
+| TNULL13 | -32768 |  |
+| TNULL14 | -32768 |  |
+| TNULL15 | -32768 |  |
+| TNULL17 | -32768 |  |
+| TNULL18 | -2147483648 |  |
+| TNULL19 | -32768 |  |
+| TNULL20 | -32768 |  |
+| TNULL21 | -32768 |  |
+| TNULL22 | -32768 |  |
+| TNULL23 | -2147483648 |  |
+| TNULL24 | -32768 |  |
+| TNULL25 | -32768 |  |
+| TNULL26 | -32768 |  |
+| TNULL27 | -32768 |  |
+| TNULL28 | -2147483648 |  |
+| TNULL29 | -32768 |  |
+| TNULL30 | -32768 |  |
+| TNULL31 | -32768 |  |
+| TNULL32 | -32768 |  |
+| TNULL33 | -2147483648 |  |
+| TNULL34 | -32768 |  |
+| TNULL35 | -32768 |  |
+| TNULL36 | -32768 |  |
+| TNULL37 | -32768 |  |
+| TNULL38 | -2147483648 |  |
+| TNULL39 | -32768 |  |
+| TNULL40 | -32768 |  |
+| TNULL41 | -32768 |  |
+| TNULL42 | -32768 |  |
+| TNULL43 | -2147483648 |  |
+| TNULL44 | -32768 |  |
+| TNULL45 | -32768 |  |
+| TNULL46 | -32768 |  |
+| TNULL48 | -2147483648 |  |
+| TNULL82 | -9223372036854775808 |  |
+| TNULL83 | -9223372036854775808 |  |
+| TNULL85 | -9223372036854775808 |  |
+| TNULL87 | -9223372036854775808 |  |
+| TNULL89 | -9223372036854775808 |  |
+| TNULL91 | -9223372036854775808 |  |
+| TNULL93 | -9223372036854775808 |  |
+| TNULL95 | -9223372036854775808 |  |
+| TNULL97 | -9223372036854775808 |  |
+| TNULL99 | -9223372036854775808 |  |
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | OBJECT_ID | int64 |  | Global unique SkyMapper object ID in the master table |
- | RAJ2000 | float64 | degrees | Mean ICRS Right Ascension of the object |
- | DEJ2000 | float64 | degrees | Mean ICRS Declination of the object |
- | E_RAJ2000 | int32 | mas | RMS variation around the mean Right Ascension |
- | E_DEJ2000 | int32 | mas | RMS variation around the mean Declination |
- | SMSS_J | char[18] |  | SkyMapper Southern Survey designation of the form SMSS Jhhmmss.ss+/-ddmmss.s |
- | MEAN_EPOCH | float64 | days | Mean MJD epoch of the observations |
- | RMS_EPOCH | float32 | days | RMS variation around the mean epoch |
- | GLON | float32 | degrees | Galactic longitude derived from ICRS coordinate |
- | GLAT | float32 | degrees | Galactic latitude derived from ICRS coordinate |
- | FLAGS | int16 |  | Bitwise OR of Source Extractor flags across all observations |
- | NIMAFLAGS | int32 |  | Total number of flagged pixels from bad, saturated, and crosstalk pixel masks across all observations |
- | NGOOD | int16 |  | Number of observations used across all filters |
- | NGOOD_MIN | int16 |  | Minimum number of observations used in any filter |
- | NCH_MAX | int16 |  | Maximum number of child sources combined into this global object_id in any filter |
- | DENSITY | float32 |  | Number of DR2 sources within 15 arcsec (including this source) |
- | U_FLAGS | int16 |  | Bitwise OR of Source Extractor flags from u-band measurements in photometry table |
- | U_NIMAFLAGS | int32 |  | Number of flagged pixels from bad, saturated, and crosstalk pixel masks from u-band measurements in photometry table |
- | U_NGOOD | int16 |  | Number of u-band observations used |
- | U_NCH | int16 |  | Number of u-band child sources combined into this object_id |
- | U_NCLIP | int16 |  | Number of u-band observations with magnitudes clipped from the final PSF magnitude estimate |
- | V_FLAGS | int16 |  | Bitwise OR of Source Extractor flags from v-band measurements in photometry table |
- | V_NIMAFLAGS | int32 |  | Number of flagged pixels from bad, saturated, and crosstalk pixel masks from u-band measurements in photometry table |
- | V_NGOOD | int16 |  | Number of v-band observations used |
- | V_NCH | int16 |  | Number of v-band child sources combined into this object_id |
- | V_NCLIP | int16 |  | Number of v-band observations with magnitudes clipped from the final PSF magnitude estimate |
- | G_FLAGS | int16 |  | Bitwise OR of Source Extractor flags from g-band measurements in photometry table |
- | G_NIMAFLAGS | int32 |  | Number of flagged pixels from bad, saturated, and crosstalk pixel masks from g-band measurements in photometry table |
- | G_NGOOD | int16 |  | Number of g-band observations used |
- | G_NCH | int16 |  | Number of g-band child sources combined into this object_id |
- | G_NCLIP | int16 |  | Number of g-band observations with magnitudes clipped from the final PSF magnitude estimate |
- | R_FLAGS | int16 |  | Bitwise OR of Source Extractor flags from r-band measurements in photometry table |
- | R_NIMAFLAGS | int32 |  | Number of flagged pixels from bad, saturated, and crosstalk pixel masks from r-band measurements in photometry table |
- | R_NGOOD | int16 |  | Number of r-band observations used |
- | R_NCH | int16 |  | Number of r-band child sources combined into this object_id |
- | R_NCLIP | int16 |  | Number of r-band observations with magnitudes clipped from the final PSF magnitude estimate |
- | I_FLAGS | int16 |  | Bitwise OR of Source Extractor flags from i-band measurements in photometry table |
- | I_NIMAFLAGS | int32 |  | Number of flagged pixels from bad, saturated, and crosstalk pixel masks from i-band measurements in photometry table |
- | I_NGOOD | int16 |  | Number of i-band observations used |
- | I_NCH | int16 |  | Number of i-band child sources combined into this object_id |
- | I_NCLIP | int16 |  | Number of i-band observations with magnitudes clipped from the final PSF magnitude estimate |
- | Z_FLAGS | int16 |  | Bitwise OR of Source Extractor flags from z-band measurements in photometry table |
- | Z_NIMAFLAGS | int32 |  | Number of flagged pixels from bad, saturated, and crosstalk pixel masks from z-band measurements in photometry table |
- | Z_NGOOD | int16 |  | Number of z-band observations used |
- | Z_NCH | int16 |  | Number of z-band child sources combined into this object_id |
- | Z_NCLIP | int16 |  | Number of a-band observations with magnitudes clipped from the final PSF magnitude estimate |
- | CLASS_STAR | float32 |  | Maximum stellarity index from photometry table (between 0=no star and 1=star) |
- | FLAGS_PSF | int32 |  | Bitmask indicating whether photometry is likely biased by neighbours at greater than 1% |
- | RADIUS_PETRO | float32 | pix | Mean r-band Petrosian radius |
- | U_PSF | float32 | mag | Mean u-band PSF magnitude |
- | E_U_PSF | float32 | mag | Error in u-band PSF magnitude |
- | U_RCHI2VAR | float32 |  | Reduced chi-squared for a constant-magnitude model of the u-band PSF magnitude, including clipped sources |
- | U_PETRO | float32 | mag | Mean u-band Petrosian magnitude |
- | E_U_PETRO | float32 | mag | Error in u-band Petrosian magnitude |
- | V_PSF | float32 | mag | Mean v-band PSF magnitude |
- | E_V_PSF | float32 | mag | Error in v-band PSF magnitude |
- | V_RCHI2VAR | float32 |  | Reduced chi-squared for a constant-magnitude model of the v-band PSF magnitude, including clipped sources |
- | V_PETRO | float32 | mag | Mean v-band Petrosian magnitude |
- | E_V_PETRO | float32 | mag | Error in v-band Petrosian magnitude |
- | G_PSF | float32 | mag | Mean g-band PSF magnitude |
- | E_G_PSF | float32 | mag | Error in g-band PSF magnitude |
- | G_RCHI2VAR | float32 |  | Reduced chi-squared for a constant-magnitude model of the g-band PSF magnitude, including clipped sources |
- | G_PETRO | float32 | mag | Mean g-band Petrosian magnitude |
- | E_G_PETRO | float32 | mag | Error in g-band Petrosian magnitude |
- | R_PSF | float32 | mag | Mean r-band PSF magnitude |
- | E_R_PSF | float32 | mag | Error in r-band PSF magnitude |
- | R_RCHI2VAR | float32 |  | Reduced chi-squared for a constant-magnitude model of the r-band PSF magnitude, including clipped sources |
- | R_PETRO | float32 | mag | Mean r-band Petrosian magnitude |
- | E_R_PETRO | float32 | mag | Error in r-band Petrosian magnitude |
- | I_PSF | float32 | mag | Mean i-band PSF magnitude |
- | E_I_PSF | float32 | mag | Error in i-band PSF magnitude |
- | I_RCHI2VAR | float32 |  | Reduced chi-squared for a constant-magnitude model of the i-band PSF magnitude, including clipped sources |
- | I_PETRO | float32 | mag | Mean i-band Petrosian magnitude |
- | E_I_PETRO | float32 | mag | Error in i-band Petrosian magnitude |
- | Z_PSF | float32 | mag | Mean z-band PSF magnitude |
- | E_Z_PSF | float32 | mag | Error in z-band PSF magnitude |
- | Z_RCHI2VAR | float32 |  | Reduced chi-squared for a constant-magnitude model of the z-band PSF magnitude, including clipped sources |
- | Z_PETRO | float32 | mag | Mean z-band Petrosian magnitude |
- | E_Z_PETRO | float32 | mag | Error in z-band Petrosian magnitude |
- | EBMV_SFD | float32 | mag | E(B-V) from Schlegel+1998 extinction maps at the ICRS coordinates |
- | PROX | float32 | arcsec | Distance to next-closest DR2 source |
- | PROX_ID | int64 |  | object_id of next-closest DR2 source |
- | DR1_ID | int64 |  | object_id of closest SkyMapper Data Release 1 source |
- | DR1_DIST | float32 | arcsec | Distance to closest SkyMapper Data Release 1 source |
- | TWOMASS_KEY | int64 |  | Unique identifier (pts_key) of closest 2MASS PSC source |
- | TWOMASS_DIST | float32 | arcsec | Distance on sky to closest 2MASS PSC source |
- | ALLWISE_CNTR | int64 |  | Unique identifier (cntr) of closest AllWISE source |
- | ALLWISE_DIST | float32 | arcsec | Distance on sky to closest AllWISE source |
- | UCAC4_MPOS | int64 |  | Unique identifier (mpos) of closest UCAC4 source |
- | UCAC4_DIST | float32 | arcsec | Distance on sky to closest UCAC4 source |
- | REFCAT2_ID | int64 |  | Unique identifier (objid) of closest ATLAS Refcat2 source |
- | REFCAT2_DIST | float32 | arcsec | Distance on sky to closest ATLAS Refcat2 source |
- | PS1_DR1_ID | int64 |  | Unique identifier (objID) of closest Pan-STARRS1 DR1 source |
- | PS1_DR1_DIST | float32 | arcsec | Distance on sky to closest Pan-STARRS1 DR1 source |
- | GALEX_GUV_ID | int64 |  | Unique identifier (objid) of closest GALEX GUVcat AIS source (Bianchi et al. 2017) |
- | GALEX_GUV_DIST | float32 | arcsec | Distance on sky to closest GALEX GUVcat AIS source |
- | GAIA_DR2_ID1 | int64 |  | Unique identifier (source_id) of closest Gaia DR2 source |
- | GAIA_DR2_DIST1 | float32 | arcsec | Distance on sky to closest Gaia DR2 source |
- | GAIA_DR2_ID2 | int64 |  | Unique identifier (source_id) of second-closest Gaia DR2 source |
- | GAIA_DR2_DIST2 | float32 | arcsec | Distance on sky to second-closest Gaia DR2 source |
+ | object_id | int64 |  | Global unique SkyMapper object ID in the master table |
+ | raj2000 | float64 | degrees | Mean ICRS Right Ascension of the object |
+ | dej2000 | float64 | degrees | Mean ICRS Declination of the object |
+ | e_raj2000 | int32 | mas | RMS variation around the mean Right Ascension |
+ | e_dej2000 | int32 | mas | RMS variation around the mean Declination |
+ | smss_j | char[18] |  | SkyMapper Southern Survey designation of the form SMSS Jhhmmss.ss+/-ddmmss.s |
+ | mean_epoch | float64 | days | Mean MJD epoch of the observations |
+ | rms_epoch | float32 | days | RMS variation around the mean epoch |
+ | glon | float32 | degrees | Galactic longitude derived from ICRS coordinate |
+ | glat | float32 | degrees | Galactic latitude derived from ICRS coordinate |
+ | flags | int16 |  | Bitwise OR of Source Extractor flags across all observations |
+ | nimaflags | int32 |  | Total number of flagged pixels from bad, saturated, and crosstalk pixel masks across all observations |
+ | ngood | int16 |  | Number of observations used across all filters |
+ | ngood_min | int16 |  | Minimum number of observations used in any filter |
+ | nch_max | int16 |  | Maximum number of child sources combined into this global object_id in any filter |
+ | density | float32 |  | Number of DR2 sources within 15 arcsec (including this source) |
+ | u_flags | int16 |  | Bitwise OR of Source Extractor flags from u-band measurements in photometry table |
+ | u_nimaflags | int32 |  | Number of flagged pixels from bad, saturated, and crosstalk pixel masks from u-band measurements in photometry table |
+ | u_ngood | int16 |  | Number of u-band observations used |
+ | u_nch | int16 |  | Number of u-band child sources combined into this object_id |
+ | u_nclip | int16 |  | Number of u-band observations with magnitudes clipped from the final PSF magnitude estimate |
+ | v_flags | int16 |  | Bitwise OR of Source Extractor flags from v-band measurements in photometry table |
+ | v_nimaflags | int32 |  | Number of flagged pixels from bad, saturated, and crosstalk pixel masks from u-band measurements in photometry table |
+ | v_ngood | int16 |  | Number of v-band observations used |
+ | v_nch | int16 |  | Number of v-band child sources combined into this object_id |
+ | v_nclip | int16 |  | Number of v-band observations with magnitudes clipped from the final PSF magnitude estimate |
+ | g_flags | int16 |  | Bitwise OR of Source Extractor flags from g-band measurements in photometry table |
+ | g_nimaflags | int32 |  | Number of flagged pixels from bad, saturated, and crosstalk pixel masks from g-band measurements in photometry table |
+ | g_ngood | int16 |  | Number of g-band observations used |
+ | g_nch | int16 |  | Number of g-band child sources combined into this object_id |
+ | g_nclip | int16 |  | Number of g-band observations with magnitudes clipped from the final PSF magnitude estimate |
+ | r_flags | int16 |  | Bitwise OR of Source Extractor flags from r-band measurements in photometry table |
+ | r_nimaflags | int32 |  | Number of flagged pixels from bad, saturated, and crosstalk pixel masks from r-band measurements in photometry table |
+ | r_ngood | int16 |  | Number of r-band observations used |
+ | r_nch | int16 |  | Number of r-band child sources combined into this object_id |
+ | r_nclip | int16 |  | Number of r-band observations with magnitudes clipped from the final PSF magnitude estimate |
+ | i_flags | int16 |  | Bitwise OR of Source Extractor flags from i-band measurements in photometry table |
+ | i_nimaflags | int32 |  | Number of flagged pixels from bad, saturated, and crosstalk pixel masks from i-band measurements in photometry table |
+ | i_ngood | int16 |  | Number of i-band observations used |
+ | i_nch | int16 |  | Number of i-band child sources combined into this object_id |
+ | i_nclip | int16 |  | Number of i-band observations with magnitudes clipped from the final PSF magnitude estimate |
+ | z_flags | int16 |  | Bitwise OR of Source Extractor flags from z-band measurements in photometry table |
+ | z_nimaflags | int32 |  | Number of flagged pixels from bad, saturated, and crosstalk pixel masks from z-band measurements in photometry table |
+ | z_ngood | int16 |  | Number of z-band observations used |
+ | z_nch | int16 |  | Number of z-band child sources combined into this object_id |
+ | z_nclip | int16 |  | Number of a-band observations with magnitudes clipped from the final PSF magnitude estimate |
+ | class_star | float32 |  | Maximum stellarity index from photometry table (between 0=no star and 1=star) |
+ | flags_psf | int32 |  | Bitmask indicating whether photometry is likely biased by neighbours at greater than 1% |
+ | radius_petro | float32 | pix | Mean r-band Petrosian radius |
+ | u_psf | float32 | mag | Mean u-band PSF magnitude |
+ | e_u_psf | float32 | mag | Error in u-band PSF magnitude |
+ | u_rchi2var | float32 |  | Reduced chi-squared for a constant-magnitude model of the u-band PSF magnitude, including clipped sources |
+ | u_petro | float32 | mag | Mean u-band Petrosian magnitude |
+ | e_u_petro | float32 | mag | Error in u-band Petrosian magnitude |
+ | v_psf | float32 | mag | Mean v-band PSF magnitude |
+ | e_v_psf | float32 | mag | Error in v-band PSF magnitude |
+ | v_rchi2var | float32 |  | Reduced chi-squared for a constant-magnitude model of the v-band PSF magnitude, including clipped sources |
+ | v_petro | float32 | mag | Mean v-band Petrosian magnitude |
+ | e_v_petro | float32 | mag | Error in v-band Petrosian magnitude |
+ | g_psf | float32 | mag | Mean g-band PSF magnitude |
+ | e_g_psf | float32 | mag | Error in g-band PSF magnitude |
+ | g_rchi2var | float32 |  | Reduced chi-squared for a constant-magnitude model of the g-band PSF magnitude, including clipped sources |
+ | g_petro | float32 | mag | Mean g-band Petrosian magnitude |
+ | e_g_petro | float32 | mag | Error in g-band Petrosian magnitude |
+ | r_psf | float32 | mag | Mean r-band PSF magnitude |
+ | e_r_psf | float32 | mag | Error in r-band PSF magnitude |
+ | r_rchi2var | float32 |  | Reduced chi-squared for a constant-magnitude model of the r-band PSF magnitude, including clipped sources |
+ | r_petro | float32 | mag | Mean r-band Petrosian magnitude |
+ | e_r_petro | float32 | mag | Error in r-band Petrosian magnitude |
+ | i_psf | float32 | mag | Mean i-band PSF magnitude |
+ | e_i_psf | float32 | mag | Error in i-band PSF magnitude |
+ | i_rchi2var | float32 |  | Reduced chi-squared for a constant-magnitude model of the i-band PSF magnitude, including clipped sources |
+ | i_petro | float32 | mag | Mean i-band Petrosian magnitude |
+ | e_i_petro | float32 | mag | Error in i-band Petrosian magnitude |
+ | z_psf | float32 | mag | Mean z-band PSF magnitude |
+ | e_z_psf | float32 | mag | Error in z-band PSF magnitude |
+ | z_rchi2var | float32 |  | Reduced chi-squared for a constant-magnitude model of the z-band PSF magnitude, including clipped sources |
+ | z_petro | float32 | mag | Mean z-band Petrosian magnitude |
+ | e_z_petro | float32 | mag | Error in z-band Petrosian magnitude |
+ | ebmv_sfd | float32 | mag | E(B-V) from Schlegel+1998 extinction maps at the ICRS coordinates |
+ | prox | float32 | arcsec | Distance to next-closest DR2 source |
+ | prox_id | int64 |  | object_id of next-closest DR2 source |
+ | dr1_id | int64 |  | object_id of closest SkyMapper Data Release 1 source |
+ | dr1_dist | float32 | arcsec | Distance to closest SkyMapper Data Release 1 source |
+ | twomass_key | int64 |  | Unique identifier (pts_key) of closest 2MASS PSC source |
+ | twomass_dist | float32 | arcsec | Distance on sky to closest 2MASS PSC source |
+ | allwise_cntr | int64 |  | Unique identifier (cntr) of closest AllWISE source |
+ | allwise_dist | float32 | arcsec | Distance on sky to closest AllWISE source |
+ | ucac4_mpos | int64 |  | Unique identifier (mpos) of closest UCAC4 source |
+ | ucac4_dist | float32 | arcsec | Distance on sky to closest UCAC4 source |
+ | refcat2_id | int64 |  | Unique identifier (objid) of closest ATLAS Refcat2 source |
+ | refcat2_dist | float32 | arcsec | Distance on sky to closest ATLAS Refcat2 source |
+ | ps1_dr1_id | int64 |  | Unique identifier (objID) of closest Pan-STARRS1 DR1 source |
+ | ps1_dr1_dist | float32 | arcsec | Distance on sky to closest Pan-STARRS1 DR1 source |
+ | galex_guv_id | int64 |  | Unique identifier (objid) of closest GALEX GUVcat AIS source (Bianchi et al. 2017) |
+ | galex_guv_dist | float32 | arcsec | Distance on sky to closest GALEX GUVcat AIS source |
+ | gaia_dr2_id1 | int64 |  | Unique identifier (source_id) of closest Gaia DR2 source |
+ | gaia_dr2_dist1 | float32 | arcsec | Distance on sky to closest Gaia DR2 source |
+ | gaia_dr2_id2 | int64 |  | Unique identifier (source_id) of second-closest Gaia DR2 source |
+ | gaia_dr2_dist2 | float32 | arcsec | Distance on sky to second-closest Gaia DR2 source |
 
 
 
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!

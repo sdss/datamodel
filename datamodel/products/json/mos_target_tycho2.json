@@ -58,17 +58,50 @@
         "description": "SDSS public data release 18",
         "public": true,
         "release_date": "2022-12-05"
+      },
+      {
+        "name": "DR19",
+        "description": "SDSS public data release 19",
+        "public": true,
+        "release_date": "2025-07-11"
       }
     ],
     "naming_convention": "$MOS_TARGET/[V_TARG]/mos_tycho2-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts",
     "generated_by": "sdss5db> targetdb, operations database server",
     "design": false,
     "vac": false,
-    "recommended_science_product": false
+    "recommended_science_product": false,
+    "data_level": "2.3.3"
   },
   "changelog": {
     "description": "Describes changes to the datamodel product and/or file structure from one release to another",
-    "releases": {}
+    "releases": {
+      "DR19": {
+        "from": "DR18",
+        "note": "No changes",
+        "delta_nhdus": null,
+        "added_hdus": null,
+        "removed_hdus": null,
+        "primary_delta_nkeys": null,
+        "added_primary_header_kwargs": null,
+        "removed_primary_header_kwargs": null,
+        "delta_nkeys": null,
+        "addead_header_keys": null,
+        "removed_header_keys": null,
+        "delta_ntables": null,
+        "addead_tables": null,
+        "removed_tables": null,
+        "tables": null,
+        "new_libver": null,
+        "delta_nattrs": null,
+        "addead_attrs": null,
+        "removed_attrs": null,
+        "delta_nmembers": null,
+        "addead_members": null,
+        "removed_members": null,
+        "members": null
+      }
+    }
   },
   "releases": {
     "DR18": {
@@ -362,7 +395,392 @@
       },
       "par": null,
       "hdfs": null
+    },
+    "DR19": {
+      "template": "$MOS_TARGET/[V_TARG]/mos_tycho2-[NUM].fits",
+      "example": "1.0.2/mos_tycho2-1.fits",
+      "location": "{v_targ}/mos_tycho2-{num}.fits",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_tycho2",
+        "path_template": "$MOS_TARGET/{v_targ}/mos_tycho2.fits",
+        "path_kwargs": [
+          "v_targ"
+        ],
+        "access_string": "mos_target_tycho2 = $MOS_TARGET/{v_targ}/mos_tycho2-{num}.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Primary header",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "MOS Target Table: tycho2",
+          "size": "480 MB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "BINTABLE",
+              "comment": "binary table extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "252",
+              "comment": "length of dimension 1"
+            },
+            {
+              "key": "NAXIS2",
+              "value": "2000000",
+              "comment": "length of dimension 2"
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "number of group parameters"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "number of groups"
+            },
+            {
+              "key": "TFIELDS",
+              "value": "40",
+              "comment": "number of table fields"
+            },
+            {
+              "key": "TNULL1",
+              "value": "-2147483648",
+              "comment": ""
+            },
+            {
+              "key": "TNULL2",
+              "value": "-2147483648",
+              "comment": ""
+            },
+            {
+              "key": "TNULL3",
+              "value": "-2147483648",
+              "comment": ""
+            },
+            {
+              "key": "TNULL9",
+              "value": "-2147483648",
+              "comment": ""
+            },
+            {
+              "key": "TNULL10",
+              "value": "-2147483648",
+              "comment": ""
+            },
+            {
+              "key": "TNULL15",
+              "value": "-2147483648",
+              "comment": ""
+            },
+            {
+              "key": "TNULL24",
+              "value": "-2147483648",
+              "comment": ""
+            },
+            {
+              "key": "TNULL26",
+              "value": "-9223372036854775808",
+              "comment": ""
+            },
+            {
+              "key": "TNULL39",
+              "value": "-2147483648",
+              "comment": ""
+            }
+          ],
+          "columns": {
+            "tyc1": {
+              "name": "tyc1",
+              "description": "TYC1 from TYC or GSC (used to construct the Tycho identifier)",
+              "type": "int32",
+              "unit": ""
+            },
+            "tyc2": {
+              "name": "tyc2",
+              "description": "TYC2 from TYC or GSC (used to construct the Tycho identifier)",
+              "type": "int32",
+              "unit": ""
+            },
+            "tyc3": {
+              "name": "tyc3",
+              "description": "TYC3 from TYC (used to construct the Tycho identifier)",
+              "type": "int32",
+              "unit": ""
+            },
+            "pflag": {
+              "name": "pflag",
+              "description": "Mean position flag",
+              "type": "char[4]",
+              "unit": ""
+            },
+            "ramdeg": {
+              "name": "ramdeg",
+              "description": "Mean Right Asc, ICRS, epoch=J2000",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "demdeg": {
+              "name": "demdeg",
+              "description": "Mean Decl, ICRS, at epoch=J2000",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "pmra": {
+              "name": "pmra",
+              "description": "Proper motion in RA*cos(dec)",
+              "type": "float64",
+              "unit": "mas/yr"
+            },
+            "pmde": {
+              "name": "pmde",
+              "description": "Proper motion in Dec",
+              "type": "float64",
+              "unit": "mas/yr"
+            },
+            "e_ramdeg": {
+              "name": "e_ramdeg",
+              "description": "standard error of RA*cos(dec) at mean epoch",
+              "type": "int32",
+              "unit": "mas"
+            },
+            "e_demdeg": {
+              "name": "e_demdeg",
+              "description": "standard error of Declination at mean epoch",
+              "type": "int32",
+              "unit": "mas"
+            },
+            "e_pmra": {
+              "name": "e_pmra",
+              "description": "standard error of proper motion in RA*cos(dec)",
+              "type": "float64",
+              "unit": "mas/yr"
+            },
+            "e_pmde": {
+              "name": "e_pmde",
+              "description": "standard error of proper motion in Declination",
+              "type": "float64",
+              "unit": "mas/yr"
+            },
+            "epram": {
+              "name": "epram",
+              "description": "mean epoch of RA",
+              "type": "float64",
+              "unit": "yr"
+            },
+            "epdem": {
+              "name": "epdem",
+              "description": "mean epoch of Dec",
+              "type": "float64",
+              "unit": "yr"
+            },
+            "num": {
+              "name": "num",
+              "description": "Number of positions used",
+              "type": "int32",
+              "unit": ""
+            },
+            "q_ramdeg": {
+              "name": "q_ramdeg",
+              "description": "Goodness of fit for mean RA",
+              "type": "float64",
+              "unit": ""
+            },
+            "q_demdeg": {
+              "name": "q_demdeg",
+              "description": "Goodness of fit for mean Dec",
+              "type": "float64",
+              "unit": ""
+            },
+            "q_pmra": {
+              "name": "q_pmra",
+              "description": "Goodness of fit for pmra",
+              "type": "float64",
+              "unit": ""
+            },
+            "q_pmde": {
+              "name": "q_pmde",
+              "description": "Goodness of fit for pmde",
+              "type": "float64",
+              "unit": ""
+            },
+            "btmag": {
+              "name": "btmag",
+              "description": "Tycho-2 BT magnitude",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "e_btmag": {
+              "name": "e_btmag",
+              "description": "Standard error of BT magnitude",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "vtmag": {
+              "name": "vtmag",
+              "description": "Tycho-2 VT magnitude",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "e_vtmag": {
+              "name": "e_vtmag",
+              "description": "Standard error of VT magnitude",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "prox": {
+              "name": "prox",
+              "description": "Distance to the nearest entry in the Tycho-2 main catalogue or supplement",
+              "type": "int32",
+              "unit": "0.1 arcsec"
+            },
+            "tyc": {
+              "name": "tyc",
+              "description": "Tycho-1 star flag",
+              "type": "char[4]",
+              "unit": ""
+            },
+            "hip": {
+              "name": "hip",
+              "description": "Hipparcos number",
+              "type": "int64",
+              "unit": ""
+            },
+            "ccdm": {
+              "name": "ccdm",
+              "description": "CCDM component identifiers for double or multiple Hipparcos stars contributing to this Tycho-2 entry",
+              "type": "char[4]",
+              "unit": ""
+            },
+            "radeg": {
+              "name": "radeg",
+              "description": "Observed Tycho-2 Right Ascension, ICRS",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "dedeg": {
+              "name": "dedeg",
+              "description": "Observed Tycho-2 Declination, ICRS",
+              "type": "float64",
+              "unit": "degrees"
+            },
+            "epra_1990": {
+              "name": "epra_1990",
+              "description": "epoch-1990 of RAdeg",
+              "type": "float64",
+              "unit": "yr"
+            },
+            "epde_1990": {
+              "name": "epde_1990",
+              "description": "epoch-1990 of Dedeg",
+              "type": "float64",
+              "unit": "yr"
+            },
+            "e_radeg": {
+              "name": "e_radeg",
+              "description": "Standard error of RA*cos(dec), of observed Tycho-2 RA",
+              "type": "float64",
+              "unit": "mas"
+            },
+            "e_dedeg": {
+              "name": "e_dedeg",
+              "description": "Standard error of observed Tycho-2 Dec",
+              "type": "float64",
+              "unit": "mas"
+            },
+            "posflg": {
+              "name": "posflg",
+              "description": "Type of Tycho-2 solution",
+              "type": "char[4]",
+              "unit": ""
+            },
+            "corr": {
+              "name": "corr",
+              "description": "correlation (RAdeg,DEdeg)",
+              "type": "float32",
+              "unit": ""
+            },
+            "flag": {
+              "name": "flag",
+              "description": "flag indicating whether data from Hipparcos or Tycho-1",
+              "type": "char[4]",
+              "unit": ""
+            },
+            "mflag": {
+              "name": "mflag",
+              "description": "magnitude flag",
+              "type": "char[4]",
+              "unit": ""
+            },
+            "designation": {
+              "name": "designation",
+              "description": "Unique Tycho designation",
+              "type": "char[12]",
+              "unit": ""
+            },
+            "tycid": {
+              "name": "tycid",
+              "description": "Tycho ID",
+              "type": "int32",
+              "unit": ""
+            },
+            "designation2": {
+              "name": "designation2",
+              "description": "Unique Tycho designation",
+              "type": "char[12]",
+              "unit": ""
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null
     }
   },
-  "notes": "None"
+  "notes": "None",
+  "regrets": "I have no regrets!"
 }

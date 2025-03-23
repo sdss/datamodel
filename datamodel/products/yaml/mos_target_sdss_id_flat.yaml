@@ -1,0 +1,174 @@
+general:
+  name: mos_target_sdss_id_flat
+  short: 'MOS Target table: mos_target_sdss_id_flat'
+  description: 'This table includes associations between sdss_id identifiers and the
+    best matched catalogid for each catalogue cross-match. Unlike dr19_sdss_id_stacked,
+    this table contains multiple rows per sdss_id, one for each cross-match association.
+    When multiple sdss_ids are associated with the same catalogid, the one with the
+    lowest rank (rank=1) should be preferred. Note: The sdss_id match was extended
+    internally for a more recent crossmatch not yet part of the publicly released
+    data. As such, the ra/dec_sdss_id columns may differ from the catalogid coordinates.'
+  datatype: FITS
+  filesize: 122 MB
+  releases:
+  - DR19
+  environments:
+  - MOS_TARGET
+  surveys:
+  - BHM
+  - MWM
+  - SDSS
+  naming_convention: $MOS_TARGET/[V_TARG]/mos_sdss_id_flat.fits, where V_TARG=1.0.2
+    for DR19
+  generated_by: sdss5db> targetdb, operations database server
+  data_level: 2.3.3
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR19:
+    template: $MOS_TARGET/[V_TARG]/mos_sdss_id_flat-[NUM].fits
+    example: 1.0.2/mos_sdss_id_flat-01.fits
+    location: '{v_targ}/mos_sdss_id_flat-{num}.fits'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_sdss_id_flat
+      path_template: $MOS_TARGET/{v_targ}/mos_sdss_id_flat-{num}.fits
+      path_kwargs:
+      - num
+      - v_targ
+      access_string: mos_target_sdss_id_flat = $MOS_TARGET/{v_targ}/mos_sdss_id_flat-{num}.fits
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Primary header
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: 'MOS Target table: mos_target_sdss_id_flat'
+        is_image: false
+        size: 122 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 64
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 2000000
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 10
+          comment: number of table fields
+        - key: TNULL1
+          value: -9223372036854775808
+          comment: ''
+        - key: TNULL2
+          value: -9223372036854775808
+          comment: ''
+        - key: TNULL3
+          value: -32768
+          comment: ''
+        - key: TNULL6
+          value: -32768
+          comment: ''
+        - key: TNULL9
+          value: -9223372036854775808
+          comment: ''
+        - key: TNULL10
+          value: -2147483648
+          comment: ''
+        columns:
+          sdss_id:
+            name: sdss_id
+            type: int64
+            unit: ''
+            description: The SDSS identifier for a unique object.
+          catalogid:
+            name: catalogid
+            type: int64
+            unit: ''
+            description: The associated catalogid for this target.
+          version_id:
+            name: version_id
+            type: int16
+            unit: ''
+            description: The version of the cross-match associated with the catalogid.
+          ra_sdss_id:
+            name: ra_sdss_id
+            type: float64
+            unit: ''
+            description: The right ascension of the target in ICRS J2015.5 coordinates
+              (taken from the highest version catalogid in dr19_sdss_id_stacked).
+          dec_sdss_id:
+            name: dec_sdss_id
+            type: float64
+            unit: ''
+            description: The declination of the target in ICRS J2015.5 coordinates
+              (taken from the highest version catalogid in dr19_sdss_id_stacked).
+          n_associated:
+            name: n_associated
+            type: int16
+            unit: ''
+            description: The number of sdss_ids associated with this catalogid.
+          ra_catalogid:
+            name: ra_catalogid
+            type: float64
+            unit: ''
+            description: The right ascension of this row's catalogid from the dr19_catalog
+              table.
+          dec_catalogid:
+            name: dec_catalogid
+            type: float64
+            unit: ''
+            description: The declination of this row's catalogid from the dr19_catalog
+              table.
+          pk:
+            name: pk
+            type: int64
+            unit: ''
+            description: The primary key. A sequential identifier for this table.
+          rank:
+            name: rank
+            type: int32
+            unit: ''
+            description: The rank of the sdss_id to catalogid association. When multiple
+              sdss_ids are associated with the same catalogid, the one with the lowest
+              rank (rank=1) should be preferred.
+notes: |-
+  None
+regrets: |-
+  I  have no regrets!
