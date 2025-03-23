@@ -153,23 +153,54 @@ datamodel_generate -f mos_target_tess_toi_v05 -p MOS_TARGET/{v_targ}/mos_tess_to
 datamodel_update -f mos_target_tess_toi_v05 -r DR19
 
 datamodel_generate -f mos_target_targeting_generation_to_version -p MOS_TARGET/{v_targ}/mos_targeting_generation_to_version.fits -k v_targ=1.0.2 -r DR19
-datamodel_generate -f mos_target_catalog_to_allstar_dr17_synspec_rev1 -p MOS_TARGET/{v_targ}/mos_catalog_to_allstar_dr17_synspec_rev1.fits -k v_targ=1.0.2 -r DR19
+datamodel_update -f mos_target_targeting_generation_to_version -r DR19
 
+
+datamodel_generate -f mos_target_catalog_to_allstar_dr17_synspec_rev1 -p MOS_TARGET/{v_targ}/mos_catalog_to_allstar_dr17_synspec_rev1.fits -k v_targ=1.0.2 -r DR19
+datamodel_update -f mos_target_catalog_to_allstar_dr17_synspec_rev1 -r DR19
 
 datamodel_generate -f mos_target_assignment -p MOS_TARGET/{v_targ}/mos_assignment-{num}.fits -k v_targ=1.0.2 -k num=01 -r DR19
+datamodel_update -f mos_target_assignment -r DR19
+
 datamodel_generate -f mos_target_catalog_to_gaia_dr2_source -p MOS_TARGET/{v_targ}/mos_catalog_to_gaia_dr2_source-{num}.fits -k v_targ=1.0.2 -k num=01 -r DR19
+datamodel_update -f mos_target_catalog_to_gaia_dr2_source -r DR19
+
 datamodel_generate -f mos_target_catalog_to_sdss_dr17_specobj -p MOS_TARGET/{v_targ}/mos_catalog_to_sdss_dr17_specobj-{num}.fits -k v_targ=1.0.2 -k num=1 -r DR19
+datamodel_update -f mos_target_catalog_to_sdss_dr17_specobj -r DR19
+
 datamodel_generate -f mos_target_catalog_to_skies_v1 -p MOS_TARGET/{v_targ}/mos_catalog_to_skies_v1-{num}.fits -k v_targ=1.0.2 -k num=01 -r DR19
+datamodel_update -f mos_target_catalog_to_skies_v1 -r DR19
+
 datamodel_generate -f mos_target_catalog_to_twomass_psc -p MOS_TARGET/{v_targ}/mos_catalog_to_twomass_psc-{num}.fits -k v_targ=1.0.2 -k num=01 -r DR19
+datamodel_update -f mos_target_catalog_to_twomass_psc -r DR19
+
 datamodel_generate -f mos_target_catalog_to_unwise -p MOS_TARGET/{v_targ}/mos_catalog_to_unwise-{num}.fits -k v_targ=1.0.2 -k num=01 -r DR19
+datamodel_update -f mos_target_catalog_to_unwise -r DR19
+
 datamodel_generate -f mos_target_revised_magnitude -p MOS_TARGET/{v_targ}/mos_revised_magnitude-{num}.fits -k v_targ=1.0.2 -k num=1 -r DR19
+datamodel_update -f mos_target_revised_magnitude -r DR19
+
 datamodel_generate -f mos_target_sdss_dr17_specobj -p MOS_TARGET/{v_targ}/mos_sdss_dr17_specobj-{num}.fits -k v_targ=1.0.2 -k num=1 -r DR19
+datamodel_update -f mos_target_sdss_dr17_specobj -r DR19
+
 datamodel_generate -f mos_target_sdss_id_flat -p MOS_TARGET/{v_targ}/mos_sdss_id_flat-{num}.fits -k v_targ=1.0.2 -k num=01 -r DR19
+datamodel_update -f mos_target_sdss_id_flat -r DR19
+
 datamodel_generate -f mos_target_sdss_id_stacked -p MOS_TARGET/{v_targ}/mos_sdss_id_stacked-{num}.fits -k v_targ=1.0.2 -k num=01 -r DR19
+datamodel_update -f mos_target_sdss_id_stacked -r DR19
+
 datamodel_generate -f mos_target_sdss_id_to_catalog -p MOS_TARGET/{v_targ}/mos_sdss_id_to_catalog-{num}.fits -k v_targ=1.0.2 -k num=01 -r DR19
+datamodel_update -f mos_target_sdss_id_to_catalog -r DR19
+
 datamodel_generate -f mos_target_skies_v1 -p MOS_TARGET/{v_targ}/mos_skies_v1-{num}.fits -k v_targ=1.0.2 -k num=01 -r DR19
+datamodel_update -f mos_target_skies_v1 -r DR19
+
 datamodel_generate -f mos_target_skymapper_gaia -p MOS_TARGET/{v_targ}/mos_skymapper_gaia-{num}.fits -k v_targ=1.0.2 -k num=1 -r DR19
+datamodel_update -f mos_target_skymapper_gaia -r DR19
+
 datamodel_generate -f mos_target_unwise -p MOS_TARGET/{v_targ}/mos_unwise-{num}.fits -k v_targ=1.0.2 -k num=01 -r DR19
+datamodel_update -f mos_target_unwise -r DR19
+
 
 
 
