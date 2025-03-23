@@ -1,7 +1,9 @@
 general:
   name: mos_target_unwise
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: 'MOS Target table: mos_target_unwise'
+  description: The unWISE catalog, containing the positions and fluxes of approximately
+    two billion objects observed by the Wide-field Infrared Survey Explorer (WISE).
+    See Schlafly et al. (2019). The original catalogs are hosted at https://catalog.unwise.me/catalogs.html
   datatype: FITS
   filesize: 534 MB
   releases:
@@ -9,11 +11,12 @@ general:
   environments:
   - MOS_TARGET
   surveys:
+  - BHM
+  - MWM
   - SDSS
-  naming_convention: replace me - with $MOS_TARGET/[V_TARG]/mos_unwise-[NUM].fits
-    or mos_unwise-01.fits but with regex pattern matches
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  naming_convention: $MOS_TARGET/[V_TARG]/mos_unwise.fits, where V_TARG=1.0.2 for
+    DR19
+  generated_by: sdss5db> targetdb, operations database server
   data_level: 2.3.3
   design: false
   vac: false
@@ -29,16 +32,18 @@ releases:
     location: '{v_targ}/mos_unwise-{num}.fits'
     environment: MOS_TARGET
     access:
-      in_sdss_access: false
-      path_name: null
-      path_template: null
-      path_kwargs: null
+      in_sdss_access: true
+      path_name: mos_target_unwise
+      path_template: $MOS_TARGET/{v_targ}/mos_unwise-{num}.fits
+      path_kwargs:
+      - num
+      - v_targ
       access_string: mos_target_unwise = $MOS_TARGET/{v_targ}/mos_unwise-{num}.fits
     survey: SDSS
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: Primary header
         is_image: true
         size: 0 bytes
         header:
@@ -56,7 +61,7 @@ releases:
           comment: ''
       hdu1:
         name: ''
-        description: replace me description
+        description: 'MOS Target table: mos_target_unwise'
         is_image: false
         size: 534 MB
         header:
@@ -115,248 +120,274 @@ releases:
           x_w1:
             name: x_w1
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: pixels
+            description: x coordinate from the W1 measurement of the source
           x_w2:
             name: x_w2
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: pixels
+            description: x coordinate from the W2 measurement of the source
           y_w1:
             name: y_w1
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: pixels
+            description: y coordinate from the W1 measurement of the source
           y_w2:
             name: y_w2
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: pixels
+            description: y coordinate from the W2 measurement of the source
           flux_w1:
             name: flux_w1
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Vega nMgy
+            description: flux from the W1 measurement of the source
           flux_w2:
             name: flux_w2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Vega nMgy
+            description: flux from the W2 measurement of the source
           dx_w1:
             name: dx_w1
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: pixels
+            description: uncertainty in x from the W1 measurement of the source
           dx_w2:
             name: dx_w2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: pixels
+            description: uncertainty in x from the W2 measurement of the source
           dy_w1:
             name: dy_w1
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: pixels
+            description: uncertainty in y from the W1 measurement of the source
           dy_w2:
             name: dy_w2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: pixels
+            description: uncertainty in y from the W2 measurement of the source
           dflux_w1:
             name: dflux_w1
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Vega nMgy
+            description: uncertainty in flux (statistical only) from the W1 measurement
           dflux_w2:
             name: dflux_w2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Vega nMgy
+            description: uncertainty in flux (statistical only) from the W2 measurement
           qf_w1:
             name: qf_w1
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: '"quality factor" for the W1 measurement'
           qf_w2:
             name: qf_w2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: '"quality factor" for the W2 measurement'
           rchi2_w1:
             name: rchi2_w1
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: average chi2 per pixel, weighted by PSF from the W1 measurement
+              of the source
           rchi2_w2:
             name: rchi2_w2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: average chi2 per pixel, weighted by PSF from the W2 measurement
+              of the source
           fracflux_w1:
             name: fracflux_w1
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: fraction of flux in this object's PSF that comes from this
+              object from the W1 measurement of the source
           fracflux_w2:
             name: fracflux_w2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: fraction of flux in this object's PSF that comes from this
+              object from the W2 measurement of the source
           fluxlbs_w1:
             name: fluxlbs_w1
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Vega nMgy
+            description: local-background-subtracted flux from the W1 measurement
+              of the source
           fluxlbs_w2:
             name: fluxlbs_w2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Vega nMgy
+            description: local-background-subtracted flux from the W2 measurement
+              of the source
           dfluxlbs_w1:
             name: dfluxlbs_w1
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Vega nMgy
+            description: uncertainty in local-background-subtracted flux from the
+              W1 measurement of the source
           dfluxlbs_w2:
             name: dfluxlbs_w2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Vega nMgy
+            description: uncertainty in local-background-subtracted flux from the
+              W2 measurement of the source
           fwhm_w1:
             name: fwhm_w1
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: pixels
+            description: full-width at half-maximum of PSF from the W1 measurement
+              of the source
           fwhm_w2:
             name: fwhm_w2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: pixels
+            description: full-width at half-maximum of PSF from the W2 measurement
+              of the source
           spread_model_w1:
             name: spread_model_w1
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: SExtractor spread_model parameter from the W1 measurement
+              of the source
           spread_model_w2:
             name: spread_model_w2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: SExtractor spread_model parameter from the W2 measurement
+              of the source
           dspread_model_w1:
             name: dspread_model_w1
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: uncertainty in spread_model from the W1 measurement of the
+              source
           dspread_model_w2:
             name: dspread_model_w2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: uncertainty in spread_model from the W2 measurement of the
+              source
           sky_w1:
             name: sky_w1
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Vega nMgy
+            description: sky flux from the W1 measurement of the source
           sky_w2:
             name: sky_w2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Vega nMgy
+            description: sky flux from the W2 measurement of the source
           ra12_w1:
             name: ra12_w1
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: RA position from individual-image catalogs from the W1 measurement
+              of the source
           ra12_w2:
             name: ra12_w2
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: degrees
+            description: RA position from individual-image catalogs from the W2 measurement
+              of the source
           dec12_w1:
             name: dec12_w1
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: degrees
+            description: Dec position from individual-image catalogs from the W1 measurement
+              of the source
           dec12_w2:
             name: dec12_w2
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: degrees
+            description: Dec position from individual-image catalogs from the W2 measurement
+              of the source
           coadd_id:
             name: coadd_id
             type: char[8]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: unique identifier for the coadd
           unwise_detid_w1:
             name: unwise_detid_w1
             type: char[18]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: unWISE detection ID from the W1 measurement of the source
           unwise_detid_w2:
             name: unwise_detid_w2
             type: char[18]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: unWISE detection ID from the W2 measurement of the source
           nm_w1:
             name: nm_w1
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: number of single-exposure images of this part of sky in coadd
+              for the W1 band
           nm_w2:
             name: nm_w2
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: number of single-exposure images of this part of sky in coadd
+              for the W2 band
           primary12_w1:
             name: primary12_w1
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: '''primary'' status from individual-image catalogs from the
+              W1 measurement of the source'
           primary12_w2:
             name: primary12_w2
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: '''primary'' status from individual-image catalogs from the
+              W2 measurement of the source'
           flags_unwise_w1:
             name: flags_unwise_w1
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: unWISE Coadd Flags flags at central pixel for the W1 measurement
+              of the source
           flags_unwise_w2:
             name: flags_unwise_w2
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: unWISE Coadd Flags flags at central pixel for the W2 measurement
+              of the source
           flags_info_w1:
             name: flags_info_w1
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: additional informational flags at central pixel for the W1
+              measurement of the source
           flags_info_w2:
             name: flags_info_w2
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: additional informational flags at central pixel for the W2
+              measurement of the source
           ra:
             name: ra
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: RA W1 position, if available; otherwise W2 position
           dec:
             name: dec
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Declination W1 position, if available; otherwise W2 position
           primary_status:
             name: primary_status
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: W1 primary status, if available; otherwise W2 primary status
           unwise_objid:
             name: unwise_objid
             type: char[16]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: unique object id
 notes: |-
   None
 regrets: |-

@@ -1,7 +1,14 @@
 general:
   name: mos_target_sdss_id_stacked
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: 'MOS Target table: mos_target_sdss_id_stacked'
+  description: 'This table includes associations between sdss_id identifiers and the
+    matched catalogids for each catalogue cross-match. The table contains one row
+    per sdss_id with columns for each catalogid version. However, catalogids may be
+    associated with multiple sdss_id. dr19_sdss_id_flat is a pivoted/flattened version
+    of this table and contains information about the preferred sdss_id for a catalogid.
+    Note: The sdss_id match was extended internally for a more recent crossmatch not
+    yet part of the publicly released data. As such, the ra/dec_sdss_id columns may
+    differ from the catalogid coordinates.'
   datatype: FITS
   filesize: 76 MB
   releases:
@@ -9,11 +16,12 @@ general:
   environments:
   - MOS_TARGET
   surveys:
+  - BHM
+  - MWM
   - SDSS
-  naming_convention: replace me - with $MOS_TARGET/[V_TARG]/mos_sdss_id_stacked-[NUM].fits
-    or mos_sdss_id_stacked-01.fits but with regex pattern matches
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  naming_convention: $MOS_TARGET/[V_TARG]/mos_sdss_id_stacked.fits, where V_TARG=1.0.2
+    for DR19
+  generated_by: sdss5db> targetdb, operations database server
   data_level: 2.3.3
   design: false
   vac: false
@@ -29,16 +37,18 @@ releases:
     location: '{v_targ}/mos_sdss_id_stacked-{num}.fits'
     environment: MOS_TARGET
     access:
-      in_sdss_access: false
-      path_name: null
-      path_template: null
-      path_kwargs: null
+      in_sdss_access: true
+      path_name: mos_target_sdss_id_stacked
+      path_template: $MOS_TARGET/{v_targ}/mos_sdss_id_stacked-{num}.fits
+      path_kwargs:
+      - v_targ
+      - num
       access_string: mos_target_sdss_id_stacked = $MOS_TARGET/{v_targ}/mos_sdss_id_stacked-{num}.fits
     survey: SDSS
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: Primary header
         is_image: true
         size: 0 bytes
         header:
@@ -56,7 +66,7 @@ releases:
           comment: ''
       hdu1:
         name: ''
-        description: replace me description
+        description: 'MOS Target table: mos_target_sdss_id_stacked'
         is_image: false
         size: 76 MB
         header:
@@ -97,28 +107,32 @@ releases:
           catalogid21:
             name: catalogid21
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The catalogid for the best matched object in the v0.1 cross-match
+              (pk=21).
           catalogid25:
             name: catalogid25
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The catalogid for the best matched object in the v0.5 cross-match
+              (pk=25).
           ra_sdss_id:
             name: ra_sdss_id
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The right ascension of the target in ICRS J2015.5 coordinates
+              (taken from the highest version catalogid).
           dec_sdss_id:
             name: dec_sdss_id
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The declination of the target in ICRS J2015.5 coordinates
+              (taken from the highest version catalogid).
           sdss_id:
             name: sdss_id
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The SDSS identifier for a unique object.
 notes: |-
   None
 regrets: |-

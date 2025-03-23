@@ -1,7 +1,11 @@
 general:
   name: mos_target_sdss_id_to_catalog
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: 'MOS Target table: mos_target_sdss_id_to_catalog'
+  description: This table contains the best matched associations between SDSS identifiers
+    (sdss_id, catalogid) and the unique identifiers in the parent catalogues used
+    for SDSS cross-matches. The format of the parent catalogue columns is <table_name>__<column_name>,
+    where <column_name> is the primary key/unique identifier column to which to join
+    in the dr19_<table_name> table.
   datatype: FITS
   filesize: 764 MB
   releases:
@@ -9,11 +13,12 @@ general:
   environments:
   - MOS_TARGET
   surveys:
+  - BHM
+  - MWM
   - SDSS
-  naming_convention: replace me - with $MOS_TARGET/[V_TARG]/mos_sdss_id_to_catalog-[NUM].fits
-    or mos_sdss_id_to_catalog-01.fits but with regex pattern matches
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  naming_convention: $MOS_TARGET/[V_TARG]/mos_sdss_id_to_catalog.fits, where V_TARG=1.0.2
+    for DR19
+  generated_by: sdss5db> targetdb, operations database server
   data_level: 2.3.3
   design: false
   vac: false
@@ -29,16 +34,18 @@ releases:
     location: '{v_targ}/mos_sdss_id_to_catalog-{num}.fits'
     environment: MOS_TARGET
     access:
-      in_sdss_access: false
-      path_name: null
-      path_template: null
-      path_kwargs: null
+      in_sdss_access: true
+      path_name: mos_target_sdss_id_to_catalog
+      path_template: $MOS_TARGET/{v_targ}/mos_sdss_id_to_catalog-{num}.fits
+      path_kwargs:
+      - v_targ
+      - num
       access_string: mos_target_sdss_id_to_catalog = $MOS_TARGET/{v_targ}/mos_sdss_id_to_catalog-{num}.fits
     survey: SDSS
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: Primary header
         is_image: true
         size: 0 bytes
         header:
@@ -56,7 +63,7 @@ releases:
           comment: ''
       hdu1:
         name: ''
-        description: replace me description
+        description: 'MOS Target table: mos_target_sdss_id_to_catalog'
         is_image: false
         size: 764 MB
         header:
@@ -154,163 +161,179 @@ releases:
           pk:
             name: pk
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The primary key. A sequential identifier for this table.
           sdss_id:
             name: sdss_id
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The SDSS identifier for a unique object.
           catalogid:
             name: catalogid
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The associated catalogid for this target. An sdss_id may
+              be associated with multiple catalogids (see dr19_sdss_id_flat).
           version_id:
             name: version_id
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The version of the cross-match associated with the catalogid.
           lead:
             name: lead
             type: char[26]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The parent catalog, in the cross-match sequence, that first
+              added this target.
           allstar_dr17_synspec_rev1__apstar_id:
             name: allstar_dr17_synspec_rev1__apstar_id
             type: char[58]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The associated primary key (apstar_id) in the allstar_dr17_synspec_rev1
+              table.
           allwise__cntr:
             name: allwise__cntr
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The associated primary key (cntr) in the allwise table.
           bhm_rm_v0__pk:
             name: bhm_rm_v0__pk
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The associated primary key (pk) in the bhm_rm_v0 table.
           bhm_rm_v0_2__pk:
             name: bhm_rm_v0_2__pk
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The associated primary key (pk) in the bhm_rm_v0_2 table.
           catwise__source_id:
             name: catwise__source_id
             type: char[18]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The associated primary key (source_id) in the catwise table.
           catwise2020__source_id:
             name: catwise2020__source_id
             type: char[25]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The associated primary key (source_id) in the catwise2020
+              table.
           gaia_dr2_source__source_id:
             name: gaia_dr2_source__source_id
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The associated primary key (source_id) in the gaia_dr2_source
+              table.
           gaia_dr3_source__source_id:
             name: gaia_dr3_source__source_id
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The associated primary key (source_id) in the gaia_dr3_source
+              table.
           glimpse__pk:
             name: glimpse__pk
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The associated primary key (pk) in the glimpse table.
           guvcat__objid:
             name: guvcat__objid
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The associated primary key (objid) in the guvcat table.
           legacy_survey_dr10__ls_id:
             name: legacy_survey_dr10__ls_id
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The associated primary key (ls_id) in the legacy_survey_dr10
+              table.
           legacy_survey_dr8__ls_id:
             name: legacy_survey_dr8__ls_id
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The associated primary key (ls_id) in the legacy_survey_dr8
+              table.
           mangatarget__mangaid:
             name: mangatarget__mangaid
             type: char[8]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The associated primary key (mangaid) in the mangatarget table.
           marvels_dr11_star__starname:
             name: marvels_dr11_star__starname
             type: char[23]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The associated primary key (starname) in the marvels_dr11_star
+              table.
           marvels_dr12_star__pk:
             name: marvels_dr12_star__pk
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The associated primary key (pk) in the marvels_dr12_star
+              table.
           mastar_goodstars__mangaid:
             name: mastar_goodstars__mangaid
             type: char[22]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The associated primary key (mangaid) in the mastar_goodstars
+              table.
           panstarrs1__catid_objid:
             name: panstarrs1__catid_objid
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The associated primary key (catid_objid) in the panstarrs1
+              table.
           ps1_g18__objid:
             name: ps1_g18__objid
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The associated primary key (objid) in the ps1_g18 table.
           sdss_dr13_photoobj__objid:
             name: sdss_dr13_photoobj__objid
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The associated primary key (objid) in the sdss_dr13_photoobj
+              table.
           sdss_dr17_specobj__specobjid:
             name: sdss_dr17_specobj__specobjid
             type: char[22]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The associated primary key (specobjid) in the sdss_dr17_specobj
+              table.
           skymapper_dr1_1__object_id:
             name: skymapper_dr1_1__object_id
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The associated primary key (object_id) in the skymapper_dr1_1
+              table.
           skymapper_dr2__object_id:
             name: skymapper_dr2__object_id
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The associated primary key (object_id) in the skymapper_dr2
+              table.
           supercosmos__objid:
             name: supercosmos__objid
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The associated primary key (objid) in the supercosmos table.
           tic_v8__id:
             name: tic_v8__id
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The associated primary key (id) in the tic_v8 table.
           twomass_psc__pts_key:
             name: twomass_psc__pts_key
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The associated primary key (pts_key) in the twomass_psc table.
           tycho2__designation:
             name: tycho2__designation
             type: char[12]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The associated primary key (designation) in the tycho2 table.
           unwise__unwise_objid:
             name: unwise__unwise_objid
             type: char[19]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The associated primary key (unwise_objid) in the unwise table.
 notes: |-
   None
 regrets: |-

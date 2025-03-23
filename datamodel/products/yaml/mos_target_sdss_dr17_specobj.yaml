@@ -1,7 +1,12 @@
 general:
   name: mos_target_sdss_dr17_specobj
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: 'MOS Target table: mos_target_sdss_dr17_specobj'
+  description: 'This table contains the list of all SDSS optical spectra for a given
+    data release, with associated parameters from the 2D and 1D pipelines for each.
+    The table contains both the BOSS and SDSS spectrograph data. The database representation
+    is derived from the flat file information described here: <a href="https://data.sdss.org/datamodel/files/SPECTRO_REDUX/specObj.html">https://data.sdss.org/datamodel/files/SPECTRO_REDUX/specObj.html</a>
+    Note: the order of the columns in this documentation may not match the order of
+    the columns in the database table.'
   datatype: FITS
   filesize: 1 GB
   releases:
@@ -9,11 +14,12 @@ general:
   environments:
   - MOS_TARGET
   surveys:
+  - BHM
+  - MWM
   - SDSS
-  naming_convention: replace me - with $MOS_TARGET/[V_TARG]/mos_sdss_dr17_specobj-[NUM].fits
-    or mos_sdss_dr17_specobj-1.fits but with regex pattern matches
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  naming_convention: $MOS_TARGET/[V_TARG]/mos_sdss_dr17_specobj.fits, where V_TARG=1.0.2
+    for DR19
+  generated_by: sdss5db> targetdb, operations database server
   data_level: 2.3.3
   design: false
   vac: false
@@ -29,16 +35,18 @@ releases:
     location: '{v_targ}/mos_sdss_dr17_specobj-{num}.fits'
     environment: MOS_TARGET
     access:
-      in_sdss_access: false
-      path_name: null
-      path_template: null
-      path_kwargs: null
+      in_sdss_access: true
+      path_name: mos_target_sdss_dr17_specobj
+      path_template: $MOS_TARGET/{v_targ}/mos_sdss_dr17_specobj-{num}.fits
+      path_kwargs:
+      - num
+      - v_targ
       access_string: mos_target_sdss_dr17_specobj = $MOS_TARGET/{v_targ}/mos_sdss_dr17_specobj-{num}.fits
     survey: SDSS
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: Primary header
         is_image: true
         size: 0 bytes
         header:
@@ -56,7 +64,7 @@ releases:
           comment: ''
       hdu1:
         name: ''
-        description: replace me description
+        description: 'MOS Target table: mos_target_sdss_dr17_specobj'
         is_image: false
         size: 1 GB
         header:
@@ -259,983 +267,1080 @@ releases:
           specobjid:
             name: specobjid
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Unique database ID based on PLATE, MJD, FIBERID, RUN2D (same
+              as SkyServer version)
           bestobjid:
             name: bestobjid
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Unique database ID of (recommended) position-based photometric
+              match based on RUN, RERUN, CAMCOl, FIELD, ID (same as SkyServer version)
           fluxobjid:
             name: fluxobjid
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Unique database ID of flux-based photometric match based
+              on RUN, RERUN, CAMCOl, FIELD, ID (same as SkyServer version)
           targetobjid:
             name: targetobjid
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Unique database ID of targeting object based on RUN, RERUN,
+              CAMCOl, FIELD, ID (same as SkyServer version)
           plateid:
             name: plateid
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Unique database ID of plate based on PLATE, MJD, RUN2D (same
+              as SkyServer version)
           scienceprimary:
             name: scienceprimary
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Set to 1 for primary observation of object, 0 otherwise
           sdssprimary:
             name: sdssprimary
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Set to 1 for primary SDSS spectrograph observation of object,
+              0 otherwise
           legacyprimary:
             name: legacyprimary
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Set to 1 for primary SDSS Legacy program observation of object,
+              0 otherwise
           segueprimary:
             name: segueprimary
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Set to 1 for primary SDSS SEGUE program observation of object
+              (including SEGUE-1 and SEGUE-2), 0 otherwise
           segue1primary:
             name: segue1primary
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Set to 1 for primary SDSS SEGUE-1 program observation of
+              object, 0 otherwise
           segue2primary:
             name: segue2primary
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Set to 1 for primary SDSS SEGUE-2 program observation of
+              object, 0 otherwise
           bossprimary:
             name: bossprimary
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Set to 1 for primary BOSS spectrograph observation of object,
+              0 otherwise
           bossspecobjid:
             name: bossspecobjid
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Identification number internal to BOSS for SPECBOSS=1 objects
           firstrelease:
             name: firstrelease
             type: char[4]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Name of first release this PLATE, MJD, FIBERID, RUN2D was
+              associated with
           survey:
             name: survey
             type: char[6]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Survey that this object is part of
           instrument:
             name: instrument
             type: char[4]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Instrument that this spectrum was observed with (SDSS or
+              BOSS)
           programname:
             name: programname
             type: char[23]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Program within each survey that the plate was part of
           chunk:
             name: chunk
             type: char[16]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Name of tiling chunk that this spectrum was tiled in (boss1,
+              boss2, etc), important for tracking large-scale structure samples
           platerun:
             name: platerun
             type: char[16]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Drilling run that this plate was drilled in
           mjd:
             name: mjd
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: day
+            description: Modified Julian Day of observation
           plate:
             name: plate
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Plate number (each plate corresponds to an actual plug plate)
           fiberid:
             name: fiberid
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Fiber number
           run1d:
             name: run1d
             type: char[7]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Spectroscopic 1D reduction (redshift and classification)
+              name
           run2d:
             name: run2d
             type: char[7]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Spectroscopic 2D reduction (extraction of spectra) name
           tile:
             name: tile
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Tile number (each tile can have several plates drilled for
+              it)
           designid:
             name: designid
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Design identification number for plate
           legacy_target1:
             name: legacy_target1
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Primary (science) target flags for SDSS-I and SDSS-II Legacy
+              survey
           legacy_target2:
             name: legacy_target2
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Secondary (calibration) target flags for SDSS-I and SDSS-II
+              Legacy survey
           special_target1:
             name: special_target1
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Primary (science) target flags for SDSS-I and SDSS-II special
+              program targets
           special_target2:
             name: special_target2
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Secondary (calibration) target flags for SDSS-I and SDSS-II
+              special program targets
           segue1_target1:
             name: segue1_target1
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Primary (science) target flags for SEGUE-1 targets
           segue1_target2:
             name: segue1_target2
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Secondary (calibration) target flags for SEGUE-1 targets
           segue2_target1:
             name: segue2_target1
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Primary (science) target flags for SEGUE-2 targets
           segue2_target2:
             name: segue2_target2
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Secondary (calibration) target flags for SEGUE-2 targets
           boss_target1:
             name: boss_target1
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Primary (science) target flags for BOSS targets
           eboss_target0:
             name: eboss_target0
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: SEQUELS, TDSS and SPIDERS target selection flags
           eboss_target1:
             name: eboss_target1
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: eBOSS, TDSS and SPIDERS target selection flags for main eBOSS
+              survey
           eboss_target2:
             name: eboss_target2
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: eBOSS, TDSS and SPIDERS target selection flags for main eBOSS
+              survey
           eboss_target_id:
             name: eboss_target_id
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: eBOSS unique target identifier for every spectroscopic target
           ancillary_target1:
             name: ancillary_target1
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Target flags for BOSS ancillary targets
           ancillary_target2:
             name: ancillary_target2
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: More target flags for BOSS ancillary targets
           thing_id_targeting:
             name: thing_id_targeting
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Resolve THING_ID in SDSS imaging for targeted object
           thing_id:
             name: thing_id
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Resolve THING_ID in SDSS imaging for best positional match
           primtarget:
             name: primtarget
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Deprecated version of primary (science) target flags (meanings
+              highly overloaded)
           sectarget:
             name: sectarget
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Deprecated version of secondary (calibration) target flags
+              (meanings highly overloaded)
           spectrographid:
             name: spectrographid
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Which spectrograph (1 or 2)
           sourcetype:
             name: sourcetype
             type: char[21]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: String expressing type of source (similar to OBJTYPE in DR8
+              and earlier)
           targettype:
             name: targettype
             type: char[8]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: General type of target ("SCIENCE", "STANDARD" or "SKY")
           ra:
             name: ra
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: degrees
+            description: Right ascension of hole (J2000)
           dec:
             name: dec
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: degrees
+            description: Declination of hole (J2000)
           cx:
             name: cx
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Position of object on J2000 unit sphere
           cy:
             name: cy
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Position of object on J2000 unit sphere
           cz:
             name: cz
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Position of object on J2000 unit sphere
           xfocal:
             name: xfocal
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mm
+            description: Hole position on plate (+X = +RA)
           yfocal:
             name: yfocal
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mm
+            description: Hole position on plate (+Y = +DEC)
           lambdaeff:
             name: lambdaeff
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Angstroms
+            description: Effective wavelength drilling position was optimized for
           bluefiber:
             name: bluefiber
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Set to 1 if this was requested to be a "blue fiber" target,
+              0 if it was a "red fiber" (in BOSS high redshift LRGs are requested
+              to be on red fibers)
           zoffset:
             name: zoffset
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: microns
+            description: Washer thickness used (for backstopping BOSS quasar targets,
+              so they are closer to 4000 Angstrom focal plan)
           z:
             name: z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Best redshift
           zerr:
             name: zerr
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Error in best redshift
           zwarning:
             name: zwarning
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Bitmask of spectroscopic warning values; 0 means everything
+              is OK
           class:
             name: class
             type: char[6]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Best spectroscopic classification ("STAR", "GALAXY" or "QSO")
           subclass:
             name: subclass
             type: char[21]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Best spectroscopic subclassification
           rchi2:
             name: rchi2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Reduced chi-squared of best fit
           dof:
             name: dof
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of degrees of freedom in best fit
           rchi2diff:
             name: rchi2diff
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Difference in reduced chi-squared between best and second
+              best fit
           z_noqso:
             name: z_noqso
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Best redshift when ignoring QSO fits, recommended for BOSS
+              CMASS and LOWZ targets; calculated only for survey='boss' spectra, not
+              for any SDSS spectrograph data
           zerr_noqso:
             name: zerr_noqso
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Error in Z_NOQSO redshift
           zwarning_noqso:
             name: zwarning_noqso
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: For Z_NOQSO redshift, the bitmask of spectroscopic warning
+              values; 0 means everything is OK
           class_noqso:
             name: class_noqso
             type: char[6]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Spectroscopic classification for Z_NOQSO redshift
           subclass_noqso:
             name: subclass_noqso
             type: char[21]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Spectroscopic subclassification for Z_NOQSO redshift
           rchi2diff_noqso:
             name: rchi2diff_noqso
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Difference in reduced chi-squared between best and second
+              best fit for Z_NOQSO redshift
           z_person:
             name: z_person
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Visual-inspection redshift
           class_person:
             name: class_person
             type: char[1]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Visual-inspection classification (0=not inspected or unknown,
+              1=star, 2=narrow emission-line galaxy, 3=QSO, 4=galaxy)
           comments_person:
             name: comments_person
             type: char[4]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Visual-inspection comments
           tfile:
             name: tfile
             type: char[24]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: File that best fit template comes from in idlspec1d product
           tcolumn_0:
             name: tcolumn_0
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 'Which column of the template file corresponds to template
+              #0'
           tcolumn_1:
             name: tcolumn_1
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 'Which column of the template file corresponds to template
+              #1'
           tcolumn_2:
             name: tcolumn_2
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 'Which column of the template file corresponds to template
+              #2'
           tcolumn_3:
             name: tcolumn_3
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 'Which column of the template file corresponds to template
+              #3'
           tcolumn_4:
             name: tcolumn_4
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 'Which column of the template file corresponds to template
+              #4'
           tcolumn_5:
             name: tcolumn_5
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 'Which column of the template file corresponds to template
+              #5'
           tcolumn_6:
             name: tcolumn_6
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 'Which column of the template file corresponds to template
+              #6'
           tcolumn_7:
             name: tcolumn_7
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 'Which column of the template file corresponds to template
+              #7'
           tcolumn_8:
             name: tcolumn_8
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 'Which column of the template file corresponds to template
+              #8'
           tcolumn_9:
             name: tcolumn_9
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 'Which column of the template file corresponds to template
+              #9'
           npoly:
             name: npoly
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of polynomial terms in fit
           theta_0:
             name: theta_0
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 'Template coefficients of best fit (polynomial term #0)'
           theta_1:
             name: theta_1
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 'Template coefficients of best fit (polynomial term #1)'
           theta_2:
             name: theta_2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 'Template coefficients of best fit (polynomial term #2)'
           theta_3:
             name: theta_3
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 'Template coefficients of best fit (polynomial term #3)'
           theta_4:
             name: theta_4
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 'Template coefficients of best fit (polynomial term #4)'
           theta_5:
             name: theta_5
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 'Template coefficients of best fit (polynomial term #5)'
           theta_6:
             name: theta_6
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 'Template coefficients of best fit (polynomial term #6)'
           theta_7:
             name: theta_7
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 'Template coefficients of best fit (polynomial term #7)'
           theta_8:
             name: theta_8
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 'Template coefficients of best fit (polynomial term #8)'
           theta_9:
             name: theta_9
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 'Template coefficients of best fit (polynomial term #9)'
           veldisp:
             name: veldisp
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: km/s
+            description: Velocity dispersion
           veldisperr:
             name: veldisperr
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: km/s
+            description: Error in velocity dispersion
           veldispz:
             name: veldispz
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Redshift associated with best-fit velocity dispersion
           veldispzerr:
             name: veldispzerr
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Error in redshift associated with best-fit velocity dispersion
           veldispchi2:
             name: veldispchi2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Chi-squared for best-fit velocity dispersion
           veldispnpix:
             name: veldispnpix
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of pixels overlapping the templates used in the velocity
+              dispersion fit
           veldispdof:
             name: veldispdof
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of degrees of freedom in velocity dispersion fit
           wavemin:
             name: wavemin
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Angstroms
+            description: Minimum observed (vacuum) wavelength
           wavemax:
             name: wavemax
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Angstroms
+            description: Maximum observed (vacuum) wavelength
           wcoverage:
             name: wcoverage
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Coverage in wavelength, in units of log10 wavelength
           snmedian_u:
             name: snmedian_u
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Median signal-to-noise per pixel within the u bandpass
           snmedian_g:
             name: snmedian_g
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Median signal-to-noise per pixel within the g bandpass
           snmedian_r:
             name: snmedian_r
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Median signal-to-noise per pixel within the r bandpass
           snmedian_i:
             name: snmedian_i
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Median signal-to-noise per pixel within the i bandpass
           snmedian_z:
             name: snmedian_z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Median signal-to-noise per pixel within the z bandpass
           snmedian:
             name: snmedian
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Median signal-to-noise per pixel across full spectrum (aka
+              SN_MEDIAN_ALL)
           chi68p:
             name: chi68p
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 68-th percentile value of abs(chi) of the best-fit synthetic
+              spectrum to the actual spectrum (around 1.0 for a good fit)
           fracnsigma_1:
             name: fracnsigma_1
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Fraction of pixels deviant by more than 1 sigma relative
+              to best-fit
           fracnsigma_2:
             name: fracnsigma_2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Fraction of pixels deviant by more than 2 sigma relative
+              to best-fit
           fracnsigma_3:
             name: fracnsigma_3
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Fraction of pixels deviant by more than 3 sigma relative
+              to best-fit
           fracnsigma_4:
             name: fracnsigma_4
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Fraction of pixels deviant by more than 4 sigma relative
+              to best-fit
           fracnsigma_5:
             name: fracnsigma_5
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Fraction of pixels deviant by more than 5 sigma relative
+              to best-fit
           fracnsigma_6:
             name: fracnsigma_6
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Fraction of pixels deviant by more than 6 sigma relative
+              to best-fit
           fracnsigma_7:
             name: fracnsigma_7
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Fraction of pixels deviant by more than 7 sigma relative
+              to best-fit
           fracnsigma_8:
             name: fracnsigma_8
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Fraction of pixels deviant by more than 8 sigma relative
+              to best-fit
           fracnsigma_9:
             name: fracnsigma_9
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Fraction of pixels deviant by more than 9 sigma relative
+              to best-fit
           fracnsigma_10:
             name: fracnsigma_10
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Fraction of pixels deviant by more than 10 sigma relative
+              to best-fit
           fracnsighi_1:
             name: fracnsighi_1
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Fraction of pixels high by more than 1 sigma relative to
+              best-fit
           fracnsighi_2:
             name: fracnsighi_2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Fraction of pixels high by more than 2 sigma relative to
+              best-fit
           fracnsighi_3:
             name: fracnsighi_3
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Fraction of pixels high by more than 3 sigma relative to
+              best-fit
           fracnsighi_4:
             name: fracnsighi_4
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Fraction of pixels high by more than 4 sigma relative to
+              best-fit
           fracnsighi_5:
             name: fracnsighi_5
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Fraction of pixels high by more than 5 sigma relative to
+              best-fit
           fracnsighi_6:
             name: fracnsighi_6
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Fraction of pixels high by more than 6 sigma relative to
+              best-fit
           fracnsighi_7:
             name: fracnsighi_7
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Fraction of pixels high by more than 7 sigma relative to
+              best-fit
           fracnsighi_8:
             name: fracnsighi_8
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Fraction of pixels high by more than 8 sigma relative to
+              best-fit
           fracnsighi_9:
             name: fracnsighi_9
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Fraction of pixels high by more than 9 sigma relative to
+              best-fit
           fracnsighi_10:
             name: fracnsighi_10
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Fraction of pixels high by more than 10 sigma relative to
+              best-fit
           fracnsiglo_1:
             name: fracnsiglo_1
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Fraction of pixels low by more than 1 sigma relative to best-fit
           fracnsiglo_2:
             name: fracnsiglo_2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Fraction of pixels low by more than 2 sigma relative to best-fit
           fracnsiglo_3:
             name: fracnsiglo_3
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Fraction of pixels low by more than 3 sigma relative to best-fit
           fracnsiglo_4:
             name: fracnsiglo_4
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Fraction of pixels low by more than 4 sigma relative to best-fit
           fracnsiglo_5:
             name: fracnsiglo_5
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Fraction of pixels low by more than 5 sigma relative to best-fit
           fracnsiglo_6:
             name: fracnsiglo_6
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Fraction of pixels low by more than 6 sigma relative to best-fit
           fracnsiglo_7:
             name: fracnsiglo_7
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Fraction of pixels low by more than 7 sigma relative to best-fit
           fracnsiglo_8:
             name: fracnsiglo_8
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Fraction of pixels low by more than 8 sigma relative to best-fit
           fracnsiglo_9:
             name: fracnsiglo_9
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Fraction of pixels low by more than 9 sigma relative to best-fit
           fracnsiglo_10:
             name: fracnsiglo_10
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Fraction of pixels low by more than 10 sigma relative to
+              best-fit
           spectroflux_u:
             name: spectroflux_u
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggies
+            description: Spectral flux within u filter bandpass
           spectroflux_g:
             name: spectroflux_g
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggies
+            description: Spectral flux within g filter bandpass
           spectroflux_r:
             name: spectroflux_r
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggies
+            description: Spectral flux within r filter bandpass
           spectroflux_i:
             name: spectroflux_i
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggies
+            description: Spectral flux within i filter bandpass
           spectroflux_z:
             name: spectroflux_z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggies
+            description: Spectral flux within z filter bandpass
           spectrosynflux_u:
             name: spectrosynflux_u
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggies
+            description: Spectral flux of best-fit template spectrum within u filter
+              bandpass
           spectrosynflux_g:
             name: spectrosynflux_g
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggies
+            description: Spectral flux of best-fit template spectrum within g filter
+              bandpass
           spectrosynflux_r:
             name: spectrosynflux_r
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggies
+            description: Spectral flux of best-fit template spectrum within r filter
+              bandpass
           spectrosynflux_i:
             name: spectrosynflux_i
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggies
+            description: Spectral flux of best-fit template spectrum within i filter
+              bandpass
           spectrosynflux_z:
             name: spectrosynflux_z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggies
+            description: Spectral flux of best-fit template spectrum within z filter
+              bandpass
           spectrofluxivar_u:
             name: spectrofluxivar_u
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggies^-2
+            description: Inverse variance of spectral flux within u filter bandpass
           spectrofluxivar_g:
             name: spectrofluxivar_g
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggies^-2
+            description: Inverse variance of spectral flux within g filter bandpass
           spectrofluxivar_r:
             name: spectrofluxivar_r
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggies^-2
+            description: Inverse variance of spectral flux within r filter bandpass
           spectrofluxivar_i:
             name: spectrofluxivar_i
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggies^-2
+            description: Inverse variance of spectral flux within i filter bandpass
           spectrofluxivar_z:
             name: spectrofluxivar_z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggies^-2
+            description: Inverse variance of spectral flux within z filter bandpass
           spectrosynfluxivar_u:
             name: spectrosynfluxivar_u
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggies^-2
+            description: Inverse variance of spectral flux of best-fit template spectrum
+              within u filter bandpass
           spectrosynfluxivar_g:
             name: spectrosynfluxivar_g
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggies^-2
+            description: Inverse variance of spectral flux of best-fit template spectrum
+              within g filter bandpass
           spectrosynfluxivar_r:
             name: spectrosynfluxivar_r
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggies^-2
+            description: Inverse variance of spectral flux of best-fit template spectrum
+              within r filter bandpass
           spectrosynfluxivar_i:
             name: spectrosynfluxivar_i
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggies^-2
+            description: Inverse variance of spectral flux of best-fit template spectrum
+              within i filter bandpass
           spectrosynfluxivar_z:
             name: spectrosynfluxivar_z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggies^-2
+            description: Inverse variance of spectral flux of best-fit template spectrum
+              within z filter bandpass
           spectroskyflux_u:
             name: spectroskyflux_u
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggies
+            description: Sky flux in the u filter bandpass
           spectroskyflux_g:
             name: spectroskyflux_g
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggies
+            description: Sky flux in the g filter bandpass
           spectroskyflux_r:
             name: spectroskyflux_r
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggies
+            description: Sky flux in the r filter bandpass
           spectroskyflux_i:
             name: spectroskyflux_i
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggies
+            description: Sky flux in the i filter bandpass
           spectroskyflux_z:
             name: spectroskyflux_z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggies
+            description: Sky flux in the z filter bandpass
           anyandmask:
             name: anyandmask
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: For each bit, records whether any pixel in the spectrum has
+              that bit set in its ANDMASK
           anyormask:
             name: anyormask
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: For each bit, records whether any pixel in the spectrum has
+              that bit set in its ORMASK
           platesn2:
             name: platesn2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Overall signal-to-noise-squared measure for plate (only for
+              SDSS spectrograph plates)
           deredsn2:
             name: deredsn2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Dereddened overall signal-to-noise-squared measure for plate
+              (only for BOSS spectrograph plates)
           snturnoff:
             name: snturnoff
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Signal to noise measure for MS turnoff stars on plate (-9999
+              if not appropriate)
           sn1_g:
             name: sn1_g
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 'Signal-to-noise squared for spectrograph #1, at fiducial
+              (psf)magnitude g=20.20 for SDSS spectrograph spectra, g=21.20 for BOSS
+              spectrograph spectra'
           sn1_r:
             name: sn1_r
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 'Signal-to-noise squared for spectrograph #1, at fiducial
+              (psf)magnitude r=20.25 for SDSS spectrograph spectra, r=20.20 for BOSS
+              spectrograph spectra'
           sn1_i:
             name: sn1_i
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 'Signal-to-noise squared for spectrograph #1, at fiducial
+              (psf)magnitude i=19.90 for SDSS spectrograph spectra, i=20.20 for BOSS
+              spectrograph spectra'
           sn2_g:
             name: sn2_g
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 'Signal-to-noise squared for spectrograph #2, at fiducial
+              (psf)magnitude g=20.20 for SDSS spectrograph spectra, g=21.20 for BOSS
+              spectrograph spectra'
           sn2_r:
             name: sn2_r
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 'Signal-to-noise squared for spectrograph #2, at fiducial
+              (psf)magnitude r=20.25 for SDSS spectrograph spectra, r=20.20 for BOSS
+              spectrograph spectra'
           sn2_i:
             name: sn2_i
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 'Signal-to-noise squared for spectrograph #2, at fiducial
+              (psf)magnitude i=19.90 for SDSS spectrograph spectra, i=20.20 for BOSS
+              spectrograph spectra'
           elodiefilename:
             name: elodiefilename
             type: char[25]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: File name for best-fit ELODIE star
           elodieobject:
             name: elodieobject
             type: char[21]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Star name for ELODIE star
           elodiesptype:
             name: elodiesptype
             type: char[10]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: ELODIE star spectral type
           elodiebv:
             name: elodiebv
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: (B-V) color index for ELODIE star
           elodieteff:
             name: elodieteff
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Kelvin
+            description: Effective temperature of ELODIE star
           elodielogg:
             name: elodielogg
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: log10(gravity) of ELODIE star
           elodiefeh:
             name: elodiefeh
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Metallicity of ELODIE star log10(Fe/H)
           elodiez:
             name: elodiez
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Redshift fit to ELODIE star
           elodiezerr:
             name: elodiezerr
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Error in redshift fit to ELODIE star
           elodiezmodelerr:
             name: elodiezmodelerr
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Standard deviation in redshift among the 12 best-fit ELODIE
+              stars
           elodierchi2:
             name: elodierchi2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Reduced chi-squared of fit to best ELODIE star
           elodiedof:
             name: elodiedof
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Degrees of freedom in fit to best ELODIE star
           htmid:
             name: htmid
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 20 deep Hierarchical Triangular Mesh ID
           loadversion:
             name: loadversion
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Load Version
           bestobjid_bigint:
             name: bestobjid_bigint
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: integer representation of bestobjid
           fluxobjid_bigint:
             name: fluxobjid_bigint
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: integer representation of fluxobjid
 notes: |-
   None
 regrets: |-
