@@ -1,7 +1,7 @@
 general:
   name: apMADGICS_out
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: Output file containing MADGICS component spectra, which represents the contribution of a given component to a visit spectrum. 
+  description: Output file containing MADGICS component spectra, which represents the contribution of a given component to a visit spectrum.
   datatype: H5
   filesize: 171 GB
   releases:
@@ -10,17 +10,14 @@ general:
   - MWM_SANDBOX
   surveys:
   - MWM
-  naming_convention: replace me - with $MWM_SANDBOX/apMADGICS/[VERS]/outdir_[STAR_PRIOR_TYPE]/apMADGICS_out_[COMPONENT_NAME]_[MODEL_VERSION].h5
-    or apMADGICS_out_x_starLines_v0.h5 but with regex pattern matches
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  naming_convention: $MWM_SANDBOX/apMADGICS/[VERS]/outdir_[STAR_PRIOR_TYPE]/apMADGICS_out_[COMPONENT_NAME]_[MODEL_VERSION].h5
+  generated_by: https://github.com/andrew-saydjari/apMADGICS.jl
   data_level: 3.2
   design: false
   vac: true
   recommended_science_product: false
 changelog:
-  description: Describes changes to the datamodel product and/or file structure from
-    one release to another
+  description: Initial commit
   releases: {}
 releases:
   DR19:
@@ -39,7 +36,7 @@ releases:
       name: /
       parent: /
       object: group
-      description: replace me - with a description of this group
+      description: MADGICS spectrum output file
       libver: !!python/tuple
       - earliest
       - v114
@@ -51,23 +48,23 @@ releases:
           name: hdr
           parent: /
           object: dataset
-          description: replace me - with a description of this dataset
+          description: header dataset used to hold global attributes of the file
           attrs:
           - key: git_branch
             value: b'2024_03_16'
-            comment: replace me - with a description of this attribute
+            comment: name of the git_branch of apMADGICS that produced these set of component spectra
             dtype: '|S10'
             is_empty: false
             shape: !!python/tuple []
           - key: git_commit
             value: b'9035b0626e8eb53a5a06de5be462603ae5574e82'
-            comment: replace me - with a description of this attribute
+            comment: git commit hash to specify the exact version of the apMADGICS.jl code that produced these set of component spectra
             dtype: '|S40'
             is_empty: false
             shape: !!python/tuple []
           - key: pipeline
             value: b'apMADGICS.jl'
-            comment: replace me - with a description of this attribute
+            comment: name of the codebase that produced these component spectra
             dtype: '|S12'
             is_empty: false
             shape: !!python/tuple []
@@ -79,10 +76,10 @@ releases:
           is_virtual: false
           is_empty: false
         x_starLines_v0:
-          name: x_starLines_v0
+          name: x_{component_name}_{model_version}
           parent: /
           object: dataset
-          description: replace me - with a description of this dataset
+          description: The contribution of a component to a given visit spectrum. The component is specified by {component_name} (e.g. starLines) and {model_version} (e.g. v0), where the latter indicates which model (set of components) were being used to describe the visit spetrum. The first axis has one entry per visit and the second axis (8700) is the wavelength axis. 
           attrs: []
           shape: !!python/tuple
           - 2641032
@@ -96,4 +93,4 @@ releases:
 notes: |-
   None
 regrets: |-
-  I  have no regrets!
+  None
