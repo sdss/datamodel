@@ -1,4 +1,4 @@
-# Data Model: astraBest
+# Data Model: astraMWMLite
 
 
 Parameters and elemental abundances for each star obtained by combining results from various pipelines.
@@ -16,7 +16,7 @@ Parameters and elemental abundances for each star obtained by combining results 
 Parameters and elemental abundances for each target obtained by combining results from various pipelines.
 
 ### Naming Convention
-$MWM_ASTRA/0.6.0/summary/astraBest-0.6.0.fits.gz
+$MWM_ASTRA/0.6.0/summary/astraMWMLite-0.6.0.fits.gz
 
 ### Releases
 DR19
