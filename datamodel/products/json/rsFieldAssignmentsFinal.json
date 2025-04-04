@@ -50,7 +50,10 @@
     ],
     "naming_convention": "$ROBOSTRATEGY_DATA/allocations/[PLAN]/final/rsFieldAssignmentsFinal-[PLAN]-[OBSERVATORY]-[FIELDID].fits",
     "generated_by": "robostrategy",
-    "design": false
+    "design": false,
+    "vac": false,
+    "recommended_science_product": false,
+    "data_level": "2.3.3"
   },
   "changelog": {
     "description": "Describes changes to the datamodel product and/or file structure from one release to another",
@@ -59,7 +62,7 @@
   "releases": {
     "WORK": {
       "template": "$ROBOSTRATEGY_DATA/allocations/[PLAN]/final/rsFieldAssignmentsFinal-[PLAN]-[OBSERVATORY]-[FIELDID].fits",
-      "example": "allocations/epsilon/final/rsFieldAssignmentsFinal-epsilon-7-core-0-apo-1.fits",
+      "example": "allocations/theta-3/final/rsFieldAssignmentsFinal-theta-3-lco-111111.fits",
       "location": "allocations/{plan}/final/rsFieldAssignmentsFinal-{plan}-{observatory}-{fieldid}.fits",
       "environment": "ROBOSTRATEGY_DATA",
       "survey": "SDSS",
@@ -68,9 +71,9 @@
         "path_name": "rsFieldAssignmentsFinal",
         "path_template": "$ROBOSTRATEGY_DATA/allocations/{plan}/final/rsFieldAssignmentsFinal-{plan}-{observatory}-{fieldid}.fits",
         "path_kwargs": [
-          "observatory",
+          "fieldid",
           "plan",
-          "fieldid"
+          "observatory"
         ],
         "access_string": "rsFieldAssignmentsFinal = $ROBOSTRATEGY_DATA/allocations/{plan}/final/rsFieldAssignmentsFinal-{plan}-{observatory}-{fieldid}.fits"
       },
@@ -324,8 +327,8 @@
             },
             "magnitude": {
               "name": "MAGNITUDE",
-              "description": "Array of magnitudes (g, r, i, BP, G, RP, H)",
-              "type": "float32[7]",
+              "description": "Array of magnitudes (g, r, i, z, BP, G, RP, J, H, K)",
+              "type": "float32[10]",
               "unit": "mag"
             },
             "carton": {
@@ -552,26 +555,26 @@
             },
             "boss_stds_mags": {
               "name": "BOSS_STDS_MAGS",
-              "description": "Minimum and maximum magnitude for BOSS standard in (g, r, i, BP, G, RP, H)",
-              "type": "float64[7, 2]",
+              "description": "Minimum and maximum magnitude for BOSS standard in (g, r, i, z, BP, G, RP, J, H, K)",
+              "type": "float64[10, 2]",
               "unit": "mag"
             },
             "apogee_stds_mags": {
               "name": "APOGEE_STDS_MAGS",
-              "description": "Minimum and maximum magnitude for APOGEE standard in (g, r, i, BP, G, RP, H)",
-              "type": "float64[7, 2]",
+              "description": "Minimum and maximum magnitude for APOGEE standard in (g, r, i, z, BP, G, RP, J, H, K)",
+              "type": "float64[10, 2]",
               "unit": "mag"
             },
             "boss_bright_limit_targets": {
               "name": "BOSS_BRIGHT_LIMIT_TARGETS",
-              "description": "Minimum and maximum magnitude for BOSS target in (g, r, i, BP, G, RP, H)",
-              "type": "float64[7, 2]",
+              "description": "Minimum and maximum magnitude for BOSS target in (g, r, i, z, BP, G, RP, J, H, K)",
+              "type": "float64[10, 2]",
               "unit": "mag"
             },
             "apogee_bright_limit_targets": {
               "name": "APOGEE_BRIGHT_LIMIT_TARGETS",
-              "description": "Minimum and maximum magnitude for APOGEE target in (g, r, i, BP, G, RP, H)",
-              "type": "float64[7, 2]",
+              "description": "Minimum and maximum magnitude for APOGEE target in (g, r, i, z, BP, G, RP, J, H, K)",
+              "type": "float64[10, 2]",
               "unit": "mag"
             },
             "boss_sky_neighbors_targets": {
@@ -655,5 +658,7 @@
       "par": null,
       "hdfs": null
     }
-  }
+  },
+  "notes": "None",
+  "regrets": "I have no regrets!"
 }
