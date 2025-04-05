@@ -36,6 +36,9 @@ WDparams, https://github.com/nicolecrumpler0230/WDparams
 ### Is a VAC
 False
 
+### Data Level
+2.3.3
+
 ### HDUS List for release DR19
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1](#hdu1)
@@ -76,11 +79,11 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | binary table extension |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
-| NAXIS1 | 1902 | length of dimension 1 |
+| NAXIS1 | 1935 | length of dimension 1 |
 | NAXIS2 | 25415 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
-| TFIELDS | 240 | number of table fields |
+| TFIELDS | 245 | number of table fields |
 | TNULL1 | 999999 |  |
 | TNULL2 | 999999 |  |
 | TNULL3 | 999999 |  |
@@ -336,6 +339,11 @@ Name | Type | Unit | Description |
  | rv_corv_asym_corr | float64 | km/s | Measured coadded spectrum radial velocity, corrected to the LSR and for asymmetric drift, only for WDs used in the Crumpler et. al temperature dependence detection |
  | asym_corr | float64 | km/s | Applied asymmetric drift correction, only for WDs used in the Crumpler et. al temperature dependence detection |
  | tempdep_catalog_flag | bool |  | Flag indicating whether WD was used in the Crumpler et. al temperature dependence detection |
+ | eta | float64 |  | Logarithm of the probability that the observed apparent radial velocity variation is random noise |
+ | ruwe | float64 |  | Gaia Renormalised Unit Weight Error (RUWE) |
+ | binary_flag | float64 |  | Flag indicating whether the WD is a potential binary, 0= No evidence for binarity, 1= Evidence for binarity from apparent radial velocity variation, 2= Evidence for binarity from Gaia RUWE, 3= Evidence for binarity from both apparent radial velocity variation and RUWE |
+ | speed_lsr | float64 | km/s | WD total speed relative to the LSR |
+ | thin_disk_flag | bool |  | Flag indicating whether WD likely belongs to thin disk |
 
 
 
