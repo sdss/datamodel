@@ -1,7 +1,7 @@
 general:
-  name: apMADGICS_out_p5deltachi2_lv
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  name: apMADGICS_out_p5deltachi2_lvl
+  short: Delta chi2 surface from a prior scan in apMADGICS 
+  description: A delta chi2 surface produced by apMADGICS from scanning a prior for a given component across a small parameter subspace.
   datatype: H5
   filesize: 1 GB
   releases:
@@ -10,17 +10,14 @@ general:
   - APMADGICS
   surveys:
   - SDSS
-  naming_convention: replace me - with $APMADGICS/[VERS]/outdir_wu_[STAR_PRIOR_TYPE]/apMADGICS_out_[SCAN_TYPE]_p5delchi2_lvl[SCAN_REFINEMENT_LEVEL_NUMBER]_[DIB_MODEL].h5
-    or apMADGICS_out_DIB_p5delchi2_lvl1_1_15273.h5 but with regex pattern matches
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  naming_convention: $APMADGICS/[VERS]/outdir_wu_[STAR_PRIOR_TYPE]/apMADGICS_out_[SCAN_TYPE]_p5delchi2_lvl[SCAN_REFINEMENT_LEVEL_NUMBER]_[DIB_MODEL].h5
+  generated_by: https://github.com/andrew-saydjari/apMADGICS.jl
   data_level: 3.3.0
   design: false
   vac: true
   recommended_science_product: false
 changelog:
-  description: Describes changes to the datamodel product and/or file structure from
-    one release to another
+  description:
   releases: {}
 releases:
   DR19:
@@ -30,7 +27,7 @@ releases:
     environment: APMADGICS
     access:
       in_sdss_access: true
-      path_name: apMADGICS_out_p5deltachi2_lv
+      path_name: apMADGICS_out_p5deltachi2_lvl
       path_template: $APMADGICS/{vers}/output_wu_{star_prior_type}/apMADGICS_out_{scan_type}_p5delchi2_lvl{scan_refinement_level_number}_{dib_model
         | None}.h5
       path_kwargs:
@@ -45,7 +42,7 @@ releases:
       name: /
       parent: /
       object: group
-      description: replace me - with a description of this group
+      description: dataset
       libver: !!python/tuple
       - earliest
       - v114
@@ -57,7 +54,7 @@ releases:
           name: DIB_p5delchi2_lvl1_1_15273
           parent: /
           object: dataset
-          description: replace me - with a description of this dataset
+          description: delta chi2 surface
           attrs: []
           shape: !!python/tuple
           - 2641032
@@ -73,23 +70,23 @@ releases:
           name: hdr
           parent: /
           object: dataset
-          description: replace me - with a description of this dataset
+          description: meta data header
           attrs:
           - key: git_branch
             value: b'2024_03_16'
-            comment: replace me - with a description of this attribute
+            comment: name of the git_branch of apMADGICS that produced these delta chi2 surfaces
             dtype: '|S10'
             is_empty: false
             shape: !!python/tuple []
           - key: git_commit
             value: b'9035b0626e8eb53a5a06de5be462603ae5574e82'
-            comment: replace me - with a description of this attribute
+            comment: git commit hash to specify the exact version of the apMADGICS.jl code that produced these set of component spectra
             dtype: '|S40'
             is_empty: false
             shape: !!python/tuple []
           - key: pipeline
             value: b'apMADGICS.jl'
-            comment: replace me - with a description of this attribute
+            comment: name of the codebase that produced these component spectra
             dtype: '|S12'
             is_empty: false
             shape: !!python/tuple []
