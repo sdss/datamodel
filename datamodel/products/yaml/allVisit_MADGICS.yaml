@@ -3,22 +3,21 @@ general:
   short: replace me - with a short one sentence summary of file
   description: replace me - with a longer description of the data product
   datatype: FITS
-  filesize: 1 GB
+  filesize: 2 GB
   releases:
   - DR19
   environments:
-  - APMADGICS_DIR
   - APMADGICS
   surveys:
-  - SDSS
-  naming_convention: replace me - with $APMADGICS_DIR/[VERS]/outdir_wu_[STAR_PRIOR_TYPE]/allVisit_MADGICS_[VERS]_[STAR_PRIOR_TYPE].fits
-    or allVisit_MADGICS_v2024_03_16_th.fits but with regex pattern matches
+  - MWM 
+  naming_convention: $APMADGICS/[VERS]/outdir_wu_[STAR_PRIOR_TYPE]/allVisit_MADGICS_[VERS]_[STAR_PRIOR_TYPE].fits
+    where VERS = "v2024_03_16_th" for DR19 and STAR_PRIOR_TYPE has one of the values ["th", "dd"]
   generated_by: replace me - with the name(s) of any git or svn product(s) that produces
     this product.
   data_level: 3.3.0
   design: false
-  vac: false
-  recommended_science_product: false
+  vac: true
+  recommended_science_product: true
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
@@ -34,8 +33,8 @@ releases:
       path_name: allVisit_MADGICS
       path_template: $APMADGICS/{vers}/outdir_wu_{star_prior_type}/allVisit_MADGICS_{vers}_{star_prior_type}.fits
       path_kwargs:
-      - star_prior_type
       - vers
+      - star_prior_type
       access_string: allVisit_MADGICS = $APMADGICS/{vers}/outdir_wu_{star_prior_type}/allVisit_MADGICS_{vers}_{star_prior_type}.fits
     survey: SDSS
     hdus:
@@ -67,7 +66,7 @@ releases:
         name: ''
         description: replace me description
         is_image: false
-        size: 1 GB
+        size: 2 GB
         header:
         - key: XTENSION
           value: BINTABLE
@@ -79,10 +78,10 @@ releases:
           value: 2
           comment: 2-dimensional binary table
         - key: NAXIS1
-          value: 786
+          value: 875
           comment: width of table in bytes
         - key: NAXIS2
-          value: 2641032
+          value: 2618012
           comment: number of rows in table
         - key: PCOUNT
           value: 0
@@ -91,7 +90,7 @@ releases:
           value: 1
           comment: one data group (required keyword)
         - key: TFIELDS
-          value: 100
+          value: 113
           comment: number of fields in each row
         - key: TDIM1
           value: (1)
@@ -220,13 +219,13 @@ releases:
           value: (1)
           comment: size of the multidimensional array
         - key: TDIM43
-          value: (12)
+          value: (1)
           comment: size of the multidimensional array
         - key: TDIM44
           value: (1)
           comment: size of the multidimensional array
         - key: TDIM45
-          value: (1)
+          value: (12)
           comment: size of the multidimensional array
         - key: TDIM46
           value: (1)
@@ -304,7 +303,7 @@ releases:
           value: (1)
           comment: size of the multidimensional array
         - key: TDIM71
-          value: (19)
+          value: (1)
           comment: size of the multidimensional array
         - key: TDIM72
           value: (1)
@@ -331,7 +330,7 @@ releases:
           value: (1)
           comment: size of the multidimensional array
         - key: TDIM80
-          value: (1)
+          value: (19)
           comment: size of the multidimensional array
         - key: TDIM81
           value: (1)
@@ -346,7 +345,7 @@ releases:
           value: (1)
           comment: size of the multidimensional array
         - key: TDIM85
-          value: (6)
+          value: (1)
           comment: size of the multidimensional array
         - key: TDIM86
           value: (1)
@@ -373,10 +372,10 @@ releases:
           value: (1)
           comment: size of the multidimensional array
         - key: TDIM94
-          value: (19)
+          value: (1)
           comment: size of the multidimensional array
         - key: TDIM95
-          value: (1)
+          value: (6)
           comment: size of the multidimensional array
         - key: TDIM96
           value: (1)
@@ -391,6 +390,45 @@ releases:
           value: (1)
           comment: size of the multidimensional array
         - key: TDIM100
+          value: (1)
+          comment: size of the multidimensional array
+        - key: TDIM101
+          value: (1)
+          comment: size of the multidimensional array
+        - key: TDIM102
+          value: (1)
+          comment: size of the multidimensional array
+        - key: TDIM103
+          value: (1)
+          comment: size of the multidimensional array
+        - key: TDIM104
+          value: (1)
+          comment: size of the multidimensional array
+        - key: TDIM105
+          value: (1)
+          comment: size of the multidimensional array
+        - key: TDIM106
+          value: (1)
+          comment: size of the multidimensional array
+        - key: TDIM107
+          value: (19)
+          comment: size of the multidimensional array
+        - key: TDIM108
+          value: (1)
+          comment: size of the multidimensional array
+        - key: TDIM109
+          value: (1)
+          comment: size of the multidimensional array
+        - key: TDIM110
+          value: (1)
+          comment: size of the multidimensional array
+        - key: TDIM111
+          value: (1)
+          comment: size of the multidimensional array
+        - key: TDIM112
+          value: (1)
+          comment: size of the multidimensional array
+        - key: TDIM113
           value: (1)
           comment: size of the multidimensional array
         columns:
@@ -454,33 +492,33 @@ releases:
             type: float64[1]
             unit: replace me - with content
             description: label for field  12
+          EW_dib:
+            name: EW_dib
+            type: float64[1]
+            unit: replace me - with content
+            description: label for field  13
           skyscale1:
             name: skyscale1
             type: float64[1]
             unit: replace me - with content
-            description: label for field  13
+            description: label for field  14
           DIB_sigval_disc_final_2_15273:
             name: DIB_sigval_disc_final_2_15273
             type: float64[1]
             unit: replace me - with content
-            description: label for field  14
+            description: label for field  15
           RV_verr:
             name: RV_verr
             type: float64[1]
             unit: replace me - with content
-            description: label for field  15
+            description: label for field  16
           data_pix_cnt:
             name: data_pix_cnt
             type: int64[1]
             unit: replace me - with content
-            description: label for field  16
+            description: label for field  17
           b_relFlux:
             name: b_relFlux
-            type: float64[1]
-            unit: replace me - with content
-            description: label for field  17
-          RV_helio:
-            name: RV_helio
             type: float64[1]
             unit: replace me - with content
             description: label for field  18
@@ -499,401 +537,466 @@ releases:
             type: float64[1]
             unit: replace me - with content
             description: label for field  21
+          dib_snr:
+            name: dib_snr
+            type: float64[1]
+            unit: replace me - with content
+            description: label for field  22
           DRP_SNR:
             name: DRP_SNR
             type: float32[1]
             unit: replace me - with content
-            description: label for field  22
+            description: label for field  23
           DIBchi2_residuals_2_15273:
             name: DIBchi2_residuals_2_15273
             type: float64[1]
             unit: replace me - with content
-            description: label for field  23
+            description: label for field  24
           EW_dib_3_15672:
             name: EW_dib_3_15672
             type: float64[1]
             unit: replace me - with content
-            description: label for field  24
+            description: label for field  25
+          DIB_v_LSR_COframe:
+            name: DIB_v_LSR_COframe
+            type: float64[1]
+            unit: replace me - with content
+            description: label for field  26
           fluxerr2_nans:
             name: fluxerr2_nans
             type: int64[1]
             unit: replace me - with content
-            description: label for field  25
+            description: label for field  27
           GX:
             name: GX
             type: float64[1]
             unit: replace me - with content
-            description: label for field  26
+            description: label for field  28
           RV_vel:
             name: RV_vel
             type: float64[1]
             unit: replace me - with content
-            description: label for field  27
+            description: label for field  29
           DIB_sigval_disc_final_3_15672:
             name: DIB_sigval_disc_final_3_15672
             type: float64[1]
             unit: replace me - with content
-            description: label for field  28
+            description: label for field  30
           RV_pixoff_final:
             name: RV_pixoff_final
             type: float64[1]
             unit: replace me - with content
-            description: label for field  29
-          SDSS_ID:
-            name: SDSS_ID
-            type: int64[1]
-            unit: replace me - with content
-            description: label for field  30
+            description: label for field  31
           RVchi2_residuals:
             name: RVchi2_residuals
             type: float64[1]
             unit: replace me - with content
-            description: label for field  31
+            description: label for field  32
           map2madgics:
             name: map2madgics
             type: int64[1]
             unit: replace me - with content
-            description: label for field  32
+            description: label for field  33
           DIB_pixoff_disc_final_3_15672:
             name: DIB_pixoff_disc_final_3_15672
             type: float64[1]
             unit: replace me - with content
-            description: label for field  33
+            description: label for field  34
           DIB_pixoff_final_3_15672:
             name: DIB_pixoff_final_3_15672
             type: float64[1]
             unit: replace me - with content
-            description: label for field  34
+            description: label for field  35
           DIBchi2_residuals_3_15672:
             name: DIBchi2_residuals_3_15672
             type: float64[1]
             unit: replace me - with content
-            description: label for field  35
+            description: label for field  36
           DIB_pixoff_disc_final_4_15672:
             name: DIB_pixoff_disc_final_4_15672
             type: float64[1]
             unit: replace me - with content
-            description: label for field  36
+            description: label for field  37
           DIB_flag_1_15273:
             name: DIB_flag_1_15273
             type: int64[1]
             unit: replace me - with content
-            description: label for field  37
+            description: label for field  38
           c_relFlux:
             name: c_relFlux
             type: float64[1]
             unit: replace me - with content
-            description: label for field  38
+            description: label for field  39
           DR17_VSINI:
             name: DR17_VSINI
             type: float32[1]
             unit: replace me - with content
-            description: label for field  39
+            description: label for field  40
           GLAT:
             name: GLAT
             type: float64[1]
             unit: replace me - with content
-            description: label for field  40
+            description: label for field  41
           DIB_pixoff_final_1_15273:
             name: DIB_pixoff_final_1_15273
             type: float64[1]
             unit: replace me - with content
-            description: label for field  41
+            description: label for field  42
           GAIAEDR3_R_MED_GEO:
             name: GAIAEDR3_R_MED_GEO
             type: float32[1]
             unit: replace me - with content
-            description: label for field  42
+            description: label for field  43
+          DIB_sig:
+            name: DIB_sig
+            type: float64[1]
+            unit: replace me - with content
+            description: label for field  44
           PLATE:
             name: PLATE
             type: char[12]
             unit: replace me - with content
-            description: label for field  43
+            description: label for field  45
           DRP_STARFLAG:
             name: DRP_STARFLAG
             type: int64[1]
             unit: replace me - with content
-            description: label for field  44
+            description: label for field  46
           DIBchi2_residuals_1_15273:
             name: DIBchi2_residuals_1_15273
             type: float64[1]
             unit: replace me - with content
-            description: label for field  45
+            description: label for field  47
           tot_p5chi2_v0:
             name: tot_p5chi2_v0
             type: float64[1]
             unit: replace me - with content
-            description: label for field  46
+            description: label for field  48
           flux_nans:
             name: flux_nans
             type: int64[1]
             unit: replace me - with content
-            description: label for field  47
+            description: label for field  49
+          DIB_sig_err:
+            name: DIB_sig_err
+            type: float64[1]
+            unit: replace me - with content
+            description: label for field  50
           starscale1:
             name: starscale1
             type: float64[1]
             unit: replace me - with content
-            description: label for field  48
+            description: label for field  51
           DIB_sigval_final_2_15273:
             name: DIB_sigval_final_2_15273
             type: float64[1]
             unit: replace me - with content
-            description: label for field  49
+            description: label for field  52
           DRP_VRELERR:
             name: DRP_VRELERR
             type: float64[1]
             unit: replace me - with content
-            description: label for field  50
+            description: label for field  53
           map2visit:
             name: map2visit
             type: int64[1]
             unit: replace me - with content
-            description: label for field  51
+            description: label for field  54
           EW_dib_1_15273:
             name: EW_dib_1_15273
             type: float64[1]
             unit: replace me - with content
-            description: label for field  52
+            description: label for field  55
+          RV_bary_offcor:
+            name: RV_bary_offcor
+            type: float64[1]
+            unit: replace me - with content
+            description: label for field  56
           adjfiberindx:
             name: adjfiberindx
             type: int64[1]
             unit: replace me - with content
-            description: label for field  53
+            description: label for field  57
           frame_counts:
             name: frame_counts
             type: int64[1]
             unit: replace me - with content
-            description: label for field  54
+            description: label for field  58
           DIB_minchi2_final_3_15672:
             name: DIB_minchi2_final_3_15672
             type: float64[1]
             unit: replace me - with content
-            description: label for field  55
+            description: label for field  59
           RV_minchi2_final:
             name: RV_minchi2_final
             type: float64[1]
             unit: replace me - with content
-            description: label for field  56
+            description: label for field  60
           DIB_pixoff_final_4_15672:
             name: DIB_pixoff_final_4_15672
             type: float64[1]
             unit: replace me - with content
-            description: label for field  57
+            description: label for field  61
           RA:
             name: RA
             type: float64[1]
             unit: replace me - with content
-            description: label for field  58
+            description: label for field  62
           DR17_X_H:
             name: DR17_X_H
             type: float32[1]
             unit: replace me - with content
-            description: label for field  59
+            description: label for field  63
           GY:
             name: GY
             type: float64[1]
             unit: replace me - with content
-            description: label for field  60
+            description: label for field  64
           tot_p5chi2_v1_3_15672:
             name: tot_p5chi2_v1_3_15672
             type: float64[1]
             unit: replace me - with content
-            description: label for field  61
+            description: label for field  65
           tot_p5chi2_v1_4_15672:
             name: tot_p5chi2_v1_4_15672
             type: float64[1]
             unit: replace me - with content
-            description: label for field  62
+            description: label for field  66
           DIB_minchi2_final_4_15672:
             name: DIB_minchi2_final_4_15672
             type: float64[1]
             unit: replace me - with content
-            description: label for field  63
+            description: label for field  67
+          mskDIB:
+            name: mskDIB
+            type: bool[1]
+            unit: replace me - with content
+            description: label for field  68
+          DIB_v_LSR:
+            name: DIB_v_LSR
+            type: float64[1]
+            unit: replace me - with content
+            description: label for field  69
           GLON:
             name: GLON
             type: float64[1]
             unit: replace me - with content
-            description: label for field  64
+            description: label for field  70
           zcorr:
             name: zcorr
             type: float64[1]
             unit: replace me - with content
-            description: label for field  65
+            description: label for field  71
+          RV_bary:
+            name: RV_bary
+            type: float64[1]
+            unit: replace me - with content
+            description: label for field  72
           EW_dib_err_4_15672:
             name: EW_dib_err_4_15672
             type: float64[1]
             unit: replace me - with content
-            description: label for field  66
+            description: label for field  73
           RV_flag:
             name: RV_flag
             type: int64[1]
             unit: replace me - with content
-            description: label for field  67
+            description: label for field  74
           map2star:
             name: map2star
             type: int64[1]
             unit: replace me - with content
-            description: label for field  68
+            description: label for field  75
+          DIB_verr:
+            name: DIB_verr
+            type: float64[1]
+            unit: replace me - with content
+            description: label for field  76
           GZ:
             name: GZ
             type: float64[1]
             unit: replace me - with content
-            description: label for field  69
+            description: label for field  77
           EW_dib_4_15672:
             name: EW_dib_4_15672
             type: float64[1]
             unit: replace me - with content
-            description: label for field  70
+            description: label for field  78
+          EW_dib_err:
+            name: EW_dib_err
+            type: float64[1]
+            unit: replace me - with content
+            description: label for field  79
           FIELD:
             name: FIELD
             type: char[19]
             unit: replace me - with content
-            description: label for field  71
+            description: label for field  80
           DIB_flag_4_15672:
             name: DIB_flag_4_15672
             type: int64[1]
             unit: replace me - with content
-            description: label for field  72
+            description: label for field  81
           DIB_flag_3_15672:
             name: DIB_flag_3_15672
             type: int64[1]
             unit: replace me - with content
-            description: label for field  73
+            description: label for field  82
           DIB_sigval_disc_final_4_15672:
             name: DIB_sigval_disc_final_4_15672
             type: float64[1]
             unit: replace me - with content
-            description: label for field  74
+            description: label for field  83
           DIB_pixoff_disc_final_2_15273:
             name: DIB_pixoff_disc_final_2_15273
             type: float64[1]
             unit: replace me - with content
-            description: label for field  75
+            description: label for field  84
           FIBERID:
             name: FIBERID
             type: int16[1]
             unit: replace me - with content
-            description: label for field  76
+            description: label for field  85
+          DIB_v_bary:
+            name: DIB_v_bary
+            type: float64[1]
+            unit: replace me - with content
+            description: label for field  86
           DIBchi2_residuals_4_15672:
             name: DIBchi2_residuals_4_15672
             type: float64[1]
             unit: replace me - with content
-            description: label for field  77
+            description: label for field  87
           DIB_sigval_disc_final_1_15273:
             name: DIB_sigval_disc_final_1_15273
             type: float64[1]
             unit: replace me - with content
-            description: label for field  78
+            description: label for field  88
           starscale:
             name: starscale
             type: float64[1]
             unit: replace me - with content
-            description: label for field  79
+            description: label for field  89
           EW_dib_err_2_15273:
             name: EW_dib_err_2_15273
             type: float64[1]
             unit: replace me - with content
-            description: label for field  80
+            description: label for field  90
           skyscale0:
             name: skyscale0
             type: float64[1]
             unit: replace me - with content
-            description: label for field  81
+            description: label for field  91
           RV_pix_var:
             name: RV_pix_var
             type: float64[1]
             unit: replace me - with content
-            description: label for field  82
+            description: label for field  92
           DIB_pixoff_final_2_15273:
             name: DIB_pixoff_final_2_15273
             type: float64[1]
             unit: replace me - with content
-            description: label for field  83
+            description: label for field  93
           DIB_sigval_final_1_15273:
             name: DIB_sigval_final_1_15273
             type: float64[1]
             unit: replace me - with content
-            description: label for field  84
+            description: label for field  94
           TELESCOPE:
             name: TELESCOPE
             type: char[6]
             unit: replace me - with content
-            description: label for field  85
+            description: label for field  95
           MJD:
             name: MJD
             type: int32[1]
             unit: replace me - with content
-            description: label for field  86
+            description: label for field  96
           chip_a_midtimes:
             name: chip_a_midtimes
             type: float64[1]
             unit: replace me - with content
-            description: label for field  87
+            description: label for field  97
           chip_c_midtimes:
             name: chip_c_midtimes
             type: float64[1]
             unit: replace me - with content
-            description: label for field  88
+            description: label for field  98
           DRP_VHELIO:
             name: DRP_VHELIO
             type: float64[1]
             unit: replace me - with content
-            description: label for field  89
+            description: label for field  99
           GAIAEDR3_PARALLAX:
             name: GAIAEDR3_PARALLAX
             type: float32[1]
             unit: replace me - with content
-            description: label for field  90
+            description: label for field 100
+          GAIAEDR3_R_LO_GEO:
+            name: GAIAEDR3_R_LO_GEO
+            type: float32[1]
+            unit: replace me - with content
+            description: label for field 101
           chip_b_midtimes:
             name: chip_b_midtimes
             type: float64[1]
             unit: replace me - with content
-            description: label for field  91
+            description: label for field 102
           DIB_pixoff_disc_final_1_15273:
             name: DIB_pixoff_disc_final_1_15273
             type: float64[1]
             unit: replace me - with content
-            description: label for field  92
+            description: label for field 103
+          DIB_v_rel:
+            name: DIB_v_rel
+            type: float64[1]
+            unit: replace me - with content
+            description: label for field 104
+          GAIAEDR3_R_HI_GEO:
+            name: GAIAEDR3_R_HI_GEO
+            type: float32[1]
+            unit: replace me - with content
+            description: label for field 105
           DIB_sigval_final_4_15672:
             name: DIB_sigval_final_4_15672
             type: float64[1]
             unit: replace me - with content
-            description: label for field  93
+            description: label for field 106
           APOGEE_ID:
             name: APOGEE_ID
             type: char[19]
             unit: replace me - with content
-            description: label for field  94
+            description: label for field 107
           avg_flux_conservation:
             name: avg_flux_conservation
             type: float64[1]
             unit: replace me - with content
-            description: label for field  95
+            description: label for field 108
           DIB_flag_2_15273:
             name: DIB_flag_2_15273
             type: int64[1]
             unit: replace me - with content
-            description: label for field  96
+            description: label for field 109
           RV_verr_sys:
             name: RV_verr_sys
             type: float64[1]
             unit: replace me - with content
-            description: label for field  97
+            description: label for field 110
           DR17_TEFF:
             name: DR17_TEFF
             type: float32[1]
             unit: replace me - with content
-            description: label for field  98
+            description: label for field 111
           final_pix_cnt:
             name: final_pix_cnt
             type: int64[1]
             unit: replace me - with content
-            description: label for field  99
+            description: label for field 112
           cartVisit:
             name: cartVisit
             type: int64[1]
             unit: replace me - with content
-            description: label for field 100
+            description: label for field 113
 notes: |-
   None
 regrets: |-
