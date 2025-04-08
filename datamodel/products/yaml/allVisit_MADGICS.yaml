@@ -8,6 +8,7 @@ general:
   - DR19
   environments:
   - APMADGICS_DIR
+  - APMADGICS
   surveys:
   - SDSS
   naming_convention: replace me - with $APMADGICS_DIR/[VERS]/outdir_wu_[STAR_PRIOR_TYPE]/allVisit_MADGICS_[VERS]_[STAR_PRIOR_TYPE].fits
@@ -16,26 +17,26 @@ general:
     this product.
   data_level: 3.3.0
   design: false
-  vac: true
-  recommended_science_product: true
+  vac: false
+  recommended_science_product: false
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
   releases: {}
 releases:
   DR19:
-    template: $APMADGICS_DIR/[VERS]/outdir_wu_[STAR_PRIOR_TYPE]/allVisit_MADGICS_[VERS]_[STAR_PRIOR_TYPE].fits
+    template: $APMADGICS/[VERS]/outdir_wu_[STAR_PRIOR_TYPE]/allVisit_MADGICS_[VERS]_[STAR_PRIOR_TYPE].fits
     example: v2024_03_16/outdir_wu_th/allVisit_MADGICS_v2024_03_16_th.fits
     location: '{vers}/outdir_wu_{star_prior_type}/allVisit_MADGICS_{vers}_{star_prior_type}.fits'
-    environment: APMADGICS_DIR
+    environment: APMADGICS
     access:
       in_sdss_access: true
       path_name: allVisit_MADGICS
-      path_template: $APMADGICS_DIR/{vers}/outdir_wu_{star_prior_type}/allVisit_MADGICS_{vers}_{star_prior_type}.fits
+      path_template: $APMADGICS/{vers}/outdir_wu_{star_prior_type}/allVisit_MADGICS_{vers}_{star_prior_type}.fits
       path_kwargs:
-      - vers
       - star_prior_type
-      access_string: allVisit_MADGICS = $APMADGICS_DIR/{vers}/outdir_wu_{star_prior_type}/allVisit_MADGICS_{vers}_{star_prior_type}.fits
+      - vers
+      access_string: allVisit_MADGICS = $APMADGICS/{vers}/outdir_wu_{star_prior_type}/allVisit_MADGICS_{vers}_{star_prior_type}.fits
     survey: SDSS
     hdus:
       hdu0:
