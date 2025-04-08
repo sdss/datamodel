@@ -1,0 +1,102 @@
+general:
+  name: apMADGICS_out_msk
+  short: replace me - with a short one sentence summary of file
+  description: replace me - with a longer description of the data product
+  datatype: H5
+  filesize: 171 GB
+  releases:
+  - DR19
+  environments:
+  - APMADGICS
+  surveys:
+  - SDSS
+  naming_convention: replace me - with $APMADGICS/[VERS]/outdir_wu_[STAR_PRIOR_TYPE]/apMADGICS_out_[MASK_TYPE]msk.h5
+    or apMADGICS_out_finalmsk.h5 but with regex pattern matches
+  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
+    this product.
+  data_level: replace me - with the data level of the product, as defined here https://sdss-wiki.atlassian.net/wiki/x/IwDCGw
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR19:
+    template: $APMADGICS/[VERS]/outdir_wu_[STAR_PRIOR_TYPE]/apMADGICS_out_[MASK_TYPE]msk.h5
+    example: v2024_03_16/outdir_wu_th/apMADGICS_out_finalmsk.h5
+    location: '{vers}/outdir_wu_{star_prior_type}/apMADGICS_out_{mask_type}msk.h5'
+    environment: APMADGICS
+    access:
+      in_sdss_access: true
+      path_name: apMADGICS_out_msk
+      path_template: $APMADGICS/{vers}/outdir_wu_{star_prior_type}/apMADGICS_out_{mask_type}msk.h5
+      path_kwargs:
+      - vers
+      - mask_type
+      - star_prior_type
+      access_string: apMADGICS_out_msk = $APMADGICS/{vers}/outdir_wu_{star_prior_type}/apMADGICS_out_{mask_type}msk.h5
+    survey: SDSS
+    hdfs:
+      name: /
+      parent: /
+      object: group
+      description: replace me - with a description of this group
+      libver: !!python/tuple
+      - earliest
+      - v114
+      n_members: 2
+      pytables: false
+      attrs: []
+      members:
+        finalmsk:
+          name: finalmsk
+          parent: /
+          object: dataset
+          description: replace me - with a description of this dataset
+          attrs: []
+          shape: !!python/tuple
+          - 2641032
+          - 8700
+          size: 22976978400
+          ndim: 2
+          dtype: int64
+          nbytes: 183815827200
+          is_virtual: false
+          is_empty: false
+        hdr:
+          name: hdr
+          parent: /
+          object: dataset
+          description: replace me - with a description of this dataset
+          attrs:
+          - key: git_branch
+            value: b'2024_03_16'
+            comment: replace me - with a description of this attribute
+            dtype: '|S10'
+            is_empty: false
+            shape: !!python/tuple []
+          - key: git_commit
+            value: b'9035b0626e8eb53a5a06de5be462603ae5574e82'
+            comment: replace me - with a description of this attribute
+            dtype: '|S40'
+            is_empty: false
+            shape: !!python/tuple []
+          - key: pipeline
+            value: b'apMADGICS.jl'
+            comment: replace me - with a description of this attribute
+            dtype: '|S12'
+            is_empty: false
+            shape: !!python/tuple []
+          shape: !!python/tuple []
+          size: 1
+          ndim: 0
+          dtype: '|S21'
+          nbytes: 21
+          is_virtual: false
+          is_empty: false
+notes: |-
+  None
+regrets: |-
+  I  have no regrets!
