@@ -1,7 +1,10 @@
 general:
   name: allVisit_MADGICS
-  short: Summary file of scalar outputs from apMADGICS pipeline processing of all visit spectra in APOGEE DR17.
-  description: Summary file of scalar outputs from apMADGICS pipeline processing of all visit spectra in APOGEE DR17. Contains stellar radial velocities, DIB properties, and crossmatches to the standard DRP allStar and allVisit files.
+  short: Summary file of scalar outputs from apMADGICS pipeline processing of all
+    visit spectra in APOGEE DR17.
+  description: Summary file of scalar outputs from apMADGICS pipeline processing of
+    all visit spectra in APOGEE DR17. Contains stellar radial velocities, DIB properties,
+    and crossmatches to the standard DRP allStar and allVisit files.
   datatype: FITS
   filesize: 2 GB
   releases:
@@ -9,21 +12,23 @@ general:
   environments:
   - APMADGICS
   surveys:
-  - MWM 
+  - MWM
+  - SDSS
   naming_convention: $APMADGICS/[VERS]/outdir_wu_[STAR_PRIOR_TYPE]/allVisit_MADGICS_[VERS]_[STAR_PRIOR_TYPE].fits
-    where VERS = "v2024_03_16" for DR19 and STAR_PRIOR_TYPE has one of the values ["th", "dd"]
+    where VERS = "v2024_03_16" for DR19 and STAR_PRIOR_TYPE has one of the values
+    ["th", "dd"]
   generated_by: https://github.com/andrew-saydjari/apMADGICS.jl
   data_level: 3.3.0
   design: false
-  vac: true
-  recommended_science_product: true
+  vac: false
+  recommended_science_product: false
 changelog:
-  description:
+  description: DR19 is the first release of apMADGICS
   releases: {}
 releases:
   DR19:
     template: $APMADGICS/[VERS]/outdir_wu_[STAR_PRIOR_TYPE]/allVisit_MADGICS_[VERS]_[STAR_PRIOR_TYPE].fits
-    example: v2024_03_16/outdir_wu_th/allVisit_MADGICS_v2024_03_16_th.fits
+    example: v2024/outdir_wu_03_16_th/allVisit_MADGICS_v2024_03_16_th.fits
     location: '{vers}/outdir_wu_{star_prior_type}/allVisit_MADGICS_{vers}_{star_prior_type}.fits'
     environment: APMADGICS
     access:
@@ -31,8 +36,8 @@ releases:
       path_name: allVisit_MADGICS
       path_template: $APMADGICS/{vers}/outdir_wu_{star_prior_type}/allVisit_MADGICS_{vers}_{star_prior_type}.fits
       path_kwargs:
-      - vers
       - star_prior_type
+      - vers
       access_string: allVisit_MADGICS = $APMADGICS/{vers}/outdir_wu_{star_prior_type}/allVisit_MADGICS_{vers}_{star_prior_type}.fits
     survey: SDSS
     hdus:
@@ -434,51 +439,57 @@ releases:
             name: DIB_minchi2_final_1_15273
             type: float64[1]
             unit: ''
-            description: minimum value of the delta chi2 at the optimum for adding DIB model 1_15273 to the MADGICS model for the visit spectrum
+            description: minimum value of the delta chi2 at the optimum for adding
+              DIB model 1_15273 to the MADGICS model for the visit spectrum
           tot_p5chi2_v1_1_15273:
             name: tot_p5chi2_v1_1_15273
             type: float64[1]
             unit: ''
-            description: Total chi2 for the MADGICS model after including the DIB model 1_15273
+            description: Total chi2 for the MADGICS model after including the DIB
+              model 1_15273
           DR17_LOGG:
             name: DR17_LOGG
             type: float32[1]
-            unit: 'log10(cm/s²)'
+            unit: "log10(cm/s\xB2)"
             description: log(g) from ASPCAP allStar file for DR17
           DIB_sigval_final_3_15672:
             name: DIB_sigval_final_3_15672
             type: float64[1]
-            unit: 'Å'
+            unit: "\xC5"
             description: DIB width sigma value at optimum for DIB model 3_15672
           tot_p5chi2_v1_2_15273:
             name: tot_p5chi2_v1_2_15273
             type: float64[1]
             unit: ''
-            description: Total chi2 for the MADGICS model after including the DIB model 2_15273
+            description: Total chi2 for the MADGICS model after including the DIB
+              model 2_15273
           ingestBit:
             name: ingestBit
             type: int64[1]
             unit: ''
-            description: Bit mask value indicating any issues with ingesting the standard DRP spectra by the apMADGICS pipeline. See https://github.com/andrew-saydjari/apMADGICS.jl for more
+            description: Bit mask value indicating any issues with ingesting the standard
+              DRP spectra by the apMADGICS pipeline. See https://github.com/andrew-saydjari/apMADGICS.jl
+              for more
           DEC:
             name: DEC
             type: float64[1]
-            unit: 'deg'
+            unit: deg
             description: Declination (J2000)
           EW_dib_2_15273:
             name: EW_dib_2_15273
             type: float64[1]
-            unit: 'Å'
+            unit: "\xC5"
             description: Equivalent width of DIB in the 2_15273 DIB model
           RV_pixoff_disc_final:
             name: RV_pixoff_disc_final
             type: float64[1]
-            unit: 'pixels'
-            description: Discrete (grid point) pixel offset nearest stellar radial velocity optimum
+            unit: pixels
+            description: Discrete (grid point) pixel offset nearest stellar radial
+              velocity optimum
           EW_dib_err_1_15273:
             name: EW_dib_err_1_15273
             type: float64[1]
-            unit: 'Å'
+            unit: "\xC5"
             description: Uncertainty in DIB equivalent width for DIB model 1_15273
           a_relFlux:
             name: a_relFlux
@@ -489,32 +500,37 @@ releases:
             name: DIB_minchi2_final_2_15273
             type: float64[1]
             unit: ''
-            description: minimum value of the delta chi2 at the optimum for adding DIB model 2_15273 to the MADGICS model for the visit spectrum
+            description: minimum value of the delta chi2 at the optimum for adding
+              DIB model 2_15273 to the MADGICS model for the visit spectrum
           EW_dib:
             name: EW_dib
             type: float64[1]
-            unit: 'Å'
+            unit: "\xC5"
             description: Equivalent width of DIB in 2_15273 DIB model
           skyscale1:
             name: skyscale1
             type: float64[1]
-            unit: 'ADU'
-            description: Second pass median sky flux in apMADGICS sky component model of the visit
+            unit: ADU
+            description: Second pass median sky flux in apMADGICS sky component model
+              of the visit
           DIB_sigval_disc_final_2_15273:
             name: DIB_sigval_disc_final_2_15273
             type: float64[1]
-            unit: 'Å'
-            description: Discrete DIB width sigma value (on gridpoint) at optimum for DIB model 2_15273
+            unit: "\xC5"
+            description: Discrete DIB width sigma value (on gridpoint) at optimum
+              for DIB model 2_15273
           RV_verr:
             name: RV_verr
             type: float64[1]
-            unit: 'km/s'
-            description: Stellar radial velocity error from apMADGICS, calibrated EXCEPT for systematics (should be used with STAR_PRIOR_TYPE=th)
+            unit: km/s
+            description: Stellar radial velocity error from apMADGICS, calibrated
+              EXCEPT for systematics (should be used with STAR_PRIOR_TYPE=th)
           data_pix_cnt:
             name: data_pix_cnt
             type: int64[1]
             unit: ''
-            description: Number of unmasked pixels in the input spectrum to apMADGICS component separation
+            description: Number of unmasked pixels in the input spectrum to apMADGICS
+              component separation
           b_relFlux:
             name: b_relFlux
             type: float64[1]
@@ -528,18 +544,20 @@ releases:
           DRP_VREL:
             name: DRP_VREL
             type: float64[1]
-            unit: 'km/s'
-            description: Stellar radial velocity in the observed frame from standard DRP (km/s)
+            unit: km/s
+            description: Stellar radial velocity in the observed frame from standard
+              DRP (km/s)
           EW_dib_err_3_15672:
             name: EW_dib_err_3_15672
             type: float64[1]
-            unit: 'Å'
+            unit: "\xC5"
             description: Uncertainty in DIB equivalent width for DIB model 3_15672
           dib_snr:
             name: dib_snr
             type: float64[1]
             unit: ''
-            description: Calibrated signal-to-noise ration for DIB detection under DIB model 2_15273
+            description: Calibrated signal-to-noise ration for DIB detection under
+              DIB model 2_15273
           DRP_SNR:
             name: DRP_SNR
             type: float32[1]
@@ -553,57 +571,64 @@ releases:
           EW_dib_3_15672:
             name: EW_dib_3_15672
             type: float64[1]
-            unit: 'Å'
+            unit: "\xC5"
             description: Equivalent width of DIB in the 3_15672 DIB model
           DIB_v_LSR_COframe:
             name: DIB_v_LSR_COframe
             type: float64[1]
-            unit: 'km/s'
-            description: Radial velocity of DIB in the local standard of rest used by Dame et al. 2001 for DIB model 2_15273
+            unit: km/s
+            description: Radial velocity of DIB in the local standard of rest used
+              by Dame et al. 2001 for DIB model 2_15273
           fluxerr2_nans:
             name: fluxerr2_nans
             type: int64[1]
             unit: ''
-            description: Number of nan pixels in the reinterpolated flux variance spectrum
+            description: Number of nan pixels in the reinterpolated flux variance
+              spectrum
           GX:
             name: GX
             type: float64[1]
-            unit: 'kpc'
+            unit: kpc
             description: Galactocentric cartesian X-coordinate
           RV_vel:
             name: RV_vel
             type: float64[1]
-            unit: 'km/s'
-            description: Stellar radial velocity from apMADGICS in observed frame (should be used with STAR_PRIOR_TYPE=th)
+            unit: km/s
+            description: Stellar radial velocity from apMADGICS in observed frame
+              (should be used with STAR_PRIOR_TYPE=th)
           DIB_sigval_disc_final_3_15672:
             name: DIB_sigval_disc_final_3_15672
             type: float64[1]
-            unit: 'Å'
-            description: Discrete DIB width sigma value (on gridpoint) at optimum for DIB model 3_15672
+            unit: "\xC5"
+            description: Discrete DIB width sigma value (on gridpoint) at optimum
+              for DIB model 3_15672
           RV_pixoff_final:
             name: RV_pixoff_final
             type: float64[1]
-            unit: 'pixels'
+            unit: pixels
             description: Pixel offset nearest stellar radial velocity optimum
           RVchi2_residuals:
             name: RVchi2_residuals
             type: float64[1]
             unit: ''
-            description: Chi2 value for the residual component after the RV fitting step for the apMADGICS component separation
+            description: Chi2 value for the residual component after the RV fitting
+              step for the apMADGICS component separation
           map2madgics:
             name: map2madgics
             type: int64[1]
             unit: ''
-            description: Index mapping the apMADGICS output files to the ordering of this file. CAUTION 1-indexed (not 0-indexed). Not identity mapping because we drop spectra that are entirely NaNs from this summary table.
+            description: Index mapping the apMADGICS output files to the ordering
+              of this file. CAUTION 1-indexed (not 0-indexed). Not identity mapping
+              because we drop spectra that are entirely NaNs from this summary table.
           DIB_pixoff_disc_final_3_15672:
             name: DIB_pixoff_disc_final_3_15672
             type: float64[1]
-            unit: 'pixels'
+            unit: pixels
             description: DIB discrete pixel offset at optimum for DIB model 3_15672
           DIB_pixoff_final_3_15672:
             name: DIB_pixoff_final_3_15672
             type: float64[1]
-            unit: 'pixels'
+            unit: pixels
             description: DIB pixel offset at optimum for DIB model 3_15672
           DIBchi2_residuals_3_15672:
             name: DIBchi2_residuals_3_15672
@@ -613,13 +638,15 @@ releases:
           DIB_pixoff_disc_final_4_15672:
             name: DIB_pixoff_disc_final_4_15672
             type: float64[1]
-            unit: 'pixels'
+            unit: pixels
             description: DIB discrete pixel offset at optimum for DIB model 4_15672
           DIB_flag_1_15273:
             name: DIB_flag_1_15273
             type: int64[1]
             unit: ''
-            description: Flag describing the success/failure of gridsearch fiting DIB model 1_15273. See https://github.com/andrew-saydjari/apMADGICS.jl/tree/main for explaination of bit values.
+            description: Flag describing the success/failure of gridsearch fiting
+              DIB model 1_15273. See https://github.com/andrew-saydjari/apMADGICS.jl/tree/main
+              for explaination of bit values.
           c_relFlux:
             name: c_relFlux
             type: float64[1]
@@ -628,27 +655,27 @@ releases:
           DR17_VSINI:
             name: DR17_VSINI
             type: float32[1]
-            unit: 'km/s'
+            unit: km/s
             description: VSINI from ASPCAP allStar file for DR17
           GLAT:
             name: GLAT
             type: float64[1]
-            unit: 'deg'
+            unit: deg
             description: Galactic latitude
           DIB_pixoff_final_1_15273:
             name: DIB_pixoff_final_1_15273
             type: float64[1]
-            unit: 'pixels'
+            unit: pixels
             description: DIB pixel offset at optimum for DIB model 1_15273
           GAIAEDR3_R_MED_GEO:
             name: GAIAEDR3_R_MED_GEO
             type: float32[1]
-            unit: 'pc'
+            unit: pc
             description: Gaia Bailer-Jones GEO distance estimate r_est from Gaia EDR3
           DIB_sig:
             name: DIB_sig
             type: float64[1]
-            unit: 'Å'
+            unit: "\xC5"
             description: DIB width sigma for DIB model 2_15273
           PLATE:
             name: PLATE
@@ -659,7 +686,8 @@ releases:
             name: DRP_STARFLAG
             type: int64[1]
             unit: ''
-            description: Flag from standard DRP processing for star condition taken from bitwise OR of individual visits, see bitmask definitions
+            description: Flag from standard DRP processing for star condition taken
+              from bitwise OR of individual visits, see bitmask definitions
           DIBchi2_residuals_1_15273:
             name: DIBchi2_residuals_1_15273
             type: float64[1]
@@ -669,7 +697,8 @@ releases:
             name: tot_p5chi2_v0
             type: float64[1]
             unit: ''
-            description: Total chi2 for the MADGICS model including only the sky continuum, (faint) sky lines, stellar continuum, stellar lines, and residual components
+            description: Total chi2 for the MADGICS model including only the sky continuum,
+              (faint) sky lines, stellar continuum, stellar lines, and residual components
           flux_nans:
             name: flux_nans
             type: int64[1]
@@ -678,153 +707,174 @@ releases:
           DIB_sig_err:
             name: DIB_sig_err
             type: float64[1]
-            unit: 'Å'
+            unit: "\xC5"
             description: Calibrated uncertainty on DIB width sigma for DIB model 2_15273
           starscale1:
             name: starscale1
             type: float64[1]
-            unit: 'ADU'
-            description: Second pass median star flux in apMADGICS star continuum component model of the visit
+            unit: ADU
+            description: Second pass median star flux in apMADGICS star continuum
+              component model of the visit
           DIB_sigval_final_2_15273:
             name: DIB_sigval_final_2_15273
             type: float64[1]
-            unit: 'Å'
+            unit: "\xC5"
             description: DIB width sigma value at optimum for DIB model 2_15273
           DRP_VRELERR:
             name: DRP_VRELERR
             type: float64[1]
-            unit: 'km/s'
+            unit: km/s
             description: Uncertainty on the radial velocity from the stadard DRP
           map2visit:
             name: map2visit
             type: int64[1]
             unit: ''
-            description: Index mapping the standard DRP allVisit file to the ordering of this file. CAUTION 1-indexed (not 0-indexed)
+            description: Index mapping the standard DRP allVisit file to the ordering
+              of this file. CAUTION 1-indexed (not 0-indexed)
           EW_dib_1_15273:
             name: EW_dib_1_15273
             type: float64[1]
-            unit: 'Å'
+            unit: "\xC5"
             description: Equivalent width of DIB in the 1_15273 DIB model
           RV_bary_offcor:
             name: RV_bary_offcor
             type: float64[1]
-            unit: 'km/s'
-            description: Stellar radial velocity from apMADGICS in the frame of the solar system barycenter and also corrected for fiber-fiber RV variations (should be used with STAR_PRIOR_TYPE=th)
+            unit: km/s
+            description: Stellar radial velocity from apMADGICS in the frame of the
+              solar system barycenter and also corrected for fiber-fiber RV variations
+              (should be used with STAR_PRIOR_TYPE=th)
           adjfiberindx:
             name: adjfiberindx
             type: int64[1]
             unit: ''
-            description: A unique fiber identifier running 1 to 600 to handle fibers at both APO and LCO
+            description: A unique fiber identifier running 1 to 600 to handle fibers
+              at both APO and LCO
           frame_counts:
             name: frame_counts
             type: int64[1]
             unit: ''
-            description: Number of contiguous exposures that were combined into a given visit
+            description: Number of contiguous exposures that were combined into a
+              given visit
           DIB_minchi2_final_3_15672:
             name: DIB_minchi2_final_3_15672
             type: float64[1]
             unit: ''
-            description: minimum value of the delta chi2 at the optimum for adding DIB model 3_15672 to the MADGICS model for the visit spectrum
+            description: minimum value of the delta chi2 at the optimum for adding
+              DIB model 3_15672 to the MADGICS model for the visit spectrum
           RV_minchi2_final:
             name: RV_minchi2_final
             type: float64[1]
             unit: ''
-            description: Value of the minimum on the delta chi2 surface for the stellar radial velocity determinination step in apMADGICS
+            description: Value of the minimum on the delta chi2 surface for the stellar
+              radial velocity determinination step in apMADGICS
           DIB_pixoff_final_4_15672:
             name: DIB_pixoff_final_4_15672
             type: float64[1]
-            unit: 'pixels'
+            unit: pixels
             description: DIB pixel offset at optimum for DIB model 4_15672
           RA:
             name: RA
             type: float64[1]
-            unit: 'deg'
+            unit: deg
             description: Right ascension (J2000)
           DR17_X_H:
             name: DR17_X_H
             type: float32[1]
-            unit: 'dex'
+            unit: dex
             description: X_H ("metallicity") from ASPCAP allStar file for DR17
           GY:
             name: GY
             type: float64[1]
-            unit: 'kpc'
+            unit: kpc
             description: Galactocentric cartesian Y-coordinate
           tot_p5chi2_v1_3_15672:
             name: tot_p5chi2_v1_3_15672
             type: float64[1]
             unit: ''
-            description: Total chi2 for the MADGICS model after including the DIB model 3_15672
+            description: Total chi2 for the MADGICS model after including the DIB
+              model 3_15672
           tot_p5chi2_v1_4_15672:
             name: tot_p5chi2_v1_4_15672
             type: float64[1]
             unit: ''
-            description: Total chi2 for the MADGICS model after including the DIB model 4_15672
+            description: Total chi2 for the MADGICS model after including the DIB
+              model 4_15672
           DIB_minchi2_final_4_15672:
             name: DIB_minchi2_final_4_15672
             type: float64[1]
             unit: ''
-            description: minimum value of the delta chi2 at the optimum for adding DIB model 4_15672 to the MADGICS model for the visit spectrum
+            description: minimum value of the delta chi2 at the optimum for adding
+              DIB model 4_15672 to the MADGICS model for the visit spectrum
           mskDIB:
             name: mskDIB
             type: bool[1]
             unit: ''
-            description: Boolean mask identifying stars that are well enough modeled that the DIB model 2_15273 outputs can be trusted. A DIB "detection" still requires a cut(s) on dib_snr and/or EW_dib.
+            description: Boolean mask identifying stars that are well enough modeled
+              that the DIB model 2_15273 outputs can be trusted. A DIB "detection"
+              still requires a cut(s) on dib_snr and/or EW_dib.
           DIB_v_LSR:
             name: DIB_v_LSR
             type: float64[1]
-            unit: 'km/s'
-            description: DIB radial velocity in the local standard of rest for DIB model 2_15273
+            unit: km/s
+            description: DIB radial velocity in the local standard of rest for DIB
+              model 2_15273
           GLON:
             name: GLON
             type: float64[1]
-            unit: 'deg'
+            unit: deg
             description: Galactic longitude
           zcorr:
             name: zcorr
             type: float64[1]
             unit: ''
-            description: Redshift correction to move from observed redshift to redshift relative to the solar system barycenter
+            description: Redshift correction to move from observed redshift to redshift
+              relative to the solar system barycenter
           RV_bary:
             name: RV_bary
             type: float64[1]
-            unit: 'km/s'
-            description: Stellar radial velocity from apMADGICS in the frame of the solar system barycenter (should be used with STAR_PRIOR_TYPE=th)
+            unit: km/s
+            description: Stellar radial velocity from apMADGICS in the frame of the
+              solar system barycenter (should be used with STAR_PRIOR_TYPE=th)
           EW_dib_err_4_15672:
             name: EW_dib_err_4_15672
             type: float64[1]
-            unit: 'Å'
+            unit: "\xC5"
             description: Uncertainty in DIB equivalent width for DIB model 4_15672
           RV_flag:
             name: RV_flag
             type: int64[1]
             unit: ''
-            description: Grid search flag value from apMADGICS from the search for stellar radial velocity. See https://github.com/andrew-saydjari/apMADGICS.jl for bit interpretations. 
+            description: Grid search flag value from apMADGICS from the search for
+              stellar radial velocity. See https://github.com/andrew-saydjari/apMADGICS.jl
+              for bit interpretations.
           map2star:
             name: map2star
             type: int64[1]
             unit: ''
-            description: Index mapping the standard DRP allStar file to the ordering of this file. CAUTION: 1-indexed (not 0-indexed)
+            description: Index mapping the standard DRP allStar file to the ordering
+              of this file. CAUTION 1-indexed (not 0-indexed)
           DIB_verr:
             name: DIB_verr
             type: float64[1]
-            unit: 'km/s'
-            description: Calibrated uncertainty on DIB radial velocity from DIB model 2_15273
+            unit: km/s
+            description: Calibrated uncertainty on DIB radial velocity from DIB model
+              2_15273
           GZ:
             name: GZ
             type: float64[1]
-            unit: 'kpc'
+            unit: kpc
             description: Galactocentric cartesian Z-coordinate
           EW_dib_4_15672:
             name: EW_dib_4_15672
             type: float64[1]
-            unit: 'Å'
+            unit: "\xC5"
             description: Equivalent width of DIB in the 4_15672 DIB model
           EW_dib_err:
             name: EW_dib_err
             type: float64[1]
-            unit: 'Å'
-            description: Calibrated uncertainty in DIB equivalent width for DIB model 2_15273
+            unit: "\xC5"
+            description: Calibrated uncertainty in DIB equivalent width for DIB model
+              2_15273
           FIELD:
             name: FIELD
             type: char[19]
@@ -834,32 +884,39 @@ releases:
             name: DIB_flag_4_15672
             type: int64[1]
             unit: ''
-            description: Flag describing the success/failure of gridsearch fiting DIB model 4_15672. See https://github.com/andrew-saydjari/apMADGICS.jl/tree/main for explaination of bit values.
+            description: Flag describing the success/failure of gridsearch fiting
+              DIB model 4_15672. See https://github.com/andrew-saydjari/apMADGICS.jl/tree/main
+              for explaination of bit values.
           DIB_flag_3_15672:
             name: DIB_flag_3_15672
             type: int64[1]
             unit: ''
-            description: Flag describing the success/failure of gridsearch fiting DIB model 3_15672. See https://github.com/andrew-saydjari/apMADGICS.jl/tree/main for explaination of bit values.
+            description: Flag describing the success/failure of gridsearch fiting
+              DIB model 3_15672. See https://github.com/andrew-saydjari/apMADGICS.jl/tree/main
+              for explaination of bit values.
           DIB_sigval_disc_final_4_15672:
             name: DIB_sigval_disc_final_4_15672
             type: float64[1]
-            unit: 'Å'
-            description: Discrete DIB width sigma value (on gridpoint) at optimum for DIB model 4_15672
+            unit: "\xC5"
+            description: Discrete DIB width sigma value (on gridpoint) at optimum
+              for DIB model 4_15672
           DIB_pixoff_disc_final_2_15273:
             name: DIB_pixoff_disc_final_2_15273
             type: float64[1]
-            unit: 'pixels'
+            unit: pixels
             description: DIB discrete pixel offset at optimum for DIB model 2_15273
           FIBERID:
             name: FIBERID
             type: int16[1]
             unit: ''
-            description: APOGEE FIBERID used to obtain the visit spectrum (1 to 300 at each of APO and LCO)
+            description: APOGEE FIBERID used to obtain the visit spectrum (1 to 300
+              at each of APO and LCO)
           DIB_v_bary:
             name: DIB_v_bary
             type: float64[1]
-            unit: 'km/s'
-            description: DIB radial velocity with respect to the solar system barycenter for DIB model 15273
+            unit: km/s
+            description: DIB radial velocity with respect to the solar system barycenter
+              for DIB model 15273
           DIBchi2_residuals_4_15672:
             name: DIBchi2_residuals_4_15672
             type: float64[1]
@@ -868,97 +925,109 @@ releases:
           DIB_sigval_disc_final_1_15273:
             name: DIB_sigval_disc_final_1_15273
             type: float64[1]
-            unit: 'Å'
-            description: Discrete DIB width sigma value (on gridpoint) at optimum for DIB model 1_15273
+            unit: "\xC5"
+            description: Discrete DIB width sigma value (on gridpoint) at optimum
+              for DIB model 1_15273
           starscale:
             name: starscale
             type: float64[1]
-            unit: 'ADU'
-            description: First pass median star flux in apMADGICS star continuum component model of the visit
+            unit: ADU
+            description: First pass median star flux in apMADGICS star continuum component
+              model of the visit
           EW_dib_err_2_15273:
             name: EW_dib_err_2_15273
             type: float64[1]
-            unit: 'Å'
+            unit: "\xC5"
             description: Uncertainty in DIB equivalent width for DIB model 2_15273
           skyscale0:
             name: skyscale0
             type: float64[1]
-            unit: 'ADU'
-            description: First pass median sky flux in apMADGICS sky component model of the visit
+            unit: ADU
+            description: First pass median sky flux in apMADGICS sky component model
+              of the visit
           RV_pix_var:
             name: RV_pix_var
             type: float64[1]
-            unit: 'pixels'
-            description: Stellar radial velocity uncertainty expressed as a variance in the pixel offset (should be used with STAR_PRIOR_TYPE=th)
+            unit: pixels
+            description: Stellar radial velocity uncertainty expressed as a variance
+              in the pixel offset (should be used with STAR_PRIOR_TYPE=th)
           DIB_pixoff_final_2_15273:
             name: DIB_pixoff_final_2_15273
             type: float64[1]
-            unit: 'pixels'
+            unit: pixels
             description: DIB pixel offset at optimum for DIB model 2_15273
           DIB_sigval_final_1_15273:
             name: DIB_sigval_final_1_15273
             type: float64[1]
-            unit: 'Å'
+            unit: "\xC5"
             description: DIB width sigma value at optimum for DIB model 1_15273
           TELESCOPE:
             name: TELESCOPE
             type: char[6]
             unit: ''
-            description: Telescope used for the visit (either apo25m or lco25m for the 2.5 meters at APO or LCO)
+            description: Telescope used for the visit (either apo25m or lco25m for
+              the 2.5 meters at APO or LCO)
           MJD:
             name: MJD
             type: int32[1]
             unit: ''
-            description: Integer MJD (actually SJD, a SDSS construct) encoding the discretized "night" data was taken
+            description: Integer MJD (actually SJD, a SDSS construct) encoding the
+              discretized "night" data was taken
           chip_a_midtimes:
             name: chip_a_midtimes
             type: float64[1]
-            unit: 's'
-            description: Best approximation to midpoint in time for exposures used in the visit for chip a
+            unit: s
+            description: Best approximation to midpoint in time for exposures used
+              in the visit for chip a
           chip_c_midtimes:
             name: chip_c_midtimes
             type: float64[1]
-            unit: 's'
-            description: Best approximation to midpoint in time for exposures used in the visit for chip c
+            unit: s
+            description: Best approximation to midpoint in time for exposures used
+              in the visit for chip c
           DRP_VHELIO:
             name: DRP_VHELIO
             type: float64[1]
-            unit: 'km/s'
-            description: Heliocentric (actually barycentric) stellar radial velocity from the standard DRP
+            unit: km/s
+            description: Heliocentric (actually barycentric) stellar radial velocity
+              from the standard DRP
           GAIAEDR3_PARALLAX:
             name: GAIAEDR3_PARALLAX
             type: float32[1]
-            unit: 'mas'
+            unit: mas
             description: Gaia parallax from Gaia EDR3
           GAIAEDR3_R_LO_GEO:
             name: GAIAEDR3_R_LO_GEO
             type: float32[1]
-            unit: 'pc'
-            description: Gaia Bailer-Jones 16th GEO percentile distance r_lo from GAIA EDR3
+            unit: pc
+            description: Gaia Bailer-Jones 16th GEO percentile distance r_lo from
+              GAIA EDR3
           chip_b_midtimes:
             name: chip_b_midtimes
             type: float64[1]
-            unit: 's'
-            description: Best approximation to midpoint in time for exposures used in the visit for chip b
+            unit: s
+            description: Best approximation to midpoint in time for exposures used
+              in the visit for chip b
           DIB_pixoff_disc_final_1_15273:
             name: DIB_pixoff_disc_final_1_15273
             type: float64[1]
-            unit: 'pixels'
+            unit: pixels
             description: DIB discrete pixel offset at optimum for DIB model 1_15273
           DIB_v_rel:
             name: DIB_v_rel
             type: float64[1]
-            unit: 'km/s'
+            unit: km/s
             description: DIB radial velocity in observed frame (for model 2_15273)
           GAIAEDR3_R_HI_GEO:
             name: GAIAEDR3_R_HI_GEO
             type: float32[1]
-            unit: 'pc'
-            description: Gaia Bailer-Jones 84th GEO percentile distance r_hi from GAIA EDR3
+            unit: pc
+            description: Gaia Bailer-Jones 84th GEO percentile distance r_hi from
+              GAIA EDR3
           DIB_sigval_final_4_15672:
             name: DIB_sigval_final_4_15672
             type: float64[1]
-            unit: 'Å'
+            unit: "\xC5"
             description: DIB width sigma value at optimum for DIB model 4_15672
           APOGEE_ID:
             name: APOGEE_ID
@@ -969,32 +1038,39 @@ releases:
             name: avg_flux_conservation
             type: float64[1]
             unit: ''
-            description: Median fractional flux conservation of MADGICS component separation across the visit spectrum
+            description: Median fractional flux conservation of MADGICS component
+              separation across the visit spectrum
           DIB_flag_2_15273:
             name: DIB_flag_2_15273
             type: int64[1]
             unit: ''
-            description: Flag describing the success/failure of gridsearch fiting DIB model 2_15273. See https://github.com/andrew-saydjari/apMADGICS.jl/tree/main for explaination of bit values.
+            description: Flag describing the success/failure of gridsearch fiting
+              DIB model 2_15273. See https://github.com/andrew-saydjari/apMADGICS.jl/tree/main
+              for explaination of bit values.
           RV_verr_sys:
             name: RV_verr_sys
             type: float64[1]
-            unit: 'km/s'
-            description: Stellar radial velocity error with systematic corrections for apMADGICS RVs (should be used with STAR_PRIOR_TYPE=th)
+            unit: km/s
+            description: Stellar radial velocity error with systematic corrections
+              for apMADGICS RVs (should be used with STAR_PRIOR_TYPE=th)
           DR17_TEFF:
             name: DR17_TEFF
             type: float32[1]
-            unit: 'K'
+            unit: K
             description: TEFF from ASPCAP allStar file for DR17
           final_pix_cnt:
             name: final_pix_cnt
             type: int64[1]
             unit: ''
-            description: Final number of unmasked pixels used for modeling the visit spectrum
+            description: Final number of unmasked pixels used for modeling the visit
+              spectrum
           cartVisit:
             name: cartVisit
             type: int64[1]
             unit: ''
-            description: Cart identifier for plate cart used during the visit observation (variations in total throughput can depend on the throughput of the fibers in a given cart)
+            description: Cart identifier for plate cart used during the visit observation
+              (variations in total throughput can depend on the throughput of the
+              fibers in a given cart)
 notes: |-
   None
 regrets: |-
