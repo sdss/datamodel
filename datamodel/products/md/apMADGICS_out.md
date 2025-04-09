@@ -106,11 +106,43 @@ Key | Value | Comment | Type |
 
 ---
 ## Notes
-model_version: v0 - MADGICS model contains residual, sky continuum, (faint) sky emission lines, stellar continuum, and a stellar line component v1_1_15273 - MADGICS model contains residual, sky continuum, (faint) sky emission lines, stellar continuum, a stellar lines component, and a Gaussian DIB component near 15273 searched over a wide velocity shift range v1_2_15273 - MADGICS model contains residual, sky continuum, (faint) sky emission lines, stellar continuum, a stellar lines component, and a Gaussian DIB component near 15273 searched over a narrower velocity shift range v1_3_15672 - MADGICS model contains residual, sky continuum, (faint) sky emission lines, stellar continuum, a stellar lines component, and a Gaussian DIB component near 15672 searched over a wide velocity shift range v1_4_15672 - MADGICS model contains residual, sky continuum, (faint) sky emission lines, stellar continuum, a stellar lines component, and a Gaussian DIB component near 15672 searched over a narrower velocity shift range
-model_version: [v0] x_starLines_restFrame - the stellar line component in the stellar rest frame (radial velocity corrected) x_starLines_err - square root of the diagonal of the posterior covariance for the stellar line component
-model_version: [v0, v1_1_15273, v1_2_15273, v1_3_15672, v1_4_15672] x_residuals - residual component x_residuals_z - residual component divided by the error model x_skyContinuum - the sky continuum component x_skyLines_faint - the (faint) sky emission line component x_starContinuum - the stellar continuum component x_starLines - the stellar line component
+model_version: v0
+- MADGICS model contains residual, sky continuum, (faint) sky emission lines, stellar continuum, and a stellar line component
+v1_1_15273
+- MADGICS model contains residual, sky continuum, (faint) sky emission lines, stellar continuum, a stellar lines component, and a Gaussian DIB component near 15273 searched over a wide velocity shift range
+v1_2_15273
+- MADGICS model contains residual, sky continuum, (faint) sky emission lines, stellar continuum, a stellar lines component, and a Gaussian DIB component near 15273 searched over a narrower velocity shift range
+v1_3_15672
+- MADGICS model contains residual, sky continuum, (faint) sky emission lines, stellar continuum, a stellar lines component, and a Gaussian DIB component near 15672 searched over a wide velocity shift range
+v1_4_15672
+- MADGICS model contains residual, sky continuum, (faint) sky emission lines, stellar continuum, a stellar lines component, and a Gaussian DIB component near 15672 searched over a narrower velocity shift range
 
-model_version: [v1_1_15273, v1_2_15273, v1_3_15672, v1_4_15672] x_dib - the DIB component x_dib_flux - the DIB component in flux (not relative to the stellar continuum)
+model_version: [v0]
+x_starLines_restFrame
+- the stellar line component in the stellar rest frame (radial velocity corrected)
+x_starLines_err
+- square root of the diagonal of the posterior covariance for the stellar line component
+
+model_version: [v0, v1_1_15273, v1_2_15273, v1_3_15672, v1_4_15672]
+x_residuals
+- residual component
+x_residuals_z
+- residual component divided by the error model
+x_skyContinuum
+- the sky continuum component
+x_skyLines_faint
+- the (faint) sky emission line component
+x_starContinuum
+- the stellar continuum component
+x_starLines
+- the stellar line component
+
+
+model_version: [v1_1_15273, v1_2_15273, v1_3_15672, v1_4_15672]
+x_dib
+- the DIB component
+x_dib_flux
+- the DIB component in flux (not relative to the stellar continuum)
 
 ---
 ## Regrets
