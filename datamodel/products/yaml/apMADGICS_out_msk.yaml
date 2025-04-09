@@ -1,7 +1,7 @@
 general:
-  name: apMADGICS_out_msk
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  name: apMADGICS_out_{msk_type}msk
+  short: Output file containing either the input mask (simplemsk) or the output mask (finalmsk) from the apMADGICS pipeline.
+  description: Output file containing either the input mask (simplemsk) or the output mask (finalmsk) from the apMADGICS pipeline.
   datatype: H5
   filesize: 171 GB
   releases:
@@ -12,15 +12,13 @@ general:
   - SDSS
   naming_convention: $APMADGICS/[VERS]/outdir_wu_[STAR_PRIOR_TYPE]/apMADGICS_out_[MASK_TYPE]msk.h5
     where VERS = "v2024_03_16_th" for DR19, STAR_PRIOR_TYPE has one of the values ["th", "dd"] and MASK_TYPE has one of the values ["final", "simple"]
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  generated_by: https://github.com/andrew-saydjari/apMADGICS.jl
   data_level: 3.3.0
   design: false
   vac: true
   recommended_science_product: false
 changelog:
-  description: Describes changes to the datamodel product and/or file structure from
-    one release to another
+  description:
   releases: {}
 releases:
   DR19:
@@ -30,7 +28,7 @@ releases:
     environment: APMADGICS
     access:
       in_sdss_access: true
-      path_name: apMADGICS_out_msk
+      path_name: apMADGICS_out_{mask_type}msk
       path_template: $APMADGICS/{vers}/outdir_wu_{star_prior_type}/apMADGICS_out_{mask_type}msk.h5
       path_kwargs:
       - vers
@@ -42,7 +40,7 @@ releases:
       name: /
       parent: /
       object: group
-      description: replace me - with a description of this group
+      description: MADGICS spectrum mask input/output file
       libver: !!python/tuple
       - earliest
       - v114
@@ -51,10 +49,10 @@ releases:
       attrs: []
       members:
         finalmsk:
-          name: finalmsk
+          name: {MASK_TYPE}msk
           parent: /
           object: dataset
-          description: replace me - with a description of this dataset
+          description: Output file containing either the input mask (simplemsk) or the output mask (finalmsk) from the apMADGICS pipeline. The input mask is simply the mask that marks all pixels where bit 0 was thrown upstream as bad, if that bit was thrown in even one exposure being combined into the visit spectrum. The output mask can mask slightly more pixels based on the radial velocity found for the star in some cases where data driven models are used.
           attrs: []
           shape: !!python/tuple
           - 2641032
@@ -69,23 +67,23 @@ releases:
           name: hdr
           parent: /
           object: dataset
-          description: replace me - with a description of this dataset
+          description: header dataset used to hold global attributes of the file
           attrs:
           - key: git_branch
             value: b'2024_03_16'
-            comment: replace me - with a description of this attribute
+            comment: name of the git_branch of apMADGICS that produced these spectral masks
             dtype: '|S10'
             is_empty: false
             shape: !!python/tuple []
           - key: git_commit
             value: b'9035b0626e8eb53a5a06de5be462603ae5574e82'
-            comment: replace me - with a description of this attribute
+            comment: git commit hash to specify the exact version of the apMADGICS.jl code that produced these spectral masks
             dtype: '|S40'
             is_empty: false
             shape: !!python/tuple []
           - key: pipeline
             value: b'apMADGICS.jl'
-            comment: replace me - with a description of this attribute
+            comment: name of the codebase that produced these spectral masks
             dtype: '|S12'
             is_empty: false
             shape: !!python/tuple []
