@@ -1,7 +1,10 @@
 general:
   name: apMADGICS_out_apVisit_v0
   short: Output spectrum from apMADGICS most analogous to classical apVisit spectra
-  description: Output spectrum from apMADGICS in the observational restframe, on a common log-spaced wavelength grid, having done sky subtraction, telluric absorption division, and transfer function correction (using the maximum likelihood value from a full posterior).
+  description: Output spectrum from apMADGICS in the observational restframe, on a
+    common log-spaced wavelength grid, having done sky subtraction, telluric absorption
+    division, and transfer function correction (using the maximum likelihood value
+    from a full posterior).
   datatype: H5
   filesize: 171 GB
   releases:
@@ -9,16 +12,18 @@ general:
   environments:
   - APMADGICS
   surveys:
+  - MWM
   - SDSS
   naming_convention: APMADGICS/[VERS]/outdir_wu_[STAR_PRIOR_TYPE]/apMADGICS_out_apVisit_v0.h5
-    where VERS = "v2024_03_16" for DR19 and STAR_PRIOR_TYPE has one of the values ["th", "dd"]
+    where VERS = "v2024_03_16" for DR19 and STAR_PRIOR_TYPE has one of the values
+    ["th", "dd"]
   generated_by: https://github.com/andrew-saydjari/apMADGICS.jl
   data_level: 3.3.0
   design: false
-  vac: true
-  recommended_science_product: true
+  vac: false
+  recommended_science_product: false
 changelog:
-  description: 
+  description: DR19 is the first release of apMADGICS
   releases: {}
 releases:
   DR19:
@@ -31,8 +36,8 @@ releases:
       path_name: apMADGICS_out_apVisit_v0
       path_template: $APMADGICS/{vers}/outdir_wu_{star_prior_type}/apMADGICS_out_apVisit_v0.h5
       path_kwargs:
-      - vers
       - star_prior_type
+      - vers
       access_string: apMADGICS_out_apVisit_v0 = $APMADGICS/{vers}/outdir_wu_{star_prior_type}/apMADGICS_out_apVisit_v0.h5
     survey: SDSS
     hdfs:
@@ -51,7 +56,11 @@ releases:
           name: apVisit_v0
           parent: /
           object: dataset
-          description: Output spectrum from apMADGICS (most analogous to classical apVisit spectra) in the observational restframe, on a common log-spaced wavelength grid, having done sky subtraction, telluric absorption division, and transfer function correction (using the maximum likelihood value from a full posterior).
+          description: Output spectrum from apMADGICS (most analogous to classical
+            apVisit spectra) in the observational restframe, on a common log-spaced
+            wavelength grid, having done sky subtraction, telluric absorption division,
+            and transfer function correction (using the maximum likelihood value from
+            a full posterior).
           attrs: []
           shape: !!python/tuple
           - 2641032
@@ -70,13 +79,15 @@ releases:
           attrs:
           - key: git_branch
             value: b'2024_03_16'
-            comment: name of the git_branch of apMADGICS that produced these set of component spectra
+            comment: name of the git_branch of apMADGICS that produced these set of
+              component spectra
             dtype: '|S10'
             is_empty: false
             shape: !!python/tuple []
           - key: git_commit
             value: b'9035b0626e8eb53a5a06de5be462603ae5574e82'
-            comment: git commit hash to specify the exact version of the apMADGICS.jl code that produced these set of component spectra
+            comment: git commit hash to specify the exact version of the apMADGICS.jl
+              code that produced these set of component spectra
             dtype: '|S40'
             is_empty: false
             shape: !!python/tuple []
