@@ -28,7 +28,7 @@ releases:
     environment: APMADGICS
     access:
       in_sdss_access: true
-      path_name: apMADGICS_out_flux
+      path_name: apMADGICS_out_flux{flux_type}
       path_template: $APMADGICS/{vers}/outdir_wu_{star_prior_type}/apMADGICS_out_flux{flux_type}.h5
       path_kwargs:
       - flux_type
@@ -49,7 +49,7 @@ releases:
       attrs: []
       members:
         flux:
-          name: flux
+          name: flux{flux_type}
           parent: /
           object: dataset
           description: Independent combinations of flux or fluxerr from APOGEE exposures used as visit input for apMADGICS. Uses a Lanczos interpolation kernel the switches to linear around masked pixels. The inputs are stored as an array that is number of visits by number of wavelength bins.
