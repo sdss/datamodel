@@ -4,7 +4,7 @@
     "short": "Output file containing MADGICS component spectra, which represents the contribution of a given component to a visit spectrum.",
     "description": "Output file containing MADGICS component spectra, which represents the contribution of a given component to a visit spectrum.",
     "environments": [
-      "APMADGICS_DIR"
+      "APMADGICS"
     ],
     "surveys": [
       {
@@ -46,10 +46,10 @@
         "release_date": "2025-07-11"
       }
     ],
-    "naming_convention": "$APMADGICS_DIR/[VERS]/outdir_[STAR_PRIOR_TYPE]/apMADGICS_out_[COMPONENT_NAME]_[MODEL_VERSION].h5",
+    "naming_convention": "$APMADGICS/[VERS]/outdir_[STAR_PRIOR_TYPE]/apMADGICS_out_[COMPONENT_NAME]_[MODEL_VERSION].h5",
     "generated_by": "https://github.com/andrew-saydjari/apMADGICS.jl",
     "design": false,
-    "vac": true,
+    "vac": false,
     "recommended_science_product": false,
     "data_level": "3.2.0"
   },
@@ -59,17 +59,22 @@
   },
   "releases": {
     "DR19": {
-      "template": "$APMADGICS_DIR/[VERS]/outdir_[STAR_PRIOR_TYPE]/apMADGICS_out_[COMPONENT_NAME]_[MODEL_VERSION].h5",
-      "example": "apMADGICS/v2024_03_16/outdir_wu_th/apMADGICS_out_x_starLines_v0.h5",
-      "location": "apMADGICS/{vers}/outdir_{star_prior_type}/apMADGICS_out_{component_name}_{model_version}.h5",
-      "environment": "APMADGICS_DIR",
+      "template": "$APMADGICS/[VERS]/outdir_[STAR_PRIOR_TYPE]/apMADGICS_out_[COMPONENT_NAME]_[MODEL_VERSION].h5",
+      "example": "v2024_03_16/outdir_wu_th/apMADGICS_out_x_starLines_v0.h5",
+      "location": "{vers}/outdir_{star_prior_type}/apMADGICS_out_{component_name}_{model_version}.h5",
+      "environment": "APMADGICS",
       "survey": "SDSS",
       "access": {
-        "in_sdss_access": false,
-        "path_name": null,
-        "path_template": null,
-        "path_kwargs": null,
-        "access_string": "apMADGICS_out = $APMADGICS_DIR/{vers}/outdir_{star_prior_type}/apMADGICS_out_{component_name}_{model_version}.h5"
+        "in_sdss_access": true,
+        "path_name": "apMADGICS_out",
+        "path_template": "$APMADGICS/{vers}/output_wu_{star_prior_type}/apMADGICS_out_{component_name}_{model_version}.h5",
+        "path_kwargs": [
+          "star_prior_type",
+          "model_version",
+          "component_name",
+          "vers"
+        ],
+        "access_string": "apMADGICS_out = $APMADGICS/{vers}/outdir_{star_prior_type}/apMADGICS_out_{component_name}_{model_version}.h5"
       },
       "hdus": null,
       "par": null,
@@ -148,6 +153,6 @@
       }
     }
   },
-  "notes": "component_name:     x_residuals_z\nmodel_version:      [v1_1_15273, v0]\ndescription:        residual component divided by the error model after the DIB fit\n\ncomponent_name:     x_residuals\nmodel_version:      [v1_1_15273, v0]\ndescription:        residual component after the DIB fit\n\ncomponent_name:     x_skyLines\nmodel_version:      [v1_1_15273, v0]\ndescription:        the sky line component after the DIB fit\n\ncomponent_name:     x_skyContinuum\nmodel_version:      [v1_1_15273, v0]\ndescription:        the sky continuum component after the DIB fit\n\ncomponent_name:     x_starContinuum\nmodel_version:      [v1_1_15273, v0]\ndescription:        the stellar continuum component after the DIB fit\n\ncomponent_name:     x_starLines\nmodel_version:      [v1_1_15273, v0]\ndescription:        the stellar line component after the DIB fit\n\ncomponent_name:     x_dib\nmodel_version:      [v1_1_15273, v0]\ndescription:        the DIB component after the DIB fit\n\ncomponent_name:     tot_p5chi2\nmodel_version:      [v0]\ndescription:        the total chi2 after the RV fit\n\ncomponent_name:     x_starLines_err\nmodel_version:      [v0]\ndescription:        the diagonal (err) of the per-pixel posterior for the starLines component",
+  "notes": "model_version: v0 - MADGICS model contains residual, sky continuum, (faint) sky emission lines, stellar continuum, and a stellar line component v1_1_15273 - MADGICS model contains residual, sky continuum, (faint) sky emission lines, stellar continuum, a stellar lines component, and a Gaussian DIB component near 15273 searched over a wide velocity shift range v1_2_15273 - MADGICS model contains residual, sky continuum, (faint) sky emission lines, stellar continuum, a stellar lines component, and a Gaussian DIB component near 15273 searched over a narrower velocity shift range v1_3_15672 - MADGICS model contains residual, sky continuum, (faint) sky emission lines, stellar continuum, a stellar lines component, and a Gaussian DIB component near 15672 searched over a wide velocity shift range v1_4_15672 - MADGICS model contains residual, sky continuum, (faint) sky emission lines, stellar continuum, a stellar lines component, and a Gaussian DIB component near 15672 searched over a narrower velocity shift range\nmodel_version: [v0] x_starLines_restFrame - the stellar line component in the stellar rest frame (radial velocity corrected) x_starLines_err - square root of the diagonal of the posterior covariance for the stellar line component\nmodel_version: [v0, v1_1_15273, v1_2_15273, v1_3_15672, v1_4_15672] x_residuals - residual component x_residuals_z - residual component divided by the error model x_skyContinuum - the sky continuum component x_skyLines_faint - the (faint) sky emission line component x_starContinuum - the stellar continuum component x_starLines - the stellar line component\n\nmodel_version: [v1_1_15273, v1_2_15273, v1_3_15672, v1_4_15672] x_dib - the DIB component x_dib_flux - the DIB component in flux (not relative to the stellar continuum)",
   "regrets": "None"
 }

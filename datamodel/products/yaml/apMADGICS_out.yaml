@@ -12,11 +12,12 @@ general:
   - APMADGICS
   surveys:
   - MWM
+  - SDSS
   naming_convention: $APMADGICS/[VERS]/outdir_[STAR_PRIOR_TYPE]/apMADGICS_out_[COMPONENT_NAME]_[MODEL_VERSION].h5
   generated_by: https://github.com/andrew-saydjari/apMADGICS.jl
   data_level: 3.2.0
   design: false
-  vac: true
+  vac: false
   recommended_science_product: false
 changelog:
   description: Initial commit
@@ -24,14 +25,18 @@ changelog:
 releases:
   DR19:
     template: $APMADGICS/[VERS]/outdir_[STAR_PRIOR_TYPE]/apMADGICS_out_[COMPONENT_NAME]_[MODEL_VERSION].h5
-    example: apMADGICS/v2024_03_16/outdir_wu_th/apMADGICS_out_x_starLines_v0.h5
-    location: apMADGICS/{vers}/outdir_{star_prior_type}/apMADGICS_out_{component_name}_{model_version}.h5
+    example: v2024_03_16/outdir_wu_th/apMADGICS_out_x_starLines_v0.h5
+    location: '{vers}/outdir_{star_prior_type}/apMADGICS_out_{component_name}_{model_version}.h5'
     environment: APMADGICS
     access:
-      in_sdss_access: false
-      path_name: null
-      path_template: null
-      path_kwargs: null
+      in_sdss_access: true
+      path_name: apMADGICS_out
+      path_template: $APMADGICS/{vers}/output_wu_{star_prior_type}/apMADGICS_out_{component_name}_{model_version}.h5
+      path_kwargs:
+      - star_prior_type
+      - model_version
+      - component_name
+      - vers
       access_string: apMADGICS_out = $APMADGICS/{vers}/outdir_{star_prior_type}/apMADGICS_out_{component_name}_{model_version}.h5
     survey: SDSS
     hdfs:
@@ -98,43 +103,11 @@ releases:
           nbytes: 183815827200
           is_virtual: false
           is_empty: false
-notes: "model_version:
-v0
-- MADGICS model contains residual, sky continuum, (faint) sky emission lines, stellar continuum, and a stellar line component
-v1_1_15273
-- MADGICS model contains residual, sky continuum, (faint) sky emission lines, stellar continuum, a stellar lines component, and a Gaussian DIB component near 15273 searched over a wide velocity shift range
-v1_2_15273
-- MADGICS model contains residual, sky continuum, (faint) sky emission lines, stellar continuum, a stellar lines component, and a Gaussian DIB component near 15273 searched over a narrower velocity shift range
-v1_3_15672
-- MADGICS model contains residual, sky continuum, (faint) sky emission lines, stellar continuum, a stellar lines component, and a Gaussian DIB component near 15672 searched over a wide velocity shift range
-v1_4_15672
-- MADGICS model contains residual, sky continuum, (faint) sky emission lines, stellar continuum, a stellar lines component, and a Gaussian DIB component near 15672 searched over a narrower velocity shift range
+notes: |-
+  model_version: v0 - MADGICS model contains residual, sky continuum, (faint) sky emission lines, stellar continuum, and a stellar line component v1_1_15273 - MADGICS model contains residual, sky continuum, (faint) sky emission lines, stellar continuum, a stellar lines component, and a Gaussian DIB component near 15273 searched over a wide velocity shift range v1_2_15273 - MADGICS model contains residual, sky continuum, (faint) sky emission lines, stellar continuum, a stellar lines component, and a Gaussian DIB component near 15273 searched over a narrower velocity shift range v1_3_15672 - MADGICS model contains residual, sky continuum, (faint) sky emission lines, stellar continuum, a stellar lines component, and a Gaussian DIB component near 15672 searched over a wide velocity shift range v1_4_15672 - MADGICS model contains residual, sky continuum, (faint) sky emission lines, stellar continuum, a stellar lines component, and a Gaussian DIB component near 15672 searched over a narrower velocity shift range
+  model_version: [v0] x_starLines_restFrame - the stellar line component in the stellar rest frame (radial velocity corrected) x_starLines_err - square root of the diagonal of the posterior covariance for the stellar line component
+  model_version: [v0, v1_1_15273, v1_2_15273, v1_3_15672, v1_4_15672] x_residuals - residual component x_residuals_z - residual component divided by the error model x_skyContinuum - the sky continuum component x_skyLines_faint - the (faint) sky emission line component x_starContinuum - the stellar continuum component x_starLines - the stellar line component
 
-model_version: [v0]
-x_starLines_restFrame
-- the stellar line component in the stellar rest frame (radial velocity corrected)
-x_starLines_err
-- square root of the diagonal of the posterior covariance for the stellar line component
-
-model_version: [v0, v1_1_15273, v1_2_15273, v1_3_15672, v1_4_15672]
-x_residuals
-- residual component
-x_residuals_z
-- residual component divided by the error model
-x_skyContinuum
-- the sky continuum component
-x_skyLines_faint
-- the (faint) sky emission line component
-x_starContinuum
-- the stellar continuum component
-x_starLines
-- the stellar line component
-
-
-model_version: [v1_1_15273, v1_2_15273, v1_3_15672, v1_4_15672]
-x_dib
-- the DIB component
-x_dib_flux
-- the DIB component in flux (not relative to the stellar continuum)"
+  model_version: [v1_1_15273, v1_2_15273, v1_3_15672, v1_4_15672] x_dib - the DIB component x_dib_flux - the DIB component in flux (not relative to the stellar continuum)
 regrets: |-
   None
