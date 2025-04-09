@@ -1,0 +1,157 @@
+{
+  "general": {
+    "name": "apMADGICS_out_flux",
+    "short": "Independent combinations of flux or fluxerr from APOGEE exposures used as visit input for apMADGICS",
+    "description": "Independent combinations of flux or fluxerr from APOGEE exposures used as visit input for apMADGICS. Uses a Lanczos interpolation kernel the switches to linear around masked pixels.",
+    "environments": [
+      "APMADGICS"
+    ],
+    "surveys": [
+      {
+        "name": "MWM",
+        "long": "Milky Way Mapper",
+        "description": "A time-domain, optical+IR spectroscopic survey of Milky Way stars of all types.",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "mwm",
+        "aliases": []
+      },
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "H5",
+    "filesize": "171 GB",
+    "releases": [
+      {
+        "name": "DR19",
+        "description": "SDSS public data release 19",
+        "public": true,
+        "release_date": "2025-07-11"
+      }
+    ],
+    "naming_convention": "$APMADGICS/[VERS]/outdir_wu_[STAR_PRIOR_TYPE]/apMADGICS_out_flux[FLUX_TYPE].h5 where VERS = \"v2024_03_16\" for DR19, STAR_PRIOR_TYPE has one of the values [\"th\", \"dd\"], and FLUX_TYPE is either empty of \"err2\".",
+    "generated_by": "https://github.com/andrew-saydjari/apMADGICS.jl",
+    "design": false,
+    "vac": false,
+    "recommended_science_product": false,
+    "data_level": "3.3.0"
+  },
+  "changelog": {
+    "description": "DR19 is the first release of apMADGICS",
+    "releases": {}
+  },
+  "releases": {
+    "DR19": {
+      "template": "$APMADGICS/[VERS]/outdir_wu_[STAR_PRIOR_TYPE]/apMADGICS_out_flux[FLUX_TYPE].h5",
+      "example": "v2024_03_16/outdir_wu_th/apMADGICS_out_flux.h5",
+      "location": "{vers}/outdir_wu_{star_prior_type}/apMADGICS_out_flux{flux_type}.h5",
+      "environment": "APMADGICS",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "apMADGICS_out_flux",
+        "path_template": "$APMADGICS/{vers}/outdir_wu_{star_prior_type}/apMADGICS_out_flux{flux_type}.h5",
+        "path_kwargs": [
+          "vers",
+          "flux_type",
+          "star_prior_type"
+        ],
+        "access_string": "apMADGICS_out_flux = $APMADGICS/{vers}/outdir_wu_{star_prior_type}/apMADGICS_out_flux{flux_type}.h5"
+      },
+      "hdus": null,
+      "par": null,
+      "hdfs": {
+        "name": "/",
+        "parent": "/",
+        "object": "group",
+        "description": "MADGICS spectrum input file",
+        "pytables": false,
+        "attrs": [],
+        "n_members": 2,
+        "libver": [
+          "earliest",
+          "v114"
+        ],
+        "members": {
+          "flux": {
+            "name": "flux{flux_type}",
+            "parent": "/",
+            "object": "dataset",
+            "description": "Independent combinations of flux or fluxerr from APOGEE exposures used as visit input for apMADGICS. Uses a Lanczos interpolation kernel the switches to linear around masked pixels. The inputs are stored as an array that is number of visits by number of wavelength bins.",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              2641032,
+              8700
+            ],
+            "size": 22976978400,
+            "ndim": 2,
+            "dtype": "float64",
+            "nbytes": 183815827200,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "hdr": {
+            "name": "hdr",
+            "parent": "/",
+            "object": "dataset",
+            "description": "header dataset used to hold global attributes of the file",
+            "pytables": null,
+            "attrs": [
+              {
+                "key": "git_branch",
+                "value": "b'2024_03_16'",
+                "comment": "name of the git_branch of apMADGICS that produced these spectra",
+                "dtype": "|S10",
+                "is_empty": false,
+                "shape": []
+              },
+              {
+                "key": "git_commit",
+                "value": "b'9035b0626e8eb53a5a06de5be462603ae5574e82'",
+                "comment": "git commit hash to specify the exact version of the apMADGICS.jl code that produced these spectra",
+                "dtype": "|S40",
+                "is_empty": false,
+                "shape": []
+              },
+              {
+                "key": "pipeline",
+                "value": "b'apMADGICS.jl'",
+                "comment": "name of the codebase that produced these spectra",
+                "dtype": "|S12",
+                "is_empty": false,
+                "shape": []
+              }
+            ],
+            "shape": [],
+            "size": 1,
+            "ndim": 0,
+            "dtype": "|S21",
+            "nbytes": 21,
+            "is_virtual": false,
+            "is_empty": false
+          }
+        }
+      }
+    }
+  },
+  "notes": "None",
+  "regrets": "I  have no regrets!"
+}
