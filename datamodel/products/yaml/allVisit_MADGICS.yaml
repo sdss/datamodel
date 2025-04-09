@@ -1,7 +1,7 @@
 general:
   name: allVisit_MADGICS
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: Summary file of scalar outputs from apMADGICS pipeline processing of all visit spectra in APOGEE DR17.
+  description: Summary file of scalar outputs from apMADGICS pipeline processing of all visit spectra in APOGEE DR17. Contains stellar radial velocities, DIB properties, and crossmatches to the standard DRP allStar and allVisit files.
   datatype: FITS
   filesize: 2 GB
   releases:
@@ -11,16 +11,14 @@ general:
   surveys:
   - MWM 
   naming_convention: $APMADGICS/[VERS]/outdir_wu_[STAR_PRIOR_TYPE]/allVisit_MADGICS_[VERS]_[STAR_PRIOR_TYPE].fits
-    where VERS = "v2024_03_16_th" for DR19 and STAR_PRIOR_TYPE has one of the values ["th", "dd"]
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+    where VERS = "v2024_03_16" for DR19 and STAR_PRIOR_TYPE has one of the values ["th", "dd"]
+  generated_by: https://github.com/andrew-saydjari/apMADGICS.jl
   data_level: 3.3.0
   design: false
   vac: true
   recommended_science_product: true
 changelog:
-  description: Describes changes to the datamodel product and/or file structure from
-    one release to another
+  description:
   releases: {}
 releases:
   DR19:
@@ -40,7 +38,7 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: empty header
         is_image: true
         size: 0 bytes
         header:
@@ -64,7 +62,7 @@ releases:
           comment: ''
       hdu1:
         name: ''
-        description: replace me description
+        description: Visit summary table of scalar outputs from apMADGICS.jl
         is_image: false
         size: 2 GB
         header:
@@ -445,12 +443,12 @@ releases:
           DR17_LOGG:
             name: DR17_LOGG
             type: float32[1]
-            unit: replace me - with content
+            unit: log(g) from ASPCAP allStar file for DR17
             description: label for field   3
           DIB_sigval_final_3_15672:
             name: DIB_sigval_final_3_15672
             type: float64[1]
-            unit: replace me - with content
+            unit: DIB width sigma value at optimum for DIB model 3_15672
             description: label for field   4
           tot_p5chi2_v1_2_15273:
             name: tot_p5chi2_v1_2_15273
@@ -460,12 +458,12 @@ releases:
           ingestBit:
             name: ingestBit
             type: int64[1]
-            unit: replace me - with content
+            unit: bit mask value indicating any issues with ingesting the standard DRP spectra by the apMADGICS pipeline. See https://github.com/andrew-saydjari/apMADGICS.jl for more
             description: label for field   6
           DEC:
             name: DEC
             type: float64[1]
-            unit: replace me - with content
+            unit: Declination (J2000)
             description: label for field   7
           EW_dib_2_15273:
             name: EW_dib_2_15273
@@ -485,7 +483,7 @@ releases:
           a_relFlux:
             name: a_relFlux
             type: float64[1]
-            unit: replace me - with content
+            unit: relative fluxing applied upstream by DRP to chip a
             description: label for field  11
           DIB_minchi2_final_2_15273:
             name: DIB_minchi2_final_2_15273
@@ -500,12 +498,12 @@ releases:
           skyscale1:
             name: skyscale1
             type: float64[1]
-            unit: replace me - with content
+            unit: second pass median sky flux in apMADGICS sky component model of the visit
             description: label for field  14
           DIB_sigval_disc_final_2_15273:
             name: DIB_sigval_disc_final_2_15273
             type: float64[1]
-            unit: replace me - with content
+            unit: Discrete DIB width sigma value (on gridpoint) at optimum for DIB model 2_15273
             description: label for field  15
           RV_verr:
             name: RV_verr
@@ -520,17 +518,17 @@ releases:
           b_relFlux:
             name: b_relFlux
             type: float64[1]
-            unit: replace me - with content
+            unit: relative fluxing applied upstream by DRP to chip b
             description: label for field  18
           GAIAEDR3_SOURCE_ID:
             name: GAIAEDR3_SOURCE_ID
             type: int64[1]
-            unit: replace me - with content
+            unit: Gaia source ID from Gaia EDR3
             description: label for field  19
           DRP_VREL:
             name: DRP_VREL
             type: float64[1]
-            unit: replace me - with content
+            unit: radial velocity in the observed frame from standard DRP (km/s)
             description: label for field  20
           EW_dib_err_3_15672:
             name: EW_dib_err_3_15672
@@ -545,7 +543,7 @@ releases:
           DRP_SNR:
             name: DRP_SNR
             type: float32[1]
-            unit: replace me - with content
+            unit: visit signal-to-noise ratio estimate from standard DRP
             description: label for field  23
           DIBchi2_residuals_2_15273:
             name: DIBchi2_residuals_2_15273
@@ -565,12 +563,12 @@ releases:
           fluxerr2_nans:
             name: fluxerr2_nans
             type: int64[1]
-            unit: replace me - with content
+            unit: number of nan pixels in the reinterpolated flux variance spectrum
             description: label for field  27
           GX:
             name: GX
             type: float64[1]
-            unit: replace me - with content
+            unit: Galactocentric cartesian X-coordinate (kpc)
             description: label for field  28
           RV_vel:
             name: RV_vel
@@ -580,7 +578,7 @@ releases:
           DIB_sigval_disc_final_3_15672:
             name: DIB_sigval_disc_final_3_15672
             type: float64[1]
-            unit: replace me - with content
+            unit: Discrete DIB width sigma value (on gridpoint) at optimum for DIB model 3_15672
             description: label for field  30
           RV_pixoff_final:
             name: RV_pixoff_final
@@ -595,7 +593,7 @@ releases:
           map2madgics:
             name: map2madgics
             type: int64[1]
-            unit: replace me - with content
+            unit: Index mapping the apMADGICS output files to the ordering of this file. CAUTION: 1-indexed (not 0-indexed). Not identity mapping because we drop spectra that are entirely NaNs from this summary table.
             description: label for field  33
           DIB_pixoff_disc_final_3_15672:
             name: DIB_pixoff_disc_final_3_15672
@@ -625,17 +623,17 @@ releases:
           c_relFlux:
             name: c_relFlux
             type: float64[1]
-            unit: replace me - with content
+            unit: relative fluxing applied upstream by DRP to chip c
             description: label for field  39
           DR17_VSINI:
             name: DR17_VSINI
             type: float32[1]
-            unit: replace me - with content
+            unit: VSINI from ASPCAP allStar file for DR17
             description: label for field  40
           GLAT:
             name: GLAT
             type: float64[1]
-            unit: replace me - with content
+            unit: Galactic latitude (deg)
             description: label for field  41
           DIB_pixoff_final_1_15273:
             name: DIB_pixoff_final_1_15273
@@ -645,7 +643,7 @@ releases:
           GAIAEDR3_R_MED_GEO:
             name: GAIAEDR3_R_MED_GEO
             type: float32[1]
-            unit: replace me - with content
+            unit: Gaia Bailer-Jones GEO distance estimate r_est from Gaia EDR3
             description: label for field  43
           DIB_sig:
             name: DIB_sig
@@ -655,12 +653,12 @@ releases:
           PLATE:
             name: PLATE
             type: char[12]
-            unit: replace me - with content
+            unit: plate ID of observation
             description: label for field  45
           DRP_STARFLAG:
             name: DRP_STARFLAG
             type: int64[1]
-            unit: replace me - with content
+            unit: flag from standard DRP processing for star condition taken from bitwise OR of individual visits, see bitmask definitions
             description: label for field  46
           DIBchi2_residuals_1_15273:
             name: DIBchi2_residuals_1_15273
@@ -675,7 +673,7 @@ releases:
           flux_nans:
             name: flux_nans
             type: int64[1]
-            unit: replace me - with content
+            unit: number of nan pixels in the reinterpolated flux spectrum
             description: label for field  49
           DIB_sig_err:
             name: DIB_sig_err
@@ -685,12 +683,12 @@ releases:
           starscale1:
             name: starscale1
             type: float64[1]
-            unit: replace me - with content
+            unit: second pass median star flux in apMADGICS star continuum component model of the visit
             description: label for field  51
           DIB_sigval_final_2_15273:
             name: DIB_sigval_final_2_15273
             type: float64[1]
-            unit: replace me - with content
+            unit: DIB width sigma value at optimum for DIB model 2_15273
             description: label for field  52
           DRP_VRELERR:
             name: DRP_VRELERR
@@ -700,7 +698,7 @@ releases:
           map2visit:
             name: map2visit
             type: int64[1]
-            unit: replace me - with content
+            unit: index mapping the standard DRP allVisit file to the ordering of this file. CAUTION: 1-indexed (not 0-indexed)
             description: label for field  54
           EW_dib_1_15273:
             name: EW_dib_1_15273
@@ -715,12 +713,12 @@ releases:
           adjfiberindx:
             name: adjfiberindx
             type: int64[1]
-            unit: replace me - with content
+            unit: a unique fiber identifier running 1 to 600 to handle fibers at both APO and LCO
             description: label for field  57
           frame_counts:
             name: frame_counts
             type: int64[1]
-            unit: replace me - with content
+            unit: number of contiguous exposures that were combined into a given visit
             description: label for field  58
           DIB_minchi2_final_3_15672:
             name: DIB_minchi2_final_3_15672
@@ -740,17 +738,17 @@ releases:
           RA:
             name: RA
             type: float64[1]
-            unit: replace me - with content
+            unit: Right ascension (J2000)
             description: label for field  62
           DR17_X_H:
             name: DR17_X_H
             type: float32[1]
-            unit: replace me - with content
+            unit: X_H ("metallicity") from ASPCAP allStar file for DR17
             description: label for field  63
           GY:
             name: GY
             type: float64[1]
-            unit: replace me - with content
+            unit: Galactocentric cartesian Y-coordinate (kpc)
             description: label for field  64
           tot_p5chi2_v1_3_15672:
             name: tot_p5chi2_v1_3_15672
@@ -780,7 +778,7 @@ releases:
           GLON:
             name: GLON
             type: float64[1]
-            unit: replace me - with content
+            unit: Galactic longitude (deg)
             description: label for field  70
           zcorr:
             name: zcorr
@@ -805,7 +803,7 @@ releases:
           map2star:
             name: map2star
             type: int64[1]
-            unit: replace me - with content
+            unit: index mapping the standard DRP allStar file to the ordering of this file. CAUTION: 1-indexed (not 0-indexed)
             description: label for field  75
           DIB_verr:
             name: DIB_verr
@@ -815,7 +813,7 @@ releases:
           GZ:
             name: GZ
             type: float64[1]
-            unit: replace me - with content
+            unit: Galactocentric cartesian Z-coordinate (kpc)
             description: label for field  77
           EW_dib_4_15672:
             name: EW_dib_4_15672
@@ -830,7 +828,7 @@ releases:
           FIELD:
             name: FIELD
             type: char[19]
-            unit: replace me - with content
+            unit: APOGEE targeting field name
             description: label for field  80
           DIB_flag_4_15672:
             name: DIB_flag_4_15672
@@ -845,7 +843,7 @@ releases:
           DIB_sigval_disc_final_4_15672:
             name: DIB_sigval_disc_final_4_15672
             type: float64[1]
-            unit: replace me - with content
+            unit: Discrete DIB width sigma value (on gridpoint) at optimum for DIB model 4_15672
             description: label for field  83
           DIB_pixoff_disc_final_2_15273:
             name: DIB_pixoff_disc_final_2_15273
@@ -855,7 +853,7 @@ releases:
           FIBERID:
             name: FIBERID
             type: int16[1]
-            unit: replace me - with content
+            unit: APOGEE FIBERID used to obtain the visit spectrum (1 to 300 at each of APO and LCO)
             description: label for field  85
           DIB_v_bary:
             name: DIB_v_bary
@@ -870,12 +868,12 @@ releases:
           DIB_sigval_disc_final_1_15273:
             name: DIB_sigval_disc_final_1_15273
             type: float64[1]
-            unit: replace me - with content
+            unit: Discrete DIB width sigma value (on gridpoint) at optimum for DIB model 1_15273
             description: label for field  88
           starscale:
             name: starscale
             type: float64[1]
-            unit: replace me - with content
+            unit: first pass median star flux in apMADGICS star continuum component model of the visit
             description: label for field  89
           EW_dib_err_2_15273:
             name: EW_dib_err_2_15273
@@ -885,7 +883,7 @@ releases:
           skyscale0:
             name: skyscale0
             type: float64[1]
-            unit: replace me - with content
+            unit: first pass median sky flux in apMADGICS sky component model of the visit
             description: label for field  91
           RV_pix_var:
             name: RV_pix_var
@@ -900,102 +898,102 @@ releases:
           DIB_sigval_final_1_15273:
             name: DIB_sigval_final_1_15273
             type: float64[1]
-            unit: replace me - with content
+            unit: DIB width sigma value at optimum for DIB model 1_15273
             description: label for field  94
           TELESCOPE:
             name: TELESCOPE
             type: char[6]
-            unit: replace me - with content
+            unit: Telescope used for the visit (either apo25m or lco25m for the 2.5 meters at APO or LCO)
             description: label for field  95
           MJD:
             name: MJD
             type: int32[1]
-            unit: replace me - with content
+            unit: Integer MJD (actually SJD, a SDSS constrcut) encoding the discretized "night" data was taken
             description: label for field  96
           chip_a_midtimes:
             name: chip_a_midtimes
             type: float64[1]
-            unit: replace me - with content
+            unit: Best approximation to midpoint in time for exposures used in the visit for chip a
             description: label for field  97
           chip_c_midtimes:
             name: chip_c_midtimes
             type: float64[1]
-            unit: replace me - with content
+            unit: Best approximation to midpoint in time for exposures used in the visit for chip c
             description: label for field  98
           DRP_VHELIO:
             name: DRP_VHELIO
             type: float64[1]
-            unit: replace me - with content
+            unit: Heliocentric (actually barycentric) velocity from the standard DRP
             description: label for field  99
           GAIAEDR3_PARALLAX:
             name: GAIAEDR3_PARALLAX
             type: float32[1]
-            unit: replace me - with content
+            unit: Gaia parallax from Gaia EDR3
             description: label for field 100
           GAIAEDR3_R_LO_GEO:
             name: GAIAEDR3_R_LO_GEO
             type: float32[1]
-            unit: replace me - with content
+            unit: Gaia Bailer-Jones 16th GEO percentile distance r_lo from GAIA EDR3
             description: label for field 101
           chip_b_midtimes:
             name: chip_b_midtimes
             type: float64[1]
-            unit: replace me - with content
+            unit: Best approximation to midpoint in time for exposures used in the visit for chip b
             description: label for field 102
           DIB_pixoff_disc_final_1_15273:
             name: DIB_pixoff_disc_final_1_15273
             type: float64[1]
-            unit: replace me - with content
+            unit: DIB discrete pixel offset at optimum for DIB model 1_15273
             description: label for field 103
           DIB_v_rel:
             name: DIB_v_rel
             type: float64[1]
-            unit: replace me - with content
+            unit: DIB velocity in observed frame (for model 2_15273)
             description: label for field 104
           GAIAEDR3_R_HI_GEO:
             name: GAIAEDR3_R_HI_GEO
             type: float32[1]
-            unit: replace me - with content
+            unit: Gaia Bailer-Jones 84th GEO percentile distance r_hi from GAIA EDR3
             description: label for field 105
           DIB_sigval_final_4_15672:
             name: DIB_sigval_final_4_15672
             type: float64[1]
-            unit: replace me - with content
+            unit: DIB width sigma value at optimum for DIB model 4_15672
             description: label for field 106
           APOGEE_ID:
             name: APOGEE_ID
             type: char[19]
-            unit: replace me - with content
+            unit: star identifier used by APOGEE (generally 2MASS)
             description: label for field 107
           avg_flux_conservation:
             name: avg_flux_conservation
             type: float64[1]
-            unit: replace me - with content
+            unit: median fractional flux conservation of MADGICS component separation across the visit spectrum
             description: label for field 108
           DIB_flag_2_15273:
             name: DIB_flag_2_15273
             type: int64[1]
-            unit: replace me - with content
+            unit: flag describing the success/failure of fiting DIB model 2_15273
             description: label for field 109
           RV_verr_sys:
             name: RV_verr_sys
             type: float64[1]
-            unit: replace me - with content
+            unit: velocity error with systematic corrections for apMADGICS RVs (should be used with STAR_PRIOR_TYPE=th)
             description: label for field 110
           DR17_TEFF:
             name: DR17_TEFF
             type: float32[1]
-            unit: replace me - with content
+            unit: TEFF from ASPCAP allStar file for DR17
             description: label for field 111
           final_pix_cnt:
             name: final_pix_cnt
             type: int64[1]
-            unit: replace me - with content
+            unit: final number of unmasked pixels used for modeling the visit spectrum
             description: label for field 112
           cartVisit:
             name: cartVisit
             type: int64[1]
-            unit: replace me - with content
+            unit: cart identifier for plate cart used during the visit observation (variations in total throughput can depend on the throughput of the fibers in a given cart)
             description: label for field 113
 notes: |-
   None
