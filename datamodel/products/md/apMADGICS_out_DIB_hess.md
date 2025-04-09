@@ -47,7 +47,7 @@ False
 ---
 
 ## Changelog
-DR19 is the first release of APMADGICS
+DR19 is the first release of apMADGICS
 
 ---
 ## Example HDFS List
