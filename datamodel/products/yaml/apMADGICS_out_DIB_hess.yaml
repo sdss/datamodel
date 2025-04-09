@@ -10,11 +10,12 @@ general:
   - APMADGICS
   surveys:
   - MWM
+  - SDSS
   naming_convention: $APMADGICS/[VERS]/outdir_wu_[STAR_PRIOR_TYPE]/apMADGICS_out_DIB_hess_var_[DIB_MODEL].h5
   generated_by: https://github.com/andrew-saydjari/apMADGICS.jl
   data_level: 3.3.0
   design: false
-  vac: true
+  vac: false
   recommended_science_product: false
 changelog:
   description: DR19 is the first release of APMADGICS
@@ -30,16 +31,17 @@ releases:
       path_name: apMADGICS_out_DIB_hess
       path_template: $APMADGICS/{vers}/output_wu_{star_prior_type}/apMADGICS_out_DIB_hess_var_{dib_model}.h5
       path_kwargs:
-      - star_prior_type
       - vers
+      - star_prior_type
       - dib_model
       access_string: apMADGICS_out_DIB_hess = $APMADGICS/{vers}/outdir_wu_{star_prior_type}/apMADGICS_out_DIB_hess_var_{dib_model}.h5
-    survey: MWM
+    survey: SDSS
     hdfs:
       name: /
       parent: /
       object: group
-      description: MADGICS output describing curvature around DIB maximum likelihood estimator
+      description: MADGICS output describing curvature around DIB maximum likelihood
+        estimator
       libver: !!python/tuple
       - earliest
       - v114
@@ -51,7 +53,15 @@ releases:
           name: DIB_hess_var_{dib_model}
           parent: /
           object: dataset
-          description: This 5 element vector encodes information about the curvature of the delta chi2 surface around the optimum for the DIB component modeling. The 2D space of this search is pixel shift (which is related to the DIB velocity) and the DIB (gaussian) width. This file then encodes the covariance of those two parameters around the optimum (pixel shift and DIB width, which we will abbrievate as p and w). The first three entries are the diagonal elements and then offdiagonal element of this covariance matrix (sigma^2_p, sigma^2_w, sigma^2_wp). The second two entries are the conditional variances (variance of p, given a value of w), in the same p, w order.
+          description: This 5 element vector encodes information about the curvature
+            of the delta chi2 surface around the optimum for the DIB component modeling.
+            The 2D space of this search is pixel shift (which is related to the DIB
+            velocity) and the DIB (gaussian) width. This file then encodes the covariance
+            of those two parameters around the optimum (pixel shift and DIB width,
+            which we will abbrievate as p and w). The first three entries are the
+            diagonal elements and then offdiagonal element of this covariance matrix
+            (sigma^2_p, sigma^2_w, sigma^2_wp). The second two entries are the conditional
+            variances (variance of p, given a value of w), in the same p, w order.
           attrs: []
           shape: !!python/tuple
           - 2641032
@@ -76,7 +86,8 @@ releases:
             shape: !!python/tuple []
           - key: git_commit
             value: b'9035b0626e8eb53a5a06de5be462603ae5574e82'
-            comment: git commit hash to specify the exact version of the apMADGICS.jl code that produced these outputs
+            comment: git commit hash to specify the exact version of the apMADGICS.jl
+              code that produced these outputs
             dtype: '|S40'
             is_empty: false
             shape: !!python/tuple []
