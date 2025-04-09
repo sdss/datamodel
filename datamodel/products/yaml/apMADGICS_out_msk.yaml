@@ -1,7 +1,9 @@
 general:
   name: apMADGICS_out_{msk_type}msk
-  short: Output file containing either the input mask (simplemsk) or the output mask (finalmsk) from the apMADGICS pipeline.
-  description: Output file containing either the input mask (simplemsk) or the output mask (finalmsk) from the apMADGICS pipeline.
+  short: Output file containing either the input mask (simplemsk) or the output mask
+    (finalmsk) from the apMADGICS pipeline.
+  description: Output file containing either the input mask (simplemsk) or the output
+    mask (finalmsk) from the apMADGICS pipeline.
   datatype: H5
   filesize: 171 GB
   releases:
@@ -11,14 +13,15 @@ general:
   surveys:
   - SDSS
   naming_convention: $APMADGICS/[VERS]/outdir_wu_[STAR_PRIOR_TYPE]/apMADGICS_out_[MASK_TYPE]msk.h5
-    where VERS = "v2024_03_16_th" for DR19, STAR_PRIOR_TYPE has one of the values ["th", "dd"] and MASK_TYPE has one of the values ["final", "simple"]
+    where VERS = "v2024_03_16_th" for DR19, STAR_PRIOR_TYPE has one of the values
+    ["th", "dd"] and MASK_TYPE has one of the values ["final", "simple"]
   generated_by: https://github.com/andrew-saydjari/apMADGICS.jl
   data_level: 3.3.0
   design: false
-  vac: true
+  vac: false
   recommended_science_product: false
 changelog:
-  description:
+  description: DR19 is the first release of apMADGICS
   releases: {}
 releases:
   DR19:
@@ -27,14 +30,11 @@ releases:
     location: '{vers}/outdir_wu_{star_prior_type}/apMADGICS_out_{mask_type}msk.h5'
     environment: APMADGICS
     access:
-      in_sdss_access: true
-      path_name: apMADGICS_out_{mask_type}msk
-      path_template: $APMADGICS/{vers}/outdir_wu_{star_prior_type}/apMADGICS_out_{mask_type}msk.h5
-      path_kwargs:
-      - vers
-      - mask_type
-      - star_prior_type
-      access_string: apMADGICS_out_msk = $APMADGICS/{vers}/outdir_wu_{star_prior_type}/apMADGICS_out_{mask_type}msk.h5
+      in_sdss_access: false
+      path_name: null
+      path_template: null
+      path_kwargs: null
+      access_string: apMADGICS_out_{mask_type}msk = $APMADGICS/{vers}/outdir_wu_{star_prior_type}/apMADGICS_out_{mask_type}msk.h5
     survey: SDSS
     hdfs:
       name: /
@@ -49,10 +49,16 @@ releases:
       attrs: []
       members:
         finalmsk:
-          name: {MASK_TYPE}msk
+          name: \{MASK_TYPE\}msk
           parent: /
           object: dataset
-          description: Output file containing either the input mask (simplemsk) or the output mask (finalmsk) from the apMADGICS pipeline. The input mask is simply the mask that marks all pixels where bit 0 was thrown upstream as bad, if that bit was thrown in even one exposure being combined into the visit spectrum. The output mask can mask slightly more pixels based on the radial velocity found for the star in some cases where data driven models are used.
+          description: Output file containing either the input mask (simplemsk) or
+            the output mask (finalmsk) from the apMADGICS pipeline. The input mask
+            is simply the mask that marks all pixels where bit 0 was thrown upstream
+            as bad, if that bit was thrown in even one exposure being combined into
+            the visit spectrum. The output mask can mask slightly more pixels based
+            on the radial velocity found for the star in some cases where data driven
+            models are used.
           attrs: []
           shape: !!python/tuple
           - 2641032
@@ -71,13 +77,15 @@ releases:
           attrs:
           - key: git_branch
             value: b'2024_03_16'
-            comment: name of the git_branch of apMADGICS that produced these spectral masks
+            comment: name of the git_branch of apMADGICS that produced these spectral
+              masks
             dtype: '|S10'
             is_empty: false
             shape: !!python/tuple []
           - key: git_commit
             value: b'9035b0626e8eb53a5a06de5be462603ae5574e82'
-            comment: git commit hash to specify the exact version of the apMADGICS.jl code that produced these spectral masks
+            comment: git commit hash to specify the exact version of the apMADGICS.jl
+              code that produced these spectral masks
             dtype: '|S40'
             is_empty: false
             shape: !!python/tuple []
