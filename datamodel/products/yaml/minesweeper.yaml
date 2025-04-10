@@ -1,7 +1,11 @@
 general:
   name: minesweeper
   short: MINESweeper parameters for halo stars from SDSS-V MWM
-  description: Stellar parameters for distant and metal-poor halo stars from the SDSS-V Milky Way Mapper survey, fit using the Bayesian MINESweeper code. Stellar parameters are estimated via a simultaneous fit to the spectrum, photometry, and parallax, and solutions are constrained to lie on MIST isochrones. A full description of MINESweeper is presented in Cargile et al (2020). 
+  description: Stellar parameters for distant and metal-poor halo stars from the SDSS-V
+    Milky Way Mapper survey, fit using the Bayesian MINESweeper code. Stellar parameters
+    are estimated via a simultaneous fit to the spectrum, photometry, and parallax,
+    and solutions are constrained to lie on MIST isochrones. A full description of
+    MINESweeper is presented in Cargile et al (2020).
   datatype: FITS
   filesize: 11 MB
   releases:
@@ -10,12 +14,14 @@ general:
   - MWM_MINESWEEPER
   surveys:
   - MWM
-  $MWM_MINESWEEPER/minesweeper_[VERS].fits where VERS="v1.0.0" for DR19
+  - SDSS
+  naming_convention: $MWM_MINESWEEPER/minesweeper_[VERS].fits where VERS="v1.0.0"
+    for DR19
   generated_by: https://github.com/vedantchandra/krieg
   data_level: 3.3.0
   design: false
-  vac: true
-  recommended_science_product: true
+  vac: false
+  recommended_science_product: false
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
@@ -33,7 +39,7 @@ releases:
       path_kwargs:
       - vers
       access_string: minesweeper = $MWM_MINESWEEPER/minesweeper_{vers}.fits
-    survey: MWM
+    survey: SDSS
     hdus:
       hdu0:
         name: PRIMARY
@@ -135,7 +141,7 @@ releases:
           source_id:
             name: source_id
             type: int64
-            unit: ---
+            unit: ''
             description: Gaia DR3 Source ID
           G:
             name: G
@@ -175,7 +181,7 @@ releases:
           parallax_over_error:
             name: parallax_over_error
             type: float64
-            unit: ---
+            unit: ''
             description: Gaia DR3 parallax over error
           pmra:
             name: pmra
@@ -215,17 +221,17 @@ releases:
           catalogid:
             name: catalogid
             type: int64
-            unit: ---
+            unit: ''
             description: SDSS catalog identification number
           sdssid:
             name: sdssid
             type: int64
-            unit: ---
+            unit: ''
             description: SDSS object identifier
           field:
             name: field
             type: int64
-            unit: ---
+            unit: ''
             description: Field number for the observation
           mjd:
             name: mjd
@@ -235,7 +241,7 @@ releases:
           obs:
             name: obs
             type: char[3]
-            unit: ---
+            unit: ''
             description: Three-letter code identifying the observatory (APO or LCO)
           n_exp:
             name: n_exp
@@ -250,32 +256,32 @@ releases:
           snr:
             name: snr
             type: float32
-            unit: ---
+            unit: ''
             description: Median signal-to-noise ratio per pixel of the combined spectrum
           ACAT_ID:
             name: ACAT_ID
             type: int64
-            unit: ---
+            unit: ''
             description: Internal identifier for MINESweeper catalog
           EEP:
             name: EEP
             type: float64
-            unit: ---
+            unit: ''
             description: Equivalent evolutionary phase used in isochrone fitting
           EEP_lerr:
             name: EEP_lerr
             type: float64
-            unit: ---
+            unit: ''
             description: Lower uncertainty on EEP
           EEP_uerr:
             name: EEP_uerr
             type: float64
-            unit: ---
+            unit: ''
             description: Upper uncertainty on EEP
           EEP_err:
             name: EEP_err
             type: float64
-            unit: ---
+            unit: ''
             description: Typical uncertainty on EEP
           init_FeH:
             name: init_FeH
@@ -301,22 +307,23 @@ releases:
             name: init_aFe
             type: float64
             unit: dex
-            description: Initial stellar alpha-element enhancement from isochrone fit
+            description: Initial stellar alpha-element enhancement from isochrone
+              fit
           init_aFe_lerr:
             name: init_aFe_lerr
             type: float64
             unit: dex
-            description: Lower error on initial [α/Fe]
+            description: "Lower error on initial [\u03B1/Fe]"
           init_aFe_uerr:
             name: init_aFe_uerr
             type: float64
             unit: dex
-            description: Upper error on initial [α/Fe]
+            description: "Upper error on initial [\u03B1/Fe]"
           init_aFe_err:
             name: init_aFe_err
             type: float64
             unit: dex
-            description: Uncertainty on initial [α/Fe]
+            description: "Uncertainty on initial [\u03B1/Fe]"
           init_Mass:
             name: init_Mass
             type: float64
@@ -340,82 +347,82 @@ releases:
           pc_0:
             name: pc_0
             type: float64
-            unit: ---
+            unit: ''
             description: Continuum polynomial coefficient 0
           pc_0_lerr:
             name: pc_0_lerr
             type: float64
-            unit: ---
+            unit: ''
             description: Lower error on pc_0
           pc_0_uerr:
             name: pc_0_uerr
             type: float64
-            unit: ---
+            unit: ''
             description: Upper error on pc_0
           pc_0_err:
             name: pc_0_err
             type: float64
-            unit: ---
+            unit: ''
             description: Uncertainty on pc_0
           pc_1:
             name: pc_1
             type: float64
-            unit: ---
+            unit: ''
             description: Continuum polynomial coefficient 1 (unitless)
           pc_1_lerr:
             name: pc_1_lerr
             type: float64
-            unit: ---
+            unit: ''
             description: Lower error on pc_1
           pc_1_uerr:
             name: pc_1_uerr
             type: float64
-            unit: ---
+            unit: ''
             description: Upper error on pc_1
           pc_1_err:
             name: pc_1_err
             type: float64
-            unit: ---
+            unit: ''
             description: Uncertainty on pc_1
           pc_2:
             name: pc_2
             type: float64
-            unit: ---
+            unit: ''
             description: Continuum polynomial coefficient 2 (unitless)
           pc_2_lerr:
             name: pc_2_lerr
             type: float64
-            unit: ---
+            unit: ''
             description: Lower error on pc_2
           pc_2_uerr:
             name: pc_2_uerr
             type: float64
-            unit: ---
+            unit: ''
             description: Upper error on pc_2
           pc_2_err:
             name: pc_2_err
             type: float64
-            unit: ---
+            unit: ''
             description: Uncertainty on pc_2
           pc_3:
             name: pc_3
             type: float64
-            unit: ---
+            unit: ''
             description: Continuum polynomial coefficient 3 (unitless)
           pc_3_lerr:
             name: pc_3_lerr
             type: float64
-            unit: ---
+            unit: ''
             description: Lower error on pc_3
           pc_3_uerr:
             name: pc_3_uerr
             type: float64
-            unit: ---
+            unit: ''
             description: Upper error on pc_3
           pc_3_err:
             name: pc_3_err
             type: float64
-            unit: ---
+            unit: ''
             description: Uncertainty on pc_3
           Teff:
             name: Teff
@@ -441,7 +448,7 @@ releases:
             name: logg
             type: float64
             unit: dex
-            description: Logarithm (base 10) of the surface gravity in cm/s²
+            description: "Logarithm (base 10) of the surface gravity in cm/s\xB2"
           logg_lerr:
             name: logg_lerr
             type: float64
@@ -700,22 +707,22 @@ releases:
           lnZ:
             name: lnZ
             type: float64
-            unit: ---
+            unit: ''
             description: Natural logarithm of the Bayesian evidence
           lnL:
             name: lnL
             type: float64
-            unit: ---
+            unit: ''
             description: Natural logarithm of the likelihood
           lnP:
             name: lnP
             type: float64
-            unit: ---
+            unit: ''
             description: Natural logarithm of the posterior probability from the fit
           chisq_spec:
             name: chisq_spec
             type: float64
-            unit: ---
+            unit: ''
             description: Chi-square statistic for the spectral fit
           nspecpix:
             name: nspecpix
@@ -725,7 +732,7 @@ releases:
           chisq_phot:
             name: chisq_phot
             type: float64
-            unit: ---
+            unit: ''
             description: Chi-square statistic for the photometric fit
           nbands:
             name: nbands
@@ -925,12 +932,12 @@ releases:
           ecc_mw22:
             name: ecc_mw22
             type: float64
-            unit: ---
+            unit: ''
             description: Orbital eccentricity from the MW22 model
           ecc_mw22_err:
             name: ecc_mw22_err
             type: float64
-            unit: ---
+            unit: ''
             description: Uncertainty on the orbital eccentricity
           R_apo_mw22:
             name: R_apo_mw22
@@ -965,8 +972,9 @@ releases:
           FLAG:
             name: FLAG
             type: int64
-            unit: ---
-            description: Data quality flag from MINESweeper fit (FLAG==0 selects clean data)
+            unit: ''
+            description: Data quality flag from MINESweeper fit (FLAG==0 selects clean
+              data)
           Sgr_l:
             name: Sgr_l
             type: float64
@@ -980,48 +988,53 @@ releases:
           in_sgr_L:
             name: in_sgr_L
             type: bool
-            unit: ---
-            description: Flag indicating association with the Sagittarius Stream based on angular momentum
+            unit: ''
+            description: Flag indicating association with the Sagittarius Stream based
+              on angular momentum
           in_substructure:
             name: in_substructure
             type: bool
-            unit: ---
+            unit: ''
             description: Flag indicating membership in a known halo substructure
           in_cluster:
             name: in_cluster
             type: bool
-            unit: ---
+            unit: ''
             description: Flag indicating membership in a calibration cluster
           cluster:
             name: cluster
             type: char[7]
-            unit: ---
-            description: Identifier for the cluster if membership is determined, otherwise n/a
+            unit: ''
+            description: Identifier for the cluster if membership is determined, otherwise
+              n/a
           kg_near:
             name: kg_near
             type: bool
-            unit: ---
+            unit: ''
             description: Flag indicating membership in 10-30 kpc K giant target class
           kg_far:
             name: kg_far
             type: bool
-            unit: ---
+            unit: ''
             description: Flag indicating membership in >30 kpc K giant target class
           xp_vmp:
             name: xp_vmp
             type: bool
-            unit: ---
-            description: Flag indicating membership in very metal-poor (VMP) target class based on Gaia XP
+            unit: ''
+            description: Flag indicating membership in very metal-poor (VMP) target
+              class based on Gaia XP
           xp_mp:
             name: xp_mp
             type: bool
-            unit: ---
-            description: Flag indicating membership in metal-poor (MP) target class based on Gaia XP
+            unit: ''
+            description: Flag indicating membership in metal-poor (MP) target class
+              based on Gaia XP
           bb_mp:
             name: bb_mp
             type: bool
-            unit: ---
-            description: Flag indicating membership in metal-poor (MP) target class based on IR colors ('best and brightest')
+            unit: ''
+            description: Flag indicating membership in metal-poor (MP) target class
+              based on IR colors ('best and brightest')
 notes: |-
   None
 regrets: |-
