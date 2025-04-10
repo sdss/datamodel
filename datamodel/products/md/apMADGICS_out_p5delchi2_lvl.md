@@ -1,4 +1,4 @@
-# Data Model: apMADGICS_out_p5deltachi2_lvl
+# Data Model: apMADGICS_out_p5delchi2_lvl
 
 
 Delta chi2 surface from a prior scan in apMADGICS
