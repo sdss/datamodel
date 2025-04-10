@@ -30,11 +30,14 @@ releases:
     location: '{vers}/outdir_wu_{star_prior_type}/apMADGICS_out_{mask_type}msk.h5'
     environment: APMADGICS
     access:
-      in_sdss_access: false
-      path_name: null
-      path_template: null
-      path_kwargs: null
-      access_string: apMADGICS_out_{mask_type}msk = $APMADGICS/{vers}/outdir_wu_{star_prior_type}/apMADGICS_out_{mask_type}msk.h5
+      in_sdss_access: true
+      path_name: apMADGICS_out_mask
+      path_template: $APMADGICS/{vers}/outdir_wu_{star_prior_type}/apMADGICS_out_{mask_type}msk.h5
+      path_kwargs:
+      - vers
+      - mask_type
+      - star_prior_type
+      access_string: apMADGICS_out_msk = $APMADGICS/{vers}/outdir_wu_{star_prior_type}/apMADGICS_out_{mask_type}msk.h5
     survey: SDSS
     hdfs:
       name: /
