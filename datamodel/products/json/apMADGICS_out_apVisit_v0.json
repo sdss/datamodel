@@ -1,0 +1,156 @@
+{
+  "general": {
+    "name": "apMADGICS_out_apVisit_v0",
+    "short": "Output spectrum from apMADGICS most analogous to classical apVisit spectra",
+    "description": "Output spectrum from apMADGICS in the observational restframe, on a common log-spaced wavelength grid, having done sky subtraction, telluric absorption division, and transfer function correction (using the maximum likelihood value from a full posterior).",
+    "environments": [
+      "APMADGICS"
+    ],
+    "surveys": [
+      {
+        "name": "MWM",
+        "long": "Milky Way Mapper",
+        "description": "A time-domain, optical+IR spectroscopic survey of Milky Way stars of all types.",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "mwm",
+        "aliases": []
+      },
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "H5",
+    "filesize": "171 GB",
+    "releases": [
+      {
+        "name": "DR19",
+        "description": "SDSS public data release 19",
+        "public": true,
+        "release_date": "2025-07-11"
+      }
+    ],
+    "naming_convention": "APMADGICS/[VERS]/outdir_wu_[STAR_PRIOR_TYPE]/apMADGICS_out_apVisit_v0.h5 where VERS = \"v2024_03_16\" for DR19 and STAR_PRIOR_TYPE has one of the values [\"th\", \"dd\"]",
+    "generated_by": "<a href=\"https://github.com/andrew-saydjari/apMADGICS.jl\">https://github.com/andrew-saydjari/apMADGICS.jl</a>",
+    "design": false,
+    "vac": false,
+    "recommended_science_product": false,
+    "data_level": "3.3.0"
+  },
+  "changelog": {
+    "description": "DR19 is the first release of apMADGICS",
+    "releases": {}
+  },
+  "releases": {
+    "DR19": {
+      "template": "$APMADGICS/[VERS]/outdir_wu_[STAR_PRIOR_TYPE]/apMADGICS_out_apVisit_v0.h5",
+      "example": "v2024_03_16/outdir_wu_th/apMADGICS_out_apVisit_v0.h5",
+      "location": "{vers}/outdir_wu_{star_prior_type}/apMADGICS_out_apVisit_v0.h5",
+      "environment": "APMADGICS",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "apMADGICS_out_apVisit_v0",
+        "path_template": "$APMADGICS/{vers}/outdir_wu_{star_prior_type}/apMADGICS_out_apVisit_v0.h5",
+        "path_kwargs": [
+          "star_prior_type",
+          "vers"
+        ],
+        "access_string": "apMADGICS_out_apVisit_v0 = $APMADGICS/{vers}/outdir_wu_{star_prior_type}/apMADGICS_out_apVisit_v0.h5"
+      },
+      "hdus": null,
+      "par": null,
+      "hdfs": {
+        "name": "/",
+        "parent": "/",
+        "object": "group",
+        "description": "MADGICS spectrum output file",
+        "pytables": false,
+        "attrs": [],
+        "n_members": 2,
+        "libver": [
+          "earliest",
+          "v114"
+        ],
+        "members": {
+          "apVisit_v0": {
+            "name": "apVisit_v0",
+            "parent": "/",
+            "object": "dataset",
+            "description": "Output spectrum from apMADGICS (most analogous to classical apVisit spectra) in the observational restframe, on a common log-spaced wavelength grid, having done sky subtraction, telluric absorption division, and transfer function correction (using the maximum likelihood value from a full posterior).",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              2641032,
+              8700
+            ],
+            "size": 22976978400,
+            "ndim": 2,
+            "dtype": "float64",
+            "nbytes": 183815827200,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "hdr": {
+            "name": "hdr",
+            "parent": "/",
+            "object": "dataset",
+            "description": "header dataset used to hold global attributes of the file",
+            "pytables": null,
+            "attrs": [
+              {
+                "key": "git_branch",
+                "value": "b'2024_03_16'",
+                "comment": "name of the git_branch of apMADGICS that produced these set of component spectra",
+                "dtype": "|S10",
+                "is_empty": false,
+                "shape": []
+              },
+              {
+                "key": "git_commit",
+                "value": "b'9035b0626e8eb53a5a06de5be462603ae5574e82'",
+                "comment": "git commit hash to specify the exact version of the apMADGICS.jl code that produced these set of component spectra",
+                "dtype": "|S40",
+                "is_empty": false,
+                "shape": []
+              },
+              {
+                "key": "pipeline",
+                "value": "b'apMADGICS.jl'",
+                "comment": "name of the codebase that produced these component spectra",
+                "dtype": "|S12",
+                "is_empty": false,
+                "shape": []
+              }
+            ],
+            "shape": [],
+            "size": 1,
+            "ndim": 0,
+            "dtype": "|S21",
+            "nbytes": 21,
+            "is_virtual": false,
+            "is_empty": false
+          }
+        }
+      }
+    }
+  },
+  "notes": "None",
+  "regrets": "I  have no regrets!"
+}

@@ -1,0 +1,158 @@
+{
+  "general": {
+    "name": "apMADGICS_out",
+    "short": "Output file containing MADGICS component spectra, which represents the contribution of a given component to a visit spectrum.",
+    "description": "Output file containing MADGICS component spectra, which represents the contribution of a given component to a visit spectrum.",
+    "environments": [
+      "APMADGICS"
+    ],
+    "surveys": [
+      {
+        "name": "MWM",
+        "long": "Milky Way Mapper",
+        "description": "A time-domain, optical+IR spectroscopic survey of Milky Way stars of all types.",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "mwm",
+        "aliases": []
+      },
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "H5",
+    "filesize": "171 GB",
+    "releases": [
+      {
+        "name": "DR19",
+        "description": "SDSS public data release 19",
+        "public": true,
+        "release_date": "2025-07-11"
+      }
+    ],
+    "naming_convention": "$APMADGICS/[VERS]/outdir_[STAR_PRIOR_TYPE]/apMADGICS_out_[COMPONENT_NAME]_[MODEL_VERSION].h5",
+    "generated_by": "<a href=\"https://github.com/andrew-saydjari/apMADGICS.jl\">https://github.com/andrew-saydjari/apMADGICS.jl</a>",
+    "design": false,
+    "vac": false,
+    "recommended_science_product": false,
+    "data_level": "3.2.0"
+  },
+  "changelog": {
+    "description": "DR19 is the first release of apMADGICS",
+    "releases": {}
+  },
+  "releases": {
+    "DR19": {
+      "template": "$APMADGICS/[VERS]/outdir_[STAR_PRIOR_TYPE]/apMADGICS_out_[COMPONENT_NAME]_[MODEL_VERSION].h5",
+      "example": "v2024_03_16/outdir_wu_th/apMADGICS_out_x_starLines_v0.h5",
+      "location": "{vers}/outdir_{star_prior_type}/apMADGICS_out_{component_name}_{model_version}.h5",
+      "environment": "APMADGICS",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "apMADGICS_out",
+        "path_template": "$APMADGICS/{vers}/output_wu_{star_prior_type}/apMADGICS_out_{component_name}_{model_version}.h5",
+        "path_kwargs": [
+          "vers",
+          "component_name",
+          "star_prior_type",
+          "model_version"
+        ],
+        "access_string": "apMADGICS_out = $APMADGICS/{vers}/outdir_{star_prior_type}/apMADGICS_out_{component_name}_{model_version}.h5"
+      },
+      "hdus": null,
+      "par": null,
+      "hdfs": {
+        "name": "/",
+        "parent": "/",
+        "object": "group",
+        "description": "MADGICS spectrum output file",
+        "pytables": false,
+        "attrs": [],
+        "n_members": 2,
+        "libver": [
+          "earliest",
+          "v114"
+        ],
+        "members": {
+          "hdr": {
+            "name": "header",
+            "parent": "/",
+            "object": "dataset",
+            "description": "header dataset used to hold global attributes of the file",
+            "pytables": null,
+            "attrs": [
+              {
+                "key": "git_branch",
+                "value": "b'2024_03_16'",
+                "comment": "name of the git_branch of apMADGICS that produced these set of component spectra",
+                "dtype": "|S10",
+                "is_empty": false,
+                "shape": []
+              },
+              {
+                "key": "git_commit",
+                "value": "b'9035b0626e8eb53a5a06de5be462603ae5574e82'",
+                "comment": "git commit hash to specify the exact version of the apMADGICS.jl code that produced these set of component spectra",
+                "dtype": "|S40",
+                "is_empty": false,
+                "shape": []
+              },
+              {
+                "key": "pipeline",
+                "value": "b'apMADGICS.jl'",
+                "comment": "name of the codebase that produced these component spectra",
+                "dtype": "|S12",
+                "is_empty": false,
+                "shape": []
+              }
+            ],
+            "shape": [],
+            "size": 1,
+            "ndim": 0,
+            "dtype": "|S21",
+            "nbytes": 21,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "spectra": {
+            "name": "x_{component_name}_{model_version}",
+            "parent": "/",
+            "object": "dataset",
+            "description": "The contribution of a component to a given visit spectrum. The component is specified by {component_name} (e.g. starLines) and {model_version} (e.g. v0), where the latter indicates which model (set of components) were being used to describe the visit spetrum. The first axis has one entry per visit and the second axis (8700) is the wavelength axis.",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              2641032,
+              8700
+            ],
+            "size": 22976978400,
+            "ndim": 2,
+            "dtype": "float64",
+            "nbytes": 183815827200,
+            "is_virtual": false,
+            "is_empty": false
+          }
+        }
+      }
+    }
+  },
+  "notes": "model_version: v0\n- MADGICS model contains residual, sky continuum, (faint) sky emission lines, stellar continuum, and a stellar line component\nv1_1_15273\n- MADGICS model contains residual, sky continuum, (faint) sky emission lines, stellar continuum, a stellar lines component, and a Gaussian DIB component near 15273 searched over a wide velocity shift range\nv1_2_15273\n- MADGICS model contains residual, sky continuum, (faint) sky emission lines, stellar continuum, a stellar lines component, and a Gaussian DIB component near 15273 searched over a narrower velocity shift range\nv1_3_15672\n- MADGICS model contains residual, sky continuum, (faint) sky emission lines, stellar continuum, a stellar lines component, and a Gaussian DIB component near 15672 searched over a wide velocity shift range\nv1_4_15672\n- MADGICS model contains residual, sky continuum, (faint) sky emission lines, stellar continuum, a stellar lines component, and a Gaussian DIB component near 15672 searched over a narrower velocity shift range\n\nmodel_version: [v0]\nx_starLines_restFrame\n- the stellar line component in the stellar rest frame (radial velocity corrected)\nx_starLines_err\n- square root of the diagonal of the posterior covariance for the stellar line component\n\nmodel_version: [v0, v1_1_15273, v1_2_15273, v1_3_15672, v1_4_15672]\nx_residuals\n- residual component\nx_residuals_z\n- residual component divided by the error model\nx_skyContinuum\n- the sky continuum component\nx_skyLines_faint\n- the (faint) sky emission line component\nx_starContinuum\n- the stellar continuum component\nx_starLines\n- the stellar line component\n\n\nmodel_version: [v1_1_15273, v1_2_15273, v1_3_15672, v1_4_15672]\nx_dib\n- the DIB component\nx_dib_flux\n- the DIB component in flux (not relative to the stellar continuum)",
+  "regrets": "None"
+}
