@@ -1,7 +1,7 @@
 general:
   name: apMADGICS_out_DIB_hess
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: Output file from MADGICS DIB search describing curvature around optimum
+  description: Output file from MADGICS DIB search describing curvature around optimum
   datatype: H5
   filesize: 100 MB
   releases:
@@ -9,18 +9,16 @@ general:
   environments:
   - APMADGICS
   surveys:
+  - MWM
   - SDSS
-  naming_convention: replace me - with $APMADGICS/[VERS]/outdir_wu_[STAR_PRIOR_TYPE]/apMADGICS_out_DIB_hess_var_[DIB_MODEL].h5
-    or apMADGICS_out_DIB_hess_var_1_15273.h5 but with regex pattern matches
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  naming_convention: $APMADGICS/[VERS]/outdir_wu_[STAR_PRIOR_TYPE]/apMADGICS_out_DIB_hess_var_[DIB_MODEL].h5
+  generated_by: <a href=\"https://github.com/andrew-saydjari/apMADGICS.jl\">https://github.com/andrew-saydjari/apMADGICS.jl</a>
   data_level: 3.3.0
   design: false
-  vac: true
+  vac: false
   recommended_science_product: false
 changelog:
-  description: Describes changes to the datamodel product and/or file structure from
-    one release to another
+  description: DR19 is the first release of apMADGICS
   releases: {}
 releases:
   DR19:
@@ -33,8 +31,8 @@ releases:
       path_name: apMADGICS_out_DIB_hess
       path_template: $APMADGICS/{vers}/output_wu_{star_prior_type}/apMADGICS_out_DIB_hess_var_{dib_model}.h5
       path_kwargs:
-      - star_prior_type
       - vers
+      - star_prior_type
       - dib_model
       access_string: apMADGICS_out_DIB_hess = $APMADGICS/{vers}/outdir_wu_{star_prior_type}/apMADGICS_out_DIB_hess_var_{dib_model}.h5
     survey: SDSS
@@ -42,7 +40,8 @@ releases:
       name: /
       parent: /
       object: group
-      description: replace me - with a description of this group
+      description: MADGICS output describing curvature around DIB maximum likelihood
+        estimator
       libver: !!python/tuple
       - earliest
       - v114
@@ -51,10 +50,18 @@ releases:
       attrs: []
       members:
         DIB_hess_var_1_15273:
-          name: DIB_hess_var_1_15273
+          name: DIB_hess_var_{dib_model}
           parent: /
           object: dataset
-          description: replace me - with a description of this dataset
+          description: This 5 element vector encodes information about the curvature
+            of the delta chi2 surface around the optimum for the DIB component modeling.
+            The 2D space of this search is pixel shift (which is related to the DIB
+            velocity) and the DIB (gaussian) width. This file then encodes the covariance
+            of those two parameters around the optimum (pixel shift and DIB width,
+            which we will abbrievate as p and w). The first three entries are the
+            diagonal elements and then offdiagonal element of this covariance matrix
+            (sigma^2_p, sigma^2_w, sigma^2_wp). The second two entries are the conditional
+            variances (variance of p, given a value of w), in the same p, w order.
           attrs: []
           shape: !!python/tuple
           - 2641032
@@ -69,23 +76,24 @@ releases:
           name: hdr
           parent: /
           object: dataset
-          description: replace me - with a description of this dataset
+          description: header dataset used to hold global attributes of the file
           attrs:
           - key: git_branch
             value: b'2024_03_16'
-            comment: replace me - with a description of this attribute
+            comment: name of the git_branch of apMADGICS that produced these outputs
             dtype: '|S10'
             is_empty: false
             shape: !!python/tuple []
           - key: git_commit
             value: b'9035b0626e8eb53a5a06de5be462603ae5574e82'
-            comment: replace me - with a description of this attribute
+            comment: git commit hash to specify the exact version of the apMADGICS.jl
+              code that produced these outputs
             dtype: '|S40'
             is_empty: false
             shape: !!python/tuple []
           - key: pipeline
             value: b'apMADGICS.jl'
-            comment: replace me - with a description of this attribute
+            comment: name of the codebase that produced these outputs
             dtype: '|S12'
             is_empty: false
             shape: !!python/tuple []
