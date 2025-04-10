@@ -464,6 +464,7 @@ class DataModel(object):
             return
 
         self.file = os.path.join(self.env["path"], self.real_location)
+        self.file = "/uufs/chpc.utah.edu/common/home/sdss51/dr19/vac/mwm/apMADGICS/v2024_03_16/outdir_wu_th/allVisit_MADGICS_v2024_03_16_th.fits"
 
         if not os.path.exists(self.file):
             log.error(f"Nonexistent file at {self.file}")
