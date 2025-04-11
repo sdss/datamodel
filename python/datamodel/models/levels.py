@@ -32,6 +32,7 @@ class X(IntEnum):
 
 class Y(IntEnum):
     """ Product Subtype"""
+    none = 0
     image = 1
     spectra = 2
     catalog = 3
@@ -79,6 +80,9 @@ class DataLevel(CoreModel):
     @model_validator(mode='before')
     def parse_string(cls, values):
         """ Deserialize from a string """
+        if not values:
+            return {'x': 0, 'y': 0, 'z': 0}
+
         if isinstance(values, str):
             parts = values.split('.')
             values = {
@@ -91,6 +95,8 @@ class DataLevel(CoreModel):
     @model_serializer()
     def serialize_model(self) -> str:
         """ Serialize the object as a string """
+        if not hasattr(self, 'x') or not hasattr(self, 'y'):
+            return ""
         return f"{self.x.value}.{self.y.value}.{self.z}"
 
     def describe(self):
