@@ -366,7 +366,7 @@ Name | Type | Unit | Description |
  | ruwe | float64 |  | Gaia Renormalised Unit Weight Error (RUWE) |
  | binary_flag | float64 |  | Flag indicating whether the WD is a potential binary, 0= No evidence for binarity, 1= Evidence for binarity from apparent radial velocity variation, 2= Evidence for binarity from Gaia RUWE, 3= Evidence for binarity from both apparent radial velocity variation and RUWE |
  | speed_lsr | float64 | km/s | WD total speed relative to the LSR |
- | thin_disk_flag | bool |  | Flag indicating whether WD likely belongs to thin disk |
+ | thin_disk_flag | bool |  | Flag indicating whether WD likely belongs to the: 0= Thick disk or uncertain designation, 1= Thin disk, 2= Halo |
 
 
 
