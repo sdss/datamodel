@@ -1,0 +1,532 @@
+general:
+  name: allspec
+  short: replace me - with a short one sentence summary of file
+  description: replace me - with a longer description of the data product
+  datatype: FITS
+  filesize: 41 MB
+  releases:
+  - DR19
+  environments:
+  - ALLSPEC
+  surveys:
+  - SDSS
+  naming_convention: replace me - with $ALLSPEC/[VERS]/allspec-[RELEASE]-[VERS].fits
+    or allspec-dr19-1.0.1.fits but with regex pattern matches
+  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
+    this product.
+  data_level: 2.3.3
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR19:
+    template: $ALLSPEC/[VERS]/allspec-[RELEASE]-[VERS].fits
+    example: 1.0.1/allspec-dr19-1.0.1.fits
+    location: '{vers}/allspec-{release}-{vers}.fits'
+    environment: ALLSPEC
+    access:
+      in_sdss_access: true
+      path_name: allspec
+      path_template: $ALLSPEC/{vers}/allspec-{release}-{vers}.fits
+      path_kwargs:
+      - vers
+      - release
+      access_string: allspec = $ALLSPEC/{vers}/allspec-{release}-{vers}.fits
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: replace me description
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: replace me description
+        is_image: false
+        size: 41 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 863
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 50000
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 43
+          comment: number of table fields
+        - key: TUNIT24
+          value: deg
+          comment: ''
+        - key: TUNIT25
+          value: deg
+          comment: ''
+        - key: COMMENT
+          value: --BEGIN-ASTROPY-SERIALIZED-COLUMNS--
+          comment: ''
+        - key: COMMENT
+          value: 'datatype:'
+          comment: ''
+        - key: COMMENT
+          value: '- {name: specobjid, datatype: string, description: sdss/boss spectrogr\'
+          comment: ''
+        - key: COMMENT
+          value: aph reduction id from idlspec2d}
+          comment: ''
+        - key: COMMENT
+          value: '- {name: sdss_phase, datatype: int16, description: SDSS Phase from
+            1 t\'
+          comment: ''
+        - key: COMMENT
+          value: o 5}
+          comment: ''
+        - key: COMMENT
+          value: '- {name: observatory, datatype: string, description: observatory}'
+          comment: ''
+        - key: COMMENT
+          value: '- {name: instrument, datatype: string, description: instrument}'
+          comment: ''
+        - key: COMMENT
+          value: '- {name: unique_id, datatype: string, description: temporary ID
+            to che\'
+          comment: ''
+        - key: COMMENT
+          value: ck for uniqueness}
+          comment: ''
+        - key: COMMENT
+          value: '- {name: sdss_id, datatype: int64, description: sdss_id}'
+          comment: ''
+        - key: COMMENT
+          value: '- {name: catalogid, datatype: int64, description: BHM catalogid}'
+          comment: ''
+        - key: COMMENT
+          value: '- {name: fiberid, datatype: int32, description: SDSS/BOSS/eBOSS
+            fiberi\'
+          comment: ''
+        - key: COMMENT
+          value: d}
+          comment: ''
+        - key: COMMENT
+          value: '- {name: ifudsgn, datatype: int16, description: MaNGA IFU DESIGN
+            ID}'
+          comment: ''
+        - key: COMMENT
+          value: '- {name: plate, datatype: int32, description: SDSS/BOSS/eBOSS/BHM
+            plat\'
+          comment: ''
+        - key: COMMENT
+          value: e (before FPS era)}
+          comment: ''
+        - key: COMMENT
+          value: '- {name: fps_field, datatype: int32, description: FPS Field (post
+            Plat\'
+          comment: ''
+        - key: COMMENT
+          value: e era)}
+          comment: ''
+        - key: COMMENT
+          value: '- {name: plate_or_fps_field, datatype: int32, description: Plate
+            or FP\'
+          comment: ''
+        - key: COMMENT
+          value: S Field (merges pre and post Plate era)}
+          comment: ''
+        - key: COMMENT
+          value: '- {name: mjd, datatype: int32, description: MJD}'
+          comment: ''
+        - key: COMMENT
+          value: '- {name: run2d, datatype: string, description: idlspec2d version}'
+          comment: ''
+        - key: COMMENT
+          value: '- {name: run1d, datatype: string, description: idlspec1d version}'
+          comment: ''
+        - key: COMMENT
+          value: '- {name: coadd, datatype: string, description: ''either epoch, daily,
+            o\'
+          comment: ''
+        - key: COMMENT
+          value: r custom (allepoch for IPL-3)'}
+          comment: ''
+        - key: COMMENT
+          value: '- {name: apred_vers, datatype: string, description: APOGEE DRP Version\'
+          comment: ''
+        - key: COMMENT
+          value: '}'
+          comment: ''
+        - key: COMMENT
+          value: '- {name: drpver, datatype: string, description: MaNGA (for e.g.)
+            DRP V\'
+          comment: ''
+        - key: COMMENT
+          value: ersion}
+          comment: ''
+        - key: COMMENT
+          value: '- {name: version, datatype: string, description: All Pipeline Version}'
+          comment: ''
+        - key: COMMENT
+          value: '- {name: programname, datatype: string, description: Spectroscopic
+            pro\'
+          comment: ''
+        - key: COMMENT
+          value: gram Name}
+          comment: ''
+        - key: COMMENT
+          value: '- {name: survey, datatype: string, description: Spectroscopic survey
+            o\'
+          comment: ''
+        - key: COMMENT
+          value: r sub-survey}
+          comment: ''
+        - key: COMMENT
+          value: '- {name: cas_url, datatype: string, description: CAS URL}'
+          comment: ''
+        - key: COMMENT
+          value: '- {name: sas_url, datatype: string, description: SAS URL}'
+          comment: ''
+        - key: COMMENT
+          value: '- {name: ra, unit: deg, datatype: float64, description: Right ascensio\'
+          comment: ''
+        - key: COMMENT
+          value: n}
+          comment: ''
+        - key: COMMENT
+          value: '- {name: dec, unit: deg, datatype: float64, description: Declination}'
+          comment: ''
+        - key: COMMENT
+          value: '- {name: healpix, datatype: int32, description: healpix}'
+          comment: ''
+        - key: COMMENT
+          value: '- {name: healpixgrp, datatype: int16, description: healpixgrp}'
+          comment: ''
+        - key: COMMENT
+          value: '- {name: objclass, datatype: string, description: Class of object}'
+          comment: ''
+        - key: COMMENT
+          value: '- {name: subclass, datatype: string, description: Subclass of object}'
+          comment: ''
+        - key: COMMENT
+          value: '- {name: z, datatype: float32, description: redshift}'
+          comment: ''
+        - key: COMMENT
+          value: '- {name: z_err, datatype: float32, description: redshift error}'
+          comment: ''
+        - key: COMMENT
+          value: '- {name: zwarning, datatype: int32, description: ZWARNING FLAG}'
+          comment: ''
+        - key: COMMENT
+          value: '- {name: class_noqso, datatype: string, description: Class of object
+            (\'
+          comment: ''
+        - key: COMMENT
+          value: NOQSO)}
+          comment: ''
+        - key: COMMENT
+          value: '- {name: subclass_noqso, datatype: string, description: Subclass
+            of ob\'
+          comment: ''
+        - key: COMMENT
+          value: ject (NOQSO)}
+          comment: ''
+        - key: COMMENT
+          value: '- {name: z_noqso, datatype: float32, description: redshift (NOQSO)}'
+          comment: ''
+        - key: COMMENT
+          value: '- {name: z_err_noqso, datatype: float32, description: redshift error
+            (\'
+          comment: ''
+        - key: COMMENT
+          value: NOQSO)}
+          comment: ''
+        - key: COMMENT
+          value: '- {name: zwarning_noqso, datatype: int32, description: ZWARNING
+            FLAG (\'
+          comment: ''
+        - key: COMMENT
+          value: NOQSO)}
+          comment: ''
+        - key: COMMENT
+          value: '- {name: znum_noqso, datatype: int32, description: ZNUM (NOQSO)}'
+          comment: ''
+        - key: COMMENT
+          value: '- {name: specprimary, datatype: int16, description: Primary Spectrum
+            F\'
+          comment: ''
+        - key: COMMENT
+          value: lag}
+          comment: ''
+        - key: COMMENT
+          value: '- {name: apogee_id, datatype: string, description: APOGEE ID}'
+          comment: ''
+        - key: COMMENT
+          value: '- {name: visit_id, datatype: string, description: APOGEE VISIT ID}'
+          comment: ''
+        - key: COMMENT
+          value: '- {name: apstar_id, datatype: string, description: APOGEE Combined
+            Sta\'
+          comment: ''
+        - key: COMMENT
+          value: r ID}
+          comment: ''
+        - key: COMMENT
+          value: '- {name: mangaid, datatype: string, description: MaNGA ID}'
+          comment: ''
+        - key: COMMENT
+          value: 'meta:'
+          comment: ''
+        - key: COMMENT
+          value: '  __serialized_columns__: {}'
+          comment: ''
+        - key: COMMENT
+          value: --END-ASTROPY-SERIALIZED-COLUMNS--
+          comment: ''
+        columns:
+          specobjid:
+            name: specobjid
+            type: char[32]
+            unit: ''
+            description: replace me - with content
+          sdss_phase:
+            name: sdss_phase
+            type: int16
+            unit: ''
+            description: replace me - with content
+          observatory:
+            name: observatory
+            type: char[32]
+            unit: ''
+            description: replace me - with content
+          instrument:
+            name: instrument
+            type: char[32]
+            unit: ''
+            description: replace me - with content
+          unique_id:
+            name: unique_id
+            type: char[34]
+            unit: ''
+            description: replace me - with content
+          sdss_id:
+            name: sdss_id
+            type: int64
+            unit: ''
+            description: replace me - with content
+          catalogid:
+            name: catalogid
+            type: int64
+            unit: ''
+            description: replace me - with content
+          fiberid:
+            name: fiberid
+            type: int32
+            unit: ''
+            description: replace me - with content
+          ifudsgn:
+            name: ifudsgn
+            type: int16
+            unit: ''
+            description: replace me - with content
+          plate:
+            name: plate
+            type: int32
+            unit: ''
+            description: replace me - with content
+          fps_field:
+            name: fps_field
+            type: int32
+            unit: ''
+            description: replace me - with content
+          plate_or_fps_field:
+            name: plate_or_fps_field
+            type: int32
+            unit: ''
+            description: replace me - with content
+          mjd:
+            name: mjd
+            type: int32
+            unit: ''
+            description: replace me - with content
+          run2d:
+            name: run2d
+            type: char[32]
+            unit: ''
+            description: replace me - with content
+          run1d:
+            name: run1d
+            type: char[32]
+            unit: ''
+            description: replace me - with content
+          coadd:
+            name: coadd
+            type: char[32]
+            unit: ''
+            description: replace me - with content
+          apred_vers:
+            name: apred_vers
+            type: char[32]
+            unit: ''
+            description: replace me - with content
+          drpver:
+            name: drpver
+            type: char[32]
+            unit: ''
+            description: replace me - with content
+          version:
+            name: version
+            type: char[32]
+            unit: ''
+            description: replace me - with content
+          programname:
+            name: programname
+            type: char[32]
+            unit: ''
+            description: replace me - with content
+          survey:
+            name: survey
+            type: char[32]
+            unit: ''
+            description: replace me - with content
+          cas_url:
+            name: cas_url
+            type: char[32]
+            unit: ''
+            description: replace me - with content
+          sas_url:
+            name: sas_url
+            type: char[97]
+            unit: ''
+            description: replace me - with content
+          ra:
+            name: ra
+            type: float64
+            unit: deg
+            description: replace me - with content
+          dec:
+            name: dec
+            type: float64
+            unit: deg
+            description: replace me - with content
+          healpix:
+            name: healpix
+            type: int32
+            unit: ''
+            description: replace me - with content
+          healpixgrp:
+            name: healpixgrp
+            type: int16
+            unit: ''
+            description: replace me - with content
+          objclass:
+            name: objclass
+            type: char[32]
+            unit: ''
+            description: replace me - with content
+          subclass:
+            name: subclass
+            type: char[32]
+            unit: ''
+            description: replace me - with content
+          z:
+            name: z
+            type: float32
+            unit: ''
+            description: replace me - with content
+          z_err:
+            name: z_err
+            type: float32
+            unit: ''
+            description: replace me - with content
+          zwarning:
+            name: zwarning
+            type: int32
+            unit: ''
+            description: replace me - with content
+          class_noqso:
+            name: class_noqso
+            type: char[32]
+            unit: ''
+            description: replace me - with content
+          subclass_noqso:
+            name: subclass_noqso
+            type: char[32]
+            unit: ''
+            description: replace me - with content
+          z_noqso:
+            name: z_noqso
+            type: float32
+            unit: ''
+            description: replace me - with content
+          z_err_noqso:
+            name: z_err_noqso
+            type: float32
+            unit: ''
+            description: replace me - with content
+          zwarning_noqso:
+            name: zwarning_noqso
+            type: int32
+            unit: ''
+            description: replace me - with content
+          znum_noqso:
+            name: znum_noqso
+            type: int32
+            unit: ''
+            description: replace me - with content
+          specprimary:
+            name: specprimary
+            type: int16
+            unit: ''
+            description: replace me - with content
+          apogee_id:
+            name: apogee_id
+            type: char[32]
+            unit: ''
+            description: replace me - with content
+          visit_id:
+            name: visit_id
+            type: char[32]
+            unit: ''
+            description: replace me - with content
+          apstar_id:
+            name: apstar_id
+            type: char[32]
+            unit: ''
+            description: replace me - with content
+          mangaid:
+            name: mangaid
+            type: char[32]
+            unit: ''
+            description: replace me - with content
+notes: |-
+  None
+regrets: |-
+  I  have no regrets!
