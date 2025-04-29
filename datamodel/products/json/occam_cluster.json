@@ -1,0 +1,637 @@
+{
+  "general": {
+    "name": "occam_cluster",
+    "short": "The OCCAM cluster summary table provides mean cluster parameters for 170 open clusters.",
+    "description": "The OCCAM cluster summary table provides a comprehensive, uniform dataset for open clusters. It contains mean 5-D astrometry from Gaia (Cantat-Gaudin et al. 2020, Hunt & Reffert 2023), mean orbital parameters calculated using Gala (Adrian M. Price-Whelan 2017), an orbital dynamics code, and mean radial velocities and chemical abundances from MWM/APOGEE.\n",
+    "environments": [
+      "APOGEE_OCCAM"
+    ],
+    "surveys": [
+      {
+        "name": "MWM",
+        "long": "Milky Way Mapper",
+        "description": "A time-domain, optical+IR spectroscopic survey of Milky Way stars of all types.",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "mwm",
+        "aliases": []
+      },
+      {
+        "name": "APOGEE-2",
+        "long": "Apache Point Observatory Galactic Evolution Experiment 2",
+        "description": "An infrared stellar spectroscopic survey of Milky Way stars in the Northern and Southern hemispheres",
+        "phase": {
+          "name": "Phase-IV",
+          "id": 4,
+          "start": 2014,
+          "end": 2020,
+          "active": false
+        },
+        "id": "apogee2",
+        "aliases": [
+          "apogee"
+        ]
+      },
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "FITS",
+    "filesize": "120 KB",
+    "releases": [
+      {
+        "name": "DR19",
+        "description": "SDSS public data release 19",
+        "public": true,
+        "release_date": "2025-07-11"
+      }
+    ],
+    "naming_convention": "$APOGEE_OCCAM/occam_cluster-[VERS].fits where VERS is DR19 in the latest version",
+    "generated_by": "OCCAM",
+    "design": false,
+    "vac": true,
+    "recommended_science_product": true,
+    "data_level": "3.3.0"
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR19": {
+      "template": "$APOGEE_OCCAM/occam_cluster-[VERS].fits",
+      "example": "occam_cluster-DR19.fits",
+      "location": "occam_cluster-{vers}.fits",
+      "environment": "APOGEE_OCCAM",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": false,
+        "path_name": null,
+        "path_template": null,
+        "path_kwargs": null,
+        "access_string": "occam_cluster = $APOGEE_OCCAM/occam_cluster-{vers}.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "The primary HDU, in accordance with the FITS file standard. No useful information is stored here",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "file does conform to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "16",
+              "comment": "number of bits per data pixel"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of data axes"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": "FITS dataset may contain extensions"
+            },
+            {
+              "key": "COMMENT",
+              "value": "  FITS (Flexible Image Transport System) format is defined in 'Astronomy",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "  and Astrophysics', volume 376, page 359; bibcode: 2001A&A...376..359H",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "OCCAM data",
+          "is_image": false,
+          "description": "The parameters for each cluster are reported here:\n",
+          "size": "101 KB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "BINTABLE",
+              "comment": "binary table extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "8-bit bytes"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "2-dimensional binary table"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "612",
+              "comment": "width of table in bytes"
+            },
+            {
+              "key": "NAXIS2",
+              "value": "170",
+              "comment": "number of rows in table"
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "size of special data area"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "one data group (required keyword)"
+            },
+            {
+              "key": "TFIELDS",
+              "value": "75",
+              "comment": "number of fields in each row"
+            }
+          ],
+          "columns": {
+            "Name": {
+              "name": "Name",
+              "description": "Open cluster name   1",
+              "type": "char[20]",
+              "unit": "---"
+            },
+            "GLON": {
+              "name": "GLON",
+              "description": "Galactic longitude   2",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "GLAT": {
+              "name": "GLAT",
+              "description": "Galactic latitude  3",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "RAdeg": {
+              "name": "RAdeg",
+              "description": "Right ascencion in degrees   4",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "DEdeg": {
+              "name": "DEdeg",
+              "description": "Declination in degrees   5",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "CG_Rad": {
+              "name": "CG_Rad",
+              "description": "Cluster radius containing half the members, from Cantat-Gaudin et al. 2020   6",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "CG_PMRA": {
+              "name": "CG_PMRA",
+              "description": "Mean proper motion in RA of cluster members, pmra*cos(declination) from Cantat-Gaudin et al. 2020  7",
+              "type": "float64",
+              "unit": "mas/yr"
+            },
+            "CG_PMRA_ERR": {
+              "name": "CG_PMRA_ERR",
+              "description": "Standard deviation of CG_PMRA of cluster members from Cantat-Gaudin et al. 2020   8",
+              "type": "float64",
+              "unit": "mas/yr"
+            },
+            "CG_PMDE": {
+              "name": "CG_PMDE",
+              "description": "Mean proper motion in DE of cluster members from Cantat-Gaudin et al. 2020  9",
+              "type": "float64",
+              "unit": "mas/yr"
+            },
+            "CG_PMDE_ERR": {
+              "name": "CG_PMDE_ERR",
+              "description": "Standard deviation in CG_PMDE of cluster members from Cantat-Gaudin et al. 2020 10",
+              "type": "float64",
+              "unit": "mas/yr"
+            },
+            "V_RAD": {
+              "name": "V_RAD",
+              "description": "Mean radial velocity of cluster members  11",
+              "type": "float64",
+              "unit": "km/s"
+            },
+            "V_RAD_ERR": {
+              "name": "V_RAD_ERR",
+              "description": "1-sigma V_RAD dispersion 12",
+              "type": "float64",
+              "unit": "km/s"
+            },
+            "CG_R_GC": {
+              "name": "CG_R_GC",
+              "description": "Distance from the Galactic center from Cantat-Gaudin et al. 2020  13",
+              "type": "float64",
+              "unit": "kpc"
+            },
+            "CG_DistPc": {
+              "name": "CG_DistPc",
+              "description": "Distance from solar neighborbood from Cantat-Gaudin et al. 2020  14",
+              "type": "float64",
+              "unit": "pc"
+            },
+            "CG_logAge": {
+              "name": "CG_logAge",
+              "description": "logAge of the cluster from Cantat-Gaudin et al. 2020  15",
+              "type": "float64",
+              "unit": "yr"
+            },
+            "R_Guide": {
+              "name": "R_Guide",
+              "description": "Guiding Center radius  16",
+              "type": "float64",
+              "unit": "kpc"
+            },
+            "Z_Height": {
+              "name": "Z_Height",
+              "description": "Current Z position in X,Y,Z Galactocentric coordinates  17",
+              "type": "float64",
+              "unit": "kpc"
+            },
+            "Z_Max": {
+              "name": "Z_Max",
+              "description": "Maximum Z position   18",
+              "type": "float64",
+              "unit": "kpc"
+            },
+            "Azimuth_Angle": {
+              "name": "Azimuth_Angle",
+              "description": "Azimuthal angle relative to Galactic center  19",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "Eccentricity": {
+              "name": "Eccentricity",
+              "description": "Average eccentricity of calculated cluster orbits  20",
+              "type": "float64",
+              "unit": "---"
+            },
+            "Z_Period_Avg": {
+              "name": "Z_Period_Avg",
+              "description": "Average period in the Z coordinate  21",
+              "type": "float64",
+              "unit": "Myr"
+            },
+            "Radial_Period_Avg": {
+              "name": "Radial_Period_Avg",
+              "description": "Average radial period of the cluster  22",
+              "type": "float64",
+              "unit": "Myr"
+            },
+            "Fe_H_ASPCAP": {
+              "name": "Fe_H_ASPCAP",
+              "description": "Mean [Fe/H] from the ASPCAP pipeline 23",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "C_H": {
+              "name": "C_H",
+              "description": "Mean [C/H]  24",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "C_H_ERR": {
+              "name": "C_H_ERR",
+              "description": "1-sigma [C/H] dispersion  25",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "N_H": {
+              "name": "N_H",
+              "description": "Mean [N/H]  26",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "N_H_ERR": {
+              "name": "N_H_ERR",
+              "description": "1-sigma [N/H] dispersion  27",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "O_H": {
+              "name": "O_H",
+              "description": "Mean [O/H]  28",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "O_H_ERR": {
+              "name": "O_H_ERR",
+              "description": "1-sigma [O/H] dispersion   29",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "Na_H": {
+              "name": "Na_H",
+              "description": "Mean [Na/H]  30",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "Na_H_ERR": {
+              "name": "Na_H_ERR",
+              "description": "1-sigma [Na/H] dispersion  31",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "Mg_H": {
+              "name": "Mg_H",
+              "description": "Mean [Mg/H] 32",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "Mg_H_ERR": {
+              "name": "Mg_H_ERR",
+              "description": "1-sigma [Mg/H] dispersion  33",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "Al_H": {
+              "name": "Al_H",
+              "description": "Mean [Al/H] 34",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "Al_H_ERR": {
+              "name": "Al_H_ERR",
+              "description": "1-sigma [Al/H] dispersion  35",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "Si_H": {
+              "name": "Si_H",
+              "description": "Mean [Si/H]  36",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "Si_H_ERR": {
+              "name": "Si_H_ERR",
+              "description": "1-sigma [Si/H] dispersion   37",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "P_H": {
+              "name": "P_H",
+              "description": "Mean [P/H] 38",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "P_H_ERR": {
+              "name": "P_H_ERR",
+              "description": "1-sigma [P/H] dispersion   39",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "S_H": {
+              "name": "S_H",
+              "description": "Mean [S/H] 40",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "S_H_ERR": {
+              "name": "S_H_ERR",
+              "description": "1-sigma [S/H] dispersion   41",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "K_H": {
+              "name": "K_H",
+              "description": "Mean [K/H]  42",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "K_H_ERR": {
+              "name": "K_H_ERR",
+              "description": "1-sigma [K/H] dispersion   43",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "Ca_H": {
+              "name": "Ca_H",
+              "description": "Mean [Ca/H]  44",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "Ca_H_ERR": {
+              "name": "Ca_H_ERR",
+              "description": "1-sigma [Ca/H] dispersion   45",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "Ti_H": {
+              "name": "Ti_H",
+              "description": "Mean [Ti/H]  46",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "Ti_H_ERR": {
+              "name": "Ti_H_ERR",
+              "description": "1-sigma [Ti/H] dispersion   47",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "V_H": {
+              "name": "V_H",
+              "description": "Mean [V/H]  48",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "V_H_ERR": {
+              "name": "V_H_ERR",
+              "description": "1-sigma [V/H] dispersion   49",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "Cr_H": {
+              "name": "Cr_H",
+              "description": "Mean [Cr/H] 50",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "Cr_H_ERR": {
+              "name": "Cr_H_ERR",
+              "description": "1-sigma [Cr/H] dispersion   51",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "Mn_H": {
+              "name": "Mn_H",
+              "description": "Mean [Mn/H] 52",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "Mn_H_ERR": {
+              "name": "Mn_H_ERR",
+              "description": "1-sigma [Mn/H] dispersion   53",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "Fe_H": {
+              "name": "Fe_H",
+              "description": "Mean [Fe/H]  54",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "Fe_H_ERR": {
+              "name": "Fe_H_ERR",
+              "description": "1-sigma [Fe/H] dispersion   55",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "Co_H": {
+              "name": "Co_H",
+              "description": "Mean [Co/H]  56",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "Co_H_ERR": {
+              "name": "Co_H_ERR",
+              "description": "1-sigma [Co/H] dispersion   57",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "Ni_H": {
+              "name": "Ni_H",
+              "description": "Mean [Ni/H]  58",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "Ni_H_ERR": {
+              "name": "Ni_H_ERR",
+              "description": "1-sigma [Ni/H] dispersion   59",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "Cu_H": {
+              "name": "Cu_H",
+              "description": "Mean [Cu/H] 60",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "Cu_H_ERR": {
+              "name": "Cu_H_ERR",
+              "description": "1-sigma [Cu/H] dispersion   61",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "Ce_H": {
+              "name": "Ce_H",
+              "description": "Mean [Ce/H]  62",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "Ce_H_ERR": {
+              "name": "Ce_H_ERR",
+              "description": "1-sigma [Ce/H] dispersion   63",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "Nd_H": {
+              "name": "Nd_H",
+              "description": "Mean [Nd/H]  64",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "Nd_H_ERR": {
+              "name": "Nd_H_ERR",
+              "description": "1-sigma [Nd/H] dispersion 65",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "Num_Stars_ASPCAP": {
+              "name": "Num_Stars_ASPCAP",
+              "description": "Number of cluster members as determined using the ASPCAP pipeline [Fe/H]  66",
+              "type": "int64",
+              "unit": "---"
+            },
+            "OCCAM_Qual": {
+              "name": "OCCAM_Qual",
+              "description": "Visual CMD quality Flag; 4: calibration, 3: high quality >5 stars, 2: high quality 2-4 stars, 1: good 1 star 67\n",
+              "type": "int64",
+              "unit": "---"
+            },
+            "EH_Rad": {
+              "name": "EH_Rad",
+              "description": "Total radius of the cluster including tidal tails from Hunt and Reffert 2023  68",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "EH_PMRA": {
+              "name": "EH_PMRA",
+              "description": "Mean proper motion in RA multiplied by cos(DE) from Hunt & Reffert 2023  69",
+              "type": "float64",
+              "unit": "mas/yr"
+            },
+            "EH_PMRA_ERR": {
+              "name": "EH_PMRA_ERR",
+              "description": "Standard error of EH_PMRA from Hunt & Reffert 2023  70",
+              "type": "float64",
+              "unit": "mas/yr"
+            },
+            "EH_PMDE": {
+              "name": "EH_PMDE",
+              "description": "Mean proper motion in DE from Hunt & Reffert 2023  71",
+              "type": "float64",
+              "unit": "mas/yr"
+            },
+            "EH_PMDE_ERR": {
+              "name": "EH_PMDE_ERR",
+              "description": "Standard error in EH_PMDE from Hunt & Reffert 2023  72",
+              "type": "float64",
+              "unit": "mas/yr"
+            },
+            "EH_R_GC": {
+              "name": "EH_R_GC",
+              "description": "Distance from the Galactic center using distances from Hunt & Reffert 2023  73",
+              "type": "float64",
+              "unit": "kpc"
+            },
+            "EH_DistPc": {
+              "name": "EH_DistPc",
+              "description": "Distance from solar neighborbood from Hunt & Reffert 2023  74",
+              "type": "float64",
+              "unit": "pc"
+            },
+            "EH_logAge": {
+              "name": "EH_logAge",
+              "description": "logAge of the cluster from Hunt & Reffert 2023 75",
+              "type": "float64",
+              "unit": "yr"
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null
+    }
+  },
+  "notes": "None",
+  "regrets": "I  have no regrets!"
+}
