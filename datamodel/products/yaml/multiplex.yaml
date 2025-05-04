@@ -3,7 +3,7 @@ general:
   short: replace me - with a short one sentence summary of file
   description: replace me - with a longer description of the data product
   datatype: FITS
-  filesize: 6 MB
+  filesize: 7 MB
   releases:
   - DR19
   environments:
@@ -33,8 +33,8 @@ releases:
       path_name: multiplex
       path_template: $ALLSPEC/{vers}/multiplex-{release}-{vers}.fits
       path_kwargs:
-      - vers
       - release
+      - vers
       access_string: multiplex = $ALLSPEC/{vers}/multiplex-{release}-{vers}.fits
     survey: SDSS
     hdus:
@@ -60,7 +60,7 @@ releases:
         name: ''
         description: replace me description
         is_image: false
-        size: 6 MB
+        size: 7 MB
         header:
         - key: XTENSION
           value: BINTABLE
@@ -72,7 +72,7 @@ releases:
           value: 2
           comment: number of array dimensions
         - key: NAXIS1
-          value: 252
+          value: 262
           comment: length of dimension 1
         - key: NAXIS2
           value: 28161
@@ -159,6 +159,11 @@ releases:
           value: multiplex
           comment: ''
         columns:
+          multiplex_id:
+            name: multiplex_id
+            type: char[44]
+            unit: ''
+            description: Unique multiplex ID
           design_id:
             name: design_id
             type: int32
@@ -179,11 +184,6 @@ releases:
             type: char[6]
             unit: ''
             description: instrument
-          unique_id:
-            name: unique_id
-            type: char[34]
-            unit: ''
-            description: temporary ID to check for uniqueness
           plate:
             name: plate
             type: int32

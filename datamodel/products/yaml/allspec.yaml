@@ -3,7 +3,7 @@ general:
   short: replace me - with a short one sentence summary of file
   description: replace me - with a longer description of the data product
   datatype: FITS
-  filesize: 4 GB
+  filesize: 8 GB
   releases:
   - DR19
   environments:
@@ -33,8 +33,8 @@ releases:
       path_name: allspec
       path_template: $ALLSPEC/{vers}/allspec-{release}-{vers}.fits
       path_kwargs:
-      - vers
       - release
+      - vers
       access_string: allspec = $ALLSPEC/{vers}/allspec-{release}-{vers}.fits
     survey: SDSS
     hdus:
@@ -60,7 +60,7 @@ releases:
         name: ''
         description: replace me description
         is_image: false
-        size: 4 GB
+        size: 8 GB
         header:
         - key: XTENSION
           value: BINTABLE
@@ -72,10 +72,10 @@ releases:
           value: 2
           comment: number of array dimensions
         - key: NAXIS1
-          value: 488
+          value: 604
           comment: length of dimension 1
         - key: NAXIS2
-          value: 10018752
+          value: 14619487
           comment: length of dimension 2
         - key: PCOUNT
           value: 0
@@ -84,7 +84,7 @@ releases:
           value: 1
           comment: number of groups
         - key: TFIELDS
-          value: 43
+          value: 34
           comment: number of table fields
         - key: TUNIT1
           value: ''
@@ -188,33 +188,6 @@ releases:
         - key: TUNIT34
           value: ''
           comment: ''
-        - key: TUNIT35
-          value: ''
-          comment: ''
-        - key: TUNIT36
-          value: ''
-          comment: ''
-        - key: TUNIT37
-          value: ''
-          comment: ''
-        - key: TUNIT38
-          value: ''
-          comment: ''
-        - key: TUNIT39
-          value: ''
-          comment: ''
-        - key: TUNIT40
-          value: ''
-          comment: ''
-        - key: TUNIT41
-          value: ''
-          comment: ''
-        - key: TUNIT42
-          value: ''
-          comment: ''
-        - key: TUNIT43
-          value: ''
-          comment: ''
         - key: NAME
           value: allspec
           comment: ''
@@ -223,7 +196,12 @@ releases:
             name: specobjid
             type: char[29]
             unit: ''
-            description: spectroscopic visit id
+            description: spectroscopic object id
+          allspec_id:
+            name: allspec_id
+            type: char[99]
+            unit: ''
+            description: Unique allspec ID
           sdss_phase:
             name: sdss_phase
             type: int16
@@ -236,14 +214,9 @@ releases:
             description: observatory
           instrument:
             name: instrument
-            type: char[5]
+            type: char[6]
             unit: ''
             description: instrument
-          unique_id:
-            name: unique_id
-            type: char[79]
-            unit: ''
-            description: temporary ID to check for uniqueness
           sdss_id:
             name: sdss_id
             type: int64
@@ -301,7 +274,7 @@ releases:
             description: either epoch, daily, or custom=allepoch
           apred_vers:
             name: apred_vers
-            type: char[1]
+            type: char[4]
             unit: ''
             description: APOGEE DRP Version
           drpver:
@@ -316,12 +289,12 @@ releases:
             description: All Pipeline Version
           programname:
             name: programname
-            type: char[27]
+            type: char[35]
             unit: ''
             description: Spectroscopic program Name
           survey:
             name: survey
-            type: char[14]
+            type: char[32]
             unit: ''
             description: Spectroscopic survey or sub-survey
           cas_url:
@@ -331,7 +304,7 @@ releases:
             description: CAS URL
           sas_url:
             name: sas_url
-            type: char[134]
+            type: char[140]
             unit: ''
             description: SAS URL
           ra:
@@ -354,81 +327,36 @@ releases:
             type: int16
             unit: ''
             description: healpixgrp
-          objclass:
-            name: objclass
-            type: char[6]
-            unit: ''
-            description: Class of object
-          subclass:
-            name: subclass
-            type: char[21]
-            unit: ''
-            description: Subclass of object
-          z:
-            name: z
-            type: float32
-            unit: ''
-            description: redshift
-          z_err:
-            name: z_err
-            type: float32
-            unit: ''
-            description: redshift error
-          zwarning:
-            name: zwarning
-            type: int32
-            unit: ''
-            description: ZWARNING FLAG
-          class_noqso:
-            name: class_noqso
-            type: char[6]
-            unit: ''
-            description: Class of object (NOQSO)
-          subclass_noqso:
-            name: subclass_noqso
-            type: char[21]
-            unit: ''
-            description: Subclass of object (NOQSO)
-          z_noqso:
-            name: z_noqso
-            type: float32
-            unit: ''
-            description: redshift (NOQSO)
-          z_err_noqso:
-            name: z_err_noqso
-            type: float32
-            unit: ''
-            description: redshift error (NOQSO)
-          zwarning_noqso:
-            name: zwarning_noqso
-            type: int32
-            unit: ''
-            description: ZWARNING FLAG (NOQSO)
-          znum_noqso:
-            name: znum_noqso
-            type: int32
-            unit: ''
-            description: ZNUM (NOQSO)
-          specprimary:
-            name: specprimary
-            type: int16
-            unit: ''
-            description: Primary Spectrum Flag
           apogee_id:
             name: apogee_id
-            type: char[1]
+            type: char[19]
             unit: ''
             description: APOGEE ID
-          visit_id:
-            name: visit_id
-            type: char[1]
+          apogee_field:
+            name: apogee_field
+            type: char[22]
             unit: ''
-            description: APOGEE VISIT ID
+            description: APOGEE Field (prior to SDSS-V)
+          telescope:
+            name: telescope
+            type: char[6]
+            unit: ''
+            description: 2.5m Telescope
+          file_spec:
+            name: file_spec
+            type: char[8]
+            unit: ''
+            description: sdss_access file species name
           apstar_id:
             name: apstar_id
-            type: char[1]
+            type: char[58]
             unit: ''
-            description: APOGEE Combined Star ID
+            description: APOGEE (combined) star ID
+          visit_id:
+            name: visit_id
+            type: char[34]
+            unit: ''
+            description: APOGEE visit ID
           mangaid:
             name: mangaid
             type: char[9]
