@@ -113,11 +113,11 @@ Key | Value | Comment | |
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
+ | multiplex_id | char[34] |  | Unique multiplex ID |
  | design_id | int32 |  | design_id |
  | sdss_phase | int16 |  | SDSS Phase from 1 to 5 |
  | observatory | char[3] |  | observatory |
  | instrument | char[6] |  | instrument |
- | unique_id | char[34] |  | temporary ID to check for uniqueness |
  | plate | int32 |  | SDSS/BOSS/eBOSS/BHM plate (before FPS era) |
  | fps_field | int32 |  | Plate or FPS Field (merges pre/post Plate era) |
  | plate_or_fps_field | int32 |  | Plate or FPS Field (merges pre/post Plate era) |

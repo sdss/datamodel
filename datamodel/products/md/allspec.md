@@ -26,7 +26,7 @@ DR19
 ALLSPEC
 
 ### Approximate Size
-4 GB
+7 GB
 
 ### File Type
 FITS
@@ -72,7 +72,7 @@ Key | Value | Comment | |
 All spectra data table
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  4 GB
+#### HDU Size:  7 GB
 
 ##### Header Table Caption for HDU1
 Key | Value | Comment | |
@@ -80,11 +80,11 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | binary table extension |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
-| NAXIS1 | 488 | length of dimension 1 |
-| NAXIS2 | 10018752 | length of dimension 2 |
+| NAXIS1 | 580 | length of dimension 1 |
+| NAXIS2 | 14619487 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
-| TFIELDS | 43 | number of table fields |
+| TFIELDS | 34 | number of table fields |
 | TUNIT1 |  |  |
 | TUNIT2 |  |  |
 | TUNIT3 |  |  |
@@ -119,25 +119,16 @@ Key | Value | Comment | |
 | TUNIT32 |  |  |
 | TUNIT33 |  |  |
 | TUNIT34 |  |  |
-| TUNIT35 |  |  |
-| TUNIT36 |  |  |
-| TUNIT37 |  |  |
-| TUNIT38 |  |  |
-| TUNIT39 |  |  |
-| TUNIT40 |  |  |
-| TUNIT41 |  |  |
-| TUNIT42 |  |  |
-| TUNIT43 |  |  |
 | NAME | allspec |  |
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | specobjid | char[29] |  | spectroscopic visit id |
+ | specobjid | char[29] |  | spectroscopic object id |
+ | allspec_id | char[79] |  | Unique allspec ID |
  | sdss_phase | int16 |  | SDSS Phase from 1 to 5 |
  | observatory | char[3] |  | observatory |
- | instrument | char[5] |  | instrument |
- | unique_id | char[79] |  | temporary ID to check for uniqueness |
+ | instrument | char[6] |  | instrument |
  | sdss_id | int64 |  | sdss_id |
  | catalogid | int64 |  | BHM catalogid |
  | fiberid | int32 |  | SDSS/BOSS/eBOSS fiberid |
@@ -149,13 +140,13 @@ Name | Type | Unit | Description |
  | run2d | char[7] |  | idlspec2d version |
  | run1d | char[7] |  | idlspec1d version |
  | coadd | char[8] |  | either epoch, daily, or custom=allepoch |
- | apred_vers | char[1] |  | APOGEE DRP Version |
+ | apred_vers | char[4] |  | APOGEE DRP Version |
  | drpver | char[6] |  | MaNGA (for e.g.) DRP Version |
  | version | char[7] |  | All Pipeline Version |
- | programname | char[27] |  | Spectroscopic program Name |
- | survey | char[14] |  | Spectroscopic survey or sub-survey |
+ | programname | char[35] |  | Spectroscopic program Name |
+ | survey | char[32] |  | Spectroscopic survey or sub-survey |
  | cas_url | char[3] |  | CAS URL |
- | sas_url | char[134] |  | SAS URL |
+ | sas_url | char[136] |  | SAS URL |
  | ra | float64 | deg | Right ascension |
  | dec | float64 | deg | Declination |
  | healpix | int32 |  | healpix |
@@ -172,9 +163,12 @@ Name | Type | Unit | Description |
  | zwarning_noqso | int32 |  | ZWARNING FLAG (NOQSO) |
  | znum_noqso | int32 |  | ZNUM (NOQSO) |
  | specprimary | int16 |  | Primary Spectrum Flag |
- | apogee_id | char[1] |  | APOGEE ID |
- | visit_id | char[1] |  | APOGEE VISIT ID |
- | apstar_id | char[1] |  | APOGEE Combined Star ID |
+ | apogee_id | char[19] |  | APOGEE ID |
+ | apogee_field | char[22] |  | APOGEE Field (prior to SDSS-V) |
+ | telescope | char[6] |  | 2.5m Telescope |
+ | file_spec | char[8] |  | sdss_access file species name |
+ | apstar_id | char[58] |  | APOGEE (combined) star ID |
+ | visit_id | char[34] |  | APOGEE visit ID |
  | mangaid | char[9] |  | MaNGA ID |
 
 
