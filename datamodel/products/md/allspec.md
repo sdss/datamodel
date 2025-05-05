@@ -151,18 +151,6 @@ Name | Type | Unit | Description |
  | dec | float64 | deg | Declination |
  | healpix | int32 |  | healpix |
  | healpixgrp | int16 |  | healpixgrp |
- | objclass | char[6] |  | Class of object |
- | subclass | char[21] |  | Subclass of object |
- | z | float32 |  | redshift |
- | z_err | float32 |  | redshift error |
- | zwarning | int32 |  | ZWARNING FLAG |
- | class_noqso | char[6] |  | Class of object (NOQSO) |
- | subclass_noqso | char[21] |  | Subclass of object (NOQSO) |
- | z_noqso | float32 |  | redshift (NOQSO) |
- | z_err_noqso | float32 |  | redshift error (NOQSO) |
- | zwarning_noqso | int32 |  | ZWARNING FLAG (NOQSO) |
- | znum_noqso | int32 |  | ZNUM (NOQSO) |
- | specprimary | int16 |  | Primary Spectrum Flag |
  | apogee_id | char[19] |  | APOGEE ID |
  | apogee_field | char[22] |  | APOGEE Field (prior to SDSS-V) |
  | telescope | char[6] |  | 2.5m Telescope |
