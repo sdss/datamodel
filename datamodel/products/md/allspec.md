@@ -80,11 +80,11 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | binary table extension |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
-| NAXIS1 | 580 | length of dimension 1 |
+| NAXIS1 | 583 | length of dimension 1 |
 | NAXIS2 | 14619487 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
-| TFIELDS | 34 | number of table fields |
+| TFIELDS | 35 | number of table fields |
 | TUNIT1 |  |  |
 | TUNIT2 |  |  |
 | TUNIT3 |  |  |
@@ -108,9 +108,9 @@ Key | Value | Comment | |
 | TUNIT21 |  |  |
 | TUNIT22 |  |  |
 | TUNIT23 |  |  |
-| TUNIT24 | deg |  |
+| TUNIT24 |  |  |
 | TUNIT25 | deg |  |
-| TUNIT26 |  |  |
+| TUNIT26 | deg |  |
 | TUNIT27 |  |  |
 | TUNIT28 |  |  |
 | TUNIT29 |  |  |
@@ -119,6 +119,7 @@ Key | Value | Comment | |
 | TUNIT32 |  |  |
 | TUNIT33 |  |  |
 | TUNIT34 |  |  |
+| TUNIT35 |  |  |
 | NAME | allspec |  |
 
 ##### Binary Table Caption for HDU1
@@ -145,6 +146,7 @@ Name | Type | Unit | Description |
  | version | char[7] |  | All Pipeline Version |
  | programname | char[35] |  | Spectroscopic program Name |
  | survey | char[32] |  | Spectroscopic survey or sub-survey |
+ | sas_file | char[3] |  | SAS File |
  | cas_url | char[3] |  | CAS URL |
  | sas_url | char[136] |  | SAS URL |
  | ra | float64 | deg | Right ascension |
