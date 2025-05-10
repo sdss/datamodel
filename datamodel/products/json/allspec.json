@@ -23,7 +23,7 @@
       }
     ],
     "datatype": "FITS",
-    "filesize": "7 GB",
+    "filesize": "700 MB",
     "releases": [
       {
         "name": "DR19",
@@ -45,9 +45,9 @@
   },
   "releases": {
     "DR19": {
-      "template": "$ALLSPEC/[VERS]/allspec-[RELEASE]-[VERS].fits",
-      "example": "1.0.1/allspec-dr19-1.0.1.fits",
-      "location": "{vers}/allspec-{release}-{vers}.fits",
+      "template": "$ALLSPEC/[VERS]/allspec-[RELEASE]-[VERS].fits.gz",
+      "example": "1.0.1/allspec-dr19-1.0.1.fits.gz",
+      "location": "{vers}/allspec-{release}-{vers}.fits.gz",
       "environment": "ALLSPEC",
       "survey": "SDSS",
       "access": {
@@ -55,10 +55,10 @@
         "path_name": "allspec",
         "path_template": "$ALLSPEC/{vers}/allspec-{release}-{vers}.fits",
         "path_kwargs": [
-          "release",
-          "vers"
+          "vers",
+          "release"
         ],
-        "access_string": "allspec = $ALLSPEC/{vers}/allspec-{release}-{vers}.fits"
+        "access_string": "allspec = $ALLSPEC/{vers}/allspec-{release}-{vers}.fits.gz"
       },
       "hdus": {
         "hdu0": {
@@ -94,7 +94,7 @@
           "name": "allspec",
           "is_image": false,
           "description": "All spectra data table",
-          "size": "7 GB",
+          "size": "9 GB",
           "header": [
             {
               "key": "XTENSION",
@@ -113,7 +113,7 @@
             },
             {
               "key": "NAXIS1",
-              "value": "583",
+              "value": "664",
               "comment": "length of dimension 1"
             },
             {
@@ -133,7 +133,7 @@
             },
             {
               "key": "TFIELDS",
-              "value": "35",
+              "value": "36",
               "comment": "number of table fields"
             },
             {
@@ -258,7 +258,7 @@
             },
             {
               "key": "TUNIT25",
-              "value": "deg",
+              "value": "",
               "comment": ""
             },
             {
@@ -268,7 +268,7 @@
             },
             {
               "key": "TUNIT27",
-              "value": "",
+              "value": "deg",
               "comment": ""
             },
             {
@@ -312,6 +312,11 @@
               "comment": ""
             },
             {
+              "key": "TUNIT36",
+              "value": "",
+              "comment": ""
+            },
+            {
               "key": "NAME",
               "value": "allspec",
               "comment": ""
@@ -328,6 +333,12 @@
               "name": "allspec_id",
               "description": "Unique allspec ID",
               "type": "char[79]",
+              "unit": ""
+            },
+            "multiplex_id": {
+              "name": "multiplex_id",
+              "description": "multiplex ID",
+              "type": "char[34]",
               "unit": ""
             },
             "sdss_phase": {
@@ -447,7 +458,7 @@
             "sas_file": {
               "name": "sas_file",
               "description": "SAS File",
-              "type": "char[3]",
+              "type": "char[42]",
               "unit": ""
             },
             "cas_url": {
@@ -459,7 +470,7 @@
             "sas_url": {
               "name": "sas_url",
               "description": "SAS URL",
-              "type": "char[136]",
+              "type": "char[143]",
               "unit": ""
             },
             "ra": {
@@ -507,7 +518,7 @@
             "file_spec": {
               "name": "file_spec",
               "description": "sdss_access file species name",
-              "type": "char[8]",
+              "type": "char[9]",
               "unit": ""
             },
             "apstar_id": {

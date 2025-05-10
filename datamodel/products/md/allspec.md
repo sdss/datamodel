@@ -26,7 +26,7 @@ DR19
 ALLSPEC
 
 ### Approximate Size
-7 GB
+700 MB
 
 ### File Type
 FITS
@@ -72,7 +72,7 @@ Key | Value | Comment | |
 All spectra data table
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  7 GB
+#### HDU Size:  9 GB
 
 ##### Header Table Caption for HDU1
 Key | Value | Comment | |
@@ -80,11 +80,11 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | binary table extension |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
-| NAXIS1 | 583 | length of dimension 1 |
+| NAXIS1 | 664 | length of dimension 1 |
 | NAXIS2 | 14619487 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
-| TFIELDS | 35 | number of table fields |
+| TFIELDS | 36 | number of table fields |
 | TUNIT1 |  |  |
 | TUNIT2 |  |  |
 | TUNIT3 |  |  |
@@ -109,9 +109,9 @@ Key | Value | Comment | |
 | TUNIT22 |  |  |
 | TUNIT23 |  |  |
 | TUNIT24 |  |  |
-| TUNIT25 | deg |  |
+| TUNIT25 |  |  |
 | TUNIT26 | deg |  |
-| TUNIT27 |  |  |
+| TUNIT27 | deg |  |
 | TUNIT28 |  |  |
 | TUNIT29 |  |  |
 | TUNIT30 |  |  |
@@ -120,6 +120,7 @@ Key | Value | Comment | |
 | TUNIT33 |  |  |
 | TUNIT34 |  |  |
 | TUNIT35 |  |  |
+| TUNIT36 |  |  |
 | NAME | allspec |  |
 
 ##### Binary Table Caption for HDU1
@@ -127,6 +128,7 @@ Name | Type | Unit | Description |
 | --- | --- | --- | --- |
  | specobjid | char[29] |  | spectroscopic object id |
  | allspec_id | char[79] |  | Unique allspec ID |
+ | multiplex_id | char[34] |  | multiplex ID |
  | sdss_phase | int16 |  | SDSS Phase from 1 to 5 |
  | observatory | char[3] |  | observatory |
  | instrument | char[6] |  | instrument |
@@ -146,9 +148,9 @@ Name | Type | Unit | Description |
  | version | char[7] |  | All Pipeline Version |
  | programname | char[35] |  | Spectroscopic program Name |
  | survey | char[32] |  | Spectroscopic survey or sub-survey |
- | sas_file | char[3] |  | SAS File |
+ | sas_file | char[42] |  | SAS File |
  | cas_url | char[3] |  | CAS URL |
- | sas_url | char[136] |  | SAS URL |
+ | sas_url | char[143] |  | SAS URL |
  | ra | float64 | deg | Right ascension |
  | dec | float64 | deg | Declination |
  | healpix | int32 |  | healpix |
@@ -156,7 +158,7 @@ Name | Type | Unit | Description |
  | apogee_id | char[19] |  | APOGEE ID |
  | apogee_field | char[22] |  | APOGEE Field (prior to SDSS-V) |
  | telescope | char[6] |  | 2.5m Telescope |
- | file_spec | char[8] |  | sdss_access file species name |
+ | file_spec | char[9] |  | sdss_access file species name |
  | apstar_id | char[58] |  | APOGEE (combined) star ID |
  | visit_id | char[34] |  | APOGEE visit ID |
  | mangaid | char[9] |  | MaNGA ID |
