@@ -13,7 +13,7 @@ Results and best-fit models from the ASPCAP astra pipeline for a single star
 ---
 
 ## Basic Information
-Results and best-fit models from the ASPCAP astra pipeline for a single star The ASPCAP flag bitmaps are documented at https://www.sdss.org/dr17/irspec/apogee-bitmasks#ParamBitMask, and the weights used when computing each abundance are documented at https://data.sdss5.org/sas/sdssrelease, work/mwm/spectro/astra/component_data/aspcap/masks/
+Results and best-fit models from the ASPCAP astra pipeline for a single star The ASPCAP flag bitmaps are documented at https://www.sdss.org/dr17/irspec/apogee-bitmasks#ParamBitMask, and the weights used when computing each abundance are documented at https://data.sdss5.org/sas/sdsswork/mwm/spectro/astra/component_data/aspcap/masks/
 
 ### Naming Convention
 $MWM_ASTRA/0.6.0/results/star/49/97/astraStarASPCAP-0.6.0-70344997.fits

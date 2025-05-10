@@ -1,0 +1,382 @@
+general:
+  name: allspec
+  short: Table of all spectroscopic reductions
+  description: Table of all spectroscopic reductions across each SDSS instrument.
+  datatype: FITS
+  filesize: 700 MB
+  releases:
+  - DR19
+  environments:
+  - ALLSPEC
+  surveys:
+  - SDSS
+  naming_convention: >
+    $ALLSPEC/[VERS]/allspec-[RELEASE]-[VERS].fits where RELEASE = dr19 and VERS=1.0.1 in DR19.
+  generated_by: http://github.com/sdss/allspec
+  data_level: 2.3.0
+  design: false
+  vac: false
+  recommended_science_product: true
+changelog:
+  description: DR19 is the first release of the allspec table
+  releases: {}
+releases:
+  DR19:
+    template: $ALLSPEC/[VERS]/allspec-[RELEASE]-[VERS].fits.gz
+    example: 1.0.1/allspec-dr19-1.0.1.fits.gz
+    location: '{vers}/allspec-{release}-{vers}.fits.gz'
+    environment: ALLSPEC
+    access:
+      in_sdss_access: true
+      path_name: allspec
+      path_template: $ALLSPEC/{vers}/allspec-{release}-{vers}.fits
+      path_kwargs:
+      - vers
+      - release
+      access_string: allspec = $ALLSPEC/{vers}/allspec-{release}-{vers}.fits.gz
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Primary HDU
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: 'allspec'
+        description: All spectra data table
+        is_image: false
+        size: 9 GB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 664
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 14619487
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 36
+          comment: number of table fields
+        - key: TUNIT1
+          value: ''
+          comment: ''
+        - key: TUNIT2
+          value: ''
+          comment: ''
+        - key: TUNIT3
+          value: ''
+          comment: ''
+        - key: TUNIT4
+          value: ''
+          comment: ''
+        - key: TUNIT5
+          value: ''
+          comment: ''
+        - key: TUNIT6
+          value: ''
+          comment: ''
+        - key: TUNIT7
+          value: ''
+          comment: ''
+        - key: TUNIT8
+          value: ''
+          comment: ''
+        - key: TUNIT9
+          value: ''
+          comment: ''
+        - key: TUNIT10
+          value: ''
+          comment: ''
+        - key: TUNIT11
+          value: ''
+          comment: ''
+        - key: TUNIT12
+          value: ''
+          comment: ''
+        - key: TUNIT13
+          value: ''
+          comment: ''
+        - key: TUNIT14
+          value: ''
+          comment: ''
+        - key: TUNIT15
+          value: ''
+          comment: ''
+        - key: TUNIT16
+          value: ''
+          comment: ''
+        - key: TUNIT17
+          value: ''
+          comment: ''
+        - key: TUNIT18
+          value: ''
+          comment: ''
+        - key: TUNIT19
+          value: ''
+          comment: ''
+        - key: TUNIT20
+          value: ''
+          comment: ''
+        - key: TUNIT21
+          value: ''
+          comment: ''
+        - key: TUNIT22
+          value: ''
+          comment: ''
+        - key: TUNIT23
+          value: ''
+          comment: ''
+        - key: TUNIT24
+          value: ''
+          comment: ''
+        - key: TUNIT25
+          value: ''
+          comment: ''
+        - key: TUNIT26
+          value: deg
+          comment: ''
+        - key: TUNIT27
+          value: deg
+          comment: ''
+        - key: TUNIT28
+          value: ''
+          comment: ''
+        - key: TUNIT29
+          value: ''
+          comment: ''
+        - key: TUNIT30
+          value: ''
+          comment: ''
+        - key: TUNIT31
+          value: ''
+          comment: ''
+        - key: TUNIT32
+          value: ''
+          comment: ''
+        - key: TUNIT33
+          value: ''
+          comment: ''
+        - key: TUNIT34
+          value: ''
+          comment: ''
+        - key: TUNIT35
+          value: ''
+          comment: ''
+        - key: TUNIT36
+          value: ''
+          comment: ''
+        - key: NAME
+          value: allspec
+          comment: ''
+        columns:
+          specobjid:
+            name: specobjid
+            type: char[29]
+            unit: ''
+            description: spectroscopic object id
+          allspec_id:
+            name: allspec_id
+            type: char[79]
+            unit: ''
+            description: Unique allspec ID
+          multiplex_id:
+            name: multiplex_id
+            type: char[34]
+            unit: ''
+            description: multiplex ID
+          sdss_phase:
+            name: sdss_phase
+            type: int16
+            unit: ''
+            description: SDSS Phase from 1 to 5
+          observatory:
+            name: observatory
+            type: char[3]
+            unit: ''
+            description: observatory
+          instrument:
+            name: instrument
+            type: char[6]
+            unit: ''
+            description: instrument
+          sdss_id:
+            name: sdss_id
+            type: int64
+            unit: ''
+            description: sdss_id
+          catalogid:
+            name: catalogid
+            type: int64
+            unit: ''
+            description: BHM catalogid
+          fiberid:
+            name: fiberid
+            type: int32
+            unit: ''
+            description: SDSS/BOSS/eBOSS fiberid
+          ifudsgn:
+            name: ifudsgn
+            type: int16
+            unit: ''
+            description: MaNGA IFU DESIGN ID
+          plate:
+            name: plate
+            type: int32
+            unit: ''
+            description: SDSS/BOSS/eBOSS/BHM plate (before FPS era)
+          fps_field:
+            name: fps_field
+            type: int32
+            unit: ''
+            description: FPS Field (post Plate era)
+          plate_or_fps_field:
+            name: plate_or_fps_field
+            type: int32
+            unit: ''
+            description: Plate or FPS Field (merges pre/post Plate era)
+          mjd:
+            name: mjd
+            type: int32
+            unit: ''
+            description: MJD
+          run2d:
+            name: run2d
+            type: char[7]
+            unit: ''
+            description: idlspec2d version
+          run1d:
+            name: run1d
+            type: char[7]
+            unit: ''
+            description: idlspec1d version
+          coadd:
+            name: coadd
+            type: char[8]
+            unit: ''
+            description: either epoch, daily, or custom=allepoch
+          apred_vers:
+            name: apred_vers
+            type: char[4]
+            unit: ''
+            description: APOGEE DRP Version
+          drpver:
+            name: drpver
+            type: char[6]
+            unit: ''
+            description: MaNGA (for e.g.) DRP Version
+          version:
+            name: version
+            type: char[7]
+            unit: ''
+            description: All Pipeline Version
+          programname:
+            name: programname
+            type: char[35]
+            unit: ''
+            description: Spectroscopic program Name
+          survey:
+            name: survey
+            type: char[32]
+            unit: ''
+            description: Spectroscopic survey or sub-survey
+          sas_file:
+            name: sas_file
+            type: char[42]
+            unit: ''
+            description: SAS File
+          cas_url:
+            name: cas_url
+            type: char[3]
+            unit: ''
+            description: CAS URL
+          sas_url:
+            name: sas_url
+            type: char[143]
+            unit: ''
+            description: SAS URL
+          ra:
+            name: ra
+            type: float64
+            unit: deg
+            description: Right ascension
+          dec:
+            name: dec
+            type: float64
+            unit: deg
+            description: Declination
+          healpix:
+            name: healpix
+            type: int32
+            unit: ''
+            description: healpix
+          healpixgrp:
+            name: healpixgrp
+            type: int16
+            unit: ''
+            description: healpixgrp
+          apogee_id:
+            name: apogee_id
+            type: char[19]
+            unit: ''
+            description: APOGEE ID
+          apogee_field:
+            name: apogee_field
+            type: char[22]
+            unit: ''
+            description: APOGEE Field (prior to SDSS-V)
+          telescope:
+            name: telescope
+            type: char[6]
+            unit: ''
+            description: 2.5m Telescope
+          file_spec:
+            name: file_spec
+            type: char[9]
+            unit: ''
+            description: sdss_access file species name
+          apstar_id:
+            name: apstar_id
+            type: char[58]
+            unit: ''
+            description: APOGEE (combined) star ID
+          visit_id:
+            name: visit_id
+            type: char[34]
+            unit: ''
+            description: APOGEE visit ID
+          mangaid:
+            name: mangaid
+            type: char[9]
+            unit: ''
+            description: MaNGA ID
+notes: |-
+  None
+regrets: |-
+  I  have no regrets!
