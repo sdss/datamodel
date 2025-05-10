@@ -13,7 +13,7 @@ Results from the ASPCAP astra pipeline for each star
 ---
 
 ## Basic Information
-Results from the ASPCAP astra pipeline for each star. The ASPCAP flag bitmaps are documented at https://www.sdss.org/dr17/irspec/apogee-bitmasks#ParamBitMask, and the weights used when computing each abundance are documented at https://data.sdss5.org/sas/sdssrelease, work/mwm/spectro/astra/component_data/aspcap/masks/
+Results from the ASPCAP astra pipeline for each star. The ASPCAP flag bitmaps are documented at https://www.sdss.org/dr17/irspec/apogee-bitmasks#ParamBitMask, and the weights used when computing each abundance are documented at https://data.sdss5.org/sas/sdsswork/mwm/spectro/astra/component_data/aspcap/masks/
 
 ### Naming Convention
 $MWM_ASTRA/0.6.0/summary/astraAllStarASPCAP-0.6.0.fits.gz
