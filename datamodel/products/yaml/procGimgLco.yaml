@@ -1,0 +1,1302 @@
+general:
+  name: procGimgLco
+  short: LCO Guide Focus Acquisition Camera (GFA) processed image
+  description: GFAs are used to image stars in the sky to correct telescope pointing
+    and focus during spectrograph exposures.  Headers and HDUs within contain guide
+    star centroiding data and derived telescope measurements and corrections.
+  datatype: FITS
+  filesize: 3 MB
+  releases:
+  - WORK
+  environments:
+  - GCAM_DATA_S
+  surveys:
+  - SDSS
+  naming_convention: $GCAM_DATA_N/[MJD]/proc-gimg-gfa[CAMNUM]n-[EXPNUM].fits
+  generated_by: fliswarm, cherno, coordio, sep
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  WORK:
+    template: $GCAM_DATA_S/[MJD]/proc-gimg-gfa[CAMNUM]s-[EXPNUM].fits
+    example: 60648/proc-gimg-gfa2s-0682.fits
+    location: '{mjd}/proc-gimg-gfa{camnum}s-{expnum}.fits'
+    environment: GCAM_DATA_S
+    access:
+      in_sdss_access: false
+      path_name: null
+      path_template: null
+      path_kwargs: null
+      access_string: procGimgLco = $GCAM_DATA_S/{mjd}/proc-gimg-gfa{camnum}s-{expnum}.fits
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: empty
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: CHECKSUM
+          value: D8aIE5a9D5aGD5a9
+          comment: HDU checksum updated 2024-12-04T08:02:02
+        - key: DATASUM
+          value: '0'
+          comment: data unit checksum updated 2024-12-04T08:02:02
+      hdu1:
+        name: RAW
+        description: bias, dark, flat corrected image frame
+        is_image: true
+        size: 32 MB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image extension
+        - key: BITPIX
+          value: -64
+          comment: data type of original image
+        - key: NAXIS
+          value: 2
+          comment: dimension of original image
+        - key: NAXIS1
+          value: 2048
+          comment: length of original image axis
+        - key: NAXIS2
+          value: 2048
+          comment: length of original image axis
+        - key: PCOUNT
+          value: 0
+          comment: number of parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: EXTNAME
+          value: RAW
+          comment: extension name
+        - key: CAMNAME
+          value: gfa2s
+          comment: Camera name
+        - key: VCAM
+          value: 0.6.1a0
+          comment: Version of the camera library
+        - key: IMAGETYP
+          value: object
+          comment: The image type of the file
+        - key: EXPTIME
+          value: 15.0
+          comment: Exposure time of single integration [s]
+        - key: EXPTIMEN
+          value: 15.0
+          comment: Total exposure time [s]
+        - key: STACK
+          value: 1
+          comment: Number of stacked frames
+        - key: STACKFUN
+          value: median
+          comment: Function used for stacking
+        - key: TIMESYS
+          value: TAI
+          comment: Time reference system
+        - key: SJD
+          value: 60648
+          comment: SDSS custom Julian Day
+        - key: DATE-OBS
+          value: '2024-12-04 08:02:19.695527'
+          comment: Time of the start of the exposure [TAI]
+        - key: CCDTEMP
+          value: -10.0
+          comment: Degrees C
+        - key: BEGX
+          value: 0
+          comment: Window start pixel in X
+        - key: BEGY
+          value: 0
+          comment: Window start pixel in Y
+        - key: ENDX
+          value: 2048
+          comment: Window end pixel in X
+        - key: EDNY
+          value: 2048
+          comment: Window end pixel in Y
+        - key: BINX
+          value: 1
+          comment: Binning in X
+        - key: BINY
+          value: 1
+          comment: Binning in Y
+        - key: GAIN
+          value: 1.51
+          comment: The CCD gain [e-/ADUs]
+        - key: READNOIS
+          value: 15.2
+          comment: The CCD read noise [ADUs]
+        - key: PIXELSC
+          value: 0.1476
+          comment: Scale of unbinned pixel on sky [arcsec/pix]
+        - key: WCSAXES
+          value: 2
+          comment: Number of coordinate axes
+        - key: CRPIX1
+          value: 1096.4797880321
+          comment: Pixel coordinate of reference point
+        - key: CRPIX2
+          value: 1143.7859742872
+          comment: Pixel coordinate of reference point
+        - key: CDELT1
+          value: 1.0
+          comment: '[deg] Coordinate increment at reference point'
+        - key: CDELT2
+          value: 1.0
+          comment: '[deg] Coordinate increment at reference point'
+        - key: CRVAL1
+          value: 90.545293629141
+          comment: '[deg] Coordinate value at reference point'
+        - key: CRVAL2
+          value: -38.188088976029
+          comment: '[deg] Coordinate value at reference point'
+        - key: LATPOLE
+          value: -38.188088976029
+          comment: '[deg] Native latitude of celestial pole'
+        - key: MJDREF
+          value: 0.0
+          comment: '[d] MJD of fiducial time'
+        - key: OBSERVAT
+          value: LCO
+          comment: Observatory
+        - key: OBJSYS
+          value: FK5
+          comment: The TCC objSys
+        - key: RA
+          value: 91.804529
+          comment: RA of telescope boresight (deg)
+        - key: DEC
+          value: -38.111627
+          comment: Dec of telescope boresight (deg)
+        - key: AIRMASS
+          value: 1.13
+          comment: Airmass
+        - key: HA
+          value: 31.4
+          comment: HA axis pos. (approx, deg)
+        - key: IPA
+          value: 184.96411826
+          comment: Rotator axis pos. (approx, deg)
+        - key: FOCUS
+          value: 19254.8
+          comment: User-specified focus offset (um)
+        - key: M2PISTON
+          value: 19254.8
+          comment: TCC SecOrient
+        - key: M2XTILT
+          value: -202.2
+          comment: TCC SecOrient
+        - key: M2YTILT
+          value: -610.5
+          comment: TCC SecOrient
+        - key: M2XTRAN
+          value: -53.4
+          comment: TCC SecOrient
+        - key: M2YTRAN
+          value: 801.8
+          comment: TCC SecOrient
+        - key: M2ZROT
+          value: 0.0
+          comment: TCC SecOrient
+        - key: T_OUT
+          value: 11.2
+          comment: Outside temperature deg C.
+        - key: T_IN
+          value: 11.7
+          comment: Inside temperature deg C.
+        - key: T_PRIM
+          value: 11.9
+          comment: Primary mirror temperature deg C.
+        - key: T_CELL
+          value: 11.9
+          comment: Cell temperature deg C.
+        - key: T_FLOOR
+          value: 11.0
+          comment: Floor temperature deg C.
+        - key: T_TRUSS
+          value: 11.35
+          comment: Truss temperature deg C. Used for automatic foc
+        - key: CARTID
+          value: FPS-S
+          comment: Cart ID
+        - key: CONFIGID
+          value: 10011155
+          comment: Configuration ID
+        - key: DESIGNID
+          value: 685776
+          comment: Design ID associated with CONFIGID
+        - key: FIELDID
+          value: 107509
+          comment: Field ID associated with CONFIGID
+        - key: RAFIELD
+          value: 91.8087031898868
+          comment: Field right ascension
+        - key: DECFIELD
+          value: -38.1099146549991
+          comment: Field declination
+        - key: FIELDPA
+          value: 265.0943
+          comment: Field position angle
+        - key: BIASFILE
+          value: /data/gcam/calib/60404/superstack_bias_lco_median_gfa2s.fits
+          comment: Bias
+        - key: BKG_ADU
+          value: 20.20341674555407
+          comment: background (median) counts in calibrated frame
+        - key: FLATFILE
+          value: /data/gcam/calib/60404/superstack_skyflat_lco_median_gfa2s.fits
+          comment: ''
+        - key: DARKFILE
+          value: /data/gcam/calib/60404/superstack_dark_lco_median_gfa2s.fits
+          comment: ''
+        - key: PC1_1
+          value: -3.1927629573354e-06
+          comment: Coordinate transformation matrix element
+        - key: PC1_2
+          value: -4.0073501606047e-05
+          comment: Coordinate transformation matrix element
+        - key: PC2_1
+          value: 4.0601916399277e-05
+          comment: Coordinate transformation matrix element
+        - key: PC2_2
+          value: -3.1562022698365e-06
+          comment: Coordinate transformation matrix element
+        - key: CUNIT1
+          value: deg
+          comment: Units of coordinate increment and value
+        - key: CUNIT2
+          value: deg
+          comment: Units of coordinate increment and value
+        - key: CTYPE1
+          value: RA---TAN
+          comment: Right ascension, gnomonic projection
+        - key: CTYPE2
+          value: DEC--TAN
+          comment: Declination, gnomonic projection
+        - key: LONPOLE
+          value: 180.0
+          comment: '[deg] Native longitude of celestial pole'
+        - key: RADESYS
+          value: ICRS
+          comment: Equatorial coordinate system
+        - key: SOLVED
+          value: true
+          comment: field was solved
+        - key: SOLVMODE
+          value: coordio-fast
+          comment: Method used to solve the field
+        - key: SOLVTIME
+          value: -999.0
+          comment: Time to solve the field or fail
+        - key: OFFRA
+          value: 0.0
+          comment: Relative offset in RA [arcsec]
+        - key: OFFDEC
+          value: 0.0
+          comment: Relative offset in Dec [arcsec]
+        - key: OFFPA
+          value: 0.0
+          comment: Relative offset in PA [arcsec]
+        - key: AOFFRA
+          value: 0.0
+          comment: Absolute offset in RA [arcsec]
+        - key: AOFFDEC
+          value: 0.0
+          comment: Absolute offset in Dec [arcsec]
+        - key: AOFFPA
+          value: -365.0
+          comment: Absolute offset in PA [arcsec]
+        - key: EXTMETH
+          value: marginal
+          comment: Algorithm for star finding
+        - key: RAK
+          value: 0.7
+          comment: PID K term for RA
+        - key: RATD
+          value: 0.0
+          comment: PID Td term for RA
+        - key: RATI
+          value: 0.01
+          comment: PID Ti term for RA
+        - key: DECK
+          value: 0.7
+          comment: PID K term for Dec
+        - key: DECTD
+          value: 0.0
+          comment: PID Td term for Dec
+        - key: DECTI
+          value: 0.01
+          comment: PID Ti term for Dec
+        - key: ROTK
+          value: 1
+          comment: PID K term for Rot.
+        - key: ROTTD
+          value: 0.0
+          comment: PID Td term for Rot.
+        - key: ROTTI
+          value: 0.0
+          comment: PID Ti term for Rot.
+        - key: SCLK
+          value: 0.0
+          comment: PID K term for Scale
+        - key: SCLTD
+          value: 0.0
+          comment: PID Td term for Scale
+        - key: SCLTI
+          value: 0.0
+          comment: PID Ti term for Scale
+        - key: FOCUSK
+          value: 0.3
+          comment: PID K term for Focus
+        - key: FOCUSTD
+          value: 0.0
+          comment: PID Td term for Focus
+        - key: FOCUSTI
+          value: 0.0
+          comment: PID Ti term for Focus
+        - key: FWHM
+          value: 1.597
+          comment: Mesured FWHM [arcsec]
+        - key: FWHMFIT
+          value: 1.31
+          comment: Fitted FWHM [arcsec]
+        - key: RMS
+          value: 0.226
+          comment: Guide RMS [arcsec]
+        - key: FITMODE
+          value: full
+          comment: Fit mode (full or RA/Dec)
+        - key: E_RA
+          value: true
+          comment: RA corrections enabled?
+        - key: E_DEC
+          value: true
+          comment: Dec corrections enabled?
+        - key: E_ROT
+          value: true
+          comment: Rotator corrections enabled?
+        - key: E_FOCUS
+          value: false
+          comment: Focus corrections enabled?
+        - key: E_SCL
+          value: false
+          comment: Scale corrections enabled?
+        - key: DELTARA
+          value: -0.1151332981917133
+          comment: RA measured delta [arcsec]
+        - key: DELTADEC
+          value: -0.05005147405654497
+          comment: Dec measured delta [arcsec]
+        - key: DELTAROT
+          value: 0.3513871399036361
+          comment: Rotator measured delta [arcsec]
+        - key: DELTASCL
+          value: 0.9999426091182757
+          comment: Scale measured factor
+        - key: DELTAFOC
+          value: 71.6
+          comment: Focus delta [microns]
+        - key: CORR_RA
+          value: -0.16
+          comment: RA applied correction [arcsec]
+        - key: CORR_DEC
+          value: -0.304
+          comment: Dec applied correction [arcsec]
+        - key: CORR_ROT
+          value: 0.0
+          comment: Rotator applied correction [arcsec]
+        - key: CORR_SCL
+          value: 0.0
+          comment: Scale applied correction
+        - key: CORR_FOC
+          value: 0.0
+          comment: Focus applied correction [microns]
+        - key: SOL_RA
+          value: 91.80866254381395
+          comment: solved RA of pointing (deg)
+        - key: SOL_DEC
+          value: -38.10992855818634
+          comment: solved Dec of pointing (deg)
+        - key: SOL_PA
+          value: 265.19578649642773
+          comment: solved PA of pointing (deg)
+        - key: SOL_SCL
+          value: 0.9999426091182757
+          comment: solved scale factor
+        - key: SOL_ALT
+          value: 71.56405638138496
+          comment: solved alt of pointing (deg)
+        - key: SOL_AZ
+          value: 235.4098317877393
+          comment: solved az of pointing (deg)
+        - key: SOL_GRMS
+          value: 0.011636541756800421
+          comment: guide rms between reference and solved (mm)
+        - key: SOL_FRMS
+          value: 0.017165790745143017
+          comment: rms of fit (mm)
+        - key: REF_RA
+          value: 91.8087031898868
+          comment: reference RA (deg)
+        - key: REF_DEC
+          value: -38.1099146549991
+          comment: reference Dec (deg)
+        - key: REF_PA
+          value: 265.19568888888887
+          comment: reference PA (deg)
+        - key: REF_SCL
+          value: 1.0003
+          comment: reference scale factor
+        - key: TAI_MID
+          value: 5240016147.195074
+          comment: tai seconds at middle of exposure
+        - key: N_STARS
+          value: 110
+          comment: number of stars used in fit
+        - key: N_GFAS
+          value: 6
+          comment: number of GFAs used in fit
+        - key: NITR_WCS
+          value: 0
+          comment: number of iterations for wcs solve
+        - key: NITR_ALL
+          value: 2
+          comment: number of iterations for full solve
+        - key: R_ZPT
+          value: 25.582660152498267
+          comment: median measured zeropoint of gaia sources
+        - key: SPEXPNG
+          value: true
+          comment: BOSS spectrograph exposing
+        - key: SPIMGNO
+          value: 44220
+          comment: BOSS spectrograph current exposure number
+        - key: CHECKSUM
+          value: 93f2A0c090c0A0c0
+          comment: HDU checksum updated 2024-12-04T08:02:01
+        - key: DATASUM
+          value: '2341816633'
+          comment: data unit checksum updated 2024-12-04T08:02:01
+      hdu2:
+        name: CENTROIDS
+        description: centroid measurements for all GFA object detections prior to
+          matching to specific Gaia catalog sources.  Most columns correspond to what
+          is returned by sep.extract (https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html).
+        is_image: false
+        size: 4 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 384
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 13
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 48
+          comment: number of table fields
+        - key: EXTNAME
+          value: CENTROIDS
+          comment: extension name
+        columns:
+          thresh:
+            name: thresh
+            type: float64
+            unit: adu
+            description: threshold at centroid location (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+          npix:
+            name: npix
+            type: int64
+            unit: pix
+            description: number of pixels belonging to centroid (sep extraction output
+              https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+          tnpix:
+            name: tnpix
+            type: int64
+            unit: pix
+            description: number of pixels above threshold (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+          xmin:
+            name: xmin
+            type: int64
+            unit: pix
+            description: min x coord of centroid (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+          xmax:
+            name: xmax
+            type: int64
+            unit: pix
+            description: max x coord of centroid (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+          ymin:
+            name: ymin
+            type: int64
+            unit: pix
+            description: min y coord of centroid (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+          ymax:
+            name: ymax
+            type: int64
+            unit: pix
+            description: max y coord of centroid (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+          x:
+            name: x
+            type: float64
+            unit: pix
+            description: x center of centroid (first moment, sep extraction output
+              https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+          y:
+            name: y
+            type: float64
+            unit: pix
+            description: y center of centroid (first moment, sep extraction output
+              https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+          x2:
+            name: x2
+            type: float64
+            unit: pix^2
+            description: x second moment (variance) of centroid (sep extraction output
+              https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+          y2:
+            name: y2
+            type: float64
+            unit: pix^2
+            description: y second moment (variance) of centroid (sep extraction output
+              https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+          xy:
+            name: xy
+            type: float64
+            unit: pix^2
+            description: xy second moment (covariance) of centroid (sep extraction
+              output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+          errx2:
+            name: errx2
+            type: float64
+            unit: pix^2
+            description: x second moment error (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+          erry2:
+            name: erry2
+            type: float64
+            unit: pix^2
+            description: y second moment error (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+          errxy:
+            name: errxy
+            type: float64
+            unit: pix^2
+            description: xy second moment error (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+          a:
+            name: a
+            type: float64
+            unit: ''
+            description: elipse parameter a (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+          b:
+            name: b
+            type: float64
+            unit: ''
+            description: elipse parameter b (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+          theta:
+            name: theta
+            type: float64
+            unit: ''
+            description: elipse parameter theta (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+          cxx:
+            name: cxx
+            type: float64
+            unit: ''
+            description: alternative ellipse parameter (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+          cyy:
+            name: cyy
+            type: float64
+            unit: ''
+            description: alternative ellipse parameter (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+          cxy:
+            name: cxy
+            type: float64
+            unit: ''
+            description: alternative ellipse parameter (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+          cflux:
+            name: cflux
+            type: float64
+            unit: adu
+            description: sum of member pixels in convolved data (sep extraction output
+              https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+          flux:
+            name: flux
+            type: float64
+            unit: adu
+            description: sum of member pixels in unconvolved data (sep extraction
+              output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+          cpeak:
+            name: cpeak
+            type: float64
+            unit: adu
+            description: peak value in convolved data (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+          peak:
+            name: peak
+            type: float64
+            unit: adu
+            description: peak value in unconvolved data (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+          xcpeak:
+            name: xcpeak
+            type: int64
+            unit: pix
+            description: x coordinate of convolved peak pixel (sep extraction output
+              https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+          ycpeak:
+            name: ycpeak
+            type: int64
+            unit: pix
+            description: y coordinate of convolved peak pixel (sep extraction output
+              https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+          xpeak:
+            name: xpeak
+            type: int64
+            unit: pix
+            description: x coordinate of unconvolved peak pixel (sep extraction output
+              https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+          ypeak:
+            name: ypeak
+            type: int64
+            unit: pix
+            description: y coordinate of unconvolved peak pixel (sep extraction output
+              https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+          flag:
+            name: flag
+            type: int64
+            unit: ''
+            description: centroid extraction flags (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+          ecc:
+            name: ecc
+            type: float64
+            unit: ''
+            description: eccentricity of centroid derived from source extractor a/b
+              parameters
+          x1:
+            name: x1
+            type: float64
+            unit: pix
+            description: x centroid position based on gaussian fit to marginal distribution
+          xstd:
+            name: xstd
+            type: float64
+            unit: pix
+            description: x standard deviation of gaussian fit to marginal distribution
+          xrms:
+            name: xrms
+            type: float64
+            unit: adu
+            description: x rms error of gaussian fit to marginal distribution
+          xfitvalid:
+            name: xfitvalid
+            type: float64
+            unit: ''
+            description: 1 if x gaussian fit is valid, 0 otherwise
+          y1:
+            name: y1
+            type: float64
+            unit: pix
+            description: y centroid position based on gaussian fit to marginal distribution
+          ystd:
+            name: ystd
+            type: float64
+            unit: pix
+            description: y standard deviation of gaussian fit to marginal distribution
+          yrms:
+            name: yrms
+            type: float64
+            unit: adu
+            description: y rms error of gaussian fit to marginal distribution
+          yfitvalid:
+            name: yfitvalid
+            type: float64
+            unit: ''
+            description: 1 if y gaussian fit is valid, 0 otherwise
+          aperflux:
+            name: aperflux
+            type: float64
+            unit: adu
+            description: aperture flux (output from sep.sum_circle)
+          aperfluxerr:
+            name: aperfluxerr
+            type: float64
+            unit: adu
+            description: aperture flux error (output from sep.sum_circle)
+          aperrad:
+            name: aperrad
+            type: float64
+            unit: pix
+            description: aperture radius used for aperture photometry (input to sep.sum_circle)
+          valid:
+            name: valid
+            type: int64
+            unit: ''
+            description: 1 if source detection is valid to use in GFA measurement,
+              0 otherwise
+          fwhm:
+            name: fwhm
+            type: float64
+            unit: arcsec
+            description: measured full width half max of source
+          mjd:
+            name: mjd
+            type: int64
+            unit: ''
+            description: MJD of obsevation
+          exposure:
+            name: exposure
+            type: int64
+            unit: ''
+            description: exposure number
+          camera:
+            name: camera
+            type: int64
+            unit: ''
+            description: which camera (1-6) source was measured from
+          fwhm_valid:
+            name: fwhm_valid
+            type: int64
+            unit: ''
+            description: 1 if measured FWHM is good, 0 otherwise
+      hdu3:
+        name: GFACOORD
+        description: calibration info related to GFA positions in the wok (gfaCoords.csv
+          copied from sdss-v's fps_calibrations package)
+        is_image: false
+        size: 642 bytes
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 107
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 6
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 14
+          comment: number of table fields
+        - key: EXTNAME
+          value: GFACOORD
+          comment: extension name
+        columns:
+          site:
+            name: site
+            type: char[3]
+            unit: ''
+            description: observatory name (APO or LCO)
+          id:
+            name: id
+            type: int64
+            unit: ''
+            description: unique identifier for GFA (1-6)
+          xWok:
+            name: xWok
+            type: float64
+            unit: mm
+            description: x wok position of GFA center pixel
+          yWok:
+            name: yWok
+            type: float64
+            unit: mm
+            description: y wok position of GFA center pixel
+          zWok:
+            name: zWok
+            type: int64
+            unit: mm
+            description: not used! z wok position of GFA center pixel
+          ix:
+            name: ix
+            type: float64
+            unit: ''
+            description: x component of unit vector describing GFA x (pixel) axis
+              in wok coords
+          iy:
+            name: iy
+            type: float64
+            unit: ''
+            description: y component of unit vector describing GFA x (pixel) axis
+              in wok coords
+          iz:
+            name: iz
+            type: int64
+            unit: ''
+            description: z component of unit vector describing GFA x (pixel) axis
+              in wok coords
+          jx:
+            name: jx
+            type: float64
+            unit: ''
+            description: x component of unit vector describing GFA y (pixel) axis
+              in wok coords
+          jy:
+            name: jy
+            type: float64
+            unit: ''
+            description: y component of unit vector describing GFA y (pixel) axis
+              in wok coords
+          jz:
+            name: jz
+            type: int64
+            unit: ''
+            description: z component of unit vector describing GFA y (pixel) axis
+              in wok coords
+          kx:
+            name: kx
+            type: int64
+            unit: ''
+            description: x component of unit vector describing GFA z axis in wok coords
+          ky:
+            name: ky
+            type: int64
+            unit: ''
+            description: y component of unit vector describing GFA z axis in wok coords
+          kz:
+            name: kz
+            type: int64
+            unit: ''
+            description: z component of unit vector describing GFA z axis in wok coords
+      hdu4:
+        name: GAIAMATCH
+        description: Contains the subset of CENTROIDS matched to Gaia DR2 sources
+        is_image: false
+        size: 59 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 552
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 110
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 69
+          comment: number of table fields
+        - key: EXTNAME
+          value: GAIAMATCH
+          comment: extension name
+        columns:
+          thresh:
+            name: thresh
+            type: float64
+            unit: adu
+            description: threshold at centroid location (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+          npix:
+            name: npix
+            type: int64
+            unit: pix
+            description: number of pixels belonging to centroid (sep extraction output
+              https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+          tnpix:
+            name: tnpix
+            type: int64
+            unit: pix
+            description: number of pixels above threshold (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+          xmin:
+            name: xmin
+            type: int64
+            unit: pix
+            description: min x coord of centroid (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+          xmax:
+            name: xmax
+            type: int64
+            unit: pix
+            description: max x coord of centroid (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+          ymin:
+            name: ymin
+            type: int64
+            unit: pix
+            description: min y coord of centroid (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+          ymax:
+            name: ymax
+            type: int64
+            unit: pix
+            description: max y coord of centroid (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+          x:
+            name: x
+            type: float64
+            unit: pix
+            description: x center of centroid (first moment, sep extraction output
+              https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+          y:
+            name: y
+            type: float64
+            unit: pix
+            description: y center of centroid (first moment, sep extraction output
+              https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+          x2:
+            name: x2
+            type: float64
+            unit: pix^2
+            description: x second moment (variance) of centroid (sep extraction output
+              https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+          y2:
+            name: y2
+            type: float64
+            unit: pix^2
+            description: y second moment (variance) of centroid (sep extraction output
+              https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+          xy:
+            name: xy
+            type: float64
+            unit: pix^2
+            description: xy second moment (covariance) of centroid (sep extraction
+              output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+          errx2:
+            name: errx2
+            type: float64
+            unit: pix^2
+            description: x second moment error (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+          erry2:
+            name: erry2
+            type: float64
+            unit: pix^2
+            description: y second moment error (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+          errxy:
+            name: errxy
+            type: float64
+            unit: pix^2
+            description: xy second moment error (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+          a:
+            name: a
+            type: float64
+            unit: ''
+            description: elipse parameter a (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+          b:
+            name: b
+            type: float64
+            unit: ''
+            description: elipse parameter b (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+          theta:
+            name: theta
+            type: float64
+            unit: ''
+            description: elipse parameter theta (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+          cxx:
+            name: cxx
+            type: float64
+            unit: ''
+            description: alternative ellipse parameter (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+          cyy:
+            name: cyy
+            type: float64
+            unit: ''
+            description: alternative ellipse parameter (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+          cxy:
+            name: cxy
+            type: float64
+            unit: ''
+            description: alternative ellipse parameter (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+          cflux:
+            name: cflux
+            type: float64
+            unit: adu
+            description: sum of member pixels in convolved data (sep extraction output
+              https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+          flux:
+            name: flux
+            type: float64
+            unit: adu
+            description: sum of member pixels in unconvolved data (sep extraction
+              output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+          cpeak:
+            name: cpeak
+            type: float64
+            unit: adu
+            description: peak value in convolved data (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+          peak:
+            name: peak
+            type: float64
+            unit: adu
+            description: peak value in unconvolved data (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+          xcpeak:
+            name: xcpeak
+            type: int64
+            unit: pix
+            description: x coordinate of convolved peak pixel (sep extraction output
+              https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+          ycpeak:
+            name: ycpeak
+            type: int64
+            unit: pix
+            description: y coordinate of convolved peak pixel (sep extraction output
+              https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+          xpeak:
+            name: xpeak
+            type: int64
+            unit: pix
+            description: x coordinate of unconvolved peak pixel (sep extraction output
+              https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+          ypeak:
+            name: ypeak
+            type: int64
+            unit: pix
+            description: y coordinate of unconvolved peak pixel (sep extraction output
+              https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+          flag:
+            name: flag
+            type: int64
+            unit: ''
+            description: centroid extraction flags (sep extraction output https://sep.readthedocs.io/en/v1.1.x/api/sep.extract.html)
+          ecc:
+            name: ecc
+            type: float64
+            unit: ''
+            description: eccentricity of centroid derived from source extractor a/b
+              parameters
+          x1:
+            name: x1
+            type: float64
+            unit: pix
+            description: x centroid position based on gaussian fit to marginal distribution
+          xstd:
+            name: xstd
+            type: float64
+            unit: pix
+            description: x standard deviation of gaussian fit to marginal distribution
+          xrms:
+            name: xrms
+            type: float64
+            unit: adu
+            description: x rms error of gaussian fit to marginal distribution
+          xfitvalid:
+            name: xfitvalid
+            type: float64
+            unit: ''
+            description: 1 if x gaussian fit is valid, 0 otherwise
+          y1:
+            name: y1
+            type: float64
+            unit: pix
+            description: y centroid position based on gaussian fit to marginal distribution
+          ystd:
+            name: ystd
+            type: float64
+            unit: pix
+            description: y standard deviation of gaussian fit to marginal distribution
+          yrms:
+            name: yrms
+            type: float64
+            unit: adu
+            description: y rms error of gaussian fit to marginal distribution
+          yfitvalid:
+            name: yfitvalid
+            type: float64
+            unit: ''
+            description: 1 if y gaussian fit is valid, 0 otherwise
+          aperflux:
+            name: aperflux
+            type: float64
+            unit: adu
+            description: aperture flux (output from sep.sum_circle)
+          aperfluxerr:
+            name: aperfluxerr
+            type: float64
+            unit: adu
+            description: aperture flux error (output from sep.sum_circle)
+          aperrad:
+            name: aperrad
+            type: float64
+            unit: pix
+            description: aperture radius used for aperture photometry (input to sep.sum_circle)
+          valid:
+            name: valid
+            type: int64
+            unit: ''
+            description: 1 if source detection is valid to use in GFA measurement,
+              0 otherwise
+          fwhm:
+            name: fwhm
+            type: float64
+            unit: arcsec
+            description: measured full width half max of source
+          mjd:
+            name: mjd
+            type: int64
+            unit: ''
+            description: MJD of obsevation
+          exposure:
+            name: exposure
+            type: int64
+            unit: ''
+            description: exposure number
+          camera:
+            name: camera
+            type: int64
+            unit: ''
+            description: which camera (1-6) source was measured from
+          fwhm_valid:
+            name: fwhm_valid
+            type: int64
+            unit: ''
+            description: 1 if measured FWHM is good, 0 otherwise
+          gfaNum:
+            name: gfaNum
+            type: int64
+            unit: ''
+            description: unique identifier (1-6) for GFA
+          gain:
+            name: gain
+            type: float64
+            unit: electron/adu
+            description: camera gain
+          xWokMeas:
+            name: xWokMeas
+            type: float64
+            unit: mm
+            description: measured x wok location of source
+          yWokMeas:
+            name: yWokMeas
+            type: float64
+            unit: mm
+            description: measured y wok location of source
+          source_id:
+            name: source_id
+            type: int64
+            unit: ''
+            description: Gaia DR2 unique identifier for source
+          ra:
+            name: ra
+            type: float64
+            unit: deg
+            description: Gaia DR2 RA of source
+          dec:
+            name: dec
+            type: float64
+            unit: deg
+            description: Gaia DR2 Dec of source
+          pmra:
+            name: pmra
+            type: float64
+            unit: mas/year
+            description: Gaia DR2 RA proper motion
+          pmdec:
+            name: pmdec
+            type: float64
+            unit: mas/year
+            description: Gaia DR2 Dec proper motion
+          parallax:
+            name: parallax
+            type: float64
+            unit: mas
+            description: Gaia DR2 parallax
+          phot_g_mean_mag:
+            name: phot_g_mean_mag
+            type: float64
+            unit: mag
+            description: Gaia DR2 G-band magnitude
+          bp_rp:
+            name: bp_rp
+            type: float64
+            unit: mag
+            description: Gaia DR2 BP - RP color
+          xWokPred:
+            name: xWokPred
+            type: float64
+            unit: mm
+            description: predicted x wok position of source given measured telescope
+              field center
+          yWokPred:
+            name: yWokPred
+            type: float64
+            unit: mm
+            description: predicted y wok position of source given measured telescope
+              field center
+          dx:
+            name: dx
+            type: float64
+            unit: mm
+            description: xWokMeas - xWokPred
+          dy:
+            name: dy
+            type: float64
+            unit: mm
+            description: xWokMeas - yWokPred
+          dr:
+            name: dr
+            type: float64
+            unit: mm
+            description: sqrt(dx^2+dy^2)
+          xWokPredRef:
+            name: xWokPredRef
+            type: float64
+            unit: mm
+            description: predicted x wok position of source given desired telescope
+              field center
+          yWokPredRef:
+            name: yWokPredRef
+            type: float64
+            unit: mm
+            description: predicted y wok position of source given desired telescope
+              field center
+          sdss_r:
+            name: sdss_r
+            type: float64
+            unit: mag
+            description: SDSS r band magnitude of source converted from Gaia DR2 colors
+          zp:
+            name: zp
+            type: float64
+            unit: mag
+            description: Measured SDSS r band zeropoint.  zp = 2.5 * log10(aperflux/exptime)
+              + sdss_r
+notes: |-
+  GFA measurement methods continue to evolve overtime and so proc-gimg files from different dates may not exactly match this datamodel, which was built from an image from MJD 60648.  At somepoint we should reprocess them using the same software version.
+regrets: |-
+  I  have no regrets!
