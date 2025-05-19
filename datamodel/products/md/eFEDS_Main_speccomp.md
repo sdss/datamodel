@@ -9,7 +9,7 @@ eROSITA/eFEDS Main source catalogue counterparts with redshifts/classifications 
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
@@ -19,7 +19,7 @@ A catalogue of soft X-ray (0.2-2.3 keV) selected sources detected in the eROSITA
 $BHM_EFEDS_SPECCOMP/[V_SPECCOMP]/eFEDS_Main_speccomp-[V_SPECCOMP].fits, where V_SPECCOMP=v1.4.3 for DR18. or eFEDS_Main_speccomp-v1.4.3.fits but with regex pattern matches
 
 ### Releases
-DR18
+DR18, DR19
 
 ### Enviroments
 BHM_EFEDS_SPECCOMP
@@ -36,7 +36,10 @@ https://gitlab.mpcdf.mpg.de/tdwelly/efeds_speccomp
 ### Is a VAC
 True
 
-### HDUS List for release DR18
+### Data Level
+3.3.0
+
+### HDUS List for release DR19
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1: eFEDS_Main_ctp_wspecz](#hdu1-efeds_main_ctp_wspecz)
 
@@ -44,6 +47,9 @@ True
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR19
+   - from: DR18
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -71,10 +77,122 @@ eROSITA/eFEDS Main source catalogue counterparts with redshifts/classifications 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  9 MB
 
+##### Header Table Caption for HDU1
+Key | Value | Comment | |
+| --- | --- | --- | --- |
+| XTENSION | BINTABLE | binary table extension |
+| BITPIX | 8 | 8-bit bytes |
+| NAXIS | 2 | 2-dimensional table |
+| NAXIS1 | 360 | width of table in bytes |
+| NAXIS2 | 27369 | number of rows in table |
+| PCOUNT | 0 | size of special data area |
+| GCOUNT | 1 | one data group |
+| TFIELDS | 57 | number of columns |
+| EXTNAME | eFEDS_Main_ctp_wspecz | table name |
+| TCOMM1 | From Brunner+22, eROSITA official source Name |  |
+| TNULL2 | -2147483648 | blank value for column 2 |
+| TCOMM2 | From Brunner+22, ID of eROSITA source in the Main Sample |  |
+| TUNIT3 | deg | units for column 3 |
+| TCOMM3 | From Brunner+22, J2000 Right Ascension of eROSITA source (corrected) |  |
+| TUNIT4 | deg | units for column 4 |
+| TCOMM4 | From Brunner+22, J2000 Declination of eROSITA source (corrected) |  |
+| TUNIT5 | arcsec | units for column 5 |
+| TCOMM5 | From Brunner+22, eROSITA positional uncertainty (corrected) |  |
+| TUTYP5 | float32 |  |
+| TUNIT6 | erg/cm^2/s | units for column 6 |
+| TCOMM6 | From Brunner+22, 0.2-2.3 keV source flux |  |
+| TUNIT7 | erg/cm^2/s | units for column 7 |
+| TCOMM7 | From Brunner+22, 0.2-2.3 keV source flux error (1 sigma) |  |
+| TCOMM8 | From Brunner+22, 0.2-2.3 keV detection likelihood via PSF-fitting |  |
+| TCOMM9 | From Salvato+22, LS8 unique id for ctp to the eROSITA source |  |
+| TUNIT10 | deg | units for column 10 |
+| TCOMM10 | From Salvato+22, Right Ascension of the LS8 counterpart |  |
+| TUNIT11 | deg | units for column 11 |
+| TCOMM11 | From Salvato+22, Declination of the best LS8 counterpart |  |
+| TUNIT12 | arcsec | units for column 12 |
+| TCOMM12 | From Salvato+22, Separation between ctp and eROSITA position |  |
+| TUTYP12 | float32 |  |
+| TNULL13 | -32768 | blank value for column 13 |
+| TCOMM13 | From Salvato+22, ctp qual: 4=best,3=good,2=secondary,1/0=unreliable |  |
+| TNULL14 | -9223372036854775808 | blank value for column 14 |
+| TCOMM14 | Unique ID of lsdr9 photometric object labelled with spec-z |  |
+| TUNIT15 | deg | units for column 15 |
+| TCOMM15 | Coordinate from lsdr9 at epoch LS9_EPOCH |  |
+| TUNIT16 | deg | units for column 16 |
+| TCOMM16 | Coordinate from lsdr9 at epoch LS9_EPOCH |  |
+| TUNIT17 | mas/yr | units for column 17 |
+| TCOMM17 | Proper motion from lsdr9 |  |
+| TUNIT18 | mas/yr | units for column 18 |
+| TCOMM18 | Proper motion from lsdr9 |  |
+| TUNIT19 | year | units for column 19 |
+| TCOMM19 | Coordinate epoch from lsdr9 |  |
+| TUNIT20 | mag | units for column 20 |
+| TCOMM20 | DECam g-band model magnitude from lsdr9, AB |  |
+| TUNIT21 | mag | units for column 21 |
+| TCOMM21 | DECam r-band model magnitude from lsdr9, AB |  |
+| TUNIT22 | mag | units for column 22 |
+| TCOMM22 | DECam z-band model magnitude from lsdr9, AB |  |
+| TNULL23 | -2147483648 | blank value for column 23 |
+| TCOMM23 | Total number of spec-z associated with this lsdr9 object |  |
+| TUNIT24 | deg | units for column 24 |
+| TCOMM24 | Coordinate of spec-z, propagated if necessary to epoch J2000 |  |
+| TUNIT25 | deg | units for column 25 |
+| TCOMM25 | Coordinate of spec-z, propagated if necessary to epoch J2000 |  |
+| TNULL26 | -2147483648 | blank value for column 26 |
+| TCOMM26 | Number of spec-z selected to inform result for this object |  |
+| TCOMM27 | Final redshift determined for this object |  |
+| TNULL28 | -2147483648 | blank value for column 28 |
+| TCOMM28 | Final normalised redshift quality associated with this object |  |
+| TCOMM29 | Final normlised classfication determined for this object |  |
+| TCOMM30 | True if best spec-z for this object has a visual inspection |  |
+| TCOMM31 | Catalogue code of best spec-z for this object |  |
+| TNULL32 | -9223372036854775808 | blank value for column 32 |
+| TCOMM32 | Bitmask encoding catalogues containing spec-z for this object |  |
+| TNULL33 | -9223372036854775808 | blank value for column 33 |
+| TCOMM33 | Bitmask encoding catalogues containing informative spec-z for object |  |
+| TNULL34 | -2147483648 | blank value for column 34 |
+| TCOMM34 | Bitmask encoding quality flags for this object |  |
+| TNULL35 | -2147483648 | blank value for column 35 |
+| TCOMM35 | Highest NORMQ of informative spec-z for this object |  |
+| TCOMM36 | Mean NORMQ of informative spec-z for this object |  |
+| TCOMM37 | Mean REDSHIFT of informative spec-z for this object |  |
+| TCOMM38 | Median REDSHIFT of informative spec-z for this object |  |
+| TCOMM39 | Standard deviation of REDSHIFTs for informative spec-z for object |  |
+| TUNIT40 | deg | units for column 40 |
+| TCOMM40 | Coordinate associated with individual spec-z measurement |  |
+| TUNIT41 | deg | units for column 41 |
+| TCOMM41 | Coordinate associated with individual spec-z measurement |  |
+| TCOMM42 | Coordinate epoch associated with individual spec-z measurement |  |
+| TUNIT43 | arcsec | units for column 43 |
+| TCOMM43 | Distance from spec-z to lsdr9 photometric ctp (corrected for pm) |  |
+| TCOMM44 | Can spec-z be associated with >1 possible lsdr9 counterpart? |  |
+| TNULL45 | -2147483648 | blank value for column 45 |
+| TCOMM45 | Rank of ctp out of all possibilities for this spec-z (1=closest) |  |
+| TCOMM46 | Orig. value of ID of individual spec-z measurement (as a string) |  |
+| TCOMM47 | Orig. redshift value of individual spec-z measurement |  |
+| TCOMM48 | Orig. redshift quality value of individual spec-z measurement |  |
+| TNULL49 | -2147483648 | blank value for column 49 |
+| TCOMM49 | Orig. redshift quality of individual spec-z measurement - normalised |  |
+| TCOMM50 | Orig. classification label of individual spec-z measurement |  |
+| TCOMM51 | True if individual spec-z has a visual inspection from our team |  |
+| TCOMM52 | Normalised classification code of individual spec-z measurement |  |
+| TUNIT53 | deg | units for column 53 |
+| TCOMM53 | Adopted coordinate of specz when matching to Salvato+22 counterpart |  |
+| TUNIT54 | deg | units for column 54 |
+| TCOMM54 | Adopted coordinate of specz when matching to Salvato+22 counterpart |  |
+| TUNIT55 | arcsec | units for column 55 |
+| TCOMM55 | Dist. from CTP_LS8_RA,CTP_LS8_DEC to SPECZ_RA_specz,SPECZ_DEC_specz |  |
+| TUCD55 | pos.angDistance |  |
+| TCOMM56 | Does this Salvato+22 counterpart have a spec-z? |  |
+| TCOMM57 | Does this Salvato+22 counterpart have an informative spec-z? |  |
+| DATE-HDU | 2022-09-30T20:18:02 | Date of HDU creation (UTC) |
+| STILVERS | 4.1-2 | Version of STIL software |
+| STILCLAS | uk.ac.starlink.fits.FitsTableWriter | STIL Author class |
+
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | ERO_NAME | char[22] |  | From Brunner+22, eROSITA official source Name |
+ | ERO_Name | char[22] |  | From Brunner+22, eROSITA official source Name |
  | ERO_ID_SRC | int32 |  | From Brunner+22, ID of eROSITA source in the Main Sample |
  | ERO_RA_CORR | float64 | deg | From Brunner+22, J2000 Right Ascension of eROSITA source (corrected) |
  | ERO_DEC_CORR | float64 | deg | From Brunner+22, J2000 Declination of eROSITA source (corrected) |
@@ -85,8 +203,8 @@ Name | Type | Unit | Description |
  | CTP_LS8_UNIQUE_OBJID | char[11] |  | From Salvato+22, LS8 unique id for ctp to the eROSITA source |
  | CTP_LS8_RA | float64 | deg | From Salvato+22, Right Ascension of the LS8 counterpart |
  | CTP_LS8_DEC | float64 | deg | From Salvato+22, Declination of the best LS8 counterpart |
- | DIST_CTP_LS8_ERO | float32 | arcsec | From Salvato+22, Separation between ctp and eROSITA position |
- | CTP_QUALITY | int16 |  | From Salvato+22, ctp qual: 4=best,3=good,2=secondary,1/0=unreliable |
+ | Dist_CTP_LS8_ERO | float32 | arcsec | From Salvato+22, Separation between ctp and eROSITA position |
+ | CTP_quality | int16 |  | From Salvato+22, ctp qual: 4=best,3=good,2=secondary,1/0=unreliable |
  | LS_ID | int64 |  | Unique ID of lsdr9 photometric object labelled with spec-z |
  | LS_RA | float64 | deg | Coordinate from lsdr9 at epoch LS9_EPOCH |
  | LS_DEC | float64 | deg | Coordinate from lsdr9 at epoch LS9_EPOCH |
@@ -128,12 +246,16 @@ Name | Type | Unit | Description |
  | SPECZ_ORIG_NORMC | char[8] |  | Normalised classification code of individual spec-z measurement |
  | SPECZ_RA_USED | float64 | deg | Adopted coordinate of specz when matching to Salvato+22 counterpart |
  | SPECZ_DEC_USED | float64 | deg | Adopted coordinate of specz when matching to Salvato+22 counterpart |
- | SEPARATION_SPECZ_CTP | float64 | arcsec | Distance from LS_RA,LS_DEC to SPECZ_RA_USED,SPECZ_DEC_USED |
- | HAS_SPECZ | bool |  | Does this Salvato+22 counterpart have a spec-z? |
- | HAS_INFORMATIVE_SPECZ | bool |  | Does this Salvato+22 counterpart have an informative spec-z? |
+ | Separation_SPECZ_CTP | float64 | arcsec | Distance from LS_RA,LS_DEC to SPECZ_RA_USED,SPECZ_DEC_USED |
+ | has_specz | bool |  | Does this Salvato+22 counterpart have a spec-z? |
+ | has_informative_specz | bool |  | Does this Salvato+22 counterpart have an informative spec-z? |
 
 
 
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!
