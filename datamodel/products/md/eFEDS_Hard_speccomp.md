@@ -16,7 +16,7 @@ eROSITA/eFEDS Hard source catalogue counterparts with redshifts/classifications 
 A catalogue of hard X-ray (2.3-5 keV) selected sources detected in the eROSITA/eFEDS performance verification field (Brunner et al., 2022), with optical/IR counterpart associations (Salvato et al., 2022). This catalogue (Merloni et al., in prep) updates the spectroscopic redshift and classificaions (w.r.t. Salvato et al. 2022), using a spectroscopic compilation, derived from several facilities, but dominated by SDSS/BOSS spectroscopy. We include new information derived from 37 dedicated SDSS-V plates, observed between Dec 2020-May 2021. We combine automated redshift and classifications, provided by the standard SDSS idlspec1d pipeline, with an extensive and targeted set of visual inspections, which increase the reliability and completeness of the spectroscopic coverage.
 
 ### Naming Convention
-$BHM_EFEDS_SPECCOMP/[V_SPECCOMP]/eFEDS_Hard_speccomp-[V_SPECCOMP].fits, where V_SPECCOMP=v1.4.3 for DR18.
+$BHM_EFEDS_SPECCOMP/[V_SPECCOMP]/eFEDS_Hard_speccomp-[V_SPECCOMP].fits, where V_SPECCOMP=v1.4.3 for DR18 and DR19.
 
 ### Releases
 DR18, DR19

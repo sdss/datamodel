@@ -16,7 +16,7 @@ SDSS-V/eFEDS catalogue of spectroscopic redshift and visual inspection informati
 A catalogue of spectroscopic redshifts and classifications derived solely from the SDSS-V/eFEDS plate data set. The pipeline redshift/classification information for many spectra is supplemented by the results of an extensive visual inspection process. We include an entry for all spectra of science targets in the SDSS-V/eFEDS plates, regardless of whether they are deemed to be counterparts to eROSITA X-ray sources.
 
 ### Naming Convention
-$BHM_EFEDS_SPECCOMP/[V_SPECCOMP]/eFEDS_SDSSV_spec_results-[V_SPECCOMP].fits, where V_SPECCOMP=v1.4.3 for DR18. or eFEDS_SDSSV_spec_results-v1.4.3.fits but with regex pattern matches
+$BHM_EFEDS_SPECCOMP/[V_SPECCOMP]/eFEDS_SDSSV_spec_results-[V_SPECCOMP].fits, where V_SPECCOMP=v1.4.3 for DR18 and DR19. or eFEDS_SDSSV_spec_results-v1.4.3.fits but with regex pattern matches
 
 ### Releases
 DR18, DR19
