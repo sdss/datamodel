@@ -1,0 +1,877 @@
+general:
+  name: DR19Q_prop
+  short: Spectral measurements of DR19 quasars using PyQSOFit
+  description: Quasar spectral properties measured by PyQSOFit, including the continuum
+    and emission line properties (flux, FWHM, EW...), virial BH masses, bolometric
+    luminosities, Eddington ratios, systemic redshift, etc. Host galaxy properties
+    are also provided for z<1 quasars.
+  datatype: FITS
+  filesize: 336 MB
+  releases:
+  - DR19
+  environments:
+  - BHM_QSOPROP
+  surveys:
+  - BHM
+  - SDSS
+  naming_convention: $BHM_QSOPROP/[VERS]/DR19Q_prop-[RUN2D].fits with keywords vers
+    = 1.0.1 and run2d = v6_1_3 for DR19.
+  generated_by: https://github.com/QiaoyaWu/SDSSV_DR19_QSO_VAC
+  data_level: 3.3.0
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR19:
+    template: $BHM_QSOPROP/[VERS]/DR19Q_prop-[RUN2D].fits
+    example: 1.0.1/DR19Q_prop-v6_1_3.fits
+    location: '{vers}/DR19Q_prop-{run2d}.fits'
+    environment: BHM_QSOPROP
+    access:
+      in_sdss_access: false
+      path_name: null
+      path_template: null
+      path_kwargs: null
+      access_string: DR19Q_prop = $BHM_QSOPROP/{vers}/DR19Q_prop-{run2d}.fits
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Null extension
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: Basic information for each quasar from the SDSS pipeline and
+          spectral measurements from PyQSOFit.
+        is_image: false
+        size: 336 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 4282
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 82363
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 142
+          comment: number of table fields
+        columns:
+          FIELD:
+            name: FIELD
+            type: int64
+            unit: ''
+            description: FieldID of the exposure
+          MJD:
+            name: MJD
+            type: int64
+            unit: ''
+            description: MJD of the exposure
+          CATALOGID:
+            name: CATALOGID
+            type: int64
+            unit: ''
+            description: SDSS-V catalog indentifier
+          FITS_FILE:
+            name: FITS_FILE
+            type: char[40]
+            unit: ''
+            description: Name of the FITS file
+          VERSION:
+            name: VERSION
+            type: char[40]
+            unit: ''
+            description: spectra source version
+          RA:
+            name: RA
+            type: float64
+            unit: degree
+            description: Right ascension
+          DEC:
+            name: DEC
+            type: float64
+            unit: degree
+            description: Declination
+          NEXP:
+            name: NEXP
+            type: int64
+            unit: ''
+            description: Number of exposures
+          EXPTIME:
+            name: EXPTIME
+            type: float64
+            unit: second
+            description: Exposure time
+          PROGRAMNAME:
+            name: PROGRAMNAME
+            type: char[14]
+            unit: ''
+            description: Program of the observation
+          SURVEY:
+            name: SURVEY
+            type: char[13]
+            unit: ''
+            description: Survey of the observation
+          Z_PIPE:
+            name: Z_PIPE
+            type: float64
+            unit: ''
+            description: Pipeline redshift
+          FIRSTCARTON:
+            name: FIRSTCARTON
+            type: char[48]
+            unit: ''
+            description: Primary SDSS Carton for target
+          OBJTYPE:
+            name: OBJTYPE
+            type: char[16]
+            unit: ''
+            description: Object type from SDSS pipeline
+          CLASS:
+            name: CLASS
+            type: char[6]
+            unit: ''
+            description: Object class from SDSS pipeline
+          SUBCLASS:
+            name: SUBCLASS
+            type: char[21]
+            unit: ''
+            description: Object subclass from SDSS pipeline
+          VI_REMARK:
+            name: VI_REMARK
+            type: char[12]
+            unit: ''
+            description: Visual inspection remark
+          Z_VI:
+            name: Z_VI
+            type: float64
+            unit: ''
+            description: Visual inspection redshift
+          Z_FIT:
+            name: Z_FIT
+            type: float64
+            unit: ''
+            description: Input redshift for PyQSOFit
+          Z_SYS:
+            name: Z_SYS
+            type: float64
+            unit: ''
+            description: Systemic redshift
+          Z_SYS_ERR:
+            name: Z_SYS_ERR
+            type: float64
+            unit: ''
+            description: Systemic redshift uncertainty
+          SN_RATIO_CONTI:
+            name: SN_RATIO_CONTI
+            type: float64
+            unit: ''
+            description: Signal-to-noise ratio of the continuum
+          EBV:
+            name: EBV
+            type: float64
+            unit: ''
+            description: Milky Way extinction E(B-V)
+          CONTI_PARA:
+            name: CONTI_PARA
+            type: float64[5]
+            unit: ''
+            description: Best-fit parameters for the continuum model (PL+poly)
+          CONTI_PARA_ERR:
+            name: CONTI_PARA_ERR
+            type: float64[5]
+            unit: ''
+            description: Uncertainties of the best-fit parameters for the continuum
+              model (PL+poly)
+          FE_UV_PARA:
+            name: FE_UV_PARA
+            type: float64[3]
+            unit: ''
+            description: Best-fit parameters for the Fe II UV model
+          FE_UV_PARA_ERR:
+            name: FE_UV_PARA_ERR
+            type: float64[3]
+            unit: ''
+            description: Uncertainties of the best-fit parameters for the Fe II UV
+              model
+          FE_OP_PARA:
+            name: FE_OP_PARA
+            type: float64[3]
+            unit: ''
+            description: Best-fit parameters for the Fe II optical model
+          FE_OP_PARA_ERR:
+            name: FE_OP_PARA_ERR
+            type: float64[3]
+            unit: ''
+            description: Uncertainties of the best-fit parameters for the Fe II optical
+              model
+          LOGL1350:
+            name: LOGL1350
+            type: float64
+            unit: erg/s
+            description: Continuum luminosity at 1350 A
+          LOGL1350_ERR:
+            name: LOGL1350_ERR
+            type: float64
+            unit: erg/s
+            description: Uncertainty of the continuum luminosity at 1350 A
+          LOGL1700:
+            name: LOGL1700
+            type: float64
+            unit: erg/s
+            description: Continuum luminosity at 1700 A
+          LOGL1700_ERR:
+            name: LOGL1700_ERR
+            type: float64
+            unit: erg/s
+            description: Uncertainty of the continuum luminosity at 1700 A
+          LOGL2500:
+            name: LOGL2500
+            type: float64
+            unit: erg/s
+            description: Continuum luminosity at 2500 A
+          LOGL2500_ERR:
+            name: LOGL2500_ERR
+            type: float64
+            unit: erg/s
+            description: Uncertainty of the continuum luminosity at 2500 A
+          LOGL3000:
+            name: LOGL3000
+            type: float64
+            unit: erg/s
+            description: Continuum luminosity at 3000 A
+          LOGL3000_ERR:
+            name: LOGL3000_ERR
+            type: float64
+            unit: erg/s
+            description: Uncertainty of the continuum luminosity at 3000 A
+          LOGL4200:
+            name: LOGL4200
+            type: float64
+            unit: erg/s
+            description: Continuum luminosity at 4200 A
+          LOGL4200_ERR:
+            name: LOGL4200_ERR
+            type: float64
+            unit: erg/s
+            description: Uncertainty of the continuum luminosity at 4200 A
+          LOGL5100:
+            name: LOGL5100
+            type: float64
+            unit: erg/s
+            description: Continuum luminosity at 5100 A
+          LOGL5100_ERR:
+            name: LOGL5100_ERR
+            type: float64
+            unit: erg/s
+            description: Uncertainty of the continuum luminosity at 5100 A
+          CONTI_NPIX:
+            name: CONTI_NPIX
+            type: float64
+            unit: ''
+            description: Pixel number of the continuum fitting
+          FRAC_HOST_4200:
+            name: FRAC_HOST_4200
+            type: float64
+            unit: ''
+            description: Host galaxy contribution at 4200 A
+          FRAC_HOST_5100:
+            name: FRAC_HOST_5100
+            type: float64
+            unit: ''
+            description: Host galaxy contribution at 5100 A
+          DN4000:
+            name: DN4000
+            type: float64
+            unit: ''
+            description: D4000 break index
+          HOST_DECOMP_PARA:
+            name: HOST_DECOMP_PARA
+            type: float64[5]
+            unit: ''
+            description: The host galaxy decomposition eigenvalues
+          HALPHA:
+            name: HALPHA
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: Halpha peak wavelength, flux, logL of lines, FWHM, rest-frame
+              equivalent width, 50% flux centoid wavelength
+          HALPHA_ERR:
+            name: HALPHA_ERR
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: Uncertainties of Halpha peak wavelength, flux, logL of lines,
+              FWHM, rest-frame equivalent width, 50% flux centoid wavelength
+          HALPHA_BR:
+            name: HALPHA_BR
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: Halpha broad peak wavelength, flux, logL of lines, FWHM,
+              rest-frame equivalent width, 50% flux centoid wavelength
+          HALPHA_BR_ERR:
+            name: HALPHA_BR_ERR
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: Uncertainties of Halpha broad peak wavelength, flux, logL
+              of lines, FWHM, rest-frame equivalent width, 50% flux centoid wavelength
+          HALPHA_NA:
+            name: HALPHA_NA
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: Halpha narrow peak wavelength, flux, logL of lines, FWHM,
+              rest-frame equivalent width, 50% flux centoid wavelength
+          HALPHA_NA_ERR:
+            name: HALPHA_NA_ERR
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: Uncertainties of Halpha narrow peak wavelength, flux, logL
+              of lines, FWHM, rest-frame equivalent width, 50% flux centoid wavelength
+          NII6549:
+            name: NII6549
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: NII6549 peak wavelength, flux, logL of lines, FWHM, rest-frame
+              equivalent width, 50% flux centoid wavelength
+          NII6549_ERR:
+            name: NII6549_ERR
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: Uncertainties of NII6549 peak wavelength, flux, logL of lines,
+              FWHM, rest-frame equivalent width, 50% flux centoid wavelength
+          NII6585:
+            name: NII6585
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: NII6585 peak wavelength, flux, logL of lines, FWHM, rest-frame
+              equivalent width, 50% flux centoid wavelength
+          NII6585_ERR:
+            name: NII6585_ERR
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: Uncertainties of NII6585 peak wavelength, flux, logL of lines,
+              FWHM, rest-frame equivalent width, 50% flux centoid wavelength
+          SII6718:
+            name: SII6718
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: SII6718 peak wavelength, flux, logL of lines, FWHM, rest-frame
+              equivalent width, 50% flux centoid wavelength
+          SII6718_ERR:
+            name: SII6718_ERR
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: Uncertainties of SII6718 peak wavelength, flux, logL of lines,
+              FWHM, rest-frame equivalent width, 50% flux centoid wavelength
+          SII6732:
+            name: SII6732
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: SII6732 peak wavelength, flux, logL of lines, FWHM, rest-frame
+              equivalent width, 50% flux centoid wavelength
+          SII6732_ERR:
+            name: SII6732_ERR
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: Uncertainties of SII6732 peak wavelength, flux, logL of lines,
+              FWHM, rest-frame equivalent width, 50% flux centoid wavelength
+          HBETA:
+            name: HBETA
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: Hbeta peak wavelength, flux, logL of lines, FWHM, rest-frame
+              equivalent width, 50% flux centoid wavelength
+          HBETA_ERR:
+            name: HBETA_ERR
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: Uncertainties of Hbeta peak wavelength, flux, logL of lines,
+              FWHM, rest-frame equivalent width, 50% flux centoid wavelength
+          HBETA_BR:
+            name: HBETA_BR
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: Hbeta broad peak wavelength, flux, logL of lines, FWHM, rest-frame
+              equivalent width, 50% flux centoid wavelength
+          HBETA_BR_ERR:
+            name: HBETA_BR_ERR
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: Uncertainties of Hbeta broad peak wavelength, flux, logL
+              of lines, FWHM, rest-frame equivalent width, 50% flux centoid wavelength
+          HEII4687:
+            name: HEII4687
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: HEII4687 peak wavelength, flux, logL of lines, FWHM, rest-frame
+              equivalent width, 50% flux centoid wavelength
+          HEII4687_ERR:
+            name: HEII4687_ERR
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: Uncertainties of HEII4687 peak wavelength, flux, logL of
+              lines, FWHM, rest-frame equivalent width, 50% flux centoid wavelength
+          HEII4687_BR:
+            name: HEII4687_BR
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: HEII4687 broad peak wavelength, flux, logL of lines, FWHM,
+              rest-frame equivalent width, 50% flux centoid wavelength
+          HEII4687_BR_ERR:
+            name: HEII4687_BR_ERR
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: Uncertainties of HEII4687 broad peak wavelength, flux, logL
+              of lines, FWHM, rest-frame equivalent width, 50% flux centoid wavelength
+          OIII5007:
+            name: OIII5007
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: OIII5007 peak wavelength, flux, logL of lines, FWHM, rest-frame
+              equivalent width, 50% flux centoid wavelength
+          OIII5007_ERR:
+            name: OIII5007_ERR
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: Uncertainties of OIII5007 peak wavelength, flux, logL of
+              lines, FWHM, rest-frame equivalent width, 50% flux centoid wavelength
+          OIII5007C:
+            name: OIII5007C
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: OIII5007 core peak wavelength, flux, logL of lines, FWHM,
+              rest-frame equivalent width, 50% flux centoid wavelength
+          OIII5007C_ERR:
+            name: OIII5007C_ERR
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: Uncertainties of OIII5007 core peak wavelength, flux, logL
+              of lines, FWHM, rest-frame equivalent width, 50% flux centoid wavelength
+          OIII4960:
+            name: OIII4960
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: OIII4960 peak wavelength, flux, logL of lines, FWHM, rest-frame
+              equivalent width, 50% flux centoid wavelength
+          OIII4960_ERR:
+            name: OIII4960_ERR
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: Uncertainties of OIII4960 peak wavelength, flux, logL of
+              lines, FWHM, rest-frame equivalent width, 50% flux centoid wavelength
+          OIII4960C:
+            name: OIII4960C
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: OIII4960 core peak wavelength, flux, logL of lines, FWHM,
+              rest-frame equivalent width, 50% flux centoid wavelength
+          OIII4960C_ERR:
+            name: OIII4960C_ERR
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: Uncertainties of OIII4960 core peak wavelength, flux, logL
+              of lines, FWHM, rest-frame equivalent width, 50% flux centoid wavelength
+          HGAMMA:
+            name: HGAMMA
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: Hgamma peak wavelength, flux, logL of lines, FWHM, rest-frame
+              equivalent width, 50% flux centoid wavelength
+          HGAMMA_ERR:
+            name: HGAMMA_ERR
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: Uncertainties of Hgamma peak wavelength, flux, logL of lines,
+              FWHM, rest-frame equivalent width, 50% flux centoid wavelength
+          HDELTA:
+            name: HDELTA
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: Hdelta peak wavelength, flux, logL of lines, FWHM, rest-frame
+              equivalent width, 50% flux centoid wavelength
+          HDELTA_ERR:
+            name: HDELTA_ERR
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: Uncertainties of Hdelta peak wavelength, flux, logL of lines,
+              FWHM, rest-frame equivalent width, 50% flux centoid wavelength
+          CAII3934:
+            name: CAII3934
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: CAII3934 peak wavelength, flux, logL of lines, FWHM, rest-frame
+              equivalent width, 50% flux centoid wavelength
+          CAII3934_ERR:
+            name: CAII3934_ERR
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: Uncertainties of CAII3934 peak wavelength, flux, logL of
+              lines, FWHM, rest-frame equivalent width, 50% flux centoid wavelength
+          OII3728:
+            name: OII3728
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: OII3728 peak wavelength, flux, logL of lines, FWHM, rest-frame
+              equivalent width, 50% flux centoid wavelength
+          OII3728_ERR:
+            name: OII3728_ERR
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: Uncertainties of OII3728 peak wavelength, flux, logL of lines,
+              FWHM, rest-frame equivalent width, 50% flux centoid wavelength
+          NEV3426:
+            name: NEV3426
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: NEV3426 peak wavelength, flux, logL of lines, FWHM, rest-frame
+              equivalent width, 50% flux centoid wavelength
+          NEV3426_ERR:
+            name: NEV3426_ERR
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: Uncertainties of NEV3426 peak wavelength, flux, logL of lines,
+              FWHM, rest-frame equivalent width, 50% flux centoid wavelength
+          MGII:
+            name: MGII
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: MgII peak wavelength, flux, logL of lines, FWHM, rest-frame
+              equivalent width, 50% flux centoid wavelength
+          MGII_ERR:
+            name: MGII_ERR
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: Uncertainties of MgII peak wavelength, flux, logL of lines,
+              FWHM, rest-frame equivalent width, 50% flux centoid wavelength
+          MGII_BR:
+            name: MGII_BR
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: MgII broad peak wavelength, flux, logL of lines, FWHM, rest-frame
+              equivalent width, 50% flux centoid wavelength
+          MGII_BR_ERR:
+            name: MGII_BR_ERR
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: Uncertainties of MgII broad peak wavelength, flux, logL of
+              lines, FWHM, rest-frame equivalent width, 50% flux centoid wavelength
+          CIII_BR:
+            name: CIII_BR
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: CIII broad peak wavelength, flux, logL of lines, FWHM, rest-frame
+              equivalent width, 50% flux centoid wavelength
+          CIII_BR_ERR:
+            name: CIII_BR_ERR
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: Uncertainties of CIII broad peak wavelength, flux, logL of
+              lines, FWHM, rest-frame equivalent width, 50% flux centoid wavelength
+          SIIII1892:
+            name: SIIII1892
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: SIIII1892 peak wavelength, flux, logL of lines, FWHM, rest-frame
+              equivalent width, 50% flux centoid wavelength
+          SIIII1892_ERR:
+            name: SIIII1892_ERR
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: Uncertainties of SIIII1892 peak wavelength, flux, logL of
+              lines, FWHM, rest-frame equivalent width, 50% flux centoid wavelength
+          ALIII1857:
+            name: ALIII1857
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: ALIII1857 peak wavelength, flux, logL of lines, FWHM, rest-frame
+              equivalent width, 50% flux centoid wavelength
+          ALIII1857_ERR:
+            name: ALIII1857_ERR
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: Uncertainties of ALIII1857 peak wavelength, flux, logL of
+              lines, FWHM, rest-frame equivalent width, 50% flux centoid wavelength
+          NIII1750:
+            name: NIII1750
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: NIII1750 peak wavelength, flux, logL of lines, FWHM, rest-frame
+              equivalent width, 50% flux centoid wavelength
+          NIII1750_ERR:
+            name: NIII1750_ERR
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: Uncertainties of NIII1750 peak wavelength, flux, logL of
+              lines, FWHM, rest-frame equivalent width, 50% flux centoid wavelength
+          CIV:
+            name: CIV
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: CIV peak wavelength, flux, logL of lines, FWHM, rest-frame
+              equivalent width, 50% flux centoid wavelength
+          CIV_ERR:
+            name: CIV_ERR
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: Uncertainties of CIV peak wavelength, flux, logL of lines,
+              FWHM, rest-frame equivalent width, 50% flux centoid wavelength
+          HEII1640:
+            name: HEII1640
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: HEII1640 peak wavelength, flux, logL of lines, FWHM, rest-frame
+              equivalent width, 50% flux centoid wavelength
+          HEII1640_ERR:
+            name: HEII1640_ERR
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: Uncertainties of HEII1640 peak wavelength, flux, logL of
+              lines, FWHM, rest-frame equivalent width, 50% flux centoid wavelength
+          HEII1640_BR:
+            name: HEII1640_BR
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: HEII1640 broad peak wavelength, flux, logL of lines, FWHM,
+              rest-frame equivalent width, 50% flux centoid wavelength
+          HEII1640_BR_ERR:
+            name: HEII1640_BR_ERR
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: Uncertainties of HEII1640 broad peak wavelength, flux, logL
+              of lines, FWHM, rest-frame equivalent width, 50% flux centoid wavelength
+          SIIV_OIV:
+            name: SIIV_OIV
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: SIIV_OIV peak wavelength, flux, logL of lines, FWHM, rest-frame
+              equivalent width, 50% flux centoid wavelength
+          SIIV_OIV_ERR:
+            name: SIIV_OIV_ERR
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: Uncertainties of SIIV_OIV peak wavelength, flux, logL of
+              lines, FWHM, rest-frame equivalent width, 50% flux centoid wavelength
+          OI1304:
+            name: OI1304
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: OI1304 peak wavelength, flux, logL of lines, FWHM, rest-frame
+              equivalent width, 50% flux centoid wavelength
+          OI1304_ERR:
+            name: OI1304_ERR
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: Uncertainties of OI1304 peak wavelength, flux, logL of lines,
+              FWHM, rest-frame equivalent width, 50% flux centoid wavelength
+          LYA:
+            name: LYA
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: Lya peak wavelength, flux, logL of lines, FWHM, rest-frame
+              equivalent width, 50% flux centoid wavelength
+          LYA_ERR:
+            name: LYA_ERR
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: Uncertainties of Lya peak wavelength, flux, logL of lines,
+              FWHM, rest-frame equivalent width, 50% flux centoid wavelength
+          NV1240:
+            name: NV1240
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: NV1240 peak wavelength, flux, logL of lines, FWHM, rest-frame
+              equivalent width, 50% flux centoid wavelength
+          NV1240_ERR:
+            name: NV1240_ERR
+            type: float64[6]
+            unit: Angstrom, 10^{-17} erg/s/cm^2, erg/s, km/s, Angstrom, Angstrom
+            description: Uncertainties of NV1240 peak wavelength, flux, logL of lines,
+              FWHM, rest-frame equivalent width, 50% flux centoid wavelength
+          Ha_STAT:
+            name: Ha_STAT
+            type: float64[2]
+            unit: ''
+            description: Complex line window pixel number, reduced chi square
+          Hb_STAT:
+            name: Hb_STAT
+            type: float64[2]
+            unit: ''
+            description: Complex line window pixel number, reduced chi square
+          Hr_STAT:
+            name: Hr_STAT
+            type: float64[2]
+            unit: ''
+            description: Complex line window pixel number, reduced chi square
+          Hd_STAT:
+            name: Hd_STAT
+            type: float64[2]
+            unit: ''
+            description: Complex line window pixel number, reduced chi square
+          MgII_STAT:
+            name: MgII_STAT
+            type: float64[2]
+            unit: ''
+            description: Complex line window pixel number, reduced chi square
+          CIII_STAT:
+            name: CIII_STAT
+            type: float64[2]
+            unit: ''
+            description: Complex line window pixel number, reduced chi square
+          CIV_STAT:
+            name: CIV_STAT
+            type: float64[2]
+            unit: ''
+            description: Complex line window pixel number, reduced chi square
+          SiIV_STAT:
+            name: SiIV_STAT
+            type: float64[2]
+            unit: ''
+            description: Complex line window pixel number, reduced chi square
+          Lya_STAT:
+            name: Lya_STAT
+            type: float64[2]
+            unit: ''
+            description: Complex line window pixel number, reduced chi square
+          CaII_STAT:
+            name: CaII_STAT
+            type: float64[2]
+            unit: ''
+            description: Complex line window pixel number, reduced chi square
+          OII_STAT:
+            name: OII_STAT
+            type: float64[2]
+            unit: ''
+            description: Complex line window pixel number, reduced chi square
+          NeV_STAT:
+            name: NeV_STAT
+            type: float64[2]
+            unit: ''
+            description: Complex line window pixel number, reduced chi square
+          LOGLBOL:
+            name: LOGLBOL
+            type: float64
+            unit: erg/s
+            description: Bolometric luminosity
+          LOGLBOL_ERR:
+            name: LOGLBOL_ERR
+            type: float64
+            unit: erg/s
+            description: Uncertainty of the bolometric luminosity
+          LOGMBH_HB:
+            name: LOGMBH_HB
+            type: float64
+            unit: M_sun
+            description: Black hole mass from Hbeta line
+          LOGMBH_HB_ERR:
+            name: LOGMBH_HB_ERR
+            type: float64
+            unit: M_sun
+            description: Uncertainty of the black hole mass from Hbeta line
+          LOGMBH_MGII:
+            name: LOGMBH_MGII
+            type: float64
+            unit: M_sun
+            description: Black hole mass from MgII line
+          LOGMBH_MGII_ERR:
+            name: LOGMBH_MGII_ERR
+            type: float64
+            unit: M_sun
+            description: Uncertainty of the black hole mass from MgII line
+          LOGMBH_CIV:
+            name: LOGMBH_CIV
+            type: float64
+            unit: M_sun
+            description: Black hole mass from CIV line
+          LOGMBH_CIV_ERR:
+            name: LOGMBH_CIV_ERR
+            type: float64
+            unit: M_sun
+            description: Uncertainty of the black hole mass from CIV line
+          LOGMBH:
+            name: LOGMBH
+            type: float64
+            unit: M_sun
+            description: Fiducial black hole mass
+          LOGMBH_ERR:
+            name: LOGMBH_ERR
+            type: float64
+            unit: M_sun
+            description: Uncertainty of the fiducial black hole mass
+          LOGLLEDD_RATIO:
+            name: LOGLLEDD_RATIO
+            type: float64
+            unit: ''
+            description: Eddington ratio
+          LOGLLEDD_RATIO_ERR:
+            name: LOGLLEDD_RATIO_ERR
+            type: float64
+            unit: ''
+            description: Uncertainty of the Eddington ratio
+          ZSYS_BEST:
+            name: ZSYS_BEST
+            type: float64
+            unit: ''
+            description: Systematic redshift from the line zsys with the lowest errorbar
+          ZSYS_BEST_ERR:
+            name: ZSYS_BEST_ERR
+            type: float64
+            unit: ''
+            description: Uncertainty of the systematic redshift from the line zsys
+              with the lowest errorbar
+          ZSYS_WEIGHT:
+            name: ZSYS_WEIGHT
+            type: float64
+            unit: ''
+            description: Systematic redshift from the weighted mean
+          ZSYS_WEIGHT_ERR:
+            name: ZSYS_WEIGHT_ERR
+            type: float64
+            unit: ''
+            description: Uncertainty of the systematic redshift from the weighted
+              mean
+          ZSYS_LINES:
+            name: ZSYS_LINES
+            type: float64[8]
+            unit: ''
+            description: Systematic redshift from Hbeta_BR, [OIII]5007, CaII3934,
+              [OII]3728, MgII, CIII], CIV, SiIV
+          ZSYS_LINES_ERR:
+            name: ZSYS_LINES_ERR
+            type: float64[8]
+            unit: ''
+            description: Uncertainties of the systematic redshift from emission lines
+notes: |-
+  None
+regrets: |-
+  None
