@@ -9,17 +9,17 @@ SDSS-V/eFEDS catalogue of spectroscopic redshift and visual inspection informati
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
 A catalogue of spectroscopic redshifts and classifications derived solely from the SDSS-V/eFEDS plate data set. The pipeline redshift/classification information for many spectra is supplemented by the results of an extensive visual inspection process. We include an entry for all spectra of science targets in the SDSS-V/eFEDS plates, regardless of whether they are deemed to be counterparts to eROSITA X-ray sources.
 
 ### Naming Convention
-$BHM_EFEDS_SPECCOMP/[V_SPECCOMP]/eFEDS_SDSSV_spec_results-[V_SPECCOMP].fits, where V_SPECCOMP=v1.4.3 for DR18. or eFEDS_SDSSV_spec_results-v1.4.3.fits but with regex pattern matches
+$BHM_EFEDS_SPECCOMP/[V_SPECCOMP]/eFEDS_SDSSV_spec_results-[V_SPECCOMP].fits, where V_SPECCOMP=v1.4.3 for DR18 and DR19. or eFEDS_SDSSV_spec_results-v1.4.3.fits but with regex pattern matches
 
 ### Releases
-DR18
+DR18, DR19
 
 ### Enviroments
 BHM_EFEDS_SPECCOMP
@@ -36,7 +36,10 @@ https://gitlab.mpcdf.mpg.de/tdwelly/efeds_speccomp
 ### Is a VAC
 True
 
-### HDUS List for release DR18
+### Data Level
+3.3.0
+
+### HDUS List for release DR19
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1: Joined](#hdu1-joined)
 
@@ -44,6 +47,9 @@ True
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR19
+   - from: DR18
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -71,6 +77,40 @@ SDSS-V/eFEDS catalogue of spectroscopic redshift and visual inspection informati
 #### HDU Type: BINARY TABLE
 #### HDU Size:  1 MB
 
+##### Header Table Caption for HDU1
+Key | Value | Comment | |
+| --- | --- | --- | --- |
+| XTENSION | BINTABLE | binary table extension |
+| BITPIX | 8 | 8-bit bytes |
+| NAXIS | 2 | 2-dimensional table |
+| NAXIS1 | 111 | width of table in bytes |
+| NAXIS2 | 13085 | number of rows in table |
+| PCOUNT | 0 | size of special data area |
+| GCOUNT | 1 | one data group |
+| TFIELDS | 16 | number of columns |
+| EXTNAME | Joined | table name |
+| TCOMM1 | SDSS field code identifier |  |
+| TCOMM2 | SDSS MJD associated with this spectrum |  |
+| TCOMM3 | SDSS-V CATALOGID (v0) associated with this target |  |
+| TUNIT4 | deg | units for column 4 |
+| TCOMM4 | Sky coordinate of spectroscopic fiber |  |
+| TUNIT5 | deg | units for column 5 |
+| TCOMM5 | Sky coordinate of spectroscopic fiber |  |
+| TCOMM6 | Number of visual inspections collected for this spectrum |  |
+| TCOMM7 | Median SNR/pix in spectrum (idlspec2d eFEDS v6_0_2 reductions) |  |
+| TCOMM8 | Pipeline redshift in idlspec1d eFEDS v6_0_2 reductions |  |
+| TCOMM9 | Pipeline redshift uncertainty in idlspec1d eFEDS v6_0_2 reductions |  |
+| TCOMM10 | Pipeline redshift warning flags in idlspec1d eFEDS v6_0_2 reductions |  |
+| TCOMM11 | Pipeline classification in idlspec1d eFEDS v6_0_2 reductions |  |
+| TCOMM12 | Pipeline sub-classification in idlspec1d eFEDS v6_0_2 reductions |  |
+| TCOMM13 | Final redshift derived from pipeline and visual inspections |  |
+| TCOMM14 | Final redshift confidence from pipeline and visual inspections |  |
+| TCOMM15 | Final classfication derived from pipeline and visual inspections |  |
+| TCOMM16 | Was object flagged as a blazar candidate in visual inspections? |  |
+| DATE-HDU | 2022-09-30T20:17:28 | Date of HDU creation (UTC) |
+| STILVERS | 4.1-2 | Version of STIL software |
+| STILCLAS | uk.ac.starlink.fits.FitsTableWriter | STIL Author class |
+
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
@@ -96,3 +136,7 @@ Name | Type | Unit | Description |
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!

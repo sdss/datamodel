@@ -44,17 +44,50 @@
         "description": "SDSS public data release 18",
         "public": true,
         "release_date": "2022-12-05"
+      },
+      {
+        "name": "DR19",
+        "description": "SDSS public data release 19",
+        "public": true,
+        "release_date": "2025-07-11"
       }
     ],
-    "naming_convention": "$BHM_EFEDS_SPECCOMP/[V_SPECCOMP]/eFEDS_Main_speccomp-[V_SPECCOMP].fits, where V_SPECCOMP=v1.4.3 for DR18. or eFEDS_Main_speccomp-v1.4.3.fits but with regex pattern matches",
+    "naming_convention": "$BHM_EFEDS_SPECCOMP/[V_SPECCOMP]/eFEDS_Main_speccomp-[V_SPECCOMP].fits, where V_SPECCOMP=v1.4.3 for DR18 and DR19. or eFEDS_Main_speccomp-v1.4.3.fits but with regex pattern matches",
     "generated_by": "https://gitlab.mpcdf.mpg.de/tdwelly/efeds_speccomp",
     "design": false,
     "vac": true,
-    "recommended_science_product": true
+    "recommended_science_product": true,
+    "data_level": "3.3.0"
   },
   "changelog": {
     "description": "Describes changes to the datamodel product and/or file structure from one release to another",
-    "releases": {}
+    "releases": {
+      "DR19": {
+        "from": "DR18",
+        "note": "No changes",
+        "delta_nhdus": null,
+        "added_hdus": null,
+        "removed_hdus": null,
+        "primary_delta_nkeys": null,
+        "added_primary_header_kwargs": null,
+        "removed_primary_header_kwargs": null,
+        "delta_nkeys": null,
+        "addead_header_keys": null,
+        "removed_header_keys": null,
+        "delta_ntables": null,
+        "addead_tables": null,
+        "removed_tables": null,
+        "tables": null,
+        "new_libver": null,
+        "delta_nattrs": null,
+        "addead_attrs": null,
+        "removed_attrs": null,
+        "delta_nmembers": null,
+        "addead_members": null,
+        "removed_members": null,
+        "members": null
+      }
+    }
   },
   "releases": {
     "DR18": {
@@ -62,7 +95,7 @@
       "example": "v1.4.3/eFEDS_Main_speccomp-v1.4.3.fits",
       "location": "{v_speccomp}/eFEDS_Main_speccomp-{v_speccomp}.fits",
       "environment": "BHM_EFEDS_SPECCOMP",
-      "survey": "SDSS",
+      "survey": "BHM",
       "access": {
         "in_sdss_access": true,
         "path_name": "eFEDS_Main_speccomp",
@@ -461,7 +494,954 @@
       },
       "par": null,
       "hdfs": null
+    },
+    "DR19": {
+      "template": "$BHM_EFEDS_SPECCOMP/[V_SPECCOMP]/eFEDS_Main_speccomp-[V_SPECCOMP].fits",
+      "example": "v1.4.3/eFEDS_Main_speccomp-v1.4.3.fits",
+      "location": "{v_speccomp}/eFEDS_Main_speccomp-{v_speccomp}.fits",
+      "environment": "BHM_EFEDS_SPECCOMP",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "eFEDS_Main_speccomp",
+        "path_template": "$BHM_EFEDS_SPECCOMP/{v_speccomp}/eFEDS_Main_speccomp-{v_speccomp}.fits",
+        "path_kwargs": [
+          "v_speccomp"
+        ],
+        "access_string": "eFEDS_Main_speccomp = $BHM_EFEDS_SPECCOMP/{v_speccomp}/eFEDS_Main_speccomp-{v_speccomp}.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Empty",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "Standard FITS format"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "Character data"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "No image, just extensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": "There are standard extensions"
+            },
+            {
+              "key": "COMMENT",
+              "value": "Dummy header; see following table extension",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "eFEDS_Main_ctp_wspecz",
+          "is_image": false,
+          "description": "eROSITA/eFEDS Main source catalogue counterparts with redshifts/classifications updated with SDSS-V information",
+          "size": "9 MB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "BINTABLE",
+              "comment": "binary table extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "8-bit bytes"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "2-dimensional table"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "360",
+              "comment": "width of table in bytes"
+            },
+            {
+              "key": "NAXIS2",
+              "value": "27369",
+              "comment": "number of rows in table"
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "size of special data area"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "one data group"
+            },
+            {
+              "key": "TFIELDS",
+              "value": "57",
+              "comment": "number of columns"
+            },
+            {
+              "key": "EXTNAME",
+              "value": "eFEDS_Main_ctp_wspecz",
+              "comment": "table name"
+            },
+            {
+              "key": "TCOMM1",
+              "value": "From Brunner+22, eROSITA official source Name",
+              "comment": ""
+            },
+            {
+              "key": "TNULL2",
+              "value": "-2147483648",
+              "comment": "blank value for column 2"
+            },
+            {
+              "key": "TCOMM2",
+              "value": "From Brunner+22, ID of eROSITA source in the Main Sample",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT3",
+              "value": "deg",
+              "comment": "units for column 3"
+            },
+            {
+              "key": "TCOMM3",
+              "value": "From Brunner+22, J2000 Right Ascension of eROSITA source (corrected)",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT4",
+              "value": "deg",
+              "comment": "units for column 4"
+            },
+            {
+              "key": "TCOMM4",
+              "value": "From Brunner+22, J2000 Declination of eROSITA source (corrected)",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT5",
+              "value": "arcsec",
+              "comment": "units for column 5"
+            },
+            {
+              "key": "TCOMM5",
+              "value": "From Brunner+22, eROSITA positional uncertainty (corrected)",
+              "comment": ""
+            },
+            {
+              "key": "TUTYP5",
+              "value": "float32",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT6",
+              "value": "erg/cm^2/s",
+              "comment": "units for column 6"
+            },
+            {
+              "key": "TCOMM6",
+              "value": "From Brunner+22, 0.2-2.3 keV source flux",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT7",
+              "value": "erg/cm^2/s",
+              "comment": "units for column 7"
+            },
+            {
+              "key": "TCOMM7",
+              "value": "From Brunner+22, 0.2-2.3 keV source flux error (1 sigma)",
+              "comment": ""
+            },
+            {
+              "key": "TCOMM8",
+              "value": "From Brunner+22, 0.2-2.3 keV detection likelihood via PSF-fitting",
+              "comment": ""
+            },
+            {
+              "key": "TCOMM9",
+              "value": "From Salvato+22, LS8 unique id for ctp to the eROSITA source",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT10",
+              "value": "deg",
+              "comment": "units for column 10"
+            },
+            {
+              "key": "TCOMM10",
+              "value": "From Salvato+22, Right Ascension of the LS8 counterpart",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT11",
+              "value": "deg",
+              "comment": "units for column 11"
+            },
+            {
+              "key": "TCOMM11",
+              "value": "From Salvato+22, Declination of the best LS8 counterpart",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT12",
+              "value": "arcsec",
+              "comment": "units for column 12"
+            },
+            {
+              "key": "TCOMM12",
+              "value": "From Salvato+22, Separation between ctp and eROSITA position",
+              "comment": ""
+            },
+            {
+              "key": "TUTYP12",
+              "value": "float32",
+              "comment": ""
+            },
+            {
+              "key": "TNULL13",
+              "value": "-32768",
+              "comment": "blank value for column 13"
+            },
+            {
+              "key": "TCOMM13",
+              "value": "From Salvato+22, ctp qual: 4=best,3=good,2=secondary,1/0=unreliable",
+              "comment": ""
+            },
+            {
+              "key": "TNULL14",
+              "value": "-9223372036854775808",
+              "comment": "blank value for column 14"
+            },
+            {
+              "key": "TCOMM14",
+              "value": "Unique ID of lsdr9 photometric object labelled with spec-z",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT15",
+              "value": "deg",
+              "comment": "units for column 15"
+            },
+            {
+              "key": "TCOMM15",
+              "value": "Coordinate from lsdr9 at epoch LS9_EPOCH",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT16",
+              "value": "deg",
+              "comment": "units for column 16"
+            },
+            {
+              "key": "TCOMM16",
+              "value": "Coordinate from lsdr9 at epoch LS9_EPOCH",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT17",
+              "value": "mas/yr",
+              "comment": "units for column 17"
+            },
+            {
+              "key": "TCOMM17",
+              "value": "Proper motion from lsdr9",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT18",
+              "value": "mas/yr",
+              "comment": "units for column 18"
+            },
+            {
+              "key": "TCOMM18",
+              "value": "Proper motion from lsdr9",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT19",
+              "value": "year",
+              "comment": "units for column 19"
+            },
+            {
+              "key": "TCOMM19",
+              "value": "Coordinate epoch from lsdr9",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT20",
+              "value": "mag",
+              "comment": "units for column 20"
+            },
+            {
+              "key": "TCOMM20",
+              "value": "DECam g-band model magnitude from lsdr9, AB",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT21",
+              "value": "mag",
+              "comment": "units for column 21"
+            },
+            {
+              "key": "TCOMM21",
+              "value": "DECam r-band model magnitude from lsdr9, AB",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT22",
+              "value": "mag",
+              "comment": "units for column 22"
+            },
+            {
+              "key": "TCOMM22",
+              "value": "DECam z-band model magnitude from lsdr9, AB",
+              "comment": ""
+            },
+            {
+              "key": "TNULL23",
+              "value": "-2147483648",
+              "comment": "blank value for column 23"
+            },
+            {
+              "key": "TCOMM23",
+              "value": "Total number of spec-z associated with this lsdr9 object",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT24",
+              "value": "deg",
+              "comment": "units for column 24"
+            },
+            {
+              "key": "TCOMM24",
+              "value": "Coordinate of spec-z, propagated if necessary to epoch J2000",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT25",
+              "value": "deg",
+              "comment": "units for column 25"
+            },
+            {
+              "key": "TCOMM25",
+              "value": "Coordinate of spec-z, propagated if necessary to epoch J2000",
+              "comment": ""
+            },
+            {
+              "key": "TNULL26",
+              "value": "-2147483648",
+              "comment": "blank value for column 26"
+            },
+            {
+              "key": "TCOMM26",
+              "value": "Number of spec-z selected to inform result for this object",
+              "comment": ""
+            },
+            {
+              "key": "TCOMM27",
+              "value": "Final redshift determined for this object",
+              "comment": ""
+            },
+            {
+              "key": "TNULL28",
+              "value": "-2147483648",
+              "comment": "blank value for column 28"
+            },
+            {
+              "key": "TCOMM28",
+              "value": "Final normalised redshift quality associated with this object",
+              "comment": ""
+            },
+            {
+              "key": "TCOMM29",
+              "value": "Final normlised classfication determined for this object",
+              "comment": ""
+            },
+            {
+              "key": "TCOMM30",
+              "value": "True if best spec-z for this object has a visual inspection",
+              "comment": ""
+            },
+            {
+              "key": "TCOMM31",
+              "value": "Catalogue code of best spec-z for this object",
+              "comment": ""
+            },
+            {
+              "key": "TNULL32",
+              "value": "-9223372036854775808",
+              "comment": "blank value for column 32"
+            },
+            {
+              "key": "TCOMM32",
+              "value": "Bitmask encoding catalogues containing spec-z for this object",
+              "comment": ""
+            },
+            {
+              "key": "TNULL33",
+              "value": "-9223372036854775808",
+              "comment": "blank value for column 33"
+            },
+            {
+              "key": "TCOMM33",
+              "value": "Bitmask encoding catalogues containing informative spec-z for object",
+              "comment": ""
+            },
+            {
+              "key": "TNULL34",
+              "value": "-2147483648",
+              "comment": "blank value for column 34"
+            },
+            {
+              "key": "TCOMM34",
+              "value": "Bitmask encoding quality flags for this object",
+              "comment": ""
+            },
+            {
+              "key": "TNULL35",
+              "value": "-2147483648",
+              "comment": "blank value for column 35"
+            },
+            {
+              "key": "TCOMM35",
+              "value": "Highest NORMQ of informative spec-z for this object",
+              "comment": ""
+            },
+            {
+              "key": "TCOMM36",
+              "value": "Mean NORMQ of informative spec-z for this object",
+              "comment": ""
+            },
+            {
+              "key": "TCOMM37",
+              "value": "Mean REDSHIFT of informative spec-z for this object",
+              "comment": ""
+            },
+            {
+              "key": "TCOMM38",
+              "value": "Median REDSHIFT of informative spec-z for this object",
+              "comment": ""
+            },
+            {
+              "key": "TCOMM39",
+              "value": "Standard deviation of REDSHIFTs for informative spec-z for object",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT40",
+              "value": "deg",
+              "comment": "units for column 40"
+            },
+            {
+              "key": "TCOMM40",
+              "value": "Coordinate associated with individual spec-z measurement",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT41",
+              "value": "deg",
+              "comment": "units for column 41"
+            },
+            {
+              "key": "TCOMM41",
+              "value": "Coordinate associated with individual spec-z measurement",
+              "comment": ""
+            },
+            {
+              "key": "TCOMM42",
+              "value": "Coordinate epoch associated with individual spec-z measurement",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT43",
+              "value": "arcsec",
+              "comment": "units for column 43"
+            },
+            {
+              "key": "TCOMM43",
+              "value": "Distance from spec-z to lsdr9 photometric ctp (corrected for pm)",
+              "comment": ""
+            },
+            {
+              "key": "TCOMM44",
+              "value": "Can spec-z be associated with >1 possible lsdr9 counterpart?",
+              "comment": ""
+            },
+            {
+              "key": "TNULL45",
+              "value": "-2147483648",
+              "comment": "blank value for column 45"
+            },
+            {
+              "key": "TCOMM45",
+              "value": "Rank of ctp out of all possibilities for this spec-z (1=closest)",
+              "comment": ""
+            },
+            {
+              "key": "TCOMM46",
+              "value": "Orig. value of ID of individual spec-z measurement (as a string)",
+              "comment": ""
+            },
+            {
+              "key": "TCOMM47",
+              "value": "Orig. redshift value of individual spec-z measurement",
+              "comment": ""
+            },
+            {
+              "key": "TCOMM48",
+              "value": "Orig. redshift quality value of individual spec-z measurement",
+              "comment": ""
+            },
+            {
+              "key": "TNULL49",
+              "value": "-2147483648",
+              "comment": "blank value for column 49"
+            },
+            {
+              "key": "TCOMM49",
+              "value": "Orig. redshift quality of individual spec-z measurement - normalised",
+              "comment": ""
+            },
+            {
+              "key": "TCOMM50",
+              "value": "Orig. classification label of individual spec-z measurement",
+              "comment": ""
+            },
+            {
+              "key": "TCOMM51",
+              "value": "True if individual spec-z has a visual inspection from our team",
+              "comment": ""
+            },
+            {
+              "key": "TCOMM52",
+              "value": "Normalised classification code of individual spec-z measurement",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT53",
+              "value": "deg",
+              "comment": "units for column 53"
+            },
+            {
+              "key": "TCOMM53",
+              "value": "Adopted coordinate of specz when matching to Salvato+22 counterpart",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT54",
+              "value": "deg",
+              "comment": "units for column 54"
+            },
+            {
+              "key": "TCOMM54",
+              "value": "Adopted coordinate of specz when matching to Salvato+22 counterpart",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT55",
+              "value": "arcsec",
+              "comment": "units for column 55"
+            },
+            {
+              "key": "TCOMM55",
+              "value": "Dist. from CTP_LS8_RA,CTP_LS8_DEC to SPECZ_RA_specz,SPECZ_DEC_specz",
+              "comment": ""
+            },
+            {
+              "key": "TUCD55",
+              "value": "pos.angDistance",
+              "comment": ""
+            },
+            {
+              "key": "TCOMM56",
+              "value": "Does this Salvato+22 counterpart have a spec-z?",
+              "comment": ""
+            },
+            {
+              "key": "TCOMM57",
+              "value": "Does this Salvato+22 counterpart have an informative spec-z?",
+              "comment": ""
+            },
+            {
+              "key": "DATE-HDU",
+              "value": "2022-09-30T20:18:02",
+              "comment": "Date of HDU creation (UTC)"
+            },
+            {
+              "key": "STILVERS",
+              "value": "4.1-2",
+              "comment": "Version of STIL software"
+            },
+            {
+              "key": "STILCLAS",
+              "value": "uk.ac.starlink.fits.FitsTableWriter",
+              "comment": "STIL Author class"
+            }
+          ],
+          "columns": {
+            "ERO_Name": {
+              "name": "ERO_Name",
+              "description": "From Brunner+22, eROSITA official source Name",
+              "type": "char[22]",
+              "unit": ""
+            },
+            "ERO_ID_SRC": {
+              "name": "ERO_ID_SRC",
+              "description": "From Brunner+22, ID of eROSITA source in the Main Sample",
+              "type": "int32",
+              "unit": ""
+            },
+            "ERO_RA_CORR": {
+              "name": "ERO_RA_CORR",
+              "description": "From Brunner+22, J2000 Right Ascension of eROSITA source (corrected)",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "ERO_DEC_CORR": {
+              "name": "ERO_DEC_CORR",
+              "description": "From Brunner+22, J2000 Declination of eROSITA source (corrected)",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "ERO_RADEC_ERR_CORR": {
+              "name": "ERO_RADEC_ERR_CORR",
+              "description": "From Brunner+22, eROSITA positional uncertainty (corrected)",
+              "type": "float32",
+              "unit": "arcsec"
+            },
+            "ERO_ML_FLUX": {
+              "name": "ERO_ML_FLUX",
+              "description": "From Brunner+22, 0.2-2.3 keV source flux",
+              "type": "float32",
+              "unit": "erg/cm^2/s"
+            },
+            "ERO_ML_FLUX_ERR": {
+              "name": "ERO_ML_FLUX_ERR",
+              "description": "From Brunner+22, 0.2-2.3 keV source flux error (1 sigma)",
+              "type": "float32",
+              "unit": "erg/cm^2/s"
+            },
+            "ERO_DET_LIKE": {
+              "name": "ERO_DET_LIKE",
+              "description": "From Brunner+22, 0.2-2.3 keV detection likelihood via PSF-fitting",
+              "type": "float32",
+              "unit": ""
+            },
+            "CTP_LS8_UNIQUE_OBJID": {
+              "name": "CTP_LS8_UNIQUE_OBJID",
+              "description": "From Salvato+22, LS8 unique id for ctp to the eROSITA source",
+              "type": "char[11]",
+              "unit": ""
+            },
+            "CTP_LS8_RA": {
+              "name": "CTP_LS8_RA",
+              "description": "From Salvato+22, Right Ascension of the LS8 counterpart",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "CTP_LS8_DEC": {
+              "name": "CTP_LS8_DEC",
+              "description": "From Salvato+22, Declination of the best LS8 counterpart",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "Dist_CTP_LS8_ERO": {
+              "name": "Dist_CTP_LS8_ERO",
+              "description": "From Salvato+22, Separation between ctp and eROSITA position",
+              "type": "float32",
+              "unit": "arcsec"
+            },
+            "CTP_quality": {
+              "name": "CTP_quality",
+              "description": "From Salvato+22, ctp qual: 4=best,3=good,2=secondary,1/0=unreliable",
+              "type": "int16",
+              "unit": ""
+            },
+            "LS_ID": {
+              "name": "LS_ID",
+              "description": "Unique ID of lsdr9 photometric object labelled with spec-z",
+              "type": "int64",
+              "unit": ""
+            },
+            "LS_RA": {
+              "name": "LS_RA",
+              "description": "Coordinate from lsdr9 at epoch LS9_EPOCH",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "LS_DEC": {
+              "name": "LS_DEC",
+              "description": "Coordinate from lsdr9 at epoch LS9_EPOCH",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "LS_PMRA": {
+              "name": "LS_PMRA",
+              "description": "Proper motion from lsdr9",
+              "type": "float32",
+              "unit": "mas/yr"
+            },
+            "LS_PMDEC": {
+              "name": "LS_PMDEC",
+              "description": "Proper motion from lsdr9",
+              "type": "float32",
+              "unit": "mas/yr"
+            },
+            "LS_EPOCH": {
+              "name": "LS_EPOCH",
+              "description": "Coordinate epoch from lsdr9",
+              "type": "float32",
+              "unit": "year"
+            },
+            "LS_MAG_G": {
+              "name": "LS_MAG_G",
+              "description": "DECam g-band model magnitude from lsdr9, AB",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "LS_MAG_R": {
+              "name": "LS_MAG_R",
+              "description": "DECam r-band model magnitude from lsdr9, AB",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "LS_MAG_Z": {
+              "name": "LS_MAG_Z",
+              "description": "DECam z-band model magnitude from lsdr9, AB",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "SPECZ_N": {
+              "name": "SPECZ_N",
+              "description": "Total number of spec-z associated with this lsdr9 object",
+              "type": "int32",
+              "unit": ""
+            },
+            "SPECZ_RAJ2000": {
+              "name": "SPECZ_RAJ2000",
+              "description": "Coordinate of spec-z, propagated if necessary to epoch J2000",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "SPECZ_DEJ2000": {
+              "name": "SPECZ_DEJ2000",
+              "description": "Coordinate of spec-z, propagated if necessary to epoch J2000",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "SPECZ_NSEL": {
+              "name": "SPECZ_NSEL",
+              "description": "Number of spec-z selected to inform result for this object",
+              "type": "int32",
+              "unit": ""
+            },
+            "SPECZ_REDSHIFT": {
+              "name": "SPECZ_REDSHIFT",
+              "description": "Final redshift determined for this object",
+              "type": "float32",
+              "unit": ""
+            },
+            "SPECZ_NORMQ": {
+              "name": "SPECZ_NORMQ",
+              "description": "Final normalised redshift quality associated with this object",
+              "type": "int32",
+              "unit": ""
+            },
+            "SPECZ_NORMC": {
+              "name": "SPECZ_NORMC",
+              "description": "Final normlised classfication determined for this object",
+              "type": "char[8]",
+              "unit": ""
+            },
+            "SPECZ_HASVI": {
+              "name": "SPECZ_HASVI",
+              "description": "True if best spec-z for this object has a visual inspection",
+              "type": "bool",
+              "unit": ""
+            },
+            "SPECZ_CATCODE": {
+              "name": "SPECZ_CATCODE",
+              "description": "Catalogue code of best spec-z for this object",
+              "type": "char[12]",
+              "unit": ""
+            },
+            "SPECZ_BITMASK": {
+              "name": "SPECZ_BITMASK",
+              "description": "Bitmask encoding catalogues containing spec-z for this object",
+              "type": "int64",
+              "unit": ""
+            },
+            "SPECZ_SEL_BITMASK": {
+              "name": "SPECZ_SEL_BITMASK",
+              "description": "Bitmask encoding catalogues containing informative spec-z for object",
+              "type": "int64",
+              "unit": ""
+            },
+            "SPECZ_FLAGS": {
+              "name": "SPECZ_FLAGS",
+              "description": "Bitmask encoding quality flags for this object",
+              "type": "int32",
+              "unit": ""
+            },
+            "SPECZ_SEL_NORMQ_MAX": {
+              "name": "SPECZ_SEL_NORMQ_MAX",
+              "description": "Highest NORMQ of informative spec-z for this object",
+              "type": "int32",
+              "unit": ""
+            },
+            "SPECZ_SEL_NORMQ_MEAN": {
+              "name": "SPECZ_SEL_NORMQ_MEAN",
+              "description": "Mean NORMQ of informative spec-z for this object",
+              "type": "float32",
+              "unit": ""
+            },
+            "SPECZ_SEL_Z_MEAN": {
+              "name": "SPECZ_SEL_Z_MEAN",
+              "description": "Mean REDSHIFT of informative spec-z for this object",
+              "type": "float32",
+              "unit": ""
+            },
+            "SPECZ_SEL_Z_MEDIAN": {
+              "name": "SPECZ_SEL_Z_MEDIAN",
+              "description": "Median REDSHIFT of informative spec-z for this object",
+              "type": "float32",
+              "unit": ""
+            },
+            "SPECZ_SEL_Z_STDDEV": {
+              "name": "SPECZ_SEL_Z_STDDEV",
+              "description": "Standard deviation of REDSHIFTs for informative spec-z for object",
+              "type": "float32",
+              "unit": ""
+            },
+            "SPECZ_ORIG_RA": {
+              "name": "SPECZ_ORIG_RA",
+              "description": "Coordinate associated with individual spec-z measurement",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "SPECZ_ORIG_DEC": {
+              "name": "SPECZ_ORIG_DEC",
+              "description": "Coordinate associated with individual spec-z measurement",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "SPECZ_ORIG_POS_EPOCH": {
+              "name": "SPECZ_ORIG_POS_EPOCH",
+              "description": "Coordinate epoch associated with individual spec-z measurement",
+              "type": "float32",
+              "unit": ""
+            },
+            "SPECZ_ORIG_LS_SEP": {
+              "name": "SPECZ_ORIG_LS_SEP",
+              "description": "Distance from spec-z to lsdr9 photometric ctp (corrected for pm)",
+              "type": "float32",
+              "unit": "arcsec"
+            },
+            "SPECZ_ORIG_LS_GT1CTP": {
+              "name": "SPECZ_ORIG_LS_GT1CTP",
+              "description": "Can spec-z be associated with >1 possible lsdr9 counterpart?",
+              "type": "bool",
+              "unit": ""
+            },
+            "SPECZ_ORIG_LS_CTP_RANK": {
+              "name": "SPECZ_ORIG_LS_CTP_RANK",
+              "description": "Rank of ctp out of all possibilities for this spec-z (1=closest)",
+              "type": "int32",
+              "unit": ""
+            },
+            "SPECZ_ORIG_ID": {
+              "name": "SPECZ_ORIG_ID",
+              "description": "Orig. value of ID of individual spec-z measurement (as a string)",
+              "type": "char[32]",
+              "unit": ""
+            },
+            "SPECZ_ORIG_REDSHIFT": {
+              "name": "SPECZ_ORIG_REDSHIFT",
+              "description": "Orig. redshift value of individual spec-z measurement",
+              "type": "float32",
+              "unit": ""
+            },
+            "SPECZ_ORIG_QUAL": {
+              "name": "SPECZ_ORIG_QUAL",
+              "description": "Orig. redshift quality value of individual spec-z measurement",
+              "type": "char[8]",
+              "unit": ""
+            },
+            "SPECZ_ORIG_NORMQ": {
+              "name": "SPECZ_ORIG_NORMQ",
+              "description": "Orig. redshift quality of individual spec-z measurement - normalised",
+              "type": "int32",
+              "unit": ""
+            },
+            "SPECZ_ORIG_CLASS": {
+              "name": "SPECZ_ORIG_CLASS",
+              "description": "Orig. classification label of individual spec-z measurement",
+              "type": "char[16]",
+              "unit": ""
+            },
+            "SPECZ_ORIG_HASVI": {
+              "name": "SPECZ_ORIG_HASVI",
+              "description": "True if individual spec-z has a visual inspection from our team",
+              "type": "bool",
+              "unit": ""
+            },
+            "SPECZ_ORIG_NORMC": {
+              "name": "SPECZ_ORIG_NORMC",
+              "description": "Normalised classification code of individual spec-z measurement",
+              "type": "char[8]",
+              "unit": ""
+            },
+            "SPECZ_RA_USED": {
+              "name": "SPECZ_RA_USED",
+              "description": "Adopted coordinate of specz when matching to Salvato+22 counterpart",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "SPECZ_DEC_USED": {
+              "name": "SPECZ_DEC_USED",
+              "description": "Adopted coordinate of specz when matching to Salvato+22 counterpart",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "Separation_SPECZ_CTP": {
+              "name": "Separation_SPECZ_CTP",
+              "description": "Distance from LS_RA,LS_DEC to SPECZ_RA_USED,SPECZ_DEC_USED",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "has_specz": {
+              "name": "has_specz",
+              "description": "Does this Salvato+22 counterpart have a spec-z?",
+              "type": "bool",
+              "unit": ""
+            },
+            "has_informative_specz": {
+              "name": "has_informative_specz",
+              "description": "Does this Salvato+22 counterpart have an informative spec-z?",
+              "type": "bool",
+              "unit": ""
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null
     }
   },
-  "notes": "None"
+  "notes": "None",
+  "regrets": "I have no regrets!"
 }
