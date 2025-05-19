@@ -1,0 +1,325 @@
+{
+  "general": {
+    "name": "occam_member",
+    "short": "The OCCAM member summary table provides positional, identification, and membership information for 1196 candidate open cluster member stars.\n",
+    "description": "The OCCAM member summary table provides the proper motion membership probabilities from Cantat-Gaudin et al. 2020 and Hunt and Reffert 2023 alongside the radial velocity and [Fe/H] membership probabilities from MWM/APOGEE. Basic postional information is included with source IDs from Gaia DR2/3 and SDSS-V DR19 for each star in the table.\n",
+    "environments": [
+      "APOGEE_OCCAM"
+    ],
+    "surveys": [
+      {
+        "name": "MWM",
+        "long": "Milky Way Mapper",
+        "description": "A time-domain, optical+IR spectroscopic survey of Milky Way stars of all types.",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "mwm",
+        "aliases": []
+      },
+      {
+        "name": "APOGEE-2",
+        "long": "Apache Point Observatory Galactic Evolution Experiment 2",
+        "description": "An infrared stellar spectroscopic survey of Milky Way stars in the Northern and Southern hemispheres",
+        "phase": {
+          "name": "Phase-IV",
+          "id": 4,
+          "start": 2014,
+          "end": 2020,
+          "active": false
+        },
+        "id": "apogee2",
+        "aliases": [
+          "apogee"
+        ]
+      },
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "FITS",
+    "filesize": "216 KB",
+    "releases": [
+      {
+        "name": "DR19",
+        "description": "SDSS public data release 19",
+        "public": true,
+        "release_date": "2025-07-11"
+      }
+    ],
+    "naming_convention": "$APOGEE_OCCAM/occam_member-[VERS].fits where VERS is DR19 in the latest version",
+    "generated_by": "OCCAM",
+    "design": false,
+    "vac": true,
+    "recommended_science_product": true,
+    "data_level": "3.3.0"
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR19": {
+      "template": "$APOGEE_OCCAM/occam_member-[VERS].fits",
+      "example": "occam_member-DR19.fits",
+      "location": "occam_member-{vers}.fits",
+      "environment": "APOGEE_OCCAM",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": false,
+        "path_name": null,
+        "path_template": null,
+        "path_kwargs": null,
+        "access_string": "occam_member = $APOGEE_OCCAM/occam_member-{vers}.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "The primary HDU, in accordance with the FITS file standard. No useful information is stored here",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "file does conform to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "16",
+              "comment": "number of bits per data pixel"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of data axes"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": "FITS dataset may contain extensions"
+            },
+            {
+              "key": "COMMENT",
+              "value": "  FITS (Flexible Image Transport System) format is defined in 'Astronomy",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "  and Astrophysics', volume 376, page 359; bibcode: 2001A&A...376..359H",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "OCCAM data",
+          "is_image": false,
+          "description": "The data reported are as follows:\n",
+          "size": "206 KB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "BINTABLE",
+              "comment": "binary table extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "8-bit bytes"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "2-dimensional binary table"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "177",
+              "comment": "width of table in bytes"
+            },
+            {
+              "key": "NAXIS2",
+              "value": "1196",
+              "comment": "number of rows in table"
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "size of special data area"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "one data group (required keyword)"
+            },
+            {
+              "key": "TFIELDS",
+              "value": "23",
+              "comment": "number of fields in each row"
+            }
+          ],
+          "columns": {
+            "Cluster": {
+              "name": "Cluster",
+              "description": "Open cluster name   1",
+              "type": "char[20]",
+              "unit": "---"
+            },
+            "SDSS_ID": {
+              "name": "SDSS_ID",
+              "description": "Internal SDSS-V source ID   2",
+              "type": "int64",
+              "unit": "---"
+            },
+            "GaiaDR3_ID": {
+              "name": "GaiaDR3_ID",
+              "description": "Gaia DR3 source ID   3",
+              "type": "int64",
+              "unit": "---"
+            },
+            "GaiaDR2_ID": {
+              "name": "GaiaDR2_ID",
+              "description": "Gaia DR2 source ID   4",
+              "type": "int64",
+              "unit": "---"
+            },
+            "OBJ_ID": {
+              "name": "OBJ_ID",
+              "description": "DR17 APOGEE ID 5",
+              "type": "char[32]",
+              "unit": "---"
+            },
+            "GLON": {
+              "name": "GLON",
+              "description": "Galactic longitude   6",
+              "type": "float32",
+              "unit": "deg"
+            },
+            "GLAT": {
+              "name": "GLAT",
+              "description": "Galactic latitude   7",
+              "type": "float32",
+              "unit": "deg"
+            },
+            "RAdeg": {
+              "name": "RAdeg",
+              "description": "Right ascencion   8",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "DEdeg": {
+              "name": "DEdeg",
+              "description": "Declination   9",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "V_RAD": {
+              "name": "V_RAD",
+              "description": "Average radial velocity  10",
+              "type": "float32",
+              "unit": "km/s"
+            },
+            "E_V_RAD": {
+              "name": "E_V_RAD",
+              "description": "Standard error in radial velocity measurements 11",
+              "type": "float32",
+              "unit": "km/s"
+            },
+            "STD_V_RAD": {
+              "name": "STD_V_RAD",
+              "description": "1-sigma radial velocity scatter  12",
+              "type": "float32",
+              "unit": "km/s"
+            },
+            "PMRA": {
+              "name": "PMRA",
+              "description": "Proper motion in RA  13",
+              "type": "float32",
+              "unit": "mas/yr"
+            },
+            "E_PMRA": {
+              "name": "E_PMRA",
+              "description": "Standard error of proper motion in RA  14",
+              "type": "float32",
+              "unit": "mas/yr"
+            },
+            "PMDE": {
+              "name": "PMDE",
+              "description": "Proper motion in declination 15",
+              "type": "float32",
+              "unit": "mas/yr"
+            },
+            "E_PMDE": {
+              "name": "E_PMDE",
+              "description": "Standard error of proper motion in declination  16",
+              "type": "float32",
+              "unit": "mas/yr"
+            },
+            "FeH_ASPCAP": {
+              "name": "FeH_ASPCAP",
+              "description": "[Fe/H] from the ASPCAP pipeline  17\n",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "E_FeH_ASPCAP": {
+              "name": "E_FeH_ASPCAP",
+              "description": "1-sigma [Fe/H] dispersion  18",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "CG_Prob": {
+              "name": "CG_Prob",
+              "description": "Membership probability from Cantat-Gaudin et. al 2020  19",
+              "type": "float64",
+              "unit": "---"
+            },
+            "RV_Prob": {
+              "name": "RV_Prob",
+              "description": "OCCAM RV membership probability  20",
+              "type": "float64",
+              "unit": "---"
+            },
+            "FeH_Prob_ASPCAP": {
+              "name": "FeH_Prob_ASPCAP",
+              "description": "OCCAM ASPCAP [Fe/H] membership probability 21",
+              "type": "float64",
+              "unit": "---"
+            },
+            "EH_Prob": {
+              "name": "EH_Prob",
+              "description": "Membership probability from Hunt & Reffert 2023 22",
+              "type": "float64",
+              "unit": "---"
+            },
+            "XMatch": {
+              "name": "XMatch",
+              "description": "An unsigned integer to indicate whether a individual star has been observed by Galah, GaiaESO or OCCASO. The first bit corresponds to Galah, second to GaiaESO, and the thrid to OCCASO.  23",
+              "type": "uint8",
+              "unit": "---"
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null
+    }
+  },
+  "notes": "None",
+  "regrets": "I  have no regrets!"
+}

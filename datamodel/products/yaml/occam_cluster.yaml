@@ -1,0 +1,497 @@
+general:
+  name: occam_cluster
+  short: The OCCAM cluster summary table provides mean cluster parameters for 170
+    open clusters.
+  description: 'The OCCAM cluster summary table provides a comprehensive, uniform
+    dataset for open clusters. It contains mean 5-D astrometry from Gaia (Cantat-Gaudin
+    et al. 2020, Hunt & Reffert 2023), mean orbital parameters calculated using Gala
+    (Adrian M. Price-Whelan 2017), an orbital dynamics code, and mean radial velocities
+    and chemical abundances from MWM/APOGEE.
+
+    '
+  datatype: FITS
+  filesize: 120 KB
+  releases:
+  - DR19
+  environments:
+  - APOGEE_OCCAM
+  surveys:
+  - MWM
+  - APOGEE-2
+  - SDSS
+  naming_convention: $APOGEE_OCCAM/occam_cluster-[VERS].fits where VERS is DR19 in
+    the latest version
+  generated_by: OCCAM
+  data_level: 3.3.0
+  design: false
+  vac: true
+  recommended_science_product: true
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR19:
+    template: $APOGEE_OCCAM/occam_cluster-[VERS].fits
+    example: occam_cluster-DR19.fits
+    location: occam_cluster-{vers}.fits
+    environment: APOGEE_OCCAM
+    access:
+      in_sdss_access: false
+      path_name: null
+      path_template: null
+      path_kwargs: null
+      access_string: occam_cluster = $APOGEE_OCCAM/occam_cluster-{vers}.fits
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: The primary HDU, in accordance with the FITS file standard. No
+          useful information is stored here
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: file does conform to FITS standard
+        - key: BITPIX
+          value: 16
+          comment: number of bits per data pixel
+        - key: NAXIS
+          value: 0
+          comment: number of data axes
+        - key: EXTEND
+          value: true
+          comment: FITS dataset may contain extensions
+        - key: COMMENT
+          value: '  FITS (Flexible Image Transport System) format is defined in ''Astronomy'
+          comment: ''
+        - key: COMMENT
+          value: '  and Astrophysics'', volume 376, page 359; bibcode: 2001A&A...376..359H'
+          comment: ''
+      hdu1:
+        name: OCCAM data
+        description: 'The parameters for each cluster are reported here:
+
+          '
+        is_image: false
+        size: 101 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: 8-bit bytes
+        - key: NAXIS
+          value: 2
+          comment: 2-dimensional binary table
+        - key: NAXIS1
+          value: 612
+          comment: width of table in bytes
+        - key: NAXIS2
+          value: 170
+          comment: number of rows in table
+        - key: PCOUNT
+          value: 0
+          comment: size of special data area
+        - key: GCOUNT
+          value: 1
+          comment: one data group (required keyword)
+        - key: TFIELDS
+          value: 75
+          comment: number of fields in each row
+        columns:
+          Name:
+            name: Name
+            type: char[20]
+            unit: '---'
+            description: Open cluster name   1
+          GLON:
+            name: GLON
+            type: float64
+            unit: deg
+            description: Galactic longitude   2
+          GLAT:
+            name: GLAT
+            type: float64
+            unit: deg
+            description: Galactic latitude  3
+          RAdeg:
+            name: RAdeg
+            type: float64
+            unit: deg
+            description: Right ascencion in degrees   4
+          DEdeg:
+            name: DEdeg
+            type: float64
+            unit: deg
+            description: Declination in degrees   5
+          CG_Rad:
+            name: CG_Rad
+            type: float64
+            unit: deg
+            description: Cluster radius containing half the members, from Cantat-Gaudin
+              et al. 2020   6
+          CG_PMRA:
+            name: CG_PMRA
+            type: float64
+            unit: mas/yr
+            description: Mean proper motion in RA of cluster members, pmra*cos(declination)
+              from Cantat-Gaudin et al. 2020  7
+          CG_PMRA_ERR:
+            name: CG_PMRA_ERR
+            type: float64
+            unit: mas/yr
+            description: Standard deviation of CG_PMRA of cluster members from Cantat-Gaudin
+              et al. 2020   8
+          CG_PMDE:
+            name: CG_PMDE
+            type: float64
+            unit: mas/yr
+            description: Mean proper motion in DE of cluster members from Cantat-Gaudin
+              et al. 2020  9
+          CG_PMDE_ERR:
+            name: CG_PMDE_ERR
+            type: float64
+            unit: mas/yr
+            description: Standard deviation in CG_PMDE of cluster members from Cantat-Gaudin
+              et al. 2020 10
+          V_RAD:
+            name: V_RAD
+            type: float64
+            unit: km/s
+            description: Mean radial velocity of cluster members  11
+          V_RAD_ERR:
+            name: V_RAD_ERR
+            type: float64
+            unit: km/s
+            description: 1-sigma V_RAD dispersion 12
+          CG_R_GC:
+            name: CG_R_GC
+            type: float64
+            unit: kpc
+            description: Distance from the Galactic center from Cantat-Gaudin et al.
+              2020  13
+          CG_DistPc:
+            name: CG_DistPc
+            type: float64
+            unit: pc
+            description: Distance from solar neighborbood from Cantat-Gaudin et al.
+              2020  14
+          CG_logAge:
+            name: CG_logAge
+            type: float64
+            unit: yr
+            description: logAge of the cluster from Cantat-Gaudin et al. 2020  15
+          R_Guide:
+            name: R_Guide
+            type: float64
+            unit: kpc
+            description: Guiding Center radius  16
+          Z_Height:
+            name: Z_Height
+            type: float64
+            unit: kpc
+            description: Current Z position in X,Y,Z Galactocentric coordinates  17
+          Z_Max:
+            name: Z_Max
+            type: float64
+            unit: kpc
+            description: Maximum Z position   18
+          Azimuth_Angle:
+            name: Azimuth_Angle
+            type: float64
+            unit: deg
+            description: Azimuthal angle relative to Galactic center  19
+          Eccentricity:
+            name: Eccentricity
+            type: float64
+            unit: '---'
+            description: Average eccentricity of calculated cluster orbits  20
+          Z_Period_Avg:
+            name: Z_Period_Avg
+            type: float64
+            unit: Myr
+            description: Average period in the Z coordinate  21
+          Radial_Period_Avg:
+            name: Radial_Period_Avg
+            type: float64
+            unit: Myr
+            description: Average radial period of the cluster  22
+          Fe_H_ASPCAP:
+            name: Fe_H_ASPCAP
+            type: float64
+            unit: dex
+            description: Mean [Fe/H] from the ASPCAP pipeline 23
+          C_H:
+            name: C_H
+            type: float64
+            unit: dex
+            description: Mean [C/H]  24
+          C_H_ERR:
+            name: C_H_ERR
+            type: float64
+            unit: dex
+            description: 1-sigma [C/H] dispersion  25
+          N_H:
+            name: N_H
+            type: float64
+            unit: dex
+            description: Mean [N/H]  26
+          N_H_ERR:
+            name: N_H_ERR
+            type: float64
+            unit: dex
+            description: 1-sigma [N/H] dispersion  27
+          O_H:
+            name: O_H
+            type: float64
+            unit: dex
+            description: Mean [O/H]  28
+          O_H_ERR:
+            name: O_H_ERR
+            type: float64
+            unit: dex
+            description: 1-sigma [O/H] dispersion   29
+          Na_H:
+            name: Na_H
+            type: float64
+            unit: dex
+            description: Mean [Na/H]  30
+          Na_H_ERR:
+            name: Na_H_ERR
+            type: float64
+            unit: dex
+            description: 1-sigma [Na/H] dispersion  31
+          Mg_H:
+            name: Mg_H
+            type: float64
+            unit: dex
+            description: Mean [Mg/H] 32
+          Mg_H_ERR:
+            name: Mg_H_ERR
+            type: float64
+            unit: dex
+            description: 1-sigma [Mg/H] dispersion  33
+          Al_H:
+            name: Al_H
+            type: float64
+            unit: dex
+            description: Mean [Al/H] 34
+          Al_H_ERR:
+            name: Al_H_ERR
+            type: float64
+            unit: dex
+            description: 1-sigma [Al/H] dispersion  35
+          Si_H:
+            name: Si_H
+            type: float64
+            unit: dex
+            description: Mean [Si/H]  36
+          Si_H_ERR:
+            name: Si_H_ERR
+            type: float64
+            unit: dex
+            description: 1-sigma [Si/H] dispersion   37
+          P_H:
+            name: P_H
+            type: float64
+            unit: dex
+            description: Mean [P/H] 38
+          P_H_ERR:
+            name: P_H_ERR
+            type: float64
+            unit: dex
+            description: 1-sigma [P/H] dispersion   39
+          S_H:
+            name: S_H
+            type: float64
+            unit: dex
+            description: Mean [S/H] 40
+          S_H_ERR:
+            name: S_H_ERR
+            type: float64
+            unit: dex
+            description: 1-sigma [S/H] dispersion   41
+          K_H:
+            name: K_H
+            type: float64
+            unit: dex
+            description: Mean [K/H]  42
+          K_H_ERR:
+            name: K_H_ERR
+            type: float64
+            unit: dex
+            description: 1-sigma [K/H] dispersion   43
+          Ca_H:
+            name: Ca_H
+            type: float64
+            unit: dex
+            description: Mean [Ca/H]  44
+          Ca_H_ERR:
+            name: Ca_H_ERR
+            type: float64
+            unit: dex
+            description: 1-sigma [Ca/H] dispersion   45
+          Ti_H:
+            name: Ti_H
+            type: float64
+            unit: dex
+            description: Mean [Ti/H]  46
+          Ti_H_ERR:
+            name: Ti_H_ERR
+            type: float64
+            unit: dex
+            description: 1-sigma [Ti/H] dispersion   47
+          V_H:
+            name: V_H
+            type: float64
+            unit: dex
+            description: Mean [V/H]  48
+          V_H_ERR:
+            name: V_H_ERR
+            type: float64
+            unit: dex
+            description: 1-sigma [V/H] dispersion   49
+          Cr_H:
+            name: Cr_H
+            type: float64
+            unit: dex
+            description: Mean [Cr/H] 50
+          Cr_H_ERR:
+            name: Cr_H_ERR
+            type: float64
+            unit: dex
+            description: 1-sigma [Cr/H] dispersion   51
+          Mn_H:
+            name: Mn_H
+            type: float64
+            unit: dex
+            description: Mean [Mn/H] 52
+          Mn_H_ERR:
+            name: Mn_H_ERR
+            type: float64
+            unit: dex
+            description: 1-sigma [Mn/H] dispersion   53
+          Fe_H:
+            name: Fe_H
+            type: float64
+            unit: dex
+            description: Mean [Fe/H]  54
+          Fe_H_ERR:
+            name: Fe_H_ERR
+            type: float64
+            unit: dex
+            description: 1-sigma [Fe/H] dispersion   55
+          Co_H:
+            name: Co_H
+            type: float64
+            unit: dex
+            description: Mean [Co/H]  56
+          Co_H_ERR:
+            name: Co_H_ERR
+            type: float64
+            unit: dex
+            description: 1-sigma [Co/H] dispersion   57
+          Ni_H:
+            name: Ni_H
+            type: float64
+            unit: dex
+            description: Mean [Ni/H]  58
+          Ni_H_ERR:
+            name: Ni_H_ERR
+            type: float64
+            unit: dex
+            description: 1-sigma [Ni/H] dispersion   59
+          Cu_H:
+            name: Cu_H
+            type: float64
+            unit: dex
+            description: Mean [Cu/H] 60
+          Cu_H_ERR:
+            name: Cu_H_ERR
+            type: float64
+            unit: dex
+            description: 1-sigma [Cu/H] dispersion   61
+          Ce_H:
+            name: Ce_H
+            type: float64
+            unit: dex
+            description: Mean [Ce/H]  62
+          Ce_H_ERR:
+            name: Ce_H_ERR
+            type: float64
+            unit: dex
+            description: 1-sigma [Ce/H] dispersion   63
+          Nd_H:
+            name: Nd_H
+            type: float64
+            unit: dex
+            description: Mean [Nd/H]  64
+          Nd_H_ERR:
+            name: Nd_H_ERR
+            type: float64
+            unit: dex
+            description: 1-sigma [Nd/H] dispersion 65
+          Num_Stars_ASPCAP:
+            name: Num_Stars_ASPCAP
+            type: int64
+            unit: '---'
+            description: Number of cluster members as determined using the ASPCAP
+              pipeline [Fe/H]  66
+          OCCAM_Qual:
+            name: OCCAM_Qual
+            type: int64
+            unit: '---'
+            description: 'Visual CMD quality Flag; 4: calibration, 3: high quality
+              >5 stars, 2: high quality 2-4 stars, 1: good 1 star 67
+
+              '
+          EH_Rad:
+            name: EH_Rad
+            type: float64
+            unit: deg
+            description: Total radius of the cluster including tidal tails from Hunt
+              and Reffert 2023  68
+          EH_PMRA:
+            name: EH_PMRA
+            type: float64
+            unit: mas/yr
+            description: Mean proper motion in RA multiplied by cos(DE) from Hunt
+              & Reffert 2023  69
+          EH_PMRA_ERR:
+            name: EH_PMRA_ERR
+            type: float64
+            unit: mas/yr
+            description: Standard error of EH_PMRA from Hunt & Reffert 2023  70
+          EH_PMDE:
+            name: EH_PMDE
+            type: float64
+            unit: mas/yr
+            description: Mean proper motion in DE from Hunt & Reffert 2023  71
+          EH_PMDE_ERR:
+            name: EH_PMDE_ERR
+            type: float64
+            unit: mas/yr
+            description: Standard error in EH_PMDE from Hunt & Reffert 2023  72
+          EH_R_GC:
+            name: EH_R_GC
+            type: float64
+            unit: kpc
+            description: Distance from the Galactic center using distances from Hunt
+              & Reffert 2023  73
+          EH_DistPc:
+            name: EH_DistPc
+            type: float64
+            unit: pc
+            description: Distance from solar neighborbood from Hunt & Reffert 2023  74
+          EH_logAge:
+            name: EH_logAge
+            type: float64
+            unit: yr
+            description: logAge of the cluster from Hunt & Reffert 2023 75
+notes: |-
+  None
+regrets: |-
+  I  have no regrets!
