@@ -1,0 +1,25 @@
+#!/bin/bash
+import oyaml
+yaml_file = 'StarFlow_age_posterior.yaml'
+yaml_file1 = 'StarFlow_age_posterior.1.yaml'
+with open(yaml_file, 'r') as file:
+    data = oyaml.load(file.read(), Loader=oyaml.FullLoader)
+columns = data['releases']['DR19']['hdus']['hdu1']['columns']
+for name, column in columns.items():
+    year = name.replace("_", ".")
+    column['description'] = 'Likelihood at %s Gyr.' % year
+with open(yaml_file1, 'w') as file: void = oyaml.dump(data, file)
+
+import oyaml
+yaml_file = 'StarFlow_mass_posterior.yaml'
+yaml_file1 = 'StarFlow_mass_posterior.1.yaml'
+with open(yaml_file, 'r') as file:
+    data = oyaml.load(file.read(), Loader=oyaml.FullLoader)
+columns = data['releases']['DR19']['hdus']['hdu1']['columns']
+for name, column in columns.items():
+    logmass_negative = name.startswith("_")
+    logmass = name[1:] if logmass_negative else name
+    logmass = logmass.replace("_",".")
+    mass = "10^{%s%s}" % ("-" if logmass_negative else "", logmass)
+    column['description'] = 'Likelihood at %s solar masses.' % mass
+with open(yaml_file1, 'w') as file: void = oyaml.dump(data, file)
