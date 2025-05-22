@@ -1,0 +1,175 @@
+general:
+  name: StarFlow_summary
+  short: Summary file of age and mass posteriors with the maximum liklihood and corresponding
+    errorbars
+  description: "Stellar age and mass estimates for 378,720 evolved stars from SDSS-V\
+    \ DR19, derived using a normalizing flow model trained on asteroseismic data.\
+    \ Each entry includes maximum likelihood age and mass estimates, 1\u03C3 uncertainties,\
+    \ and a training space density metric indicating the models confidence based on\
+    \ parameter coverage."
+  datatype: FITS
+  filesize: 91 MB
+  releases:
+  - DR19
+  environments:
+  - MWM_STARFLOW
+  surveys:
+  - SDSS
+  naming_convention: $MWM_STARFLOW/v1_0_0/StarFlow_summary_v1_0_0.fits
+  generated_by: starflow
+  data_level: 3.3.0
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR19:
+    template: $MWM_STARFLOW/[VERS]/StarFlow_summary_[VERS].fits
+    example: v1_0_0/StarFlow_summary_v1_0_0.fits
+    location: '{vers}/StarFlow_summary_{vers}.fits'
+    environment: MWM_STARFLOW
+    access:
+      in_sdss_access: true
+      path_name: StarFlow_summary
+      path_template: $MWM_STARFLOW/StarFlow_summary_{vers}.fits
+      path_kwargs:
+      - vers
+      access_string: StarFlow_summary = $MWM_STARFLOW/{vers}/StarFlow_summary_{vers}.fits
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: File Information
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: VACVER
+          value: '1.0'
+          comment: VAC version
+        - key: SDSSDR
+          value: DR19
+          comment: Associated SDSS public data release
+        - key: MAPPER
+          value: MWM
+          comment: SDSS Mapper Name
+        - key: DATECREAT
+          value: '2025-03-17T14:46:09.573313'
+          comment: VAC creation date
+        - key: DATEMOD
+          value: '2025-03-17T14:46:09.581237'
+          comment: VAC last modified date
+        - key: CHECKSUM
+          value: 156A3439143A1437
+          comment: HDU checksum updated 2025-03-17T14:46:28
+        - key: DATASUM
+          value: '0'
+          comment: data unit checksum updated 2025-03-17T14:46:28
+      hdu1:
+        name: STARFLOW_TABLE
+        description: Summary data for targets
+        is_image: false
+        size: 91 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 91
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 1059521
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 10
+          comment: number of table fields
+        - key: EXTNAME
+          value: STARFLOW_TABLE
+          comment: extension name
+        - key: CHECKSUM
+          value: 6E4L9E2J6E2J6E2J
+          comment: HDU checksum updated 2025-03-17T14:46:28
+        - key: DATASUM
+          value: '460174103'
+          comment: data unit checksum updated 2025-03-17T14:46:28
+        columns:
+          sdss_id:
+            name: sdss_id
+            type: int64
+            unit: ''
+            description: Unique SDSS-V ID
+          sdss4_apogee_id:
+            name: sdss4_apogee_id
+            type: char[19]
+            unit: ''
+            description: 2MASS ID
+          age:
+            name: age
+            type: float64
+            unit: Gyr
+            description: Maximum likelihood age from the StarFlow age mo
+          e_p_age:
+            name: e_p_age
+            type: float64
+            unit: Gyr
+            description: Upper age uncertainty
+          e_n_age:
+            name: e_n_age
+            type: float64
+            unit: Gyr
+            description: Lower age uncertainty
+          mass:
+            name: mass
+            type: float64
+            unit: Solar Mass
+            description: Maximum likelihood mass from the StarFlow mass
+          e_p_mass:
+            name: e_p_mass
+            type: float64
+            unit: Solar Mass
+            description: Upper mass uncertainty
+          e_n_mass:
+            name: e_n_mass
+            type: float64
+            unit: Solar Mass
+            description: Lower mass uncertainty
+          training_density:
+            name: training_density
+            type: float64
+            unit: ''
+            description: Training density value. Describes how well samp
+          BITMASK:
+            name: BITMASK
+            type: int64
+            unit: ''
+            description: Contains flags to indicate notes about a given
+notes: |-
+  None
+regrets: |-
+  I  have no regrets!
