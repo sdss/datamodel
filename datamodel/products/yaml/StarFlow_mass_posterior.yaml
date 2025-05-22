@@ -1,7 +1,10 @@
 general:
   name: StarFlow_mass_posterior
   short: Full mass posteriors for each star
-  description: This file contains the full stellar mass posterior probability distributions for 378,720 evolved stars in SDSS-V DR19, derived using a normalizing flow model trained on asteroseismic masses. Each row corresponds to a star, and each column represents the relative likelihood at a specific log(mass) bin. 
+  description: This file contains the full stellar mass posterior probability distributions
+    for 378,720 evolved stars in SDSS-V DR19, derived using a normalizing flow model
+    trained on asteroseismic masses. Each row corresponds to a star, and each column
+    represents the relative likelihood at a specific log(mass) bin.
   datatype: FITS
   filesize: 1 GB
   releases:
@@ -14,8 +17,8 @@ general:
   generated_by: starflow.
   data_level: 3.3.0
   design: false
-  vac: true
-  recommended_science_product: true
+  vac: false
+  recommended_science_product: false
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
@@ -29,7 +32,7 @@ releases:
     access:
       in_sdss_access: true
       path_name: StarFlow_mass_posterior
-      path_template: $MWM_STARFLOW/{vers}/StarFlow_mass_posterior{vers}.fits
+      path_template: $MWM_STARFLOW/StarFlow_mass_posterior{vers}.fits
       path_kwargs:
       - vers
       access_string: StarFlow_mass_posterior = $MWM_STARFLOW/{vers}/StarFlow_mass_posterior_{vers}.fits
@@ -79,8 +82,10 @@ releases:
           comment: data unit checksum updated 2025-04-01T12:35:09
       hdu1:
         name: MASS_POSTERIORS
-        description: Mass posteriors. Each column is the likelihood at a specific log mass; column names (e.g., 0_470 is for 10^0.470 solar masses) indicate the mass value. Negative values indicated with underscore (e.g., _1_618 is for 10^-1.618 solar
-            masses)
+        description: Mass posteriors. Each column is the likelihood at a specific
+          log mass; column names (e.g., 0_470 is for 10^0.470 solar masses) indicate
+          the mass value. Negative values indicated with underscore (e.g., _1_618
+          is for 10^-1.618 solar masses)
         is_image: false
         size: 1 GB
         header:
