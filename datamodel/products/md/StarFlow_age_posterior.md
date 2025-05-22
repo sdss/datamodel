@@ -101,256 +101,256 @@ Key | Value | Comment | |
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | 0_00 | float64 |  |  |
- | 0_06 | float64 |  |  |
- | 0_11 | float64 |  |  |
- | 0_17 | float64 |  |  |
- | 0_22 | float64 |  |  |
- | 0_28 | float64 |  |  |
- | 0_34 | float64 |  |  |
- | 0_39 | float64 |  |  |
- | 0_45 | float64 |  |  |
- | 0_51 | float64 |  |  |
- | 0_56 | float64 |  |  |
- | 0_62 | float64 |  |  |
- | 0_67 | float64 |  |  |
- | 0_73 | float64 |  |  |
- | 0_79 | float64 |  |  |
- | 0_84 | float64 |  |  |
- | 0_90 | float64 |  |  |
- | 0_96 | float64 |  |  |
- | 1_01 | float64 |  |  |
- | 1_07 | float64 |  |  |
- | 1_12 | float64 |  |  |
- | 1_18 | float64 |  |  |
- | 1_24 | float64 |  |  |
- | 1_29 | float64 |  |  |
- | 1_35 | float64 |  |  |
- | 1_41 | float64 |  |  |
- | 1_46 | float64 |  |  |
- | 1_52 | float64 |  |  |
- | 1_57 | float64 |  |  |
- | 1_63 | float64 |  |  |
- | 1_69 | float64 |  |  |
- | 1_74 | float64 |  |  |
- | 1_80 | float64 |  |  |
- | 1_86 | float64 |  |  |
- | 1_91 | float64 |  |  |
- | 1_97 | float64 |  |  |
- | 2_02 | float64 |  |  |
- | 2_08 | float64 |  |  |
- | 2_14 | float64 |  |  |
- | 2_19 | float64 |  |  |
- | 2_25 | float64 |  |  |
- | 2_31 | float64 |  |  |
- | 2_36 | float64 |  |  |
- | 2_42 | float64 |  |  |
- | 2_47 | float64 |  |  |
- | 2_53 | float64 |  |  |
- | 2_59 | float64 |  |  |
- | 2_64 | float64 |  |  |
- | 2_70 | float64 |  |  |
- | 2_76 | float64 |  |  |
- | 2_81 | float64 |  |  |
- | 2_87 | float64 |  |  |
- | 2_92 | float64 |  |  |
- | 2_98 | float64 |  |  |
- | 3_04 | float64 |  |  |
- | 3_09 | float64 |  |  |
- | 3_15 | float64 |  |  |
- | 3_20 | float64 |  |  |
- | 3_26 | float64 |  |  |
- | 3_32 | float64 |  |  |
- | 3_37 | float64 |  |  |
- | 3_43 | float64 |  |  |
- | 3_49 | float64 |  |  |
- | 3_54 | float64 |  |  |
- | 3_60 | float64 |  |  |
- | 3_65 | float64 |  |  |
- | 3_71 | float64 |  |  |
- | 3_77 | float64 |  |  |
- | 3_82 | float64 |  |  |
- | 3_88 | float64 |  |  |
- | 3_94 | float64 |  |  |
- | 3_99 | float64 |  |  |
- | 4_05 | float64 |  |  |
- | 4_10 | float64 |  |  |
- | 4_16 | float64 |  |  |
- | 4_22 | float64 |  |  |
- | 4_27 | float64 |  |  |
- | 4_33 | float64 |  |  |
- | 4_39 | float64 |  |  |
- | 4_44 | float64 |  |  |
- | 4_50 | float64 |  |  |
- | 4_55 | float64 |  |  |
- | 4_61 | float64 |  |  |
- | 4_67 | float64 |  |  |
- | 4_72 | float64 |  |  |
- | 4_78 | float64 |  |  |
- | 4_84 | float64 |  |  |
- | 4_89 | float64 |  |  |
- | 4_95 | float64 |  |  |
- | 5_00 | float64 |  |  |
- | 5_06 | float64 |  |  |
- | 5_12 | float64 |  |  |
- | 5_17 | float64 |  |  |
- | 5_23 | float64 |  |  |
- | 5_29 | float64 |  |  |
- | 5_34 | float64 |  |  |
- | 5_40 | float64 |  |  |
- | 5_45 | float64 |  |  |
- | 5_51 | float64 |  |  |
- | 5_57 | float64 |  |  |
- | 5_62 | float64 |  |  |
- | 5_68 | float64 |  |  |
- | 5_73 | float64 |  |  |
- | 5_79 | float64 |  |  |
- | 5_85 | float64 |  |  |
- | 5_90 | float64 |  |  |
- | 5_96 | float64 |  |  |
- | 6_02 | float64 |  |  |
- | 6_07 | float64 |  |  |
- | 6_13 | float64 |  |  |
- | 6_18 | float64 |  |  |
- | 6_24 | float64 |  |  |
- | 6_30 | float64 |  |  |
- | 6_35 | float64 |  |  |
- | 6_41 | float64 |  |  |
- | 6_47 | float64 |  |  |
- | 6_52 | float64 |  |  |
- | 6_58 | float64 |  |  |
- | 6_63 | float64 |  |  |
- | 6_69 | float64 |  |  |
- | 6_75 | float64 |  |  |
- | 6_80 | float64 |  |  |
- | 6_86 | float64 |  |  |
- | 6_92 | float64 |  |  |
- | 6_97 | float64 |  |  |
- | 7_03 | float64 |  |  |
- | 7_08 | float64 |  |  |
- | 7_14 | float64 |  |  |
- | 7_20 | float64 |  |  |
- | 7_25 | float64 |  |  |
- | 7_31 | float64 |  |  |
- | 7_37 | float64 |  |  |
- | 7_42 | float64 |  |  |
- | 7_48 | float64 |  |  |
- | 7_53 | float64 |  |  |
- | 7_59 | float64 |  |  |
- | 7_65 | float64 |  |  |
- | 7_70 | float64 |  |  |
- | 7_76 | float64 |  |  |
- | 7_82 | float64 |  |  |
- | 7_87 | float64 |  |  |
- | 7_93 | float64 |  |  |
- | 7_98 | float64 |  |  |
- | 8_04 | float64 |  |  |
- | 8_10 | float64 |  |  |
- | 8_15 | float64 |  |  |
- | 8_21 | float64 |  |  |
- | 8_27 | float64 |  |  |
- | 8_32 | float64 |  |  |
- | 8_38 | float64 |  |  |
- | 8_43 | float64 |  |  |
- | 8_49 | float64 |  |  |
- | 8_55 | float64 |  |  |
- | 8_60 | float64 |  |  |
- | 8_66 | float64 |  |  |
- | 8_71 | float64 |  |  |
- | 8_77 | float64 |  |  |
- | 8_83 | float64 |  |  |
- | 8_88 | float64 |  |  |
- | 8_94 | float64 |  |  |
- | 9_00 | float64 |  |  |
- | 9_05 | float64 |  |  |
- | 9_11 | float64 |  |  |
- | 9_16 | float64 |  |  |
- | 9_22 | float64 |  |  |
- | 9_28 | float64 |  |  |
- | 9_33 | float64 |  |  |
- | 9_39 | float64 |  |  |
- | 9_45 | float64 |  |  |
- | 9_50 | float64 |  |  |
- | 9_56 | float64 |  |  |
- | 9_61 | float64 |  |  |
- | 9_67 | float64 |  |  |
- | 9_73 | float64 |  |  |
- | 9_78 | float64 |  |  |
- | 9_84 | float64 |  |  |
- | 9_90 | float64 |  |  |
- | 9_95 | float64 |  |  |
- | 10_01 | float64 |  |  |
- | 10_06 | float64 |  |  |
- | 10_12 | float64 |  |  |
- | 10_18 | float64 |  |  |
- | 10_23 | float64 |  |  |
- | 10_29 | float64 |  |  |
- | 10_35 | float64 |  |  |
- | 10_40 | float64 |  |  |
- | 10_46 | float64 |  |  |
- | 10_51 | float64 |  |  |
- | 10_57 | float64 |  |  |
- | 10_63 | float64 |  |  |
- | 10_68 | float64 |  |  |
- | 10_74 | float64 |  |  |
- | 10_80 | float64 |  |  |
- | 10_85 | float64 |  |  |
- | 10_91 | float64 |  |  |
- | 10_96 | float64 |  |  |
- | 11_02 | float64 |  |  |
- | 11_08 | float64 |  |  |
- | 11_13 | float64 |  |  |
- | 11_19 | float64 |  |  |
- | 11_24 | float64 |  |  |
- | 11_30 | float64 |  |  |
- | 11_36 | float64 |  |  |
- | 11_41 | float64 |  |  |
- | 11_47 | float64 |  |  |
- | 11_53 | float64 |  |  |
- | 11_58 | float64 |  |  |
- | 11_64 | float64 |  |  |
- | 11_69 | float64 |  |  |
- | 11_75 | float64 |  |  |
- | 11_81 | float64 |  |  |
- | 11_86 | float64 |  |  |
- | 11_92 | float64 |  |  |
- | 11_98 | float64 |  |  |
- | 12_03 | float64 |  |  |
- | 12_09 | float64 |  |  |
- | 12_14 | float64 |  |  |
- | 12_20 | float64 |  |  |
- | 12_26 | float64 |  |  |
- | 12_31 | float64 |  |  |
- | 12_37 | float64 |  |  |
- | 12_43 | float64 |  |  |
- | 12_48 | float64 |  |  |
- | 12_54 | float64 |  |  |
- | 12_59 | float64 |  |  |
- | 12_65 | float64 |  |  |
- | 12_71 | float64 |  |  |
- | 12_76 | float64 |  |  |
- | 12_82 | float64 |  |  |
- | 12_88 | float64 |  |  |
- | 12_93 | float64 |  |  |
- | 12_99 | float64 |  |  |
- | 13_04 | float64 |  |  |
- | 13_10 | float64 |  |  |
- | 13_16 | float64 |  |  |
- | 13_21 | float64 |  |  |
- | 13_27 | float64 |  |  |
- | 13_33 | float64 |  |  |
- | 13_38 | float64 |  |  |
- | 13_44 | float64 |  |  |
- | 13_49 | float64 |  |  |
- | 13_55 | float64 |  |  |
- | 13_61 | float64 |  |  |
- | 13_66 | float64 |  |  |
- | 13_72 | float64 |  |  |
- | 13_78 | float64 |  |  |
- | 13_83 | float64 |  |  |
- | 13_89 | float64 |  |  |
- | 13_94 | float64 |  |  |
- | 14_00 | float64 |  |  |
+ | 0_00 | float64 |  | Likelihood at 0.00 Gyr. |
+ | 0_06 | float64 |  | Likelihood at 0.06 Gyr. |
+ | 0_11 | float64 |  | Likelihood at 0.11 Gyr. |
+ | 0_17 | float64 |  | Likelihood at 0.17 Gyr. |
+ | 0_22 | float64 |  | Likelihood at 0.22 Gyr. |
+ | 0_28 | float64 |  | Likelihood at 0.28 Gyr. |
+ | 0_34 | float64 |  | Likelihood at 0.34 Gyr. |
+ | 0_39 | float64 |  | Likelihood at 0.39 Gyr. |
+ | 0_45 | float64 |  | Likelihood at 0.45 Gyr. |
+ | 0_51 | float64 |  | Likelihood at 0.51 Gyr. |
+ | 0_56 | float64 |  | Likelihood at 0.56 Gyr. |
+ | 0_62 | float64 |  | Likelihood at 0.62 Gyr. |
+ | 0_67 | float64 |  | Likelihood at 0.67 Gyr. |
+ | 0_73 | float64 |  | Likelihood at 0.73 Gyr. |
+ | 0_79 | float64 |  | Likelihood at 0.79 Gyr. |
+ | 0_84 | float64 |  | Likelihood at 0.84 Gyr. |
+ | 0_90 | float64 |  | Likelihood at 0.90 Gyr. |
+ | 0_96 | float64 |  | Likelihood at 0.96 Gyr. |
+ | 1_01 | float64 |  | Likelihood at 1.01 Gyr. |
+ | 1_07 | float64 |  | Likelihood at 1.07 Gyr. |
+ | 1_12 | float64 |  | Likelihood at 1.12 Gyr. |
+ | 1_18 | float64 |  | Likelihood at 1.18 Gyr. |
+ | 1_24 | float64 |  | Likelihood at 1.24 Gyr. |
+ | 1_29 | float64 |  | Likelihood at 1.29 Gyr. |
+ | 1_35 | float64 |  | Likelihood at 1.35 Gyr. |
+ | 1_41 | float64 |  | Likelihood at 1.41 Gyr. |
+ | 1_46 | float64 |  | Likelihood at 1.46 Gyr. |
+ | 1_52 | float64 |  | Likelihood at 1.52 Gyr. |
+ | 1_57 | float64 |  | Likelihood at 1.57 Gyr. |
+ | 1_63 | float64 |  | Likelihood at 1.63 Gyr. |
+ | 1_69 | float64 |  | Likelihood at 1.69 Gyr. |
+ | 1_74 | float64 |  | Likelihood at 1.74 Gyr. |
+ | 1_80 | float64 |  | Likelihood at 1.80 Gyr. |
+ | 1_86 | float64 |  | Likelihood at 1.86 Gyr. |
+ | 1_91 | float64 |  | Likelihood at 1.91 Gyr. |
+ | 1_97 | float64 |  | Likelihood at 1.97 Gyr. |
+ | 2_02 | float64 |  | Likelihood at 2.02 Gyr. |
+ | 2_08 | float64 |  | Likelihood at 2.08 Gyr. |
+ | 2_14 | float64 |  | Likelihood at 2.14 Gyr. |
+ | 2_19 | float64 |  | Likelihood at 2.19 Gyr. |
+ | 2_25 | float64 |  | Likelihood at 2.25 Gyr. |
+ | 2_31 | float64 |  | Likelihood at 2.31 Gyr. |
+ | 2_36 | float64 |  | Likelihood at 2.36 Gyr. |
+ | 2_42 | float64 |  | Likelihood at 2.42 Gyr. |
+ | 2_47 | float64 |  | Likelihood at 2.47 Gyr. |
+ | 2_53 | float64 |  | Likelihood at 2.53 Gyr. |
+ | 2_59 | float64 |  | Likelihood at 2.59 Gyr. |
+ | 2_64 | float64 |  | Likelihood at 2.64 Gyr. |
+ | 2_70 | float64 |  | Likelihood at 2.70 Gyr. |
+ | 2_76 | float64 |  | Likelihood at 2.76 Gyr. |
+ | 2_81 | float64 |  | Likelihood at 2.81 Gyr. |
+ | 2_87 | float64 |  | Likelihood at 2.87 Gyr. |
+ | 2_92 | float64 |  | Likelihood at 2.92 Gyr. |
+ | 2_98 | float64 |  | Likelihood at 2.98 Gyr. |
+ | 3_04 | float64 |  | Likelihood at 3.04 Gyr. |
+ | 3_09 | float64 |  | Likelihood at 3.09 Gyr. |
+ | 3_15 | float64 |  | Likelihood at 3.15 Gyr. |
+ | 3_20 | float64 |  | Likelihood at 3.20 Gyr. |
+ | 3_26 | float64 |  | Likelihood at 3.26 Gyr. |
+ | 3_32 | float64 |  | Likelihood at 3.32 Gyr. |
+ | 3_37 | float64 |  | Likelihood at 3.37 Gyr. |
+ | 3_43 | float64 |  | Likelihood at 3.43 Gyr. |
+ | 3_49 | float64 |  | Likelihood at 3.49 Gyr. |
+ | 3_54 | float64 |  | Likelihood at 3.54 Gyr. |
+ | 3_60 | float64 |  | Likelihood at 3.60 Gyr. |
+ | 3_65 | float64 |  | Likelihood at 3.65 Gyr. |
+ | 3_71 | float64 |  | Likelihood at 3.71 Gyr. |
+ | 3_77 | float64 |  | Likelihood at 3.77 Gyr. |
+ | 3_82 | float64 |  | Likelihood at 3.82 Gyr. |
+ | 3_88 | float64 |  | Likelihood at 3.88 Gyr. |
+ | 3_94 | float64 |  | Likelihood at 3.94 Gyr. |
+ | 3_99 | float64 |  | Likelihood at 3.99 Gyr. |
+ | 4_05 | float64 |  | Likelihood at 4.05 Gyr. |
+ | 4_10 | float64 |  | Likelihood at 4.10 Gyr. |
+ | 4_16 | float64 |  | Likelihood at 4.16 Gyr. |
+ | 4_22 | float64 |  | Likelihood at 4.22 Gyr. |
+ | 4_27 | float64 |  | Likelihood at 4.27 Gyr. |
+ | 4_33 | float64 |  | Likelihood at 4.33 Gyr. |
+ | 4_39 | float64 |  | Likelihood at 4.39 Gyr. |
+ | 4_44 | float64 |  | Likelihood at 4.44 Gyr. |
+ | 4_50 | float64 |  | Likelihood at 4.50 Gyr. |
+ | 4_55 | float64 |  | Likelihood at 4.55 Gyr. |
+ | 4_61 | float64 |  | Likelihood at 4.61 Gyr. |
+ | 4_67 | float64 |  | Likelihood at 4.67 Gyr. |
+ | 4_72 | float64 |  | Likelihood at 4.72 Gyr. |
+ | 4_78 | float64 |  | Likelihood at 4.78 Gyr. |
+ | 4_84 | float64 |  | Likelihood at 4.84 Gyr. |
+ | 4_89 | float64 |  | Likelihood at 4.89 Gyr. |
+ | 4_95 | float64 |  | Likelihood at 4.95 Gyr. |
+ | 5_00 | float64 |  | Likelihood at 5.00 Gyr. |
+ | 5_06 | float64 |  | Likelihood at 5.06 Gyr. |
+ | 5_12 | float64 |  | Likelihood at 5.12 Gyr. |
+ | 5_17 | float64 |  | Likelihood at 5.17 Gyr. |
+ | 5_23 | float64 |  | Likelihood at 5.23 Gyr. |
+ | 5_29 | float64 |  | Likelihood at 5.29 Gyr. |
+ | 5_34 | float64 |  | Likelihood at 5.34 Gyr. |
+ | 5_40 | float64 |  | Likelihood at 5.40 Gyr. |
+ | 5_45 | float64 |  | Likelihood at 5.45 Gyr. |
+ | 5_51 | float64 |  | Likelihood at 5.51 Gyr. |
+ | 5_57 | float64 |  | Likelihood at 5.57 Gyr. |
+ | 5_62 | float64 |  | Likelihood at 5.62 Gyr. |
+ | 5_68 | float64 |  | Likelihood at 5.68 Gyr. |
+ | 5_73 | float64 |  | Likelihood at 5.73 Gyr. |
+ | 5_79 | float64 |  | Likelihood at 5.79 Gyr. |
+ | 5_85 | float64 |  | Likelihood at 5.85 Gyr. |
+ | 5_90 | float64 |  | Likelihood at 5.90 Gyr. |
+ | 5_96 | float64 |  | Likelihood at 5.96 Gyr. |
+ | 6_02 | float64 |  | Likelihood at 6.02 Gyr. |
+ | 6_07 | float64 |  | Likelihood at 6.07 Gyr. |
+ | 6_13 | float64 |  | Likelihood at 6.13 Gyr. |
+ | 6_18 | float64 |  | Likelihood at 6.18 Gyr. |
+ | 6_24 | float64 |  | Likelihood at 6.24 Gyr. |
+ | 6_30 | float64 |  | Likelihood at 6.30 Gyr. |
+ | 6_35 | float64 |  | Likelihood at 6.35 Gyr. |
+ | 6_41 | float64 |  | Likelihood at 6.41 Gyr. |
+ | 6_47 | float64 |  | Likelihood at 6.47 Gyr. |
+ | 6_52 | float64 |  | Likelihood at 6.52 Gyr. |
+ | 6_58 | float64 |  | Likelihood at 6.58 Gyr. |
+ | 6_63 | float64 |  | Likelihood at 6.63 Gyr. |
+ | 6_69 | float64 |  | Likelihood at 6.69 Gyr. |
+ | 6_75 | float64 |  | Likelihood at 6.75 Gyr. |
+ | 6_80 | float64 |  | Likelihood at 6.80 Gyr. |
+ | 6_86 | float64 |  | Likelihood at 6.86 Gyr. |
+ | 6_92 | float64 |  | Likelihood at 6.92 Gyr. |
+ | 6_97 | float64 |  | Likelihood at 6.97 Gyr. |
+ | 7_03 | float64 |  | Likelihood at 7.03 Gyr. |
+ | 7_08 | float64 |  | Likelihood at 7.08 Gyr. |
+ | 7_14 | float64 |  | Likelihood at 7.14 Gyr. |
+ | 7_20 | float64 |  | Likelihood at 7.20 Gyr. |
+ | 7_25 | float64 |  | Likelihood at 7.25 Gyr. |
+ | 7_31 | float64 |  | Likelihood at 7.31 Gyr. |
+ | 7_37 | float64 |  | Likelihood at 7.37 Gyr. |
+ | 7_42 | float64 |  | Likelihood at 7.42 Gyr. |
+ | 7_48 | float64 |  | Likelihood at 7.48 Gyr. |
+ | 7_53 | float64 |  | Likelihood at 7.53 Gyr. |
+ | 7_59 | float64 |  | Likelihood at 7.59 Gyr. |
+ | 7_65 | float64 |  | Likelihood at 7.65 Gyr. |
+ | 7_70 | float64 |  | Likelihood at 7.70 Gyr. |
+ | 7_76 | float64 |  | Likelihood at 7.76 Gyr. |
+ | 7_82 | float64 |  | Likelihood at 7.82 Gyr. |
+ | 7_87 | float64 |  | Likelihood at 7.87 Gyr. |
+ | 7_93 | float64 |  | Likelihood at 7.93 Gyr. |
+ | 7_98 | float64 |  | Likelihood at 7.98 Gyr. |
+ | 8_04 | float64 |  | Likelihood at 8.04 Gyr. |
+ | 8_10 | float64 |  | Likelihood at 8.10 Gyr. |
+ | 8_15 | float64 |  | Likelihood at 8.15 Gyr. |
+ | 8_21 | float64 |  | Likelihood at 8.21 Gyr. |
+ | 8_27 | float64 |  | Likelihood at 8.27 Gyr. |
+ | 8_32 | float64 |  | Likelihood at 8.32 Gyr. |
+ | 8_38 | float64 |  | Likelihood at 8.38 Gyr. |
+ | 8_43 | float64 |  | Likelihood at 8.43 Gyr. |
+ | 8_49 | float64 |  | Likelihood at 8.49 Gyr. |
+ | 8_55 | float64 |  | Likelihood at 8.55 Gyr. |
+ | 8_60 | float64 |  | Likelihood at 8.60 Gyr. |
+ | 8_66 | float64 |  | Likelihood at 8.66 Gyr. |
+ | 8_71 | float64 |  | Likelihood at 8.71 Gyr. |
+ | 8_77 | float64 |  | Likelihood at 8.77 Gyr. |
+ | 8_83 | float64 |  | Likelihood at 8.83 Gyr. |
+ | 8_88 | float64 |  | Likelihood at 8.88 Gyr. |
+ | 8_94 | float64 |  | Likelihood at 8.94 Gyr. |
+ | 9_00 | float64 |  | Likelihood at 9.00 Gyr. |
+ | 9_05 | float64 |  | Likelihood at 9.05 Gyr. |
+ | 9_11 | float64 |  | Likelihood at 9.11 Gyr. |
+ | 9_16 | float64 |  | Likelihood at 9.16 Gyr. |
+ | 9_22 | float64 |  | Likelihood at 9.22 Gyr. |
+ | 9_28 | float64 |  | Likelihood at 9.28 Gyr. |
+ | 9_33 | float64 |  | Likelihood at 9.33 Gyr. |
+ | 9_39 | float64 |  | Likelihood at 9.39 Gyr. |
+ | 9_45 | float64 |  | Likelihood at 9.45 Gyr. |
+ | 9_50 | float64 |  | Likelihood at 9.50 Gyr. |
+ | 9_56 | float64 |  | Likelihood at 9.56 Gyr. |
+ | 9_61 | float64 |  | Likelihood at 9.61 Gyr. |
+ | 9_67 | float64 |  | Likelihood at 9.67 Gyr. |
+ | 9_73 | float64 |  | Likelihood at 9.73 Gyr. |
+ | 9_78 | float64 |  | Likelihood at 9.78 Gyr. |
+ | 9_84 | float64 |  | Likelihood at 9.84 Gyr. |
+ | 9_90 | float64 |  | Likelihood at 9.90 Gyr. |
+ | 9_95 | float64 |  | Likelihood at 9.95 Gyr. |
+ | 10_01 | float64 |  | Likelihood at 10.01 Gyr. |
+ | 10_06 | float64 |  | Likelihood at 10.06 Gyr. |
+ | 10_12 | float64 |  | Likelihood at 10.12 Gyr. |
+ | 10_18 | float64 |  | Likelihood at 10.18 Gyr. |
+ | 10_23 | float64 |  | Likelihood at 10.23 Gyr. |
+ | 10_29 | float64 |  | Likelihood at 10.29 Gyr. |
+ | 10_35 | float64 |  | Likelihood at 10.35 Gyr. |
+ | 10_40 | float64 |  | Likelihood at 10.40 Gyr. |
+ | 10_46 | float64 |  | Likelihood at 10.46 Gyr. |
+ | 10_51 | float64 |  | Likelihood at 10.51 Gyr. |
+ | 10_57 | float64 |  | Likelihood at 10.57 Gyr. |
+ | 10_63 | float64 |  | Likelihood at 10.63 Gyr. |
+ | 10_68 | float64 |  | Likelihood at 10.68 Gyr. |
+ | 10_74 | float64 |  | Likelihood at 10.74 Gyr. |
+ | 10_80 | float64 |  | Likelihood at 10.80 Gyr. |
+ | 10_85 | float64 |  | Likelihood at 10.85 Gyr. |
+ | 10_91 | float64 |  | Likelihood at 10.91 Gyr. |
+ | 10_96 | float64 |  | Likelihood at 10.96 Gyr. |
+ | 11_02 | float64 |  | Likelihood at 11.02 Gyr. |
+ | 11_08 | float64 |  | Likelihood at 11.08 Gyr. |
+ | 11_13 | float64 |  | Likelihood at 11.13 Gyr. |
+ | 11_19 | float64 |  | Likelihood at 11.19 Gyr. |
+ | 11_24 | float64 |  | Likelihood at 11.24 Gyr. |
+ | 11_30 | float64 |  | Likelihood at 11.30 Gyr. |
+ | 11_36 | float64 |  | Likelihood at 11.36 Gyr. |
+ | 11_41 | float64 |  | Likelihood at 11.41 Gyr. |
+ | 11_47 | float64 |  | Likelihood at 11.47 Gyr. |
+ | 11_53 | float64 |  | Likelihood at 11.53 Gyr. |
+ | 11_58 | float64 |  | Likelihood at 11.58 Gyr. |
+ | 11_64 | float64 |  | Likelihood at 11.64 Gyr. |
+ | 11_69 | float64 |  | Likelihood at 11.69 Gyr. |
+ | 11_75 | float64 |  | Likelihood at 11.75 Gyr. |
+ | 11_81 | float64 |  | Likelihood at 11.81 Gyr. |
+ | 11_86 | float64 |  | Likelihood at 11.86 Gyr. |
+ | 11_92 | float64 |  | Likelihood at 11.92 Gyr. |
+ | 11_98 | float64 |  | Likelihood at 11.98 Gyr. |
+ | 12_03 | float64 |  | Likelihood at 12.03 Gyr. |
+ | 12_09 | float64 |  | Likelihood at 12.09 Gyr. |
+ | 12_14 | float64 |  | Likelihood at 12.14 Gyr. |
+ | 12_20 | float64 |  | Likelihood at 12.20 Gyr. |
+ | 12_26 | float64 |  | Likelihood at 12.26 Gyr. |
+ | 12_31 | float64 |  | Likelihood at 12.31 Gyr. |
+ | 12_37 | float64 |  | Likelihood at 12.37 Gyr. |
+ | 12_43 | float64 |  | Likelihood at 12.43 Gyr. |
+ | 12_48 | float64 |  | Likelihood at 12.48 Gyr. |
+ | 12_54 | float64 |  | Likelihood at 12.54 Gyr. |
+ | 12_59 | float64 |  | Likelihood at 12.59 Gyr. |
+ | 12_65 | float64 |  | Likelihood at 12.65 Gyr. |
+ | 12_71 | float64 |  | Likelihood at 12.71 Gyr. |
+ | 12_76 | float64 |  | Likelihood at 12.76 Gyr. |
+ | 12_82 | float64 |  | Likelihood at 12.82 Gyr. |
+ | 12_88 | float64 |  | Likelihood at 12.88 Gyr. |
+ | 12_93 | float64 |  | Likelihood at 12.93 Gyr. |
+ | 12_99 | float64 |  | Likelihood at 12.99 Gyr. |
+ | 13_04 | float64 |  | Likelihood at 13.04 Gyr. |
+ | 13_10 | float64 |  | Likelihood at 13.10 Gyr. |
+ | 13_16 | float64 |  | Likelihood at 13.16 Gyr. |
+ | 13_21 | float64 |  | Likelihood at 13.21 Gyr. |
+ | 13_27 | float64 |  | Likelihood at 13.27 Gyr. |
+ | 13_33 | float64 |  | Likelihood at 13.33 Gyr. |
+ | 13_38 | float64 |  | Likelihood at 13.38 Gyr. |
+ | 13_44 | float64 |  | Likelihood at 13.44 Gyr. |
+ | 13_49 | float64 |  | Likelihood at 13.49 Gyr. |
+ | 13_55 | float64 |  | Likelihood at 13.55 Gyr. |
+ | 13_61 | float64 |  | Likelihood at 13.61 Gyr. |
+ | 13_66 | float64 |  | Likelihood at 13.66 Gyr. |
+ | 13_72 | float64 |  | Likelihood at 13.72 Gyr. |
+ | 13_78 | float64 |  | Likelihood at 13.78 Gyr. |
+ | 13_83 | float64 |  | Likelihood at 13.83 Gyr. |
+ | 13_89 | float64 |  | Likelihood at 13.89 Gyr. |
+ | 13_94 | float64 |  | Likelihood at 13.94 Gyr. |
+ | 14_00 | float64 |  | Likelihood at 14.00 Gyr. |
 
 
 
