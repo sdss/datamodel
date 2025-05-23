@@ -1,28 +1,25 @@
 general:
   name: apogee_starhorse
   short: StarHorse results for the SDSS-V DR19 APOGEE giants
-  description: |
-    This file contains spectro-photo-astrometric distances, extinctions, 
-    and stellar parameters such as temperature, masses and metallicity for giant stars 
-    with the SDSS-V DR19 APOGEE spectroscopy using the StarHorse code
-    ("[Queiroz et al. 2018](https://ui.adsabs.harvard.edu/abs/2018MNRAS.476.2556Q/abstract)",
-    "[Queiroz et al. 2023](https://ui.adsabs.harvard.edu/abs/2023A%26A...673A.155Q/abstract)").
-    
-    Parameters are estimated for each unique sdss_id in the data release, provided the StarHorse code successfully converges. 
-    If a star has multiple sdss_ids, the ASPCAP results with the highest signal-to-noise ratio (snr) are used.
-
-    For each star, StarHorse computes the joint posterior probability distribution function (PDF) over a grid of 
-    PARSEC 1.2S stellar models, using input values including ASPCAP-derived effective temperature, surface gravity, 
-    metallicity, and alpha-element abundance, as well as Gaia DR3 parallaxes (when available), and multi-band 
-    photometry from Pan-STARRS1, 2MASS, and AllWISE.
-    
-    ASPCAP effective temperature and surface gravity are calibrated before input to StarHorse. 
-    Calibration details are described in the SDSS DR19 main publication.
-    
-    The VAC includes median values of marginalized PDFs for mass, temperature, surface gravity, 
-    metallicity, distance, and extinction. The StarHorse_INPUTFLAGS column indicates the input data used, 
-    while StarHorse_OUTFLAGS flags possibly uncertain outputs. Calibrated temperature and surface gravity 
-    are also included.
+  description: "This file contains spectro-photo-astrometric distances, extinctions,\
+    \ \nand stellar parameters such as temperature, masses and metallicity for giant\
+    \ stars \nwith the SDSS-V DR19 APOGEE spectroscopy using the StarHorse code\n\
+    (\"[Queiroz et al. 2018](https://ui.adsabs.harvard.edu/abs/2018MNRAS.476.2556Q/abstract)\"\
+    ,\n\"[Queiroz et al. 2023](https://ui.adsabs.harvard.edu/abs/2023A%26A...673A.155Q/abstract)\"\
+    ).\n\nParameters are estimated for each unique sdss_id in the data release, provided\
+    \ the StarHorse code successfully converges. \nIf a star has multiple sdss_ids,\
+    \ the ASPCAP results with the highest signal-to-noise ratio (snr) are used.\n\n\
+    For each star, StarHorse computes the joint posterior probability distribution\
+    \ function (PDF) over a grid of \nPARSEC 1.2S stellar models, using input values\
+    \ including ASPCAP-derived effective temperature, surface gravity, \nmetallicity,\
+    \ and alpha-element abundance, as well as Gaia DR3 parallaxes (when available),\
+    \ and multi-band \nphotometry from Pan-STARRS1, 2MASS, and AllWISE.\n\nASPCAP\
+    \ effective temperature and surface gravity are calibrated before input to StarHorse.\
+    \ \nCalibration details are described in the SDSS DR19 main publication.\n\nThe\
+    \ VAC includes median values of marginalized PDFs for mass, temperature, surface\
+    \ gravity, \nmetallicity, distance, and extinction. The StarHorse_INPUTFLAGS column\
+    \ indicates the input data used, \nwhile StarHorse_OUTFLAGS flags possibly uncertain\
+    \ outputs. Calibrated temperature and surface gravity \nare also included.\n"
   datatype: FITS
   filesize: 152 MB
   releases:
@@ -30,8 +27,10 @@ general:
   environments:
   - APOGEE_STARHORSE
   surveys:
+  - MWM
   - SDSS
-  naming_convention: $APOGEE_STARHORSE/APOGEE_DR19_DR3_STARHORSE_[VERS].fits
+  naming_convention: $APOGEE_STARHORSE/APOGEE_DR19_DR3_STARHORSE_[VERS].fits where
+    VERS=v2 for DR19
   generated_by: StarHorse
   data_level: 3.3.0
   design: false
@@ -44,7 +43,7 @@ changelog:
 releases:
   DR19:
     template: $APOGEE_STARHORSE/APOGEE_DR19_DR3_STARHORSE_[VERS].fits
-    example: APOGEE_DR19_DR3_STARHORSE_v1.fits
+    example: APOGEE_DR19_DR3_STARHORSE_v2.fits
     location: APOGEE_DR19_DR3_STARHORSE_{vers}.fits
     environment: APOGEE_STARHORSE
     access:
@@ -149,112 +148,134 @@ releases:
             name: mass16
             type: float32
             unit: solar masses
-            description: StarHorse 16th astro-spectro-photometric mass percentile (Queiroz et al. 2018)
+            description: StarHorse 16th astro-spectro-photometric mass percentile
+              (Queiroz et al. 2018)
           mass50:
             name: mass50
             type: float32
             unit: solar masses
-            description: StarHorse median astro-spectro-photometric mass (Queiroz et al. 2018)
+            description: StarHorse median astro-spectro-photometric mass (Queiroz
+              et al. 2018)
           mass84:
             name: mass84
             type: float32
             unit: solar masses
-            description: StarHorse 84th astro-spectro-photometric mass percentile (Queiroz et al. 2018)
+            description: StarHorse 84th astro-spectro-photometric mass percentile
+              (Queiroz et al. 2018)
           teff16:
             name: teff16
             type: float32
             unit: K
-            description: StarHorse 16th astro-spectro-photometric effective temperature percentile (Queiroz et al. 2018)
+            description: StarHorse 16th astro-spectro-photometric effective temperature
+              percentile (Queiroz et al. 2018)
           teff50:
             name: teff50
             type: float32
             unit: K
-            description: StarHorse median astro-spectro-photometric effective temperature (Queiroz et al. 2018)
+            description: StarHorse median astro-spectro-photometric effective temperature
+              (Queiroz et al. 2018)
           teff84:
             name: teff84
             type: float32
             unit: K
-            description: StarHorse 84th astro-spectro-photometric effective temperature percentile (Queiroz et al. 2018)
+            description: StarHorse 84th astro-spectro-photometric effective temperature
+              percentile (Queiroz et al. 2018)
           logg16:
             name: logg16
             type: float32
             unit: dex
-            description: StarHorse 16th astro-spectro-photometric surface gravity percentile (Queiroz et al. 2018)
+            description: StarHorse 16th astro-spectro-photometric surface gravity
+              percentile (Queiroz et al. 2018)
           logg50:
             name: logg50
             type: float32
             unit: dex
-            description: StarHorse median astro-spectro-photometric surface gravity (Queiroz et al. 2018)
+            description: StarHorse median astro-spectro-photometric surface gravity
+              (Queiroz et al. 2018)
           logg84:
             name: logg84
             type: float32
             unit: dex
-            description: StarHorse 84th astro-spectro-photometric surface gravity percentile (Queiroz et al. 2018)
+            description: StarHorse 84th astro-spectro-photometric surface gravity
+              percentile (Queiroz et al. 2018)
           met16:
             name: met16
             type: float32
             unit: dex
-            description: StarHorse 16th astro-spectro-photometric metallicity percentile (Queiroz et al. 2018)
+            description: StarHorse 16th astro-spectro-photometric metallicity percentile
+              (Queiroz et al. 2018)
           met50:
             name: met50
             type: float32
             unit: dex
-            description: StarHorse median astro-spectro-photometric metallicity (Queiroz et al. 2018)
+            description: StarHorse median astro-spectro-photometric metallicity (Queiroz
+              et al. 2018)
           met84:
             name: met84
             type: float32
             unit: dex
-            description: StarHorse 84th astro-spectro-photometric metallicity percentile (Queiroz et al. 2018)
+            description: StarHorse 84th astro-spectro-photometric metallicity percentile
+              (Queiroz et al. 2018)
           dist05:
             name: dist05
             type: float32
             unit: kpc
-            description: StarHorse 5th astro-spectro-photometric distance percentile (Queiroz et al. 2018)
+            description: StarHorse 5th astro-spectro-photometric distance percentile
+              (Queiroz et al. 2018)
           dist16:
             name: dist16
             type: float32
             unit: kpc
-            description: StarHorse 16th astro-spectro-photometric distance percentile (Queiroz et al. 2018)
+            description: StarHorse 16th astro-spectro-photometric distance percentile
+              (Queiroz et al. 2018)
           dist50:
             name: dist50
             type: float32
             unit: kpc
-            description: StarHorse median astro-spectro-photometric distance (Queiroz et al. 2018)
+            description: StarHorse median astro-spectro-photometric distance (Queiroz
+              et al. 2018)
           dist84:
             name: dist84
             type: float32
             unit: kpc
-            description: StarHorse 84th astro-spectro-photometric distance percentile (Queiroz et al. 2018)
+            description: StarHorse 84th astro-spectro-photometric distance percentile
+              (Queiroz et al. 2018)
           dist95:
             name: dist95
             type: float32
             unit: kpc
-            description: StarHorse 95th astro-spectro-photometric distance percentile (Queiroz et al. 2018)
+            description: StarHorse 95th astro-spectro-photometric distance percentile
+              (Queiroz et al. 2018)
           AV05:
             name: AV05
             type: float32
             unit: mag
-            description: StarHorse 5th posterior extinction (at 542 nm) percentile (Queiroz et al. 2018)
+            description: StarHorse 5th posterior extinction (at 542 nm) percentile
+              (Queiroz et al. 2018)
           AV16:
             name: AV16
             type: float32
             unit: mag
-            description: StarHorse 16th posterior extinction (at 542 nm) percentile (Queiroz et al. 2018)
+            description: StarHorse 16th posterior extinction (at 542 nm) percentile
+              (Queiroz et al. 2018)
           AV50:
             name: AV50
             type: float32
             unit: mag
-            description: StarHorse median posterior extinction (at 542 nm) (Queiroz et al. 2018)
+            description: StarHorse median posterior extinction (at 542 nm) (Queiroz
+              et al. 2018)
           AV84:
             name: AV84
             type: float32
             unit: mag
-            description: StarHorse 84th posterior extinction (at 542 nm) percentile (Queiroz et al. 2018)
+            description: StarHorse 84th posterior extinction (at 542 nm) percentile
+              (Queiroz et al. 2018)
           AV95:
             name: AV95
             type: float32
             unit: mag
-            description: StarHorse 95th posterior extinction (at 542 nm) percentile (Queiroz et al. 2018)
+            description: StarHorse 95th posterior extinction (at 542 nm) percentile
+              (Queiroz et al. 2018)
           StarHorse_INPUTFLAGS:
             name: StarHorse_INPUTFLAGS
             type: char[80]
