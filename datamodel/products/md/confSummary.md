@@ -21,7 +21,7 @@ Although it has an almost identical format, this product should not be confused 
 $SDSSCORE_DIR/[OBS]/summary_files/[CONFIGSUBMODULE]/[CONFIGGRP]/confSummary-[CONFIGID].par where $SDSSCORE_DIR is the environment variable pointing to the directory where the sdsscore GitHub repository has been checked out, [CONFIGID] is the configuration identifier (a sequential integer assigned at the time of observation, e.g., 14802), [OBS] is the observatory (apo or lco), [CONFIGSUBMODULE] is a grouping of one thousand configurations (e.g., 014XXX), and [CONFIGGRP] is a grouping of one hundred configurations (e.g., 0148XX).
 
 ### Releases
-WORK
+DR19
 
 ### Enviroments
 SDSSCORE_DIR
@@ -38,7 +38,7 @@ jaeger
 ### Is a VAC
 False
 
-### PAR List for release WORK
+### PAR List for release DR19
   - [FIBERMAP](#FIBERMAP)
 
 ---
