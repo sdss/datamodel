@@ -19,10 +19,10 @@ Fiber View Camera is used to image back illuminated metrology and fiducial fiber
 $FCAM_DATA_N/[MJD]/proc-fimg-fvc1n-[EXPNUM].fits
 
 ### Releases
-WORK
+DR19, WORK
 
 ### Enviroments
-FCAM_DATA_N, FCAM_DATA_S
+FCAM_DATA_N
 
 ### Approximate Size
 31 MB
@@ -35,6 +35,9 @@ fliswarm, sep, jaeger, coordio
 
 ### Is a VAC
 False
+
+### Data Level
+0.1.1
 
 ### HDUS List for release WORK
   - [HDU0: PRIMARY](#hdu0-primary)
@@ -53,6 +56,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - WORK
+   - from: DR19
+   - note: No changes
 
 ---
 ## Example HDUS List
