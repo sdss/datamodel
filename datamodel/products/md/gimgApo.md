@@ -19,7 +19,7 @@ Guide Focus Acquisition Camera raw image from one of six cameras located around 
 $GCAM_DATA_N/[MJD]/gimg-gfa[CAMNUM]n-[EXPNUM].fits
 
 ### Releases
-WORK
+DR19, WORK
 
 ### Enviroments
 GCAM_DATA_N
@@ -36,6 +36,9 @@ fliswarm
 ### Is a VAC
 False
 
+### Data Level
+0.1.1
+
 ### HDUS List for release WORK
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1: RAW](#hdu1-raw)
@@ -44,6 +47,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - WORK
+   - from: DR19
+   - note: No changes
 
 ---
 ## Example HDUS List
