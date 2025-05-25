@@ -19,7 +19,7 @@ Processing plan to combine all spectroscopic reductions for a single field/plate
 $BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/spPlancomb-[FIELD]-[MJD].par
 
 ### Releases
-IPL3, WORK
+IPL3, DR19
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -36,14 +36,14 @@ idlspec2d - spplan.py
 ### Is a VAC
 False
 
-### PAR List for release WORK
+### PAR List for release DR19
   - [SPEXP](#SPEXP)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
- - WORK
+ - DR19
    - from: IPL3
    - note: No changes
 

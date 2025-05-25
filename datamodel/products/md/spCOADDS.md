@@ -19,7 +19,7 @@ Contains the Schema used to defined the Custom target level Coadding schema
 $BOSS_SPECTRO_REDUX/[RUN2D]/[PHASE]_[SURVEY]_COADDS.par
 
 ### Releases
-IPL3, WORK
+IPL3, DR19
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -36,14 +36,14 @@ idlspec2d - manage_coadd_Schema.py
 ### Is a VAC
 False
 
-### PAR List for release WORK
+### PAR List for release DR19
   - [SCHEMA](#SCHEMA)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
- - WORK
+ - DR19
    - from: IPL3
    - note: No changes
 

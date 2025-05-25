@@ -19,7 +19,7 @@ The spField files contain the single mjd combined spectra for all exposures of a
 $BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/spField-[FIELD]-[MJD].fits
 
 ### Releases
-IPL3, WORK
+IPL3, DR19
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -36,7 +36,7 @@ idlspec2d
 ### Is a VAC
 False
 
-### HDUS List for release WORK
+### HDUS List for release DR19
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1: IVAR](#hdu1-ivar)
   - [HDU2: ANDMASK](#hdu2-andmask)
@@ -50,7 +50,7 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
- - WORK
+ - DR19
    - from: IPL3
    - note: No changes
 
