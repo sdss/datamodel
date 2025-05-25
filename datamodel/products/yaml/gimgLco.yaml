@@ -1,0 +1,277 @@
+general:
+  name: gimgLco
+  short: LCO Guide Focus Acquisition Camera raw image
+  description: Guide Focus Acquisition Camera raw image from one of six cameras located
+    around the periphery of the robotic array.  Used for telescope guiding and focus.
+  datatype: FITS
+  filesize: 3 MB
+  releases:
+  - WORK
+  environments:
+  - GCAM_DATA_S
+  surveys:
+  - SDSS
+  naming_convention: $GCAM_DATA_S/[MJD]/gimg-gfa[CAMNUM]s-[EXPNUM].fits
+  generated_by: fliswarm
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  WORK:
+    template: $GCAM_DATA_S/[MJD]/gimg-gfa[CAMNUM]s-[EXPNUM].fits
+    example: 60648/gimg-gfa2s-0682.fits
+    location: '{mjd}/gimg-gfa{camnum}s-{expnum}.fits'
+    environment: GCAM_DATA_S
+    access:
+      in_sdss_access: false
+      path_name: null
+      path_template: null
+      path_kwargs: null
+      access_string: gimgLco = $GCAM_DATA_S/{mjd}/gimg-gfa{camnum}s-{expnum}.fits
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: empty
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: CHECKSUM
+          value: D8aIE5a9D5aGD5a9
+          comment: HDU checksum updated 2024-12-04T08:02:02
+        - key: DATASUM
+          value: '0'
+          comment: data unit checksum updated 2024-12-04T08:02:02
+      hdu1:
+        name: RAW
+        description: raw image data
+        is_image: true
+        size: 8 MB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image extension
+        - key: BITPIX
+          value: 16
+          comment: data type of original image
+        - key: NAXIS
+          value: 2
+          comment: dimension of original image
+        - key: NAXIS1
+          value: 2048
+          comment: length of original image axis
+        - key: NAXIS2
+          value: 2048
+          comment: length of original image axis
+        - key: PCOUNT
+          value: 0
+          comment: number of parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: EXTNAME
+          value: RAW
+          comment: extension name
+        - key: CAMNAME
+          value: gfa2s
+          comment: Camera name
+        - key: VCAM
+          value: 0.6.1a0
+          comment: Version of the camera library
+        - key: IMAGETYP
+          value: object
+          comment: The image type of the file
+        - key: EXPTIME
+          value: 15.0
+          comment: Exposure time of single integration [s]
+        - key: EXPTIMEN
+          value: 15.0
+          comment: Total exposure time [s]
+        - key: STACK
+          value: 1
+          comment: Number of stacked frames
+        - key: STACKFUN
+          value: median
+          comment: Function used for stacking
+        - key: TIMESYS
+          value: TAI
+          comment: Time reference system
+        - key: SJD
+          value: 60648
+          comment: SDSS custom Julian Day
+        - key: DATE-OBS
+          value: '2024-12-04 08:02:19.695527'
+          comment: Time of the start of the exposure [TAI]
+        - key: CCDTEMP
+          value: -10.0
+          comment: Degrees C
+        - key: BEGX
+          value: 0
+          comment: Window start pixel in X
+        - key: BEGY
+          value: 0
+          comment: Window start pixel in Y
+        - key: ENDX
+          value: 2048
+          comment: Window end pixel in X
+        - key: EDNY
+          value: 2048
+          comment: Window end pixel in Y
+        - key: BINX
+          value: 1
+          comment: Binning in X
+        - key: BINY
+          value: 1
+          comment: Binning in Y
+        - key: GAIN
+          value: 1.51
+          comment: The CCD gain [e-/ADUs]
+        - key: READNOIS
+          value: 15.2
+          comment: The CCD read noise [ADUs]
+        - key: PIXELSC
+          value: 0.1476
+          comment: Scale of unbinned pixel on sky [arcsec/pix]
+        - key: WCSAXES
+          value: 2
+          comment: Number of coordinate axes
+        - key: CRPIX1
+          value: 0.0
+          comment: Pixel coordinate of reference point
+        - key: CRPIX2
+          value: 0.0
+          comment: Pixel coordinate of reference point
+        - key: CDELT1
+          value: 1.0
+          comment: Coordinate increment at reference point
+        - key: CDELT2
+          value: 1.0
+          comment: Coordinate increment at reference point
+        - key: CRVAL1
+          value: 0.0
+          comment: Coordinate value at reference point
+        - key: CRVAL2
+          value: 0.0
+          comment: Coordinate value at reference point
+        - key: LATPOLE
+          value: 90.0
+          comment: '[deg] Native latitude of celestial pole'
+        - key: MJDREF
+          value: 0.0
+          comment: '[d] MJD of fiducial time'
+        - key: OBSERVAT
+          value: LCO
+          comment: Observatory
+        - key: OBJSYS
+          value: FK5
+          comment: The TCC objSys
+        - key: RA
+          value: 91.804529
+          comment: RA of telescope boresight (deg)
+        - key: DEC
+          value: -38.111627
+          comment: Dec of telescope boresight (deg)
+        - key: AIRMASS
+          value: 1.13
+          comment: Airmass
+        - key: HA
+          value: 31.4
+          comment: HA axis pos. (approx, deg)
+        - key: IPA
+          value: 184.96411826
+          comment: Rotator axis pos. (approx, deg)
+        - key: FOCUS
+          value: 19254.8
+          comment: User-specified focus offset (um)
+        - key: M2PISTON
+          value: 19254.8
+          comment: TCC SecOrient
+        - key: M2XTILT
+          value: -202.2
+          comment: TCC SecOrient
+        - key: M2YTILT
+          value: -610.5
+          comment: TCC SecOrient
+        - key: M2XTRAN
+          value: -53.4
+          comment: TCC SecOrient
+        - key: M2YTRAN
+          value: 801.8
+          comment: TCC SecOrient
+        - key: M2ZROT
+          value: 0.0
+          comment: TCC SecOrient
+        - key: T_OUT
+          value: 11.2
+          comment: Outside temperature deg C.
+        - key: T_IN
+          value: 11.7
+          comment: Inside temperature deg C.
+        - key: T_PRIM
+          value: 11.9
+          comment: Primary mirror temperature deg C.
+        - key: T_CELL
+          value: 11.9
+          comment: Cell temperature deg C.
+        - key: T_FLOOR
+          value: 11.0
+          comment: Floor temperature deg C.
+        - key: T_TRUSS
+          value: 11.35
+          comment: Truss temperature deg C. Used for automatic foc
+        - key: CARTID
+          value: FPS-S
+          comment: Cart ID
+        - key: CONFIGID
+          value: 10011155
+          comment: Configuration ID
+        - key: DESIGNID
+          value: 685776
+          comment: Design ID associated with CONFIGID
+        - key: FIELDID
+          value: 107509
+          comment: Field ID associated with CONFIGID
+        - key: RAFIELD
+          value: 91.8087031898868
+          comment: Field right ascension
+        - key: DECFIELD
+          value: -38.1099146549991
+          comment: Field declination
+        - key: FIELDPA
+          value: 265.0943
+          comment: Field position angle
+        - key: BIASFILE
+          value: ''
+          comment: Bias file associated with this image
+        - key: BSCALE
+          value: 1
+          comment: ''
+        - key: BZERO
+          value: 32768
+          comment: ''
+        - key: CHECKSUM
+          value: 93f2A0c090c0A0c0
+          comment: HDU checksum updated 2024-12-04T08:02:01
+        - key: DATASUM
+          value: '2341816633'
+          comment: data unit checksum updated 2024-12-04T08:02:01
+notes: |-
+  None
+regrets: |-
+  I  have no regrets!
