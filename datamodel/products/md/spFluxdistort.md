@@ -19,7 +19,7 @@ This file contains the flux distortion image.
 $BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/spFluxdistort-[FIELD]-[MJD]-[FRAME].fits
 
 ### Releases
-IPL3, WORK
+IPL3, DR19
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -36,14 +36,14 @@ idlspec2d - rm_spcoadd_v5.pro
 ### Is a VAC
 False
 
-### HDUS List for release WORK
+### HDUS List for release DR19
   - [HDU0: PRIMARY](#hdu0-primary)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
- - WORK
+ - DR19
    - from: IPL3
    - note: No changes
 

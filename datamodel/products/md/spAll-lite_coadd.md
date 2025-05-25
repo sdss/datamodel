@@ -19,7 +19,7 @@ This file contains a summary of the BOSS idlspec2d and spectro-1d pipeline outpu
 $BOSS_SPECTRO_REDUX/[RUN2D]/spAll-lite-[RUN2D]-[coadd].fits.gz
 
 ### Releases
-IPL3, WORK
+IPL3, DR19
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -36,7 +36,7 @@ idlspec2d
 ### Is a VAC
 False
 
-### HDUS List for release WORK
+### HDUS List for release DR19
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1: SPALL](#hdu1-spall)
 
@@ -44,7 +44,7 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
- - WORK
+ - DR19
    - from: IPL3
    - note: No changes
 
