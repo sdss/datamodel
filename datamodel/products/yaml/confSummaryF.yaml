@@ -1,0 +1,529 @@
+general:
+  name: confSummaryF
+  short: FVC measurements of a robotic fibre positioner configuration
+  description: 'This file has a format similar to the `confSummary` file, but it differs
+    in that the coordinate values included are the measured values from the Field
+    View Camera (FVC) image as opposed from the expected coordinates based on the
+    targeting information for the given design.
+
+    The FVC determines the `alpha` and `beta` positions of each robotic fibre positioner
+    by measuring the position of the backilluminatedmetrology fibres on the robot.
+    The remaining coordinates (`wok`, `ra/dec`, `ra_observed/dec_observed`, etc.)
+    are derived from the `alpha` and `beta` positions.'
+  datatype: PAR
+  filesize: 508 KB
+  releases:
+  - DR19
+  environments:
+  - SDSSCORE_DIR
+  surveys:
+  - SDSS
+  naming_convention: '`$SDSSCORE_DIR/[OBS]/summary_files/[CONFIGSUBMODULE]/[CONFIGGRP]/confSummaryF-[CONFIGID].par`
+    where `$SDSSCORE_DIR` is the environment variable pointing to the directory where
+    the sdsscore GitHub repository has been checked out, `[CONFIGID]`` is the configuration
+    identifier (a sequential integer assigned at the time of observation, e.g., 14802),
+    `[OBS]`` is the observatory (`apo` or `lco`), `[CONFIGSUBMODULE]`` is a grouping
+    of one thousand configurations (e.g., `014XXX``), and `[CONFIGGRP]`` is a grouping
+    of one hundred configurations (e.g., `0148XX``). For each `confSummaryF` file
+    there is always an associated `confSummaryF` file with the same `CONFIGID` in
+    the same directory.'
+  generated_by: jaeger
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR19:
+    template: $SDSSCORE_DIR/[OBS]/summary_files/[CONFIGSUBMODULE]/[CONFIGGRP]/confSummaryF-[CONFIGID].par
+    example: apo/summary_files/014XXX/0148XX/confSummaryF-14802.par
+    location: '{obs}/summary_files/{configsubmodule}/{configgrp}/confSummaryF-{configid}.par'
+    environment: SDSSCORE_DIR
+    access:
+      in_sdss_access: true
+      path_name: confSummaryF
+      path_template: $SDSSCORE_DIR/{obs}/summary_files/@configgrp|/confSummaryF-{configid}.par
+      path_kwargs:
+      - obs
+      - configid
+      access_string: confSummaryF = $SDSSCORE_DIR/{obs}/summary_files/{configsubmodule}/{configgrp}/confSummaryF-{configid}.par
+    survey: SDSS
+    par:
+      comments: |-
+        #%yanny
+        #
+        # confSummaryF-14802.par
+        #
+        # Created by pydl.pydlutils.yanny.yanny
+        #
+        # 2024-06-09 07:34:11 UTC
+        #
+      header:
+      - key: configuration_id
+        value: '14802'
+        comment: The configuration ID. Matches the file ID.
+      - key: robostrategy_run
+        value: eta-8
+        comment: Run of Robostrategy that generated this design, or "manual" for a
+          manual design.
+      - key: fps_calibrations_version
+        value: 2024.04.01+91998f8
+        comment: Version of FPS calibrations used.
+      - key: jaeger_version
+        value: 1.7.4
+        comment: Version of the `jaeger`` product that generated this file.
+      - key: coordio_version
+        value: 1.11.2
+        comment: Version of the `coordio`` product used for coordinate transformations.
+      - key: kaiju_version
+        value: 1.4.0
+        comment: Version of `kaiju` used to generate positioner trajectory paths.
+      - key: design_id
+        value: '593775'
+        comment: The design ID associated with this configuration.
+      - key: field_id
+        value: '100959'
+        comment: The field ID that defines the pointing.
+      - key: focal_scale
+        value: '0.999934239346888'
+        comment: Focal scale factor used to generate this configuration.
+      - key: instruments
+        value: BOSS APOGEE
+        comment: Instruments used (always APOGEE and BOSS).
+      - key: epoch
+        value: '2460470.812954886'
+        comment: JD at which the configuration was generated.
+      - key: obstime
+        value: Sun Jun 09 07:34:11 2024
+        comment: TAI date of the observation (matches epoch).
+      - key: MJD
+        value: '60470'
+        comment: MJD of the observation in the SDSS style.
+      - key: observatory
+        value: APO
+        comment: Observatory where this configuration was generated.
+      - key: temperature
+        value: '19.6'
+        comment: Temperature at the time of the observation.
+      - key: raCen
+        value: '298.170965870627'
+        comment: Field centre right ascension.
+      - key: decCen
+        value: '19.1448520536868'
+        comment: Field centre declination.
+      - key: pa
+        value: '21.119003'
+        comment: Field position angle.
+      - key: is_dithered
+        value: '0'
+        comment: Whether this is a dithered configuration from a base configuration.
+      - key: parent_configuration
+        value: '-999'
+        comment: If is_dithered=1 the parent configuration used to generate the dither.
+      - key: dither_radius
+        value: '-999.0'
+        comment: If is_dithered=1 the radius, in mm, for the uniform distribution
+          around the original position.
+      - key: cloned_from
+        value: '-999'
+        comment: If this configuration was cloned from another, the configuration
+          ID of the parent.
+      - key: rotator_angle
+        value: '259.68'
+        comment: Physical angle of the rotator.
+      - key: fvc_centroid_method
+        value: sep
+        comment: Centroiding method used to determine the backilluminated fibre positions
+          on the FVC image.
+      - key: fvc_rms
+        value: '0.01445'
+        comment: RMS of the measured errors between the FVC measured positions and
+          the expected positions.
+      - key: fvc_90_perc
+        value: '0.0109'
+        comment: 90th percentile of the measured errors between the FVC measured positions
+          and the expected positions.
+      - key: fvc_percent_reached
+        value: '49.8'
+        comment: Percentage of fibres that reached the required accuracy in the FVC.
+      - key: fvc_image_path
+        value: /data/fcam/60470/proc-fimg-fvc1n-0004.fits
+        comment: Path to the FVC image used to measure the fibre positions.
+      tables:
+        FIBERMAP:
+          name: FIBERMAP
+          description: A table with information for each one of the fibres on the
+            focal plane, grouped by positioner.
+          n_rows: 1500
+          structure:
+          - name: positionerId
+            type: short
+            description: The robotic fibre positioner identifier.
+            unit: N/A
+            is_array: false
+            is_enum: false
+            example: 3
+          - name: holeId
+            type: char[28]
+            description: Hole identifier in which the positioner is located.
+            unit: N/A
+            is_array: false
+            is_enum: false
+            example: R-1C14
+          - name: fiberType
+            type: FIBERTYPE
+            description: Type of fibre in this entry (APOGEE, BOSS, or Metrology).
+            unit: N/A
+            is_array: false
+            is_enum: true
+            enum_values:
+            - BOSS
+            - APOGEE
+            - METROLOGY
+            - NONE
+            example: APOGEE
+          - name: assigned
+            type: short
+            description: Whether this fibre was assigned to a target in the design
+              (only one of the science fibres in a positioner can have `assigned=1`).
+            unit: N/A
+            is_array: false
+            is_enum: false
+            example: 0
+          - name: on_target
+            type: short
+            description: Whether this fibre is on target. A fibre can be `assigned``
+              but not `on_target` for a number of reasons (e.g., the positioner is
+              not working, a collision required the positioner to be moved, etc.)
+            unit: N/A
+            is_array: false
+            is_enum: false
+            example: 0
+          - name: valid
+            type: short
+            description: Whether the alpha and beta angles are valid. Do not use targets
+              with `valid=0`.
+            unit: N/A
+            is_array: false
+            is_enum: false
+            example: 1
+          - name: decollided
+            type: short
+            description: Whether this positioner had to be moved to decollide it.
+              This should also mean (`on_target=0`).
+            unit: N/A
+            is_array: false
+            is_enum: false
+            example: 0
+          - name: too
+            type: short
+            description: Whether this entry is a target of opportunity (ToO). In this
+              case the ToO replaced one of the initial science target assigned by
+              robostrategy. The too entry was introduced in confSummaryF 14461 at
+              APO and 10007788 at LCO.
+            unit: N/A
+            is_array: false
+            is_enum: false
+            example: 0
+          - name: xwok
+            type: double
+            description: The **measured** X wok coordinate, from the centre of the
+              wok. At APO these coordinates are only available starting on MJD 59584.
+            unit: mm
+            is_array: false
+            is_enum: false
+            example: 12.024996035323891
+          - name: ywok
+            type: double
+            description: The **measured** Y wok coordinate.
+            unit: mm
+            is_array: false
+            is_enum: false
+            example: -11.846245609609129
+          - name: zwok
+            type: double
+            description: The **measured** Z wok coordinate.
+            unit: mm
+            is_array: false
+            is_enum: false
+            example: 143.1
+          - name: xFocal
+            type: double
+            description: The **measured** X focal plane coordinate. While the focal
+              coordinates are very similar to the wok coordinates, they are not identical
+              since the wok shape does not exactly match the focal plane.
+            unit: mm
+            is_array: false
+            is_enum: false
+            example: 12.022831536037533
+          - name: yFocal
+            type: double
+            description: The **measured** Y focal plane coordinate.
+            unit: mm
+            is_array: false
+            is_enum: false
+            example: -11.8441132853994
+          - name: alpha
+            type: float
+            description: The **measured** configured angle of the alpha arm of the
+              positioner. alpha and beta should be the same of all the fibres associated
+              with the same positioner.
+            unit: degrees
+            is_array: false
+            is_enum: false
+            example: 9.990766525268555
+          - name: beta
+            type: float
+            description: The **measured** configured angle of the beta arm of the
+              positioner.
+            unit: degrees
+            is_array: false
+            is_enum: false
+            example: 170.00279235839844
+          - name: racat
+            type: double
+            description: The ICRS right ascension of the target as recorded in `catalogdb.catalog`,
+              at coord_epoch.
+            unit: degrees
+            is_array: false
+            is_enum: false
+            example: -999.0
+          - name: deccat
+            type: double
+            description: The ICRS declination of the target.
+            unit: degrees
+            is_array: false
+            is_enum: false
+            example: -999.0
+          - name: pmra
+            type: float
+            description: Right ascension proper motion from `catalogdb.catalog`. This
+              is a real, on-sky angle (i.e., the cosine of the declination is included).
+            unit: mas/year
+            is_array: false
+            is_enum: false
+            example: -999.0
+          - name: pmdec
+            type: float
+            description: Declination proper motion.
+            unit: mas/year
+            is_array: false
+            is_enum: false
+            example: -999.0
+          - name: parallax
+            type: float
+            description: The parallax of the target.
+            unit: mas
+            is_array: false
+            is_enum: false
+            example: -999.0
+          - name: ra
+            type: double
+            description: The ICRS right ascension of the fibre projected on the sky
+              at the epoch of the observation. This coordinate is calculated from
+              the measured alpha/beta coordinates.
+            unit: degrees
+            is_array: false
+            is_enum: false
+            example: -999.0
+          - name: dec
+            type: double
+            description: The ICRS declination of the fibre projected on the sky at
+              the epoch of the observation.
+            unit: degrees
+            is_array: false
+            is_enum: false
+            example: -999.0
+          - name: ra_observed
+            type: double
+            description: The observed right ascension of the fibre projected on the
+              sky after correcting for atmospheric refraction. All the _observed columns
+              were first introduced in confSummaryF 13989 at APO and 10007788 at LCO.
+            unit: degrees
+            is_array: false
+            is_enum: false
+            example: -999.0
+          - name: dec_observed
+            type: double
+            description: The observed declination of the fibre projected on the sky
+              after correcting for atmospheric refraction.
+            unit: degrees
+            is_array: false
+            is_enum: false
+            example: -999.0
+          - name: alt_observed
+            type: double
+            description: The observed altitude of the fibre projected on the sky after
+              correcting for atmospheric refraction.
+            unit: degrees
+            is_array: false
+            is_enum: false
+            example: -999.0
+          - name: az_observed
+            type: double
+            description: The observed azimuth of the fibre projected on the sky after
+              correcting for atmospheric refraction.
+            unit: degrees
+            is_array: false
+            is_enum: false
+            example: -999.0
+          - name: lambda_design
+            type: float
+            description: The wavelength at which the target was designed to be observed.
+              This value affects the refraction correction.
+            unit: Angstrom
+            is_array: false
+            is_enum: false
+            example: -999.0
+          - name: lambda_eff
+            type: float
+            description: The effective wavelength at which the target was observed.
+            unit: Angstroms
+            is_array: false
+            is_enum: false
+            example: 16600.0
+          - name: coord_epoch
+            type: float
+            description: The epoch of the coordinates in `catalogdb.catalog`
+            unit: years
+            is_array: false
+            is_enum: false
+            example: -999.0
+          - name: spectrographId
+            type: short
+            description: The spectrograph to which this fibre is connected to. 0 for
+              BOSS, 1 for APOGEE.
+            unit: N/A
+            is_array: false
+            is_enum: false
+            example: 2
+          - name: fiberId
+            type: short
+            description: Fiber ID for the spectrograph to which the fibre is assigned.
+            unit: N/A
+            is_array: false
+            is_enum: false
+            example: 214
+          - name: mag
+            type: float[5]
+            description: '`[u, g, r, i, z]` optical magnitudes.'
+            unit: map
+            is_array: true
+            is_enum: false
+            example:
+            - -999.0
+            - -999.0
+            - -999.0
+            - -999.0
+            - -999.0
+          - name: optical_prov
+            type: char[120]
+            description: The source of the optical magnitudes.
+            unit: N/A
+            is_array: false
+            is_enum: false
+            example: ''
+          - name: bp_mag
+            type: float
+            description: Gaia BP magnitude.
+            unit: mag
+            is_array: false
+            is_enum: false
+            example: -999.0
+          - name: gaia_g_mag
+            type: float
+            description: Gaia G magnitude.
+            unit: mag
+            is_array: false
+            is_enum: false
+            example: -999.0
+          - name: rp_mag
+            type: float
+            description: Gaia RP magnitude.
+            unit: mag
+            is_array: false
+            is_enum: false
+            example: -999.0
+          - name: h_mag
+            type: float
+            description: 2MASS H magnitude.
+            unit: mag
+            is_array: false
+            is_enum: false
+            example: -999.0
+          - name: catalogid
+            type: long
+            description: The `catalogid`` of this target in `catalogdb.catalog`.
+            unit: N/A
+            is_array: false
+            is_enum: false
+            example: -999
+          - name: carton_to_target_pk
+            type: long
+            description: The `carton_to_target_pk` of this target in `targetdb.carton_to_target`.
+            unit: N/A
+            is_array: false
+            is_enum: false
+            example: -999
+          - name: cadence
+            type: char[400]
+            description: Cadence identifier.
+            unit: N/A
+            is_array: false
+            is_enum: false
+            example: ''
+          - name: firstcarton
+            type: char[400]
+            description: Main carton from which this target was drawn.
+            unit: N/A
+            is_array: false
+            is_enum: false
+            example: ''
+          - name: program
+            type: char[400]
+            description: Program for `firstcarton``. Entry in `targetdb.carton`.
+            unit: N/A
+            is_array: false
+            is_enum: false
+            example: ''
+          - name: category
+            type: char[400]
+            description: Category for `firstcarton`. Entry in `targetdb.category`.
+            unit: N/A
+            is_array: false
+            is_enum: false
+            example: ''
+          - name: sdssv_boss_target0
+            type: long
+            description: Legacy column never used. Ignore.
+            unit: N/A
+            is_array: false
+            is_enum: false
+            example: 0
+          - name: sdssv_apogee_target0
+            type: long
+            description: Legacy column never used. Ignore.
+            unit: N/A
+            is_array: false
+            is_enum: false
+            example: 0
+          - name: delta_ra
+            type: double
+            description: Custom offset in right ascension applied to this target.
+              Note that `ra`, `dec`, and the `_observed` coordinates do take this
+              offset into account.
+            unit: arcsec
+            is_array: false
+            is_enum: false
+            example: 0.0
+          - name: delta_dec
+            type: double
+            description: Custom offset in declination applied to this target.
+            unit: arcsec
+            is_array: false
+            is_enum: false
+            example: 0.0
+notes: |-
+  None
