@@ -3820,10 +3820,15 @@
       "environment": "LVM_SPECTRO_REDUX",
       "survey": "SDSS",
       "access": {
-        "in_sdss_access": false,
-        "path_name": null,
-        "path_template": null,
-        "path_kwargs": null,
+        "in_sdss_access": true,
+        "path_name": "lvm_sframe",
+        "path_template": "$LVM_SPECTRO_REDUX/{drpver}/@tilegrp|/{tileid}/{mjd}/lvmSFrame-{expnum:0>8}.fits",
+        "path_kwargs": [
+          "expnum",
+          "drpver",
+          "mjd",
+          "tileid"
+        ],
         "access_string": "lvm_sframe = $LVM_SPECTRO_REDUX/{drpver}/{tilegrp}/{tileid}/{mjd}/lvmSFrame-{expnum}.fits"
       },
       "hdus": {
