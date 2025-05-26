@@ -34,10 +34,13 @@ releases:
     location: '{run2d}/{field}/epoch/spPlancombepoch-{field}-{mjd}.par'
     environment: BOSS_SPECTRO_REDUX
     access:
-      in_sdss_access: false
-      path_name: null
-      path_template: null
-      path_kwargs: null
+      in_sdss_access: true
+      path_name: spPlancombepoch
+      path_template: $BOSS_SPECTRO_REDUX/{run2d}/@pad_fieldid|@isplate|/epoch/spPlancombepoch-@pad_fieldid|-{mjd}.par
+      path_kwargs:
+      - run2d
+      - fieldid
+      - mjd
       access_string: spPlancombepoch = $BOSS_SPECTRO_REDUX/{run2d}/{field}/epoch/spPlancombepoch-{field}-{mjd}.par
     survey: BHM
     par:
