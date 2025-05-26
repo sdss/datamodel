@@ -19,7 +19,7 @@ general:
   generated_by: https://github.com/QiaoyaWu/SDSSV_DR19_QSO_VAC
   data_level: 3.3.0
   design: false
-  vac: false
+  vac: true
   recommended_science_product: false
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
@@ -32,10 +32,12 @@ releases:
     location: '{vers}/DR19Q_prop-{run2d}.fits'
     environment: BHM_QSOPROP
     access:
-      in_sdss_access: false
-      path_name: null
-      path_template: null
-      path_kwargs: null
+      in_sdss_access: true
+      path_name: DR19Q_prop
+      path_template: $BHM_QSOPROP/{vers}/DR19Q_prop-{run2d}.fits
+      path_kwargs:
+      - vers
+      - run2d
       access_string: DR19Q_prop = $BHM_QSOPROP/{vers}/DR19Q_prop-{run2d}.fits
     survey: SDSS
     hdus:
