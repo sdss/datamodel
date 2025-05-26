@@ -545,8 +545,7 @@ class AccessStub(BaseStub):
 
 def stub_iterator(format: str = None) -> Iterator[BaseStub]:
     """ Iterator for all stub formats """
-    #for stub in [YamlStub, AccessStub, MdStub, JsonStub]:
-    for stub in [YamlStub, AccessStub, JsonStub]:
+    for stub in [YamlStub, AccessStub, MdStub, JsonStub]:
         if format and format != stub.format:
             continue
         yield stub
