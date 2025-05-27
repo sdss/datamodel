@@ -1,7 +1,7 @@
 # Data Model: apBPM
 
 
-
+apBPM contains calibration data with bad pixel maps for each detector.
 
 
 ## Contents
@@ -9,7 +9,7 @@
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
@@ -19,7 +19,7 @@ apBPM contains calibration data with bad pixel maps for each detector.
 $APOGEE_REDUX/[APRED]/cal/[INSTRUMENT]/bpm/apBPM-[CHIP]-[NUM8].fits
 
 ### Releases
-WORK
+DR19, WORK
 
 ### Enviroments
 APOGEE_REDUX
@@ -43,6 +43,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - WORK
+   - from: DR19
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -68,3 +71,7 @@ Key | Value | Comment | |
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!
