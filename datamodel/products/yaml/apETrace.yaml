@@ -5,6 +5,7 @@ general:
   datatype: FITS
   filesize: 405 KB
   releases:
+  - DR19
   - WORK
   environments:
   - APOGEE_REDUX
@@ -18,9 +19,12 @@ general:
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
-  releases: {}
+  releases:
+    WORK:
+      from: DR19
+      note: No changes
 releases:
-  WORK:
+  WORK: &id001
     template: $APOGEE_REDUX/[APRED]/cal/[INSTRUMENT]/trace/apETrace-[CHIP]-[NUM8].fits
     example: daily/cal/apogee-n/trace/apETrace-a-02410059.fits
     location: '{apred}/cal/{instrument}/trace/apETrace-{chip}-{num:0>8}.fits'
@@ -76,5 +80,5 @@ releases:
         - key: AVGDIST
           value: 0.0
           comment: ''
-notes: |-
-  None
+  DR19: *id001
+notes: None
