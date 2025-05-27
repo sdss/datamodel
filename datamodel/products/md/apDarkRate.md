@@ -1,7 +1,7 @@
 # Data Model: apDarkRate
 
 
-
+apDark frames contain the measured dark current rate for each detector.
 
 
 ## Contents
@@ -9,17 +9,17 @@
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
-
+apDark frames contain the measured dark current rate for each detector.
 
 ### Naming Convention
 $APOGEE_REDUX/[APRED]/cal/[INSTRUMENT]/darkcorr/apDarkRate-[CHIP]-[NUM8].fits
 
 ### Releases
-WORK
+DR19, WORK
 
 ### Enviroments
 APOGEE_REDUX
@@ -43,6 +43,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - WORK
+   - from: DR19
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -68,3 +71,7 @@ Key | Value | Comment | |
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!
