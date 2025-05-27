@@ -1,7 +1,7 @@
 # Data Model: apLSF
 
 
-
+apLSF contains calibration data characterizing the LSFs of each fiber.
 
 
 ## Contents
@@ -9,7 +9,7 @@
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
@@ -19,7 +19,7 @@ apLSF contains calibration data characterizing the LSFs of each fiber. It is der
 $APOGEE_REDUX/[APRED]/cal/[INSTRUMENT]/lsf/apLSF-[CHIP]-[NUM8].fits
 
 ### Releases
-WORK
+DR19, WORK
 
 ### Enviroments
 APOGEE_REDUX
@@ -38,12 +38,15 @@ False
 
 ### HDUS List for release WORK
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: ](#hdu1)
+  - [HDU1](#hdu1)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - WORK
+   - from: DR19
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -249,7 +252,7 @@ Key | Value | Comment | |
 
 
 
-### HDU1:
+### HDU1: 
 
 
 #### HDU Type: IMAGE
@@ -294,3 +297,7 @@ Key | Value | Comment | |
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!
