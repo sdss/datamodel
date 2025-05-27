@@ -6318,7 +6318,7 @@
       "hdfs": null
     },
     "DR16": {
-      "template": "$APOGEE_ROOT/spectro/aspcap/[APRED]/[APSTAR]/allStar-[APRED]-[APSTAR].fits",
+      "template": "$APOGEE_ASPCAP/[APRED]/[APSTAR]/allStar-[APRED]-[APSTAR].fits",
       "example": "spectro/aspcap/r12/l33/allStar-r12-l33.fits",
       "location": "spectro/aspcap/{apred}/{apstar}/allStar-{apred}-{apstar}.fits",
       "environment": "APOGEE_ROOT",
@@ -6331,7 +6331,7 @@
           "aspcap",
           "apred"
         ],
-        "access_string": "allStar = $APOGEE_ROOT/spectro/aspcap/{apred}/{apstar}/allStar-{apred}-{apstar}.fits"
+        "access_string": "allStar = $APOGEE_ASPCAP/{apred}/{apstar}/allStar-{apred}-{apstar}.fits"
       },
       "hdus": {
         "hdu0": {
@@ -9401,10 +9401,13 @@
       "environment": "APOGEE_REDUX",
       "survey": "SDSS",
       "access": {
-        "in_sdss_access": false,
-        "path_name": null,
-        "path_template": null,
-        "path_kwargs": null,
+        "in_sdss_access": true,
+        "path_name": allStar,
+        "path_template": "$APOGEE_REDUX/{apred}/summary/allStar-{apred}-{telescope}.fits",
+        "path_kwargs": [
+          "apred",
+          "telescope"
+        ],
         "access_string": "allStar = $APOGEE_REDUX/{apred}/summary/allStar-{apred}-{telescope}.fits"
       },
       "hdus": {

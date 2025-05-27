@@ -1,7 +1,7 @@
-# Data Model: astraStarSlam
+# Data Model: astraStarSLAM
 
 
-Results and best-fit models from the Slam astra pipeline for a single star
+Results and best-fit models from the SLAM astra pipeline for a single star
 
 
 ## Contents
@@ -9,23 +9,23 @@ Results and best-fit models from the Slam astra pipeline for a single star
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-- [Regrets](#regrets)
+
 ---
 
 ## Basic Information
-Results and best-fit models from the Slam astra pipeline for a single star 
+Results and best-fit models from the SLAM astra pipeline for a single star
 
 ### Naming Convention
-$MWM_ASTRA/0.6.0/results/star/49/99/astraStarSlam-0.6.0-87874999.fits
+$MWM_ASTRA/[ASTRA_VERSION]/[RUN2D]-[APRED]/results/star/[CATALOGID_GROUPS]/astraStar-SLAM-[ASTRA_VERSION]-[CATALOGID]-[TASK_ID].fits
 
 ### Releases
-DR19
+WORK
 
 ### Enviroments
 MWM_ASTRA
 
 ### Approximate Size
-84 KB
+61 KB
 
 ### File Type
 FITS
@@ -36,7 +36,7 @@ astra
 ### Is a VAC
 False
 
-### HDUS List for release DR19
+### HDUS List for release WORK
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1: BOSS/APO](#hdu1-boss/apo)
   - [HDU2: BOSS/LCO](#hdu2-boss/lco)
@@ -64,90 +64,61 @@ Key | Value | Comment | |
 | BITPIX | 8 | array data type |
 | NAXIS | 0 | number of array dimensions |
 | EXTEND | True |  |
-| V_ASTRA | 0.6.0 | Astra version |
-| CREATED | 24-08-01 15:08:17 | File creation time (UTC %y-%m-%d %H:%M:%S) |
-| SDSS_ID | 87874999 | SDSS-5 unique identifier |
-| APOGEEID | None | SDSS-4 DR17 APOGEE identifier |
-| GAIA2_ID | 4307687928281427200 | Gaia DR2 source identifier |
-| GAIA3_ID | 4307687928281427200 | Gaia DR3 source identifier |
-| TIC_ID | 198214920 | TESS Input Catalog (v8) identifier |
-| HEALPIX | 82584 | HEALPix (128 side) |
-| LEAD | tic_v8 | Lead catalog used for cross-match |
-| VER_ID | 25 | SDSS catalog version for targeting |
-| CAT_ID | 27021598796328977 | Catalog identifier used to target the source |
-| CAT_ID21 | 5239923504 | Catalog identifier (v21; v0.0) |
-| CAT_ID25 | 27021598796328977 | Catalog identifier (v25; v0.5) |
-| CAT_ID31 | 63050395674493940 | Catalog identifier (v31; v1.0) |
-| N_ASSOC | 1 | SDSS_IDs associated with this CATALOGID |
-| N_NEIGH | 1 | Sources within 3" and G_MAG < G_MAG_source + 5 |
-| RA | 286.90344 | Right ascension [deg] |
-| DEC | 9.453463 | Declination [deg] |
-| L | 43.18011812231807 | Galactic longitude [deg] |
-| B | 0.743862296928519 | Galactic latitude [deg] |
-| PLX | 0.41694582 | Parallax [mas] |
-| E_PLX | 0.027907245 | Error on parallax [mas] |
-| PMRA | -0.8794999 | Proper motion in RA [mas/yr] |
-| E_PMRA | 0.029547315 | Error on proper motion in RA [mas/yr] |
-| PMDE | -3.7837265 | Proper motion in DEC [mas/yr] |
-| E_PMDE | 0.029485429 | Error on proper motion in DEC [mas/yr] |
-| V_RAD | 42.253967 | Gaia radial velocity [km/s] |
-| E_V_RAD | 3.4601471 | Error on Gaia radial velocity [km/s] |
-| G_MAG | 15.13257 | Gaia DR3 mean G band magnitude [mag] |
-| BP_MAG | 16.943165 | Gaia DR3 mean BP band magnitude [mag] |
-| RP_MAG | 13.868556 | Gaia DR3 mean RP band magnitude [mag] |
-| J_MAG | 11.497 | 2MASS J band magnitude [mag] |
-| E_J_MAG | 0.023 | Error on 2MASS J band magnitude [mag] |
-| H_MAG | 10.511 | 2MASS H band magnitude [mag] |
-| E_H_MAG | 0.025 | Error on 2MASS H band magnitude [mag] |
-| K_MAG | 10.113 | 2MASS K band magnitude [mag] |
-| E_K_MAG | 0.018 | Error on 2MASS K band magnitude [mag] |
-| PH_QUAL | None | 2MASS photometric quality flag |
-| BL_FLG | None | Number of components fit per band (JHK) |
-| CC_FLG | None | Contamination and confusion flag |
-| COMMENT | See https://www.ipac.caltech.edu/2mass/releases/allsky/doc/sec2_2a.html |  |
-| W1_MAG | 9.927885058954516 | W1 magnitude |
-| E_W1_MAG | 0.000602439493279438 | Error on W1 magnitude |
-| W1_FLUX | 106474.59 | W1 flux [Vega nMgy] |
-| W1_DFLUX | 59.079266 | Error on W1 flux [Vega nMgy] |
-| W1_FRAC | 0.8893659 | Fraction of W1 flux from this object |
-| W2_MAG | 9.975583472048847 | W2 magnitude [Vega] |
-| E_W2_MAG | 0.001488557644168273 | Error on W2 magnitude |
-| W2_FLUX | 99303.97 | W2 flux [Vega nMgy] |
-| W2_DFLUX | 136.14696 | Error on W2 flux [Vega nMgy] |
-| W2_FRAC | 0.63726777 | Fraction of W2 flux from this object |
-| W1UFLAGS | 32 | unWISE flags for W1 |
-| W2UFLAGS | 163 | unWISE flags for W2 |
-| W1AFLAGS | 0 | Additional flags for W1 |
-| W2AFLAGS | 0 | Additional flags for W2 |
-| COMMENT | See https://catalog.unwise.me/catalogs.html |  |
-| MAG4_5 | 10.023 | IRAC band 4.5 micron magnitude [mag] |
-| D4_5M | 0.09 | Error on IRAC band 4.5 micron magnitude [mag] |
-| RMS_F4_5 | 1.076 | RMS deviations from final flux [mJy] |
-| SQF_4_5 | 24576 | Source quality flag for IRAC band 4.5 micron |
-| MF4_5 | 12 | Flux calculation method flag |
-| CSF | 1 | Close source flag |
-| COMMENT | See https://irsa.ipac.caltech.edu/data/SPITZER/GLIMPSE/gator_docs/ |  |
-| N_BOSS | 4 | Number of BOSS visits |
-| B_MINMJD | 59715 | Minimum MJD of BOSS visits |
-| N_MAXMJD | 60479 | Maximum MJD of BOSS visits |
-| N_APOGEE | 3 | Number of APOGEE visits |
-| A_MINMJD | 60087 | Minimum MJD of APOGEE visits |
-| A_MAXMJD | 60105 | Maximum MJD of APOGEE visits |
-| CHECKSUM | j7fij4dgj4dgj4dg | HDU checksum updated 2024-08-01T09:08:17 |
-| DATASUM | 0 | data unit checksum updated 2024-08-01T09:08:17 |
-| COMMENT | HDU 0: Summary information only |  |
-| COMMENT | HDU 1: BOSS results from Apache Point Observatory |  |
-| COMMENT | HDU 2: BOSS results from Las Campanas Observatory |  |
-| COMMENT | HDU 3: APOGEE results from Apache Point Observatory |  |
-| COMMENT | HDU 4: APOGEE results from Las Campanas Observatory |  |
+| V_ASTRA | 0.2.6 | Astra version |
+| CREATED | 22-10-18 02:56:13 | File creation time (UTC %y-%m-%d %H:%M:%S) |
+| HEALPIX | 1713 | Healpix location (128 sides) |
+| CAT_ID | 27021597845720000 | SDSS-V catalog identifier |
+| TIC_ID | 288603852 | TESS Input Catalog (v8) identifier |
+| GAIA_ID | 2294158434722324736 | Gaia DR2 source identifier |
+| TASK_ID | 2394338 | Astra unique task identifier |
+| IDP_ID | 9239626 | Astra input data product identifier |
+| RA | 276.7478873122679 | SDSS-V catalog right ascension (J2000) [deg] |
+| DEC | 79.59034766242196 | SDSS-V catalog declination (J2000) [deg] |
+| GAIA_RA | 276.7478873122679 | Gaia DR2 right ascension [deg] |
+| GAIA_DEC | 79.59034766242196 | Gaia DR2 declination [deg] |
+| PLX | 0.08916745444922311 | Gaia DR2 parallax [mas] |
+| E_PLX | 0.02332827145636582 | Gaia DR2 parallax error [mas] |
+| PMRA | -0.4657399902130295 | Gaia DR2 proper motion in RA [mas/yr] |
+| E_PMRA | 0.0341346981159126 | Gaia DR2 proper motion in RA error [mas/yr] |
+| PMDE | 0.3939177441701403 | Gaia DR2 proper motion in DEC [mas/yr] |
+| E_PMDE | 0.04471296602783253 | Gaia DR2 proper motion in DEC error [mas/yr] |
+| V_RAD | None | Gaia DR2 radial velocity [km/s] |
+| E_V_RAD | None | Gaia DR2 radial velocity error [km/s] |
+| G_MAG | 14.690567 | Gaia DR2 mean apparent G magnitude [mag] |
+| BP_MAG | 15.29412 | Gaia DR2 mean apparent BP magnitude [mag] |
+| RP_MAG | 13.954433 | Gaia DR2 mean apparent RP magnitude [mag] |
+| J_MAG | 12.982 | 2MASS mean apparent J magnitude [mag] |
+| E_J_MAG | 0.019 | 2MASS mean apparent J magnitude error [mag] |
+| H_MAG | 12.372 | 2MASS mean apparent H magnitude [mag] |
+| E_H_MAG | 0.019 | 2MASS mean apparent H magnitude error [mag] |
+| K_MAG | 12.245 | 2MASS mean apparent K magnitude [mag] |
+| E_K_MAG | 0.023 | 2MASS mean apparent K magnitude error [mag] |
+| CARTON_0 | openfibertargets_nov2020_34a | First carton for source (see document |
+| CARTONS | openfibertargets_nov2020_34a | SDSS-V cartons |
+| PROGRAMS | open_fiber | SDSS-V programs |
+| MAPPERS | open | SDSS-V mappers |
+| RELEASE | sdss5 | SDSS data release name |
+| FILETYPE | mwmStar | SDSS data model filetype |
+| APRED | 1.0 | APOGEE reduction tag |
+| RUN2D | v6_0_9 | Spectro-2D reduction name |
+| CAT_ID | 27021597845720000 | SDSS-V catalog identifier |
+| V_ASTRA | 0.2.6 | Astra version |
+| IDP_URL | https://data.sdss5.org/sas/sdsswork/mwm/spectro/astra/0.2.6/v6_0_9-1.0/spectra/star/00/00/mwmStar-0.2.6-27021597845720000.fits |  |
+| CHECKSUM | MmQXPjQXMjQXMjQX | HDU checksum updated 2022-10-18T20:52:56 |
+| DATASUM | 0 | data unit checksum updated 2022-10-18T20:52:56 |
+| COMMENT | HDU 0: Source information only |  |
+| COMMENT | HDU 1: Model fits to BOSS spectra from Apache Point Observatory |  |
+| COMMENT | HDU 2: Model fits to BOSS spectra from Las Campanas Observatory |  |
+| COMMENT | HDU 3: Model fits to APOGEE spectra from Apache Point Observatory |  |
+| COMMENT | HDU 4: Model fits to APOGEE spectra from Las Campanas Observatory |  |
 
 
 
 ### HDU1: BOSS/APO
-{data_type} from BOSS north
+best-fit model and parameters for stacked BOSS spectrum
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  0 bytes
+#### HDU Size:  36 KB
 
 ##### Header Table Caption for HDU1
 Key | Value | Comment | |
@@ -155,121 +126,88 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | binary table extension |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
-| NAXIS1 | 363 | length of dimension 1 |
-| NAXIS2 | 0 | length of dimension 2 |
+| NAXIS1 | 37265 | length of dimension 1 |
+| NAXIS2 | 1 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
-| TFIELDS | 89 | number of table fields |
-| EXTNAME | BOSS/APO | Extension name |
-| OBSRVTRY | APO | Observatory |
-| INSTRMNT | BOSS | Instrument |
-| V_ASTRA | 0.6.0 | Astra version |
-| CREATED | 24-08-01 15:08:17 | File creation time (UTC %y-%m-%d %H:%M:%S) |
-| TDIM48 | (0) |  |
-| TDIM49 | (0) |  |
-| TDIM87 | (0) |  |
-| TDIM88 | (0) |  |
-| TDIM89 | (0) |  |
-| CHECKSUM | Z8Iag6HZZ6Haf6HY | HDU checksum updated 2024-08-01T09:08:17 |
-| DATASUM | 0 | data unit checksum updated 2024-08-01T09:08:17 |
+| TFIELDS | 22 | number of table fields |
+| EXTNAME | BOSS/APO | Short extension name |
+| OBSRVTRY | APO | Observatory name |
+| INSTRMNT | BOSS | Instrument name |
+| V_BOSS | 6.0.1 | Version of the BOSS ICC |
+| VJAEGER | 0.15.2-alpha.0 | Version of Jaeger |
+| VKAIJU | 1.2.4-alpha.0 | Version of Kaiju |
+| VCOORDIO | 1.4.0-alpha.0 | Version of coordIO |
+| VCALIBS | APO.2022.04.21+e0e43d5 | Version of FPS calibrations |
+| VERSIDL | 8.8.0 | Version of IDL |
+| VERSUTIL | v5_5_17 | Version of idlutils |
+| VERSREAD | v6_0_9 | Version of idlspec2d for processing raw data |
+| VERS2D | v6_0_9 | Version of idlspec2d for 2D reduction |
+| VERSCOMB | v6_0_9 | Version of idlspec2d for combining exposures |
+| VERSLOG | trunk 27531 | Version of SPECLOG product |
+| VERSFLAT | v1_34 | Version of SPECFLAT product |
+| DIDFLUSH | True | Was CCD flushed before integration |
+| CARTID | FPS-N | Cartridge identifier |
+| PSFSKY | 3 | Order of PSF sky subtraction |
+| PREJECT | 0.2 | Profile area rejection threshold |
+| LOWREJ | 4 | Extraction: low rejection |
+| HIGHREJ | 50 | Extraction: high rejection |
+| SCATPOLY | 0 | Extraction: Order of scattered light polynomial |
+| PROFTYPE | 1 | Extraction profile: 1=Gaussian |
+| NFITPOLY | 1 | Extraction: Number of profile parameters |
+| SKYCHI2 | 0.962075389147 | Mean \chi^2 of sky subtraction |
+| SCHI2MIN | 0.962075389147 | Minimum \chi^2 of sky subtraction |
+| SCHI2MAX | 0.962075389147 | Maximum \chi^2 of sky subtraction |
+| V_HELIO | 2.90850336142 | Heliocentric velocity correction [km/s] |
+| RDNOISE0 | 2.05984 | CCD read noise amp 0 [electrons] |
+| NRES | 5 | Sinc bandlimit [pixel/resolution element] |
+| FILTSIZE | 501 | Median filter size for pseudo-continuum [pixel] |
+| NORMSIZE | 100 | Gaussian width for pseudo-continuum [pixel] |
+| CONSCALE | False | Scale by pseudo-continuum when stacking |
+| CRVAL | 3.5523 | Log(10) wavelength of first pixel [Angstrom] |
+| CDELT | 0.0001 | Log(10) delta wavelength per pixel [Angstrom] |
+| CTYPE | LOG-LINEAR | Wavelength solution description |
+| CUNIT | Angstrom (Vacuum) | Wavelength solution unit |
+| CRPIX | 1 | Pixel offset from the first pixel |
+| DC-FLAG | 1 | Wavelength solution flag |
+| NPIXELS | 4648 | Number of pixels per spectrum |
+| PIPELINE | slam | Pipeline name that produced these results |
+| TDIM18 | (1) |  |
+| TDIM21 | (4648) |  |
+| TDIM22 | (4648) |  |
+| CHECKSUM | XdeGYabDXabDXabD | HDU checksum updated 2022-10-18T20:52:56 |
+| DATASUM | 378599057 | data unit checksum updated 2022-10-18T20:52:56 |
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | release | char[1] |  | SDSS release |
- | filetype | char[1] |  | SDSS file type that stores this spectrum |
- | run2d | char[1] |  | BOSS data reduction pipeline version |
- | mjd | int32 |  | Modified Julian date of observation |
- | fieldid | int32 |  | Field identifier |
- | catalogid | int64 |  | Catalog identifier used to target the source |
- | healpix | int32 |  | HEALPix (128 side) |
- | n_exp | int32 |  | Number of co-added exposures |
- | exptime | float32 | s | Exposure time  |
- | plateid | int32 |  | Plate identifier |
- | cartid | int32 |  | Cartridge identifier |
- | mapid | int32 |  | Mapping version of the loaded plate |
- | slitid | int32 |  | Slit identifier |
- | psfsky | int32 |  | Order of PSF sky subtraction |
- | preject | float32 |  | Profile area rejection threshold |
- | n_std | int32 |  | Number of (good) standard stars |
- | n_gal | int32 |  | Number of (good) galaxies in field |
- | lowrej | int32 |  | Extraction: low rejection |
- | highrej | int32 |  | Extraction: high rejection |
- | scatpoly | int32 |  | Extraction: Order of scattered light polynomial |
- | proftype | int32 |  | Extraction profile: 1=Gaussian |
- | nfitpoly | int32 |  | Extraction: Number of profile parameters |
- | skychi2 | float32 |  | Mean \chi^2 of sky subtraction |
- | schi2min | float32 |  | Minimum \chi^2 of sky subtraction |
- | schi2max | float32 |  | Maximum \chi^2 of sky subtraction |
- | alt | float32 | deg | Telescope altitude  |
- | az | float32 | deg | Telescope azimuth  |
- | telescope | char[1] |  | Short telescope name |
- | seeing | float32 | arcsecond | Median seeing conditions  |
- | airmass | float32 |  | Mean airmass |
- | airtemp | float32 | C | Air temperature  |
- | dewpoint | float32 | C | Dew point temperature  |
- | humidity | float32 | % | Humidity  |
- | pressure | float32 | millibar | Air pressure  |
- | dust_a | float32 | particles m^-3 s^-1 | 0.3mu-sized dust count  |
- | dust_b | float32 | particles m^-3 s^-1 | 1.0mu-sized dust count  |
- | gust_direction | float32 | deg | Wind gust direction  |
- | gust_speed | float32 | km/s | Wind gust speed  |
- | wind_direction | float32 | deg | Wind direction  |
- | wind_speed | float32 | km/s | Wind speed  |
- | moon_dist_mean | float32 | deg | Mean sky distance to the moon  |
- | moon_phase_mean | float32 |  | Mean phase of the moon |
- | n_guide | int32 |  | Number of guider frames during integration |
- | tai_beg | int64 | s | MJD (TAI) at start of integrations  |
- | tai_end | int64 | s | MJD (TAI) at end of integrations  |
- | fiber_offset | bool |  | Position offset applied during observations |
- | f_night_time | float32 |  | Mid obs time as fraction from sunset to sunrise |
- | delta_ra | float32[0] | arcsecond | Offset in right ascension  |
- | delta_dec | float32[0] | arcsecond | Offset in declination  |
- | snr | float32 |  | Signal-to-noise ratio |
- | gri_gaia_transform_flags | int64 |  | Flags for provenance of ugriz photometry |
- | zwarning_flags | int64 |  | BOSS DRP warning flags |
- | xcsao_v_rad | float32 | km/s | Barycentric rest frame radial velocity  |
- | xcsao_e_v_rad | float32 | km/s | Error on radial velocity  |
- | xcsao_teff | float32 | K | Stellar effective temperature  |
- | xcsao_e_teff | float32 | K | Error on stellar effective temperature  |
- | xcsao_logg | float32 | log10(cm/s^2) | Surface gravity  |
- | xcsao_e_logg | float32 | log10(cm/s^2) | Error on surface gravity  |
- | xcsao_fe_h | float32 | dex | [Fe/H]  |
- | xcsao_e_fe_h | float32 | dex | Error on [Fe/H]  |
- | xcsao_rxc | float32 |  | Cross-correlation R-value (1979AJ.....84.1511T) |
- | spectrum_pk_id | int64 |  | Unique spectrum primary key |
- | task_pk | int64 |  | Task model primary key |
- | v_astra | char[1] |  | Astra version |
- | created | char[26] |  | Datetime when task record was created |
- | t_elapsed | float32 | s | Core-time elapsed on this analysis  |
- | t_overhead | float32 | s | Estimated core-time spent in overhads  |
- | tag | char[1] |  | Experiment tag for this result |
- | teff | float32 | K | Stellar effective temperature  |
- | e_teff | float32 | K | Error on stellar effective temperature  |
- | logg | float32 | log10(cm/s^2) | Surface gravity  |
- | e_logg | float32 | log10(cm/s^2) | Error on surface gravity  |
- | fe_h | float32 | dex | [Fe/H]  |
- | e_fe_h | float32 | dex | Error on [Fe/H]  |
- | rho_teff_logg | float32 |  | Correlation coefficient between TEFF and LOGG |
- | rho_teff_fe_h | float32 |  | Correlation coefficient between TEFF and FE_H |
- | rho_logg_fe_h | float32 |  | Correlation coefficient between LOGG and FE_H |
- | initial_teff | float32 | K | Initial stellar effective temperature  |
- | initial_logg | float32 | log10(cm/s^2) | Initial surface gravity  |
- | initial_fe_h | float32 | dex | Initial [Fe/H]  |
- | success | bool |  | Optimizer returned successful value |
- | status | int32 |  | Optimization status |
- | optimality | bool |  | Optimality condition |
- | result_flags | int64 |  | Flags describing the results |
- | chi2 | float32 |  | Chi-square value |
- | rchi2 | float32 |  | Reduced chi-square value |
- | wavelength | float32[0] | Angstrom | Wavelength (vacuum)  |
- | model_flux | float32[0] |  | Best-fit model flux |
- | continuum | float32[0] |  | Best-fit continuum flux |
+ | SOURCE_ID | int64 |  |  |
+ | PARENT_DATA_PRODUCT_ID | int32 |  |  |
+ | TEFF | float32 | K | Stellar effective temperature  |
+ | LOGG | float32 | log10(cm/s^2) | Surface gravity  |
+ | FE_H | float32 | dex | Iron abundance as [Fe/H]  |
+ | E_TEFF | float32 | K | Error in stellar effective temperature  |
+ | E_LOGG | float32 | log10(cm/s^2) | Error in surface gravity  |
+ | E_FE_H | float32 | dex | Error in metallicity  |
+ | INITIAL_TEFF | float32 | K | Initial stellar effective temperature  |
+ | INITIAL_LOGG | float32 | dex | Initial stellar surface gravity  |
+ | INITIAL_FE_H | float32 | dex | Initial stellar metallicity  |
+ | RHO_TEFF_LOGG | float32 |  | Correlation between TEFF and LOGG |
+ | RHO_TEFF_FE_H | float32 |  | Correlation between TEFF and FE_H |
+ | RHO_LOGG_FE_H | float32 |  | Correlation between LOGG and FE_H |
+ | STATUS | int32 |  | Status flag returned by optimization routine |
+ | SUCCESS | bool |  | Flag returned by optimization routine |
+ | OPTIMALITY | float32 |  | Metric for goodness of fit |
+ | SNR | float32[1] |  | Mean signal-to-noise ratio |
+ | CHI_SQ | float32 |  | \chi-squared of model fit |
+ | REDUCED_CHI_SQ | float32 |  | Reduced \chi-squared of model fit |
+ | MODEL_FLUX | float32[4648] |  | Best-fitting model of source flux |
+ | CONTINUUM | float32[4648] |  | Continuum flux used in model fit |
 
 
 
 ### HDU2: BOSS/LCO
-{data_type} from BOSS south
+Placeholder for best-fit model and parameters for stacked BOSS south spectrm, should such an instrument exist
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  0 bytes
@@ -280,121 +218,26 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | binary table extension |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
-| NAXIS1 | 363 | length of dimension 1 |
+| NAXIS1 | 0 | length of dimension 1 |
 | NAXIS2 | 0 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
-| TFIELDS | 89 | number of table fields |
-| EXTNAME | BOSS/LCO | Extension name |
-| OBSRVTRY | LCO | Observatory |
-| INSTRMNT | BOSS | Instrument |
-| V_ASTRA | 0.6.0 | Astra version |
-| CREATED | 24-08-01 15:08:17 | File creation time (UTC %y-%m-%d %H:%M:%S) |
-| TDIM48 | (0) |  |
-| TDIM49 | (0) |  |
-| TDIM87 | (0) |  |
-| TDIM88 | (0) |  |
-| TDIM89 | (0) |  |
-| CHECKSUM | Y7Mab7KZZ7Kaa7KY | HDU checksum updated 2024-08-01T09:08:17 |
-| DATASUM | 0 | data unit checksum updated 2024-08-01T09:08:17 |
+| TFIELDS | 0 | number of table fields |
+| EXTNAME | BOSS/LCO |  |
+| OBSRVTRY | LCO |  |
+| INSTRMNT | BOSS |  |
+| CHECKSUM | dgm6eZj6dfj6dZj6 | HDU checksum updated 2022-10-18T20:52:56 |
+| DATASUM | 0 | data unit checksum updated 2022-10-18T20:52:56 |
+| COMMENT | No BOSS data available from LCO for this source. |  |
 
 ##### Binary Table Caption for HDU2
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | release | char[1] |  | SDSS release |
- | filetype | char[1] |  | SDSS file type that stores this spectrum |
- | run2d | char[1] |  | BOSS data reduction pipeline version |
- | mjd | int32 |  | Modified Julian date of observation |
- | fieldid | int32 |  | Field identifier |
- | catalogid | int64 |  | Catalog identifier used to target the source |
- | healpix | int32 |  | HEALPix (128 side) |
- | n_exp | int32 |  | Number of co-added exposures |
- | exptime | float32 | s | Exposure time  |
- | plateid | int32 |  | Plate identifier |
- | cartid | int32 |  | Cartridge identifier |
- | mapid | int32 |  | Mapping version of the loaded plate |
- | slitid | int32 |  | Slit identifier |
- | psfsky | int32 |  | Order of PSF sky subtraction |
- | preject | float32 |  | Profile area rejection threshold |
- | n_std | int32 |  | Number of (good) standard stars |
- | n_gal | int32 |  | Number of (good) galaxies in field |
- | lowrej | int32 |  | Extraction: low rejection |
- | highrej | int32 |  | Extraction: high rejection |
- | scatpoly | int32 |  | Extraction: Order of scattered light polynomial |
- | proftype | int32 |  | Extraction profile: 1=Gaussian |
- | nfitpoly | int32 |  | Extraction: Number of profile parameters |
- | skychi2 | float32 |  | Mean \chi^2 of sky subtraction |
- | schi2min | float32 |  | Minimum \chi^2 of sky subtraction |
- | schi2max | float32 |  | Maximum \chi^2 of sky subtraction |
- | alt | float32 | deg | Telescope altitude  |
- | az | float32 | deg | Telescope azimuth  |
- | telescope | char[1] |  | Short telescope name |
- | seeing | float32 | arcsecond | Median seeing conditions  |
- | airmass | float32 |  | Mean airmass |
- | airtemp | float32 | C | Air temperature  |
- | dewpoint | float32 | C | Dew point temperature  |
- | humidity | float32 | % | Humidity  |
- | pressure | float32 | millibar | Air pressure  |
- | dust_a | float32 | particles m^-3 s^-1 | 0.3mu-sized dust count  |
- | dust_b | float32 | particles m^-3 s^-1 | 1.0mu-sized dust count  |
- | gust_direction | float32 | deg | Wind gust direction  |
- | gust_speed | float32 | km/s | Wind gust speed  |
- | wind_direction | float32 | deg | Wind direction  |
- | wind_speed | float32 | km/s | Wind speed  |
- | moon_dist_mean | float32 | deg | Mean sky distance to the moon  |
- | moon_phase_mean | float32 |  | Mean phase of the moon |
- | n_guide | int32 |  | Number of guider frames during integration |
- | tai_beg | int64 | s | MJD (TAI) at start of integrations  |
- | tai_end | int64 | s | MJD (TAI) at end of integrations  |
- | fiber_offset | bool |  | Position offset applied during observations |
- | f_night_time | float32 |  | Mid obs time as fraction from sunset to sunrise |
- | delta_ra | float32[0] | arcsecond | Offset in right ascension  |
- | delta_dec | float32[0] | arcsecond | Offset in declination  |
- | snr | float32 |  | Signal-to-noise ratio |
- | gri_gaia_transform_flags | int64 |  | Flags for provenance of ugriz photometry |
- | zwarning_flags | int64 |  | BOSS DRP warning flags |
- | xcsao_v_rad | float32 | km/s | Barycentric rest frame radial velocity  |
- | xcsao_e_v_rad | float32 | km/s | Error on radial velocity  |
- | xcsao_teff | float32 | K | Stellar effective temperature  |
- | xcsao_e_teff | float32 | K | Error on stellar effective temperature  |
- | xcsao_logg | float32 | log10(cm/s^2) | Surface gravity  |
- | xcsao_e_logg | float32 | log10(cm/s^2) | Error on surface gravity  |
- | xcsao_fe_h | float32 | dex | [Fe/H]  |
- | xcsao_e_fe_h | float32 | dex | Error on [Fe/H]  |
- | xcsao_rxc | float32 |  | Cross-correlation R-value (1979AJ.....84.1511T) |
- | spectrum_pk_id | int64 |  | Unique spectrum primary key |
- | task_pk | int64 |  | Task model primary key |
- | v_astra | char[1] |  | Astra version |
- | created | char[26] |  | Datetime when task record was created |
- | t_elapsed | float32 | s | Core-time elapsed on this analysis  |
- | t_overhead | float32 | s | Estimated core-time spent in overhads  |
- | tag | char[1] |  | Experiment tag for this result |
- | teff | float32 | K | Stellar effective temperature  |
- | e_teff | float32 | K | Error on stellar effective temperature  |
- | logg | float32 | log10(cm/s^2) | Surface gravity  |
- | e_logg | float32 | log10(cm/s^2) | Error on surface gravity  |
- | fe_h | float32 | dex | [Fe/H]  |
- | e_fe_h | float32 | dex | Error on [Fe/H]  |
- | rho_teff_logg | float32 |  | Correlation coefficient between TEFF and LOGG |
- | rho_teff_fe_h | float32 |  | Correlation coefficient between TEFF and FE_H |
- | rho_logg_fe_h | float32 |  | Correlation coefficient between LOGG and FE_H |
- | initial_teff | float32 | K | Initial stellar effective temperature  |
- | initial_logg | float32 | log10(cm/s^2) | Initial surface gravity  |
- | initial_fe_h | float32 | dex | Initial [Fe/H]  |
- | success | bool |  | Optimizer returned successful value |
- | status | int32 |  | Optimization status |
- | optimality | bool |  | Optimality condition |
- | result_flags | int64 |  | Flags describing the results |
- | chi2 | float32 |  | Chi-square value |
- | rchi2 | float32 |  | Reduced chi-square value |
- | wavelength | float32[0] | Angstrom | Wavelength (vacuum)  |
- | model_flux | float32[0] |  | Best-fit model flux |
- | continuum | float32[0] |  | Best-fit continuum flux |
 
 
 
 ### HDU3: APOGEE/APO
-{data_type} from APOGEE north
+best-fit model and parameters for stacked APOGEE north spectrum
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  0 bytes
@@ -405,96 +248,26 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | binary table extension |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
-| NAXIS1 | 262 | length of dimension 1 |
+| NAXIS1 | 0 | length of dimension 1 |
 | NAXIS2 | 0 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
-| TFIELDS | 66 | number of table fields |
-| EXTNAME | APOGEE/APO | Extension name |
-| OBSRVTRY | APO | Observatory |
-| INSTRMNT | APOGEE | Instrument |
-| V_ASTRA | 0.6.0 | Astra version |
-| CREATED | 24-08-01 15:08:17 | File creation time (UTC %y-%m-%d %H:%M:%S) |
-| TDIM64 | (0) |  |
-| TDIM65 | (0) |  |
-| TDIM66 | (0) |  |
-| CHECKSUM | GaLoJSInGYInGYIn | HDU checksum updated 2024-08-01T09:08:17 |
-| DATASUM | 0 | data unit checksum updated 2024-08-01T09:08:17 |
+| TFIELDS | 0 | number of table fields |
+| EXTNAME | APOGEE/APO |  |
+| OBSRVTRY | APO |  |
+| INSTRMNT | APOGEE |  |
+| CHECKSUM | EloaGkmTEkmYEkmY | HDU checksum updated 2022-10-18T20:52:56 |
+| DATASUM | 0 | data unit checksum updated 2022-10-18T20:52:56 |
+| COMMENT | No APOGEE data available from APO for this source. |  |
 
 ##### Binary Table Caption for HDU3
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | star_pk | int64 |  | APOGEE DRP `star` primary key |
- | release | char[1] |  | SDSS release |
- | filetype | char[1] |  | SDSS file type that stores this spectrum |
- | apred | char[1] |  | APOGEE reduction pipeline |
- | apstar | char[1] |  | Unused DR17 apStar keyword (default: stars) |
- | obj | char[1] |  | Object name |
- | telescope | char[1] |  | Short telescope name |
- | healpix | int32 |  | HEALPix (128 side) |
- | field | char[1] |  | Field identifier |
- | prefix | char[1] |  | Prefix used to separate SDSS 4 north/south |
- | min_mjd | int32 |  | Minimum MJD of visits |
- | max_mjd | int32 |  | Maximum MJD of visits |
- | n_entries | int32 |  | apStar entries for this SDSS4_APOGEE_ID |
- | n_visits | int32 |  | Number of APOGEE visits |
- | n_good_visits | int32 |  | Number of 'good' APOGEE visits |
- | n_good_rvs | int32 |  | Number of 'good' APOGEE radial velocities |
- | snr | float32 |  | Signal-to-noise ratio |
- | mean_fiber | float32 |  | S/N-weighted mean visit fiber number |
- | std_fiber | float32 |  | Standard deviation of visit fiber numbers |
- | spectrum_flags | int64 |  | Data reduction pipeline flags for this spectrum |
- | v_rad | float32 | km/s | Barycentric rest frame radial velocity  |
- | e_v_rad | float32 | km/s | Error on radial velocity  |
- | std_v_rad | float32 | km/s | Standard deviation of visit V_RAD  |
- | median_e_v_rad | float32 | km/s | Median error in radial velocity  |
- | doppler_teff | float32 | K | Stellar effective temperature  |
- | doppler_e_teff | float32 | K | Error on stellar effective temperature  |
- | doppler_logg | float32 | log10(cm/s^2) | Surface gravity  |
- | doppler_e_logg | float32 | log10(cm/s^2) | Error on surface gravity  |
- | doppler_fe_h | float32 | dex | [Fe/H]  |
- | doppler_e_fe_h | float32 | dex | Error on [Fe/H]  |
- | doppler_rchi2 | float32 |  | Reduced chi-square value of DOPPLER fit |
- | doppler_flags | int64 |  | DOPPLER flags |
- | xcorr_v_rad | float32 | km/s | Barycentric rest frame radial velocity  |
- | xcorr_v_rel | float32 | km/s | Relative velocity  |
- | xcorr_e_v_rel | float32 | km/s | Error on relative velocity  |
- | ccfwhm | float32 |  | Cross-correlation function FWHM |
- | autofwhm | float32 |  | Auto-correlation function FWHM |
- | n_components | int32 |  | Number of components in CCF |
- | spectrum_pk_id | int64 |  | Unique spectrum primary key |
- | task_pk | int64 |  | Task model primary key |
- | v_astra | char[1] |  | Astra version |
- | created | char[26] |  | Datetime when task record was created |
- | t_elapsed | float32 | s | Core-time elapsed on this analysis  |
- | t_overhead | float32 | s | Estimated core-time spent in overhads  |
- | tag | char[1] |  | Experiment tag for this result |
- | teff | float32 | K | Stellar effective temperature  |
- | e_teff | float32 | K | Error on stellar effective temperature  |
- | logg | float32 | log10(cm/s^2) | Surface gravity  |
- | e_logg | float32 | log10(cm/s^2) | Error on surface gravity  |
- | fe_h | float32 | dex | [Fe/H]  |
- | e_fe_h | float32 | dex | Error on [Fe/H]  |
- | rho_teff_logg | float32 |  | Correlation coefficient between TEFF and LOGG |
- | rho_teff_fe_h | float32 |  | Correlation coefficient between TEFF and FE_H |
- | rho_logg_fe_h | float32 |  | Correlation coefficient between LOGG and FE_H |
- | initial_teff | float32 | K | Initial stellar effective temperature  |
- | initial_logg | float32 | log10(cm/s^2) | Initial surface gravity  |
- | initial_fe_h | float32 | dex | Initial [Fe/H]  |
- | success | bool |  | Optimizer returned successful value |
- | status | int32 |  | Optimization status |
- | optimality | bool |  | Optimality condition |
- | result_flags | int64 |  | Flags describing the results |
- | chi2 | float32 |  | Chi-square value |
- | rchi2 | float32 |  | Reduced chi-square value |
- | wavelength | float32[0] | Angstrom | Wavelength (vacuum)  |
- | model_flux | float32[0] |  | Best-fit model flux |
- | continuum | float32[0] |  | Best-fit continuum flux |
 
 
 
 ### HDU4: APOGEE/LCO
-{data_type} from APOGEE south
+best-fit model and parameters for stacked APOGEE south spectrum
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  0 bytes
@@ -505,98 +278,24 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | binary table extension |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
-| NAXIS1 | 262 | length of dimension 1 |
+| NAXIS1 | 0 | length of dimension 1 |
 | NAXIS2 | 0 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
-| TFIELDS | 66 | number of table fields |
-| EXTNAME | APOGEE/LCO | Extension name |
-| OBSRVTRY | LCO | Observatory |
-| INSTRMNT | APOGEE | Instrument |
-| V_ASTRA | 0.6.0 | Astra version |
-| CREATED | 24-08-01 15:08:17 | File creation time (UTC %y-%m-%d %H:%M:%S) |
-| TDIM64 | (0) |  |
-| TDIM65 | (0) |  |
-| TDIM66 | (0) |  |
-| CHECKSUM | HaLmIZIkHaIkHWIk | HDU checksum updated 2024-08-01T09:08:17 |
-| DATASUM | 0 | data unit checksum updated 2024-08-01T09:08:17 |
+| TFIELDS | 0 | number of table fields |
+| EXTNAME | APOGEE/LCO |  |
+| OBSRVTRY | LCO |  |
+| INSTRMNT | APOGEE |  |
+| CHECKSUM | IpoUJnmTInmTInmT | HDU checksum updated 2022-10-18T20:52:56 |
+| DATASUM | 0 | data unit checksum updated 2022-10-18T20:52:56 |
+| COMMENT | No APOGEE data available from LCO for this source. |  |
 
 ##### Binary Table Caption for HDU4
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | star_pk | int64 |  | APOGEE DRP `star` primary key |
- | release | char[1] |  | SDSS release |
- | filetype | char[1] |  | SDSS file type that stores this spectrum |
- | apred | char[1] |  | APOGEE reduction pipeline |
- | apstar | char[1] |  | Unused DR17 apStar keyword (default: stars) |
- | obj | char[1] |  | Object name |
- | telescope | char[1] |  | Short telescope name |
- | healpix | int32 |  | HEALPix (128 side) |
- | field | char[1] |  | Field identifier |
- | prefix | char[1] |  | Prefix used to separate SDSS 4 north/south |
- | min_mjd | int32 |  | Minimum MJD of visits |
- | max_mjd | int32 |  | Maximum MJD of visits |
- | n_entries | int32 |  | apStar entries for this SDSS4_APOGEE_ID |
- | n_visits | int32 |  | Number of APOGEE visits |
- | n_good_visits | int32 |  | Number of 'good' APOGEE visits |
- | n_good_rvs | int32 |  | Number of 'good' APOGEE radial velocities |
- | snr | float32 |  | Signal-to-noise ratio |
- | mean_fiber | float32 |  | S/N-weighted mean visit fiber number |
- | std_fiber | float32 |  | Standard deviation of visit fiber numbers |
- | spectrum_flags | int64 |  | Data reduction pipeline flags for this spectrum |
- | v_rad | float32 | km/s | Barycentric rest frame radial velocity  |
- | e_v_rad | float32 | km/s | Error on radial velocity  |
- | std_v_rad | float32 | km/s | Standard deviation of visit V_RAD  |
- | median_e_v_rad | float32 | km/s | Median error in radial velocity  |
- | doppler_teff | float32 | K | Stellar effective temperature  |
- | doppler_e_teff | float32 | K | Error on stellar effective temperature  |
- | doppler_logg | float32 | log10(cm/s^2) | Surface gravity  |
- | doppler_e_logg | float32 | log10(cm/s^2) | Error on surface gravity  |
- | doppler_fe_h | float32 | dex | [Fe/H]  |
- | doppler_e_fe_h | float32 | dex | Error on [Fe/H]  |
- | doppler_rchi2 | float32 |  | Reduced chi-square value of DOPPLER fit |
- | doppler_flags | int64 |  | DOPPLER flags |
- | xcorr_v_rad | float32 | km/s | Barycentric rest frame radial velocity  |
- | xcorr_v_rel | float32 | km/s | Relative velocity  |
- | xcorr_e_v_rel | float32 | km/s | Error on relative velocity  |
- | ccfwhm | float32 |  | Cross-correlation function FWHM |
- | autofwhm | float32 |  | Auto-correlation function FWHM |
- | n_components | int32 |  | Number of components in CCF |
- | spectrum_pk_id | int64 |  | Unique spectrum primary key |
- | task_pk | int64 |  | Task model primary key |
- | v_astra | char[1] |  | Astra version |
- | created | char[26] |  | Datetime when task record was created |
- | t_elapsed | float32 | s | Core-time elapsed on this analysis  |
- | t_overhead | float32 | s | Estimated core-time spent in overhads  |
- | tag | char[1] |  | Experiment tag for this result |
- | teff | float32 | K | Stellar effective temperature  |
- | e_teff | float32 | K | Error on stellar effective temperature  |
- | logg | float32 | log10(cm/s^2) | Surface gravity  |
- | e_logg | float32 | log10(cm/s^2) | Error on surface gravity  |
- | fe_h | float32 | dex | [Fe/H]  |
- | e_fe_h | float32 | dex | Error on [Fe/H]  |
- | rho_teff_logg | float32 |  | Correlation coefficient between TEFF and LOGG |
- | rho_teff_fe_h | float32 |  | Correlation coefficient between TEFF and FE_H |
- | rho_logg_fe_h | float32 |  | Correlation coefficient between LOGG and FE_H |
- | initial_teff | float32 | K | Initial stellar effective temperature  |
- | initial_logg | float32 | log10(cm/s^2) | Initial surface gravity  |
- | initial_fe_h | float32 | dex | Initial [Fe/H]  |
- | success | bool |  | Optimizer returned successful value |
- | status | int32 |  | Optimization status |
- | optimality | bool |  | Optimality condition |
- | result_flags | int64 |  | Flags describing the results |
- | chi2 | float32 |  | Chi-square value |
- | rchi2 | float32 |  | Reduced chi-square value |
- | wavelength | float32[0] | Angstrom | Wavelength (vacuum)  |
- | model_flux | float32[0] |  | Best-fit model flux |
- | continuum | float32[0] |  | Best-fit continuum flux |
 
 
 
 ---
 ## Notes
 None
-
----
-## Regrets
-I  have no regrets!
