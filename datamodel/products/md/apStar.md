@@ -9,7 +9,7 @@ APOGEE Redux combined spectrum file
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
@@ -19,7 +19,7 @@ apStar files contain the spectral data for a given star.  apStar files combine d
 <code>apStar-.+-[0-9]{5}\.fits</code>, where .+ (a.k.a. STARNAME) uniquely identifies each star and [0-9]{5} is the 5-digit MJD number of the last data included in the combined frames. There will also be a link, apStar-STARNAME.fits to the latest combined frame. apStar-STARNAME\.html
 
 ### Releases
-DR12, DR13, DR14, DR15, DR16, DR17, WORK
+DR12, DR13, DR14, DR15, DR16, DR17, DR19, WORK
 
 ### Enviroments
 APOGEE_REDUX
@@ -38,45 +38,48 @@ False
 
 ### HDUS List for release WORK
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: ](#hdu1)
-  - [HDU2: ](#hdu2)
-  - [HDU3: ](#hdu3)
-  - [HDU4: ](#hdu4)
-  - [HDU5: ](#hdu5)
-  - [HDU6: ](#hdu6)
-  - [HDU7: ](#hdu7)
-  - [HDU8: ](#hdu8)
-  - [HDU9: ](#hdu9)
+  - [HDU1](#hdu1)
+  - [HDU2](#hdu2)
+  - [HDU3](#hdu3)
+  - [HDU4](#hdu4)
+  - [HDU5](#hdu5)
+  - [HDU6](#hdu6)
+  - [HDU7](#hdu7)
+  - [HDU8](#hdu8)
+  - [HDU9](#hdu9)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
  - WORK
+   - from: DR19
+   - note: No changes
+ - DR19
    - from: DR17
    - primary_delta_nkeys: 13
-   - added_primary_header_kwargs: ['V_APRED', 'VRAD', 'HMAG', 'APTARG3', 'APRED', 'STARVER', 'PROGRAM', 'RPERR', 'PMRA', 'CHISQ1', 'EPLX', 'SVTARG0', 'CATID', 'PLX', 'SVAPTRG0', 'GMAG', 'KERR', 'FRSTCRTN', 'BPMAG', 'HERR', 'CARTON1', 'HEALPIX', 'CATEGORY', 'PMDEC', 'EPMRA', 'KMAG', 'RPMAG', 'CHISQ2', 'JERR', 'JMAG', 'CADENCE', 'GERR', 'BPERR', 'EPMDEC']
-   - removed_primary_header_kwargs: ['VERR2', 'AUTOFWHM', 'RMAX', 'H_ERR', 'MAX_H', 'ROVERMIN', 'SFD_EBV', 'RV_CHI2', 'FIELD', 'VERR1', 'SNREV', 'WASH_T2', 'MAX_JK', 'BOVERMIN', 'IRAC_3_6', 'ROVERMAX', 'AKTARG', 'MIN_H', 'BOVERMAX', 'WASH_M', 'IRAC_5_8', 'CCFWHM', 'RMIN', 'VERR_MED', 'NWAVE', 'MIN_JK', 'GOVERMAX', 'BMAX', 'AKWISE', 'IRAC_4_5', 'GMIN', 'VHELIO2', 'GMAX', 'VHELIO1', 'H', 'DDO51', 'TARG_4_5', 'GOVERMIN', 'AKMETHOD', 'WISE_4_5', 'J', 'K_ERR', 'J_ERR', 'VHELIO', 'BMIN', 'K']
+   - added_primary_header_kwargs: ['PMRA', 'SVTARG0', 'SVAPTRG0', 'GMAG', 'BPMAG', 'JMAG', 'HEALPIX', 'CATEGORY', 'HMAG', 'EPMDEC', 'V_APRED', 'BPERR', 'KMAG', 'APTARG3', 'CADENCE', 'VRAD', 'APRED', 'CHISQ1', 'CHISQ2', 'PMDEC', 'CATID', 'KERR', 'CARTON1', 'HERR', 'JERR', 'GERR', 'FRSTCRTN', 'EPLX', 'PLX', 'EPMRA', 'PROGRAM', 'RPMAG', 'STARVER', 'RPERR']
+   - removed_primary_header_kwargs: ['VERR1', 'AKTARG', 'H', 'FIELD', 'RMAX', 'ROVERMIN', 'VHELIO1', 'VERR_MED', 'K', 'K_ERR', 'BMAX', 'GOVERMIN', 'AKWISE', 'AUTOFWHM', 'BMIN', 'SFD_EBV', 'ROVERMAX', 'GMIN', 'AKMETHOD', 'WASH_M', 'VERR2', 'MAX_H', 'CCFWHM', 'WISE_4_5', 'IRAC_3_6', 'MIN_JK', 'IRAC_4_5', 'GMAX', 'WASH_T2', 'GOVERMAX', 'J', 'TARG_4_5', 'DDO51', 'NWAVE', 'H_ERR', 'BOVERMAX', 'VHELIO2', 'IRAC_5_8', 'J_ERR', 'BOVERMIN', 'SNREV', 'RV_CHI2', 'MAX_JK', 'MIN_H', 'RMIN', 'VHELIO']
  - DR17
    - from: DR16
    - primary_delta_nkeys: 48
-   - added_primary_header_kwargs: ['RV_LOGG', 'AP2TARG3', 'NRES', 'H_ERR', 'MAX_H', 'RV_CHI2', 'SNREV', 'RV_FEH', 'WASH_T2', 'AP2TARG1', 'APTARG2', 'MAX_JK', 'IRAC_3_6', 'MIN_H', 'WASH_M', 'MIN_JK', 'IRAC_5_8', 'CCFWHM', 'AP2TARG4', 'SRC_H', 'RV_TEFF', 'IRAC_4_5', 'APTARG1', 'AP2TARG2', 'DDO51', 'TARG_4_5', 'WISE_4_5', 'N_COMP', 'K_ERR', 'J_ERR']
-   - removed_primary_header_kwargs: ['RVFEH3', 'CHISQ3', 'VRAD', 'VGSR', 'OVHELIO', 'BC3', 'HJD1', 'RVALPH2', 'RVCARB1', 'LOCID', 'VRAD3', 'TARG1', 'OVERR_ME', 'SYNTHSCA', 'SVSCAT', 'SFILE3', 'RVLOGG2', 'RVCARB2', 'SVERR', 'CHISQ1', 'TARG2', 'JD3', 'RVTEFF1', 'HJD2', 'RVTEFF', 'RVTEFF3', 'RVLOGG', 'OVERR', 'VERR3', 'RVFEH1', 'DATE', 'TARG3', 'SVERR_ME', 'VHELIO3', 'VTYPE1', 'DATE3', 'RVFEH', 'RVALPH3', 'RVLOGG3', 'VTYPE3', 'CHISQ', 'SNRVIS3', 'RVALPH1', 'OVSCAT', 'HJD3', 'RVCARB', 'RVFEH2', 'SVHELIO', 'RVLOGG1', 'COMBTYPE', 'TELESCOP', 'SURVEY', 'RVALPH', 'RVTEFF2', 'CHISQ2', 'CCPFWHM', 'RVCARB3', 'VTYPE2', 'VLSR', 'FIBER3', 'FLAG3']
+   - added_primary_header_kwargs: ['K_ERR', 'RV_FEH', 'AP2TARG2', 'RV_TEFF', 'APTARG2', 'WASH_M', 'MAX_H', 'CCFWHM', 'MIN_JK', 'IRAC_3_6', 'AP2TARG4', 'WISE_4_5', 'IRAC_4_5', 'SRC_H', 'WASH_T2', 'TARG_4_5', 'APTARG1', 'NRES', 'DDO51', 'RV_LOGG', 'H_ERR', 'AP2TARG3', 'IRAC_5_8', 'N_COMP', 'J_ERR', 'AP2TARG1', 'RV_CHI2', 'MAX_JK', 'MIN_H', 'SNREV']
+   - removed_primary_header_kwargs: ['RVTEFF3', 'RVCARB2', 'RVALPH1', 'RVTEFF1', 'RVTEFF2', 'RVLOGG2', 'FLAG3', 'SVERR', 'RVCARB1', 'SYNTHSCA', 'RVLOGG3', 'RVCARB3', 'CHISQ', 'VGSR', 'OVHELIO', 'TARG2', 'CHISQ3', 'RVFEH1', 'VERR3', 'TARG3', 'OVERR_ME', 'HJD3', 'SNRVIS3', 'LOCID', 'VLSR', 'HJD1', 'RVTEFF', 'SVHELIO', 'SVSCAT', 'VRAD', 'FIBER3', 'DATE', 'SVERR_ME', 'CHISQ1', 'CHISQ2', 'RVCARB', 'RVALPH2', 'COMBTYPE', 'VTYPE1', 'TARG1', 'RVFEH', 'BC3', 'RVALPH3', 'RVLOGG1', 'RVFEH2', 'VTYPE3', 'OVERR', 'DATE3', 'HJD2', 'OVSCAT', 'RVLOGG', 'SURVEY', 'CCPFWHM', 'TELESCOP', 'RVALPH', 'RVFEH3', 'VRAD3', 'SFILE3', 'VTYPE2', 'VHELIO3', 'JD3']
  - DR16
    - from: DR15
    - primary_delta_nkeys: 38
-   - removed_primary_header_kwargs: ['VTYPE5', 'DATE5', 'CHISQ4', 'HJD4', 'RVALPH4', 'JD4', 'RVCARB5', 'VERR4', 'RVTEFF5', 'VERR5', 'VTYPE4', 'SFILE4', 'SNRVIS5', 'DATE4', 'FIBER5', 'BC5', 'FIBER4', 'RVLOGG5', 'VHELIO5', 'RVLOGG4', 'RVTEFF4', 'VRAD4', 'RVFEH5', 'HJD5', 'VHELIO4', 'JD5', 'RVALPH5', 'VRAD5', 'FLAG4', 'SFILE5', 'FLAG5', 'CHISQ5', 'RVCARB4', 'RVFEH4', 'SNRVIS4', 'BC4']
+   - removed_primary_header_kwargs: ['FLAG5', 'JD4', 'BC4', 'SFILE4', 'SFILE5', 'FIBER5', 'FLAG4', 'DATE5', 'VERR5', 'HJD5', 'VHELIO5', 'RVTEFF5', 'JD5', 'RVTEFF4', 'VTYPE5', 'RVLOGG5', 'RVCARB5', 'VERR4', 'FIBER4', 'HJD4', 'RVCARB4', 'VHELIO4', 'SNRVIS5', 'RVALPH5', 'RVFEH5', 'SNRVIS4', 'DATE4', 'BC5', 'VRAD4', 'CHISQ4', 'RVALPH4', 'VTYPE4', 'CHISQ5', 'RVLOGG4', 'VRAD5', 'RVFEH4']
  - DR15
    - from: DR14
    - note: No changes
  - DR14
    - from: DR13
    - primary_delta_nkeys: 17
-   - added_primary_header_kwargs: ['CHISQ1', 'CHISQ3', 'COMBTYPE', 'VGSR', 'OVHELIO', 'AKMETHOD', 'CHISQ2', 'AKWISE', 'CHISQ4', 'CHISQ', 'SFD_EBV', 'OVERR', 'OVERR_ME', 'AKTARG', 'CHISQ5', 'OVSCAT', 'VLSR']
+   - added_primary_header_kwargs: ['OVSCAT', 'AKTARG', 'CHISQ5', 'CHISQ1', 'CHISQ2', 'SFD_EBV', 'OVERR_ME', 'COMBTYPE', 'CHISQ', 'CHISQ4', 'VGSR', 'VLSR', 'AKMETHOD', 'OVHELIO', 'AKWISE', 'CHISQ3', 'OVERR']
  - DR13
    - from: DR12
    - primary_delta_nkeys: 2
-   - added_primary_header_kwargs: ['TARG3', 'SURVEY']
+   - added_primary_header_kwargs: ['SURVEY', 'TARG3']
 
 ---
 ## Example HDUS List
@@ -190,7 +193,7 @@ Key | Value | Comment | |
 
 
 
-### HDU1:
+### HDU1: 
 
 
 #### HDU Type: IMAGE
@@ -214,7 +217,7 @@ Key | Value | Comment | |
 
 
 
-### HDU2:
+### HDU2: 
 
 
 #### HDU Type: IMAGE
@@ -238,7 +241,7 @@ Key | Value | Comment | |
 
 
 
-### HDU3:
+### HDU3: 
 
 
 #### HDU Type: IMAGE
@@ -262,7 +265,7 @@ Key | Value | Comment | |
 
 
 
-### HDU4:
+### HDU4: 
 
 
 #### HDU Type: IMAGE
@@ -286,7 +289,7 @@ Key | Value | Comment | |
 
 
 
-### HDU5:
+### HDU5: 
 
 
 #### HDU Type: IMAGE
@@ -310,7 +313,7 @@ Key | Value | Comment | |
 
 
 
-### HDU6:
+### HDU6: 
 
 
 #### HDU Type: IMAGE
@@ -334,7 +337,7 @@ Key | Value | Comment | |
 
 
 
-### HDU7:
+### HDU7: 
 
 
 #### HDU Type: IMAGE
@@ -358,7 +361,7 @@ Key | Value | Comment | |
 
 
 
-### HDU8:
+### HDU8: 
 
 
 #### HDU Type: BINARY TABLE
@@ -382,7 +385,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU9:
+### HDU9: 
 
 
 #### HDU Type: BINARY TABLE
@@ -431,3 +434,7 @@ Name | Type | Unit | Description |
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!
