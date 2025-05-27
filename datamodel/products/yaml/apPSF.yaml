@@ -5,6 +5,7 @@ general:
   datatype: FITS
   filesize: 16 MB
   releases:
+  - DR19
   - WORK
   environments:
   - APOGEE_REDUX
@@ -18,9 +19,12 @@ general:
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
-  releases: {}
+  releases:
+    WORK:
+      from: DR19
+      note: No changes
 releases:
-  WORK:
+  WORK: &id001
     template: $APOGEE_REDUX/[APRED]/cal/[INSTRUMENT]/psf/apPSF-[CHIP]-[NUM8].fits
     example: daily/cal/apogee-n/psf/apPSF-a-36010099.fits
     location: '{apred}/cal/{instrument}/psf/apPSF-{chip}-{num:0>8}.fits'
@@ -738,5 +742,5 @@ releases:
         - key: MEDWIDTH
           value: 0.816963
           comment: ''
-notes: |-
-  None
+  DR19: *id001
+notes: None
