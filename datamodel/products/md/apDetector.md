@@ -1,7 +1,7 @@
 # Data Model: apDetector
 
 
-
+apDetector contains calibration information about each detector.
 
 
 ## Contents
@@ -9,7 +9,7 @@
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
@@ -24,7 +24,7 @@ HDU3: linearity correction coefficients (2048x2048x3): quadratic coefficients
 $APOGEE_REDUX/[APRED]/cal/[INSTRUMENT]/detector/apDetector-[CHIP]-[NUM8].fits
 
 ### Releases
-WORK
+DR19, WORK
 
 ### Enviroments
 APOGEE_REDUX
@@ -43,14 +43,17 @@ False
 
 ### HDUS List for release WORK
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: ](#hdu1)
-  - [HDU2: ](#hdu2)
-  - [HDU3: ](#hdu3)
+  - [HDU1](#hdu1)
+  - [HDU2](#hdu2)
+  - [HDU3](#hdu3)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - WORK
+   - from: DR19
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -74,7 +77,7 @@ Key | Value | Comment | |
 
 
 
-### HDU1:
+### HDU1: 
 
 
 #### HDU Type: IMAGE
@@ -92,7 +95,7 @@ Key | Value | Comment | |
 
 
 
-### HDU2:
+### HDU2: 
 
 
 #### HDU Type: IMAGE
@@ -110,7 +113,7 @@ Key | Value | Comment | |
 
 
 
-### HDU3:
+### HDU3: 
 
 
 #### HDU Type: IMAGE
@@ -132,3 +135,7 @@ Key | Value | Comment | |
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!
