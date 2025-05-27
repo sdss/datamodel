@@ -1,7 +1,7 @@
 # Data Model: apEPSF
 
 
-
+apEPSF file
 
 
 ## Contents
@@ -9,7 +9,7 @@
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
@@ -19,7 +19,7 @@
 $APOGEE_REDUX/[APRED]/cal/[INSTRUMENT]/psf/apEPSF-[CHIP]-[NUM8].fits
 
 ### Releases
-WORK
+DR19, WORK
 
 ### Enviroments
 APOGEE_REDUX
@@ -38,61 +38,64 @@ False
 
 ### HDUS List for release WORK
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: ](#hdu1)
-  - [HDU2: ](#hdu2)
-  - [HDU3: ](#hdu3)
-  - [HDU4: ](#hdu4)
-  - [HDU5: ](#hdu5)
-  - [HDU6: ](#hdu6)
-  - [HDU7: ](#hdu7)
-  - [HDU8: ](#hdu8)
-  - [HDU9: ](#hdu9)
-  - [HDU10: ](#hdu10)
-  - [HDU11: ](#hdu11)
-  - [HDU12: ](#hdu12)
-  - [HDU13: ](#hdu13)
-  - [HDU14: ](#hdu14)
-  - [HDU15: ](#hdu15)
-  - [HDU16: ](#hdu16)
-  - [HDU17: ](#hdu17)
-  - [HDU18: ](#hdu18)
-  - [HDU19: ](#hdu19)
-  - [HDU20: ](#hdu20)
-  - [HDU21: ](#hdu21)
-  - [HDU22: ](#hdu22)
-  - [HDU23: ](#hdu23)
-  - [HDU24: ](#hdu24)
-  - [HDU25: ](#hdu25)
-  - [HDU26: ](#hdu26)
-  - [HDU27: ](#hdu27)
-  - [HDU28: ](#hdu28)
-  - [HDU29: ](#hdu29)
-  - [HDU30: ](#hdu30)
-  - [HDU31: ](#hdu31)
-  - [HDU32: ](#hdu32)
-  - [HDU33: ](#hdu33)
-  - [HDU34: ](#hdu34)
-  - [HDU35: ](#hdu35)
-  - [HDU36: ](#hdu36)
-  - [HDU37: ](#hdu37)
-  - [HDU38: ](#hdu38)
-  - [HDU39: ](#hdu39)
-  - [HDU40: ](#hdu40)
-  - [HDU41: ](#hdu41)
-  - [HDU42: ](#hdu42)
-  - [HDU43: ](#hdu43)
-  - [HDU44: ](#hdu44)
-  - [HDU45: ](#hdu45)
-  - [HDU46: ](#hdu46)
-  - [HDU47: ](#hdu47)
-  - [HDU48: ](#hdu48)
-  - [HDU49: ](#hdu49)
-  - [HDU50: ](#hdu50)
+  - [HDU1](#hdu1)
+  - [HDU2](#hdu2)
+  - [HDU3](#hdu3)
+  - [HDU4](#hdu4)
+  - [HDU5](#hdu5)
+  - [HDU6](#hdu6)
+  - [HDU7](#hdu7)
+  - [HDU8](#hdu8)
+  - [HDU9](#hdu9)
+  - [HDU10](#hdu10)
+  - [HDU11](#hdu11)
+  - [HDU12](#hdu12)
+  - [HDU13](#hdu13)
+  - [HDU14](#hdu14)
+  - [HDU15](#hdu15)
+  - [HDU16](#hdu16)
+  - [HDU17](#hdu17)
+  - [HDU18](#hdu18)
+  - [HDU19](#hdu19)
+  - [HDU20](#hdu20)
+  - [HDU21](#hdu21)
+  - [HDU22](#hdu22)
+  - [HDU23](#hdu23)
+  - [HDU24](#hdu24)
+  - [HDU25](#hdu25)
+  - [HDU26](#hdu26)
+  - [HDU27](#hdu27)
+  - [HDU28](#hdu28)
+  - [HDU29](#hdu29)
+  - [HDU30](#hdu30)
+  - [HDU31](#hdu31)
+  - [HDU32](#hdu32)
+  - [HDU33](#hdu33)
+  - [HDU34](#hdu34)
+  - [HDU35](#hdu35)
+  - [HDU36](#hdu36)
+  - [HDU37](#hdu37)
+  - [HDU38](#hdu38)
+  - [HDU39](#hdu39)
+  - [HDU40](#hdu40)
+  - [HDU41](#hdu41)
+  - [HDU42](#hdu42)
+  - [HDU43](#hdu43)
+  - [HDU44](#hdu44)
+  - [HDU45](#hdu45)
+  - [HDU46](#hdu46)
+  - [HDU47](#hdu47)
+  - [HDU48](#hdu48)
+  - [HDU49](#hdu49)
+  - [HDU50](#hdu50)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - WORK
+   - from: DR19
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -118,7 +121,7 @@ Key | Value | Comment | |
 
 
 
-### HDU1:
+### HDU1: 
 
 
 #### HDU Type: BINARY TABLE
@@ -160,7 +163,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU2:
+### HDU2: 
 
 
 #### HDU Type: BINARY TABLE
@@ -202,7 +205,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU3:
+### HDU3: 
 
 
 #### HDU Type: BINARY TABLE
@@ -244,7 +247,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU4:
+### HDU4: 
 
 
 #### HDU Type: BINARY TABLE
@@ -286,7 +289,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU5:
+### HDU5: 
 
 
 #### HDU Type: BINARY TABLE
@@ -328,7 +331,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU6:
+### HDU6: 
 
 
 #### HDU Type: BINARY TABLE
@@ -370,7 +373,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU7:
+### HDU7: 
 
 
 #### HDU Type: BINARY TABLE
@@ -412,7 +415,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU8:
+### HDU8: 
 
 
 #### HDU Type: BINARY TABLE
@@ -454,7 +457,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU9:
+### HDU9: 
 
 
 #### HDU Type: BINARY TABLE
@@ -496,7 +499,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU10:
+### HDU10: 
 
 
 #### HDU Type: BINARY TABLE
@@ -538,7 +541,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU11:
+### HDU11: 
 
 
 #### HDU Type: BINARY TABLE
@@ -580,7 +583,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU12:
+### HDU12: 
 
 
 #### HDU Type: BINARY TABLE
@@ -622,7 +625,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU13:
+### HDU13: 
 
 
 #### HDU Type: BINARY TABLE
@@ -664,7 +667,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU14:
+### HDU14: 
 
 
 #### HDU Type: BINARY TABLE
@@ -706,7 +709,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU15:
+### HDU15: 
 
 
 #### HDU Type: BINARY TABLE
@@ -748,7 +751,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU16:
+### HDU16: 
 
 
 #### HDU Type: BINARY TABLE
@@ -790,7 +793,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU17:
+### HDU17: 
 
 
 #### HDU Type: BINARY TABLE
@@ -832,7 +835,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU18:
+### HDU18: 
 
 
 #### HDU Type: BINARY TABLE
@@ -874,7 +877,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU19:
+### HDU19: 
 
 
 #### HDU Type: BINARY TABLE
@@ -916,7 +919,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU20:
+### HDU20: 
 
 
 #### HDU Type: BINARY TABLE
@@ -958,7 +961,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU21:
+### HDU21: 
 
 
 #### HDU Type: BINARY TABLE
@@ -1000,7 +1003,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU22:
+### HDU22: 
 
 
 #### HDU Type: BINARY TABLE
@@ -1042,7 +1045,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU23:
+### HDU23: 
 
 
 #### HDU Type: BINARY TABLE
@@ -1084,7 +1087,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU24:
+### HDU24: 
 
 
 #### HDU Type: BINARY TABLE
@@ -1126,7 +1129,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU25:
+### HDU25: 
 
 
 #### HDU Type: BINARY TABLE
@@ -1168,7 +1171,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU26:
+### HDU26: 
 
 
 #### HDU Type: BINARY TABLE
@@ -1210,7 +1213,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU27:
+### HDU27: 
 
 
 #### HDU Type: BINARY TABLE
@@ -1252,7 +1255,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU28:
+### HDU28: 
 
 
 #### HDU Type: BINARY TABLE
@@ -1294,7 +1297,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU29:
+### HDU29: 
 
 
 #### HDU Type: BINARY TABLE
@@ -1336,7 +1339,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU30:
+### HDU30: 
 
 
 #### HDU Type: BINARY TABLE
@@ -1378,7 +1381,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU31:
+### HDU31: 
 
 
 #### HDU Type: BINARY TABLE
@@ -1420,7 +1423,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU32:
+### HDU32: 
 
 
 #### HDU Type: BINARY TABLE
@@ -1462,7 +1465,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU33:
+### HDU33: 
 
 
 #### HDU Type: BINARY TABLE
@@ -1504,7 +1507,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU34:
+### HDU34: 
 
 
 #### HDU Type: BINARY TABLE
@@ -1546,7 +1549,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU35:
+### HDU35: 
 
 
 #### HDU Type: BINARY TABLE
@@ -1588,7 +1591,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU36:
+### HDU36: 
 
 
 #### HDU Type: BINARY TABLE
@@ -1630,7 +1633,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU37:
+### HDU37: 
 
 
 #### HDU Type: BINARY TABLE
@@ -1672,7 +1675,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU38:
+### HDU38: 
 
 
 #### HDU Type: BINARY TABLE
@@ -1714,7 +1717,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU39:
+### HDU39: 
 
 
 #### HDU Type: BINARY TABLE
@@ -1756,7 +1759,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU40:
+### HDU40: 
 
 
 #### HDU Type: BINARY TABLE
@@ -1798,7 +1801,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU41:
+### HDU41: 
 
 
 #### HDU Type: BINARY TABLE
@@ -1840,7 +1843,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU42:
+### HDU42: 
 
 
 #### HDU Type: BINARY TABLE
@@ -1882,7 +1885,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU43:
+### HDU43: 
 
 
 #### HDU Type: BINARY TABLE
@@ -1924,7 +1927,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU44:
+### HDU44: 
 
 
 #### HDU Type: BINARY TABLE
@@ -1966,7 +1969,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU45:
+### HDU45: 
 
 
 #### HDU Type: BINARY TABLE
@@ -2008,7 +2011,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU46:
+### HDU46: 
 
 
 #### HDU Type: BINARY TABLE
@@ -2050,7 +2053,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU47:
+### HDU47: 
 
 
 #### HDU Type: BINARY TABLE
@@ -2092,7 +2095,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU48:
+### HDU48: 
 
 
 #### HDU Type: BINARY TABLE
@@ -2134,7 +2137,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU49:
+### HDU49: 
 
 
 #### HDU Type: BINARY TABLE
@@ -2176,7 +2179,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU50:
+### HDU50: 
 
 
 #### HDU Type: BINARY TABLE
@@ -2221,3 +2224,7 @@ Name | Type | Unit | Description |
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!
