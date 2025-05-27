@@ -1,7 +1,7 @@
 general:
   name: apFlux
-  short: apFlux contains calibration data about the relative response of the
-    system at different wavelengths.
+  short: apFlux contains calibration data about the relative response of the system
+    at different wavelengths.
   description: apFlux contains calibration data about the relative response of the
     system at different wavelengths. It is derived from a combination of observations
     of a spectrophotometric standard and flat fields. The format is a response curve
@@ -9,6 +9,7 @@ general:
   datatype: FITS
   filesize: 2 MB
   releases:
+  - DR19
   - WORK
   environments:
   - APOGEE_REDUX
@@ -22,9 +23,12 @@ general:
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
-  releases: {}
+  releases:
+    WORK:
+      from: DR19
+      note: No changes
 releases:
-  WORK:
+  WORK: &id001
     template: $APOGEE_REDUX/[APRED]/cal/[INSTRUMENT]/flux/apFlux-[CHIP]-[NUM8].fits
     example: daily/cal/apogee-n/flux/apFlux-c-36020029.fits
     location: '{apred}/cal/{instrument}/flux/apFlux-{chip}-{num:0>8}.fits'
@@ -692,5 +696,5 @@ releases:
         - key: BUNIT
           value: Relative Flux
           comment: ''
-notes: |-
-  None
+  DR19: *id001
+notes: None
