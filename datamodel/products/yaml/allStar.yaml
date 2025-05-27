@@ -1,7 +1,7 @@
 general:
   name: allStar
   short: APOGEE Redux summary file
-  description: The allStar-RESULTS_VERS.fits file contains all final data product
+  description: The allStar-VERS-TELESCOPE.fits file contains all final data product
     and summary information for every observed star in the data release.
   datatype: FITS
   filesize: 148 MB
@@ -13,13 +13,13 @@ general:
   - DR15
   - DR16
   - DR17
+  - DR19
   - WORK
   environments:
   - APOGEE_REDUX
-  - APOGEE_ROOT
   - APOGEE_ASPCAP
-  naming_convention: <code>allstar-RESULTS_VERS.fits</code>
-  generated_by: idlwrap (aspcap_allstar)
+  naming_convention: <code>allStar-VERS-TELESCOPE.fits</code>
+  generated_by: apogeedrp.py
   design: false
   vac: false
   surveys:
@@ -5348,7 +5348,7 @@ releases:
             unit: ''
             description: Gives order of classes in FPARAM_CLASS arrays in HDU1
   DR16:
-    template: $APOGEE_ROOT/spectro/aspcap/[APRED]/[APSTAR]/allStar-[APRED]-[APSTAR].fits
+    template: $APOGEE_ASPCAP/[APRED]/[APSTAR]/allStar-[APRED]-[APSTAR].fits
     example: spectro/aspcap/r12/l33/allStar-r12-l33.fits
     location: spectro/aspcap/{apred}/{apstar}/allStar-{apred}-{apstar}.fits
     environment: APOGEE_ROOT
@@ -5359,7 +5359,7 @@ releases:
       path_kwargs:
       - aspcap
       - apred
-      access_string: allStar = $APOGEE_ROOT/spectro/aspcap/{apred}/{apstar}/allStar-{apred}-{apstar}.fits
+      access_string: allStar = $APOGEE_ASPCAP/{apred}/{apstar}/allStar-{apred}-{apstar}.fits
     hdus:
       hdu0:
         name: PRIMARY
@@ -8086,6 +8086,504 @@ releases:
             type: char[12]
             unit: ''
             description: APOGEE_VERS
+  DR19:
+    template: $APOGEE_REDUX/[APRED]/summary/allStar-[APRED]-[TELESCOPE].fits
+    example: dr19/summary/allStar-1.4-apo25m.fits
+    location: '{apred}/summary/allStar-{apred}-{telescope}.fits'
+    environment: APOGEE_REDUX
+    access:
+      in_sdss_access: true
+      path_name: allStar
+      path_template: $APOGEE_REDUX/{apred}/{summary}/allStar-{apred}-{telescope}.fits
+      path_kwargs:
+      - apred
+      - telescope
+      access_string: allStar = $APOGEE_REDUX/{apred}/summary/allStar-{apred}-{telescope}.fits
+    survey: MWM
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: ''
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 16
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: VERSION
+          value: 1.0
+          comment: Code version
+      hdu1:
+        name: 'APOGEE reduction star-level summary table'
+        description: 'Contains all final data product and summary information for every observed star (by the relevant telescope) in the data release.'
+        is_image: false
+        size: 3 GB
+        columns:
+          pk:
+            name: pk
+            type: int64
+            unit: ''
+            description: 'Database Primary Key'
+          apogee_id:
+            name: apogee_id
+            type: char[28]
+            unit: ''
+            description: '2MASS-STYLE object name'
+          file:
+            name: file
+            type: char[57]
+            unit: ''
+            description: 'apStar File name'
+          uri:
+            name: uri
+            type: char[106]
+            unit: ''
+            description: 'Uniform Resource Identifier.  Full path information for the apStar file'
+          starver:
+            name: starver
+            type: char[15]
+            unit: ''
+            description: 'Star combination version, MJD of last visit used'
+          mjdbeg:
+            name: mjdbeg
+            type: int64
+            unit: 'day'
+            description: 'MJD of first visit for this star'
+          mjdend:
+            name: mjdend
+            type: int64
+            unit: 'day'
+            description: 'MJD of last visit for this star'
+          telescope:
+            name: telescope
+            type: char[16]
+            unit: ''
+            description: 'String representation of of telescope used for observation (currently apo25m or lco25m)'
+          apred_vers:
+            name: apred_vers
+            type: char[13]
+            unit: ''
+            description: 'APOGEE reduction version'
+          healpix:
+            name: healpix
+            type: int64
+            unit: ''
+            description: 'HEALPix number for this star, nside=128'
+          snr:
+            name: snr
+            type: float32
+            unit: ''
+            description: 'Median S/N per pixel in combined frame (at apStar sampling)'
+          ra:
+            name: ra
+            type: float64
+            unit: 'degree'
+            description: 'Right ascension (J2000)'
+          dec:
+            name: dec
+            type: float64
+            unit: 'degree'
+            description: 'Declination (J2000)'
+          glon:
+            name: glon
+            type: float64
+            unit: 'degree'
+            description: 'Galactic longitude'
+          glat:
+            name: glat
+            type: float64
+            unit: 'degree'
+            description: 'Galactic latitude'
+          jmag:
+            name: jmag
+            type: float32
+            unit: 'mag'
+            description: '2MASS J-band magnitude'
+          jerr:
+            name: jerr
+            type: float32
+            unit: 'mag'
+            description: 'Uncertainty of 2MASS J-band magnitude'
+          hmag:
+            name: hmag
+            type: float32
+            unit: 'mag'
+            description: '2MASS H-band magnitude'
+          herr:
+            name: herr
+            type: float32
+            unit: 'mag'
+            description: 'Uncertainty of 2MASS H-band magnitude'
+          kmag:
+            name: kmag
+            type: float32
+            unit: 'mag'
+            description: '2MASS Ks-band magnitude'
+          kerr:
+            name: kerr
+            type: float32
+            unit: 'mag'
+            description: 'Uncertainty of 2MASS Ks-band magnitude'
+          src_h:
+            name: src_h
+            type: char[10]
+            unit: 'mag'
+            description: 'Source of H-Band photometry'
+          targ_pmra:
+            name: targ_pmra
+            type: float32
+            unit: 'mas/yr'
+            description: 'Proper motion in right ascension used in target selection'
+          targ_pmdec:
+            name: targ_pmdec
+            type: float32
+            unit: 'mas/yr'
+            description: 'Proper motion in declination used in target selection'
+          targ_pm_src:
+            name: targ_pm_src
+            type: char[10]
+            unit: ''
+            description: 'Source of proper motion used in target selection'
+          apogee_target1:
+            name: apogee_target1
+            type: int64
+            unit: ''
+            description: 'Bitwise OR of first APOGEE-1 target flag of all visits, see
+              <a href="https://www.sdss4.org/dr17/algorithms/bitmasks/#APOGEE_TARGET1">
+              bitmask definitions</a>'
+          apogee_target2:
+            name: apogee_target2
+            type: int64
+            unit: ''
+            description: 'Bitwise OR of second APOGEE-1 target flag of all visits,
+              see <a href="https://www.sdss4.org/dr17/algorithms/bitmasks/#APOGEE_TARGET2">
+              bitmask definitions</a>'
+          apogee2_target1:
+            name: apogee2_target1
+            type: int64
+            unit: ''
+            description: 'Bitwise OR of first APOGEE-2 target flag of all visits, see
+              <a href="https://www.sdss4.org/dr17/algorithms/bitmasks/#APOGEE2_TARGET1">
+              bitmask definitions</a>'
+          apogee2_target2:
+            name: apogee2_target2
+            type: int64
+            unit: ''
+            description: 'Bitwise OR of second APOGEE-2 target flag of all visits,
+              see <a href="https://www.sdss4.org/dr17/algorithms/bitmasks/#APOGEE2_TARGET2">
+              bitmask definitions</a>'
+          apogee2_target3:
+            name: apogee2_target3
+            type: int64
+            unit: ''
+            description: 'Bitwise OR of third APOGEE-2 target flag of all visits, see
+              <a href="https://www.sdss4.org/dr17/algorithms/bitmasks/#APOGEE2_TARGET3">
+              bitmask definitions</a>'
+          apogee2_target4:
+            name: apogee2_target4
+            type: int64
+            unit: ''
+            description: 'Bitwise OR of fourth APOGEE-2 target flag of all visits, see
+              <a href="https://www.sdss4.org/dr17/algorithms/bitmasks/#APOGEE2_TARGET4">
+              bitmask definitions</a>'
+          catalogid:
+            name: catalogid
+            type: int64
+            unit: ''
+            description: 'SDSS-V catalog identification number'
+          gaia_sourceid:
+            name: gaia_sourceid
+            type: int64
+            unit: ''
+            description: 'GAIA source identification'
+          gaia_plx:
+            name: gaia_plx
+            type: float32
+            unit: 'mas'
+            description: 'Gaia parallax'
+          gaia_plx_error:
+            name: gaia_plx_error
+            type: float32
+            unit: 'mas'
+            description: 'Uncertainty in Gaia parallax'
+          gaia_pmra:
+            name: gaia_pmra
+            type: float32
+            unit: 'mas/yr'
+            description: 'Gaia proper motion in Right Ascension'
+          gaia_pmra_error:
+            name: gaia_pmra_error
+            type: float32
+            unit: 'mas/yr'
+            description: 'Uncertainty in Gaia proper motion in Right Ascension'
+          gaia_pmdec:
+            name: gaia_pmdec
+            type: float32
+            unit: 'mas/yr'
+            description: 'Gaia proper motion in Declination'
+          gaia_pmdec_error:
+            name: gaia_pmdec_error
+            type: float32
+            unit: 'mas/yr'
+            description: 'Uncertainty in Gaia proper motion in declination'
+          gaia_gmag:
+            name: gaia_gmag
+            type: float32
+            unit: 'mag'
+            description: 'Gaia G mean magnitude'
+          gaia_gerr:
+            name: gaia_gerr
+            type: float32
+            unit: 'mag'
+            description: 'Uncertainty in Gaia G mean magnitude'
+          gaia_bpmag:
+            name: gaia_bpmag
+            type: float32
+            unit: 'mag'
+            description: 'Gaia BP mean magnitude'
+          gaia_bperr:
+            name: gaia_bperr
+            type: float32
+            unit: 'mag'
+            description: 'Uncertainty in Gaia BP mean magnitude'
+          gaia_rpmag:
+            name: gaia_rpmag
+            type: float32
+            unit: 'mag'
+            description: 'Gaia RP mean magnitude'
+          gaia_rperr:
+            name: gaia_rperr
+            type: float32
+            unit: 'mag'
+            description: 'Uncertainty in Gaia RP mean magnitude'
+          sdssv_apogee_target0:
+            name: sdssv_apogee_target0
+            type: int64
+            unit: ''
+            description: 'SDSS-V early targeting flag'
+          firstcarton:
+            name: firstcarton
+            type: char[45]
+            unit: ''
+            description: 'SDSS-V primary target carton'
+          targflags:
+            name: targflags
+            type: char[113]
+            unit: ''
+            description: 'Verbose/text form of APOGEE-1 target flags'
+          nvisits:
+            name: nvisits
+            type: int64
+            unit: ''
+            description: 'Number of visit spectra for this star'
+          ngoodvisits:
+            name: ngoodvisits
+            type: int64
+            unit: ''
+            description: 'Number of good visits'
+          ngoodrvs:
+            name: ngoodrvs
+            type: int64
+            unit: ''
+            description: 'Number of visits passing RV quality criteria and used in Doppler RV analysis'
+          starflag:
+            name: starflag
+            type: int64
+            unit: ''
+            description: 'Flag for star condition taken from bitwise OR of individual
+              visits, see <a href="https://www.sdss4.org/dr17/algorithms/bitmasks/#APOGEE_STARFLAG">
+              bitmask definitions</a>'
+          starflags:
+            name: starflags
+            type: char[100]
+            unit: ''
+            description: 'Verbose/text form of STARFLAG'
+          andflag:
+            name: andflag
+            type: int64
+            unit: ''
+            description: 'Flag for star condition taken from bitwise AND of individual
+              visits, see <a href="https://www.sdss4.org/dr17/algorithms/bitmasks/#APOGEE_STARFLAG">
+              bitmask definitions</a>'
+          andflags:
+            name: andflags
+            type: char[10]
+            unit: ''
+            description: 'Verbose/text form of ANDFLAG'
+          vrad:
+            name: vrad
+            type: float32
+            unit: 'km/s'
+            description: 'Signal-to-noise weighted average radial velocity in the Solar System Barycentric frame'
+          vscatter:
+            name: vscatter
+            type: float32
+            unit: 'km/s'
+            description: 'Standard deviation of scatter of individual visit RVs around average'
+          verr:
+            name: verr
+            type: float32
+            unit: 'km/s'
+            description: 'Weighted error of barycentric radial velocity'
+          vmederr:
+            name: vmederr
+            type: float32
+            unit: 'km/s'
+            description: 'Median uncertainty in the visit radial velocities'
+          chisq:
+            name: chisq
+            type: float32
+            unit: ''
+            description: 'Reduced chi-squared of the Doppler best-fit model to all the visit spectra'
+          rv_teff:
+            name: rv_teff
+            type: float32
+            unit: 'K'
+            description: 'Effective temperature of Doppler RV template match'
+          rv_tefferr:
+            name: rv_tefferr
+            type: float32
+            unit: 'K'
+            description: 'Effective temperature of Doppler RV template match uncertainty'
+          rv_logg:
+            name: rv_logg
+            type: float32
+            unit: 'log (cgs)'
+            description: 'log g of Doppler RV template match'
+          rv_loggerr:
+            name: rv_loggerr
+            type: float32
+            unit: 'dex'
+            description: 'log g of Doppler RV template match uncertainty'
+          rv_feh:
+            name: rv_feh
+            type: float32
+            unit: 'dex'
+            description: '[Fe/H] from Doppler RV template match'
+          rv_feherr:
+            name: rv_feherr
+            type: float32
+            unit: 'dex'
+            description: '[Fe/H] from Doppler RV template match uncertainty'
+          rv_ccpfwhm:
+            name: rv_ccpfwhm
+            type: float32
+            unit: ''
+            description: 'FWHM of cross-correlation peak from combined vs best-match Doppler template spectrum'
+          rv_autofwhm:
+            name: rv_autofwhm
+            type: float32
+            unit: 'km/s'
+            description: 'FWHM of auto-correlation of best-match Doppler template spectrum'
+          n_components:
+            name: n_components
+            type: int64
+            unit: ''
+            description: 'Number of components from RV cross correlation'
+          meanfib:
+            name: meanfib
+            type: float32
+            unit: ''
+            description: 'Mean FiberID for all the star visits'
+          sigfib:
+            name: sigfib
+            type: float32
+            unit: ''
+            description: 'Standard deviation of FiberID for all the star visits'
+          created:
+            name: created
+            type: char[39]
+            unit: ''
+            description: 'Timestamp of when database entry was created'
+          v_apred:
+            name: v_apred
+            type: char[50]
+            unit: ''
+            description: 'apogee_drp git hash'
+          cadence:
+            name: cadence
+            type: char[29]
+            unit: ''
+            description: 'SDSS-V cadence type'
+          program:
+            name: program
+            type: char[24]
+            unit: ''
+            description: 'SDSS-V program name'
+          category:
+            name: category
+            type: char[25]
+            unit: ''
+            description: 'SDSS-V category'
+          gaia_release:
+            name: gaia_release
+            type: char[13]
+            unit: ''
+            description: 'GAIA data release used'
+          sdss_id:
+            name: sdss_id
+            type: int64
+            unit: 'SDSS-V sdss_id unique identification number'
+            description: ''
+          sdss5_target_carton_pks:
+            name: sdss5_target_carton_pks
+            type: char[210]
+            unit: ''
+            description: 'SDSS-V carton_pks (comma-delimited list)'
+          sdss5_target_cartons:
+            name: sdss5_target_cartons
+            type: char[10]
+            unit: ''
+            description: 'SDSS-V carton names (comma-delimited list)'
+          sdss5_target_flagshex:
+            name: sdss5_target_flagshex
+            type: char[124]
+            unit: ''
+            description: 'SDSS-V carton flags as hexadecimal string'
+          ra_sdss_id:
+            name: ra_sdss_id
+            type: float64
+            unit: 'degree'
+            description: 'Right Ascension of unique SDSS-V sdss_id object'
+          dec_sdss_id:
+            name: dec_sdss_id
+            type: float64
+            unit: 'degree'
+            description: 'Declination of unique SDSS-V sdsss_id object'
+          sdss5_target_pks:
+            name: sdss5_target_pks
+            type: char[39]
+            unit: ''
+            description: 'SDSS-V target_pks (comma-delimited list)'
+          sdss5_target_catalogids:
+            name: sds5_target_catalogids
+            type: char[56]
+            unit: ''
+            description: 'SDSS-V catalogIDs (comma-delimited list)'
+          brightneicount:
+            name: brightneicount
+            type: int63
+            unit: ''
+            description: 'Count of bright neighbors'
+          brightneiflag:
+            name: brightneiflag
+            type: int64
+            unit: ''
+            description: 'Bright neighbor flag'
+          brightneifluxfrac:
+            name: brightneifluxfrac
+            type: float32
+            unit: ''
+            description: 'Bright neighbor flux fraction'
   WORK:
     template: $APOGEE_REDUX/[APRED]/summary/allStar-[APRED]-[TELESCOPE].fits
     example: 1.0/summary/allStar-1.0-apo25m.fits
@@ -8128,399 +8626,457 @@ releases:
             name: PK
             type: int64
             unit: ''
-            description: 'IPL1: description of column needs update'
+            description: 'Database Primary Key'
           apogee_id:
             name: APOGEE_ID
             type: char[28]
             unit: ''
-            description: TMASS-STYLE object name
+            description: 'TMASS-STYLE object name'
           file:
             name: FILE
             type: char[57]
             unit: ''
-            description: File name
+            description: 'apStar File name'
           uri:
             name: URI
             type: char[106]
             unit: ''
-            description: 'IPL1: description of column needs update'
+            description: 'Uniform Resource Identifier.  Full path information for the apStar file'
           starver:
             name: STARVER
             type: char[15]
             unit: ''
-            description: 'IPL1: description of column needs update'
+            description: ''
           mjdbeg:
             name: MJDBEG
             type: int64
-            unit: ''
-            description: 'IPL1: description of column needs update'
+            unit: 'day'
+            description: 'MJD of first visit for this star'
           mjdend:
             name: MJDEND
             type: int64
-            unit: ''
-            description: 'IPL1: description of column needs update'
+            unit: 'day'
+            description: 'MJD of last visit for this star'
           telescope:
             name: TELESCOPE
             type: char[16]
             unit: ''
-            description: String representation of of telescope used for observation
-              (currently APO 2.5m / 1m or LCO)
+            description: 'String representation of of telescope used for observation
+              (currently APO 2.5m / 1m or LCO)'
           apred_vers:
             name: APRED_VERS
             type: char[13]
             unit: ''
-            description: 'IPL1: description of column needs update'
+            description: ''
           healpix:
             name: HEALPIX
             type: int64
             unit: ''
-            description: 'IPL1: description of column needs update'
+            description: ''
           snr:
             name: SNR
             type: float32
             unit: ''
-            description: median S/N per pixel in combined frame (at apStar sampling)
+            description: 'Median S/N per pixel in combined frame (at apStar sampling)'
           ra:
             name: RA
             type: float64
-            unit: degrees
-            description: Right ascension (J2000)
+            unit: 'degree'
+            description: 'Right ascension (J2000)'
           dec:
             name: DEC
             type: float64
-            unit: degrees
-            description: Declination (J2000)
+            unit: 'degree'
+            description: 'Declination (J2000)'
           glon:
             name: GLON
             type: float64
-            unit: degrees
-            description: Galactic longitude
+            unit: 'degree'
+            description: 'Galactic longitude'
           glat:
             name: GLAT
             type: float64
-            unit: degrees
-            description: Galactic latitude
+            unit: 'degree'
+            description: 'Galactic latitude'
           jmag:
             name: JMAG
             type: float32
-            unit: ''
-            description: 'IPL1: description of column needs update'
+            unit: 'mag'
+            description: ''
           jerr:
             name: JERR
             type: float32
-            unit: ''
-            description: 'IPL1: description of column needs update'
+            unit: 'mag'
+            description: ''
           hmag:
             name: HMAG
             type: float32
-            unit: ''
-            description: 'IPL1: description of column needs update'
+            unit: 'mag'
+            description: ''
           herr:
             name: HERR
             type: float32
-            unit: ''
-            description: 'IPL1: description of column needs update'
+            unit: 'mag'
+            description: ''
           kmag:
             name: KMAG
             type: float32
-            unit: ''
-            description: 'IPL1: description of column needs update'
+            unit: 'mag'
+            description: ''
           kerr:
             name: KERR
             type: float32
-            unit: ''
-            description: 'IPL1: description of column needs update'
+            unit: 'mag'
+            description: ''
           src_h:
             name: SRC_H
             type: char[10]
-            unit: ''
-            description: Source of H-Band photometry
+            unit: 'mag'
+            description: 'Source of H-Band photometry'
           targ_pmra:
             name: TARG_PMRA
             type: float32
-            unit: ''
-            description: 'NB: description of column needs update'
+            unit: 'mas/yr'
+            description: ''
           targ_pmdec:
             name: TARG_PMDEC
             type: float32
-            unit: ''
-            description: 'NB: description of column needs update'
+            unit: 'mas/yr'
+            description: ''
           targ_pm_src:
             name: TARG_PM_SRC
             type: char[10]
             unit: ''
-            description: 'NB: description of column needs update'
+            description: ''
           apogee_target1:
             name: APOGEE_TARGET1
             type: int64
             unit: ''
-            description: Bitwise OR of first APOGEE-1 target flag of all visits, see
-              <a href="http://www.sdss.org/dr14/algorithms/bitmasks/#APOGEE_TARGET1">
-              bitmask definitions</a>.
+            description: 'Bitwise OR of first APOGEE-1 target flag of all visits, see
+              <a href="https://www.sdss4.org/dr17/algorithms/bitmasks/#APOGEE_TARGET1">
+              bitmask definitions</a>'
           apogee_target2:
             name: APOGEE_TARGET2
             type: int64
             unit: ''
-            description: Bitwise OR of second APOGEE-1 target flag of all visits,
-              see <a href="http://www.sdss.org/dr14/algorithms/bitmasks/#APOGEE_TARGET2">
-              bitmask definitions</a>
+            description: 'Bitwise OR of second APOGEE-1 target flag of all visits,
+              see <a href="https://www.sdss4.org/dr17/algorithms/bitmasks/#APOGEE_TARGET2">
+              bitmask definitions</a>'
           apogee2_target1:
             name: APOGEE2_TARGET1
             type: int64
             unit: ''
-            description: Bitwise OR of first APOGEE-2 target flag of all visits, see
-              <a href="http://www.sdss.org/dr14/algorithms/bitmasks/#APOGEE2_TARGET1">
-              bitmask definitions</a>
+            description: 'Bitwise OR of first APOGEE-2 target flag of all visits, see
+              <a href="https://www.sdss4.org/dr17/algorithms/bitmasks/#APOGEE2_TARGET1">
+              bitmask definitions</a>'
           apogee2_target2:
             name: APOGEE2_TARGET2
             type: int64
             unit: ''
-            description: Bitwise OR of second APOGEE-2 target flag of all visits,
-              see <a href="http://www.sdss.org/dr14/algorithms/bitmasks/#APOGEE2_TARGET2">
-              bitmask definitions</a>
+            description: 'Bitwise OR of second APOGEE-2 target flag of all visits,
+              see <a href="https://www.sdss4.org/dr17/algorithms/bitmasks/#APOGEE2_TARGET2">
+              bitmask definitions</a>'
           apogee2_target3:
             name: APOGEE2_TARGET3
             type: int64
             unit: ''
-            description: Bitwise OR of third APOGEE-2 target flag of all visits, see
-              <a href="http://www.sdss.org/dr14/algorithms/bitmasks/#APOGEE2_TARGET3">
-              bitmask definitions</a>
+            description: 'Bitwise OR of third APOGEE-2 target flag of all visits, see
+              <a href="https://www.sdss4.org/dr17/algorithms/bitmasks/#APOGEE2_TARGET3">
+              bitmask definitions</a>'
           apogee2_target4:
             name: APOGEE2_TARGET4
             type: int64
             unit: ''
-            description: 'NB: description of column needs update'
+            description: ''
           catalogid:
             name: CATALOGID
             type: int64
             unit: ''
-            description: 'IPL1: description of column needs update'
-          gaiadr2_sourceid:
-            name: GAIADR2_SOURCEID
+            description: ''
+          gaia_sourceid:
+            name: GAIA_SOURCEID
             type: int64
             unit: ''
-            description: 'IPL1: description of column needs update'
-          gaiadr2_plx:
-            name: GAIADR2_PLX
+            description: ''
+          gaia_plx:
+            name: GAIA_PLX
+            type: float32
+            unit: 'mas'
+            description: 'Gaia parallax'
+          gaia_plx_error:
+            name: GAIA_PLX_ERROR
+            type: float32
+            unit: 'mas'
+            description: 'Uncertainty in Gaia parallax'
+          gaia_pmra:
+            name: GAIA_PMRA
+            type: float32
+            unit: ''
+            description: 'Gaia proper motion in Right Ascension'
+          gaia_pmra_error:
+            name: GAIA_PMRA_ERROR
+            type: float32
+            unit: ''
+            description: 'Uncertainty in Gaia proper motion in Right Ascension'
+          gaia_pmdec:
+            name: GAIA_PMDEC
+            type: float32
+            unit: 'mas/yr'
+            description: 'Gaia proper motion in Declination'
+          gaia_pmdec_error:
+            name: GAIA_PMDEC_ERROR
+            type: float32
+            unit: 'mas/yr'
+            description: 'Uncertainty in Gaia proper motion in declination'
+          gaia_gmag:
+            name: GAIA_GMAG
+            type: float32
+            unit: 'mag'
+            description: 'Gaia G mean magnitude'
+          gaia_gerr:
+            name: GAIA_GERR
+            type: float32
+            unit: 'mag'
+            description: 'Uncertainty in Gaia G mean magnitude'
+          gaia_bpmag:
+            name: GAIA_BPMAG
+            type: float32
+            unit: 'mag'
+            description: ''
+          gaia_bperr:
+            name: GAIA_BPERR
             type: float32
             unit: ''
             description: 'IPL1: description of column needs update'
-          gaiadr2_plx_error:
-            name: GAIADR2_PLX_ERROR
+          gaia_rpmag:
+            name: GAIA_RPMAG
             type: float32
-            unit: ''
-            description: 'IPL1: description of column needs update'
-          gaiadr2_pmra:
-            name: GAIADR2_PMRA
-            type: float32
-            unit: ''
-            description: 'IPL1: description of column needs update'
-          gaiadr2_pmra_error:
-            name: GAIADR2_PMRA_ERROR
-            type: float32
-            unit: ''
-            description: 'IPL1: description of column needs update'
-          gaiadr2_pmdec:
-            name: GAIADR2_PMDEC
-            type: float32
-            unit: ''
-            description: 'IPL1: description of column needs update'
-          gaiadr2_pmdec_error:
-            name: GAIADR2_PMDEC_ERROR
-            type: float32
-            unit: ''
-            description: 'IPL1: description of column needs update'
-          gaiadr2_gmag:
-            name: GAIADR2_GMAG
-            type: float32
-            unit: ''
-            description: 'IPL1: description of column needs update'
-          gaiadr2_gerr:
-            name: GAIADR2_GERR
-            type: float32
-            unit: ''
-            description: 'IPL1: description of column needs update'
-          gaiadr2_bpmag:
-            name: GAIADR2_BPMAG
-            type: float32
-            unit: ''
-            description: 'IPL1: description of column needs update'
-          gaiadr2_bperr:
-            name: GAIADR2_BPERR
-            type: float32
-            unit: ''
-            description: 'IPL1: description of column needs update'
-          gaiadr2_rpmag:
-            name: GAIADR2_RPMAG
-            type: float32
-            unit: ''
-            description: 'IPL1: description of column needs update'
-          gaiadr2_rperr:
+            unit: 'mag'
+            description: 'Gaia RP mean magnitude'
+          gaia_rperr:
             name: GAIADR2_RPERR
             type: float32
-            unit: ''
-            description: 'IPL1: description of column needs update'
+            unit: 'mag'
+            description: 'Uncertainty in Gaia RP mean magnitude'
           sdssv_apogee_target0:
             name: SDSSV_APOGEE_TARGET0
             type: int64
             unit: ''
-            description: 'IPL1: description of column needs update'
+            description: ''
           firstcarton:
             name: FIRSTCARTON
             type: char[45]
             unit: ''
-            description: 'IPL1: description of column needs update'
+            description: ''
           targflags:
             name: TARGFLAGS
             type: char[113]
             unit: ''
-            description: Verbose/text form of APOGEE-1 target flags
+            description: 'Verbose/text form of APOGEE-1 target flags'
           nvisits:
             name: NVISITS
             type: int64
             unit: ''
-            description: Number of visits into combined spectrum
+            description: 'Number of visits into combined spectrum'
           ngoodvisits:
             name: NGOODVISITS
             type: int64
             unit: ''
-            description: 'IPL1: description of column needs update'
+            description: ''
           ngoodrvs:
             name: NGOODRVS
             type: int64
             unit: ''
-            description: 'IPL1: description of column needs update'
+            description: ''
           starflag:
             name: STARFLAG
             type: int64
             unit: ''
-            description: Flag for star condition taken from bitwise OR of individual
-              visits, see <a href="http://www.sdss.org/dr14/algorithms/bitmasks/#APOGEE_STARFLAG">
-              bitmask definitions</a>
+            description: 'Flag for star condition taken from bitwise OR of individual
+              visits, see <a href="https://www.sdss4.org/dr17/algorithms/bitmasks/#APOGEE_STARFLAG">
+              bitmask definitions</a>'
           starflags:
             name: STARFLAGS
             type: char[92]
             unit: ''
-            description: Verbose/text form of STARFLAG
+            description: 'Verbose/text form of STARFLAG'
           andflag:
             name: ANDFLAG
             type: int64
             unit: ''
-            description: Flag for star condition taken from bitwise AND of individual
-              visits, see <a href="http://www.sdss.org/dr14/algorithms/bitmasks/#APOGEE_STARFLAG">
-              bitmask definitions</a>
+            description: 'Flag for star condition taken from bitwise AND of individual
+              visits, see <a href="https://www.sdss4.org/dr17/algorithms/bitmasks/#APOGEE_STARFLAG">
+              bitmask definitions</a>'
           andflags:
             name: ANDFLAGS
             type: char[10]
             unit: ''
-            description: Verbose/text form of ANDFLAG
+            description: 'Verbose/text form of ANDFLAG'
           vrad:
             name: VRAD
             type: float32
-            unit: km/s
-            description: 'IPL1: description of column needs update'
+            unit: 'km/s'
+            description: ''
           vscatter:
             name: VSCATTER
             type: float32
-            unit: km/s
-            description: Scatter of individual visit RVs around average
+            unit: 'km/s'
+            description: 'Scatter of individual visit RVs around average'
           verr:
             name: VERR
             type: float32
-            unit: km/s
-            description: Uncertainty in VHELIO_AVG from the S/N-weighted individual
-              RVs
+            unit: 'km/s'
+            description: 'Uncertainty in VHELIO_AVG from the S/N-weighted individual RVs'
           vmederr:
             name: VMEDERR
             type: float32
-            unit: 'IPL1: unit of column needs update'
-            description: 'IPL1: description of column needs update'
+            unit: 'km/s'
+            description: ''
           chisq:
             name: CHISQ
             type: float32
             unit: ''
-            description: 'IPL1: description of column needs update'
+            description: ''
           rv_teff:
             name: RV_TEFF
             type: float32
-            unit: K
-            description: Teff of best-match synthetic spectrum from RV grid (NOT ASPCAP!)
+            unit: 'K'
+            description: 'Teff of best-match Doppler spectral template'
           rv_tefferr:
             name: RV_TEFFERR
             type: float32
-            unit: K
-            description: 'IPL1: description of column needs update'
+            unit: 'K'
+            description: ''
           rv_logg:
             name: RV_LOGG
             type: float32
-            unit: log (cgs)
-            description: log g of best-match synthetic spectrum  from RV grid (NOT
-              ASPCAP!)
+            unit: 'log (cgs)'
+            description: 'log g of best-match Doppler spectral template'
           rv_loggerr:
             name: RV_LOGGERR
             type: float32
-            unit: log (cgs)
-            description: 'IPL1: description of column needs update'
+            unit: 'dex'
+            description: ''
           rv_feh:
             name: RV_FEH
             type: float32
-            unit: ''
-            description: '[Fe/H] of best-match synthetic spectrum  from RV grid (NOT
-              ASPCAP!)'
+            unit: 'dex'
+            description: '[Fe/H] of best-match Doppler spectral template'
           rv_feherr:
             name: RV_FEHERR
             type: float32
-            unit: 'IPL1: description of column needs update'
-            description: 'IPL1: description of column needs update'
+            unit: 'dex'
+            description: ''
           rv_ccpfwhm:
             name: RV_CCPFWHM
             type: float32
-            unit: 'IPL1: description of column needs update'
-            description: 'IPL1: description of column needs update'
+            unit: ''
+            description: ''
           rv_autofwhm:
             name: RV_AUTOFWHM
             type: float32
-            unit: km/s
-            description: FWHM of auto-correlation of best-match synthetic spectrum
+            unit: 'km/s'
+            description: 'FWHM of auto-correlation of best-match synthetic spectrum'
           n_components:
             name: N_COMPONENTS
             type: int64
             unit: ''
-            description: 'NB: description of column needs update'
+            description: ''
           meanfib:
             name: MEANFIB
             type: float32
             unit: ''
-            description: Mean fiber number of the set of observations
+            description: 'Mean fiber number of the set of observations'
           sigfib:
             name: SIGFIB
             type: float32
             unit: ''
-            description: Dispersion in fiber number
+            description: 'Dispersion in fiber number across visits'
           created:
             name: CREATED
             type: char[39]
             unit: ''
-            description: 'IPL1: description of column needs update'
+            description: 'Timestamp of when database entry was created'
           v_apred:
             name: V_APRED
             type: char[50]
-            unit: 'IPL1: description of column needs update'
-            description: 'IPL1: description of column needs update'
+            unit: ''
+            description: 'apogee_drp git hash'
           cadence:
             name: CADENCE
-            type: char[10]
-            unit: 'IPL1: description of column needs update'
-            description: 'IPL1: description of column needs update'
+            type: char[29]
+            unit: ''
+            description: ''
           program:
             name: PROGRAM
-            type: char[10]
+            type: char[24]
             unit: ''
-            description: 'IPL1: description of column needs update'
+            description: ''
           category:
             name: CATEGORY
+            type: char[25]
+            unit: ''
+            description: ''
+          gaia_release:
+            name: GAIA_RELEASE
+            type: char[13]
+            unit: ''
+            description: ''
+          sdss_id:
+            name: SDSS_ID
+            type: int64
+            unit: ''
+            description: ''
+          sdss5_target_carton_pks:
+            name: SDSS5_TARGET_CARTON_PKS
+            type: char[210]
+            unit: ''
+            description: ''
+          sdss5_target_cartons:
+            name: SDSS5_TARGET_CARTONS
             type: char[10]
             unit: ''
-            description: 'IPL1: description of column needs update'
+            description: ''
+          sdss5_target_flagshex:
+            name: SDSS5_TARGET_FLAGSHEX
+            type: char[124]
+            unit: ''
+            description: ''
+          ra_sdss_id:
+            name: RA_SDSS_ID
+            type: float64
+            unit: 'degree'
+            description: ''
+          dec_sdss_id:
+            name: DEC_SDSS_ID
+            type: float64
+            unit: 'degree'
+            description: ''
+          sdss5_target_pks:
+            name: SDSS5_TARGET_PKS
+            type: char[39]
+            unit: ''
+            description: ''
+          sdss5_target_catalogids:
+            name: SDSS5_TARGET_CATALOGIDS
+            type: char[56]
+            unit: ''
+            description: ''
+          brightneicount:
+            name: BRIGHTNEICOUNT
+            type: int63
+            unit: ''
+            description: ''
+          brightneiflag:
+            name: BRIGHTNEIFLAG
+            type: int64
+            unit: ''
+            description: ''
+          brightneifluxfrac:
+            name: BRIGHTNEIFLUXFRAC
+            type: float32
+            unit: ''
+            description: ''
+
 notes: |-
   None

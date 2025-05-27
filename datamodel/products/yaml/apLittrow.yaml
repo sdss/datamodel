@@ -1,10 +1,11 @@
 general:
   name: apLittrow
-  short: ''
+  short: apLittrow file
   description: ''
   datatype: FITS
   filesize: 8 MB
   releases:
+  - DR19
   - WORK
   environments:
   - APOGEE_REDUX
@@ -18,9 +19,12 @@ general:
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
-  releases: {}
+  releases:
+    WORK:
+      from: DR19
+      note: No changes
 releases:
-  WORK:
+  WORK: &id001
     template: $APOGEE_REDUX/[APRED]/cal/[INSTRUMENT]/littrow/apLittrow-[CHIP]-[NUM8].fits
     example: daily/cal/apogee-n/littrow/apLittrow-b-06670109.fits
     location: '{apred}/cal/{instrument}/littrow/apLittrow-{chip}-{num:0>8}.fits'
@@ -82,5 +86,5 @@ releases:
         - key: HISTORY
           value: 'APMKLITTROW:  APOGEE Reduction Pipeline Version: 0.12.0'
           comment: ''
-notes: |-
-  None
+  DR19: *id001
+notes: None

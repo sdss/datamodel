@@ -1,11 +1,12 @@
 general:
   name: apLSF
-  short: ''
+  short: apLSF contains calibration data characterizing the LSFs of each fiber.
   description: apLSF contains calibration data characterizing the LSFs of each fiber.
     It is derived from observations of emission line sources.
   datatype: FITS
   filesize: 53 MB
   releases:
+  - DR19
   - WORK
   environments:
   - APOGEE_REDUX
@@ -19,9 +20,12 @@ general:
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
-  releases: {}
+  releases:
+    WORK:
+      from: DR19
+      note: No changes
 releases:
-  WORK:
+  WORK: &id001
     template: $APOGEE_REDUX/[APRED]/cal/[INSTRUMENT]/lsf/apLSF-[CHIP]-[NUM8].fits
     example: daily/cal/apogee-n/lsf/apLSF-a-14600018.fits
     location: '{apred}/cal/{instrument}/lsf/apLSF-{chip}-{num:0>8}.fits'
@@ -709,5 +713,5 @@ releases:
         - key: HISTORY
           value: approximately +/-5 sigma => 23 pixels.
           comment: ''
-notes: |-
-  None
+  DR19: *id001
+notes: None

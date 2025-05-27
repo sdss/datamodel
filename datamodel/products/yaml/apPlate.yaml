@@ -1,6 +1,7 @@
 general:
   name: apPlate
-  short: ''
+  short: apPlate files combine multiple exposures in a visit, which include
+    exposures at different dither positions.
   description: apPlate files combine multiple exposures in a visit, which include
     exposures at different dither positions. As a result, they represent an adequately
     sampled version of the spectrum. The multiple exposures are "flux-matched" to
@@ -10,6 +11,7 @@ general:
   datatype: FITS
   filesize: 20 MB
   releases:
+  - DR19
   - WORK
   environments:
   - APOGEE_REDUX
@@ -23,9 +25,12 @@ general:
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
-  releases: {}
+  releases:
+    WORK:
+      from: DR19
+      note: No changes
 releases:
-  WORK:
+  WORK: &id001
     template: $APOGEE_REDUX/[APRED]/visit/[TELESCOPE]/[FIELD]/[PLATE]/[MJD]/apPlate-[CHIP]-[PLATE]-[MJD].fits
     example: daily/visit/apo25m/20910/441/59568/apPlate-a-441-59568.fits
     location: '{apred}/visit/{telescope}/{field}/{plate}/{mjd}/apPlate-{chip}-{plate}-{mjd}.fits'
@@ -46,7 +51,7 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: ''
+        description: Basic exposure/detector information
         is_image: true
         size: 0 bytes
         header:
@@ -900,8 +905,8 @@ releases:
           value: 20910
           comment: Location ID of field
       hdu1:
-        name: ''
-        description: ''
+        name: FLUX
+        description: Calibrated extracted, dither-combined flux
         is_image: true
         size: 2 MB
         header:
@@ -936,8 +941,8 @@ releases:
           value: Flux (10^-17 ergs/s/cm^2/Ang)
           comment: ''
       hdu2:
-        name: ''
-        description: ''
+        name: ERROR
+        description: Uncertainty in flux
         is_image: true
         size: 2 MB
         header:
@@ -972,8 +977,8 @@ releases:
           value: Flux Error (10^-17 ergs/s/cm^2/Ang)
           comment: ''
       hdu3:
-        name: ''
-        description: ''
+        name: MASK
+        description: Bitmask
         is_image: true
         size: 1 MB
         header:
@@ -1008,8 +1013,8 @@ releases:
           value: Flag Mask (bitwise)
           comment: ''
       hdu4:
-        name: ''
-        description: ''
+        name: WAVELENGTH
+        description: Wavelength array
         is_image: true
         size: 4 MB
         header:
@@ -1044,8 +1049,8 @@ releases:
           value: Wavelength (Ang)
           comment: ''
       hdu5:
-        name: ''
-        description: ''
+        name: SKY FLUX
+        description: Subtracted sky flux
         is_image: true
         size: 2 MB
         header:
@@ -1080,8 +1085,8 @@ releases:
           value: Sky (10^-17 ergs/s/cm^2/Ang)
           comment: ''
       hdu6:
-        name: ''
-        description: ''
+        name: SKY ERROR
+        description: Uncertainty in subtracted sky flux
         is_image: true
         size: 2 MB
         header:
@@ -1116,8 +1121,8 @@ releases:
           value: Sky Error (10^-17 ergs/s/cm^2/Ang)
           comment: ''
       hdu7:
-        name: ''
-        description: ''
+        name: TELLURIC
+        description: Applied telluric correction
         is_image: true
         size: 2 MB
         header:
@@ -1152,8 +1157,8 @@ releases:
           value: Telluric
           comment: ''
       hdu8:
-        name: ''
-        description: ''
+        name: TELLURIC ERROR
+        description: Uncertainty in telluric correction
         is_image: true
         size: 2 MB
         header:
@@ -1188,8 +1193,8 @@ releases:
           value: Telluric Error
           comment: ''
       hdu9:
-        name: ''
-        description: ''
+        name: WAVE COEFFICIENTS
+        description: Wavelength calibration coefficients
         is_image: true
         size: 32 KB
         header:
@@ -1239,8 +1244,8 @@ releases:
           value: '                     in addition to the pixel offset)'
           comment: ''
       hdu10:
-        name: ''
-        description: ''
+        name: LSF COEFFICIENTS
+        description: LSF chararacterization coefficients
         is_image: true
         size: 60 KB
         header:
@@ -1340,7 +1345,7 @@ releases:
           comment: ''
       hdu11:
         name: ''
-        description: ''
+        description: Target information
         is_image: false
         size: 104 KB
         header:
@@ -1673,7 +1678,7 @@ releases:
             description: ''
       hdu12:
         name: ''
-        description: ''
+        description: Visit information
         is_image: false
         size: 72 bytes
         header:
@@ -1771,7 +1776,7 @@ releases:
             description: ''
       hdu13:
         name: ''
-        description: ''
+        description: Dither shift information
         is_image: false
         size: 76 bytes
         header:
@@ -1886,7 +1891,7 @@ releases:
             description: ''
       hdu14:
         name: ''
-        description: ''
+        description: Dither shift information
         is_image: true
         size: 0 bytes
         header:
@@ -1907,7 +1912,7 @@ releases:
           comment: ''
       hdu15:
         name: ''
-        description: ''
+        description: Fluxing information
         is_image: true
         size: 1 KB
         header:
@@ -1929,5 +1934,5 @@ releases:
         - key: GCOUNT
           value: 1
           comment: ''
-notes: |-
-  None
+  DR19: *id001
+notes: None

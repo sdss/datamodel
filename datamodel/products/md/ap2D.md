@@ -9,7 +9,7 @@
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
@@ -19,7 +19,7 @@ ap2D files contain 2D data derived from the up-the-ramp data cubes. Cosmic rays 
 $APOGEE_REDUX/[APRED]/exposures/[INSTRUMENT]/[MJD]/ap2D-[CHIP]-[NUM8].fits
 
 ### Releases
-WORK
+DR19, WORK
 
 ### Enviroments
 APOGEE_REDUX
@@ -38,20 +38,23 @@ False
 
 ### HDUS List for release WORK
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: ](#hdu1)
-  - [HDU2: ](#hdu2)
-  - [HDU3: ](#hdu3)
+  - [HDU1: FLUX](#hdu1-flux)
+  - [HDU2: ERROR](#hdu2-error)
+  - [HDU3: MASK](#hdu3-mask)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - WORK
+   - from: DR19
+   - note: No changes
 
 ---
 ## Example HDUS List
 
 ### HDU0: PRIMARY
-
+Exposure/detector information in primary HDU
 
 #### HDU Type: IMAGE
 #### HDU Size:  0 bytes
@@ -209,8 +212,8 @@ Key | Value | Comment | |
 
 
 
-### HDU1:
-
+### HDU1: FLUX
+Flux value in DN
 
 #### HDU Type: IMAGE
 #### HDU Size:  16 MB
@@ -231,8 +234,8 @@ Key | Value | Comment | |
 
 
 
-### HDU2:
-
+### HDU2: ERROR
+Uncertainties in 2D flux value
 
 #### HDU Type: IMAGE
 #### HDU Size:  16 MB
@@ -253,8 +256,8 @@ Key | Value | Comment | |
 
 
 
-### HDU3:
-
+### HDU3: MASK
+Bitmask as defined by APOGEE_PIXMASK
 
 #### HDU Type: IMAGE
 #### HDU Size:  8 MB
@@ -283,3 +286,7 @@ Key | Value | Comment | |
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!

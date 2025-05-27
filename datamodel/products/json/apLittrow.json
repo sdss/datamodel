@@ -1,7 +1,7 @@
 {
   "general": {
     "name": "apLittrow",
-    "short": "",
+    "short": "apLittrow file",
     "description": "",
     "environments": [
       "APOGEE_REDUX"
@@ -26,6 +26,12 @@
     "filesize": "8 MB",
     "releases": [
       {
+        "name": "DR19",
+        "description": "SDSS public data release 19",
+        "public": true,
+        "release_date": "2025-07-11"
+      },
+      {
         "name": "WORK",
         "description": "SDSS unreleased data.  Represents any work-in-progress data.",
         "public": false,
@@ -40,7 +46,33 @@
   },
   "changelog": {
     "description": "Describes changes to the datamodel product and/or file structure from one release to another",
-    "releases": {}
+    "releases": {
+      "WORK": {
+        "from": "DR19",
+        "note": "No changes",
+        "delta_nhdus": null,
+        "added_hdus": null,
+        "removed_hdus": null,
+        "primary_delta_nkeys": null,
+        "added_primary_header_kwargs": null,
+        "removed_primary_header_kwargs": null,
+        "delta_nkeys": null,
+        "addead_header_keys": null,
+        "removed_header_keys": null,
+        "delta_ntables": null,
+        "addead_tables": null,
+        "removed_tables": null,
+        "tables": null,
+        "new_libver": null,
+        "delta_nattrs": null,
+        "addead_attrs": null,
+        "removed_attrs": null,
+        "delta_nmembers": null,
+        "addead_members": null,
+        "removed_members": null,
+        "members": null
+      }
+    }
   },
   "releases": {
     "WORK": {
@@ -139,7 +171,105 @@
       },
       "par": null,
       "hdfs": null
+    },
+    "DR19": {
+      "template": "$APOGEE_REDUX/[APRED]/cal/[INSTRUMENT]/littrow/apLittrow-[CHIP]-[NUM8].fits",
+      "example": "daily/cal/apogee-n/littrow/apLittrow-b-06670109.fits",
+      "location": "{apred}/cal/{instrument}/littrow/apLittrow-{chip}-{num:0>8}.fits",
+      "environment": "APOGEE_REDUX",
+      "survey": "MWM",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "apLittrow",
+        "path_template": "$APOGEE_REDUX/{apred}/cal/{instrument}/littrow/@apgprefix|Littrow-{chip}-{num:0>8}.fits",
+        "path_kwargs": [
+          "num",
+          "instrument",
+          "chip",
+          "apred"
+        ],
+        "access_string": "apLittrow = $APOGEE_REDUX/{apred}/cal/{instrument}/littrow/apLittrow-{chip}-{num:0>8}.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "",
+          "size": "8 MB",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "Written by IDL:  Fri Feb 15 15:25:02 2019"
+            },
+            {
+              "key": "BITPIX",
+              "value": "16",
+              "comment": "Number of bits per data pixel"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "Number of data axes"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "2048",
+              "comment": ""
+            },
+            {
+              "key": "NAXIS2",
+              "value": "2048",
+              "comment": ""
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": "Extensions may be present"
+            },
+            {
+              "key": "DATE",
+              "value": "2019-02-15",
+              "comment": "Creation UTC (CCCC-MM-DD) date of FITS header"
+            },
+            {
+              "key": "COMMENT",
+              "value": "FITS (Flexible Image Transport System) format is defined in 'Astronomy",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "and Astrophysics', volume 376, page 359; bibcode 2001A&A...376..359H",
+              "comment": ""
+            },
+            {
+              "key": "HISTORY",
+              "value": "APMKLITTROW: Fri Feb 15 15:25:02 2019",
+              "comment": ""
+            },
+            {
+              "key": "HISTORY",
+              "value": "APMKLITTROW: apogee on kp115",
+              "comment": ""
+            },
+            {
+              "key": "HISTORY",
+              "value": "APMKLITTROW: IDL 8.5.1 linux x86_64",
+              "comment": ""
+            },
+            {
+              "key": "HISTORY",
+              "value": "APMKLITTROW:  APOGEE Reduction Pipeline Version: 0.12.0",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        }
+      },
+      "par": null,
+      "hdfs": null
     }
   },
-  "notes": "None"
+  "notes": "None",
+  "regrets": "I have no regrets!"
 }

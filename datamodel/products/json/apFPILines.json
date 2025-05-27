@@ -1,7 +1,7 @@
 {
   "general": {
     "name": "apFPILines",
-    "short": "",
+    "short": "apFPILines file",
     "description": "",
     "environments": [
       "APOGEE_REDUX"
@@ -26,6 +26,12 @@
     "filesize": "15 MB",
     "releases": [
       {
+        "name": "DR19",
+        "description": "SDSS public data release 19",
+        "public": true,
+        "release_date": "2025-07-11"
+      },
+      {
         "name": "WORK",
         "description": "SDSS unreleased data.  Represents any work-in-progress data.",
         "public": false,
@@ -40,7 +46,33 @@
   },
   "changelog": {
     "description": "Describes changes to the datamodel product and/or file structure from one release to another",
-    "releases": {}
+    "releases": {
+      "WORK": {
+        "from": "DR19",
+        "note": "No changes",
+        "delta_nhdus": null,
+        "added_hdus": null,
+        "removed_hdus": null,
+        "primary_delta_nkeys": null,
+        "added_primary_header_kwargs": null,
+        "removed_primary_header_kwargs": null,
+        "delta_nkeys": null,
+        "addead_header_keys": null,
+        "removed_header_keys": null,
+        "delta_ntables": null,
+        "addead_tables": null,
+        "removed_tables": null,
+        "tables": null,
+        "new_libver": null,
+        "delta_nattrs": null,
+        "addead_attrs": null,
+        "removed_attrs": null,
+        "delta_nmembers": null,
+        "addead_members": null,
+        "removed_members": null,
+        "members": null
+      }
+    }
   },
   "releases": {
     "WORK": {
@@ -207,7 +239,173 @@
       },
       "par": null,
       "hdfs": null
+    },
+    "DR19": {
+      "template": "$APOGEE_REDUX/[APRED]/cal/[INSTRUMENT]/fpi/apFPILines-[NUM8].fits",
+      "example": "daily/cal/apogee-n/fpi/apFPILines-40730009.fits",
+      "location": "{apred}/cal/{instrument}/fpi/apFPILines-{num:0>8}.fits",
+      "environment": "APOGEE_REDUX",
+      "survey": "MWM",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "apFPILines",
+        "path_template": "$APOGEE_REDUX/{apred}/cal/{instrument}/fpi/@apgprefix|FPILines-{num:0>8}.fits",
+        "path_kwargs": [
+          "num",
+          "instrument",
+          "apred"
+        ],
+        "access_string": "apFPILines = $APOGEE_REDUX/{apred}/cal/{instrument}/fpi/apFPILines-{num:0>8}.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "",
+          "size": "15 MB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "BINTABLE",
+              "comment": "binary table extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "106",
+              "comment": "length of dimension 1"
+            },
+            {
+              "key": "NAXIS2",
+              "value": "150164",
+              "comment": "length of dimension 2"
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "number of group parameters"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "number of groups"
+            },
+            {
+              "key": "TFIELDS",
+              "value": "9",
+              "comment": "number of table fields"
+            },
+            {
+              "key": "TDIM3",
+              "value": "(4)",
+              "comment": ""
+            },
+            {
+              "key": "TDIM4",
+              "value": "(4)",
+              "comment": ""
+            }
+          ],
+          "columns": {
+            "num": {
+              "name": "NUM",
+              "description": "",
+              "type": "int64",
+              "unit": ""
+            },
+            "pix0": {
+              "name": "PIX0",
+              "description": "",
+              "type": "int64",
+              "unit": ""
+            },
+            "pars": {
+              "name": "PARS",
+              "description": "",
+              "type": "float64[4]",
+              "unit": ""
+            },
+            "perr": {
+              "name": "PERR",
+              "description": "",
+              "type": "float64[4]",
+              "unit": ""
+            },
+            "sumflux": {
+              "name": "SUMFLUX",
+              "description": "",
+              "type": "float64",
+              "unit": ""
+            },
+            "success": {
+              "name": "SUCCESS",
+              "description": "",
+              "type": "bool",
+              "unit": ""
+            },
+            "row": {
+              "name": "ROW",
+              "description": "",
+              "type": "int64",
+              "unit": ""
+            },
+            "chip": {
+              "name": "CHIP",
+              "description": "",
+              "type": "char[1]",
+              "unit": ""
+            },
+            "expnum": {
+              "name": "EXPNUM",
+              "description": "",
+              "type": "int64",
+              "unit": ""
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null
     }
   },
-  "notes": "None"
+  "notes": "None",
+  "regrets": "I have no regrets!"
 }

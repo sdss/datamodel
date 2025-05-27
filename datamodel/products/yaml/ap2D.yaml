@@ -1,12 +1,13 @@
 general:
   name: ap2D
-  short: ''
+  short: ap2D files contain 2D data derived from the up-the-ramp data cubes.
   description: ap2D files contain 2D data derived from the up-the-ramp data cubes.
     Cosmic rays are flagged and CR repair is attempted. Saturated pixels are flagged.
     Dark current is subtracted, and the final 2D image is flat-fielded.
   datatype: FITS
   filesize: 40 MB
   releases:
+  - DR19
   - WORK
   environments:
   - APOGEE_REDUX
@@ -20,9 +21,12 @@ general:
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
-  releases: {}
+  releases:
+    WORK:
+      from: DR19
+      note: No changes
 releases:
-  WORK:
+  WORK: &id001
     template: $APOGEE_REDUX/[APRED]/exposures/[INSTRUMENT]/[MJD]/ap2D-[CHIP]-[NUM8].fits
     example: daily/exposures/apogee-n/59262/ap2D-a-37000004.fits
     location: '{apred}/exposures/{instrument}/{mjd}/ap2D-{chip}-{num:0>8}.fits'
@@ -42,7 +46,7 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: ''
+        description: Exposure/detector information in primary HDU
         is_image: true
         size: 0 bytes
         header:
@@ -488,8 +492,8 @@ releases:
           value: 2459262.39123
           comment: JD at midpoint of exposure
       hdu1:
-        name: ''
-        description: ''
+        name: FLUX
+        description: Flux value in DN
         is_image: true
         size: 16 MB
         header:
@@ -524,8 +528,8 @@ releases:
           value: Flux (ADU)
           comment: ''
       hdu2:
-        name: ''
-        description: ''
+        name: ERROR
+        description: Uncertainties in 2D flux value
         is_image: true
         size: 16 MB
         header:
@@ -560,8 +564,8 @@ releases:
           value: Error (ADU)
           comment: ''
       hdu3:
-        name: ''
-        description: ''
+        name: MASK
+        description: Bitmask as defined by APOGEE_PIXMASK
         is_image: true
         size: 8 MB
         header:
@@ -610,5 +614,5 @@ releases:
         - key: HISTORY
           value: ' 8 - unfixable'
           comment: ''
-notes: |-
-  None
+  DR19: *id001
+notes: None

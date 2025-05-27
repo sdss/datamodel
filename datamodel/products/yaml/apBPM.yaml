@@ -1,10 +1,11 @@
 general:
   name: apBPM
-  short: ''
+  short: apBPM contains calibration data with bad pixel maps for each detector.
   description: apBPM contains calibration data with bad pixel maps for each detector.
   datatype: FITS
   filesize: 8 MB
   releases:
+  - DR19
   - WORK
   environments:
   - APOGEE_REDUX
@@ -18,9 +19,12 @@ general:
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
-  releases: {}
+  releases:
+    WORK:
+      from: DR19
+      note: No changes
 releases:
-  WORK:
+  WORK: &id001
     template: $APOGEE_REDUX/[APRED]/cal/[INSTRUMENT]/bpm/apBPM-[CHIP]-[NUM8].fits
     example: daily/cal/apogee-n/bpm/apBPM-a-12910009.fits
     location: '{apred}/cal/{instrument}/bpm/apBPM-{chip}-{num:0>8}.fits'
@@ -61,5 +65,5 @@ releases:
         - key: EXTEND
           value: true
           comment: Extensions may be present
-notes: |-
-  None
+  DR19: *id001
+notes: None

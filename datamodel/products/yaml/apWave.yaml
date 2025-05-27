@@ -1,12 +1,13 @@
 general:
   name: apWave
-  short: ''
+  short: apWave contains calibration data relating to the wavelength calibration.
   description: apWave contains calibration data relating to the wavelength calibration.
     For each fiber, 12 wavelength calibration coefficients relate the pixel number
     to the wavelength.
   datatype: FITS
   filesize: 4 MB
   releases:
+  - DR19
   - WORK
   environments:
   - APOGEE_REDUX
@@ -20,9 +21,12 @@ general:
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
-  releases: {}
+  releases:
+    WORK:
+      from: DR19
+      note: No changes
 releases:
-  WORK:
+  WORK: &id001
     template: $APOGEE_REDUX/[APRED]/cal/[INSTRUMENT]/wave/apWave-[CHIP]-[NUM8].fits
     example: daily/cal/apogee-n/wave/apWave-c-44950040.fits
     location: '{apred}/cal/{instrument}/wave/apWave-{chip}-{num:0>8}.fits'
@@ -307,5 +311,5 @@ releases:
             type: float64
             unit: ''
             description: ''
-notes: |-
-  None
+  DR19: *id001
+notes: None

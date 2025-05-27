@@ -1,6 +1,7 @@
 general:
   name: apFlat
-  short: ''
+  short: apFlat files contain calibration data about the relative response of the
+    different pixels in each detector.
   description: 'apFlat files contain calibration data about the relative response
     of the different pixels in each detector. They are constructed from multiple frames
     of a continuum lamp, taken at different collimator dither positions. The multiextension
@@ -18,6 +19,7 @@ general:
   datatype: FITS
   filesize: 36 MB
   releases:
+  - DR19
   - WORK
   environments:
   - APOGEE_REDUX
@@ -31,9 +33,12 @@ general:
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
-  releases: {}
+  releases:
+    WORK:
+      from: DR19
+      note: No changes
 releases:
-  WORK:
+  WORK: &id001
     template: $APOGEE_REDUX/[APRED]/cal/[INSTRUMENT]/flatcorr/apFlat-[CHIP]-[NUM8].fits
     example: daily/cal/apogee-n/flatcorr/apFlat-a-04750009.fits
     location: '{apred}/cal/{instrument}/flatcorr/apFlat-{chip}-{num:0>8}.fits'
@@ -560,5 +565,5 @@ releases:
         - key: GCOUNT
           value: 1
           comment: ''
-notes: |-
-  None
+  DR19: *id001
+notes: None

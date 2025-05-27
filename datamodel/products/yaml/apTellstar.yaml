@@ -1,10 +1,11 @@
 general:
   name: apTellstar
-  short: ''
+  short: apTellstar file
   description: ''
   datatype: FITS
   filesize: 28 KB
   releases:
+  - DR19
   - WORK
   environments:
   - APOGEE_REDUX
@@ -18,9 +19,12 @@ general:
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
-  releases: {}
+  releases:
+    WORK:
+      from: DR19
+      note: No changes
 releases:
-  WORK:
+  WORK: &id001
     template: $APOGEE_REDUX/[APRED]/visit/[TELESCOPE]/[FIELD]/[PLATE]/[MJD]/apTellstar-[PLATE]-[MJD].fits
     example: daily/visit/apo25m/20910/441/59568/apTellstar-441-59568.fits
     location: '{apred}/visit/{telescope}/{field}/{plate}/{mjd}/apTellstar-{plate}-{mjd}.fits'
@@ -195,5 +199,5 @@ releases:
             type: float32[1500]
             unit: ''
             description: ''
-notes: |-
-  None
+  DR19: *id001
+notes: None

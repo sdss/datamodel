@@ -1,10 +1,11 @@
 general:
   name: apTelluric
-  short: ''
+  short: apTelluric file
   description: ''
   datatype: FITS
   filesize: 812 MB
   releases:
+  - DR19
   - WORK
   environments:
   - APOGEE_REDUX
@@ -18,9 +19,12 @@ general:
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
-  releases: {}
+  releases:
+    WORK:
+      from: DR19
+      note: No changes
 releases:
-  WORK:
+  WORK: &id001
     template: $APOGEE_REDUX/[APRED]/cal/[INSTRUMENT]/telluric/apTelluric-[CHIP]-[NUM].fits
     example: daily/cal/apogee-n/telluric/apTelluric-b-27980000-22330043.fits
     location: '{apred}/cal/{instrument}/telluric/apTelluric-{chip}-{num}.fits'
@@ -313,5 +317,5 @@ releases:
         - key: GCOUNT
           value: 1
           comment: ''
-notes: |-
-  None
+  DR19: *id001
+notes: None
