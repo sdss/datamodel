@@ -36,6 +36,9 @@ apogeedrp.py
 ### Is a VAC
 False
 
+### Data Level
+2.2.0
+
 ### HDUS List for release WORK
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1](#hdu1)
