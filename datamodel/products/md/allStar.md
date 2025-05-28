@@ -178,7 +178,7 @@ Name | Type | Unit | Description |
  | program | char[24] |  | SDSS-V program name |
  | category | char[25] |  | SDSS-V category |
  | gaia_release | char[13] |  | GAIA data release used |
- | sdss_id | int64 | SDSS-V sdss_id unique identification number |  |
+ | sdss_id | int64 |  | SDSS-V sdss_id unique identification number |
  | sdss5_target_carton_pks | char[210] |  | SDSS-V carton_pks (comma-delimited list) |
  | sdss5_target_cartons | char[10] |  | SDSS-V carton names (comma-delimited list) |
  | sdss5_target_flagshex | char[124] |  | SDSS-V carton flags as hexadecimal string |
