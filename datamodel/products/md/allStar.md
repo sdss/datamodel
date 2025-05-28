@@ -19,10 +19,10 @@ The allStar-VERS-TELESCOPE.fits file contains all final data product and summary
 <code>allStar-VERS-TELESCOPE.fits</code>
 
 ### Releases
-DR10, DR12, DR13, DR14, DR15, DR16, DR17, DR19, WORK
+DR10, DR12, DR13, DR14, DR15, DR16, DR17, DR19
 
 ### Enviroments
-APOGEE_REDUX, APOGEE_ROOT, APOGEE_ASPCAP
+APOGEE_REDUX, APOGEE_ASPCAP
 
 ### Approximate Size
 148 MB
@@ -36,19 +36,17 @@ apogeedrp.py
 ### Is a VAC
 False
 
-### HDUS List for release WORK
+### Data Level
+2.2.0
+
+### HDUS List for release DR19
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1](#hdu1)
+  - [HDU1: APOGEE reduction star-level summary table](#hdu1-apogee reduction star-level summary table)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
- - WORK
-   - from: DR19
-   - removed_hdus: ['APOGEE reduction star-level summary table']
-   - primary_delta_nkeys: 1
-   - removed_primary_header_kwargs: ['VERSION']
  - DR19
    - from: DR17
    - added_hdus: ['APOGEE reduction star-level summary table']
@@ -86,110 +84,111 @@ Describes changes to the datamodel product and/or file structure from one releas
 Key | Value | Comment | |
 | --- | --- | --- | --- |
 | SIMPLE | True | conforms to FITS standard |
-| BITPIX | 8 | array data type |
+| BITPIX | 16 | array data type |
 | NAXIS | 0 | number of array dimensions |
 | EXTEND | True |  |
+| VERSION | 1.0 | Code version |
 
 
 
-### HDU1: 
-
+### HDU1: APOGEE reduction star-level summary table
+Contains all final data product and summary information for every observed star (by the relevant telescope) in the data release.
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  142 MB
+#### HDU Size:  3 GB
 
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | PK | int64 |  | Database Primary Key |
- | APOGEE_ID | char[28] |  | TMASS-STYLE object name |
- | FILE | char[57] |  | apStar File name |
- | URI | char[106] |  | Uniform Resource Identifier.  Full path information for the apStar file |
- | STARVER | char[15] |  |  |
- | MJDBEG | int64 | day | MJD of first visit for this star |
- | MJDEND | int64 | day | MJD of last visit for this star |
- | TELESCOPE | char[16] |  | String representation of of telescope used for observation (currently APO 2.5m / 1m or LCO) |
- | APRED_VERS | char[13] |  |  |
- | HEALPIX | int64 |  |  |
- | SNR | float32 |  | Median S/N per pixel in combined frame (at apStar sampling) |
- | RA | float64 | degree | Right ascension (J2000) |
- | DEC | float64 | degree | Declination (J2000) |
- | GLON | float64 | degree | Galactic longitude |
- | GLAT | float64 | degree | Galactic latitude |
- | JMAG | float32 | mag |  |
- | JERR | float32 | mag |  |
- | HMAG | float32 | mag |  |
- | HERR | float32 | mag |  |
- | KMAG | float32 | mag |  |
- | KERR | float32 | mag |  |
- | SRC_H | char[10] | mag | Source of H-Band photometry |
- | TARG_PMRA | float32 | mas/yr |  |
- | TARG_PMDEC | float32 | mas/yr |  |
- | TARG_PM_SRC | char[10] |  |  |
- | APOGEE_TARGET1 | int64 |  | Bitwise OR of first APOGEE-1 target flag of all visits, see <a href="https://www.sdss4.org/dr17/algorithms/bitmasks/#APOGEE_TARGET1"> bitmask definitions</a> |
- | APOGEE_TARGET2 | int64 |  | Bitwise OR of second APOGEE-1 target flag of all visits, see <a href="https://www.sdss4.org/dr17/algorithms/bitmasks/#APOGEE_TARGET2"> bitmask definitions</a> |
- | APOGEE2_TARGET1 | int64 |  | Bitwise OR of first APOGEE-2 target flag of all visits, see <a href="https://www.sdss4.org/dr17/algorithms/bitmasks/#APOGEE2_TARGET1"> bitmask definitions</a> |
- | APOGEE2_TARGET2 | int64 |  | Bitwise OR of second APOGEE-2 target flag of all visits, see <a href="https://www.sdss4.org/dr17/algorithms/bitmasks/#APOGEE2_TARGET2"> bitmask definitions</a> |
- | APOGEE2_TARGET3 | int64 |  | Bitwise OR of third APOGEE-2 target flag of all visits, see <a href="https://www.sdss4.org/dr17/algorithms/bitmasks/#APOGEE2_TARGET3"> bitmask definitions</a> |
- | APOGEE2_TARGET4 | int64 |  |  |
- | CATALOGID | int64 |  |  |
- | GAIA_SOURCEID | int64 |  |  |
- | GAIA_PLX | float32 | mas | Gaia parallax |
- | GAIA_PLX_ERROR | float32 | mas | Uncertainty in Gaia parallax |
- | GAIA_PMRA | float32 |  | Gaia proper motion in Right Ascension |
- | GAIA_PMRA_ERROR | float32 |  | Uncertainty in Gaia proper motion in Right Ascension |
- | GAIA_PMDEC | float32 | mas/yr | Gaia proper motion in Declination |
- | GAIA_PMDEC_ERROR | float32 | mas/yr | Uncertainty in Gaia proper motion in declination |
- | GAIA_GMAG | float32 | mag | Gaia G mean magnitude |
- | GAIA_GERR | float32 | mag | Uncertainty in Gaia G mean magnitude |
- | GAIA_BPMAG | float32 | mag |  |
- | GAIA_BPERR | float32 |  | IPL1: description of column needs update |
- | GAIA_RPMAG | float32 | mag | Gaia RP mean magnitude |
- | GAIADR2_RPERR | float32 | mag | Uncertainty in Gaia RP mean magnitude |
- | SDSSV_APOGEE_TARGET0 | int64 |  |  |
- | FIRSTCARTON | char[45] |  |  |
- | TARGFLAGS | char[113] |  | Verbose/text form of APOGEE-1 target flags |
- | NVISITS | int64 |  | Number of visits into combined spectrum |
- | NGOODVISITS | int64 |  |  |
- | NGOODRVS | int64 |  |  |
- | STARFLAG | int64 |  | Flag for star condition taken from bitwise OR of individual visits, see <a href="https://www.sdss4.org/dr17/algorithms/bitmasks/#APOGEE_STARFLAG"> bitmask definitions</a> |
- | STARFLAGS | char[92] |  | Verbose/text form of STARFLAG |
- | ANDFLAG | int64 |  | Flag for star condition taken from bitwise AND of individual visits, see <a href="https://www.sdss4.org/dr17/algorithms/bitmasks/#APOGEE_STARFLAG"> bitmask definitions</a> |
- | ANDFLAGS | char[10] |  | Verbose/text form of ANDFLAG |
- | VRAD | float32 | km/s |  |
- | VSCATTER | float32 | km/s | Scatter of individual visit RVs around average |
- | VERR | float32 | km/s | Uncertainty in VHELIO_AVG from the S/N-weighted individual RVs |
- | VMEDERR | float32 | km/s |  |
- | CHISQ | float32 |  |  |
- | RV_TEFF | float32 | K | Teff of best-match Doppler spectral template |
- | RV_TEFFERR | float32 | K |  |
- | RV_LOGG | float32 | log (cgs) | log g of best-match Doppler spectral template |
- | RV_LOGGERR | float32 | dex |  |
- | RV_FEH | float32 | dex | [Fe/H] of best-match Doppler spectral template |
- | RV_FEHERR | float32 | dex |  |
- | RV_CCPFWHM | float32 |  |  |
- | RV_AUTOFWHM | float32 | km/s | FWHM of auto-correlation of best-match synthetic spectrum |
- | N_COMPONENTS | int64 |  |  |
- | MEANFIB | float32 |  | Mean fiber number of the set of observations |
- | SIGFIB | float32 |  | Dispersion in fiber number across visits |
- | CREATED | char[39] |  | Timestamp of when database entry was created |
- | V_APRED | char[50] |  | apogee_drp git hash |
- | CADENCE | char[29] |  |  |
- | PROGRAM | char[24] |  |  |
- | CATEGORY | char[25] |  |  |
- | GAIA_RELEASE | char[13] |  |  |
- | SDSS_ID | int64 |  |  |
- | SDSS5_TARGET_CARTON_PKS | char[210] |  |  |
- | SDSS5_TARGET_CARTONS | char[10] |  |  |
- | SDSS5_TARGET_FLAGSHEX | char[124] |  |  |
- | RA_SDSS_ID | float64 | degree |  |
- | DEC_SDSS_ID | float64 | degree |  |
- | SDSS5_TARGET_PKS | char[39] |  |  |
- | SDSS5_TARGET_CATALOGIDS | char[56] |  |  |
- | BRIGHTNEICOUNT | int63 |  |  |
- | BRIGHTNEIFLAG | int64 |  |  |
- | BRIGHTNEIFLUXFRAC | float32 |  |  |
+ | pk | int64 |  | Database Primary Key |
+ | apogee_id | char[28] |  | 2MASS-STYLE object name |
+ | file | char[57] |  | apStar File name |
+ | uri | char[106] |  | Uniform Resource Identifier.  Full path information for the apStar file |
+ | starver | char[15] |  | Star combination version, MJD of last visit used |
+ | mjdbeg | int64 | day | MJD of first visit for this star |
+ | mjdend | int64 | day | MJD of last visit for this star |
+ | telescope | char[16] |  | String representation of of telescope used for observation (currently apo25m or lco25m) |
+ | apred_vers | char[13] |  | APOGEE reduction version |
+ | healpix | int64 |  | HEALPix number for this star, nside=128 |
+ | snr | float32 |  | Median S/N per pixel in combined frame (at apStar sampling) |
+ | ra | float64 | degree | Right ascension (J2000) |
+ | dec | float64 | degree | Declination (J2000) |
+ | glon | float64 | degree | Galactic longitude |
+ | glat | float64 | degree | Galactic latitude |
+ | jmag | float32 | mag | 2MASS J-band magnitude |
+ | jerr | float32 | mag | Uncertainty of 2MASS J-band magnitude |
+ | hmag | float32 | mag | 2MASS H-band magnitude |
+ | herr | float32 | mag | Uncertainty of 2MASS H-band magnitude |
+ | kmag | float32 | mag | 2MASS Ks-band magnitude |
+ | kerr | float32 | mag | Uncertainty of 2MASS Ks-band magnitude |
+ | src_h | char[10] | mag | Source of H-Band photometry |
+ | targ_pmra | float32 | mas/yr | Proper motion in right ascension used in target selection |
+ | targ_pmdec | float32 | mas/yr | Proper motion in declination used in target selection |
+ | targ_pm_src | char[10] |  | Source of proper motion used in target selection |
+ | apogee_target1 | int64 |  | Bitwise OR of first APOGEE-1 target flag of all visits, see <a href="https://www.sdss4.org/dr17/algorithms/bitmasks/#APOGEE_TARGET1"> bitmask definitions</a> |
+ | apogee_target2 | int64 |  | Bitwise OR of second APOGEE-1 target flag of all visits, see <a href="https://www.sdss4.org/dr17/algorithms/bitmasks/#APOGEE_TARGET2"> bitmask definitions</a> |
+ | apogee2_target1 | int64 |  | Bitwise OR of first APOGEE-2 target flag of all visits, see <a href="https://www.sdss4.org/dr17/algorithms/bitmasks/#APOGEE2_TARGET1"> bitmask definitions</a> |
+ | apogee2_target2 | int64 |  | Bitwise OR of second APOGEE-2 target flag of all visits, see <a href="https://www.sdss4.org/dr17/algorithms/bitmasks/#APOGEE2_TARGET2"> bitmask definitions</a> |
+ | apogee2_target3 | int64 |  | Bitwise OR of third APOGEE-2 target flag of all visits, see <a href="https://www.sdss4.org/dr17/algorithms/bitmasks/#APOGEE2_TARGET3"> bitmask definitions</a> |
+ | apogee2_target4 | int64 |  | Bitwise OR of fourth APOGEE-2 target flag of all visits, see <a href="https://www.sdss4.org/dr17/algorithms/bitmasks/#APOGEE2_TARGET4"> bitmask definitions</a> |
+ | catalogid | int64 |  | SDSS-V catalog identification number |
+ | gaia_sourceid | int64 |  | GAIA source identification |
+ | gaia_plx | float32 | mas | Gaia parallax |
+ | gaia_plx_error | float32 | mas | Uncertainty in Gaia parallax |
+ | gaia_pmra | float32 |  | Gaia proper motion in Right Ascension |
+ | gaia_pmra_error | float32 |  | Uncertainty in Gaia proper motion in Right Ascension |
+ | gaia_pmdec | float32 | mas/yr | Gaia proper motion in Declination |
+ | gaia_pmdec_error | float32 | mas/yr | Uncertainty in Gaia proper motion in declination |
+ | gaia_gmag | float32 | mag | Gaia G mean magnitude |
+ | gaia_gerr | float32 | mag | Uncertainty in Gaia G mean magnitude |
+ | gaia_bpmag | float32 | mag | Gaia BP mean magnitude |
+ | gaia_bperr | float32 | mag | Uncertainty in Gaia BP mean magnitude |
+ | gaia_rpmag | float32 | mag | Gaia RP mean magnitude |
+ | gaia_rperr | float32 | mag | Uncertainty in Gaia RP mean magnitude |
+ | sdssv_apogee_target0 | int64 |  | SDSS-V early targeting flag |
+ | firstcarton | char[45] |  | SDSS-V primary target carton |
+ | targflags | char[113] |  | Verbose/text form of APOGEE-1 target flags |
+ | nvisits | int64 |  | Number of visit spectra for this star |
+ | ngoodvisits | int64 |  | Number of good visits |
+ | ngoodrvs | int64 |  | Number of visits passing RV quality criteria and used in Doppler RV analysis |
+ | starflag | int64 |  | Flag for star condition taken from bitwise OR of individual visits, see <a href="https://www.sdss4.org/dr17/algorithms/bitmasks/#APOGEE_STARFLAG"> bitmask definitions</a> |
+ | starflags | char[100] |  | Verbose/text form of STARFLAG |
+ | andflag | int64 |  | Flag for star condition taken from bitwise AND of individual visits, see <a href="https://www.sdss4.org/dr17/algorithms/bitmasks/#APOGEE_STARFLAG"> bitmask definitions</a> |
+ | andflags | char[10] |  | Verbose/text form of ANDFLAG |
+ | vrad | float32 | km/s | Signal-to-noise weighted average radial velocity in the Solar System Barycentric frame |
+ | vscatter | float32 | km/s | Standard deviation of scatter of individual visit RVs around average |
+ | verr | float32 | km/s | Weighted error of barycentric radial velocity |
+ | vmederr | float32 | km/s | Median uncertainty in the visit radial velocities |
+ | chisq | float32 |  | Reduced chi-squared of the Doppler best-fit model to all the visit spectra |
+ | rv_teff | float32 | K | Effective temperature of Doppler RV template match |
+ | rv_tefferr | float32 | K | Effective temperature of Doppler RV template match uncertainty |
+ | rv_logg | float32 | log (cgs) | log g of Doppler RV template match |
+ | rv_loggerr | float32 | dex | log g of Doppler RV template match uncertainty |
+ | rv_feh | float32 | dex | [Fe/H] from Doppler RV template match |
+ | rv_feherr | float32 | dex | [Fe/H] from Doppler RV template match uncertainty |
+ | rv_ccpfwhm | float32 |  | FWHM of cross-correlation peak from combined vs best-match Doppler template spectrum |
+ | rv_autofwhm | float32 | km/s | FWHM of auto-correlation of best-match Doppler template spectrum |
+ | n_components | int64 |  | Number of components from RV cross correlation |
+ | meanfib | float32 |  | Mean FiberID for all the star visits |
+ | sigfib | float32 |  | Standard deviation of FiberID for all the star visits |
+ | created | char[39] |  | Timestamp of when database entry was created |
+ | v_apred | char[50] |  | apogee_drp git hash |
+ | cadence | char[29] |  | SDSS-V cadence type |
+ | program | char[24] |  | SDSS-V program name |
+ | category | char[25] |  | SDSS-V category |
+ | gaia_release | char[13] |  | GAIA data release used |
+ | sdss_id | int64 | SDSS-V sdss_id unique identification number |  |
+ | sdss5_target_carton_pks | char[210] |  | SDSS-V carton_pks (comma-delimited list) |
+ | sdss5_target_cartons | char[10] |  | SDSS-V carton names (comma-delimited list) |
+ | sdss5_target_flagshex | char[124] |  | SDSS-V carton flags as hexadecimal string |
+ | ra_sdss_id | float64 | degree | Right Ascension of unique SDSS-V sdss_id object |
+ | dec_sdss_id | float64 | degree | Declination of unique SDSS-V sdsss_id object |
+ | sdss5_target_pks | char[39] |  | SDSS-V target_pks (comma-delimited list) |
+ | sds5_target_catalogids | char[56] |  | SDSS-V catalogIDs (comma-delimited list) |
+ | brightneicount | int63 |  | Count of bright neighbors |
+ | brightneiflag | int64 |  | Bright neighbor flag |
+ | brightneifluxfrac | float32 |  | Bright neighbor flux fraction |
 
 
 
