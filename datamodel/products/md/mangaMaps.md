@@ -13,7 +13,7 @@
 ---
 
 ## Basic Information
-"""The MAPS files are the primary output file from the DAP and provide 2D "maps" (i.e., images)
+"The MAPS files are the primary output file from the DAP and provide 2D maps (i.e., images)
 of DAP measured properties. The shape and WCS of these images identically match that of a
 single wavelength channel in the corresponding DRP LOGCUBE file.
 Most properties are provided in groups of three fits extensions:
@@ -29,7 +29,7 @@ Extensions can either be a single 2D image or they can have a series of images t
     the channel (and unit) descriptions for the multichannel extensions,
     the name of the relevant maskbit group --- for the MAPS file, this is always MANGA_DAPPIXMASK,
     the units for any single image or datacube extensions (BUNIT), and
-    the DATASUM and CHECKSUM values."""
+    the DATASUM and CHECKSUM values."
 
 
 ### Naming Convention
