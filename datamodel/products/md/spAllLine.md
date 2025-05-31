@@ -9,7 +9,7 @@ Contains a summary of the Spectro-1D spZline output for all spectra.
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
@@ -19,7 +19,7 @@ Contains a summary of the Spectro-1D spZline output for all spectra with line me
 $BOSS_SPECTRO_REDUX/[RUN2D]/spAllLine-[RUN2D].fits.gz
 
 ### Releases
-IPL3, DR19
+DR18, IPL3, DR19
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -36,6 +36,9 @@ idlspec2d
 ### Is a VAC
 False
 
+### Data Level
+0.0.0
+
 ### HDUS List for release DR19
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1: SPLINE](#hdu1-spline)
@@ -47,6 +50,11 @@ Describes changes to the datamodel product and/or file structure from one releas
  - DR19
    - from: IPL3
    - note: No changes
+ - IPL3
+   - from: DR18
+   - added_hdus: ['SPLINE']
+   - primary_delta_nkeys: 6
+   - added_primary_header_kwargs: ['DIMS0', 'DATASUM', 'DATE', 'CHECKSUM', 'DIMS1', 'RUN2D']
 
 ---
 ## Example HDUS List
@@ -131,3 +139,7 @@ Name | Type | Unit | Description |
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!
