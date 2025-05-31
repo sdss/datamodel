@@ -9,7 +9,7 @@ BOSS best spectroscopic classifications and redshifts
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
@@ -19,7 +19,7 @@ The spZbest files contain the spectroscopic classifications and redshifts from t
 $BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/[RUN1D]/spZbest-[FIELD]-[MJD].fits
 
 ### Releases
-IPL3, DR19
+DR18, IPL3, DR19
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -36,11 +36,14 @@ idlspec2d - spreduce1d_empca.pro
 ### Is a VAC
 False
 
+### Data Level
+0.0.0
+
 ### HDUS List for release DR19
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: ](#hdu1-)
-  - [HDU2: ](#hdu2-)
-  - [HDU3: ](#hdu3-)
+  - [HDU1](#hdu1)
+  - [HDU2](#hdu2)
+  - [HDU3](#hdu3)
 
 ---
 
@@ -49,6 +52,11 @@ Describes changes to the datamodel product and/or file structure from one releas
  - DR19
    - from: IPL3
    - note: No changes
+ - IPL3
+   - from: DR18
+   - primary_delta_nkeys: 20
+   - added_primary_header_kwargs: ['SN2_2R07', 'SN2_2I00', 'SN2_2G05', 'FSPEC1_R', 'SNC02G02', 'BOSSVER', 'SNC02R05', 'SN2_2G03', 'SPEC2_I', 'SPEC2_R', 'CONFIGS', 'SN2_2I02', 'SN2_2G00', 'SNC12I05', 'SNC02I05', 'MOONFRAC', 'V_ARCHON', 'SNC12R03', 'SNC02G01', 'SNC12R01', 'FSN2EX2R', 'EXPT_B2', 'SNC12I01', 'AVGBS0', 'SNC02G05', 'FSN2EX2I', 'SN2_2G06', 'SN2_2R06', 'AVGAS0', 'STDBS0', 'FSPEC2_G', 'DESIGNS', 'SNC02R07', 'NEXP_B2', 'SNC02G', 'OBSMODE', 'SNC12R05', 'CENBS0', 'OBSERVAT', 'SNC12G', 'SNC12G06', 'SNC12I02', 'SN2_2G04', 'SNC12R06', 'SNC02R04', 'ARCHBVER', 'CCDID', 'SNC02I07', 'SNC02G03', 'SN2_2R00', 'EXPT_R2', 'SNC02R00', 'SNC02I01', 'SNC02G06', 'SNC12G01', 'SPEC2_G', 'SN2_2I01', 'SNC02I04', 'SNC12I00', 'SN2_2R04', 'SNC12R07', 'SNC12G03', 'SNC12R00', 'FSN2EX1I', 'SN2_2G02', 'SN2_2I05', 'SN2_2R05', 'VCALIBS', 'SNC12I04', 'SPEC', 'SN2_2I03', 'SNC12I03', 'SNC12G00', 'TAI', 'FSN2EX2G', 'SN2_2R02', 'SNC02R', 'FSN2EX1R', 'SNC02G00', 'SNC02I06', 'FSPEC1_G', 'SN2_2I07', 'DAQVER', 'SNC02R02', 'CCD', 'SNC12I07', 'OFFPA', 'SN2_2G07', 'VJAEGER', 'SN2_2I04', 'SNC12I', 'SNC02R03', 'SNC12G04', 'ARCHBACK', 'NEXP_R2', 'SN2EXT2I', 'FSN2EX1G', 'SN2_2G01', 'FSPEC2_I', 'SNC12I06', 'OFFRA', 'SNC12R', 'SNC02R06', 'VKAIJU', 'SN2_2R03', 'SNC02I03', 'SN2EXT2G', 'SN2_2R01', 'FSPEC2_R', 'SN2EXT2R', 'VCOORDIO', 'SNC02R01', 'SIGBS0', 'SN2_2I06', 'OFFDEC', 'CCDTYPE', 'SNC02I00', 'STDAS0', 'SNC02G07', 'FIELDCAD', 'SLITID', 'SNC12R02', 'SNC12G05', 'SNC02G04', 'SNC12R04', 'FSPEC1_I', 'SNC12G02', 'SNC02I', 'SNC12G07', 'SNC02I02']
+   - removed_primary_header_kwargs: ['EXPID22', 'MGDPOS', 'IONPUMP', 'SNC01R09', 'M2YTRAN', 'COLLA', 'SNC11R08', 'DEWPOINT', 'SNC01I09', 'MC1TRCT', 'GUIDOFFR', 'DIDFLUSH', 'M1ZROT', 'PIXERR', 'TILEID', 'AVGASH0', 'MC1THT', 'CCDTEMP', 'WINDD25M', 'EXPID20', 'SN2_1G10', 'DUSTA', 'GUIDER1', 'M1YTILT', 'M1XTRAN', 'TWOPHASE', 'SCALE', 'SNC01R10', 'EXPID21', 'STDBSH0', 'CALOFFY', 'BOREOFFY', 'SNC11I10', 'GUSTD', 'SN2RLIST', 'M2YTILT', 'SNC01G10', 'SNC01I10', 'HUMIDITY', 'EXPID17', 'SNC11G10', 'M2ZROT', 'BOREOFFX', 'PFERR', 'SNC11I08', 'RDNOISE0', 'PLUGFILE', 'PLINES', 'SLINES', 'HARTMANN', 'WINDS25M', 'SNC11G09', 'M1PISTON', 'AIRTEMP', 'ARCOFFX', 'AVGBSH0', 'DUSTB', 'MC1HUMCO', 'LN2TEMP', 'SN2_1I09', 'TAILIST', 'EXPID18', 'TRUSTEMP', 'MC1TRCB', 'GUIDOFFX', 'SHCLOTIM', 'XCHI2', 'SNC11I09', 'SHOPETIM', 'CENBSH0', 'AUTHOR', 'GUIDOFFY', 'ALT', 'SN2_1R08', 'SNC11G08', 'FLAVOR', 'MGDDEC', 'SIGBSH0', 'HELIO_RV', 'MC1TBCT', 'COLLB', 'SN2GLIST', 'SNC11R10', 'SN2ILIST', 'WINDS', 'SUBFRAME', 'GUIDERN', 'M1YTRAN', 'SN2_1I10', 'COLLC', 'SLITID1', 'SNC01G08', 'AZ', 'OBJSYS', 'DATE-OBS', 'SNC01I08', 'SNC01R08', 'SN2_1R09', 'MC1TEMDN', 'M2PISTON', 'SN2_1G09', 'GUSTS', 'SN2_1G08', 'MC1HUMHT', 'CALOFFR', 'M2XTILT', 'FOCUS', 'SYNCERR', 'PRESSURE', 'SNC11R09', 'M2XTRAN', 'ARCOFFY', 'MGDRA', 'ERRCNT', 'ROTPOS', 'SN2_1R10', 'SNC01G09', 'MC1TBCB', 'CALOFFX', 'M1XTILT', 'WINDD', 'EXPID19', 'SN2_1I08', 'STDASH0']
 
 ---
 ## Example HDUS List
@@ -588,3 +596,7 @@ Key | Value | Comment | |
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!
