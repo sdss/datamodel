@@ -6,6 +6,7 @@ general:
   datatype: FITS
   filesize: 18 MB
   releases:
+  - DR17
   - DR18
   - IPL3
   - DR19
@@ -14,6 +15,7 @@ general:
   surveys:
   - BHM
   - SDSS
+  - eBOSS
   naming_convention: $BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/[RUN1D]/spZbest-[FIELD]-[MJD].fits
   generated_by: idlspec2d - spreduce1d_empca.pro
   design: false
@@ -31,261 +33,509 @@ changelog:
       from: DR18
       primary_delta_nkeys: 20
       added_primary_header_kwargs:
-      - SN2_2R07
-      - SN2_2I00
-      - SN2_2G05
-      - FSPEC1_R
-      - SNC02G02
-      - BOSSVER
-      - SNC02R05
-      - SN2_2G03
-      - SPEC2_I
-      - SPEC2_R
-      - CONFIGS
-      - SN2_2I02
-      - SN2_2G00
-      - SNC12I05
-      - SNC02I05
-      - MOONFRAC
-      - V_ARCHON
-      - SNC12R03
-      - SNC02G01
-      - SNC12R01
-      - FSN2EX2R
-      - EXPT_B2
-      - SNC12I01
-      - AVGBS0
-      - SNC02G05
-      - FSN2EX2I
-      - SN2_2G06
-      - SN2_2R06
-      - AVGAS0
-      - STDBS0
-      - FSPEC2_G
-      - DESIGNS
-      - SNC02R07
-      - NEXP_B2
-      - SNC02G
-      - OBSMODE
-      - SNC12R05
-      - CENBS0
-      - OBSERVAT
-      - SNC12G
-      - SNC12G06
-      - SNC12I02
-      - SN2_2G04
-      - SNC12R06
-      - SNC02R04
-      - ARCHBVER
-      - CCDID
-      - SNC02I07
-      - SNC02G03
-      - SN2_2R00
-      - EXPT_R2
-      - SNC02R00
-      - SNC02I01
-      - SNC02G06
-      - SNC12G01
-      - SPEC2_G
-      - SN2_2I01
-      - SNC02I04
-      - SNC12I00
-      - SN2_2R04
-      - SNC12R07
-      - SNC12G03
-      - SNC12R00
-      - FSN2EX1I
-      - SN2_2G02
-      - SN2_2I05
-      - SN2_2R05
-      - VCALIBS
-      - SNC12I04
-      - SPEC
-      - SN2_2I03
-      - SNC12I03
-      - SNC12G00
-      - TAI
-      - FSN2EX2G
-      - SN2_2R02
-      - SNC02R
-      - FSN2EX1R
-      - SNC02G00
-      - SNC02I06
       - FSPEC1_G
-      - SN2_2I07
-      - DAQVER
-      - SNC02R02
-      - CCD
-      - SNC12I07
-      - OFFPA
-      - SN2_2G07
-      - VJAEGER
-      - SN2_2I04
+      - SNC02R07
       - SNC12I
-      - SNC02R03
-      - SNC12G04
-      - ARCHBACK
-      - NEXP_R2
-      - SN2EXT2I
-      - FSN2EX1G
-      - SN2_2G01
-      - FSPEC2_I
-      - SNC12I06
-      - OFFRA
-      - SNC12R
-      - SNC02R06
-      - VKAIJU
-      - SN2_2R03
-      - SNC02I03
-      - SN2EXT2G
-      - SN2_2R01
-      - FSPEC2_R
-      - SN2EXT2R
-      - VCOORDIO
-      - SNC02R01
-      - SIGBS0
-      - SN2_2I06
-      - OFFDEC
-      - CCDTYPE
-      - SNC02I00
-      - STDAS0
-      - SNC02G07
-      - FIELDCAD
-      - SLITID
-      - SNC12R02
-      - SNC12G05
-      - SNC02G04
+      - FSN2EX1I
       - SNC12R04
+      - SN2_2R04
+      - SNC02R
+      - SNC12G00
+      - SN2_2I03
+      - SNC02G07
+      - SNC02I06
+      - SN2_2G06
+      - SNC12R02
+      - SNC12R05
+      - V_ARCHON
+      - OBSMODE
+      - SPEC2_G
+      - SNC12G01
+      - SNC12I01
+      - SN2_2G00
+      - SNC02I07
+      - SNC12R03
+      - SN2_2I06
+      - SNC02G01
+      - SNC02R03
+      - AVGAS0
+      - SNC02G
+      - SNC02R01
+      - FSN2EX2I
+      - SNC12I02
+      - SNC02R06
       - FSPEC1_I
+      - AVGBS0
+      - SPEC
+      - SNC12I07
+      - SN2_2G03
+      - DAQVER
+      - EXPT_R2
+      - SNC02G03
+      - SN2_2R03
+      - SN2_2I02
+      - SNC02I04
+      - SPEC2_R
+      - VJAEGER
+      - SNC12R06
+      - SN2_2G02
+      - CONFIGS
+      - OBSERVAT
+      - SNC12I06
+      - SN2_2R00
+      - OFFRA
+      - STDBS0
+      - SNC12G
+      - FSPEC2_I
+      - FSN2EX1G
+      - SN2_2I01
+      - SNC02I05
+      - FSN2EX2R
+      - MOONFRAC
+      - BOSSVER
+      - FSN2EX2G
+      - SN2_2R01
+      - SN2_2G07
+      - SIGBS0
+      - SNC02I03
+      - SNC12I05
+      - SPEC2_I
+      - SNC02R02
+      - FSPEC1_R
+      - SN2EXT2I
+      - SN2_2I04
+      - SNC02G04
+      - TAI
+      - SNC02I00
+      - SNC02G02
+      - CCD
+      - SNC02R00
+      - FSN2EX1R
+      - ARCHBVER
+      - OFFDEC
+      - SNC02G00
+      - SNC02I01
+      - VKAIJU
+      - SNC12G04
+      - NEXP_R2
+      - SNC12I04
+      - NEXP_B2
+      - SNC02I02
+      - SN2_2R05
+      - SN2_2R02
+      - CENBS0
+      - SNC02G06
+      - SN2EXT2G
+      - CCDTYPE
+      - SN2_2I07
+      - SN2_2R06
+      - FIELDCAD
       - SNC12G02
+      - SNC02R04
+      - STDAS0
+      - SNC12R
+      - SN2_2G05
       - SNC02I
       - SNC12G07
-      - SNC02I02
+      - SNC12G06
+      - EXPT_B2
+      - SN2_2R07
+      - SNC12I03
+      - SNC02R05
+      - SN2_2I05
+      - CCDID
+      - FSPEC2_G
+      - SN2_2G01
+      - SNC12R00
+      - SNC12R07
+      - SNC02G05
+      - SNC12G03
+      - SN2_2I00
+      - VCALIBS
+      - SNC12G05
+      - FSPEC2_R
+      - SLITID
+      - SNC12R01
+      - ARCHBACK
+      - SNC12I00
+      - DESIGNS
+      - SN2_2G04
+      - OFFPA
+      - VCOORDIO
+      - SN2EXT2R
       removed_primary_header_kwargs:
-      - EXPID22
-      - MGDPOS
-      - IONPUMP
-      - SNC01R09
-      - M2YTRAN
-      - COLLA
-      - SNC11R08
-      - DEWPOINT
-      - SNC01I09
-      - MC1TRCT
-      - GUIDOFFR
-      - DIDFLUSH
-      - M1ZROT
-      - PIXERR
-      - TILEID
-      - AVGASH0
-      - MC1THT
-      - CCDTEMP
-      - WINDD25M
-      - EXPID20
-      - SN2_1G10
-      - DUSTA
-      - GUIDER1
-      - M1YTILT
-      - M1XTRAN
-      - TWOPHASE
-      - SCALE
-      - SNC01R10
-      - EXPID21
-      - STDBSH0
-      - CALOFFY
-      - BOREOFFY
-      - SNC11I10
-      - GUSTD
-      - SN2RLIST
-      - M2YTILT
-      - SNC01G10
-      - SNC01I10
-      - HUMIDITY
-      - EXPID17
-      - SNC11G10
-      - M2ZROT
-      - BOREOFFX
-      - PFERR
-      - SNC11I08
-      - RDNOISE0
-      - PLUGFILE
-      - PLINES
-      - SLINES
-      - HARTMANN
-      - WINDS25M
-      - SNC11G09
-      - M1PISTON
       - AIRTEMP
-      - ARCOFFX
-      - AVGBSH0
-      - DUSTB
-      - MC1HUMCO
-      - LN2TEMP
-      - SN2_1I09
-      - TAILIST
-      - EXPID18
-      - TRUSTEMP
-      - MC1TRCB
-      - GUIDOFFX
-      - SHCLOTIM
-      - XCHI2
-      - SNC11I09
-      - SHOPETIM
-      - CENBSH0
-      - AUTHOR
-      - GUIDOFFY
-      - ALT
-      - SN2_1R08
       - SNC11G08
-      - FLAVOR
-      - MGDDEC
-      - SIGBSH0
-      - HELIO_RV
+      - MC1HUMCO
+      - IONPUMP
       - MC1TBCT
-      - COLLB
-      - SN2GLIST
-      - SNC11R10
-      - SN2ILIST
-      - WINDS
-      - SUBFRAME
-      - GUIDERN
-      - M1YTRAN
-      - SN2_1I10
-      - COLLC
-      - SLITID1
-      - SNC01G08
-      - AZ
-      - OBJSYS
-      - DATE-OBS
-      - SNC01I08
-      - SNC01R08
-      - SN2_1R09
-      - MC1TEMDN
+      - PFERR
+      - EXPID21
       - M2PISTON
-      - SN2_1G09
+      - ERRCNT
+      - ALT
+      - AVGBSH0
+      - SN2RLIST
+      - GUIDOFFR
+      - COLLA
+      - M1YTILT
+      - ARCOFFX
+      - SNC11R09
+      - EXPID22
+      - MGDDEC
+      - WINDS25M
+      - GUIDERN
+      - SN2ILIST
+      - GUSTD
+      - SNC11I09
       - GUSTS
-      - SN2_1G08
-      - MC1HUMHT
+      - WINDS
+      - SNC01G10
+      - CALOFFY
+      - DEWPOINT
+      - SHOPETIM
+      - SNC11I10
+      - M1ZROT
+      - HARTMANN
+      - SNC01I09
+      - TAILIST
+      - SNC11I08
+      - AZ
+      - SIGBSH0
+      - XCHI2
+      - MC1TBCB
+      - BOREOFFX
+      - TRUSTEMP
+      - M1PISTON
+      - AUTHOR
+      - PLINES
+      - MC1TRCT
+      - WINDD
+      - STDBSH0
+      - SN2_1R10
+      - OBJSYS
+      - MGDPOS
+      - DIDFLUSH
+      - SN2_1I09
+      - SNC01R09
+      - SNC01G09
+      - SNC11R10
+      - SN2_1I08
+      - HUMIDITY
+      - EXPID18
+      - SUBFRAME
+      - GUIDER1
+      - FLAVOR
+      - M2ZROT
+      - MC1TEMDN
+      - SNC01I10
+      - PRESSURE
+      - SYNCERR
+      - M2YTRAN
+      - AVGASH0
+      - M1XTILT
+      - LN2TEMP
+      - PLUGFILE
+      - COLLB
+      - EXPID20
+      - DUSTB
+      - SN2_1R08
+      - MC1TRCB
+      - ROTPOS
+      - M1XTRAN
+      - STDASH0
+      - SNC01R08
+      - SCALE
+      - CCDTEMP
+      - SNC01G08
+      - SNC11R08
+      - CALOFFX
+      - SN2_1R09
+      - BOREOFFY
+      - GUIDOFFX
+      - COLLC
+      - SN2GLIST
+      - RDNOISE0
+      - MC1THT
+      - SLITID1
+      - TWOPHASE
+      - SNC01I08
+      - TILEID
       - CALOFFR
       - M2XTILT
-      - FOCUS
-      - SYNCERR
-      - PRESSURE
-      - SNC11R09
-      - M2XTRAN
       - ARCOFFY
-      - MGDRA
-      - ERRCNT
-      - ROTPOS
-      - SN2_1R10
-      - SNC01G09
-      - MC1TBCB
-      - CALOFFX
-      - M1XTILT
-      - WINDD
+      - SHCLOTIM
+      - M2XTRAN
+      - SN2_1G08
+      - SNC01R10
+      - SN2_1G09
       - EXPID19
+      - M1YTRAN
+      - DUSTA
+      - GUIDOFFY
+      - M2YTILT
+      - FOCUS
+      - DATE-OBS
+      - SNC11G10
+      - CENBSH0
+      - MGDRA
+      - EXPID17
+      - PIXERR
+      - SN2_1I10
+      - MC1HUMHT
+      - SNC11G09
+      - WINDD25M
+      - SN2_1G10
+      - HELIO_RV
+      - SLINES
+    DR18:
+      from: DR17
+      primary_delta_nkeys: 119
+      added_primary_header_kwargs:
+      - SNC11I
+      - AIRTEMP
+      - SNC11G03
+      - SNC11G08
+      - SN2_1I01
+      - SN2_1G06
+      - SN2_1G02
+      - SN2_1R04
+      - RIRMSGAL
+      - SNC11R01
+      - SNC01G05
+      - SNC01G03
+      - IONPUMP
+      - PFERR
+      - EXPID21
+      - EXPID14
+      - SNC11R04
+      - SN2_1R00
+      - SNC11R02
+      - AVGBSH0
+      - SNC01G01
+      - SN2_1R01
+      - NGAL
+      - SN2_1G01
+      - SN2_1R02
+      - SN2RLIST
+      - EXPID16
+      - SNC01R
+      - EXPID04
+      - EXPID02
+      - SNC01R04
+      - SNC11R09
+      - EXPID22
+      - V_SOP
+      - SNC01R01
+      - MGDDEC
+      - IOFFGAL
+      - WINDS25M
+      - SNC11R00
+      - SNC01R00
+      - SN2ILIST
+      - GUSTD
+      - SNC11I09
+      - GUSTS
+      - SN2_1I04
+      - SNC01R07
+      - SNC11G01
+      - WINDS
+      - GRMSGAL
+      - SNC01G06
+      - SNC01G10
+      - EXPID15
+      - DEWPOINT
+      - SNC11I10
+      - M1ZROT
+      - SNC01I09
+      - SNC01I05
+      - SN2_1I05
+      - TAILIST
+      - SNC01G00
+      - SNC11I08
+      - SNC11R07
+      - SNC01I03
+      - SNC01G
+      - SN2_1G03
+      - GRRMSGAL
+      - SIGBSH0
+      - SNC01I01
+      - SN2_1G04
+      - SN2_1G00
+      - SNC01G02
+      - SNC01I07
+      - FIELDID
+      - SNC11G04
+      - TRUSTEMP
+      - EXPID13
+      - SN2_1G07
+      - SNC11R03
+      - WINDD
+      - STDBSH0
+      - SN2_1R10
+      - WDISPR
+      - EXPID07
+      - EXPID05
+      - MGDPOS
+      - RRMSGAL
+      - DIDFLUSH
+      - SNC11G00
+      - SN2_1I09
+      - EXPID12
+      - SNC01I04
+      - SNC01G04
+      - SNC01R09
+      - RIOFFGAL
+      - SNC01G09
+      - SNC11R10
+      - SNC01I02
       - SN2_1I08
+      - V_APO
+      - HUMIDITY
+      - SNC01I00
+      - SNC11I01
+      - SUBFRAME
+      - EXPID18
+      - SN2_1I03
+      - SN2_1G05
+      - M2ZROT
+      - SNC01R05
+      - ROFFGAL
+      - SN2_1R07
+      - EXPID11
+      - SNC01I10
+      - PRESSURE
+      - SN2_1I07
+      - AVGASH0
+      - LN2TEMP
+      - EXPID08
+      - EXPID20
+      - SNC01I
+      - V_GUIDER
+      - SN2_1R06
+      - SN2_1R08
+      - SNC01I06
+      - SNC01R02
+      - SNC11I05
+      - SNC11I07
+      - EXPID03
+      - EXPID06
       - STDASH0
+      - SNC01R08
+      - EXPID10
+      - CCDTEMP
+      - SNC11I03
+      - SNC11R06
+      - SN2_1I06
+      - SNC01G08
+      - SNC01G07
+      - SNC01R03
+      - SNC11G05
+      - GROFFGAL
+      - SNC11I06
+      - SNC11G06
+      - SNC11R08
+      - SN2_1R03
+      - SN2_1R09
+      - SNC11G02
+      - SN2GLIST
+      - SNC11G07
+      - SN2_1R05
+      - SN2_1I00
+      - SLITID1
+      - SNC01I08
+      - V_BOSS
+      - IRMSGAL
+      - SN2_1G08
+      - SNC01R10
+      - SN2_1G09
+      - EXPID19
+      - DUSTA
+      - SNC11I00
+      - GOFFGAL
+      - PLATETYP
+      - SNC11G
+      - SNC11G10
+      - CENBSH0
+      - MGDRA
+      - EXPID17
+      - SN2_1I02
+      - SN2_1I10
+      - SNC11G09
+      - SNC11I04
+      - SNC11R05
+      - EXPID01
+      - SNC11R
+      - WINDD25M
+      - SN2_1G10
+      - SNC01R06
+      - SNC11I02
+      - SRVYMODE
+      - EXPID09
+      - DUSTB
+      removed_primary_header_kwargs:
+      - EXPID008
+      - MC2HUMHT
+      - EXPID027
+      - EXPID034
+      - EXPID010
+      - EXPID035
+      - EXPID011
+      - EXPID028
+      - EXPT_R2
+      - OBJOFFX
+      - DAQVER
+      - EXPID013
+      - MC2TRCB
+      - EXPID022
+      - EXPID002
+      - EXPT_B2
+      - SPEC2_R
+      - MC2TEMDN
+      - MC2TRCT
+      - EXPID004
+      - MC2TBCT
+      - EXPID036
+      - EXPID023
+      - EXPID003
+      - SPEC2_G
+      - MC2THT
+      - EXPID015
+      - EXPID017
+      - EXPID038
+      - EXPID031
+      - NEXP_R2
+      - EXPID007
+      - EXPID025
+      - NEXP_B2
+      - EXPID019
+      - EXPID005
+      - EXPID021
+      - EXPID032
+      - EXPID030
+      - EXPID006
+      - EXPID009
+      - EXPID026
+      - EXPID029
+      - BOSSVER
+      - EXPID014
+      - EXPID037
+      - SN2EXT2G
+      - EXPID018
+      - EXPID016
+      - OBJOFFY
+      - EXPID024
+      - EXPID001
+      - EXPID039
+      - SPEC2_I
+      - SN2EXT2I
+      - EXPID033
+      - EXPID020
+      - MC2TBCB
+      - EXPID012
+      - MC2HUMCO
+      - EXPID040
+      - SN2EXT2R
 releases:
   DR19:
     template: $BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/[RUN1D]/spZbest-[FIELD]-[MJD].fits
@@ -5124,6 +5374,1222 @@ releases:
           comment: ''
         - key: NAXIS2
           value: 500
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: ''
+        - key: GCOUNT
+          value: 1
+          comment: ''
+  DR17:
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID4]/[RUN1D]/spZbest-[PLATEID4]-[MJD].fits
+    example: v5_13_2/3606/v5_13_2/spZbest-3606-55182.fits
+    location: '{run2d}/{plateid:0>4}/{run1d}/spZbest-{plateid:0>4}-{mjd}.fits'
+    environment: BOSS_SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: spZbest
+      path_template: '@spectrodir|/{run2d}/{plateid:0>4}/{run1d}/spZbest-{plateid:0>4}-{mjd}.fits'
+      path_kwargs:
+      - run2d
+      - plateid
+      - run1d
+      - mjd
+      access_string: spZbest = $BOSS_SPECTRO_REDUX/{run2d}/{plateid:0>4}/{run1d}/spZbest-{plateid:0>4}-{mjd}.fits
+    survey: eBOSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Header copied from the spField file
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 16
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: TELESCOP
+          value: SDSS 2.5-M
+          comment: Sloan Digital Sky Survey
+        - key: NGUIDE
+          value: 0
+          comment: Number of guider frames during exposure
+        - key: SEEING20
+          value: 0.0
+          comment: 20% seeing during exposure (arcsec)
+        - key: SEEING50
+          value: 0.0
+          comment: 50% seeing during exposure (arcsec)
+        - key: SEEING80
+          value: 0.0
+          comment: 80% seeing during exposure (arcsec)
+        - key: RMSOFF20
+          value: 0.0
+          comment: 20% RMS offset of guide fibers (arcsec)
+        - key: RMSOFF50
+          value: 0.0
+          comment: 50% RMS offset of guide fibers (arcsec)
+        - key: RMSOFF80
+          value: 0.0
+          comment: 80% RMS offset of guide fibers (arcsec)
+        - key: DAQVER
+          value: 1.2.8
+          comment: ''
+        - key: CAMDAQ
+          value: 1.4.1:31
+          comment: ''
+        - key: ERRCNT
+          value: NONE
+          comment: ''
+        - key: SYNCERR
+          value: NONE
+          comment: ''
+        - key: SLINES
+          value: NONE
+          comment: ''
+        - key: PIXERR
+          value: NONE
+          comment: ''
+        - key: PLINES
+          value: NONE
+          comment: ''
+        - key: FLAVOR
+          value: science
+          comment: exposure type, SDSS spectro style
+        - key: BOSSVER
+          value: branch_jme-rewrite+svn105958
+          comment: ICC version
+        - key: MJD
+          value: 55182
+          comment: APO MJD day at start of exposure
+        - key: MJDLIST
+          value: 55181 55182
+          comment: ''
+        - key: TAI-BEG
+          value: 4767651797.0
+          comment: MJD(TAI) seconds at start of exposure
+        - key: DATE-OBS
+          value: '2009-12-16T03:43:17'
+          comment: TAI date at start of exposure
+        - key: OBJSYS
+          value: ICRS
+          comment: The TCC objSys
+        - key: RA
+          value: 28.001011
+          comment: RA of telescope boresight (deg)
+        - key: DEC
+          value: 0.000273
+          comment: Dec of telescope boresight (deg)
+        - key: EQUINOX
+          value: 2000.0
+          comment: ''
+        - key: RADECSYS
+          value: FK5
+          comment: ''
+        - key: RADEG
+          value: 28.0
+          comment: RA of telescope pointing(deg)
+        - key: DECDEG
+          value: 0.0
+          comment: Dec of telescope pointing (deg)
+        - key: ROTPOS
+          value: 0.0
+          comment: Rotator request position (deg)
+        - key: BOREOFFX
+          value: 0.0
+          comment: TCC Boresight offset, deg
+        - key: BOREOFFY
+          value: 0.0
+          comment: TCC Boresight offset, deg
+        - key: ARCOFFX
+          value: 0.001011
+          comment: TCC ObjArcOff, deg
+        - key: ARCOFFY
+          value: 0.000273
+          comment: TCC ObjArcOff, deg
+        - key: OBJOFFX
+          value: 0.0
+          comment: TCC ObjOff, deg
+        - key: OBJOFFY
+          value: 0.0
+          comment: TCC ObjOff, deg
+        - key: CALOFFX
+          value: 0.0
+          comment: TCC CalibOff, deg
+        - key: CALOFFY
+          value: 0.0
+          comment: TCC CalibOff, deg
+        - key: CALOFFR
+          value: 0.0
+          comment: TCC CalibOff, deg
+        - key: GUIDOFFX
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: GUIDOFFY
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: GUIDOFFR
+          value: 0.025747
+          comment: TCC GuideOff, deg
+        - key: AZ
+          value: -27.8383
+          comment: Azimuth axis pos. (approx, deg)
+        - key: ALT
+          value: 53.1857
+          comment: Altitude axis pos. (approx, deg)
+        - key: AIRMASS
+          value: 1.20358
+          comment: ''
+        - key: FOCUS
+          value: 489.22
+          comment: User-specified focus offset (um)
+        - key: M2PISTON
+          value: 2377.59
+          comment: TCC SecOrient
+        - key: M2XTILT
+          value: -3.99
+          comment: TCC SecOrient
+        - key: M2YTILT
+          value: -9.02
+          comment: TCC SecOrient
+        - key: M2XTRAN
+          value: 10.04
+          comment: TCC SecOrient
+        - key: M2YTRAN
+          value: 81.54
+          comment: TCC SecOrient
+        - key: M1PISTON
+          value: 878.14
+          comment: TCC PrimOrient
+        - key: M1XTILT
+          value: -3.55
+          comment: TCC PrimOrient
+        - key: M1YTILT
+          value: 5.26
+          comment: TCC PrimOrient
+        - key: M1XTRAN
+          value: 277.92
+          comment: TCC PrimOrient
+        - key: M1YTRAN
+          value: 177.48
+          comment: TCC PrimOrient
+        - key: SCALE
+          value: 0.999911
+          comment: User-specified scale factor
+        - key: NAME
+          value: 3606-55180-01
+          comment: The name of the currently loaded plate
+        - key: PLATEID
+          value: 3606
+          comment: The currently loaded plate
+        - key: TILEID
+          value: 10070
+          comment: Cartridge used in this plugging
+        - key: CARTID
+          value: 14
+          comment: Cartridge used in this plugging
+        - key: MAPID
+          value: 1
+          comment: The mapping version of the loaded plate
+        - key: POINTING
+          value: A
+          comment: The currently specified pointing
+        - key: GUIDER1
+          value: proc-gimg-0258.fits
+          comment: The first guider image
+        - key: COLLA
+          value: 11677
+          comment: The position of the A collimator motor
+        - key: COLLB
+          value: 12284
+          comment: The position of the B collimator motor
+        - key: COLLC
+          value: 12953
+          comment: The position of the C collimator motor
+        - key: HARTMANN
+          value: Out
+          comment: 'Hartmanns: Left,Right,Out'
+        - key: MC1HUMHT
+          value: 45.7
+          comment: sp1 mech Hartmann humidity, %
+        - key: MC1HUMCO
+          value: 34.9
+          comment: sp1 mech Central optics humidity, %
+        - key: MC1TEMDN
+          value: 1.1
+          comment: sp1 mech Median temp, C
+        - key: MC1THT
+          value: 0.3
+          comment: sp1 mech Hartmann Top Temp, C
+        - key: MC1TRCB
+          value: 1.1
+          comment: sp1 mech Red Cam Bottom Temp, C
+        - key: MC1TRCT
+          value: 2.2
+          comment: sp1 mech Red Cam Top Temp, C
+        - key: MC1TBCB
+          value: 1.0
+          comment: sp1 mech Blue Cam Bottom Temp, C
+        - key: MC1TBCT
+          value: 1.4
+          comment: sp1 mech Blue Cam Top Temp, C
+        - key: MC2HUMHT
+          value: 46.2
+          comment: sp2 mech Hartmann humidity, %
+        - key: MC2HUMCO
+          value: 39.6
+          comment: sp2 mech Central optics humidity, %
+        - key: MC2TEMDN
+          value: 0.2
+          comment: sp2 mech Median temp, C
+        - key: MC2THT
+          value: -0.1
+          comment: sp2 mech Hartmann Top Temp, C
+        - key: MC2TRCB
+          value: 0.6
+          comment: sp2 mech Red Cam Bottom Temp, C
+        - key: MC2TRCT
+          value: 0.2
+          comment: sp2 mech Red Cam Top Temp, C
+        - key: MC2TBCB
+          value: 0.0
+          comment: sp2 mech Blue Cam Bottom Temp, C
+        - key: MC2TBCT
+          value: 0.6
+          comment: sp2 mech Blue Cam Top Temp, C
+        - key: GUIDERN
+          value: proc-gimg-0284.fits
+          comment: The last guider image
+        - key: NEXP
+          value: 40
+          comment: Number of exposures in this file
+        - key: BESTEXP
+          value: 104940
+          comment: ''
+        - key: EXPID001
+          value: b1-00104940-00104944-00104945
+          comment: ID string for exposure 1
+        - key: EXPID002
+          value: b1-00104941-00104944-00104945
+          comment: ID string for exposure 2
+        - key: EXPID003
+          value: b1-00104942-00104944-00104945
+          comment: ID string for exposure 3
+        - key: EXPID004
+          value: b1-00104943-00104944-00104945
+          comment: ID string for exposure 4
+        - key: EXPID005
+          value: b1-00105003-00105010-00105011
+          comment: ID string for exposure 5
+        - key: EXPID006
+          value: b1-00105004-00105010-00105011
+          comment: ID string for exposure 6
+        - key: EXPID007
+          value: b1-00105006-00105010-00105011
+          comment: ID string for exposure 7
+        - key: EXPID008
+          value: b1-00105007-00105010-00105011
+          comment: ID string for exposure 8
+        - key: EXPID009
+          value: b1-00105008-00105010-00105011
+          comment: ID string for exposure 9
+        - key: EXPID010
+          value: b1-00105009-00105010-00105011
+          comment: ID string for exposure 10
+        - key: EXPID011
+          value: b2-00104940-00104944-00104945
+          comment: ID string for exposure 11
+        - key: EXPID012
+          value: b2-00104941-00104944-00104945
+          comment: ID string for exposure 12
+        - key: EXPID013
+          value: b2-00104942-00104944-00104945
+          comment: ID string for exposure 13
+        - key: EXPID014
+          value: b2-00104943-00104944-00104945
+          comment: ID string for exposure 14
+        - key: EXPID015
+          value: b2-00105003-00105010-00105011
+          comment: ID string for exposure 15
+        - key: EXPID016
+          value: b2-00105004-00105010-00105011
+          comment: ID string for exposure 16
+        - key: EXPID017
+          value: b2-00105006-00105010-00105011
+          comment: ID string for exposure 17
+        - key: EXPID018
+          value: b2-00105007-00105010-00105011
+          comment: ID string for exposure 18
+        - key: EXPID019
+          value: b2-00105008-00105010-00105011
+          comment: ID string for exposure 19
+        - key: EXPID020
+          value: b2-00105009-00105010-00105011
+          comment: ID string for exposure 20
+        - key: EXPID021
+          value: r1-00104940-00104944-00104945
+          comment: ID string for exposure 21
+        - key: EXPID022
+          value: r1-00104941-00104944-00104945
+          comment: ID string for exposure 22
+        - key: EXPID023
+          value: r1-00104942-00104944-00104945
+          comment: ID string for exposure 23
+        - key: EXPID024
+          value: r1-00104943-00104944-00104945
+          comment: ID string for exposure 24
+        - key: EXPID025
+          value: r1-00105003-00105010-00105011
+          comment: ID string for exposure 25
+        - key: EXPID026
+          value: r1-00105004-00105010-00105011
+          comment: ID string for exposure 26
+        - key: EXPID027
+          value: r1-00105006-00105010-00105011
+          comment: ID string for exposure 27
+        - key: EXPID028
+          value: r1-00105007-00105010-00105011
+          comment: ID string for exposure 28
+        - key: EXPID029
+          value: r1-00105008-00105010-00105011
+          comment: ID string for exposure 29
+        - key: EXPID030
+          value: r1-00105009-00105010-00105011
+          comment: ID string for exposure 30
+        - key: EXPID031
+          value: r2-00104940-00104944-00104945
+          comment: ID string for exposure 31
+        - key: EXPID032
+          value: r2-00104941-00104944-00104945
+          comment: ID string for exposure 32
+        - key: EXPID033
+          value: r2-00104942-00104944-00104945
+          comment: ID string for exposure 33
+        - key: EXPID034
+          value: r2-00104943-00104944-00104945
+          comment: ID string for exposure 34
+        - key: EXPID035
+          value: r2-00105003-00105010-00105011
+          comment: ID string for exposure 35
+        - key: EXPID036
+          value: r2-00105004-00105010-00105011
+          comment: ID string for exposure 36
+        - key: EXPID037
+          value: r2-00105006-00105010-00105011
+          comment: ID string for exposure 37
+        - key: EXPID038
+          value: r2-00105007-00105010-00105011
+          comment: ID string for exposure 38
+        - key: EXPID039
+          value: r2-00105008-00105010-00105011
+          comment: ID string for exposure 39
+        - key: EXPID040
+          value: r2-00105009-00105010-00105011
+          comment: ID string for exposure 40
+        - key: NEXP_B1
+          value: 10
+          comment: b1 camera number of exposures
+        - key: NEXP_B2
+          value: 10
+          comment: b2 camera number of exposures
+        - key: NEXP_R1
+          value: 10
+          comment: r1 camera number of exposures
+        - key: NEXP_R2
+          value: 10
+          comment: r2 camera number of exposures
+        - key: EXPT_B1
+          value: 9004.0
+          comment: b1 camera exposure time (seconds)
+        - key: EXPT_B2
+          value: 9003.0
+          comment: b2 camera exposure time (seconds)
+        - key: EXPT_R1
+          value: 9004.0
+          comment: r1 camera exposure time (seconds)
+        - key: EXPT_R2
+          value: 9003.0
+          comment: r2 camera exposure time (seconds)
+        - key: EXPTIME
+          value: 9003.0
+          comment: Minimum of exposure times for all cameras
+        - key: SPCOADD
+          value: Tue May 12 07:16:52 2020
+          comment: SPCOADD finished
+        - key: SHOPETIM
+          value: 0.735
+          comment: open shutter transit time, s
+        - key: SHCLOTIM
+          value: 0.55
+          comment: close shutter transit time, s
+        - key: AUTHOR
+          value: Scott Burles & David Schlegel
+          comment: ''
+        - key: VERSIDL
+          value: 7.1.1
+          comment: Version of IDL
+        - key: VERSUTIL
+          value: v5_5_17
+          comment: Version of idlutils
+        - key: VERSREAD
+          value: v5_13_2
+          comment: Version of idlspec2d for pre-processing raw dat
+        - key: VERS2D
+          value: v5_13_2
+          comment: Version of idlspec2d for 2D reduction
+        - key: VERSCOMB
+          value: v5_13_2
+          comment: Version of idlspec2d for combining multiple spe
+        - key: VERSLOG
+          value: trunk 26892
+          comment: Version of SPECLOG product
+        - key: VERSFLAT
+          value: v1_32
+          comment: Version of SPECFLAT product
+        - key: TWOPHASE
+          value: false
+          comment: ''
+        - key: RDNOISE0
+          value: 2.02617
+          comment: CCD read noise amp 0 [electrons]
+        - key: BADPIXEL
+          value: badpixels-55056-b1.fits.gz
+          comment: ''
+        - key: RUN2D
+          value: v5_13_2
+          comment: Spectro-2D reduction name
+        - key: RUN1D
+          value: v5_13_2
+          comment: Spectro-1D reduction name
+        - key: VERS1D
+          value: v5_13_2
+          comment: Version of idlspec2d for 1D reduction
+        - key: TAI-END
+          value: 4767744569.0
+          comment: ''
+        - key: REDDEN01
+          value: 0.1615
+          comment: Median extinction in u-band
+        - key: REDDEN02
+          value: 0.1188
+          comment: Median extinction in g-band
+        - key: REDDEN03
+          value: 0.0862
+          comment: Median extinction in r-band
+        - key: REDDEN04
+          value: 0.0653
+          comment: Median extinction in i-band
+        - key: REDDEN05
+          value: 0.0463
+          comment: Median extinction in z-band
+        - key: XSIGMA
+          value: 1.24718
+          comment: ''
+        - key: XSIGMIN
+          value: 1.04837
+          comment: ''
+        - key: XSIGMAX
+          value: 1.33269
+          comment: ''
+        - key: WSIGMA
+          value: 1.23172
+          comment: ''
+        - key: WSIGMIN
+          value: 1.11223
+          comment: ''
+        - key: WSIGMAX
+          value: 1.30906
+          comment: ''
+        - key: PLUGFILE
+          value: plPlugMapM-3606-55180-01.par
+          comment: ''
+        - key: LAMPLIST
+          value: lamphgcdne.dat
+          comment: ''
+        - key: SKYLIST
+          value: skylines.dat
+          comment: ''
+        - key: HELIO_RV
+          value: 25.651407139
+          comment: Heliocentric correction (added to velocities)
+        - key: VACUUM
+          value: true
+          comment: Wavelengths are in vacuum
+        - key: SFLATTEN
+          value: true
+          comment: Superflat has been applied
+        - key: PSFSKY
+          value: 3
+          comment: Order of PSF skysubtraction
+        - key: SKYCHI2
+          value: 1.12456156354
+          comment: Mean chi^2 of sky-subtraction
+        - key: SCHI2MIN
+          value: 0.96159253806
+          comment: ''
+        - key: SCHI2MAX
+          value: 1.35154027834
+          comment: ''
+        - key: PREJECT
+          value: 0.2
+          comment: Profile area rejection threshold
+        - key: SPEC1_G
+          value: 23.4987
+          comment: (S/N)^2 for spec  1 at mag 21.20
+        - key: SN2EXT1G
+          value: 23.4987
+          comment: Extinction corrected (S/N)^2
+        - key: SPEC1_R
+          value: 56.5887
+          comment: (S/N)^2 for spec  1 at mag 20.20
+        - key: SN2EXT1R
+          value: 56.5887
+          comment: Extinction corrected (S/N)^2
+        - key: SPEC1_I
+          value: 42.3044
+          comment: (S/N)^2 for spec  1 at mag 20.20
+        - key: SN2EXT1I
+          value: 42.3044
+          comment: Extinction corrected (S/N)^2
+        - key: SPEC2_G
+          value: 17.8264
+          comment: (S/N)^2 for spec  2 at mag 21.20
+        - key: SN2EXT2G
+          value: 17.8264
+          comment: Extinction corrected (S/N)^2
+        - key: SPEC2_R
+          value: 48.7679
+          comment: (S/N)^2 for spec  2 at mag 20.20
+        - key: SN2EXT2R
+          value: 48.7679
+          comment: Extinction corrected (S/N)^2
+        - key: SPEC2_I
+          value: 39.813
+          comment: (S/N)^2 for spec  2 at mag 20.20
+        - key: SN2EXT2I
+          value: 39.813
+          comment: Extinction corrected (S/N)^2
+        - key: NSTD
+          value: 20
+          comment: Number of (good) std stars
+        - key: GOFFSTD
+          value: 0.00389767
+          comment: Spectrophoto offset for std stars in G-band
+        - key: GRMSSTD
+          value: 0.0587422
+          comment: Spectrophoto RMS for std stars in G-band
+        - key: ROFFSTD
+          value: -0.0083313
+          comment: Spectrophoto offset for std stars in R-band
+        - key: RRMSSTD
+          value: 0.0406629
+          comment: Spectrophoto RMS for std stars in R-band
+        - key: IOFFSTD
+          value: 0.00646877
+          comment: Spectrophoto offset for std stars in I-band
+        - key: IRMSSTD
+          value: 0.0573644
+          comment: Spectrophoto RMS for std stars in I-band
+        - key: GROFFSTD
+          value: 0.00730133
+          comment: Spectrophoto offset for std stars in (GR)
+        - key: GRRMSSTD
+          value: 0.05883
+          comment: Spectrophoto RMS for std stars in (GR)
+        - key: RIOFFSTD
+          value: -0.00788879
+          comment: Spectrophoto offset for std stars in (RI)
+        - key: RIRMSSTD
+          value: 0.0370529
+          comment: Spectrophoto RMS for std stars in (RI)
+        - key: LOWREJ
+          value: 4
+          comment: 'Extraction: low rejection'
+        - key: HIGHREJ
+          value: 4
+          comment: 'Extraction: high rejection'
+        - key: SCATPOLY
+          value: 0
+          comment: 'Extraction: Order of scattered light polynomial'
+        - key: PROFTYPE
+          value: 1
+          comment: 'Extraction profile: 1=Gaussian'
+        - key: NFITPOLY
+          value: 1
+          comment: 'Extraction: Number of parameters in each profil'
+        - key: XCHI2
+          value: 0.0
+          comment: 'Extraction: Mean chi^2'
+        - key: NWORDER
+          value: 2
+          comment: Linear-log10 coefficients
+        - key: COEFF0
+          value: 3.5513
+          comment: Central wavelength (log10) of first pixel
+        - key: COEFF1
+          value: 0.0001
+          comment: Log10 dispersion per pixel
+        - key: UNAME
+          value: kp139
+          comment: ''
+        - key: FBADPIX
+          value: 0.0396756
+          comment: Fraction of bad pixels
+        - key: FBADPIX1
+          value: 0.036316
+          comment: Fraction of bad pixels on spectro-1
+        - key: FBADPIX2
+          value: 0.0430486
+          comment: Fraction of bad pixels on spectro-2
+        - key: WAT0_001
+          value: system=linear
+          comment: ''
+        - key: WAT1_001
+          value: wtype=linear label=Wavelength units=Angstroms
+          comment: ''
+        - key: CRVAL1
+          value: 3.5513
+          comment: Central wavelength (log10) of first pixel
+        - key: CD1_1
+          value: 0.0001
+          comment: Log10 dispersion per pixel
+        - key: CRPIX1
+          value: 1
+          comment: Starting pixel (1-indexed)
+        - key: CTYPE1
+          value: LINEAR
+          comment: ''
+        - key: DC-FLAG
+          value: 1
+          comment: Log-linear flag
+        - key: BUNIT
+          value: 1E-17 erg/cm^2/s/Ang
+          comment: ''
+        - key: CHOP_MIN
+          value: 3600.0
+          comment: ''
+        - key: CHOP_MAX
+          value: 10400.0
+          comment: ''
+      hdu1:
+        name: ''
+        description: Object classifications and redshifts
+        is_image: false
+        size: 1 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: Binary table written by MWRFITS v1.11
+        - key: BITPIX
+          value: 8
+          comment: Required value
+        - key: NAXIS
+          value: 2
+          comment: Required value
+        - key: NAXIS1
+          value: 1224
+          comment: Number of bytes per row
+        - key: NAXIS2
+          value: 1000
+          comment: Number of rows
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: Required value
+        - key: TFIELDS
+          value: 73
+          comment: Number of columns in table
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** End of mandatory fields ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column names ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column formats ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column dimensions (2 D or greater) ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: TDIM22
+          value: ( 10, 10)
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Unsigned integer column scalings *'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: TSCAL73
+          value: 1
+          comment: ''
+        - key: TZERO73
+          value: 9223372036854775808
+          comment: ''
+        columns:
+          PLATE:
+            name: PLATE
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          TILE:
+            name: TILE
+            type: int32
+            unit: ''
+            description: Tile ID for SDSS BOSS plates (-1 for SDSS)
+          MJD:
+            name: MJD
+            type: int32
+            unit: ''
+            description: Modified Julian date of combined Spectra
+          FIBERID:
+            name: FIBERID
+            type: int32
+            unit: ''
+            description: Fiber ID for the spectrograph
+          RUN2D:
+            name: RUN2D
+            type: char[7]
+            unit: ''
+            description: Spectro-2D reduction name
+          RUN1D:
+            name: RUN1D
+            type: char[7]
+            unit: ''
+            description: Spectro-1D reduction name
+          OBJID:
+            name: OBJID
+            type: int32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          OBJTYPE:
+            name: OBJTYPE
+            type: char[16]
+            unit: ''
+            description: Why this object was targetted. QSO=SCIENCE
+          PLUG_RA:
+            name: PLUG_RA
+            type: float64
+            unit: deg
+            description: Object RA (drilled fiber position) [J2000]
+          PLUG_DEC:
+            name: PLUG_DEC
+            type: float64
+            unit: deg
+            description: Object DEC (drilled fiber position) [J2000]
+          CLASS:
+            name: CLASS
+            type: char[6]
+            unit: ''
+            description: 'Spectro classification: GALAXY, QSO, STAR'
+          SUBCLASS:
+            name: SUBCLASS
+            type: char[19]
+            unit: ''
+            description: Spectro sub-classification
+          Z:
+            name: Z
+            type: float32
+            unit: ''
+            description: Redshift; incorrect for nonzero ZWARNING flag
+          Z_ERR:
+            name: Z_ERR
+            type: float32
+            unit: ''
+            description: z error from chi^2 min; negative is invalid fit
+          RCHI2:
+            name: RCHI2
+            type: float32
+            unit: ''
+            description: Reduced chi^2 for best fit
+          DOF:
+            name: DOF
+            type: int32
+            unit: ''
+            description: Degrees of freedom for best fit
+          RCHI2DIFF:
+            name: RCHI2DIFF
+            type: float32
+            unit: ''
+            description: Diff in reduced chi^2 of 2 best solutions
+          TFILE:
+            name: TFILE
+            type: char[24]
+            unit: ''
+            description: Template file in $IDLSPEC2D_DIR/templates
+          TCOLUMN:
+            name: TCOLUMN
+            type: int32[10]
+            unit: ''
+            description: Column to use in template file (0-indexed); unused value
+              set to -1
+          NPOLY:
+            name: NPOLY
+            type: int32
+            unit: ''
+            description: '# of polynomial terms with TFILE'
+          THETA:
+            name: THETA
+            type: float32[10]
+            unit: ''
+            description: Eigenvalue coeff for template file + polynomial
+          THETA_COVAR:
+            name: THETA_COVAR
+            type: float32[100]
+            unit: ''
+            description: Covariance matrix for THETA
+          VDISP:
+            name: VDISP
+            type: float32
+            unit: km/s
+            description: Velocity dispersion, only computed for galaxies
+          VDISP_ERR:
+            name: VDISP_ERR
+            type: float32
+            unit: km/s
+            description: Error in VDISP; negative for invalid fit
+          VDISPZ:
+            name: VDISPZ
+            type: float32
+            unit: ''
+            description: Redshift for best-fit velocity dispersion
+          VDISPZ_ERR:
+            name: VDISPZ_ERR
+            type: float32
+            unit: ''
+            description: Error in VDISPZ
+          VDISPCHI2:
+            name: VDISPCHI2
+            type: float32
+            unit: ''
+            description: Chi^2 for best-fit velocity dispersion
+          VDISPNPIX:
+            name: VDISPNPIX
+            type: float32
+            unit: ''
+            description: Num of pixels overlapping VDISP fit templates
+          VDISPDOF:
+            name: VDISPDOF
+            type: int32
+            unit: ''
+            description: Degrees of freedom for best-fit velocity dispersion, equal
+              to VDISPNPIX minus the number of templates minus the number of polynomial
+              terms minus 1 (the last 1 is for the velocity dispersion)
+          WAVEMIN:
+            name: WAVEMIN
+            type: float32
+            unit: AA
+            description: Minimum observed (vacuum) wavelength for target
+          WAVEMAX:
+            name: WAVEMAX
+            type: float32
+            unit: AA
+            description: Maximum observed (vacuum) wavelength for target
+          WCOVERAGE:
+            name: WCOVERAGE
+            type: float32
+            unit: log10(AA)
+            description: Amount of wavelength coverage in log-10(Angs)
+          ZWARNING:
+            name: ZWARNING
+            type: int32
+            unit: ''
+            description: A flag for bad z fits in place of CLASS=UNKNOWN
+          SN_MEDIAN:
+            name: SN_MEDIAN
+            type: float32[5]
+            unit: ''
+            description: Median S/N for all good pixels in SDSS-{ugriz}
+          SN_MEDIAN_ALL:
+            name: SN_MEDIAN_ALL
+            type: float32
+            unit: ''
+            description: Median S/N for all good pixels in all filters
+          CHI68P:
+            name: CHI68P
+            type: float32
+            unit: ''
+            description: 68% of abs(chi) of synthetic to actual spectrum
+          FRACNSIGMA:
+            name: FRACNSIGMA
+            type: float32[10]
+            unit: ''
+            description: Fraction of pixels deviant by >{1-10} sigma (igorning all
+              points blueward of rest-frame 1216 Ang)
+          FRACNSIGHI:
+            name: FRACNSIGHI
+            type: float32[10]
+            unit: ''
+            description: Fraction of pixels high by >{1-10} sigma (igorning all points
+              blueward of rest-frame 1216 Ang)
+          FRACNSIGLO:
+            name: FRACNSIGLO
+            type: float32[10]
+            unit: ''
+            description: Fraction of pixels low by >{1-10} sigma (igorning all points
+              blueward of rest-frame 1216 Ang)
+          SPECTROFLUX:
+            name: SPECTROFLUX
+            type: float32[5]
+            unit: nanomaggy
+            description: Spectrum projected onto SDSS-{ugriz} filter
+          SPECTROFLUX_IVAR:
+            name: SPECTROFLUX_IVAR
+            type: float32[5]
+            unit: nanomaggy
+            description: Inverse variance of SPECTROFLUX
+          SPECTROSYNFLUX:
+            name: SPECTROSYNFLUX
+            type: float32[5]
+            unit: nanomaggy
+            description: Best-fit template projected onto SDSS-{ugriz}
+          SPECTROSYNFLUX_IVAR:
+            name: SPECTROSYNFLUX_IVAR
+            type: float32[5]
+            unit: nanomaggy
+            description: Inverse variance of SPECTROSYNFLUX
+          SPECTROSKYFLUX:
+            name: SPECTROSKYFLUX
+            type: float32[5]
+            unit: nanomaggy
+            description: Sky spectrum projected onto SDSS-{ugriz} filter
+          ANYANDMASK:
+            name: ANYANDMASK
+            type: int32
+            unit: ''
+            description: For each bit, any pixel has bit set in ANDMASK
+          ANYORMASK:
+            name: ANYORMASK
+            type: int32
+            unit: ''
+            description: For each bit, any pixel has bit set in ORMASK
+          SPEC1_G:
+            name: SPEC1_G
+            type: float32
+            unit: ''
+            description: Fit (S/N)^2 at g=20.20 for spectrograph 1
+          SPEC1_R:
+            name: SPEC1_R
+            type: float32
+            unit: ''
+            description: Fit (S/N)^2 at r=20.25 for spectrograph 1
+          SPEC1_I:
+            name: SPEC1_I
+            type: float32
+            unit: ''
+            description: Fit (S/N)^2 at i=19.90 for spectrograph 1
+          SPEC2_G:
+            name: SPEC2_G
+            type: float32
+            unit: ''
+            description: Fit (S/N)^2 at g=20.20 for spectrograph 2
+          SPEC2_R:
+            name: SPEC2_R
+            type: float32
+            unit: ''
+            description: Fit (S/N)^2 at r=20.25 for spectrograph 2
+          SPEC2_I:
+            name: SPEC2_I
+            type: float32
+            unit: ''
+            description: Fit (S/N)^2 at i=19.90 for spectrograph 2
+          ELODIE_FILENAME:
+            name: ELODIE_FILENAME
+            type: char[16]
+            unit: ''
+            description: File name for best-fit Elodie star
+          ELODIE_OBJECT:
+            name: ELODIE_OBJECT
+            type: char[8]
+            unit: ''
+            description: Star name (mostly Henry Draper names)
+          ELODIE_SPTYPE:
+            name: ELODIE_SPTYPE
+            type: char[12]
+            unit: ''
+            description: Spectral type
+          ELODIE_BV:
+            name: ELODIE_BV
+            type: float32
+            unit: ''
+            description: (B-V) color
+          ELODIE_TEFF:
+            name: ELODIE_TEFF
+            type: float32
+            unit: K
+            description: Effective temperature
+          ELODIE_LOGG:
+            name: ELODIE_LOGG
+            type: float32
+            unit: cm/s^2
+            description: Log10(gravity)
+          ELODIE_FEH:
+            name: ELODIE_FEH
+            type: float32
+            unit: solar
+            description: '[Fe/H]'
+          ELODIE_Z:
+            name: ELODIE_Z
+            type: float32
+            unit: ''
+            description: Redshift
+          ELODIE_Z_ERR:
+            name: ELODIE_Z_ERR
+            type: float32
+            unit: ''
+            description: Redshift error; negative for invalid fit
+          ELODIE_Z_MODELERR:
+            name: ELODIE_Z_MODELERR
+            type: float32
+            unit: ''
+            description: The standard deviation in redshift amongst the 12 best-fit
+              stars
+          ELODIE_RCHI2:
+            name: ELODIE_RCHI2
+            type: float32
+            unit: ''
+            description: Reduced chi^2
+          ELODIE_DOF:
+            name: ELODIE_DOF
+            type: int32
+            unit: ''
+            description: Degrees of freedom for fit
+          Z_NOQSO:
+            name: Z_NOQSO
+            type: float32
+            unit: ''
+            description: Redshift of the best-fit non-QSO model (recommended for CMASS
+              and LOZ).
+          Z_ERR_NOQSO:
+            name: Z_ERR_NOQSO
+            type: float32
+            unit: ''
+            description: Formal one-sigma error on Z_NOQSO (recommended for CMASS
+              and LOZ).
+          ZNUM_NOQSO:
+            name: ZNUM_NOQSO
+            type: int32
+            unit: ''
+            description: Best fit redshift/classification index while excluding QSO
+              fits; 1-indexed.
+          ZWARNING_NOQSO:
+            name: ZWARNING_NOQSO
+            type: int32
+            unit: ''
+            description: Redshift warning flag for Z_NOQSO (recommended for CMASS
+              and LOZ).
+          CLASS_NOQSO:
+            name: CLASS_NOQSO
+            type: char[6]
+            unit: ''
+            description: Spectro classification of best-fit non-QSO model (recommended
+              for CMASS and LOZ).
+          SUBCLASS_NOQSO:
+            name: SUBCLASS_NOQSO
+            type: char[19]
+            unit: ''
+            description: Spectro sub-classification of best-fit non-QSO model (recommended
+              for CMASS and LOZ).
+          RCHI2DIFF_NOQSO:
+            name: RCHI2DIFF_NOQSO
+            type: float32
+            unit: ''
+            description: Reduced chi-squared difference to next-best non-QSO model
+              (recommended for CMASS and LOZ)
+          VDISP_LNL:
+            name: VDISP_LNL
+            type: float32[35]
+            unit: replace me - with content
+            description: replace me - with content
+          SPECOBJID:
+            name: SPECOBJID
+            type: int64
+            unit: ''
+            description: SAS-style SPECID based upon plate, mjd, fiber, run2d
+      hdu2:
+        name: ''
+        description: the best fit eigenspectrum for each object.
+        is_image: true
+        size: 17 MB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image Extension created by MWRFITS v1.11
+        - key: BITPIX
+          value: -32
+          comment: ''
+        - key: NAXIS
+          value: 2
+          comment: ''
+        - key: NAXIS1
+          value: 4646
+          comment: ''
+        - key: NAXIS2
+          value: 1000
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: ''
+        - key: GCOUNT
+          value: 1
+          comment: ''
+      hdu3:
+        name: ''
+        description: Best fit velocity dispersions for galaxy spectra
+        is_image: true
+        size: 17 MB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image Extension created by MWRFITS v1.11
+        - key: BITPIX
+          value: -32
+          comment: ''
+        - key: NAXIS
+          value: 2
+          comment: ''
+        - key: NAXIS1
+          value: 4646
+          comment: ''
+        - key: NAXIS2
+          value: 1000
           comment: ''
         - key: PCOUNT
           value: 0
