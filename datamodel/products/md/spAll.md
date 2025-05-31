@@ -9,7 +9,7 @@ Summary spectroscopic information for the BOSS spectrograph data.
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
@@ -19,7 +19,7 @@ This file contains a summary of the BOSS idlspec2d and spectro-1d pipeline outpu
 $BOSS_SPECTRO_REDUX/[RUN2D]/spAll-[RUN2D].fits.gz
 
 ### Releases
-IPL3, DR19
+DR9, DR10, DR12, DR11, DR13, DR14, DR15, DR16, DR17, DR18, IPL3, DR19
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -36,6 +36,9 @@ idlspec2d
 ### Is a VAC
 False
 
+### Data Level
+0.0.0
+
 ### HDUS List for release DR19
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1: SPALL](#hdu1-spall)
@@ -46,6 +49,38 @@ False
 Describes changes to the datamodel product and/or file structure from one release to another
  - DR19
    - from: IPL3
+   - note: No changes
+ - IPL3
+   - from: DR18
+   - added_hdus: ['SPALL']
+   - primary_delta_nkeys: 5
+   - added_primary_header_kwargs: ['RUN2D', 'DATE', 'CHECKSUM', 'DATASUM', 'SDSSC2BV']
+ - DR18
+   - from: DR17
+   - note: No changes
+ - DR17
+   - from: DR16
+   - note: No changes
+ - DR16
+   - from: DR15
+   - note: No changes
+ - DR15
+   - from: DR14
+   - note: No changes
+ - DR14
+   - from: DR13
+   - note: No changes
+ - DR13
+   - from: DR11
+   - note: No changes
+ - DR11
+   - from: DR12
+   - note: No changes
+ - DR12
+   - from: DR10
+   - note: No changes
+ - DR10
+   - from: DR9
    - note: No changes
 
 ---
@@ -74,7 +109,6 @@ Key | Value | Comment | |
 
 ### HDU1: SPALL
 Spectral Summary Table
- 
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  13 GB
@@ -276,3 +310,7 @@ Name | Type | Unit | Description |
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!
