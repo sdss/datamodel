@@ -859,7 +859,7 @@ releases:
             description: fit coefficients
       hdu2:
         name: fibermask
-        description: The HDU 3 data stores the fibermask. These are fiber status bits
+        description: The HDU 2 data stores the fibermask. These are fiber status bits
           and are set to non-zero to indicate bad status. The status bits used for
           masking are documented in $IDLUTILS/$IDLUTILS_VER/data/sdss/sdssMaskbits.par.
         is_image: true
@@ -2105,7 +2105,7 @@ releases:
             description: fit coefficients
       hdu2:
         name: fibermask
-        description: The HDU 3 data stores the fibermask. These are fiber status bits
+        description: The HDU 2 data stores the fibermask. These are fiber status bits
           and are set to non-zero to indicate bad status. The status bits used for
           masking are documented in $IDLUTILS/$IDLUTILS_VER/data/sdss/sdssMaskbits.par.
         is_image: true
@@ -2635,8 +2635,10 @@ releases:
     survey: SDSS
     hdus:
       hdu0:
-        name: PRIMARY
-        description: replace me description
+        name: fflat
+        description: The primary HDU data is an array of flat-field vectors for each
+          fiber that removes relative flat-field variations as a function of wavelength
+          between fibers. These are referred as fiberflats.
         is_image: true
         size: 7 MB
         header:
@@ -3025,8 +3027,13 @@ releases:
           value: 0
           comment: Number of bright pixels (>10^5) in extracted fla
       hdu1:
-        name: ''
-        description: replace me description
+        name: tset
+        description: The HDU 1 data is a binary table whose fields are used to calculate
+          the X-centers, for all fibers in the flat-field calibration frames. The
+          Y-pixel positions on the CCD, which is the independent variable and the
+          corresponding X-centers, which is the dependent variable are fitted to a
+          functional form and the resulting coefficients are stored in the binary
+          table.
         is_image: false
         size: 27 KB
         header:
@@ -3097,26 +3104,34 @@ releases:
           FUNC:
             name: FUNC
             type: char[8]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: function used to fit the Y-pixel positions on the CCD and
+              corresponding X-centers are fitted to a functional form. Polynomial,
+              Chebyshev, Legendre or Chebyshev_split functions are used. Default value
+              is taken as Legendre function
           XMIN:
             name: XMIN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: minimum value of the independent variable which is used along
+              with the fitting coefficients, in the fitting function to get the value
+              of dependent variable, which is the X-center of fibers.
           XMAX:
             name: XMAX
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: maximum value of the independent variable used by fitting
+              function.
           COEFF:
             name: COEFF
             type: float64[3500]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: fit coefficients
       hdu2:
-        name: ''
-        description: replace me description
+        name: fibermask
+        description: The HDU 2 data stores the fibermask. These are fiber status bits
+          and are set to non-zero to indicate bad status. The status bits used for
+          masking are documented in $IDLUTILS/$IDLUTILS_VER/data/sdss/sdssMaskbits.par.
         is_image: true
         size: 1 KB
         header:
@@ -3139,8 +3154,13 @@ releases:
           value: 1
           comment: ''
       hdu3:
-        name: ''
-        description: replace me description
+        name: widthset
+        description: The data attribute of HDU 3 gives the first-order corrected profile
+          width for each fiber bundle. This Gaussian sigma is in units of pixels.
+          The X-positions on the CCD and their corresponding profile width are fitted
+          to a functional form and the resulting coefficients are stored in a binary
+          table. The X-position is the independent variable and the width is the dependent
+          variable for the fitting function.
         is_image: false
         size: 11 KB
         header:
@@ -3211,26 +3231,35 @@ releases:
           FUNC:
             name: FUNC
             type: char[8]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: function used to fit the Y-pixel positions on the CCD and
+              corresponding X-centers are fitted to a functional form. Polynomial,
+              Chebyshev, Legendre or Chebyshev_split functions are used. Default value
+              is taken as Legendre function
           XMIN:
             name: XMIN
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: minimum value of the independent variable which is used along
+              with the fitting coefficients, in the fitting function to get the value
+              of dependent variable, which is the X-center of fibers.
           XMAX:
             name: XMAX
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: maximum value of the independent variable used by fitting
+              function.
           COEFF:
             name: COEFF
-            type: float64[1500]
-            unit: replace me - with content
-            description: replace me - with content
+            type: float64[3500]
+            unit: ''
+            description: fit coefficients
       hdu4:
-        name: ''
-        description: replace me description
+        name: superflatset
+        description: The data attribute of HDU 4 contains superflat which is constructed
+          from extracted flat-field image and is stored in a bspline set structure
+          form. A superflat is a bspline average across all fibers of the flat spectrum
+          in raw counts as a function of wavelength.
         is_image: false
         size: 24 KB
         header:
@@ -3289,28 +3318,28 @@ releases:
           FULLBKPT:
             name: FULLBKPT
             type: float32[1814]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Breakpoint vector
           BKMASK:
             name: BKMASK
             type: int16[1814]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: mask of the breakpoint vector
           NORD:
             name: NORD
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of orders for Bspline fit
           COEFF:
             name: COEFF
             type: float32[1810]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The bspline coefficients
           ICOEFF:
             name: ICOEFF
             type: float32[1810]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: inversion bspline coefficients
 notes: |-
   None
 regrets: |-
