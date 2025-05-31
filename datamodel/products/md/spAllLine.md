@@ -19,7 +19,7 @@ Contains a summary of the Spectro-1D spZline output for all spectra with line me
 $BOSS_SPECTRO_REDUX/[RUN2D]/spAllLine-[RUN2D].fits.gz
 
 ### Releases
-DR18, IPL3, DR19
+DR17, DR18, IPL3, DR19
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -54,7 +54,10 @@ Describes changes to the datamodel product and/or file structure from one releas
    - from: DR18
    - added_hdus: ['SPLINE']
    - primary_delta_nkeys: 6
-   - added_primary_header_kwargs: ['DIMS0', 'DATASUM', 'DATE', 'CHECKSUM', 'DIMS1', 'RUN2D']
+   - added_primary_header_kwargs: ['RUN2D', 'DATASUM', 'DIMS1', 'CHECKSUM', 'DIMS0', 'DATE']
+ - DR18
+   - from: DR17
+   - note: No changes
 
 ---
 ## Example HDUS List

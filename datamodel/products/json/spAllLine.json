@@ -34,11 +34,33 @@
         },
         "id": "sdss",
         "aliases": []
+      },
+      {
+        "name": "eBOSS",
+        "long": "Extended Baryon Oscillation Spectroscopic Survey",
+        "description": "A cosmological survey of quasars and galaxies to understand baryon acoustic oscillations",
+        "phase": {
+          "name": "Phase-IV",
+          "id": 4,
+          "start": 2014,
+          "end": 2020,
+          "active": false
+        },
+        "id": "eboss",
+        "aliases": [
+          "boss"
+        ]
       }
     ],
     "datatype": "FITS",
     "filesize": "3 GB",
     "releases": [
+      {
+        "name": "DR17",
+        "description": "SDSS public data release 17",
+        "public": true,
+        "release_date": "2021-12-06"
+      },
       {
         "name": "DR18",
         "description": "SDSS public data release 18",
@@ -103,13 +125,38 @@
         "removed_hdus": null,
         "primary_delta_nkeys": 6,
         "added_primary_header_kwargs": [
-          "DIMS0",
+          "RUN2D",
           "DATASUM",
-          "DATE",
-          "CHECKSUM",
           "DIMS1",
-          "RUN2D"
+          "CHECKSUM",
+          "DIMS0",
+          "DATE"
         ],
+        "removed_primary_header_kwargs": null,
+        "delta_nkeys": null,
+        "addead_header_keys": null,
+        "removed_header_keys": null,
+        "delta_ntables": null,
+        "addead_tables": null,
+        "removed_tables": null,
+        "tables": null,
+        "new_libver": null,
+        "delta_nattrs": null,
+        "addead_attrs": null,
+        "removed_attrs": null,
+        "delta_nmembers": null,
+        "addead_members": null,
+        "removed_members": null,
+        "members": null
+      },
+      "DR18": {
+        "from": "DR17",
+        "note": "No changes",
+        "delta_nhdus": null,
+        "added_hdus": null,
+        "removed_hdus": null,
+        "primary_delta_nkeys": null,
+        "added_primary_header_kwargs": null,
         "removed_primary_header_kwargs": null,
         "delta_nkeys": null,
         "addead_header_keys": null,
@@ -897,6 +944,274 @@
             "FIELD": {
               "name": "FIELD",
               "description": "SDSS FieldID (plateID for plate era data)",
+              "type": "int32",
+              "unit": ""
+            },
+            "MJD": {
+              "name": "MJD",
+              "description": "Modified Julian date of observation",
+              "type": "int32",
+              "unit": ""
+            },
+            "FIBERID": {
+              "name": "FIBERID",
+              "description": "Fiber of observation",
+              "type": "int32",
+              "unit": ""
+            },
+            "LINENAME": {
+              "name": "LINENAME",
+              "description": "Line name",
+              "type": "char[13]",
+              "unit": ""
+            },
+            "LINEWAVE": {
+              "name": "LINEWAVE",
+              "description": "Catalog wavelength of line in vacuum Angstroms",
+              "type": "float64",
+              "unit": ""
+            },
+            "LINEZ": {
+              "name": "LINEZ",
+              "description": "Redshift",
+              "type": "float32",
+              "unit": ""
+            },
+            "LINEZ_ERR": {
+              "name": "LINEZ_ERR",
+              "description": "Redshift error (negative for invalid fit)",
+              "type": "float32",
+              "unit": ""
+            },
+            "LINESIGMA": {
+              "name": "LINESIGMA",
+              "description": "Gaussian width in km/sec",
+              "type": "float32",
+              "unit": ""
+            },
+            "LINESIGMA_ERR": {
+              "name": "LINESIGMA_ERR",
+              "description": "Gaussian width error (<0 for invalid fit)",
+              "type": "float32",
+              "unit": ""
+            },
+            "LINEAREA": {
+              "name": "LINEAREA",
+              "description": "Area in gaussian fit [(flux-units) * Ang]",
+              "type": "float32",
+              "unit": "nanomaggy*AA"
+            },
+            "LINEAREA_ERR": {
+              "name": "LINEAREA_ERR",
+              "description": "Flux error (negative for invalid fit)",
+              "type": "float32",
+              "unit": "nanomaggy*AA"
+            },
+            "LINEEW": {
+              "name": "LINEEW",
+              "description": "equivalent width",
+              "type": "float32",
+              "unit": ""
+            },
+            "LINEEW_ERR": {
+              "name": "LINEEW_ERR",
+              "description": "Equivalent width error (<0 for invalid fit)",
+              "type": "float32",
+              "unit": ""
+            },
+            "LINECONTLEVEL": {
+              "name": "LINECONTLEVEL",
+              "description": "Continuum level at line center",
+              "type": "float32",
+              "unit": ""
+            },
+            "LINECONTLEVEL_ERR": {
+              "name": "LINECONTLEVEL_ERR",
+              "description": "Error in continuum level at line center",
+              "type": "float32",
+              "unit": ""
+            },
+            "LINENPIXLEFT": {
+              "name": "LINENPIXLEFT",
+              "description": "Npixels to -3 sigma with INVVAR > 0",
+              "type": "int32",
+              "unit": ""
+            },
+            "LINENPIXRIGHT": {
+              "name": "LINENPIXRIGHT",
+              "description": "Npixels to +3 sigma with INVVAR > 0",
+              "type": "int32",
+              "unit": ""
+            },
+            "LINEDOF": {
+              "name": "LINEDOF",
+              "description": "DOF in fit",
+              "type": "float32",
+              "unit": ""
+            },
+            "LINECHI2": {
+              "name": "LINECHI2",
+              "description": "chi2 for all points in 3 sigma of line center",
+              "type": "float32",
+              "unit": ""
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null
+    },
+    "DR17": {
+      "template": "$BOSS_SPECTRO_REDUX/[RUN2D]/spAllLine-[RUN2D].fits",
+      "example": "v5_13_2/spAllLine-v5_13_2.fits",
+      "location": "{run2d}/spAllLine-{run2d}.fits",
+      "environment": "BOSS_SPECTRO_REDUX",
+      "survey": "eBOSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "spAllLine",
+        "path_template": "@spectrodir|/{run2d}/spAll-{run2d}.fits",
+        "path_kwargs": [
+          "run2d"
+        ],
+        "access_string": "spAllLine = $BOSS_SPECTRO_REDUX/{run2d}/spAllLine-{run2d}.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "Dummy Created by MWRFITS v1.11"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "Dummy primary header created by MWRFITS"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "No data is associated with this header"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": "Extensions may (will!) be present"
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "contains a summary of the Spectro-1D spZline output for all spectra.",
+          "size": "10 GB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "BINTABLE",
+              "comment": "Binary table written by MWRFITS v1.11"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "Required value"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "Required value"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "89",
+              "comment": "Number of bytes per row"
+            },
+            {
+              "key": "NAXIS2",
+              "value": "126656000",
+              "comment": "Number of rows"
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "Normally 0 (no varying arrays)"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "Required value"
+            },
+            {
+              "key": "TFIELDS",
+              "value": "19",
+              "comment": "Number of columns in table"
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": " *** End of mandatory fields ***",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "DIMS0",
+              "value": "32",
+              "comment": "Number of emission lines"
+            },
+            {
+              "key": "DIMS1",
+              "value": "3958000.0",
+              "comment": "Number of objects"
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": " *** Column names ***",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": " *** Column formats ***",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            }
+          ],
+          "columns": {
+            "PLATE": {
+              "name": "PLATE",
+              "description": "SDSS PlateID",
               "type": "int32",
               "unit": ""
             },

@@ -6,6 +6,7 @@ general:
   datatype: FITS
   filesize: 3 GB
   releases:
+  - DR17
   - DR18
   - IPL3
   - DR19
@@ -14,6 +15,7 @@ general:
   surveys:
   - BHM
   - SDSS
+  - eBOSS
   naming_convention: $BOSS_SPECTRO_REDUX/[RUN2D]/spAllLine-[RUN2D].fits.gz
   generated_by: idlspec2d
   design: false
@@ -33,12 +35,15 @@ changelog:
       - SPLINE
       primary_delta_nkeys: 6
       added_primary_header_kwargs:
-      - DIMS0
-      - DATASUM
-      - DATE
-      - CHECKSUM
-      - DIMS1
       - RUN2D
+      - DATASUM
+      - DIMS1
+      - CHECKSUM
+      - DIMS0
+      - DATE
+    DR18:
+      from: DR17
+      note: No changes
 releases:
   DR19:
     template: $BOSS_SPECTRO_REDUX/[RUN2D]/spAllLine-[RUN2D].fits.gz
@@ -578,6 +583,197 @@ releases:
             type: int32
             unit: ''
             description: SDSS FieldID (plateID for plate era data)
+          MJD:
+            name: MJD
+            type: int32
+            unit: ''
+            description: Modified Julian date of observation
+          FIBERID:
+            name: FIBERID
+            type: int32
+            unit: ''
+            description: Fiber of observation
+          LINENAME:
+            name: LINENAME
+            type: char[13]
+            unit: ''
+            description: Line name
+          LINEWAVE:
+            name: LINEWAVE
+            type: float64
+            unit: ''
+            description: Catalog wavelength of line in vacuum Angstroms
+          LINEZ:
+            name: LINEZ
+            type: float32
+            unit: ''
+            description: Redshift
+          LINEZ_ERR:
+            name: LINEZ_ERR
+            type: float32
+            unit: ''
+            description: Redshift error (negative for invalid fit)
+          LINESIGMA:
+            name: LINESIGMA
+            type: float32
+            unit: ''
+            description: Gaussian width in km/sec
+          LINESIGMA_ERR:
+            name: LINESIGMA_ERR
+            type: float32
+            unit: ''
+            description: Gaussian width error (<0 for invalid fit)
+          LINEAREA:
+            name: LINEAREA
+            type: float32
+            unit: nanomaggy*AA
+            description: Area in gaussian fit [(flux-units) * Ang]
+          LINEAREA_ERR:
+            name: LINEAREA_ERR
+            type: float32
+            unit: nanomaggy*AA
+            description: Flux error (negative for invalid fit)
+          LINEEW:
+            name: LINEEW
+            type: float32
+            unit: ''
+            description: equivalent width
+          LINEEW_ERR:
+            name: LINEEW_ERR
+            type: float32
+            unit: ''
+            description: Equivalent width error (<0 for invalid fit)
+          LINECONTLEVEL:
+            name: LINECONTLEVEL
+            type: float32
+            unit: ''
+            description: Continuum level at line center
+          LINECONTLEVEL_ERR:
+            name: LINECONTLEVEL_ERR
+            type: float32
+            unit: ''
+            description: Error in continuum level at line center
+          LINENPIXLEFT:
+            name: LINENPIXLEFT
+            type: int32
+            unit: ''
+            description: Npixels to -3 sigma with INVVAR > 0
+          LINENPIXRIGHT:
+            name: LINENPIXRIGHT
+            type: int32
+            unit: ''
+            description: Npixels to +3 sigma with INVVAR > 0
+          LINEDOF:
+            name: LINEDOF
+            type: float32
+            unit: ''
+            description: DOF in fit
+          LINECHI2:
+            name: LINECHI2
+            type: float32
+            unit: ''
+            description: chi2 for all points in 3 sigma of line center
+  DR17:
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/spAllLine-[RUN2D].fits
+    example: v5_13_2/spAllLine-v5_13_2.fits
+    location: '{run2d}/spAllLine-{run2d}.fits'
+    environment: BOSS_SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: spAllLine
+      path_template: '@spectrodir|/{run2d}/spAll-{run2d}.fits'
+      path_kwargs:
+      - run2d
+      access_string: spAllLine = $BOSS_SPECTRO_REDUX/{run2d}/spAllLine-{run2d}.fits
+    survey: eBOSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: ''
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: Dummy Created by MWRFITS v1.11
+        - key: BITPIX
+          value: 8
+          comment: Dummy primary header created by MWRFITS
+        - key: NAXIS
+          value: 0
+          comment: No data is associated with this header
+        - key: EXTEND
+          value: true
+          comment: Extensions may (will!) be present
+      hdu1:
+        name: ''
+        description: contains a summary of the Spectro-1D spZline output for all spectra.
+        is_image: false
+        size: 10 GB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: Binary table written by MWRFITS v1.11
+        - key: BITPIX
+          value: 8
+          comment: Required value
+        - key: NAXIS
+          value: 2
+          comment: Required value
+        - key: NAXIS1
+          value: 89
+          comment: Number of bytes per row
+        - key: NAXIS2
+          value: 126656000
+          comment: Number of rows
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: Required value
+        - key: TFIELDS
+          value: 19
+          comment: Number of columns in table
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** End of mandatory fields ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: DIMS0
+          value: 32
+          comment: Number of emission lines
+        - key: DIMS1
+          value: 3958000.0
+          comment: Number of objects
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column names ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column formats ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        columns:
+          PLATE:
+            name: PLATE
+            type: int32
+            unit: ''
+            description: SDSS PlateID
           MJD:
             name: MJD
             type: int32
