@@ -6,6 +6,7 @@ general:
   datatype: FITS
   filesize: 1 GB
   releases:
+  - DR17
   - DR18
   - IPL3
   - DR19
@@ -14,6 +15,7 @@ general:
   surveys:
   - BHM
   - SDSS
+  - eBOSS
   naming_convention: $BOSS_SPECTRO_REDUX/[RUN2D]/spAll-[RUN2D].fits.gz
   generated_by: idlspec2d
   design: false
@@ -33,11 +35,14 @@ changelog:
       - SPALL
       primary_delta_nkeys: 5
       added_primary_header_kwargs:
-      - CHECKSUM
       - DATASUM
-      - DATE
       - SDSSC2BV
+      - DATE
       - RUN2D
+      - CHECKSUM
+    DR18:
+      from: DR17
+      note: No changes
 releases:
   DR19:
     template: $BOSS_SPECTRO_REDUX/[RUN2D]/spAll-[RUN2D].fits.gz
@@ -2630,6 +2635,1343 @@ releases:
             type: int64
             unit: ''
             description: Unique ID based on Field, MJD, SDSSID, RUN2D, COADD type
+  DR17:
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/spAll-[RUN2D].fits
+    example: v5_13_2/spAll-v5_13_2.fits
+    location: '{run2d}/spAll-{run2d}.fits'
+    environment: BOSS_SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: spAll
+      path_template: '@spectrodir|/{run2d}/spAll-{run2d}.fits'
+      path_kwargs:
+      - run2d
+      access_string: spAll = $BOSS_SPECTRO_REDUX/{run2d}/spAll-{run2d}.fits
+    survey: eBOSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: ''
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: Dummy Created by MWRFITS v1.11
+        - key: BITPIX
+          value: 8
+          comment: Dummy primary header created by MWRFITS
+        - key: NAXIS
+          value: 0
+          comment: No data is associated with this header
+        - key: EXTEND
+          value: true
+          comment: Extensions may (will!) be present
+      hdu1:
+        name: ''
+        description: Spectral Summary Table
+        is_image: false
+        size: 14 GB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: Binary table written by MWRFITS v1.11
+        - key: BITPIX
+          value: 8
+          comment: Required value
+        - key: NAXIS
+          value: 2
+          comment: Required value
+        - key: NAXIS1
+          value: 4016
+          comment: Number of bytes per row
+        - key: NAXIS2
+          value: 3958000
+          comment: Number of rows
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: Required value
+        - key: TFIELDS
+          value: 236
+          comment: Number of columns in table
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** End of mandatory fields ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column names ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column formats ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column dimensions (2 D or greater) ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: TDIM164
+          value: ( 15, 5)
+          comment: ''
+        - key: TDIM165
+          value: ( 15, 5)
+          comment: ''
+        - key: TDIM222
+          value: ( 8, 5)
+          comment: ''
+        - key: TDIM223
+          value: ( 8, 5)
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Unsigned integer column scalings *'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: TSCAL98
+          value: 1
+          comment: ''
+        - key: TZERO98
+          value: 9223372036854775808
+          comment: ''
+        columns:
+          PROGRAMNAME:
+            name: PROGRAMNAME
+            type: char[27]
+            unit: ''
+            description: Program name within a given survey
+          CHUNK:
+            name: CHUNK
+            type: char[14]
+            unit: ''
+            description: See the <a href=\"https://data.sdss.org/datamodel/files/BOSS_SPECTRO_REDUX/RUN2D/platelist.html\">platelist</a>
+              description.
+          PLATEQUALITY:
+            name: PLATEQUALITY
+            type: char[4]
+            unit: ''
+            description: See the <a href=\"https://data.sdss.org/datamodel/files/BOSS_SPECTRO_REDUX/RUN2D/platelist.html\">platelist</a>
+              description.
+          PLATESN2:
+            name: PLATESN2
+            type: float32
+            unit: ''
+            description: See the <a href=\"https://data.sdss.org/datamodel/files/BOSS_SPECTRO_REDUX/RUN2D/platelist.html\">platelist</a>
+              description.
+          DEREDSN2:
+            name: DEREDSN2
+            type: float32
+            unit: ''
+            description: See the <a href=\"https://data.sdss.org/datamodel/files/BOSS_SPECTRO_REDUX/RUN2D/platelist.html\">platelist</a>
+              description.
+          PRIMTARGET:
+            name: PRIMTARGET
+            type: int32
+            unit: ''
+            description: See the <a href=\"https://data.sdss.org/datamodel/files/PLATELIST_DIR/runs/PLATERUN/plPlugMap.html\">plPlugMap</a>
+              description.
+          SECTARGET:
+            name: SECTARGET
+            type: int32
+            unit: ''
+            description: See the <a href=\"https://data.sdss.org/datamodel/files/PLATELIST_DIR/runs/PLATERUN/plPlugMap.html\">plPlugMap</a>
+              description.
+          LAMBDA_EFF:
+            name: LAMBDA_EFF
+            type: float32
+            unit: AA
+            description: Wavelength to optimize hole location for
+          BLUEFIBER:
+            name: BLUEFIBER
+            type: int32
+            unit: ''
+            description: 1 if assigned target a blue fiber; 0 otherwise
+          ZOFFSET:
+            name: ZOFFSET
+            type: float32
+            unit: microns
+            description: Backstopping offset distance
+          XFOCAL:
+            name: XFOCAL
+            type: float32
+            unit: mm
+            description: Hole/robot x-axis position in focal plane
+          YFOCAL:
+            name: YFOCAL
+            type: float32
+            unit: mm
+            description: Hole/robot y-axis position in focal plane
+          BOSS_TARGET1:
+            name: BOSS_TARGET1
+            type: int64
+            unit: replace me - with content
+            description: replace me - with content
+          BOSS_TARGET2:
+            name: BOSS_TARGET2
+            type: int64
+            unit: replace me - with content
+            description: replace me - with content
+          ANCILLARY_TARGET1:
+            name: ANCILLARY_TARGET1
+            type: int64
+            unit: replace me - with content
+            description: replace me - with content
+          ANCILLARY_TARGET2:
+            name: ANCILLARY_TARGET2
+            type: int64
+            unit: replace me - with content
+            description: replace me - with content
+          EBOSS_TARGET0:
+            name: EBOSS_TARGET0
+            type: int64
+            unit: replace me - with content
+            description: replace me - with content
+          EBOSS_TARGET1:
+            name: EBOSS_TARGET1
+            type: int64
+            unit: replace me - with content
+            description: replace me - with content
+          EBOSS_TARGET2:
+            name: EBOSS_TARGET2
+            type: int64
+            unit: replace me - with content
+            description: replace me - with content
+          EBOSS_TARGET_ID:
+            name: EBOSS_TARGET_ID
+            type: int64
+            unit: replace me - with content
+            description: replace me - with content
+          THING_ID_TARGETING:
+            name: THING_ID_TARGETING
+            type: int64
+            unit: replace me - with content
+            description: replace me - with content
+          SPECPRIMARY:
+            name: SPECPRIMARY
+            type: bool
+            unit: ''
+            description: Objects observed multiple times will have this set to 1 for
+              one observation only. This is usually the 'best' observation, as defined
+              by critera listed in fieldmerge.py.
+          SPECBOSS:
+            name: SPECBOSS
+            type: bool
+            unit: ''
+            description: Best version of spectrum at this location
+          BOSS_SPECOBJ_ID:
+            name: BOSS_SPECOBJ_ID
+            type: int32
+            unit: ''
+            description: ID of spectrum location on sky
+          NSPECOBS:
+            name: NSPECOBS
+            type: int16
+            unit: ''
+            description: Number of spectral observations
+          CALIBFLUX:
+            name: CALIBFLUX
+            type: float32[5]
+            unit: nanomaggy
+            description: Broad-band flux in SDSS-{ugriz} from PSFmag
+          CALIBFLUX_IVAR:
+            name: CALIBFLUX_IVAR
+            type: float32[5]
+            unit: nanomaggy
+            description: Inverse var flux SDSS-{ugriz} from PSFmag
+          PLATE:
+            name: PLATE
+            type: int32
+            unit: ''
+            description: SDSS PlateID
+          TILE:
+            name: TILE
+            type: int32
+            unit: ''
+            description: Tile ID for SDSS BOSS plates (-1 for SDSS)
+          MJD:
+            name: MJD
+            type: int32
+            unit: ''
+            description: Modified Julian date of combined Spectra
+          FIBERID:
+            name: FIBERID
+            type: int32
+            unit: ''
+            description: Fiber of observation
+          RUN2D:
+            name: RUN2D
+            type: char[7]
+            unit: ''
+            description: Spectro-2D reduction name
+          RUN1D:
+            name: RUN1D
+            type: char[7]
+            unit: ''
+            description: Spectro-1D reduction name
+          OBJTYPE:
+            name: OBJTYPE
+            type: char[16]
+            unit: ''
+            description: Why this object was targeted.  Note that if this field says
+              QSO, it could be the case that this object would have been targeted
+              as a GALAXY or any number of other categories as well. The PRIMTARGET
+              and SECTARGET flags in the plug-map structure (in the spField file)
+              gives this full information.
+          PLUG_RA:
+            name: PLUG_RA
+            type: float64
+            unit: degrees
+            description: Object RA (drilled fiber position) [J2000]
+          PLUG_DEC:
+            name: PLUG_DEC
+            type: float64
+            unit: degrees
+            description: Object DEC (drilled fiber position) [J2000]
+          CLASS:
+            name: CLASS
+            type: char[6]
+            unit: ''
+            description: 'Spectro classification: GALAXY, QSO, STAR'
+          SUBCLASS:
+            name: SUBCLASS
+            type: char[21]
+            unit: ''
+            description: Spectro sub-classification
+          Z:
+            name: Z
+            type: float32
+            unit: ''
+            description: Redshift; incorrect for nonzero ZWARNING flag
+          Z_ERR:
+            name: Z_ERR
+            type: float32
+            unit: ''
+            description: z error from chi^2 min; negative is invalid fit
+          RCHI2:
+            name: RCHI2
+            type: float32
+            unit: ''
+            description: Reduced chi^2 for best fit
+          DOF:
+            name: DOF
+            type: int32
+            unit: ''
+            description: Degrees of freedom for best fit
+          RCHI2DIFF:
+            name: RCHI2DIFF
+            type: float32
+            unit: ''
+            description: Diff in reduced chi^2 of 2 best solutions
+          TFILE:
+            name: TFILE
+            type: char[24]
+            unit: ''
+            description: Template file in $IDLSPEC2D_DIR/templates
+          TCOLUMN:
+            name: TCOLUMN
+            type: int32[10]
+            unit: ''
+            description: Column to use in template file (0-indexed); unused value
+              set to -1
+          NPOLY:
+            name: NPOLY
+            type: int32
+            unit: ''
+            description: '# of polynomial terms with TFILE'
+          THETA:
+            name: THETA
+            type: float32[10]
+            unit: ''
+            description: Eigenvalue coeff for template file + polynomial
+          VDISP:
+            name: VDISP
+            type: float32
+            unit: km/s
+            description: Velocity dispersion, only computed for galaxies
+          VDISP_ERR:
+            name: VDISP_ERR
+            type: float32
+            unit: km/s
+            description: Error in VDISP; negative for invalid fit
+          VDISPZ:
+            name: VDISPZ
+            type: float32
+            unit: ''
+            description: Redshift for best-fit velocity dispersion
+          VDISPZ_ERR:
+            name: VDISPZ_ERR
+            type: float32
+            unit: ''
+            description: Error in VDISPZ
+          VDISPCHI2:
+            name: VDISPCHI2
+            type: float32
+            unit: ''
+            description: Chi^2 for best-fit velocity dispersion
+          VDISPNPIX:
+            name: VDISPNPIX
+            type: float32
+            unit: ''
+            description: Num of pixels overlapping VDISP fit templates
+          VDISPDOF:
+            name: VDISPDOF
+            type: int32
+            unit: ''
+            description: Degrees of freedom for best-fit velocity dispersion, equal
+              to VDISPNPIX minus the number of templates minus the number of polynomial
+              terms minus 1 (the last 1 is for the velocity dispersion)
+          WAVEMIN:
+            name: WAVEMIN
+            type: float32
+            unit: AA
+            description: Minimum observed (vacuum) wavelength for target
+          WAVEMAX:
+            name: WAVEMAX
+            type: float32
+            unit: AA
+            description: Maximum observed (vacuum) wavelength for target
+          WCOVERAGE:
+            name: WCOVERAGE
+            type: float32
+            unit: log10(AA)
+            description: Amount of wavelength coverage in log-10(Angs)
+          ZWARNING:
+            name: ZWARNING
+            type: int32
+            unit: ''
+            description: A flag for bad z fits in place of CLASS=UNKNOWN
+          SN_MEDIAN:
+            name: SN_MEDIAN
+            type: float32[5]
+            unit: ''
+            description: Median S/N for all good pixels in SDSS-{ugriz}
+          SN_MEDIAN_ALL:
+            name: SN_MEDIAN_ALL
+            type: float32
+            unit: ''
+            description: Median S/N for all good pixels in all filters
+          CHI68P:
+            name: CHI68P
+            type: float32
+            unit: ''
+            description: 68% of abs(chi) of synthetic to actual spectrum
+          FRACNSIGMA:
+            name: FRACNSIGMA
+            type: float32[10]
+            unit: ''
+            description: Fraction of pixels deviant by >{1-10} sigma (igorning all
+              points blueward of rest-frame 1216 Ang)
+          FRACNSIGHI:
+            name: FRACNSIGHI
+            type: float32[10]
+            unit: ''
+            description: Fraction of pixels high by >{1-10} sigma (igorning all points
+              blueward of rest-frame 1216 Ang)
+          FRACNSIGLO:
+            name: FRACNSIGLO
+            type: float32[10]
+            unit: ''
+            description: Fraction of pixels low by >{1-10} sigma (igorning all points
+              blueward of rest-frame 1216 Ang)
+          SPECTROFLUX:
+            name: SPECTROFLUX
+            type: float32[5]
+            unit: nanomaggy
+            description: Spectrum projected onto SDSS-{ugriz} filter
+          SPECTROFLUX_IVAR:
+            name: SPECTROFLUX_IVAR
+            type: float32[5]
+            unit: nanomaggy
+            description: Inverse variance of SPECTROFLUX_{ugriz}
+          SPECTROSYNFLUX:
+            name: SPECTROSYNFLUX
+            type: float32[5]
+            unit: nanomaggy
+            description: Best-fit template projected onto SDSS-{ugriz}
+          SPECTROSYNFLUX_IVAR:
+            name: SPECTROSYNFLUX_IVAR
+            type: float32[5]
+            unit: nanomaggy
+            description: Inverse variance of SPECTROSYNFLUX_{ugriz}
+          SPECTROSKYFLUX:
+            name: SPECTROSKYFLUX
+            type: float32[5]
+            unit: nanomaggy
+            description: Sky spectrum projected onto SDSS-{ugriz} filter
+          ANYANDMASK:
+            name: ANYANDMASK
+            type: int32
+            unit: ''
+            description: For each bit, records whether any pixel in the spectrum has
+              that bit set in its ANDMASK
+          ANYORMASK:
+            name: ANYORMASK
+            type: int32
+            unit: ''
+            description: For each bit, records whether any pixel in the spectrum has
+              that bit set in its ORMASK
+          SPEC1_G:
+            name: SPEC1_G
+            type: float32
+            unit: ''
+            description: Fit (S/N)^2 at g=20.20 for spectrograph 1 (same value for
+              500 fibers)
+          SPEC1_R:
+            name: SPEC1_R
+            type: float32
+            unit: ''
+            description: Fit (S/N)^2 at r=20.25 for spectrograph 1 (same value for
+              500 fibers)
+          SPEC1_I:
+            name: SPEC1_I
+            type: float32
+            unit: ''
+            description: Fit (S/N)^2 at i=19.90 for spectrograph 1 (same value for
+              500 fibers)
+          SPEC2_G:
+            name: SPEC2_G
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          SPEC2_R:
+            name: SPEC2_R
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          SPEC2_I:
+            name: SPEC2_I
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          ELODIE_FILENAME:
+            name: ELODIE_FILENAME
+            type: char[16]
+            unit: ''
+            description: File name for best-fit Elodie star
+          ELODIE_OBJECT:
+            name: ELODIE_OBJECT
+            type: char[9]
+            unit: ''
+            description: Star name (mostly Henry Draper names)
+          ELODIE_SPTYPE:
+            name: ELODIE_SPTYPE
+            type: char[12]
+            unit: ''
+            description: Spectral type
+          ELODIE_BV:
+            name: ELODIE_BV
+            type: float32
+            unit: ''
+            description: (B-V) color
+          ELODIE_TEFF:
+            name: ELODIE_TEFF
+            type: float32
+            unit: K
+            description: Effective temperature
+          ELODIE_LOGG:
+            name: ELODIE_LOGG
+            type: float32
+            unit: cm/s^2
+            description: Log10(gravity)
+          ELODIE_FEH:
+            name: ELODIE_FEH
+            type: float32
+            unit: solar
+            description: '[Fe/H]'
+          ELODIE_Z:
+            name: ELODIE_Z
+            type: float32
+            unit: ''
+            description: Redshift
+          ELODIE_Z_ERR:
+            name: ELODIE_Z_ERR
+            type: float32
+            unit: ''
+            description: Redshift error; negative for invalid fit
+          ELODIE_Z_MODELERR:
+            name: ELODIE_Z_MODELERR
+            type: float32
+            unit: ''
+            description: The standard deviation in redshift amongst the 12 best-fit
+              stars
+          ELODIE_RCHI2:
+            name: ELODIE_RCHI2
+            type: float32
+            unit: ''
+            description: Reduced chi^2
+          ELODIE_DOF:
+            name: ELODIE_DOF
+            type: int32
+            unit: ''
+            description: Degrees of freedom for fit
+          Z_NOQSO:
+            name: Z_NOQSO
+            type: float32
+            unit: ''
+            description: Redshift of the best-fit non-QSO model (recommended for CMASS
+              and LOZ)
+          Z_ERR_NOQSO:
+            name: Z_ERR_NOQSO
+            type: float32
+            unit: ''
+            description: Formal one-sigma error on Z_NOQSO (recommended for CMASS
+              and LOZ)
+          ZNUM_NOQSO:
+            name: ZNUM_NOQSO
+            type: int32
+            unit: ''
+            description: Best fit z/class index excluding QSO; 1-indexed (recommended
+              for CMASS and LOZ)
+          ZWARNING_NOQSO:
+            name: ZWARNING_NOQSO
+            type: int32
+            unit: ''
+            description: Redshift warning flag for Z_NOQSO (recommended for CMASS
+              and LOZ)
+          CLASS_NOQSO:
+            name: CLASS_NOQSO
+            type: char[6]
+            unit: ''
+            description: Spectro class of best-fit non-QSO model (recommended for
+              CMASS and LOZ)
+          SUBCLASS_NOQSO:
+            name: SUBCLASS_NOQSO
+            type: char[21]
+            unit: ''
+            description: Spectro sub-class of best-fit non-QSO model (recommended
+              for CMASS and LOZ)
+          RCHI2DIFF_NOQSO:
+            name: RCHI2DIFF_NOQSO
+            type: float32
+            unit: ''
+            description: Reduced chi^2 diff to next-best non-QSO model (recommended
+              for CMASS and LOZ)
+          VDISP_LNL:
+            name: VDISP_LNL
+            type: float32[35]
+            unit: replace me - with content
+            description: replace me - with content
+          SPECOBJID:
+            name: SPECOBJID
+            type: int64
+            unit: ''
+            description: Unique ID based on Field, MJD, SDSSID, RUN2D, COADD type
+          OBJID:
+            name: OBJID
+            type: char[19]
+            unit: replace me - with content
+            description: replace me - with content
+          PARENTID:
+            name: PARENTID
+            type: char[19]
+            unit: replace me - with content
+            description: replace me - with content
+          FIELDID:
+            name: FIELDID
+            type: char[19]
+            unit: replace me - with content
+            description: replace me - with content
+          SKYVERSION:
+            name: SKYVERSION
+            type: bool
+            unit: replace me - with content
+            description: replace me - with content
+          MODE:
+            name: MODE
+            type: bool
+            unit: replace me - with content
+            description: replace me - with content
+          CLEAN:
+            name: CLEAN
+            type: bool
+            unit: replace me - with content
+            description: replace me - with content
+          RUN:
+            name: RUN
+            type: int16
+            unit: replace me - with content
+            description: replace me - with content
+          RERUN:
+            name: RERUN
+            type: char[3]
+            unit: replace me - with content
+            description: replace me - with content
+          CAMCOL:
+            name: CAMCOL
+            type: bool
+            unit: replace me - with content
+            description: replace me - with content
+          FIELD:
+            name: FIELD
+            type: int16
+            unit: ''
+            description: SDSS FieldID (plateID for plate era data)
+          ID:
+            name: ID
+            type: int16
+            unit: replace me - with content
+            description: replace me - with content
+          PARENT:
+            name: PARENT
+            type: int16
+            unit: replace me - with content
+            description: replace me - with content
+          NCHILD:
+            name: NCHILD
+            type: int16
+            unit: replace me - with content
+            description: replace me - with content
+          OBJC_TYPE:
+            name: OBJC_TYPE
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          OBJC_PROB_PSF:
+            name: OBJC_PROB_PSF
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          OBJC_FLAGS:
+            name: OBJC_FLAGS
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          OBJC_FLAGS2:
+            name: OBJC_FLAGS2
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          OBJC_ROWC:
+            name: OBJC_ROWC
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          OBJC_ROWCERR:
+            name: OBJC_ROWCERR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          OBJC_COLC:
+            name: OBJC_COLC
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          OBJC_COLCERR:
+            name: OBJC_COLCERR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          ROWVDEG:
+            name: ROWVDEG
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          ROWVDEGERR:
+            name: ROWVDEGERR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          COLVDEG:
+            name: COLVDEG
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          COLVDEGERR:
+            name: COLVDEGERR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          ROWC:
+            name: ROWC
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          ROWCERR:
+            name: ROWCERR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          COLC:
+            name: COLC
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          COLCERR:
+            name: COLCERR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          PETROTHETA:
+            name: PETROTHETA
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          PETROTHETAERR:
+            name: PETROTHETAERR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          PETROTH50:
+            name: PETROTH50
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          PETROTH50ERR:
+            name: PETROTH50ERR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          PETROTH90:
+            name: PETROTH90
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          PETROTH90ERR:
+            name: PETROTH90ERR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          Q:
+            name: Q
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          QERR:
+            name: QERR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          U:
+            name: U
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          UERR:
+            name: UERR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          M_E1:
+            name: M_E1
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          M_E2:
+            name: M_E2
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          M_E1E1ERR:
+            name: M_E1E1ERR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          M_E1E2ERR:
+            name: M_E1E2ERR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          M_E2E2ERR:
+            name: M_E2E2ERR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          M_RR_CC:
+            name: M_RR_CC
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          M_RR_CCERR:
+            name: M_RR_CCERR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          M_CR4:
+            name: M_CR4
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          M_E1_PSF:
+            name: M_E1_PSF
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          M_E2_PSF:
+            name: M_E2_PSF
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          M_RR_CC_PSF:
+            name: M_RR_CC_PSF
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          M_CR4_PSF:
+            name: M_CR4_PSF
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          THETA_DEV:
+            name: THETA_DEV
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          THETA_DEVERR:
+            name: THETA_DEVERR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          AB_DEV:
+            name: AB_DEV
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          AB_DEVERR:
+            name: AB_DEVERR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          THETA_EXP:
+            name: THETA_EXP
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          THETA_EXPERR:
+            name: THETA_EXPERR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          AB_EXP:
+            name: AB_EXP
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          AB_EXPERR:
+            name: AB_EXPERR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          FRACDEV:
+            name: FRACDEV
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          FLAGS:
+            name: FLAGS
+            type: int32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          FLAGS2:
+            name: FLAGS2
+            type: int32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          TYPE:
+            name: TYPE
+            type: int32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          PROB_PSF:
+            name: PROB_PSF
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          NPROF:
+            name: NPROF
+            type: int32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          PROFMEAN_NMGY:
+            name: PROFMEAN_NMGY
+            type: float32[75]
+            unit: replace me - with content
+            description: replace me - with content
+          PROFERR_NMGY:
+            name: PROFERR_NMGY
+            type: float32[75]
+            unit: replace me - with content
+            description: replace me - with content
+          STAR_LNL:
+            name: STAR_LNL
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          EXP_LNL:
+            name: EXP_LNL
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          DEV_LNL:
+            name: DEV_LNL
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          PSP_STATUS:
+            name: PSP_STATUS
+            type: int32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          PIXSCALE:
+            name: PIXSCALE
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          RA:
+            name: RA
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          DEC:
+            name: DEC
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          CX:
+            name: CX
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          CY:
+            name: CY
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          CZ:
+            name: CZ
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          RAERR:
+            name: RAERR
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          DECERR:
+            name: DECERR
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          L:
+            name: L
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          B:
+            name: B
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          OFFSETRA:
+            name: OFFSETRA
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          OFFSETDEC:
+            name: OFFSETDEC
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          PSF_FWHM:
+            name: PSF_FWHM
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          AIRMASS:
+            name: AIRMASS
+            type: float32[5]
+            unit: ''
+            description: Airmass at time of observation
+          PHI_OFFSET:
+            name: PHI_OFFSET
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          PHI_DEV_DEG:
+            name: PHI_DEV_DEG
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          PHI_EXP_DEG:
+            name: PHI_EXP_DEG
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          EXTINCTION:
+            name: EXTINCTION
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          SKYFLUX:
+            name: SKYFLUX
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          SKYFLUX_IVAR:
+            name: SKYFLUX_IVAR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          PSFFLUX:
+            name: PSFFLUX
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          PSFFLUX_IVAR:
+            name: PSFFLUX_IVAR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          PSFMAG:
+            name: PSFMAG
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          PSFMAGERR:
+            name: PSFMAGERR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          FIBERFLUX:
+            name: FIBERFLUX
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          FIBERFLUX_IVAR:
+            name: FIBERFLUX_IVAR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          FIBERMAG:
+            name: FIBERMAG
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          FIBERMAGERR:
+            name: FIBERMAGERR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          FIBER2FLUX:
+            name: FIBER2FLUX
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          FIBER2FLUX_IVAR:
+            name: FIBER2FLUX_IVAR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          FIBER2MAG:
+            name: FIBER2MAG
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          FIBER2MAGERR:
+            name: FIBER2MAGERR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          CMODELFLUX:
+            name: CMODELFLUX
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          CMODELFLUX_IVAR:
+            name: CMODELFLUX_IVAR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          CMODELMAG:
+            name: CMODELMAG
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          CMODELMAGERR:
+            name: CMODELMAGERR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          MODELFLUX:
+            name: MODELFLUX
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          MODELFLUX_IVAR:
+            name: MODELFLUX_IVAR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          MODELMAG:
+            name: MODELMAG
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          MODELMAGERR:
+            name: MODELMAGERR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          PETROFLUX:
+            name: PETROFLUX
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          PETROFLUX_IVAR:
+            name: PETROFLUX_IVAR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          PETROMAG:
+            name: PETROMAG
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          PETROMAGERR:
+            name: PETROMAGERR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          DEVFLUX:
+            name: DEVFLUX
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          DEVFLUX_IVAR:
+            name: DEVFLUX_IVAR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          DEVMAG:
+            name: DEVMAG
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          DEVMAGERR:
+            name: DEVMAGERR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          EXPFLUX:
+            name: EXPFLUX
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          EXPFLUX_IVAR:
+            name: EXPFLUX_IVAR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          EXPMAG:
+            name: EXPMAG
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          EXPMAGERR:
+            name: EXPMAGERR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          APERFLUX:
+            name: APERFLUX
+            type: float32[40]
+            unit: replace me - with content
+            description: replace me - with content
+          APERFLUX_IVAR:
+            name: APERFLUX_IVAR
+            type: float32[40]
+            unit: replace me - with content
+            description: replace me - with content
+          CLOUDCAM:
+            name: CLOUDCAM
+            type: int32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          CALIB_STATUS:
+            name: CALIB_STATUS
+            type: int32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          NMGYPERCOUNT:
+            name: NMGYPERCOUNT
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          NMGYPERCOUNT_IVAR:
+            name: NMGYPERCOUNT_IVAR
+            type: float32[5]
+            unit: replace me - with content
+            description: replace me - with content
+          TAI:
+            name: TAI
+            type: float64[5]
+            unit: replace me - with content
+            description: replace me - with content
+          RESOLVE_STATUS:
+            name: RESOLVE_STATUS
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          THING_ID:
+            name: THING_ID
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          IFIELD:
+            name: IFIELD
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          BALKAN_ID:
+            name: BALKAN_ID
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          NOBSERVE:
+            name: NOBSERVE
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          NDETECT:
+            name: NDETECT
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          NEDGE:
+            name: NEDGE
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          SCORE:
+            name: SCORE
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
 notes: |-
   None
 regrets: |-
