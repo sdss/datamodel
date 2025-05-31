@@ -19,7 +19,7 @@ This file contains a summary of the BOSS idlspec2d and spectro-1d pipeline outpu
 $BOSS_SPECTRO_REDUX/[RUN2D]/spAll-[RUN2D].fits.gz
 
 ### Releases
-DR17, DR18, IPL3, DR19
+DR10, DR12, DR11, DR13, DR14, DR15, DR16, DR17, DR18, IPL3, DR19
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -54,9 +54,30 @@ Describes changes to the datamodel product and/or file structure from one releas
    - from: DR18
    - added_hdus: ['SPALL']
    - primary_delta_nkeys: 5
-   - added_primary_header_kwargs: ['RUN2D', 'DATASUM', 'CHECKSUM', 'DATE', 'SDSSC2BV']
+   - added_primary_header_kwargs: ['DATASUM', 'RUN2D', 'CHECKSUM', 'SDSSC2BV', 'DATE']
  - DR18
    - from: DR17
+   - note: No changes
+ - DR17
+   - from: DR16
+   - note: No changes
+ - DR16
+   - from: DR15
+   - note: No changes
+ - DR15
+   - from: DR14
+   - note: No changes
+ - DR14
+   - from: DR13
+   - note: No changes
+ - DR13
+   - from: DR11
+   - note: No changes
+ - DR11
+   - from: DR12
+   - note: No changes
+ - DR12
+   - from: DR10
    - note: No changes
 
 ---
