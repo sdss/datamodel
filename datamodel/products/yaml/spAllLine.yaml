@@ -6,17 +6,20 @@ general:
   datatype: FITS
   filesize: 3 GB
   releases:
+  - DR18
   - IPL3
   - DR19
   environments:
   - BOSS_SPECTRO_REDUX
   surveys:
   - BHM
+  - SDSS
   naming_convention: $BOSS_SPECTRO_REDUX/[RUN2D]/spAllLine-[RUN2D].fits.gz
   generated_by: idlspec2d
   design: false
   vac: false
   recommended_science_product: false
+  data_level: replace me - with the data level of the product, as defined here https://sdss-wiki.atlassian.net/wiki/x/IwDCGw
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
@@ -24,6 +27,18 @@ changelog:
     DR19:
       from: IPL3
       note: No changes
+    IPL3:
+      from: DR18
+      added_hdus:
+      - SPLINE
+      primary_delta_nkeys: 6
+      added_primary_header_kwargs:
+      - DATE
+      - DATASUM
+      - DIMS1
+      - DIMS0
+      - RUN2D
+      - CHECKSUM
 releases:
   DR19:
     template: $BOSS_SPECTRO_REDUX/[RUN2D]/spAllLine-[RUN2D].fits.gz
@@ -457,5 +472,203 @@ releases:
             type: float32
             unit: ''
             description: chi2 for all points in 3 sigma of line center
+  DR18:
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/spAllLine-[RUN2D].fits
+    example: v6_0_4/spAllLine-v6_0_4.fits
+    location: '{run2d}/spAllLine-{run2d}.fits'
+    environment: BOSS_SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: spAllLine
+      path_template: $BOSS_SPECTRO_REDUX/{run2d}/spAllLine-{run2d}.fits
+      path_kwargs:
+      - run2d
+      access_string: spAllLine = $BOSS_SPECTRO_REDUX/{run2d}/spAllLine-{run2d}.fits
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: ''
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: Dummy Created by MWRFITS v1.11
+        - key: BITPIX
+          value: 8
+          comment: Dummy primary header created by MWRFITS
+        - key: NAXIS
+          value: 0
+          comment: No data is associated with this header
+        - key: EXTEND
+          value: true
+          comment: Extensions may (will!) be present
+      hdu1:
+        name: ''
+        description: replace me description
+        is_image: false
+        size: 66 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: Binary table written by MWRFITS v1.11
+        - key: BITPIX
+          value: 8
+          comment: Required value
+        - key: NAXIS
+          value: 2
+          comment: Required value
+        - key: NAXIS1
+          value: 93
+          comment: Number of bytes per row
+        - key: NAXIS2
+          value: 752000
+          comment: Number of rows
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: Required value
+        - key: TFIELDS
+          value: 20
+          comment: Number of columns in table
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** End of mandatory fields ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: DIMS0
+          value: 32
+          comment: Number of emission lines
+        - key: DIMS1
+          value: 23500.0
+          comment: Number of objects
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column names ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column formats ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        columns:
+          PLATE:
+            name: PLATE
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          FIELD:
+            name: FIELD
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          MJD:
+            name: MJD
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          FIBERID:
+            name: FIBERID
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          LINENAME:
+            name: LINENAME
+            type: char[13]
+            unit: replace me - with content
+            description: replace me - with content
+          LINEWAVE:
+            name: LINEWAVE
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          LINEZ:
+            name: LINEZ
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          LINEZ_ERR:
+            name: LINEZ_ERR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          LINESIGMA:
+            name: LINESIGMA
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          LINESIGMA_ERR:
+            name: LINESIGMA_ERR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          LINEAREA:
+            name: LINEAREA
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          LINEAREA_ERR:
+            name: LINEAREA_ERR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          LINEEW:
+            name: LINEEW
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          LINEEW_ERR:
+            name: LINEEW_ERR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          LINECONTLEVEL:
+            name: LINECONTLEVEL
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          LINECONTLEVEL_ERR:
+            name: LINECONTLEVEL_ERR
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          LINENPIXLEFT:
+            name: LINENPIXLEFT
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          LINENPIXRIGHT:
+            name: LINENPIXRIGHT
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          LINEDOF:
+            name: LINEDOF
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          LINECHI2:
+            name: LINECHI2
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
 notes: |-
   None
+regrets: |-
+  I have no regrets!
