@@ -9,7 +9,7 @@ flux-calibrated spectra extracted CCD exposure
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
@@ -19,7 +19,7 @@ The spCFrame files contain the flux-calibrated extracted spectra for a single CC
 $BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/spCFrame-[BR][ID]-[FRAME].fits
 
 ### Releases
-IPL3, DR19
+DR18, IPL3, DR19
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -35,6 +35,9 @@ idlspec2d
 
 ### Is a VAC
 False
+
+### Data Level
+0.0.0
 
 ### HDUS List for release DR19
   - [HDU0: PRIMARY](#hdu0-primary)
@@ -55,6 +58,11 @@ Describes changes to the datamodel product and/or file structure from one releas
  - DR19
    - from: IPL3
    - note: No changes
+ - IPL3
+   - from: DR18
+   - primary_delta_nkeys: 63
+   - added_primary_header_kwargs: ['MCTBCT', 'T_IN', 'B2CAMH', 'MCHUMHT', 'SIGBS0', 'AVGBS0', 'BUFFER', 'INTSTART', 'VCOORDIO', 'CCDID', 'R2CAMT', 'VJAEGER', 'INTEND', 'V_RAD', 'MCHUMCO', 'R2CAMH', 'SLITID', 'VKAIJU', 'OFFPA', 'MCTEMDN', 'SPECMT', 'T_CELL', 'OBSERVAT', 'ARCHBACK', 'CENBS0', 'ARCHACF', 'MCTHT', 'ARCHBVER', 'CCD', 'CONFSFIL', 'SPEC', 'ARCHTEMP', 'OBSMODE', 'STDBS0', 'MECHORIY', 'AVGAS0', 'V_ARCHON', 'CCDSUM', 'HEAR', 'DAQVER', 'T_OUT', 'OFFDEC', 'MECHORIX', 'BOSSVER', 'DESIGNID', 'T_FLOOR', 'T_TRUSS', 'MECHORIZ', 'MCTRCB', 'MCTRCT', 'MCTBCB', 'OFFRA', 'HA', 'CONFID', 'VCALIBS', 'GSEEING', 'COLLH', 'STDAS0', 'B2CAMT', 'T_PRIM', 'COLLT', 'FIELDID', 'CCDTYPE']
+   - removed_primary_header_kwargs: ['AVGASH0', 'CAMCOL', 'CENBSH0', 'MC1HUMCO', 'STDBSH0', 'MC1TRCT', 'MC1TBCT', 'MC1TBCB', 'TILEID', 'SLITID1', 'STDASH0', 'MC1TEMDN', 'TWOPHASE', 'SIGBSH0', 'MGDDEC', 'AUTHOR', 'MC1TRCB', 'MGDRA', 'MC1THT', 'MC1HUMHT', 'MGDPOS', 'PLUGFILE', 'AVGBSH0', 'CAMROW']
 
 ---
 ## Example HDUS List
@@ -606,3 +614,7 @@ Key | Value | Comment | |
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!

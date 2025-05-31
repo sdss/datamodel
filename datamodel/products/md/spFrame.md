@@ -9,7 +9,7 @@ non-calibrated spectra extracted CCD exposure
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
@@ -19,7 +19,7 @@ spFrame contains the non-calibrated spectra from the red- or blue-half of a sing
 $BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/spFrame-[BR][ID]-[FRAME].fits.gz
 
 ### Releases
-IPL3, DR19
+DR18, IPL3, DR19
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -36,18 +36,21 @@ idlspec2d
 ### Is a VAC
 False
 
+### Data Level
+0.0.0
+
 ### HDUS List for release DR19
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: ](#hdu1-)
-  - [HDU2: ](#hdu2-)
-  - [HDU3: ](#hdu3-)
-  - [HDU4: ](#hdu4-)
-  - [HDU5: ](#hdu5-)
-  - [HDU6: ](#hdu6-)
-  - [HDU7: ](#hdu7-)
-  - [HDU8: ](#hdu8-)
-  - [HDU9: ](#hdu9-)
-  - [HDU10: ](#hdu10-)
+  - [HDU1](#hdu1)
+  - [HDU2](#hdu2)
+  - [HDU3](#hdu3)
+  - [HDU4](#hdu4)
+  - [HDU5](#hdu5)
+  - [HDU6](#hdu6)
+  - [HDU7](#hdu7)
+  - [HDU8](#hdu8)
+  - [HDU9](#hdu9)
+  - [HDU10](#hdu10)
 
 ---
 
@@ -56,6 +59,11 @@ Describes changes to the datamodel product and/or file structure from one releas
  - DR19
    - from: IPL3
    - note: No changes
+ - IPL3
+   - from: DR18
+   - primary_delta_nkeys: 63
+   - added_primary_header_kwargs: ['STDAS0', 'CCD', 'V_RAD', 'OFFRA', 'MCTHT', 'R2CAMT', 'SLITID', 'T_IN', 'AVGAS0', 'MCTBCB', 'VKAIJU', 'CENBS0', 'INTSTART', 'INTEND', 'AVGBS0', 'DAQVER', 'SIGBS0', 'OBSMODE', 'T_CELL', 'MECHORIX', 'B2CAMH', 'HEAR', 'T_FLOOR', 'R2CAMH', 'ARCHTEMP', 'OFFPA', 'T_PRIM', 'VJAEGER', 'COLLT', 'CCDSUM', 'OFFDEC', 'CONFID', 'ARCHBACK', 'GSEEING', 'MCTRCB', 'DESIGNID', 'COLLH', 'BUFFER', 'MCHUMCO', 'CONFSFIL', 'MCHUMHT', 'T_TRUSS', 'MCTEMDN', 'SPEC', 'OBSERVAT', 'HA', 'FIELDID', 'ARCHACF', 'SPECMT', 'MECHORIZ', 'BOSSVER', 'B2CAMT', 'V_ARCHON', 'MCTRCT', 'CCDTYPE', 'ARCHBVER', 'VCALIBS', 'VCOORDIO', 'CCDID', 'STDBS0', 'MECHORIY', 'MCTBCT', 'T_OUT']
+   - removed_primary_header_kwargs: ['PLUGFILE', 'TILEID', 'AVGBSH0', 'STDASH0', 'MC1TEMDN', 'STDBSH0', 'MC1TRCB', 'AUTHOR', 'SLITID1', 'MC1TBCB', 'MGDDEC', 'CAMROW', 'MGDPOS', 'MC1THT', 'MC1HUMCO', 'MC1HUMHT', 'CAMCOL', 'SIGBSH0', 'CENBSH0', 'AVGASH0', 'MC1TRCT', 'MC1TBCT', 'MGDRA', 'TWOPHASE']
 
 ---
 ## Example HDUS List
@@ -680,3 +688,7 @@ Key | Value | Comment | |
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!
