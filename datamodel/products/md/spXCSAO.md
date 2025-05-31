@@ -9,7 +9,7 @@ pyXCSAO output
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
@@ -19,7 +19,7 @@ Contains the output of the pyXCSAO package, a Python replication of IRAF XCSAO (
 spXCSAO-[FIELDID]-[MJD].fits
 
 ### Releases
-IPL3, DR19
+DR18, IPL3, DR19
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -36,9 +36,12 @@ idlspec2d - run_pyXCSAO.py
 ### Is a VAC
 False
 
+### Data Level
+0.0.0
+
 ### HDUS List for release DR19
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: ](#hdu1)
+  - [HDU1](#hdu1)
 
 ---
 
@@ -46,6 +49,9 @@ False
 Describes changes to the datamodel product and/or file structure from one release to another
  - DR19
    - from: IPL3
+   - note: No changes
+ - IPL3
+   - from: DR18
    - note: No changes
 
 ---
@@ -67,7 +73,7 @@ Key | Value | Comment | |
 
 
 
-### HDU1:
+### HDU1: 
 Object Metadata and pyXCSAO output
 
 #### HDU Type: BINARY TABLE
@@ -142,3 +148,6 @@ Name | Type | Unit | Description |
 ## Notes
 None
 
+---
+## Regrets
+I have no regrets!
