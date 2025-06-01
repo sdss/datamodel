@@ -12251,7 +12251,7 @@ releases:
           comment: ''
       hdu1:
         name: ''
-        description: replace me description
+        description: Inverse variance (1/sigma^2) for the Flux
         is_image: true
         size: 7 MB
         header:
@@ -12278,7 +12278,7 @@ releases:
           comment: ''
       hdu2:
         name: ''
-        description: replace me description
+        description: Pixel mask
         is_image: true
         size: 7 MB
         header:
@@ -12305,7 +12305,7 @@ releases:
           comment: ''
       hdu3:
         name: ''
-        description: replace me description
+        description: Wavelength solution set in log-10 Angstroms (vacuum)
         is_image: true
         size: 15 MB
         header:
@@ -12332,7 +12332,8 @@ releases:
           comment: ''
       hdu4:
         name: ''
-        description: replace me description
+        description: Wavelength dispersion traceset (sigma of fitted Gaussian) in
+          units of number of pixels
         is_image: true
         size: 7 MB
         header:
@@ -12359,7 +12360,7 @@ releases:
           comment: ''
       hdu5:
         name: ''
-        description: replace me description
+        description: plugmap (Fiber to Target mapped metadata)
         is_image: false
         size: 128 KB
         header:
@@ -12418,176 +12419,180 @@ releases:
           OBJID:
             name: OBJID
             type: int32[5]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Unique object id from SDSS imaging (run,rerun,camCol,field,id)
           HOLETYPE:
             name: HOLETYPE
             type: char[6]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Hole ID in which the positioner is sitting
           RA:
             name: RA
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: Calculated on sky fiber RA including delta_RA
           DEC:
             name: DEC
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: Calculated on sky fiber Dec including delta_DEC
           MAG:
             name: MAG
             type: float32[5]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: '[u, g, r, i, z] optical magnitudes'
           STARL:
             name: STARL
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: likelihood object is star (0-1, Plate OBJECT holes only)
           EXPL:
             name: EXPL
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: likelihood object is exponential disk (0-1, Plate OBJECT
+              holes only)
           DEVAUCL:
             name: DEVAUCL
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: likelihood object is deVaucouleurs profile (0-1, Plate OBJECT
+              holes only)
           OBJTYPE:
             name: OBJTYPE
             type: char[16]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Why object was targetted (QSO = Science Target)
           XFOCAL:
             name: XFOCAL
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mm
+            description: Hole x-axis position in focal plane per exposure
           YFOCAL:
             name: YFOCAL
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mm
+            description: Hole y-axis position in focal plane per exposure
           SPECTROGRAPHID:
             name: SPECTROGRAPHID
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 'Spectrograph to which the fibre is assigned. (SDSS-V: 1
+              = BOSS, 2 = APOGEE) or (SDSS-IV: 1=BOSS SP1, 2=BOSS SP2)'
           FIBERID:
             name: FIBERID
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Fiber ID of target
           THROUGHPUT:
             name: THROUGHPUT
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Plate Fiber throughput (0-65535, 0=no light)
           PRIMTARGET:
             name: PRIMTARGET
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Plate Primary target flags
           SECTARGET:
             name: SECTARGET
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Plate Secondary target flags
           OFFSETID:
             name: OFFSETID
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: plate offset associated; 0 = primary pointing
           SCI_EXPTIME:
             name: SCI_EXPTIME
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: s
+            description: Rescaled Science Exposure Time for offset plate
           SOURCETYPE:
             name: SOURCETYPE
-            type: char[21]
-            unit: replace me - with content
-            description: replace me - with content
+            type: char[3]
+            unit: ''
+            description: indicate the nature of the source, one of STAR, QSO, GALAXY,
+              or NA
           LAMBDA_EFF:
             name: LAMBDA_EFF
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: AA
+            description: Wavelength used for coordinate transformations
           ZOFFSET:
             name: ZOFFSET
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: micron
+            description: backstopping offset distance (from washers)
           BLUEFIBER:
             name: BLUEFIBER
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: BOSS to assign this target a 'blue' fiber
           BOSS_TARGET1:
             name: BOSS_TARGET1
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Targeting bitmask for SDSS-III BOSS
           BOSS_TARGET2:
             name: BOSS_TARGET2
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Targeting bitmask for SDSS-III BOSS
           ANCILLARY_TARGET1:
             name: ANCILLARY_TARGET1
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Targeting bitmask for SDSS-III BOSS Ancillary
           ANCILLARY_TARGET2:
             name: ANCILLARY_TARGET2
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Targeting bitmask for SDSS-III BOSS Ancillary
           RUN:
             name: RUN
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: SDSS imaging run, for SDSS imaging targets
           RERUN:
             name: RERUN
             type: char[4]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: SDSS imaging rerun, for SDSS imaging targets
           CAMCOL:
             name: CAMCOL
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: SDSS imaging camcol, for SDSS imaging targets
           FIELD:
             name: FIELD
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: SDSS imaging field, for SDSS imaging targets
           ID:
             name: ID
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: SDSS imaging id, for SDSS imaging targets
           CALIBFLUX:
             name: CALIBFLUX
             type: float32[5]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggy
+            description: SDSS band [u,g,r,i,z] target calibration flux
           CALIBFLUX_IVAR:
             name: CALIBFLUX_IVAR
             type: float32[5]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggy
+            description: target calibration flux inverse variance
           SFD_EBV:
             name: SFD_EBV
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: SFD reddening
       hdu6:
         name: ''
-        description: replace me description
+        description: Sky flux in flat fielded electrons
         is_image: true
         size: 7 MB
         header:
@@ -12614,7 +12619,7 @@ releases:
           comment: ''
       hdu7:
         name: ''
-        description: replace me description
+        description: X position on the CCD
         is_image: true
         size: 7 MB
         header:
@@ -12641,7 +12646,7 @@ releases:
           comment: ''
       hdu8:
         name: ''
-        description: replace me description
+        description: superflat applied to the flux
         is_image: true
         size: 7 MB
         header:
