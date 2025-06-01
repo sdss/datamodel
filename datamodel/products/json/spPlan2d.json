@@ -56,6 +56,18 @@
     "filesize": "1 KB",
     "releases": [
       {
+        "name": "DR9",
+        "description": "SDSS public data release 9",
+        "public": true,
+        "release_date": "2012-07-31"
+      },
+      {
+        "name": "DR10",
+        "description": "SDSS public data release 10",
+        "public": true,
+        "release_date": "2013-07-30"
+      },
+      {
         "name": "DR12",
         "description": "SDSS public data release 12",
         "public": true,
@@ -172,8 +184,8 @@
           "SPEXP": {
             "delta_nrows": 3,
             "added_cols": [
-              "fieldid",
-              "confid"
+              "confid",
+              "fieldid"
             ],
             "removed_cols": [
               "plateid"
@@ -357,19 +369,69 @@
         "delta_nkeys": 7,
         "addead_header_keys": null,
         "removed_header_keys": [
-          "speclogVersion",
           "idlutilsVersion",
-          "plateid",
-          "idlspec2dVersion",
-          "MJD",
           "RUN2D",
-          "planfile2d"
+          "idlspec2dVersion",
+          "planfile2d",
+          "speclogVersion",
+          "plateid",
+          "MJD"
         ],
         "delta_ntables": 1,
         "addead_tables": null,
         "removed_tables": [
           "SPEXP"
         ],
+        "tables": null,
+        "new_libver": null,
+        "delta_nattrs": null,
+        "addead_attrs": null,
+        "removed_attrs": null,
+        "delta_nmembers": null,
+        "addead_members": null,
+        "removed_members": null,
+        "members": null
+      },
+      "DR12": {
+        "from": "DR10",
+        "note": "No changes",
+        "delta_nhdus": null,
+        "added_hdus": null,
+        "removed_hdus": null,
+        "primary_delta_nkeys": null,
+        "added_primary_header_kwargs": null,
+        "removed_primary_header_kwargs": null,
+        "delta_nkeys": null,
+        "addead_header_keys": null,
+        "removed_header_keys": null,
+        "delta_ntables": null,
+        "addead_tables": null,
+        "removed_tables": null,
+        "tables": null,
+        "new_libver": null,
+        "delta_nattrs": null,
+        "addead_attrs": null,
+        "removed_attrs": null,
+        "delta_nmembers": null,
+        "addead_members": null,
+        "removed_members": null,
+        "members": null
+      },
+      "DR10": {
+        "from": "DR9",
+        "note": "No changes",
+        "delta_nhdus": null,
+        "added_hdus": null,
+        "removed_hdus": null,
+        "primary_delta_nkeys": null,
+        "added_primary_header_kwargs": null,
+        "removed_primary_header_kwargs": null,
+        "delta_nkeys": null,
+        "addead_header_keys": null,
+        "removed_header_keys": null,
+        "delta_ntables": null,
+        "addead_tables": null,
+        "removed_tables": null,
         "tables": null,
         "new_libver": null,
         "delta_nattrs": null,
@@ -1653,7 +1715,7 @@
     },
     "DR11": {
       "template": "$BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID]/spPlan2d-[PLATEID]-[MJD].par",
-      "example": "v5_5_12/3606/spPlan2d-3606-55182.par",
+      "example": "v5_6_5/3606/spPlan2d-3606-55182.par",
       "location": "{run2d}/{plateid}/spPlan2d-{plateid}-{mjd}.par",
       "environment": "BOSS_SPECTRO_REDUX",
       "survey": "eBOSS",
@@ -1669,6 +1731,266 @@
         "comments": "",
         "header": [],
         "tables": {}
+      },
+      "hdfs": null
+    },
+    "DR10": {
+      "template": "$BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID]/spPlan2d-[PLATEID]-[MJD].par",
+      "example": "v5_5_12/3606/spPlan2d-3606-55182.par",
+      "location": "{run2d}/{plateid}/spPlan2d-{plateid}-{mjd}.par",
+      "environment": "BOSS_SPECTRO_REDUX",
+      "survey": "eBOSS",
+      "access": {
+        "in_sdss_access": false,
+        "path_name": null,
+        "path_template": null,
+        "path_kwargs": null,
+        "access_string": "spPlan2d = $BOSS_SPECTRO_REDUX/{run2d}/{plateid}/spPlan2d-{plateid}-{mjd}.par"
+      },
+      "hdus": null,
+      "par": {
+        "comments": "",
+        "header": [
+          {
+            "key": "plateid",
+            "value": "3606",
+            "comment": "plate ID number"
+          },
+          {
+            "key": "MJD",
+            "value": "55182",
+            "comment": "Modified Julian Date of plan"
+          },
+          {
+            "key": "RUN2D",
+            "value": "v5_5_12",
+            "comment": "2D reduction name"
+          },
+          {
+            "key": "planfile2d",
+            "value": "'spPlan2d-3606-55182.par'",
+            "comment": "Plan file for 2D spectral reductions (this file)"
+          },
+          {
+            "key": "idlspec2dVersion",
+            "value": "'v5_5_10'",
+            "comment": "idlspec2d Version when building plan"
+          },
+          {
+            "key": "idlutilsVersion",
+            "value": "'v5_5_6'",
+            "comment": "idlutils Version when building plan"
+          },
+          {
+            "key": "speclogVersion",
+            "value": "'trunk 138827'",
+            "comment": "speclog Version when building plan"
+          }
+        ],
+        "tables": {
+          "SPEXP": {
+            "name": "SPEXP",
+            "description": "Exposures included",
+            "n_rows": 11,
+            "structure": [
+              {
+                "name": "plateid",
+                "type": "int",
+                "description": "plate ID number",
+                "unit": "",
+                "is_array": false,
+                "is_enum": false,
+                "enum_values": null,
+                "example": 3606
+              },
+              {
+                "name": "mjd",
+                "type": "int",
+                "description": "MJD of exposure",
+                "unit": "",
+                "is_array": false,
+                "is_enum": false,
+                "enum_values": null,
+                "example": 55182
+              },
+              {
+                "name": "mapname",
+                "type": "char[14]",
+                "description": "Plate Map Name or FPS configuration ID",
+                "unit": "",
+                "is_array": false,
+                "is_enum": false,
+                "enum_values": null,
+                "example": "3606-55180-01"
+              },
+              {
+                "name": "flavor",
+                "type": "char[8]",
+                "description": "Flavor of Exposure (flat, arc, science)",
+                "unit": "",
+                "is_array": false,
+                "is_enum": false,
+                "enum_values": null,
+                "example": "flat"
+              },
+              {
+                "name": "exptime",
+                "type": "float",
+                "description": "Exposure Length of exposure",
+                "unit": "s",
+                "is_array": false,
+                "is_enum": false,
+                "enum_values": null,
+                "example": 30.0
+              },
+              {
+                "name": "name",
+                "type": "char[4][20]",
+                "description": "Name of Raw Exposure Files",
+                "unit": "",
+                "is_array": true,
+                "is_enum": false,
+                "enum_values": null,
+                "example": [
+                  "sdR-b1-00105001.fit",
+                  "sdR-b2-00105001.fit",
+                  "sdR-r1-00105001.fit",
+                  "sdR-r2-00105001.fit"
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "hdfs": null
+    },
+    "DR9": {
+      "template": "$BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID]/spPlan2d-[PLATEID]-[MJD].par",
+      "example": "v5_4_45/3606/spPlan2d-3606-55182.par",
+      "location": "{run2d}/{plateid}/spPlan2d-{plateid}-{mjd}.par",
+      "environment": "BOSS_SPECTRO_REDUX",
+      "survey": "eBOSS",
+      "access": {
+        "in_sdss_access": false,
+        "path_name": null,
+        "path_template": null,
+        "path_kwargs": null,
+        "access_string": "spPlan2d = $BOSS_SPECTRO_REDUX/{run2d}/{plateid}/spPlan2d-{plateid}-{mjd}.par"
+      },
+      "hdus": null,
+      "par": {
+        "comments": "",
+        "header": [
+          {
+            "key": "plateid",
+            "value": "3606",
+            "comment": "plate ID number"
+          },
+          {
+            "key": "MJD",
+            "value": "55182",
+            "comment": "Modified Julian Date of plan"
+          },
+          {
+            "key": "RUN2D",
+            "value": "v5_4_45",
+            "comment": "2D reduction name"
+          },
+          {
+            "key": "planfile2d",
+            "value": "'spPlan2d-3606-55182.par'",
+            "comment": "Plan file for 2D spectral reductions (this file)"
+          },
+          {
+            "key": "idlspec2dVersion",
+            "value": "'v5_4_45'",
+            "comment": "idlspec2d Version when building plan"
+          },
+          {
+            "key": "idlutilsVersion",
+            "value": "'v5_4_24'",
+            "comment": "idlutils Version when building plan"
+          },
+          {
+            "key": "speclogVersion",
+            "value": "'trunk 126283'",
+            "comment": "speclog Version when building plan"
+          }
+        ],
+        "tables": {
+          "SPEXP": {
+            "name": "SPEXP",
+            "description": "Exposures included",
+            "n_rows": 11,
+            "structure": [
+              {
+                "name": "plateid",
+                "type": "int",
+                "description": "plate ID number",
+                "unit": "",
+                "is_array": false,
+                "is_enum": false,
+                "enum_values": null,
+                "example": 3606
+              },
+              {
+                "name": "mjd",
+                "type": "int",
+                "description": "MJD of exposure",
+                "unit": "",
+                "is_array": false,
+                "is_enum": false,
+                "enum_values": null,
+                "example": 55182
+              },
+              {
+                "name": "mapname",
+                "type": "char[14]",
+                "description": "Plate Map Name or FPS configuration ID",
+                "unit": "",
+                "is_array": false,
+                "is_enum": false,
+                "enum_values": null,
+                "example": "3606-55180-01"
+              },
+              {
+                "name": "flavor",
+                "type": "char[8]",
+                "description": "Flavor of Exposure (flat, arc, science)",
+                "unit": "",
+                "is_array": false,
+                "is_enum": false,
+                "enum_values": null,
+                "example": "flat"
+              },
+              {
+                "name": "exptime",
+                "type": "float",
+                "description": "Exposure Length of exposure",
+                "unit": "s",
+                "is_array": false,
+                "is_enum": false,
+                "enum_values": null,
+                "example": 30.0
+              },
+              {
+                "name": "name",
+                "type": "char[4][20]",
+                "description": "Name of Raw Exposure Files",
+                "unit": "",
+                "is_array": true,
+                "is_enum": false,
+                "enum_values": null,
+                "example": [
+                  "sdR-b1-00105001.fit",
+                  "sdR-b2-00105001.fit",
+                  "sdR-r1-00105001.fit",
+                  "sdR-r2-00105001.fit"
+                ]
+              }
+            ]
+          }
+        }
       },
       "hdfs": null
     }
