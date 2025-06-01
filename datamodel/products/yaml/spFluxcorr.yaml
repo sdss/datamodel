@@ -6,6 +6,14 @@ general:
   datatype: FITS
   filesize: 16 KB
   releases:
+  - DR9
+  - DR10
+  - DR12
+  - DR11
+  - DR13
+  - DR14
+  - DR15
+  - DR16
   - DR17
   - DR18
   - IPL3
@@ -37,6 +45,32 @@ changelog:
       primary_delta_nkeys: 2
       removed_primary_header_kwargs:
       - COMMENT
+    DR17:
+      from: DR16
+      note: No changes
+    DR16:
+      from: DR15
+      note: No changes
+    DR15:
+      from: DR14
+      note: No changes
+    DR14:
+      from: DR13
+      primary_delta_nkeys: 2
+      added_primary_header_kwargs:
+      - COMMENT
+    DR13:
+      from: DR11
+      note: No changes
+    DR11:
+      from: DR12
+      note: No changes
+    DR12:
+      from: DR10
+      note: No changes
+    DR10:
+      from: DR9
+      note: No changes
 releases:
   DR19:
     template: $BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/spFluxcorr-[BR][ID]-[FRAME].fits.gz
@@ -320,6 +354,576 @@ releases:
         - key: GCOUNT
           value: 1
           comment: required keyword; must = 1
+  DR16:
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID4]/spFluxcorr-[BR][ID]-[FRAME8].fits.gz
+    example: v5_13_0/3606/spFluxcorr-b1-00103847.fits.gz
+    location: '{run2d}/{plateid:0>4}/spFluxcorr-{br}{id}-{frame:0>8}.fits.gz'
+    environment: BOSS_SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: spFluxcorr
+      path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spFrame-{br}{id}-{frame:0>8}.fits.gz'
+      path_kwargs:
+      - br
+      - plateid
+      - frame
+      - id
+      - run2d
+      access_string: spFluxcorr = $BOSS_SPECTRO_REDUX/{run2d}/{plateid:0>4}/spFluxcorr-{br}{id}-{frame:0>8}.fits.gz
+    survey: eBOSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: multiplicative flux-correction factor
+        is_image: true
+        size: 15 MB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: file does conform to FITS standard
+        - key: BITPIX
+          value: -64
+          comment: number of bits per data pixel
+        - key: NAXIS
+          value: 2
+          comment: number of data axes
+        - key: NAXIS1
+          value: 4112
+          comment: length of data axis 1
+        - key: NAXIS2
+          value: 500
+          comment: length of data axis 2
+        - key: EXTEND
+          value: true
+          comment: FITS dataset may contain extensions
+        - key: COMMENT
+          value: '  FITS (Flexible Image Transport System) format is defined in ''Astronomy'
+          comment: ''
+        - key: COMMENT
+          value: '  and Astrophysics'', volume 376, page 359; bibcode: 2001A&A...376..359H'
+          comment: ''
+      hdu1:
+        name: ''
+        description: additive flux-correction factor
+        is_image: true
+        size: 15 MB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: IMAGE extension
+        - key: BITPIX
+          value: -64
+          comment: number of bits per data pixel
+        - key: NAXIS
+          value: 2
+          comment: number of data axes
+        - key: NAXIS1
+          value: 4112
+          comment: length of data axis 1
+        - key: NAXIS2
+          value: 500
+          comment: length of data axis 2
+        - key: PCOUNT
+          value: 0
+          comment: required keyword; must = 0
+        - key: GCOUNT
+          value: 1
+          comment: required keyword; must = 1
+  DR15:
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID4]/spFluxcorr-[BR][ID]-[FRAME8].fits.gz
+    example: v5_10_0/3606/spFluxcorr-b1-00104940.fits.gz
+    location: '{run2d}/{plateid:0>4}/spFluxcorr-{br}{id}-{frame:0>8}.fits.gz'
+    environment: BOSS_SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: spFluxcorr
+      path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spFrame-{br}{id}-{frame:0>8}.fits.gz'
+      path_kwargs:
+      - plateid
+      - frame
+      - run2d
+      - id
+      - br
+      access_string: spFluxcorr = $BOSS_SPECTRO_REDUX/{run2d}/{plateid:0>4}/spFluxcorr-{br}{id}-{frame:0>8}.fits.gz
+    survey: eBOSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: multiplicative flux-correction factor
+        is_image: true
+        size: 15 MB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: file does conform to FITS standard
+        - key: BITPIX
+          value: -64
+          comment: number of bits per data pixel
+        - key: NAXIS
+          value: 2
+          comment: number of data axes
+        - key: NAXIS1
+          value: 4112
+          comment: length of data axis 1
+        - key: NAXIS2
+          value: 500
+          comment: length of data axis 2
+        - key: EXTEND
+          value: true
+          comment: FITS dataset may contain extensions
+        - key: COMMENT
+          value: '  FITS (Flexible Image Transport System) format is defined in ''Astronomy'
+          comment: ''
+        - key: COMMENT
+          value: '  and Astrophysics'', volume 376, page 359; bibcode: 2001A&A...376..359H'
+          comment: ''
+      hdu1:
+        name: ''
+        description: additive flux-correction factor
+        is_image: true
+        size: 15 MB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: IMAGE extension
+        - key: BITPIX
+          value: -64
+          comment: number of bits per data pixel
+        - key: NAXIS
+          value: 2
+          comment: number of data axes
+        - key: NAXIS1
+          value: 4112
+          comment: length of data axis 1
+        - key: NAXIS2
+          value: 500
+          comment: length of data axis 2
+        - key: PCOUNT
+          value: 0
+          comment: required keyword; must = 0
+        - key: GCOUNT
+          value: 1
+          comment: required keyword; must = 1
+  DR14:
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID4]/spFluxcorr-[BR][ID]-[FRAME8].fits.gz
+    example: v5_10_0/3606/spFluxcorr-b1-00104940.fits.gz
+    location: '{run2d}/{plateid:0>4}/spFluxcorr-{br}{id}-{frame:0>8}.fits.gz'
+    environment: BOSS_SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: spFluxcorr
+      path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spFrame-{br}{id}-{frame:0>8}.fits.gz'
+      path_kwargs:
+      - run2d
+      - plateid
+      - id
+      - frame
+      - br
+      access_string: spFluxcorr = $BOSS_SPECTRO_REDUX/{run2d}/{plateid:0>4}/spFluxcorr-{br}{id}-{frame:0>8}.fits.gz
+    survey: eBOSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: multiplicative flux-correction factor
+        is_image: true
+        size: 15 MB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: file does conform to FITS standard
+        - key: BITPIX
+          value: -64
+          comment: number of bits per data pixel
+        - key: NAXIS
+          value: 2
+          comment: number of data axes
+        - key: NAXIS1
+          value: 4112
+          comment: length of data axis 1
+        - key: NAXIS2
+          value: 500
+          comment: length of data axis 2
+        - key: EXTEND
+          value: true
+          comment: FITS dataset may contain extensions
+        - key: COMMENT
+          value: '  FITS (Flexible Image Transport System) format is defined in ''Astronomy'
+          comment: ''
+        - key: COMMENT
+          value: '  and Astrophysics'', volume 376, page 359; bibcode: 2001A&A...376..359H'
+          comment: ''
+      hdu1:
+        name: ''
+        description: additive flux-correction factor
+        is_image: true
+        size: 15 MB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: IMAGE extension
+        - key: BITPIX
+          value: -64
+          comment: number of bits per data pixel
+        - key: NAXIS
+          value: 2
+          comment: number of data axes
+        - key: NAXIS1
+          value: 4112
+          comment: length of data axis 1
+        - key: NAXIS2
+          value: 500
+          comment: length of data axis 2
+        - key: PCOUNT
+          value: 0
+          comment: required keyword; must = 0
+        - key: GCOUNT
+          value: 1
+          comment: required keyword; must = 1
+  DR13:
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID4]/spFluxcorr-[BR][ID]-[FRAME8].fits.gz
+    example: v5_9_0/3606/spFluxcorr-b1-00104940.fits.gz
+    location: '{run2d}/{plateid:0>4}/spFluxcorr-{br}{id}-{frame:0>8}.fits.gz'
+    environment: BOSS_SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: spFluxcorr
+      path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spFrame-{br}{id}-{frame:0>8}.fits.gz'
+      path_kwargs:
+      - br
+      - run2d
+      - frame
+      - plateid
+      - id
+      access_string: spFluxcorr = $BOSS_SPECTRO_REDUX/{run2d}/{plateid:0>4}/spFluxcorr-{br}{id}-{frame:0>8}.fits.gz
+    survey: eBOSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: multiplicative flux-correction factor
+        is_image: true
+        size: 7 MB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: Primary Header created by MWRFITS v1.11
+        - key: BITPIX
+          value: -32
+          comment: ''
+        - key: NAXIS
+          value: 2
+          comment: ''
+        - key: NAXIS1
+          value: 4128
+          comment: ''
+        - key: NAXIS2
+          value: 500
+          comment: ''
+        - key: EXTEND
+          value: true
+          comment: Extensions may be present
+      hdu1:
+        name: ''
+        description: additive flux-correction factor
+        is_image: true
+        size: 7 MB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image Extension created by MWRFITS v1.11
+        - key: BITPIX
+          value: -32
+          comment: ''
+        - key: NAXIS
+          value: 2
+          comment: ''
+        - key: NAXIS1
+          value: 4128
+          comment: ''
+        - key: NAXIS2
+          value: 500
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: ''
+        - key: GCOUNT
+          value: 1
+          comment: ''
+  DR12:
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID4]/spFluxcorr-[BR][ID]-[FRAME8].fits.gz
+    example: v5_7_0/3606/spFluxcorr-b1-00104940.fits.gz
+    location: '{run2d}/{plateid:0>4}/spFluxcorr-{br}{id}-{frame:0>8}.fits.gz'
+    environment: BOSS_SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: spFluxcorr
+      path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spFrame-{br}{id}-{frame:0>8}.fits.gz'
+      path_kwargs:
+      - br
+      - plateid
+      - run2d
+      - id
+      - frame
+      access_string: spFluxcorr = $BOSS_SPECTRO_REDUX/{run2d}/{plateid:0>4}/spFluxcorr-{br}{id}-{frame:0>8}.fits.gz
+    survey: eBOSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: multiplicative flux-correction factor
+        is_image: true
+        size: 7 MB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: Primary Header created by MWRFITS v1.11
+        - key: BITPIX
+          value: -32
+          comment: ''
+        - key: NAXIS
+          value: 2
+          comment: ''
+        - key: NAXIS1
+          value: 4128
+          comment: ''
+        - key: NAXIS2
+          value: 500
+          comment: ''
+        - key: EXTEND
+          value: true
+          comment: Extensions may be present
+      hdu1:
+        name: ''
+        description: additive flux-correction factor
+        is_image: true
+        size: 7 MB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image Extension created by MWRFITS v1.11
+        - key: BITPIX
+          value: -32
+          comment: ''
+        - key: NAXIS
+          value: 2
+          comment: ''
+        - key: NAXIS1
+          value: 4128
+          comment: ''
+        - key: NAXIS2
+          value: 500
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: ''
+        - key: GCOUNT
+          value: 1
+          comment: ''
+  DR11:
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID4]/spFluxcorr-[BR][ID]-[FRAME8].fits.gz
+    example: v5_6_5/3606/spFluxcorr-b1-00104940.fits.gz
+    location: '{run2d}/{plateid:0>4}/spFluxcorr-{br}{id}-{frame:0>8}.fits.gz'
+    environment: BOSS_SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: spFluxcorr
+      path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spFrame-{br}{id}-{frame:0>8}.fits.gz'
+      path_kwargs:
+      - frame
+      - id
+      - plateid
+      - br
+      - run2d
+      access_string: spFluxcorr = $BOSS_SPECTRO_REDUX/{run2d}/{plateid:0>4}/spFluxcorr-{br}{id}-{frame:0>8}.fits.gz
+    survey: eBOSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: multiplicative flux-correction factor
+        is_image: true
+        size: 7 MB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: Primary Header created by MWRFITS v1.11
+        - key: BITPIX
+          value: -32
+          comment: ''
+        - key: NAXIS
+          value: 2
+          comment: ''
+        - key: NAXIS1
+          value: 4128
+          comment: ''
+        - key: NAXIS2
+          value: 500
+          comment: ''
+        - key: EXTEND
+          value: true
+          comment: Extensions may be present
+      hdu1:
+        name: ''
+        description: additive flux-correction factor
+        is_image: true
+        size: 7 MB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image Extension created by MWRFITS v1.11
+        - key: BITPIX
+          value: -32
+          comment: ''
+        - key: NAXIS
+          value: 2
+          comment: ''
+        - key: NAXIS1
+          value: 4128
+          comment: ''
+        - key: NAXIS2
+          value: 500
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: ''
+        - key: GCOUNT
+          value: 1
+          comment: ''
+  DR10:
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID4]/spFluxcorr-[BR][ID]-[FRAME8].fits.gz
+    example: v5_5_12/3606/spFluxcorr-b1-00104940.fits.gz
+    location: '{run2d}/{plateid:0>4}/spFluxcorr-{br}{id}-{frame:0>8}.fits.gz'
+    environment: BOSS_SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: spFluxcorr
+      path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spFrame-{br}{id}-{frame:0>8}.fits.gz'
+      path_kwargs:
+      - br
+      - run2d
+      - id
+      - frame
+      - plateid
+      access_string: spFluxcorr = $BOSS_SPECTRO_REDUX/{run2d}/{plateid:0>4}/spFluxcorr-{br}{id}-{frame:0>8}.fits.gz
+    survey: eBOSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: multiplicative flux-correction factor
+        is_image: true
+        size: 7 MB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: Primary Header created by MWRFITS v1.11
+        - key: BITPIX
+          value: -32
+          comment: ''
+        - key: NAXIS
+          value: 2
+          comment: ''
+        - key: NAXIS1
+          value: 4128
+          comment: ''
+        - key: NAXIS2
+          value: 500
+          comment: ''
+        - key: EXTEND
+          value: true
+          comment: Extensions may be present
+      hdu1:
+        name: ''
+        description: additive flux-correction factor
+        is_image: true
+        size: 7 MB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image Extension created by MWRFITS v1.11
+        - key: BITPIX
+          value: -32
+          comment: ''
+        - key: NAXIS
+          value: 2
+          comment: ''
+        - key: NAXIS1
+          value: 4128
+          comment: ''
+        - key: NAXIS2
+          value: 500
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: ''
+        - key: GCOUNT
+          value: 1
+          comment: ''
+  DR9:
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID4]/spFluxcorr-[BR][ID]-[FRAME8].fits.gz
+    example: v5_4_45/3606/spFluxcorr-b1-00104940.fits.gz
+    location: '{run2d}/{plateid:0>4}/spFluxcorr-{br}{id}-{frame:0>8}.fits.gz'
+    environment: BOSS_SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: spFluxcorr
+      path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spFrame-{br}{id}-{frame:0>8}.fits.gz'
+      path_kwargs:
+      - plateid
+      - frame
+      - id
+      - run2d
+      - br
+      access_string: spFluxcorr = $BOSS_SPECTRO_REDUX/{run2d}/{plateid:0>4}/spFluxcorr-{br}{id}-{frame:0>8}.fits.gz
+    survey: eBOSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: multiplicative flux-correction factor
+        is_image: true
+        size: 7 MB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: Primary Header created by MWRFITS v1.8
+        - key: BITPIX
+          value: -32
+          comment: ''
+        - key: NAXIS
+          value: 2
+          comment: ''
+        - key: NAXIS1
+          value: 4128
+          comment: ''
+        - key: NAXIS2
+          value: 500
+          comment: ''
+        - key: EXTEND
+          value: true
+          comment: Extensions may be present
+      hdu1:
+        name: ''
+        description: additive flux-correction factor
+        is_image: true
+        size: 7 MB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image Extension created by MWRFITS v1.8
+        - key: BITPIX
+          value: -32
+          comment: ''
+        - key: NAXIS
+          value: 2
+          comment: ''
+        - key: NAXIS1
+          value: 4128
+          comment: ''
+        - key: NAXIS2
+          value: 500
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: ''
+        - key: GCOUNT
+          value: 1
+          comment: ''
 notes: |-
   None
 regrets: |-

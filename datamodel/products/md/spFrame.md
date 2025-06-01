@@ -19,7 +19,7 @@ spFrame contains the non-calibrated spectra from the red- or blue-half of a sing
 $BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/spFrame-[BR][ID]-[FRAME].fits.gz
 
 ### Releases
-DR17, DR18, IPL3, DR19
+DR9, DR10, DR12, DR11, DR13, DR14, DR15, DR16, DR17, DR18, IPL3, DR19
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -62,13 +62,37 @@ Describes changes to the datamodel product and/or file structure from one releas
  - IPL3
    - from: DR18
    - primary_delta_nkeys: 63
-   - added_primary_header_kwargs: ['OFFDEC', 'STDAS0', 'VJAEGER', 'SIGBS0', 'BUFFER', 'R2CAMH', 'MECHORIX', 'MCTRCB', 'OBSERVAT', 'COLLT', 'CCDID', 'AVGAS0', 'CONFSFIL', 'MECHORIY', 'VCOORDIO', 'T_TRUSS', 'ARCHBVER', 'CENBS0', 'MCTBCT', 'CONFID', 'T_IN', 'CCDSUM', 'SPECMT', 'B2CAMT', 'HA', 'VCALIBS', 'OFFPA', 'DESIGNID', 'INTSTART', 'MCTBCB', 'SLITID', 'B2CAMH', 'ARCHACF', 'OBSMODE', 'MCHUMHT', 'BOSSVER', 'FIELDID', 'AVGBS0', 'STDBS0', 'V_ARCHON', 'MCHUMCO', 'ARCHBACK', 'CCDTYPE', 'COLLH', 'ARCHTEMP', 'GSEEING', 'OFFRA', 'MCTHT', 'MECHORIZ', 'DAQVER', 'T_PRIM', 'INTEND', 'V_RAD', 'MCTEMDN', 'T_OUT', 'MCTRCT', 'R2CAMT', 'HEAR', 'SPEC', 'T_FLOOR', 'VKAIJU', 'T_CELL', 'CCD']
-   - removed_primary_header_kwargs: ['MC1TRCB', 'MC1TRCT', 'TILEID', 'MGDDEC', 'MC1TBCT', 'MGDRA', 'MC1HUMHT', 'STDBSH0', 'AUTHOR', 'STDASH0', 'AVGASH0', 'MC1TEMDN', 'AVGBSH0', 'MGDPOS', 'CAMROW', 'MC1THT', 'MC1HUMCO', 'SLITID1', 'CENBSH0', 'PLUGFILE', 'CAMCOL', 'TWOPHASE', 'MC1TBCB', 'SIGBSH0']
+   - added_primary_header_kwargs: ['VCALIBS', 'FIELDID', 'ARCHBACK', 'MCTRCB', 'ARCHBVER', 'MECHORIZ', 'SIGBS0', 'SPEC', 'CCDTYPE', 'OFFPA', 'SLITID', 'STDBS0', 'MCHUMCO', 'B2CAMT', 'OFFRA', 'CCDSUM', 'GSEEING', 'MCTRCT', 'MCTHT', 'MCTBCB', 'MCTEMDN', 'CONFID', 'CCDID', 'CENBS0', 'ARCHACF', 'VJAEGER', 'STDAS0', 'T_FLOOR', 'ARCHTEMP', 'SPECMT', 'VCOORDIO', 'AVGBS0', 'T_TRUSS', 'DESIGNID', 'OBSERVAT', 'MECHORIX', 'MCTBCT', 'CCD', 'MCHUMHT', 'R2CAMT', 'V_RAD', 'HA', 'VKAIJU', 'R2CAMH', 'T_CELL', 'V_ARCHON', 'DAQVER', 'T_OUT', 'BOSSVER', 'HEAR', 'COLLT', 'INTEND', 'T_IN', 'B2CAMH', 'COLLH', 'T_PRIM', 'INTSTART', 'OFFDEC', 'AVGAS0', 'BUFFER', 'MECHORIY', 'CONFSFIL', 'OBSMODE']
+   - removed_primary_header_kwargs: ['TWOPHASE', 'TILEID', 'STDBSH0', 'MC1HUMCO', 'AVGBSH0', 'AUTHOR', 'SLITID1', 'MC1TRCT', 'AVGASH0', 'MGDDEC', 'MC1TBCB', 'MC1THT', 'MC1TEMDN', 'PLUGFILE', 'CAMROW', 'CAMCOL', 'SIGBSH0', 'STDASH0', 'CENBSH0', 'MC1TBCT', 'MC1TRCB', 'MGDPOS', 'MGDRA', 'MC1HUMHT']
  - DR18
    - from: DR17
    - primary_delta_nkeys: 45
-   - added_primary_header_kwargs: ['SHCLOTIM', 'PLATETYP', 'MC1TRCB', 'MC1TRCT', 'CCDTEMP', 'V_APO', 'MGDDEC', 'HUMIDITY', 'PRESSURE', 'SRVYMODE', 'MC1HUMHT', 'MGDRA', 'MC1TBCT', 'STDBSH0', 'M1ZROT', 'STDASH0', 'PFERR', 'WINDS', 'LN2TEMP', 'AVGASH0', 'DUSTA', 'V_SOP', 'AIRTEMP', 'MC1TEMDN', 'DEWPOINT', 'REQTIME', 'AVGBSH0', 'MGDPOS', 'M2ZROT', 'WINDD25M', 'V_GUIDER', 'MC1THT', 'WDISPR', 'MC1HUMCO', 'V_BOSS', 'DUSTB', 'GUSTD', 'SUBFRAME', 'SLITID1', 'CENBSH0', 'IONPUMP', 'GUSTS', 'TRUSTEMP', 'SHOPETIM', 'DIDFLUSH', 'MC1TBCB', 'SIGBSH0', 'WINDS25M', 'DARKTIME', 'WINDD']
-   - removed_primary_header_kwargs: ['OBJOFFY', 'BOSSVER', 'PIXBIAS', 'OBJOFFX', 'DAQVER']
+   - added_primary_header_kwargs: ['V_APO', 'IONPUMP', 'GUSTD', 'WINDS', 'WINDD25M', 'DUSTB', 'STDBSH0', 'PFERR', 'MC1HUMCO', 'WINDS25M', 'GUSTS', 'AVGBSH0', 'WDISPR', 'SLITID1', 'WINDD', 'MC1TRCT', 'REQTIME', 'PLATETYP', 'SRVYMODE', 'DEWPOINT', 'AVGASH0', 'MC1TBCB', 'MGDDEC', 'V_BOSS', 'TRUSTEMP', 'MC1THT', 'V_GUIDER', 'V_SOP', 'DARKTIME', 'MC1TEMDN', 'M1ZROT', 'STDASH0', 'SIGBSH0', 'LN2TEMP', 'M2ZROT', 'CENBSH0', 'MC1TBCT', 'MC1TRCB', 'SHOPETIM', 'MGDPOS', 'SUBFRAME', 'CCDTEMP', 'PRESSURE', 'SHCLOTIM', 'DIDFLUSH', 'HUMIDITY', 'AIRTEMP', 'DUSTA', 'MGDRA', 'MC1HUMHT']
+   - removed_primary_header_kwargs: ['OBJOFFX', 'OBJOFFY', 'PIXBIAS', 'DAQVER', 'BOSSVER']
+ - DR17
+   - from: DR16
+   - note: No changes
+ - DR16
+   - from: DR15
+   - note: No changes
+ - DR15
+   - from: DR14
+   - note: No changes
+ - DR14
+   - from: DR13
+   - note: No changes
+ - DR13
+   - from: DR11
+   - note: No changes
+ - DR11
+   - from: DR12
+   - note: No changes
+ - DR12
+   - from: DR10
+   - note: No changes
+ - DR10
+   - from: DR9
+   - note: No changes
 
 ---
 ## Example HDUS List

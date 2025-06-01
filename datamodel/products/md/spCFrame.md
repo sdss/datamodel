@@ -19,7 +19,7 @@ The spCFrame files contain the flux-calibrated extracted spectra for a single CC
 $BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/spCFrame-[BR][ID]-[FRAME].fits
 
 ### Releases
-DR17, DR18, IPL3, DR19
+DR10, DR12, DR11, DR13, DR14, DR15, DR16, DR17, DR18, IPL3, DR19
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -61,14 +61,37 @@ Describes changes to the datamodel product and/or file structure from one releas
  - IPL3
    - from: DR18
    - primary_delta_nkeys: 63
-   - added_primary_header_kwargs: ['MCTBCB', 'OBSMODE', 'AVGBS0', 'FIELDID', 'CCDSUM', 'COLLH', 'MCHUMHT', 'MCTBCT', 'ARCHACF', 'B2CAMH', 'OFFDEC', 'MECHORIX', 'T_OUT', 'STDBS0', 'AVGAS0', 'T_FLOOR', 'T_IN', 'CCDTYPE', 'DAQVER', 'ARCHTEMP', 'VCALIBS', 'GSEEING', 'STDAS0', 'MECHORIY', 'CCD', 'B2CAMT', 'OBSERVAT', 'BOSSVER', 'HA', 'SPECMT', 'MCTHT', 'VJAEGER', 'OFFPA', 'VKAIJU', 'V_ARCHON', 'V_RAD', 'T_TRUSS', 'INTSTART', 'BUFFER', 'R2CAMT', 'CONFID', 'CONFSFIL', 'MCTRCB', 'MECHORIZ', 'COLLT', 'T_CELL', 'ARCHBVER', 'SIGBS0', 'OFFRA', 'HEAR', 'CENBS0', 'VCOORDIO', 'MCHUMCO', 'SPEC', 'R2CAMH', 'MCTEMDN', 'INTEND', 'MCTRCT', 'ARCHBACK', 'T_PRIM', 'DESIGNID', 'CCDID', 'SLITID']
-   - removed_primary_header_kwargs: ['MC1TEMDN', 'MC1HUMHT', 'CENBSH0', 'SIGBSH0', 'MC1THT', 'STDBSH0', 'MC1TBCB', 'MC1HUMCO', 'MGDDEC', 'AVGASH0', 'TILEID', 'STDASH0', 'MGDPOS', 'AUTHOR', 'TWOPHASE', 'MGDRA', 'CAMCOL', 'AVGBSH0', 'MC1TRCB', 'CAMROW', 'MC1TRCT', 'MC1TBCT', 'SLITID1', 'PLUGFILE']
+   - added_primary_header_kwargs: ['MECHORIY', 'AVGAS0', 'MCHUMHT', 'DESIGNID', 'CCDSUM', 'OBSMODE', 'MCTBCT', 'VKAIJU', 'ARCHBVER', 'OFFRA', 'MCTHT', 'INTEND', 'MECHORIZ', 'MCTEMDN', 'CCDTYPE', 'CENBS0', 'MECHORIX', 'ARCHBACK', 'OBSERVAT', 'STDBS0', 'GSEEING', 'R2CAMH', 'SPEC', 'B2CAMH', 'VCOORDIO', 'COLLT', 'V_RAD', 'MCTBCB', 'B2CAMT', 'T_OUT', 'INTSTART', 'COLLH', 'T_IN', 'VJAEGER', 'CONFSFIL', 'ARCHTEMP', 'BOSSVER', 'T_CELL', 'OFFPA', 'CCDID', 'SLITID', 'AVGBS0', 'T_FLOOR', 'MCTRCT', 'ARCHACF', 'STDAS0', 'HA', 'BUFFER', 'T_PRIM', 'FIELDID', 'MCHUMCO', 'V_ARCHON', 'T_TRUSS', 'SIGBS0', 'VCALIBS', 'CCD', 'CONFID', 'MCTRCB', 'HEAR', 'DAQVER', 'SPECMT', 'R2CAMT', 'OFFDEC']
+   - removed_primary_header_kwargs: ['MGDPOS', 'TWOPHASE', 'MC1TEMDN', 'MGDRA', 'STDASH0', 'MC1TRCB', 'MGDDEC', 'STDBSH0', 'AVGASH0', 'MC1HUMHT', 'CENBSH0', 'AUTHOR', 'AVGBSH0', 'CAMCOL', 'SIGBSH0', 'CAMROW', 'MC1TBCT', 'MC1HUMCO', 'TILEID', 'SLITID1', 'MC1TRCT', 'MC1THT', 'MC1TBCB', 'PLUGFILE']
  - DR18
    - from: DR17
    - added_hdus: ['SPRESL']
    - primary_delta_nkeys: 45
-   - added_primary_header_kwargs: ['MC1TEMDN', 'MC1HUMHT', 'DARKTIME', 'CENBSH0', 'REQTIME', 'SIGBSH0', 'MC1THT', 'M2ZROT', 'M1ZROT', 'V_APO', 'STDBSH0', 'MC1TBCB', 'AIRTEMP', 'PFERR', 'CCDTEMP', 'V_SOP', 'MC1HUMCO', 'MGDDEC', 'IONPUMP', 'AVGASH0', 'SRVYMODE', 'V_GUIDER', 'GUSTD', 'PRESSURE', 'DEWPOINT', 'WINDS', 'WINDD25M', 'WINDS25M', 'SHOPETIM', 'STDASH0', 'PLATETYP', 'MGDPOS', 'V_BOSS', 'DUSTB', 'SUBFRAME', 'WINDD', 'TRUSTEMP', 'MGDRA', 'HUMIDITY', 'DUSTA', 'AVGBSH0', 'MC1TRCB', 'WDISPR', 'GUSTS', 'MC1TRCT', 'MC1TBCT', 'SHCLOTIM', 'SLITID1', 'LN2TEMP', 'DIDFLUSH']
-   - removed_primary_header_kwargs: ['PIXBIAS', 'BOSSVER', 'OBJOFFY', 'OBJOFFX', 'DAQVER']
+   - added_primary_header_kwargs: ['WINDS', 'MGDPOS', 'GUSTD', 'MC1TEMDN', 'HUMIDITY', 'MGDRA', 'CCDTEMP', 'DEWPOINT', 'AIRTEMP', 'WINDD25M', 'V_SOP', 'V_GUIDER', 'DARKTIME', 'STDASH0', 'MGDDEC', 'STDBSH0', 'MC1TRCB', 'REQTIME', 'AVGASH0', 'V_BOSS', 'MC1HUMHT', 'GUSTS', 'WINDD', 'SHCLOTIM', 'CENBSH0', 'PRESSURE', 'IONPUMP', 'DUSTA', 'SRVYMODE', 'DUSTB', 'V_APO', 'PLATETYP', 'WINDS25M', 'AVGBSH0', 'SIGBSH0', 'MC1TBCT', 'MC1HUMCO', 'DIDFLUSH', 'SLITID1', 'TRUSTEMP', 'LN2TEMP', 'M2ZROT', 'MC1TRCT', 'M1ZROT', 'MC1THT', 'SHOPETIM', 'MC1TBCB', 'PFERR', 'WDISPR', 'SUBFRAME']
+   - removed_primary_header_kwargs: ['BOSSVER', 'OBJOFFX', 'DAQVER', 'OBJOFFY', 'PIXBIAS']
+ - DR17
+   - from: DR16
+   - note: No changes
+ - DR16
+   - from: DR15
+   - primary_delta_nkeys: 17
+   - added_primary_header_kwargs: ['PIXBIAS']
+   - removed_primary_header_kwargs: ['MC1TBCT', 'MC2HUMHT', 'MC2TBCB', 'MC2TRCT', 'MC1TRCB', 'MC2TEMDN', 'MC1TEMDN', 'MC1HUMHT', 'MC2HUMCO', 'MC1TRCT', 'MC1THT', 'SHOPETIM', 'MC1TBCB', 'MC2THT', 'SHCLOTIM', 'MC2TRCB', 'MC1HUMCO', 'MC2TBCT']
+ - DR15
+   - from: DR14
+   - note: No changes
+ - DR14
+   - from: DR13
+   - note: No changes
+ - DR13
+   - from: DR11
+   - note: No changes
+ - DR11
+   - from: DR12
+   - note: No changes
+ - DR12
+   - from: DR10
+   - note: No changes
 
 ---
 ## Example HDUS List
