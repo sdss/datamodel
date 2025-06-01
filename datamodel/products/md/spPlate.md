@@ -19,7 +19,7 @@ The spPlate files contain the combined spectra for all exposures of a given plat
 $BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/spPlate-[FIELD]-[MJD].fits
 
 ### Releases
-DR17
+DR10, DR12, DR11, DR13, DR14, DR15, DR16, DR17
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -52,6 +52,29 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR17
+   - from: DR16
+   - note: No changes
+ - DR16
+   - from: DR15
+   - added_primary_header_kwargs: ['EXPID002', 'EXPID029', 'EXPID019', 'EXPID015', 'EXPID013', 'EXPID016', 'EXPID014', 'EXPID026', 'EXPID033', 'EXPID024', 'EXPID040', 'EXPID012', 'EXPID001', 'EXPID036', 'EXPID005', 'EXPID008', 'EXPID020', 'EXPID004', 'EXPID030', 'EXPID031', 'EXPID037', 'EXPID035', 'EXPID025', 'EXPID032', 'EXPID006', 'EXPID023', 'EXPID009', 'EXPID028', 'EXPID018', 'EXPID027', 'EXPID010', 'EXPID038', 'EXPID007', 'EXPID039', 'EXPID011', 'EXPID034', 'EXPID021', 'EXPID017', 'EXPID003', 'EXPID022']
+   - removed_primary_header_kwargs: ['EXPID02', 'EXPID28', 'EXPID19', 'EXPID25', 'EXPID30', 'EXPID17', 'EXPID35', 'EXPID23', 'EXPID27', 'EXPID10', 'EXPID34', 'EXPID09', 'EXPID18', 'EXPID06', 'EXPID05', 'EXPID38', 'EXPID13', 'EXPID20', 'EXPID14', 'EXPID21', 'EXPID29', 'EXPID11', 'EXPID22', 'EXPID08', 'EXPID07', 'EXPID39', 'EXPID16', 'EXPID40', 'EXPID37', 'EXPID04', 'EXPID12', 'EXPID36', 'EXPID24', 'EXPID32', 'EXPID31', 'EXPID26', 'EXPID15', 'EXPID01', 'EXPID33', 'EXPID03']
+ - DR15
+   - from: DR14
+   - note: No changes
+ - DR14
+   - from: DR13
+   - note: No changes
+ - DR13
+   - from: DR11
+   - primary_delta_nkeys: 2
+   - removed_primary_header_kwargs: ['XCHI2MIN', 'XCHI2MAX']
+ - DR11
+   - from: DR12
+   - note: No changes
+ - DR12
+   - from: DR10
+   - note: No changes
 
 ---
 ## Example HDUS List
