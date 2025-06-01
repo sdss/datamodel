@@ -9,7 +9,7 @@ flux-correction factor between spectro-photometric exposure and science exposure
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
@@ -19,7 +19,7 @@ flux-correction factor between spectro-photometric exposure and science exposure
 $BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/spFluxcorr-[BR][ID]-[FRAME].fits.gz
 
 ### Releases
-IPL3, DR19
+DR18, IPL3, DR19
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -36,9 +36,12 @@ idlspec2d - rm_spfluxcorr_v5.pro
 ### Is a VAC
 False
 
+### Data Level
+0.0.0
+
 ### HDUS List for release DR19
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: ](#hdu1-)
+  - [HDU1](#hdu1)
 
 ---
 
@@ -46,6 +49,9 @@ False
 Describes changes to the datamodel product and/or file structure from one release to another
  - DR19
    - from: IPL3
+   - note: No changes
+ - IPL3
+   - from: DR18
    - note: No changes
 
 ---
@@ -91,3 +97,7 @@ Key | Value | Comment | |
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!
