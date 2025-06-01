@@ -19,7 +19,7 @@ This file contains the list of reduced BOSS plates and FPS Fields, with associat
 $BOSS_SPECTRO_REDUX/[RUN2D]/platelist.fits
 
 ### Releases
-DR15, DR16, DR17
+DR14, DR15, DR16, DR17
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -53,6 +53,9 @@ Describes changes to the datamodel product and/or file structure from one releas
  - DR16
    - from: DR15
    - added_hdus: ['PLATELIST']
+ - DR15
+   - from: DR14
+   - note: No changes
 
 ---
 ## Example HDUS List
