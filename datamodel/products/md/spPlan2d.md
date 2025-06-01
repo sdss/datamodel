@@ -19,7 +19,7 @@ Processing plan to control the Spectro-2D pipeline reduction of a Field/plate's 
 $BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/spPlan2d-[FIELD]-[MJD].par
 
 ### Releases
-DR18, IPL3, DR19
+DR12, DR11, DR13, DR14, DR15, DR16, DR17, DR18, IPL3, DR19
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -52,9 +52,36 @@ Describes changes to the datamodel product and/or file structure from one releas
  - IPL3
    - from: DR18
    - delta_nkeys: 8
-   - added_header_keys: ['pydlVersion', 'fieldname', 'SDSS_access_Ver', 'manual', 'SDSSCOREVersion', 'OBS', 'DITHER', 'SDSS_access_Release', 'sdss_tree_Ver']
+   - added_header_keys: ['pydlVersion', 'SDSSCOREVersion', 'DITHER', 'sdss_tree_Ver', 'SDSS_access_Release', 'SDSS_access_Ver', 'fieldname', 'manual', 'OBS']
    - removed_header_keys: ['plateid']
-   - tables: {'SPEXP': {'added_cols': ['confid', 'fieldid'], 'removed_cols': ['plateid'], 'delta_nrows': 3}}
+   - tables: {'SPEXP': {'added_cols': ['fieldid', 'confid'], 'removed_cols': ['plateid'], 'delta_nrows': 3}}
+ - DR18
+   - from: DR17
+   - tables: {'SPEXP': {'delta_nrows': 4}}
+ - DR17
+   - from: DR16
+   - note: No changes
+ - DR16
+   - from: DR15
+   - note: No changes
+ - DR15
+   - from: DR14
+   - note: No changes
+ - DR14
+   - from: DR13
+   - note: No changes
+ - DR13
+   - from: DR11
+   - delta_nkeys: 7
+   - added_header_keys: ['speclogVersion', 'idlutilsVersion', 'plateid', 'idlspec2dVersion', 'MJD', 'RUN2D', 'planfile2d']
+   - delta_ntables: 1
+   - added_tables: ['SPEXP']
+ - DR11
+   - from: DR12
+   - delta_nkeys: 7
+   - removed_header_keys: ['speclogVersion', 'idlutilsVersion', 'plateid', 'idlspec2dVersion', 'MJD', 'RUN2D', 'planfile2d']
+   - delta_ntables: 1
+   - removed_tables: ['SPEXP']
 
 ---
 ## Example PAR List
