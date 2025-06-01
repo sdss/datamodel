@@ -1,7 +1,7 @@
 # Data Model: specLite
 
 
-spectral data for a given field, mjd, and catalogid
+spectral data for a given field, mjd, and catalogid (or plate, mjd, fiberid in the plate era).
 
 
 ## Contents
@@ -9,17 +9,17 @@ spectral data for a given field, mjd, and catalogid
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
-The spectral data for a given field, mjd, and catalogid including the coadded spectra, spAll metadata, Model fit metadata from spZall, and Line fitting metadadta from spZline
+The spectral data for a given field, mjd, and catalogid (or plate, mjd, fiberid in the plate era) including the coadded spectra, spAll metadata, Model fit metadata from spZall, and Line fitting metadadta from spZline
 
 ### Naming Convention
 $BOSS_SPECTRO_REDUX/[RUN2D]/spectra/lite/[FIELD]/[MJD]/spec-[FIELD]-[MJD]-[CATALOGID].fits
 
 ### Releases
-IPL3, DR19
+DR9, DR10, DR12, DR11, DR13, DR14, DR15, DR16, DR17, DR18, IPL3, DR19
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -36,6 +36,9 @@ idlspec2d
 ### Is a VAC
 False
 
+### Data Level
+0.0.0
+
 ### HDUS List for release DR19
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1: COADD](#hdu1-coadd)
@@ -50,6 +53,46 @@ Describes changes to the datamodel product and/or file structure from one releas
  - DR19
    - from: IPL3
    - note: No changes
+ - IPL3
+   - from: DR18
+   - primary_delta_nkeys: 32
+   - added_primary_header_kwargs: ['FSN2EX2G', 'OFFDEC', 'FSN2EX2I', 'DAQVER', 'SNC12R05', 'SNC02I', 'SNC02G05', 'SPEC2_G', 'SNC02G07', 'SN2_2G03', 'SNC02R04', 'SN2_2G02', 'SLITID', 'SNC12G06', 'SNC12R02', 'SNC12R03', 'FSPEC2_G', 'SNC02G00', 'SN2_2R00', 'SNC02G06', 'SNC12I04', 'SN2_2R01', 'NEXP_R2', 'ARCHBACK', 'SIGBS0', 'SN2_2I06', 'BOSSVER', 'SN2_2I04', 'V_ARCHON', 'SNC02R00', 'OFFRA', 'SNC12R07', 'SN2_2I00', 'SNC02G04', 'SN2_2R05', 'SNC12I03', 'SNC02G03', 'SNC12G', 'SNC02G02', 'SNC02I01', 'SNC12I02', 'FSPEC1_G', 'VCOORDIO', 'SNC02R06', 'SN2_2I05', 'SNC12G03', 'STDAS0', 'FSPEC1_R', 'SNC12I', 'SNC12I07', 'SNC02I00', 'VKAIJU', 'SNC12R', 'VCALIBS', 'SN2EXT2I', 'FSN2EX1G', 'SNC12I01', 'ARCHBVER', 'SN2_2I03', 'SN2_2G05', 'SN2_2G07', 'SNC12R01', 'SNC02I07', 'SNC12G07', 'SN2EXT2R', 'CHECKSUM', 'STDBS0', 'SN2_2R03', 'CCDTYPE', 'AVGBS0', 'SNC02I06', 'SNC02R03', 'SNC02G01', 'FSN2EX2R', 'SNC02I04', 'SNC12R06', 'OFFPA', 'SNC12R04', 'VJAEGER', 'SN2_2G01', 'FIELDCAD', 'NEXP_B2', 'V_RAD', 'SNC02R05', 'EXPT_B2', 'FSPEC2_I', 'FSPEC2_R', 'AVGAS0', 'SNC02I05', 'FSN2EX1I', 'SN2_2R04', 'SN2_2R02', 'SN2_2I02', 'SNC12I05', 'SN2_2R06', 'SNC12G01', 'SPEC2_I', 'CCD', 'SNC02I03', 'SNC02I02', 'SNC12I06', 'FSPEC1_I', 'SNC12G00', 'SDSSC2BV', 'SNC02R01', 'SNC12I00', 'CENBS0', 'SNC02R', 'CCDID', 'OBSMODE', 'SNC12G05', 'DATASUM', 'SN2EXT2G', 'FSN2EX1R', 'SNC12G02', 'SN2_2G00', 'SNC02G', 'SN2_2G06', 'SPEC2_R', 'SPEC', 'OBSERVAT', 'SNC02R07', 'SN2_2I01', 'SNC12G04', 'SN2_2R07', 'SN2_2I07', 'SN2_2G04', 'SNC12R00', 'SNC02R02', 'EXPT_R2']
+   - removed_primary_header_kwargs: ['SNC11I10', 'SIGBSH0', 'SHCLOTIM', 'SNC01R08', 'M1XTRAN', 'COLLB', 'SNC11R10', 'BOREOFFX', 'ARCOFFY', 'CALOFFY', 'MC1TBCT', 'TWOPHASE', 'SHOPETIM', 'ROTPOS', 'EXPID19', 'SN2_1G10', 'M1YTILT', 'EXPID20', 'TRUSTEMP', 'SYNCERR', 'M1XTILT', 'SNC11R09', 'MC1TRCB', 'M2XTRAN', 'MGDPOS', 'PLUGFILE', 'PFERR', 'MC1HUMCO', 'SNC11I08', 'ARCOFFX', 'BOREOFFY', 'SNC01I08', 'MC1TRCT', 'TILEID', 'COLLC', 'COLLA', 'GUIDERN', 'SNC11G10', 'M2YTRAN', 'AVGBSH0', 'EXPID22', 'M1PISTON', 'GUIDER1', 'M1YTRAN', 'EXPID21', 'TAILIST', 'SNC01G09', 'SN2RLIST', 'SN2GLIST', 'SNC01I10', 'SN2_1R09', 'M2ZROT', 'AUTHOR', 'RDNOISE0', 'SNC01G08', 'DEWPOINT', 'SNC01R09', 'OBJSYS', 'MC1TBCB', 'SN2_1G09', 'FLAVOR', 'SNC11G08', 'SN2_1I09', 'IONPUMP', 'SNC11R08', 'SNC01I09', 'MC1TEMDN', 'M2PISTON', 'SLITID1', 'BUNIT', 'GUIDOFFX', 'CENBSH0', 'M2YTILT', 'SN2_1G08', 'DIDFLUSH', 'ERRCNT', 'CALOFFR', 'PIXERR', 'NAXIS1', 'SLINES', 'STDBSH0', 'MJDLIST', 'SNC01R10', 'MC1HUMHT', 'MC1THT', 'SNC01G10', 'M2XTILT', 'SNC11G09', 'SN2_1R10', 'SNC11I09', 'SN2ILIST', 'AVGASH0', 'SCALE', 'SN2_1R08', 'FOCUS', 'PLINES', 'M1ZROT', 'HARTMANN', 'GUIDOFFY', 'MGDDEC', 'DATE-OBS', 'EXPID17', 'GUIDOFFR', 'MGDRA', 'EXPID18', 'SUBFRAME', 'AIRTEMP', 'XCHI2', 'SN2_1I10', 'STDASH0', 'CALOFFX', 'SN2_1I08']
+ - DR18
+   - from: DR17
+   - added_hdus: ['ZLINE', 'ZALL']
+   - removed_hdus: ['SPZLINE']
+   - primary_delta_nkeys: 219
+   - added_primary_header_kwargs: ['SNC11I10', 'SIGBSH0', 'EXPID03', 'SNC01I03', 'SNC01R08', 'M1XTRAN', 'SNC11I', 'COLLB', 'SNC11R10', 'ARCOFFY', 'CALOFFY', 'SEEING80', 'MC1TBCT', 'TWOPHASE', 'EXPID08', 'WINDD', 'ROTPOS', 'XSIGMAX', 'EXPID19', 'SN2_1G10', 'M1YTILT', 'SN2_1R05', 'SNC01G05', 'EXPID12', 'SNC11G04', 'EXPID02', 'EXPID20', 'RIRMSGAL', 'SN2_1I07', 'SN2_1I03', 'EXPID01', 'TRUSTEMP', 'SNC11G00', 'LAMPLIST', 'GROFFGAL', 'SNC11R', 'CCDTEMP', 'SYNCERR', 'M1XTILT', 'EXPT_B1', 'SNC11R09', 'SNC11G07', 'SN2_1R07', 'MC1TRCB', 'SNC01R06', 'SNC01I05', 'SNC01G02', 'EXPID15', 'SNC01R05', 'M2XTRAN', 'MGDPOS', 'SNC11G06', 'WSIGMIN', 'MC1HUMCO', 'PFERR', 'SNC11R02', 'EXPID14', 'SNC11G02', 'V_GUIDER', 'EXPID13', 'SNC11I08', 'SNC01R07', 'V_BOSS', 'SNC01G06', 'ARCOFFX', 'LN2TEMP', 'SNC11G03', 'PRESSURE', 'PLATETYP', 'SNC01I08', 'SN2_1G06', 'HUMIDITY', 'MC1TRCT', 'CRVAL1', 'RMSOFF20', 'EXPID09', 'COLLC', 'SNC01R00', 'SNC11G01', 'SN2_1I02', 'SNC11R03', 'COLLA', 'SRVYMODE', 'GUIDERN', 'SNC11G10', 'M2YTRAN', 'AVGBSH0', 'SNC01I', 'SNC11R04', 'EXPID22', 'SN2_1I01', 'IOFFGAL', 'M1PISTON', 'DUSTA', 'POINTING', 'GUIDER1', 'IRMSGAL', 'SNC11I04', 'RMSOFF50', 'M1YTRAN', 'EXPID21', 'EXPT_R1', 'WINDD25M', 'SNC01I06', 'SN2RLIST', 'SN2GLIST', 'TAILIST', 'SNC01G09', 'SNC01I10', 'GUSTS', 'SN2_1R06', 'SNC01I00', 'SN2_1R09', 'SN2_1I06', 'NGAL', 'M2ZROT', 'SNC01I04', 'AUTHOR', 'SNC01I02', 'XSIGMA', 'WDISPR', 'SNC01G08', 'SNC01G01', 'SN2_1R03', 'DEWPOINT', 'SNC01R09', 'SKYLIST', 'OBJSYS', 'SNC01G04', 'AZ', 'WINDS', 'EXPID06', 'MC1TBCB', 'SN2_1G09', 'CD1_1', 'AIRMASS', 'SNC11I03', 'SNC01R', 'SNC11I01', 'SNC01G00', 'EXPID05', 'SNC11G08', 'SN2_1I09', 'SN2_1G03', 'SNC01R01', 'SNC11I05', 'IONPUMP', 'SNC11R08', 'SN2_1R01', 'SNC01I09', 'RIOFFGAL', 'MC1TEMDN', 'M2PISTON', 'SLITID1', 'SNC01R02', 'SNC01R04', 'GUSTD', 'SNC11R01', 'UNAME', 'GOFFGAL', 'EXPID10', 'SNC01G07', 'GUIDOFFX', 'NEXP_R1', 'CAMDAQ', 'GRRMSGAL', 'SEEING20', 'SNC11R00', 'CENBSH0', 'DUSTB', 'M2YTILT', 'SN2_1G08', 'SN2_1G01', 'SNC01G03', 'DIDFLUSH', 'SNC11I06', 'SNC11I02', 'ERRCNT', 'GRMSGAL', 'CALOFFR', 'SNC11R07', 'PIXERR', 'NAXIS1', 'ALT', 'WINDS25M', 'SN2_1R00', 'SLINES', 'STDBSH0', 'SNC01R10', 'XSIGMIN', 'MC1HUMHT', 'SNC01R03', 'MC1THT', 'SNC11I00', 'SNC01G10', 'SNC11I07', 'RMSOFF80', 'SNC11R06', 'SN2_1G04', 'SEEING50', 'V_SOP', 'SN2_1G00', 'SN2_1R04', 'M2XTILT', 'SNC11G09', 'SN2_1R10', 'SNC11I09', 'TAI-END', 'SN2ILIST', 'TAI-BEG', 'EXPID07', 'SNC11R05', 'V_APO', 'AVGASH0', 'SNC11G05', 'CTYPE1', 'EXPID11', 'SCALE', 'SN2_1R08', 'FOCUS', 'WSIGMA', 'PLINES', 'M1ZROT', 'HARTMANN', 'ROFFGAL', 'FIELDID', 'WSIGMAX', 'EXPID16', 'MGDDEC', 'SNC11G', 'DATE-OBS', 'SN2_1G02', 'NGUIDE', 'SNC01I01', 'EXPID17', 'SN2_1I00', 'SN2_1G07', 'CRPIX1', 'NEXP_B1', 'SN2_1I05', 'GUIDOFFR', 'MGDRA', 'SNC01I07', 'EXPID18', 'SUBFRAME', 'SNC01G', 'AIRTEMP', 'SN2_1R02', 'RRMSGAL', 'SN2_1G05', 'SN2_1I10', 'STDASH0', 'CALOFFX', 'SN2_1I04', 'EXPID04', 'SN2_1I08']
+   - removed_primary_header_kwargs: ['EXPID005', 'EXPID006', 'EXPID018', 'EXPID014', 'MC2THT', 'FIBERID', 'EXPID004', 'EXPID013', 'EXPID007', 'SPEC2_G', 'EXPID011', 'SN2EXT2G', 'EXPID010', 'EXPID001', 'MC2HUMCO', 'EXPID015', 'MC2TRCT', 'MC2HUMHT', 'MC2TRCB', 'EXPID012', 'SPEC2_R', 'MC2TEMDN', 'MC2TBCB', 'EXPID009', 'EXPID008', 'EXPID002', 'SN2EXT2I', 'EXPID020', 'EXPID019', 'BOSSVER', 'EXPID016', 'THING_ID', 'EXPID003', 'SPEC2_I', 'MC2TBCT', 'EXPID017', 'SN2EXT2R']
+ - DR17
+   - from: DR16
+   - note: No changes
+ - DR16
+   - from: DR15
+   - added_primary_header_kwargs: ['EXPID005', 'EXPID006', 'EXPID018', 'EXPID014', 'EXPID004', 'EXPID013', 'EXPID007', 'EXPID011', 'EXPID010', 'EXPID001', 'EXPID015', 'EXPID012', 'EXPID009', 'EXPID008', 'EXPID002', 'EXPID020', 'EXPID019', 'EXPID016', 'EXPID003', 'EXPID017']
+   - removed_primary_header_kwargs: ['EXPID03', 'EXPID05', 'EXPID09', 'EXPID08', 'EXPID19', 'EXPID07', 'EXPID11', 'EXPID12', 'EXPID02', 'EXPID20', 'EXPID01', 'EXPID10', 'EXPID16', 'EXPID17', 'EXPID15', 'EXPID18', 'EXPID14', 'EXPID13', 'EXPID06', 'EXPID04']
+ - DR15
+   - from: DR14
+   - note: No changes
+ - DR14
+   - from: DR13
+   - note: No changes
+ - DR13
+   - from: DR11
+   - primary_delta_nkeys: 2
+   - removed_primary_header_kwargs: ['XCHI2MAX', 'XCHI2MIN']
+ - DR11
+   - from: DR12
+   - note: No changes
+ - DR12
+   - from: DR10
+   - primary_delta_nkeys: 2
+   - removed_primary_header_kwargs: ['COMMENT']
+ - DR10
+   - from: DR9
+   - primary_delta_nkeys: 3
+   - added_primary_header_kwargs: ['MJD', 'COMMENT']
 
 ---
 ## Example HDUS List
@@ -821,3 +864,7 @@ Name | Type | Unit | Description |
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!
