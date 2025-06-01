@@ -19,7 +19,7 @@ This file contains the list of reduced BOSS plates and FPS Fields, with associat
 $BOSS_SPECTRO_REDUX/[RUN2D]/platelist.fits
 
 ### Releases
-DR10, DR12, DR11, DR13, DR14, DR15, DR16, DR17
+DR9, DR10, DR12, DR11, DR13, DR14, DR15, DR16, DR17
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -67,6 +67,9 @@ Describes changes to the datamodel product and/or file structure from one releas
    - note: No changes
  - DR12
    - from: DR10
+   - note: No changes
+ - DR10
+   - from: DR9
    - note: No changes
 
 ---
