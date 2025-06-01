@@ -19,7 +19,7 @@ Contains the calibration vectors for a given frame
 with $BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/spFluxcalib-[BR][ID]-[FRAME].fits.gz
 
 ### Releases
-DR16, DR17, DR18, IPL3, DR19
+DR9, DR10, DR12, DR11, DR13, DR14, DR15, DR16, DR17, DR18, IPL3, DR19
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -61,6 +61,27 @@ Describes changes to the datamodel product and/or file structure from one releas
    - note: No changes
  - DR17
    - from: DR16
+   - note: No changes
+ - DR16
+   - from: DR15
+   - note: No changes
+ - DR15
+   - from: DR14
+   - note: No changes
+ - DR14
+   - from: DR13
+   - note: No changes
+ - DR13
+   - from: DR11
+   - note: No changes
+ - DR11
+   - from: DR12
+   - note: No changes
+ - DR12
+   - from: DR10
+   - note: No changes
+ - DR10
+   - from: DR9
    - note: No changes
 
 ---
