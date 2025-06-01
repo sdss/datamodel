@@ -19,7 +19,7 @@ This file contains the list of reduced BOSS plates and FPS Fields, with associat
 $BOSS_SPECTRO_REDUX/[RUN2D]/platelist.fits
 
 ### Releases
-DR17
+DR16, DR17
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -39,14 +39,17 @@ False
 ### Data Level
 0.0.0
 
-### HDUS List for release DR19
+### HDUS List for release DR17
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: FIELDLIST](#hdu1-fieldlist)
+  - [HDU1: PLATELIST](#hdu1-platelist)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR17
+   - from: DR16
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -60,17 +63,15 @@ Describes changes to the datamodel product and/or file structure from one releas
 ##### Header Table Caption for HDU0
 Key | Value | Comment | |
 | --- | --- | --- | --- |
-| SIMPLE | True | conforms to FITS standard |
-| BITPIX | 8 | array data type |
-| NAXIS | 0 | number of array dimensions |
-| EXTEND | True |  |
-| RUN2D | v6_1_3 | IDLSPEC2D RUN2D |
-| DATE | Wed Apr  3 22:53:49 2024 | Date Created |
+| SIMPLE | True | Dummy Created by MWRFITS v1.11 |
+| BITPIX | 8 | Dummy primary header created by MWRFITS |
+| NAXIS | 0 | No data is associated with this header |
+| EXTEND | True | Extensions may (will!) be present |
 
 
 
-### HDU1: FIELDLIST
-Field Summary Table
+### HDU1: PLATELIST
+Plate Summary Table
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  2 MB
@@ -78,75 +79,58 @@ Field Summary Table
 ##### Header Table Caption for HDU1
 Key | Value | Comment | |
 | --- | --- | --- | --- |
-| XTENSION | BINTABLE | binary table extension |
-| BITPIX | 8 | array data type |
-| NAXIS | 2 | number of array dimensions |
-| NAXIS1 | 700 | length of dimension 1 |
-| NAXIS2 | 3924 | length of dimension 2 |
-| PCOUNT | 0 | number of group parameters |
-| GCOUNT | 1 | number of groups |
-| TFIELDS | 108 | number of table fields |
-| TNULL4 | 0 |  |
-| TNULL18 | -999 |  |
-| TNULL19 | -999 |  |
-| TNULL25 | -1 |  |
-| TNULL27 | -1 |  |
-| TNULL28 | -1 |  |
-| TNULL29 | -1 |  |
-| TNULL30 | -1 |  |
-| TNULL31 | -1 |  |
-| TNULL62 | -999 |  |
-| TNULL85 | -999 |  |
-| TNULL86 | -999 |  |
-| TNULL87 | -999 |  |
-| TNULL88 | -999 |  |
-| TNULL89 | -999 |  |
-| TNULL90 | -999 |  |
-| TNULL91 | -999 |  |
-| TNULL92 | -999 |  |
-| TNULL93 | -999 |  |
-| TNULL94 | -999 |  |
-| TNULL95 | -999 |  |
-| TNULL96 | -999 |  |
-| EXTNAME | FIELDLIST | extension name |
+| XTENSION | BINTABLE | Binary table written by MWRFITS v1.11 |
+| BITPIX | 8 | Required value |
+| NAXIS | 2 | Required value |
+| NAXIS1 | 612 | Number of bytes per row |
+| NAXIS2 | 4135 | Number of rows |
+| PCOUNT | 0 | Normally 0 (no varying arrays) |
+| GCOUNT | 1 | Required value |
+| TFIELDS | 108 | Number of columns in table |
+| COMMENT |  |  |
+| COMMENT |  *** End of mandatory fields *** |  |
+| COMMENT |  |  |
+| COMMENT |  |  |
+| COMMENT |  *** Column names *** |  |
+| COMMENT |  |  |
+| COMMENT |  |  |
+| COMMENT |  *** Column formats *** |  |
+| COMMENT |  |  |
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | FIELD | char[6] |  | SDSS FieldID (plateID for plate era data) |
- | DESIGNS | char[55] |  | List of Included Designs |
- | CONFIGS | char[47] |  | List of Included Configurations |
- | MJD | int64 |  | Modified Julian date of combined Spectra |
- | OBSERVATORY | char[3] |  | Observatory of Observation |
- | RUN2D | char[6] |  | Spectro-2D reduction name |
- | RUN1D | char[6] |  | Spectro-1D reduction name |
+ | PLATE | int32 |  | SDSS PlateID |
+ | TILEID | int32 |  | Tile ID for SDSS BOSS plates (-1 for SDSS) |
+ | MJD | int32 |  | Modified Julian date of combined Spectra |
+ | RUN2D | char[7] |  | Spectro-2D reduction name |
+ | RUN1D | char[7] |  | Spectro-1D reduction name |
  | RACEN | float32 | deg | RA of the telescope pointing |
  | DECCEN | float32 | deg | DEC of the telescope pointing |
  | EPOCH | float32 |  | Epoch of the RACEN/DECCEN |
- | CARTID | char[5] |  | The currently loaded cartridge/instrument |
- | TAI | float32 | s | Mean MJD(TAI) seconds of integration |
- | TAI_BEG | float32 | s | MJD(TAI) seconds at start of integration |
- | TAI_END | float32 | s | MJD(TAI) seconds at end of integration |
+ | CARTID | int32 |  | The currently loaded cartridge/instrument |
+ | TAI | float64 | s | Mean MJD(TAI) seconds of integration |
+ | TAI_BEG | float64 | s | MJD(TAI) seconds at start of integration |
+ | TAI_END | float64 | s | MJD(TAI) seconds at end of integration |
  | AIRMASS | float32 |  | Mean Airmass |
  | EXPTIME | float32 | s | Total Exposure time |
  | MAPNAME | char[14] |  | ID of plate mapping file |
- | TILEID | int64 |  | Tile ID for SDSS BOSS plates (-1 for SDSS) |
- | DESIGNID | int64 |  | Plate Design ID |
- | SURVEY | char[7] |  | Survey that field is part of |
- | PROGRAMNAME | char[12] |  | Program name within a given survey |
- | FIELDQUALITY | char[4] |  | characterization of Field quality |
- | FIELDSN2 | float32 |  | Overall (S/N)^2 for field; min of cameras |
+ | SURVEY | char[5] |  | Survey that field is part of |
+ | PROGRAMNAME | char[27] |  | Program name within a given survey |
+ | CHUNK | char[14] |  | Name of tiling chunk [from platelist product] description. |
+ | PLATEQUALITY | char[4] |  | Characterization of plate quality |
+ | PLATESN2 | float32 |  | Overall (S/N)^2 measure for plate; minimum of all 4 cameras |
  | DEREDSN2 | float32 |  | Overall Dereddened (S/N)^2 for field |
- | QSURVEY | int64 |  | 1 for an survey quality plate, 0 otherwise |
- | MJDLIST | char[5] |  | List of MJD of each included exposures |
- | NEXP | int64 |  | Number of Included Exposures |
- | NEXP_B1 | int64 |  | Number of Included Exposures from b1 |
- | NEXP_R1 | int64 |  | Number of Included Exposures from r1 |
- | NEXP_B2 | int64 |  | Number of Included Exposures from b2 |
- | NEXP_R2 | int64 |  | Number of Included Exposures from r2 |
+ | QSURVEY | int32 |  | 1 for an survey quality plate, 0 otherwise |
+ | MJDLIST | char[35] |  | List of MJD of each included exposures |
+ | NEXP | int32 |  | Number of Included Exposures |
+ | NEXP_B1 | int32 |  | Number of Included Exposures from b1 |
+ | NEXP_B2 | int32 |  | Number of Included Exposures from b2 |
+ | NEXP_R1 | int32 |  | Number of Included Exposures from r1 |
+ | NEXP_R2 | int32 |  | Number of Included Exposures from r2 |
  | EXPT_B1 | float32 | s | Total Exposure Time of b1 |
- | EXPT_R1 | float32 | s | Total Exposure Time of r1 |
  | EXPT_B2 | float32 | s | Total Exposure Time of b2 |
+ | EXPT_R1 | float32 | s | Total Exposure Time of r1 |
  | EXPT_R2 | float32 | s | Total Exposure Time of r2 |
  | SN2_G1 | float32 |  | Fit (S/N)^2 at g=20.20 for spectrograph #1 |
  | SN2_R1 | float32 |  | Fit (S/N)^2 at r=20.25 for spectrograph #1 |
@@ -154,6 +138,12 @@ Name | Type | Unit | Description |
  | SN2_G2 | float32 |  | Fit (S/N)^2 at g=20.20 for spectrograph #2 |
  | SN2_R2 | float32 |  | Fit (S/N)^2 at r=20.25 for spectrograph #2 |
  | SN2_I2 | float32 |  | Fit (S/N)^2 at i=19.90 for spectrograph #2 |
+ | DERED_SN2_G1 | float32 |  | Extinction corrected (S/N)^2 for sp1 g-band |
+ | DERED_SN2_R1 | float32 |  | Extinction corrected (S/N)^2 for sp1 r-band |
+ | DERED_SN2_I1 | float32 |  | Extinction corrected (S/N)^2 for sp1 i-band |
+ | DERED_SN2_G2 | float32 |  | Extinction corrected (S/N)^2 for sp2 g-band |
+ | DERED_SN2_R2 | float32 |  | Extinction corrected (S/N)^2 for sp2 r-band |
+ | DERED_SN2_I2 | float32 |  | Extinction corrected (S/N)^2 for sp2 i-band |
  | GOFFSTD | float32 |  | Mean g mag difference (spectro-photo) for STDs |
  | GRMSSTD | float32 |  | Stddev g mag diff (spectro-photo) for STDs |
  | ROFFSTD | float32 |  | Mean r mag difference (spectro-photo) for STDs |
@@ -174,7 +164,7 @@ Name | Type | Unit | Description |
  | GRRMSGAL | float32 |  | Spectrophoto RMS for G-R in galaxies |
  | RIOFFGAL | float32 |  | Spectrophoto offset for R-I in galaxies |
  | RIRMSGAL | float32 |  | Spectrophoto RMS for R-I in galaxies |
- | NGUIDE | int64 |  | Number of guider frames during the exposures |
+ | NGUIDE | int32 |  | Number of guider frames during the exposures |
  | SEEING20 | float32 | arcsec | Mean 20% seeing during exposures |
  | SEEING50 | float32 | arcsec | Mean 50% seeing during exposures |
  | SEEING80 | float32 | arcsec | Mean 80% seeing during exposures |
@@ -197,30 +187,27 @@ Name | Type | Unit | Description |
  | FBADPIX | float32 |  | Fraction of bad pixels |
  | FBADPIX1 | float32 |  | Fraction of bad pixels from spectrograph #1 |
  | FBADPIX2 | float32 |  | Fraction of bad pixels from spectrograph #2 |
- | N_TOTAL | int64 |  | Number of Sources |
- | N_GALAXY | int64 |  | Number of Galaxies |
- | N_QSO | int64 |  | Number of QSOs |
- | N_STAR | int64 |  | Number of Stars |
- | N_UNKNOWN | int64 |  | Number of Unknown Sources |
- | N_SKY | int64 |  | Number of Skys |
- | N_STD | int64 |  | Number of Standards |
- | N_TARGET_QSO | int64 |  | Number of QSO Targeted |
- | N_TARGET_MAIN | int64 |  | Number of Main Galaxy targeted |
- | N_TARGET_LRG1 | int64 |  | Number of LRG1 targeted |
- | N_TARGET_LRG2 | int64 |  | Number of LRG2 targeted |
- | N_TARGET_ELG | int64 |  | Number of ELG targted |
+ | N_TOTAL | int32 |  | Number of Sources |
+ | N_GALAXY | int32 |  | Number of Galaxies |
+ | N_QSO | int32 |  | Number of QSOs |
+ | N_STAR | int32 |  | Number of Stars |
+ | N_UNKNOWN | int32 |  | Number of Unknown Sources |
+ | N_SKY | int32 |  | Number of Skys |
+ | N_TARGET_MAIN | int32 |  | Number of Main Galaxy targeted |
+ | N_TARGET_LRG1 | int32 |  | Number of LRG1 targeted |
+ | N_TARGET_LRG2 | int32 |  | Number of LRG2 targeted |
+ | N_TARGET_ELG | int32 |  | Number of ELG targted |
+ | N_TARGET_QSO | int32 |  | Number of QSO Targeted |
  | SUCCESS_MAIN | float32 |  | Success rate of Main Galaxy targets |
  | SUCCESS_LRG1 | float32 |  | Success rate of LRG1s |
  | SUCCESS_LRG2 | float32 |  | Success rate of LRG2s |
  | SUCCESS_ELG | float32 |  | Success rate of ELGs |
  | SUCCESS_QSO | float32 |  | Success rate of QSOs |
  | STATUS2D | char[7] |  | Status of 2d extraction |
- | STATUSCOMBINE | char[7] |  | Status of 1d combine |
+ | STATUSCOMBINE | char[6] |  | Status of 1d combine |
  | STATUS1D | char[7] |  | Status of 1d analysis |
- | FIELD_CADENCE | char[21] |  | Planned Cadence of Observations |
- | PUBLIC | char[20] |  | Is this Plate Public |
- | QUALCOMMENTS | char[20] |  | Comments of Field Quality |
- | MOON_FRAC | float32 |  | Mean Moon phase of the Coadded Spectra |
+ | PUBLIC | char[4] |  | Is this Plate Public |
+ | QUALCOMMENTS | char[83] |  | Comments of Field Quality |
 
 
 
